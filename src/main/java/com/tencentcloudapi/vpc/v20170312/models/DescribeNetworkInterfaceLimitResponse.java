@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
+public class DescribeNetworkInterfaceLimitResponse extends AbstractModel {
 
     /**
     * 标准型弹性网卡配额。
@@ -38,7 +39,6 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
     * 扩展型网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtendEniQuantity")
     @Expose
@@ -46,7 +46,6 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
     * 每个扩展型弹性网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtendEniPrivateIpAddressQuantity")
     @Expose
@@ -54,7 +53,6 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
     * 中继网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubEniQuantity")
     @Expose
@@ -62,14 +60,13 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
     * 每个中继网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubEniPrivateIpAddressQuantity")
     @Expose
     private Long SubEniPrivateIpAddressQuantity;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -108,10 +105,8 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
     }
 
     /**
-     * Get 扩展型网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扩展型网卡配额。 
      * @return ExtendEniQuantity 扩展型网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getExtendEniQuantity() {
         return this.ExtendEniQuantity;
@@ -119,19 +114,15 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
      * Set 扩展型网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtendEniQuantity 扩展型网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtendEniQuantity(Long ExtendEniQuantity) {
         this.ExtendEniQuantity = ExtendEniQuantity;
     }
 
     /**
-     * Get 每个扩展型弹性网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 每个扩展型弹性网卡可以分配的IP配额。 
      * @return ExtendEniPrivateIpAddressQuantity 每个扩展型弹性网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getExtendEniPrivateIpAddressQuantity() {
         return this.ExtendEniPrivateIpAddressQuantity;
@@ -139,19 +130,15 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
      * Set 每个扩展型弹性网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtendEniPrivateIpAddressQuantity 每个扩展型弹性网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtendEniPrivateIpAddressQuantity(Long ExtendEniPrivateIpAddressQuantity) {
         this.ExtendEniPrivateIpAddressQuantity = ExtendEniPrivateIpAddressQuantity;
     }
 
     /**
-     * Get 中继网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 中继网卡配额。 
      * @return SubEniQuantity 中继网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSubEniQuantity() {
         return this.SubEniQuantity;
@@ -159,19 +146,15 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
      * Set 中继网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubEniQuantity 中继网卡配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubEniQuantity(Long SubEniQuantity) {
         this.SubEniQuantity = SubEniQuantity;
     }
 
     /**
-     * Get 每个中继网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 每个中继网卡可以分配的IP配额。 
      * @return SubEniPrivateIpAddressQuantity 每个中继网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSubEniPrivateIpAddressQuantity() {
         return this.SubEniPrivateIpAddressQuantity;
@@ -179,25 +162,23 @@ public class DescribeNetworkInterfaceLimitResponse extends AbstractModel{
 
     /**
      * Set 每个中继网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubEniPrivateIpAddressQuantity 每个中继网卡可以分配的IP配额。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubEniPrivateIpAddressQuantity(Long SubEniPrivateIpAddressQuantity) {
         this.SubEniPrivateIpAddressQuantity = SubEniPrivateIpAddressQuantity;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

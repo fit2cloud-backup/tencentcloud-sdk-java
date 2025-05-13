@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateServiceTemplateGroupRequest extends AbstractModel{
+public class CreateServiceTemplateGroupRequest extends AbstractModel {
 
     /**
     * 协议端口模板集合名称。
@@ -35,6 +36,13 @@ public class CreateServiceTemplateGroupRequest extends AbstractModel{
     @SerializedName("ServiceTemplateIds")
     @Expose
     private String [] ServiceTemplateIds;
+
+    /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 协议端口模板集合名称。 
@@ -68,6 +76,22 @@ public class CreateServiceTemplateGroupRequest extends AbstractModel{
         this.ServiceTemplateIds = ServiceTemplateIds;
     }
 
+    /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateServiceTemplateGroupRequest() {
     }
 
@@ -85,6 +109,12 @@ public class CreateServiceTemplateGroupRequest extends AbstractModel{
                 this.ServiceTemplateIds[i] = new String(source.ServiceTemplateIds[i]);
             }
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -94,6 +124,7 @@ public class CreateServiceTemplateGroupRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ServiceTemplateGroupName", this.ServiceTemplateGroupName);
         this.setParamArraySimple(map, prefix + "ServiceTemplateIds.", this.ServiceTemplateIds);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

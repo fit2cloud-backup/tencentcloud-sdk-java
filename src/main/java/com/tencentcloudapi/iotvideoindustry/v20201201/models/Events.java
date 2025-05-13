@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotvideoindustry.v20201201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Events extends AbstractModel{
+public class Events extends AbstractModel {
 
     /**
     * 开始时间，秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventTime")
     @Expose
@@ -32,7 +32,6 @@ public class Events extends AbstractModel{
 
     /**
     * 事件类型 1:注册 2:心跳 4:录制异常 5:播放异常 6:流中断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventType")
     @Expose
@@ -40,7 +39,6 @@ public class Events extends AbstractModel{
 
     /**
     * 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventDesc")
     @Expose
@@ -83,17 +81,14 @@ public class Events extends AbstractModel{
 
     /**
     * 设备备注名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeviceName")
     @Expose
     private String DeviceName;
 
     /**
-     * Get 开始时间，秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始时间，秒级时间戳 
      * @return EventTime 开始时间，秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEventTime() {
         return this.EventTime;
@@ -101,19 +96,15 @@ public class Events extends AbstractModel{
 
     /**
      * Set 开始时间，秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventTime 开始时间，秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventTime(Long EventTime) {
         this.EventTime = EventTime;
     }
 
     /**
-     * Get 事件类型 1:注册 2:心跳 4:录制异常 5:播放异常 6:流中断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件类型 1:注册 2:心跳 4:录制异常 5:播放异常 6:流中断 
      * @return EventType 事件类型 1:注册 2:心跳 4:录制异常 5:播放异常 6:流中断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEventType() {
         return this.EventType;
@@ -121,19 +112,15 @@ public class Events extends AbstractModel{
 
     /**
      * Set 事件类型 1:注册 2:心跳 4:录制异常 5:播放异常 6:流中断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventType 事件类型 1:注册 2:心跳 4:录制异常 5:播放异常 6:流中断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventType(Long EventType) {
         this.EventType = EventType;
     }
 
     /**
-     * Get 事件描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件描述 
      * @return EventDesc 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEventDesc() {
         return this.EventDesc;
@@ -141,9 +128,7 @@ public class Events extends AbstractModel{
 
     /**
      * Set 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventDesc 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventDesc(String EventDesc) {
         this.EventDesc = EventDesc;
@@ -230,10 +215,8 @@ public class Events extends AbstractModel{
     }
 
     /**
-     * Get 设备备注名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备备注名称 
      * @return DeviceName 设备备注名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeviceName() {
         return this.DeviceName;
@@ -241,9 +224,7 @@ public class Events extends AbstractModel{
 
     /**
      * Set 设备备注名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeviceName 设备备注名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeviceName(String DeviceName) {
         this.DeviceName = DeviceName;

@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Group extends AbstractModel{
+public class Group extends AbstractModel {
 
     /**
-    * 组名称
+    * 消费分组名称
     */
     @SerializedName("GroupName")
     @Expose
     private String GroupName;
 
     /**
-     * Get 组名称 
-     * @return GroupName 组名称
+     * Get 消费分组名称 
+     * @return GroupName 消费分组名称
      */
     public String getGroupName() {
         return this.GroupName;
     }
 
     /**
-     * Set 组名称
-     * @param GroupName 组名称
+     * Set 消费分组名称
+     * @param GroupName 消费分组名称
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;

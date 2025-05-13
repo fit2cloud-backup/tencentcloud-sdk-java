@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MainlandPermitOCRRequest extends AbstractModel{
+public class MainlandPermitOCRRequest extends AbstractModel {
 
     /**
     * 图片的 Base64 值。
@@ -49,6 +50,14 @@ public class MainlandPermitOCRRequest extends AbstractModel{
     @SerializedName("RetProfile")
     @Expose
     private Boolean RetProfile;
+
+    /**
+    * 图片正反面
+FRONT：正面、BACK：反面，默认为FRONT
+    */
+    @SerializedName("CardSide")
+    @Expose
+    private String CardSide;
 
     /**
      * Get 图片的 Base64 值。
@@ -126,6 +135,26 @@ public class MainlandPermitOCRRequest extends AbstractModel{
         this.RetProfile = RetProfile;
     }
 
+    /**
+     * Get 图片正反面
+FRONT：正面、BACK：反面，默认为FRONT 
+     * @return CardSide 图片正反面
+FRONT：正面、BACK：反面，默认为FRONT
+     */
+    public String getCardSide() {
+        return this.CardSide;
+    }
+
+    /**
+     * Set 图片正反面
+FRONT：正面、BACK：反面，默认为FRONT
+     * @param CardSide 图片正反面
+FRONT：正面、BACK：反面，默认为FRONT
+     */
+    public void setCardSide(String CardSide) {
+        this.CardSide = CardSide;
+    }
+
     public MainlandPermitOCRRequest() {
     }
 
@@ -143,6 +172,9 @@ public class MainlandPermitOCRRequest extends AbstractModel{
         if (source.RetProfile != null) {
             this.RetProfile = new Boolean(source.RetProfile);
         }
+        if (source.CardSide != null) {
+            this.CardSide = new String(source.CardSide);
+        }
     }
 
 
@@ -153,6 +185,7 @@ public class MainlandPermitOCRRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageBase64", this.ImageBase64);
         this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
         this.setParamSimple(map, prefix + "RetProfile", this.RetProfile);
+        this.setParamSimple(map, prefix + "CardSide", this.CardSide);
 
     }
 }

@@ -16,76 +16,122 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelCreateFlowGroupByTemplatesRequest extends AbstractModel{
+public class ChannelCreateFlowGroupByTemplatesRequest extends AbstractModel {
 
     /**
-    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
+    * 合同的发起企业和发起人信息，<a href="https://qcloudimg.tencent-cloud.cn/raw/b69f8aad306c40b7b78d096e39b2edbb.png" target="_blank">点击查看合同发起企业和人展示的位置</a>
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  <a href="https://qcloudimg.tencent-cloud.cn/raw/a71872de3d540d55451e3e73a2ad1a6e.png" target="_blank">Agent.AppId</a></li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId（合同的发起企业）</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId （合同的发起人）</li>
+</ul>
+
+合同的发起企业和发起人必需已经完成实名，并加入企业
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 每个子合同的发起所需的信息，数量限制2-50（合同组暂不支持抄送功能）
+    * 合同组中每个合同签署流程的信息，合同组中最少包含2个合同，不能超过50个合同。
     */
     @SerializedName("FlowInfos")
     @Expose
     private FlowInfo [] FlowInfos;
 
     /**
-    * 合同组名称，长度不超过200个字符
+    * 合同组的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
     */
     @SerializedName("FlowGroupName")
     @Expose
     private String FlowGroupName;
 
     /**
-     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。 
-     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
+     * Get 合同的发起企业和发起人信息，<a href="https://qcloudimg.tencent-cloud.cn/raw/b69f8aad306c40b7b78d096e39b2edbb.png" target="_blank">点击查看合同发起企业和人展示的位置</a>
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  <a href="https://qcloudimg.tencent-cloud.cn/raw/a71872de3d540d55451e3e73a2ad1a6e.png" target="_blank">Agent.AppId</a></li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId（合同的发起企业）</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId （合同的发起人）</li>
+</ul>
+
+合同的发起企业和发起人必需已经完成实名，并加入企业 
+     * @return Agent 合同的发起企业和发起人信息，<a href="https://qcloudimg.tencent-cloud.cn/raw/b69f8aad306c40b7b78d096e39b2edbb.png" target="_blank">点击查看合同发起企业和人展示的位置</a>
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  <a href="https://qcloudimg.tencent-cloud.cn/raw/a71872de3d540d55451e3e73a2ad1a6e.png" target="_blank">Agent.AppId</a></li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId（合同的发起企业）</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId （合同的发起人）</li>
+</ul>
+
+合同的发起企业和发起人必需已经完成实名，并加入企业
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
-     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 均必填。
+     * Set 合同的发起企业和发起人信息，<a href="https://qcloudimg.tencent-cloud.cn/raw/b69f8aad306c40b7b78d096e39b2edbb.png" target="_blank">点击查看合同发起企业和人展示的位置</a>
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  <a href="https://qcloudimg.tencent-cloud.cn/raw/a71872de3d540d55451e3e73a2ad1a6e.png" target="_blank">Agent.AppId</a></li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId（合同的发起企业）</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId （合同的发起人）</li>
+</ul>
+
+合同的发起企业和发起人必需已经完成实名，并加入企业
+     * @param Agent 合同的发起企业和发起人信息，<a href="https://qcloudimg.tencent-cloud.cn/raw/b69f8aad306c40b7b78d096e39b2edbb.png" target="_blank">点击查看合同发起企业和人展示的位置</a>
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  <a href="https://qcloudimg.tencent-cloud.cn/raw/a71872de3d540d55451e3e73a2ad1a6e.png" target="_blank">Agent.AppId</a></li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId（合同的发起企业）</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId （合同的发起人）</li>
+</ul>
+
+合同的发起企业和发起人必需已经完成实名，并加入企业
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 每个子合同的发起所需的信息，数量限制2-50（合同组暂不支持抄送功能） 
-     * @return FlowInfos 每个子合同的发起所需的信息，数量限制2-50（合同组暂不支持抄送功能）
+     * Get 合同组中每个合同签署流程的信息，合同组中最少包含2个合同，不能超过50个合同。 
+     * @return FlowInfos 合同组中每个合同签署流程的信息，合同组中最少包含2个合同，不能超过50个合同。
      */
     public FlowInfo [] getFlowInfos() {
         return this.FlowInfos;
     }
 
     /**
-     * Set 每个子合同的发起所需的信息，数量限制2-50（合同组暂不支持抄送功能）
-     * @param FlowInfos 每个子合同的发起所需的信息，数量限制2-50（合同组暂不支持抄送功能）
+     * Set 合同组中每个合同签署流程的信息，合同组中最少包含2个合同，不能超过50个合同。
+     * @param FlowInfos 合同组中每个合同签署流程的信息，合同组中最少包含2个合同，不能超过50个合同。
      */
     public void setFlowInfos(FlowInfo [] FlowInfos) {
         this.FlowInfos = FlowInfos;
     }
 
     /**
-     * Get 合同组名称，长度不超过200个字符 
-     * @return FlowGroupName 合同组名称，长度不超过200个字符
+     * Get 合同组的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。 
+     * @return FlowGroupName 合同组的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
      */
     public String getFlowGroupName() {
         return this.FlowGroupName;
     }
 
     /**
-     * Set 合同组名称，长度不超过200个字符
-     * @param FlowGroupName 合同组名称，长度不超过200个字符
+     * Set 合同组的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
+     * @param FlowGroupName 合同组的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
      */
     public void setFlowGroupName(String FlowGroupName) {
         this.FlowGroupName = FlowGroupName;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DisasterRecoverGroup extends AbstractModel{
+public class DisasterRecoverGroup extends AbstractModel {
 
     /**
     * 分散置放群组id。
@@ -37,7 +38,10 @@ public class DisasterRecoverGroup extends AbstractModel{
     private String Name;
 
     /**
-    * 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+    * 分散置放群组类型，取值范围：<br>
+<li>HOST：物理机<br></li>
+<li>SW：交换机<br></li>
+<li>RACK：机架</li>
     */
     @SerializedName("Type")
     @Expose
@@ -59,19 +63,31 @@ public class DisasterRecoverGroup extends AbstractModel{
 
     /**
     * 分散置放群组内，云服务器id列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceIds")
     @Expose
     private String [] InstanceIds;
 
     /**
-    * 分散置放群组创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 分散置放群组创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
     */
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
+
+    /**
+    * 置放群组亲和度
+    */
+    @SerializedName("Affinity")
+    @Expose
+    private Long Affinity;
+
+    /**
+    * 置放群组关联的标签列表。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 分散置放群组id。 
@@ -106,16 +122,28 @@ public class DisasterRecoverGroup extends AbstractModel{
     }
 
     /**
-     * Get 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架 
-     * @return Type 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+     * Get 分散置放群组类型，取值范围：<br>
+<li>HOST：物理机<br></li>
+<li>SW：交换机<br></li>
+<li>RACK：机架</li> 
+     * @return Type 分散置放群组类型，取值范围：<br>
+<li>HOST：物理机<br></li>
+<li>SW：交换机<br></li>
+<li>RACK：机架</li>
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
-     * @param Type 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+     * Set 分散置放群组类型，取值范围：<br>
+<li>HOST：物理机<br></li>
+<li>SW：交换机<br></li>
+<li>RACK：机架</li>
+     * @param Type 分散置放群组类型，取值范围：<br>
+<li>HOST：物理机<br></li>
+<li>SW：交换机<br></li>
+<li>RACK：机架</li>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -154,10 +182,8 @@ public class DisasterRecoverGroup extends AbstractModel{
     }
 
     /**
-     * Get 分散置放群组内，云服务器id列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分散置放群组内，云服务器id列表。 
      * @return InstanceIds 分散置放群组内，云服务器id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
@@ -165,32 +191,58 @@ public class DisasterRecoverGroup extends AbstractModel{
 
     /**
      * Set 分散置放群组内，云服务器id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceIds 分散置放群组内，云服务器id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;
     }
 
     /**
-     * Get 分散置放群组创建时间。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CreateTime 分散置放群组创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 分散置放群组创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。 
+     * @return CreateTime 分散置放群组创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
      */
     public String getCreateTime() {
         return this.CreateTime;
     }
 
     /**
-     * Set 分散置放群组创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CreateTime 分散置放群组创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 分散置放群组创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
+     * @param CreateTime 分散置放群组创建时间。按照`ISO8601`标准表示，并且使用`UTC`时间。格式为：`YYYY-MM-DDThh:mm:ssZ`。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 置放群组亲和度 
+     * @return Affinity 置放群组亲和度
+     */
+    public Long getAffinity() {
+        return this.Affinity;
+    }
+
+    /**
+     * Set 置放群组亲和度
+     * @param Affinity 置放群组亲和度
+     */
+    public void setAffinity(Long Affinity) {
+        this.Affinity = Affinity;
+    }
+
+    /**
+     * Get 置放群组关联的标签列表。 
+     * @return Tags 置放群组关联的标签列表。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 置放群组关联的标签列表。
+     * @param Tags 置放群组关联的标签列表。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
     }
 
     public DisasterRecoverGroup() {
@@ -225,6 +277,15 @@ public class DisasterRecoverGroup extends AbstractModel{
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.Affinity != null) {
+            this.Affinity = new Long(source.Affinity);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -239,6 +300,8 @@ public class DisasterRecoverGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "CurrentNum", this.CurrentNum);
         this.setParamArraySimple(map, prefix + "InstanceIds.", this.InstanceIds);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "Affinity", this.Affinity);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

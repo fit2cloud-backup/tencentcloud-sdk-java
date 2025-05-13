@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAdaptiveDynamicStreamingTemplatesRequest extends AbstractModel{
+public class DescribeAdaptiveDynamicStreamingTemplatesRequest extends AbstractModel {
 
     /**
     * 转自适应码流模板唯一标识过滤条件，数组长度限制：100。
@@ -51,6 +52,21 @@ public class DescribeAdaptiveDynamicStreamingTemplatesRequest extends AbstractMo
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 是否为纯音频，0表示视频，1表示纯音频
+默认值：0
+    */
+    @SerializedName("PureAudio")
+    @Expose
+    private Long PureAudio;
+
+    /**
+    * 自适应转码模板标识过滤条件，长度限制：64 个字符
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get 转自适应码流模板唯一标识过滤条件，数组长度限制：100。 
@@ -124,6 +140,42 @@ public class DescribeAdaptiveDynamicStreamingTemplatesRequest extends AbstractMo
         this.Type = Type;
     }
 
+    /**
+     * Get 是否为纯音频，0表示视频，1表示纯音频
+默认值：0 
+     * @return PureAudio 是否为纯音频，0表示视频，1表示纯音频
+默认值：0
+     */
+    public Long getPureAudio() {
+        return this.PureAudio;
+    }
+
+    /**
+     * Set 是否为纯音频，0表示视频，1表示纯音频
+默认值：0
+     * @param PureAudio 是否为纯音频，0表示视频，1表示纯音频
+默认值：0
+     */
+    public void setPureAudio(Long PureAudio) {
+        this.PureAudio = PureAudio;
+    }
+
+    /**
+     * Get 自适应转码模板标识过滤条件，长度限制：64 个字符 
+     * @return Name 自适应转码模板标识过滤条件，长度限制：64 个字符
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 自适应转码模板标识过滤条件，长度限制：64 个字符
+     * @param Name 自适应转码模板标识过滤条件，长度限制：64 个字符
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
     public DescribeAdaptiveDynamicStreamingTemplatesRequest() {
     }
 
@@ -147,6 +199,12 @@ public class DescribeAdaptiveDynamicStreamingTemplatesRequest extends AbstractMo
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.PureAudio != null) {
+            this.PureAudio = new Long(source.PureAudio);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
     }
 
 
@@ -158,6 +216,8 @@ public class DescribeAdaptiveDynamicStreamingTemplatesRequest extends AbstractMo
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "PureAudio", this.PureAudio);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

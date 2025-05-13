@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PornConfigureInfo extends AbstractModel{
+public class PornConfigureInfo extends AbstractModel {
 
     /**
     * 画面鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImgReviewInfo")
     @Expose
@@ -32,7 +32,6 @@ public class PornConfigureInfo extends AbstractModel{
 
     /**
     * 语音鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsrReviewInfo")
     @Expose
@@ -40,17 +39,14 @@ public class PornConfigureInfo extends AbstractModel{
 
     /**
     * 文本鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OcrReviewInfo")
     @Expose
     private PornOcrReviewTemplateInfo OcrReviewInfo;
 
     /**
-     * Get 画面鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 画面鉴别涉及令人反感的信息的控制参数。 
      * @return ImgReviewInfo 画面鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PornImgReviewTemplateInfo getImgReviewInfo() {
         return this.ImgReviewInfo;
@@ -58,19 +54,15 @@ public class PornConfigureInfo extends AbstractModel{
 
     /**
      * Set 画面鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImgReviewInfo 画面鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImgReviewInfo(PornImgReviewTemplateInfo ImgReviewInfo) {
         this.ImgReviewInfo = ImgReviewInfo;
     }
 
     /**
-     * Get 语音鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语音鉴别涉及令人反感的信息的控制参数。 
      * @return AsrReviewInfo 语音鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PornAsrReviewTemplateInfo getAsrReviewInfo() {
         return this.AsrReviewInfo;
@@ -78,19 +70,15 @@ public class PornConfigureInfo extends AbstractModel{
 
     /**
      * Set 语音鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsrReviewInfo 语音鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsrReviewInfo(PornAsrReviewTemplateInfo AsrReviewInfo) {
         this.AsrReviewInfo = AsrReviewInfo;
     }
 
     /**
-     * Get 文本鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文本鉴别涉及令人反感的信息的控制参数。 
      * @return OcrReviewInfo 文本鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PornOcrReviewTemplateInfo getOcrReviewInfo() {
         return this.OcrReviewInfo;
@@ -98,9 +86,7 @@ public class PornConfigureInfo extends AbstractModel{
 
     /**
      * Set 文本鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OcrReviewInfo 文本鉴别涉及令人反感的信息的控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOcrReviewInfo(PornOcrReviewTemplateInfo OcrReviewInfo) {
         this.OcrReviewInfo = OcrReviewInfo;

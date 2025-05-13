@@ -16,15 +16,15 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Tag extends AbstractModel{
+public class Tag extends AbstractModel {
 
     /**
     * 标签键
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagKey")
     @Expose
@@ -32,17 +32,14 @@ public class Tag extends AbstractModel{
 
     /**
     * 标签值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagValue")
     @Expose
     private String TagValue;
 
     /**
-     * Get 标签键
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签键 
      * @return TagKey 标签键
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTagKey() {
         return this.TagKey;
@@ -50,19 +47,15 @@ public class Tag extends AbstractModel{
 
     /**
      * Set 标签键
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagKey 标签键
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagKey(String TagKey) {
         this.TagKey = TagKey;
     }
 
     /**
-     * Get 标签值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签值 
      * @return TagValue 标签值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTagValue() {
         return this.TagValue;
@@ -70,9 +63,7 @@ public class Tag extends AbstractModel{
 
     /**
      * Set 标签值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagValue 标签值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagValue(String TagValue) {
         this.TagValue = TagValue;

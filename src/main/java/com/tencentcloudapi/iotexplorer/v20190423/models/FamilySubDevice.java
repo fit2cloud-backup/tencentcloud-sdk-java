@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FamilySubDevice extends AbstractModel{
+public class FamilySubDevice extends AbstractModel {
 
     /**
     * 产品Id
@@ -45,7 +46,6 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
     * 设备别名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AliasName")
     @Expose
@@ -60,7 +60,6 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
     * 设备所在的房间ID，默认"0"
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RoomId")
     @Expose
@@ -68,7 +67,6 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
     * 图标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IconUrl")
     @Expose
@@ -76,7 +74,6 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
     * grid图标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IconUrlGrid")
     @Expose
@@ -145,10 +142,8 @@ public class FamilySubDevice extends AbstractModel{
     }
 
     /**
-     * Get 设备别名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备别名 
      * @return AliasName 设备别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAliasName() {
         return this.AliasName;
@@ -156,9 +151,7 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
      * Set 设备别名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AliasName 设备别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAliasName(String AliasName) {
         this.AliasName = AliasName;
@@ -181,10 +174,8 @@ public class FamilySubDevice extends AbstractModel{
     }
 
     /**
-     * Get 设备所在的房间ID，默认"0"
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备所在的房间ID，默认"0" 
      * @return RoomId 设备所在的房间ID，默认"0"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRoomId() {
         return this.RoomId;
@@ -192,19 +183,15 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
      * Set 设备所在的房间ID，默认"0"
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RoomId 设备所在的房间ID，默认"0"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRoomId(String RoomId) {
         this.RoomId = RoomId;
     }
 
     /**
-     * Get 图标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 图标 
      * @return IconUrl 图标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIconUrl() {
         return this.IconUrl;
@@ -212,19 +199,15 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
      * Set 图标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IconUrl 图标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIconUrl(String IconUrl) {
         this.IconUrl = IconUrl;
     }
 
     /**
-     * Get grid图标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get grid图标 
      * @return IconUrlGrid grid图标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIconUrlGrid() {
         return this.IconUrlGrid;
@@ -232,9 +215,7 @@ public class FamilySubDevice extends AbstractModel{
 
     /**
      * Set grid图标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IconUrlGrid grid图标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIconUrlGrid(String IconUrlGrid) {
         this.IconUrlGrid = IconUrlGrid;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSlowLogRequest extends AbstractModel{
+public class DescribeSlowLogRequest extends AbstractModel {
 
     /**
     * 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
@@ -31,14 +32,14 @@ public class DescribeSlowLogRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 预查询慢日志的起始时间。
+    * 预查询慢日志的起始时间，查询时间最大跨度30天。
     */
     @SerializedName("BeginTime")
     @Expose
     private String BeginTime;
 
     /**
-    * 预查询慢日志的结束时间。
+    * 预查询慢日志的结束时间，查询时间最大跨度30天
     */
     @SerializedName("EndTime")
     @Expose
@@ -52,7 +53,7 @@ public class DescribeSlowLogRequest extends AbstractModel{
     private Long MinQueryTime;
 
     /**
-    * 每个页面展示的慢查询条数，默认值为20。取值范围：[20,1000]。
+    * 每个页面展示的慢查询条数，默认值为20，最大100。
     */
     @SerializedName("Limit")
     @Expose
@@ -66,7 +67,9 @@ public class DescribeSlowLogRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 节点所属角色。<ul><li>master：主节点。</li><li>slave：从节点。</li></ul>
+    * 节点所属角色。
+- master：主节点。
+- slave：从节点。
     */
     @SerializedName("Role")
     @Expose
@@ -93,32 +96,32 @@ public class DescribeSlowLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 预查询慢日志的起始时间。 
-     * @return BeginTime 预查询慢日志的起始时间。
+     * Get 预查询慢日志的起始时间，查询时间最大跨度30天。 
+     * @return BeginTime 预查询慢日志的起始时间，查询时间最大跨度30天。
      */
     public String getBeginTime() {
         return this.BeginTime;
     }
 
     /**
-     * Set 预查询慢日志的起始时间。
-     * @param BeginTime 预查询慢日志的起始时间。
+     * Set 预查询慢日志的起始时间，查询时间最大跨度30天。
+     * @param BeginTime 预查询慢日志的起始时间，查询时间最大跨度30天。
      */
     public void setBeginTime(String BeginTime) {
         this.BeginTime = BeginTime;
     }
 
     /**
-     * Get 预查询慢日志的结束时间。 
-     * @return EndTime 预查询慢日志的结束时间。
+     * Get 预查询慢日志的结束时间，查询时间最大跨度30天 
+     * @return EndTime 预查询慢日志的结束时间，查询时间最大跨度30天
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 预查询慢日志的结束时间。
-     * @param EndTime 预查询慢日志的结束时间。
+     * Set 预查询慢日志的结束时间，查询时间最大跨度30天
+     * @param EndTime 预查询慢日志的结束时间，查询时间最大跨度30天
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -141,16 +144,16 @@ public class DescribeSlowLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 每个页面展示的慢查询条数，默认值为20。取值范围：[20,1000]。 
-     * @return Limit 每个页面展示的慢查询条数，默认值为20。取值范围：[20,1000]。
+     * Get 每个页面展示的慢查询条数，默认值为20，最大100。 
+     * @return Limit 每个页面展示的慢查询条数，默认值为20，最大100。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每个页面展示的慢查询条数，默认值为20。取值范围：[20,1000]。
-     * @param Limit 每个页面展示的慢查询条数，默认值为20。取值范围：[20,1000]。
+     * Set 每个页面展示的慢查询条数，默认值为20，最大100。
+     * @param Limit 每个页面展示的慢查询条数，默认值为20，最大100。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -173,16 +176,24 @@ public class DescribeSlowLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 节点所属角色。<ul><li>master：主节点。</li><li>slave：从节点。</li></ul> 
-     * @return Role 节点所属角色。<ul><li>master：主节点。</li><li>slave：从节点。</li></ul>
+     * Get 节点所属角色。
+- master：主节点。
+- slave：从节点。 
+     * @return Role 节点所属角色。
+- master：主节点。
+- slave：从节点。
      */
     public String getRole() {
         return this.Role;
     }
 
     /**
-     * Set 节点所属角色。<ul><li>master：主节点。</li><li>slave：从节点。</li></ul>
-     * @param Role 节点所属角色。<ul><li>master：主节点。</li><li>slave：从节点。</li></ul>
+     * Set 节点所属角色。
+- master：主节点。
+- slave：从节点。
+     * @param Role 节点所属角色。
+- master：主节点。
+- slave：从节点。
      */
     public void setRole(String Role) {
         this.Role = Role;

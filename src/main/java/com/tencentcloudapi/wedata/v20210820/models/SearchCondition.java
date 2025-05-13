@@ -16,18 +16,19 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchCondition extends AbstractModel{
+public class SearchCondition extends AbstractModel {
 
     /**
     * 查询框架，必选
     */
     @SerializedName("Instance")
     @Expose
-    private SearchConditionInstance Instance;
+    private SearchConditionInstanceNew Instance;
 
     /**
     * 查询关键字（任务Id精确匹配，任务名称模糊匹配），可选
@@ -54,7 +55,7 @@ public class SearchCondition extends AbstractModel{
      * Get 查询框架，必选 
      * @return Instance 查询框架，必选
      */
-    public SearchConditionInstance getInstance() {
+    public SearchConditionInstanceNew getInstance() {
         return this.Instance;
     }
 
@@ -62,7 +63,7 @@ public class SearchCondition extends AbstractModel{
      * Set 查询框架，必选
      * @param Instance 查询框架，必选
      */
-    public void setInstance(SearchConditionInstance Instance) {
+    public void setInstance(SearchConditionInstanceNew Instance) {
         this.Instance = Instance;
     }
 
@@ -123,7 +124,7 @@ public class SearchCondition extends AbstractModel{
      */
     public SearchCondition(SearchCondition source) {
         if (source.Instance != null) {
-            this.Instance = new SearchConditionInstance(source.Instance);
+            this.Instance = new SearchConditionInstanceNew(source.Instance);
         }
         if (source.Keyword != null) {
             this.Keyword = new String(source.Keyword);

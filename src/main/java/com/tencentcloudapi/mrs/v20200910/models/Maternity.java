@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Maternity extends AbstractModel{
+public class Maternity extends AbstractModel {
 
     /**
     * 描述部分
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Desc")
     @Expose
@@ -32,7 +32,6 @@ public class Maternity extends AbstractModel{
 
     /**
     * 结论部分
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Summary")
     @Expose
@@ -40,17 +39,21 @@ public class Maternity extends AbstractModel{
 
     /**
     * 报告原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OcrText")
     @Expose
     private String OcrText;
 
     /**
-     * Get 描述部分
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 描述部分 
      * @return Desc 描述部分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MaternityDesc getDesc() {
         return this.Desc;
@@ -58,19 +61,15 @@ public class Maternity extends AbstractModel{
 
     /**
      * Set 描述部分
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Desc 描述部分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDesc(MaternityDesc Desc) {
         this.Desc = Desc;
     }
 
     /**
-     * Get 结论部分
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结论部分 
      * @return Summary 结论部分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MaternitySummary getSummary() {
         return this.Summary;
@@ -78,19 +77,15 @@ public class Maternity extends AbstractModel{
 
     /**
      * Set 结论部分
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Summary 结论部分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSummary(MaternitySummary Summary) {
         this.Summary = Summary;
     }
 
     /**
-     * Get 报告原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 报告原文 
      * @return OcrText 报告原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOcrText() {
         return this.OcrText;
@@ -98,12 +93,26 @@ public class Maternity extends AbstractModel{
 
     /**
      * Set 报告原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OcrText 报告原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOcrText(String OcrText) {
         this.OcrText = OcrText;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public Maternity() {
@@ -123,6 +132,9 @@ public class Maternity extends AbstractModel{
         if (source.OcrText != null) {
             this.OcrText = new String(source.OcrText);
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -133,6 +145,7 @@ public class Maternity extends AbstractModel{
         this.setParamObj(map, prefix + "Desc.", this.Desc);
         this.setParamObj(map, prefix + "Summary.", this.Summary);
         this.setParamSimple(map, prefix + "OcrText", this.OcrText);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

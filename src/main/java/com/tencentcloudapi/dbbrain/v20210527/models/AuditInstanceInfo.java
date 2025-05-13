@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AuditInstanceInfo extends AbstractModel{
+public class AuditInstanceInfo extends AbstractModel {
 
     /**
     * appId。
@@ -66,7 +67,6 @@ public class AuditInstanceInfo extends AbstractModel{
 
     /**
     * 资源Tags。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceTags")
     @Expose
@@ -169,10 +169,8 @@ public class AuditInstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 资源Tags。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源Tags。 
      * @return ResourceTags 资源Tags。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getResourceTags() {
         return this.ResourceTags;
@@ -180,9 +178,7 @@ public class AuditInstanceInfo extends AbstractModel{
 
     /**
      * Set 资源Tags。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceTags 资源Tags。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceTags(String [] ResourceTags) {
         this.ResourceTags = ResourceTags;

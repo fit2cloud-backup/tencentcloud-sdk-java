@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CustomRule extends AbstractModel{
+public class CustomRule extends AbstractModel {
 
     /**
     * 码规则ID
@@ -31,7 +32,6 @@ public class CustomRule extends AbstractModel{
 
     /**
     * 码规则名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -39,7 +39,6 @@ public class CustomRule extends AbstractModel{
 
     /**
     * 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CorpId")
     @Expose
@@ -47,7 +46,6 @@ public class CustomRule extends AbstractModel{
 
     /**
     * 商户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MerchantId")
     @Expose
@@ -105,10 +103,8 @@ public class CustomRule extends AbstractModel{
     }
 
     /**
-     * Get 码规则名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码规则名 
      * @return Name 码规则名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -116,19 +112,15 @@ public class CustomRule extends AbstractModel{
 
     /**
      * Set 码规则名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 码规则名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 企业ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 企业ID 
      * @return CorpId 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCorpId() {
         return this.CorpId;
@@ -136,19 +128,15 @@ public class CustomRule extends AbstractModel{
 
     /**
      * Set 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CorpId 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCorpId(Long CorpId) {
         this.CorpId = CorpId;
     }
 
     /**
-     * Get 商户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商户ID 
      * @return MerchantId 商户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMerchantId() {
         return this.MerchantId;
@@ -156,9 +144,7 @@ public class CustomRule extends AbstractModel{
 
     /**
      * Set 商户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MerchantId 商户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMerchantId(String MerchantId) {
         this.MerchantId = MerchantId;

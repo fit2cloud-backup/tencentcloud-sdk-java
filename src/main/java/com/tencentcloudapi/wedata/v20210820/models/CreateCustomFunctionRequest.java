@@ -16,21 +16,22 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCustomFunctionRequest extends AbstractModel{
+public class CreateCustomFunctionRequest extends AbstractModel {
 
     /**
-    * 类型：HIVE、SPARK
+    * 枚举值：HIVE、SPARK、DLC
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-    * 分类：窗口函数、聚合函数、日期函数......
+    * 枚举值：ANALYSIS(函数)、ENCRYPTION(加密函数)、AGGREGATE(聚合函数)、LOGIC(逻辑函数)、DATE_AND_TIME(日期与时间函数)、MATH(数学函数)、CONVERSION(转换函数)、STRING(字符串函数)、IP_AND_DOMAIN(IP和域名函数)、WINDOW(窗口函数)、OTHER(其他函数)
     */
     @SerializedName("Kind")
     @Expose
@@ -65,32 +66,39 @@ public class CreateCustomFunctionRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-     * Get 类型：HIVE、SPARK 
-     * @return Type 类型：HIVE、SPARK
+    * 函数资源文件类型
+    */
+    @SerializedName("FunctionResourceFileType")
+    @Expose
+    private String FunctionResourceFileType;
+
+    /**
+     * Get 枚举值：HIVE、SPARK、DLC 
+     * @return Type 枚举值：HIVE、SPARK、DLC
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 类型：HIVE、SPARK
-     * @param Type 类型：HIVE、SPARK
+     * Set 枚举值：HIVE、SPARK、DLC
+     * @param Type 枚举值：HIVE、SPARK、DLC
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 分类：窗口函数、聚合函数、日期函数...... 
-     * @return Kind 分类：窗口函数、聚合函数、日期函数......
+     * Get 枚举值：ANALYSIS(函数)、ENCRYPTION(加密函数)、AGGREGATE(聚合函数)、LOGIC(逻辑函数)、DATE_AND_TIME(日期与时间函数)、MATH(数学函数)、CONVERSION(转换函数)、STRING(字符串函数)、IP_AND_DOMAIN(IP和域名函数)、WINDOW(窗口函数)、OTHER(其他函数) 
+     * @return Kind 枚举值：ANALYSIS(函数)、ENCRYPTION(加密函数)、AGGREGATE(聚合函数)、LOGIC(逻辑函数)、DATE_AND_TIME(日期与时间函数)、MATH(数学函数)、CONVERSION(转换函数)、STRING(字符串函数)、IP_AND_DOMAIN(IP和域名函数)、WINDOW(窗口函数)、OTHER(其他函数)
      */
     public String getKind() {
         return this.Kind;
     }
 
     /**
-     * Set 分类：窗口函数、聚合函数、日期函数......
-     * @param Kind 分类：窗口函数、聚合函数、日期函数......
+     * Set 枚举值：ANALYSIS(函数)、ENCRYPTION(加密函数)、AGGREGATE(聚合函数)、LOGIC(逻辑函数)、DATE_AND_TIME(日期与时间函数)、MATH(数学函数)、CONVERSION(转换函数)、STRING(字符串函数)、IP_AND_DOMAIN(IP和域名函数)、WINDOW(窗口函数)、OTHER(其他函数)
+     * @param Kind 枚举值：ANALYSIS(函数)、ENCRYPTION(加密函数)、AGGREGATE(聚合函数)、LOGIC(逻辑函数)、DATE_AND_TIME(日期与时间函数)、MATH(数学函数)、CONVERSION(转换函数)、STRING(字符串函数)、IP_AND_DOMAIN(IP和域名函数)、WINDOW(窗口函数)、OTHER(其他函数)
      */
     public void setKind(String Kind) {
         this.Kind = Kind;
@@ -160,6 +168,22 @@ public class CreateCustomFunctionRequest extends AbstractModel{
         this.ProjectId = ProjectId;
     }
 
+    /**
+     * Get 函数资源文件类型 
+     * @return FunctionResourceFileType 函数资源文件类型
+     */
+    public String getFunctionResourceFileType() {
+        return this.FunctionResourceFileType;
+    }
+
+    /**
+     * Set 函数资源文件类型
+     * @param FunctionResourceFileType 函数资源文件类型
+     */
+    public void setFunctionResourceFileType(String FunctionResourceFileType) {
+        this.FunctionResourceFileType = FunctionResourceFileType;
+    }
+
     public CreateCustomFunctionRequest() {
     }
 
@@ -186,6 +210,9 @@ public class CreateCustomFunctionRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
+        if (source.FunctionResourceFileType != null) {
+            this.FunctionResourceFileType = new String(source.FunctionResourceFileType);
+        }
     }
 
 
@@ -199,6 +226,7 @@ public class CreateCustomFunctionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterIdentifier", this.ClusterIdentifier);
         this.setParamSimple(map, prefix + "DbName", this.DbName);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "FunctionResourceFileType", this.FunctionResourceFileType);
 
     }
 }

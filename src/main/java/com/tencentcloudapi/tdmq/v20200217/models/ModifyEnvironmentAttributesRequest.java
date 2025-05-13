@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyEnvironmentAttributesRequest extends AbstractModel{
+public class ModifyEnvironmentAttributesRequest extends AbstractModel {
 
     /**
     * 命名空间名称。
@@ -37,18 +38,18 @@ public class ModifyEnvironmentAttributesRequest extends AbstractModel{
     private Long MsgTTL;
 
     /**
-    * 备注，字符串最长不超过128。
-    */
-    @SerializedName("Remark")
-    @Expose
-    private String Remark;
-
-    /**
     * 集群ID
     */
     @SerializedName("ClusterId")
     @Expose
     private String ClusterId;
+
+    /**
+    * 备注，字符串最长不超过128。
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
 
     /**
     * 消息保留策略
@@ -97,22 +98,6 @@ public class ModifyEnvironmentAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 备注，字符串最长不超过128。 
-     * @return Remark 备注，字符串最长不超过128。
-     */
-    public String getRemark() {
-        return this.Remark;
-    }
-
-    /**
-     * Set 备注，字符串最长不超过128。
-     * @param Remark 备注，字符串最长不超过128。
-     */
-    public void setRemark(String Remark) {
-        this.Remark = Remark;
-    }
-
-    /**
      * Get 集群ID 
      * @return ClusterId 集群ID
      */
@@ -126,6 +111,22 @@ public class ModifyEnvironmentAttributesRequest extends AbstractModel{
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
+    }
+
+    /**
+     * Get 备注，字符串最长不超过128。 
+     * @return Remark 备注，字符串最长不超过128。
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 备注，字符串最长不超过128。
+     * @param Remark 备注，字符串最长不超过128。
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
     }
 
     /**
@@ -174,11 +175,11 @@ public class ModifyEnvironmentAttributesRequest extends AbstractModel{
         if (source.MsgTTL != null) {
             this.MsgTTL = new Long(source.MsgTTL);
         }
-        if (source.Remark != null) {
-            this.Remark = new String(source.Remark);
-        }
         if (source.ClusterId != null) {
             this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
         }
         if (source.RetentionPolicy != null) {
             this.RetentionPolicy = new RetentionPolicy(source.RetentionPolicy);
@@ -195,8 +196,8 @@ public class ModifyEnvironmentAttributesRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
         this.setParamSimple(map, prefix + "MsgTTL", this.MsgTTL);
-        this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamObj(map, prefix + "RetentionPolicy.", this.RetentionPolicy);
         this.setParamSimple(map, prefix + "AutoSubscriptionCreation", this.AutoSubscriptionCreation);
 

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
+public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel {
 
     /**
     * 版本名称
@@ -31,7 +32,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DockerfilePath")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BuildDir")
     @Expose
@@ -97,7 +95,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvParams")
     @Expose
@@ -119,7 +116,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionIP")
     @Expose
@@ -127,7 +123,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionPort")
     @Expose
@@ -135,7 +130,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -143,7 +137,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 代码包的名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageName")
     @Expose
@@ -151,7 +144,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 代码版本的名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageVersion")
     @Expose
@@ -159,7 +151,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UploadType")
     @Expose
@@ -167,7 +158,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * Repo的类型(gitlab/github/coding)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepoType")
     @Expose
@@ -175,7 +165,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Repo")
     @Expose
@@ -183,7 +172,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 分支
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Branch")
     @Expose
@@ -191,7 +179,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServerName")
     @Expose
@@ -199,7 +186,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsPublic")
     @Expose
@@ -207,7 +193,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * vpc id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -223,7 +208,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomLogs")
     @Expose
@@ -231,7 +215,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerPort")
     @Expose
@@ -239,7 +222,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InitialDelaySeconds")
     @Expose
@@ -247,7 +229,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageUrl")
     @Expose
@@ -255,7 +236,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * CPU 大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CpuSize")
     @Expose
@@ -263,7 +243,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * MEM 大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MemSize")
     @Expose
@@ -271,7 +250,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HasDockerfile")
     @Expose
@@ -279,7 +257,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BaseImage")
     @Expose
@@ -287,7 +264,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EntryPoint")
     @Expose
@@ -295,7 +271,6 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 仓库语言
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepoLanguage")
     @Expose
@@ -319,14 +294,13 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TkeWorkloadType")
     @Expose
     private String TkeWorkloadType;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -349,10 +323,8 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注 
      * @return Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -360,19 +332,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Dockefile的路径 
      * @return DockerfilePath Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDockerfilePath() {
         return this.DockerfilePath;
@@ -380,19 +348,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DockerfilePath Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDockerfilePath(String DockerfilePath) {
         this.DockerfilePath = DockerfilePath;
     }
 
     /**
-     * Get DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DockerBuild的目录 
      * @return BuildDir DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBuildDir() {
         return this.BuildDir;
@@ -400,9 +364,7 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BuildDir DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBuildDir(String BuildDir) {
         this.BuildDir = BuildDir;
@@ -505,10 +467,8 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 环境变量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境变量 
      * @return EnvParams 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvParams() {
         return this.EnvParams;
@@ -516,9 +476,7 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvParams 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvParams(String EnvParams) {
         this.EnvParams = EnvParams;
@@ -557,10 +515,8 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本的IP 
      * @return VersionIP 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersionIP() {
         return this.VersionIP;
@@ -568,19 +524,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VersionIP 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionIP(String VersionIP) {
         this.VersionIP = VersionIP;
     }
 
     /**
-     * Get 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本的端口号 
      * @return VersionPort 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVersionPort() {
         return this.VersionPort;
@@ -588,19 +540,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VersionPort 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionPort(Long VersionPort) {
         this.VersionPort = VersionPort;
     }
 
     /**
-     * Get 版本状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本状态 
      * @return Status 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -608,19 +556,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 代码包的名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代码包的名字 
      * @return PackageName 代码包的名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageName() {
         return this.PackageName;
@@ -628,19 +572,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 代码包的名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageName 代码包的名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageName(String PackageName) {
         this.PackageName = PackageName;
     }
 
     /**
-     * Get 代码版本的名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代码版本的名字 
      * @return PackageVersion 代码版本的名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageVersion() {
         return this.PackageVersion;
@@ -648,19 +588,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 代码版本的名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageVersion 代码版本的名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageVersion(String PackageVersion) {
         this.PackageVersion = PackageVersion;
     }
 
     /**
-     * Get 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 枚举（package/repository/image) 
      * @return UploadType 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUploadType() {
         return this.UploadType;
@@ -668,19 +604,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UploadType 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUploadType(String UploadType) {
         this.UploadType = UploadType;
     }
 
     /**
-     * Get Repo的类型(gitlab/github/coding)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Repo的类型(gitlab/github/coding) 
      * @return RepoType Repo的类型(gitlab/github/coding)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepoType() {
         return this.RepoType;
@@ -688,19 +620,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set Repo的类型(gitlab/github/coding)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepoType Repo的类型(gitlab/github/coding)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepoType(String RepoType) {
         this.RepoType = RepoType;
     }
 
     /**
-     * Get 地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地址 
      * @return Repo 地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepo() {
         return this.Repo;
@@ -708,19 +636,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Repo 地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepo(String Repo) {
         this.Repo = Repo;
     }
 
     /**
-     * Get 分支
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分支 
      * @return Branch 分支
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBranch() {
         return this.Branch;
@@ -728,19 +652,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 分支
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Branch 分支
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBranch(String Branch) {
         this.Branch = Branch;
     }
 
     /**
-     * Get 服务名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务名字 
      * @return ServerName 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServerName() {
         return this.ServerName;
@@ -748,19 +668,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServerName 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServerName(String ServerName) {
         this.ServerName = ServerName;
     }
 
     /**
-     * Get 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否对于外网开放 
      * @return IsPublic 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsPublic() {
         return this.IsPublic;
@@ -768,19 +684,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsPublic 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsPublic(Boolean IsPublic) {
         this.IsPublic = IsPublic;
     }
 
     /**
-     * Get vpc id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vpc id 
      * @return VpcId vpc id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -788,9 +700,7 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set vpc id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId vpc id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -817,10 +727,8 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志采集路径 
      * @return CustomLogs 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomLogs() {
         return this.CustomLogs;
@@ -828,19 +736,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomLogs 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomLogs(String CustomLogs) {
         this.CustomLogs = CustomLogs;
     }
 
     /**
-     * Get 监听端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听端口 
      * @return ContainerPort 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getContainerPort() {
         return this.ContainerPort;
@@ -848,19 +752,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerPort 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerPort(Long ContainerPort) {
         this.ContainerPort = ContainerPort;
     }
 
     /**
-     * Get 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 延迟多长时间开始健康检查（单位s） 
      * @return InitialDelaySeconds 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInitialDelaySeconds() {
         return this.InitialDelaySeconds;
@@ -868,19 +768,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InitialDelaySeconds 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInitialDelaySeconds(Long InitialDelaySeconds) {
         this.InitialDelaySeconds = InitialDelaySeconds;
     }
 
     /**
-     * Get 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像地址 
      * @return ImageUrl 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageUrl() {
         return this.ImageUrl;
@@ -888,19 +784,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageUrl 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
     }
 
     /**
-     * Get CPU 大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CPU 大小 
      * @return CpuSize CPU 大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getCpuSize() {
         return this.CpuSize;
@@ -908,19 +800,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set CPU 大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CpuSize CPU 大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCpuSize(Float CpuSize) {
         this.CpuSize = CpuSize;
     }
 
     /**
-     * Get MEM 大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MEM 大小 
      * @return MemSize MEM 大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getMemSize() {
         return this.MemSize;
@@ -928,19 +816,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set MEM 大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MemSize MEM 大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMemSize(Float MemSize) {
         this.MemSize = MemSize;
     }
 
     /**
-     * Get 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否有Dockerfile：0-default has, 1-has, 2-has not 
      * @return HasDockerfile 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHasDockerfile() {
         return this.HasDockerfile;
@@ -948,19 +832,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HasDockerfile 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHasDockerfile(Long HasDockerfile) {
         this.HasDockerfile = HasDockerfile;
     }
 
     /**
-     * Get 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 基础镜像 
      * @return BaseImage 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBaseImage() {
         return this.BaseImage;
@@ -968,19 +848,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BaseImage 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBaseImage(String BaseImage) {
         this.BaseImage = BaseImage;
     }
 
     /**
-     * Get 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器启动入口命令 
      * @return EntryPoint 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEntryPoint() {
         return this.EntryPoint;
@@ -988,19 +864,15 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EntryPoint 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEntryPoint(String EntryPoint) {
         this.EntryPoint = EntryPoint;
     }
 
     /**
-     * Get 仓库语言
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库语言 
      * @return RepoLanguage 仓库语言
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepoLanguage() {
         return this.RepoLanguage;
@@ -1008,9 +880,7 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 仓库语言
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepoLanguage 仓库语言
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepoLanguage(String RepoLanguage) {
         this.RepoLanguage = RepoLanguage;
@@ -1057,10 +927,8 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本工作负载类型；deployment/deamonset 
      * @return TkeWorkloadType 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTkeWorkloadType() {
         return this.TkeWorkloadType;
@@ -1068,25 +936,23 @@ public class DescribeCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TkeWorkloadType 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTkeWorkloadType(String TkeWorkloadType) {
         this.TkeWorkloadType = TkeWorkloadType;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

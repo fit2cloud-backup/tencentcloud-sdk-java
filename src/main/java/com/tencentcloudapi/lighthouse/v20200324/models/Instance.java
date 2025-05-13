@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Instance extends AbstractModel{
+public class Instance extends AbstractModel {
 
     /**
     * 实例 ID。
@@ -105,7 +106,7 @@ PREPAID：表示预付费，即包年包月。
     /**
     * 自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
     */
     @SerializedName("RenewFlag")
     @Expose
@@ -158,6 +159,14 @@ FAILED：表示操作失败
     @SerializedName("LatestOperationRequestId")
     @Expose
     private String LatestOperationRequestId;
+
+    /**
+    * 实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LatestOperationStartedTime")
+    @Expose
+    private String LatestOperationStartedTime;
 
     /**
     * 隔离时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
@@ -228,6 +237,34 @@ FAILED：表示操作失败
     @SerializedName("InstanceRestrictState")
     @Expose
     private String InstanceRestrictState;
+
+    /**
+    * 描述实例是否支持IPv6。
+    */
+    @SerializedName("SupportIpv6Detail")
+    @Expose
+    private SupportIpv6Detail SupportIpv6Detail;
+
+    /**
+    * 公网IPv6地址列表。
+    */
+    @SerializedName("PublicIpv6Addresses")
+    @Expose
+    private String [] PublicIpv6Addresses;
+
+    /**
+    * 创建实例后自动执行TAT命令的调用ID。
+    */
+    @SerializedName("InitInvocationId")
+    @Expose
+    private String InitInvocationId;
+
+    /**
+    * 实例违规详情。
+    */
+    @SerializedName("InstanceViolationDetail")
+    @Expose
+    private InstanceViolationDetail InstanceViolationDetail;
 
     /**
      * Get 实例 ID。 
@@ -420,10 +457,10 @@ PREPAID：表示预付费，即包年包月。
     /**
      * Get 自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。 
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。 
      * @return RenewFlag 自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
      */
     public String getRenewFlag() {
         return this.RenewFlag;
@@ -432,10 +469,10 @@ NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
     /**
      * Set 自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
      * @param RenewFlag 自动续费标识。取值范围： 
 NOTIFY_AND_MANUAL_RENEW：表示通知即将过期，但不自动续费  
-NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 。
+NOTIFY_AND_AUTO_RENEW：表示通知即将过期，而且自动续费 DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
      */
     public void setRenewFlag(String RenewFlag) {
         this.RenewFlag = RenewFlag;
@@ -559,6 +596,26 @@ FAILED：表示操作失败
      */
     public void setLatestOperationRequestId(String LatestOperationRequestId) {
         this.LatestOperationRequestId = LatestOperationRequestId;
+    }
+
+    /**
+     * Get 实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LatestOperationStartedTime 实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLatestOperationStartedTime() {
+        return this.LatestOperationStartedTime;
+    }
+
+    /**
+     * Set 实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LatestOperationStartedTime 实例最新操作的开始时间。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLatestOperationStartedTime(String LatestOperationStartedTime) {
+        this.LatestOperationStartedTime = LatestOperationStartedTime;
     }
 
     /**
@@ -733,6 +790,70 @@ FAILED：表示操作失败
         this.InstanceRestrictState = InstanceRestrictState;
     }
 
+    /**
+     * Get 描述实例是否支持IPv6。 
+     * @return SupportIpv6Detail 描述实例是否支持IPv6。
+     */
+    public SupportIpv6Detail getSupportIpv6Detail() {
+        return this.SupportIpv6Detail;
+    }
+
+    /**
+     * Set 描述实例是否支持IPv6。
+     * @param SupportIpv6Detail 描述实例是否支持IPv6。
+     */
+    public void setSupportIpv6Detail(SupportIpv6Detail SupportIpv6Detail) {
+        this.SupportIpv6Detail = SupportIpv6Detail;
+    }
+
+    /**
+     * Get 公网IPv6地址列表。 
+     * @return PublicIpv6Addresses 公网IPv6地址列表。
+     */
+    public String [] getPublicIpv6Addresses() {
+        return this.PublicIpv6Addresses;
+    }
+
+    /**
+     * Set 公网IPv6地址列表。
+     * @param PublicIpv6Addresses 公网IPv6地址列表。
+     */
+    public void setPublicIpv6Addresses(String [] PublicIpv6Addresses) {
+        this.PublicIpv6Addresses = PublicIpv6Addresses;
+    }
+
+    /**
+     * Get 创建实例后自动执行TAT命令的调用ID。 
+     * @return InitInvocationId 创建实例后自动执行TAT命令的调用ID。
+     */
+    public String getInitInvocationId() {
+        return this.InitInvocationId;
+    }
+
+    /**
+     * Set 创建实例后自动执行TAT命令的调用ID。
+     * @param InitInvocationId 创建实例后自动执行TAT命令的调用ID。
+     */
+    public void setInitInvocationId(String InitInvocationId) {
+        this.InitInvocationId = InitInvocationId;
+    }
+
+    /**
+     * Get 实例违规详情。 
+     * @return InstanceViolationDetail 实例违规详情。
+     */
+    public InstanceViolationDetail getInstanceViolationDetail() {
+        return this.InstanceViolationDetail;
+    }
+
+    /**
+     * Set 实例违规详情。
+     * @param InstanceViolationDetail 实例违规详情。
+     */
+    public void setInstanceViolationDetail(InstanceViolationDetail InstanceViolationDetail) {
+        this.InstanceViolationDetail = InstanceViolationDetail;
+    }
+
     public Instance() {
     }
 
@@ -801,6 +922,9 @@ FAILED：表示操作失败
         if (source.LatestOperationRequestId != null) {
             this.LatestOperationRequestId = new String(source.LatestOperationRequestId);
         }
+        if (source.LatestOperationStartedTime != null) {
+            this.LatestOperationStartedTime = new String(source.LatestOperationStartedTime);
+        }
         if (source.IsolatedTime != null) {
             this.IsolatedTime = new String(source.IsolatedTime);
         }
@@ -831,6 +955,21 @@ FAILED：表示操作失败
         if (source.InstanceRestrictState != null) {
             this.InstanceRestrictState = new String(source.InstanceRestrictState);
         }
+        if (source.SupportIpv6Detail != null) {
+            this.SupportIpv6Detail = new SupportIpv6Detail(source.SupportIpv6Detail);
+        }
+        if (source.PublicIpv6Addresses != null) {
+            this.PublicIpv6Addresses = new String[source.PublicIpv6Addresses.length];
+            for (int i = 0; i < source.PublicIpv6Addresses.length; i++) {
+                this.PublicIpv6Addresses[i] = new String(source.PublicIpv6Addresses[i]);
+            }
+        }
+        if (source.InitInvocationId != null) {
+            this.InitInvocationId = new String(source.InitInvocationId);
+        }
+        if (source.InstanceViolationDetail != null) {
+            this.InstanceViolationDetail = new InstanceViolationDetail(source.InstanceViolationDetail);
+        }
     }
 
 
@@ -856,6 +995,7 @@ FAILED：表示操作失败
         this.setParamSimple(map, prefix + "LatestOperation", this.LatestOperation);
         this.setParamSimple(map, prefix + "LatestOperationState", this.LatestOperationState);
         this.setParamSimple(map, prefix + "LatestOperationRequestId", this.LatestOperationRequestId);
+        this.setParamSimple(map, prefix + "LatestOperationStartedTime", this.LatestOperationStartedTime);
         this.setParamSimple(map, prefix + "IsolatedTime", this.IsolatedTime);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
         this.setParamSimple(map, prefix + "ExpiredTime", this.ExpiredTime);
@@ -865,6 +1005,10 @@ FAILED：表示操作失败
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "InstanceRestrictState", this.InstanceRestrictState);
+        this.setParamObj(map, prefix + "SupportIpv6Detail.", this.SupportIpv6Detail);
+        this.setParamArraySimple(map, prefix + "PublicIpv6Addresses.", this.PublicIpv6Addresses);
+        this.setParamSimple(map, prefix + "InitInvocationId", this.InitInvocationId);
+        this.setParamObj(map, prefix + "InstanceViolationDetail.", this.InstanceViolationDetail);
 
     }
 }

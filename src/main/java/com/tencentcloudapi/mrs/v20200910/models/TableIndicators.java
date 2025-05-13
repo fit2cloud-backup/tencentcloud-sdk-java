@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TableIndicators extends AbstractModel{
+public class TableIndicators extends AbstractModel {
 
     /**
     * 项目列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Indicators")
     @Expose
@@ -32,17 +32,14 @@ public class TableIndicators extends AbstractModel{
 
     /**
     * 采样标本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Sample")
     @Expose
     private BaseItem Sample;
 
     /**
-     * Get 项目列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 项目列表 
      * @return Indicators 项目列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IndicatorItemV2 [] getIndicators() {
         return this.Indicators;
@@ -50,19 +47,15 @@ public class TableIndicators extends AbstractModel{
 
     /**
      * Set 项目列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Indicators 项目列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndicators(IndicatorItemV2 [] Indicators) {
         this.Indicators = Indicators;
     }
 
     /**
-     * Get 采样标本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 采样标本 
      * @return Sample 采样标本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseItem getSample() {
         return this.Sample;
@@ -70,9 +63,7 @@ public class TableIndicators extends AbstractModel{
 
     /**
      * Set 采样标本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Sample 采样标本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSample(BaseItem Sample) {
         this.Sample = Sample;

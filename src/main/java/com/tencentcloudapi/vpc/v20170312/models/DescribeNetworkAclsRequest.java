@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNetworkAclsRequest extends AbstractModel{
+public class DescribeNetworkAclsRequest extends AbstractModel {
 
     /**
     * 过滤条件，参数不支持同时指定NetworkAclIds和Filters。
@@ -52,6 +53,20 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 排序字段。支持：NetworkAclId,NetworkAclName,CreatedTime
+    */
+    @SerializedName("OrderField")
+    @Expose
+    private String OrderField;
+
+    /**
+    * 排序方法。顺序：ASC，倒序：DESC。
+    */
+    @SerializedName("OrderDirection")
+    @Expose
+    private String OrderDirection;
 
     /**
      * Get 过滤条件，参数不支持同时指定NetworkAclIds和Filters。
@@ -129,6 +144,38 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    /**
+     * Get 排序字段。支持：NetworkAclId,NetworkAclName,CreatedTime 
+     * @return OrderField 排序字段。支持：NetworkAclId,NetworkAclName,CreatedTime
+     */
+    public String getOrderField() {
+        return this.OrderField;
+    }
+
+    /**
+     * Set 排序字段。支持：NetworkAclId,NetworkAclName,CreatedTime
+     * @param OrderField 排序字段。支持：NetworkAclId,NetworkAclName,CreatedTime
+     */
+    public void setOrderField(String OrderField) {
+        this.OrderField = OrderField;
+    }
+
+    /**
+     * Get 排序方法。顺序：ASC，倒序：DESC。 
+     * @return OrderDirection 排序方法。顺序：ASC，倒序：DESC。
+     */
+    public String getOrderDirection() {
+        return this.OrderDirection;
+    }
+
+    /**
+     * Set 排序方法。顺序：ASC，倒序：DESC。
+     * @param OrderDirection 排序方法。顺序：ASC，倒序：DESC。
+     */
+    public void setOrderDirection(String OrderDirection) {
+        this.OrderDirection = OrderDirection;
+    }
+
     public DescribeNetworkAclsRequest() {
     }
 
@@ -155,6 +202,12 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.OrderField != null) {
+            this.OrderField = new String(source.OrderField);
+        }
+        if (source.OrderDirection != null) {
+            this.OrderDirection = new String(source.OrderDirection);
+        }
     }
 
 
@@ -166,6 +219,8 @@ public class DescribeNetworkAclsRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "NetworkAclIds.", this.NetworkAclIds);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "OrderField", this.OrderField);
+        this.setParamSimple(map, prefix + "OrderDirection", this.OrderDirection);
 
     }
 }

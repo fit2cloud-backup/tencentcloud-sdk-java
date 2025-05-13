@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeImpalaQueriesRequest extends AbstractModel{
+public class DescribeImpalaQueriesRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -56,6 +57,27 @@ public class DescribeImpalaQueriesRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 执行状态，CREATED、INITIALIZED、COMPILED、RUNNING、FINISHED、EXCEPTION
+    */
+    @SerializedName("State")
+    @Expose
+    private String [] State;
+
+    /**
+    * 结束时间大于的时间点
+    */
+    @SerializedName("EndTimeGte")
+    @Expose
+    private Long EndTimeGte;
+
+    /**
+    * 结束时间小于的时间点
+    */
+    @SerializedName("EndTimeLte")
+    @Expose
+    private Long EndTimeLte;
 
     /**
      * Get 集群ID 
@@ -137,6 +159,54 @@ public class DescribeImpalaQueriesRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    /**
+     * Get 执行状态，CREATED、INITIALIZED、COMPILED、RUNNING、FINISHED、EXCEPTION 
+     * @return State 执行状态，CREATED、INITIALIZED、COMPILED、RUNNING、FINISHED、EXCEPTION
+     */
+    public String [] getState() {
+        return this.State;
+    }
+
+    /**
+     * Set 执行状态，CREATED、INITIALIZED、COMPILED、RUNNING、FINISHED、EXCEPTION
+     * @param State 执行状态，CREATED、INITIALIZED、COMPILED、RUNNING、FINISHED、EXCEPTION
+     */
+    public void setState(String [] State) {
+        this.State = State;
+    }
+
+    /**
+     * Get 结束时间大于的时间点 
+     * @return EndTimeGte 结束时间大于的时间点
+     */
+    public Long getEndTimeGte() {
+        return this.EndTimeGte;
+    }
+
+    /**
+     * Set 结束时间大于的时间点
+     * @param EndTimeGte 结束时间大于的时间点
+     */
+    public void setEndTimeGte(Long EndTimeGte) {
+        this.EndTimeGte = EndTimeGte;
+    }
+
+    /**
+     * Get 结束时间小于的时间点 
+     * @return EndTimeLte 结束时间小于的时间点
+     */
+    public Long getEndTimeLte() {
+        return this.EndTimeLte;
+    }
+
+    /**
+     * Set 结束时间小于的时间点
+     * @param EndTimeLte 结束时间小于的时间点
+     */
+    public void setEndTimeLte(Long EndTimeLte) {
+        this.EndTimeLte = EndTimeLte;
+    }
+
     public DescribeImpalaQueriesRequest() {
     }
 
@@ -160,6 +230,18 @@ public class DescribeImpalaQueriesRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.State != null) {
+            this.State = new String[source.State.length];
+            for (int i = 0; i < source.State.length; i++) {
+                this.State[i] = new String(source.State[i]);
+            }
+        }
+        if (source.EndTimeGte != null) {
+            this.EndTimeGte = new Long(source.EndTimeGte);
+        }
+        if (source.EndTimeLte != null) {
+            this.EndTimeLte = new Long(source.EndTimeLte);
+        }
     }
 
 
@@ -172,6 +254,9 @@ public class DescribeImpalaQueriesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArraySimple(map, prefix + "State.", this.State);
+        this.setParamSimple(map, prefix + "EndTimeGte", this.EndTimeGte);
+        this.setParamSimple(map, prefix + "EndTimeLte", this.EndTimeLte);
 
     }
 }

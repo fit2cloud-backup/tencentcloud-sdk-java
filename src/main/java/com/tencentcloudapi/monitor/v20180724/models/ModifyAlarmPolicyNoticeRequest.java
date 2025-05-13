@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyAlarmPolicyNoticeRequest extends AbstractModel{
+public class ModifyAlarmPolicyNoticeRequest extends AbstractModel {
 
     /**
     * 模块名，这里填“monitor”。
@@ -56,6 +57,13 @@ public class ModifyAlarmPolicyNoticeRequest extends AbstractModel{
     @SerializedName("HierarchicalNotices")
     @Expose
     private AlarmHierarchicalNotice [] HierarchicalNotices;
+
+    /**
+    * 通知内容模板绑定信息
+    */
+    @SerializedName("NoticeContentTmplBindInfos")
+    @Expose
+    private NoticeContentTmplBindInfo [] NoticeContentTmplBindInfos;
 
     /**
      * Get 模块名，这里填“monitor”。 
@@ -137,6 +145,22 @@ public class ModifyAlarmPolicyNoticeRequest extends AbstractModel{
         this.HierarchicalNotices = HierarchicalNotices;
     }
 
+    /**
+     * Get 通知内容模板绑定信息 
+     * @return NoticeContentTmplBindInfos 通知内容模板绑定信息
+     */
+    public NoticeContentTmplBindInfo [] getNoticeContentTmplBindInfos() {
+        return this.NoticeContentTmplBindInfos;
+    }
+
+    /**
+     * Set 通知内容模板绑定信息
+     * @param NoticeContentTmplBindInfos 通知内容模板绑定信息
+     */
+    public void setNoticeContentTmplBindInfos(NoticeContentTmplBindInfo [] NoticeContentTmplBindInfos) {
+        this.NoticeContentTmplBindInfos = NoticeContentTmplBindInfos;
+    }
+
     public ModifyAlarmPolicyNoticeRequest() {
     }
 
@@ -169,6 +193,12 @@ public class ModifyAlarmPolicyNoticeRequest extends AbstractModel{
                 this.HierarchicalNotices[i] = new AlarmHierarchicalNotice(source.HierarchicalNotices[i]);
             }
         }
+        if (source.NoticeContentTmplBindInfos != null) {
+            this.NoticeContentTmplBindInfos = new NoticeContentTmplBindInfo[source.NoticeContentTmplBindInfos.length];
+            for (int i = 0; i < source.NoticeContentTmplBindInfos.length; i++) {
+                this.NoticeContentTmplBindInfos[i] = new NoticeContentTmplBindInfo(source.NoticeContentTmplBindInfos[i]);
+            }
+        }
     }
 
 
@@ -181,6 +211,7 @@ public class ModifyAlarmPolicyNoticeRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "NoticeIds.", this.NoticeIds);
         this.setParamArraySimple(map, prefix + "PolicyIds.", this.PolicyIds);
         this.setParamArrayObj(map, prefix + "HierarchicalNotices.", this.HierarchicalNotices);
+        this.setParamArrayObj(map, prefix + "NoticeContentTmplBindInfos.", this.NoticeContentTmplBindInfos);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOperateOpsTasksRequest extends AbstractModel{
+public class DescribeOperateOpsTasksRequest extends AbstractModel {
 
     /**
     * 项目id
@@ -161,6 +162,62 @@ public class DescribeOperateOpsTasksRequest extends AbstractModel{
     @SerializedName("AlarmType")
     @Expose
     private String AlarmType;
+
+    /**
+    * 资源组id,多个资源组id之间以英文字符逗号分隔
+    */
+    @SerializedName("ExecutorGroupIdList")
+    @Expose
+    private String ExecutorGroupIdList;
+
+    /**
+    * 任务标签
+    */
+    @SerializedName("TaskTags")
+    @Expose
+    private TaskTag [] TaskTags;
+
+    /**
+    * 查询关键字
+    */
+    @SerializedName("KeyWord")
+    @Expose
+    private String KeyWord;
+
+    /**
+    * 实例生成方式
+    */
+    @SerializedName("InitStrategy")
+    @Expose
+    private String InitStrategy;
+
+    /**
+    * 额外请求的资源类型
+    */
+    @SerializedName("RequestResourceTypes")
+    @Expose
+    private String [] RequestResourceTypes;
+
+    /**
+    * 项目ID列表
+    */
+    @SerializedName("ProjectIds")
+    @Expose
+    private String [] ProjectIds;
+
+    /**
+    * 黑名单任务ID列表，传了该值在筛选的时候会将列表中的任务ID剔除
+    */
+    @SerializedName("BlackTaskIdList")
+    @Expose
+    private String [] BlackTaskIdList;
+
+    /**
+    * 时区
+    */
+    @SerializedName("ScheduleTimeZone")
+    @Expose
+    private String ScheduleTimeZone;
 
     /**
      * Get 项目id 
@@ -482,6 +539,134 @@ public class DescribeOperateOpsTasksRequest extends AbstractModel{
         this.AlarmType = AlarmType;
     }
 
+    /**
+     * Get 资源组id,多个资源组id之间以英文字符逗号分隔 
+     * @return ExecutorGroupIdList 资源组id,多个资源组id之间以英文字符逗号分隔
+     */
+    public String getExecutorGroupIdList() {
+        return this.ExecutorGroupIdList;
+    }
+
+    /**
+     * Set 资源组id,多个资源组id之间以英文字符逗号分隔
+     * @param ExecutorGroupIdList 资源组id,多个资源组id之间以英文字符逗号分隔
+     */
+    public void setExecutorGroupIdList(String ExecutorGroupIdList) {
+        this.ExecutorGroupIdList = ExecutorGroupIdList;
+    }
+
+    /**
+     * Get 任务标签 
+     * @return TaskTags 任务标签
+     */
+    public TaskTag [] getTaskTags() {
+        return this.TaskTags;
+    }
+
+    /**
+     * Set 任务标签
+     * @param TaskTags 任务标签
+     */
+    public void setTaskTags(TaskTag [] TaskTags) {
+        this.TaskTags = TaskTags;
+    }
+
+    /**
+     * Get 查询关键字 
+     * @return KeyWord 查询关键字
+     */
+    public String getKeyWord() {
+        return this.KeyWord;
+    }
+
+    /**
+     * Set 查询关键字
+     * @param KeyWord 查询关键字
+     */
+    public void setKeyWord(String KeyWord) {
+        this.KeyWord = KeyWord;
+    }
+
+    /**
+     * Get 实例生成方式 
+     * @return InitStrategy 实例生成方式
+     */
+    public String getInitStrategy() {
+        return this.InitStrategy;
+    }
+
+    /**
+     * Set 实例生成方式
+     * @param InitStrategy 实例生成方式
+     */
+    public void setInitStrategy(String InitStrategy) {
+        this.InitStrategy = InitStrategy;
+    }
+
+    /**
+     * Get 额外请求的资源类型 
+     * @return RequestResourceTypes 额外请求的资源类型
+     */
+    public String [] getRequestResourceTypes() {
+        return this.RequestResourceTypes;
+    }
+
+    /**
+     * Set 额外请求的资源类型
+     * @param RequestResourceTypes 额外请求的资源类型
+     */
+    public void setRequestResourceTypes(String [] RequestResourceTypes) {
+        this.RequestResourceTypes = RequestResourceTypes;
+    }
+
+    /**
+     * Get 项目ID列表 
+     * @return ProjectIds 项目ID列表
+     */
+    public String [] getProjectIds() {
+        return this.ProjectIds;
+    }
+
+    /**
+     * Set 项目ID列表
+     * @param ProjectIds 项目ID列表
+     */
+    public void setProjectIds(String [] ProjectIds) {
+        this.ProjectIds = ProjectIds;
+    }
+
+    /**
+     * Get 黑名单任务ID列表，传了该值在筛选的时候会将列表中的任务ID剔除 
+     * @return BlackTaskIdList 黑名单任务ID列表，传了该值在筛选的时候会将列表中的任务ID剔除
+     */
+    public String [] getBlackTaskIdList() {
+        return this.BlackTaskIdList;
+    }
+
+    /**
+     * Set 黑名单任务ID列表，传了该值在筛选的时候会将列表中的任务ID剔除
+     * @param BlackTaskIdList 黑名单任务ID列表，传了该值在筛选的时候会将列表中的任务ID剔除
+     */
+    public void setBlackTaskIdList(String [] BlackTaskIdList) {
+        this.BlackTaskIdList = BlackTaskIdList;
+    }
+
+    /**
+     * Get 时区 
+     * @return ScheduleTimeZone 时区
+     */
+    public String getScheduleTimeZone() {
+        return this.ScheduleTimeZone;
+    }
+
+    /**
+     * Set 时区
+     * @param ScheduleTimeZone 时区
+     */
+    public void setScheduleTimeZone(String ScheduleTimeZone) {
+        this.ScheduleTimeZone = ScheduleTimeZone;
+    }
+
     public DescribeOperateOpsTasksRequest() {
     }
 
@@ -550,6 +735,42 @@ public class DescribeOperateOpsTasksRequest extends AbstractModel{
         if (source.AlarmType != null) {
             this.AlarmType = new String(source.AlarmType);
         }
+        if (source.ExecutorGroupIdList != null) {
+            this.ExecutorGroupIdList = new String(source.ExecutorGroupIdList);
+        }
+        if (source.TaskTags != null) {
+            this.TaskTags = new TaskTag[source.TaskTags.length];
+            for (int i = 0; i < source.TaskTags.length; i++) {
+                this.TaskTags[i] = new TaskTag(source.TaskTags[i]);
+            }
+        }
+        if (source.KeyWord != null) {
+            this.KeyWord = new String(source.KeyWord);
+        }
+        if (source.InitStrategy != null) {
+            this.InitStrategy = new String(source.InitStrategy);
+        }
+        if (source.RequestResourceTypes != null) {
+            this.RequestResourceTypes = new String[source.RequestResourceTypes.length];
+            for (int i = 0; i < source.RequestResourceTypes.length; i++) {
+                this.RequestResourceTypes[i] = new String(source.RequestResourceTypes[i]);
+            }
+        }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new String[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new String(source.ProjectIds[i]);
+            }
+        }
+        if (source.BlackTaskIdList != null) {
+            this.BlackTaskIdList = new String[source.BlackTaskIdList.length];
+            for (int i = 0; i < source.BlackTaskIdList.length; i++) {
+                this.BlackTaskIdList[i] = new String(source.BlackTaskIdList[i]);
+            }
+        }
+        if (source.ScheduleTimeZone != null) {
+            this.ScheduleTimeZone = new String(source.ScheduleTimeZone);
+        }
     }
 
 
@@ -577,6 +798,14 @@ public class DescribeOperateOpsTasksRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TargetServiceId", this.TargetServiceId);
         this.setParamSimple(map, prefix + "TargetServiceType", this.TargetServiceType);
         this.setParamSimple(map, prefix + "AlarmType", this.AlarmType);
+        this.setParamSimple(map, prefix + "ExecutorGroupIdList", this.ExecutorGroupIdList);
+        this.setParamArrayObj(map, prefix + "TaskTags.", this.TaskTags);
+        this.setParamSimple(map, prefix + "KeyWord", this.KeyWord);
+        this.setParamSimple(map, prefix + "InitStrategy", this.InitStrategy);
+        this.setParamArraySimple(map, prefix + "RequestResourceTypes.", this.RequestResourceTypes);
+        this.setParamArraySimple(map, prefix + "ProjectIds.", this.ProjectIds);
+        this.setParamArraySimple(map, prefix + "BlackTaskIdList.", this.BlackTaskIdList);
+        this.setParamSimple(map, prefix + "ScheduleTimeZone", this.ScheduleTimeZone);
 
     }
 }

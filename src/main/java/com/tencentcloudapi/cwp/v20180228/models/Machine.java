@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Machine extends AbstractModel{
+public class Machine extends AbstractModel {
 
     /**
     * 主机名称。
@@ -37,18 +38,28 @@ public class Machine extends AbstractModel{
     private String MachineOs;
 
     /**
-    * 主机状态。
-<li>OFFLINE: 离线  </li>
-<li>ONLINE: 在线</li>
-<li>SHUTDOWN: 已关机</li>
-<li>UNINSTALLED: 未防护</li>
+    * 主机状态。 <li>OFFLINE: 离线 </li> <li>ONLINE: 在线</li> <li>SHUTDOWN: 已关机</li> <li>UNINSTALLED: 未防护</li>	
     */
     @SerializedName("MachineStatus")
     @Expose
     private String MachineStatus;
 
     /**
-    * 云镜客户端唯一Uuid，若客户端长时间不在线将返回空字符。
+    * ONLINE 防护中; OFFLINE 已离线;UNINStALLED 未安装
+    */
+    @SerializedName("AgentStatus")
+    @Expose
+    private String AgentStatus;
+
+    /**
+    * RUNNING 运行中; STOPED 已关机; EXPIRED 待回收	
+    */
+    @SerializedName("InstanceStatus")
+    @Expose
+    private String InstanceStatus;
+
+    /**
+    * 主机安全Uuid，若客户端长时间不在线将返回空字符。
     */
     @SerializedName("Uuid")
     @Expose
@@ -195,7 +206,7 @@ public class Machine extends AbstractModel{
     private String KernelVersion;
 
     /**
-    * 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
+    * 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
     */
     @SerializedName("ProtectType")
     @Expose
@@ -203,7 +214,6 @@ public class Machine extends AbstractModel{
 
     /**
     * 云标签信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CloudTags")
     @Expose
@@ -211,7 +221,6 @@ public class Machine extends AbstractModel{
 
     /**
     * 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsAddedOnTheFifteen")
     @Expose
@@ -219,7 +228,6 @@ public class Machine extends AbstractModel{
 
     /**
     * 主机ip列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IpList")
     @Expose
@@ -227,7 +235,6 @@ public class Machine extends AbstractModel{
 
     /**
     * 所属网络
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -235,7 +242,6 @@ public class Machine extends AbstractModel{
 
     /**
     * 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
@@ -250,7 +256,6 @@ public class Machine extends AbstractModel{
 
     /**
     * 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -289,48 +294,64 @@ public class Machine extends AbstractModel{
     }
 
     /**
-     * Get 主机状态。
-<li>OFFLINE: 离线  </li>
-<li>ONLINE: 在线</li>
-<li>SHUTDOWN: 已关机</li>
-<li>UNINSTALLED: 未防护</li> 
-     * @return MachineStatus 主机状态。
-<li>OFFLINE: 离线  </li>
-<li>ONLINE: 在线</li>
-<li>SHUTDOWN: 已关机</li>
-<li>UNINSTALLED: 未防护</li>
+     * Get 主机状态。 <li>OFFLINE: 离线 </li> <li>ONLINE: 在线</li> <li>SHUTDOWN: 已关机</li> <li>UNINSTALLED: 未防护</li>	 
+     * @return MachineStatus 主机状态。 <li>OFFLINE: 离线 </li> <li>ONLINE: 在线</li> <li>SHUTDOWN: 已关机</li> <li>UNINSTALLED: 未防护</li>	
      */
     public String getMachineStatus() {
         return this.MachineStatus;
     }
 
     /**
-     * Set 主机状态。
-<li>OFFLINE: 离线  </li>
-<li>ONLINE: 在线</li>
-<li>SHUTDOWN: 已关机</li>
-<li>UNINSTALLED: 未防护</li>
-     * @param MachineStatus 主机状态。
-<li>OFFLINE: 离线  </li>
-<li>ONLINE: 在线</li>
-<li>SHUTDOWN: 已关机</li>
-<li>UNINSTALLED: 未防护</li>
+     * Set 主机状态。 <li>OFFLINE: 离线 </li> <li>ONLINE: 在线</li> <li>SHUTDOWN: 已关机</li> <li>UNINSTALLED: 未防护</li>	
+     * @param MachineStatus 主机状态。 <li>OFFLINE: 离线 </li> <li>ONLINE: 在线</li> <li>SHUTDOWN: 已关机</li> <li>UNINSTALLED: 未防护</li>	
      */
     public void setMachineStatus(String MachineStatus) {
         this.MachineStatus = MachineStatus;
     }
 
     /**
-     * Get 云镜客户端唯一Uuid，若客户端长时间不在线将返回空字符。 
-     * @return Uuid 云镜客户端唯一Uuid，若客户端长时间不在线将返回空字符。
+     * Get ONLINE 防护中; OFFLINE 已离线;UNINStALLED 未安装 
+     * @return AgentStatus ONLINE 防护中; OFFLINE 已离线;UNINStALLED 未安装
+     */
+    public String getAgentStatus() {
+        return this.AgentStatus;
+    }
+
+    /**
+     * Set ONLINE 防护中; OFFLINE 已离线;UNINStALLED 未安装
+     * @param AgentStatus ONLINE 防护中; OFFLINE 已离线;UNINStALLED 未安装
+     */
+    public void setAgentStatus(String AgentStatus) {
+        this.AgentStatus = AgentStatus;
+    }
+
+    /**
+     * Get RUNNING 运行中; STOPED 已关机; EXPIRED 待回收	 
+     * @return InstanceStatus RUNNING 运行中; STOPED 已关机; EXPIRED 待回收	
+     */
+    public String getInstanceStatus() {
+        return this.InstanceStatus;
+    }
+
+    /**
+     * Set RUNNING 运行中; STOPED 已关机; EXPIRED 待回收	
+     * @param InstanceStatus RUNNING 运行中; STOPED 已关机; EXPIRED 待回收	
+     */
+    public void setInstanceStatus(String InstanceStatus) {
+        this.InstanceStatus = InstanceStatus;
+    }
+
+    /**
+     * Get 主机安全Uuid，若客户端长时间不在线将返回空字符。 
+     * @return Uuid 主机安全Uuid，若客户端长时间不在线将返回空字符。
      */
     public String getUuid() {
         return this.Uuid;
     }
 
     /**
-     * Set 云镜客户端唯一Uuid，若客户端长时间不在线将返回空字符。
-     * @param Uuid 云镜客户端唯一Uuid，若客户端长时间不在线将返回空字符。
+     * Set 主机安全Uuid，若客户端长时间不在线将返回空字符。
+     * @param Uuid 主机安全Uuid，若客户端长时间不在线将返回空字符。
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
@@ -669,26 +690,24 @@ public class Machine extends AbstractModel{
     }
 
     /**
-     * Get 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版 
-     * @return ProtectType 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
+     * Get 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版 
+     * @return ProtectType 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
      */
     public String getProtectType() {
         return this.ProtectType;
     }
 
     /**
-     * Set 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
-     * @param ProtectType 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 普惠版
+     * Set 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
+     * @param ProtectType 防护版本：BASIC_VERSION 基础版， PRO_VERSION 专业版，Flagship 旗舰版，GENERAL_DISCOUNT 轻量版
      */
     public void setProtectType(String ProtectType) {
         this.ProtectType = ProtectType;
     }
 
     /**
-     * Get 云标签信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云标签信息 
      * @return CloudTags 云标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tags [] getCloudTags() {
         return this.CloudTags;
@@ -696,19 +715,15 @@ public class Machine extends AbstractModel{
 
     /**
      * Set 云标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CloudTags 云标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCloudTags(Tags [] CloudTags) {
         this.CloudTags = CloudTags;
     }
 
     /**
-     * Get 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机 
      * @return IsAddedOnTheFifteen 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsAddedOnTheFifteen() {
         return this.IsAddedOnTheFifteen;
@@ -716,19 +731,15 @@ public class Machine extends AbstractModel{
 
     /**
      * Set 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsAddedOnTheFifteen 是否15天内新增的主机 0：非15天内新增的主机，1：15天内增加的主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsAddedOnTheFifteen(Long IsAddedOnTheFifteen) {
         this.IsAddedOnTheFifteen = IsAddedOnTheFifteen;
     }
 
     /**
-     * Get 主机ip列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机ip列表 
      * @return IpList 主机ip列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIpList() {
         return this.IpList;
@@ -736,19 +747,15 @@ public class Machine extends AbstractModel{
 
     /**
      * Set 主机ip列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IpList 主机ip列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIpList(String IpList) {
         this.IpList = IpList;
     }
 
     /**
-     * Get 所属网络
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属网络 
      * @return VpcId 所属网络
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -756,19 +763,15 @@ public class Machine extends AbstractModel{
 
     /**
      * Set 所属网络
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId 所属网络
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 附加信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 附加信息 
      * @return MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -776,9 +779,7 @@ public class Machine extends AbstractModel{
 
     /**
      * Set 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
@@ -801,10 +802,8 @@ public class Machine extends AbstractModel{
     }
 
     /**
-     * Get 备注信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注信息 
      * @return Remark 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -812,9 +811,7 @@ public class Machine extends AbstractModel{
 
     /**
      * Set 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
@@ -836,6 +833,12 @@ public class Machine extends AbstractModel{
         }
         if (source.MachineStatus != null) {
             this.MachineStatus = new String(source.MachineStatus);
+        }
+        if (source.AgentStatus != null) {
+            this.AgentStatus = new String(source.AgentStatus);
+        }
+        if (source.InstanceStatus != null) {
+            this.InstanceStatus = new String(source.InstanceStatus);
         }
         if (source.Uuid != null) {
             this.Uuid = new String(source.Uuid);
@@ -937,6 +940,8 @@ public class Machine extends AbstractModel{
         this.setParamSimple(map, prefix + "MachineName", this.MachineName);
         this.setParamSimple(map, prefix + "MachineOs", this.MachineOs);
         this.setParamSimple(map, prefix + "MachineStatus", this.MachineStatus);
+        this.setParamSimple(map, prefix + "AgentStatus", this.AgentStatus);
+        this.setParamSimple(map, prefix + "InstanceStatus", this.InstanceStatus);
         this.setParamSimple(map, prefix + "Uuid", this.Uuid);
         this.setParamSimple(map, prefix + "Quuid", this.Quuid);
         this.setParamSimple(map, prefix + "VulNum", this.VulNum);

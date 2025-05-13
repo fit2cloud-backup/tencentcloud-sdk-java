@@ -16,15 +16,15 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskInfoResponse extends AbstractModel{
+public class DescribeTaskInfoResponse extends AbstractModel {
 
     /**
     * 进行中的任务taskid（StartRecord接口返回）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskId")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeTaskInfoResponse extends AbstractModel{
 
     /**
     * 录制类型：1代表单流 2代表混流 3代表单流和混流。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RecordMode")
     @Expose
@@ -40,24 +39,21 @@ public class DescribeTaskInfoResponse extends AbstractModel{
 
     /**
     * 指定订阅流白名单或者黑名单。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubscribeRecordUserIds")
     @Expose
     private SubscribeRecordUserIds SubscribeRecordUserIds;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 进行中的任务taskid（StartRecord接口返回）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进行中的任务taskid（StartRecord接口返回）。 
      * @return TaskId 进行中的任务taskid（StartRecord接口返回）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskId() {
         return this.TaskId;
@@ -65,19 +61,15 @@ public class DescribeTaskInfoResponse extends AbstractModel{
 
     /**
      * Set 进行中的任务taskid（StartRecord接口返回）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskId 进行中的任务taskid（StartRecord接口返回）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskId(Long TaskId) {
         this.TaskId = TaskId;
     }
 
     /**
-     * Get 录制类型：1代表单流 2代表混流 3代表单流和混流。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 录制类型：1代表单流 2代表混流 3代表单流和混流。 
      * @return RecordMode 录制类型：1代表单流 2代表混流 3代表单流和混流。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRecordMode() {
         return this.RecordMode;
@@ -85,19 +77,15 @@ public class DescribeTaskInfoResponse extends AbstractModel{
 
     /**
      * Set 录制类型：1代表单流 2代表混流 3代表单流和混流。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RecordMode 录制类型：1代表单流 2代表混流 3代表单流和混流。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRecordMode(Long RecordMode) {
         this.RecordMode = RecordMode;
     }
 
     /**
-     * Get 指定订阅流白名单或者黑名单。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 指定订阅流白名单或者黑名单。 
      * @return SubscribeRecordUserIds 指定订阅流白名单或者黑名单。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SubscribeRecordUserIds getSubscribeRecordUserIds() {
         return this.SubscribeRecordUserIds;
@@ -105,25 +93,23 @@ public class DescribeTaskInfoResponse extends AbstractModel{
 
     /**
      * Set 指定订阅流白名单或者黑名单。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubscribeRecordUserIds 指定订阅流白名单或者黑名单。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubscribeRecordUserIds(SubscribeRecordUserIds SubscribeRecordUserIds) {
         this.SubscribeRecordUserIds = SubscribeRecordUserIds;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

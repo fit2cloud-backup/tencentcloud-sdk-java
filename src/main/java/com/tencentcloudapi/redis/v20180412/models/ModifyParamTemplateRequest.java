@@ -16,14 +16,15 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyParamTemplateRequest extends AbstractModel{
+public class ModifyParamTemplateRequest extends AbstractModel {
 
     /**
-    * 源参数模板 ID。
+    * 源参数模板 ID。 请通过接口[DescribeParamTemplateInfo](https://cloud.tencent.com/document/product/239/58748)的返回参数 **TemplateId** 获取参数模板 ID。 
     */
     @SerializedName("TemplateId")
     @Expose
@@ -51,16 +52,16 @@ public class ModifyParamTemplateRequest extends AbstractModel{
     private InstanceParam [] ParamList;
 
     /**
-     * Get 源参数模板 ID。 
-     * @return TemplateId 源参数模板 ID。
+     * Get 源参数模板 ID。 请通过接口[DescribeParamTemplateInfo](https://cloud.tencent.com/document/product/239/58748)的返回参数 **TemplateId** 获取参数模板 ID。  
+     * @return TemplateId 源参数模板 ID。 请通过接口[DescribeParamTemplateInfo](https://cloud.tencent.com/document/product/239/58748)的返回参数 **TemplateId** 获取参数模板 ID。 
      */
     public String getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 源参数模板 ID。
-     * @param TemplateId 源参数模板 ID。
+     * Set 源参数模板 ID。 请通过接口[DescribeParamTemplateInfo](https://cloud.tencent.com/document/product/239/58748)的返回参数 **TemplateId** 获取参数模板 ID。 
+     * @param TemplateId 源参数模板 ID。 请通过接口[DescribeParamTemplateInfo](https://cloud.tencent.com/document/product/239/58748)的返回参数 **TemplateId** 获取参数模板 ID。 
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;

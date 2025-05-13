@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CynosdbInstance extends AbstractModel{
+public class CynosdbInstance extends AbstractModel {
 
     /**
     * 用户Uin
@@ -313,7 +314,6 @@ pause
 
     /**
     * 预付费存储Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StorageId")
     @Expose
@@ -335,7 +335,6 @@ pause
 
     /**
     * 商业类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BusinessType")
     @Expose
@@ -343,7 +342,6 @@ pause
 
     /**
     * 任务
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tasks")
     @Expose
@@ -351,7 +349,6 @@ pause
 
     /**
     * 是否冻结
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsFreeze")
     @Expose
@@ -367,7 +364,6 @@ pause
 
     /**
     * 主可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MasterZone")
     @Expose
@@ -383,7 +379,6 @@ pause
 
     /**
     * 实例网络信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceNetInfo")
     @Expose
@@ -396,6 +391,48 @@ pause
     @SerializedName("ResourcePackages")
     @Expose
     private ResourcePackage [] ResourcePackages;
+
+    /**
+    * 实例索引形态,可选值【mixedRowColumn（行列混存），onlyRowIndex（仅行存）】
+    */
+    @SerializedName("InstanceIndexMode")
+    @Expose
+    private String InstanceIndexMode;
+
+    /**
+    * 当前实例支持的能力
+    */
+    @SerializedName("InstanceAbility")
+    @Expose
+    private InstanceAbility InstanceAbility;
+
+    /**
+    * 实例机器类型
+    */
+    @SerializedName("DeviceType")
+    @Expose
+    private String DeviceType;
+
+    /**
+    * 实例存储类型
+    */
+    @SerializedName("InstanceStorageType")
+    @Expose
+    private String InstanceStorageType;
+
+    /**
+    * 未知字段
+    */
+    @SerializedName("CynosVersionTag")
+    @Expose
+    private String CynosVersionTag;
+
+    /**
+    * libradb 节点信息
+    */
+    @SerializedName("NodeList")
+    @Expose
+    private String [] NodeList;
 
     /**
      * Get 用户Uin 
@@ -1062,10 +1099,8 @@ pause
     }
 
     /**
-     * Get 预付费存储Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预付费存储Id 
      * @return StorageId 预付费存储Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStorageId() {
         return this.StorageId;
@@ -1073,9 +1108,7 @@ pause
 
     /**
      * Set 预付费存储Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StorageId 预付费存储Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStorageId(String StorageId) {
         this.StorageId = StorageId;
@@ -1114,10 +1147,8 @@ pause
     }
 
     /**
-     * Get 商业类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商业类型 
      * @return BusinessType 商业类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBusinessType() {
         return this.BusinessType;
@@ -1125,19 +1156,15 @@ pause
 
     /**
      * Set 商业类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BusinessType 商业类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBusinessType(String BusinessType) {
         this.BusinessType = BusinessType;
     }
 
     /**
-     * Get 任务
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务 
      * @return Tasks 任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ObjectTask [] getTasks() {
         return this.Tasks;
@@ -1145,19 +1172,15 @@ pause
 
     /**
      * Set 任务
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tasks 任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTasks(ObjectTask [] Tasks) {
         this.Tasks = Tasks;
     }
 
     /**
-     * Get 是否冻结
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否冻结 
      * @return IsFreeze 是否冻结
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIsFreeze() {
         return this.IsFreeze;
@@ -1165,9 +1188,7 @@ pause
 
     /**
      * Set 是否冻结
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsFreeze 是否冻结
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsFreeze(String IsFreeze) {
         this.IsFreeze = IsFreeze;
@@ -1194,10 +1215,8 @@ pause
     }
 
     /**
-     * Get 主可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主可用区 
      * @return MasterZone 主可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMasterZone() {
         return this.MasterZone;
@@ -1205,9 +1224,7 @@ pause
 
     /**
      * Set 主可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MasterZone 主可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMasterZone(String MasterZone) {
         this.MasterZone = MasterZone;
@@ -1234,10 +1251,8 @@ pause
     }
 
     /**
-     * Get 实例网络信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例网络信息 
      * @return InstanceNetInfo 实例网络信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InstanceNetInfo [] getInstanceNetInfo() {
         return this.InstanceNetInfo;
@@ -1245,9 +1260,7 @@ pause
 
     /**
      * Set 实例网络信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceNetInfo 实例网络信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceNetInfo(InstanceNetInfo [] InstanceNetInfo) {
         this.InstanceNetInfo = InstanceNetInfo;
@@ -1271,6 +1284,102 @@ pause
      */
     public void setResourcePackages(ResourcePackage [] ResourcePackages) {
         this.ResourcePackages = ResourcePackages;
+    }
+
+    /**
+     * Get 实例索引形态,可选值【mixedRowColumn（行列混存），onlyRowIndex（仅行存）】 
+     * @return InstanceIndexMode 实例索引形态,可选值【mixedRowColumn（行列混存），onlyRowIndex（仅行存）】
+     */
+    public String getInstanceIndexMode() {
+        return this.InstanceIndexMode;
+    }
+
+    /**
+     * Set 实例索引形态,可选值【mixedRowColumn（行列混存），onlyRowIndex（仅行存）】
+     * @param InstanceIndexMode 实例索引形态,可选值【mixedRowColumn（行列混存），onlyRowIndex（仅行存）】
+     */
+    public void setInstanceIndexMode(String InstanceIndexMode) {
+        this.InstanceIndexMode = InstanceIndexMode;
+    }
+
+    /**
+     * Get 当前实例支持的能力 
+     * @return InstanceAbility 当前实例支持的能力
+     */
+    public InstanceAbility getInstanceAbility() {
+        return this.InstanceAbility;
+    }
+
+    /**
+     * Set 当前实例支持的能力
+     * @param InstanceAbility 当前实例支持的能力
+     */
+    public void setInstanceAbility(InstanceAbility InstanceAbility) {
+        this.InstanceAbility = InstanceAbility;
+    }
+
+    /**
+     * Get 实例机器类型 
+     * @return DeviceType 实例机器类型
+     */
+    public String getDeviceType() {
+        return this.DeviceType;
+    }
+
+    /**
+     * Set 实例机器类型
+     * @param DeviceType 实例机器类型
+     */
+    public void setDeviceType(String DeviceType) {
+        this.DeviceType = DeviceType;
+    }
+
+    /**
+     * Get 实例存储类型 
+     * @return InstanceStorageType 实例存储类型
+     */
+    public String getInstanceStorageType() {
+        return this.InstanceStorageType;
+    }
+
+    /**
+     * Set 实例存储类型
+     * @param InstanceStorageType 实例存储类型
+     */
+    public void setInstanceStorageType(String InstanceStorageType) {
+        this.InstanceStorageType = InstanceStorageType;
+    }
+
+    /**
+     * Get 未知字段 
+     * @return CynosVersionTag 未知字段
+     */
+    public String getCynosVersionTag() {
+        return this.CynosVersionTag;
+    }
+
+    /**
+     * Set 未知字段
+     * @param CynosVersionTag 未知字段
+     */
+    public void setCynosVersionTag(String CynosVersionTag) {
+        this.CynosVersionTag = CynosVersionTag;
+    }
+
+    /**
+     * Get libradb 节点信息 
+     * @return NodeList libradb 节点信息
+     */
+    public String [] getNodeList() {
+        return this.NodeList;
+    }
+
+    /**
+     * Set libradb 节点信息
+     * @param NodeList libradb 节点信息
+     */
+    public void setNodeList(String [] NodeList) {
+        this.NodeList = NodeList;
     }
 
     public CynosdbInstance() {
@@ -1452,6 +1561,27 @@ pause
                 this.ResourcePackages[i] = new ResourcePackage(source.ResourcePackages[i]);
             }
         }
+        if (source.InstanceIndexMode != null) {
+            this.InstanceIndexMode = new String(source.InstanceIndexMode);
+        }
+        if (source.InstanceAbility != null) {
+            this.InstanceAbility = new InstanceAbility(source.InstanceAbility);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
+        if (source.InstanceStorageType != null) {
+            this.InstanceStorageType = new String(source.InstanceStorageType);
+        }
+        if (source.CynosVersionTag != null) {
+            this.CynosVersionTag = new String(source.CynosVersionTag);
+        }
+        if (source.NodeList != null) {
+            this.NodeList = new String[source.NodeList.length];
+            for (int i = 0; i < source.NodeList.length; i++) {
+                this.NodeList[i] = new String(source.NodeList[i]);
+            }
+        }
     }
 
 
@@ -1511,6 +1641,12 @@ pause
         this.setParamArraySimple(map, prefix + "SlaveZones.", this.SlaveZones);
         this.setParamArrayObj(map, prefix + "InstanceNetInfo.", this.InstanceNetInfo);
         this.setParamArrayObj(map, prefix + "ResourcePackages.", this.ResourcePackages);
+        this.setParamSimple(map, prefix + "InstanceIndexMode", this.InstanceIndexMode);
+        this.setParamObj(map, prefix + "InstanceAbility.", this.InstanceAbility);
+        this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
+        this.setParamSimple(map, prefix + "InstanceStorageType", this.InstanceStorageType);
+        this.setParamSimple(map, prefix + "CynosVersionTag", this.CynosVersionTag);
+        this.setParamArraySimple(map, prefix + "NodeList.", this.NodeList);
 
     }
 }

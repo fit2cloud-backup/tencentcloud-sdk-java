@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyInstancesBundleRequest extends AbstractModel{
+public class ModifyInstancesBundleRequest extends AbstractModel {
 
     /**
     * 实例ID列表。一个或多个待操作的实例ID。可通过[DescribeInstances](https://cloud.tencent.com/document/api/1207/47573)接口返回值中的InstanceId获取。每次请求批量实例的上限为15。
@@ -30,7 +31,7 @@ public class ModifyInstancesBundleRequest extends AbstractModel{
     private String [] InstanceIds;
 
     /**
-    * 待变更的套餐Id。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
+    * 待变更的套餐Id。注意不可和当前要升配的实例套餐ID相同。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
     */
     @SerializedName("BundleId")
     @Expose
@@ -63,16 +64,16 @@ false：表示不自动抵扣代金券
     }
 
     /**
-     * Get 待变更的套餐Id。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。 
-     * @return BundleId 待变更的套餐Id。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
+     * Get 待变更的套餐Id。注意不可和当前要升配的实例套餐ID相同。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。 
+     * @return BundleId 待变更的套餐Id。注意不可和当前要升配的实例套餐ID相同。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
      */
     public String getBundleId() {
         return this.BundleId;
     }
 
     /**
-     * Set 待变更的套餐Id。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
-     * @param BundleId 待变更的套餐Id。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
+     * Set 待变更的套餐Id。注意不可和当前要升配的实例套餐ID相同。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
+     * @param BundleId 待变更的套餐Id。注意不可和当前要升配的实例套餐ID相同。可通过[DescribeBundles](https://cloud.tencent.com/document/api/1207/47575)接口返回值中的BundleId获取。
      */
     public void setBundleId(String BundleId) {
         this.BundleId = BundleId;

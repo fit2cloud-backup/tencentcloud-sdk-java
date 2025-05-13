@@ -16,14 +16,15 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Backend extends AbstractModel{
+public class Backend extends AbstractModel {
 
     /**
-    * 后端服务的类型，可取：CVM、ENI
+    * 后端服务的类型，可取：CVM、ENI、CCN、EVM、GLOBALROUTE、NAT、SRV等
     */
     @SerializedName("Type")
     @Expose
@@ -37,7 +38,7 @@ public class Backend extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 后端服务的监听端口
+    * 后端服务的监听端口，如果是全端口段监听器绑定的全监听目标组场景，此端口返回0，表示无效端口，绑定的后端服务的端口随监听器端口。
     */
     @SerializedName("Port")
     @Expose
@@ -60,7 +61,6 @@ public class Backend extends AbstractModel{
 
     /**
     * 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PrivateIpAddresses")
     @Expose
@@ -76,7 +76,6 @@ public class Backend extends AbstractModel{
 
     /**
     * 后端服务被绑定的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegisteredTime")
     @Expose
@@ -91,16 +90,23 @@ public class Backend extends AbstractModel{
     private String EniId;
 
     /**
-     * Get 后端服务的类型，可取：CVM、ENI 
-     * @return Type 后端服务的类型，可取：CVM、ENI
+    * 标签。
+    */
+    @SerializedName("Tag")
+    @Expose
+    private String Tag;
+
+    /**
+     * Get 后端服务的类型，可取：CVM、ENI、CCN、EVM、GLOBALROUTE、NAT、SRV等 
+     * @return Type 后端服务的类型，可取：CVM、ENI、CCN、EVM、GLOBALROUTE、NAT、SRV等
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 后端服务的类型，可取：CVM、ENI
-     * @param Type 后端服务的类型，可取：CVM、ENI
+     * Set 后端服务的类型，可取：CVM、ENI、CCN、EVM、GLOBALROUTE、NAT、SRV等
+     * @param Type 后端服务的类型，可取：CVM、ENI、CCN、EVM、GLOBALROUTE、NAT、SRV等
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -123,16 +129,16 @@ public class Backend extends AbstractModel{
     }
 
     /**
-     * Get 后端服务的监听端口 
-     * @return Port 后端服务的监听端口
+     * Get 后端服务的监听端口，如果是全端口段监听器绑定的全监听目标组场景，此端口返回0，表示无效端口，绑定的后端服务的端口随监听器端口。 
+     * @return Port 后端服务的监听端口，如果是全端口段监听器绑定的全监听目标组场景，此端口返回0，表示无效端口，绑定的后端服务的端口随监听器端口。
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 后端服务的监听端口
-     * @param Port 后端服务的监听端口
+     * Set 后端服务的监听端口，如果是全端口段监听器绑定的全监听目标组场景，此端口返回0，表示无效端口，绑定的后端服务的端口随监听器端口。
+     * @param Port 后端服务的监听端口，如果是全端口段监听器绑定的全监听目标组场景，此端口返回0，表示无效端口，绑定的后端服务的端口随监听器端口。
      */
     public void setPort(Long Port) {
         this.Port = Port;
@@ -175,10 +181,8 @@ public class Backend extends AbstractModel{
     }
 
     /**
-     * Get 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端服务的内网 IP 
      * @return PrivateIpAddresses 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getPrivateIpAddresses() {
         return this.PrivateIpAddresses;
@@ -186,9 +190,7 @@ public class Backend extends AbstractModel{
 
     /**
      * Set 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PrivateIpAddresses 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrivateIpAddresses(String [] PrivateIpAddresses) {
         this.PrivateIpAddresses = PrivateIpAddresses;
@@ -215,10 +217,8 @@ public class Backend extends AbstractModel{
     }
 
     /**
-     * Get 后端服务被绑定的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端服务被绑定的时间 
      * @return RegisteredTime 后端服务被绑定的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegisteredTime() {
         return this.RegisteredTime;
@@ -226,9 +226,7 @@ public class Backend extends AbstractModel{
 
     /**
      * Set 后端服务被绑定的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegisteredTime 后端服务被绑定的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegisteredTime(String RegisteredTime) {
         this.RegisteredTime = RegisteredTime;
@@ -252,6 +250,22 @@ public class Backend extends AbstractModel{
      */
     public void setEniId(String EniId) {
         this.EniId = EniId;
+    }
+
+    /**
+     * Get 标签。 
+     * @return Tag 标签。
+     */
+    public String getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 标签。
+     * @param Tag 标签。
+     */
+    public void setTag(String Tag) {
+        this.Tag = Tag;
     }
 
     public Backend() {
@@ -295,6 +309,9 @@ public class Backend extends AbstractModel{
         if (source.EniId != null) {
             this.EniId = new String(source.EniId);
         }
+        if (source.Tag != null) {
+            this.Tag = new String(source.Tag);
+        }
     }
 
 
@@ -311,6 +328,7 @@ public class Backend extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
         this.setParamSimple(map, prefix + "RegisteredTime", this.RegisteredTime);
         this.setParamSimple(map, prefix + "EniId", this.EniId);
+        this.setParamSimple(map, prefix + "Tag", this.Tag);
 
     }
 }

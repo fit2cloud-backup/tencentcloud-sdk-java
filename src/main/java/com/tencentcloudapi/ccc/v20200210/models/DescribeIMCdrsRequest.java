@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIMCdrsRequest extends AbstractModel{
+public class DescribeIMCdrsRequest extends AbstractModel {
 
     /**
     * 起始时间（必填），Unix 秒级时间戳
@@ -106,7 +107,9 @@ public class DescribeIMCdrsRequest extends AbstractModel{
     /**
      * Get 实例 ID（废弃） 
      * @return InstanceId 实例 ID（废弃）
+     * @deprecated
      */
+    @Deprecated
     public Long getInstanceId() {
         return this.InstanceId;
     }
@@ -114,7 +117,9 @@ public class DescribeIMCdrsRequest extends AbstractModel{
     /**
      * Set 实例 ID（废弃）
      * @param InstanceId 实例 ID（废弃）
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceId(Long InstanceId) {
         this.InstanceId = InstanceId;
     }

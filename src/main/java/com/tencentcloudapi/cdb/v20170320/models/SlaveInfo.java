@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlaveInfo extends AbstractModel{
+public class SlaveInfo extends AbstractModel {
 
     /**
     * 第一备机信息
@@ -31,7 +32,6 @@ public class SlaveInfo extends AbstractModel{
 
     /**
     * 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Second")
     @Expose
@@ -54,10 +54,8 @@ public class SlaveInfo extends AbstractModel{
     }
 
     /**
-     * Get 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 第二备机信息 
      * @return Second 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SlaveInstanceInfo getSecond() {
         return this.Second;
@@ -65,9 +63,7 @@ public class SlaveInfo extends AbstractModel{
 
     /**
      * Set 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Second 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecond(SlaveInstanceInfo Second) {
         this.Second = Second;

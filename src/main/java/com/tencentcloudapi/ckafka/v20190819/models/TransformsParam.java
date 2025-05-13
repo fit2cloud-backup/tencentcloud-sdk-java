@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TransformsParam extends AbstractModel{
+public class TransformsParam extends AbstractModel {
 
     /**
     * 原始数据
@@ -38,7 +39,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 过滤器
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FilterParam")
     @Expose
@@ -46,7 +46,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 失败处理
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailureParam")
     @Expose
@@ -54,7 +53,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 测试结果
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Result")
     @Expose
@@ -62,7 +60,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 数据来源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SourceType")
     @Expose
@@ -70,7 +67,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 输出格式，JSON，ROW，默认为JSON
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutputFormat")
     @Expose
@@ -78,7 +74,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 输出格式为ROW必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RowParam")
     @Expose
@@ -86,7 +81,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 是否保留数据源Topic元数据信息（源Topic、Partition、Offset），默认为false
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeepMetadata")
     @Expose
@@ -94,7 +88,6 @@ public class TransformsParam extends AbstractModel{
 
     /**
     * 数组解析
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchAnalyse")
     @Expose
@@ -133,10 +126,8 @@ public class TransformsParam extends AbstractModel{
     }
 
     /**
-     * Get 过滤器
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 过滤器 
      * @return FilterParam 过滤器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterMapParam [] getFilterParam() {
         return this.FilterParam;
@@ -144,19 +135,15 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 过滤器
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FilterParam 过滤器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFilterParam(FilterMapParam [] FilterParam) {
         this.FilterParam = FilterParam;
     }
 
     /**
-     * Get 失败处理
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 失败处理 
      * @return FailureParam 失败处理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FailureParam getFailureParam() {
         return this.FailureParam;
@@ -164,19 +151,15 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 失败处理
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailureParam 失败处理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailureParam(FailureParam FailureParam) {
         this.FailureParam = FailureParam;
     }
 
     /**
-     * Get 测试结果
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 测试结果 
      * @return Result 测试结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResult() {
         return this.Result;
@@ -184,19 +167,15 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 测试结果
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Result 测试结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResult(String Result) {
         this.Result = Result;
     }
 
     /**
-     * Get 数据来源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据来源 
      * @return SourceType 数据来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSourceType() {
         return this.SourceType;
@@ -204,19 +183,15 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 数据来源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SourceType 数据来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSourceType(String SourceType) {
         this.SourceType = SourceType;
     }
 
     /**
-     * Get 输出格式，JSON，ROW，默认为JSON
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出格式，JSON，ROW，默认为JSON 
      * @return OutputFormat 输出格式，JSON，ROW，默认为JSON
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOutputFormat() {
         return this.OutputFormat;
@@ -224,19 +199,15 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 输出格式，JSON，ROW，默认为JSON
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OutputFormat 输出格式，JSON，ROW，默认为JSON
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutputFormat(String OutputFormat) {
         this.OutputFormat = OutputFormat;
     }
 
     /**
-     * Get 输出格式为ROW必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出格式为ROW必填 
      * @return RowParam 输出格式为ROW必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RowParam getRowParam() {
         return this.RowParam;
@@ -244,19 +215,15 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 输出格式为ROW必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RowParam 输出格式为ROW必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRowParam(RowParam RowParam) {
         this.RowParam = RowParam;
     }
 
     /**
-     * Get 是否保留数据源Topic元数据信息（源Topic、Partition、Offset），默认为false
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否保留数据源Topic元数据信息（源Topic、Partition、Offset），默认为false 
      * @return KeepMetadata 是否保留数据源Topic元数据信息（源Topic、Partition、Offset），默认为false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getKeepMetadata() {
         return this.KeepMetadata;
@@ -264,19 +231,15 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 是否保留数据源Topic元数据信息（源Topic、Partition、Offset），默认为false
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KeepMetadata 是否保留数据源Topic元数据信息（源Topic、Partition、Offset），默认为false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeepMetadata(Boolean KeepMetadata) {
         this.KeepMetadata = KeepMetadata;
     }
 
     /**
-     * Get 数组解析
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数组解析 
      * @return BatchAnalyse 数组解析
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BatchAnalyseParam getBatchAnalyse() {
         return this.BatchAnalyse;
@@ -284,9 +247,7 @@ public class TransformsParam extends AbstractModel{
 
     /**
      * Set 数组解析
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchAnalyse 数组解析
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchAnalyse(BatchAnalyseParam BatchAnalyse) {
         this.BatchAnalyse = BatchAnalyse;

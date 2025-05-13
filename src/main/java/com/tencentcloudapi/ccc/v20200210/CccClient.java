@@ -39,45 +39,73 @@ public class CccClient extends AbstractClient{
     }
 
     /**
+     *停止座席巡航式外呼任务
+     * @param req AbortAgentCruiseDialingCampaignRequest
+     * @return AbortAgentCruiseDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public AbortAgentCruiseDialingCampaignResponse AbortAgentCruiseDialingCampaign(AbortAgentCruiseDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "AbortAgentCruiseDialingCampaign", AbortAgentCruiseDialingCampaignResponse.class);
+    }
+
+    /**
+     *停止预测式外呼任务
+     * @param req AbortPredictiveDialingCampaignRequest
+     * @return AbortPredictiveDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public AbortPredictiveDialingCampaignResponse AbortPredictiveDialingCampaign(AbortPredictiveDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "AbortPredictiveDialingCampaign", AbortPredictiveDialingCampaignResponse.class);
+    }
+
+    /**
      *绑定号码外呼技能组
      * @param req BindNumberCallOutSkillGroupRequest
      * @return BindNumberCallOutSkillGroupResponse
      * @throws TencentCloudSDKException
      */
     public BindNumberCallOutSkillGroupResponse BindNumberCallOutSkillGroup(BindNumberCallOutSkillGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<BindNumberCallOutSkillGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<BindNumberCallOutSkillGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "BindNumberCallOutSkillGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "BindNumberCallOutSkillGroup", BindNumberCallOutSkillGroupResponse.class);
     }
 
     /**
-     *绑定坐席所属技能组
+     *绑定座席所属技能组
      * @param req BindStaffSkillGroupListRequest
      * @return BindStaffSkillGroupListResponse
      * @throws TencentCloudSDKException
      */
     public BindStaffSkillGroupListResponse BindStaffSkillGroupList(BindStaffSkillGroupListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<BindStaffSkillGroupListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<BindStaffSkillGroupListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "BindStaffSkillGroupList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "BindStaffSkillGroupList", BindStaffSkillGroupListResponse.class);
+    }
+
+    /**
+     *用于调用AI模型发起外呼通话，仅限自有电话号码使用，目前开通高级版座席**限时**免费体验。
+
+发起通话前，请先确认您的AI模型是否兼容 OpenAI、Azure 或 Minimax 协议，并前往模型服务商网站获取相关鉴权信息。 具体功能说明请参考文档 [腾讯云联络中心AI通话平台](https://cloud.tencent.com/document/product/679/112100)。
+     * @param req CreateAIAgentCallRequest
+     * @return CreateAIAgentCallResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAIAgentCallResponse CreateAIAgentCall(CreateAIAgentCallRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateAIAgentCall", CreateAIAgentCallResponse.class);
+    }
+
+    /**
+     *用于调用AI模型发起外呼通话，仅限自有电话号码使用，目前开通高级版座席**限时**免费体验。
+
+发起通话前，请先确认您的AI模型是否兼容 OpenAI、Azure 或 Minimax 协议，并前往模型服务商网站获取相关鉴权信息。 具体功能说明请参考文档 [腾讯云联络中心AI通话平台](https://cloud.tencent.com/document/product/679/112100)。
+     * @param req CreateAICallRequest
+     * @return CreateAICallResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAICallResponse CreateAICall(CreateAICallRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateAICall", CreateAICallResponse.class);
     }
 
     /**
@@ -87,18 +115,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAdminURLResponse CreateAdminURL(CreateAdminURLRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAdminURLResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAdminURLResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAdminURL");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAdminURL", CreateAdminURLResponse.class);
+    }
+
+    /**
+     *座席巡航式外呼。
+     * @param req CreateAgentCruiseDialingCampaignRequest
+     * @return CreateAgentCruiseDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAgentCruiseDialingCampaignResponse CreateAgentCruiseDialingCampaign(CreateAgentCruiseDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateAgentCruiseDialingCampaign", CreateAgentCruiseDialingCampaignResponse.class);
     }
 
     /**
@@ -108,60 +137,34 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAutoCalloutTaskResponse CreateAutoCalloutTask(CreateAutoCalloutTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAutoCalloutTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAutoCalloutTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAutoCalloutTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAutoCalloutTask", CreateAutoCalloutTaskResponse.class);
     }
 
     /**
-     *创建技能组
+     *新建技能组
      * @param req CreateCCCSkillGroupRequest
      * @return CreateCCCSkillGroupResponse
      * @throws TencentCloudSDKException
      */
     public CreateCCCSkillGroupResponse CreateCCCSkillGroup(CreateCCCSkillGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCCCSkillGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCCCSkillGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCCCSkillGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCCCSkillGroup", CreateCCCSkillGroupResponse.class);
     }
 
     /**
-     *创建外呼会话，当前仅支持双呼，即先使用平台号码呼出到坐席手机上，坐席接听后，然后再外呼用户，而且由于运营商频率限制，坐席手机号必须先加白名单，避免频控导致外呼失败。
+     *创建外呼会话，当前仅支持双呼，即先使用平台号码呼出到座席手机上，座席接听后，然后再外呼用户，而且由于运营商频率限制，座席手机号必须先加白名单，避免频控导致外呼失败。所以调用此接口前，下述操作均已完成
+1. UserId 指定的座席已经[绑定手机号](https://cloud.tencent.com/document/product/679/76067#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AE.8C.E5.96.84.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF)
+2. 座席绑定的手机号已经[申请并通过了外呼白名单](https://cloud.tencent.com/document/product/679/76744#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)
+3. 当前座席侧只能呼叫其手机，所以 IsForceMobile 字段当前必须为 true
+4. 被叫不要填当前 UserId 所绑定的手机号，否则会造成占线呼叫失败
      * @param req CreateCallOutSessionRequest
      * @return CreateCallOutSessionResponse
      * @throws TencentCloudSDKException
      */
     public CreateCallOutSessionResponse CreateCallOutSession(CreateCallOutSessionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCallOutSessionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCallOutSessionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCallOutSession");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCallOutSession", CreateCallOutSessionResponse.class);
     }
 
     /**
@@ -171,18 +174,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateCarrierPrivilegeNumberApplicantResponse CreateCarrierPrivilegeNumberApplicant(CreateCarrierPrivilegeNumberApplicantRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCarrierPrivilegeNumberApplicantResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCarrierPrivilegeNumberApplicantResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCarrierPrivilegeNumberApplicant");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCarrierPrivilegeNumberApplicant", CreateCarrierPrivilegeNumberApplicantResponse.class);
+    }
+
+    /**
+     *创建公司资质申请（1、首次使用接口，建议先在云联络中心控制台查看各个资料模板:https://console.cloud.tencent.com/ccc/enterprise/update。2、参数中图片Url建议使用腾讯云Cos存储的临时链接）
+     * @param req CreateCompanyApplyRequest
+     * @return CreateCompanyApplyResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCompanyApplyResponse CreateCompanyApply(CreateCompanyApplyRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateCompanyApply", CreateCompanyApplyResponse.class);
     }
 
     /**
@@ -192,18 +196,41 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateExtensionResponse CreateExtension(CreateExtensionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateExtensionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateExtensionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateExtension");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateExtension", CreateExtensionResponse.class);
+    }
+
+    /**
+     *创建关联 IVR 的会话，仅高级版支持，目前支持呼入和自动外呼两种 IVR 类型。收到请求后 TCCC 会先尝试呼通被叫，然后进入 IVR 流程。
+     * @param req CreateIVRSessionRequest
+     * @return CreateIVRSessionResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateIVRSessionResponse CreateIVRSession(CreateIVRSessionRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateIVRSession", CreateIVRSessionResponse.class);
+    }
+
+    /**
+     *创建客户自携号码接入审核
+     * @param req CreateOwnNumberApplyRequest
+     * @return CreateOwnNumberApplyResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateOwnNumberApplyResponse CreateOwnNumberApply(CreateOwnNumberApplyRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateOwnNumberApply", CreateOwnNumberApplyResponse.class);
+    }
+
+    /**
+     *创建预测式外呼任务
+     * @param req CreatePredictiveDialingCampaignRequest
+     * @return CreatePredictiveDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePredictiveDialingCampaignResponse CreatePredictiveDialingCampaign(CreatePredictiveDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreatePredictiveDialingCampaign", CreatePredictiveDialingCampaignResponse.class);
     }
 
     /**
@@ -213,18 +240,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSDKLoginTokenResponse CreateSDKLoginToken(CreateSDKLoginTokenRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSDKLoginTokenResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSDKLoginTokenResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSDKLoginToken");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSDKLoginToken", CreateSDKLoginTokenResponse.class);
     }
 
     /**
@@ -234,18 +251,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateStaffResponse CreateStaff(CreateStaffRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateStaffResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateStaffResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateStaff");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateStaff", CreateStaffResponse.class);
     }
 
     /**
@@ -255,18 +262,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateUserSigResponse CreateUserSig(CreateUserSigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateUserSigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateUserSigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateUserSig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateUserSig", CreateUserSigResponse.class);
+    }
+
+    /**
+     *删除技能组
+     * @param req DeleteCCCSkillGroupRequest
+     * @return DeleteCCCSkillGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCCCSkillGroupResponse DeleteCCCSkillGroup(DeleteCCCSkillGroupRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteCCCSkillGroup", DeleteCCCSkillGroupResponse.class);
     }
 
     /**
@@ -276,18 +284,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteExtensionResponse DeleteExtension(DeleteExtensionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteExtensionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteExtensionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteExtension");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteExtension", DeleteExtensionResponse.class);
+    }
+
+    /**
+     *删除预测式外呼任务
+     * @param req DeletePredictiveDialingCampaignRequest
+     * @return DeletePredictiveDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeletePredictiveDialingCampaignResponse DeletePredictiveDialingCampaign(DeletePredictiveDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeletePredictiveDialingCampaign", DeletePredictiveDialingCampaignResponse.class);
     }
 
     /**
@@ -297,18 +306,30 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteStaffResponse DeleteStaff(DeleteStaffRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteStaffResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteStaffResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteStaff");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteStaff", DeleteStaffResponse.class);
+    }
+
+    /**
+     *获取 AI 通话内容提取结果。
+     * @param req DescribeAICallExtractResultRequest
+     * @return DescribeAICallExtractResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAICallExtractResultResponse DescribeAICallExtractResult(DescribeAICallExtractResultRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeAICallExtractResult", DescribeAICallExtractResultResponse.class);
+    }
+
+    /**
+     *获取 AI 时延信息
+     * @param req DescribeAILatencyRequest
+     * @return DescribeAILatencyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAILatencyResponse DescribeAILatency(DescribeAILatencyRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeAILatency", DescribeAILatencyResponse.class);
     }
 
     /**
@@ -318,18 +339,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeActiveCarrierPrivilegeNumberResponse DescribeActiveCarrierPrivilegeNumber(DescribeActiveCarrierPrivilegeNumberRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeActiveCarrierPrivilegeNumberResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeActiveCarrierPrivilegeNumberResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeActiveCarrierPrivilegeNumber");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeActiveCarrierPrivilegeNumber", DescribeActiveCarrierPrivilegeNumberResponse.class);
+    }
+
+    /**
+     *查询 座席巡航式外呼任务
+     * @param req DescribeAgentCruiseDialingCampaignRequest
+     * @return DescribeAgentCruiseDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAgentCruiseDialingCampaignResponse DescribeAgentCruiseDialingCampaign(DescribeAgentCruiseDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeAgentCruiseDialingCampaign", DescribeAgentCruiseDialingCampaignResponse.class);
     }
 
     /**
@@ -339,39 +361,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAutoCalloutTaskResponse DescribeAutoCalloutTask(DescribeAutoCalloutTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAutoCalloutTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAutoCalloutTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAutoCalloutTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAutoCalloutTask", DescribeAutoCalloutTaskResponse.class);
     }
 
     /**
-     *批量查询自动任务外呼
+     *批量查询自动外呼任务
      * @param req DescribeAutoCalloutTasksRequest
      * @return DescribeAutoCalloutTasksResponse
      * @throws TencentCloudSDKException
      */
     public DescribeAutoCalloutTasksResponse DescribeAutoCalloutTasks(DescribeAutoCalloutTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAutoCalloutTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAutoCalloutTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAutoCalloutTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAutoCalloutTasks", DescribeAutoCalloutTasksResponse.class);
     }
 
     /**
@@ -381,18 +383,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCCCBuyInfoListResponse DescribeCCCBuyInfoList(DescribeCCCBuyInfoListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCCCBuyInfoListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCCCBuyInfoListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCCCBuyInfoList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCCCBuyInfoList", DescribeCCCBuyInfoListResponse.class);
     }
 
     /**
@@ -402,18 +394,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCallInMetricsResponse DescribeCallInMetrics(DescribeCallInMetricsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCallInMetricsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCallInMetricsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCallInMetrics");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCallInMetrics", DescribeCallInMetricsResponse.class);
     }
 
     /**
@@ -423,18 +405,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCarrierPrivilegeNumberApplicantsResponse DescribeCarrierPrivilegeNumberApplicants(DescribeCarrierPrivilegeNumberApplicantsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCarrierPrivilegeNumberApplicantsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCarrierPrivilegeNumberApplicantsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCarrierPrivilegeNumberApplicants");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCarrierPrivilegeNumberApplicants", DescribeCarrierPrivilegeNumberApplicantsResponse.class);
     }
 
     /**
@@ -446,18 +418,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeChatMessagesResponse DescribeChatMessages(DescribeChatMessagesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeChatMessagesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeChatMessagesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeChatMessages");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeChatMessages", DescribeChatMessagesResponse.class);
+    }
+
+    /**
+     *查询公司资质申请列表
+     * @param req DescribeCompanyListRequest
+     * @return DescribeCompanyListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCompanyListResponse DescribeCompanyList(DescribeCompanyListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCompanyList", DescribeCompanyListResponse.class);
     }
 
     /**
@@ -467,18 +440,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeExtensionResponse DescribeExtension(DescribeExtensionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeExtensionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeExtensionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeExtension");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeExtension", DescribeExtensionResponse.class);
     }
 
     /**
@@ -488,18 +451,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeExtensionsResponse DescribeExtensions(DescribeExtensionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeExtensionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeExtensionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeExtensions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeExtensions", DescribeExtensionsResponse.class);
+    }
+
+    /**
+     *获取包括全媒体和文本会话两种类型的服务记录。
+     * @param req DescribeIMCdrListRequest
+     * @return DescribeIMCdrListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeIMCdrListResponse DescribeIMCdrList(DescribeIMCdrListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeIMCdrList", DescribeIMCdrListResponse.class);
     }
 
     /**
@@ -509,18 +473,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeIMCdrsResponse DescribeIMCdrs(DescribeIMCdrsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeIMCdrsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeIMCdrsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeIMCdrs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeIMCdrs", DescribeIMCdrsResponse.class);
+    }
+
+    /**
+     *查询IVR音频文件列表信息
+     * @param req DescribeIvrAudioListRequest
+     * @return DescribeIvrAudioListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeIvrAudioListResponse DescribeIvrAudioList(DescribeIvrAudioListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeIvrAudioList", DescribeIvrAudioListResponse.class);
     }
 
     /**
@@ -530,18 +495,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNumbersResponse DescribeNumbers(DescribeNumbersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNumbersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNumbersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNumbers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNumbers", DescribeNumbersResponse.class);
     }
 
     /**
@@ -551,18 +506,41 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePSTNActiveSessionListResponse DescribePSTNActiveSessionList(DescribePSTNActiveSessionListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePSTNActiveSessionListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePSTNActiveSessionListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePSTNActiveSessionList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePSTNActiveSessionList", DescribePSTNActiveSessionListResponse.class);
+    }
+
+    /**
+     *查询预测式外呼任务
+     * @param req DescribePredictiveDialingCampaignRequest
+     * @return DescribePredictiveDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePredictiveDialingCampaignResponse DescribePredictiveDialingCampaign(DescribePredictiveDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePredictiveDialingCampaign", DescribePredictiveDialingCampaignResponse.class);
+    }
+
+    /**
+     *查询预测式外呼任务列表
+     * @param req DescribePredictiveDialingCampaignsRequest
+     * @return DescribePredictiveDialingCampaignsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePredictiveDialingCampaignsResponse DescribePredictiveDialingCampaigns(DescribePredictiveDialingCampaignsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePredictiveDialingCampaigns", DescribePredictiveDialingCampaignsResponse.class);
+    }
+
+    /**
+     *查询预测式外呼呼叫列表
+     * @param req DescribePredictiveDialingSessionsRequest
+     * @return DescribePredictiveDialingSessionsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePredictiveDialingSessionsResponse DescribePredictiveDialingSessions(DescribePredictiveDialingSessionsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePredictiveDialingSessions", DescribePredictiveDialingSessionsResponse.class);
     }
 
     /**
@@ -572,18 +550,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeProtectedTelCdrResponse DescribeProtectedTelCdr(DescribeProtectedTelCdrRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProtectedTelCdrResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProtectedTelCdrResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProtectedTelCdr");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProtectedTelCdr", DescribeProtectedTelCdrResponse.class);
     }
 
     /**
@@ -593,18 +561,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSkillGroupInfoListResponse DescribeSkillGroupInfoList(DescribeSkillGroupInfoListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSkillGroupInfoListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSkillGroupInfoListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSkillGroupInfoList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSkillGroupInfoList", DescribeSkillGroupInfoListResponse.class);
     }
 
     /**
@@ -614,18 +572,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeStaffInfoListResponse DescribeStaffInfoList(DescribeStaffInfoListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeStaffInfoListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeStaffInfoListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeStaffInfoList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeStaffInfoList", DescribeStaffInfoListResponse.class);
     }
 
     /**
@@ -635,18 +583,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeStaffStatusMetricsResponse DescribeStaffStatusMetrics(DescribeStaffStatusMetricsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeStaffStatusMetricsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeStaffStatusMetricsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeStaffStatusMetrics");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeStaffStatusMetrics", DescribeStaffStatusMetricsResponse.class);
     }
 
     /**
@@ -656,18 +594,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTelCallInfoResponse DescribeTelCallInfo(DescribeTelCallInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTelCallInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTelCallInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTelCallInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTelCallInfo", DescribeTelCallInfoResponse.class);
     }
 
     /**
@@ -677,18 +605,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTelCdrResponse DescribeTelCdr(DescribeTelCdrRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTelCdrResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTelCdrResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTelCdr");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTelCdr", DescribeTelCdrResponse.class);
+    }
+
+    /**
+     *拉取会话录音转文本信息
+     * @param req DescribeTelRecordAsrRequest
+     * @return DescribeTelRecordAsrResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTelRecordAsrResponse DescribeTelRecordAsr(DescribeTelRecordAsrRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTelRecordAsr", DescribeTelRecordAsrResponse.class);
     }
 
     /**
@@ -698,18 +627,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTelSessionResponse DescribeTelSession(DescribeTelSessionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTelSessionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTelSessionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTelSession");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTelSession", DescribeTelSessionResponse.class);
     }
 
     /**
@@ -719,18 +638,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DisableCCCPhoneNumberResponse DisableCCCPhoneNumber(DisableCCCPhoneNumberRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableCCCPhoneNumberResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableCCCPhoneNumberResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableCCCPhoneNumber");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableCCCPhoneNumber", DisableCCCPhoneNumberResponse.class);
+    }
+
+    /**
+     *强制客服下线
+     * @param req ForceMemberOfflineRequest
+     * @return ForceMemberOfflineResponse
+     * @throws TencentCloudSDKException
+     */
+    public ForceMemberOfflineResponse ForceMemberOffline(ForceMemberOfflineRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ForceMemberOffline", ForceMemberOfflineResponse.class);
     }
 
     /**
@@ -740,18 +660,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public HangUpCallResponse HangUpCall(HangUpCallRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<HangUpCallResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<HangUpCallResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "HangUpCall");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "HangUpCall", HangUpCallResponse.class);
+    }
+
+    /**
+     *修改公司资质申请，只能修改状态为驳回或待审核的申请单。（1、首次使用接口，建议先在云联络中心控制台查看各个资料模板:https://console.cloud.tencent.com/ccc/enterprise/update。2、参数中图片Url建议使用腾讯云Cos存储的临时链接）
+     * @param req ModifyCompanyApplyRequest
+     * @return ModifyCompanyApplyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCompanyApplyResponse ModifyCompanyApply(ModifyCompanyApplyRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyCompanyApply", ModifyCompanyApplyResponse.class);
     }
 
     /**
@@ -761,18 +682,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyExtensionResponse ModifyExtension(ModifyExtensionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyExtensionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyExtensionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyExtension");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyExtension", ModifyExtensionResponse.class);
+    }
+
+    /**
+     *修改客户自携号码审批单
+     * @param req ModifyOwnNumberApplyRequest
+     * @return ModifyOwnNumberApplyResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyOwnNumberApplyResponse ModifyOwnNumberApply(ModifyOwnNumberApplyRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyOwnNumberApply", ModifyOwnNumberApplyResponse.class);
     }
 
     /**
@@ -782,18 +704,30 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyStaffResponse ModifyStaff(ModifyStaffRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyStaffResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyStaffResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyStaff");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyStaff", ModifyStaffResponse.class);
+    }
+
+    /**
+     *修改座席的密码
+     * @param req ModifyStaffPasswordRequest
+     * @return ModifyStaffPasswordResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyStaffPasswordResponse ModifyStaffPassword(ModifyStaffPasswordRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyStaffPassword", ModifyStaffPasswordResponse.class);
+    }
+
+    /**
+     *暂停预测式外呼任务
+     * @param req PausePredictiveDialingCampaignRequest
+     * @return PausePredictiveDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public PausePredictiveDialingCampaignResponse PausePredictiveDialingCampaign(PausePredictiveDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "PausePredictiveDialingCampaign", PausePredictiveDialingCampaignResponse.class);
     }
 
     /**
@@ -803,18 +737,30 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ResetExtensionPasswordResponse ResetExtensionPassword(ResetExtensionPasswordRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetExtensionPasswordResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetExtensionPasswordResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetExtensionPassword");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetExtensionPassword", ResetExtensionPasswordResponse.class);
+    }
+
+    /**
+     *恢复客服上线
+     * @param req RestoreMemberOnlineRequest
+     * @return RestoreMemberOnlineResponse
+     * @throws TencentCloudSDKException
+     */
+    public RestoreMemberOnlineResponse RestoreMemberOnline(RestoreMemberOnlineRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "RestoreMemberOnline", RestoreMemberOnlineResponse.class);
+    }
+
+    /**
+     *恢复预测式外呼任务
+     * @param req ResumePredictiveDialingCampaignRequest
+     * @return ResumePredictiveDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResumePredictiveDialingCampaignResponse ResumePredictiveDialingCampaign(ResumePredictiveDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ResumePredictiveDialingCampaign", ResumePredictiveDialingCampaignResponse.class);
     }
 
     /**
@@ -824,18 +770,19 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public StopAutoCalloutTaskResponse StopAutoCalloutTask(StopAutoCalloutTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopAutoCalloutTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopAutoCalloutTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopAutoCalloutTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopAutoCalloutTask", StopAutoCalloutTaskResponse.class);
+    }
+
+    /**
+     *特定场景下讲会话转接到人工坐席
+     * @param req TransferToManualRequest
+     * @return TransferToManualResponse
+     * @throws TencentCloudSDKException
+     */
+    public TransferToManualResponse TransferToManual(TransferToManualRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "TransferToManual", TransferToManualResponse.class);
     }
 
     /**
@@ -845,18 +792,8 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UnbindNumberCallOutSkillGroupResponse UnbindNumberCallOutSkillGroup(UnbindNumberCallOutSkillGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnbindNumberCallOutSkillGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnbindNumberCallOutSkillGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnbindNumberCallOutSkillGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnbindNumberCallOutSkillGroup", UnbindNumberCallOutSkillGroupResponse.class);
     }
 
     /**
@@ -866,18 +803,41 @@ public class CccClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UnbindStaffSkillGroupListResponse UnbindStaffSkillGroupList(UnbindStaffSkillGroupListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnbindStaffSkillGroupListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnbindStaffSkillGroupListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnbindStaffSkillGroupList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnbindStaffSkillGroupList", UnbindStaffSkillGroupListResponse.class);
+    }
+
+    /**
+     *更新技能组
+     * @param req UpdateCCCSkillGroupRequest
+     * @return UpdateCCCSkillGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateCCCSkillGroupResponse UpdateCCCSkillGroup(UpdateCCCSkillGroupRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdateCCCSkillGroup", UpdateCCCSkillGroupResponse.class);
+    }
+
+    /**
+     *任务未启动前，更新预测式外呼任务。
+     * @param req UpdatePredictiveDialingCampaignRequest
+     * @return UpdatePredictiveDialingCampaignResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdatePredictiveDialingCampaignResponse UpdatePredictiveDialingCampaign(UpdatePredictiveDialingCampaignRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdatePredictiveDialingCampaign", UpdatePredictiveDialingCampaignResponse.class);
+    }
+
+    /**
+     *上传IVR中使用的音频文件，每日上传文件限制50个。（参数中音频文件Url建议使用腾讯云Cos存储的临时链接）
+     * @param req UploadIvrAudioRequest
+     * @return UploadIvrAudioResponse
+     * @throws TencentCloudSDKException
+     */
+    public UploadIvrAudioResponse UploadIvrAudio(UploadIvrAudioRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UploadIvrAudio", UploadIvrAudioResponse.class);
     }
 
 }

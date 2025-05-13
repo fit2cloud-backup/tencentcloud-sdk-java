@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KongTarget extends AbstractModel{
+public class KongTarget extends AbstractModel {
 
     /**
     * Host
@@ -63,6 +64,27 @@ public class KongTarget extends AbstractModel{
     @SerializedName("Source")
     @Expose
     private String Source;
+
+    /**
+    * CVM实例ID
+    */
+    @SerializedName("CvmInstanceId")
+    @Expose
+    private String CvmInstanceId;
+
+    /**
+    * CVM实例名称
+    */
+    @SerializedName("CvmInstanceName")
+    @Expose
+    private String CvmInstanceName;
+
+    /**
+    * target标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private String [] Tags;
 
     /**
      * Get Host 
@@ -160,6 +182,54 @@ public class KongTarget extends AbstractModel{
         this.Source = Source;
     }
 
+    /**
+     * Get CVM实例ID 
+     * @return CvmInstanceId CVM实例ID
+     */
+    public String getCvmInstanceId() {
+        return this.CvmInstanceId;
+    }
+
+    /**
+     * Set CVM实例ID
+     * @param CvmInstanceId CVM实例ID
+     */
+    public void setCvmInstanceId(String CvmInstanceId) {
+        this.CvmInstanceId = CvmInstanceId;
+    }
+
+    /**
+     * Get CVM实例名称 
+     * @return CvmInstanceName CVM实例名称
+     */
+    public String getCvmInstanceName() {
+        return this.CvmInstanceName;
+    }
+
+    /**
+     * Set CVM实例名称
+     * @param CvmInstanceName CVM实例名称
+     */
+    public void setCvmInstanceName(String CvmInstanceName) {
+        this.CvmInstanceName = CvmInstanceName;
+    }
+
+    /**
+     * Get target标签 
+     * @return Tags target标签
+     */
+    public String [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set target标签
+     * @param Tags target标签
+     */
+    public void setTags(String [] Tags) {
+        this.Tags = Tags;
+    }
+
     public KongTarget() {
     }
 
@@ -186,6 +256,18 @@ public class KongTarget extends AbstractModel{
         if (source.Source != null) {
             this.Source = new String(source.Source);
         }
+        if (source.CvmInstanceId != null) {
+            this.CvmInstanceId = new String(source.CvmInstanceId);
+        }
+        if (source.CvmInstanceName != null) {
+            this.CvmInstanceName = new String(source.CvmInstanceName);
+        }
+        if (source.Tags != null) {
+            this.Tags = new String[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new String(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -199,6 +281,9 @@ public class KongTarget extends AbstractModel{
         this.setParamSimple(map, prefix + "Health", this.Health);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
         this.setParamSimple(map, prefix + "Source", this.Source);
+        this.setParamSimple(map, prefix + "CvmInstanceId", this.CvmInstanceId);
+        this.setParamSimple(map, prefix + "CvmInstanceName", this.CvmInstanceName);
+        this.setParamArraySimple(map, prefix + "Tags.", this.Tags);
 
     }
 }

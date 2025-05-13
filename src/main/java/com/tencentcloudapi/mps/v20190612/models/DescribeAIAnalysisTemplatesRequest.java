@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAIAnalysisTemplatesRequest extends AbstractModel{
+public class DescribeAIAnalysisTemplatesRequest extends AbstractModel {
 
     /**
     * 视频内容分析模板唯一标识过滤条件，数组长度限制：10。
@@ -51,6 +52,13 @@ public class DescribeAIAnalysisTemplatesRequest extends AbstractModel{
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 视频内容分析模板标识过滤条件，长度限制：64 个字符。
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get 视频内容分析模板唯一标识过滤条件，数组长度限制：10。 
@@ -124,6 +132,22 @@ public class DescribeAIAnalysisTemplatesRequest extends AbstractModel{
         this.Type = Type;
     }
 
+    /**
+     * Get 视频内容分析模板标识过滤条件，长度限制：64 个字符。 
+     * @return Name 视频内容分析模板标识过滤条件，长度限制：64 个字符。
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 视频内容分析模板标识过滤条件，长度限制：64 个字符。
+     * @param Name 视频内容分析模板标识过滤条件，长度限制：64 个字符。
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
     public DescribeAIAnalysisTemplatesRequest() {
     }
 
@@ -147,6 +171,9 @@ public class DescribeAIAnalysisTemplatesRequest extends AbstractModel{
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
     }
 
 
@@ -158,6 +185,7 @@ public class DescribeAIAnalysisTemplatesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

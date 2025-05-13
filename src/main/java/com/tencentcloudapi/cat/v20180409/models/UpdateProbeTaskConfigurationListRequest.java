@@ -16,35 +16,36 @@
 package com.tencentcloudapi.cat.v20180409.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateProbeTaskConfigurationListRequest extends AbstractModel{
+public class UpdateProbeTaskConfigurationListRequest extends AbstractModel {
 
     /**
-    * 任务 ID
+    * 任务 ID，如task-n1wchki8
     */
     @SerializedName("TaskIds")
     @Expose
     private String [] TaskIds;
 
     /**
-    * 拨测节点
+    * 拨测节点，如10001，详细地区运营商拨测编号请联系云拨测。
     */
     @SerializedName("Nodes")
     @Expose
     private String [] Nodes;
 
     /**
-    * 拨测间隔
+    * 拨测间隔，如30，单位为分钟。
     */
     @SerializedName("Interval")
     @Expose
     private Long Interval;
 
     /**
-    * 拨测参数
+    * 拨测参数，详细参数配置可参考云拨测官网文档。
     */
     @SerializedName("Parameters")
     @Expose
@@ -66,64 +67,78 @@ public class UpdateProbeTaskConfigurationListRequest extends AbstractModel{
     private String [] ResourceIDs;
 
     /**
-     * Get 任务 ID 
-     * @return TaskIds 任务 ID
+    * 拨测节点的IP类型，0-不限，1-IPv4，2-IPv6
+    */
+    @SerializedName("NodeIpType")
+    @Expose
+    private Long NodeIpType;
+
+    /**
+    * 批量任务名-地址
+    */
+    @SerializedName("BatchTasks")
+    @Expose
+    private ProbeTaskBasicConfiguration [] BatchTasks;
+
+    /**
+     * Get 任务 ID，如task-n1wchki8 
+     * @return TaskIds 任务 ID，如task-n1wchki8
      */
     public String [] getTaskIds() {
         return this.TaskIds;
     }
 
     /**
-     * Set 任务 ID
-     * @param TaskIds 任务 ID
+     * Set 任务 ID，如task-n1wchki8
+     * @param TaskIds 任务 ID，如task-n1wchki8
      */
     public void setTaskIds(String [] TaskIds) {
         this.TaskIds = TaskIds;
     }
 
     /**
-     * Get 拨测节点 
-     * @return Nodes 拨测节点
+     * Get 拨测节点，如10001，详细地区运营商拨测编号请联系云拨测。 
+     * @return Nodes 拨测节点，如10001，详细地区运营商拨测编号请联系云拨测。
      */
     public String [] getNodes() {
         return this.Nodes;
     }
 
     /**
-     * Set 拨测节点
-     * @param Nodes 拨测节点
+     * Set 拨测节点，如10001，详细地区运营商拨测编号请联系云拨测。
+     * @param Nodes 拨测节点，如10001，详细地区运营商拨测编号请联系云拨测。
      */
     public void setNodes(String [] Nodes) {
         this.Nodes = Nodes;
     }
 
     /**
-     * Get 拨测间隔 
-     * @return Interval 拨测间隔
+     * Get 拨测间隔，如30，单位为分钟。 
+     * @return Interval 拨测间隔，如30，单位为分钟。
      */
     public Long getInterval() {
         return this.Interval;
     }
 
     /**
-     * Set 拨测间隔
-     * @param Interval 拨测间隔
+     * Set 拨测间隔，如30，单位为分钟。
+     * @param Interval 拨测间隔，如30，单位为分钟。
      */
     public void setInterval(Long Interval) {
         this.Interval = Interval;
     }
 
     /**
-     * Get 拨测参数 
-     * @return Parameters 拨测参数
+     * Get 拨测参数，详细参数配置可参考云拨测官网文档。 
+     * @return Parameters 拨测参数，详细参数配置可参考云拨测官网文档。
      */
     public String getParameters() {
         return this.Parameters;
     }
 
     /**
-     * Set 拨测参数
-     * @param Parameters 拨测参数
+     * Set 拨测参数，详细参数配置可参考云拨测官网文档。
+     * @param Parameters 拨测参数，详细参数配置可参考云拨测官网文档。
      */
     public void setParameters(String Parameters) {
         this.Parameters = Parameters;
@@ -165,6 +180,38 @@ public class UpdateProbeTaskConfigurationListRequest extends AbstractModel{
         this.ResourceIDs = ResourceIDs;
     }
 
+    /**
+     * Get 拨测节点的IP类型，0-不限，1-IPv4，2-IPv6 
+     * @return NodeIpType 拨测节点的IP类型，0-不限，1-IPv4，2-IPv6
+     */
+    public Long getNodeIpType() {
+        return this.NodeIpType;
+    }
+
+    /**
+     * Set 拨测节点的IP类型，0-不限，1-IPv4，2-IPv6
+     * @param NodeIpType 拨测节点的IP类型，0-不限，1-IPv4，2-IPv6
+     */
+    public void setNodeIpType(Long NodeIpType) {
+        this.NodeIpType = NodeIpType;
+    }
+
+    /**
+     * Get 批量任务名-地址 
+     * @return BatchTasks 批量任务名-地址
+     */
+    public ProbeTaskBasicConfiguration [] getBatchTasks() {
+        return this.BatchTasks;
+    }
+
+    /**
+     * Set 批量任务名-地址
+     * @param BatchTasks 批量任务名-地址
+     */
+    public void setBatchTasks(ProbeTaskBasicConfiguration [] BatchTasks) {
+        this.BatchTasks = BatchTasks;
+    }
+
     public UpdateProbeTaskConfigurationListRequest() {
     }
 
@@ -200,6 +247,15 @@ public class UpdateProbeTaskConfigurationListRequest extends AbstractModel{
                 this.ResourceIDs[i] = new String(source.ResourceIDs[i]);
             }
         }
+        if (source.NodeIpType != null) {
+            this.NodeIpType = new Long(source.NodeIpType);
+        }
+        if (source.BatchTasks != null) {
+            this.BatchTasks = new ProbeTaskBasicConfiguration[source.BatchTasks.length];
+            for (int i = 0; i < source.BatchTasks.length; i++) {
+                this.BatchTasks[i] = new ProbeTaskBasicConfiguration(source.BatchTasks[i]);
+            }
+        }
     }
 
 
@@ -213,6 +269,8 @@ public class UpdateProbeTaskConfigurationListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Parameters", this.Parameters);
         this.setParamSimple(map, prefix + "Cron", this.Cron);
         this.setParamArraySimple(map, prefix + "ResourceIDs.", this.ResourceIDs);
+        this.setParamSimple(map, prefix + "NodeIpType", this.NodeIpType);
+        this.setParamArrayObj(map, prefix + "BatchTasks.", this.BatchTasks);
 
     }
 }

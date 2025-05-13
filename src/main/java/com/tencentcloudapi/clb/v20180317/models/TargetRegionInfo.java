@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TargetRegionInfo extends AbstractModel{
+public class TargetRegionInfo extends AbstractModel {
 
     /**
     * Target所属地域，如 ap-guangzhou
@@ -35,6 +36,13 @@ public class TargetRegionInfo extends AbstractModel{
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
+
+    /**
+    * Target所属网络，私有网络格式如86323，如果是基础网络，则为0
+    */
+    @SerializedName("NumericalVpcId")
+    @Expose
+    private Long NumericalVpcId;
 
     /**
      * Get Target所属地域，如 ap-guangzhou 
@@ -68,6 +76,22 @@ public class TargetRegionInfo extends AbstractModel{
         this.VpcId = VpcId;
     }
 
+    /**
+     * Get Target所属网络，私有网络格式如86323，如果是基础网络，则为0 
+     * @return NumericalVpcId Target所属网络，私有网络格式如86323，如果是基础网络，则为0
+     */
+    public Long getNumericalVpcId() {
+        return this.NumericalVpcId;
+    }
+
+    /**
+     * Set Target所属网络，私有网络格式如86323，如果是基础网络，则为0
+     * @param NumericalVpcId Target所属网络，私有网络格式如86323，如果是基础网络，则为0
+     */
+    public void setNumericalVpcId(Long NumericalVpcId) {
+        this.NumericalVpcId = NumericalVpcId;
+    }
+
     public TargetRegionInfo() {
     }
 
@@ -82,6 +106,9 @@ public class TargetRegionInfo extends AbstractModel{
         if (source.VpcId != null) {
             this.VpcId = new String(source.VpcId);
         }
+        if (source.NumericalVpcId != null) {
+            this.NumericalVpcId = new Long(source.NumericalVpcId);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class TargetRegionInfo extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
+        this.setParamSimple(map, prefix + "NumericalVpcId", this.NumericalVpcId);
 
     }
 }

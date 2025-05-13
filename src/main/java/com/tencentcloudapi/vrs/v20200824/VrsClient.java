@@ -45,18 +45,8 @@ public class VrsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CancelVRSTaskResponse CancelVRSTask(CancelVRSTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CancelVRSTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CancelVRSTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CancelVRSTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CancelVRSTask", CancelVRSTaskResponse.class);
     }
 
     /**
@@ -68,23 +58,13 @@ public class VrsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVRSTaskResponse CreateVRSTask(CreateVRSTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVRSTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVRSTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVRSTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVRSTask", CreateVRSTaskResponse.class);
     }
 
     /**
-     *在调用声音复刻创建任务请求接口后，有回调和轮询两种方式获取识别结果。
-• 当采用回调方式时，识别完成后会将结果通过 POST 请求的形式通知到用户在请求时填写的回调 URL，具体请参见 声音复刻结果回调 。
+     *在调用声音复刻创建任务请求接口后，有回调和轮询两种方式获取识别结果。（注意：回调方式目前仅支持轻量版声音复刻）
+• 当采用回调方式时，识别完成后会将结果通过 POST 请求的形式通知到用户在请求时填写的回调 URL，具体请参见 [“声音复刻任务创建接口”](https://cloud.tencent.com/document/product/1283/90064) CallbackUrl参数说明 。
 • 当采用轮询方式时，需要主动提交任务ID来轮询识别结果，共有任务成功、等待、执行中和失败四种结果，具体信息请参见下文说明。
 • 请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"
 • 签名方法参考 公共参数 中签名方法v3。
@@ -93,22 +73,13 @@ public class VrsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeVRSTaskStatusResponse DescribeVRSTaskStatus(DescribeVRSTaskStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVRSTaskStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVRSTaskStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVRSTaskStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVRSTaskStatus", DescribeVRSTaskStatusResponse.class);
     }
 
     /**
      *本接口用于检测音频的环境和音频质量。
+对于一句话声音复刻，音频时长需大于3s，小于15s，文件大小不能超过2MB，音频需为单声道，位深为16bit。建议格式：wav、单声道、采样率48kHz或24kHz 
 • 请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"
 • 签名方法参考 公共参数 中签名方法v3。
      * @param req DetectEnvAndSoundQualityRequest
@@ -116,18 +87,8 @@ public class VrsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DetectEnvAndSoundQualityResponse DetectEnvAndSoundQuality(DetectEnvAndSoundQualityRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetectEnvAndSoundQualityResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetectEnvAndSoundQualityResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetectEnvAndSoundQuality");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetectEnvAndSoundQuality", DetectEnvAndSoundQualityResponse.class);
     }
 
     /**
@@ -137,41 +98,44 @@ public class VrsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DownloadVRSModelResponse DownloadVRSModel(DownloadVRSModelRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DownloadVRSModelResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DownloadVRSModelResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DownloadVRSModel");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DownloadVRSModel", DownloadVRSModelResponse.class);
     }
 
     /**
      *本接口用于获取声音复刻训练文本信息。
  请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"
 • 签名方法参考 公共参数 中签名方法v3。
+• 当复刻类型为一句话声音复刻时，生成的TextId有效期为7天，且在成功创建一次复刻任务后失效。
      * @param req GetTrainingTextRequest
      * @return GetTrainingTextResponse
      * @throws TencentCloudSDKException
      */
     public GetTrainingTextResponse GetTrainingText(GetTrainingTextRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetTrainingTextResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetTrainingTextResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetTrainingText");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetTrainingText", GetTrainingTextResponse.class);
+    }
+
+    /**
+     *该接口用于查询复刻音色详细信息。
+     * @param req GetVRSVoiceTypeInfoRequest
+     * @return GetVRSVoiceTypeInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetVRSVoiceTypeInfoResponse GetVRSVoiceTypeInfo(GetVRSVoiceTypeInfoRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "GetVRSVoiceTypeInfo", GetVRSVoiceTypeInfoResponse.class);
+    }
+
+    /**
+     *查询复刻音色
+     * @param req GetVRSVoiceTypesRequest
+     * @return GetVRSVoiceTypesResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetVRSVoiceTypesResponse GetVRSVoiceTypes(GetVRSVoiceTypesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "GetVRSVoiceTypes", GetVRSVoiceTypesResponse.class);
     }
 
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClbInstanceDetail extends AbstractModel{
+public class ClbInstanceDetail extends AbstractModel {
 
     /**
     * CLB实例ID
@@ -38,7 +39,6 @@ public class ClbInstanceDetail extends AbstractModel{
 
     /**
     * CLB监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Listeners")
     @Expose
@@ -77,10 +77,8 @@ public class ClbInstanceDetail extends AbstractModel{
     }
 
     /**
-     * Get CLB监听器列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CLB监听器列表 
      * @return Listeners CLB监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ClbListener [] getListeners() {
         return this.Listeners;
@@ -88,9 +86,7 @@ public class ClbInstanceDetail extends AbstractModel{
 
     /**
      * Set CLB监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Listeners CLB监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListeners(ClbListener [] Listeners) {
         this.Listeners = Listeners;

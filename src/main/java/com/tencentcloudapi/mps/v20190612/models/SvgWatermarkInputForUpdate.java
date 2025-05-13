@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SvgWatermarkInputForUpdate extends AbstractModel{
+public class SvgWatermarkInputForUpdate extends AbstractModel {
 
     /**
     * 水印的宽度，支持 px，%，W%，H%，S%，L% 六种格式：
@@ -46,7 +47,7 @@ public class SvgWatermarkInputForUpdate extends AbstractModel{
 <li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
 <li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
 <li>当字符串以 % 结尾时，含义同 H%。
-默认值为 0px。
+默认值为 0px。</li>
     */
     @SerializedName("Height")
     @Expose
@@ -109,7 +110,7 @@ public class SvgWatermarkInputForUpdate extends AbstractModel{
 <li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
 <li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
 <li>当字符串以 % 结尾时，含义同 H%。
-默认值为 0px。 
+默认值为 0px。</li> 
      * @return Height 水印的高度，支持 px，%，W%，H%，S%，L% 六种格式：
 <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；当填 0px 且
  Width 不为 0px 时，表示水印的高度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的高度取原始 SVG 图像的高度；</li>
@@ -118,7 +119,7 @@ public class SvgWatermarkInputForUpdate extends AbstractModel{
 <li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
 <li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
 <li>当字符串以 % 结尾时，含义同 H%。
-默认值为 0px。
+默认值为 0px。</li>
      */
     public String getHeight() {
         return this.Height;
@@ -133,7 +134,7 @@ public class SvgWatermarkInputForUpdate extends AbstractModel{
 <li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
 <li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
 <li>当字符串以 % 结尾时，含义同 H%。
-默认值为 0px。
+默认值为 0px。</li>
      * @param Height 水印的高度，支持 px，%，W%，H%，S%，L% 六种格式：
 <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素；当填 0px 且
  Width 不为 0px 时，表示水印的高度按原始 SVG 图像等比缩放；当 Width、Height 都填 0px 时，表示水印的高度取原始 SVG 图像的高度；</li>
@@ -142,7 +143,7 @@ public class SvgWatermarkInputForUpdate extends AbstractModel{
 <li>当字符串以 S% 结尾，表示水印 Height 为视频短边的百分比大小，如 10S% 表示 Height 为视频短边的 10%；</li>
 <li>当字符串以 L% 结尾，表示水印 Height 为视频长边的百分比大小，如 10L% 表示 Height 为视频长边的 10%；</li>
 <li>当字符串以 % 结尾时，含义同 H%。
-默认值为 0px。
+默认值为 0px。</li>
      */
     public void setHeight(String Height) {
         this.Height = Height;

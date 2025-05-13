@@ -16,17 +16,17 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KubeJarvisStateCatalogue extends AbstractModel{
+public class KubeJarvisStateCatalogue extends AbstractModel {
 
     /**
     * 目录级别，支持参数：
 first：一级目录
 second：二级目录
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CatalogueLevel")
     @Expose
@@ -34,7 +34,6 @@ second：二级目录
 
     /**
     * 目录名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CatalogueName")
     @Expose
@@ -43,12 +42,10 @@ second：二级目录
     /**
      * Get 目录级别，支持参数：
 first：一级目录
-second：二级目录
-注意：此字段可能返回 null，表示取不到有效值。 
+second：二级目录 
      * @return CatalogueLevel 目录级别，支持参数：
 first：一级目录
 second：二级目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCatalogueLevel() {
         return this.CatalogueLevel;
@@ -58,21 +55,17 @@ second：二级目录
      * Set 目录级别，支持参数：
 first：一级目录
 second：二级目录
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CatalogueLevel 目录级别，支持参数：
 first：一级目录
 second：二级目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCatalogueLevel(String CatalogueLevel) {
         this.CatalogueLevel = CatalogueLevel;
     }
 
     /**
-     * Get 目录名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目录名 
      * @return CatalogueName 目录名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCatalogueName() {
         return this.CatalogueName;
@@ -80,9 +73,7 @@ second：二级目录
 
     /**
      * Set 目录名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CatalogueName 目录名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCatalogueName(String CatalogueName) {
         this.CatalogueName = CatalogueName;

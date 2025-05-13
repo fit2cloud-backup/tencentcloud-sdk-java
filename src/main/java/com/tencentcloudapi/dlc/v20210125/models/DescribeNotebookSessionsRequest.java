@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNotebookSessionsRequest extends AbstractModel{
+public class DescribeNotebookSessionsRequest extends AbstractModel {
 
     /**
     * DLC Spark作业引擎名称
@@ -63,6 +64,13 @@ public class DescribeNotebookSessionsRequest extends AbstractModel{
     @SerializedName("Offset")
     @Expose
     private Long Offset;
+
+    /**
+    * 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, engine-generation - String（引擎时代： supersql：supersql引擎，native：标准引擎）：notebook-keyword - String（数据引擎名称或sessionid或sessionname的模糊搜索）
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
 
     /**
      * Get DLC Spark作业引擎名称 
@@ -160,6 +168,22 @@ public class DescribeNotebookSessionsRequest extends AbstractModel{
         this.Offset = Offset;
     }
 
+    /**
+     * Get 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, engine-generation - String（引擎时代： supersql：supersql引擎，native：标准引擎）：notebook-keyword - String（数据引擎名称或sessionid或sessionname的模糊搜索） 
+     * @return Filters 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, engine-generation - String（引擎时代： supersql：supersql引擎，native：标准引擎）：notebook-keyword - String（数据引擎名称或sessionid或sessionname的模糊搜索）
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, engine-generation - String（引擎时代： supersql：supersql引擎，native：标准引擎）：notebook-keyword - String（数据引擎名称或sessionid或sessionname的模糊搜索）
+     * @param Filters 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, engine-generation - String（引擎时代： supersql：supersql引擎，native：标准引擎）：notebook-keyword - String（数据引擎名称或sessionid或sessionname的模糊搜索）
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
     public DescribeNotebookSessionsRequest() {
     }
 
@@ -192,6 +216,12 @@ public class DescribeNotebookSessionsRequest extends AbstractModel{
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
     }
 
 
@@ -205,6 +235,7 @@ public class DescribeNotebookSessionsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Asc", this.Asc);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
 
     }
 }

@@ -16,23 +16,22 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CmqDeadLetterPolicy extends AbstractModel{
+public class CmqDeadLetterPolicy extends AbstractModel {
 
     /**
     * 死信队列。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeadLetterQueue")
     @Expose
     private String DeadLetterQueue;
 
     /**
-    * 死信队列策略。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 死信队列策略。0:最大接收次数;1:最大未消费时间
     */
     @SerializedName("Policy")
     @Expose
@@ -40,25 +39,21 @@ public class CmqDeadLetterPolicy extends AbstractModel{
 
     /**
     * 最大未消费过期时间。Policy为1时必选。范围300-43200，单位秒，需要小于消息最大保留时间MsgRetentionSeconds。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxTimeToLive")
     @Expose
     private Long MaxTimeToLive;
 
     /**
-    * 最大接收次数。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 最大接收次数。Policy为0时必选，范围在1到1000。
     */
     @SerializedName("MaxReceiveCount")
     @Expose
     private Long MaxReceiveCount;
 
     /**
-     * Get 死信队列。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 死信队列。 
      * @return DeadLetterQueue 死信队列。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeadLetterQueue() {
         return this.DeadLetterQueue;
@@ -66,39 +61,31 @@ public class CmqDeadLetterPolicy extends AbstractModel{
 
     /**
      * Set 死信队列。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeadLetterQueue 死信队列。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeadLetterQueue(String DeadLetterQueue) {
         this.DeadLetterQueue = DeadLetterQueue;
     }
 
     /**
-     * Get 死信队列策略。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Policy 死信队列策略。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 死信队列策略。0:最大接收次数;1:最大未消费时间 
+     * @return Policy 死信队列策略。0:最大接收次数;1:最大未消费时间
      */
     public Long getPolicy() {
         return this.Policy;
     }
 
     /**
-     * Set 死信队列策略。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Policy 死信队列策略。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 死信队列策略。0:最大接收次数;1:最大未消费时间
+     * @param Policy 死信队列策略。0:最大接收次数;1:最大未消费时间
      */
     public void setPolicy(Long Policy) {
         this.Policy = Policy;
     }
 
     /**
-     * Get 最大未消费过期时间。Policy为1时必选。范围300-43200，单位秒，需要小于消息最大保留时间MsgRetentionSeconds。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大未消费过期时间。Policy为1时必选。范围300-43200，单位秒，需要小于消息最大保留时间MsgRetentionSeconds。 
      * @return MaxTimeToLive 最大未消费过期时间。Policy为1时必选。范围300-43200，单位秒，需要小于消息最大保留时间MsgRetentionSeconds。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxTimeToLive() {
         return this.MaxTimeToLive;
@@ -106,29 +93,23 @@ public class CmqDeadLetterPolicy extends AbstractModel{
 
     /**
      * Set 最大未消费过期时间。Policy为1时必选。范围300-43200，单位秒，需要小于消息最大保留时间MsgRetentionSeconds。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxTimeToLive 最大未消费过期时间。Policy为1时必选。范围300-43200，单位秒，需要小于消息最大保留时间MsgRetentionSeconds。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxTimeToLive(Long MaxTimeToLive) {
         this.MaxTimeToLive = MaxTimeToLive;
     }
 
     /**
-     * Get 最大接收次数。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxReceiveCount 最大接收次数。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 最大接收次数。Policy为0时必选，范围在1到1000。 
+     * @return MaxReceiveCount 最大接收次数。Policy为0时必选，范围在1到1000。
      */
     public Long getMaxReceiveCount() {
         return this.MaxReceiveCount;
     }
 
     /**
-     * Set 最大接收次数。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxReceiveCount 最大接收次数。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 最大接收次数。Policy为0时必选，范围在1到1000。
+     * @param MaxReceiveCount 最大接收次数。Policy为0时必选，范围在1到1000。
      */
     public void setMaxReceiveCount(Long MaxReceiveCount) {
         this.MaxReceiveCount = MaxReceiveCount;

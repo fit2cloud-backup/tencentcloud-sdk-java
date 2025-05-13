@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchSuspendIntegrationTasksRequest extends AbstractModel{
+public class BatchSuspendIntegrationTasksRequest extends AbstractModel {
 
     /**
     * 任务id
@@ -30,7 +31,7 @@ public class BatchSuspendIntegrationTasksRequest extends AbstractModel{
     private String [] TaskIds;
 
     /**
-    * 任务类型
+    * 任务类型，201为实时任务，202为离线任务
     */
     @SerializedName("TaskType")
     @Expose
@@ -42,6 +43,20 @@ public class BatchSuspendIntegrationTasksRequest extends AbstractModel{
     @SerializedName("ProjectId")
     @Expose
     private String ProjectId;
+
+    /**
+    * 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+    */
+    @SerializedName("Event")
+    @Expose
+    private String Event;
+
+    /**
+    * 本次批量操作涉及任务，用于审计
+    */
+    @SerializedName("TaskNames")
+    @Expose
+    private String [] TaskNames;
 
     /**
      * Get 任务id 
@@ -60,16 +75,16 @@ public class BatchSuspendIntegrationTasksRequest extends AbstractModel{
     }
 
     /**
-     * Get 任务类型 
-     * @return TaskType 任务类型
+     * Get 任务类型，201为实时任务，202为离线任务 
+     * @return TaskType 任务类型，201为实时任务，202为离线任务
      */
     public Long getTaskType() {
         return this.TaskType;
     }
 
     /**
-     * Set 任务类型
-     * @param TaskType 任务类型
+     * Set 任务类型，201为实时任务，202为离线任务
+     * @param TaskType 任务类型，201为实时任务，202为离线任务
      */
     public void setTaskType(Long TaskType) {
         this.TaskType = TaskType;
@@ -89,6 +104,38 @@ public class BatchSuspendIntegrationTasksRequest extends AbstractModel{
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	 
+     * @return Event 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+     */
+    public String getEvent() {
+        return this.Event;
+    }
+
+    /**
+     * Set 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+     * @param Event 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+     */
+    public void setEvent(String Event) {
+        this.Event = Event;
+    }
+
+    /**
+     * Get 本次批量操作涉及任务，用于审计 
+     * @return TaskNames 本次批量操作涉及任务，用于审计
+     */
+    public String [] getTaskNames() {
+        return this.TaskNames;
+    }
+
+    /**
+     * Set 本次批量操作涉及任务，用于审计
+     * @param TaskNames 本次批量操作涉及任务，用于审计
+     */
+    public void setTaskNames(String [] TaskNames) {
+        this.TaskNames = TaskNames;
     }
 
     public BatchSuspendIntegrationTasksRequest() {
@@ -111,6 +158,15 @@ public class BatchSuspendIntegrationTasksRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
+        if (source.Event != null) {
+            this.Event = new String(source.Event);
+        }
+        if (source.TaskNames != null) {
+            this.TaskNames = new String[source.TaskNames.length];
+            for (int i = 0; i < source.TaskNames.length; i++) {
+                this.TaskNames[i] = new String(source.TaskNames[i]);
+            }
+        }
     }
 
 
@@ -121,6 +177,8 @@ public class BatchSuspendIntegrationTasksRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "TaskIds.", this.TaskIds);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "Event", this.Event);
+        this.setParamArraySimple(map, prefix + "TaskNames.", this.TaskNames);
 
     }
 }

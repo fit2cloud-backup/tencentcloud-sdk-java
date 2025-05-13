@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tiw.v20190919.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePPTCheckResponse extends AbstractModel{
+public class DescribePPTCheckResponse extends AbstractModel {
 
     /**
     * 任务的唯一标识Id
@@ -67,7 +68,15 @@ public class DescribePPTCheckResponse extends AbstractModel{
     private Long Progress;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 错误列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Errs")
+    @Expose
+    private PPTErr [] Errs;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -178,16 +187,36 @@ public class DescribePPTCheckResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 错误列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Errs 错误列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PPTErr [] getErrs() {
+        return this.Errs;
+    }
+
+    /**
+     * Set 错误列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Errs 错误列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setErrs(PPTErr [] Errs) {
+        this.Errs = Errs;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -222,6 +251,12 @@ public class DescribePPTCheckResponse extends AbstractModel{
         if (source.Progress != null) {
             this.Progress = new Long(source.Progress);
         }
+        if (source.Errs != null) {
+            this.Errs = new PPTErr[source.Errs.length];
+            for (int i = 0; i < source.Errs.length; i++) {
+                this.Errs[i] = new PPTErr(source.Errs[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -238,6 +273,7 @@ public class DescribePPTCheckResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Slides.", this.Slides);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Progress", this.Progress);
+        this.setParamArrayObj(map, prefix + "Errs.", this.Errs);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

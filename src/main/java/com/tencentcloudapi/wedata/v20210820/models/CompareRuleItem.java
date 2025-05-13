@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CompareRuleItem extends AbstractModel{
+public class CompareRuleItem extends AbstractModel {
 
     /**
     * 比较类型 1.固定值  2.波动值  3.数值范围比较  4.枚举范围比较  5.不用比较
@@ -31,7 +32,16 @@ public class CompareRuleItem extends AbstractModel{
     private Long CompareType;
 
     /**
-    * 比较操作类型 <  <=  ==  =>  >
+    * 比较操作类型
+<  <=  ==  =>  > !=
+IRLCRO:在区间内(左闭右开)
+IRLORC:在区间内(左开右闭)
+IRLCRC:在区间内(左闭右闭)
+IRLORO:在区间内(左开右开)
+NRLCRO:不在区间内(左闭右开)
+NRLORC:不在区间内(左开右闭)
+NRLCRC:不在区间内(左闭右闭)
+NRLORO:不在区间内(左开右开)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Operator")
@@ -75,9 +85,27 @@ public class CompareRuleItem extends AbstractModel{
     }
 
     /**
-     * Get 比较操作类型 <  <=  ==  =>  >
+     * Get 比较操作类型
+<  <=  ==  =>  > !=
+IRLCRO:在区间内(左闭右开)
+IRLORC:在区间内(左开右闭)
+IRLCRC:在区间内(左闭右闭)
+IRLORO:在区间内(左开右开)
+NRLCRO:不在区间内(左闭右开)
+NRLORC:不在区间内(左开右闭)
+NRLCRC:不在区间内(左闭右闭)
+NRLORO:不在区间内(左开右开)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Operator 比较操作类型 <  <=  ==  =>  >
+     * @return Operator 比较操作类型
+<  <=  ==  =>  > !=
+IRLCRO:在区间内(左闭右开)
+IRLORC:在区间内(左开右闭)
+IRLCRC:在区间内(左闭右闭)
+IRLORO:在区间内(左开右开)
+NRLCRO:不在区间内(左闭右开)
+NRLORC:不在区间内(左开右闭)
+NRLCRC:不在区间内(左闭右闭)
+NRLORO:不在区间内(左开右开)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperator() {
@@ -85,9 +113,27 @@ public class CompareRuleItem extends AbstractModel{
     }
 
     /**
-     * Set 比较操作类型 <  <=  ==  =>  >
+     * Set 比较操作类型
+<  <=  ==  =>  > !=
+IRLCRO:在区间内(左闭右开)
+IRLORC:在区间内(左开右闭)
+IRLCRC:在区间内(左闭右闭)
+IRLORO:在区间内(左开右开)
+NRLCRO:不在区间内(左闭右开)
+NRLORC:不在区间内(左开右闭)
+NRLCRC:不在区间内(左闭右闭)
+NRLORO:不在区间内(左开右开)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Operator 比较操作类型 <  <=  ==  =>  >
+     * @param Operator 比较操作类型
+<  <=  ==  =>  > !=
+IRLCRO:在区间内(左闭右开)
+IRLORC:在区间内(左开右闭)
+IRLCRC:在区间内(左闭右闭)
+IRLORO:在区间内(左开右开)
+NRLCRO:不在区间内(左闭右开)
+NRLORC:不在区间内(左开右闭)
+NRLCRC:不在区间内(左闭右闭)
+NRLORO:不在区间内(左开右开)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperator(String Operator) {

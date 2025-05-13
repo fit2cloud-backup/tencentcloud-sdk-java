@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BGPInstanceSpecification extends AbstractModel{
+public class BGPInstanceSpecification extends AbstractModel {
 
     /**
     * 保底防护峰值，单位Gbps
@@ -55,7 +56,6 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
     * 联合产品标记，0代表普通高防包，1代表联合高防包
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnionPackFlag")
     @Expose
@@ -63,7 +63,6 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
     * 业务带宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceBandWidth")
     @Expose
@@ -71,7 +70,6 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
     * 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BattleEditionFlag")
     @Expose
@@ -79,7 +77,6 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
     * 渠道版标记，0表示普通高防包，1表示渠道版高防包
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChannelEditionFlag")
     @Expose
@@ -87,7 +84,6 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
     * 高防包企业版标记，0表示普通高防包；1表示企业版高防包
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnterpriseFlag")
     @Expose
@@ -95,7 +91,6 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
     * 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ElasticLimit")
     @Expose
@@ -103,7 +98,6 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
     * 降配后的防护能力，单位Gbps
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DownGradeProtect")
     @Expose
@@ -186,10 +180,8 @@ public class BGPInstanceSpecification extends AbstractModel{
     }
 
     /**
-     * Get 联合产品标记，0代表普通高防包，1代表联合高防包
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 联合产品标记，0代表普通高防包，1代表联合高防包 
      * @return UnionPackFlag 联合产品标记，0代表普通高防包，1代表联合高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUnionPackFlag() {
         return this.UnionPackFlag;
@@ -197,19 +189,15 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
      * Set 联合产品标记，0代表普通高防包，1代表联合高防包
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnionPackFlag 联合产品标记，0代表普通高防包，1代表联合高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnionPackFlag(Long UnionPackFlag) {
         this.UnionPackFlag = UnionPackFlag;
     }
 
     /**
-     * Get 业务带宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 业务带宽 
      * @return ServiceBandWidth 业务带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getServiceBandWidth() {
         return this.ServiceBandWidth;
@@ -217,19 +205,15 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
      * Set 业务带宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceBandWidth 业务带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceBandWidth(Long ServiceBandWidth) {
         this.ServiceBandWidth = ServiceBandWidth;
     }
 
     /**
-     * Get 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 战斗服版本标记，0表示普通高防包，1表示战斗服高防包 
      * @return BattleEditionFlag 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBattleEditionFlag() {
         return this.BattleEditionFlag;
@@ -237,19 +221,15 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
      * Set 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BattleEditionFlag 战斗服版本标记，0表示普通高防包，1表示战斗服高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBattleEditionFlag(Long BattleEditionFlag) {
         this.BattleEditionFlag = BattleEditionFlag;
     }
 
     /**
-     * Get 渠道版标记，0表示普通高防包，1表示渠道版高防包
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 渠道版标记，0表示普通高防包，1表示渠道版高防包 
      * @return ChannelEditionFlag 渠道版标记，0表示普通高防包，1表示渠道版高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getChannelEditionFlag() {
         return this.ChannelEditionFlag;
@@ -257,19 +237,15 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
      * Set 渠道版标记，0表示普通高防包，1表示渠道版高防包
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChannelEditionFlag 渠道版标记，0表示普通高防包，1表示渠道版高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChannelEditionFlag(Long ChannelEditionFlag) {
         this.ChannelEditionFlag = ChannelEditionFlag;
     }
 
     /**
-     * Get 高防包企业版标记，0表示普通高防包；1表示企业版高防包
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 高防包企业版标记，0表示普通高防包；1表示企业版高防包 
      * @return EnterpriseFlag 高防包企业版标记，0表示普通高防包；1表示企业版高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEnterpriseFlag() {
         return this.EnterpriseFlag;
@@ -277,19 +253,15 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
      * Set 高防包企业版标记，0表示普通高防包；1表示企业版高防包
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnterpriseFlag 高防包企业版标记，0表示普通高防包；1表示企业版高防包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnterpriseFlag(Long EnterpriseFlag) {
         this.EnterpriseFlag = EnterpriseFlag;
     }
 
     /**
-     * Get 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值 
      * @return ElasticLimit 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getElasticLimit() {
         return this.ElasticLimit;
@@ -297,19 +269,15 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
      * Set 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ElasticLimit 高防包企业版弹性阈值，0表示未开启；大于0为弹性防护阈值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setElasticLimit(Long ElasticLimit) {
         this.ElasticLimit = ElasticLimit;
     }
 
     /**
-     * Get 降配后的防护能力，单位Gbps
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 降配后的防护能力，单位Gbps 
      * @return DownGradeProtect 降配后的防护能力，单位Gbps
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDownGradeProtect() {
         return this.DownGradeProtect;
@@ -317,9 +285,7 @@ public class BGPInstanceSpecification extends AbstractModel{
 
     /**
      * Set 降配后的防护能力，单位Gbps
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DownGradeProtect 降配后的防护能力，单位Gbps
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDownGradeProtect(Long DownGradeProtect) {
         this.DownGradeProtect = DownGradeProtect;

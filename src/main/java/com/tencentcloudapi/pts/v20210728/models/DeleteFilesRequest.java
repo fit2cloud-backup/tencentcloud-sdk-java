@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteFilesRequest extends AbstractModel{
+public class DeleteFilesRequest extends AbstractModel {
 
     /**
     * 项目 ID
@@ -30,7 +31,7 @@ public class DeleteFilesRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-    * 文件 ID 数组
+    * 待删除的文件的 ID（所有文件 ID 可从接口 DescribeFiles 获取）
     */
     @SerializedName("FileIds")
     @Expose
@@ -53,16 +54,16 @@ public class DeleteFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件 ID 数组 
-     * @return FileIds 文件 ID 数组
+     * Get 待删除的文件的 ID（所有文件 ID 可从接口 DescribeFiles 获取） 
+     * @return FileIds 待删除的文件的 ID（所有文件 ID 可从接口 DescribeFiles 获取）
      */
     public String [] getFileIds() {
         return this.FileIds;
     }
 
     /**
-     * Set 文件 ID 数组
-     * @param FileIds 文件 ID 数组
+     * Set 待删除的文件的 ID（所有文件 ID 可从接口 DescribeFiles 获取）
+     * @param FileIds 待删除的文件的 ID（所有文件 ID 可从接口 DescribeFiles 获取）
      */
     public void setFileIds(String [] FileIds) {
         this.FileIds = FileIds;

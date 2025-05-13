@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PulsarProClusterInfo extends AbstractModel{
+public class PulsarProClusterInfo extends AbstractModel {
 
     /**
     * 集群Id。
@@ -86,6 +87,47 @@ public class PulsarProClusterInfo extends AbstractModel{
     @SerializedName("CanEditRoute")
     @Expose
     private Boolean CanEditRoute;
+
+    /**
+    * 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BillingLabelVersion")
+    @Expose
+    private String BillingLabelVersion;
+
+    /**
+    * 实例到期时间戳，毫秒级精度。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExpireTime")
+    @Expose
+    private Long ExpireTime;
+
+    /**
+    * 是否开启自动创建主题
+true就是开启了，false是关闭
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoCreateTopicStatus")
+    @Expose
+    private Boolean AutoCreateTopicStatus;
+
+    /**
+    * 自动创建主题的默认分区数，如果没开启就是0
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DefaultPartitionNumber")
+    @Expose
+    private Long DefaultPartitionNumber;
+
+    /**
+    * 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+    */
+    @SerializedName("Tenant")
+    @Expose
+    private String Tenant;
 
     /**
      * Get 集群Id。 
@@ -239,6 +281,110 @@ public class PulsarProClusterInfo extends AbstractModel{
         this.CanEditRoute = CanEditRoute;
     }
 
+    /**
+     * Get 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BillingLabelVersion 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBillingLabelVersion() {
+        return this.BillingLabelVersion;
+    }
+
+    /**
+     * Set 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BillingLabelVersion 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBillingLabelVersion(String BillingLabelVersion) {
+        this.BillingLabelVersion = BillingLabelVersion;
+    }
+
+    /**
+     * Get 实例到期时间戳，毫秒级精度。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExpireTime 实例到期时间戳，毫秒级精度。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getExpireTime() {
+        return this.ExpireTime;
+    }
+
+    /**
+     * Set 实例到期时间戳，毫秒级精度。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExpireTime 实例到期时间戳，毫秒级精度。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExpireTime(Long ExpireTime) {
+        this.ExpireTime = ExpireTime;
+    }
+
+    /**
+     * Get 是否开启自动创建主题
+true就是开启了，false是关闭
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoCreateTopicStatus 是否开启自动创建主题
+true就是开启了，false是关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getAutoCreateTopicStatus() {
+        return this.AutoCreateTopicStatus;
+    }
+
+    /**
+     * Set 是否开启自动创建主题
+true就是开启了，false是关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoCreateTopicStatus 是否开启自动创建主题
+true就是开启了，false是关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoCreateTopicStatus(Boolean AutoCreateTopicStatus) {
+        this.AutoCreateTopicStatus = AutoCreateTopicStatus;
+    }
+
+    /**
+     * Get 自动创建主题的默认分区数，如果没开启就是0
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DefaultPartitionNumber 自动创建主题的默认分区数，如果没开启就是0
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDefaultPartitionNumber() {
+        return this.DefaultPartitionNumber;
+    }
+
+    /**
+     * Set 自动创建主题的默认分区数，如果没开启就是0
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DefaultPartitionNumber 自动创建主题的默认分区数，如果没开启就是0
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDefaultPartitionNumber(Long DefaultPartitionNumber) {
+        this.DefaultPartitionNumber = DefaultPartitionNumber;
+    }
+
+    /**
+     * Get 用户自定义的租户别名，如果没有，会复用专业集群 ID
+ 
+     * @return Tenant 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     */
+    public String getTenant() {
+        return this.Tenant;
+    }
+
+    /**
+     * Set 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     * @param Tenant 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     */
+    public void setTenant(String Tenant) {
+        this.Tenant = Tenant;
+    }
+
     public PulsarProClusterInfo() {
     }
 
@@ -277,6 +423,21 @@ public class PulsarProClusterInfo extends AbstractModel{
         if (source.CanEditRoute != null) {
             this.CanEditRoute = new Boolean(source.CanEditRoute);
         }
+        if (source.BillingLabelVersion != null) {
+            this.BillingLabelVersion = new String(source.BillingLabelVersion);
+        }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new Long(source.ExpireTime);
+        }
+        if (source.AutoCreateTopicStatus != null) {
+            this.AutoCreateTopicStatus = new Boolean(source.AutoCreateTopicStatus);
+        }
+        if (source.DefaultPartitionNumber != null) {
+            this.DefaultPartitionNumber = new Long(source.DefaultPartitionNumber);
+        }
+        if (source.Tenant != null) {
+            this.Tenant = new String(source.Tenant);
+        }
     }
 
 
@@ -293,6 +454,11 @@ public class PulsarProClusterInfo extends AbstractModel{
         this.setParamArrayObj(map, prefix + "NodeDistribution.", this.NodeDistribution);
         this.setParamSimple(map, prefix + "MaxStorage", this.MaxStorage);
         this.setParamSimple(map, prefix + "CanEditRoute", this.CanEditRoute);
+        this.setParamSimple(map, prefix + "BillingLabelVersion", this.BillingLabelVersion);
+        this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
+        this.setParamSimple(map, prefix + "AutoCreateTopicStatus", this.AutoCreateTopicStatus);
+        this.setParamSimple(map, prefix + "DefaultPartitionNumber", this.DefaultPartitionNumber);
+        this.setParamSimple(map, prefix + "Tenant", this.Tenant);
 
     }
 }

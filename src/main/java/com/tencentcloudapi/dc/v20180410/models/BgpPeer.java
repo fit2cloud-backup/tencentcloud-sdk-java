@@ -16,14 +16,22 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BgpPeer extends AbstractModel{
+public class BgpPeer extends AbstractModel {
 
     /**
-    * 用户侧，BGP Asn
+    * 腾讯侧BGP ASN
+    */
+    @SerializedName("CloudAsn")
+    @Expose
+    private Long CloudAsn;
+
+    /**
+    * 用户侧BGP ASN
     */
     @SerializedName("Asn")
     @Expose
@@ -37,16 +45,32 @@ public class BgpPeer extends AbstractModel{
     private String AuthKey;
 
     /**
-     * Get 用户侧，BGP Asn 
-     * @return Asn 用户侧，BGP Asn
+     * Get 腾讯侧BGP ASN 
+     * @return CloudAsn 腾讯侧BGP ASN
+     */
+    public Long getCloudAsn() {
+        return this.CloudAsn;
+    }
+
+    /**
+     * Set 腾讯侧BGP ASN
+     * @param CloudAsn 腾讯侧BGP ASN
+     */
+    public void setCloudAsn(Long CloudAsn) {
+        this.CloudAsn = CloudAsn;
+    }
+
+    /**
+     * Get 用户侧BGP ASN 
+     * @return Asn 用户侧BGP ASN
      */
     public Long getAsn() {
         return this.Asn;
     }
 
     /**
-     * Set 用户侧，BGP Asn
-     * @param Asn 用户侧，BGP Asn
+     * Set 用户侧BGP ASN
+     * @param Asn 用户侧BGP ASN
      */
     public void setAsn(Long Asn) {
         this.Asn = Asn;
@@ -76,6 +100,9 @@ public class BgpPeer extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public BgpPeer(BgpPeer source) {
+        if (source.CloudAsn != null) {
+            this.CloudAsn = new Long(source.CloudAsn);
+        }
         if (source.Asn != null) {
             this.Asn = new Long(source.Asn);
         }
@@ -89,6 +116,7 @@ public class BgpPeer extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "CloudAsn", this.CloudAsn);
         this.setParamSimple(map, prefix + "Asn", this.Asn);
         this.setParamSimple(map, prefix + "AuthKey", this.AuthKey);
 

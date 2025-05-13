@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RenewCkafkaInstanceResp extends AbstractModel{
+public class RenewCkafkaInstanceResp extends AbstractModel {
 
     /**
     * 订单号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BigDealId")
     @Expose
@@ -32,17 +32,14 @@ public class RenewCkafkaInstanceResp extends AbstractModel{
 
     /**
     * 子订单号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DealName")
     @Expose
     private String DealName;
 
     /**
-     * Get 订单号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订单号 
      * @return BigDealId 订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBigDealId() {
         return this.BigDealId;
@@ -50,19 +47,15 @@ public class RenewCkafkaInstanceResp extends AbstractModel{
 
     /**
      * Set 订单号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BigDealId 订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBigDealId(String BigDealId) {
         this.BigDealId = BigDealId;
     }
 
     /**
-     * Get 子订单号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子订单号 
      * @return DealName 子订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDealName() {
         return this.DealName;
@@ -70,9 +63,7 @@ public class RenewCkafkaInstanceResp extends AbstractModel{
 
     /**
      * Set 子订单号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DealName 子订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDealName(String DealName) {
         this.DealName = DealName;

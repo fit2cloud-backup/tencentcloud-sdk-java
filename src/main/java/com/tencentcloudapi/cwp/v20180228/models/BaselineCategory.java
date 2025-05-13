@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BaselineCategory extends AbstractModel{
+public class BaselineCategory extends AbstractModel {
 
     /**
     * 分类Id
@@ -42,6 +43,13 @@ public class BaselineCategory extends AbstractModel{
     @SerializedName("ParentCategoryId")
     @Expose
     private Long ParentCategoryId;
+
+    /**
+    * 子分类下检测项总数
+    */
+    @SerializedName("ItemCount")
+    @Expose
+    private Long ItemCount;
 
     /**
      * Get 分类Id 
@@ -91,6 +99,22 @@ public class BaselineCategory extends AbstractModel{
         this.ParentCategoryId = ParentCategoryId;
     }
 
+    /**
+     * Get 子分类下检测项总数 
+     * @return ItemCount 子分类下检测项总数
+     */
+    public Long getItemCount() {
+        return this.ItemCount;
+    }
+
+    /**
+     * Set 子分类下检测项总数
+     * @param ItemCount 子分类下检测项总数
+     */
+    public void setItemCount(Long ItemCount) {
+        this.ItemCount = ItemCount;
+    }
+
     public BaselineCategory() {
     }
 
@@ -108,6 +132,9 @@ public class BaselineCategory extends AbstractModel{
         if (source.ParentCategoryId != null) {
             this.ParentCategoryId = new Long(source.ParentCategoryId);
         }
+        if (source.ItemCount != null) {
+            this.ItemCount = new Long(source.ItemCount);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class BaselineCategory extends AbstractModel{
         this.setParamSimple(map, prefix + "CategoryId", this.CategoryId);
         this.setParamSimple(map, prefix + "CategoryName", this.CategoryName);
         this.setParamSimple(map, prefix + "ParentCategoryId", this.ParentCategoryId);
+        this.setParamSimple(map, prefix + "ItemCount", this.ItemCount);
 
     }
 }

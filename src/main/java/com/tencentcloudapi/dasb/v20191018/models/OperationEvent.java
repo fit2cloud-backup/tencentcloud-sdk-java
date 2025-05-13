@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OperationEvent extends AbstractModel{
+public class OperationEvent extends AbstractModel {
 
     /**
     * 用户名
@@ -70,6 +71,13 @@ public class OperationEvent extends AbstractModel{
     @SerializedName("Result")
     @Expose
     private Long Result;
+
+    /**
+    * 签名值
+    */
+    @SerializedName("SignValue")
+    @Expose
+    private String SignValue;
 
     /**
      * Get 用户名 
@@ -183,6 +191,22 @@ public class OperationEvent extends AbstractModel{
         this.Result = Result;
     }
 
+    /**
+     * Get 签名值 
+     * @return SignValue 签名值
+     */
+    public String getSignValue() {
+        return this.SignValue;
+    }
+
+    /**
+     * Set 签名值
+     * @param SignValue 签名值
+     */
+    public void setSignValue(String SignValue) {
+        this.SignValue = SignValue;
+    }
+
     public OperationEvent() {
     }
 
@@ -212,6 +236,9 @@ public class OperationEvent extends AbstractModel{
         if (source.Result != null) {
             this.Result = new Long(source.Result);
         }
+        if (source.SignValue != null) {
+            this.SignValue = new String(source.SignValue);
+        }
     }
 
 
@@ -226,6 +253,7 @@ public class OperationEvent extends AbstractModel{
         this.setParamSimple(map, prefix + "Kind", this.Kind);
         this.setParamSimple(map, prefix + "Operation", this.Operation);
         this.setParamSimple(map, prefix + "Result", this.Result);
+        this.setParamSimple(map, prefix + "SignValue", this.SignValue);
 
     }
 }

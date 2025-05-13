@@ -16,23 +16,22 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNatFwVpcDnsLstResponse extends AbstractModel{
+public class DescribeNatFwVpcDnsLstResponse extends AbstractModel {
 
     /**
     * nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcDnsSwitchLst")
     @Expose
     private VpcDnsInfo [] VpcDnsSwitchLst;
 
     /**
-    * 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 返回参数 success成功 failed 失败
     */
     @SerializedName("ReturnMsg")
     @Expose
@@ -40,24 +39,21 @@ public class DescribeNatFwVpcDnsLstResponse extends AbstractModel{
 
     /**
     * 开关总条数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Total")
     @Expose
     private Long Total;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get nat防火墙vpc dns 信息数组 
      * @return VpcDnsSwitchLst nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VpcDnsInfo [] getVpcDnsSwitchLst() {
         return this.VpcDnsSwitchLst;
@@ -65,39 +61,31 @@ public class DescribeNatFwVpcDnsLstResponse extends AbstractModel{
 
     /**
      * Set nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcDnsSwitchLst nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcDnsSwitchLst(VpcDnsInfo [] VpcDnsSwitchLst) {
         this.VpcDnsSwitchLst = VpcDnsSwitchLst;
     }
 
     /**
-     * Get 返回参数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReturnMsg 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 返回参数 success成功 failed 失败 
+     * @return ReturnMsg 返回参数 success成功 failed 失败
      */
     public String getReturnMsg() {
         return this.ReturnMsg;
     }
 
     /**
-     * Set 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReturnMsg 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 返回参数 success成功 failed 失败
+     * @param ReturnMsg 返回参数 success成功 failed 失败
      */
     public void setReturnMsg(String ReturnMsg) {
         this.ReturnMsg = ReturnMsg;
     }
 
     /**
-     * Get 开关总条数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开关总条数 
      * @return Total 开关总条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotal() {
         return this.Total;
@@ -105,25 +93,23 @@ public class DescribeNatFwVpcDnsLstResponse extends AbstractModel{
 
     /**
      * Set 开关总条数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Total 开关总条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotal(Long Total) {
         this.Total = Total;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

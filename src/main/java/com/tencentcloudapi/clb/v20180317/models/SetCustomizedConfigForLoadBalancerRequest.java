@@ -16,122 +16,158 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SetCustomizedConfigForLoadBalancerRequest extends AbstractModel{
+public class SetCustomizedConfigForLoadBalancerRequest extends AbstractModel {
 
     /**
-    * 操作类型：'ADD', 'DELETE', 'UPDATE', 'BIND', 'UNBIND'
+    * 操作类型。
+- ADD：创建
+- DELETE：删除
+- UPDATE：修改
+- BIND：绑定
+- UNBIND：解绑
     */
     @SerializedName("OperationType")
     @Expose
     private String OperationType;
 
     /**
-    * 除了创建个性化配置外，必传此字段，如：pz-1234abcd
+    * 个性化配置ID。除了创建个性化配置外，必传此字段，如：pz-1234abcd
     */
     @SerializedName("UconfigId")
     @Expose
     private String UconfigId;
 
     /**
-    * 创建个性化配置或修改个性化配置的内容时，必传此字段
+    * 个性化配置内容。创建个性化配置或修改个性化配置的内容时，必传此字段。
+具体限制查看 [七层个性化配置](https://cloud.tencent.com/document/product/214/15171)
     */
     @SerializedName("ConfigContent")
     @Expose
     private String ConfigContent;
 
     /**
-    * 创建个性化配置或修改个性化配置的名字时，必传此字段
+    * 个性化配置名称。创建个性化配置或修改个性化配置的名字时，必传此字段。
     */
     @SerializedName("ConfigName")
     @Expose
     private String ConfigName;
 
     /**
-    * 绑定解绑时，必传此字段
+    * 负载均衡实例ID。绑定解绑时，必传此字段。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
     */
     @SerializedName("LoadBalancerIds")
     @Expose
     private String [] LoadBalancerIds;
 
     /**
-     * Get 操作类型：'ADD', 'DELETE', 'UPDATE', 'BIND', 'UNBIND' 
-     * @return OperationType 操作类型：'ADD', 'DELETE', 'UPDATE', 'BIND', 'UNBIND'
+     * Get 操作类型。
+- ADD：创建
+- DELETE：删除
+- UPDATE：修改
+- BIND：绑定
+- UNBIND：解绑 
+     * @return OperationType 操作类型。
+- ADD：创建
+- DELETE：删除
+- UPDATE：修改
+- BIND：绑定
+- UNBIND：解绑
      */
     public String getOperationType() {
         return this.OperationType;
     }
 
     /**
-     * Set 操作类型：'ADD', 'DELETE', 'UPDATE', 'BIND', 'UNBIND'
-     * @param OperationType 操作类型：'ADD', 'DELETE', 'UPDATE', 'BIND', 'UNBIND'
+     * Set 操作类型。
+- ADD：创建
+- DELETE：删除
+- UPDATE：修改
+- BIND：绑定
+- UNBIND：解绑
+     * @param OperationType 操作类型。
+- ADD：创建
+- DELETE：删除
+- UPDATE：修改
+- BIND：绑定
+- UNBIND：解绑
      */
     public void setOperationType(String OperationType) {
         this.OperationType = OperationType;
     }
 
     /**
-     * Get 除了创建个性化配置外，必传此字段，如：pz-1234abcd 
-     * @return UconfigId 除了创建个性化配置外，必传此字段，如：pz-1234abcd
+     * Get 个性化配置ID。除了创建个性化配置外，必传此字段，如：pz-1234abcd 
+     * @return UconfigId 个性化配置ID。除了创建个性化配置外，必传此字段，如：pz-1234abcd
      */
     public String getUconfigId() {
         return this.UconfigId;
     }
 
     /**
-     * Set 除了创建个性化配置外，必传此字段，如：pz-1234abcd
-     * @param UconfigId 除了创建个性化配置外，必传此字段，如：pz-1234abcd
+     * Set 个性化配置ID。除了创建个性化配置外，必传此字段，如：pz-1234abcd
+     * @param UconfigId 个性化配置ID。除了创建个性化配置外，必传此字段，如：pz-1234abcd
      */
     public void setUconfigId(String UconfigId) {
         this.UconfigId = UconfigId;
     }
 
     /**
-     * Get 创建个性化配置或修改个性化配置的内容时，必传此字段 
-     * @return ConfigContent 创建个性化配置或修改个性化配置的内容时，必传此字段
+     * Get 个性化配置内容。创建个性化配置或修改个性化配置的内容时，必传此字段。
+具体限制查看 [七层个性化配置](https://cloud.tencent.com/document/product/214/15171) 
+     * @return ConfigContent 个性化配置内容。创建个性化配置或修改个性化配置的内容时，必传此字段。
+具体限制查看 [七层个性化配置](https://cloud.tencent.com/document/product/214/15171)
      */
     public String getConfigContent() {
         return this.ConfigContent;
     }
 
     /**
-     * Set 创建个性化配置或修改个性化配置的内容时，必传此字段
-     * @param ConfigContent 创建个性化配置或修改个性化配置的内容时，必传此字段
+     * Set 个性化配置内容。创建个性化配置或修改个性化配置的内容时，必传此字段。
+具体限制查看 [七层个性化配置](https://cloud.tencent.com/document/product/214/15171)
+     * @param ConfigContent 个性化配置内容。创建个性化配置或修改个性化配置的内容时，必传此字段。
+具体限制查看 [七层个性化配置](https://cloud.tencent.com/document/product/214/15171)
      */
     public void setConfigContent(String ConfigContent) {
         this.ConfigContent = ConfigContent;
     }
 
     /**
-     * Get 创建个性化配置或修改个性化配置的名字时，必传此字段 
-     * @return ConfigName 创建个性化配置或修改个性化配置的名字时，必传此字段
+     * Get 个性化配置名称。创建个性化配置或修改个性化配置的名字时，必传此字段。 
+     * @return ConfigName 个性化配置名称。创建个性化配置或修改个性化配置的名字时，必传此字段。
      */
     public String getConfigName() {
         return this.ConfigName;
     }
 
     /**
-     * Set 创建个性化配置或修改个性化配置的名字时，必传此字段
-     * @param ConfigName 创建个性化配置或修改个性化配置的名字时，必传此字段
+     * Set 个性化配置名称。创建个性化配置或修改个性化配置的名字时，必传此字段。
+     * @param ConfigName 个性化配置名称。创建个性化配置或修改个性化配置的名字时，必传此字段。
      */
     public void setConfigName(String ConfigName) {
         this.ConfigName = ConfigName;
     }
 
     /**
-     * Get 绑定解绑时，必传此字段 
-     * @return LoadBalancerIds 绑定解绑时，必传此字段
+     * Get 负载均衡实例ID。绑定解绑时，必传此字段。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。 
+     * @return LoadBalancerIds 负载均衡实例ID。绑定解绑时，必传此字段。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
      */
     public String [] getLoadBalancerIds() {
         return this.LoadBalancerIds;
     }
 
     /**
-     * Set 绑定解绑时，必传此字段
-     * @param LoadBalancerIds 绑定解绑时，必传此字段
+     * Set 负载均衡实例ID。绑定解绑时，必传此字段。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+     * @param LoadBalancerIds 负载均衡实例ID。绑定解绑时，必传此字段。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
      */
     public void setLoadBalancerIds(String [] LoadBalancerIds) {
         this.LoadBalancerIds = LoadBalancerIds;

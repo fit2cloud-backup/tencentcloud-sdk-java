@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PreAuditInfo extends AbstractModel{
+public class PreAuditInfo extends AbstractModel {
 
     /**
     * 证书总年限
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalPeriod")
     @Expose
@@ -32,7 +32,6 @@ public class PreAuditInfo extends AbstractModel{
 
     /**
     * 证书当前年限
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NowPeriod")
     @Expose
@@ -40,17 +39,14 @@ public class PreAuditInfo extends AbstractModel{
 
     /**
     * 证书预审核管理人ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ManagerId")
     @Expose
     private String ManagerId;
 
     /**
-     * Get 证书总年限
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书总年限 
      * @return TotalPeriod 证书总年限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalPeriod() {
         return this.TotalPeriod;
@@ -58,19 +54,15 @@ public class PreAuditInfo extends AbstractModel{
 
     /**
      * Set 证书总年限
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalPeriod 证书总年限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalPeriod(Long TotalPeriod) {
         this.TotalPeriod = TotalPeriod;
     }
 
     /**
-     * Get 证书当前年限
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书当前年限 
      * @return NowPeriod 证书当前年限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNowPeriod() {
         return this.NowPeriod;
@@ -78,19 +70,15 @@ public class PreAuditInfo extends AbstractModel{
 
     /**
      * Set 证书当前年限
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NowPeriod 证书当前年限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNowPeriod(Long NowPeriod) {
         this.NowPeriod = NowPeriod;
     }
 
     /**
-     * Get 证书预审核管理人ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书预审核管理人ID 
      * @return ManagerId 证书预审核管理人ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getManagerId() {
         return this.ManagerId;
@@ -98,9 +86,7 @@ public class PreAuditInfo extends AbstractModel{
 
     /**
      * Set 证书预审核管理人ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ManagerId 证书预审核管理人ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setManagerId(String ManagerId) {
         this.ManagerId = ManagerId;

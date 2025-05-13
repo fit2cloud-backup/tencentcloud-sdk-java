@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TableInfo extends AbstractModel{
+public class TableInfo extends AbstractModel {
 
     /**
     * 表Id
@@ -37,6 +38,14 @@ public class TableInfo extends AbstractModel{
     @SerializedName("TableName")
     @Expose
     private String TableName;
+
+    /**
+    * 表类型，view/table
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TableType")
+    @Expose
+    private String TableType;
 
     /**
     * 表databaseName
@@ -95,6 +104,26 @@ public class TableInfo extends AbstractModel{
     }
 
     /**
+     * Get 表类型，view/table
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TableType 表类型，view/table
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTableType() {
+        return this.TableType;
+    }
+
+    /**
+     * Set 表类型，view/table
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TableType 表类型，view/table
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTableType(String TableType) {
+        this.TableType = TableType;
+    }
+
+    /**
      * Get 表databaseName
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return OriginDatabaseName 表databaseName
@@ -148,6 +177,9 @@ public class TableInfo extends AbstractModel{
         if (source.TableName != null) {
             this.TableName = new String(source.TableName);
         }
+        if (source.TableType != null) {
+            this.TableType = new String(source.TableType);
+        }
         if (source.OriginDatabaseName != null) {
             this.OriginDatabaseName = new String(source.OriginDatabaseName);
         }
@@ -163,6 +195,7 @@ public class TableInfo extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TableId", this.TableId);
         this.setParamSimple(map, prefix + "TableName", this.TableName);
+        this.setParamSimple(map, prefix + "TableType", this.TableType);
         this.setParamSimple(map, prefix + "OriginDatabaseName", this.OriginDatabaseName);
         this.setParamSimple(map, prefix + "OriginSchemaName", this.OriginSchemaName);
 

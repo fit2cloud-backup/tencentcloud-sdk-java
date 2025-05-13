@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QualityData extends AbstractModel{
+public class QualityData extends AbstractModel {
 
     /**
     * 数据内容
@@ -38,7 +39,6 @@ public class QualityData extends AbstractModel{
 
     /**
     * 对端Id,为空时表示上行数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PeerId")
     @Expose
@@ -84,10 +84,8 @@ public class QualityData extends AbstractModel{
     }
 
     /**
-     * Get 对端Id,为空时表示上行数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对端Id,为空时表示上行数据 
      * @return PeerId 对端Id,为空时表示上行数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPeerId() {
         return this.PeerId;
@@ -95,9 +93,7 @@ public class QualityData extends AbstractModel{
 
     /**
      * Set 对端Id,为空时表示上行数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PeerId 对端Id,为空时表示上行数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPeerId(String PeerId) {
         this.PeerId = PeerId;

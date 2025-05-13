@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApiDetailResponse extends AbstractModel{
+public class ApiDetailResponse extends AbstractModel {
 
     /**
     * API 请求参数
@@ -54,7 +55,6 @@ public class ApiDetailResponse extends AbstractModel{
 
     /**
     * API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CanRun")
     @Expose
@@ -62,7 +62,6 @@ public class ApiDetailResponse extends AbstractModel{
 
     /**
     * API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -149,10 +148,8 @@ public class ApiDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get API  能否调试 
      * @return CanRun API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getCanRun() {
         return this.CanRun;
@@ -160,19 +157,15 @@ public class ApiDetailResponse extends AbstractModel{
 
     /**
      * Set API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CanRun API  能否调试
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCanRun(Boolean CanRun) {
         this.CanRun = CanRun;
     }
 
     /**
-     * Get API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get API 状态 0:离线 1:在线，默认0 
      * @return Status API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -180,9 +173,7 @@ public class ApiDetailResponse extends AbstractModel{
 
     /**
      * Set API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status API 状态 0:离线 1:在线，默认0
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;

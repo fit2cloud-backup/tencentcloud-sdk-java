@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataPvUrlStatisticsRequest extends AbstractModel{
+public class DescribeDataPvUrlStatisticsRequest extends AbstractModel {
 
     /**
     * 开始时间
@@ -142,7 +143,7 @@ public class DescribeDataPvUrlStatisticsRequest extends AbstractModel{
     private String Device;
 
     /**
-    * 是否海外
+    * 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
     */
     @SerializedName("IsAbroad")
     @Expose
@@ -176,6 +177,14 @@ public class DescribeDataPvUrlStatisticsRequest extends AbstractModel{
     @SerializedName("GroupByType")
     @Expose
     private Long GroupByType;
+
+    /**
+    * 1: 查询智研
+0: 走旧逻辑，已下线，勿使用
+    */
+    @SerializedName("IsNewData")
+    @Expose
+    private Long IsNewData;
 
     /**
      * Get 开始时间 
@@ -450,16 +459,16 @@ public class DescribeDataPvUrlStatisticsRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否海外 
-     * @return IsAbroad 是否海外
+     * Get 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。 
+     * @return IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public String getIsAbroad() {
         return this.IsAbroad;
     }
 
     /**
-     * Set 是否海外
-     * @param IsAbroad 是否海外
+     * Set 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public void setIsAbroad(String IsAbroad) {
         this.IsAbroad = IsAbroad;
@@ -531,6 +540,26 @@ public class DescribeDataPvUrlStatisticsRequest extends AbstractModel{
      */
     public void setGroupByType(Long GroupByType) {
         this.GroupByType = GroupByType;
+    }
+
+    /**
+     * Get 1: 查询智研
+0: 走旧逻辑，已下线，勿使用 
+     * @return IsNewData 1: 查询智研
+0: 走旧逻辑，已下线，勿使用
+     */
+    public Long getIsNewData() {
+        return this.IsNewData;
+    }
+
+    /**
+     * Set 1: 查询智研
+0: 走旧逻辑，已下线，勿使用
+     * @param IsNewData 1: 查询智研
+0: 走旧逻辑，已下线，勿使用
+     */
+    public void setIsNewData(Long IsNewData) {
+        this.IsNewData = IsNewData;
     }
 
     public DescribeDataPvUrlStatisticsRequest() {
@@ -607,6 +636,9 @@ public class DescribeDataPvUrlStatisticsRequest extends AbstractModel{
         if (source.GroupByType != null) {
             this.GroupByType = new Long(source.GroupByType);
         }
+        if (source.IsNewData != null) {
+            this.IsNewData = new Long(source.IsNewData);
+        }
     }
 
 
@@ -636,6 +668,7 @@ public class DescribeDataPvUrlStatisticsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Browser", this.Browser);
         this.setParamSimple(map, prefix + "Env", this.Env);
         this.setParamSimple(map, prefix + "GroupByType", this.GroupByType);
+        this.setParamSimple(map, prefix + "IsNewData", this.IsNewData);
 
     }
 }

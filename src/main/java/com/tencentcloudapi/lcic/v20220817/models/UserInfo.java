@@ -16,15 +16,15 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UserInfo extends AbstractModel{
+public class UserInfo extends AbstractModel {
 
     /**
     * 应用Id。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SdkAppId")
     @Expose
@@ -32,7 +32,6 @@ public class UserInfo extends AbstractModel{
 
     /**
     * 用户Id。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserId")
     @Expose
@@ -40,7 +39,6 @@ public class UserInfo extends AbstractModel{
 
     /**
     * 用户昵称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -48,17 +46,21 @@ public class UserInfo extends AbstractModel{
 
     /**
     * 用户头像Url。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Avatar")
     @Expose
     private String Avatar;
 
     /**
-     * Get 应用Id。
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 用户在客户系统的Id
+    */
+    @SerializedName("OriginId")
+    @Expose
+    private String OriginId;
+
+    /**
+     * Get 应用Id。 
      * @return SdkAppId 应用Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSdkAppId() {
         return this.SdkAppId;
@@ -66,19 +68,15 @@ public class UserInfo extends AbstractModel{
 
     /**
      * Set 应用Id。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SdkAppId 应用Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSdkAppId(Long SdkAppId) {
         this.SdkAppId = SdkAppId;
     }
 
     /**
-     * Get 用户Id。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户Id。 
      * @return UserId 用户Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserId() {
         return this.UserId;
@@ -86,19 +84,15 @@ public class UserInfo extends AbstractModel{
 
     /**
      * Set 用户Id。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserId 用户Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
 
     /**
-     * Get 用户昵称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户昵称。 
      * @return Name 用户昵称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -106,19 +100,15 @@ public class UserInfo extends AbstractModel{
 
     /**
      * Set 用户昵称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 用户昵称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 用户头像Url。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户头像Url。 
      * @return Avatar 用户头像Url。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAvatar() {
         return this.Avatar;
@@ -126,12 +116,26 @@ public class UserInfo extends AbstractModel{
 
     /**
      * Set 用户头像Url。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Avatar 用户头像Url。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvatar(String Avatar) {
         this.Avatar = Avatar;
+    }
+
+    /**
+     * Get 用户在客户系统的Id 
+     * @return OriginId 用户在客户系统的Id
+     */
+    public String getOriginId() {
+        return this.OriginId;
+    }
+
+    /**
+     * Set 用户在客户系统的Id
+     * @param OriginId 用户在客户系统的Id
+     */
+    public void setOriginId(String OriginId) {
+        this.OriginId = OriginId;
     }
 
     public UserInfo() {
@@ -154,6 +158,9 @@ public class UserInfo extends AbstractModel{
         if (source.Avatar != null) {
             this.Avatar = new String(source.Avatar);
         }
+        if (source.OriginId != null) {
+            this.OriginId = new String(source.OriginId);
+        }
     }
 
 
@@ -165,6 +172,7 @@ public class UserInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UserId", this.UserId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Avatar", this.Avatar);
+        this.setParamSimple(map, prefix + "OriginId", this.OriginId);
 
     }
 }

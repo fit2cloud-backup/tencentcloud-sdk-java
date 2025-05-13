@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ms.v20180408.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateEncryptInstanceRequest extends AbstractModel{
+public class CreateEncryptInstanceRequest extends AbstractModel {
 
     /**
     * 平台类型  1.android加固   2.ios源码混淆  3.sdk加固  4.applet小程序加固
@@ -70,6 +71,13 @@ public class CreateEncryptInstanceRequest extends AbstractModel{
     @SerializedName("AppletInfo")
     @Expose
     private AppletInfo AppletInfo;
+
+    /**
+    * iOS混淆信息
+    */
+    @SerializedName("IOSInfo")
+    @Expose
+    private IOSInfo IOSInfo;
 
     /**
      * Get 平台类型  1.android加固   2.ios源码混淆  3.sdk加固  4.applet小程序加固 
@@ -183,6 +191,22 @@ public class CreateEncryptInstanceRequest extends AbstractModel{
         this.AppletInfo = AppletInfo;
     }
 
+    /**
+     * Get iOS混淆信息 
+     * @return IOSInfo iOS混淆信息
+     */
+    public IOSInfo getIOSInfo() {
+        return this.IOSInfo;
+    }
+
+    /**
+     * Set iOS混淆信息
+     * @param IOSInfo iOS混淆信息
+     */
+    public void setIOSInfo(IOSInfo IOSInfo) {
+        this.IOSInfo = IOSInfo;
+    }
+
     public CreateEncryptInstanceRequest() {
     }
 
@@ -212,6 +236,9 @@ public class CreateEncryptInstanceRequest extends AbstractModel{
         if (source.AppletInfo != null) {
             this.AppletInfo = new AppletInfo(source.AppletInfo);
         }
+        if (source.IOSInfo != null) {
+            this.IOSInfo = new IOSInfo(source.IOSInfo);
+        }
     }
 
 
@@ -226,6 +253,7 @@ public class CreateEncryptInstanceRequest extends AbstractModel{
         this.setParamObj(map, prefix + "AndroidAppInfo.", this.AndroidAppInfo);
         this.setParamObj(map, prefix + "AndroidPlan.", this.AndroidPlan);
         this.setParamObj(map, prefix + "AppletInfo.", this.AppletInfo);
+        this.setParamObj(map, prefix + "IOSInfo.", this.IOSInfo);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParquetKeyInfo extends AbstractModel{
+public class ParquetKeyInfo extends AbstractModel {
 
     /**
     * 键值名称
@@ -38,7 +39,6 @@ public class ParquetKeyInfo extends AbstractModel{
 
     /**
     * 解析失败赋值信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeyNonExistingField")
     @Expose
@@ -77,10 +77,8 @@ public class ParquetKeyInfo extends AbstractModel{
     }
 
     /**
-     * Get 解析失败赋值信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 解析失败赋值信息 
      * @return KeyNonExistingField 解析失败赋值信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKeyNonExistingField() {
         return this.KeyNonExistingField;
@@ -88,9 +86,7 @@ public class ParquetKeyInfo extends AbstractModel{
 
     /**
      * Set 解析失败赋值信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KeyNonExistingField 解析失败赋值信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeyNonExistingField(String KeyNonExistingField) {
         this.KeyNonExistingField = KeyNonExistingField;

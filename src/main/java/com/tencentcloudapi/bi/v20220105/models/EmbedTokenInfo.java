@@ -16,11 +16,12 @@
 package com.tencentcloudapi.bi.v20220105.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EmbedTokenInfo extends AbstractModel{
+public class EmbedTokenInfo extends AbstractModel {
 
     /**
     * 信息标识
@@ -109,6 +110,72 @@ public class EmbedTokenInfo extends AbstractModel{
     @SerializedName("ExpireTime")
     @Expose
     private Long ExpireTime;
+
+    /**
+    * 使用者企业Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserCorpId")
+    @Expose
+    private String UserCorpId;
+
+    /**
+    * 使用者Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserId")
+    @Expose
+    private String UserId;
+
+    /**
+    * 访问次数限制，限制范围1-99999，为空则不设置访问次数限制
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TicketNum")
+    @Expose
+    private Long TicketNum;
+
+    /**
+    * 全局参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GlobalParam")
+    @Expose
+    private String GlobalParam;
+
+    /**
+    * embed表示页面看板嵌出，chatBIEmbed表示ChatBI嵌出
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Intention")
+    @Expose
+    private String Intention;
+
+    /**
+    * 100 无绑定用户
+200 单用户单token
+300 单用户 多token
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TokenType")
+    @Expose
+    private Long TokenType;
+
+    /**
+    * token 数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TokenNum")
+    @Expose
+    private Long TokenNum;
+
+    /**
+    * 是否单用户多token
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SingleUserMultiToken")
+    @Expose
+    private Boolean SingleUserMultiToken;
 
     /**
      * Get 信息标识
@@ -330,6 +397,174 @@ public class EmbedTokenInfo extends AbstractModel{
         this.ExpireTime = ExpireTime;
     }
 
+    /**
+     * Get 使用者企业Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserCorpId 使用者企业Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUserCorpId() {
+        return this.UserCorpId;
+    }
+
+    /**
+     * Set 使用者企业Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserCorpId 使用者企业Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserCorpId(String UserCorpId) {
+        this.UserCorpId = UserCorpId;
+    }
+
+    /**
+     * Get 使用者Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserId 使用者Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUserId() {
+        return this.UserId;
+    }
+
+    /**
+     * Set 使用者Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserId 使用者Id(仅用于多用户)
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserId(String UserId) {
+        this.UserId = UserId;
+    }
+
+    /**
+     * Get 访问次数限制，限制范围1-99999，为空则不设置访问次数限制
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TicketNum 访问次数限制，限制范围1-99999，为空则不设置访问次数限制
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTicketNum() {
+        return this.TicketNum;
+    }
+
+    /**
+     * Set 访问次数限制，限制范围1-99999，为空则不设置访问次数限制
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TicketNum 访问次数限制，限制范围1-99999，为空则不设置访问次数限制
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTicketNum(Long TicketNum) {
+        this.TicketNum = TicketNum;
+    }
+
+    /**
+     * Get 全局参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GlobalParam 全局参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGlobalParam() {
+        return this.GlobalParam;
+    }
+
+    /**
+     * Set 全局参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GlobalParam 全局参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGlobalParam(String GlobalParam) {
+        this.GlobalParam = GlobalParam;
+    }
+
+    /**
+     * Get embed表示页面看板嵌出，chatBIEmbed表示ChatBI嵌出
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Intention embed表示页面看板嵌出，chatBIEmbed表示ChatBI嵌出
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIntention() {
+        return this.Intention;
+    }
+
+    /**
+     * Set embed表示页面看板嵌出，chatBIEmbed表示ChatBI嵌出
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Intention embed表示页面看板嵌出，chatBIEmbed表示ChatBI嵌出
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIntention(String Intention) {
+        this.Intention = Intention;
+    }
+
+    /**
+     * Get 100 无绑定用户
+200 单用户单token
+300 单用户 多token
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TokenType 100 无绑定用户
+200 单用户单token
+300 单用户 多token
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTokenType() {
+        return this.TokenType;
+    }
+
+    /**
+     * Set 100 无绑定用户
+200 单用户单token
+300 单用户 多token
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TokenType 100 无绑定用户
+200 单用户单token
+300 单用户 多token
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTokenType(Long TokenType) {
+        this.TokenType = TokenType;
+    }
+
+    /**
+     * Get token 数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TokenNum token 数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTokenNum() {
+        return this.TokenNum;
+    }
+
+    /**
+     * Set token 数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TokenNum token 数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTokenNum(Long TokenNum) {
+        this.TokenNum = TokenNum;
+    }
+
+    /**
+     * Get 是否单用户多token
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SingleUserMultiToken 是否单用户多token
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getSingleUserMultiToken() {
+        return this.SingleUserMultiToken;
+    }
+
+    /**
+     * Set 是否单用户多token
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SingleUserMultiToken 是否单用户多token
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSingleUserMultiToken(Boolean SingleUserMultiToken) {
+        this.SingleUserMultiToken = SingleUserMultiToken;
+    }
+
     public EmbedTokenInfo() {
     }
 
@@ -371,6 +606,30 @@ public class EmbedTokenInfo extends AbstractModel{
         if (source.ExpireTime != null) {
             this.ExpireTime = new Long(source.ExpireTime);
         }
+        if (source.UserCorpId != null) {
+            this.UserCorpId = new String(source.UserCorpId);
+        }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.TicketNum != null) {
+            this.TicketNum = new Long(source.TicketNum);
+        }
+        if (source.GlobalParam != null) {
+            this.GlobalParam = new String(source.GlobalParam);
+        }
+        if (source.Intention != null) {
+            this.Intention = new String(source.Intention);
+        }
+        if (source.TokenType != null) {
+            this.TokenType = new Long(source.TokenType);
+        }
+        if (source.TokenNum != null) {
+            this.TokenNum = new Long(source.TokenNum);
+        }
+        if (source.SingleUserMultiToken != null) {
+            this.SingleUserMultiToken = new Boolean(source.SingleUserMultiToken);
+        }
     }
 
 
@@ -389,6 +648,14 @@ public class EmbedTokenInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ExtraParam", this.ExtraParam);
         this.setParamSimple(map, prefix + "Scope", this.Scope);
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
+        this.setParamSimple(map, prefix + "UserCorpId", this.UserCorpId);
+        this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "TicketNum", this.TicketNum);
+        this.setParamSimple(map, prefix + "GlobalParam", this.GlobalParam);
+        this.setParamSimple(map, prefix + "Intention", this.Intention);
+        this.setParamSimple(map, prefix + "TokenType", this.TokenType);
+        this.setParamSimple(map, prefix + "TokenNum", this.TokenNum);
+        this.setParamSimple(map, prefix + "SingleUserMultiToken", this.SingleUserMultiToken);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIndexResponse extends AbstractModel{
+public class DescribeIndexResponse extends AbstractModel {
 
     /**
     * 日志主题ID
@@ -55,7 +56,6 @@ public class DescribeIndexResponse extends AbstractModel{
     * 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
 * false:不包含
 * true:包含
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IncludeInternalFields")
     @Expose
@@ -66,14 +66,13 @@ public class DescribeIndexResponse extends AbstractModel{
 * 0:仅包含开启键值索引的元数据字段
 * 1:包含所有元数据字段
 * 2:不包含任何元数据字段
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MetadataFlag")
     @Expose
     private Long MetadataFlag;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -150,12 +149,10 @@ public class DescribeIndexResponse extends AbstractModel{
     /**
      * Get 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
 * false:不包含
-* true:包含
-注意：此字段可能返回 null，表示取不到有效值。 
+* true:包含 
      * @return IncludeInternalFields 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
 * false:不包含
 * true:包含
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIncludeInternalFields() {
         return this.IncludeInternalFields;
@@ -165,11 +162,9 @@ public class DescribeIndexResponse extends AbstractModel{
      * Set 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
 * false:不包含
 * true:包含
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IncludeInternalFields 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
 * false:不包含
 * true:包含
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIncludeInternalFields(Boolean IncludeInternalFields) {
         this.IncludeInternalFields = IncludeInternalFields;
@@ -179,13 +174,11 @@ public class DescribeIndexResponse extends AbstractModel{
      * Get 元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引
 * 0:仅包含开启键值索引的元数据字段
 * 1:包含所有元数据字段
-* 2:不包含任何元数据字段
-注意：此字段可能返回 null，表示取不到有效值。 
+* 2:不包含任何元数据字段 
      * @return MetadataFlag 元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引
 * 0:仅包含开启键值索引的元数据字段
 * 1:包含所有元数据字段
 * 2:不包含任何元数据字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMetadataFlag() {
         return this.MetadataFlag;
@@ -196,28 +189,26 @@ public class DescribeIndexResponse extends AbstractModel{
 * 0:仅包含开启键值索引的元数据字段
 * 1:包含所有元数据字段
 * 2:不包含任何元数据字段
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MetadataFlag 元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引
 * 0:仅包含开启键值索引的元数据字段
 * 1:包含所有元数据字段
 * 2:不包含任何元数据字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetadataFlag(Long MetadataFlag) {
         this.MetadataFlag = MetadataFlag;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

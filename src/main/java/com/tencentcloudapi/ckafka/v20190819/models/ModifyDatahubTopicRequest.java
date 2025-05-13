@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyDatahubTopicRequest extends AbstractModel{
+public class ModifyDatahubTopicRequest extends AbstractModel {
 
     /**
-    * 名称
+    * 弹性topic名称
     */
     @SerializedName("Name")
     @Expose
@@ -51,16 +52,16 @@ public class ModifyDatahubTopicRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-     * Get 名称 
-     * @return Name 名称
+     * Get 弹性topic名称 
+     * @return Name 弹性topic名称
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 名称
-     * @param Name 名称
+     * Set 弹性topic名称
+     * @param Name 弹性topic名称
      */
     public void setName(String Name) {
         this.Name = Name;

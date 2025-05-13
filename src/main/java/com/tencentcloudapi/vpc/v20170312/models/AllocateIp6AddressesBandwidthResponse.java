@@ -16,14 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AllocateIp6AddressesBandwidthResponse extends AbstractModel{
+public class AllocateIp6AddressesBandwidthResponse extends AbstractModel {
 
     /**
-    * 弹性公网 IPV6 的唯一 ID 列表。
+    * 传统弹性公网 IPv6 的唯一 ID 列表。
     */
     @SerializedName("AddressSet")
     @Expose
@@ -37,23 +38,23 @@ public class AllocateIp6AddressesBandwidthResponse extends AbstractModel{
     private String TaskId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 弹性公网 IPV6 的唯一 ID 列表。 
-     * @return AddressSet 弹性公网 IPV6 的唯一 ID 列表。
+     * Get 传统弹性公网 IPv6 的唯一 ID 列表。 
+     * @return AddressSet 传统弹性公网 IPv6 的唯一 ID 列表。
      */
     public String [] getAddressSet() {
         return this.AddressSet;
     }
 
     /**
-     * Set 弹性公网 IPV6 的唯一 ID 列表。
-     * @param AddressSet 弹性公网 IPV6 的唯一 ID 列表。
+     * Set 传统弹性公网 IPv6 的唯一 ID 列表。
+     * @param AddressSet 传统弹性公网 IPv6 的唯一 ID 列表。
      */
     public void setAddressSet(String [] AddressSet) {
         this.AddressSet = AddressSet;
@@ -76,16 +77,16 @@ public class AllocateIp6AddressesBandwidthResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

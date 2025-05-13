@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Https extends AbstractModel{
+public class Https extends AbstractModel {
 
     /**
     * https 配置开关，取值有：
@@ -112,7 +113,7 @@ failed：部署失败
     private Hsts Hsts;
 
     /**
-    * Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+    * Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TlsVersion")
@@ -368,9 +369,9 @@ failed：部署失败
     }
 
     /**
-     * Get Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+     * Get Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+     * @return TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTlsVersion() {
@@ -378,9 +379,9 @@ failed：部署失败
     }
 
     /**
-     * Set Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+     * Set Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSV1.1, TLSV1.2, TLSv1.3，修改时必须开启连续的版本
+     * @param TlsVersion Tls版本设置，仅支持部分Advance域名，支持设置 TLSv1, TLSv1.1, TLSv1.2, TLSv1.3，修改时必须开启连续的版本
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTlsVersion(String [] TlsVersion) {

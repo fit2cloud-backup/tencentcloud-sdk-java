@@ -16,11 +16,12 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EipConfigOut extends AbstractModel{
+public class EipConfigOut extends AbstractModel {
 
     /**
     * 是否是固定IP，["ENABLE","DISABLE"]
@@ -31,7 +32,6 @@ public class EipConfigOut extends AbstractModel{
 
     /**
     * IP列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EipAddress")
     @Expose
@@ -54,10 +54,8 @@ public class EipConfigOut extends AbstractModel{
     }
 
     /**
-     * Get IP列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get IP列表 
      * @return EipAddress IP列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getEipAddress() {
         return this.EipAddress;
@@ -65,9 +63,7 @@ public class EipConfigOut extends AbstractModel{
 
     /**
      * Set IP列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EipAddress IP列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEipAddress(String [] EipAddress) {
         this.EipAddress = EipAddress;

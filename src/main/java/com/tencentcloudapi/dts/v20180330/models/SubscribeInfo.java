@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dts.v20180330.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SubscribeInfo extends AbstractModel{
+public class SubscribeInfo extends AbstractModel {
 
     /**
     * 数据订阅的实例ID
@@ -37,14 +38,14 @@ public class SubscribeInfo extends AbstractModel{
     private String SubscribeName;
 
     /**
-    * 数据订阅实例绑定的通道ID
+    * 数据订阅实例绑定的通道ID。kafka版订阅就是kafka topic
     */
     @SerializedName("ChannelId")
     @Expose
     private String ChannelId;
 
     /**
-    * 数据订阅绑定实例对应的产品名称
+    * 订阅实例的类型，目前支持 cynosdbmysql,mariadb,mongodb,mysql,percona,tdpg,tdsqlpercona(tdsqlmysql)
     */
     @SerializedName("Product")
     @Expose
@@ -58,21 +59,21 @@ public class SubscribeInfo extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 数据订阅实例绑定的数据库实例状态
+    * 云数据库状态：running 运行中，isolated 已隔离，offline 已下线。如果不是云上，此值为空
     */
     @SerializedName("InstanceStatus")
     @Expose
     private String InstanceStatus;
 
     /**
-    * 数据订阅实例的配置状态，unconfigure - 未配置， configuring - 配置中，configured - 已配置
+    * 数据订阅状态，可能的值为：未启动 notStarted, 校验中 checking, 校验不通过 checkNotPass, 校验通过 checkPass, 启动中 starting, 运行中 running, 异常出错 error
     */
     @SerializedName("SubsStatus")
     @Expose
     private String SubsStatus;
 
     /**
-    * 上次修改时间
+    * 上次修改时间，时间格式如：Y-m-d h:m:s
     */
     @SerializedName("ModifyTime")
     @Expose
@@ -86,14 +87,14 @@ public class SubscribeInfo extends AbstractModel{
     private String CreateTime;
 
     /**
-    * 隔离时间
+    * 隔离时间，时间格式如：Y-m-d h:m:s
     */
     @SerializedName("IsolateTime")
     @Expose
     private String IsolateTime;
 
     /**
-    * 到期时间
+    * 包年包月任务的到期时间，时间格式如：Y-m-d h:m:s。默认：0000-00-00 00:00:00
     */
     @SerializedName("ExpireTime")
     @Expose
@@ -114,6 +115,13 @@ public class SubscribeInfo extends AbstractModel{
     private String ConsumeStartTime;
 
     /**
+    * 自动续费标识。只有当 PayType=0，该值才有意义。枚举值：0-不自动续费，1-自动续费
+    */
+    @SerializedName("AutoRenewFlag")
+    @Expose
+    private Long AutoRenewFlag;
+
+    /**
     * 数据订阅实例所属地域
     */
     @SerializedName("Region")
@@ -128,7 +136,7 @@ public class SubscribeInfo extends AbstractModel{
     private Long PayType;
 
     /**
-    * 数据订阅实例的Vip
+    * 旧版订阅通道的vip
     */
     @SerializedName("Vip")
     @Expose
@@ -156,7 +164,7 @@ public class SubscribeInfo extends AbstractModel{
     private String UniqSubnetId;
 
     /**
-    * 数据订阅实例的状态，creating - 创建中，normal - 正常运行，isolating - 隔离中，isolated - 已隔离，offlining - 下线中，offline - 已下线
+    * 数据订阅生命周期状态，可能的值为：正常 normal, 隔离中 isolating, 已隔离 isolated, 下线中 offlining, 按量转包年包月中 post2PrePayIng
     */
     @SerializedName("Status")
     @Expose
@@ -178,16 +186,7 @@ public class SubscribeInfo extends AbstractModel{
     private TagItem [] Tags;
 
     /**
-    * 自动续费标识。0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("AutoRenewFlag")
-    @Expose
-    private Long AutoRenewFlag;
-
-    /**
     * 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubscribeVersion")
     @Expose
@@ -226,32 +225,32 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据订阅实例绑定的通道ID 
-     * @return ChannelId 数据订阅实例绑定的通道ID
+     * Get 数据订阅实例绑定的通道ID。kafka版订阅就是kafka topic 
+     * @return ChannelId 数据订阅实例绑定的通道ID。kafka版订阅就是kafka topic
      */
     public String getChannelId() {
         return this.ChannelId;
     }
 
     /**
-     * Set 数据订阅实例绑定的通道ID
-     * @param ChannelId 数据订阅实例绑定的通道ID
+     * Set 数据订阅实例绑定的通道ID。kafka版订阅就是kafka topic
+     * @param ChannelId 数据订阅实例绑定的通道ID。kafka版订阅就是kafka topic
      */
     public void setChannelId(String ChannelId) {
         this.ChannelId = ChannelId;
     }
 
     /**
-     * Get 数据订阅绑定实例对应的产品名称 
-     * @return Product 数据订阅绑定实例对应的产品名称
+     * Get 订阅实例的类型，目前支持 cynosdbmysql,mariadb,mongodb,mysql,percona,tdpg,tdsqlpercona(tdsqlmysql) 
+     * @return Product 订阅实例的类型，目前支持 cynosdbmysql,mariadb,mongodb,mysql,percona,tdpg,tdsqlpercona(tdsqlmysql)
      */
     public String getProduct() {
         return this.Product;
     }
 
     /**
-     * Set 数据订阅绑定实例对应的产品名称
-     * @param Product 数据订阅绑定实例对应的产品名称
+     * Set 订阅实例的类型，目前支持 cynosdbmysql,mariadb,mongodb,mysql,percona,tdpg,tdsqlpercona(tdsqlmysql)
+     * @param Product 订阅实例的类型，目前支持 cynosdbmysql,mariadb,mongodb,mysql,percona,tdpg,tdsqlpercona(tdsqlmysql)
      */
     public void setProduct(String Product) {
         this.Product = Product;
@@ -274,48 +273,48 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据订阅实例绑定的数据库实例状态 
-     * @return InstanceStatus 数据订阅实例绑定的数据库实例状态
+     * Get 云数据库状态：running 运行中，isolated 已隔离，offline 已下线。如果不是云上，此值为空 
+     * @return InstanceStatus 云数据库状态：running 运行中，isolated 已隔离，offline 已下线。如果不是云上，此值为空
      */
     public String getInstanceStatus() {
         return this.InstanceStatus;
     }
 
     /**
-     * Set 数据订阅实例绑定的数据库实例状态
-     * @param InstanceStatus 数据订阅实例绑定的数据库实例状态
+     * Set 云数据库状态：running 运行中，isolated 已隔离，offline 已下线。如果不是云上，此值为空
+     * @param InstanceStatus 云数据库状态：running 运行中，isolated 已隔离，offline 已下线。如果不是云上，此值为空
      */
     public void setInstanceStatus(String InstanceStatus) {
         this.InstanceStatus = InstanceStatus;
     }
 
     /**
-     * Get 数据订阅实例的配置状态，unconfigure - 未配置， configuring - 配置中，configured - 已配置 
-     * @return SubsStatus 数据订阅实例的配置状态，unconfigure - 未配置， configuring - 配置中，configured - 已配置
+     * Get 数据订阅状态，可能的值为：未启动 notStarted, 校验中 checking, 校验不通过 checkNotPass, 校验通过 checkPass, 启动中 starting, 运行中 running, 异常出错 error 
+     * @return SubsStatus 数据订阅状态，可能的值为：未启动 notStarted, 校验中 checking, 校验不通过 checkNotPass, 校验通过 checkPass, 启动中 starting, 运行中 running, 异常出错 error
      */
     public String getSubsStatus() {
         return this.SubsStatus;
     }
 
     /**
-     * Set 数据订阅实例的配置状态，unconfigure - 未配置， configuring - 配置中，configured - 已配置
-     * @param SubsStatus 数据订阅实例的配置状态，unconfigure - 未配置， configuring - 配置中，configured - 已配置
+     * Set 数据订阅状态，可能的值为：未启动 notStarted, 校验中 checking, 校验不通过 checkNotPass, 校验通过 checkPass, 启动中 starting, 运行中 running, 异常出错 error
+     * @param SubsStatus 数据订阅状态，可能的值为：未启动 notStarted, 校验中 checking, 校验不通过 checkNotPass, 校验通过 checkPass, 启动中 starting, 运行中 running, 异常出错 error
      */
     public void setSubsStatus(String SubsStatus) {
         this.SubsStatus = SubsStatus;
     }
 
     /**
-     * Get 上次修改时间 
-     * @return ModifyTime 上次修改时间
+     * Get 上次修改时间，时间格式如：Y-m-d h:m:s 
+     * @return ModifyTime 上次修改时间，时间格式如：Y-m-d h:m:s
      */
     public String getModifyTime() {
         return this.ModifyTime;
     }
 
     /**
-     * Set 上次修改时间
-     * @param ModifyTime 上次修改时间
+     * Set 上次修改时间，时间格式如：Y-m-d h:m:s
+     * @param ModifyTime 上次修改时间，时间格式如：Y-m-d h:m:s
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;
@@ -338,32 +337,32 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
-     * Get 隔离时间 
-     * @return IsolateTime 隔离时间
+     * Get 隔离时间，时间格式如：Y-m-d h:m:s 
+     * @return IsolateTime 隔离时间，时间格式如：Y-m-d h:m:s
      */
     public String getIsolateTime() {
         return this.IsolateTime;
     }
 
     /**
-     * Set 隔离时间
-     * @param IsolateTime 隔离时间
+     * Set 隔离时间，时间格式如：Y-m-d h:m:s
+     * @param IsolateTime 隔离时间，时间格式如：Y-m-d h:m:s
      */
     public void setIsolateTime(String IsolateTime) {
         this.IsolateTime = IsolateTime;
     }
 
     /**
-     * Get 到期时间 
-     * @return ExpireTime 到期时间
+     * Get 包年包月任务的到期时间，时间格式如：Y-m-d h:m:s。默认：0000-00-00 00:00:00 
+     * @return ExpireTime 包年包月任务的到期时间，时间格式如：Y-m-d h:m:s。默认：0000-00-00 00:00:00
      */
     public String getExpireTime() {
         return this.ExpireTime;
     }
 
     /**
-     * Set 到期时间
-     * @param ExpireTime 到期时间
+     * Set 包年包月任务的到期时间，时间格式如：Y-m-d h:m:s。默认：0000-00-00 00:00:00
+     * @param ExpireTime 包年包月任务的到期时间，时间格式如：Y-m-d h:m:s。默认：0000-00-00 00:00:00
      */
     public void setExpireTime(String ExpireTime) {
         this.ExpireTime = ExpireTime;
@@ -402,6 +401,22 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
+     * Get 自动续费标识。只有当 PayType=0，该值才有意义。枚举值：0-不自动续费，1-自动续费 
+     * @return AutoRenewFlag 自动续费标识。只有当 PayType=0，该值才有意义。枚举值：0-不自动续费，1-自动续费
+     */
+    public Long getAutoRenewFlag() {
+        return this.AutoRenewFlag;
+    }
+
+    /**
+     * Set 自动续费标识。只有当 PayType=0，该值才有意义。枚举值：0-不自动续费，1-自动续费
+     * @param AutoRenewFlag 自动续费标识。只有当 PayType=0，该值才有意义。枚举值：0-不自动续费，1-自动续费
+     */
+    public void setAutoRenewFlag(Long AutoRenewFlag) {
+        this.AutoRenewFlag = AutoRenewFlag;
+    }
+
+    /**
      * Get 数据订阅实例所属地域 
      * @return Region 数据订阅实例所属地域
      */
@@ -434,16 +449,16 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据订阅实例的Vip 
-     * @return Vip 数据订阅实例的Vip
+     * Get 旧版订阅通道的vip 
+     * @return Vip 旧版订阅通道的vip
      */
     public String getVip() {
         return this.Vip;
     }
 
     /**
-     * Set 数据订阅实例的Vip
-     * @param Vip 数据订阅实例的Vip
+     * Set 旧版订阅通道的vip
+     * @param Vip 旧版订阅通道的vip
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
@@ -498,16 +513,16 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据订阅实例的状态，creating - 创建中，normal - 正常运行，isolating - 隔离中，isolated - 已隔离，offlining - 下线中，offline - 已下线 
-     * @return Status 数据订阅实例的状态，creating - 创建中，normal - 正常运行，isolating - 隔离中，isolated - 已隔离，offlining - 下线中，offline - 已下线
+     * Get 数据订阅生命周期状态，可能的值为：正常 normal, 隔离中 isolating, 已隔离 isolated, 下线中 offlining, 按量转包年包月中 post2PrePayIng 
+     * @return Status 数据订阅生命周期状态，可能的值为：正常 normal, 隔离中 isolating, 已隔离 isolated, 下线中 offlining, 按量转包年包月中 post2PrePayIng
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 数据订阅实例的状态，creating - 创建中，normal - 正常运行，isolating - 隔离中，isolated - 已隔离，offlining - 下线中，offline - 已下线
-     * @param Status 数据订阅实例的状态，creating - 创建中，normal - 正常运行，isolating - 隔离中，isolated - 已隔离，offlining - 下线中，offline - 已下线
+     * Set 数据订阅生命周期状态，可能的值为：正常 normal, 隔离中 isolating, 已隔离 isolated, 下线中 offlining, 按量转包年包月中 post2PrePayIng
+     * @param Status 数据订阅生命周期状态，可能的值为：正常 normal, 隔离中 isolating, 已隔离 isolated, 下线中 offlining, 按量转包年包月中 post2PrePayIng
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -550,30 +565,8 @@ public class SubscribeInfo extends AbstractModel{
     }
 
     /**
-     * Get 自动续费标识。0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AutoRenewFlag 自动续费标识。0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public Long getAutoRenewFlag() {
-        return this.AutoRenewFlag;
-    }
-
-    /**
-     * Set 自动续费标识。0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AutoRenewFlag 自动续费标识。0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setAutoRenewFlag(Long AutoRenewFlag) {
-        this.AutoRenewFlag = AutoRenewFlag;
-    }
-
-    /**
-     * Get 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅 
      * @return SubscribeVersion 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubscribeVersion() {
         return this.SubscribeVersion;
@@ -581,9 +574,7 @@ public class SubscribeInfo extends AbstractModel{
 
     /**
      * Set 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubscribeVersion 订阅实例版本；txdts-旧版数据订阅,kafka-kafka版本数据订阅
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubscribeVersion(String SubscribeVersion) {
         this.SubscribeVersion = SubscribeVersion;
@@ -636,6 +627,9 @@ public class SubscribeInfo extends AbstractModel{
         if (source.ConsumeStartTime != null) {
             this.ConsumeStartTime = new String(source.ConsumeStartTime);
         }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
         if (source.Region != null) {
             this.Region = new String(source.Region);
         }
@@ -666,9 +660,6 @@ public class SubscribeInfo extends AbstractModel{
                 this.Tags[i] = new TagItem(source.Tags[i]);
             }
         }
-        if (source.AutoRenewFlag != null) {
-            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
-        }
         if (source.SubscribeVersion != null) {
             this.SubscribeVersion = new String(source.SubscribeVersion);
         }
@@ -692,6 +683,7 @@ public class SubscribeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamSimple(map, prefix + "OfflineTime", this.OfflineTime);
         this.setParamSimple(map, prefix + "ConsumeStartTime", this.ConsumeStartTime);
+        this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "PayType", this.PayType);
         this.setParamSimple(map, prefix + "Vip", this.Vip);
@@ -701,7 +693,6 @@ public class SubscribeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "SdkConsumedTime", this.SdkConsumedTime);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
-        this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
         this.setParamSimple(map, prefix + "SubscribeVersion", this.SubscribeVersion);
 
     }

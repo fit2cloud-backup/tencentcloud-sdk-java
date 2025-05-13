@@ -16,11 +16,12 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScheduledAction extends AbstractModel{
+public class ScheduledAction extends AbstractModel {
 
     /**
     * 定时任务ID。
@@ -51,7 +52,7 @@ public class ScheduledAction extends AbstractModel{
     private String StartTime;
 
     /**
-    * 定时任务的重复方式。
+    * 定时任务的重复方式。定时任务中的[Recurrence参数限制](https://cloud.tencent.com/document/product/377/88119)为5个字段，由空格分开，结构为：分，小时，日期，月份，星期。
     */
     @SerializedName("Recurrence")
     @Expose
@@ -86,14 +87,16 @@ public class ScheduledAction extends AbstractModel{
     private Long MinSize;
 
     /**
-    * 定时任务的创建时间。取值为`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
+    * 定时任务的创建时间。取值为标准`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
     */
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
 
     /**
-    * 定时任务的执行类型。取值范围：<br><li>CRONTAB：代表定时任务为重复执行。<br><li>ONCE：代表定时任务为单次执行。
+    * 定时任务的执行类型。取值范围：
+<li>CRONTAB：代表定时任务为重复执行。</li>
+<li>ONCE：代表定时任务为单次执行。</li>
     */
     @SerializedName("ScheduledType")
     @Expose
@@ -164,16 +167,16 @@ public class ScheduledAction extends AbstractModel{
     }
 
     /**
-     * Get 定时任务的重复方式。 
-     * @return Recurrence 定时任务的重复方式。
+     * Get 定时任务的重复方式。定时任务中的[Recurrence参数限制](https://cloud.tencent.com/document/product/377/88119)为5个字段，由空格分开，结构为：分，小时，日期，月份，星期。 
+     * @return Recurrence 定时任务的重复方式。定时任务中的[Recurrence参数限制](https://cloud.tencent.com/document/product/377/88119)为5个字段，由空格分开，结构为：分，小时，日期，月份，星期。
      */
     public String getRecurrence() {
         return this.Recurrence;
     }
 
     /**
-     * Set 定时任务的重复方式。
-     * @param Recurrence 定时任务的重复方式。
+     * Set 定时任务的重复方式。定时任务中的[Recurrence参数限制](https://cloud.tencent.com/document/product/377/88119)为5个字段，由空格分开，结构为：分，小时，日期，月份，星期。
+     * @param Recurrence 定时任务的重复方式。定时任务中的[Recurrence参数限制](https://cloud.tencent.com/document/product/377/88119)为5个字段，由空格分开，结构为：分，小时，日期，月份，星期。
      */
     public void setRecurrence(String Recurrence) {
         this.Recurrence = Recurrence;
@@ -244,32 +247,40 @@ public class ScheduledAction extends AbstractModel{
     }
 
     /**
-     * Get 定时任务的创建时间。取值为`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。 
-     * @return CreatedTime 定时任务的创建时间。取值为`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
+     * Get 定时任务的创建时间。取值为标准`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。 
+     * @return CreatedTime 定时任务的创建时间。取值为标准`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
      */
     public String getCreatedTime() {
         return this.CreatedTime;
     }
 
     /**
-     * Set 定时任务的创建时间。取值为`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
-     * @param CreatedTime 定时任务的创建时间。取值为`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
+     * Set 定时任务的创建时间。取值为标准`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
+     * @param CreatedTime 定时任务的创建时间。取值为标准`UTC`时间，按照`ISO8601`标准，格式：`YYYY-MM-DDThh:mm:ssZ`。
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
     }
 
     /**
-     * Get 定时任务的执行类型。取值范围：<br><li>CRONTAB：代表定时任务为重复执行。<br><li>ONCE：代表定时任务为单次执行。 
-     * @return ScheduledType 定时任务的执行类型。取值范围：<br><li>CRONTAB：代表定时任务为重复执行。<br><li>ONCE：代表定时任务为单次执行。
+     * Get 定时任务的执行类型。取值范围：
+<li>CRONTAB：代表定时任务为重复执行。</li>
+<li>ONCE：代表定时任务为单次执行。</li> 
+     * @return ScheduledType 定时任务的执行类型。取值范围：
+<li>CRONTAB：代表定时任务为重复执行。</li>
+<li>ONCE：代表定时任务为单次执行。</li>
      */
     public String getScheduledType() {
         return this.ScheduledType;
     }
 
     /**
-     * Set 定时任务的执行类型。取值范围：<br><li>CRONTAB：代表定时任务为重复执行。<br><li>ONCE：代表定时任务为单次执行。
-     * @param ScheduledType 定时任务的执行类型。取值范围：<br><li>CRONTAB：代表定时任务为重复执行。<br><li>ONCE：代表定时任务为单次执行。
+     * Set 定时任务的执行类型。取值范围：
+<li>CRONTAB：代表定时任务为重复执行。</li>
+<li>ONCE：代表定时任务为单次执行。</li>
+     * @param ScheduledType 定时任务的执行类型。取值范围：
+<li>CRONTAB：代表定时任务为重复执行。</li>
+<li>ONCE：代表定时任务为单次执行。</li>
      */
     public void setScheduledType(String ScheduledType) {
         this.ScheduledType = ScheduledType;

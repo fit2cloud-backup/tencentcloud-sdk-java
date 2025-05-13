@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ContainerGroupOther extends AbstractModel{
+public class ContainerGroupOther extends AbstractModel {
 
     /**
     * 实例总数
@@ -37,6 +38,13 @@ public class ContainerGroupOther extends AbstractModel{
     private Long CurrentNum;
 
     /**
+    * 负载均衡DNS地址
+    */
+    @SerializedName("LbDns")
+    @Expose
+    private String LbDns;
+
+    /**
     * 负载均衡ip
     */
     @SerializedName("LbIp")
@@ -51,14 +59,14 @@ public class ContainerGroupOther extends AbstractModel{
     private String ClusterIp;
 
     /**
-    * 服务状态，请参考后面的的状态定义
+    * 服务状态，请参考后面的状态定义
     */
     @SerializedName("Status")
     @Expose
     private String Status;
 
     /**
-    * 服务状态，请参考后面的的状态定义
+    * 服务状态，请参考后面的状态定义
     */
     @SerializedName("Message")
     @Expose
@@ -97,7 +105,6 @@ public class ContainerGroupOther extends AbstractModel{
 
     /**
     * 服务配置信息是否匹配
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsNotEqualServiceConfig")
     @Expose
@@ -136,6 +143,22 @@ public class ContainerGroupOther extends AbstractModel{
     }
 
     /**
+     * Get 负载均衡DNS地址 
+     * @return LbDns 负载均衡DNS地址
+     */
+    public String getLbDns() {
+        return this.LbDns;
+    }
+
+    /**
+     * Set 负载均衡DNS地址
+     * @param LbDns 负载均衡DNS地址
+     */
+    public void setLbDns(String LbDns) {
+        this.LbDns = LbDns;
+    }
+
+    /**
      * Get 负载均衡ip 
      * @return LbIp 负载均衡ip
      */
@@ -168,32 +191,32 @@ public class ContainerGroupOther extends AbstractModel{
     }
 
     /**
-     * Get 服务状态，请参考后面的的状态定义 
-     * @return Status 服务状态，请参考后面的的状态定义
+     * Get 服务状态，请参考后面的状态定义 
+     * @return Status 服务状态，请参考后面的状态定义
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 服务状态，请参考后面的的状态定义
-     * @param Status 服务状态，请参考后面的的状态定义
+     * Set 服务状态，请参考后面的状态定义
+     * @param Status 服务状态，请参考后面的状态定义
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 服务状态，请参考后面的的状态定义 
-     * @return Message 服务状态，请参考后面的的状态定义
+     * Get 服务状态，请参考后面的状态定义 
+     * @return Message 服务状态，请参考后面的状态定义
      */
     public String getMessage() {
         return this.Message;
     }
 
     /**
-     * Set 服务状态，请参考后面的的状态定义
-     * @param Message 服务状态，请参考后面的的状态定义
+     * Set 服务状态，请参考后面的状态定义
+     * @param Message 服务状态，请参考后面的状态定义
      */
     public void setMessage(String Message) {
         this.Message = Message;
@@ -276,10 +299,8 @@ public class ContainerGroupOther extends AbstractModel{
     }
 
     /**
-     * Get 服务配置信息是否匹配
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务配置信息是否匹配 
      * @return IsNotEqualServiceConfig 服务配置信息是否匹配
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsNotEqualServiceConfig() {
         return this.IsNotEqualServiceConfig;
@@ -287,9 +308,7 @@ public class ContainerGroupOther extends AbstractModel{
 
     /**
      * Set 服务配置信息是否匹配
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsNotEqualServiceConfig 服务配置信息是否匹配
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsNotEqualServiceConfig(Boolean IsNotEqualServiceConfig) {
         this.IsNotEqualServiceConfig = IsNotEqualServiceConfig;
@@ -308,6 +327,9 @@ public class ContainerGroupOther extends AbstractModel{
         }
         if (source.CurrentNum != null) {
             this.CurrentNum = new Long(source.CurrentNum);
+        }
+        if (source.LbDns != null) {
+            this.LbDns = new String(source.LbDns);
         }
         if (source.LbIp != null) {
             this.LbIp = new String(source.LbIp);
@@ -348,6 +370,7 @@ public class ContainerGroupOther extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceNum", this.InstanceNum);
         this.setParamSimple(map, prefix + "CurrentNum", this.CurrentNum);
+        this.setParamSimple(map, prefix + "LbDns", this.LbDns);
         this.setParamSimple(map, prefix + "LbIp", this.LbIp);
         this.setParamSimple(map, prefix + "ClusterIp", this.ClusterIp);
         this.setParamSimple(map, prefix + "Status", this.Status);

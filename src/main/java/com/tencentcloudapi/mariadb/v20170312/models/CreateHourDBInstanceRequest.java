@@ -16,14 +16,15 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateHourDBInstanceRequest extends AbstractModel{
+public class CreateHourDBInstanceRequest extends AbstractModel {
 
     /**
-    * 节点可用区分布，最多可填两个可用区。
+    * 节点可用区分布，可填写多个可用区。
     */
     @SerializedName("Zones")
     @Expose
@@ -79,7 +80,7 @@ public class CreateHourDBInstanceRequest extends AbstractModel{
     private String SubnetId;
 
     /**
-    * 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
+    * 数据库引擎版本，当前可选：8.0，5.7，10.1。
     */
     @SerializedName("DbVersionId")
     @Expose
@@ -151,16 +152,30 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
     private String RollbackTime;
 
     /**
-     * Get 节点可用区分布，最多可填两个可用区。 
-     * @return Zones 节点可用区分布，最多可填两个可用区。
+    * DCN同步模式，0：异步， 1：强同步
+    */
+    @SerializedName("DcnSyncMode")
+    @Expose
+    private Long DcnSyncMode;
+
+    /**
+    * cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+    */
+    @SerializedName("CpuType")
+    @Expose
+    private String CpuType;
+
+    /**
+     * Get 节点可用区分布，可填写多个可用区。 
+     * @return Zones 节点可用区分布，可填写多个可用区。
      */
     public String [] getZones() {
         return this.Zones;
     }
 
     /**
-     * Set 节点可用区分布，最多可填两个可用区。
-     * @param Zones 节点可用区分布，最多可填两个可用区。
+     * Set 节点可用区分布，可填写多个可用区。
+     * @param Zones 节点可用区分布，可填写多个可用区。
      */
     public void setZones(String [] Zones) {
         this.Zones = Zones;
@@ -279,16 +294,16 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
     }
 
     /**
-     * Get 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。 
-     * @return DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
+     * Get 数据库引擎版本，当前可选：8.0，5.7，10.1。 
+     * @return DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1。
      */
     public String getDbVersionId() {
         return this.DbVersionId;
     }
 
     /**
-     * Set 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
-     * @param DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1，10.0。
+     * Set 数据库引擎版本，当前可选：8.0，5.7，10.1。
+     * @param DbVersionId 数据库引擎版本，当前可选：8.0，5.7，10.1。
      */
     public void setDbVersionId(String DbVersionId) {
         this.DbVersionId = DbVersionId;
@@ -446,6 +461,38 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
         this.RollbackTime = RollbackTime;
     }
 
+    /**
+     * Get DCN同步模式，0：异步， 1：强同步 
+     * @return DcnSyncMode DCN同步模式，0：异步， 1：强同步
+     */
+    public Long getDcnSyncMode() {
+        return this.DcnSyncMode;
+    }
+
+    /**
+     * Set DCN同步模式，0：异步， 1：强同步
+     * @param DcnSyncMode DCN同步模式，0：异步， 1：强同步
+     */
+    public void setDcnSyncMode(Long DcnSyncMode) {
+        this.DcnSyncMode = DcnSyncMode;
+    }
+
+    /**
+     * Get cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD 
+     * @return CpuType cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public String getCpuType() {
+        return this.CpuType;
+    }
+
+    /**
+     * Set cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     * @param CpuType cpu类型，英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public void setCpuType(String CpuType) {
+        this.CpuType = CpuType;
+    }
+
     public CreateHourDBInstanceRequest() {
     }
 
@@ -520,6 +567,12 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
         if (source.RollbackTime != null) {
             this.RollbackTime = new String(source.RollbackTime);
         }
+        if (source.DcnSyncMode != null) {
+            this.DcnSyncMode = new Long(source.DcnSyncMode);
+        }
+        if (source.CpuType != null) {
+            this.CpuType = new String(source.CpuType);
+        }
     }
 
 
@@ -545,6 +598,8 @@ innodb_page_size（innodb数据页，默认16K），sync_mode（同步模式：0
         this.setParamArrayObj(map, prefix + "InitParams.", this.InitParams);
         this.setParamSimple(map, prefix + "RollbackInstanceId", this.RollbackInstanceId);
         this.setParamSimple(map, prefix + "RollbackTime", this.RollbackTime);
+        this.setParamSimple(map, prefix + "DcnSyncMode", this.DcnSyncMode);
+        this.setParamSimple(map, prefix + "CpuType", this.CpuType);
 
     }
 }

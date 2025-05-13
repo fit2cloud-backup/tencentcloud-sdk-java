@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBaselineRuleResponse extends AbstractModel{
+public class DescribeBaselineRuleResponse extends AbstractModel {
 
     /**
     * 分页查询记录总数
@@ -31,7 +32,6 @@ public class DescribeBaselineRuleResponse extends AbstractModel{
 
     /**
     * 基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BaselineRuleList")
     @Expose
@@ -39,14 +39,13 @@ public class DescribeBaselineRuleResponse extends AbstractModel{
 
     /**
     * 是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ShowRuleRemark")
     @Expose
     private Boolean ShowRuleRemark;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -69,10 +68,8 @@ public class DescribeBaselineRuleResponse extends AbstractModel{
     }
 
     /**
-     * Get 基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 基线检测项列表 
      * @return BaselineRuleList 基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaselineRuleInfo [] getBaselineRuleList() {
         return this.BaselineRuleList;
@@ -80,19 +77,15 @@ public class DescribeBaselineRuleResponse extends AbstractModel{
 
     /**
      * Set 基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BaselineRuleList 基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBaselineRuleList(BaselineRuleInfo [] BaselineRuleList) {
         this.BaselineRuleList = BaselineRuleList;
     }
 
     /**
-     * Get 是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否显示说明列：true-是，false-否 
      * @return ShowRuleRemark 是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getShowRuleRemark() {
         return this.ShowRuleRemark;
@@ -100,25 +93,23 @@ public class DescribeBaselineRuleResponse extends AbstractModel{
 
     /**
      * Set 是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ShowRuleRemark 是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setShowRuleRemark(Boolean ShowRuleRemark) {
         this.ShowRuleRemark = ShowRuleRemark;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

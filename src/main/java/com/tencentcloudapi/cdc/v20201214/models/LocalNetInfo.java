@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LocalNetInfo extends AbstractModel{
+public class LocalNetInfo extends AbstractModel {
 
     /**
     * 协议
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Protocol")
     @Expose
@@ -32,7 +32,6 @@ public class LocalNetInfo extends AbstractModel{
 
     /**
     * 网络id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -40,7 +39,6 @@ public class LocalNetInfo extends AbstractModel{
 
     /**
     * 路由信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BGPRoute")
     @Expose
@@ -48,17 +46,14 @@ public class LocalNetInfo extends AbstractModel{
 
     /**
     * 本地IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LocalIp")
     @Expose
     private String LocalIp;
 
     /**
-     * Get 协议
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 协议 
      * @return Protocol 协议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProtocol() {
         return this.Protocol;
@@ -66,19 +61,15 @@ public class LocalNetInfo extends AbstractModel{
 
     /**
      * Set 协议
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Protocol 协议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 网络id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络id 
      * @return VpcId 网络id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -86,19 +77,15 @@ public class LocalNetInfo extends AbstractModel{
 
     /**
      * Set 网络id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId 网络id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 路由信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 路由信息 
      * @return BGPRoute 路由信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBGPRoute() {
         return this.BGPRoute;
@@ -106,19 +93,15 @@ public class LocalNetInfo extends AbstractModel{
 
     /**
      * Set 路由信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BGPRoute 路由信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBGPRoute(String BGPRoute) {
         this.BGPRoute = BGPRoute;
     }
 
     /**
-     * Get 本地IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 本地IP 
      * @return LocalIp 本地IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLocalIp() {
         return this.LocalIp;
@@ -126,9 +109,7 @@ public class LocalNetInfo extends AbstractModel{
 
     /**
      * Set 本地IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LocalIp 本地IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocalIp(String LocalIp) {
         this.LocalIp = LocalIp;

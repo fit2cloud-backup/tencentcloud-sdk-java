@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterResource extends AbstractModel{
+public class ClusterResource extends AbstractModel {
 
     /**
     * 集群唯一ID，如tgw-12345678。
@@ -46,7 +47,6 @@ public class ClusterResource extends AbstractModel{
 
     /**
     * 资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Idle")
     @Expose
@@ -61,7 +61,6 @@ public class ClusterResource extends AbstractModel{
 
     /**
     * 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Isp")
     @Expose
@@ -128,10 +127,8 @@ public class ClusterResource extends AbstractModel{
     }
 
     /**
-     * Get 资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源是否闲置。 
      * @return Idle 资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIdle() {
         return this.Idle;
@@ -139,9 +136,7 @@ public class ClusterResource extends AbstractModel{
 
     /**
      * Set 资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Idle 资源是否闲置。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdle(String Idle) {
         this.Idle = Idle;
@@ -164,10 +159,8 @@ public class ClusterResource extends AbstractModel{
     }
 
     /**
-     * Get 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。 
      * @return Isp 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIsp() {
         return this.Isp;
@@ -175,9 +168,7 @@ public class ClusterResource extends AbstractModel{
 
     /**
      * Set 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Isp 集群的Isp属性，如："BGP","CMCC","CUCC","CTCC","INTERNAL"。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsp(String Isp) {
         this.Isp = Isp;

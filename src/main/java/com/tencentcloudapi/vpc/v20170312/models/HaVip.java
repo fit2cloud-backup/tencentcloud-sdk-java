@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HaVip extends AbstractModel{
+public class HaVip extends AbstractModel {
 
     /**
     * `HAVIP`的`ID`，是`HAVIP`的唯一标识。
@@ -100,6 +101,41 @@ public class HaVip extends AbstractModel{
     @SerializedName("Business")
     @Expose
     private String Business;
+
+    /**
+    * `HAVIP`的飘移范围。
+    */
+    @SerializedName("HaVipAssociationSet")
+    @Expose
+    private HaVipAssociation [] HaVipAssociationSet;
+
+    /**
+    * 是否开启`HAVIP`的飘移范围校验。
+    */
+    @SerializedName("CheckAssociate")
+    @Expose
+    private Boolean CheckAssociate;
+
+    /**
+    * CDC实例ID。
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
+
+    /**
+    * HAVIP 刷新时间。该参数只作为出参数。以下场景会触发 FlushTime 被刷新：1）子机发出免费 ARP 触发 HAVIP 漂移；2）手动HAVIP解绑网卡; 没有更新时默认值：0000-00-00 00:00:00
+    */
+    @SerializedName("FlushedTime")
+    @Expose
+    private String FlushedTime;
+
+    /**
+    * 标签键值对。	
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get `HAVIP`的`ID`，是`HAVIP`的唯一标识。 
@@ -285,6 +321,86 @@ public class HaVip extends AbstractModel{
         this.Business = Business;
     }
 
+    /**
+     * Get `HAVIP`的飘移范围。 
+     * @return HaVipAssociationSet `HAVIP`的飘移范围。
+     */
+    public HaVipAssociation [] getHaVipAssociationSet() {
+        return this.HaVipAssociationSet;
+    }
+
+    /**
+     * Set `HAVIP`的飘移范围。
+     * @param HaVipAssociationSet `HAVIP`的飘移范围。
+     */
+    public void setHaVipAssociationSet(HaVipAssociation [] HaVipAssociationSet) {
+        this.HaVipAssociationSet = HaVipAssociationSet;
+    }
+
+    /**
+     * Get 是否开启`HAVIP`的飘移范围校验。 
+     * @return CheckAssociate 是否开启`HAVIP`的飘移范围校验。
+     */
+    public Boolean getCheckAssociate() {
+        return this.CheckAssociate;
+    }
+
+    /**
+     * Set 是否开启`HAVIP`的飘移范围校验。
+     * @param CheckAssociate 是否开启`HAVIP`的飘移范围校验。
+     */
+    public void setCheckAssociate(Boolean CheckAssociate) {
+        this.CheckAssociate = CheckAssociate;
+    }
+
+    /**
+     * Get CDC实例ID。 
+     * @return CdcId CDC实例ID。
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set CDC实例ID。
+     * @param CdcId CDC实例ID。
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
+    /**
+     * Get HAVIP 刷新时间。该参数只作为出参数。以下场景会触发 FlushTime 被刷新：1）子机发出免费 ARP 触发 HAVIP 漂移；2）手动HAVIP解绑网卡; 没有更新时默认值：0000-00-00 00:00:00 
+     * @return FlushedTime HAVIP 刷新时间。该参数只作为出参数。以下场景会触发 FlushTime 被刷新：1）子机发出免费 ARP 触发 HAVIP 漂移；2）手动HAVIP解绑网卡; 没有更新时默认值：0000-00-00 00:00:00
+     */
+    public String getFlushedTime() {
+        return this.FlushedTime;
+    }
+
+    /**
+     * Set HAVIP 刷新时间。该参数只作为出参数。以下场景会触发 FlushTime 被刷新：1）子机发出免费 ARP 触发 HAVIP 漂移；2）手动HAVIP解绑网卡; 没有更新时默认值：0000-00-00 00:00:00
+     * @param FlushedTime HAVIP 刷新时间。该参数只作为出参数。以下场景会触发 FlushTime 被刷新：1）子机发出免费 ARP 触发 HAVIP 漂移；2）手动HAVIP解绑网卡; 没有更新时默认值：0000-00-00 00:00:00
+     */
+    public void setFlushedTime(String FlushedTime) {
+        this.FlushedTime = FlushedTime;
+    }
+
+    /**
+     * Get 标签键值对。	 
+     * @return TagSet 标签键值对。	
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。	
+     * @param TagSet 标签键值对。	
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
+    }
+
     public HaVip() {
     }
 
@@ -326,6 +442,27 @@ public class HaVip extends AbstractModel{
         if (source.Business != null) {
             this.Business = new String(source.Business);
         }
+        if (source.HaVipAssociationSet != null) {
+            this.HaVipAssociationSet = new HaVipAssociation[source.HaVipAssociationSet.length];
+            for (int i = 0; i < source.HaVipAssociationSet.length; i++) {
+                this.HaVipAssociationSet[i] = new HaVipAssociation(source.HaVipAssociationSet[i]);
+            }
+        }
+        if (source.CheckAssociate != null) {
+            this.CheckAssociate = new Boolean(source.CheckAssociate);
+        }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
+        if (source.FlushedTime != null) {
+            this.FlushedTime = new String(source.FlushedTime);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
     }
 
 
@@ -344,6 +481,11 @@ public class HaVip extends AbstractModel{
         this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
         this.setParamSimple(map, prefix + "Business", this.Business);
+        this.setParamArrayObj(map, prefix + "HaVipAssociationSet.", this.HaVipAssociationSet);
+        this.setParamSimple(map, prefix + "CheckAssociate", this.CheckAssociate);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamSimple(map, prefix + "FlushedTime", this.FlushedTime);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

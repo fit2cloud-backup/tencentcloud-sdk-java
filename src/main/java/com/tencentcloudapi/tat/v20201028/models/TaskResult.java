@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskResult extends AbstractModel{
+public class TaskResult extends AbstractModel {
 
     /**
     * 命令执行ExitCode。
@@ -37,14 +38,16 @@ public class TaskResult extends AbstractModel{
     private String Output;
 
     /**
-    * 命令执行开始时间。
+    * 命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExecStartTime")
     @Expose
     private String ExecStartTime;
 
     /**
-    * 命令执行结束时间。
+    * 命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExecEndTime")
     @Expose
@@ -104,32 +107,40 @@ public class TaskResult extends AbstractModel{
     }
 
     /**
-     * Get 命令执行开始时间。 
-     * @return ExecStartTime 命令执行开始时间。
+     * Get 命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecStartTime 命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExecStartTime() {
         return this.ExecStartTime;
     }
 
     /**
-     * Set 命令执行开始时间。
-     * @param ExecStartTime 命令执行开始时间。
+     * Set 命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecStartTime 命令执行开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExecStartTime(String ExecStartTime) {
         this.ExecStartTime = ExecStartTime;
     }
 
     /**
-     * Get 命令执行结束时间。 
-     * @return ExecEndTime 命令执行结束时间。
+     * Get 命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecEndTime 命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExecEndTime() {
         return this.ExecEndTime;
     }
 
     /**
-     * Set 命令执行结束时间。
-     * @param ExecEndTime 命令执行结束时间。
+     * Set 命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecEndTime 命令执行结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExecEndTime(String ExecEndTime) {
         this.ExecEndTime = ExecEndTime;

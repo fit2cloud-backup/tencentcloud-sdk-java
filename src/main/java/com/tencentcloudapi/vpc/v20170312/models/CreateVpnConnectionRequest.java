@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateVpnConnectionRequest extends AbstractModel{
+public class CreateVpnConnectionRequest extends AbstractModel {
 
     /**
     * VPN网关实例ID。
@@ -141,6 +142,27 @@ CCN VPN 形的通道 可以不传VPCID
     @SerializedName("DpdAction")
     @Expose
     private String DpdAction;
+
+    /**
+    * 创建通道路由信息。
+    */
+    @SerializedName("Route")
+    @Expose
+    private CreateVpnConnRoute Route;
+
+    /**
+    * BGP配置。
+    */
+    @SerializedName("BgpConfig")
+    @Expose
+    private BgpConfig BgpConfig;
+
+    /**
+    * 健康检查NQA配置。
+    */
+    @SerializedName("HealthCheckConfig")
+    @Expose
+    private HealthCheckConfig HealthCheckConfig;
 
     /**
      * Get VPN网关实例ID。 
@@ -418,6 +440,54 @@ CCN VPN 形的通道 可以不传VPCID
         this.DpdAction = DpdAction;
     }
 
+    /**
+     * Get 创建通道路由信息。 
+     * @return Route 创建通道路由信息。
+     */
+    public CreateVpnConnRoute getRoute() {
+        return this.Route;
+    }
+
+    /**
+     * Set 创建通道路由信息。
+     * @param Route 创建通道路由信息。
+     */
+    public void setRoute(CreateVpnConnRoute Route) {
+        this.Route = Route;
+    }
+
+    /**
+     * Get BGP配置。 
+     * @return BgpConfig BGP配置。
+     */
+    public BgpConfig getBgpConfig() {
+        return this.BgpConfig;
+    }
+
+    /**
+     * Set BGP配置。
+     * @param BgpConfig BGP配置。
+     */
+    public void setBgpConfig(BgpConfig BgpConfig) {
+        this.BgpConfig = BgpConfig;
+    }
+
+    /**
+     * Get 健康检查NQA配置。 
+     * @return HealthCheckConfig 健康检查NQA配置。
+     */
+    public HealthCheckConfig getHealthCheckConfig() {
+        return this.HealthCheckConfig;
+    }
+
+    /**
+     * Set 健康检查NQA配置。
+     * @param HealthCheckConfig 健康检查NQA配置。
+     */
+    public void setHealthCheckConfig(HealthCheckConfig HealthCheckConfig) {
+        this.HealthCheckConfig = HealthCheckConfig;
+    }
+
     public CreateVpnConnectionRequest() {
     }
 
@@ -483,6 +553,15 @@ CCN VPN 形的通道 可以不传VPCID
         if (source.DpdAction != null) {
             this.DpdAction = new String(source.DpdAction);
         }
+        if (source.Route != null) {
+            this.Route = new CreateVpnConnRoute(source.Route);
+        }
+        if (source.BgpConfig != null) {
+            this.BgpConfig = new BgpConfig(source.BgpConfig);
+        }
+        if (source.HealthCheckConfig != null) {
+            this.HealthCheckConfig = new HealthCheckConfig(source.HealthCheckConfig);
+        }
     }
 
 
@@ -507,6 +586,9 @@ CCN VPN 形的通道 可以不传VPCID
         this.setParamSimple(map, prefix + "DpdEnable", this.DpdEnable);
         this.setParamSimple(map, prefix + "DpdTimeout", this.DpdTimeout);
         this.setParamSimple(map, prefix + "DpdAction", this.DpdAction);
+        this.setParamObj(map, prefix + "Route.", this.Route);
+        this.setParamObj(map, prefix + "BgpConfig.", this.BgpConfig);
+        this.setParamObj(map, prefix + "HealthCheckConfig.", this.HealthCheckConfig);
 
     }
 }

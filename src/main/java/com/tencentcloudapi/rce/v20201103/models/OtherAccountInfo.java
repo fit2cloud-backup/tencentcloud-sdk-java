@@ -16,76 +16,112 @@
 package com.tencentcloudapi.rce.v20201103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OtherAccountInfo extends AbstractModel{
+public class OtherAccountInfo extends AbstractModel {
 
     /**
-    * id
+    * 其他账号信息；
+AccountType是10004时，填入中国大陆标准11位手机号的MD5值
+AccountType是10005时，填入中国大陆标准11位手机号的SHA256值
+注释：
+MD5手机号加密方式，使用中国大陆11位手机号进行MD5加密，加密后取32位小写值。
+SHA256手机号加密方式，使用中国大陆11位手机号进行SHA256加密，加密后取64位小写值。
     */
     @SerializedName("AccountId")
     @Expose
     private String AccountId;
 
     /**
-    * 手机号
+    * 账号绑定的MD5或SHA256加密的手机号（该字段已不推荐使用）。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
     */
     @SerializedName("MobilePhone")
     @Expose
     private String MobilePhone;
 
     /**
-    * id
+    * 用户设备号（该字段已不推荐使用）。
     */
     @SerializedName("DeviceId")
     @Expose
     private String DeviceId;
 
     /**
-     * Get id 
-     * @return AccountId id
+     * Get 其他账号信息；
+AccountType是10004时，填入中国大陆标准11位手机号的MD5值
+AccountType是10005时，填入中国大陆标准11位手机号的SHA256值
+注释：
+MD5手机号加密方式，使用中国大陆11位手机号进行MD5加密，加密后取32位小写值。
+SHA256手机号加密方式，使用中国大陆11位手机号进行SHA256加密，加密后取64位小写值。 
+     * @return AccountId 其他账号信息；
+AccountType是10004时，填入中国大陆标准11位手机号的MD5值
+AccountType是10005时，填入中国大陆标准11位手机号的SHA256值
+注释：
+MD5手机号加密方式，使用中国大陆11位手机号进行MD5加密，加密后取32位小写值。
+SHA256手机号加密方式，使用中国大陆11位手机号进行SHA256加密，加密后取64位小写值。
      */
     public String getAccountId() {
         return this.AccountId;
     }
 
     /**
-     * Set id
-     * @param AccountId id
+     * Set 其他账号信息；
+AccountType是10004时，填入中国大陆标准11位手机号的MD5值
+AccountType是10005时，填入中国大陆标准11位手机号的SHA256值
+注释：
+MD5手机号加密方式，使用中国大陆11位手机号进行MD5加密，加密后取32位小写值。
+SHA256手机号加密方式，使用中国大陆11位手机号进行SHA256加密，加密后取64位小写值。
+     * @param AccountId 其他账号信息；
+AccountType是10004时，填入中国大陆标准11位手机号的MD5值
+AccountType是10005时，填入中国大陆标准11位手机号的SHA256值
+注释：
+MD5手机号加密方式，使用中国大陆11位手机号进行MD5加密，加密后取32位小写值。
+SHA256手机号加密方式，使用中国大陆11位手机号进行SHA256加密，加密后取64位小写值。
      */
     public void setAccountId(String AccountId) {
         this.AccountId = AccountId;
     }
 
     /**
-     * Get 手机号 
-     * @return MobilePhone 手机号
+     * Get 账号绑定的MD5或SHA256加密的手机号（该字段已不推荐使用）。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。 
+     * @return MobilePhone 账号绑定的MD5或SHA256加密的手机号（该字段已不推荐使用）。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
      */
     public String getMobilePhone() {
         return this.MobilePhone;
     }
 
     /**
-     * Set 手机号
-     * @param MobilePhone 手机号
+     * Set 账号绑定的MD5或SHA256加密的手机号（该字段已不推荐使用）。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+     * @param MobilePhone 账号绑定的MD5或SHA256加密的手机号（该字段已不推荐使用）。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
      */
     public void setMobilePhone(String MobilePhone) {
         this.MobilePhone = MobilePhone;
     }
 
     /**
-     * Get id 
-     * @return DeviceId id
+     * Get 用户设备号（该字段已不推荐使用）。 
+     * @return DeviceId 用户设备号（该字段已不推荐使用）。
      */
     public String getDeviceId() {
         return this.DeviceId;
     }
 
     /**
-     * Set id
-     * @param DeviceId id
+     * Set 用户设备号（该字段已不推荐使用）。
+     * @param DeviceId 用户设备号（该字段已不推荐使用）。
      */
     public void setDeviceId(String DeviceId) {
         this.DeviceId = DeviceId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.keewidb.v20220308.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceInfo extends AbstractModel{
+public class InstanceInfo extends AbstractModel {
 
     /**
     * 实例名称。
@@ -241,7 +242,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 实例关联的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceTags")
     @Expose
@@ -249,7 +249,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 项目名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectName")
     @Expose
@@ -257,7 +256,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 是否为免密实例；<ul><li>true：免密实例。</li><li>false：非免密实例。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NoAuth")
     @Expose
@@ -265,7 +263,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 客户端连接数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientLimit")
     @Expose
@@ -273,7 +270,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * DTS状态（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DtsStatus")
     @Expose
@@ -281,7 +277,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 分片带宽上限，单位 MB。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetLimit")
     @Expose
@@ -289,7 +284,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 免密实例标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PasswordFree")
     @Expose
@@ -297,7 +291,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 实例只读标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReadOnly")
     @Expose
@@ -305,7 +298,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vip6")
     @Expose
@@ -313,7 +305,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RemainBandwidthDuration")
     @Expose
@@ -321,7 +312,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 实例的磁盘容量大小。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiskSize")
     @Expose
@@ -329,7 +319,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MonitorVersion")
     @Expose
@@ -337,7 +326,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 客户端最大连接数可设置的最小值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientLimitMin")
     @Expose
@@ -345,7 +333,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 客户端最大连接数可设置的最大值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientLimitMax")
     @Expose
@@ -353,7 +340,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 实例的节点详细信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeSet")
     @Expose
@@ -361,7 +347,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 实例所在的地域信息，比如ap-guangzhou。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -369,7 +354,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 实例内存容量，单位：GB。KeeWiDB 内存容量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineMemory")
     @Expose
@@ -395,6 +379,13 @@ public class InstanceInfo extends AbstractModel{
     @SerializedName("DiskReplicasNum")
     @Expose
     private Long DiskReplicasNum;
+
+    /**
+    * 数据压缩开关。<ul><li>ON：开启。</li><li>OFF：关闭。</li></ul>
+    */
+    @SerializedName("Compression")
+    @Expose
+    private String Compression;
 
     /**
      * Get 实例名称。 
@@ -893,10 +884,8 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 实例关联的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例关联的标签信息。 
      * @return InstanceTags 实例关联的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InstanceTagInfo [] getInstanceTags() {
         return this.InstanceTags;
@@ -904,19 +893,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 实例关联的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceTags 实例关联的标签信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceTags(InstanceTagInfo [] InstanceTags) {
         this.InstanceTags = InstanceTags;
     }
 
     /**
-     * Get 项目名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 项目名称。 
      * @return ProjectName 项目名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProjectName() {
         return this.ProjectName;
@@ -924,19 +909,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 项目名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectName 项目名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectName(String ProjectName) {
         this.ProjectName = ProjectName;
     }
 
     /**
-     * Get 是否为免密实例；<ul><li>true：免密实例。</li><li>false：非免密实例。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否为免密实例；<ul><li>true：免密实例。</li><li>false：非免密实例。</li></ul> 
      * @return NoAuth 是否为免密实例；<ul><li>true：免密实例。</li><li>false：非免密实例。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getNoAuth() {
         return this.NoAuth;
@@ -944,19 +925,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 是否为免密实例；<ul><li>true：免密实例。</li><li>false：非免密实例。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NoAuth 是否为免密实例；<ul><li>true：免密实例。</li><li>false：非免密实例。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNoAuth(Boolean NoAuth) {
         this.NoAuth = NoAuth;
     }
 
     /**
-     * Get 客户端连接数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端连接数。 
      * @return ClientLimit 客户端连接数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getClientLimit() {
         return this.ClientLimit;
@@ -964,19 +941,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 客户端连接数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientLimit 客户端连接数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientLimit(Long ClientLimit) {
         this.ClientLimit = ClientLimit;
     }
 
     /**
-     * Get DTS状态（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DTS状态（内部参数，用户可忽略）。 
      * @return DtsStatus DTS状态（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDtsStatus() {
         return this.DtsStatus;
@@ -984,19 +957,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set DTS状态（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DtsStatus DTS状态（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDtsStatus(Long DtsStatus) {
         this.DtsStatus = DtsStatus;
     }
 
     /**
-     * Get 分片带宽上限，单位 MB。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分片带宽上限，单位 MB。 
      * @return NetLimit 分片带宽上限，单位 MB。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNetLimit() {
         return this.NetLimit;
@@ -1004,19 +973,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 分片带宽上限，单位 MB。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NetLimit 分片带宽上限，单位 MB。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetLimit(Long NetLimit) {
         this.NetLimit = NetLimit;
     }
 
     /**
-     * Get 免密实例标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 免密实例标识（内部参数，用户可忽略）。 
      * @return PasswordFree 免密实例标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPasswordFree() {
         return this.PasswordFree;
@@ -1024,19 +989,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 免密实例标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PasswordFree 免密实例标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPasswordFree(Long PasswordFree) {
         this.PasswordFree = PasswordFree;
     }
 
     /**
-     * Get 实例只读标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例只读标识（内部参数，用户可忽略）。 
      * @return ReadOnly 实例只读标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReadOnly() {
         return this.ReadOnly;
@@ -1044,19 +1005,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 实例只读标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReadOnly 实例只读标识（内部参数，用户可忽略）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReadOnly(Long ReadOnly) {
         this.ReadOnly = ReadOnly;
     }
 
     /**
-     * Get 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内部参数，用户可忽略。 
      * @return Vip6 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVip6() {
         return this.Vip6;
@@ -1064,19 +1021,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vip6 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVip6(String Vip6) {
         this.Vip6 = Vip6;
     }
 
     /**
-     * Get 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内部参数，用户可忽略。 
      * @return RemainBandwidthDuration 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemainBandwidthDuration() {
         return this.RemainBandwidthDuration;
@@ -1084,19 +1037,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RemainBandwidthDuration 内部参数，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemainBandwidthDuration(String RemainBandwidthDuration) {
         this.RemainBandwidthDuration = RemainBandwidthDuration;
     }
 
     /**
-     * Get 实例的磁盘容量大小。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例的磁盘容量大小。 
      * @return DiskSize 实例的磁盘容量大小。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDiskSize() {
         return this.DiskSize;
@@ -1104,19 +1053,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 实例的磁盘容量大小。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiskSize 实例的磁盘容量大小。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiskSize(Long DiskSize) {
         this.DiskSize = DiskSize;
     }
 
     /**
-     * Get 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul> 
      * @return MonitorVersion 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMonitorVersion() {
         return this.MonitorVersion;
@@ -1124,19 +1069,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MonitorVersion 监控版本。<ul><li>1m：分钟粒度监控。</li><li>5s：5秒粒度监控。</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMonitorVersion(String MonitorVersion) {
         this.MonitorVersion = MonitorVersion;
     }
 
     /**
-     * Get 客户端最大连接数可设置的最小值。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端最大连接数可设置的最小值。 
      * @return ClientLimitMin 客户端最大连接数可设置的最小值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getClientLimitMin() {
         return this.ClientLimitMin;
@@ -1144,19 +1085,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 客户端最大连接数可设置的最小值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientLimitMin 客户端最大连接数可设置的最小值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientLimitMin(Long ClientLimitMin) {
         this.ClientLimitMin = ClientLimitMin;
     }
 
     /**
-     * Get 客户端最大连接数可设置的最大值。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端最大连接数可设置的最大值。 
      * @return ClientLimitMax 客户端最大连接数可设置的最大值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getClientLimitMax() {
         return this.ClientLimitMax;
@@ -1164,19 +1101,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 客户端最大连接数可设置的最大值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientLimitMax 客户端最大连接数可设置的最大值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientLimitMax(Long ClientLimitMax) {
         this.ClientLimitMax = ClientLimitMax;
     }
 
     /**
-     * Get 实例的节点详细信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例的节点详细信息。 
      * @return NodeSet 实例的节点详细信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public NodeInfo [] getNodeSet() {
         return this.NodeSet;
@@ -1184,19 +1117,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 实例的节点详细信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeSet 实例的节点详细信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeSet(NodeInfo [] NodeSet) {
         this.NodeSet = NodeSet;
     }
 
     /**
-     * Get 实例所在的地域信息，比如ap-guangzhou。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在的地域信息，比如ap-guangzhou。 
      * @return Region 实例所在的地域信息，比如ap-guangzhou。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -1204,19 +1133,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 实例所在的地域信息，比如ap-guangzhou。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 实例所在的地域信息，比如ap-guangzhou。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 实例内存容量，单位：GB。KeeWiDB 内存容量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例内存容量，单位：GB。KeeWiDB 内存容量 
      * @return MachineMemory 实例内存容量，单位：GB。KeeWiDB 内存容量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMachineMemory() {
         return this.MachineMemory;
@@ -1224,9 +1149,7 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 实例内存容量，单位：GB。KeeWiDB 内存容量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineMemory 实例内存容量，单位：GB。KeeWiDB 内存容量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineMemory(Long MachineMemory) {
         this.MachineMemory = MachineMemory;
@@ -1278,6 +1201,22 @@ public class InstanceInfo extends AbstractModel{
      */
     public void setDiskReplicasNum(Long DiskReplicasNum) {
         this.DiskReplicasNum = DiskReplicasNum;
+    }
+
+    /**
+     * Get 数据压缩开关。<ul><li>ON：开启。</li><li>OFF：关闭。</li></ul> 
+     * @return Compression 数据压缩开关。<ul><li>ON：开启。</li><li>OFF：关闭。</li></ul>
+     */
+    public String getCompression() {
+        return this.Compression;
+    }
+
+    /**
+     * Set 数据压缩开关。<ul><li>ON：开启。</li><li>OFF：关闭。</li></ul>
+     * @param Compression 数据压缩开关。<ul><li>ON：开启。</li><li>OFF：关闭。</li></ul>
+     */
+    public void setCompression(String Compression) {
+        this.Compression = Compression;
     }
 
     public InstanceInfo() {
@@ -1450,6 +1389,9 @@ public class InstanceInfo extends AbstractModel{
         if (source.DiskReplicasNum != null) {
             this.DiskReplicasNum = new Long(source.DiskReplicasNum);
         }
+        if (source.Compression != null) {
+            this.Compression = new String(source.Compression);
+        }
     }
 
 
@@ -1508,6 +1450,7 @@ public class InstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskShardSize", this.DiskShardSize);
         this.setParamSimple(map, prefix + "DiskShardNum", this.DiskShardNum);
         this.setParamSimple(map, prefix + "DiskReplicasNum", this.DiskReplicasNum);
+        this.setParamSimple(map, prefix + "Compression", this.Compression);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Detail extends AbstractModel{
+public class Detail extends AbstractModel {
 
     /**
     * 输入时间范围内所有慢sql执行的总时间，单位毫秒（ms）
@@ -38,7 +39,6 @@ public class Detail extends AbstractModel{
 
     /**
     * 慢SQL统计分析列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AnalysisItems")
     @Expose
@@ -77,10 +77,8 @@ public class Detail extends AbstractModel{
     }
 
     /**
-     * Get 慢SQL统计分析列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 慢SQL统计分析列表 
      * @return AnalysisItems 慢SQL统计分析列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AnalysisItems [] getAnalysisItems() {
         return this.AnalysisItems;
@@ -88,9 +86,7 @@ public class Detail extends AbstractModel{
 
     /**
      * Set 慢SQL统计分析列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AnalysisItems 慢SQL统计分析列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAnalysisItems(AnalysisItems [] AnalysisItems) {
         this.AnalysisItems = AnalysisItems;

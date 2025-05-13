@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StepInfo extends AbstractModel{
+public class StepInfo extends AbstractModel {
 
     /**
     * 步骤编号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StepNo")
     @Expose
@@ -32,7 +32,6 @@ public class StepInfo extends AbstractModel{
 
     /**
     * 步骤名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StepName")
     @Expose
@@ -40,7 +39,6 @@ public class StepInfo extends AbstractModel{
 
     /**
     * 步骤标号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StepId")
     @Expose
@@ -48,7 +46,6 @@ public class StepInfo extends AbstractModel{
 
     /**
     * 当前步骤状态,可能返回有 notStarted(未开始)、running(校验中)、failed(校验任务失败)、finished(完成)、skipped(跳过)、paused(暂停)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -56,7 +53,6 @@ public class StepInfo extends AbstractModel{
 
     /**
     * 步骤开始时间，可能为空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -80,17 +76,14 @@ public class StepInfo extends AbstractModel{
 
     /**
     * 当前步骤进度，范围为[0-100]，若为-1表示当前步骤不支持查看进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Progress")
     @Expose
     private Long Progress;
 
     /**
-     * Get 步骤编号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 步骤编号 
      * @return StepNo 步骤编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStepNo() {
         return this.StepNo;
@@ -98,19 +91,15 @@ public class StepInfo extends AbstractModel{
 
     /**
      * Set 步骤编号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StepNo 步骤编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStepNo(Long StepNo) {
         this.StepNo = StepNo;
     }
 
     /**
-     * Get 步骤名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 步骤名 
      * @return StepName 步骤名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStepName() {
         return this.StepName;
@@ -118,19 +107,15 @@ public class StepInfo extends AbstractModel{
 
     /**
      * Set 步骤名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StepName 步骤名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStepName(String StepName) {
         this.StepName = StepName;
     }
 
     /**
-     * Get 步骤标号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 步骤标号 
      * @return StepId 步骤标号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStepId() {
         return this.StepId;
@@ -138,19 +123,15 @@ public class StepInfo extends AbstractModel{
 
     /**
      * Set 步骤标号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StepId 步骤标号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStepId(String StepId) {
         this.StepId = StepId;
     }
 
     /**
-     * Get 当前步骤状态,可能返回有 notStarted(未开始)、running(校验中)、failed(校验任务失败)、finished(完成)、skipped(跳过)、paused(暂停)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前步骤状态,可能返回有 notStarted(未开始)、running(校验中)、failed(校验任务失败)、finished(完成)、skipped(跳过)、paused(暂停) 
      * @return Status 当前步骤状态,可能返回有 notStarted(未开始)、running(校验中)、failed(校验任务失败)、finished(完成)、skipped(跳过)、paused(暂停)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -158,19 +139,15 @@ public class StepInfo extends AbstractModel{
 
     /**
      * Set 当前步骤状态,可能返回有 notStarted(未开始)、running(校验中)、failed(校验任务失败)、finished(完成)、skipped(跳过)、paused(暂停)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 当前步骤状态,可能返回有 notStarted(未开始)、running(校验中)、failed(校验任务失败)、finished(完成)、skipped(跳过)、paused(暂停)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 步骤开始时间，可能为空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 步骤开始时间，可能为空 
      * @return StartTime 步骤开始时间，可能为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -178,9 +155,7 @@ public class StepInfo extends AbstractModel{
 
     /**
      * Set 步骤开始时间，可能为空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 步骤开始时间，可能为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
@@ -227,10 +202,8 @@ public class StepInfo extends AbstractModel{
     }
 
     /**
-     * Get 当前步骤进度，范围为[0-100]，若为-1表示当前步骤不支持查看进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前步骤进度，范围为[0-100]，若为-1表示当前步骤不支持查看进度 
      * @return Progress 当前步骤进度，范围为[0-100]，若为-1表示当前步骤不支持查看进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProgress() {
         return this.Progress;
@@ -238,9 +211,7 @@ public class StepInfo extends AbstractModel{
 
     /**
      * Set 当前步骤进度，范围为[0-100]，若为-1表示当前步骤不支持查看进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Progress 当前步骤进度，范围为[0-100]，若为-1表示当前步骤不支持查看进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProgress(Long Progress) {
         this.Progress = Progress;

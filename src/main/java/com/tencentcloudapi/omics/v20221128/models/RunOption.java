@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RunOption extends AbstractModel{
+public class RunOption extends AbstractModel {
 
     /**
     * 运行失败模式，取值范围：
@@ -47,7 +48,6 @@ public class RunOption extends AbstractModel{
 
     /**
     * 输出归档COS路径。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FinalWorkflowOutputsDir")
     @Expose
@@ -55,11 +55,17 @@ public class RunOption extends AbstractModel{
 
     /**
     * 是否使用相对目录归档输出。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UseRelativeOutputPaths")
     @Expose
     private Boolean UseRelativeOutputPaths;
+
+    /**
+    * 是否添加运行信息到输出目录中
+    */
+    @SerializedName("AddRunInfoToOutputDir")
+    @Expose
+    private Boolean AddRunInfoToOutputDir;
 
     /**
      * Get 运行失败模式，取值范围：
@@ -118,10 +124,8 @@ public class RunOption extends AbstractModel{
     }
 
     /**
-     * Get 输出归档COS路径。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出归档COS路径。 
      * @return FinalWorkflowOutputsDir 输出归档COS路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFinalWorkflowOutputsDir() {
         return this.FinalWorkflowOutputsDir;
@@ -129,19 +133,15 @@ public class RunOption extends AbstractModel{
 
     /**
      * Set 输出归档COS路径。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FinalWorkflowOutputsDir 输出归档COS路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFinalWorkflowOutputsDir(String FinalWorkflowOutputsDir) {
         this.FinalWorkflowOutputsDir = FinalWorkflowOutputsDir;
     }
 
     /**
-     * Get 是否使用相对目录归档输出。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否使用相对目录归档输出。 
      * @return UseRelativeOutputPaths 是否使用相对目录归档输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getUseRelativeOutputPaths() {
         return this.UseRelativeOutputPaths;
@@ -149,12 +149,26 @@ public class RunOption extends AbstractModel{
 
     /**
      * Set 是否使用相对目录归档输出。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UseRelativeOutputPaths 是否使用相对目录归档输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUseRelativeOutputPaths(Boolean UseRelativeOutputPaths) {
         this.UseRelativeOutputPaths = UseRelativeOutputPaths;
+    }
+
+    /**
+     * Get 是否添加运行信息到输出目录中 
+     * @return AddRunInfoToOutputDir 是否添加运行信息到输出目录中
+     */
+    public Boolean getAddRunInfoToOutputDir() {
+        return this.AddRunInfoToOutputDir;
+    }
+
+    /**
+     * Set 是否添加运行信息到输出目录中
+     * @param AddRunInfoToOutputDir 是否添加运行信息到输出目录中
+     */
+    public void setAddRunInfoToOutputDir(Boolean AddRunInfoToOutputDir) {
+        this.AddRunInfoToOutputDir = AddRunInfoToOutputDir;
     }
 
     public RunOption() {
@@ -180,6 +194,9 @@ public class RunOption extends AbstractModel{
         if (source.UseRelativeOutputPaths != null) {
             this.UseRelativeOutputPaths = new Boolean(source.UseRelativeOutputPaths);
         }
+        if (source.AddRunInfoToOutputDir != null) {
+            this.AddRunInfoToOutputDir = new Boolean(source.AddRunInfoToOutputDir);
+        }
     }
 
 
@@ -192,6 +209,7 @@ public class RunOption extends AbstractModel{
         this.setParamSimple(map, prefix + "UseErrorOnHold", this.UseErrorOnHold);
         this.setParamSimple(map, prefix + "FinalWorkflowOutputsDir", this.FinalWorkflowOutputsDir);
         this.setParamSimple(map, prefix + "UseRelativeOutputPaths", this.UseRelativeOutputPaths);
+        this.setParamSimple(map, prefix + "AddRunInfoToOutputDir", this.AddRunInfoToOutputDir);
 
     }
 }

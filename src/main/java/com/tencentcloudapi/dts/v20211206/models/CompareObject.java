@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CompareObject extends AbstractModel{
+public class CompareObject extends AbstractModel {
 
     /**
     * 对象模式 整实例-all,部分对象-partial
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ObjectMode")
     @Expose
@@ -32,14 +32,13 @@ public class CompareObject extends AbstractModel{
 
     /**
     * 对象列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ObjectItems")
     @Expose
     private CompareObjectItem [] ObjectItems;
 
     /**
-    * 高级对象类型，如account(账号),index(索引),shardkey(片建，后面可能会调整),schema(库表结构)
+    * 高级对象类型，目前只支持mongodb链路。如index(索引),shardkey(片键),schema(库表)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AdvancedObjects")
@@ -47,10 +46,8 @@ public class CompareObject extends AbstractModel{
     private String [] AdvancedObjects;
 
     /**
-     * Get 对象模式 整实例-all,部分对象-partial
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对象模式 整实例-all,部分对象-partial 
      * @return ObjectMode 对象模式 整实例-all,部分对象-partial
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getObjectMode() {
         return this.ObjectMode;
@@ -58,19 +55,15 @@ public class CompareObject extends AbstractModel{
 
     /**
      * Set 对象模式 整实例-all,部分对象-partial
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ObjectMode 对象模式 整实例-all,部分对象-partial
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setObjectMode(String ObjectMode) {
         this.ObjectMode = ObjectMode;
     }
 
     /**
-     * Get 对象列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对象列表 
      * @return ObjectItems 对象列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CompareObjectItem [] getObjectItems() {
         return this.ObjectItems;
@@ -78,18 +71,16 @@ public class CompareObject extends AbstractModel{
 
     /**
      * Set 对象列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ObjectItems 对象列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setObjectItems(CompareObjectItem [] ObjectItems) {
         this.ObjectItems = ObjectItems;
     }
 
     /**
-     * Get 高级对象类型，如account(账号),index(索引),shardkey(片建，后面可能会调整),schema(库表结构)
+     * Get 高级对象类型，目前只支持mongodb链路。如index(索引),shardkey(片键),schema(库表)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AdvancedObjects 高级对象类型，如account(账号),index(索引),shardkey(片建，后面可能会调整),schema(库表结构)
+     * @return AdvancedObjects 高级对象类型，目前只支持mongodb链路。如index(索引),shardkey(片键),schema(库表)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAdvancedObjects() {
@@ -97,9 +88,9 @@ public class CompareObject extends AbstractModel{
     }
 
     /**
-     * Set 高级对象类型，如account(账号),index(索引),shardkey(片建，后面可能会调整),schema(库表结构)
+     * Set 高级对象类型，目前只支持mongodb链路。如index(索引),shardkey(片键),schema(库表)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AdvancedObjects 高级对象类型，如account(账号),index(索引),shardkey(片建，后面可能会调整),schema(库表结构)
+     * @param AdvancedObjects 高级对象类型，目前只支持mongodb链路。如index(索引),shardkey(片键),schema(库表)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdvancedObjects(String [] AdvancedObjects) {

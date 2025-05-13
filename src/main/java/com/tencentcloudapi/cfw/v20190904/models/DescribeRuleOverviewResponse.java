@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRuleOverviewResponse extends AbstractModel{
+public class DescribeRuleOverviewResponse extends AbstractModel {
 
     /**
     * 规则总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AllTotal")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
     * 阻断策略规则数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StrategyNum")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
     * 启用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartRuleNum")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
     * 停用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StopRuleNum")
     @Expose
@@ -56,24 +53,21 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
     * 剩余配额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RemainingNum")
     @Expose
     private Long RemainingNum;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 规则总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则总数 
      * @return AllTotal 规则总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAllTotal() {
         return this.AllTotal;
@@ -81,19 +75,15 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
      * Set 规则总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AllTotal 规则总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAllTotal(Long AllTotal) {
         this.AllTotal = AllTotal;
     }
 
     /**
-     * Get 阻断策略规则数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 阻断策略规则数量 
      * @return StrategyNum 阻断策略规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStrategyNum() {
         return this.StrategyNum;
@@ -101,19 +91,15 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
      * Set 阻断策略规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StrategyNum 阻断策略规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStrategyNum(Long StrategyNum) {
         this.StrategyNum = StrategyNum;
     }
 
     /**
-     * Get 启用规则数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 启用规则数量 
      * @return StartRuleNum 启用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStartRuleNum() {
         return this.StartRuleNum;
@@ -121,19 +107,15 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
      * Set 启用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartRuleNum 启用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartRuleNum(Long StartRuleNum) {
         this.StartRuleNum = StartRuleNum;
     }
 
     /**
-     * Get 停用规则数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 停用规则数量 
      * @return StopRuleNum 停用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStopRuleNum() {
         return this.StopRuleNum;
@@ -141,19 +123,15 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
      * Set 停用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StopRuleNum 停用规则数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStopRuleNum(Long StopRuleNum) {
         this.StopRuleNum = StopRuleNum;
     }
 
     /**
-     * Get 剩余配额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 剩余配额 
      * @return RemainingNum 剩余配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRemainingNum() {
         return this.RemainingNum;
@@ -161,25 +139,23 @@ public class DescribeRuleOverviewResponse extends AbstractModel{
 
     /**
      * Set 剩余配额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RemainingNum 剩余配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemainingNum(Long RemainingNum) {
         this.RemainingNum = RemainingNum;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

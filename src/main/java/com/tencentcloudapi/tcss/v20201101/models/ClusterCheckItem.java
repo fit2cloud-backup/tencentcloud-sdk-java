@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterCheckItem extends AbstractModel{
+public class ClusterCheckItem extends AbstractModel {
 
     /**
     * 唯一的检测项的ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CheckItemId")
     @Expose
@@ -39,7 +39,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 检测项详细描述。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ItemDetail")
     @Expose
@@ -47,7 +46,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 威胁等级。严重Serious,高危High,中危Middle,提示Hint
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskLevel")
     @Expose
@@ -55,7 +53,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 检查对象、风险对象.Runc,Kubelet,Containerd,Pods
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskTarget")
     @Expose
@@ -63,7 +60,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 风险类别,漏洞风险CVERisk,配置风险ConfigRisk
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskType")
     @Expose
@@ -71,7 +67,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 检测项所属的风险类型,权限提升:PrivilegePromotion,拒绝服务:RefuseService,目录穿越:DirectoryEscape,未授权访问:UnauthorizedAccess,权限许可和访问控制问题:PrivilegeAndAccessControl,敏感信息泄露:SensitiveInfoLeak
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskAttribute")
     @Expose
@@ -79,7 +74,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 风险特征,Tag.存在EXP:ExistEXP,存在POD:ExistPOC,无需重启:NoNeedReboot, 服务重启:ServerRestart,远程信息泄露:RemoteInfoLeak,远程拒绝服务:RemoteRefuseService,远程利用:RemoteExploit,远程执行:RemoteExecute
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskProperty")
     @Expose
@@ -87,7 +81,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * CVE编号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CVENumber")
     @Expose
@@ -95,7 +88,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 披露时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscoverTime")
     @Expose
@@ -103,7 +95,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 解决方案
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Solution")
     @Expose
@@ -111,7 +102,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * CVSS信息,用于画图
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CVSS")
     @Expose
@@ -119,7 +109,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * CVSS分数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CVSSScore")
     @Expose
@@ -127,7 +116,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 参考连接
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RelateLink")
     @Expose
@@ -135,7 +123,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 影响类型，为Node或者Workload
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AffectedType")
     @Expose
@@ -143,7 +130,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 受影响的版本信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AffectedVersion")
     @Expose
@@ -151,7 +137,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 忽略的资产数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IgnoredAssetNum")
     @Expose
@@ -159,7 +144,6 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 是否忽略该检测项
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsIgnored")
     @Expose
@@ -167,17 +151,14 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
     * 受影响评估
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskAssessment")
     @Expose
     private String RiskAssessment;
 
     /**
-     * Get 唯一的检测项的ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 唯一的检测项的ID 
      * @return CheckItemId 唯一的检测项的ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCheckItemId() {
         return this.CheckItemId;
@@ -185,9 +166,7 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 唯一的检测项的ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CheckItemId 唯一的检测项的ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCheckItemId(Long CheckItemId) {
         this.CheckItemId = CheckItemId;
@@ -210,10 +189,8 @@ public class ClusterCheckItem extends AbstractModel{
     }
 
     /**
-     * Get 检测项详细描述。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测项详细描述。 
      * @return ItemDetail 检测项详细描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getItemDetail() {
         return this.ItemDetail;
@@ -221,19 +198,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 检测项详细描述。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ItemDetail 检测项详细描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItemDetail(String ItemDetail) {
         this.ItemDetail = ItemDetail;
     }
 
     /**
-     * Get 威胁等级。严重Serious,高危High,中危Middle,提示Hint
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 威胁等级。严重Serious,高危High,中危Middle,提示Hint 
      * @return RiskLevel 威胁等级。严重Serious,高危High,中危Middle,提示Hint
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskLevel() {
         return this.RiskLevel;
@@ -241,19 +214,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 威胁等级。严重Serious,高危High,中危Middle,提示Hint
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskLevel 威胁等级。严重Serious,高危High,中危Middle,提示Hint
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskLevel(String RiskLevel) {
         this.RiskLevel = RiskLevel;
     }
 
     /**
-     * Get 检查对象、风险对象.Runc,Kubelet,Containerd,Pods
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检查对象、风险对象.Runc,Kubelet,Containerd,Pods 
      * @return RiskTarget 检查对象、风险对象.Runc,Kubelet,Containerd,Pods
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskTarget() {
         return this.RiskTarget;
@@ -261,19 +230,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 检查对象、风险对象.Runc,Kubelet,Containerd,Pods
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskTarget 检查对象、风险对象.Runc,Kubelet,Containerd,Pods
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskTarget(String RiskTarget) {
         this.RiskTarget = RiskTarget;
     }
 
     /**
-     * Get 风险类别,漏洞风险CVERisk,配置风险ConfigRisk
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 风险类别,漏洞风险CVERisk,配置风险ConfigRisk 
      * @return RiskType 风险类别,漏洞风险CVERisk,配置风险ConfigRisk
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskType() {
         return this.RiskType;
@@ -281,19 +246,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 风险类别,漏洞风险CVERisk,配置风险ConfigRisk
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskType 风险类别,漏洞风险CVERisk,配置风险ConfigRisk
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskType(String RiskType) {
         this.RiskType = RiskType;
     }
 
     /**
-     * Get 检测项所属的风险类型,权限提升:PrivilegePromotion,拒绝服务:RefuseService,目录穿越:DirectoryEscape,未授权访问:UnauthorizedAccess,权限许可和访问控制问题:PrivilegeAndAccessControl,敏感信息泄露:SensitiveInfoLeak
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测项所属的风险类型,权限提升:PrivilegePromotion,拒绝服务:RefuseService,目录穿越:DirectoryEscape,未授权访问:UnauthorizedAccess,权限许可和访问控制问题:PrivilegeAndAccessControl,敏感信息泄露:SensitiveInfoLeak 
      * @return RiskAttribute 检测项所属的风险类型,权限提升:PrivilegePromotion,拒绝服务:RefuseService,目录穿越:DirectoryEscape,未授权访问:UnauthorizedAccess,权限许可和访问控制问题:PrivilegeAndAccessControl,敏感信息泄露:SensitiveInfoLeak
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskAttribute() {
         return this.RiskAttribute;
@@ -301,19 +262,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 检测项所属的风险类型,权限提升:PrivilegePromotion,拒绝服务:RefuseService,目录穿越:DirectoryEscape,未授权访问:UnauthorizedAccess,权限许可和访问控制问题:PrivilegeAndAccessControl,敏感信息泄露:SensitiveInfoLeak
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskAttribute 检测项所属的风险类型,权限提升:PrivilegePromotion,拒绝服务:RefuseService,目录穿越:DirectoryEscape,未授权访问:UnauthorizedAccess,权限许可和访问控制问题:PrivilegeAndAccessControl,敏感信息泄露:SensitiveInfoLeak
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskAttribute(String RiskAttribute) {
         this.RiskAttribute = RiskAttribute;
     }
 
     /**
-     * Get 风险特征,Tag.存在EXP:ExistEXP,存在POD:ExistPOC,无需重启:NoNeedReboot, 服务重启:ServerRestart,远程信息泄露:RemoteInfoLeak,远程拒绝服务:RemoteRefuseService,远程利用:RemoteExploit,远程执行:RemoteExecute
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 风险特征,Tag.存在EXP:ExistEXP,存在POD:ExistPOC,无需重启:NoNeedReboot, 服务重启:ServerRestart,远程信息泄露:RemoteInfoLeak,远程拒绝服务:RemoteRefuseService,远程利用:RemoteExploit,远程执行:RemoteExecute 
      * @return RiskProperty 风险特征,Tag.存在EXP:ExistEXP,存在POD:ExistPOC,无需重启:NoNeedReboot, 服务重启:ServerRestart,远程信息泄露:RemoteInfoLeak,远程拒绝服务:RemoteRefuseService,远程利用:RemoteExploit,远程执行:RemoteExecute
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskProperty() {
         return this.RiskProperty;
@@ -321,19 +278,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 风险特征,Tag.存在EXP:ExistEXP,存在POD:ExistPOC,无需重启:NoNeedReboot, 服务重启:ServerRestart,远程信息泄露:RemoteInfoLeak,远程拒绝服务:RemoteRefuseService,远程利用:RemoteExploit,远程执行:RemoteExecute
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskProperty 风险特征,Tag.存在EXP:ExistEXP,存在POD:ExistPOC,无需重启:NoNeedReboot, 服务重启:ServerRestart,远程信息泄露:RemoteInfoLeak,远程拒绝服务:RemoteRefuseService,远程利用:RemoteExploit,远程执行:RemoteExecute
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskProperty(String RiskProperty) {
         this.RiskProperty = RiskProperty;
     }
 
     /**
-     * Get CVE编号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CVE编号 
      * @return CVENumber CVE编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCVENumber() {
         return this.CVENumber;
@@ -341,19 +294,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set CVE编号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CVENumber CVE编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCVENumber(String CVENumber) {
         this.CVENumber = CVENumber;
     }
 
     /**
-     * Get 披露时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 披露时间 
      * @return DiscoverTime 披露时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDiscoverTime() {
         return this.DiscoverTime;
@@ -361,19 +310,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 披露时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscoverTime 披露时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscoverTime(String DiscoverTime) {
         this.DiscoverTime = DiscoverTime;
     }
 
     /**
-     * Get 解决方案
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 解决方案 
      * @return Solution 解决方案
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSolution() {
         return this.Solution;
@@ -381,19 +326,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 解决方案
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Solution 解决方案
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSolution(String Solution) {
         this.Solution = Solution;
     }
 
     /**
-     * Get CVSS信息,用于画图
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CVSS信息,用于画图 
      * @return CVSS CVSS信息,用于画图
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCVSS() {
         return this.CVSS;
@@ -401,19 +342,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set CVSS信息,用于画图
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CVSS CVSS信息,用于画图
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCVSS(String CVSS) {
         this.CVSS = CVSS;
     }
 
     /**
-     * Get CVSS分数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CVSS分数 
      * @return CVSSScore CVSS分数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCVSSScore() {
         return this.CVSSScore;
@@ -421,19 +358,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set CVSS分数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CVSSScore CVSS分数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCVSSScore(String CVSSScore) {
         this.CVSSScore = CVSSScore;
     }
 
     /**
-     * Get 参考连接
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参考连接 
      * @return RelateLink 参考连接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRelateLink() {
         return this.RelateLink;
@@ -441,19 +374,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 参考连接
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RelateLink 参考连接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRelateLink(String RelateLink) {
         this.RelateLink = RelateLink;
     }
 
     /**
-     * Get 影响类型，为Node或者Workload
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 影响类型，为Node或者Workload 
      * @return AffectedType 影响类型，为Node或者Workload
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAffectedType() {
         return this.AffectedType;
@@ -461,19 +390,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 影响类型，为Node或者Workload
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AffectedType 影响类型，为Node或者Workload
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAffectedType(String AffectedType) {
         this.AffectedType = AffectedType;
     }
 
     /**
-     * Get 受影响的版本信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 受影响的版本信息 
      * @return AffectedVersion 受影响的版本信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAffectedVersion() {
         return this.AffectedVersion;
@@ -481,19 +406,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 受影响的版本信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AffectedVersion 受影响的版本信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAffectedVersion(String AffectedVersion) {
         this.AffectedVersion = AffectedVersion;
     }
 
     /**
-     * Get 忽略的资产数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 忽略的资产数量 
      * @return IgnoredAssetNum 忽略的资产数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIgnoredAssetNum() {
         return this.IgnoredAssetNum;
@@ -501,19 +422,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 忽略的资产数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IgnoredAssetNum 忽略的资产数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIgnoredAssetNum(Long IgnoredAssetNum) {
         this.IgnoredAssetNum = IgnoredAssetNum;
     }
 
     /**
-     * Get 是否忽略该检测项
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否忽略该检测项 
      * @return IsIgnored 是否忽略该检测项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsIgnored() {
         return this.IsIgnored;
@@ -521,19 +438,15 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 是否忽略该检测项
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsIgnored 是否忽略该检测项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsIgnored(Boolean IsIgnored) {
         this.IsIgnored = IsIgnored;
     }
 
     /**
-     * Get 受影响评估
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 受影响评估 
      * @return RiskAssessment 受影响评估
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskAssessment() {
         return this.RiskAssessment;
@@ -541,9 +454,7 @@ public class ClusterCheckItem extends AbstractModel{
 
     /**
      * Set 受影响评估
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskAssessment 受影响评估
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskAssessment(String RiskAssessment) {
         this.RiskAssessment = RiskAssessment;

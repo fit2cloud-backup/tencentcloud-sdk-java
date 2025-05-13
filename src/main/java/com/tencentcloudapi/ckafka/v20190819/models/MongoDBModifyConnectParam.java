@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MongoDBModifyConnectParam extends AbstractModel{
+public class MongoDBModifyConnectParam extends AbstractModel {
 
     /**
     * MongoDB连接源的实例资源【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resource")
     @Expose
@@ -32,7 +32,6 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
     * MongoDB的连接port【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
@@ -40,7 +39,6 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
     * MongoDB连接源的实例vip【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceVip")
     @Expose
@@ -48,7 +46,6 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
     * MongoDB连接源的vpcId【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UniqVpcId")
     @Expose
@@ -56,7 +53,6 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
     * MongoDB连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserName")
     @Expose
@@ -64,7 +60,6 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
     * MongoDB连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Password")
     @Expose
@@ -72,7 +67,6 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
     * MongoDB连接源是否为自建集群【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SelfBuilt")
     @Expose
@@ -80,17 +74,14 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
     * 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsUpdate")
     @Expose
     private Boolean IsUpdate;
 
     /**
-     * Get MongoDB连接源的实例资源【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MongoDB连接源的实例资源【不支持修改】 
      * @return Resource MongoDB连接源的实例资源【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResource() {
         return this.Resource;
@@ -98,19 +89,15 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set MongoDB连接源的实例资源【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Resource MongoDB连接源的实例资源【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResource(String Resource) {
         this.Resource = Resource;
     }
 
     /**
-     * Get MongoDB的连接port【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MongoDB的连接port【不支持修改】 
      * @return Port MongoDB的连接port【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -118,19 +105,15 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set MongoDB的连接port【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Port MongoDB的连接port【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get MongoDB连接源的实例vip【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MongoDB连接源的实例vip【不支持修改】 
      * @return ServiceVip MongoDB连接源的实例vip【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceVip() {
         return this.ServiceVip;
@@ -138,19 +121,15 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set MongoDB连接源的实例vip【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceVip MongoDB连接源的实例vip【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceVip(String ServiceVip) {
         this.ServiceVip = ServiceVip;
     }
 
     /**
-     * Get MongoDB连接源的vpcId【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MongoDB连接源的vpcId【不支持修改】 
      * @return UniqVpcId MongoDB连接源的vpcId【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUniqVpcId() {
         return this.UniqVpcId;
@@ -158,19 +137,15 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set MongoDB连接源的vpcId【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UniqVpcId MongoDB连接源的vpcId【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUniqVpcId(String UniqVpcId) {
         this.UniqVpcId = UniqVpcId;
     }
 
     /**
-     * Get MongoDB连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MongoDB连接源的用户名 
      * @return UserName MongoDB连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserName() {
         return this.UserName;
@@ -178,19 +153,15 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set MongoDB连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserName MongoDB连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
     }
 
     /**
-     * Get MongoDB连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MongoDB连接源的密码 
      * @return Password MongoDB连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPassword() {
         return this.Password;
@@ -198,19 +169,15 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set MongoDB连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Password MongoDB连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
     /**
-     * Get MongoDB连接源是否为自建集群【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MongoDB连接源是否为自建集群【不支持修改】 
      * @return SelfBuilt MongoDB连接源是否为自建集群【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSelfBuilt() {
         return this.SelfBuilt;
@@ -218,19 +185,15 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set MongoDB连接源是否为自建集群【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SelfBuilt MongoDB连接源是否为自建集群【不支持修改】
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSelfBuilt(Boolean SelfBuilt) {
         this.SelfBuilt = SelfBuilt;
     }
 
     /**
-     * Get 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否更新到关联的Datahub任务 
      * @return IsUpdate 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsUpdate() {
         return this.IsUpdate;
@@ -238,9 +201,7 @@ public class MongoDBModifyConnectParam extends AbstractModel{
 
     /**
      * Set 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsUpdate 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsUpdate(Boolean IsUpdate) {
         this.IsUpdate = IsUpdate;

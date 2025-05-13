@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CustomSampleMatrix extends AbstractModel{
+public class CustomSampleMatrix extends AbstractModel {
 
     /**
     * 指标名字
@@ -38,7 +39,6 @@ public class CustomSampleMatrix extends AbstractModel{
 
     /**
     * 指标单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Unit")
     @Expose
@@ -85,10 +85,8 @@ public class CustomSampleMatrix extends AbstractModel{
     }
 
     /**
-     * Get 指标单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 指标单位 
      * @return Unit 指标单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnit() {
         return this.Unit;
@@ -96,9 +94,7 @@ public class CustomSampleMatrix extends AbstractModel{
 
     /**
      * Set 指标单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Unit 指标单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnit(String Unit) {
         this.Unit = Unit;

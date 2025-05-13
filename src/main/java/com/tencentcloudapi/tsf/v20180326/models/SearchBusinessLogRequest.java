@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchBusinessLogRequest extends AbstractModel{
+public class SearchBusinessLogRequest extends AbstractModel {
 
     /**
     * 日志配置项ID
@@ -112,6 +113,13 @@ public class SearchBusinessLogRequest extends AbstractModel{
     @SerializedName("ScrollId")
     @Expose
     private String ScrollId;
+
+    /**
+    * 查询es使用searchAfter时，游标
+    */
+    @SerializedName("SearchAfter")
+    @Expose
+    private String [] SearchAfter;
 
     /**
      * Get 日志配置项ID 
@@ -321,6 +329,22 @@ public class SearchBusinessLogRequest extends AbstractModel{
         this.ScrollId = ScrollId;
     }
 
+    /**
+     * Get 查询es使用searchAfter时，游标 
+     * @return SearchAfter 查询es使用searchAfter时，游标
+     */
+    public String [] getSearchAfter() {
+        return this.SearchAfter;
+    }
+
+    /**
+     * Set 查询es使用searchAfter时，游标
+     * @param SearchAfter 查询es使用searchAfter时，游标
+     */
+    public void setSearchAfter(String [] SearchAfter) {
+        this.SearchAfter = SearchAfter;
+    }
+
     public SearchBusinessLogRequest() {
     }
 
@@ -377,6 +401,12 @@ public class SearchBusinessLogRequest extends AbstractModel{
         if (source.ScrollId != null) {
             this.ScrollId = new String(source.ScrollId);
         }
+        if (source.SearchAfter != null) {
+            this.SearchAfter = new String[source.SearchAfter.length];
+            for (int i = 0; i < source.SearchAfter.length; i++) {
+                this.SearchAfter[i] = new String(source.SearchAfter[i]);
+            }
+        }
     }
 
 
@@ -397,6 +427,7 @@ public class SearchBusinessLogRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SearchWordType", this.SearchWordType);
         this.setParamSimple(map, prefix + "BatchType", this.BatchType);
         this.setParamSimple(map, prefix + "ScrollId", this.ScrollId);
+        this.setParamArraySimple(map, prefix + "SearchAfter.", this.SearchAfter);
 
     }
 }

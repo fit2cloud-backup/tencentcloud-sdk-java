@@ -16,11 +16,35 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCustomHeaderRequest extends AbstractModel{
+public class DescribeCustomHeaderRequest extends AbstractModel {
+
+    /**
+    * 规则ID
+    */
+    @SerializedName("RuleId")
+    @Expose
+    private String RuleId;
+
+    /**
+     * Get 规则ID 
+     * @return RuleId 规则ID
+     */
+    public String getRuleId() {
+        return this.RuleId;
+    }
+
+    /**
+     * Set 规则ID
+     * @param RuleId 规则ID
+     */
+    public void setRuleId(String RuleId) {
+        this.RuleId = RuleId;
+    }
 
     public DescribeCustomHeaderRequest() {
     }
@@ -30,6 +54,9 @@ public class DescribeCustomHeaderRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeCustomHeaderRequest(DescribeCustomHeaderRequest source) {
+        if (source.RuleId != null) {
+            this.RuleId = new String(source.RuleId);
+        }
     }
 
 
@@ -37,6 +64,7 @@ public class DescribeCustomHeaderRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "RuleId", this.RuleId);
 
     }
 }

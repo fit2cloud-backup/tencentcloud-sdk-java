@@ -16,28 +16,29 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCertificatesRequest extends AbstractModel{
+public class DescribeCertificatesRequest extends AbstractModel {
 
     /**
-    * 分页偏移量，从0开始。
+    * 分页偏移量，从0开始。 默认为0
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 每页数量，默认20。最大1000
+    * 每页数量，默认10。最大值1000，如超过1000按1000处理
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
+    * 搜索关键词，模糊匹配证书 ID、备注名称、证书域名
     */
     @SerializedName("SearchKey")
     @Expose
@@ -58,14 +59,14 @@ public class DescribeCertificatesRequest extends AbstractModel{
     private Long ProjectId;
 
     /**
-    * 按到期时间排序：DESC = 降序， ASC = 升序。
+    * 默认按照证书申请时间降序； 若传排序则按到期时间排序：DESC = 证书到期时间降序， ASC = 证书到期时间升序。
     */
     @SerializedName("ExpirationSort")
     @Expose
     private String ExpirationSort;
 
     /**
-    * 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。
+    * 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 已退款。 15 = 证书迁移中
     */
     @SerializedName("CertificateStatus")
     @Expose
@@ -121,48 +122,69 @@ public class DescribeCertificatesRequest extends AbstractModel{
     private Long Hostable;
 
     /**
-     * Get 分页偏移量，从0开始。 
-     * @return Offset 分页偏移量，从0开始。
+    * 筛选指定标签的证书
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tags [] Tags;
+
+    /**
+    * 是否筛选等待签发的证书，传1是筛选，0和null不筛选
+    */
+    @SerializedName("IsPendingIssue")
+    @Expose
+    private Long IsPendingIssue;
+
+    /**
+    * 筛选指定证书ID的证书，只支持有权限的证书ID
+    */
+    @SerializedName("CertIds")
+    @Expose
+    private String [] CertIds;
+
+    /**
+     * Get 分页偏移量，从0开始。 默认为0 
+     * @return Offset 分页偏移量，从0开始。 默认为0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页偏移量，从0开始。
-     * @param Offset 分页偏移量，从0开始。
+     * Set 分页偏移量，从0开始。 默认为0
+     * @param Offset 分页偏移量，从0开始。 默认为0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 每页数量，默认20。最大1000 
-     * @return Limit 每页数量，默认20。最大1000
+     * Get 每页数量，默认10。最大值1000，如超过1000按1000处理 
+     * @return Limit 每页数量，默认10。最大值1000，如超过1000按1000处理
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页数量，默认20。最大1000
-     * @param Limit 每页数量，默认20。最大1000
+     * Set 每页数量，默认10。最大值1000，如超过1000按1000处理
+     * @param Limit 每页数量，默认10。最大值1000，如超过1000按1000处理
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。 
-     * @return SearchKey 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
+     * Get 搜索关键词，模糊匹配证书 ID、备注名称、证书域名 
+     * @return SearchKey 搜索关键词，模糊匹配证书 ID、备注名称、证书域名
      */
     public String getSearchKey() {
         return this.SearchKey;
     }
 
     /**
-     * Set 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
-     * @param SearchKey 搜索关键词，可搜索证书 ID、备注名称、域名。例如： a8xHcaIs。
+     * Set 搜索关键词，模糊匹配证书 ID、备注名称、证书域名
+     * @param SearchKey 搜索关键词，模糊匹配证书 ID、备注名称、证书域名
      */
     public void setSearchKey(String SearchKey) {
         this.SearchKey = SearchKey;
@@ -201,32 +223,32 @@ public class DescribeCertificatesRequest extends AbstractModel{
     }
 
     /**
-     * Get 按到期时间排序：DESC = 降序， ASC = 升序。 
-     * @return ExpirationSort 按到期时间排序：DESC = 降序， ASC = 升序。
+     * Get 默认按照证书申请时间降序； 若传排序则按到期时间排序：DESC = 证书到期时间降序， ASC = 证书到期时间升序。 
+     * @return ExpirationSort 默认按照证书申请时间降序； 若传排序则按到期时间排序：DESC = 证书到期时间降序， ASC = 证书到期时间升序。
      */
     public String getExpirationSort() {
         return this.ExpirationSort;
     }
 
     /**
-     * Set 按到期时间排序：DESC = 降序， ASC = 升序。
-     * @param ExpirationSort 按到期时间排序：DESC = 降序， ASC = 升序。
+     * Set 默认按照证书申请时间降序； 若传排序则按到期时间排序：DESC = 证书到期时间降序， ASC = 证书到期时间升序。
+     * @param ExpirationSort 默认按照证书申请时间降序； 若传排序则按到期时间排序：DESC = 证书到期时间降序， ASC = 证书到期时间升序。
      */
     public void setExpirationSort(String ExpirationSort) {
         this.ExpirationSort = ExpirationSort;
     }
 
     /**
-     * Get 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。 
-     * @return CertificateStatus 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。
+     * Get 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 已退款。 15 = 证书迁移中 
+     * @return CertificateStatus 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 已退款。 15 = 证书迁移中
      */
     public Long [] getCertificateStatus() {
         return this.CertificateStatus;
     }
 
     /**
-     * Set 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。
-     * @param CertificateStatus 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。
+     * Set 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 已退款。 15 = 证书迁移中
+     * @param CertificateStatus 证书状态：0 = 审核中，1 = 已通过，2 = 审核失败，3 = 已过期，4 = 已添加DNS记录，5 = 企业证书，待提交，6 = 订单取消中，7 = 已取消，8 = 已提交资料， 待上传确认函，9 = 证书吊销中，10 = 已吊销，11 = 重颁发中，12 = 待上传吊销确认函，13 = 免费证书待提交资料。14 = 已退款。 15 = 证书迁移中
      */
     public void setCertificateStatus(Long [] CertificateStatus) {
         this.CertificateStatus = CertificateStatus;
@@ -344,6 +366,54 @@ public class DescribeCertificatesRequest extends AbstractModel{
         this.Hostable = Hostable;
     }
 
+    /**
+     * Get 筛选指定标签的证书 
+     * @return Tags 筛选指定标签的证书
+     */
+    public Tags [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 筛选指定标签的证书
+     * @param Tags 筛选指定标签的证书
+     */
+    public void setTags(Tags [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 是否筛选等待签发的证书，传1是筛选，0和null不筛选 
+     * @return IsPendingIssue 是否筛选等待签发的证书，传1是筛选，0和null不筛选
+     */
+    public Long getIsPendingIssue() {
+        return this.IsPendingIssue;
+    }
+
+    /**
+     * Set 是否筛选等待签发的证书，传1是筛选，0和null不筛选
+     * @param IsPendingIssue 是否筛选等待签发的证书，传1是筛选，0和null不筛选
+     */
+    public void setIsPendingIssue(Long IsPendingIssue) {
+        this.IsPendingIssue = IsPendingIssue;
+    }
+
+    /**
+     * Get 筛选指定证书ID的证书，只支持有权限的证书ID 
+     * @return CertIds 筛选指定证书ID的证书，只支持有权限的证书ID
+     */
+    public String [] getCertIds() {
+        return this.CertIds;
+    }
+
+    /**
+     * Set 筛选指定证书ID的证书，只支持有权限的证书ID
+     * @param CertIds 筛选指定证书ID的证书，只支持有权限的证书ID
+     */
+    public void setCertIds(String [] CertIds) {
+        this.CertIds = CertIds;
+    }
+
     public DescribeCertificatesRequest() {
     }
 
@@ -397,6 +467,21 @@ public class DescribeCertificatesRequest extends AbstractModel{
         if (source.Hostable != null) {
             this.Hostable = new Long(source.Hostable);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tags[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tags(source.Tags[i]);
+            }
+        }
+        if (source.IsPendingIssue != null) {
+            this.IsPendingIssue = new Long(source.IsPendingIssue);
+        }
+        if (source.CertIds != null) {
+            this.CertIds = new String[source.CertIds.length];
+            for (int i = 0; i < source.CertIds.length; i++) {
+                this.CertIds[i] = new String(source.CertIds[i]);
+            }
+        }
     }
 
 
@@ -418,6 +503,9 @@ public class DescribeCertificatesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsSM", this.IsSM);
         this.setParamSimple(map, prefix + "FilterExpiring", this.FilterExpiring);
         this.setParamSimple(map, prefix + "Hostable", this.Hostable);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "IsPendingIssue", this.IsPendingIssue);
+        this.setParamArraySimple(map, prefix + "CertIds.", this.CertIds);
 
     }
 }

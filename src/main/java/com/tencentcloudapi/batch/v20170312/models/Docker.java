@@ -16,25 +16,12 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Docker extends AbstractModel{
-
-    /**
-    * Docker Hub 用户名或 Tencent Registry 用户名
-    */
-    @SerializedName("User")
-    @Expose
-    private String User;
-
-    /**
-    * Docker Hub 密码或 Tencent Registry 密码
-    */
-    @SerializedName("Password")
-    @Expose
-    private String Password;
+public class Docker extends AbstractModel {
 
     /**
     * Docker Hub填写“[user/repo]:[tag]”，Tencent Registry填写“ccr.ccs.tencentyun.com/[namespace/repo]:[tag]”
@@ -42,6 +29,20 @@ public class Docker extends AbstractModel{
     @SerializedName("Image")
     @Expose
     private String Image;
+
+    /**
+    * Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
+    */
+    @SerializedName("User")
+    @Expose
+    private String User;
+
+    /**
+    * Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
+    */
+    @SerializedName("Password")
+    @Expose
+    private String Password;
 
     /**
     * Docker Hub 可以不填，但确保具有公网访问能力。或者是 Tencent Registry 服务地址“ccr.ccs.tencentyun.com”
@@ -66,43 +67,10 @@ public class Docker extends AbstractModel{
 
     /**
     * Docker命令运行参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DockerRunOption")
     @Expose
     private String DockerRunOption;
-
-    /**
-     * Get Docker Hub 用户名或 Tencent Registry 用户名 
-     * @return User Docker Hub 用户名或 Tencent Registry 用户名
-     */
-    public String getUser() {
-        return this.User;
-    }
-
-    /**
-     * Set Docker Hub 用户名或 Tencent Registry 用户名
-     * @param User Docker Hub 用户名或 Tencent Registry 用户名
-     */
-    public void setUser(String User) {
-        this.User = User;
-    }
-
-    /**
-     * Get Docker Hub 密码或 Tencent Registry 密码 
-     * @return Password Docker Hub 密码或 Tencent Registry 密码
-     */
-    public String getPassword() {
-        return this.Password;
-    }
-
-    /**
-     * Set Docker Hub 密码或 Tencent Registry 密码
-     * @param Password Docker Hub 密码或 Tencent Registry 密码
-     */
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
 
     /**
      * Get Docker Hub填写“[user/repo]:[tag]”，Tencent Registry填写“ccr.ccs.tencentyun.com/[namespace/repo]:[tag]” 
@@ -118,6 +86,38 @@ public class Docker extends AbstractModel{
      */
     public void setImage(String Image) {
         this.Image = Image;
+    }
+
+    /**
+     * Get Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。 
+     * @return User Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
+     */
+    public String getUser() {
+        return this.User;
+    }
+
+    /**
+     * Set Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
+     * @param User Docker Hub 用户名或 Tencent Registry 用户名；公共镜像可不填写此参数。
+     */
+    public void setUser(String User) {
+        this.User = User;
+    }
+
+    /**
+     * Get Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。 
+     * @return Password Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
+     */
+    public String getPassword() {
+        return this.Password;
+    }
+
+    /**
+     * Set Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
+     * @param Password Docker Hub 密码或 Tencent Registry 密码；公共镜像可不填写此参数。
+     */
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
 
     /**
@@ -169,10 +169,8 @@ public class Docker extends AbstractModel{
     }
 
     /**
-     * Get Docker命令运行参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Docker命令运行参数。 
      * @return DockerRunOption Docker命令运行参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDockerRunOption() {
         return this.DockerRunOption;
@@ -180,9 +178,7 @@ public class Docker extends AbstractModel{
 
     /**
      * Set Docker命令运行参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DockerRunOption Docker命令运行参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDockerRunOption(String DockerRunOption) {
         this.DockerRunOption = DockerRunOption;
@@ -196,14 +192,14 @@ public class Docker extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public Docker(Docker source) {
+        if (source.Image != null) {
+            this.Image = new String(source.Image);
+        }
         if (source.User != null) {
             this.User = new String(source.User);
         }
         if (source.Password != null) {
             this.Password = new String(source.Password);
-        }
-        if (source.Image != null) {
-            this.Image = new String(source.Image);
         }
         if (source.Server != null) {
             this.Server = new String(source.Server);
@@ -224,9 +220,9 @@ public class Docker extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "Image", this.Image);
         this.setParamSimple(map, prefix + "User", this.User);
         this.setParamSimple(map, prefix + "Password", this.Password);
-        this.setParamSimple(map, prefix + "Image", this.Image);
         this.setParamSimple(map, prefix + "Server", this.Server);
         this.setParamSimple(map, prefix + "MaxRetryCount", this.MaxRetryCount);
         this.setParamSimple(map, prefix + "DelayOnRetry", this.DelayOnRetry);

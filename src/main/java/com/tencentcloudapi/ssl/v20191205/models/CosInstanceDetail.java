@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CosInstanceDetail extends AbstractModel{
+public class CosInstanceDetail extends AbstractModel {
 
     /**
     * 域名
@@ -31,7 +32,6 @@ public class CosInstanceDetail extends AbstractModel{
 
     /**
     * 已绑定的证书ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CertId")
     @Expose
@@ -47,7 +47,6 @@ DISABLED:域名下线状态
 
     /**
     * 存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Bucket")
     @Expose
@@ -55,7 +54,6 @@ DISABLED:域名下线状态
 
     /**
     * 存储桶地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -78,10 +76,8 @@ DISABLED:域名下线状态
     }
 
     /**
-     * Get 已绑定的证书ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已绑定的证书ID 
      * @return CertId 已绑定的证书ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCertId() {
         return this.CertId;
@@ -89,9 +85,7 @@ DISABLED:域名下线状态
 
     /**
      * Set 已绑定的证书ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CertId 已绑定的证书ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCertId(String CertId) {
         this.CertId = CertId;
@@ -118,10 +112,8 @@ DISABLED:域名下线状态
     }
 
     /**
-     * Get 存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储桶名称 
      * @return Bucket 存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucket() {
         return this.Bucket;
@@ -129,19 +121,15 @@ DISABLED:域名下线状态
 
     /**
      * Set 存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Bucket 存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucket(String Bucket) {
         this.Bucket = Bucket;
     }
 
     /**
-     * Get 存储桶地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储桶地域 
      * @return Region 存储桶地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -149,9 +137,7 @@ DISABLED:域名下线状态
 
     /**
      * Set 存储桶地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 存储桶地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;

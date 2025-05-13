@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCCPrecisionPolicyRequest extends AbstractModel{
+public class CreateCCPrecisionPolicyRequest extends AbstractModel {
 
     /**
     * 实例Id
@@ -37,7 +38,7 @@ public class CreateCCPrecisionPolicyRequest extends AbstractModel{
     private String Ip;
 
     /**
-    * 协议， 可取值HTTP，HTTPS
+    * 协议， 可取值http，https，http/https
     */
     @SerializedName("Protocol")
     @Expose
@@ -51,7 +52,7 @@ public class CreateCCPrecisionPolicyRequest extends AbstractModel{
     private String Domain;
 
     /**
-    * 策略方式，可取值alg表示验证码，drop表示丢弃
+    * 策略方式，可取值alg表示人机校验，drop表示丢弃，trans表示放行
     */
     @SerializedName("PolicyAction")
     @Expose
@@ -97,16 +98,16 @@ public class CreateCCPrecisionPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 协议， 可取值HTTP，HTTPS 
-     * @return Protocol 协议， 可取值HTTP，HTTPS
+     * Get 协议， 可取值http，https，http/https 
+     * @return Protocol 协议， 可取值http，https，http/https
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议， 可取值HTTP，HTTPS
-     * @param Protocol 协议， 可取值HTTP，HTTPS
+     * Set 协议， 可取值http，https，http/https
+     * @param Protocol 协议， 可取值http，https，http/https
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -129,16 +130,16 @@ public class CreateCCPrecisionPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 策略方式，可取值alg表示验证码，drop表示丢弃 
-     * @return PolicyAction 策略方式，可取值alg表示验证码，drop表示丢弃
+     * Get 策略方式，可取值alg表示人机校验，drop表示丢弃，trans表示放行 
+     * @return PolicyAction 策略方式，可取值alg表示人机校验，drop表示丢弃，trans表示放行
      */
     public String getPolicyAction() {
         return this.PolicyAction;
     }
 
     /**
-     * Set 策略方式，可取值alg表示验证码，drop表示丢弃
-     * @param PolicyAction 策略方式，可取值alg表示验证码，drop表示丢弃
+     * Set 策略方式，可取值alg表示人机校验，drop表示丢弃，trans表示放行
+     * @param PolicyAction 策略方式，可取值alg表示人机校验，drop表示丢弃，trans表示放行
      */
     public void setPolicyAction(String PolicyAction) {
         this.PolicyAction = PolicyAction;

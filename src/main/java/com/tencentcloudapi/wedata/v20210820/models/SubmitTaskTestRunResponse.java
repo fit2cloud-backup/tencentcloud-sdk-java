@@ -16,76 +16,77 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SubmitTaskTestRunResponse extends AbstractModel{
+public class SubmitTaskTestRunResponse extends AbstractModel {
 
     /**
-    * 无
+    * 提交运行jobid
     */
     @SerializedName("JobId")
     @Expose
     private Long JobId;
 
     /**
-    * 无
+    * 运行记录id
     */
     @SerializedName("RecordId")
     @Expose
     private Long [] RecordId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 无 
-     * @return JobId 无
+     * Get 提交运行jobid 
+     * @return JobId 提交运行jobid
      */
     public Long getJobId() {
         return this.JobId;
     }
 
     /**
-     * Set 无
-     * @param JobId 无
+     * Set 提交运行jobid
+     * @param JobId 提交运行jobid
      */
     public void setJobId(Long JobId) {
         this.JobId = JobId;
     }
 
     /**
-     * Get 无 
-     * @return RecordId 无
+     * Get 运行记录id 
+     * @return RecordId 运行记录id
      */
     public Long [] getRecordId() {
         return this.RecordId;
     }
 
     /**
-     * Set 无
-     * @param RecordId 无
+     * Set 运行记录id
+     * @param RecordId 运行记录id
      */
     public void setRecordId(Long [] RecordId) {
         this.RecordId = RecordId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

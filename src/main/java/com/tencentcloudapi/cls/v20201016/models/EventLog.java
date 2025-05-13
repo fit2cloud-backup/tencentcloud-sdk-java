@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EventLog extends AbstractModel{
+public class EventLog extends AbstractModel {
 
     /**
     * 事件通道，支持Application，Security，Setup，System，ALL
@@ -46,6 +47,10 @@ public class EventLog extends AbstractModel{
 
     /**
     * 事件ID过滤列表
+	
+选填，为空表示不做过滤
+支持正向过滤单个值（例：20）或范围（例：0-20），也支持反向过滤单个值(例：-20)
+多个过滤项之间可由逗号隔开，例：1-200,-100表示采集1-200范围内除了100以外的事件日志
     */
     @SerializedName("EventIDs")
     @Expose
@@ -104,8 +109,16 @@ public class EventLog extends AbstractModel{
     }
 
     /**
-     * Get 事件ID过滤列表 
+     * Get 事件ID过滤列表
+	
+选填，为空表示不做过滤
+支持正向过滤单个值（例：20）或范围（例：0-20），也支持反向过滤单个值(例：-20)
+多个过滤项之间可由逗号隔开，例：1-200,-100表示采集1-200范围内除了100以外的事件日志 
      * @return EventIDs 事件ID过滤列表
+	
+选填，为空表示不做过滤
+支持正向过滤单个值（例：20）或范围（例：0-20），也支持反向过滤单个值(例：-20)
+多个过滤项之间可由逗号隔开，例：1-200,-100表示采集1-200范围内除了100以外的事件日志
      */
     public String [] getEventIDs() {
         return this.EventIDs;
@@ -113,7 +126,15 @@ public class EventLog extends AbstractModel{
 
     /**
      * Set 事件ID过滤列表
+	
+选填，为空表示不做过滤
+支持正向过滤单个值（例：20）或范围（例：0-20），也支持反向过滤单个值(例：-20)
+多个过滤项之间可由逗号隔开，例：1-200,-100表示采集1-200范围内除了100以外的事件日志
      * @param EventIDs 事件ID过滤列表
+	
+选填，为空表示不做过滤
+支持正向过滤单个值（例：20）或范围（例：0-20），也支持反向过滤单个值(例：-20)
+多个过滤项之间可由逗号隔开，例：1-200,-100表示采集1-200范围内除了100以外的事件日志
      */
     public void setEventIDs(String [] EventIDs) {
         this.EventIDs = EventIDs;

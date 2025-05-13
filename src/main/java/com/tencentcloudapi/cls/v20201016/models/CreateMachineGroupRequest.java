@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateMachineGroupRequest extends AbstractModel{
+public class CreateMachineGroupRequest extends AbstractModel {
 
     /**
     * 机器组名字，不能重复
@@ -30,7 +31,9 @@ public class CreateMachineGroupRequest extends AbstractModel{
     private String GroupName;
 
     /**
-    * 创建机器组类型，Type为ip，Values中为Ip字符串列表创建机器组，Type为label， Values中为标签字符串列表创建机器组
+    * 创建机器组类型。取值如下：
+- Type：ip，Values中为ip字符串列表创建机器组
+- Type：label，Values中为标签字符串列表创建机器组
     */
     @SerializedName("MachineGroupType")
     @Expose
@@ -44,7 +47,7 @@ public class CreateMachineGroupRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 是否开启机器组自动更新
+    * 是否开启机器组自动更新。默认false
     */
     @SerializedName("AutoUpdate")
     @Expose
@@ -65,11 +68,18 @@ public class CreateMachineGroupRequest extends AbstractModel{
     private String UpdateEndTime;
 
     /**
-    * 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
+    * 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费。默认false
     */
     @SerializedName("ServiceLogging")
     @Expose
     private Boolean ServiceLogging;
+
+    /**
+    * 机器组中机器离线清理时间。单位：天
+    */
+    @SerializedName("DelayCleanupTime")
+    @Expose
+    private Long DelayCleanupTime;
 
     /**
     * 机器组元数据信息列表
@@ -79,7 +89,9 @@ public class CreateMachineGroupRequest extends AbstractModel{
     private MetaTagInfo [] MetaTags;
 
     /**
-    * 系统类型，默认0，0：Linux，1: windows
+    * 系统类型，取值如下：
+- 0：Linux （默认值）
+- 1：Windows
     */
     @SerializedName("OSType")
     @Expose
@@ -102,16 +114,24 @@ public class CreateMachineGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 创建机器组类型，Type为ip，Values中为Ip字符串列表创建机器组，Type为label， Values中为标签字符串列表创建机器组 
-     * @return MachineGroupType 创建机器组类型，Type为ip，Values中为Ip字符串列表创建机器组，Type为label， Values中为标签字符串列表创建机器组
+     * Get 创建机器组类型。取值如下：
+- Type：ip，Values中为ip字符串列表创建机器组
+- Type：label，Values中为标签字符串列表创建机器组 
+     * @return MachineGroupType 创建机器组类型。取值如下：
+- Type：ip，Values中为ip字符串列表创建机器组
+- Type：label，Values中为标签字符串列表创建机器组
      */
     public MachineGroupTypeInfo getMachineGroupType() {
         return this.MachineGroupType;
     }
 
     /**
-     * Set 创建机器组类型，Type为ip，Values中为Ip字符串列表创建机器组，Type为label， Values中为标签字符串列表创建机器组
-     * @param MachineGroupType 创建机器组类型，Type为ip，Values中为Ip字符串列表创建机器组，Type为label， Values中为标签字符串列表创建机器组
+     * Set 创建机器组类型。取值如下：
+- Type：ip，Values中为ip字符串列表创建机器组
+- Type：label，Values中为标签字符串列表创建机器组
+     * @param MachineGroupType 创建机器组类型。取值如下：
+- Type：ip，Values中为ip字符串列表创建机器组
+- Type：label，Values中为标签字符串列表创建机器组
      */
     public void setMachineGroupType(MachineGroupTypeInfo MachineGroupType) {
         this.MachineGroupType = MachineGroupType;
@@ -134,16 +154,16 @@ public class CreateMachineGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启机器组自动更新 
-     * @return AutoUpdate 是否开启机器组自动更新
+     * Get 是否开启机器组自动更新。默认false 
+     * @return AutoUpdate 是否开启机器组自动更新。默认false
      */
     public Boolean getAutoUpdate() {
         return this.AutoUpdate;
     }
 
     /**
-     * Set 是否开启机器组自动更新
-     * @param AutoUpdate 是否开启机器组自动更新
+     * Set 是否开启机器组自动更新。默认false
+     * @param AutoUpdate 是否开启机器组自动更新。默认false
      */
     public void setAutoUpdate(Boolean AutoUpdate) {
         this.AutoUpdate = AutoUpdate;
@@ -182,19 +202,35 @@ public class CreateMachineGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费 
-     * @return ServiceLogging 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
+     * Get 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费。默认false 
+     * @return ServiceLogging 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费。默认false
      */
     public Boolean getServiceLogging() {
         return this.ServiceLogging;
     }
 
     /**
-     * Set 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
-     * @param ServiceLogging 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
+     * Set 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费。默认false
+     * @param ServiceLogging 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费。默认false
      */
     public void setServiceLogging(Boolean ServiceLogging) {
         this.ServiceLogging = ServiceLogging;
+    }
+
+    /**
+     * Get 机器组中机器离线清理时间。单位：天 
+     * @return DelayCleanupTime 机器组中机器离线清理时间。单位：天
+     */
+    public Long getDelayCleanupTime() {
+        return this.DelayCleanupTime;
+    }
+
+    /**
+     * Set 机器组中机器离线清理时间。单位：天
+     * @param DelayCleanupTime 机器组中机器离线清理时间。单位：天
+     */
+    public void setDelayCleanupTime(Long DelayCleanupTime) {
+        this.DelayCleanupTime = DelayCleanupTime;
     }
 
     /**
@@ -214,16 +250,24 @@ public class CreateMachineGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 系统类型，默认0，0：Linux，1: windows 
-     * @return OSType 系统类型，默认0，0：Linux，1: windows
+     * Get 系统类型，取值如下：
+- 0：Linux （默认值）
+- 1：Windows 
+     * @return OSType 系统类型，取值如下：
+- 0：Linux （默认值）
+- 1：Windows
      */
     public Long getOSType() {
         return this.OSType;
     }
 
     /**
-     * Set 系统类型，默认0，0：Linux，1: windows
-     * @param OSType 系统类型，默认0，0：Linux，1: windows
+     * Set 系统类型，取值如下：
+- 0：Linux （默认值）
+- 1：Windows
+     * @param OSType 系统类型，取值如下：
+- 0：Linux （默认值）
+- 1：Windows
      */
     public void setOSType(Long OSType) {
         this.OSType = OSType;
@@ -261,6 +305,9 @@ public class CreateMachineGroupRequest extends AbstractModel{
         if (source.ServiceLogging != null) {
             this.ServiceLogging = new Boolean(source.ServiceLogging);
         }
+        if (source.DelayCleanupTime != null) {
+            this.DelayCleanupTime = new Long(source.DelayCleanupTime);
+        }
         if (source.MetaTags != null) {
             this.MetaTags = new MetaTagInfo[source.MetaTags.length];
             for (int i = 0; i < source.MetaTags.length; i++) {
@@ -284,6 +331,7 @@ public class CreateMachineGroupRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateStartTime", this.UpdateStartTime);
         this.setParamSimple(map, prefix + "UpdateEndTime", this.UpdateEndTime);
         this.setParamSimple(map, prefix + "ServiceLogging", this.ServiceLogging);
+        this.setParamSimple(map, prefix + "DelayCleanupTime", this.DelayCleanupTime);
         this.setParamArrayObj(map, prefix + "MetaTags.", this.MetaTags);
         this.setParamSimple(map, prefix + "OSType", this.OSType);
 

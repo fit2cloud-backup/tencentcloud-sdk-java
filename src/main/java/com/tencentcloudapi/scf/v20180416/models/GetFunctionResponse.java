@@ -16,11 +16,12 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetFunctionResponse extends AbstractModel{
+public class GetFunctionResponse extends AbstractModel {
 
     /**
     * 函数的最后修改时间
@@ -164,7 +165,7 @@ public class GetFunctionResponse extends AbstractModel{
     private String InstallDependency;
 
     /**
-    * 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
+    * 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
     */
     @SerializedName("Status")
     @Expose
@@ -272,7 +273,6 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
     * 文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CfsConfig")
     @Expose
@@ -280,7 +280,6 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
     * 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AvailableStatus")
     @Expose
@@ -288,7 +287,6 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
     * 函数版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Qualifier")
     @Expose
@@ -303,7 +301,6 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
     * 函数状态失败原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StatusReasons")
     @Expose
@@ -311,7 +308,6 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
     * 是否开启异步属性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsyncRunEnable")
     @Expose
@@ -319,11 +315,18 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
     * 是否开启事件追踪
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TraceEnable")
     @Expose
     private String TraceEnable;
+
+    /**
+    * 镜像配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ImageConfig")
+    @Expose
+    private ImageConfig ImageConfig;
 
     /**
     * HTTP函数支持的访问协议。当前支持WebSockets协议。
@@ -342,7 +345,22 @@ public class GetFunctionResponse extends AbstractModel{
     private ProtocolParams ProtocolParams;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 是否开启DNS缓存
+    */
+    @SerializedName("DnsCache")
+    @Expose
+    private String DnsCache;
+
+    /**
+    * 内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IntranetConfig")
+    @Expose
+    private IntranetConfigOut IntranetConfig;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -673,16 +691,16 @@ public class GetFunctionResponse extends AbstractModel{
     }
 
     /**
-     * Get 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175) 
-     * @return Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
+     * Get 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197) 
+     * @return Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
-     * @param Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/47175)
+     * Set 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
+     * @param Status 函数状态，状态值及流转[参考说明](https://cloud.tencent.com/document/product/583/115197)
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -921,10 +939,8 @@ public class GetFunctionResponse extends AbstractModel{
     }
 
     /**
-     * Get 文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件系统配置参数，用于云函数挂载文件系统 
      * @return CfsConfig 文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CfsConfig getCfsConfig() {
         return this.CfsConfig;
@@ -932,19 +948,15 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
      * Set 文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CfsConfig 文件系统配置参数，用于云函数挂载文件系统
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCfsConfig(CfsConfig CfsConfig) {
         this.CfsConfig = CfsConfig;
     }
 
     /**
-     * Get 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81) 
      * @return AvailableStatus 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAvailableStatus() {
         return this.AvailableStatus;
@@ -952,19 +964,15 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
      * Set 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AvailableStatus 函数的计费状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.87.BD.E6.95.B0.E8.AE.A1.E8.B4.B9.E7.8A.B6.E6.80.81)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvailableStatus(String AvailableStatus) {
         this.AvailableStatus = AvailableStatus;
     }
 
     /**
-     * Get 函数版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 函数版本 
      * @return Qualifier 函数版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getQualifier() {
         return this.Qualifier;
@@ -972,9 +980,7 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
      * Set 函数版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Qualifier 函数版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQualifier(String Qualifier) {
         this.Qualifier = Qualifier;
@@ -997,10 +1003,8 @@ public class GetFunctionResponse extends AbstractModel{
     }
 
     /**
-     * Get 函数状态失败原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 函数状态失败原因 
      * @return StatusReasons 函数状态失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StatusReason [] getStatusReasons() {
         return this.StatusReasons;
@@ -1008,19 +1012,15 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
      * Set 函数状态失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StatusReasons 函数状态失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatusReasons(StatusReason [] StatusReasons) {
         this.StatusReasons = StatusReasons;
     }
 
     /**
-     * Get 是否开启异步属性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启异步属性 
      * @return AsyncRunEnable 是否开启异步属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAsyncRunEnable() {
         return this.AsyncRunEnable;
@@ -1028,19 +1028,15 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
      * Set 是否开启异步属性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsyncRunEnable 是否开启异步属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsyncRunEnable(String AsyncRunEnable) {
         this.AsyncRunEnable = AsyncRunEnable;
     }
 
     /**
-     * Get 是否开启事件追踪
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启事件追踪 
      * @return TraceEnable 是否开启事件追踪
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTraceEnable() {
         return this.TraceEnable;
@@ -1048,12 +1044,30 @@ public class GetFunctionResponse extends AbstractModel{
 
     /**
      * Set 是否开启事件追踪
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TraceEnable 是否开启事件追踪
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTraceEnable(String TraceEnable) {
         this.TraceEnable = TraceEnable;
+    }
+
+    /**
+     * Get 镜像配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ImageConfig 镜像配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ImageConfig getImageConfig() {
+        return this.ImageConfig;
+    }
+
+    /**
+     * Set 镜像配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ImageConfig 镜像配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setImageConfig(ImageConfig ImageConfig) {
+        this.ImageConfig = ImageConfig;
     }
 
     /**
@@ -1097,16 +1111,52 @@ public class GetFunctionResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 是否开启DNS缓存 
+     * @return DnsCache 是否开启DNS缓存
+     */
+    public String getDnsCache() {
+        return this.DnsCache;
+    }
+
+    /**
+     * Set 是否开启DNS缓存
+     * @param DnsCache 是否开启DNS缓存
+     */
+    public void setDnsCache(String DnsCache) {
+        this.DnsCache = DnsCache;
+    }
+
+    /**
+     * Get 内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IntranetConfig 内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public IntranetConfigOut getIntranetConfig() {
+        return this.IntranetConfig;
+    }
+
+    /**
+     * Set 内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IntranetConfig 内网访问配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIntranetConfig(IntranetConfigOut IntranetConfig) {
+        this.IntranetConfig = IntranetConfig;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -1258,11 +1308,20 @@ public class GetFunctionResponse extends AbstractModel{
         if (source.TraceEnable != null) {
             this.TraceEnable = new String(source.TraceEnable);
         }
+        if (source.ImageConfig != null) {
+            this.ImageConfig = new ImageConfig(source.ImageConfig);
+        }
         if (source.ProtocolType != null) {
             this.ProtocolType = new String(source.ProtocolType);
         }
         if (source.ProtocolParams != null) {
             this.ProtocolParams = new ProtocolParams(source.ProtocolParams);
+        }
+        if (source.DnsCache != null) {
+            this.DnsCache = new String(source.DnsCache);
+        }
+        if (source.IntranetConfig != null) {
+            this.IntranetConfig = new IntranetConfigOut(source.IntranetConfig);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
@@ -1316,8 +1375,11 @@ public class GetFunctionResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "StatusReasons.", this.StatusReasons);
         this.setParamSimple(map, prefix + "AsyncRunEnable", this.AsyncRunEnable);
         this.setParamSimple(map, prefix + "TraceEnable", this.TraceEnable);
+        this.setParamObj(map, prefix + "ImageConfig.", this.ImageConfig);
         this.setParamSimple(map, prefix + "ProtocolType", this.ProtocolType);
         this.setParamObj(map, prefix + "ProtocolParams.", this.ProtocolParams);
+        this.setParamSimple(map, prefix + "DnsCache", this.DnsCache);
+        this.setParamObj(map, prefix + "IntranetConfig.", this.IntranetConfig);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

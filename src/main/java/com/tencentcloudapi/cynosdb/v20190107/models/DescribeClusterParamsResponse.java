@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterParamsResponse extends AbstractModel{
+public class DescribeClusterParamsResponse extends AbstractModel {
 
     /**
     * 参数个数
@@ -31,14 +32,13 @@ public class DescribeClusterParamsResponse extends AbstractModel{
 
     /**
     * 实例参数列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Items")
     @Expose
     private ParamInfo [] Items;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,10 +61,8 @@ public class DescribeClusterParamsResponse extends AbstractModel{
     }
 
     /**
-     * Get 实例参数列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例参数列表 
      * @return Items 实例参数列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamInfo [] getItems() {
         return this.Items;
@@ -72,25 +70,23 @@ public class DescribeClusterParamsResponse extends AbstractModel{
 
     /**
      * Set 实例参数列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Items 实例参数列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItems(ParamInfo [] Items) {
         this.Items = Items;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

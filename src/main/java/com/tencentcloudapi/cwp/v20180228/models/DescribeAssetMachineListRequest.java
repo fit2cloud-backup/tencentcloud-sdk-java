@@ -16,27 +16,30 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetMachineListRequest extends AbstractModel{
+public class DescribeAssetMachineListRequest extends AbstractModel {
 
     /**
     * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName  主机名称</li>
+<li>InstanceID  实例ID  </li>
+<li>IP   内网IP或公网IP</li>
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>CpuLoad - Int - 是否必填：否 - 
-0: 未知  1: 低负载
-2: 中负载  3: 高负载</li>
+	0: 未知  1: 低负载
+	2: 中负载  3: 高负载</li>
 <li>DiskLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>MemLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>Quuid：主机Quuid</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
     */
@@ -74,35 +77,39 @@ public class DescribeAssetMachineListRequest extends AbstractModel{
 
     /**
      * Get 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName  主机名称</li>
+<li>InstanceID  实例ID  </li>
+<li>IP   内网IP或公网IP</li>
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>CpuLoad - Int - 是否必填：否 - 
-0: 未知  1: 低负载
-2: 中负载  3: 高负载</li>
+	0: 未知  1: 低负载
+	2: 中负载  3: 高负载</li>
 <li>DiskLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>MemLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>Quuid：主机Quuid</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li> 
      * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName  主机名称</li>
+<li>InstanceID  实例ID  </li>
+<li>IP   内网IP或公网IP</li>
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>CpuLoad - Int - 是否必填：否 - 
-0: 未知  1: 低负载
-2: 中负载  3: 高负载</li>
+	0: 未知  1: 低负载
+	2: 中负载  3: 高负载</li>
 <li>DiskLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>MemLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>Quuid：主机Quuid</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      */
@@ -112,35 +119,39 @@ public class DescribeAssetMachineListRequest extends AbstractModel{
 
     /**
      * Set 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName  主机名称</li>
+<li>InstanceID  实例ID  </li>
+<li>IP   内网IP或公网IP</li>
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>CpuLoad - Int - 是否必填：否 - 
-0: 未知  1: 低负载
-2: 中负载  3: 高负载</li>
+	0: 未知  1: 低负载
+	2: 中负载  3: 高负载</li>
 <li>DiskLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>MemLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>Quuid：主机Quuid</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName  主机名称</li>
+<li>InstanceID  实例ID  </li>
+<li>IP   内网IP或公网IP</li>
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>CpuLoad - Int - 是否必填：否 - 
-0: 未知  1: 低负载
-2: 中负载  3: 高负载</li>
+	0: 未知  1: 低负载
+	2: 中负载  3: 高负载</li>
 <li>DiskLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>MemLoad - Int - 是否必填：否 - 
-0: 0%或未知  1: 0%～20%
-2: 20%～50%  3: 50%～80%
-4: 80%～100%</li>
+	0: 0%或未知  1: 0%～20%
+	2: 20%～50%  3: 50%～80%
+	4: 80%～100%</li>
 <li>Quuid：主机Quuid</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      */

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EnvironmentConfig extends AbstractModel{
+public class EnvironmentConfig extends AbstractModel {
 
     /**
     * 私有网络配置。
@@ -56,6 +57,13 @@ public class EnvironmentConfig extends AbstractModel{
     @SerializedName("CVMOption")
     @Expose
     private CVMOption CVMOption;
+
+    /**
+    * 安全组配置。
+    */
+    @SerializedName("SecurityGroupOption")
+    @Expose
+    private SecurityGroupOption SecurityGroupOption;
 
     /**
      * Get 私有网络配置。 
@@ -137,6 +145,22 @@ public class EnvironmentConfig extends AbstractModel{
         this.CVMOption = CVMOption;
     }
 
+    /**
+     * Get 安全组配置。 
+     * @return SecurityGroupOption 安全组配置。
+     */
+    public SecurityGroupOption getSecurityGroupOption() {
+        return this.SecurityGroupOption;
+    }
+
+    /**
+     * Set 安全组配置。
+     * @param SecurityGroupOption 安全组配置。
+     */
+    public void setSecurityGroupOption(SecurityGroupOption SecurityGroupOption) {
+        this.SecurityGroupOption = SecurityGroupOption;
+    }
+
     public EnvironmentConfig() {
     }
 
@@ -160,6 +184,9 @@ public class EnvironmentConfig extends AbstractModel{
         if (source.CVMOption != null) {
             this.CVMOption = new CVMOption(source.CVMOption);
         }
+        if (source.SecurityGroupOption != null) {
+            this.SecurityGroupOption = new SecurityGroupOption(source.SecurityGroupOption);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class EnvironmentConfig extends AbstractModel{
         this.setParamObj(map, prefix + "DatabaseOption.", this.DatabaseOption);
         this.setParamObj(map, prefix + "StorageOption.", this.StorageOption);
         this.setParamObj(map, prefix + "CVMOption.", this.CVMOption);
+        this.setParamObj(map, prefix + "SecurityGroupOption.", this.SecurityGroupOption);
 
     }
 }

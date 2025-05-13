@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CheckInstanceNameResponse extends AbstractModel{
+public class CheckInstanceNameResponse extends AbstractModel {
 
     /**
     * 检查结果，true为合法，false为非法
@@ -30,7 +31,14 @@ public class CheckInstanceNameResponse extends AbstractModel{
     private Boolean IsValidated;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在）
+    */
+    @SerializedName("DetailCode")
+    @Expose
+    private Long DetailCode;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +61,32 @@ public class CheckInstanceNameResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在） 
+     * @return DetailCode 1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在）
+     */
+    public Long getDetailCode() {
+        return this.DetailCode;
+    }
+
+    /**
+     * Set 1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在）
+     * @param DetailCode 1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在）
+     */
+    public void setDetailCode(Long DetailCode) {
+        this.DetailCode = DetailCode;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -79,6 +103,9 @@ public class CheckInstanceNameResponse extends AbstractModel{
         if (source.IsValidated != null) {
             this.IsValidated = new Boolean(source.IsValidated);
         }
+        if (source.DetailCode != null) {
+            this.DetailCode = new Long(source.DetailCode);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +117,7 @@ public class CheckInstanceNameResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "IsValidated", this.IsValidated);
+        this.setParamSimple(map, prefix + "DetailCode", this.DetailCode);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

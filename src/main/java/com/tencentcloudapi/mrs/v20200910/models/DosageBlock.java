@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DosageBlock extends AbstractModel{
+public class DosageBlock extends AbstractModel {
 
     /**
     * 值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -32,7 +32,6 @@ public class DosageBlock extends AbstractModel{
 
     /**
     * 单次计量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SingleMeasurement")
     @Expose
@@ -40,7 +39,6 @@ public class DosageBlock extends AbstractModel{
 
     /**
     * 频次
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Frequency")
     @Expose
@@ -48,17 +46,14 @@ public class DosageBlock extends AbstractModel{
 
     /**
     * 给药途径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DrugDeliveryRoute")
     @Expose
     private String DrugDeliveryRoute;
 
     /**
-     * Get 值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 值 
      * @return Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -66,19 +61,15 @@ public class DosageBlock extends AbstractModel{
 
     /**
      * Set 值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;
     }
 
     /**
-     * Get 单次计量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 单次计量 
      * @return SingleMeasurement 单次计量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSingleMeasurement() {
         return this.SingleMeasurement;
@@ -86,19 +77,15 @@ public class DosageBlock extends AbstractModel{
 
     /**
      * Set 单次计量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SingleMeasurement 单次计量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSingleMeasurement(String SingleMeasurement) {
         this.SingleMeasurement = SingleMeasurement;
     }
 
     /**
-     * Get 频次
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 频次 
      * @return Frequency 频次
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFrequency() {
         return this.Frequency;
@@ -106,19 +93,15 @@ public class DosageBlock extends AbstractModel{
 
     /**
      * Set 频次
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Frequency 频次
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFrequency(String Frequency) {
         this.Frequency = Frequency;
     }
 
     /**
-     * Get 给药途径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 给药途径 
      * @return DrugDeliveryRoute 给药途径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDrugDeliveryRoute() {
         return this.DrugDeliveryRoute;
@@ -126,9 +109,7 @@ public class DosageBlock extends AbstractModel{
 
     /**
      * Set 给药途径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DrugDeliveryRoute 给药途径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDrugDeliveryRoute(String DrugDeliveryRoute) {
         this.DrugDeliveryRoute = DrugDeliveryRoute;

@@ -16,25 +16,23 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGatewayVersionData extends AbstractModel{
+public class DescribeGatewayVersionData extends AbstractModel {
 
     /**
     * 网关服务列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Services")
     @Expose
     private DescribeGatewayVersion [] Services;
 
     /**
-     * Get 网关服务列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网关服务列表 
      * @return Services 网关服务列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DescribeGatewayVersion [] getServices() {
         return this.Services;
@@ -42,9 +40,7 @@ public class DescribeGatewayVersionData extends AbstractModel{
 
     /**
      * Set 网关服务列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Services 网关服务列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServices(DescribeGatewayVersion [] Services) {
         this.Services = Services;

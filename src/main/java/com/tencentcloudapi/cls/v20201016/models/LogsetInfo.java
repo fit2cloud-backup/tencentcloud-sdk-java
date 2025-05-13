@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LogsetInfo extends AbstractModel{
+public class LogsetInfo extends AbstractModel {
 
     /**
     * 日志集ID
@@ -45,7 +46,6 @@ public class LogsetInfo extends AbstractModel{
 
     /**
     * 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssumerName")
     @Expose
@@ -53,7 +53,6 @@ public class LogsetInfo extends AbstractModel{
 
     /**
     * 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -122,10 +121,8 @@ public class LogsetInfo extends AbstractModel{
     }
 
     /**
-     * Get 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE 
      * @return AssumerName 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAssumerName() {
         return this.AssumerName;
@@ -133,19 +130,15 @@ public class LogsetInfo extends AbstractModel{
 
     /**
      * Set 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssumerName 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssumerName(String AssumerName) {
         this.AssumerName = AssumerName;
     }
 
     /**
-     * Get 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志集绑定的标签 
      * @return Tags 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -153,9 +146,7 @@ public class LogsetInfo extends AbstractModel{
 
     /**
      * Set 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;

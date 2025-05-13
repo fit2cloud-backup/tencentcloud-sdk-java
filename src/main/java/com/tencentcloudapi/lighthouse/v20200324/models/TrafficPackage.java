@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TrafficPackage extends AbstractModel{
+public class TrafficPackage extends AbstractModel {
 
     /**
     * 流量包ID。
@@ -60,7 +61,6 @@ public class TrafficPackage extends AbstractModel{
     /**
     * 流量包生效周期开始时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -69,7 +69,6 @@ public class TrafficPackage extends AbstractModel{
     /**
     * 流量包生效周期结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -78,7 +77,6 @@ public class TrafficPackage extends AbstractModel{
     /**
     * 流量包到期时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Deadline")
     @Expose
@@ -175,11 +173,9 @@ public class TrafficPackage extends AbstractModel{
 
     /**
      * Get 流量包生效周期开始时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
-格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。 
+格式为： YYYY-MM-DDThh:mm:ssZ。 
      * @return StartTime 流量包生效周期开始时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -188,10 +184,8 @@ public class TrafficPackage extends AbstractModel{
     /**
      * Set 流量包生效周期开始时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 流量包生效周期开始时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
@@ -199,11 +193,9 @@ public class TrafficPackage extends AbstractModel{
 
     /**
      * Get 流量包生效周期结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
-格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。 
+格式为： YYYY-MM-DDThh:mm:ssZ。 
      * @return EndTime 流量包生效周期结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -212,10 +204,8 @@ public class TrafficPackage extends AbstractModel{
     /**
      * Set 流量包生效周期结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 流量包生效周期结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -223,11 +213,9 @@ public class TrafficPackage extends AbstractModel{
 
     /**
      * Get 流量包到期时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
-格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。 
+格式为： YYYY-MM-DDThh:mm:ssZ。 
      * @return Deadline 流量包到期时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeadline() {
         return this.Deadline;
@@ -236,10 +224,8 @@ public class TrafficPackage extends AbstractModel{
     /**
      * Set 流量包到期时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Deadline 流量包到期时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
 格式为： YYYY-MM-DDThh:mm:ssZ。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeadline(String Deadline) {
         this.Deadline = Deadline;

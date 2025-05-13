@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ams.v20201229.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskDetailResponse extends AbstractModel{
+public class DescribeTaskDetailResponse extends AbstractModel {
 
     /**
     * 该字段用于返回创建音频审核任务后返回的任务ID（在Results参数中），用于标识需要查询任务详情的审核任务。
@@ -152,7 +153,15 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private String Label;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 媒体信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MediaInfo")
+    @Expose
+    private MediaInfo MediaInfo;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -483,16 +492,36 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 媒体信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MediaInfo 媒体信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MediaInfo getMediaInfo() {
+        return this.MediaInfo;
+    }
+
+    /**
+     * Set 媒体信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MediaInfo 媒体信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMediaInfo(MediaInfo MediaInfo) {
+        this.MediaInfo = MediaInfo;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -560,6 +589,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         if (source.Label != null) {
             this.Label = new String(source.Label);
         }
+        if (source.MediaInfo != null) {
+            this.MediaInfo = new MediaInfo(source.MediaInfo);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -586,6 +618,7 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "CreatedAt", this.CreatedAt);
         this.setParamSimple(map, prefix + "UpdatedAt", this.UpdatedAt);
         this.setParamSimple(map, prefix + "Label", this.Label);
+        this.setParamObj(map, prefix + "MediaInfo.", this.MediaInfo);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

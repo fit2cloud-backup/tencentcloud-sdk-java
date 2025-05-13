@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionTaskTransTextResult extends AbstractModel{
+public class AiRecognitionTaskTransTextResult extends AbstractModel {
 
     /**
     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -64,6 +65,14 @@ public class AiRecognitionTaskTransTextResult extends AbstractModel{
     @SerializedName("Output")
     @Expose
     private AiRecognitionTaskTransTextResultOutput Output;
+
+    /**
+    * 任务进度。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Progress")
+    @Expose
+    private Long Progress;
 
     /**
      * Get 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。 
@@ -165,6 +174,26 @@ public class AiRecognitionTaskTransTextResult extends AbstractModel{
         this.Output = Output;
     }
 
+    /**
+     * Get 任务进度。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Progress 任务进度。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getProgress() {
+        return this.Progress;
+    }
+
+    /**
+     * Set 任务进度。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Progress 任务进度。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProgress(Long Progress) {
+        this.Progress = Progress;
+    }
+
     public AiRecognitionTaskTransTextResult() {
     }
 
@@ -191,6 +220,9 @@ public class AiRecognitionTaskTransTextResult extends AbstractModel{
         if (source.Output != null) {
             this.Output = new AiRecognitionTaskTransTextResultOutput(source.Output);
         }
+        if (source.Progress != null) {
+            this.Progress = new Long(source.Progress);
+        }
     }
 
 
@@ -204,6 +236,7 @@ public class AiRecognitionTaskTransTextResult extends AbstractModel{
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamObj(map, prefix + "Input.", this.Input);
         this.setParamObj(map, prefix + "Output.", this.Output);
+        this.setParamSimple(map, prefix + "Progress", this.Progress);
 
     }
 }

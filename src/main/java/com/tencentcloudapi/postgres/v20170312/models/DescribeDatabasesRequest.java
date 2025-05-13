@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDatabasesRequest extends AbstractModel{
+public class DescribeDatabasesRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -28,6 +29,27 @@ public class DescribeDatabasesRequest extends AbstractModel{
     @SerializedName("DBInstanceId")
     @Expose
     private String DBInstanceId;
+
+    /**
+    * 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：database-name：按照数据库名称过滤，类型为string。此处使用模糊匹配搜索符合条件的数据库。
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
+
+    /**
+    * 数据偏移量，从0开始。	
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * 单次显示数量
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
 
     /**
      * Get 实例ID 
@@ -45,6 +67,54 @@ public class DescribeDatabasesRequest extends AbstractModel{
         this.DBInstanceId = DBInstanceId;
     }
 
+    /**
+     * Get 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：database-name：按照数据库名称过滤，类型为string。此处使用模糊匹配搜索符合条件的数据库。 
+     * @return Filters 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：database-name：按照数据库名称过滤，类型为string。此处使用模糊匹配搜索符合条件的数据库。
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：database-name：按照数据库名称过滤，类型为string。此处使用模糊匹配搜索符合条件的数据库。
+     * @param Filters 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：database-name：按照数据库名称过滤，类型为string。此处使用模糊匹配搜索符合条件的数据库。
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
+     * Get 数据偏移量，从0开始。	 
+     * @return Offset 数据偏移量，从0开始。	
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 数据偏移量，从0开始。	
+     * @param Offset 数据偏移量，从0开始。	
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get 单次显示数量 
+     * @return Limit 单次显示数量
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 单次显示数量
+     * @param Limit 单次显示数量
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
     public DescribeDatabasesRequest() {
     }
 
@@ -56,6 +126,18 @@ public class DescribeDatabasesRequest extends AbstractModel{
         if (source.DBInstanceId != null) {
             this.DBInstanceId = new String(source.DBInstanceId);
         }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
     }
 
 
@@ -64,6 +146,9 @@ public class DescribeDatabasesRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DBInstanceId", this.DBInstanceId);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterLevelAttribute extends AbstractModel{
+public class ClusterLevelAttribute extends AbstractModel {
 
     /**
     * 集群等级
@@ -80,7 +81,6 @@ public class ClusterLevelAttribute extends AbstractModel{
 
     /**
     * 其他资源数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OtherCount")
     @Expose
@@ -215,10 +215,8 @@ public class ClusterLevelAttribute extends AbstractModel{
     }
 
     /**
-     * Get 其他资源数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 其他资源数量 
      * @return OtherCount 其他资源数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOtherCount() {
         return this.OtherCount;
@@ -226,9 +224,7 @@ public class ClusterLevelAttribute extends AbstractModel{
 
     /**
      * Set 其他资源数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OtherCount 其他资源数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOtherCount(Long OtherCount) {
         this.OtherCount = OtherCount;

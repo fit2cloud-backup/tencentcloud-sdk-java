@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyTopicRequest extends AbstractModel{
+public class ModifyTopicRequest extends AbstractModel {
 
     /**
     * 日志主题ID
@@ -44,7 +45,8 @@ public class ModifyTopicRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 该日志主题是否开始采集
+    * 主题是否开启采集，true：开启采集；false：关闭采集。
+控制台目前不支持修改此参数。
     */
     @SerializedName("Status")
     @Expose
@@ -87,11 +89,33 @@ public class ModifyTopicRequest extends AbstractModel{
     private Long HotPeriod;
 
     /**
-    * webtracking开关； false: 关闭 true: 开启
+    * 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
     */
     @SerializedName("IsWebTracking")
     @Expose
     private Boolean IsWebTracking;
+
+    /**
+    * 日志主题扩展信息
+    */
+    @SerializedName("Extends")
+    @Expose
+    private TopicExtendInfo Extends;
+
+    /**
+    * 日志主题分区数量
+    */
+    @SerializedName("PartitionCount")
+    @Expose
+    private Long PartitionCount;
+
+    /**
+    * 取消切换存储任务的id
+    */
+    @SerializedName("CancelTopicAsyncTaskID")
+    @Expose
+    private String CancelTopicAsyncTaskID;
 
     /**
      * Get 日志主题ID 
@@ -142,16 +166,20 @@ public class ModifyTopicRequest extends AbstractModel{
     }
 
     /**
-     * Get 该日志主题是否开始采集 
-     * @return Status 该日志主题是否开始采集
+     * Get 主题是否开启采集，true：开启采集；false：关闭采集。
+控制台目前不支持修改此参数。 
+     * @return Status 主题是否开启采集，true：开启采集；false：关闭采集。
+控制台目前不支持修改此参数。
      */
     public Boolean getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 该日志主题是否开始采集
-     * @param Status 该日志主题是否开始采集
+     * Set 主题是否开启采集，true：开启采集；false：关闭采集。
+控制台目前不支持修改此参数。
+     * @param Status 主题是否开启采集，true：开启采集；false：关闭采集。
+控制台目前不支持修改此参数。
      */
     public void setStatus(Boolean Status) {
         this.Status = Status;
@@ -242,19 +270,71 @@ public class ModifyTopicRequest extends AbstractModel{
     }
 
     /**
-     * Get webtracking开关； false: 关闭 true: 开启 
-     * @return IsWebTracking webtracking开关； false: 关闭 true: 开启
+     * Get 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。 
+     * @return IsWebTracking 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
      */
     public Boolean getIsWebTracking() {
         return this.IsWebTracking;
     }
 
     /**
-     * Set webtracking开关； false: 关闭 true: 开启
-     * @param IsWebTracking webtracking开关； false: 关闭 true: 开启
+     * Set 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
+     * @param IsWebTracking 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
      */
     public void setIsWebTracking(Boolean IsWebTracking) {
         this.IsWebTracking = IsWebTracking;
+    }
+
+    /**
+     * Get 日志主题扩展信息 
+     * @return Extends 日志主题扩展信息
+     */
+    public TopicExtendInfo getExtends() {
+        return this.Extends;
+    }
+
+    /**
+     * Set 日志主题扩展信息
+     * @param Extends 日志主题扩展信息
+     */
+    public void setExtends(TopicExtendInfo Extends) {
+        this.Extends = Extends;
+    }
+
+    /**
+     * Get 日志主题分区数量 
+     * @return PartitionCount 日志主题分区数量
+     */
+    public Long getPartitionCount() {
+        return this.PartitionCount;
+    }
+
+    /**
+     * Set 日志主题分区数量
+     * @param PartitionCount 日志主题分区数量
+     */
+    public void setPartitionCount(Long PartitionCount) {
+        this.PartitionCount = PartitionCount;
+    }
+
+    /**
+     * Get 取消切换存储任务的id 
+     * @return CancelTopicAsyncTaskID 取消切换存储任务的id
+     */
+    public String getCancelTopicAsyncTaskID() {
+        return this.CancelTopicAsyncTaskID;
+    }
+
+    /**
+     * Set 取消切换存储任务的id
+     * @param CancelTopicAsyncTaskID 取消切换存储任务的id
+     */
+    public void setCancelTopicAsyncTaskID(String CancelTopicAsyncTaskID) {
+        this.CancelTopicAsyncTaskID = CancelTopicAsyncTaskID;
     }
 
     public ModifyTopicRequest() {
@@ -298,6 +378,15 @@ public class ModifyTopicRequest extends AbstractModel{
         if (source.IsWebTracking != null) {
             this.IsWebTracking = new Boolean(source.IsWebTracking);
         }
+        if (source.Extends != null) {
+            this.Extends = new TopicExtendInfo(source.Extends);
+        }
+        if (source.PartitionCount != null) {
+            this.PartitionCount = new Long(source.PartitionCount);
+        }
+        if (source.CancelTopicAsyncTaskID != null) {
+            this.CancelTopicAsyncTaskID = new String(source.CancelTopicAsyncTaskID);
+        }
     }
 
 
@@ -315,6 +404,9 @@ public class ModifyTopicRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Describes", this.Describes);
         this.setParamSimple(map, prefix + "HotPeriod", this.HotPeriod);
         this.setParamSimple(map, prefix + "IsWebTracking", this.IsWebTracking);
+        this.setParamObj(map, prefix + "Extends.", this.Extends);
+        this.setParamSimple(map, prefix + "PartitionCount", this.PartitionCount);
+        this.setParamSimple(map, prefix + "CancelTopicAsyncTaskID", this.CancelTopicAsyncTaskID);
 
     }
 }

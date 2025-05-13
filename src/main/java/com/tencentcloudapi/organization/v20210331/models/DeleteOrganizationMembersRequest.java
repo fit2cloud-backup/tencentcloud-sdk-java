@@ -16,30 +16,31 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteOrganizationMembersRequest extends AbstractModel{
+public class DeleteOrganizationMembersRequest extends AbstractModel {
 
     /**
-    * 被删除成员的UIN列表。
+    * 被删除成员的Uin列表。
     */
     @SerializedName("MemberUin")
     @Expose
     private Long [] MemberUin;
 
     /**
-     * Get 被删除成员的UIN列表。 
-     * @return MemberUin 被删除成员的UIN列表。
+     * Get 被删除成员的Uin列表。 
+     * @return MemberUin 被删除成员的Uin列表。
      */
     public Long [] getMemberUin() {
         return this.MemberUin;
     }
 
     /**
-     * Set 被删除成员的UIN列表。
-     * @param MemberUin 被删除成员的UIN列表。
+     * Set 被删除成员的Uin列表。
+     * @param MemberUin 被删除成员的Uin列表。
      */
     public void setMemberUin(Long [] MemberUin) {
         this.MemberUin = MemberUin;

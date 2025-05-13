@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KillMySqlThreadsResponse extends AbstractModel{
+public class KillMySqlThreadsResponse extends AbstractModel {
 
     /**
     * kill完成的sql会话ID列表。
@@ -31,14 +32,13 @@ public class KillMySqlThreadsResponse extends AbstractModel{
 
     /**
     * 执行ID， Prepare阶段的任务输出，用于Commit阶段中指定执行kill操作的会话ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SqlExecId")
     @Expose
     private String SqlExecId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,10 +61,8 @@ public class KillMySqlThreadsResponse extends AbstractModel{
     }
 
     /**
-     * Get 执行ID， Prepare阶段的任务输出，用于Commit阶段中指定执行kill操作的会话ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 执行ID， Prepare阶段的任务输出，用于Commit阶段中指定执行kill操作的会话ID。 
      * @return SqlExecId 执行ID， Prepare阶段的任务输出，用于Commit阶段中指定执行kill操作的会话ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSqlExecId() {
         return this.SqlExecId;
@@ -72,25 +70,23 @@ public class KillMySqlThreadsResponse extends AbstractModel{
 
     /**
      * Set 执行ID， Prepare阶段的任务输出，用于Commit阶段中指定执行kill操作的会话ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SqlExecId 执行ID， Prepare阶段的任务输出，用于Commit阶段中指定执行kill操作的会话ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSqlExecId(String SqlExecId) {
         this.SqlExecId = SqlExecId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

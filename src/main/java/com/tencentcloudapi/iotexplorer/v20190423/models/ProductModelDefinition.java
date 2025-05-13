@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProductModelDefinition extends AbstractModel{
+public class ProductModelDefinition extends AbstractModel {
 
     /**
     * 产品ID
@@ -52,7 +53,6 @@ public class ProductModelDefinition extends AbstractModel{
 
     /**
     * 产品所属分类的模型快照（产品创建时刻的）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CategoryModel")
     @Expose
@@ -60,7 +60,6 @@ public class ProductModelDefinition extends AbstractModel{
 
     /**
     * 产品的连接类型的模型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetTypeModel")
     @Expose
@@ -131,10 +130,8 @@ public class ProductModelDefinition extends AbstractModel{
     }
 
     /**
-     * Get 产品所属分类的模型快照（产品创建时刻的）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 产品所属分类的模型快照（产品创建时刻的） 
      * @return CategoryModel 产品所属分类的模型快照（产品创建时刻的）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCategoryModel() {
         return this.CategoryModel;
@@ -142,19 +139,15 @@ public class ProductModelDefinition extends AbstractModel{
 
     /**
      * Set 产品所属分类的模型快照（产品创建时刻的）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CategoryModel 产品所属分类的模型快照（产品创建时刻的）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCategoryModel(String CategoryModel) {
         this.CategoryModel = CategoryModel;
     }
 
     /**
-     * Get 产品的连接类型的模型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 产品的连接类型的模型 
      * @return NetTypeModel 产品的连接类型的模型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNetTypeModel() {
         return this.NetTypeModel;
@@ -162,9 +155,7 @@ public class ProductModelDefinition extends AbstractModel{
 
     /**
      * Set 产品的连接类型的模型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NetTypeModel 产品的连接类型的模型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetTypeModel(String NetTypeModel) {
         this.NetTypeModel = NetTypeModel;

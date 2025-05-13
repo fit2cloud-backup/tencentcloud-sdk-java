@@ -16,14 +16,16 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateProhibitionBatchRequest extends AbstractModel{
+public class UpdateProhibitionBatchRequest extends AbstractModel {
 
     /**
     * 批量操作的域名。
+一次提交不大于4000个
     */
     @SerializedName("Domains")
     @Expose
@@ -31,16 +33,18 @@ public class UpdateProhibitionBatchRequest extends AbstractModel{
 
     /**
     * 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
     */
     @SerializedName("Status")
     @Expose
     private Boolean Status;
 
     /**
-     * Get 批量操作的域名。 
+     * Get 批量操作的域名。
+一次提交不大于4000个 
      * @return Domains 批量操作的域名。
+一次提交不大于4000个
      */
     public String [] getDomains() {
         return this.Domains;
@@ -48,7 +52,9 @@ False：关闭禁止域名更新状态。
 
     /**
      * Set 批量操作的域名。
+一次提交不大于4000个
      * @param Domains 批量操作的域名。
+一次提交不大于4000个
      */
     public void setDomains(String [] Domains) {
         this.Domains = Domains;
@@ -56,11 +62,11 @@ False：关闭禁止域名更新状态。
 
     /**
      * Get 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。 
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。 
      * @return Status 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
      */
     public Boolean getStatus() {
         return this.Status;
@@ -68,11 +74,11 @@ False：关闭禁止域名更新状态。
 
     /**
      * Set 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
      * @param Status 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
      */
     public void setStatus(Boolean Status) {
         this.Status = Status;

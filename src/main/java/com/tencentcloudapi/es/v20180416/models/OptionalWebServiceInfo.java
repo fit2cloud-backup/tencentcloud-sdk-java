@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OptionalWebServiceInfo extends AbstractModel{
+public class OptionalWebServiceInfo extends AbstractModel {
 
     /**
     * 类型
@@ -77,6 +78,22 @@ public class OptionalWebServiceInfo extends AbstractModel{
     @SerializedName("Version")
     @Expose
     private String Version;
+
+    /**
+    * web服务内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PrivateVip")
+    @Expose
+    private String PrivateVip;
+
+    /**
+    * 自定义cerebro内网url
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CustomPrivateUrl")
+    @Expose
+    private String CustomPrivateUrl;
 
     /**
      * Get 类型
@@ -218,6 +235,46 @@ public class OptionalWebServiceInfo extends AbstractModel{
         this.Version = Version;
     }
 
+    /**
+     * Get web服务内网vip
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PrivateVip web服务内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPrivateVip() {
+        return this.PrivateVip;
+    }
+
+    /**
+     * Set web服务内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PrivateVip web服务内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPrivateVip(String PrivateVip) {
+        this.PrivateVip = PrivateVip;
+    }
+
+    /**
+     * Get 自定义cerebro内网url
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CustomPrivateUrl 自定义cerebro内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCustomPrivateUrl() {
+        return this.CustomPrivateUrl;
+    }
+
+    /**
+     * Set 自定义cerebro内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CustomPrivateUrl 自定义cerebro内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCustomPrivateUrl(String CustomPrivateUrl) {
+        this.CustomPrivateUrl = CustomPrivateUrl;
+    }
+
     public OptionalWebServiceInfo() {
     }
 
@@ -247,6 +304,12 @@ public class OptionalWebServiceInfo extends AbstractModel{
         if (source.Version != null) {
             this.Version = new String(source.Version);
         }
+        if (source.PrivateVip != null) {
+            this.PrivateVip = new String(source.PrivateVip);
+        }
+        if (source.CustomPrivateUrl != null) {
+            this.CustomPrivateUrl = new String(source.CustomPrivateUrl);
+        }
     }
 
 
@@ -261,6 +324,8 @@ public class OptionalWebServiceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "PublicAccess", this.PublicAccess);
         this.setParamSimple(map, prefix + "PrivateAccess", this.PrivateAccess);
         this.setParamSimple(map, prefix + "Version", this.Version);
+        this.setParamSimple(map, prefix + "PrivateVip", this.PrivateVip);
+        this.setParamSimple(map, prefix + "CustomPrivateUrl", this.CustomPrivateUrl);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AdaptiveDynamicStreamingInfoItem extends AbstractModel{
+public class AdaptiveDynamicStreamingInfoItem extends AbstractModel {
 
     /**
     * 转自适应码流规格。
@@ -85,6 +86,20 @@ public class AdaptiveDynamicStreamingInfoItem extends AbstractModel{
     @SerializedName("CopyRightWatermarkText")
     @Expose
     private String CopyRightWatermarkText;
+
+    /**
+    * 字幕信息列表。
+    */
+    @SerializedName("SubtitleSet")
+    @Expose
+    private MediaSubtitleItem [] SubtitleSet;
+
+    /**
+    * 默认字幕的唯一标识。
+    */
+    @SerializedName("DefaultSubtitleId")
+    @Expose
+    private String DefaultSubtitleId;
 
     /**
      * Get 转自适应码流规格。 
@@ -246,6 +261,38 @@ public class AdaptiveDynamicStreamingInfoItem extends AbstractModel{
         this.CopyRightWatermarkText = CopyRightWatermarkText;
     }
 
+    /**
+     * Get 字幕信息列表。 
+     * @return SubtitleSet 字幕信息列表。
+     */
+    public MediaSubtitleItem [] getSubtitleSet() {
+        return this.SubtitleSet;
+    }
+
+    /**
+     * Set 字幕信息列表。
+     * @param SubtitleSet 字幕信息列表。
+     */
+    public void setSubtitleSet(MediaSubtitleItem [] SubtitleSet) {
+        this.SubtitleSet = SubtitleSet;
+    }
+
+    /**
+     * Get 默认字幕的唯一标识。 
+     * @return DefaultSubtitleId 默认字幕的唯一标识。
+     */
+    public String getDefaultSubtitleId() {
+        return this.DefaultSubtitleId;
+    }
+
+    /**
+     * Set 默认字幕的唯一标识。
+     * @param DefaultSubtitleId 默认字幕的唯一标识。
+     */
+    public void setDefaultSubtitleId(String DefaultSubtitleId) {
+        this.DefaultSubtitleId = DefaultSubtitleId;
+    }
+
     public AdaptiveDynamicStreamingInfoItem() {
     }
 
@@ -281,6 +328,15 @@ public class AdaptiveDynamicStreamingInfoItem extends AbstractModel{
         if (source.CopyRightWatermarkText != null) {
             this.CopyRightWatermarkText = new String(source.CopyRightWatermarkText);
         }
+        if (source.SubtitleSet != null) {
+            this.SubtitleSet = new MediaSubtitleItem[source.SubtitleSet.length];
+            for (int i = 0; i < source.SubtitleSet.length; i++) {
+                this.SubtitleSet[i] = new MediaSubtitleItem(source.SubtitleSet[i]);
+            }
+        }
+        if (source.DefaultSubtitleId != null) {
+            this.DefaultSubtitleId = new String(source.DefaultSubtitleId);
+        }
     }
 
 
@@ -296,6 +352,8 @@ public class AdaptiveDynamicStreamingInfoItem extends AbstractModel{
         this.setParamSimple(map, prefix + "DigitalWatermarkType", this.DigitalWatermarkType);
         this.setParamArrayObj(map, prefix + "SubStreamSet.", this.SubStreamSet);
         this.setParamSimple(map, prefix + "CopyRightWatermarkText", this.CopyRightWatermarkText);
+        this.setParamArrayObj(map, prefix + "SubtitleSet.", this.SubtitleSet);
+        this.setParamSimple(map, prefix + "DefaultSubtitleId", this.DefaultSubtitleId);
 
     }
 }

@@ -16,14 +16,16 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssignIpv6AddressesRequest extends AbstractModel{
+public class AssignIpv6AddressesRequest extends AbstractModel {
 
     /**
-    * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+    * 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
     */
     @SerializedName("NetworkInterfaceId")
     @Expose
@@ -44,16 +46,27 @@ public class AssignIpv6AddressesRequest extends AbstractModel{
     private Long Ipv6AddressCount;
 
     /**
-     * Get 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。 
-     * @return NetworkInterfaceId 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+    */
+    @SerializedName("ClientToken")
+    @Expose
+    private String ClientToken;
+
+    /**
+     * Get 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+ 
+     * @return NetworkInterfaceId 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public String getNetworkInterfaceId() {
         return this.NetworkInterfaceId;
     }
 
     /**
-     * Set 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
-     * @param NetworkInterfaceId 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。
+     * Set 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+     * @param NetworkInterfaceId 弹性网卡实例`ID`，形如：`eni-m6dyj72l`。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public void setNetworkInterfaceId(String NetworkInterfaceId) {
         this.NetworkInterfaceId = NetworkInterfaceId;
@@ -91,6 +104,22 @@ public class AssignIpv6AddressesRequest extends AbstractModel{
         this.Ipv6AddressCount = Ipv6AddressCount;
     }
 
+    /**
+     * Get 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。 
+     * @return ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     */
+    public String getClientToken() {
+        return this.ClientToken;
+    }
+
+    /**
+     * Set 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * @param ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     */
+    public void setClientToken(String ClientToken) {
+        this.ClientToken = ClientToken;
+    }
+
     public AssignIpv6AddressesRequest() {
     }
 
@@ -111,6 +140,9 @@ public class AssignIpv6AddressesRequest extends AbstractModel{
         if (source.Ipv6AddressCount != null) {
             this.Ipv6AddressCount = new Long(source.Ipv6AddressCount);
         }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
     }
 
 
@@ -121,6 +153,7 @@ public class AssignIpv6AddressesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NetworkInterfaceId", this.NetworkInterfaceId);
         this.setParamArrayObj(map, prefix + "Ipv6Addresses.", this.Ipv6Addresses);
         this.setParamSimple(map, prefix + "Ipv6AddressCount", this.Ipv6AddressCount);
+        this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
 
     }
 }

@@ -16,29 +16,31 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AudioTemplateInfoForUpdate extends AbstractModel{
+public class AudioTemplateInfoForUpdate extends AbstractModel {
 
     /**
     * 音频流的编码格式。
+当不需要对音频进行转码时，可选值为：
+<li>copy。</li>
 当外层参数 Container 为 mp3 时，可选值为：
-<li>libmp3lame。</li>
+<li>mp3。</li>
 当外层参数 Container 为 ogg 或 flac 时，可选值为：
 <li>flac。</li>
 当外层参数 Container 为 m4a 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame；</li>
+<li>aac；</li>
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
-<li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
+<li>aac：更适合 mp4；</li>
+<li>mp3：更适合 flv；</li>
 <li>mp2。</li>
 当外层参数 Container 为 hls 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame。</li>
+<li>aac；</li>
+<li>mp3。</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Codec")
@@ -54,11 +56,9 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
     private Long Bitrate;
 
     /**
-    * 音频流的采样率，可选值：
-<li>32000</li>
-<li>44100</li>
-<li>48000</li>
-单位：Hz。
+    * 音频流的采样率，不同编码标准支持的采样率选项不同。详细参考[音频采样率支持范围文档](https://cloud.tencent.com/document/product/862/77166#f3b039f1-d817-4a96-b4e4-90132d31cd53)
+单位：Hz
+注意：请确保源音频流的采样率在上述选项范围内，否则可能导致转码失败！
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SampleRate")
@@ -69,8 +69,8 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
     * 音频通道方式，可选值：
 <li>1：单通道</li>
 <li>2：双通道</li>
-<li>6：立体声</li>
-当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
+<li>6：5.1声道</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为5.1声道。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AudioChannel")
@@ -87,38 +87,40 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
 
     /**
      * Get 音频流的编码格式。
+当不需要对音频进行转码时，可选值为：
+<li>copy。</li>
 当外层参数 Container 为 mp3 时，可选值为：
-<li>libmp3lame。</li>
+<li>mp3。</li>
 当外层参数 Container 为 ogg 或 flac 时，可选值为：
 <li>flac。</li>
 当外层参数 Container 为 m4a 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame；</li>
+<li>aac；</li>
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
-<li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
+<li>aac：更适合 mp4；</li>
+<li>mp3：更适合 flv；</li>
 <li>mp2。</li>
 当外层参数 Container 为 hls 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame。</li>
+<li>aac；</li>
+<li>mp3。</li>
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Codec 音频流的编码格式。
+当不需要对音频进行转码时，可选值为：
+<li>copy。</li>
 当外层参数 Container 为 mp3 时，可选值为：
-<li>libmp3lame。</li>
+<li>mp3。</li>
 当外层参数 Container 为 ogg 或 flac 时，可选值为：
 <li>flac。</li>
 当外层参数 Container 为 m4a 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame；</li>
+<li>aac；</li>
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
-<li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
+<li>aac：更适合 mp4；</li>
+<li>mp3：更适合 flv；</li>
 <li>mp2。</li>
 当外层参数 Container 为 hls 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame。</li>
+<li>aac；</li>
+<li>mp3。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCodec() {
@@ -127,38 +129,40 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
 
     /**
      * Set 音频流的编码格式。
+当不需要对音频进行转码时，可选值为：
+<li>copy。</li>
 当外层参数 Container 为 mp3 时，可选值为：
-<li>libmp3lame。</li>
+<li>mp3。</li>
 当外层参数 Container 为 ogg 或 flac 时，可选值为：
 <li>flac。</li>
 当外层参数 Container 为 m4a 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame；</li>
+<li>aac；</li>
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
-<li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
+<li>aac：更适合 mp4；</li>
+<li>mp3：更适合 flv；</li>
 <li>mp2。</li>
 当外层参数 Container 为 hls 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame。</li>
+<li>aac；</li>
+<li>mp3。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Codec 音频流的编码格式。
+当不需要对音频进行转码时，可选值为：
+<li>copy。</li>
 当外层参数 Container 为 mp3 时，可选值为：
-<li>libmp3lame。</li>
+<li>mp3。</li>
 当外层参数 Container 为 ogg 或 flac 时，可选值为：
 <li>flac。</li>
 当外层参数 Container 为 m4a 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame；</li>
+<li>aac；</li>
 <li>ac3。</li>
 当外层参数 Container 为 mp4 或 flv 时，可选值为：
-<li>libfdk_aac：更适合 mp4；</li>
-<li>libmp3lame：更适合 flv；</li>
+<li>aac：更适合 mp4；</li>
+<li>mp3：更适合 flv；</li>
 <li>mp2。</li>
 当外层参数 Container 为 hls 时，可选值为：
-<li>libfdk_aac；</li>
-<li>libmp3lame。</li>
+<li>aac；</li>
+<li>mp3。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCodec(String Codec) {
@@ -186,17 +190,13 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
     }
 
     /**
-     * Get 音频流的采样率，可选值：
-<li>32000</li>
-<li>44100</li>
-<li>48000</li>
-单位：Hz。
+     * Get 音频流的采样率，不同编码标准支持的采样率选项不同。详细参考[音频采样率支持范围文档](https://cloud.tencent.com/document/product/862/77166#f3b039f1-d817-4a96-b4e4-90132d31cd53)
+单位：Hz
+注意：请确保源音频流的采样率在上述选项范围内，否则可能导致转码失败！
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SampleRate 音频流的采样率，可选值：
-<li>32000</li>
-<li>44100</li>
-<li>48000</li>
-单位：Hz。
+     * @return SampleRate 音频流的采样率，不同编码标准支持的采样率选项不同。详细参考[音频采样率支持范围文档](https://cloud.tencent.com/document/product/862/77166#f3b039f1-d817-4a96-b4e4-90132d31cd53)
+单位：Hz
+注意：请确保源音频流的采样率在上述选项范围内，否则可能导致转码失败！
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSampleRate() {
@@ -204,17 +204,13 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
     }
 
     /**
-     * Set 音频流的采样率，可选值：
-<li>32000</li>
-<li>44100</li>
-<li>48000</li>
-单位：Hz。
+     * Set 音频流的采样率，不同编码标准支持的采样率选项不同。详细参考[音频采样率支持范围文档](https://cloud.tencent.com/document/product/862/77166#f3b039f1-d817-4a96-b4e4-90132d31cd53)
+单位：Hz
+注意：请确保源音频流的采样率在上述选项范围内，否则可能导致转码失败！
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SampleRate 音频流的采样率，可选值：
-<li>32000</li>
-<li>44100</li>
-<li>48000</li>
-单位：Hz。
+     * @param SampleRate 音频流的采样率，不同编码标准支持的采样率选项不同。详细参考[音频采样率支持范围文档](https://cloud.tencent.com/document/product/862/77166#f3b039f1-d817-4a96-b4e4-90132d31cd53)
+单位：Hz
+注意：请确保源音频流的采样率在上述选项范围内，否则可能导致转码失败！
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSampleRate(Long SampleRate) {
@@ -225,14 +221,14 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
      * Get 音频通道方式，可选值：
 <li>1：单通道</li>
 <li>2：双通道</li>
-<li>6：立体声</li>
-当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
+<li>6：5.1声道</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为5.1声道。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return AudioChannel 音频通道方式，可选值：
 <li>1：单通道</li>
 <li>2：双通道</li>
-<li>6：立体声</li>
-当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
+<li>6：5.1声道</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为5.1声道。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAudioChannel() {
@@ -243,14 +239,14 @@ public class AudioTemplateInfoForUpdate extends AbstractModel{
      * Set 音频通道方式，可选值：
 <li>1：单通道</li>
 <li>2：双通道</li>
-<li>6：立体声</li>
-当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
+<li>6：5.1声道</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为5.1声道。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param AudioChannel 音频通道方式，可选值：
 <li>1：单通道</li>
 <li>2：双通道</li>
-<li>6：立体声</li>
-当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为立体声。
+<li>6：5.1声道</li>
+当媒体的封装格式是音频格式时（flac，ogg，mp3，m4a）时，声道数不允许设为5.1声道。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudioChannel(Long AudioChannel) {

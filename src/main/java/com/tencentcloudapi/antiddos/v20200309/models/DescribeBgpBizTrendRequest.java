@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBgpBizTrendRequest extends AbstractModel{
+public class DescribeBgpBizTrendRequest extends AbstractModel {
 
     /**
     * DDoS防护子产品代号（bgp-multip表示高防包）
@@ -30,21 +31,21 @@ public class DescribeBgpBizTrendRequest extends AbstractModel{
     private String Business;
 
     /**
-    * 统计开始时间。 例：“2020-09-22 00:00:00”
+    * 统计开始时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 统计结束时间。 例：“2020-09-22 00:00:00”
+    * 统计结束时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
     */
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
 
     /**
-    * 统计纬度，可取值intraffic, outtraffic, inpkg, outpkg
+    * 统计维度，可取值intraffic, outtraffic, inpkg, outpkg； intraffic：入流量 outtraffic：出流量 inpkg：入包速率 outpkg：出包速率
     */
     @SerializedName("MetricName")
     @Expose
@@ -81,48 +82,48 @@ public class DescribeBgpBizTrendRequest extends AbstractModel{
     }
 
     /**
-     * Get 统计开始时间。 例：“2020-09-22 00:00:00” 
-     * @return StartTime 统计开始时间。 例：“2020-09-22 00:00:00”
+     * Get 统计开始时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数 
+     * @return StartTime 统计开始时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 统计开始时间。 例：“2020-09-22 00:00:00”
-     * @param StartTime 统计开始时间。 例：“2020-09-22 00:00:00”
+     * Set 统计开始时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
+     * @param StartTime 统计开始时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 统计结束时间。 例：“2020-09-22 00:00:00” 
-     * @return EndTime 统计结束时间。 例：“2020-09-22 00:00:00”
+     * Get 统计结束时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数 
+     * @return EndTime 统计结束时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 统计结束时间。 例：“2020-09-22 00:00:00”
-     * @param EndTime 统计结束时间。 例：“2020-09-22 00:00:00”
+     * Set 统计结束时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
+     * @param EndTime 统计结束时间。 例：“2020-09-22 00:00:00”，注意该时间必须为5分钟的倍数
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 统计纬度，可取值intraffic, outtraffic, inpkg, outpkg 
-     * @return MetricName 统计纬度，可取值intraffic, outtraffic, inpkg, outpkg
+     * Get 统计维度，可取值intraffic, outtraffic, inpkg, outpkg； intraffic：入流量 outtraffic：出流量 inpkg：入包速率 outpkg：出包速率 
+     * @return MetricName 统计维度，可取值intraffic, outtraffic, inpkg, outpkg； intraffic：入流量 outtraffic：出流量 inpkg：入包速率 outpkg：出包速率
      */
     public String getMetricName() {
         return this.MetricName;
     }
 
     /**
-     * Set 统计纬度，可取值intraffic, outtraffic, inpkg, outpkg
-     * @param MetricName 统计纬度，可取值intraffic, outtraffic, inpkg, outpkg
+     * Set 统计维度，可取值intraffic, outtraffic, inpkg, outpkg； intraffic：入流量 outtraffic：出流量 inpkg：入包速率 outpkg：出包速率
+     * @param MetricName 统计维度，可取值intraffic, outtraffic, inpkg, outpkg； intraffic：入流量 outtraffic：出流量 inpkg：入包速率 outpkg：出包速率
      */
     public void setMetricName(String MetricName) {
         this.MetricName = MetricName;

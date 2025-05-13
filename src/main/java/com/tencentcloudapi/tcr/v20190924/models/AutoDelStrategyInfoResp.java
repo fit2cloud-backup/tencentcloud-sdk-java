@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AutoDelStrategyInfoResp extends AbstractModel{
+public class AutoDelStrategyInfoResp extends AbstractModel {
 
     /**
     * 总数目
@@ -31,7 +32,6 @@ public class AutoDelStrategyInfoResp extends AbstractModel{
 
     /**
     * 自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StrategyInfo")
     @Expose
@@ -54,10 +54,8 @@ public class AutoDelStrategyInfoResp extends AbstractModel{
     }
 
     /**
-     * Get 自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自动删除策略列表 
      * @return StrategyInfo 自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AutoDelStrategyInfo [] getStrategyInfo() {
         return this.StrategyInfo;
@@ -65,9 +63,7 @@ public class AutoDelStrategyInfoResp extends AbstractModel{
 
     /**
      * Set 自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StrategyInfo 自动删除策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStrategyInfo(AutoDelStrategyInfo [] StrategyInfo) {
         this.StrategyInfo = StrategyInfo;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Route extends AbstractModel{
+public class Route extends AbstractModel {
 
     /**
     * 实例接入方式
@@ -34,7 +35,7 @@ public class Route extends AbstractModel{
     private Long AccessType;
 
     /**
-    * 路由ID
+    * 路由Id
     */
     @SerializedName("RouteId")
     @Expose
@@ -72,14 +73,13 @@ public class Route extends AbstractModel{
 
     /**
     * 时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeleteTimestamp")
     @Expose
     private String DeleteTimestamp;
 
     /**
-    * 子网信息
+    * 子网Id
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Subnet")
@@ -88,14 +88,13 @@ public class Route extends AbstractModel{
 
     /**
     * 虚拟IP列表(1对1 broker节点)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BrokerVipList")
     @Expose
     private VipEntity [] BrokerVipList;
 
     /**
-    * vpc信息
+    * 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
@@ -135,16 +134,16 @@ public class Route extends AbstractModel{
     }
 
     /**
-     * Get 路由ID 
-     * @return RouteId 路由ID
+     * Get 路由Id 
+     * @return RouteId 路由Id
      */
     public Long getRouteId() {
         return this.RouteId;
     }
 
     /**
-     * Set 路由ID
-     * @param RouteId 路由ID
+     * Set 路由Id
+     * @param RouteId 路由Id
      */
     public void setRouteId(Long RouteId) {
         this.RouteId = RouteId;
@@ -223,10 +222,8 @@ public class Route extends AbstractModel{
     }
 
     /**
-     * Get 时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时间戳 
      * @return DeleteTimestamp 时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeleteTimestamp() {
         return this.DeleteTimestamp;
@@ -234,18 +231,16 @@ public class Route extends AbstractModel{
 
     /**
      * Set 时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeleteTimestamp 时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeleteTimestamp(String DeleteTimestamp) {
         this.DeleteTimestamp = DeleteTimestamp;
     }
 
     /**
-     * Get 子网信息
+     * Get 子网Id
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Subnet 子网信息
+     * @return Subnet 子网Id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnet() {
@@ -253,9 +248,9 @@ public class Route extends AbstractModel{
     }
 
     /**
-     * Set 子网信息
+     * Set 子网Id
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Subnet 子网信息
+     * @param Subnet 子网Id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnet(String Subnet) {
@@ -263,10 +258,8 @@ public class Route extends AbstractModel{
     }
 
     /**
-     * Get 虚拟IP列表(1对1 broker节点)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 虚拟IP列表(1对1 broker节点) 
      * @return BrokerVipList 虚拟IP列表(1对1 broker节点)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VipEntity [] getBrokerVipList() {
         return this.BrokerVipList;
@@ -274,18 +267,16 @@ public class Route extends AbstractModel{
 
     /**
      * Set 虚拟IP列表(1对1 broker节点)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BrokerVipList 虚拟IP列表(1对1 broker节点)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBrokerVipList(VipEntity [] BrokerVipList) {
         this.BrokerVipList = BrokerVipList;
     }
 
     /**
-     * Get vpc信息
+     * Get 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return VpcId vpc信息
+     * @return VpcId 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
@@ -293,9 +284,9 @@ public class Route extends AbstractModel{
     }
 
     /**
-     * Set vpc信息
+     * Set 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param VpcId vpc信息
+     * @param VpcId 私有网络Id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {

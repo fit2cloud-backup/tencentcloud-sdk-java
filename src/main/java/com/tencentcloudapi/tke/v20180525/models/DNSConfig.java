@@ -16,41 +16,37 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DNSConfig extends AbstractModel{
+public class DNSConfig extends AbstractModel {
 
     /**
     * DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Nameservers")
     @Expose
     private String [] Nameservers;
 
     /**
-    * DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("Searches")
-    @Expose
-    private String [] Searches;
-
-    /**
     * 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Options")
     @Expose
     private DNSConfigOption [] Options;
 
     /**
-     * Get DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。 
+    * DNS搜索域列表
+    */
+    @SerializedName("Searches")
+    @Expose
+    private String [] Searches;
+
+    /**
+     * Get DNS 服务器IP地址列表 
      * @return Nameservers DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getNameservers() {
         return this.Nameservers;
@@ -58,39 +54,15 @@ public class DNSConfig extends AbstractModel{
 
     /**
      * Set DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Nameservers DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNameservers(String [] Nameservers) {
         this.Nameservers = Nameservers;
     }
 
     /**
-     * Get DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Searches DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String [] getSearches() {
-        return this.Searches;
-    }
-
-    /**
-     * Set DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Searches DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setSearches(String [] Searches) {
-        this.Searches = Searches;
-    }
-
-    /**
-     * Get 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对象选项列表，每个对象由name和value（可选）构成 
      * @return Options 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DNSConfigOption [] getOptions() {
         return this.Options;
@@ -98,12 +70,26 @@ public class DNSConfig extends AbstractModel{
 
     /**
      * Set 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Options 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOptions(DNSConfigOption [] Options) {
         this.Options = Options;
+    }
+
+    /**
+     * Get DNS搜索域列表 
+     * @return Searches DNS搜索域列表
+     */
+    public String [] getSearches() {
+        return this.Searches;
+    }
+
+    /**
+     * Set DNS搜索域列表
+     * @param Searches DNS搜索域列表
+     */
+    public void setSearches(String [] Searches) {
+        this.Searches = Searches;
     }
 
     public DNSConfig() {
@@ -120,16 +106,16 @@ public class DNSConfig extends AbstractModel{
                 this.Nameservers[i] = new String(source.Nameservers[i]);
             }
         }
-        if (source.Searches != null) {
-            this.Searches = new String[source.Searches.length];
-            for (int i = 0; i < source.Searches.length; i++) {
-                this.Searches[i] = new String(source.Searches[i]);
-            }
-        }
         if (source.Options != null) {
             this.Options = new DNSConfigOption[source.Options.length];
             for (int i = 0; i < source.Options.length; i++) {
                 this.Options[i] = new DNSConfigOption(source.Options[i]);
+            }
+        }
+        if (source.Searches != null) {
+            this.Searches = new String[source.Searches.length];
+            for (int i = 0; i < source.Searches.length; i++) {
+                this.Searches[i] = new String(source.Searches[i]);
             }
         }
     }
@@ -140,8 +126,8 @@ public class DNSConfig extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "Nameservers.", this.Nameservers);
-        this.setParamArraySimple(map, prefix + "Searches.", this.Searches);
         this.setParamArrayObj(map, prefix + "Options.", this.Options);
+        this.setParamArraySimple(map, prefix + "Searches.", this.Searches);
 
     }
 }

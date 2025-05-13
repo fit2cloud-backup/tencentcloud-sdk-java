@@ -16,15 +16,15 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParamInfo extends AbstractModel{
+public class ParamInfo extends AbstractModel {
 
     /**
     * 参数ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ID")
     @Expose
@@ -32,7 +32,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -43,7 +42,6 @@ public class ParamInfo extends AbstractModel{
 当参数类型为integer（整型）、real（浮点型）时，参数的取值范围根据返回值的Max、Min确定； 
 当参数类型为bool（布尔型）时，参数设置值取值范围是true | false； 
 当参数类型为enum（枚举类型）、mutil_enum（多枚举类型）时，参数的取值范围由返回值中的EnumValue确定。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParamValueType")
     @Expose
@@ -51,7 +49,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数值 单位。参数没有单位时，该字段返回空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Unit")
     @Expose
@@ -59,7 +56,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数默认值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DefaultValue")
     @Expose
@@ -67,7 +63,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数当前运行值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CurrentValue")
     @Expose
@@ -75,7 +70,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 数值类型（integer、real）参数，取值下界
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Max")
     @Expose
@@ -91,7 +85,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 数值类型（integer、real）参数，取值上界
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Min")
     @Expose
@@ -99,7 +92,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数中文描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParamDescriptionCH")
     @Expose
@@ -107,7 +99,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数英文描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParamDescriptionEN")
     @Expose
@@ -115,7 +106,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数修改，是否重启生效。（true为需要，false为不需要）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NeedReboot")
     @Expose
@@ -123,7 +113,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数中文分类
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClassificationCN")
     @Expose
@@ -131,7 +120,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数英文分类
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClassificationEN")
     @Expose
@@ -139,7 +127,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 是否和规格相关。（true为相关，false为不想关）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SpecRelated")
     @Expose
@@ -147,7 +134,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 是否为重点参数。（true为重点参数，修改是需要重点关注，可能会影响实例性能）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Advanced")
     @Expose
@@ -155,22 +141,20 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数最后一次修改时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastModifyTime")
     @Expose
     private String LastModifyTime;
 
     /**
-    * 参数存在主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
-注意：此字段可能返回 null，表示取不到有效值。
+    * 参数主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
     */
     @SerializedName("StandbyRelated")
     @Expose
     private Long StandbyRelated;
 
     /**
-    * 参数版本关联信息，存储具体内核版本下的具体参数信息
+    * 参数版本关联信息，内容为相应内核版本下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionRelationSet")
@@ -178,7 +162,7 @@ public class ParamInfo extends AbstractModel{
     private ParamVersionRelation [] VersionRelationSet;
 
     /**
-    * 参数规格关联信息，存储具体规格下具体的参数信息
+    * 参数规格关联信息，内容为相应规格下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SpecRelationSet")
@@ -186,10 +170,8 @@ public class ParamInfo extends AbstractModel{
     private ParamSpecRelation [] SpecRelationSet;
 
     /**
-     * Get 参数ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数ID 
      * @return ID 参数ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getID() {
         return this.ID;
@@ -197,19 +179,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ID 参数ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setID(Long ID) {
         this.ID = ID;
     }
 
     /**
-     * Get 参数名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数名 
      * @return Name 参数名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -217,9 +195,7 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 参数名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -229,13 +205,11 @@ public class ParamInfo extends AbstractModel{
      * Get 参数值类型：integer（整型）、real（浮点型）、bool（布尔型）、enum（枚举类型）、mutil_enum（枚举类型、支持多选）。
 当参数类型为integer（整型）、real（浮点型）时，参数的取值范围根据返回值的Max、Min确定； 
 当参数类型为bool（布尔型）时，参数设置值取值范围是true | false； 
-当参数类型为enum（枚举类型）、mutil_enum（多枚举类型）时，参数的取值范围由返回值中的EnumValue确定。
-注意：此字段可能返回 null，表示取不到有效值。 
+当参数类型为enum（枚举类型）、mutil_enum（多枚举类型）时，参数的取值范围由返回值中的EnumValue确定。 
      * @return ParamValueType 参数值类型：integer（整型）、real（浮点型）、bool（布尔型）、enum（枚举类型）、mutil_enum（枚举类型、支持多选）。
 当参数类型为integer（整型）、real（浮点型）时，参数的取值范围根据返回值的Max、Min确定； 
 当参数类型为bool（布尔型）时，参数设置值取值范围是true | false； 
 当参数类型为enum（枚举类型）、mutil_enum（多枚举类型）时，参数的取值范围由返回值中的EnumValue确定。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParamValueType() {
         return this.ParamValueType;
@@ -246,22 +220,18 @@ public class ParamInfo extends AbstractModel{
 当参数类型为integer（整型）、real（浮点型）时，参数的取值范围根据返回值的Max、Min确定； 
 当参数类型为bool（布尔型）时，参数设置值取值范围是true | false； 
 当参数类型为enum（枚举类型）、mutil_enum（多枚举类型）时，参数的取值范围由返回值中的EnumValue确定。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParamValueType 参数值类型：integer（整型）、real（浮点型）、bool（布尔型）、enum（枚举类型）、mutil_enum（枚举类型、支持多选）。
 当参数类型为integer（整型）、real（浮点型）时，参数的取值范围根据返回值的Max、Min确定； 
 当参数类型为bool（布尔型）时，参数设置值取值范围是true | false； 
 当参数类型为enum（枚举类型）、mutil_enum（多枚举类型）时，参数的取值范围由返回值中的EnumValue确定。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParamValueType(String ParamValueType) {
         this.ParamValueType = ParamValueType;
     }
 
     /**
-     * Get 参数值 单位。参数没有单位时，该字段返回空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数值 单位。参数没有单位时，该字段返回空 
      * @return Unit 参数值 单位。参数没有单位时，该字段返回空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnit() {
         return this.Unit;
@@ -269,19 +239,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数值 单位。参数没有单位时，该字段返回空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Unit 参数值 单位。参数没有单位时，该字段返回空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnit(String Unit) {
         this.Unit = Unit;
     }
 
     /**
-     * Get 参数默认值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数默认值。以字符串形式返回 
      * @return DefaultValue 参数默认值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDefaultValue() {
         return this.DefaultValue;
@@ -289,19 +255,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数默认值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DefaultValue 参数默认值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDefaultValue(String DefaultValue) {
         this.DefaultValue = DefaultValue;
     }
 
     /**
-     * Get 参数当前运行值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数当前运行值。以字符串形式返回 
      * @return CurrentValue 参数当前运行值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCurrentValue() {
         return this.CurrentValue;
@@ -309,19 +271,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数当前运行值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CurrentValue 参数当前运行值。以字符串形式返回
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCurrentValue(String CurrentValue) {
         this.CurrentValue = CurrentValue;
     }
 
     /**
-     * Get 数值类型（integer、real）参数，取值下界
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数值类型（integer、real）参数，取值下界 
      * @return Max 数值类型（integer、real）参数，取值下界
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getMax() {
         return this.Max;
@@ -329,9 +287,7 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 数值类型（integer、real）参数，取值下界
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Max 数值类型（integer、real）参数，取值下界
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMax(Float Max) {
         this.Max = Max;
@@ -358,10 +314,8 @@ public class ParamInfo extends AbstractModel{
     }
 
     /**
-     * Get 数值类型（integer、real）参数，取值上界
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数值类型（integer、real）参数，取值上界 
      * @return Min 数值类型（integer、real）参数，取值上界
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getMin() {
         return this.Min;
@@ -369,19 +323,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 数值类型（integer、real）参数，取值上界
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Min 数值类型（integer、real）参数，取值上界
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMin(Float Min) {
         this.Min = Min;
     }
 
     /**
-     * Get 参数中文描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数中文描述 
      * @return ParamDescriptionCH 参数中文描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParamDescriptionCH() {
         return this.ParamDescriptionCH;
@@ -389,19 +339,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数中文描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParamDescriptionCH 参数中文描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParamDescriptionCH(String ParamDescriptionCH) {
         this.ParamDescriptionCH = ParamDescriptionCH;
     }
 
     /**
-     * Get 参数英文描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数英文描述 
      * @return ParamDescriptionEN 参数英文描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParamDescriptionEN() {
         return this.ParamDescriptionEN;
@@ -409,19 +355,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数英文描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParamDescriptionEN 参数英文描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParamDescriptionEN(String ParamDescriptionEN) {
         this.ParamDescriptionEN = ParamDescriptionEN;
     }
 
     /**
-     * Get 参数修改，是否重启生效。（true为需要，false为不需要）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数修改，是否重启生效。（true为需要，false为不需要） 
      * @return NeedReboot 参数修改，是否重启生效。（true为需要，false为不需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getNeedReboot() {
         return this.NeedReboot;
@@ -429,19 +371,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数修改，是否重启生效。（true为需要，false为不需要）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NeedReboot 参数修改，是否重启生效。（true为需要，false为不需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNeedReboot(Boolean NeedReboot) {
         this.NeedReboot = NeedReboot;
     }
 
     /**
-     * Get 参数中文分类
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数中文分类 
      * @return ClassificationCN 参数中文分类
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClassificationCN() {
         return this.ClassificationCN;
@@ -449,19 +387,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数中文分类
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClassificationCN 参数中文分类
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClassificationCN(String ClassificationCN) {
         this.ClassificationCN = ClassificationCN;
     }
 
     /**
-     * Get 参数英文分类
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数英文分类 
      * @return ClassificationEN 参数英文分类
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClassificationEN() {
         return this.ClassificationEN;
@@ -469,19 +403,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数英文分类
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClassificationEN 参数英文分类
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClassificationEN(String ClassificationEN) {
         this.ClassificationEN = ClassificationEN;
     }
 
     /**
-     * Get 是否和规格相关。（true为相关，false为不想关）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否和规格相关。（true为相关，false为不想关） 
      * @return SpecRelated 是否和规格相关。（true为相关，false为不想关）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSpecRelated() {
         return this.SpecRelated;
@@ -489,19 +419,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 是否和规格相关。（true为相关，false为不想关）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SpecRelated 是否和规格相关。（true为相关，false为不想关）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSpecRelated(Boolean SpecRelated) {
         this.SpecRelated = SpecRelated;
     }
 
     /**
-     * Get 是否为重点参数。（true为重点参数，修改是需要重点关注，可能会影响实例性能）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否为重点参数。（true为重点参数，修改是需要重点关注，可能会影响实例性能） 
      * @return Advanced 是否为重点参数。（true为重点参数，修改是需要重点关注，可能会影响实例性能）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAdvanced() {
         return this.Advanced;
@@ -509,19 +435,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 是否为重点参数。（true为重点参数，修改是需要重点关注，可能会影响实例性能）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Advanced 是否为重点参数。（true为重点参数，修改是需要重点关注，可能会影响实例性能）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdvanced(Boolean Advanced) {
         this.Advanced = Advanced;
     }
 
     /**
-     * Get 参数最后一次修改时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数最后一次修改时间 
      * @return LastModifyTime 参数最后一次修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastModifyTime() {
         return this.LastModifyTime;
@@ -529,38 +451,32 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数最后一次修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastModifyTime 参数最后一次修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastModifyTime(String LastModifyTime) {
         this.LastModifyTime = LastModifyTime;
     }
 
     /**
-     * Get 参数存在主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StandbyRelated 参数存在主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 参数主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大 
+     * @return StandbyRelated 参数主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
      */
     public Long getStandbyRelated() {
         return this.StandbyRelated;
     }
 
     /**
-     * Set 参数存在主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StandbyRelated 参数存在主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 参数主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
+     * @param StandbyRelated 参数主备制约，0：无主备制约关系，1:备机参数值需比主机大，2:主机参数值需比备机大
      */
     public void setStandbyRelated(Long StandbyRelated) {
         this.StandbyRelated = StandbyRelated;
     }
 
     /**
-     * Get 参数版本关联信息，存储具体内核版本下的具体参数信息
+     * Get 参数版本关联信息，内容为相应内核版本下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return VersionRelationSet 参数版本关联信息，存储具体内核版本下的具体参数信息
+     * @return VersionRelationSet 参数版本关联信息，内容为相应内核版本下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamVersionRelation [] getVersionRelationSet() {
@@ -568,9 +484,9 @@ public class ParamInfo extends AbstractModel{
     }
 
     /**
-     * Set 参数版本关联信息，存储具体内核版本下的具体参数信息
+     * Set 参数版本关联信息，内容为相应内核版本下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param VersionRelationSet 参数版本关联信息，存储具体内核版本下的具体参数信息
+     * @param VersionRelationSet 参数版本关联信息，内容为相应内核版本下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionRelationSet(ParamVersionRelation [] VersionRelationSet) {
@@ -578,9 +494,9 @@ public class ParamInfo extends AbstractModel{
     }
 
     /**
-     * Get 参数规格关联信息，存储具体规格下具体的参数信息
+     * Get 参数规格关联信息，内容为相应规格下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SpecRelationSet 参数规格关联信息，存储具体规格下具体的参数信息
+     * @return SpecRelationSet 参数规格关联信息，内容为相应规格下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamSpecRelation [] getSpecRelationSet() {
@@ -588,9 +504,9 @@ public class ParamInfo extends AbstractModel{
     }
 
     /**
-     * Set 参数规格关联信息，存储具体规格下具体的参数信息
+     * Set 参数规格关联信息，内容为相应规格下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SpecRelationSet 参数规格关联信息，存储具体规格下具体的参数信息
+     * @param SpecRelationSet 参数规格关联信息，内容为相应规格下的参数详细信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSpecRelationSet(ParamSpecRelation [] SpecRelationSet) {

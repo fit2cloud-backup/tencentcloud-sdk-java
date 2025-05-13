@@ -16,18 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBillingSpecsRequest extends AbstractModel{
-
-    /**
-    * 枚举值：TRAIN、NOTEBOOK、INFERENCE
-    */
-    @SerializedName("TaskType")
-    @Expose
-    private String TaskType;
+public class DescribeBillingSpecsRequest extends AbstractModel {
 
     /**
     * 付费模式：POSTPAID_BY_HOUR按量计费、PREPAID包年包月
@@ -37,27 +31,18 @@ public class DescribeBillingSpecsRequest extends AbstractModel{
     private String ChargeType;
 
     /**
-    * 资源类型：CALC 计算资源、CPU CPU资源、GPU GPU资源、CBS云硬盘
+    * 枚举值：空、TRAIN、NOTEBOOK、INFERENCE或EMS
+    */
+    @SerializedName("TaskType")
+    @Expose
+    private String TaskType;
+
+    /**
+    * 资源类型：["", "CALC", "CPU", "GPU", "GPU-SW"]
     */
     @SerializedName("ResourceType")
     @Expose
     private String ResourceType;
-
-    /**
-     * Get 枚举值：TRAIN、NOTEBOOK、INFERENCE 
-     * @return TaskType 枚举值：TRAIN、NOTEBOOK、INFERENCE
-     */
-    public String getTaskType() {
-        return this.TaskType;
-    }
-
-    /**
-     * Set 枚举值：TRAIN、NOTEBOOK、INFERENCE
-     * @param TaskType 枚举值：TRAIN、NOTEBOOK、INFERENCE
-     */
-    public void setTaskType(String TaskType) {
-        this.TaskType = TaskType;
-    }
 
     /**
      * Get 付费模式：POSTPAID_BY_HOUR按量计费、PREPAID包年包月 
@@ -76,16 +61,32 @@ public class DescribeBillingSpecsRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源类型：CALC 计算资源、CPU CPU资源、GPU GPU资源、CBS云硬盘 
-     * @return ResourceType 资源类型：CALC 计算资源、CPU CPU资源、GPU GPU资源、CBS云硬盘
+     * Get 枚举值：空、TRAIN、NOTEBOOK、INFERENCE或EMS 
+     * @return TaskType 枚举值：空、TRAIN、NOTEBOOK、INFERENCE或EMS
+     */
+    public String getTaskType() {
+        return this.TaskType;
+    }
+
+    /**
+     * Set 枚举值：空、TRAIN、NOTEBOOK、INFERENCE或EMS
+     * @param TaskType 枚举值：空、TRAIN、NOTEBOOK、INFERENCE或EMS
+     */
+    public void setTaskType(String TaskType) {
+        this.TaskType = TaskType;
+    }
+
+    /**
+     * Get 资源类型：["", "CALC", "CPU", "GPU", "GPU-SW"] 
+     * @return ResourceType 资源类型：["", "CALC", "CPU", "GPU", "GPU-SW"]
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 资源类型：CALC 计算资源、CPU CPU资源、GPU GPU资源、CBS云硬盘
-     * @param ResourceType 资源类型：CALC 计算资源、CPU CPU资源、GPU GPU资源、CBS云硬盘
+     * Set 资源类型：["", "CALC", "CPU", "GPU", "GPU-SW"]
+     * @param ResourceType 资源类型：["", "CALC", "CPU", "GPU", "GPU-SW"]
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
@@ -99,11 +100,11 @@ public class DescribeBillingSpecsRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeBillingSpecsRequest(DescribeBillingSpecsRequest source) {
-        if (source.TaskType != null) {
-            this.TaskType = new String(source.TaskType);
-        }
         if (source.ChargeType != null) {
             this.ChargeType = new String(source.ChargeType);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new String(source.TaskType);
         }
         if (source.ResourceType != null) {
             this.ResourceType = new String(source.ResourceType);
@@ -115,8 +116,8 @@ public class DescribeBillingSpecsRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "ChargeType", this.ChargeType);
+        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
 
     }

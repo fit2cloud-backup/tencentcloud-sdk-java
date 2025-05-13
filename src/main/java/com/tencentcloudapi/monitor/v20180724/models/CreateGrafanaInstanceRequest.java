@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateGrafanaInstanceRequest extends AbstractModel{
+public class CreateGrafanaInstanceRequest extends AbstractModel {
 
     /**
     * 实例名
@@ -30,14 +31,14 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
     private String InstanceName;
 
     /**
-    * VPC ID
+    * VPC ID (私有网络 ID)
     */
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
 
     /**
-    * 子网 ID 数组
+    * 子网 ID 数组(VPC ID下的子网 ID，只取第一个)
     */
     @SerializedName("SubnetIds")
     @Expose
@@ -51,7 +52,7 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
     private Boolean EnableInternet;
 
     /**
-    * Grafana 初始密码
+    * Grafana 初始密码(国际站用户必填，国内站用户可不填，不填时会生成随机密码并给主账号发送通知)
     */
     @SerializedName("GrafanaInitPassword")
     @Expose
@@ -63,6 +64,13 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
     @SerializedName("TagSpecification")
     @Expose
     private PrometheusTag [] TagSpecification;
+
+    /**
+    * 是否自动选择代金券，默认为 false
+    */
+    @SerializedName("AutoVoucher")
+    @Expose
+    private Boolean AutoVoucher;
 
     /**
      * Get 实例名 
@@ -81,32 +89,32 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get VPC ID 
-     * @return VpcId VPC ID
+     * Get VPC ID (私有网络 ID) 
+     * @return VpcId VPC ID (私有网络 ID)
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set VPC ID
-     * @param VpcId VPC ID
+     * Set VPC ID (私有网络 ID)
+     * @param VpcId VPC ID (私有网络 ID)
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 子网 ID 数组 
-     * @return SubnetIds 子网 ID 数组
+     * Get 子网 ID 数组(VPC ID下的子网 ID，只取第一个) 
+     * @return SubnetIds 子网 ID 数组(VPC ID下的子网 ID，只取第一个)
      */
     public String [] getSubnetIds() {
         return this.SubnetIds;
     }
 
     /**
-     * Set 子网 ID 数组
-     * @param SubnetIds 子网 ID 数组
+     * Set 子网 ID 数组(VPC ID下的子网 ID，只取第一个)
+     * @param SubnetIds 子网 ID 数组(VPC ID下的子网 ID，只取第一个)
      */
     public void setSubnetIds(String [] SubnetIds) {
         this.SubnetIds = SubnetIds;
@@ -129,16 +137,16 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get Grafana 初始密码 
-     * @return GrafanaInitPassword Grafana 初始密码
+     * Get Grafana 初始密码(国际站用户必填，国内站用户可不填，不填时会生成随机密码并给主账号发送通知) 
+     * @return GrafanaInitPassword Grafana 初始密码(国际站用户必填，国内站用户可不填，不填时会生成随机密码并给主账号发送通知)
      */
     public String getGrafanaInitPassword() {
         return this.GrafanaInitPassword;
     }
 
     /**
-     * Set Grafana 初始密码
-     * @param GrafanaInitPassword Grafana 初始密码
+     * Set Grafana 初始密码(国际站用户必填，国内站用户可不填，不填时会生成随机密码并给主账号发送通知)
+     * @param GrafanaInitPassword Grafana 初始密码(国际站用户必填，国内站用户可不填，不填时会生成随机密码并给主账号发送通知)
      */
     public void setGrafanaInitPassword(String GrafanaInitPassword) {
         this.GrafanaInitPassword = GrafanaInitPassword;
@@ -158,6 +166,22 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
      */
     public void setTagSpecification(PrometheusTag [] TagSpecification) {
         this.TagSpecification = TagSpecification;
+    }
+
+    /**
+     * Get 是否自动选择代金券，默认为 false 
+     * @return AutoVoucher 是否自动选择代金券，默认为 false
+     */
+    public Boolean getAutoVoucher() {
+        return this.AutoVoucher;
+    }
+
+    /**
+     * Set 是否自动选择代金券，默认为 false
+     * @param AutoVoucher 是否自动选择代金券，默认为 false
+     */
+    public void setAutoVoucher(Boolean AutoVoucher) {
+        this.AutoVoucher = AutoVoucher;
     }
 
     public CreateGrafanaInstanceRequest() {
@@ -192,6 +216,9 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
                 this.TagSpecification[i] = new PrometheusTag(source.TagSpecification[i]);
             }
         }
+        if (source.AutoVoucher != null) {
+            this.AutoVoucher = new Boolean(source.AutoVoucher);
+        }
     }
 
 
@@ -205,6 +232,7 @@ public class CreateGrafanaInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EnableInternet", this.EnableInternet);
         this.setParamSimple(map, prefix + "GrafanaInitPassword", this.GrafanaInitPassword);
         this.setParamArrayObj(map, prefix + "TagSpecification.", this.TagSpecification);
+        this.setParamSimple(map, prefix + "AutoVoucher", this.AutoVoucher);
 
     }
 }

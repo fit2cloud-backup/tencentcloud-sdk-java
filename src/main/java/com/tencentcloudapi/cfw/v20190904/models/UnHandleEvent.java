@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UnHandleEvent extends AbstractModel{
+public class UnHandleEvent extends AbstractModel {
 
     /**
     * 伪攻击链类型
@@ -52,7 +53,6 @@ public class UnHandleEvent extends AbstractModel{
 
     /**
     * vpc间防火墙实例数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcFwCount")
     @Expose
@@ -123,10 +123,8 @@ public class UnHandleEvent extends AbstractModel{
     }
 
     /**
-     * Get vpc间防火墙实例数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vpc间防火墙实例数量 
      * @return VpcFwCount vpc间防火墙实例数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVpcFwCount() {
         return this.VpcFwCount;
@@ -134,9 +132,7 @@ public class UnHandleEvent extends AbstractModel{
 
     /**
      * Set vpc间防火墙实例数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcFwCount vpc间防火墙实例数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcFwCount(Long VpcFwCount) {
         this.VpcFwCount = VpcFwCount;

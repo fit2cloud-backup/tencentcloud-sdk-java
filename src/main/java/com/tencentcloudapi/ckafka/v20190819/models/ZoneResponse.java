@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZoneResponse extends AbstractModel{
+public class ZoneResponse extends AbstractModel {
 
     /**
     * zone列表
@@ -59,7 +60,6 @@ public class ZoneResponse extends AbstractModel{
 
     /**
     * 用户独占集群信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterInfo")
     @Expose
@@ -67,7 +67,6 @@ public class ZoneResponse extends AbstractModel{
 
     /**
     * 购买标准版配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Standard")
     @Expose
@@ -75,7 +74,6 @@ public class ZoneResponse extends AbstractModel{
 
     /**
     * 购买标准版S2配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StandardS2")
     @Expose
@@ -83,7 +81,6 @@ public class ZoneResponse extends AbstractModel{
 
     /**
     * 购买专业版配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Profession")
     @Expose
@@ -91,15 +88,13 @@ public class ZoneResponse extends AbstractModel{
 
     /**
     * 购买物理独占版配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Physical")
     @Expose
     private String Physical;
 
     /**
-    * 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
+    * 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
     */
     @SerializedName("PublicNetwork")
     @Expose
@@ -107,11 +102,45 @@ public class ZoneResponse extends AbstractModel{
 
     /**
     * 公网带宽配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicNetworkLimit")
     @Expose
     private String PublicNetworkLimit;
+
+    /**
+    * 请求Id
+    */
+    @SerializedName("RequestId")
+    @Expose
+    private String RequestId;
+
+    /**
+    * 版本
+    */
+    @SerializedName("Version")
+    @Expose
+    private String Version;
+
+    /**
+    * 分页offset
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * 分页limit
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
+
+    /**
+    * 是否必须录入tag
+    */
+    @SerializedName("ForceCheckTag")
+    @Expose
+    private Boolean ForceCheckTag;
 
     /**
      * Get zone列表 
@@ -194,10 +223,8 @@ public class ZoneResponse extends AbstractModel{
     }
 
     /**
-     * Get 用户独占集群信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户独占集群信息 
      * @return ClusterInfo 用户独占集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ClusterInfo [] getClusterInfo() {
         return this.ClusterInfo;
@@ -205,19 +232,15 @@ public class ZoneResponse extends AbstractModel{
 
     /**
      * Set 用户独占集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterInfo 用户独占集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterInfo(ClusterInfo [] ClusterInfo) {
         this.ClusterInfo = ClusterInfo;
     }
 
     /**
-     * Get 购买标准版配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买标准版配置 
      * @return Standard 购买标准版配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStandard() {
         return this.Standard;
@@ -225,19 +248,15 @@ public class ZoneResponse extends AbstractModel{
 
     /**
      * Set 购买标准版配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Standard 购买标准版配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStandard(String Standard) {
         this.Standard = Standard;
     }
 
     /**
-     * Get 购买标准版S2配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买标准版S2配置 
      * @return StandardS2 购买标准版S2配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStandardS2() {
         return this.StandardS2;
@@ -245,19 +264,15 @@ public class ZoneResponse extends AbstractModel{
 
     /**
      * Set 购买标准版S2配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StandardS2 购买标准版S2配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStandardS2(String StandardS2) {
         this.StandardS2 = StandardS2;
     }
 
     /**
-     * Get 购买专业版配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买专业版配置 
      * @return Profession 购买专业版配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProfession() {
         return this.Profession;
@@ -265,19 +280,15 @@ public class ZoneResponse extends AbstractModel{
 
     /**
      * Set 购买专业版配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Profession 购买专业版配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProfession(String Profession) {
         this.Profession = Profession;
     }
 
     /**
-     * Get 购买物理独占版配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买物理独占版配置 
      * @return Physical 购买物理独占版配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPhysical() {
         return this.Physical;
@@ -285,39 +296,31 @@ public class ZoneResponse extends AbstractModel{
 
     /**
      * Set 购买物理独占版配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Physical 购买物理独占版配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPhysical(String Physical) {
         this.Physical = Physical;
     }
 
     /**
-     * Get 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PublicNetwork 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写 
+     * @return PublicNetwork 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
      */
     public String getPublicNetwork() {
         return this.PublicNetwork;
     }
 
     /**
-     * Set 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PublicNetwork 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
+     * @param PublicNetwork 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
      */
     public void setPublicNetwork(String PublicNetwork) {
         this.PublicNetwork = PublicNetwork;
     }
 
     /**
-     * Get 公网带宽配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 公网带宽配置 
      * @return PublicNetworkLimit 公网带宽配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPublicNetworkLimit() {
         return this.PublicNetworkLimit;
@@ -325,12 +328,90 @@ public class ZoneResponse extends AbstractModel{
 
     /**
      * Set 公网带宽配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PublicNetworkLimit 公网带宽配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicNetworkLimit(String PublicNetworkLimit) {
         this.PublicNetworkLimit = PublicNetworkLimit;
+    }
+
+    /**
+     * Get 请求Id 
+     * @return RequestId 请求Id
+     */
+    public String getRequestId() {
+        return this.RequestId;
+    }
+
+    /**
+     * Set 请求Id
+     * @param RequestId 请求Id
+     */
+    public void setRequestId(String RequestId) {
+        this.RequestId = RequestId;
+    }
+
+    /**
+     * Get 版本 
+     * @return Version 版本
+     */
+    public String getVersion() {
+        return this.Version;
+    }
+
+    /**
+     * Set 版本
+     * @param Version 版本
+     */
+    public void setVersion(String Version) {
+        this.Version = Version;
+    }
+
+    /**
+     * Get 分页offset 
+     * @return Offset 分页offset
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 分页offset
+     * @param Offset 分页offset
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get 分页limit 
+     * @return Limit 分页limit
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 分页limit
+     * @param Limit 分页limit
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
+    /**
+     * Get 是否必须录入tag 
+     * @return ForceCheckTag 是否必须录入tag
+     */
+    public Boolean getForceCheckTag() {
+        return this.ForceCheckTag;
+    }
+
+    /**
+     * Set 是否必须录入tag
+     * @param ForceCheckTag 是否必须录入tag
+     */
+    public void setForceCheckTag(Boolean ForceCheckTag) {
+        this.ForceCheckTag = ForceCheckTag;
     }
 
     public ZoneResponse() {
@@ -383,6 +464,21 @@ public class ZoneResponse extends AbstractModel{
         if (source.PublicNetworkLimit != null) {
             this.PublicNetworkLimit = new String(source.PublicNetworkLimit);
         }
+        if (source.RequestId != null) {
+            this.RequestId = new String(source.RequestId);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.ForceCheckTag != null) {
+            this.ForceCheckTag = new Boolean(source.ForceCheckTag);
+        }
     }
 
 
@@ -402,6 +498,11 @@ public class ZoneResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Physical", this.Physical);
         this.setParamSimple(map, prefix + "PublicNetwork", this.PublicNetwork);
         this.setParamSimple(map, prefix + "PublicNetworkLimit", this.PublicNetworkLimit);
+        this.setParamSimple(map, prefix + "RequestId", this.RequestId);
+        this.setParamSimple(map, prefix + "Version", this.Version);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "ForceCheckTag", this.ForceCheckTag);
 
     }
 }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VulHostTopInfo extends AbstractModel{
+public class VulHostTopInfo extends AbstractModel {
 
     /**
     * 主机名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostName")
     @Expose
@@ -32,7 +32,6 @@ public class VulHostTopInfo extends AbstractModel{
 
     /**
     * 漏洞等级与数量统计列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VulLevelList")
     @Expose
@@ -40,7 +39,6 @@ public class VulHostTopInfo extends AbstractModel{
 
     /**
     * 主机Quuid
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Quuid")
     @Expose
@@ -48,17 +46,14 @@ public class VulHostTopInfo extends AbstractModel{
 
     /**
     * top评分
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Score")
     @Expose
     private Long Score;
 
     /**
-     * Get 主机名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机名 
      * @return HostName 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostName() {
         return this.HostName;
@@ -66,19 +61,15 @@ public class VulHostTopInfo extends AbstractModel{
 
     /**
      * Set 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostName 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostName(String HostName) {
         this.HostName = HostName;
     }
 
     /**
-     * Get 漏洞等级与数量统计列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞等级与数量统计列表 
      * @return VulLevelList 漏洞等级与数量统计列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VulLevelCountInfo [] getVulLevelList() {
         return this.VulLevelList;
@@ -86,19 +77,15 @@ public class VulHostTopInfo extends AbstractModel{
 
     /**
      * Set 漏洞等级与数量统计列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VulLevelList 漏洞等级与数量统计列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVulLevelList(VulLevelCountInfo [] VulLevelList) {
         this.VulLevelList = VulLevelList;
     }
 
     /**
-     * Get 主机Quuid
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机Quuid 
      * @return Quuid 主机Quuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getQuuid() {
         return this.Quuid;
@@ -106,19 +93,15 @@ public class VulHostTopInfo extends AbstractModel{
 
     /**
      * Set 主机Quuid
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Quuid 主机Quuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQuuid(String Quuid) {
         this.Quuid = Quuid;
     }
 
     /**
-     * Get top评分
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get top评分 
      * @return Score top评分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScore() {
         return this.Score;
@@ -126,9 +109,7 @@ public class VulHostTopInfo extends AbstractModel{
 
     /**
      * Set top评分
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Score top评分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScore(Long Score) {
         this.Score = Score;

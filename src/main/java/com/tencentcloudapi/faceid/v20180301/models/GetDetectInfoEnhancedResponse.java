@@ -16,11 +16,12 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetDetectInfoEnhancedResponse extends AbstractModel{
+public class GetDetectInfoEnhancedResponse extends AbstractModel {
 
     /**
     * 文本类信息。
@@ -63,7 +64,8 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     private Encryption Encryption;
 
     /**
-    * 意愿核身朗读模式结果信息。若未使用意愿核身功能，该字段返回值可以不处理。
+    * 意愿核身朗读模式结果信息。
+- 若未使用意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntentionVerifyData")
@@ -71,7 +73,9 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     private IntentionVerifyData IntentionVerifyData;
 
     /**
-    * 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
+    * 意愿核身问答模式结果。
+
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntentionQuestionResult")
@@ -79,7 +83,8 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     private IntentionQuestionResult IntentionQuestionResult;
 
     /**
-    * 意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
+    * 意愿核身点头确认模式的结果信息。
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntentionActionResult")
@@ -87,7 +92,15 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     private IntentionActionResult IntentionActionResult;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 加密后的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EncryptedBody")
+    @Expose
+    private String EncryptedBody;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -194,9 +207,11 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
-     * Get 意愿核身朗读模式结果信息。若未使用意愿核身功能，该字段返回值可以不处理。
+     * Get 意愿核身朗读模式结果信息。
+- 若未使用意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IntentionVerifyData 意愿核身朗读模式结果信息。若未使用意愿核身功能，该字段返回值可以不处理。
+     * @return IntentionVerifyData 意愿核身朗读模式结果信息。
+- 若未使用意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public IntentionVerifyData getIntentionVerifyData() {
@@ -204,9 +219,11 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
-     * Set 意愿核身朗读模式结果信息。若未使用意愿核身功能，该字段返回值可以不处理。
+     * Set 意愿核身朗读模式结果信息。
+- 若未使用意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param IntentionVerifyData 意愿核身朗读模式结果信息。若未使用意愿核身功能，该字段返回值可以不处理。
+     * @param IntentionVerifyData 意愿核身朗读模式结果信息。
+- 若未使用意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntentionVerifyData(IntentionVerifyData IntentionVerifyData) {
@@ -214,9 +231,13 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
-     * Get 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
+     * Get 意愿核身问答模式结果。
+
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IntentionQuestionResult 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
+     * @return IntentionQuestionResult 意愿核身问答模式结果。
+
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public IntentionQuestionResult getIntentionQuestionResult() {
@@ -224,9 +245,13 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
-     * Set 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
+     * Set 意愿核身问答模式结果。
+
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param IntentionQuestionResult 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
+     * @param IntentionQuestionResult 意愿核身问答模式结果。
+
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntentionQuestionResult(IntentionQuestionResult IntentionQuestionResult) {
@@ -234,9 +259,11 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
-     * Get 意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
+     * Get 意愿核身点头确认模式的结果信息。
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IntentionActionResult 意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
+     * @return IntentionActionResult 意愿核身点头确认模式的结果信息。
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public IntentionActionResult getIntentionActionResult() {
@@ -244,9 +271,11 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
-     * Set 意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
+     * Set 意愿核身点头确认模式的结果信息。
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param IntentionActionResult 意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
+     * @param IntentionActionResult 意愿核身点头确认模式的结果信息。
+- 若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntentionActionResult(IntentionActionResult IntentionActionResult) {
@@ -254,16 +283,36 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 加密后的数据。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EncryptedBody 加密后的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEncryptedBody() {
+        return this.EncryptedBody;
+    }
+
+    /**
+     * Set 加密后的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EncryptedBody 加密后的数据。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEncryptedBody(String EncryptedBody) {
+        this.EncryptedBody = EncryptedBody;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -301,6 +350,9 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
         if (source.IntentionActionResult != null) {
             this.IntentionActionResult = new IntentionActionResult(source.IntentionActionResult);
         }
+        if (source.EncryptedBody != null) {
+            this.EncryptedBody = new String(source.EncryptedBody);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -319,6 +371,7 @@ public class GetDetectInfoEnhancedResponse extends AbstractModel{
         this.setParamObj(map, prefix + "IntentionVerifyData.", this.IntentionVerifyData);
         this.setParamObj(map, prefix + "IntentionQuestionResult.", this.IntentionQuestionResult);
         this.setParamObj(map, prefix + "IntentionActionResult.", this.IntentionActionResult);
+        this.setParamSimple(map, prefix + "EncryptedBody", this.EncryptedBody);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

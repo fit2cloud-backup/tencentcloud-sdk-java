@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeStaffStatusMetricsRequest extends AbstractModel{
+public class DescribeStaffStatusMetricsRequest extends AbstractModel {
 
     /**
     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
@@ -44,7 +45,7 @@ public class DescribeStaffStatusMetricsRequest extends AbstractModel{
     private Long [] GroupIdList;
 
     /**
-    * 筛选坐席状态列表
+    * 筛选坐席状态列表 座席状态 free 示闲 | busy 忙碌 | rest 小休 | notReady 示忙 | afterCallWork 话后调整 | offline 离线 
     */
     @SerializedName("StatusList")
     @Expose
@@ -99,16 +100,16 @@ public class DescribeStaffStatusMetricsRequest extends AbstractModel{
     }
 
     /**
-     * Get 筛选坐席状态列表 
-     * @return StatusList 筛选坐席状态列表
+     * Get 筛选坐席状态列表 座席状态 free 示闲 | busy 忙碌 | rest 小休 | notReady 示忙 | afterCallWork 话后调整 | offline 离线  
+     * @return StatusList 筛选坐席状态列表 座席状态 free 示闲 | busy 忙碌 | rest 小休 | notReady 示忙 | afterCallWork 话后调整 | offline 离线 
      */
     public String [] getStatusList() {
         return this.StatusList;
     }
 
     /**
-     * Set 筛选坐席状态列表
-     * @param StatusList 筛选坐席状态列表
+     * Set 筛选坐席状态列表 座席状态 free 示闲 | busy 忙碌 | rest 小休 | notReady 示忙 | afterCallWork 话后调整 | offline 离线 
+     * @param StatusList 筛选坐席状态列表 座席状态 free 示闲 | busy 忙碌 | rest 小休 | notReady 示忙 | afterCallWork 话后调整 | offline 离线 
      */
     public void setStatusList(String [] StatusList) {
         this.StatusList = StatusList;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Elastic extends AbstractModel{
+public class Elastic extends AbstractModel {
 
     /**
     * 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Index")
     @Expose
@@ -32,7 +32,6 @@ public class Elastic extends AbstractModel{
 
     /**
     * 分数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Score")
     @Expose
@@ -40,7 +39,6 @@ public class Elastic extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -48,7 +46,6 @@ public class Elastic extends AbstractModel{
 
     /**
     * 值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -56,17 +53,14 @@ public class Elastic extends AbstractModel{
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-     * Get 原文位置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文位置 
      * @return Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getIndex() {
         return this.Index;
@@ -74,19 +68,15 @@ public class Elastic extends AbstractModel{
 
     /**
      * Set 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndex(Long [] Index) {
         this.Index = Index;
     }
 
     /**
-     * Get 分数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分数 
      * @return Score 分数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScore() {
         return this.Score;
@@ -94,19 +84,15 @@ public class Elastic extends AbstractModel{
 
     /**
      * Set 分数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Score 分数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScore(String Score) {
         this.Score = Score;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -114,19 +100,15 @@ public class Elastic extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get 值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 值 
      * @return Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -134,19 +116,15 @@ public class Elastic extends AbstractModel{
 
     /**
      * Set 值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;
     }
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -154,9 +132,7 @@ public class Elastic extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;

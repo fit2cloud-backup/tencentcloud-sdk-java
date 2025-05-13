@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstancesRequest extends AbstractModel{
+public class DescribeInstancesRequest extends AbstractModel {
 
     /**
     * 每页输出实例的数量，参数默认值20，最大值为1000。
@@ -172,23 +173,28 @@ public class DescribeInstancesRequest extends AbstractModel{
 
     /**
     * 实例类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
     */
     @SerializedName("Type")
     @Expose
     private Long Type;
 
     /**
-    * 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
+    * 该参数为数组类型，支持配置实例名称、实例 ID、IP地址，其中实例名称为模糊匹配，实例 ID 和 IP 地址精确匹配。
+
+- 数组中每一个元素取并集进行匹配查询。
+- **InstanceId** 与 **SearchKeys** 同时配置，则取二者交集进行匹配查询。
     */
     @SerializedName("SearchKeys")
     @Expose
@@ -625,27 +631,31 @@ public class DescribeInstancesRequest extends AbstractModel{
 
     /**
      * Get 实例类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。 
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。 
      * @return Type 实例类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
      */
     public Long getType() {
         return this.Type;
@@ -653,43 +663,59 @@ public class DescribeInstancesRequest extends AbstractModel{
 
     /**
      * Set 实例类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
      * @param Type 实例类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
      */
     public void setType(Long Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。 
-     * @return SearchKeys 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
+     * Get 该参数为数组类型，支持配置实例名称、实例 ID、IP地址，其中实例名称为模糊匹配，实例 ID 和 IP 地址精确匹配。
+
+- 数组中每一个元素取并集进行匹配查询。
+- **InstanceId** 与 **SearchKeys** 同时配置，则取二者交集进行匹配查询。 
+     * @return SearchKeys 该参数为数组类型，支持配置实例名称、实例 ID、IP地址，其中实例名称为模糊匹配，实例 ID 和 IP 地址精确匹配。
+
+- 数组中每一个元素取并集进行匹配查询。
+- **InstanceId** 与 **SearchKeys** 同时配置，则取二者交集进行匹配查询。
      */
     public String [] getSearchKeys() {
         return this.SearchKeys;
     }
 
     /**
-     * Set 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
-     * @param SearchKeys 设置搜索关键字数组，可根据实例ID、实例名称、完整IP地址搜索实例。
+     * Set 该参数为数组类型，支持配置实例名称、实例 ID、IP地址，其中实例名称为模糊匹配，实例 ID 和 IP 地址精确匹配。
+
+- 数组中每一个元素取并集进行匹配查询。
+- **InstanceId** 与 **SearchKeys** 同时配置，则取二者交集进行匹配查询。
+     * @param SearchKeys 该参数为数组类型，支持配置实例名称、实例 ID、IP地址，其中实例名称为模糊匹配，实例 ID 和 IP 地址精确匹配。
+
+- 数组中每一个元素取并集进行匹配查询。
+- **InstanceId** 与 **SearchKeys** 同时配置，则取二者交集进行匹配查询。
      */
     public void setSearchKeys(String [] SearchKeys) {
         this.SearchKeys = SearchKeys;

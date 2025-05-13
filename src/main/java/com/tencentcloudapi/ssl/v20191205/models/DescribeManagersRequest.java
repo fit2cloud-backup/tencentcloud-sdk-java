@@ -16,28 +16,29 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeManagersRequest extends AbstractModel{
+public class DescribeManagersRequest extends AbstractModel {
 
     /**
-    * 公司ID
+    * 公司ID,可以从DescribeCompanies接口获取
     */
     @SerializedName("CompanyId")
     @Expose
     private Long CompanyId;
 
     /**
-    * 分页偏移量
+    * 分页偏移量，如果不传默认值为0
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 分页每页数量
+    * 分页每页数量，如果不传默认值为10，最大值为1000
     */
     @SerializedName("Limit")
     @Expose
@@ -72,55 +73,55 @@ public class DescribeManagersRequest extends AbstractModel{
     private String Status;
 
     /**
-    * 管理人姓/管理人名/邮箱/部门精准匹配
+    * 根据这样的格式:管理人姓|管理人名|邮箱|部门 ,进行精准匹配
     */
     @SerializedName("SearchKey")
     @Expose
     private String SearchKey;
 
     /**
-     * Get 公司ID 
-     * @return CompanyId 公司ID
+     * Get 公司ID,可以从DescribeCompanies接口获取 
+     * @return CompanyId 公司ID,可以从DescribeCompanies接口获取
      */
     public Long getCompanyId() {
         return this.CompanyId;
     }
 
     /**
-     * Set 公司ID
-     * @param CompanyId 公司ID
+     * Set 公司ID,可以从DescribeCompanies接口获取
+     * @param CompanyId 公司ID,可以从DescribeCompanies接口获取
      */
     public void setCompanyId(Long CompanyId) {
         this.CompanyId = CompanyId;
     }
 
     /**
-     * Get 分页偏移量 
-     * @return Offset 分页偏移量
+     * Get 分页偏移量，如果不传默认值为0 
+     * @return Offset 分页偏移量，如果不传默认值为0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页偏移量
-     * @param Offset 分页偏移量
+     * Set 分页偏移量，如果不传默认值为0
+     * @param Offset 分页偏移量，如果不传默认值为0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 分页每页数量 
-     * @return Limit 分页每页数量
+     * Get 分页每页数量，如果不传默认值为10，最大值为1000 
+     * @return Limit 分页每页数量，如果不传默认值为10，最大值为1000
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页每页数量
-     * @param Limit 分页每页数量
+     * Set 分页每页数量，如果不传默认值为10，最大值为1000
+     * @param Limit 分页每页数量，如果不传默认值为10，最大值为1000
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -203,16 +204,16 @@ public class DescribeManagersRequest extends AbstractModel{
     }
 
     /**
-     * Get 管理人姓/管理人名/邮箱/部门精准匹配 
-     * @return SearchKey 管理人姓/管理人名/邮箱/部门精准匹配
+     * Get 根据这样的格式:管理人姓|管理人名|邮箱|部门 ,进行精准匹配 
+     * @return SearchKey 根据这样的格式:管理人姓|管理人名|邮箱|部门 ,进行精准匹配
      */
     public String getSearchKey() {
         return this.SearchKey;
     }
 
     /**
-     * Set 管理人姓/管理人名/邮箱/部门精准匹配
-     * @param SearchKey 管理人姓/管理人名/邮箱/部门精准匹配
+     * Set 根据这样的格式:管理人姓|管理人名|邮箱|部门 ,进行精准匹配
+     * @param SearchKey 根据这样的格式:管理人姓|管理人名|邮箱|部门 ,进行精准匹配
      */
     public void setSearchKey(String SearchKey) {
         this.SearchKey = SearchKey;

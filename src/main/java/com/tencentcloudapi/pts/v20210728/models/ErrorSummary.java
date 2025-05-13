@@ -16,15 +16,15 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ErrorSummary extends AbstractModel{
+public class ErrorSummary extends AbstractModel {
 
     /**
     * 状态码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -32,7 +32,6 @@ public class ErrorSummary extends AbstractModel{
 
     /**
     * 结果码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Result")
     @Expose
@@ -40,7 +39,6 @@ public class ErrorSummary extends AbstractModel{
 
     /**
     * 错误出现次数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Count")
     @Expose
@@ -48,7 +46,6 @@ public class ErrorSummary extends AbstractModel{
 
     /**
     * 错误率
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Rate")
     @Expose
@@ -56,7 +53,6 @@ public class ErrorSummary extends AbstractModel{
 
     /**
     * 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -64,17 +60,14 @@ public class ErrorSummary extends AbstractModel{
 
     /**
     * 请求协议类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Proto")
     @Expose
     private String Proto;
 
     /**
-     * Get 状态码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态码 
      * @return Status 状态码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -82,19 +75,15 @@ public class ErrorSummary extends AbstractModel{
 
     /**
      * Set 状态码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 结果码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结果码 
      * @return Result 结果码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResult() {
         return this.Result;
@@ -102,19 +91,15 @@ public class ErrorSummary extends AbstractModel{
 
     /**
      * Set 结果码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Result 结果码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResult(String Result) {
         this.Result = Result;
     }
 
     /**
-     * Get 错误出现次数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误出现次数 
      * @return Count 错误出现次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCount() {
         return this.Count;
@@ -122,19 +107,15 @@ public class ErrorSummary extends AbstractModel{
 
     /**
      * Set 错误出现次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Count 错误出现次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCount(Long Count) {
         this.Count = Count;
     }
 
     /**
-     * Get 错误率
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误率 
      * @return Rate 错误率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getRate() {
         return this.Rate;
@@ -142,19 +123,15 @@ public class ErrorSummary extends AbstractModel{
 
     /**
      * Set 错误率
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Rate 错误率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRate(Float Rate) {
         this.Rate = Rate;
     }
 
     /**
-     * Get 错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误信息 
      * @return Message 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -162,19 +139,15 @@ public class ErrorSummary extends AbstractModel{
 
     /**
      * Set 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;
     }
 
     /**
-     * Get 请求协议类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 请求协议类型 
      * @return Proto 请求协议类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProto() {
         return this.Proto;
@@ -182,9 +155,7 @@ public class ErrorSummary extends AbstractModel{
 
     /**
      * Set 请求协议类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Proto 请求协议类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProto(String Proto) {
         this.Proto = Proto;

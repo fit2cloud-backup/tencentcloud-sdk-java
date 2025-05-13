@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDCDBInstancesRequest extends AbstractModel{
+public class DescribeDCDBInstancesRequest extends AbstractModel {
 
     /**
     * 按照一个或者多个实例 ID 查询。实例 ID 形如：dcdbt-2t4cf98d
@@ -128,6 +129,13 @@ public class DescribeDCDBInstancesRequest extends AbstractModel{
     private String [] TagKeys;
 
     /**
+    * 标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
     * 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔
     */
     @SerializedName("FilterInstanceType")
@@ -135,14 +143,14 @@ public class DescribeDCDBInstancesRequest extends AbstractModel{
     private String FilterInstanceType;
 
     /**
-    * 按实例状态筛选
+    * 按实例状态筛选。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
     */
     @SerializedName("Status")
     @Expose
     private Long [] Status;
 
     /**
-    * 排除实例状态
+    * 排除实例状态。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
     */
     @SerializedName("ExcludeStatus")
     @Expose
@@ -389,6 +397,22 @@ public class DescribeDCDBInstancesRequest extends AbstractModel{
     }
 
     /**
+     * Get 标签 
+     * @return Tags 标签
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+     * @param Tags 标签
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
      * Get 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔 
      * @return FilterInstanceType 实例类型过滤，1-独享实例，2-主实例，3-灾备实例，多个按逗号分隔
      */
@@ -405,32 +429,32 @@ public class DescribeDCDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 按实例状态筛选 
-     * @return Status 按实例状态筛选
+     * Get 按实例状态筛选。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中 
+     * @return Status 按实例状态筛选。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
      */
     public Long [] getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 按实例状态筛选
-     * @param Status 按实例状态筛选
+     * Set 按实例状态筛选。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
+     * @param Status 按实例状态筛选。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
      */
     public void setStatus(Long [] Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 排除实例状态 
-     * @return ExcludeStatus 排除实例状态
+     * Get 排除实例状态。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中 
+     * @return ExcludeStatus 排除实例状态。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
      */
     public Long [] getExcludeStatus() {
         return this.ExcludeStatus;
     }
 
     /**
-     * Set 排除实例状态
-     * @param ExcludeStatus 排除实例状态
+     * Set 排除实例状态。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
+     * @param ExcludeStatus 排除实例状态。状态值 -2：已删除； -1：已隔离；0：创建中；1：流程处理中；2：运行中
      */
     public void setExcludeStatus(Long [] ExcludeStatus) {
         this.ExcludeStatus = ExcludeStatus;
@@ -501,6 +525,12 @@ public class DescribeDCDBInstancesRequest extends AbstractModel{
                 this.TagKeys[i] = new String(source.TagKeys[i]);
             }
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
         if (source.FilterInstanceType != null) {
             this.FilterInstanceType = new String(source.FilterInstanceType);
         }
@@ -538,6 +568,7 @@ public class DescribeDCDBInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsFilterExcluster", this.IsFilterExcluster);
         this.setParamArraySimple(map, prefix + "ExclusterIds.", this.ExclusterIds);
         this.setParamArraySimple(map, prefix + "TagKeys.", this.TagKeys);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "FilterInstanceType", this.FilterInstanceType);
         this.setParamArraySimple(map, prefix + "Status.", this.Status);
         this.setParamArraySimple(map, prefix + "ExcludeStatus.", this.ExcludeStatus);

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTargetGroupInstancesRequest extends AbstractModel{
+public class DescribeTargetGroupInstancesRequest extends AbstractModel {
 
     /**
-    * 过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤。
+    * 过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
     */
     @SerializedName("Filters")
     @Expose
@@ -44,16 +45,16 @@ public class DescribeTargetGroupInstancesRequest extends AbstractModel{
     private Long Offset;
 
     /**
-     * Get 过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤。 
-     * @return Filters 过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤。
+     * Get 过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。 
+     * @return Filters 过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤。
-     * @param Filters 过滤条件，当前仅支持TargetGroupId，BindIP，InstanceId过滤。
+     * Set 过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
+     * @param Filters 过滤条件，当前支持按照 TargetGroupId，BindIP，InstanceId 多个条件组合过滤。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

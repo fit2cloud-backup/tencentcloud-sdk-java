@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cbs.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResizeDiskRequest extends AbstractModel{
+public class ResizeDiskRequest extends AbstractModel {
 
     /**
     * 云硬盘扩容后的大小，单位为GB，必须大于当前云硬盘大小。云盘大小取值范围参见云硬盘[产品分类](/document/product/362/2353)的说明。
@@ -30,7 +31,7 @@ public class ResizeDiskRequest extends AbstractModel{
     private Long DiskSize;
 
     /**
-    * 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。
+    * 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。该字段仅供单块云硬盘扩容时传入。
     */
     @SerializedName("DiskId")
     @Expose
@@ -53,16 +54,16 @@ public class ResizeDiskRequest extends AbstractModel{
     }
 
     /**
-     * Get 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。 
-     * @return DiskId 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。
+     * Get 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。该字段仅供单块云硬盘扩容时传入。 
+     * @return DiskId 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。该字段仅供单块云硬盘扩容时传入。
      */
     public String getDiskId() {
         return this.DiskId;
     }
 
     /**
-     * Set 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。
-     * @param DiskId 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。
+     * Set 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。该字段仅供单块云硬盘扩容时传入。
+     * @param DiskId 云硬盘ID， 通过[DescribeDisks](/document/product/362/16315)接口查询。该字段仅供单块云硬盘扩容时传入。
      */
     public void setDiskId(String DiskId) {
         this.DiskId = DiskId;

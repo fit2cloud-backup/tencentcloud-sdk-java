@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IsolateInstanceRequest extends AbstractModel{
+public class IsolateInstanceRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -30,7 +31,7 @@ public class IsolateInstanceRequest extends AbstractModel{
     private String ClusterId;
 
     /**
-    * 实例ID数组
+    * 实例ID数组，例如["cynosdbbmysql-ins-asd","cynosdbmysql-ins-zxc"]
     */
     @SerializedName("InstanceIdList")
     @Expose
@@ -42,6 +43,20 @@ public class IsolateInstanceRequest extends AbstractModel{
     @SerializedName("DbType")
     @Expose
     private String DbType;
+
+    /**
+    * 实例退还原因类型
+    */
+    @SerializedName("IsolateReasonTypes")
+    @Expose
+    private Long [] IsolateReasonTypes;
+
+    /**
+    * 实例退还原因补充
+    */
+    @SerializedName("IsolateReason")
+    @Expose
+    private String IsolateReason;
 
     /**
      * Get 集群ID 
@@ -60,16 +75,16 @@ public class IsolateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例ID数组 
-     * @return InstanceIdList 实例ID数组
+     * Get 实例ID数组，例如["cynosdbbmysql-ins-asd","cynosdbmysql-ins-zxc"] 
+     * @return InstanceIdList 实例ID数组，例如["cynosdbbmysql-ins-asd","cynosdbmysql-ins-zxc"]
      */
     public String [] getInstanceIdList() {
         return this.InstanceIdList;
     }
 
     /**
-     * Set 实例ID数组
-     * @param InstanceIdList 实例ID数组
+     * Set 实例ID数组，例如["cynosdbbmysql-ins-asd","cynosdbmysql-ins-zxc"]
+     * @param InstanceIdList 实例ID数组，例如["cynosdbbmysql-ins-asd","cynosdbmysql-ins-zxc"]
      */
     public void setInstanceIdList(String [] InstanceIdList) {
         this.InstanceIdList = InstanceIdList;
@@ -89,6 +104,38 @@ public class IsolateInstanceRequest extends AbstractModel{
      */
     public void setDbType(String DbType) {
         this.DbType = DbType;
+    }
+
+    /**
+     * Get 实例退还原因类型 
+     * @return IsolateReasonTypes 实例退还原因类型
+     */
+    public Long [] getIsolateReasonTypes() {
+        return this.IsolateReasonTypes;
+    }
+
+    /**
+     * Set 实例退还原因类型
+     * @param IsolateReasonTypes 实例退还原因类型
+     */
+    public void setIsolateReasonTypes(Long [] IsolateReasonTypes) {
+        this.IsolateReasonTypes = IsolateReasonTypes;
+    }
+
+    /**
+     * Get 实例退还原因补充 
+     * @return IsolateReason 实例退还原因补充
+     */
+    public String getIsolateReason() {
+        return this.IsolateReason;
+    }
+
+    /**
+     * Set 实例退还原因补充
+     * @param IsolateReason 实例退还原因补充
+     */
+    public void setIsolateReason(String IsolateReason) {
+        this.IsolateReason = IsolateReason;
     }
 
     public IsolateInstanceRequest() {
@@ -111,6 +158,15 @@ public class IsolateInstanceRequest extends AbstractModel{
         if (source.DbType != null) {
             this.DbType = new String(source.DbType);
         }
+        if (source.IsolateReasonTypes != null) {
+            this.IsolateReasonTypes = new Long[source.IsolateReasonTypes.length];
+            for (int i = 0; i < source.IsolateReasonTypes.length; i++) {
+                this.IsolateReasonTypes[i] = new Long(source.IsolateReasonTypes[i]);
+            }
+        }
+        if (source.IsolateReason != null) {
+            this.IsolateReason = new String(source.IsolateReason);
+        }
     }
 
 
@@ -121,6 +177,8 @@ public class IsolateInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamArraySimple(map, prefix + "InstanceIdList.", this.InstanceIdList);
         this.setParamSimple(map, prefix + "DbType", this.DbType);
+        this.setParamArraySimple(map, prefix + "IsolateReasonTypes.", this.IsolateReasonTypes);
+        this.setParamSimple(map, prefix + "IsolateReason", this.IsolateReason);
 
     }
 }

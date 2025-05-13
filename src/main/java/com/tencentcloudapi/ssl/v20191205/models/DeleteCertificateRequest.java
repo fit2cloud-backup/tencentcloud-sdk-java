@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteCertificateRequest extends AbstractModel{
+public class DeleteCertificateRequest extends AbstractModel {
 
     /**
     * 证书 ID。
@@ -28,6 +29,13 @@ public class DeleteCertificateRequest extends AbstractModel{
     @SerializedName("CertificateId")
     @Expose
     private String CertificateId;
+
+    /**
+    * 删除时是否检查证书关联了云资源。默认不检查。如选择检查(需要授权服务角色SSL_QCSLinkedRoleInReplaceLoadCertificate)删除将变成异步,接口会返回异步任务ID。需使用DescribeDeleteCertificatesTaskResult接口查询删除是否成功。
+    */
+    @SerializedName("IsCheckResource")
+    @Expose
+    private Boolean IsCheckResource;
 
     /**
      * Get 证书 ID。 
@@ -45,6 +53,22 @@ public class DeleteCertificateRequest extends AbstractModel{
         this.CertificateId = CertificateId;
     }
 
+    /**
+     * Get 删除时是否检查证书关联了云资源。默认不检查。如选择检查(需要授权服务角色SSL_QCSLinkedRoleInReplaceLoadCertificate)删除将变成异步,接口会返回异步任务ID。需使用DescribeDeleteCertificatesTaskResult接口查询删除是否成功。 
+     * @return IsCheckResource 删除时是否检查证书关联了云资源。默认不检查。如选择检查(需要授权服务角色SSL_QCSLinkedRoleInReplaceLoadCertificate)删除将变成异步,接口会返回异步任务ID。需使用DescribeDeleteCertificatesTaskResult接口查询删除是否成功。
+     */
+    public Boolean getIsCheckResource() {
+        return this.IsCheckResource;
+    }
+
+    /**
+     * Set 删除时是否检查证书关联了云资源。默认不检查。如选择检查(需要授权服务角色SSL_QCSLinkedRoleInReplaceLoadCertificate)删除将变成异步,接口会返回异步任务ID。需使用DescribeDeleteCertificatesTaskResult接口查询删除是否成功。
+     * @param IsCheckResource 删除时是否检查证书关联了云资源。默认不检查。如选择检查(需要授权服务角色SSL_QCSLinkedRoleInReplaceLoadCertificate)删除将变成异步,接口会返回异步任务ID。需使用DescribeDeleteCertificatesTaskResult接口查询删除是否成功。
+     */
+    public void setIsCheckResource(Boolean IsCheckResource) {
+        this.IsCheckResource = IsCheckResource;
+    }
+
     public DeleteCertificateRequest() {
     }
 
@@ -56,6 +80,9 @@ public class DeleteCertificateRequest extends AbstractModel{
         if (source.CertificateId != null) {
             this.CertificateId = new String(source.CertificateId);
         }
+        if (source.IsCheckResource != null) {
+            this.IsCheckResource = new Boolean(source.IsCheckResource);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DeleteCertificateRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertificateId", this.CertificateId);
+        this.setParamSimple(map, prefix + "IsCheckResource", this.IsCheckResource);
 
     }
 }

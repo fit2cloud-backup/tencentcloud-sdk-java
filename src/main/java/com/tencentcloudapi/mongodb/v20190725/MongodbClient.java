@@ -40,24 +40,13 @@ public class MongodbClient extends AbstractClient{
 
     /**
      *本接口(AssignProject)用于指定云数据库实例的所属项目。
-
      * @param req AssignProjectRequest
      * @return AssignProjectResponse
      * @throws TencentCloudSDKException
      */
     public AssignProjectResponse AssignProject(AssignProjectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssignProjectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssignProjectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssignProject");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssignProject", AssignProjectResponse.class);
     }
 
     /**
@@ -67,18 +56,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAccountUserResponse CreateAccountUser(CreateAccountUserRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAccountUserResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAccountUserResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAccountUser");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAccountUser", CreateAccountUserResponse.class);
     }
 
     /**
@@ -88,18 +67,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateBackupDBInstanceResponse CreateBackupDBInstance(CreateBackupDBInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateBackupDBInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateBackupDBInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateBackupDBInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateBackupDBInstance", CreateBackupDBInstanceResponse.class);
     }
 
     /**
@@ -109,18 +78,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateBackupDownloadTaskResponse CreateBackupDownloadTask(CreateBackupDownloadTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateBackupDownloadTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateBackupDownloadTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateBackupDownloadTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateBackupDownloadTask", CreateBackupDownloadTaskResponse.class);
     }
 
     /**
@@ -130,18 +89,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDBInstanceResponse CreateDBInstance(CreateDBInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDBInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDBInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDBInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDBInstance", CreateDBInstanceResponse.class);
     }
 
     /**
@@ -151,18 +100,20 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDBInstanceHourResponse CreateDBInstanceHour(CreateDBInstanceHourRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDBInstanceHourResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDBInstanceHourResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDBInstanceHour");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDBInstanceHour", CreateDBInstanceHourResponse.class);
+    }
+
+    /**
+     *本接口(CreateDBInstanceParamTpl)用于创建云数据库MongoDB实例的参数模板
+**说明：CreateDBInstanceParamTpl API正在公测中，在此期间，该接口仅对公测用户开放**
+     * @param req CreateDBInstanceParamTplRequest
+     * @return CreateDBInstanceParamTplResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateDBInstanceParamTplResponse CreateDBInstanceParamTpl(CreateDBInstanceParamTplRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateDBInstanceParamTpl", CreateDBInstanceParamTplResponse.class);
     }
 
     /**
@@ -172,18 +123,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAccountUserResponse DeleteAccountUser(DeleteAccountUserRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAccountUserResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAccountUserResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAccountUser");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAccountUser", DeleteAccountUserResponse.class);
     }
 
     /**
@@ -193,39 +134,19 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAccountUsersResponse DescribeAccountUsers(DescribeAccountUsersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAccountUsersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAccountUsersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAccountUsers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAccountUsers", DescribeAccountUsersResponse.class);
     }
 
     /**
-     *查询异步任务状态接口
+     *本接口（DescribeAsyncRequestInfo）用于查询异步任务状态接口。
      * @param req DescribeAsyncRequestInfoRequest
      * @return DescribeAsyncRequestInfoResponse
      * @throws TencentCloudSDKException
      */
     public DescribeAsyncRequestInfoResponse DescribeAsyncRequestInfo(DescribeAsyncRequestInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAsyncRequestInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAsyncRequestInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAsyncRequestInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAsyncRequestInfo", DescribeAsyncRequestInfoResponse.class);
     }
 
     /**
@@ -235,18 +156,19 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBackupDownloadTaskResponse DescribeBackupDownloadTask(DescribeBackupDownloadTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBackupDownloadTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBackupDownloadTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBackupDownloadTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBackupDownloadTask", DescribeBackupDownloadTaskResponse.class);
+    }
+
+    /**
+     *本接口（DescribeBackupRules）用于获取实例自动备份配置信息。
+     * @param req DescribeBackupRulesRequest
+     * @return DescribeBackupRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeBackupRulesResponse DescribeBackupRules(DescribeBackupRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeBackupRules", DescribeBackupRulesResponse.class);
     }
 
     /**
@@ -256,39 +178,19 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeClientConnectionsResponse DescribeClientConnections(DescribeClientConnectionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeClientConnectionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeClientConnectionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeClientConnections");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeClientConnections", DescribeClientConnectionsResponse.class);
     }
 
     /**
-     *本接口(DescribeCurrentOp)用于查询MongoDB云数据库实例的当前正在执行的操作。
+     *本接口（DescribeCurrentOp）用于查询云数据库实例的当前正在执行的操作。
      * @param req DescribeCurrentOpRequest
      * @return DescribeCurrentOpResponse
      * @throws TencentCloudSDKException
      */
     public DescribeCurrentOpResponse DescribeCurrentOp(DescribeCurrentOpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCurrentOpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCurrentOpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCurrentOp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCurrentOp", DescribeCurrentOpResponse.class);
     }
 
     /**
@@ -298,18 +200,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDBBackupsResponse DescribeDBBackups(DescribeDBBackupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBBackupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBBackupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBBackups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDBBackups", DescribeDBBackupsResponse.class);
     }
 
     /**
@@ -319,18 +211,19 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDBInstanceDealResponse DescribeDBInstanceDeal(DescribeDBInstanceDealRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBInstanceDealResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceDealResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBInstanceDeal");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDBInstanceDeal", DescribeDBInstanceDealResponse.class);
+    }
+
+    /**
+     *本接口（DescribeDBInstanceNamespace）用于查询数据库的表信息。
+     * @param req DescribeDBInstanceNamespaceRequest
+     * @return DescribeDBInstanceNamespaceResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBInstanceNamespaceResponse DescribeDBInstanceNamespace(DescribeDBInstanceNamespaceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeDBInstanceNamespace", DescribeDBInstanceNamespaceResponse.class);
     }
 
     /**
@@ -340,18 +233,43 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDBInstanceNodePropertyResponse DescribeDBInstanceNodeProperty(DescribeDBInstanceNodePropertyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBInstanceNodePropertyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBInstanceNodePropertyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBInstanceNodeProperty");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDBInstanceNodeProperty", DescribeDBInstanceNodePropertyResponse.class);
+    }
+
+    /**
+     *本接口(DescribeDBInstanceParamTpl )用于查询当前账号下所有MongoDB数据库参数模板
+**说明：DescribeDBInstanceParamTpl  API正在公测中，在此期间，该接口仅对公测用户开放**
+     * @param req DescribeDBInstanceParamTplRequest
+     * @return DescribeDBInstanceParamTplResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBInstanceParamTplResponse DescribeDBInstanceParamTpl(DescribeDBInstanceParamTplRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeDBInstanceParamTpl", DescribeDBInstanceParamTplResponse.class);
+    }
+
+    /**
+     *本接口(DescribeDBInstanceParamTplDetail )用于查询MongoDB云数据库实例的参数模板详情。
+**说明：DescribeDBInstanceParamTplDetail  API正在公测中，在此期间，该接口仅对公测用户开放**
+     * @param req DescribeDBInstanceParamTplDetailRequest
+     * @return DescribeDBInstanceParamTplDetailResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBInstanceParamTplDetailResponse DescribeDBInstanceParamTplDetail(DescribeDBInstanceParamTplDetailRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeDBInstanceParamTplDetail", DescribeDBInstanceParamTplDetailResponse.class);
+    }
+
+    /**
+     *本接口（DescribeDBInstanceURL）用于获取指定实例的 URI 形式的连接串访问地址示例。
+     * @param req DescribeDBInstanceURLRequest
+     * @return DescribeDBInstanceURLResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDBInstanceURLResponse DescribeDBInstanceURL(DescribeDBInstanceURLRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeDBInstanceURL", DescribeDBInstanceURLResponse.class);
     }
 
     /**
@@ -361,18 +279,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDBInstancesResponse DescribeDBInstances(DescribeDBInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDBInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDBInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDBInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDBInstances", DescribeDBInstancesResponse.class);
     }
 
     /**
@@ -382,18 +290,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeInstanceParamsResponse DescribeInstanceParams(DescribeInstanceParamsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstanceParamsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstanceParamsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstanceParams");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstanceParams", DescribeInstanceParamsResponse.class);
     }
 
     /**
@@ -403,18 +301,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSecurityGroupResponse DescribeSecurityGroup(DescribeSecurityGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSecurityGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSecurityGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSecurityGroup", DescribeSecurityGroupResponse.class);
     }
 
     /**
@@ -424,18 +312,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSlowLogPatternsResponse DescribeSlowLogPatterns(DescribeSlowLogPatternsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSlowLogPatternsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSlowLogPatternsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSlowLogPatterns");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSlowLogPatterns", DescribeSlowLogPatternsResponse.class);
     }
 
     /**
@@ -445,18 +323,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSlowLogsResponse DescribeSlowLogs(DescribeSlowLogsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSlowLogsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSlowLogsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSlowLogs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSlowLogs", DescribeSlowLogsResponse.class);
     }
 
     /**
@@ -466,18 +334,54 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSpecInfoResponse DescribeSpecInfo(DescribeSpecInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSpecInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSpecInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSpecInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSpecInfo", DescribeSpecInfoResponse.class);
+    }
+
+    /**
+     *获取实例透明加密的开启状态
+     * @param req DescribeTransparentDataEncryptionStatusRequest
+     * @return DescribeTransparentDataEncryptionStatusResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTransparentDataEncryptionStatusResponse DescribeTransparentDataEncryptionStatus(DescribeTransparentDataEncryptionStatusRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTransparentDataEncryptionStatus", DescribeTransparentDataEncryptionStatusResponse.class);
+    }
+
+    /**
+     *本接口(DropDBInstanceParamTpl )用于删除云数据库MongoDB实例的参数模板
+**说明：DropDBInstanceParamTpl  API正在公测中，在此期间，该接口仅对公测用户开放**
+     * @param req DropDBInstanceParamTplRequest
+     * @return DropDBInstanceParamTplResponse
+     * @throws TencentCloudSDKException
+     */
+    public DropDBInstanceParamTplResponse DropDBInstanceParamTpl(DropDBInstanceParamTplRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DropDBInstanceParamTpl", DropDBInstanceParamTplResponse.class);
+    }
+
+    /**
+     *本接口（EnableTransparentDataEncryption）用于开启云数据库 MongoDB 的透明加密能力。
+     * @param req EnableTransparentDataEncryptionRequest
+     * @return EnableTransparentDataEncryptionResponse
+     * @throws TencentCloudSDKException
+     */
+    public EnableTransparentDataEncryptionResponse EnableTransparentDataEncryption(EnableTransparentDataEncryptionRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "EnableTransparentDataEncryption", EnableTransparentDataEncryptionResponse.class);
+    }
+
+    /**
+     *该接口用于发起按 Key 闪回任务，依据数据的闪回 Key（默认为 id）对数据进行极速回档，快速恢复业务。
+**说明：按 Key 闪回于2023年09月11日正式进行公测，在此期间，该接口仅对公测用户开放。**
+     * @param req FlashBackDBInstanceRequest
+     * @return FlashBackDBInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public FlashBackDBInstanceResponse FlashBackDBInstance(FlashBackDBInstanceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "FlashBackDBInstance", FlashBackDBInstanceResponse.class);
     }
 
     /**
@@ -487,18 +391,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public FlushInstanceRouterConfigResponse FlushInstanceRouterConfig(FlushInstanceRouterConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<FlushInstanceRouterConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<FlushInstanceRouterConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "FlushInstanceRouterConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "FlushInstanceRouterConfig", FlushInstanceRouterConfigResponse.class);
     }
 
     /**
@@ -508,18 +402,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public InquirePriceCreateDBInstancesResponse InquirePriceCreateDBInstances(InquirePriceCreateDBInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceCreateDBInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceCreateDBInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceCreateDBInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceCreateDBInstances", InquirePriceCreateDBInstancesResponse.class);
     }
 
     /**
@@ -529,18 +413,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public InquirePriceModifyDBInstanceSpecResponse InquirePriceModifyDBInstanceSpec(InquirePriceModifyDBInstanceSpecRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceModifyDBInstanceSpecResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceModifyDBInstanceSpecResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceModifyDBInstanceSpec");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceModifyDBInstanceSpec", InquirePriceModifyDBInstanceSpecResponse.class);
     }
 
     /**
@@ -550,18 +424,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public InquirePriceRenewDBInstancesResponse InquirePriceRenewDBInstances(InquirePriceRenewDBInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceRenewDBInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceRenewDBInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceRenewDBInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceRenewDBInstances", InquirePriceRenewDBInstancesResponse.class);
     }
 
     /**
@@ -571,18 +435,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public IsolateDBInstanceResponse IsolateDBInstance(IsolateDBInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<IsolateDBInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<IsolateDBInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "IsolateDBInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "IsolateDBInstance", IsolateDBInstanceResponse.class);
     }
 
     /**
@@ -592,39 +446,31 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public KillOpsResponse KillOps(KillOpsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<KillOpsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<KillOpsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "KillOps");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "KillOps", KillOpsResponse.class);
     }
 
     /**
-     *本接口(ModifyDBInstanceNetworkAddress)用于修改云数据库实例的网络信息，可进行基础网络转VPC网络和VPC网络之间的变换。
+     *本接口（ModifyDBInstanceNetworkAddress）用于修改云数据库实例的网络信息，支持基础网络切换为私有网络、私有网络切换私有网络。
      * @param req ModifyDBInstanceNetworkAddressRequest
      * @return ModifyDBInstanceNetworkAddressResponse
      * @throws TencentCloudSDKException
      */
     public ModifyDBInstanceNetworkAddressResponse ModifyDBInstanceNetworkAddress(ModifyDBInstanceNetworkAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDBInstanceNetworkAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceNetworkAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDBInstanceNetworkAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDBInstanceNetworkAddress", ModifyDBInstanceNetworkAddressResponse.class);
+    }
+
+    /**
+     *本接口(ModifyDBInstanceParamTpl )用于修改MongoDB云数据库实例的参数模板。
+**说明：ModifyDBInstanceParamTpl  API正在公测中，在此期间，该接口仅对公测用户开放**
+     * @param req ModifyDBInstanceParamTplRequest
+     * @return ModifyDBInstanceParamTplResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDBInstanceParamTplResponse ModifyDBInstanceParamTpl(ModifyDBInstanceParamTplRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyDBInstanceParamTpl", ModifyDBInstanceParamTplResponse.class);
     }
 
     /**
@@ -634,39 +480,30 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyDBInstanceSecurityGroupResponse ModifyDBInstanceSecurityGroup(ModifyDBInstanceSecurityGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDBInstanceSecurityGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceSecurityGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDBInstanceSecurityGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDBInstanceSecurityGroup", ModifyDBInstanceSecurityGroupResponse.class);
     }
 
     /**
-     *本接口(ModifyDBInstanceSpec)用于调整MongoDB云数据库实例配置。接口支持的售卖规格，可从查询云数据库的售卖规格（DescribeSpecInfo）获取。
+     *本接口（ModifyDBInstanceSpec）用于调整MongoDB云数据库实例配置。接口支持的售卖规格，可从查询云数据库的售卖规格（DescribeSpecInfo）获取。
      * @param req ModifyDBInstanceSpecRequest
      * @return ModifyDBInstanceSpecResponse
      * @throws TencentCloudSDKException
      */
     public ModifyDBInstanceSpecResponse ModifyDBInstanceSpec(ModifyDBInstanceSpecRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDBInstanceSpecResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDBInstanceSpecResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDBInstanceSpec");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDBInstanceSpec", ModifyDBInstanceSpecResponse.class);
+    }
+
+    /**
+     *本接口（ModifyInstanceParams）用于修改mongoDB实例的参数配置。
+     * @param req ModifyInstanceParamsRequest
+     * @return ModifyInstanceParamsResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyInstanceParamsResponse ModifyInstanceParams(ModifyInstanceParamsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyInstanceParams", ModifyInstanceParamsResponse.class);
     }
 
     /**
@@ -676,18 +513,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public OfflineIsolatedDBInstanceResponse OfflineIsolatedDBInstance(OfflineIsolatedDBInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<OfflineIsolatedDBInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<OfflineIsolatedDBInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "OfflineIsolatedDBInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "OfflineIsolatedDBInstance", OfflineIsolatedDBInstanceResponse.class);
     }
 
     /**
@@ -697,18 +524,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RenameInstanceResponse RenameInstance(RenameInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RenameInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RenameInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RenameInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RenameInstance", RenameInstanceResponse.class);
     }
 
     /**
@@ -718,18 +535,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RenewDBInstancesResponse RenewDBInstances(RenewDBInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RenewDBInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RenewDBInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RenewDBInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RenewDBInstances", RenewDBInstancesResponse.class);
     }
 
     /**
@@ -739,18 +546,19 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ResetDBInstancePasswordResponse ResetDBInstancePassword(ResetDBInstancePasswordRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetDBInstancePasswordResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetDBInstancePasswordResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetDBInstancePassword");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetDBInstancePassword", ResetDBInstancePasswordResponse.class);
+    }
+
+    /**
+     *本接口用于重启数据库节点。
+     * @param req RestartNodesRequest
+     * @return RestartNodesResponse
+     * @throws TencentCloudSDKException
+     */
+    public RestartNodesResponse RestartNodes(RestartNodesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "RestartNodes", RestartNodesResponse.class);
     }
 
     /**
@@ -760,18 +568,30 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SetAccountUserPrivilegeResponse SetAccountUserPrivilege(SetAccountUserPrivilegeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SetAccountUserPrivilegeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SetAccountUserPrivilegeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SetAccountUserPrivilege");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SetAccountUserPrivilege", SetAccountUserPrivilegeResponse.class);
+    }
+
+    /**
+     *本接口(SetBackupRules)用于设置 MongoDB 云数据库的自动备份规则。
+     * @param req SetBackupRulesRequest
+     * @return SetBackupRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public SetBackupRulesResponse SetBackupRules(SetBackupRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "SetBackupRules", SetBackupRulesResponse.class);
+    }
+
+    /**
+     *本接口（SetInstanceMaintenance ） 用于设置实例维护时间窗。
+     * @param req SetInstanceMaintenanceRequest
+     * @return SetInstanceMaintenanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public SetInstanceMaintenanceResponse SetInstanceMaintenance(SetInstanceMaintenanceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "SetInstanceMaintenance", SetInstanceMaintenanceResponse.class);
     }
 
     /**
@@ -781,18 +601,8 @@ public class MongodbClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public TerminateDBInstancesResponse TerminateDBInstances(TerminateDBInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TerminateDBInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TerminateDBInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TerminateDBInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TerminateDBInstances", TerminateDBInstancesResponse.class);
     }
 
 }

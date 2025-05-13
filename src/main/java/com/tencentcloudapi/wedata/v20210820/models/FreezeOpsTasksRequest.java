@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FreezeOpsTasksRequest extends AbstractModel{
+public class FreezeOpsTasksRequest extends AbstractModel {
 
     /**
     * 任务列表
@@ -35,6 +36,13 @@ public class FreezeOpsTasksRequest extends AbstractModel{
     @SerializedName("OperateIsInform")
     @Expose
     private Boolean OperateIsInform;
+
+    /**
+    * 是否终止已生成的实例
+    */
+    @SerializedName("KillInstance")
+    @Expose
+    private Boolean KillInstance;
 
     /**
      * Get 任务列表 
@@ -68,6 +76,22 @@ public class FreezeOpsTasksRequest extends AbstractModel{
         this.OperateIsInform = OperateIsInform;
     }
 
+    /**
+     * Get 是否终止已生成的实例 
+     * @return KillInstance 是否终止已生成的实例
+     */
+    public Boolean getKillInstance() {
+        return this.KillInstance;
+    }
+
+    /**
+     * Set 是否终止已生成的实例
+     * @param KillInstance 是否终止已生成的实例
+     */
+    public void setKillInstance(Boolean KillInstance) {
+        this.KillInstance = KillInstance;
+    }
+
     public FreezeOpsTasksRequest() {
     }
 
@@ -85,6 +109,9 @@ public class FreezeOpsTasksRequest extends AbstractModel{
         if (source.OperateIsInform != null) {
             this.OperateIsInform = new Boolean(source.OperateIsInform);
         }
+        if (source.KillInstance != null) {
+            this.KillInstance = new Boolean(source.KillInstance);
+        }
     }
 
 
@@ -94,6 +121,7 @@ public class FreezeOpsTasksRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Tasks.", this.Tasks);
         this.setParamSimple(map, prefix + "OperateIsInform", this.OperateIsInform);
+        this.setParamSimple(map, prefix + "KillInstance", this.KillInstance);
 
     }
 }

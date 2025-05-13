@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vrs.v20200824.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateVRSTaskRequest extends AbstractModel{
+public class CreateVRSTaskRequest extends AbstractModel {
 
     /**
     * 唯一请求 ID
@@ -35,15 +36,6 @@ public class CreateVRSTaskRequest extends AbstractModel{
     @SerializedName("VoiceName")
     @Expose
     private String VoiceName;
-
-    /**
-    * 音频采样率：
-
-16000：16k
-    */
-    @SerializedName("SampleRate")
-    @Expose
-    private Long SampleRate;
 
     /**
     * 音色性别:
@@ -66,6 +58,22 @@ public class CreateVRSTaskRequest extends AbstractModel{
     private Long VoiceLanguage;
 
     /**
+    * 音频ID集合。（一句话声音复刻仅需填写一个音质检测接口返回的AudioId）
+    */
+    @SerializedName("AudioIdList")
+    @Expose
+    private String [] AudioIdList;
+
+    /**
+    * 音频采样率：
+
+16000：16k
+    */
+    @SerializedName("SampleRate")
+    @Expose
+    private Long SampleRate;
+
+    /**
     * 音频格式，音频类型(wav,mp3,aac,m4a)
     */
     @SerializedName("Codec")
@@ -73,14 +81,7 @@ public class CreateVRSTaskRequest extends AbstractModel{
     private String Codec;
 
     /**
-    * 音频ID集合
-    */
-    @SerializedName("AudioIdList")
-    @Expose
-    private String [] AudioIdList;
-
-    /**
-    * 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。
+    * 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。（注意：回调方式目前仅支持轻量版声音复刻）
 回调采用POST请求方式，Content-Type为application/json，回调数据格式如下:{"TaskId":"xxxxxxxxxxxxxx","Status":2,"StatusStr":"success","VoiceType":xxxxx,"ErrorMsg":""}
     */
     @SerializedName("CallbackUrl")
@@ -88,11 +89,35 @@ public class CreateVRSTaskRequest extends AbstractModel{
     private String CallbackUrl;
 
     /**
-    * 任务类型 1:在线 2:离线  默认为1
+    * 模型类型 1:在线 2:离线  默认为1
     */
     @SerializedName("ModelType")
     @Expose
     private Long ModelType;
+
+    /**
+    * 复刻类型。
+0 - 轻量版声音复刻（默认）；
+5 - 一句话声音复刻。
+    */
+    @SerializedName("TaskType")
+    @Expose
+    private Long TaskType;
+
+    /**
+    * 校验音频ID。（仅基础版声音复刻使用）
+    */
+    @SerializedName("VPRAudioId")
+    @Expose
+    private String VPRAudioId;
+
+    /**
+    * 是否开启语音增强，0 - 关闭，1 - 开启 。默认关闭
+语音增强仅适用于一句话复刻场景
+    */
+    @SerializedName("EnableVoiceEnhance")
+    @Expose
+    private Long EnableVoiceEnhance;
 
     /**
      * Get 唯一请求 ID 
@@ -124,30 +149,6 @@ public class CreateVRSTaskRequest extends AbstractModel{
      */
     public void setVoiceName(String VoiceName) {
         this.VoiceName = VoiceName;
-    }
-
-    /**
-     * Get 音频采样率：
-
-16000：16k 
-     * @return SampleRate 音频采样率：
-
-16000：16k
-     */
-    public Long getSampleRate() {
-        return this.SampleRate;
-    }
-
-    /**
-     * Set 音频采样率：
-
-16000：16k
-     * @param SampleRate 音频采样率：
-
-16000：16k
-     */
-    public void setSampleRate(Long SampleRate) {
-        this.SampleRate = SampleRate;
     }
 
     /**
@@ -207,6 +208,46 @@ public class CreateVRSTaskRequest extends AbstractModel{
     }
 
     /**
+     * Get 音频ID集合。（一句话声音复刻仅需填写一个音质检测接口返回的AudioId） 
+     * @return AudioIdList 音频ID集合。（一句话声音复刻仅需填写一个音质检测接口返回的AudioId）
+     */
+    public String [] getAudioIdList() {
+        return this.AudioIdList;
+    }
+
+    /**
+     * Set 音频ID集合。（一句话声音复刻仅需填写一个音质检测接口返回的AudioId）
+     * @param AudioIdList 音频ID集合。（一句话声音复刻仅需填写一个音质检测接口返回的AudioId）
+     */
+    public void setAudioIdList(String [] AudioIdList) {
+        this.AudioIdList = AudioIdList;
+    }
+
+    /**
+     * Get 音频采样率：
+
+16000：16k 
+     * @return SampleRate 音频采样率：
+
+16000：16k
+     */
+    public Long getSampleRate() {
+        return this.SampleRate;
+    }
+
+    /**
+     * Set 音频采样率：
+
+16000：16k
+     * @param SampleRate 音频采样率：
+
+16000：16k
+     */
+    public void setSampleRate(Long SampleRate) {
+        this.SampleRate = SampleRate;
+    }
+
+    /**
      * Get 音频格式，音频类型(wav,mp3,aac,m4a) 
      * @return Codec 音频格式，音频类型(wav,mp3,aac,m4a)
      */
@@ -223,25 +264,9 @@ public class CreateVRSTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 音频ID集合 
-     * @return AudioIdList 音频ID集合
-     */
-    public String [] getAudioIdList() {
-        return this.AudioIdList;
-    }
-
-    /**
-     * Set 音频ID集合
-     * @param AudioIdList 音频ID集合
-     */
-    public void setAudioIdList(String [] AudioIdList) {
-        this.AudioIdList = AudioIdList;
-    }
-
-    /**
-     * Get 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。
+     * Get 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。（注意：回调方式目前仅支持轻量版声音复刻）
 回调采用POST请求方式，Content-Type为application/json，回调数据格式如下:{"TaskId":"xxxxxxxxxxxxxx","Status":2,"StatusStr":"success","VoiceType":xxxxx,"ErrorMsg":""} 
-     * @return CallbackUrl 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。
+     * @return CallbackUrl 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。（注意：回调方式目前仅支持轻量版声音复刻）
 回调采用POST请求方式，Content-Type为application/json，回调数据格式如下:{"TaskId":"xxxxxxxxxxxxxx","Status":2,"StatusStr":"success","VoiceType":xxxxx,"ErrorMsg":""}
      */
     public String getCallbackUrl() {
@@ -249,9 +274,9 @@ public class CreateVRSTaskRequest extends AbstractModel{
     }
 
     /**
-     * Set 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。
+     * Set 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。（注意：回调方式目前仅支持轻量版声音复刻）
 回调采用POST请求方式，Content-Type为application/json，回调数据格式如下:{"TaskId":"xxxxxxxxxxxxxx","Status":2,"StatusStr":"success","VoiceType":xxxxx,"ErrorMsg":""}
-     * @param CallbackUrl 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。
+     * @param CallbackUrl 回调 URL，用户自行搭建的用于接收结果的服务URL。如果用户使用轮询方式获取识别结果，则无需提交该参数。（注意：回调方式目前仅支持轻量版声音复刻）
 回调采用POST请求方式，Content-Type为application/json，回调数据格式如下:{"TaskId":"xxxxxxxxxxxxxx","Status":2,"StatusStr":"success","VoiceType":xxxxx,"ErrorMsg":""}
      */
     public void setCallbackUrl(String CallbackUrl) {
@@ -259,19 +284,79 @@ public class CreateVRSTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 任务类型 1:在线 2:离线  默认为1 
-     * @return ModelType 任务类型 1:在线 2:离线  默认为1
+     * Get 模型类型 1:在线 2:离线  默认为1 
+     * @return ModelType 模型类型 1:在线 2:离线  默认为1
      */
     public Long getModelType() {
         return this.ModelType;
     }
 
     /**
-     * Set 任务类型 1:在线 2:离线  默认为1
-     * @param ModelType 任务类型 1:在线 2:离线  默认为1
+     * Set 模型类型 1:在线 2:离线  默认为1
+     * @param ModelType 模型类型 1:在线 2:离线  默认为1
      */
     public void setModelType(Long ModelType) {
         this.ModelType = ModelType;
+    }
+
+    /**
+     * Get 复刻类型。
+0 - 轻量版声音复刻（默认）；
+5 - 一句话声音复刻。 
+     * @return TaskType 复刻类型。
+0 - 轻量版声音复刻（默认）；
+5 - 一句话声音复刻。
+     */
+    public Long getTaskType() {
+        return this.TaskType;
+    }
+
+    /**
+     * Set 复刻类型。
+0 - 轻量版声音复刻（默认）；
+5 - 一句话声音复刻。
+     * @param TaskType 复刻类型。
+0 - 轻量版声音复刻（默认）；
+5 - 一句话声音复刻。
+     */
+    public void setTaskType(Long TaskType) {
+        this.TaskType = TaskType;
+    }
+
+    /**
+     * Get 校验音频ID。（仅基础版声音复刻使用） 
+     * @return VPRAudioId 校验音频ID。（仅基础版声音复刻使用）
+     */
+    public String getVPRAudioId() {
+        return this.VPRAudioId;
+    }
+
+    /**
+     * Set 校验音频ID。（仅基础版声音复刻使用）
+     * @param VPRAudioId 校验音频ID。（仅基础版声音复刻使用）
+     */
+    public void setVPRAudioId(String VPRAudioId) {
+        this.VPRAudioId = VPRAudioId;
+    }
+
+    /**
+     * Get 是否开启语音增强，0 - 关闭，1 - 开启 。默认关闭
+语音增强仅适用于一句话复刻场景 
+     * @return EnableVoiceEnhance 是否开启语音增强，0 - 关闭，1 - 开启 。默认关闭
+语音增强仅适用于一句话复刻场景
+     */
+    public Long getEnableVoiceEnhance() {
+        return this.EnableVoiceEnhance;
+    }
+
+    /**
+     * Set 是否开启语音增强，0 - 关闭，1 - 开启 。默认关闭
+语音增强仅适用于一句话复刻场景
+     * @param EnableVoiceEnhance 是否开启语音增强，0 - 关闭，1 - 开启 。默认关闭
+语音增强仅适用于一句话复刻场景
+     */
+    public void setEnableVoiceEnhance(Long EnableVoiceEnhance) {
+        this.EnableVoiceEnhance = EnableVoiceEnhance;
     }
 
     public CreateVRSTaskRequest() {
@@ -288,17 +373,11 @@ public class CreateVRSTaskRequest extends AbstractModel{
         if (source.VoiceName != null) {
             this.VoiceName = new String(source.VoiceName);
         }
-        if (source.SampleRate != null) {
-            this.SampleRate = new Long(source.SampleRate);
-        }
         if (source.VoiceGender != null) {
             this.VoiceGender = new Long(source.VoiceGender);
         }
         if (source.VoiceLanguage != null) {
             this.VoiceLanguage = new Long(source.VoiceLanguage);
-        }
-        if (source.Codec != null) {
-            this.Codec = new String(source.Codec);
         }
         if (source.AudioIdList != null) {
             this.AudioIdList = new String[source.AudioIdList.length];
@@ -306,11 +385,26 @@ public class CreateVRSTaskRequest extends AbstractModel{
                 this.AudioIdList[i] = new String(source.AudioIdList[i]);
             }
         }
+        if (source.SampleRate != null) {
+            this.SampleRate = new Long(source.SampleRate);
+        }
+        if (source.Codec != null) {
+            this.Codec = new String(source.Codec);
+        }
         if (source.CallbackUrl != null) {
             this.CallbackUrl = new String(source.CallbackUrl);
         }
         if (source.ModelType != null) {
             this.ModelType = new Long(source.ModelType);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new Long(source.TaskType);
+        }
+        if (source.VPRAudioId != null) {
+            this.VPRAudioId = new String(source.VPRAudioId);
+        }
+        if (source.EnableVoiceEnhance != null) {
+            this.EnableVoiceEnhance = new Long(source.EnableVoiceEnhance);
         }
     }
 
@@ -321,13 +415,16 @@ public class CreateVRSTaskRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);
         this.setParamSimple(map, prefix + "VoiceName", this.VoiceName);
-        this.setParamSimple(map, prefix + "SampleRate", this.SampleRate);
         this.setParamSimple(map, prefix + "VoiceGender", this.VoiceGender);
         this.setParamSimple(map, prefix + "VoiceLanguage", this.VoiceLanguage);
-        this.setParamSimple(map, prefix + "Codec", this.Codec);
         this.setParamArraySimple(map, prefix + "AudioIdList.", this.AudioIdList);
+        this.setParamSimple(map, prefix + "SampleRate", this.SampleRate);
+        this.setParamSimple(map, prefix + "Codec", this.Codec);
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamSimple(map, prefix + "ModelType", this.ModelType);
+        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
+        this.setParamSimple(map, prefix + "VPRAudioId", this.VPRAudioId);
+        this.setParamSimple(map, prefix + "EnableVoiceEnhance", this.EnableVoiceEnhance);
 
     }
 }

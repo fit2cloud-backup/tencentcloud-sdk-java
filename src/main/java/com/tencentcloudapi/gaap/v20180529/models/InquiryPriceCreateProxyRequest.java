@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquiryPriceCreateProxyRequest extends AbstractModel{
+public class InquiryPriceCreateProxyRequest extends AbstractModel {
 
     /**
     * 加速区域名称。
@@ -44,7 +45,7 @@ public class InquiryPriceCreateProxyRequest extends AbstractModel{
     private String DestRegion;
 
     /**
-    * （旧参数，请切换到Concurrent）通道并发量上限，表示同时在线的连接数，单位：万。
+    * （此参数为旧参数，请填写新参数Concurrent，二者必须填写一个）通道并发量上限，表示同时在线的连接数，单位：万。
     */
     @SerializedName("Concurrency")
     @Expose
@@ -148,16 +149,16 @@ public class InquiryPriceCreateProxyRequest extends AbstractModel{
     }
 
     /**
-     * Get （旧参数，请切换到Concurrent）通道并发量上限，表示同时在线的连接数，单位：万。 
-     * @return Concurrency （旧参数，请切换到Concurrent）通道并发量上限，表示同时在线的连接数，单位：万。
+     * Get （此参数为旧参数，请填写新参数Concurrent，二者必须填写一个）通道并发量上限，表示同时在线的连接数，单位：万。 
+     * @return Concurrency （此参数为旧参数，请填写新参数Concurrent，二者必须填写一个）通道并发量上限，表示同时在线的连接数，单位：万。
      */
     public Long getConcurrency() {
         return this.Concurrency;
     }
 
     /**
-     * Set （旧参数，请切换到Concurrent）通道并发量上限，表示同时在线的连接数，单位：万。
-     * @param Concurrency （旧参数，请切换到Concurrent）通道并发量上限，表示同时在线的连接数，单位：万。
+     * Set （此参数为旧参数，请填写新参数Concurrent，二者必须填写一个）通道并发量上限，表示同时在线的连接数，单位：万。
+     * @param Concurrency （此参数为旧参数，请填写新参数Concurrent，二者必须填写一个）通道并发量上限，表示同时在线的连接数，单位：万。
      */
     public void setConcurrency(Long Concurrency) {
         this.Concurrency = Concurrency;

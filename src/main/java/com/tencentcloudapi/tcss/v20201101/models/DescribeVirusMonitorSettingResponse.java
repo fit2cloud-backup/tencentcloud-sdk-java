@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVirusMonitorSettingResponse extends AbstractModel{
+public class DescribeVirusMonitorSettingResponse extends AbstractModel {
 
     /**
     * 是否开启实时监控
@@ -31,7 +32,6 @@ public class DescribeVirusMonitorSettingResponse extends AbstractModel{
 
     /**
     * 扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanPathAll")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeVirusMonitorSettingResponse extends AbstractModel{
 
     /**
     * 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanPathType")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeVirusMonitorSettingResponse extends AbstractModel{
 
     /**
     * 自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanPath")
     @Expose
@@ -65,7 +63,7 @@ SCAN_PATH_USER_DEFINE：用户自定义路径
     private String ScanPathMode;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -88,10 +86,8 @@ SCAN_PATH_USER_DEFINE：用户自定义路径
     }
 
     /**
-     * Get 扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描全部路径 
      * @return ScanPathAll 扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getScanPathAll() {
         return this.ScanPathAll;
@@ -99,19 +95,15 @@ SCAN_PATH_USER_DEFINE：用户自定义路径
 
     /**
      * Set 扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanPathAll 扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanPathAll(Boolean ScanPathAll) {
         this.ScanPathAll = ScanPathAll;
     }
 
     /**
-     * Get 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径 
      * @return ScanPathType 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanPathType() {
         return this.ScanPathType;
@@ -119,19 +111,15 @@ SCAN_PATH_USER_DEFINE：用户自定义路径
 
     /**
      * Set 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanPathType 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanPathType(Long ScanPathType) {
         this.ScanPathType = ScanPathType;
     }
 
     /**
-     * Get 自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自选排除或扫描的地址 
      * @return ScanPath 自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getScanPath() {
         return this.ScanPath;
@@ -139,9 +127,7 @@ SCAN_PATH_USER_DEFINE：用户自定义路径
 
     /**
      * Set 自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanPath 自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanPath(String [] ScanPath) {
         this.ScanPath = ScanPath;
@@ -180,16 +166,16 @@ SCAN_PATH_USER_DEFINE：用户自定义路径
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

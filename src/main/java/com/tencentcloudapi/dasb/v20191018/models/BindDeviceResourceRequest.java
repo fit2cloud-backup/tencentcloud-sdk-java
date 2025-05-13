@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BindDeviceResourceRequest extends AbstractModel{
+public class BindDeviceResourceRequest extends AbstractModel {
 
     /**
     * 资产ID集合
@@ -35,6 +36,13 @@ public class BindDeviceResourceRequest extends AbstractModel{
     @SerializedName("ResourceId")
     @Expose
     private String ResourceId;
+
+    /**
+    * 网络域ID
+    */
+    @SerializedName("DomainId")
+    @Expose
+    private String DomainId;
 
     /**
      * Get 资产ID集合 
@@ -68,6 +76,22 @@ public class BindDeviceResourceRequest extends AbstractModel{
         this.ResourceId = ResourceId;
     }
 
+    /**
+     * Get 网络域ID 
+     * @return DomainId 网络域ID
+     */
+    public String getDomainId() {
+        return this.DomainId;
+    }
+
+    /**
+     * Set 网络域ID
+     * @param DomainId 网络域ID
+     */
+    public void setDomainId(String DomainId) {
+        this.DomainId = DomainId;
+    }
+
     public BindDeviceResourceRequest() {
     }
 
@@ -85,6 +109,9 @@ public class BindDeviceResourceRequest extends AbstractModel{
         if (source.ResourceId != null) {
             this.ResourceId = new String(source.ResourceId);
         }
+        if (source.DomainId != null) {
+            this.DomainId = new String(source.DomainId);
+        }
     }
 
 
@@ -94,6 +121,7 @@ public class BindDeviceResourceRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "DeviceIdSet.", this.DeviceIdSet);
         this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
+        this.setParamSimple(map, prefix + "DomainId", this.DomainId);
 
     }
 }

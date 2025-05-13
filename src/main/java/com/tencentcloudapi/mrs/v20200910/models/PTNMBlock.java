@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PTNMBlock extends AbstractModel{
+public class PTNMBlock extends AbstractModel {
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class PTNMBlock extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -40,7 +39,6 @@ public class PTNMBlock extends AbstractModel{
 
     /**
     * PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PTNMM")
     @Expose
@@ -48,7 +46,6 @@ public class PTNMBlock extends AbstractModel{
 
     /**
     * PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PTNMN")
     @Expose
@@ -56,17 +53,14 @@ public class PTNMBlock extends AbstractModel{
 
     /**
     * PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PTNMT")
     @Expose
     private String PTNMT;
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -74,19 +68,15 @@ public class PTNMBlock extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -94,19 +84,15 @@ public class PTNMBlock extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PTNM分期 
      * @return PTNMM PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPTNMM() {
         return this.PTNMM;
@@ -114,19 +100,15 @@ public class PTNMBlock extends AbstractModel{
 
     /**
      * Set PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PTNMM PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPTNMM(String PTNMM) {
         this.PTNMM = PTNMM;
     }
 
     /**
-     * Get PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PTNM分期 
      * @return PTNMN PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPTNMN() {
         return this.PTNMN;
@@ -134,19 +116,15 @@ public class PTNMBlock extends AbstractModel{
 
     /**
      * Set PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PTNMN PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPTNMN(String PTNMN) {
         this.PTNMN = PTNMN;
     }
 
     /**
-     * Get PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PTNM分期 
      * @return PTNMT PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPTNMT() {
         return this.PTNMT;
@@ -154,9 +132,7 @@ public class PTNMBlock extends AbstractModel{
 
     /**
      * Set PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PTNMT PTNM分期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPTNMT(String PTNMT) {
         this.PTNMT = PTNMT;

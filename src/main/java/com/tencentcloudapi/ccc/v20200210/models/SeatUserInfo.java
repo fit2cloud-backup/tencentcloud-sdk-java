@@ -16,21 +16,22 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SeatUserInfo extends AbstractModel{
+public class SeatUserInfo extends AbstractModel {
 
     /**
-    * 坐席名称
+    * 座席名称
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 坐席邮箱
+    * 座席邮箱
     */
     @SerializedName("Mail")
     @Expose
@@ -38,21 +39,20 @@ public class SeatUserInfo extends AbstractModel{
 
     /**
     * 工号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StaffNumber")
     @Expose
     private String StaffNumber;
 
     /**
-    * 坐席电话号码（带0086前缀）
+    * 座席电话号码（带0086前缀）
     */
     @SerializedName("Phone")
     @Expose
     private String Phone;
 
     /**
-    * 坐席昵称
+    * 座席昵称
     */
     @SerializedName("Nick")
     @Expose
@@ -66,50 +66,64 @@ public class SeatUserInfo extends AbstractModel{
     private String UserId;
 
     /**
-    * 坐席关联的技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席关联的技能组列表
     */
     @SerializedName("SkillGroupNameList")
     @Expose
     private String [] SkillGroupNameList;
 
     /**
-     * Get 坐席名称 
-     * @return Name 坐席名称
+    * 1:管理员
+2:质检员
+3:普通座席
+else:自定义角色ID
+    */
+    @SerializedName("Role")
+    @Expose
+    private Long Role;
+
+    /**
+    * 座席分机号（1 到 8 打头，4 - 6 位）
+    */
+    @SerializedName("ExtensionNumber")
+    @Expose
+    private String ExtensionNumber;
+
+    /**
+     * Get 座席名称 
+     * @return Name 座席名称
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 坐席名称
-     * @param Name 坐席名称
+     * Set 座席名称
+     * @param Name 座席名称
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 坐席邮箱 
-     * @return Mail 坐席邮箱
+     * Get 座席邮箱 
+     * @return Mail 座席邮箱
      */
     public String getMail() {
         return this.Mail;
     }
 
     /**
-     * Set 坐席邮箱
-     * @param Mail 坐席邮箱
+     * Set 座席邮箱
+     * @param Mail 座席邮箱
      */
     public void setMail(String Mail) {
         this.Mail = Mail;
     }
 
     /**
-     * Get 工号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 工号 
      * @return StaffNumber 工号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStaffNumber() {
         return this.StaffNumber;
@@ -117,41 +131,39 @@ public class SeatUserInfo extends AbstractModel{
 
     /**
      * Set 工号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StaffNumber 工号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStaffNumber(String StaffNumber) {
         this.StaffNumber = StaffNumber;
     }
 
     /**
-     * Get 坐席电话号码（带0086前缀） 
-     * @return Phone 坐席电话号码（带0086前缀）
+     * Get 座席电话号码（带0086前缀） 
+     * @return Phone 座席电话号码（带0086前缀）
      */
     public String getPhone() {
         return this.Phone;
     }
 
     /**
-     * Set 坐席电话号码（带0086前缀）
-     * @param Phone 坐席电话号码（带0086前缀）
+     * Set 座席电话号码（带0086前缀）
+     * @param Phone 座席电话号码（带0086前缀）
      */
     public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 
     /**
-     * Get 坐席昵称 
-     * @return Nick 坐席昵称
+     * Get 座席昵称 
+     * @return Nick 座席昵称
      */
     public String getNick() {
         return this.Nick;
     }
 
     /**
-     * Set 坐席昵称
-     * @param Nick 坐席昵称
+     * Set 座席昵称
+     * @param Nick 座席昵称
      */
     public void setNick(String Nick) {
         this.Nick = Nick;
@@ -174,23 +186,63 @@ public class SeatUserInfo extends AbstractModel{
     }
 
     /**
-     * Get 坐席关联的技能组列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SkillGroupNameList 坐席关联的技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 座席关联的技能组列表 
+     * @return SkillGroupNameList 座席关联的技能组列表
      */
     public String [] getSkillGroupNameList() {
         return this.SkillGroupNameList;
     }
 
     /**
-     * Set 坐席关联的技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SkillGroupNameList 坐席关联的技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 座席关联的技能组列表
+     * @param SkillGroupNameList 座席关联的技能组列表
      */
     public void setSkillGroupNameList(String [] SkillGroupNameList) {
         this.SkillGroupNameList = SkillGroupNameList;
+    }
+
+    /**
+     * Get 1:管理员
+2:质检员
+3:普通座席
+else:自定义角色ID 
+     * @return Role 1:管理员
+2:质检员
+3:普通座席
+else:自定义角色ID
+     */
+    public Long getRole() {
+        return this.Role;
+    }
+
+    /**
+     * Set 1:管理员
+2:质检员
+3:普通座席
+else:自定义角色ID
+     * @param Role 1:管理员
+2:质检员
+3:普通座席
+else:自定义角色ID
+     */
+    public void setRole(Long Role) {
+        this.Role = Role;
+    }
+
+    /**
+     * Get 座席分机号（1 到 8 打头，4 - 6 位） 
+     * @return ExtensionNumber 座席分机号（1 到 8 打头，4 - 6 位）
+     */
+    public String getExtensionNumber() {
+        return this.ExtensionNumber;
+    }
+
+    /**
+     * Set 座席分机号（1 到 8 打头，4 - 6 位）
+     * @param ExtensionNumber 座席分机号（1 到 8 打头，4 - 6 位）
+     */
+    public void setExtensionNumber(String ExtensionNumber) {
+        this.ExtensionNumber = ExtensionNumber;
     }
 
     public SeatUserInfo() {
@@ -225,6 +277,12 @@ public class SeatUserInfo extends AbstractModel{
                 this.SkillGroupNameList[i] = new String(source.SkillGroupNameList[i]);
             }
         }
+        if (source.Role != null) {
+            this.Role = new Long(source.Role);
+        }
+        if (source.ExtensionNumber != null) {
+            this.ExtensionNumber = new String(source.ExtensionNumber);
+        }
     }
 
 
@@ -239,6 +297,8 @@ public class SeatUserInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Nick", this.Nick);
         this.setParamSimple(map, prefix + "UserId", this.UserId);
         this.setParamArraySimple(map, prefix + "SkillGroupNameList.", this.SkillGroupNameList);
+        this.setParamSimple(map, prefix + "Role", this.Role);
+        this.setParamSimple(map, prefix + "ExtensionNumber", this.ExtensionNumber);
 
     }
 }

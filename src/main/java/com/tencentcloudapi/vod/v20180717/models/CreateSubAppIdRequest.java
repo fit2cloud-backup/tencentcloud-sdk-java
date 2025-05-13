@@ -16,56 +16,80 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSubAppIdRequest extends AbstractModel{
+public class CreateSubAppIdRequest extends AbstractModel {
 
     /**
-    * 子应用名称，长度限制：40个字符。
+    * 应用名称，长度限制：40个字符。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 子应用简介，长度限制： 300个字符。
+    * 应用简介，长度限制： 300个字符。不填则应用简介默认为空。
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-     * Get 子应用名称，长度限制：40个字符。 
-     * @return Name 子应用名称，长度限制：40个字符。
+    * 应用类型， 取值有：<li>AllInOne：一体化；</li><li>Professional：专业版。</li>默认值为 AllInOne。
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+     * Get 应用名称，长度限制：40个字符。 
+     * @return Name 应用名称，长度限制：40个字符。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 子应用名称，长度限制：40个字符。
-     * @param Name 子应用名称，长度限制：40个字符。
+     * Set 应用名称，长度限制：40个字符。
+     * @param Name 应用名称，长度限制：40个字符。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 子应用简介，长度限制： 300个字符。 
-     * @return Description 子应用简介，长度限制： 300个字符。
+     * Get 应用简介，长度限制： 300个字符。不填则应用简介默认为空。 
+     * @return Description 应用简介，长度限制： 300个字符。不填则应用简介默认为空。
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 子应用简介，长度限制： 300个字符。
-     * @param Description 子应用简介，长度限制： 300个字符。
+     * Set 应用简介，长度限制： 300个字符。不填则应用简介默认为空。
+     * @param Description 应用简介，长度限制： 300个字符。不填则应用简介默认为空。
      */
     public void setDescription(String Description) {
         this.Description = Description;
+    }
+
+    /**
+     * Get 应用类型， 取值有：<li>AllInOne：一体化；</li><li>Professional：专业版。</li>默认值为 AllInOne。 
+     * @return Type 应用类型， 取值有：<li>AllInOne：一体化；</li><li>Professional：专业版。</li>默认值为 AllInOne。
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 应用类型， 取值有：<li>AllInOne：一体化；</li><li>Professional：专业版。</li>默认值为 AllInOne。
+     * @param Type 应用类型， 取值有：<li>AllInOne：一体化；</li><li>Professional：专业版。</li>默认值为 AllInOne。
+     */
+    public void setType(String Type) {
+        this.Type = Type;
     }
 
     public CreateSubAppIdRequest() {
@@ -82,6 +106,9 @@ public class CreateSubAppIdRequest extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class CreateSubAppIdRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "Type", this.Type);
 
     }
 }

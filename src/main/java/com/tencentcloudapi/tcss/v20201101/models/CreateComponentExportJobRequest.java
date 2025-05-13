@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateComponentExportJobRequest extends AbstractModel{
+public class CreateComponentExportJobRequest extends AbstractModel {
 
     /**
     * 镜像ID
@@ -28,13 +29,6 @@ public class CreateComponentExportJobRequest extends AbstractModel{
     @SerializedName("ImageID")
     @Expose
     private String ImageID;
-
-    /**
-    * 导出字段
-    */
-    @SerializedName("ExportField")
-    @Expose
-    private String [] ExportField;
 
     /**
     * 需要返回的数量，默认为10000，最大值为10000
@@ -73,6 +67,13 @@ public class CreateComponentExportJobRequest extends AbstractModel{
     private String Order;
 
     /**
+    * 导出字段
+    */
+    @SerializedName("ExportField")
+    @Expose
+    private String [] ExportField;
+
+    /**
      * Get 镜像ID 
      * @return ImageID 镜像ID
      */
@@ -86,22 +87,6 @@ public class CreateComponentExportJobRequest extends AbstractModel{
      */
     public void setImageID(String ImageID) {
         this.ImageID = ImageID;
-    }
-
-    /**
-     * Get 导出字段 
-     * @return ExportField 导出字段
-     */
-    public String [] getExportField() {
-        return this.ExportField;
-    }
-
-    /**
-     * Set 导出字段
-     * @param ExportField 导出字段
-     */
-    public void setExportField(String [] ExportField) {
-        this.ExportField = ExportField;
     }
 
     /**
@@ -188,6 +173,22 @@ public class CreateComponentExportJobRequest extends AbstractModel{
         this.Order = Order;
     }
 
+    /**
+     * Get 导出字段 
+     * @return ExportField 导出字段
+     */
+    public String [] getExportField() {
+        return this.ExportField;
+    }
+
+    /**
+     * Set 导出字段
+     * @param ExportField 导出字段
+     */
+    public void setExportField(String [] ExportField) {
+        this.ExportField = ExportField;
+    }
+
     public CreateComponentExportJobRequest() {
     }
 
@@ -198,12 +199,6 @@ public class CreateComponentExportJobRequest extends AbstractModel{
     public CreateComponentExportJobRequest(CreateComponentExportJobRequest source) {
         if (source.ImageID != null) {
             this.ImageID = new String(source.ImageID);
-        }
-        if (source.ExportField != null) {
-            this.ExportField = new String[source.ExportField.length];
-            for (int i = 0; i < source.ExportField.length; i++) {
-                this.ExportField[i] = new String(source.ExportField[i]);
-            }
         }
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
@@ -223,6 +218,12 @@ public class CreateComponentExportJobRequest extends AbstractModel{
         if (source.Order != null) {
             this.Order = new String(source.Order);
         }
+        if (source.ExportField != null) {
+            this.ExportField = new String[source.ExportField.length];
+            for (int i = 0; i < source.ExportField.length; i++) {
+                this.ExportField[i] = new String(source.ExportField[i]);
+            }
+        }
     }
 
 
@@ -231,12 +232,12 @@ public class CreateComponentExportJobRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ImageID", this.ImageID);
-        this.setParamArraySimple(map, prefix + "ExportField.", this.ExportField);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "By", this.By);
         this.setParamSimple(map, prefix + "Order", this.Order);
+        this.setParamArraySimple(map, prefix + "ExportField.", this.ExportField);
 
     }
 }

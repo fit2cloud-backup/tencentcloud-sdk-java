@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResumeIntegrationTaskRequest extends AbstractModel{
+public class ResumeIntegrationTaskRequest extends AbstractModel {
 
     /**
     * 任务id
@@ -49,6 +50,13 @@ public class ResumeIntegrationTaskRequest extends AbstractModel{
     @SerializedName("ExtConfig")
     @Expose
     private RecordField [] ExtConfig;
+
+    /**
+    * 前端操作类型描述
+    */
+    @SerializedName("EventDesc")
+    @Expose
+    private String EventDesc;
 
     /**
      * Get 任务id 
@@ -114,6 +122,22 @@ public class ResumeIntegrationTaskRequest extends AbstractModel{
         this.ExtConfig = ExtConfig;
     }
 
+    /**
+     * Get 前端操作类型描述 
+     * @return EventDesc 前端操作类型描述
+     */
+    public String getEventDesc() {
+        return this.EventDesc;
+    }
+
+    /**
+     * Set 前端操作类型描述
+     * @param EventDesc 前端操作类型描述
+     */
+    public void setEventDesc(String EventDesc) {
+        this.EventDesc = EventDesc;
+    }
+
     public ResumeIntegrationTaskRequest() {
     }
 
@@ -137,6 +161,9 @@ public class ResumeIntegrationTaskRequest extends AbstractModel{
                 this.ExtConfig[i] = new RecordField(source.ExtConfig[i]);
             }
         }
+        if (source.EventDesc != null) {
+            this.EventDesc = new String(source.EventDesc);
+        }
     }
 
 
@@ -148,6 +175,7 @@ public class ResumeIntegrationTaskRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Event", this.Event);
         this.setParamArrayObj(map, prefix + "ExtConfig.", this.ExtConfig);
+        this.setParamSimple(map, prefix + "EventDesc", this.EventDesc);
 
     }
 }

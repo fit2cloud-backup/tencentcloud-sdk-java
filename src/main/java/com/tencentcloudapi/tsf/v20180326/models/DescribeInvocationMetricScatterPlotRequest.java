@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInvocationMetricScatterPlotRequest extends AbstractModel{
+public class DescribeInvocationMetricScatterPlotRequest extends AbstractModel {
 
     /**
     * 查询开始时间
@@ -44,14 +45,14 @@ public class DescribeInvocationMetricScatterPlotRequest extends AbstractModel{
     private Long Period;
 
     /**
-    * 查询指标维度
+    * 查询指标维度, 不能为空。可选 NamespaceId, GroupId, InstanceId, OperationName, ServiceName, PeerServiceName, PeerOperationName
     */
     @SerializedName("MetricDimensions")
     @Expose
     private MetricDimension [] MetricDimensions;
 
     /**
-    * 查询指标名
+    * 查询指标名， 不能为空。仅支持 range_count_duratioin 为 key 下的 sum 方法
     */
     @SerializedName("Metrics")
     @Expose
@@ -113,32 +114,32 @@ public class DescribeInvocationMetricScatterPlotRequest extends AbstractModel{
     }
 
     /**
-     * Get 查询指标维度 
-     * @return MetricDimensions 查询指标维度
+     * Get 查询指标维度, 不能为空。可选 NamespaceId, GroupId, InstanceId, OperationName, ServiceName, PeerServiceName, PeerOperationName 
+     * @return MetricDimensions 查询指标维度, 不能为空。可选 NamespaceId, GroupId, InstanceId, OperationName, ServiceName, PeerServiceName, PeerOperationName
      */
     public MetricDimension [] getMetricDimensions() {
         return this.MetricDimensions;
     }
 
     /**
-     * Set 查询指标维度
-     * @param MetricDimensions 查询指标维度
+     * Set 查询指标维度, 不能为空。可选 NamespaceId, GroupId, InstanceId, OperationName, ServiceName, PeerServiceName, PeerOperationName
+     * @param MetricDimensions 查询指标维度, 不能为空。可选 NamespaceId, GroupId, InstanceId, OperationName, ServiceName, PeerServiceName, PeerOperationName
      */
     public void setMetricDimensions(MetricDimension [] MetricDimensions) {
         this.MetricDimensions = MetricDimensions;
     }
 
     /**
-     * Get 查询指标名 
-     * @return Metrics 查询指标名
+     * Get 查询指标名， 不能为空。仅支持 range_count_duratioin 为 key 下的 sum 方法 
+     * @return Metrics 查询指标名， 不能为空。仅支持 range_count_duratioin 为 key 下的 sum 方法
      */
     public Metric [] getMetrics() {
         return this.Metrics;
     }
 
     /**
-     * Set 查询指标名
-     * @param Metrics 查询指标名
+     * Set 查询指标名， 不能为空。仅支持 range_count_duratioin 为 key 下的 sum 方法
+     * @param Metrics 查询指标名， 不能为空。仅支持 range_count_duratioin 为 key 下的 sum 方法
      */
     public void setMetrics(Metric [] Metrics) {
         this.Metrics = Metrics;

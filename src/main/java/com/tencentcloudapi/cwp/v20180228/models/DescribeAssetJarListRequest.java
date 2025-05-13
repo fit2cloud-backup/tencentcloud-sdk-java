@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetJarListRequest extends AbstractModel{
+public class DescribeAssetJarListRequest extends AbstractModel {
 
     /**
     * 服务器Uuid
@@ -38,7 +39,9 @@ public class DescribeAssetJarListRequest extends AbstractModel{
 
     /**
     * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>Type- uint - 是否必填：否 - 类型	
 1: 应用程序
@@ -113,7 +116,9 @@ public class DescribeAssetJarListRequest extends AbstractModel{
 
     /**
      * Get 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>Type- uint - 是否必填：否 - 类型	
 1: 应用程序
@@ -122,7 +127,9 @@ public class DescribeAssetJarListRequest extends AbstractModel{
 4 : 其他依赖包</li>
 <li>Status- string - 是否必填：否 - 是否可执行：0否，1是</li> 
      * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>Type- uint - 是否必填：否 - 类型	
 1: 应用程序
@@ -137,7 +144,9 @@ public class DescribeAssetJarListRequest extends AbstractModel{
 
     /**
      * Set 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>Type- uint - 是否必填：否 - 类型	
 1: 应用程序
@@ -146,7 +155,9 @@ public class DescribeAssetJarListRequest extends AbstractModel{
 4 : 其他依赖包</li>
 <li>Status- string - 是否必填：否 - 是否可执行：0否，1是</li>
      * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>Type- uint - 是否必填：否 - 类型	
 1: 应用程序

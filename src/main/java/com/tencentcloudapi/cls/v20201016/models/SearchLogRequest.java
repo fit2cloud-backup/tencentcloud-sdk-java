@@ -16,21 +16,22 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchLogRequest extends AbstractModel{
+public class SearchLogRequest extends AbstractModel {
 
     /**
-    * 要检索分析的日志的起始时间，Unix时间戳（毫秒）
+    * 要检索分析的日志的起始时间，**Unix时间戳（毫秒）**
     */
     @SerializedName("From")
     @Expose
     private Long From;
 
     /**
-    * 要检索分析的日志的结束时间，Unix时间戳（毫秒）
+    * 要检索分析的日志的结束时间，**Unix时间戳（毫秒）**
     */
     @SerializedName("To")
     @Expose
@@ -46,22 +47,70 @@ public class SearchLogRequest extends AbstractModel{
     private String Query;
 
     /**
+    * 检索语法规则，默认值为0，推荐使用1 。
+- 0：Lucene语法
+- 1：CQL语法（CLS Query Language，日志服务专用检索语法）
+
+ ⚠️⚠️ **注意**
+ **该参数值建议设置为 1，使用 CQL 语法规则，控制台日志检索及仪表盘默认均使用该语法规则。**
+ 该参数值未指定或者为 0 时，将使用 Lucene 语法，语法容易报错且查询结果与控制台默认语法规则不一致。详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>。
+    */
+    @SerializedName("SyntaxRule")
+    @Expose
+    private Long SyntaxRule;
+
+    /**
     * - 要检索分析的日志主题ID，仅能指定一个日志主题。
 - 如需同时检索多个日志主题，请使用Topics参数。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
     */
     @SerializedName("TopicId")
     @Expose
     private String TopicId;
 
     /**
-    * 表示单次查询返回的原始日志条数，默认为100，最大值为1000，获取后续日志需使用Context参数
+    * - 要检索分析的日志主题列表，最大支持50个日志主题。
+- 检索单个日志主题时请使用TopicId。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
+    */
+    @SerializedName("Topics")
+    @Expose
+    private MultiTopicSearchInformation [] Topics;
+
+    /**
+    * 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
+    */
+    @SerializedName("Sort")
+    @Expose
+    private String Sort;
+
+    /**
+    * 表示单次查询返回的原始日志条数，默认为100，最大值为1000。
 注意：
 * 仅当检索分析语句(Query)不包含SQL时有效
 * SQL结果条数指定方式参考<a href="https://cloud.tencent.com/document/product/614/58977" target="_blank">SQL LIMIT语法</a>
+
+可通过两种方式获取后续更多日志：
+* Context:透传上次接口返回的Context值，获取后续更多日志，总计最多可获取1万条原始日志
+* Offset:偏移量，表示从第几行开始返回原始日志，无日志条数限制
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 查询原始日志的偏移量，表示从第几行开始返回原始日志，默认为0。 
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* 不能与Context参数同时使用
+* 仅适用于单日志主题检索
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
 
     /**
     * 透传上次接口返回的Context值，可获取后续更多日志，总计最多可获取1万条原始日志，过期时间1小时。
@@ -75,25 +124,6 @@ public class SearchLogRequest extends AbstractModel{
     private String Context;
 
     /**
-    * 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
-注意：
-* 仅当检索分析语句(Query)不包含SQL时有效
-* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
-    */
-    @SerializedName("Sort")
-    @Expose
-    private String Sort;
-
-    /**
-    * 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
-为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
-两种返回方式在编码格式上有少量区别，建议使用true
-    */
-    @SerializedName("UseNewAnalysis")
-    @Expose
-    private Boolean UseNewAnalysis;
-
-    /**
     * 执行统计分析（Query中包含SQL）时，是否对原始日志先进行采样，再进行统计分析。
 0：自动采样;
 0～1：按指定采样率采样，例如0.02;
@@ -105,50 +135,48 @@ public class SearchLogRequest extends AbstractModel{
     private Float SamplingRate;
 
     /**
-    * 检索语法规则，默认值为0。
-0：Lucene语法，1：CQL语法。
-详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+    * 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
+为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
+两种返回方式在编码格式上有少量区别，建议使用true
     */
-    @SerializedName("SyntaxRule")
+    @SerializedName("UseNewAnalysis")
     @Expose
-    private Long SyntaxRule;
+    private Boolean UseNewAnalysis;
 
     /**
-    * - 要检索分析的日志主题列表，最大支持20个日志主题。
-- 检索单个日志主题时请使用TopicId。
-- 不能同时使用TopicId和Topics。
+    * 是否高亮符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索
     */
-    @SerializedName("Topics")
+    @SerializedName("HighLight")
     @Expose
-    private MultiTopicSearchInformation [] Topics;
+    private Boolean HighLight;
 
     /**
-     * Get 要检索分析的日志的起始时间，Unix时间戳（毫秒） 
-     * @return From 要检索分析的日志的起始时间，Unix时间戳（毫秒）
+     * Get 要检索分析的日志的起始时间，**Unix时间戳（毫秒）** 
+     * @return From 要检索分析的日志的起始时间，**Unix时间戳（毫秒）**
      */
     public Long getFrom() {
         return this.From;
     }
 
     /**
-     * Set 要检索分析的日志的起始时间，Unix时间戳（毫秒）
-     * @param From 要检索分析的日志的起始时间，Unix时间戳（毫秒）
+     * Set 要检索分析的日志的起始时间，**Unix时间戳（毫秒）**
+     * @param From 要检索分析的日志的起始时间，**Unix时间戳（毫秒）**
      */
     public void setFrom(Long From) {
         this.From = From;
     }
 
     /**
-     * Get 要检索分析的日志的结束时间，Unix时间戳（毫秒） 
-     * @return To 要检索分析的日志的结束时间，Unix时间戳（毫秒）
+     * Get 要检索分析的日志的结束时间，**Unix时间戳（毫秒）** 
+     * @return To 要检索分析的日志的结束时间，**Unix时间戳（毫秒）**
      */
     public Long getTo() {
         return this.To;
     }
 
     /**
-     * Set 要检索分析的日志的结束时间，Unix时间戳（毫秒）
-     * @param To 要检索分析的日志的结束时间，Unix时间戳（毫秒）
+     * Set 要检索分析的日志的结束时间，**Unix时间戳（毫秒）**
+     * @param To 要检索分析的日志的结束时间，**Unix时间戳（毫秒）**
      */
     public void setTo(Long To) {
         this.To = To;
@@ -179,10 +207,52 @@ public class SearchLogRequest extends AbstractModel{
     }
 
     /**
+     * Get 检索语法规则，默认值为0，推荐使用1 。
+- 0：Lucene语法
+- 1：CQL语法（CLS Query Language，日志服务专用检索语法）
+
+ ⚠️⚠️ **注意**
+ **该参数值建议设置为 1，使用 CQL 语法规则，控制台日志检索及仪表盘默认均使用该语法规则。**
+ 该参数值未指定或者为 0 时，将使用 Lucene 语法，语法容易报错且查询结果与控制台默认语法规则不一致。详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>。 
+     * @return SyntaxRule 检索语法规则，默认值为0，推荐使用1 。
+- 0：Lucene语法
+- 1：CQL语法（CLS Query Language，日志服务专用检索语法）
+
+ ⚠️⚠️ **注意**
+ **该参数值建议设置为 1，使用 CQL 语法规则，控制台日志检索及仪表盘默认均使用该语法规则。**
+ 该参数值未指定或者为 0 时，将使用 Lucene 语法，语法容易报错且查询结果与控制台默认语法规则不一致。详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>。
+     */
+    public Long getSyntaxRule() {
+        return this.SyntaxRule;
+    }
+
+    /**
+     * Set 检索语法规则，默认值为0，推荐使用1 。
+- 0：Lucene语法
+- 1：CQL语法（CLS Query Language，日志服务专用检索语法）
+
+ ⚠️⚠️ **注意**
+ **该参数值建议设置为 1，使用 CQL 语法规则，控制台日志检索及仪表盘默认均使用该语法规则。**
+ 该参数值未指定或者为 0 时，将使用 Lucene 语法，语法容易报错且查询结果与控制台默认语法规则不一致。详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>。
+     * @param SyntaxRule 检索语法规则，默认值为0，推荐使用1 。
+- 0：Lucene语法
+- 1：CQL语法（CLS Query Language，日志服务专用检索语法）
+
+ ⚠️⚠️ **注意**
+ **该参数值建议设置为 1，使用 CQL 语法规则，控制台日志检索及仪表盘默认均使用该语法规则。**
+ 该参数值未指定或者为 0 时，将使用 Lucene 语法，语法容易报错且查询结果与控制台默认语法规则不一致。详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>。
+     */
+    public void setSyntaxRule(Long SyntaxRule) {
+        this.SyntaxRule = SyntaxRule;
+    }
+
+    /**
      * Get - 要检索分析的日志主题ID，仅能指定一个日志主题。
-- 如需同时检索多个日志主题，请使用Topics参数。 
+- 如需同时检索多个日志主题，请使用Topics参数。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。 
      * @return TopicId - 要检索分析的日志主题ID，仅能指定一个日志主题。
 - 如需同时检索多个日志主题，请使用Topics参数。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
      */
     public String getTopicId() {
         return this.TopicId;
@@ -191,39 +261,141 @@ public class SearchLogRequest extends AbstractModel{
     /**
      * Set - 要检索分析的日志主题ID，仅能指定一个日志主题。
 - 如需同时检索多个日志主题，请使用Topics参数。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
      * @param TopicId - 要检索分析的日志主题ID，仅能指定一个日志主题。
 - 如需同时检索多个日志主题，请使用Topics参数。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
      */
     public void setTopicId(String TopicId) {
         this.TopicId = TopicId;
     }
 
     /**
-     * Get 表示单次查询返回的原始日志条数，默认为100，最大值为1000，获取后续日志需使用Context参数
+     * Get - 要检索分析的日志主题列表，最大支持50个日志主题。
+- 检索单个日志主题时请使用TopicId。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。 
+     * @return Topics - 要检索分析的日志主题列表，最大支持50个日志主题。
+- 检索单个日志主题时请使用TopicId。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
+     */
+    public MultiTopicSearchInformation [] getTopics() {
+        return this.Topics;
+    }
+
+    /**
+     * Set - 要检索分析的日志主题列表，最大支持50个日志主题。
+- 检索单个日志主题时请使用TopicId。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
+     * @param Topics - 要检索分析的日志主题列表，最大支持50个日志主题。
+- 检索单个日志主题时请使用TopicId。
+- TopicId 和 Topics 不能同时使用，在一次请求中有且只能选择一个。
+     */
+    public void setTopics(MultiTopicSearchInformation [] Topics) {
+        this.Topics = Topics;
+    }
+
+    /**
+     * Get 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
 注意：
 * 仅当检索分析语句(Query)不包含SQL时有效
-* SQL结果条数指定方式参考<a href="https://cloud.tencent.com/document/product/614/58977" target="_blank">SQL LIMIT语法</a> 
-     * @return Limit 表示单次查询返回的原始日志条数，默认为100，最大值为1000，获取后续日志需使用Context参数
+* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a> 
+     * @return Sort 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
+     */
+    public String getSort() {
+        return this.Sort;
+    }
+
+    /**
+     * Set 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
+     * @param Sort 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
+     */
+    public void setSort(String Sort) {
+        this.Sort = Sort;
+    }
+
+    /**
+     * Get 表示单次查询返回的原始日志条数，默认为100，最大值为1000。
 注意：
 * 仅当检索分析语句(Query)不包含SQL时有效
 * SQL结果条数指定方式参考<a href="https://cloud.tencent.com/document/product/614/58977" target="_blank">SQL LIMIT语法</a>
+
+可通过两种方式获取后续更多日志：
+* Context:透传上次接口返回的Context值，获取后续更多日志，总计最多可获取1万条原始日志
+* Offset:偏移量，表示从第几行开始返回原始日志，无日志条数限制 
+     * @return Limit 表示单次查询返回的原始日志条数，默认为100，最大值为1000。
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* SQL结果条数指定方式参考<a href="https://cloud.tencent.com/document/product/614/58977" target="_blank">SQL LIMIT语法</a>
+
+可通过两种方式获取后续更多日志：
+* Context:透传上次接口返回的Context值，获取后续更多日志，总计最多可获取1万条原始日志
+* Offset:偏移量，表示从第几行开始返回原始日志，无日志条数限制
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 表示单次查询返回的原始日志条数，默认为100，最大值为1000，获取后续日志需使用Context参数
+     * Set 表示单次查询返回的原始日志条数，默认为100，最大值为1000。
 注意：
 * 仅当检索分析语句(Query)不包含SQL时有效
 * SQL结果条数指定方式参考<a href="https://cloud.tencent.com/document/product/614/58977" target="_blank">SQL LIMIT语法</a>
-     * @param Limit 表示单次查询返回的原始日志条数，默认为100，最大值为1000，获取后续日志需使用Context参数
+
+可通过两种方式获取后续更多日志：
+* Context:透传上次接口返回的Context值，获取后续更多日志，总计最多可获取1万条原始日志
+* Offset:偏移量，表示从第几行开始返回原始日志，无日志条数限制
+     * @param Limit 表示单次查询返回的原始日志条数，默认为100，最大值为1000。
 注意：
 * 仅当检索分析语句(Query)不包含SQL时有效
 * SQL结果条数指定方式参考<a href="https://cloud.tencent.com/document/product/614/58977" target="_blank">SQL LIMIT语法</a>
+
+可通过两种方式获取后续更多日志：
+* Context:透传上次接口返回的Context值，获取后续更多日志，总计最多可获取1万条原始日志
+* Offset:偏移量，表示从第几行开始返回原始日志，无日志条数限制
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
+    }
+
+    /**
+     * Get 查询原始日志的偏移量，表示从第几行开始返回原始日志，默认为0。 
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* 不能与Context参数同时使用
+* 仅适用于单日志主题检索 
+     * @return Offset 查询原始日志的偏移量，表示从第几行开始返回原始日志，默认为0。 
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* 不能与Context参数同时使用
+* 仅适用于单日志主题检索
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 查询原始日志的偏移量，表示从第几行开始返回原始日志，默认为0。 
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* 不能与Context参数同时使用
+* 仅适用于单日志主题检索
+     * @param Offset 查询原始日志的偏移量，表示从第几行开始返回原始日志，默认为0。 
+注意：
+* 仅当检索分析语句(Query)不包含SQL时有效
+* 不能与Context参数同时使用
+* 仅适用于单日志主题检索
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
     }
 
     /**
@@ -259,58 +431,6 @@ public class SearchLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
-注意：
-* 仅当检索分析语句(Query)不包含SQL时有效
-* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a> 
-     * @return Sort 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
-注意：
-* 仅当检索分析语句(Query)不包含SQL时有效
-* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
-     */
-    public String getSort() {
-        return this.Sort;
-    }
-
-    /**
-     * Set 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
-注意：
-* 仅当检索分析语句(Query)不包含SQL时有效
-* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
-     * @param Sort 原始日志是否按时间排序返回；可选值：asc(升序)、desc(降序)，默认为 desc
-注意：
-* 仅当检索分析语句(Query)不包含SQL时有效
-* SQL结果排序方式参考<a href="https://cloud.tencent.com/document/product/614/58978" target="_blank">SQL ORDER BY语法</a>
-     */
-    public void setSort(String Sort) {
-        this.Sort = Sort;
-    }
-
-    /**
-     * Get 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
-为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
-两种返回方式在编码格式上有少量区别，建议使用true 
-     * @return UseNewAnalysis 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
-为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
-两种返回方式在编码格式上有少量区别，建议使用true
-     */
-    public Boolean getUseNewAnalysis() {
-        return this.UseNewAnalysis;
-    }
-
-    /**
-     * Set 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
-为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
-两种返回方式在编码格式上有少量区别，建议使用true
-     * @param UseNewAnalysis 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
-为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
-两种返回方式在编码格式上有少量区别，建议使用true
-     */
-    public void setUseNewAnalysis(Boolean UseNewAnalysis) {
-        this.UseNewAnalysis = UseNewAnalysis;
-    }
-
-    /**
      * Get 执行统计分析（Query中包含SQL）时，是否对原始日志先进行采样，再进行统计分析。
 0：自动采样;
 0～1：按指定采样率采样，例如0.02;
@@ -343,51 +463,43 @@ public class SearchLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 检索语法规则，默认值为0。
-0：Lucene语法，1：CQL语法。
-详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a> 
-     * @return SyntaxRule 检索语法规则，默认值为0。
-0：Lucene语法，1：CQL语法。
-详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     * Get 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
+为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
+两种返回方式在编码格式上有少量区别，建议使用true 
+     * @return UseNewAnalysis 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
+为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
+两种返回方式在编码格式上有少量区别，建议使用true
      */
-    public Long getSyntaxRule() {
-        return this.SyntaxRule;
+    public Boolean getUseNewAnalysis() {
+        return this.UseNewAnalysis;
     }
 
     /**
-     * Set 检索语法规则，默认值为0。
-0：Lucene语法，1：CQL语法。
-详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
-     * @param SyntaxRule 检索语法规则，默认值为0。
-0：Lucene语法，1：CQL语法。
-详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     * Set 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
+为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
+两种返回方式在编码格式上有少量区别，建议使用true
+     * @param UseNewAnalysis 为true代表使用新的检索结果返回方式，输出参数AnalysisRecords和Columns有效
+为false时代表使用老的检索结果返回方式, 输出AnalysisResults和ColNames有效
+两种返回方式在编码格式上有少量区别，建议使用true
      */
-    public void setSyntaxRule(Long SyntaxRule) {
-        this.SyntaxRule = SyntaxRule;
+    public void setUseNewAnalysis(Boolean UseNewAnalysis) {
+        this.UseNewAnalysis = UseNewAnalysis;
     }
 
     /**
-     * Get - 要检索分析的日志主题列表，最大支持20个日志主题。
-- 检索单个日志主题时请使用TopicId。
-- 不能同时使用TopicId和Topics。 
-     * @return Topics - 要检索分析的日志主题列表，最大支持20个日志主题。
-- 检索单个日志主题时请使用TopicId。
-- 不能同时使用TopicId和Topics。
+     * Get 是否高亮符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索 
+     * @return HighLight 是否高亮符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索
      */
-    public MultiTopicSearchInformation [] getTopics() {
-        return this.Topics;
+    public Boolean getHighLight() {
+        return this.HighLight;
     }
 
     /**
-     * Set - 要检索分析的日志主题列表，最大支持20个日志主题。
-- 检索单个日志主题时请使用TopicId。
-- 不能同时使用TopicId和Topics。
-     * @param Topics - 要检索分析的日志主题列表，最大支持20个日志主题。
-- 检索单个日志主题时请使用TopicId。
-- 不能同时使用TopicId和Topics。
+     * Set 是否高亮符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索
+     * @param HighLight 是否高亮符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索
      */
-    public void setTopics(MultiTopicSearchInformation [] Topics) {
-        this.Topics = Topics;
+    public void setHighLight(Boolean HighLight) {
+        this.HighLight = HighLight;
     }
 
     public SearchLogRequest() {
@@ -407,32 +519,38 @@ public class SearchLogRequest extends AbstractModel{
         if (source.Query != null) {
             this.Query = new String(source.Query);
         }
-        if (source.TopicId != null) {
-            this.TopicId = new String(source.TopicId);
-        }
-        if (source.Limit != null) {
-            this.Limit = new Long(source.Limit);
-        }
-        if (source.Context != null) {
-            this.Context = new String(source.Context);
-        }
-        if (source.Sort != null) {
-            this.Sort = new String(source.Sort);
-        }
-        if (source.UseNewAnalysis != null) {
-            this.UseNewAnalysis = new Boolean(source.UseNewAnalysis);
-        }
-        if (source.SamplingRate != null) {
-            this.SamplingRate = new Float(source.SamplingRate);
-        }
         if (source.SyntaxRule != null) {
             this.SyntaxRule = new Long(source.SyntaxRule);
+        }
+        if (source.TopicId != null) {
+            this.TopicId = new String(source.TopicId);
         }
         if (source.Topics != null) {
             this.Topics = new MultiTopicSearchInformation[source.Topics.length];
             for (int i = 0; i < source.Topics.length; i++) {
                 this.Topics[i] = new MultiTopicSearchInformation(source.Topics[i]);
             }
+        }
+        if (source.Sort != null) {
+            this.Sort = new String(source.Sort);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Context != null) {
+            this.Context = new String(source.Context);
+        }
+        if (source.SamplingRate != null) {
+            this.SamplingRate = new Float(source.SamplingRate);
+        }
+        if (source.UseNewAnalysis != null) {
+            this.UseNewAnalysis = new Boolean(source.UseNewAnalysis);
+        }
+        if (source.HighLight != null) {
+            this.HighLight = new Boolean(source.HighLight);
         }
     }
 
@@ -444,14 +562,16 @@ public class SearchLogRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "From", this.From);
         this.setParamSimple(map, prefix + "To", this.To);
         this.setParamSimple(map, prefix + "Query", this.Query);
-        this.setParamSimple(map, prefix + "TopicId", this.TopicId);
-        this.setParamSimple(map, prefix + "Limit", this.Limit);
-        this.setParamSimple(map, prefix + "Context", this.Context);
-        this.setParamSimple(map, prefix + "Sort", this.Sort);
-        this.setParamSimple(map, prefix + "UseNewAnalysis", this.UseNewAnalysis);
-        this.setParamSimple(map, prefix + "SamplingRate", this.SamplingRate);
         this.setParamSimple(map, prefix + "SyntaxRule", this.SyntaxRule);
+        this.setParamSimple(map, prefix + "TopicId", this.TopicId);
         this.setParamArrayObj(map, prefix + "Topics.", this.Topics);
+        this.setParamSimple(map, prefix + "Sort", this.Sort);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Context", this.Context);
+        this.setParamSimple(map, prefix + "SamplingRate", this.SamplingRate);
+        this.setParamSimple(map, prefix + "UseNewAnalysis", this.UseNewAnalysis);
+        this.setParamSimple(map, prefix + "HighLight", this.HighLight);
 
     }
 }

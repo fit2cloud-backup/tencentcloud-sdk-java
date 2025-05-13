@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBDiagEventsRequest extends AbstractModel{
+public class DescribeDBDiagEventsRequest extends AbstractModel {
 
     /**
     * 开始时间，如“2021-05-27 00:00:00”，支持的最早查询时间为当前时间的前30天。
@@ -49,6 +50,13 @@ public class DescribeDBDiagEventsRequest extends AbstractModel{
     @SerializedName("InstanceIds")
     @Expose
     private String [] InstanceIds;
+
+    /**
+    * 服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
+    */
+    @SerializedName("Product")
+    @Expose
+    private String Product;
 
     /**
     * 偏移量，默认0。
@@ -129,6 +137,22 @@ public class DescribeDBDiagEventsRequest extends AbstractModel{
     }
 
     /**
+     * Get 服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。 
+     * @return Product 服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
+     */
+    public String getProduct() {
+        return this.Product;
+    }
+
+    /**
+     * Set 服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
+     * @param Product 服务产品类型，支持值包括："mysql" - 云数据库 MySQL，"redis" - 云数据库 Redis，默认为"mysql"。
+     */
+    public void setProduct(String Product) {
+        this.Product = Product;
+    }
+
+    /**
      * Get 偏移量，默认0。 
      * @return Offset 偏移量，默认0。
      */
@@ -186,6 +210,9 @@ public class DescribeDBDiagEventsRequest extends AbstractModel{
                 this.InstanceIds[i] = new String(source.InstanceIds[i]);
             }
         }
+        if (source.Product != null) {
+            this.Product = new String(source.Product);
+        }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
@@ -203,6 +230,7 @@ public class DescribeDBDiagEventsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamArraySimple(map, prefix + "Severities.", this.Severities);
         this.setParamArraySimple(map, prefix + "InstanceIds.", this.InstanceIds);
+        this.setParamSimple(map, prefix + "Product", this.Product);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
 

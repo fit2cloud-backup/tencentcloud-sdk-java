@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BaselinePolicyDetect extends AbstractModel{
+public class BaselinePolicyDetect extends AbstractModel {
 
     /**
     * 策略Id
@@ -87,7 +88,6 @@ public class BaselinePolicyDetect extends AbstractModel{
 
     /**
     * 1:检测中 2:检测完成
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyDetectStatus")
     @Expose
@@ -238,10 +238,8 @@ public class BaselinePolicyDetect extends AbstractModel{
     }
 
     /**
-     * Get 1:检测中 2:检测完成
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 1:检测中 2:检测完成 
      * @return PolicyDetectStatus 1:检测中 2:检测完成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPolicyDetectStatus() {
         return this.PolicyDetectStatus;
@@ -249,9 +247,7 @@ public class BaselinePolicyDetect extends AbstractModel{
 
     /**
      * Set 1:检测中 2:检测完成
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyDetectStatus 1:检测中 2:检测完成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyDetectStatus(Long PolicyDetectStatus) {
         this.PolicyDetectStatus = PolicyDetectStatus;

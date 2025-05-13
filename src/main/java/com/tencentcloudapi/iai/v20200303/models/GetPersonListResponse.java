@@ -16,21 +16,22 @@
 package com.tencentcloudapi.iai.v20200303.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetPersonListResponse extends AbstractModel{
+public class GetPersonListResponse extends AbstractModel {
 
     /**
-    * 返回的人员信息
+    * 返回的人员信息。
     */
     @SerializedName("PersonInfos")
     @Expose
     private PersonInfo [] PersonInfos;
 
     /**
-    * 该人员库的人员数量
+    * 该人员库的人员数量。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PersonNum")
@@ -38,7 +39,7 @@ public class GetPersonListResponse extends AbstractModel{
     private Long PersonNum;
 
     /**
-    * 该人员库的人脸数量
+    * 该人员库的人脸数量。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FaceNum")
@@ -54,32 +55,32 @@ public class GetPersonListResponse extends AbstractModel{
     private String FaceModelVersion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 返回的人员信息 
-     * @return PersonInfos 返回的人员信息
+     * Get 返回的人员信息。 
+     * @return PersonInfos 返回的人员信息。
      */
     public PersonInfo [] getPersonInfos() {
         return this.PersonInfos;
     }
 
     /**
-     * Set 返回的人员信息
-     * @param PersonInfos 返回的人员信息
+     * Set 返回的人员信息。
+     * @param PersonInfos 返回的人员信息。
      */
     public void setPersonInfos(PersonInfo [] PersonInfos) {
         this.PersonInfos = PersonInfos;
     }
 
     /**
-     * Get 该人员库的人员数量
+     * Get 该人员库的人员数量。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PersonNum 该人员库的人员数量
+     * @return PersonNum 该人员库的人员数量。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPersonNum() {
@@ -87,9 +88,9 @@ public class GetPersonListResponse extends AbstractModel{
     }
 
     /**
-     * Set 该人员库的人员数量
+     * Set 该人员库的人员数量。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PersonNum 该人员库的人员数量
+     * @param PersonNum 该人员库的人员数量。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPersonNum(Long PersonNum) {
@@ -97,9 +98,9 @@ public class GetPersonListResponse extends AbstractModel{
     }
 
     /**
-     * Get 该人员库的人脸数量
+     * Get 该人员库的人脸数量。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FaceNum 该人员库的人脸数量
+     * @return FaceNum 该人员库的人脸数量。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFaceNum() {
@@ -107,9 +108,9 @@ public class GetPersonListResponse extends AbstractModel{
     }
 
     /**
-     * Set 该人员库的人脸数量
+     * Set 该人员库的人脸数量。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FaceNum 该人员库的人脸数量
+     * @param FaceNum 该人员库的人脸数量。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFaceNum(Long FaceNum) {
@@ -137,16 +138,16 @@ public class GetPersonListResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

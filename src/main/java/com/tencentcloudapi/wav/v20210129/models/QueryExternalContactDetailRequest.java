@@ -16,14 +16,15 @@
 package com.tencentcloudapi.wav.v20210129.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QueryExternalContactDetailRequest extends AbstractModel{
+public class QueryExternalContactDetailRequest extends AbstractModel {
 
     /**
-    * 外部联系人的userid，注意不是企业成员的帐号
+    * 外部联系人的userid，注意不是企业成员的账号
     */
     @SerializedName("ExternalUserId")
     @Expose
@@ -44,16 +45,16 @@ public class QueryExternalContactDetailRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 外部联系人的userid，注意不是企业成员的帐号 
-     * @return ExternalUserId 外部联系人的userid，注意不是企业成员的帐号
+     * Get 外部联系人的userid，注意不是企业成员的账号 
+     * @return ExternalUserId 外部联系人的userid，注意不是企业成员的账号
      */
     public String getExternalUserId() {
         return this.ExternalUserId;
     }
 
     /**
-     * Set 外部联系人的userid，注意不是企业成员的帐号
-     * @param ExternalUserId 外部联系人的userid，注意不是企业成员的帐号
+     * Set 外部联系人的userid，注意不是企业成员的账号
+     * @param ExternalUserId 外部联系人的userid，注意不是企业成员的账号
      */
     public void setExternalUserId(String ExternalUserId) {
         this.ExternalUserId = ExternalUserId;

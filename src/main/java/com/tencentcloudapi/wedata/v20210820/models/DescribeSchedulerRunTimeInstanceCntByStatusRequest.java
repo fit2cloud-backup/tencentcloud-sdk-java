@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSchedulerRunTimeInstanceCntByStatusRequest extends AbstractModel{
+public class DescribeSchedulerRunTimeInstanceCntByStatusRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -58,18 +59,46 @@ public class DescribeSchedulerRunTimeInstanceCntByStatusRequest extends Abstract
     private String EndTime;
 
     /**
-    * 1
+    * 任务类型
     */
     @SerializedName("TaskType")
     @Expose
     private Long TaskType;
 
     /**
-    * 1
+    * 责任人
     */
     @SerializedName("InCharge")
     @Expose
     private String InCharge;
+
+    /**
+    * 工作流ID
+    */
+    @SerializedName("WorkflowId")
+    @Expose
+    private String WorkflowId;
+
+    /**
+    * 排序字段
+    */
+    @SerializedName("SortItem")
+    @Expose
+    private String SortItem;
+
+    /**
+    * 升序降序
+    */
+    @SerializedName("SortType")
+    @Expose
+    private String SortType;
+
+    /**
+    * 项目ID列表，如果传了 ProjectIds，则 ProjectId 不会生效，用于多项目筛选
+    */
+    @SerializedName("ProjectIds")
+    @Expose
+    private String [] ProjectIds;
 
     /**
      * Get 项目ID 
@@ -152,35 +181,99 @@ public class DescribeSchedulerRunTimeInstanceCntByStatusRequest extends Abstract
     }
 
     /**
-     * Get 1 
-     * @return TaskType 1
+     * Get 任务类型 
+     * @return TaskType 任务类型
      */
     public Long getTaskType() {
         return this.TaskType;
     }
 
     /**
-     * Set 1
-     * @param TaskType 1
+     * Set 任务类型
+     * @param TaskType 任务类型
      */
     public void setTaskType(Long TaskType) {
         this.TaskType = TaskType;
     }
 
     /**
-     * Get 1 
-     * @return InCharge 1
+     * Get 责任人 
+     * @return InCharge 责任人
      */
     public String getInCharge() {
         return this.InCharge;
     }
 
     /**
-     * Set 1
-     * @param InCharge 1
+     * Set 责任人
+     * @param InCharge 责任人
      */
     public void setInCharge(String InCharge) {
         this.InCharge = InCharge;
+    }
+
+    /**
+     * Get 工作流ID 
+     * @return WorkflowId 工作流ID
+     */
+    public String getWorkflowId() {
+        return this.WorkflowId;
+    }
+
+    /**
+     * Set 工作流ID
+     * @param WorkflowId 工作流ID
+     */
+    public void setWorkflowId(String WorkflowId) {
+        this.WorkflowId = WorkflowId;
+    }
+
+    /**
+     * Get 排序字段 
+     * @return SortItem 排序字段
+     */
+    public String getSortItem() {
+        return this.SortItem;
+    }
+
+    /**
+     * Set 排序字段
+     * @param SortItem 排序字段
+     */
+    public void setSortItem(String SortItem) {
+        this.SortItem = SortItem;
+    }
+
+    /**
+     * Get 升序降序 
+     * @return SortType 升序降序
+     */
+    public String getSortType() {
+        return this.SortType;
+    }
+
+    /**
+     * Set 升序降序
+     * @param SortType 升序降序
+     */
+    public void setSortType(String SortType) {
+        this.SortType = SortType;
+    }
+
+    /**
+     * Get 项目ID列表，如果传了 ProjectIds，则 ProjectId 不会生效，用于多项目筛选 
+     * @return ProjectIds 项目ID列表，如果传了 ProjectIds，则 ProjectId 不会生效，用于多项目筛选
+     */
+    public String [] getProjectIds() {
+        return this.ProjectIds;
+    }
+
+    /**
+     * Set 项目ID列表，如果传了 ProjectIds，则 ProjectId 不会生效，用于多项目筛选
+     * @param ProjectIds 项目ID列表，如果传了 ProjectIds，则 ProjectId 不会生效，用于多项目筛选
+     */
+    public void setProjectIds(String [] ProjectIds) {
+        this.ProjectIds = ProjectIds;
     }
 
     public DescribeSchedulerRunTimeInstanceCntByStatusRequest() {
@@ -212,6 +305,21 @@ public class DescribeSchedulerRunTimeInstanceCntByStatusRequest extends Abstract
         if (source.InCharge != null) {
             this.InCharge = new String(source.InCharge);
         }
+        if (source.WorkflowId != null) {
+            this.WorkflowId = new String(source.WorkflowId);
+        }
+        if (source.SortItem != null) {
+            this.SortItem = new String(source.SortItem);
+        }
+        if (source.SortType != null) {
+            this.SortType = new String(source.SortType);
+        }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new String[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new String(source.ProjectIds[i]);
+            }
+        }
     }
 
 
@@ -226,6 +334,10 @@ public class DescribeSchedulerRunTimeInstanceCntByStatusRequest extends Abstract
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "InCharge", this.InCharge);
+        this.setParamSimple(map, prefix + "WorkflowId", this.WorkflowId);
+        this.setParamSimple(map, prefix + "SortItem", this.SortItem);
+        this.setParamSimple(map, prefix + "SortType", this.SortType);
+        this.setParamArraySimple(map, prefix + "ProjectIds.", this.ProjectIds);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeParamTemplateInfoResponse extends AbstractModel{
+public class DescribeParamTemplateInfoResponse extends AbstractModel {
 
     /**
     * 参数模板的参数数量。
@@ -45,16 +46,18 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
 
     /**
     * 产品类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
     */
     @SerializedName("ProductType")
     @Expose
@@ -75,7 +78,7 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
     private ParameterDetail [] Items;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -131,27 +134,31 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
 
     /**
      * Get 产品类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。 
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。 
      * @return ProductType 产品类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
      */
     public Long getProductType() {
         return this.ProductType;
@@ -159,27 +166,31 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
 
     /**
      * Set 产品类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
      * @param ProductType 产品类型。
-- 2：Redis 2.8内存版（标准架构）。
-- 3：CKV 3.2内存版（标准架构）。
-- 4：CKV 3.2内存版（集群架构）。
-- 5：Redis 2.8内存版（单机）。
-- 6：Redis 4.0内存版（标准架构）。
-- 7：Redis 4.0内存版（集群架构）。
-- 8：Redis 5.0内存版（标准架构）。
-- 9：Redis 5.0内存版（集群架构）。
-- 15：Redis 6.2内存版（标准架构）。
-- 16：Redis 6.2内存版（集群架构）。
+- 2：Redis 2.8 内存版（标准架构）。
+- 3：CKV 3.2 内存版（标准架构）。
+- 4：CKV 3.2 内存版（集群架构）。
+- 5：Redis 2.8 内存版（单机）。
+- 6：Redis 4.0 内存版（标准架构）。
+- 7：Redis 4.0 内存版（集群架构）。
+- 8：Redis 5.0 内存版（标准架构）。
+- 9：Redis 5.0 内存版（集群架构）。
+- 15：Redis 6.2 内存版（标准架构）。
+- 16：Redis 6.2 内存版（集群架构）。
+- 17：Redis 7.0 内存版（标准架构）。
+- 18：Redis 7.0 内存版（集群架构）。
      */
     public void setProductType(Long ProductType) {
         this.ProductType = ProductType;
@@ -218,16 +229,16 @@ public class DescribeParamTemplateInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

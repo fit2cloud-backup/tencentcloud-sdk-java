@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceResponse extends AbstractModel{
+public class InstanceResponse extends AbstractModel {
 
     /**
     * 符合条件的实例列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceList")
     @Expose
@@ -32,17 +32,14 @@ public class InstanceResponse extends AbstractModel{
 
     /**
     * 符合条件的结果总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-     * Get 符合条件的实例列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 符合条件的实例列表 
      * @return InstanceList 符合条件的实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Instance [] getInstanceList() {
         return this.InstanceList;
@@ -50,19 +47,15 @@ public class InstanceResponse extends AbstractModel{
 
     /**
      * Set 符合条件的实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceList 符合条件的实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceList(Instance [] InstanceList) {
         this.InstanceList = InstanceList;
     }
 
     /**
-     * Get 符合条件的结果总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 符合条件的结果总数 
      * @return TotalCount 符合条件的结果总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -70,9 +63,7 @@ public class InstanceResponse extends AbstractModel{
 
     /**
      * Set 符合条件的结果总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 符合条件的结果总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;

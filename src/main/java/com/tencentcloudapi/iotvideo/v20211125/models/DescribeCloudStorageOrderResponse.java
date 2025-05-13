@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotvideo.v20211125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCloudStorageOrderResponse extends AbstractModel{
+public class DescribeCloudStorageOrderResponse extends AbstractModel {
 
     /**
     * 云存套餐开始时间
@@ -57,7 +58,30 @@ public class DescribeCloudStorageOrderResponse extends AbstractModel{
     private Long Status;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 通道id
+    */
+    @SerializedName("ChannelId")
+    @Expose
+    private Long ChannelId;
+
+    /**
+    * 订单金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Price")
+    @Expose
+    private Long Price;
+
+    /**
+    * 支付金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Amount")
+    @Expose
+    private Long Amount;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -152,16 +176,72 @@ public class DescribeCloudStorageOrderResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 通道id 
+     * @return ChannelId 通道id
+     */
+    public Long getChannelId() {
+        return this.ChannelId;
+    }
+
+    /**
+     * Set 通道id
+     * @param ChannelId 通道id
+     */
+    public void setChannelId(Long ChannelId) {
+        this.ChannelId = ChannelId;
+    }
+
+    /**
+     * Get 订单金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Price 订单金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPrice() {
+        return this.Price;
+    }
+
+    /**
+     * Set 订单金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Price 订单金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPrice(Long Price) {
+        this.Price = Price;
+    }
+
+    /**
+     * Get 支付金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Amount 支付金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAmount() {
+        return this.Amount;
+    }
+
+    /**
+     * Set 支付金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Amount 支付金额，单位为分
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAmount(Long Amount) {
+        this.Amount = Amount;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -187,6 +267,15 @@ public class DescribeCloudStorageOrderResponse extends AbstractModel{
         if (source.Status != null) {
             this.Status = new Long(source.Status);
         }
+        if (source.ChannelId != null) {
+            this.ChannelId = new Long(source.ChannelId);
+        }
+        if (source.Price != null) {
+            this.Price = new Long(source.Price);
+        }
+        if (source.Amount != null) {
+            this.Amount = new Long(source.Amount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -201,6 +290,9 @@ public class DescribeCloudStorageOrderResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamSimple(map, prefix + "PackageId", this.PackageId);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "ChannelId", this.ChannelId);
+        this.setParamSimple(map, prefix + "Price", this.Price);
+        this.setParamSimple(map, prefix + "Amount", this.Amount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

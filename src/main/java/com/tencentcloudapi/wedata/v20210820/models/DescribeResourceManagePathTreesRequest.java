@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeResourceManagePathTreesRequest extends AbstractModel{
+public class DescribeResourceManagePathTreesRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -52,6 +53,9 @@ public class DescribeResourceManagePathTreesRequest extends AbstractModel{
 
     /**
     * 文件夹类型
+personal 个人
+project 项目
+resource 资源
     */
     @SerializedName("DirType")
     @Expose
@@ -122,8 +126,14 @@ public class DescribeResourceManagePathTreesRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件夹类型 
+     * Get 文件夹类型
+personal 个人
+project 项目
+resource 资源 
      * @return DirType 文件夹类型
+personal 个人
+project 项目
+resource 资源
      */
     public String getDirType() {
         return this.DirType;
@@ -131,7 +141,13 @@ public class DescribeResourceManagePathTreesRequest extends AbstractModel{
 
     /**
      * Set 文件夹类型
+personal 个人
+project 项目
+resource 资源
      * @param DirType 文件夹类型
+personal 个人
+project 项目
+resource 资源
      */
     public void setDirType(String DirType) {
         this.DirType = DirType;

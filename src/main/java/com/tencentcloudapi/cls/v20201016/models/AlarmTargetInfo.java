@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlarmTargetInfo extends AbstractModel{
+public class AlarmTargetInfo extends AbstractModel {
 
     /**
     * 日志集ID。
@@ -77,6 +78,23 @@ public class AlarmTargetInfo extends AbstractModel{
     @SerializedName("EndTimeOffset")
     @Expose
     private Long EndTimeOffset;
+
+    /**
+    * 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+    */
+    @SerializedName("SyntaxRule")
+    @Expose
+    private Long SyntaxRule;
+
+    /**
+    * 主题类型。
+0: 日志主题，1: 指标主题
+    */
+    @SerializedName("BizType")
+    @Expose
+    private Long BizType;
 
     /**
      * Get 日志集ID。 
@@ -206,6 +224,50 @@ public class AlarmTargetInfo extends AbstractModel{
         this.EndTimeOffset = EndTimeOffset;
     }
 
+    /**
+     * Get 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a> 
+     * @return SyntaxRule 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     */
+    public Long getSyntaxRule() {
+        return this.SyntaxRule;
+    }
+
+    /**
+     * Set 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     * @param SyntaxRule 检索语法规则，默认值为0。
+0：Lucene语法，1：CQL语法。
+详细说明参见<a href="https://cloud.tencent.com/document/product/614/47044#RetrievesConditionalRules" target="_blank">检索条件语法规则</a>
+     */
+    public void setSyntaxRule(Long SyntaxRule) {
+        this.SyntaxRule = SyntaxRule;
+    }
+
+    /**
+     * Get 主题类型。
+0: 日志主题，1: 指标主题 
+     * @return BizType 主题类型。
+0: 日志主题，1: 指标主题
+     */
+    public Long getBizType() {
+        return this.BizType;
+    }
+
+    /**
+     * Set 主题类型。
+0: 日志主题，1: 指标主题
+     * @param BizType 主题类型。
+0: 日志主题，1: 指标主题
+     */
+    public void setBizType(Long BizType) {
+        this.BizType = BizType;
+    }
+
     public AlarmTargetInfo() {
     }
 
@@ -238,6 +300,12 @@ public class AlarmTargetInfo extends AbstractModel{
         if (source.EndTimeOffset != null) {
             this.EndTimeOffset = new Long(source.EndTimeOffset);
         }
+        if (source.SyntaxRule != null) {
+            this.SyntaxRule = new Long(source.SyntaxRule);
+        }
+        if (source.BizType != null) {
+            this.BizType = new Long(source.BizType);
+        }
     }
 
 
@@ -253,6 +321,8 @@ public class AlarmTargetInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Number", this.Number);
         this.setParamSimple(map, prefix + "StartTimeOffset", this.StartTimeOffset);
         this.setParamSimple(map, prefix + "EndTimeOffset", this.EndTimeOffset);
+        this.setParamSimple(map, prefix + "SyntaxRule", this.SyntaxRule);
+        this.setParamSimple(map, prefix + "BizType", this.BizType);
 
     }
 }

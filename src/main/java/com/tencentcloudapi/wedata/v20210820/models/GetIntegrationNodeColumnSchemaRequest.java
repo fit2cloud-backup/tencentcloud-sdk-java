@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetIntegrationNodeColumnSchemaRequest extends AbstractModel{
+public class GetIntegrationNodeColumnSchemaRequest extends AbstractModel {
 
     /**
     * 字段示例（json格式）
@@ -30,7 +31,7 @@ public class GetIntegrationNodeColumnSchemaRequest extends AbstractModel{
     private String ColumnContent;
 
     /**
-    * 数据源类型
+    * 数据源类型 MYSQL|HIVE|KAFKA|ES|MONGODB|REST_API|SYBASE|TIDB|DORIS|DM|
     */
     @SerializedName("DatasourceType")
     @Expose
@@ -53,16 +54,16 @@ public class GetIntegrationNodeColumnSchemaRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据源类型 
-     * @return DatasourceType 数据源类型
+     * Get 数据源类型 MYSQL|HIVE|KAFKA|ES|MONGODB|REST_API|SYBASE|TIDB|DORIS|DM| 
+     * @return DatasourceType 数据源类型 MYSQL|HIVE|KAFKA|ES|MONGODB|REST_API|SYBASE|TIDB|DORIS|DM|
      */
     public String getDatasourceType() {
         return this.DatasourceType;
     }
 
     /**
-     * Set 数据源类型
-     * @param DatasourceType 数据源类型
+     * Set 数据源类型 MYSQL|HIVE|KAFKA|ES|MONGODB|REST_API|SYBASE|TIDB|DORIS|DM|
+     * @param DatasourceType 数据源类型 MYSQL|HIVE|KAFKA|ES|MONGODB|REST_API|SYBASE|TIDB|DORIS|DM|
      */
     public void setDatasourceType(String DatasourceType) {
         this.DatasourceType = DatasourceType;

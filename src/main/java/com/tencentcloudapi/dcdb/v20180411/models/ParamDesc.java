@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParamDesc extends AbstractModel{
+public class ParamDesc extends AbstractModel {
 
     /**
     * 参数名字
@@ -38,7 +39,6 @@ public class ParamDesc extends AbstractModel{
 
     /**
     * 设置过的值，参数生效后，该值和value一样。未设置过就不返回该字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SetValue")
     @Expose
@@ -106,10 +106,8 @@ true:需要重启
     }
 
     /**
-     * Get 设置过的值，参数生效后，该值和value一样。未设置过就不返回该字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设置过的值，参数生效后，该值和value一样。未设置过就不返回该字段。 
      * @return SetValue 设置过的值，参数生效后，该值和value一样。未设置过就不返回该字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSetValue() {
         return this.SetValue;
@@ -117,9 +115,7 @@ true:需要重启
 
     /**
      * Set 设置过的值，参数生效后，该值和value一样。未设置过就不返回该字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SetValue 设置过的值，参数生效后，该值和value一样。未设置过就不返回该字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSetValue(String SetValue) {
         this.SetValue = SetValue;

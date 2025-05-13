@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBlockIgnoreListResponse extends AbstractModel{
+public class DescribeBlockIgnoreListResponse extends AbstractModel {
 
     /**
     * 列表数据
@@ -58,7 +59,14 @@ public class DescribeBlockIgnoreListResponse extends AbstractModel{
     private String [] SourceList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 对应规则类型的数量，示例：[0,122,30,55,12,232,0]，封禁0个，IP地址122个，域名30个，威胁情报55个，资产实例12个，自定义策略232个，入侵防御规则0个
+    */
+    @SerializedName("RuleTypeDataList")
+    @Expose
+    private Long [] RuleTypeDataList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -145,16 +153,32 @@ public class DescribeBlockIgnoreListResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 对应规则类型的数量，示例：[0,122,30,55,12,232,0]，封禁0个，IP地址122个，域名30个，威胁情报55个，资产实例12个，自定义策略232个，入侵防御规则0个 
+     * @return RuleTypeDataList 对应规则类型的数量，示例：[0,122,30,55,12,232,0]，封禁0个，IP地址122个，域名30个，威胁情报55个，资产实例12个，自定义策略232个，入侵防御规则0个
+     */
+    public Long [] getRuleTypeDataList() {
+        return this.RuleTypeDataList;
+    }
+
+    /**
+     * Set 对应规则类型的数量，示例：[0,122,30,55,12,232,0]，封禁0个，IP地址122个，域名30个，威胁情报55个，资产实例12个，自定义策略232个，入侵防御规则0个
+     * @param RuleTypeDataList 对应规则类型的数量，示例：[0,122,30,55,12,232,0]，封禁0个，IP地址122个，域名30个，威胁情报55个，资产实例12个，自定义策略232个，入侵防御规则0个
+     */
+    public void setRuleTypeDataList(Long [] RuleTypeDataList) {
+        this.RuleTypeDataList = RuleTypeDataList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -189,6 +213,12 @@ public class DescribeBlockIgnoreListResponse extends AbstractModel{
                 this.SourceList[i] = new String(source.SourceList[i]);
             }
         }
+        if (source.RuleTypeDataList != null) {
+            this.RuleTypeDataList = new Long[source.RuleTypeDataList.length];
+            for (int i = 0; i < source.RuleTypeDataList.length; i++) {
+                this.RuleTypeDataList[i] = new Long(source.RuleTypeDataList[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -204,6 +234,7 @@ public class DescribeBlockIgnoreListResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ReturnCode", this.ReturnCode);
         this.setParamSimple(map, prefix + "ReturnMsg", this.ReturnMsg);
         this.setParamArraySimple(map, prefix + "SourceList.", this.SourceList);
+        this.setParamArraySimple(map, prefix + "RuleTypeDataList.", this.RuleTypeDataList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WarningInfoObj extends AbstractModel{
+public class WarningInfoObj extends AbstractModel {
 
     /**
     * 事件告警类型；1：离线，2：木马，3：异常登录，4：爆破，5：漏洞（已拆分为9-12四种类型）6：高危命令，7：反弹sell，8：本地提权，9：应用漏洞，10：web-cms漏洞，11：应急漏洞，12：安全基线 ,13: 防篡改，14：恶意请求，15: 网络攻击，16：Windows系统漏洞，17：Linux软件漏洞，18：核心文件监控告警，19：客户端卸载告警。20：客户端离线告警
@@ -73,7 +74,6 @@ public class WarningInfoObj extends AbstractModel{
 
     /**
     * 告警主机范围类型，0:全部主机，1:按所属项目选，2:按腾讯云标签选，3:按主机安全标签选，4:自选主机
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostRange")
     @Expose
@@ -81,7 +81,6 @@ public class WarningInfoObj extends AbstractModel{
 
     /**
     * 配置的告警范围主机个数，前端用此判断展示提示信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Count")
     @Expose
@@ -200,10 +199,8 @@ public class WarningInfoObj extends AbstractModel{
     }
 
     /**
-     * Get 告警主机范围类型，0:全部主机，1:按所属项目选，2:按腾讯云标签选，3:按主机安全标签选，4:自选主机
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 告警主机范围类型，0:全部主机，1:按所属项目选，2:按腾讯云标签选，3:按主机安全标签选，4:自选主机 
      * @return HostRange 告警主机范围类型，0:全部主机，1:按所属项目选，2:按腾讯云标签选，3:按主机安全标签选，4:自选主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHostRange() {
         return this.HostRange;
@@ -211,19 +208,15 @@ public class WarningInfoObj extends AbstractModel{
 
     /**
      * Set 告警主机范围类型，0:全部主机，1:按所属项目选，2:按腾讯云标签选，3:按主机安全标签选，4:自选主机
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostRange 告警主机范围类型，0:全部主机，1:按所属项目选，2:按腾讯云标签选，3:按主机安全标签选，4:自选主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostRange(Long HostRange) {
         this.HostRange = HostRange;
     }
 
     /**
-     * Get 配置的告警范围主机个数，前端用此判断展示提示信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置的告警范围主机个数，前端用此判断展示提示信息 
      * @return Count 配置的告警范围主机个数，前端用此判断展示提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCount() {
         return this.Count;
@@ -231,9 +224,7 @@ public class WarningInfoObj extends AbstractModel{
 
     /**
      * Set 配置的告警范围主机个数，前端用此判断展示提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Count 配置的告警范围主机个数，前端用此判断展示提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCount(Long Count) {
         this.Count = Count;

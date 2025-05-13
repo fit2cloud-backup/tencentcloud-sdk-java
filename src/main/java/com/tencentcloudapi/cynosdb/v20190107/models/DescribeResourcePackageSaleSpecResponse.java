@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeResourcePackageSaleSpecResponse extends AbstractModel{
+public class DescribeResourcePackageSaleSpecResponse extends AbstractModel {
 
     /**
     * 可售卖资源包规格总数
@@ -31,14 +32,13 @@ public class DescribeResourcePackageSaleSpecResponse extends AbstractModel{
 
     /**
     * 资源包明细说明
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Detail")
     @Expose
     private SalePackageSpec [] Detail;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,10 +61,8 @@ public class DescribeResourcePackageSaleSpecResponse extends AbstractModel{
     }
 
     /**
-     * Get 资源包明细说明
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源包明细说明 
      * @return Detail 资源包明细说明
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SalePackageSpec [] getDetail() {
         return this.Detail;
@@ -72,25 +70,23 @@ public class DescribeResourcePackageSaleSpecResponse extends AbstractModel{
 
     /**
      * Set 资源包明细说明
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Detail 资源包明细说明
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDetail(SalePackageSpec [] Detail) {
         this.Detail = Detail;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

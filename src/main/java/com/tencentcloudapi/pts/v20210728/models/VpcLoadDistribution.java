@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VpcLoadDistribution extends AbstractModel{
+public class VpcLoadDistribution extends AbstractModel {
 
     /**
     * 地域ID
@@ -38,7 +39,6 @@ public class VpcLoadDistribution extends AbstractModel{
 
     /**
     * VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -85,10 +85,8 @@ public class VpcLoadDistribution extends AbstractModel{
     }
 
     /**
-     * Get VPC ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get VPC ID 
      * @return VpcId VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -96,9 +94,7 @@ public class VpcLoadDistribution extends AbstractModel{
 
     /**
      * Set VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;

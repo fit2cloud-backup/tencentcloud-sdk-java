@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDDoSAttackDataRequest extends AbstractModel{
+public class DescribeDDoSAttackDataRequest extends AbstractModel {
 
     /**
     * 开始时间。
@@ -48,7 +49,7 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     private String [] MetricNames;
 
     /**
-    * 站点集合，不填默认选择全部站点。
+    * 站点集合，此参数必填。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -147,16 +148,16 @@ public class DescribeDDoSAttackDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 站点集合，不填默认选择全部站点。 
-     * @return ZoneIds 站点集合，不填默认选择全部站点。
+     * Get 站点集合，此参数必填。 
+     * @return ZoneIds 站点集合，此参数必填。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 站点集合，不填默认选择全部站点。
-     * @param ZoneIds 站点集合，不填默认选择全部站点。
+     * Set 站点集合，此参数必填。
+     * @param ZoneIds 站点集合，此参数必填。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;

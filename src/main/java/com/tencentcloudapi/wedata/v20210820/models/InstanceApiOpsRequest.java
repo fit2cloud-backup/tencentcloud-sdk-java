@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceApiOpsRequest extends AbstractModel{
+public class InstanceApiOpsRequest extends AbstractModel {
 
     /**
     * 单个查询条件
@@ -231,6 +232,41 @@ public class InstanceApiOpsRequest extends AbstractModel{
     @SerializedName("DataTimeCycle")
     @Expose
     private String DataTimeCycle;
+
+    /**
+    * 资源组id,多个资源组id用英文逗号分隔
+    */
+    @SerializedName("ExecutorGroupIdList")
+    @Expose
+    private String [] ExecutorGroupIdList;
+
+    /**
+    * true 只过滤重跑过的实例，false 忽略此过滤条件，结果集过滤条件中不包括是否重跑
+    */
+    @SerializedName("OnlyRerun")
+    @Expose
+    private Boolean OnlyRerun;
+
+    /**
+    * 时区
+    */
+    @SerializedName("ScheduleTimeZone")
+    @Expose
+    private String ScheduleTimeZone;
+
+    /**
+    * 计划调度时间
+    */
+    @SerializedName("ScheduleTimeFrom")
+    @Expose
+    private String ScheduleTimeFrom;
+
+    /**
+    * 计划调度时间
+    */
+    @SerializedName("ScheduleTimeTo")
+    @Expose
+    private String ScheduleTimeTo;
 
     /**
      * Get 单个查询条件 
@@ -712,6 +748,86 @@ public class InstanceApiOpsRequest extends AbstractModel{
         this.DataTimeCycle = DataTimeCycle;
     }
 
+    /**
+     * Get 资源组id,多个资源组id用英文逗号分隔 
+     * @return ExecutorGroupIdList 资源组id,多个资源组id用英文逗号分隔
+     */
+    public String [] getExecutorGroupIdList() {
+        return this.ExecutorGroupIdList;
+    }
+
+    /**
+     * Set 资源组id,多个资源组id用英文逗号分隔
+     * @param ExecutorGroupIdList 资源组id,多个资源组id用英文逗号分隔
+     */
+    public void setExecutorGroupIdList(String [] ExecutorGroupIdList) {
+        this.ExecutorGroupIdList = ExecutorGroupIdList;
+    }
+
+    /**
+     * Get true 只过滤重跑过的实例，false 忽略此过滤条件，结果集过滤条件中不包括是否重跑 
+     * @return OnlyRerun true 只过滤重跑过的实例，false 忽略此过滤条件，结果集过滤条件中不包括是否重跑
+     */
+    public Boolean getOnlyRerun() {
+        return this.OnlyRerun;
+    }
+
+    /**
+     * Set true 只过滤重跑过的实例，false 忽略此过滤条件，结果集过滤条件中不包括是否重跑
+     * @param OnlyRerun true 只过滤重跑过的实例，false 忽略此过滤条件，结果集过滤条件中不包括是否重跑
+     */
+    public void setOnlyRerun(Boolean OnlyRerun) {
+        this.OnlyRerun = OnlyRerun;
+    }
+
+    /**
+     * Get 时区 
+     * @return ScheduleTimeZone 时区
+     */
+    public String getScheduleTimeZone() {
+        return this.ScheduleTimeZone;
+    }
+
+    /**
+     * Set 时区
+     * @param ScheduleTimeZone 时区
+     */
+    public void setScheduleTimeZone(String ScheduleTimeZone) {
+        this.ScheduleTimeZone = ScheduleTimeZone;
+    }
+
+    /**
+     * Get 计划调度时间 
+     * @return ScheduleTimeFrom 计划调度时间
+     */
+    public String getScheduleTimeFrom() {
+        return this.ScheduleTimeFrom;
+    }
+
+    /**
+     * Set 计划调度时间
+     * @param ScheduleTimeFrom 计划调度时间
+     */
+    public void setScheduleTimeFrom(String ScheduleTimeFrom) {
+        this.ScheduleTimeFrom = ScheduleTimeFrom;
+    }
+
+    /**
+     * Get 计划调度时间 
+     * @return ScheduleTimeTo 计划调度时间
+     */
+    public String getScheduleTimeTo() {
+        return this.ScheduleTimeTo;
+    }
+
+    /**
+     * Set 计划调度时间
+     * @param ScheduleTimeTo 计划调度时间
+     */
+    public void setScheduleTimeTo(String ScheduleTimeTo) {
+        this.ScheduleTimeTo = ScheduleTimeTo;
+    }
+
     public InstanceApiOpsRequest() {
     }
 
@@ -843,6 +959,24 @@ public class InstanceApiOpsRequest extends AbstractModel{
         if (source.DataTimeCycle != null) {
             this.DataTimeCycle = new String(source.DataTimeCycle);
         }
+        if (source.ExecutorGroupIdList != null) {
+            this.ExecutorGroupIdList = new String[source.ExecutorGroupIdList.length];
+            for (int i = 0; i < source.ExecutorGroupIdList.length; i++) {
+                this.ExecutorGroupIdList[i] = new String(source.ExecutorGroupIdList[i]);
+            }
+        }
+        if (source.OnlyRerun != null) {
+            this.OnlyRerun = new Boolean(source.OnlyRerun);
+        }
+        if (source.ScheduleTimeZone != null) {
+            this.ScheduleTimeZone = new String(source.ScheduleTimeZone);
+        }
+        if (source.ScheduleTimeFrom != null) {
+            this.ScheduleTimeFrom = new String(source.ScheduleTimeFrom);
+        }
+        if (source.ScheduleTimeTo != null) {
+            this.ScheduleTimeTo = new String(source.ScheduleTimeTo);
+        }
     }
 
 
@@ -880,6 +1014,11 @@ public class InstanceApiOpsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DagDepth", this.DagDepth);
         this.setParamSimple(map, prefix + "TenantId", this.TenantId);
         this.setParamSimple(map, prefix + "DataTimeCycle", this.DataTimeCycle);
+        this.setParamArraySimple(map, prefix + "ExecutorGroupIdList.", this.ExecutorGroupIdList);
+        this.setParamSimple(map, prefix + "OnlyRerun", this.OnlyRerun);
+        this.setParamSimple(map, prefix + "ScheduleTimeZone", this.ScheduleTimeZone);
+        this.setParamSimple(map, prefix + "ScheduleTimeFrom", this.ScheduleTimeFrom);
+        this.setParamSimple(map, prefix + "ScheduleTimeTo", this.ScheduleTimeTo);
 
     }
 }

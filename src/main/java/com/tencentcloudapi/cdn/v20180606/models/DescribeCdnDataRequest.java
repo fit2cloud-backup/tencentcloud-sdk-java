@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCdnDataRequest extends AbstractModel{
+public class DescribeCdnDataRequest extends AbstractModel {
 
     /**
     * 查询起始时间，如：2018-09-04 10:40:00，返回结果大于等于指定时间
@@ -95,7 +96,7 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
 
     /**
     * 多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
     */
     @SerializedName("Detail")
     @Expose
@@ -395,9 +396,9 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
 
     /**
      * Get 多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持） 
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持） 
      * @return Detail 多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
      */
     public Boolean getDetail() {
         return this.Detail;
@@ -405,9 +406,9 @@ day：天粒度，指定查询区间大于 31 天，可返回天粒度明细数�
 
     /**
      * Set 多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
      * @param Detail 多域名查询时，默认（false)返回多个域名的汇总数据
-可按需指定为 true，返回每一个 Domain 的明细数据（statusCode 指标暂不支持）
+可按需指定为 true，返回每一个 Domain 的明细数据（statusCode、2xx、3xx、4xx、5xx 指标暂不支持）
      */
     public void setDetail(Boolean Detail) {
         this.Detail = Detail;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstancePrice extends AbstractModel{
+public class InstancePrice extends AbstractModel {
 
     /**
     * 套餐单价原价。
@@ -52,7 +53,6 @@ public class InstancePrice extends AbstractModel{
 
     /**
     * 价格货币单位。取值范围CNY:人民币。USD:美元。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Currency")
     @Expose
@@ -123,10 +123,8 @@ public class InstancePrice extends AbstractModel{
     }
 
     /**
-     * Get 价格货币单位。取值范围CNY:人民币。USD:美元。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 价格货币单位。取值范围CNY:人民币。USD:美元。 
      * @return Currency 价格货币单位。取值范围CNY:人民币。USD:美元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCurrency() {
         return this.Currency;
@@ -134,9 +132,7 @@ public class InstancePrice extends AbstractModel{
 
     /**
      * Set 价格货币单位。取值范围CNY:人民币。USD:美元。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Currency 价格货币单位。取值范围CNY:人民币。USD:美元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCurrency(String Currency) {
         this.Currency = Currency;

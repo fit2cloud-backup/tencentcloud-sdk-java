@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HistologyLevel extends AbstractModel{
+public class HistologyLevel extends AbstractModel {
 
     /**
     * 等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Grade")
     @Expose
@@ -32,7 +32,6 @@ public class HistologyLevel extends AbstractModel{
 
     /**
     * 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Index")
     @Expose
@@ -40,17 +39,14 @@ public class HistologyLevel extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
     private String Src;
 
     /**
-     * Get 等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 等级 
      * @return Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGrade() {
         return this.Grade;
@@ -58,19 +54,15 @@ public class HistologyLevel extends AbstractModel{
 
     /**
      * Set 等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGrade(String Grade) {
         this.Grade = Grade;
     }
 
     /**
-     * Get 原文位置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文位置 
      * @return Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getIndex() {
         return this.Index;
@@ -78,19 +70,15 @@ public class HistologyLevel extends AbstractModel{
 
     /**
      * Set 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndex(Long [] Index) {
         this.Index = Index;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -98,9 +86,7 @@ public class HistologyLevel extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;

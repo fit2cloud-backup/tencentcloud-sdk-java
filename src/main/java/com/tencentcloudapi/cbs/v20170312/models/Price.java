@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cbs.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Price extends AbstractModel{
+public class Price extends AbstractModel {
 
     /**
     * 后付费云盘折扣单价，单位：元。
@@ -87,7 +88,7 @@ public class Price extends AbstractModel{
     private String UnitPriceDiscountHigh;
 
     /**
-    * 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+    * 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChargeUnit")
@@ -255,9 +256,9 @@ public class Price extends AbstractModel{
     }
 
     /**
-     * Get 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * Get 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * @return ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChargeUnit() {
@@ -265,9 +266,9 @@ public class Price extends AbstractModel{
     }
 
     /**
-     * Set 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * Set 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * @param ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChargeUnit(String ChargeUnit) {

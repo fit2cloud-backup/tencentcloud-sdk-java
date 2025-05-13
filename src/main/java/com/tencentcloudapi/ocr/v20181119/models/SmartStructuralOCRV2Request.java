@@ -16,30 +16,22 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SmartStructuralOCRV2Request extends AbstractModel{
+public class SmartStructuralOCRV2Request extends AbstractModel {
 
     /**
-    * 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+    * 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
     */
     @SerializedName("ImageUrl")
     @Expose
     private String ImageUrl;
 
     /**
-    * 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+    * 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
     */
     @SerializedName("ImageBase64")
     @Expose
@@ -83,74 +75,53 @@ RideHailingDriverLicense -- 网约车驾驶证
 RideHailingTransportLicense -- 网约车运输证
 WayBill -- 快递运单
 AccountOpeningPermit -- 银行开户许可证
+InvoiceEng -- 海外发票模版
+Coin --钱币识别模板
+OnboardingDocuments -- 入职材料识别
+PropertyOwnershipCertificate -- 房产证识别
+RealEstateCertificate --不动产权证识别
+HouseEncumbranceCertificate -- 他权证识别
+CarInsurance -- 车险保单
+MultiRealEstateCertificate -- 房产证、不动产证、产权证等材料合一模板
     */
     @SerializedName("ConfigId")
     @Expose
     private String ConfigId;
 
     /**
-     * Get 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。 
-     * @return ImageUrl 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+    * 是否打开印章识别
+    */
+    @SerializedName("EnableSealRecognize")
+    @Expose
+    private Boolean EnableSealRecognize;
+
+    /**
+     * Get 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。 
+     * @return ImageUrl 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
     public String getImageUrl() {
         return this.ImageUrl;
     }
 
     /**
-     * Set 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
-     * @param ImageUrl 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+     * Set 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+     * @param ImageUrl 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
     }
 
     /**
-     * Get 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。 
-     * @return ImageBase64 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+     * Get 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。 
+     * @return ImageBase64 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
      */
     public String getImageBase64() {
         return this.ImageBase64;
     }
 
     /**
-     * Set 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
-     * @param ImageBase64 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
-支持的图片像素：需介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+     * Set 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+     * @param ImageBase64 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：需介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
      */
     public void setImageBase64(String ImageBase64) {
         this.ImageBase64 = ImageBase64;
@@ -235,7 +206,15 @@ OnlineTaxiItinerary -- 网约车行程单
 RideHailingDriverLicense -- 网约车驾驶证
 RideHailingTransportLicense -- 网约车运输证
 WayBill -- 快递运单
-AccountOpeningPermit -- 银行开户许可证 
+AccountOpeningPermit -- 银行开户许可证
+InvoiceEng -- 海外发票模版
+Coin --钱币识别模板
+OnboardingDocuments -- 入职材料识别
+PropertyOwnershipCertificate -- 房产证识别
+RealEstateCertificate --不动产权证识别
+HouseEncumbranceCertificate -- 他权证识别
+CarInsurance -- 车险保单
+MultiRealEstateCertificate -- 房产证、不动产证、产权证等材料合一模板 
      * @return ConfigId 配置id支持：
 General -- 通用场景
 OnlineTaxiItinerary -- 网约车行程单
@@ -243,6 +222,14 @@ RideHailingDriverLicense -- 网约车驾驶证
 RideHailingTransportLicense -- 网约车运输证
 WayBill -- 快递运单
 AccountOpeningPermit -- 银行开户许可证
+InvoiceEng -- 海外发票模版
+Coin --钱币识别模板
+OnboardingDocuments -- 入职材料识别
+PropertyOwnershipCertificate -- 房产证识别
+RealEstateCertificate --不动产权证识别
+HouseEncumbranceCertificate -- 他权证识别
+CarInsurance -- 车险保单
+MultiRealEstateCertificate -- 房产证、不动产证、产权证等材料合一模板
      */
     public String getConfigId() {
         return this.ConfigId;
@@ -256,6 +243,14 @@ RideHailingDriverLicense -- 网约车驾驶证
 RideHailingTransportLicense -- 网约车运输证
 WayBill -- 快递运单
 AccountOpeningPermit -- 银行开户许可证
+InvoiceEng -- 海外发票模版
+Coin --钱币识别模板
+OnboardingDocuments -- 入职材料识别
+PropertyOwnershipCertificate -- 房产证识别
+RealEstateCertificate --不动产权证识别
+HouseEncumbranceCertificate -- 他权证识别
+CarInsurance -- 车险保单
+MultiRealEstateCertificate -- 房产证、不动产证、产权证等材料合一模板
      * @param ConfigId 配置id支持：
 General -- 通用场景
 OnlineTaxiItinerary -- 网约车行程单
@@ -263,9 +258,33 @@ RideHailingDriverLicense -- 网约车驾驶证
 RideHailingTransportLicense -- 网约车运输证
 WayBill -- 快递运单
 AccountOpeningPermit -- 银行开户许可证
+InvoiceEng -- 海外发票模版
+Coin --钱币识别模板
+OnboardingDocuments -- 入职材料识别
+PropertyOwnershipCertificate -- 房产证识别
+RealEstateCertificate --不动产权证识别
+HouseEncumbranceCertificate -- 他权证识别
+CarInsurance -- 车险保单
+MultiRealEstateCertificate -- 房产证、不动产证、产权证等材料合一模板
      */
     public void setConfigId(String ConfigId) {
         this.ConfigId = ConfigId;
+    }
+
+    /**
+     * Get 是否打开印章识别 
+     * @return EnableSealRecognize 是否打开印章识别
+     */
+    public Boolean getEnableSealRecognize() {
+        return this.EnableSealRecognize;
+    }
+
+    /**
+     * Set 是否打开印章识别
+     * @param EnableSealRecognize 是否打开印章识别
+     */
+    public void setEnableSealRecognize(Boolean EnableSealRecognize) {
+        this.EnableSealRecognize = EnableSealRecognize;
     }
 
     public SmartStructuralOCRV2Request() {
@@ -300,6 +319,9 @@ AccountOpeningPermit -- 银行开户许可证
         if (source.ConfigId != null) {
             this.ConfigId = new String(source.ConfigId);
         }
+        if (source.EnableSealRecognize != null) {
+            this.EnableSealRecognize = new Boolean(source.EnableSealRecognize);
+        }
     }
 
 
@@ -314,6 +336,7 @@ AccountOpeningPermit -- 银行开户许可证
         this.setParamArraySimple(map, prefix + "ItemNames.", this.ItemNames);
         this.setParamSimple(map, prefix + "ReturnFullText", this.ReturnFullText);
         this.setParamSimple(map, prefix + "ConfigId", this.ConfigId);
+        this.setParamSimple(map, prefix + "EnableSealRecognize", this.EnableSealRecognize);
 
     }
 }

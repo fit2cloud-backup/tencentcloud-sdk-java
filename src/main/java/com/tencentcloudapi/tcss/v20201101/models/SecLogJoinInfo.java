@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SecLogJoinInfo extends AbstractModel{
+public class SecLogJoinInfo extends AbstractModel {
 
     /**
     * 已接入普通主机数量
@@ -53,6 +54,13 @@ k8sApi: "k8s_api"
     @SerializedName("LogType")
     @Expose
     private String LogType;
+
+    /**
+    * 已接入集群数量
+    */
+    @SerializedName("ClusterCount")
+    @Expose
+    private Long ClusterCount;
 
     /**
      * Get 已接入普通主机数量 
@@ -134,6 +142,22 @@ k8sApi: "k8s_api"
         this.LogType = LogType;
     }
 
+    /**
+     * Get 已接入集群数量 
+     * @return ClusterCount 已接入集群数量
+     */
+    public Long getClusterCount() {
+        return this.ClusterCount;
+    }
+
+    /**
+     * Set 已接入集群数量
+     * @param ClusterCount 已接入集群数量
+     */
+    public void setClusterCount(Long ClusterCount) {
+        this.ClusterCount = ClusterCount;
+    }
+
     public SecLogJoinInfo() {
     }
 
@@ -154,6 +178,9 @@ k8sApi: "k8s_api"
         if (source.LogType != null) {
             this.LogType = new String(source.LogType);
         }
+        if (source.ClusterCount != null) {
+            this.ClusterCount = new Long(source.ClusterCount);
+        }
     }
 
 
@@ -165,6 +192,7 @@ k8sApi: "k8s_api"
         this.setParamSimple(map, prefix + "SuperNodeCount", this.SuperNodeCount);
         this.setParamSimple(map, prefix + "IsJoined", this.IsJoined);
         this.setParamSimple(map, prefix + "LogType", this.LogType);
+        this.setParamSimple(map, prefix + "ClusterCount", this.ClusterCount);
 
     }
 }

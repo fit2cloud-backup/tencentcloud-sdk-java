@@ -16,33 +16,57 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteRabbitMQVipInstanceRequest extends AbstractModel{
+public class DeleteRabbitMQVipInstanceRequest extends AbstractModel {
 
     /**
-    * 实例Id
+    * 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-     * Get 实例Id 
-     * @return InstanceId 实例Id
+    * 是否国际站请求，默认 false
+    */
+    @SerializedName("IsIntl")
+    @Expose
+    private Boolean IsIntl;
+
+    /**
+     * Get 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。 
+     * @return InstanceId 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例Id
-     * @param InstanceId 实例Id
+     * Set 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
+     * @param InstanceId 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 是否国际站请求，默认 false 
+     * @return IsIntl 是否国际站请求，默认 false
+     */
+    public Boolean getIsIntl() {
+        return this.IsIntl;
+    }
+
+    /**
+     * Set 是否国际站请求，默认 false
+     * @param IsIntl 是否国际站请求，默认 false
+     */
+    public void setIsIntl(Boolean IsIntl) {
+        this.IsIntl = IsIntl;
     }
 
     public DeleteRabbitMQVipInstanceRequest() {
@@ -56,6 +80,9 @@ public class DeleteRabbitMQVipInstanceRequest extends AbstractModel{
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
         }
+        if (source.IsIntl != null) {
+            this.IsIntl = new Boolean(source.IsIntl);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DeleteRabbitMQVipInstanceRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "IsIntl", this.IsIntl);
 
     }
 }

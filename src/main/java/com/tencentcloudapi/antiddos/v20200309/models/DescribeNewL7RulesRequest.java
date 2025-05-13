@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNewL7RulesRequest extends AbstractModel{
+public class DescribeNewL7RulesRequest extends AbstractModel {
 
     /**
     * DDoS防护子产品代号（bgpip表示高防IP）
@@ -58,7 +59,7 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 页起始偏移，取值为(页码-1)*一页条数
+    * 规则偏移量，取值为(页码-1)*一页条数
     */
     @SerializedName("Offset")
     @Expose
@@ -166,16 +167,16 @@ public class DescribeNewL7RulesRequest extends AbstractModel{
     }
 
     /**
-     * Get 页起始偏移，取值为(页码-1)*一页条数 
-     * @return Offset 页起始偏移，取值为(页码-1)*一页条数
+     * Get 规则偏移量，取值为(页码-1)*一页条数 
+     * @return Offset 规则偏移量，取值为(页码-1)*一页条数
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 页起始偏移，取值为(页码-1)*一页条数
-     * @param Offset 页起始偏移，取值为(页码-1)*一页条数
+     * Set 规则偏移量，取值为(页码-1)*一页条数
+     * @param Offset 规则偏移量，取值为(页码-1)*一页条数
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSparkSessionBatchSqlLogResponse extends AbstractModel{
+public class DescribeSparkSessionBatchSqlLogResponse extends AbstractModel {
 
     /**
-    * 状态：0：初始化、1：成功、2：失败、3：取消、4：异常；
+    * 状态：0：运行中、1：成功、2：失败、3：取消、4：超时；
     */
     @SerializedName("State")
     @Expose
@@ -38,23 +39,23 @@ public class DescribeSparkSessionBatchSqlLogResponse extends AbstractModel{
     private SparkSessionBatchLog [] LogSet;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 状态：0：初始化、1：成功、2：失败、3：取消、4：异常； 
-     * @return State 状态：0：初始化、1：成功、2：失败、3：取消、4：异常；
+     * Get 状态：0：运行中、1：成功、2：失败、3：取消、4：超时； 
+     * @return State 状态：0：运行中、1：成功、2：失败、3：取消、4：超时；
      */
     public Long getState() {
         return this.State;
     }
 
     /**
-     * Set 状态：0：初始化、1：成功、2：失败、3：取消、4：异常；
-     * @param State 状态：0：初始化、1：成功、2：失败、3：取消、4：异常；
+     * Set 状态：0：运行中、1：成功、2：失败、3：取消、4：超时；
+     * @param State 状态：0：运行中、1：成功、2：失败、3：取消、4：超时；
      */
     public void setState(Long State) {
         this.State = State;
@@ -81,16 +82,16 @@ public class DescribeSparkSessionBatchSqlLogResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

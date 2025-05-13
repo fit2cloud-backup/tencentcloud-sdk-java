@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel{
+public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel {
 
     /**
     * 转自适应码流模板唯一标识。
@@ -65,7 +66,9 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
 
     /**
     * 转自适应码流输入流参数信息，最多输入10路流。
-注意：各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+注意：
+1、各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+2、修改子流信息时需要全量修改添加所有字段值，否则没填字段会使用默认值。
     */
     @SerializedName("StreamInfos")
     @Expose
@@ -77,6 +80,30 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
     @SerializedName("Comment")
     @Expose
     private String Comment;
+
+    /**
+    * 是否为纯音频，0表示视频模板，1表示纯音频模板
+当值为1：
+1. StreamInfos.N.RemoveVideo=1
+2. StreamInfos.N.RemoveAudio=0
+3. StreamInfos.N.Video.Codec=copy
+当值为0：
+1. StreamInfos.N.Video.Codec不能为copy
+2. StreamInfos.N.Video.Fps不能为null
+注意：
+此值只是区分模板类型，任务使用RemoveAudio和RemoveVideo的值
+    */
+    @SerializedName("PureAudio")
+    @Expose
+    private Long PureAudio;
+
+    /**
+    * hls 分片类型，可选值： <li>ts-segment：HLS+TS 切片</li> <li>ts-byterange：HLS+TS byte range</li> <li>mp4-segment：HLS+MP4 切片</li> <li>mp4-byterange：HLS+MP4 byte range</li> <li>ts-packed-audio：TS+Packed Audio</li> <li>mp4-packed-audio：MP4+Packed Audio</li> 默认值：ts-segment 
+注：自适应码流的hls分片格式已此字段为准
+    */
+    @SerializedName("SegmentType")
+    @Expose
+    private String SegmentType;
 
     /**
      * Get 转自适应码流模板唯一标识。 
@@ -184,9 +211,13 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
 
     /**
      * Get 转自适应码流输入流参数信息，最多输入10路流。
-注意：各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。 
+注意：
+1、各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+2、修改子流信息时需要全量修改添加所有字段值，否则没填字段会使用默认值。 
      * @return StreamInfos 转自适应码流输入流参数信息，最多输入10路流。
-注意：各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+注意：
+1、各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+2、修改子流信息时需要全量修改添加所有字段值，否则没填字段会使用默认值。
      */
     public AdaptiveStreamTemplate [] getStreamInfos() {
         return this.StreamInfos;
@@ -194,9 +225,13 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
 
     /**
      * Set 转自适应码流输入流参数信息，最多输入10路流。
-注意：各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+注意：
+1、各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+2、修改子流信息时需要全量修改添加所有字段值，否则没填字段会使用默认值。
      * @param StreamInfos 转自适应码流输入流参数信息，最多输入10路流。
-注意：各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+注意：
+1、各个流的帧率必须保持一致；如果不一致，采用第一个流的帧率作为输出帧率。
+2、修改子流信息时需要全量修改添加所有字段值，否则没填字段会使用默认值。
      */
     public void setStreamInfos(AdaptiveStreamTemplate [] StreamInfos) {
         this.StreamInfos = StreamInfos;
@@ -216,6 +251,78 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
      */
     public void setComment(String Comment) {
         this.Comment = Comment;
+    }
+
+    /**
+     * Get 是否为纯音频，0表示视频模板，1表示纯音频模板
+当值为1：
+1. StreamInfos.N.RemoveVideo=1
+2. StreamInfos.N.RemoveAudio=0
+3. StreamInfos.N.Video.Codec=copy
+当值为0：
+1. StreamInfos.N.Video.Codec不能为copy
+2. StreamInfos.N.Video.Fps不能为null
+注意：
+此值只是区分模板类型，任务使用RemoveAudio和RemoveVideo的值 
+     * @return PureAudio 是否为纯音频，0表示视频模板，1表示纯音频模板
+当值为1：
+1. StreamInfos.N.RemoveVideo=1
+2. StreamInfos.N.RemoveAudio=0
+3. StreamInfos.N.Video.Codec=copy
+当值为0：
+1. StreamInfos.N.Video.Codec不能为copy
+2. StreamInfos.N.Video.Fps不能为null
+注意：
+此值只是区分模板类型，任务使用RemoveAudio和RemoveVideo的值
+     */
+    public Long getPureAudio() {
+        return this.PureAudio;
+    }
+
+    /**
+     * Set 是否为纯音频，0表示视频模板，1表示纯音频模板
+当值为1：
+1. StreamInfos.N.RemoveVideo=1
+2. StreamInfos.N.RemoveAudio=0
+3. StreamInfos.N.Video.Codec=copy
+当值为0：
+1. StreamInfos.N.Video.Codec不能为copy
+2. StreamInfos.N.Video.Fps不能为null
+注意：
+此值只是区分模板类型，任务使用RemoveAudio和RemoveVideo的值
+     * @param PureAudio 是否为纯音频，0表示视频模板，1表示纯音频模板
+当值为1：
+1. StreamInfos.N.RemoveVideo=1
+2. StreamInfos.N.RemoveAudio=0
+3. StreamInfos.N.Video.Codec=copy
+当值为0：
+1. StreamInfos.N.Video.Codec不能为copy
+2. StreamInfos.N.Video.Fps不能为null
+注意：
+此值只是区分模板类型，任务使用RemoveAudio和RemoveVideo的值
+     */
+    public void setPureAudio(Long PureAudio) {
+        this.PureAudio = PureAudio;
+    }
+
+    /**
+     * Get hls 分片类型，可选值： <li>ts-segment：HLS+TS 切片</li> <li>ts-byterange：HLS+TS byte range</li> <li>mp4-segment：HLS+MP4 切片</li> <li>mp4-byterange：HLS+MP4 byte range</li> <li>ts-packed-audio：TS+Packed Audio</li> <li>mp4-packed-audio：MP4+Packed Audio</li> 默认值：ts-segment 
+注：自适应码流的hls分片格式已此字段为准 
+     * @return SegmentType hls 分片类型，可选值： <li>ts-segment：HLS+TS 切片</li> <li>ts-byterange：HLS+TS byte range</li> <li>mp4-segment：HLS+MP4 切片</li> <li>mp4-byterange：HLS+MP4 byte range</li> <li>ts-packed-audio：TS+Packed Audio</li> <li>mp4-packed-audio：MP4+Packed Audio</li> 默认值：ts-segment 
+注：自适应码流的hls分片格式已此字段为准
+     */
+    public String getSegmentType() {
+        return this.SegmentType;
+    }
+
+    /**
+     * Set hls 分片类型，可选值： <li>ts-segment：HLS+TS 切片</li> <li>ts-byterange：HLS+TS byte range</li> <li>mp4-segment：HLS+MP4 切片</li> <li>mp4-byterange：HLS+MP4 byte range</li> <li>ts-packed-audio：TS+Packed Audio</li> <li>mp4-packed-audio：MP4+Packed Audio</li> 默认值：ts-segment 
+注：自适应码流的hls分片格式已此字段为准
+     * @param SegmentType hls 分片类型，可选值： <li>ts-segment：HLS+TS 切片</li> <li>ts-byterange：HLS+TS byte range</li> <li>mp4-segment：HLS+MP4 切片</li> <li>mp4-byterange：HLS+MP4 byte range</li> <li>ts-packed-audio：TS+Packed Audio</li> <li>mp4-packed-audio：MP4+Packed Audio</li> 默认值：ts-segment 
+注：自适应码流的hls分片格式已此字段为准
+     */
+    public void setSegmentType(String SegmentType) {
+        this.SegmentType = SegmentType;
     }
 
     public ModifyAdaptiveDynamicStreamingTemplateRequest() {
@@ -250,6 +357,12 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         if (source.Comment != null) {
             this.Comment = new String(source.Comment);
         }
+        if (source.PureAudio != null) {
+            this.PureAudio = new Long(source.PureAudio);
+        }
+        if (source.SegmentType != null) {
+            this.SegmentType = new String(source.SegmentType);
+        }
     }
 
 
@@ -264,6 +377,8 @@ public class ModifyAdaptiveDynamicStreamingTemplateRequest extends AbstractModel
         this.setParamSimple(map, prefix + "DisableHigherVideoResolution", this.DisableHigherVideoResolution);
         this.setParamArrayObj(map, prefix + "StreamInfos.", this.StreamInfos);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "PureAudio", this.PureAudio);
+        this.setParamSimple(map, prefix + "SegmentType", this.SegmentType);
 
     }
 }

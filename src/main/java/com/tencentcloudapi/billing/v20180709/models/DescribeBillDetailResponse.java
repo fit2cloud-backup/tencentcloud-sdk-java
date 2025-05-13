@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBillDetailResponse extends AbstractModel{
+public class DescribeBillDetailResponse extends AbstractModel {
 
     /**
     * 详情列表
@@ -31,7 +32,6 @@ public class DescribeBillDetailResponse extends AbstractModel{
 
     /**
     * 总记录数，24小时缓存一次，可能比实际总记录数少
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Total")
     @Expose
@@ -39,14 +39,13 @@ public class DescribeBillDetailResponse extends AbstractModel{
 
     /**
     * 本次请求的上下文信息，可用于下一次请求的请求参数中，加快查询速度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Context")
     @Expose
     private String Context;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -69,10 +68,8 @@ public class DescribeBillDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 总记录数，24小时缓存一次，可能比实际总记录数少
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总记录数，24小时缓存一次，可能比实际总记录数少 
      * @return Total 总记录数，24小时缓存一次，可能比实际总记录数少
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotal() {
         return this.Total;
@@ -80,19 +77,15 @@ public class DescribeBillDetailResponse extends AbstractModel{
 
     /**
      * Set 总记录数，24小时缓存一次，可能比实际总记录数少
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Total 总记录数，24小时缓存一次，可能比实际总记录数少
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotal(Long Total) {
         this.Total = Total;
     }
 
     /**
-     * Get 本次请求的上下文信息，可用于下一次请求的请求参数中，加快查询速度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 本次请求的上下文信息，可用于下一次请求的请求参数中，加快查询速度 
      * @return Context 本次请求的上下文信息，可用于下一次请求的请求参数中，加快查询速度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContext() {
         return this.Context;
@@ -100,25 +93,23 @@ public class DescribeBillDetailResponse extends AbstractModel{
 
     /**
      * Set 本次请求的上下文信息，可用于下一次请求的请求参数中，加快查询速度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Context 本次请求的上下文信息，可用于下一次请求的请求参数中，加快查询速度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContext(String Context) {
         this.Context = Context;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

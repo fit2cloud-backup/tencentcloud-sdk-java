@@ -16,11 +16,12 @@
 package com.tencentcloudapi.hcm.v20181106.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EvaluationRequest extends AbstractModel{
+public class EvaluationRequest extends AbstractModel {
 
     /**
     * 图片唯一标识，一张图片一个SessionId；
@@ -212,7 +213,9 @@ public class EvaluationRequest extends AbstractModel{
     /**
      * Get 异步模式标识，0：同步模式，1：异步模式。默认为同步模式 
      * @return IsAsync 异步模式标识，0：同步模式，1：异步模式。默认为同步模式
+     * @deprecated
      */
+    @Deprecated
     public Long getIsAsync() {
         return this.IsAsync;
     }
@@ -220,7 +223,9 @@ public class EvaluationRequest extends AbstractModel{
     /**
      * Set 异步模式标识，0：同步模式，1：异步模式。默认为同步模式
      * @param IsAsync 异步模式标识，0：同步模式，1：异步模式。默认为同步模式
+     * @deprecated
      */
+    @Deprecated
     public void setIsAsync(Long IsAsync) {
         this.IsAsync = IsAsync;
     }

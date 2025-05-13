@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCompareTaskRequest extends AbstractModel{
+public class CreateCompareTaskRequest extends AbstractModel {
 
     /**
     * 任务 Id
@@ -44,7 +45,7 @@ public class CreateCompareTaskRequest extends AbstractModel{
     private String ObjectMode;
 
     /**
-    * 一致性对比对象配置
+    * 数据对比对象，当ObjectMode为custom时，此项需要填写。
     */
     @SerializedName("Objects")
     @Expose
@@ -106,16 +107,16 @@ public class CreateCompareTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 一致性对比对象配置 
-     * @return Objects 一致性对比对象配置
+     * Get 数据对比对象，当ObjectMode为custom时，此项需要填写。 
+     * @return Objects 数据对比对象，当ObjectMode为custom时，此项需要填写。
      */
     public CompareObject getObjects() {
         return this.Objects;
     }
 
     /**
-     * Set 一致性对比对象配置
-     * @param Objects 一致性对比对象配置
+     * Set 数据对比对象，当ObjectMode为custom时，此项需要填写。
+     * @param Objects 数据对比对象，当ObjectMode为custom时，此项需要填写。
      */
     public void setObjects(CompareObject Objects) {
         this.Objects = Objects;

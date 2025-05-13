@@ -16,14 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssociateAddressRequest extends AbstractModel{
+public class AssociateAddressRequest extends AbstractModel {
 
     /**
-    * 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
+    * 标识 EIP 的唯一 ID。可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。EIP 唯一 ID 形如：`eip-11112222`。
     */
     @SerializedName("AddressId")
     @Expose
@@ -58,16 +59,23 @@ public class AssociateAddressRequest extends AbstractModel{
     private Boolean EipDirectConnection;
 
     /**
-     * Get 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。 
-     * @return AddressId 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
+    * 要绑定的实例所在地域。默认无需填写，仅限GAAP特殊场景需指定实例所在地域。
+    */
+    @SerializedName("InstanceRegion")
+    @Expose
+    private String InstanceRegion;
+
+    /**
+     * Get 标识 EIP 的唯一 ID。可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。EIP 唯一 ID 形如：`eip-11112222`。 
+     * @return AddressId 标识 EIP 的唯一 ID。可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。EIP 唯一 ID 形如：`eip-11112222`。
      */
     public String getAddressId() {
         return this.AddressId;
     }
 
     /**
-     * Set 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
-     * @param AddressId 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。
+     * Set 标识 EIP 的唯一 ID。可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。EIP 唯一 ID 形如：`eip-11112222`。
+     * @param AddressId 标识 EIP 的唯一 ID。可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。EIP 唯一 ID 形如：`eip-11112222`。
      */
     public void setAddressId(String AddressId) {
         this.AddressId = AddressId;
@@ -137,6 +145,22 @@ public class AssociateAddressRequest extends AbstractModel{
         this.EipDirectConnection = EipDirectConnection;
     }
 
+    /**
+     * Get 要绑定的实例所在地域。默认无需填写，仅限GAAP特殊场景需指定实例所在地域。 
+     * @return InstanceRegion 要绑定的实例所在地域。默认无需填写，仅限GAAP特殊场景需指定实例所在地域。
+     */
+    public String getInstanceRegion() {
+        return this.InstanceRegion;
+    }
+
+    /**
+     * Set 要绑定的实例所在地域。默认无需填写，仅限GAAP特殊场景需指定实例所在地域。
+     * @param InstanceRegion 要绑定的实例所在地域。默认无需填写，仅限GAAP特殊场景需指定实例所在地域。
+     */
+    public void setInstanceRegion(String InstanceRegion) {
+        this.InstanceRegion = InstanceRegion;
+    }
+
     public AssociateAddressRequest() {
     }
 
@@ -160,6 +184,9 @@ public class AssociateAddressRequest extends AbstractModel{
         if (source.EipDirectConnection != null) {
             this.EipDirectConnection = new Boolean(source.EipDirectConnection);
         }
+        if (source.InstanceRegion != null) {
+            this.InstanceRegion = new String(source.InstanceRegion);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class AssociateAddressRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NetworkInterfaceId", this.NetworkInterfaceId);
         this.setParamSimple(map, prefix + "PrivateIpAddress", this.PrivateIpAddress);
         this.setParamSimple(map, prefix + "EipDirectConnection", this.EipDirectConnection);
+        this.setParamSimple(map, prefix + "InstanceRegion", this.InstanceRegion);
 
     }
 }

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddOrganizationNodeRequest extends AbstractModel{
+public class AddOrganizationNodeRequest extends AbstractModel {
 
     /**
-    * 父节点ID。可以调用DescribeOrganizationNodes获取
+    * 父节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
     */
     @SerializedName("ParentNodeId")
     @Expose
@@ -44,16 +45,23 @@ public class AddOrganizationNodeRequest extends AbstractModel{
     private String Remark;
 
     /**
-     * Get 父节点ID。可以调用DescribeOrganizationNodes获取 
-     * @return ParentNodeId 父节点ID。可以调用DescribeOrganizationNodes获取
+    * 部门标签列表。最大10个
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+     * Get 父节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取 
+     * @return ParentNodeId 父节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
      */
     public Long getParentNodeId() {
         return this.ParentNodeId;
     }
 
     /**
-     * Set 父节点ID。可以调用DescribeOrganizationNodes获取
-     * @param ParentNodeId 父节点ID。可以调用DescribeOrganizationNodes获取
+     * Set 父节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
+     * @param ParentNodeId 父节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
      */
     public void setParentNodeId(Long ParentNodeId) {
         this.ParentNodeId = ParentNodeId;
@@ -91,6 +99,22 @@ public class AddOrganizationNodeRequest extends AbstractModel{
         this.Remark = Remark;
     }
 
+    /**
+     * Get 部门标签列表。最大10个 
+     * @return Tags 部门标签列表。最大10个
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 部门标签列表。最大10个
+     * @param Tags 部门标签列表。最大10个
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public AddOrganizationNodeRequest() {
     }
 
@@ -108,6 +132,12 @@ public class AddOrganizationNodeRequest extends AbstractModel{
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -118,6 +148,7 @@ public class AddOrganizationNodeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ParentNodeId", this.ParentNodeId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

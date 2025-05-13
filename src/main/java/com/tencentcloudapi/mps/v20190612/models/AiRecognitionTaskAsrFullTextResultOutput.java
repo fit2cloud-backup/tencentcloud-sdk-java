@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionTaskAsrFullTextResultOutput extends AbstractModel{
+public class AiRecognitionTaskAsrFullTextResultOutput extends AbstractModel {
 
     /**
     * 语音全文识别片段列表。
@@ -78,7 +79,9 @@ public class AiRecognitionTaskAsrFullTextResultOutput extends AbstractModel{
     /**
      * Get 字幕文件存储位置。 
      * @return OutputStorage 字幕文件存储位置。
+     * @deprecated
      */
+    @Deprecated
     public TaskOutputStorage getOutputStorage() {
         return this.OutputStorage;
     }
@@ -86,7 +89,9 @@ public class AiRecognitionTaskAsrFullTextResultOutput extends AbstractModel{
     /**
      * Set 字幕文件存储位置。
      * @param OutputStorage 字幕文件存储位置。
+     * @deprecated
      */
+    @Deprecated
     public void setOutputStorage(TaskOutputStorage OutputStorage) {
         this.OutputStorage = OutputStorage;
     }

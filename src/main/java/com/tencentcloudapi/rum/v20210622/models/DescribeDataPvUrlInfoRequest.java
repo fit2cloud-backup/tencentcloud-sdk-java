@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataPvUrlInfoRequest extends AbstractModel{
+public class DescribeDataPvUrlInfoRequest extends AbstractModel {
 
     /**
     * 开始时间
@@ -142,7 +143,7 @@ public class DescribeDataPvUrlInfoRequest extends AbstractModel{
     private String Device;
 
     /**
-    * 是否海外
+    * 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
     */
     @SerializedName("IsAbroad")
     @Expose
@@ -442,16 +443,16 @@ public class DescribeDataPvUrlInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否海外 
-     * @return IsAbroad 是否海外
+     * Get 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。 
+     * @return IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public String getIsAbroad() {
         return this.IsAbroad;
     }
 
     /**
-     * Set 是否海外
-     * @param IsAbroad 是否海外
+     * Set 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public void setIsAbroad(String IsAbroad) {
         this.IsAbroad = IsAbroad;

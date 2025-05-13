@@ -16,25 +16,30 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TieringDetailInfo extends AbstractModel{
+public class TieringDetailInfo extends AbstractModel {
 
     /**
     * 低频存储容量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TieringSizeInBytes")
     @Expose
     private Long TieringSizeInBytes;
 
     /**
-     * Get 低频存储容量
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 冷存储容量
+    */
+    @SerializedName("SecondaryTieringSizeInBytes")
+    @Expose
+    private Long SecondaryTieringSizeInBytes;
+
+    /**
+     * Get 低频存储容量 
      * @return TieringSizeInBytes 低频存储容量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTieringSizeInBytes() {
         return this.TieringSizeInBytes;
@@ -42,12 +47,26 @@ public class TieringDetailInfo extends AbstractModel{
 
     /**
      * Set 低频存储容量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TieringSizeInBytes 低频存储容量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTieringSizeInBytes(Long TieringSizeInBytes) {
         this.TieringSizeInBytes = TieringSizeInBytes;
+    }
+
+    /**
+     * Get 冷存储容量 
+     * @return SecondaryTieringSizeInBytes 冷存储容量
+     */
+    public Long getSecondaryTieringSizeInBytes() {
+        return this.SecondaryTieringSizeInBytes;
+    }
+
+    /**
+     * Set 冷存储容量
+     * @param SecondaryTieringSizeInBytes 冷存储容量
+     */
+    public void setSecondaryTieringSizeInBytes(Long SecondaryTieringSizeInBytes) {
+        this.SecondaryTieringSizeInBytes = SecondaryTieringSizeInBytes;
     }
 
     public TieringDetailInfo() {
@@ -61,6 +80,9 @@ public class TieringDetailInfo extends AbstractModel{
         if (source.TieringSizeInBytes != null) {
             this.TieringSizeInBytes = new Long(source.TieringSizeInBytes);
         }
+        if (source.SecondaryTieringSizeInBytes != null) {
+            this.SecondaryTieringSizeInBytes = new Long(source.SecondaryTieringSizeInBytes);
+        }
     }
 
 
@@ -69,6 +91,7 @@ public class TieringDetailInfo extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TieringSizeInBytes", this.TieringSizeInBytes);
+        this.setParamSimple(map, prefix + "SecondaryTieringSizeInBytes", this.SecondaryTieringSizeInBytes);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DataTransformTaskInfo extends AbstractModel{
+public class DataTransformTaskInfo extends AbstractModel {
 
     /**
     * 数据加工任务名称
@@ -107,11 +108,32 @@ public class DataTransformTaskInfo extends AbstractModel{
     private DataTransformResouceInfo [] DstResources;
 
     /**
-    * 加工逻辑函数
+    * 加工逻辑函数。
     */
     @SerializedName("EtlContent")
     @Expose
     private String EtlContent;
+
+    /**
+    * 数据加工类型。0：标准加工任务；1：前置加工任务。
+    */
+    @SerializedName("DataTransformType")
+    @Expose
+    private Long DataTransformType;
+
+    /**
+    * 保留失败日志状态。 1:不保留，2:保留
+    */
+    @SerializedName("KeepFailureLog")
+    @Expose
+    private Long KeepFailureLog;
+
+    /**
+    * 失败日志的字段名称
+    */
+    @SerializedName("FailureLogKey")
+    @Expose
+    private String FailureLogKey;
 
     /**
      * Get 数据加工任务名称 
@@ -306,19 +328,67 @@ public class DataTransformTaskInfo extends AbstractModel{
     }
 
     /**
-     * Get 加工逻辑函数 
-     * @return EtlContent 加工逻辑函数
+     * Get 加工逻辑函数。 
+     * @return EtlContent 加工逻辑函数。
      */
     public String getEtlContent() {
         return this.EtlContent;
     }
 
     /**
-     * Set 加工逻辑函数
-     * @param EtlContent 加工逻辑函数
+     * Set 加工逻辑函数。
+     * @param EtlContent 加工逻辑函数。
      */
     public void setEtlContent(String EtlContent) {
         this.EtlContent = EtlContent;
+    }
+
+    /**
+     * Get 数据加工类型。0：标准加工任务；1：前置加工任务。 
+     * @return DataTransformType 数据加工类型。0：标准加工任务；1：前置加工任务。
+     */
+    public Long getDataTransformType() {
+        return this.DataTransformType;
+    }
+
+    /**
+     * Set 数据加工类型。0：标准加工任务；1：前置加工任务。
+     * @param DataTransformType 数据加工类型。0：标准加工任务；1：前置加工任务。
+     */
+    public void setDataTransformType(Long DataTransformType) {
+        this.DataTransformType = DataTransformType;
+    }
+
+    /**
+     * Get 保留失败日志状态。 1:不保留，2:保留 
+     * @return KeepFailureLog 保留失败日志状态。 1:不保留，2:保留
+     */
+    public Long getKeepFailureLog() {
+        return this.KeepFailureLog;
+    }
+
+    /**
+     * Set 保留失败日志状态。 1:不保留，2:保留
+     * @param KeepFailureLog 保留失败日志状态。 1:不保留，2:保留
+     */
+    public void setKeepFailureLog(Long KeepFailureLog) {
+        this.KeepFailureLog = KeepFailureLog;
+    }
+
+    /**
+     * Get 失败日志的字段名称 
+     * @return FailureLogKey 失败日志的字段名称
+     */
+    public String getFailureLogKey() {
+        return this.FailureLogKey;
+    }
+
+    /**
+     * Set 失败日志的字段名称
+     * @param FailureLogKey 失败日志的字段名称
+     */
+    public void setFailureLogKey(String FailureLogKey) {
+        this.FailureLogKey = FailureLogKey;
     }
 
     public DataTransformTaskInfo() {
@@ -371,6 +441,15 @@ public class DataTransformTaskInfo extends AbstractModel{
         if (source.EtlContent != null) {
             this.EtlContent = new String(source.EtlContent);
         }
+        if (source.DataTransformType != null) {
+            this.DataTransformType = new Long(source.DataTransformType);
+        }
+        if (source.KeepFailureLog != null) {
+            this.KeepFailureLog = new Long(source.KeepFailureLog);
+        }
+        if (source.FailureLogKey != null) {
+            this.FailureLogKey = new String(source.FailureLogKey);
+        }
     }
 
 
@@ -391,6 +470,9 @@ public class DataTransformTaskInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "LogsetId", this.LogsetId);
         this.setParamArrayObj(map, prefix + "DstResources.", this.DstResources);
         this.setParamSimple(map, prefix + "EtlContent", this.EtlContent);
+        this.setParamSimple(map, prefix + "DataTransformType", this.DataTransformType);
+        this.setParamSimple(map, prefix + "KeepFailureLog", this.KeepFailureLog);
+        this.setParamSimple(map, prefix + "FailureLogKey", this.FailureLogKey);
 
     }
 }

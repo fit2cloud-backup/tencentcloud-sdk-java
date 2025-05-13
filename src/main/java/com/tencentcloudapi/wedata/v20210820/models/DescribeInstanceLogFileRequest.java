@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceLogFileRequest extends AbstractModel{
+public class DescribeInstanceLogFileRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -44,6 +45,13 @@ public class DescribeInstanceLogFileRequest extends AbstractModel{
     private String CurRunDate;
 
     /**
+    * 请求来源，WEB 前端；CLIENT 客户端
+    */
+    @SerializedName("RequestFromSource")
+    @Expose
+    private String RequestFromSource;
+
+    /**
     * 执行机IP
     */
     @SerializedName("BrokerIp")
@@ -56,6 +64,62 @@ public class DescribeInstanceLogFileRequest extends AbstractModel{
     @SerializedName("OriginFileName")
     @Expose
     private String OriginFileName;
+
+    /**
+    * 执行平台下发执行id
+    */
+    @SerializedName("ExecutionJobId")
+    @Expose
+    private String ExecutionJobId;
+
+    /**
+    * 日志级别，Info/Debug/Warn/Error/All
+    */
+    @SerializedName("LogLevelType")
+    @Expose
+    private String LogLevelType;
+
+    /**
+    * 文件类型,Log/Code
+    */
+    @SerializedName("ExecutionFileType")
+    @Expose
+    private String ExecutionFileType;
+
+    /**
+    * 生命周期为基础数据进行日志匹配。Dynamic=true动态获取日志链路中使用
+    */
+    @SerializedName("InstanceLifeDetailDtoList")
+    @Expose
+    private InstanceLifeDetailDto [] InstanceLifeDetailDtoList;
+
+    /**
+    * 当前生命周期数
+    */
+    @SerializedName("CurrentLifeRound")
+    @Expose
+    private Long CurrentLifeRound;
+
+    /**
+    * 最大生命周期数
+    */
+    @SerializedName("MaxLifeRound")
+    @Expose
+    private Long MaxLifeRound;
+
+    /**
+    * 当前生命周期重试次数
+    */
+    @SerializedName("Tries")
+    @Expose
+    private Long Tries;
+
+    /**
+    * 动态获取日志信息标识
+    */
+    @SerializedName("Dynamic")
+    @Expose
+    private Boolean Dynamic;
 
     /**
      * Get 项目ID 
@@ -106,6 +170,22 @@ public class DescribeInstanceLogFileRequest extends AbstractModel{
     }
 
     /**
+     * Get 请求来源，WEB 前端；CLIENT 客户端 
+     * @return RequestFromSource 请求来源，WEB 前端；CLIENT 客户端
+     */
+    public String getRequestFromSource() {
+        return this.RequestFromSource;
+    }
+
+    /**
+     * Set 请求来源，WEB 前端；CLIENT 客户端
+     * @param RequestFromSource 请求来源，WEB 前端；CLIENT 客户端
+     */
+    public void setRequestFromSource(String RequestFromSource) {
+        this.RequestFromSource = RequestFromSource;
+    }
+
+    /**
      * Get 执行机IP 
      * @return BrokerIp 执行机IP
      */
@@ -137,6 +217,134 @@ public class DescribeInstanceLogFileRequest extends AbstractModel{
         this.OriginFileName = OriginFileName;
     }
 
+    /**
+     * Get 执行平台下发执行id 
+     * @return ExecutionJobId 执行平台下发执行id
+     */
+    public String getExecutionJobId() {
+        return this.ExecutionJobId;
+    }
+
+    /**
+     * Set 执行平台下发执行id
+     * @param ExecutionJobId 执行平台下发执行id
+     */
+    public void setExecutionJobId(String ExecutionJobId) {
+        this.ExecutionJobId = ExecutionJobId;
+    }
+
+    /**
+     * Get 日志级别，Info/Debug/Warn/Error/All 
+     * @return LogLevelType 日志级别，Info/Debug/Warn/Error/All
+     */
+    public String getLogLevelType() {
+        return this.LogLevelType;
+    }
+
+    /**
+     * Set 日志级别，Info/Debug/Warn/Error/All
+     * @param LogLevelType 日志级别，Info/Debug/Warn/Error/All
+     */
+    public void setLogLevelType(String LogLevelType) {
+        this.LogLevelType = LogLevelType;
+    }
+
+    /**
+     * Get 文件类型,Log/Code 
+     * @return ExecutionFileType 文件类型,Log/Code
+     */
+    public String getExecutionFileType() {
+        return this.ExecutionFileType;
+    }
+
+    /**
+     * Set 文件类型,Log/Code
+     * @param ExecutionFileType 文件类型,Log/Code
+     */
+    public void setExecutionFileType(String ExecutionFileType) {
+        this.ExecutionFileType = ExecutionFileType;
+    }
+
+    /**
+     * Get 生命周期为基础数据进行日志匹配。Dynamic=true动态获取日志链路中使用 
+     * @return InstanceLifeDetailDtoList 生命周期为基础数据进行日志匹配。Dynamic=true动态获取日志链路中使用
+     */
+    public InstanceLifeDetailDto [] getInstanceLifeDetailDtoList() {
+        return this.InstanceLifeDetailDtoList;
+    }
+
+    /**
+     * Set 生命周期为基础数据进行日志匹配。Dynamic=true动态获取日志链路中使用
+     * @param InstanceLifeDetailDtoList 生命周期为基础数据进行日志匹配。Dynamic=true动态获取日志链路中使用
+     */
+    public void setInstanceLifeDetailDtoList(InstanceLifeDetailDto [] InstanceLifeDetailDtoList) {
+        this.InstanceLifeDetailDtoList = InstanceLifeDetailDtoList;
+    }
+
+    /**
+     * Get 当前生命周期数 
+     * @return CurrentLifeRound 当前生命周期数
+     */
+    public Long getCurrentLifeRound() {
+        return this.CurrentLifeRound;
+    }
+
+    /**
+     * Set 当前生命周期数
+     * @param CurrentLifeRound 当前生命周期数
+     */
+    public void setCurrentLifeRound(Long CurrentLifeRound) {
+        this.CurrentLifeRound = CurrentLifeRound;
+    }
+
+    /**
+     * Get 最大生命周期数 
+     * @return MaxLifeRound 最大生命周期数
+     */
+    public Long getMaxLifeRound() {
+        return this.MaxLifeRound;
+    }
+
+    /**
+     * Set 最大生命周期数
+     * @param MaxLifeRound 最大生命周期数
+     */
+    public void setMaxLifeRound(Long MaxLifeRound) {
+        this.MaxLifeRound = MaxLifeRound;
+    }
+
+    /**
+     * Get 当前生命周期重试次数 
+     * @return Tries 当前生命周期重试次数
+     */
+    public Long getTries() {
+        return this.Tries;
+    }
+
+    /**
+     * Set 当前生命周期重试次数
+     * @param Tries 当前生命周期重试次数
+     */
+    public void setTries(Long Tries) {
+        this.Tries = Tries;
+    }
+
+    /**
+     * Get 动态获取日志信息标识 
+     * @return Dynamic 动态获取日志信息标识
+     */
+    public Boolean getDynamic() {
+        return this.Dynamic;
+    }
+
+    /**
+     * Set 动态获取日志信息标识
+     * @param Dynamic 动态获取日志信息标识
+     */
+    public void setDynamic(Boolean Dynamic) {
+        this.Dynamic = Dynamic;
+    }
+
     public DescribeInstanceLogFileRequest() {
     }
 
@@ -154,11 +362,41 @@ public class DescribeInstanceLogFileRequest extends AbstractModel{
         if (source.CurRunDate != null) {
             this.CurRunDate = new String(source.CurRunDate);
         }
+        if (source.RequestFromSource != null) {
+            this.RequestFromSource = new String(source.RequestFromSource);
+        }
         if (source.BrokerIp != null) {
             this.BrokerIp = new String(source.BrokerIp);
         }
         if (source.OriginFileName != null) {
             this.OriginFileName = new String(source.OriginFileName);
+        }
+        if (source.ExecutionJobId != null) {
+            this.ExecutionJobId = new String(source.ExecutionJobId);
+        }
+        if (source.LogLevelType != null) {
+            this.LogLevelType = new String(source.LogLevelType);
+        }
+        if (source.ExecutionFileType != null) {
+            this.ExecutionFileType = new String(source.ExecutionFileType);
+        }
+        if (source.InstanceLifeDetailDtoList != null) {
+            this.InstanceLifeDetailDtoList = new InstanceLifeDetailDto[source.InstanceLifeDetailDtoList.length];
+            for (int i = 0; i < source.InstanceLifeDetailDtoList.length; i++) {
+                this.InstanceLifeDetailDtoList[i] = new InstanceLifeDetailDto(source.InstanceLifeDetailDtoList[i]);
+            }
+        }
+        if (source.CurrentLifeRound != null) {
+            this.CurrentLifeRound = new Long(source.CurrentLifeRound);
+        }
+        if (source.MaxLifeRound != null) {
+            this.MaxLifeRound = new Long(source.MaxLifeRound);
+        }
+        if (source.Tries != null) {
+            this.Tries = new Long(source.Tries);
+        }
+        if (source.Dynamic != null) {
+            this.Dynamic = new Boolean(source.Dynamic);
         }
     }
 
@@ -170,8 +408,17 @@ public class DescribeInstanceLogFileRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "CurRunDate", this.CurRunDate);
+        this.setParamSimple(map, prefix + "RequestFromSource", this.RequestFromSource);
         this.setParamSimple(map, prefix + "BrokerIp", this.BrokerIp);
         this.setParamSimple(map, prefix + "OriginFileName", this.OriginFileName);
+        this.setParamSimple(map, prefix + "ExecutionJobId", this.ExecutionJobId);
+        this.setParamSimple(map, prefix + "LogLevelType", this.LogLevelType);
+        this.setParamSimple(map, prefix + "ExecutionFileType", this.ExecutionFileType);
+        this.setParamArrayObj(map, prefix + "InstanceLifeDetailDtoList.", this.InstanceLifeDetailDtoList);
+        this.setParamSimple(map, prefix + "CurrentLifeRound", this.CurrentLifeRound);
+        this.setParamSimple(map, prefix + "MaxLifeRound", this.MaxLifeRound);
+        this.setParamSimple(map, prefix + "Tries", this.Tries);
+        this.setParamSimple(map, prefix + "Dynamic", this.Dynamic);
 
     }
 }

@@ -16,18 +16,18 @@
 package com.tencentcloudapi.mna.v20210119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeviceNetInfo extends AbstractModel{
+public class DeviceNetInfo extends AbstractModel {
 
     /**
     * 网络类型：
 0:数据
 1:Wi-Fi
 2:有线
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -35,7 +35,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 启用/禁用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataEnable")
     @Expose
@@ -43,7 +42,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 上行限速
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UploadLimit")
     @Expose
@@ -51,7 +49,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 下行限速
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DownloadLimit")
     @Expose
@@ -59,7 +56,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 接收实时速率
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataRx")
     @Expose
@@ -67,7 +63,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 发送实时速率
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataTx")
     @Expose
@@ -78,7 +73,6 @@ public class DeviceNetInfo extends AbstractModel{
 1: 中国移动；
 2: 中国电信; 
 3: 中国联通
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vendor")
     @Expose
@@ -89,7 +83,6 @@ public class DeviceNetInfo extends AbstractModel{
 0:无连接
 1:连接中
 2:已连接
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("State")
     @Expose
@@ -97,7 +90,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 公网IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicIp")
     @Expose
@@ -105,7 +97,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 信号强度/单位：dbm
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SignalStrength")
     @Expose
@@ -118,7 +109,6 @@ public class DeviceNetInfo extends AbstractModel{
 3：3G 
 4：4G 
 5：5G
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Rat")
     @Expose
@@ -126,7 +116,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 网卡名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetInfoName")
     @Expose
@@ -134,7 +123,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 下行实时速率（浮点数类型代替上一版本DataRx的整型）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DownRate")
     @Expose
@@ -142,7 +130,6 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
     * 上行实时速率（浮点数类型代替上一版本TxRate的整型）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpRate")
     @Expose
@@ -152,13 +139,11 @@ public class DeviceNetInfo extends AbstractModel{
      * Get 网络类型：
 0:数据
 1:Wi-Fi
-2:有线
-注意：此字段可能返回 null，表示取不到有效值。 
+2:有线 
      * @return Type 网络类型：
 0:数据
 1:Wi-Fi
 2:有线
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getType() {
         return this.Type;
@@ -169,22 +154,18 @@ public class DeviceNetInfo extends AbstractModel{
 0:数据
 1:Wi-Fi
 2:有线
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 网络类型：
 0:数据
 1:Wi-Fi
 2:有线
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(Long Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 启用/禁用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 启用/禁用 
      * @return DataEnable 启用/禁用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDataEnable() {
         return this.DataEnable;
@@ -192,19 +173,15 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 启用/禁用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataEnable 启用/禁用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataEnable(Boolean DataEnable) {
         this.DataEnable = DataEnable;
     }
 
     /**
-     * Get 上行限速
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上行限速 
      * @return UploadLimit 上行限速
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUploadLimit() {
         return this.UploadLimit;
@@ -212,19 +189,15 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 上行限速
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UploadLimit 上行限速
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUploadLimit(String UploadLimit) {
         this.UploadLimit = UploadLimit;
     }
 
     /**
-     * Get 下行限速
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下行限速 
      * @return DownloadLimit 下行限速
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDownloadLimit() {
         return this.DownloadLimit;
@@ -232,19 +205,15 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 下行限速
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DownloadLimit 下行限速
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDownloadLimit(String DownloadLimit) {
         this.DownloadLimit = DownloadLimit;
     }
 
     /**
-     * Get 接收实时速率
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接收实时速率 
      * @return DataRx 接收实时速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDataRx() {
         return this.DataRx;
@@ -252,19 +221,15 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 接收实时速率
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataRx 接收实时速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataRx(Long DataRx) {
         this.DataRx = DataRx;
     }
 
     /**
-     * Get 发送实时速率
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 发送实时速率 
      * @return DataTx 发送实时速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDataTx() {
         return this.DataTx;
@@ -272,9 +237,7 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 发送实时速率
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataTx 发送实时速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataTx(Long DataTx) {
         this.DataTx = DataTx;
@@ -284,13 +247,11 @@ public class DeviceNetInfo extends AbstractModel{
      * Get 运营商类型：
 1: 中国移动；
 2: 中国电信; 
-3: 中国联通
-注意：此字段可能返回 null，表示取不到有效值。 
+3: 中国联通 
      * @return Vendor 运营商类型：
 1: 中国移动；
 2: 中国电信; 
 3: 中国联通
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVendor() {
         return this.Vendor;
@@ -301,12 +262,10 @@ public class DeviceNetInfo extends AbstractModel{
 1: 中国移动；
 2: 中国电信; 
 3: 中国联通
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vendor 运营商类型：
 1: 中国移动；
 2: 中国电信; 
 3: 中国联通
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVendor(Long Vendor) {
         this.Vendor = Vendor;
@@ -316,13 +275,11 @@ public class DeviceNetInfo extends AbstractModel{
      * Get 连接状态：
 0:无连接
 1:连接中
-2:已连接
-注意：此字段可能返回 null，表示取不到有效值。 
+2:已连接 
      * @return State 连接状态：
 0:无连接
 1:连接中
 2:已连接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getState() {
         return this.State;
@@ -333,22 +290,18 @@ public class DeviceNetInfo extends AbstractModel{
 0:无连接
 1:连接中
 2:已连接
-注意：此字段可能返回 null，表示取不到有效值。
      * @param State 连接状态：
 0:无连接
 1:连接中
 2:已连接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setState(Long State) {
         this.State = State;
     }
 
     /**
-     * Get 公网IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 公网IP 
      * @return PublicIp 公网IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPublicIp() {
         return this.PublicIp;
@@ -356,19 +309,15 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 公网IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PublicIp 公网IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicIp(String PublicIp) {
         this.PublicIp = PublicIp;
     }
 
     /**
-     * Get 信号强度/单位：dbm
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 信号强度/单位：dbm 
      * @return SignalStrength 信号强度/单位：dbm
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSignalStrength() {
         return this.SignalStrength;
@@ -376,9 +325,7 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 信号强度/单位：dbm
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SignalStrength 信号强度/单位：dbm
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSignalStrength(Long SignalStrength) {
         this.SignalStrength = SignalStrength;
@@ -390,15 +337,13 @@ public class DeviceNetInfo extends AbstractModel{
 2：2G 
 3：3G 
 4：4G 
-5：5G
-注意：此字段可能返回 null，表示取不到有效值。 
+5：5G 
      * @return Rat 数据网络类型：
 -1 ：无效值   
 2：2G 
 3：3G 
 4：4G 
 5：5G
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRat() {
         return this.Rat;
@@ -411,24 +356,20 @@ public class DeviceNetInfo extends AbstractModel{
 3：3G 
 4：4G 
 5：5G
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Rat 数据网络类型：
 -1 ：无效值   
 2：2G 
 3：3G 
 4：4G 
 5：5G
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRat(Long Rat) {
         this.Rat = Rat;
     }
 
     /**
-     * Get 网卡名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网卡名 
      * @return NetInfoName 网卡名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNetInfoName() {
         return this.NetInfoName;
@@ -436,19 +377,15 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 网卡名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NetInfoName 网卡名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetInfoName(String NetInfoName) {
         this.NetInfoName = NetInfoName;
     }
 
     /**
-     * Get 下行实时速率（浮点数类型代替上一版本DataRx的整型）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下行实时速率（浮点数类型代替上一版本DataRx的整型） 
      * @return DownRate 下行实时速率（浮点数类型代替上一版本DataRx的整型）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDownRate() {
         return this.DownRate;
@@ -456,19 +393,15 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 下行实时速率（浮点数类型代替上一版本DataRx的整型）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DownRate 下行实时速率（浮点数类型代替上一版本DataRx的整型）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDownRate(Float DownRate) {
         this.DownRate = DownRate;
     }
 
     /**
-     * Get 上行实时速率（浮点数类型代替上一版本TxRate的整型）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上行实时速率（浮点数类型代替上一版本TxRate的整型） 
      * @return UpRate 上行实时速率（浮点数类型代替上一版本TxRate的整型）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getUpRate() {
         return this.UpRate;
@@ -476,9 +409,7 @@ public class DeviceNetInfo extends AbstractModel{
 
     /**
      * Set 上行实时速率（浮点数类型代替上一版本TxRate的整型）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpRate 上行实时速率（浮点数类型代替上一版本TxRate的整型）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpRate(Float UpRate) {
         this.UpRate = UpRate;

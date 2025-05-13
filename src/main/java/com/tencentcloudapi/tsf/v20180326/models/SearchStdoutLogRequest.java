@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchStdoutLogRequest extends AbstractModel{
+public class SearchStdoutLogRequest extends AbstractModel {
 
     /**
-    * 机器实例ID
+    * 机器实例ID， 和  实例 ID 二者必选其一，不能同时为空
     */
     @SerializedName("InstanceId")
     @Expose
@@ -51,7 +52,7 @@ public class SearchStdoutLogRequest extends AbstractModel{
     private String StartTime;
 
     /**
-    * 部署组ID
+    * 部署组ID，和 InstanceId 二者必选其一，不能同时为空
     */
     @SerializedName("GroupId")
     @Expose
@@ -111,16 +112,23 @@ public class SearchStdoutLogRequest extends AbstractModel{
     private String ScrollId;
 
     /**
-     * Get 机器实例ID 
-     * @return InstanceId 机器实例ID
+    * 查询es使用searchAfter时，游标
+    */
+    @SerializedName("SearchAfter")
+    @Expose
+    private String [] SearchAfter;
+
+    /**
+     * Get 机器实例ID， 和  实例 ID 二者必选其一，不能同时为空 
+     * @return InstanceId 机器实例ID， 和  实例 ID 二者必选其一，不能同时为空
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 机器实例ID
-     * @param InstanceId 机器实例ID
+     * Set 机器实例ID， 和  实例 ID 二者必选其一，不能同时为空
+     * @param InstanceId 机器实例ID， 和  实例 ID 二者必选其一，不能同时为空
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -175,16 +183,16 @@ public class SearchStdoutLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 部署组ID 
-     * @return GroupId 部署组ID
+     * Get 部署组ID，和 InstanceId 二者必选其一，不能同时为空 
+     * @return GroupId 部署组ID，和 InstanceId 二者必选其一，不能同时为空
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 部署组ID
-     * @param GroupId 部署组ID
+     * Set 部署组ID，和 InstanceId 二者必选其一，不能同时为空
+     * @param GroupId 部署组ID，和 InstanceId 二者必选其一，不能同时为空
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
@@ -318,6 +326,22 @@ public class SearchStdoutLogRequest extends AbstractModel{
         this.ScrollId = ScrollId;
     }
 
+    /**
+     * Get 查询es使用searchAfter时，游标 
+     * @return SearchAfter 查询es使用searchAfter时，游标
+     */
+    public String [] getSearchAfter() {
+        return this.SearchAfter;
+    }
+
+    /**
+     * Set 查询es使用searchAfter时，游标
+     * @param SearchAfter 查询es使用searchAfter时，游标
+     */
+    public void setSearchAfter(String [] SearchAfter) {
+        this.SearchAfter = SearchAfter;
+    }
+
     public SearchStdoutLogRequest() {
     }
 
@@ -365,6 +389,12 @@ public class SearchStdoutLogRequest extends AbstractModel{
         if (source.ScrollId != null) {
             this.ScrollId = new String(source.ScrollId);
         }
+        if (source.SearchAfter != null) {
+            this.SearchAfter = new String[source.SearchAfter.length];
+            for (int i = 0; i < source.SearchAfter.length; i++) {
+                this.SearchAfter[i] = new String(source.SearchAfter[i]);
+            }
+        }
     }
 
 
@@ -384,6 +414,7 @@ public class SearchStdoutLogRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SearchWordType", this.SearchWordType);
         this.setParamSimple(map, prefix + "BatchType", this.BatchType);
         this.setParamSimple(map, prefix + "ScrollId", this.ScrollId);
+        this.setParamArraySimple(map, prefix + "SearchAfter.", this.SearchAfter);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlarmEventInfo extends AbstractModel{
+public class AlarmEventInfo extends AbstractModel {
 
     /**
     * 告警ID
@@ -134,6 +135,22 @@ public class AlarmEventInfo extends AbstractModel{
     private Long IsSendSuccess;
 
     /**
+    * 是否在免打扰时间内，0:否, 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InQuitePeriods")
+    @Expose
+    private Long InQuitePeriods;
+
+    /**
+    * 告警记录id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RecordId")
+    @Expose
+    private Long RecordId;
+
+    /**
     * 消息ID
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -156,6 +173,86 @@ public class AlarmEventInfo extends AbstractModel{
     @SerializedName("RegularId")
     @Expose
     private String RegularId;
+
+    /**
+    * 告警接收人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmRecipientName")
+    @Expose
+    private String AlarmRecipientName;
+
+    /**
+    * 告警任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskType")
+    @Expose
+    private Long TaskType;
+
+    /**
+    * 发送结果
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SendResult")
+    @Expose
+    private String SendResult;
+
+    /**
+    * 监控对象id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MonitorObjectId")
+    @Expose
+    private String MonitorObjectId;
+
+    /**
+    * 监控对象名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MonitorObjectName")
+    @Expose
+    private String MonitorObjectName;
+
+    /**
+    * 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Threshold")
+    @Expose
+    private Float Threshold;
+
+    /**
+    * 告警原因
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmReason")
+    @Expose
+    private String AlarmReason;
+
+    /**
+    * 近范围值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndicatorTimeRangeValue")
+    @Expose
+    private Long IndicatorTimeRangeValue;
+
+    /**
+    * 近范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndicatorTimeRangeUnit")
+    @Expose
+    private String IndicatorTimeRangeUnit;
+
+    /**
+    * 同步类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SyncType")
+    @Expose
+    private Long SyncType;
 
     /**
      * Get 告警ID 
@@ -422,6 +519,46 @@ public class AlarmEventInfo extends AbstractModel{
     }
 
     /**
+     * Get 是否在免打扰时间内，0:否, 1:是
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InQuitePeriods 是否在免打扰时间内，0:否, 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getInQuitePeriods() {
+        return this.InQuitePeriods;
+    }
+
+    /**
+     * Set 是否在免打扰时间内，0:否, 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InQuitePeriods 是否在免打扰时间内，0:否, 1:是
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInQuitePeriods(Long InQuitePeriods) {
+        this.InQuitePeriods = InQuitePeriods;
+    }
+
+    /**
+     * Get 告警记录id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RecordId 告警记录id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRecordId() {
+        return this.RecordId;
+    }
+
+    /**
+     * Set 告警记录id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RecordId 告警记录id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRecordId(Long RecordId) {
+        this.RecordId = RecordId;
+    }
+
+    /**
      * Get 消息ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return MessageId 消息ID
@@ -481,6 +618,206 @@ public class AlarmEventInfo extends AbstractModel{
         this.RegularId = RegularId;
     }
 
+    /**
+     * Get 告警接收人昵称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmRecipientName 告警接收人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmRecipientName() {
+        return this.AlarmRecipientName;
+    }
+
+    /**
+     * Set 告警接收人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmRecipientName 告警接收人昵称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmRecipientName(String AlarmRecipientName) {
+        this.AlarmRecipientName = AlarmRecipientName;
+    }
+
+    /**
+     * Get 告警任务类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskType 告警任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTaskType() {
+        return this.TaskType;
+    }
+
+    /**
+     * Set 告警任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskType 告警任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskType(Long TaskType) {
+        this.TaskType = TaskType;
+    }
+
+    /**
+     * Get 发送结果
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SendResult 发送结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSendResult() {
+        return this.SendResult;
+    }
+
+    /**
+     * Set 发送结果
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SendResult 发送结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSendResult(String SendResult) {
+        this.SendResult = SendResult;
+    }
+
+    /**
+     * Get 监控对象id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MonitorObjectId 监控对象id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMonitorObjectId() {
+        return this.MonitorObjectId;
+    }
+
+    /**
+     * Set 监控对象id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MonitorObjectId 监控对象id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMonitorObjectId(String MonitorObjectId) {
+        this.MonitorObjectId = MonitorObjectId;
+    }
+
+    /**
+     * Get 监控对象名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MonitorObjectName 监控对象名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMonitorObjectName() {
+        return this.MonitorObjectName;
+    }
+
+    /**
+     * Set 监控对象名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MonitorObjectName 监控对象名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMonitorObjectName(String MonitorObjectName) {
+        this.MonitorObjectName = MonitorObjectName;
+    }
+
+    /**
+     * Get 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Threshold 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getThreshold() {
+        return this.Threshold;
+    }
+
+    /**
+     * Set 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Threshold 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setThreshold(Float Threshold) {
+        this.Threshold = Threshold;
+    }
+
+    /**
+     * Get 告警原因
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmReason 告警原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmReason() {
+        return this.AlarmReason;
+    }
+
+    /**
+     * Set 告警原因
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmReason 告警原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmReason(String AlarmReason) {
+        this.AlarmReason = AlarmReason;
+    }
+
+    /**
+     * Get 近范围值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndicatorTimeRangeValue 近范围值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIndicatorTimeRangeValue() {
+        return this.IndicatorTimeRangeValue;
+    }
+
+    /**
+     * Set 近范围值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndicatorTimeRangeValue 近范围值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndicatorTimeRangeValue(Long IndicatorTimeRangeValue) {
+        this.IndicatorTimeRangeValue = IndicatorTimeRangeValue;
+    }
+
+    /**
+     * Get 近范围单位
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndicatorTimeRangeUnit 近范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIndicatorTimeRangeUnit() {
+        return this.IndicatorTimeRangeUnit;
+    }
+
+    /**
+     * Set 近范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndicatorTimeRangeUnit 近范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndicatorTimeRangeUnit(String IndicatorTimeRangeUnit) {
+        this.IndicatorTimeRangeUnit = IndicatorTimeRangeUnit;
+    }
+
+    /**
+     * Get 同步类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SyncType 同步类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getSyncType() {
+        return this.SyncType;
+    }
+
+    /**
+     * Set 同步类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SyncType 同步类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSyncType(Long SyncType) {
+        this.SyncType = SyncType;
+    }
+
     public AlarmEventInfo() {
     }
 
@@ -534,6 +871,12 @@ public class AlarmEventInfo extends AbstractModel{
         if (source.IsSendSuccess != null) {
             this.IsSendSuccess = new Long(source.IsSendSuccess);
         }
+        if (source.InQuitePeriods != null) {
+            this.InQuitePeriods = new Long(source.InQuitePeriods);
+        }
+        if (source.RecordId != null) {
+            this.RecordId = new Long(source.RecordId);
+        }
         if (source.MessageId != null) {
             this.MessageId = new String(source.MessageId);
         }
@@ -542,6 +885,36 @@ public class AlarmEventInfo extends AbstractModel{
         }
         if (source.RegularId != null) {
             this.RegularId = new String(source.RegularId);
+        }
+        if (source.AlarmRecipientName != null) {
+            this.AlarmRecipientName = new String(source.AlarmRecipientName);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new Long(source.TaskType);
+        }
+        if (source.SendResult != null) {
+            this.SendResult = new String(source.SendResult);
+        }
+        if (source.MonitorObjectId != null) {
+            this.MonitorObjectId = new String(source.MonitorObjectId);
+        }
+        if (source.MonitorObjectName != null) {
+            this.MonitorObjectName = new String(source.MonitorObjectName);
+        }
+        if (source.Threshold != null) {
+            this.Threshold = new Float(source.Threshold);
+        }
+        if (source.AlarmReason != null) {
+            this.AlarmReason = new String(source.AlarmReason);
+        }
+        if (source.IndicatorTimeRangeValue != null) {
+            this.IndicatorTimeRangeValue = new Long(source.IndicatorTimeRangeValue);
+        }
+        if (source.IndicatorTimeRangeUnit != null) {
+            this.IndicatorTimeRangeUnit = new String(source.IndicatorTimeRangeUnit);
+        }
+        if (source.SyncType != null) {
+            this.SyncType = new Long(source.SyncType);
         }
     }
 
@@ -565,9 +938,21 @@ public class AlarmEventInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "TaskName", this.TaskName);
         this.setParamSimple(map, prefix + "IsSendSuccess", this.IsSendSuccess);
+        this.setParamSimple(map, prefix + "InQuitePeriods", this.InQuitePeriods);
+        this.setParamSimple(map, prefix + "RecordId", this.RecordId);
         this.setParamSimple(map, prefix + "MessageId", this.MessageId);
         this.setParamSimple(map, prefix + "Operator", this.Operator);
         this.setParamSimple(map, prefix + "RegularId", this.RegularId);
+        this.setParamSimple(map, prefix + "AlarmRecipientName", this.AlarmRecipientName);
+        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
+        this.setParamSimple(map, prefix + "SendResult", this.SendResult);
+        this.setParamSimple(map, prefix + "MonitorObjectId", this.MonitorObjectId);
+        this.setParamSimple(map, prefix + "MonitorObjectName", this.MonitorObjectName);
+        this.setParamSimple(map, prefix + "Threshold", this.Threshold);
+        this.setParamSimple(map, prefix + "AlarmReason", this.AlarmReason);
+        this.setParamSimple(map, prefix + "IndicatorTimeRangeValue", this.IndicatorTimeRangeValue);
+        this.setParamSimple(map, prefix + "IndicatorTimeRangeUnit", this.IndicatorTimeRangeUnit);
+        this.setParamSimple(map, prefix + "SyncType", this.SyncType);
 
     }
 }

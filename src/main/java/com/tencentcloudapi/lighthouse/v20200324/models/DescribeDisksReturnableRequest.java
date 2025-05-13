@@ -16,14 +16,15 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDisksReturnableRequest extends AbstractModel{
+public class DescribeDisksReturnableRequest extends AbstractModel {
 
     /**
-    * 云硬盘ID列表。
+    * 云硬盘ID列表。每次批量请求云硬盘的上限为 10。可通过[DescribeDisks](https://cloud.tencent.com/document/product/1207/66093)接口返回值中的DiskId获取。
     */
     @SerializedName("DiskIds")
     @Expose
@@ -44,16 +45,16 @@ public class DescribeDisksReturnableRequest extends AbstractModel{
     private Long Offset;
 
     /**
-     * Get 云硬盘ID列表。 
-     * @return DiskIds 云硬盘ID列表。
+     * Get 云硬盘ID列表。每次批量请求云硬盘的上限为 10。可通过[DescribeDisks](https://cloud.tencent.com/document/product/1207/66093)接口返回值中的DiskId获取。 
+     * @return DiskIds 云硬盘ID列表。每次批量请求云硬盘的上限为 10。可通过[DescribeDisks](https://cloud.tencent.com/document/product/1207/66093)接口返回值中的DiskId获取。
      */
     public String [] getDiskIds() {
         return this.DiskIds;
     }
 
     /**
-     * Set 云硬盘ID列表。
-     * @param DiskIds 云硬盘ID列表。
+     * Set 云硬盘ID列表。每次批量请求云硬盘的上限为 10。可通过[DescribeDisks](https://cloud.tencent.com/document/product/1207/66093)接口返回值中的DiskId获取。
+     * @param DiskIds 云硬盘ID列表。每次批量请求云硬盘的上限为 10。可通过[DescribeDisks](https://cloud.tencent.com/document/product/1207/66093)接口返回值中的DiskId获取。
      */
     public void setDiskIds(String [] DiskIds) {
         this.DiskIds = DiskIds;

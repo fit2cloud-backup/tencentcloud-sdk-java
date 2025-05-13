@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DayStreamPlayInfo extends AbstractModel{
+public class DayStreamPlayInfo extends AbstractModel {
 
     /**
     * 数据时间点，接口返回支持两种时间格式：
@@ -54,7 +55,7 @@ public class DayStreamPlayInfo extends AbstractModel{
     private Long Request;
 
     /**
-    * 在线人数。
+    * 在线人数。当前后端接口数据的统计方式与客户端侧不同，该数据仅供参考，具体数据请以业务客户端侧统计数据为准。
     */
     @SerializedName("Online")
     @Expose
@@ -137,16 +138,16 @@ public class DayStreamPlayInfo extends AbstractModel{
     }
 
     /**
-     * Get 在线人数。 
-     * @return Online 在线人数。
+     * Get 在线人数。当前后端接口数据的统计方式与客户端侧不同，该数据仅供参考，具体数据请以业务客户端侧统计数据为准。 
+     * @return Online 在线人数。当前后端接口数据的统计方式与客户端侧不同，该数据仅供参考，具体数据请以业务客户端侧统计数据为准。
      */
     public Long getOnline() {
         return this.Online;
     }
 
     /**
-     * Set 在线人数。
-     * @param Online 在线人数。
+     * Set 在线人数。当前后端接口数据的统计方式与客户端侧不同，该数据仅供参考，具体数据请以业务客户端侧统计数据为准。
+     * @param Online 在线人数。当前后端接口数据的统计方式与客户端侧不同，该数据仅供参考，具体数据请以业务客户端侧统计数据为准。
      */
     public void setOnline(Long Online) {
         this.Online = Online;

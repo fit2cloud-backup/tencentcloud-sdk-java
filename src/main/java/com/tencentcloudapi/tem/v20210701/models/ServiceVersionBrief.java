@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceVersionBrief extends AbstractModel{
+public class ServiceVersionBrief extends AbstractModel {
 
     /**
     * 版本名称
@@ -75,7 +76,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 部署方式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployMode")
     @Expose
@@ -83,7 +83,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 建构任务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BuildTaskId")
     @Expose
@@ -91,7 +90,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvironmentId")
     @Expose
@@ -99,7 +97,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 环境name
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvironmentName")
     @Expose
@@ -107,7 +104,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationId")
     @Expose
@@ -115,7 +111,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 服务name
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationName")
     @Expose
@@ -131,7 +126,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 分批次部署状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchDeployStatus")
     @Expose
@@ -139,7 +133,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Zones")
     @Expose
@@ -147,7 +140,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 节点信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeInfos")
     @Expose
@@ -171,7 +163,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateDate")
     @Expose
@@ -179,7 +170,6 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
     * 地域id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionId")
     @Expose
@@ -306,10 +296,8 @@ public class ServiceVersionBrief extends AbstractModel{
     }
 
     /**
-     * Get 部署方式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署方式 
      * @return DeployMode 部署方式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeployMode() {
         return this.DeployMode;
@@ -317,19 +305,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 部署方式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeployMode 部署方式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployMode(String DeployMode) {
         this.DeployMode = DeployMode;
     }
 
     /**
-     * Get 建构任务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 建构任务ID 
      * @return BuildTaskId 建构任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBuildTaskId() {
         return this.BuildTaskId;
@@ -337,19 +321,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 建构任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BuildTaskId 建构任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBuildTaskId(String BuildTaskId) {
         this.BuildTaskId = BuildTaskId;
     }
 
     /**
-     * Get 环境ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境ID 
      * @return EnvironmentId 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvironmentId() {
         return this.EnvironmentId;
@@ -357,19 +337,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvironmentId 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvironmentId(String EnvironmentId) {
         this.EnvironmentId = EnvironmentId;
     }
 
     /**
-     * Get 环境name
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境name 
      * @return EnvironmentName 环境name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvironmentName() {
         return this.EnvironmentName;
@@ -377,19 +353,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 环境name
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvironmentName 环境name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvironmentName(String EnvironmentName) {
         this.EnvironmentName = EnvironmentName;
     }
 
     /**
-     * Get 服务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务ID 
      * @return ApplicationId 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationId() {
         return this.ApplicationId;
@@ -397,19 +369,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationId 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
     }
 
     /**
-     * Get 服务name
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务name 
      * @return ApplicationName 服务name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationName() {
         return this.ApplicationName;
@@ -417,9 +385,7 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 服务name
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationName 服务name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationName(String ApplicationName) {
         this.ApplicationName = ApplicationName;
@@ -446,10 +412,8 @@ public class ServiceVersionBrief extends AbstractModel{
     }
 
     /**
-     * Get 分批次部署状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分批次部署状态 
      * @return BatchDeployStatus 分批次部署状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBatchDeployStatus() {
         return this.BatchDeployStatus;
@@ -457,19 +421,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 分批次部署状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchDeployStatus 分批次部署状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchDeployStatus(String BatchDeployStatus) {
         this.BatchDeployStatus = BatchDeployStatus;
     }
 
     /**
-     * Get 可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区 
      * @return Zones 可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getZones() {
         return this.Zones;
@@ -477,19 +437,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Zones 可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZones(String [] Zones) {
         this.Zones = Zones;
     }
 
     /**
-     * Get 节点信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点信息 
      * @return NodeInfos 节点信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public NodeInfo [] getNodeInfos() {
         return this.NodeInfos;
@@ -497,9 +453,7 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 节点信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeInfos 节点信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeInfos(NodeInfo [] NodeInfos) {
         this.NodeInfos = NodeInfos;
@@ -546,10 +500,8 @@ public class ServiceVersionBrief extends AbstractModel{
     }
 
     /**
-     * Get 创建日期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建日期 
      * @return CreateDate 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateDate() {
         return this.CreateDate;
@@ -557,19 +509,15 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateDate 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateDate(String CreateDate) {
         this.CreateDate = CreateDate;
     }
 
     /**
-     * Get 地域id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域id 
      * @return RegionId 地域id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionId() {
         return this.RegionId;
@@ -577,9 +525,7 @@ public class ServiceVersionBrief extends AbstractModel{
 
     /**
      * Set 地域id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionId 地域id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionId(String RegionId) {
         this.RegionId = RegionId;

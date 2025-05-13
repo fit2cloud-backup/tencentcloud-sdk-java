@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDatahubTopicResp extends AbstractModel{
+public class DescribeDatahubTopicResp extends AbstractModel {
 
     /**
     * 名称
@@ -59,7 +60,6 @@ public class DescribeDatahubTopicResp extends AbstractModel{
 
     /**
     * 备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Note")
     @Expose
@@ -88,7 +88,6 @@ public class DescribeDatahubTopicResp extends AbstractModel{
 
     /**
     * 服务路由地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Address")
     @Expose
@@ -175,10 +174,8 @@ public class DescribeDatahubTopicResp extends AbstractModel{
     }
 
     /**
-     * Get 备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注 
      * @return Note 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNote() {
         return this.Note;
@@ -186,9 +183,7 @@ public class DescribeDatahubTopicResp extends AbstractModel{
 
     /**
      * Set 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Note 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNote(String Note) {
         this.Note = Note;
@@ -243,10 +238,8 @@ public class DescribeDatahubTopicResp extends AbstractModel{
     }
 
     /**
-     * Get 服务路由地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务路由地址 
      * @return Address 服务路由地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAddress() {
         return this.Address;
@@ -254,9 +247,7 @@ public class DescribeDatahubTopicResp extends AbstractModel{
 
     /**
      * Set 服务路由地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Address 服务路由地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddress(String Address) {
         this.Address = Address;

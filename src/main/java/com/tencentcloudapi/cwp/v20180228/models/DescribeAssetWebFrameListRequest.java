@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetWebFrameListRequest extends AbstractModel{
+public class DescribeAssetWebFrameListRequest extends AbstractModel {
 
     /**
     * 查询指定Quuid主机的信息
@@ -31,7 +32,9 @@ public class DescribeAssetWebFrameListRequest extends AbstractModel{
 
     /**
     * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 框架名</li>
 <li>NameStrict - String - 是否必填：否 - 框架名（严格匹配）</li>
 <li>Lang - String - 是否必填：否 - 框架语言:java/python</li>
@@ -100,7 +103,9 @@ public class DescribeAssetWebFrameListRequest extends AbstractModel{
 
     /**
      * Get 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 框架名</li>
 <li>NameStrict - String - 是否必填：否 - 框架名（严格匹配）</li>
 <li>Lang - String - 是否必填：否 - 框架语言:java/python</li>
@@ -119,7 +124,9 @@ public class DescribeAssetWebFrameListRequest extends AbstractModel{
 <li>OsType - String - 是否必填：否 - windows/linux</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li> 
      * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 框架名</li>
 <li>NameStrict - String - 是否必填：否 - 框架名（严格匹配）</li>
 <li>Lang - String - 是否必填：否 - 框架语言:java/python</li>
@@ -144,7 +151,9 @@ public class DescribeAssetWebFrameListRequest extends AbstractModel{
 
     /**
      * Set 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 框架名</li>
 <li>NameStrict - String - 是否必填：否 - 框架名（严格匹配）</li>
 <li>Lang - String - 是否必填：否 - 框架语言:java/python</li>
@@ -163,7 +172,9 @@ public class DescribeAssetWebFrameListRequest extends AbstractModel{
 <li>OsType - String - 是否必填：否 - windows/linux</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 框架名</li>
 <li>NameStrict - String - 是否必填：否 - 框架名（严格匹配）</li>
 <li>Lang - String - 是否必填：否 - 框架语言:java/python</li>

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskLastExecuteStatus extends AbstractModel{
+public class TaskLastExecuteStatus extends AbstractModel {
 
     /**
     * 批次ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchId")
     @Expose
@@ -32,7 +32,6 @@ public class TaskLastExecuteStatus extends AbstractModel{
 
     /**
     * 运行状态，RUNNING/SUCCESS/FAIL/HALF/TERMINATED
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("State")
     @Expose
@@ -40,17 +39,14 @@ public class TaskLastExecuteStatus extends AbstractModel{
 
     /**
     * 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchLogId")
     @Expose
     private String BatchLogId;
 
     /**
-     * Get 批次ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 批次ID 
      * @return BatchId 批次ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBatchId() {
         return this.BatchId;
@@ -58,19 +54,15 @@ public class TaskLastExecuteStatus extends AbstractModel{
 
     /**
      * Set 批次ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchId 批次ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchId(String BatchId) {
         this.BatchId = BatchId;
     }
 
     /**
-     * Get 运行状态，RUNNING/SUCCESS/FAIL/HALF/TERMINATED
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 运行状态，RUNNING/SUCCESS/FAIL/HALF/TERMINATED 
      * @return State 运行状态，RUNNING/SUCCESS/FAIL/HALF/TERMINATED
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getState() {
         return this.State;
@@ -78,19 +70,15 @@ public class TaskLastExecuteStatus extends AbstractModel{
 
     /**
      * Set 运行状态，RUNNING/SUCCESS/FAIL/HALF/TERMINATED
-注意：此字段可能返回 null，表示取不到有效值。
      * @param State 运行状态，RUNNING/SUCCESS/FAIL/HALF/TERMINATED
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setState(String State) {
         this.State = State;
     }
 
     /**
-     * Get 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 批次历史ID 
      * @return BatchLogId 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBatchLogId() {
         return this.BatchLogId;
@@ -98,9 +86,7 @@ public class TaskLastExecuteStatus extends AbstractModel{
 
     /**
      * Set 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchLogId 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchLogId(String BatchLogId) {
         this.BatchLogId = BatchLogId;

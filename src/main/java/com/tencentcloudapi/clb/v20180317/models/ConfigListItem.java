@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConfigListItem extends AbstractModel{
+public class ConfigListItem extends AbstractModel {
 
     /**
     * 配置ID
@@ -30,7 +31,7 @@ public class ConfigListItem extends AbstractModel{
     private String UconfigId;
 
     /**
-    * 配置类型
+    * 配置类型， 可选值：CLB（实例维度配置）， SERVER（服务维度配置），LOCATION（规则维度配置）
     */
     @SerializedName("ConfigType")
     @Expose
@@ -38,7 +39,6 @@ public class ConfigListItem extends AbstractModel{
 
     /**
     * 配置名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigName")
     @Expose
@@ -52,14 +52,16 @@ public class ConfigListItem extends AbstractModel{
     private String ConfigContent;
 
     /**
-    * 增加配置时间
+    * 配置的创建时间。
+格式：YYYY-MM-DD HH:mm:ss
     */
     @SerializedName("CreateTimestamp")
     @Expose
     private String CreateTimestamp;
 
     /**
-    * 修改配置时间
+    * 配置的修改时间。
+格式：YYYY-MM-DD HH:mm:ss
     */
     @SerializedName("UpdateTimestamp")
     @Expose
@@ -82,26 +84,24 @@ public class ConfigListItem extends AbstractModel{
     }
 
     /**
-     * Get 配置类型 
-     * @return ConfigType 配置类型
+     * Get 配置类型， 可选值：CLB（实例维度配置）， SERVER（服务维度配置），LOCATION（规则维度配置） 
+     * @return ConfigType 配置类型， 可选值：CLB（实例维度配置）， SERVER（服务维度配置），LOCATION（规则维度配置）
      */
     public String getConfigType() {
         return this.ConfigType;
     }
 
     /**
-     * Set 配置类型
-     * @param ConfigType 配置类型
+     * Set 配置类型， 可选值：CLB（实例维度配置）， SERVER（服务维度配置），LOCATION（规则维度配置）
+     * @param ConfigType 配置类型， 可选值：CLB（实例维度配置）， SERVER（服务维度配置），LOCATION（规则维度配置）
      */
     public void setConfigType(String ConfigType) {
         this.ConfigType = ConfigType;
     }
 
     /**
-     * Get 配置名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置名字 
      * @return ConfigName 配置名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConfigName() {
         return this.ConfigName;
@@ -109,9 +109,7 @@ public class ConfigListItem extends AbstractModel{
 
     /**
      * Set 配置名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigName 配置名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigName(String ConfigName) {
         this.ConfigName = ConfigName;
@@ -134,32 +132,40 @@ public class ConfigListItem extends AbstractModel{
     }
 
     /**
-     * Get 增加配置时间 
-     * @return CreateTimestamp 增加配置时间
+     * Get 配置的创建时间。
+格式：YYYY-MM-DD HH:mm:ss 
+     * @return CreateTimestamp 配置的创建时间。
+格式：YYYY-MM-DD HH:mm:ss
      */
     public String getCreateTimestamp() {
         return this.CreateTimestamp;
     }
 
     /**
-     * Set 增加配置时间
-     * @param CreateTimestamp 增加配置时间
+     * Set 配置的创建时间。
+格式：YYYY-MM-DD HH:mm:ss
+     * @param CreateTimestamp 配置的创建时间。
+格式：YYYY-MM-DD HH:mm:ss
      */
     public void setCreateTimestamp(String CreateTimestamp) {
         this.CreateTimestamp = CreateTimestamp;
     }
 
     /**
-     * Get 修改配置时间 
-     * @return UpdateTimestamp 修改配置时间
+     * Get 配置的修改时间。
+格式：YYYY-MM-DD HH:mm:ss 
+     * @return UpdateTimestamp 配置的修改时间。
+格式：YYYY-MM-DD HH:mm:ss
      */
     public String getUpdateTimestamp() {
         return this.UpdateTimestamp;
     }
 
     /**
-     * Set 修改配置时间
-     * @param UpdateTimestamp 修改配置时间
+     * Set 配置的修改时间。
+格式：YYYY-MM-DD HH:mm:ss
+     * @param UpdateTimestamp 配置的修改时间。
+格式：YYYY-MM-DD HH:mm:ss
      */
     public void setUpdateTimestamp(String UpdateTimestamp) {
         this.UpdateTimestamp = UpdateTimestamp;

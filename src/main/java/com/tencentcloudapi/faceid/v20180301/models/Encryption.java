@@ -16,11 +16,12 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Encryption extends AbstractModel{
+public class Encryption extends AbstractModel {
 
     /**
     * 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的一个或多个字段
@@ -31,7 +32,7 @@ public class Encryption extends AbstractModel{
     private String [] EncryptList;
 
     /**
-    * 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+    * 加密后的对称密钥，关于密钥的生成和使用请查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CiphertextBlob")
@@ -83,9 +84,9 @@ public class Encryption extends AbstractModel{
     }
 
     /**
-     * Get 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * Get 加密后的对称密钥，关于密钥的生成和使用请查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CiphertextBlob 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * @return CiphertextBlob 加密后的对称密钥，关于密钥的生成和使用请查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCiphertextBlob() {
@@ -93,9 +94,9 @@ public class Encryption extends AbstractModel{
     }
 
     /**
-     * Set 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * Set 加密后的对称密钥，关于密钥的生成和使用请查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CiphertextBlob 有加密需求的用户，接入传入kms的CiphertextBlob，关于数据加密可查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * @param CiphertextBlob 加密后的对称密钥，关于密钥的生成和使用请查阅<a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCiphertextBlob(String CiphertextBlob) {

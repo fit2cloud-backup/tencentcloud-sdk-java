@@ -16,11 +16,45 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeLiveTranscodeTemplatesRequest extends AbstractModel{
+public class DescribeLiveTranscodeTemplatesRequest extends AbstractModel {
+
+    /**
+    * 转码模板类型，默认0。
+0：普通转码模板。
+1：自适应码率转码模板。
+    */
+    @SerializedName("TemplateType")
+    @Expose
+    private Long TemplateType;
+
+    /**
+     * Get 转码模板类型，默认0。
+0：普通转码模板。
+1：自适应码率转码模板。 
+     * @return TemplateType 转码模板类型，默认0。
+0：普通转码模板。
+1：自适应码率转码模板。
+     */
+    public Long getTemplateType() {
+        return this.TemplateType;
+    }
+
+    /**
+     * Set 转码模板类型，默认0。
+0：普通转码模板。
+1：自适应码率转码模板。
+     * @param TemplateType 转码模板类型，默认0。
+0：普通转码模板。
+1：自适应码率转码模板。
+     */
+    public void setTemplateType(Long TemplateType) {
+        this.TemplateType = TemplateType;
+    }
 
     public DescribeLiveTranscodeTemplatesRequest() {
     }
@@ -30,6 +64,9 @@ public class DescribeLiveTranscodeTemplatesRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeLiveTranscodeTemplatesRequest(DescribeLiveTranscodeTemplatesRequest source) {
+        if (source.TemplateType != null) {
+            this.TemplateType = new Long(source.TemplateType);
+        }
     }
 
 
@@ -37,6 +74,7 @@ public class DescribeLiveTranscodeTemplatesRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "TemplateType", this.TemplateType);
 
     }
 }

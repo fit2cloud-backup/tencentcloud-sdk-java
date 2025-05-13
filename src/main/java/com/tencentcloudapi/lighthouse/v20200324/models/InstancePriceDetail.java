@@ -16,15 +16,15 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstancePriceDetail extends AbstractModel{
+public class InstancePriceDetail extends AbstractModel {
 
     /**
     * 实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -32,7 +32,6 @@ public class InstancePriceDetail extends AbstractModel{
 
     /**
     * 询价信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstancePrice")
     @Expose
@@ -40,17 +39,14 @@ public class InstancePriceDetail extends AbstractModel{
 
     /**
     * 折扣梯度详情，每个梯度包含的信息有：时长，折扣数，总价，折扣价，折扣详情（用户折扣、官网折扣、最终折扣）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountDetail")
     @Expose
     private DiscountDetail [] DiscountDetail;
 
     /**
-     * Get 实例ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例ID。 
      * @return InstanceId 实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -58,19 +54,15 @@ public class InstancePriceDetail extends AbstractModel{
 
     /**
      * Set 实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 询价信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 询价信息。 
      * @return InstancePrice 询价信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InstancePrice getInstancePrice() {
         return this.InstancePrice;
@@ -78,19 +70,15 @@ public class InstancePriceDetail extends AbstractModel{
 
     /**
      * Set 询价信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstancePrice 询价信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstancePrice(InstancePrice InstancePrice) {
         this.InstancePrice = InstancePrice;
     }
 
     /**
-     * Get 折扣梯度详情，每个梯度包含的信息有：时长，折扣数，总价，折扣价，折扣详情（用户折扣、官网折扣、最终折扣）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 折扣梯度详情，每个梯度包含的信息有：时长，折扣数，总价，折扣价，折扣详情（用户折扣、官网折扣、最终折扣）。 
      * @return DiscountDetail 折扣梯度详情，每个梯度包含的信息有：时长，折扣数，总价，折扣价，折扣详情（用户折扣、官网折扣、最终折扣）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DiscountDetail [] getDiscountDetail() {
         return this.DiscountDetail;
@@ -98,9 +86,7 @@ public class InstancePriceDetail extends AbstractModel{
 
     /**
      * Set 折扣梯度详情，每个梯度包含的信息有：时长，折扣数，总价，折扣价，折扣详情（用户折扣、官网折扣、最终折扣）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountDetail 折扣梯度详情，每个梯度包含的信息有：时长，折扣数，总价，折扣价，折扣详情（用户折扣、官网折扣、最终折扣）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountDetail(DiscountDetail [] DiscountDetail) {
         this.DiscountDetail = DiscountDetail;

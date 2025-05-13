@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BillResourceSummary extends AbstractModel{
+public class BillResourceSummary extends AbstractModel {
 
     /**
     * 产品名称：用户所采购的各类云产品，例如：云服务器 CVM
@@ -185,7 +186,6 @@ public class BillResourceSummary extends AbstractModel{
 
     /**
     * 分成金账户支出：通过分成金账户支付的金额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TransferPayAmount")
     @Expose
@@ -214,7 +214,6 @@ public class BillResourceSummary extends AbstractModel{
 
     /**
     * 标签信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -289,6 +288,13 @@ public class BillResourceSummary extends AbstractModel{
     @SerializedName("OriginalCostWithSP")
     @Expose
     private String OriginalCostWithSP;
+
+    /**
+    * 账单归属月
+    */
+    @SerializedName("BillMonth")
+    @Expose
+    private String BillMonth;
 
     /**
      * Get 产品名称：用户所采购的各类云产品，例如：云服务器 CVM 
@@ -659,10 +665,8 @@ public class BillResourceSummary extends AbstractModel{
     }
 
     /**
-     * Get 分成金账户支出：通过分成金账户支付的金额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分成金账户支出：通过分成金账户支付的金额 
      * @return TransferPayAmount 分成金账户支出：通过分成金账户支付的金额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTransferPayAmount() {
         return this.TransferPayAmount;
@@ -670,9 +674,7 @@ public class BillResourceSummary extends AbstractModel{
 
     /**
      * Set 分成金账户支出：通过分成金账户支付的金额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TransferPayAmount 分成金账户支出：通过分成金账户支付的金额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTransferPayAmount(String TransferPayAmount) {
         this.TransferPayAmount = TransferPayAmount;
@@ -727,10 +729,8 @@ public class BillResourceSummary extends AbstractModel{
     }
 
     /**
-     * Get 标签信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签信息 
      * @return Tags 标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BillTagInfo [] getTags() {
         return this.Tags;
@@ -738,9 +738,7 @@ public class BillResourceSummary extends AbstractModel{
 
     /**
      * Set 标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(BillTagInfo [] Tags) {
         this.Tags = Tags;
@@ -910,6 +908,22 @@ public class BillResourceSummary extends AbstractModel{
         this.OriginalCostWithSP = OriginalCostWithSP;
     }
 
+    /**
+     * Get 账单归属月 
+     * @return BillMonth 账单归属月
+     */
+    public String getBillMonth() {
+        return this.BillMonth;
+    }
+
+    /**
+     * Set 账单归属月
+     * @param BillMonth 账单归属月
+     */
+    public void setBillMonth(String BillMonth) {
+        this.BillMonth = BillMonth;
+    }
+
     public BillResourceSummary() {
     }
 
@@ -1035,6 +1049,9 @@ public class BillResourceSummary extends AbstractModel{
         if (source.OriginalCostWithSP != null) {
             this.OriginalCostWithSP = new String(source.OriginalCostWithSP);
         }
+        if (source.BillMonth != null) {
+            this.BillMonth = new String(source.BillMonth);
+        }
     }
 
 
@@ -1080,6 +1097,7 @@ public class BillResourceSummary extends AbstractModel{
         this.setParamSimple(map, prefix + "OriginalCostWithRI", this.OriginalCostWithRI);
         this.setParamSimple(map, prefix + "SPDeduction", this.SPDeduction);
         this.setParamSimple(map, prefix + "OriginalCostWithSP", this.OriginalCostWithSP);
+        this.setParamSimple(map, prefix + "BillMonth", this.BillMonth);
 
     }
 }

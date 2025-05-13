@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SimpleHlsClipRequest extends AbstractModel{
+public class SimpleHlsClipRequest extends AbstractModel {
 
     /**
     * 需要裁剪的腾讯云点播 HLS 视频 URL。
@@ -30,7 +31,7 @@ public class SimpleHlsClipRequest extends AbstractModel{
     private String Url;
 
     /**
-    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
     */
     @SerializedName("SubAppId")
     @Expose
@@ -65,7 +66,7 @@ public class SimpleHlsClipRequest extends AbstractModel{
     private String ExpireTime;
 
     /**
-    * 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 时有效。
+    * 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 且 Precision 为 Rough 时有效。
     */
     @SerializedName("Procedure")
     @Expose
@@ -95,6 +96,27 @@ public class SimpleHlsClipRequest extends AbstractModel{
     private String SessionContext;
 
     /**
+    * 裁剪精度，取值有：<li>Rough: 粗略裁剪，最小剪辑精度是单个 ts 分片；</li><li>Precise: 精确裁剪，做到按照剪辑时间点的毫秒级精确剪辑。</li> 默认取值 Rough。
+    */
+    @SerializedName("Precision")
+    @Expose
+    private String Precision;
+
+    /**
+    * 输出视频类型，取值有：<li>hls: 输出 hls 文件；</li><li>mp4：输出 mp4 文件，MP4 文件的大小不超过5G，时长小于2小时。仅当 Precision 选择 Precise 且 IsPersistence  选择0时有效，即只有非固化的精确剪辑时支持输出 MP4。</li>默认取值 hls。
+    */
+    @SerializedName("OutputMediaType")
+    @Expose
+    private String OutputMediaType;
+
+    /**
+    * 保留字段，特殊用途时使用。 示例值：""
+    */
+    @SerializedName("ExtInfo")
+    @Expose
+    private String ExtInfo;
+
+    /**
      * Get 需要裁剪的腾讯云点播 HLS 视频 URL。 
      * @return Url 需要裁剪的腾讯云点播 HLS 视频 URL。
      */
@@ -111,16 +133,16 @@ public class SimpleHlsClipRequest extends AbstractModel{
     }
 
     /**
-     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
-     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public Long getSubAppId() {
         return this.SubAppId;
     }
 
     /**
-     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
@@ -191,16 +213,16 @@ public class SimpleHlsClipRequest extends AbstractModel{
     }
 
     /**
-     * Get 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 时有效。 
-     * @return Procedure 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 时有效。
+     * Get 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 且 Precision 为 Rough 时有效。 
+     * @return Procedure 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 且 Precision 为 Rough 时有效。
      */
     public String getProcedure() {
         return this.Procedure;
     }
 
     /**
-     * Set 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 时有效。
-     * @param Procedure 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 时有效。
+     * Set 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 且 Precision 为 Rough 时有效。
+     * @param Procedure 剪辑固化后的视频点播任务流处理，详见[上传指定任务流](https://cloud.tencent.com/document/product/266/9759)。仅 IsPersistence 为 1 且 Precision 为 Rough 时有效。
      */
     public void setProcedure(String Procedure) {
         this.Procedure = Procedure;
@@ -262,6 +284,54 @@ public class SimpleHlsClipRequest extends AbstractModel{
         this.SessionContext = SessionContext;
     }
 
+    /**
+     * Get 裁剪精度，取值有：<li>Rough: 粗略裁剪，最小剪辑精度是单个 ts 分片；</li><li>Precise: 精确裁剪，做到按照剪辑时间点的毫秒级精确剪辑。</li> 默认取值 Rough。 
+     * @return Precision 裁剪精度，取值有：<li>Rough: 粗略裁剪，最小剪辑精度是单个 ts 分片；</li><li>Precise: 精确裁剪，做到按照剪辑时间点的毫秒级精确剪辑。</li> 默认取值 Rough。
+     */
+    public String getPrecision() {
+        return this.Precision;
+    }
+
+    /**
+     * Set 裁剪精度，取值有：<li>Rough: 粗略裁剪，最小剪辑精度是单个 ts 分片；</li><li>Precise: 精确裁剪，做到按照剪辑时间点的毫秒级精确剪辑。</li> 默认取值 Rough。
+     * @param Precision 裁剪精度，取值有：<li>Rough: 粗略裁剪，最小剪辑精度是单个 ts 分片；</li><li>Precise: 精确裁剪，做到按照剪辑时间点的毫秒级精确剪辑。</li> 默认取值 Rough。
+     */
+    public void setPrecision(String Precision) {
+        this.Precision = Precision;
+    }
+
+    /**
+     * Get 输出视频类型，取值有：<li>hls: 输出 hls 文件；</li><li>mp4：输出 mp4 文件，MP4 文件的大小不超过5G，时长小于2小时。仅当 Precision 选择 Precise 且 IsPersistence  选择0时有效，即只有非固化的精确剪辑时支持输出 MP4。</li>默认取值 hls。 
+     * @return OutputMediaType 输出视频类型，取值有：<li>hls: 输出 hls 文件；</li><li>mp4：输出 mp4 文件，MP4 文件的大小不超过5G，时长小于2小时。仅当 Precision 选择 Precise 且 IsPersistence  选择0时有效，即只有非固化的精确剪辑时支持输出 MP4。</li>默认取值 hls。
+     */
+    public String getOutputMediaType() {
+        return this.OutputMediaType;
+    }
+
+    /**
+     * Set 输出视频类型，取值有：<li>hls: 输出 hls 文件；</li><li>mp4：输出 mp4 文件，MP4 文件的大小不超过5G，时长小于2小时。仅当 Precision 选择 Precise 且 IsPersistence  选择0时有效，即只有非固化的精确剪辑时支持输出 MP4。</li>默认取值 hls。
+     * @param OutputMediaType 输出视频类型，取值有：<li>hls: 输出 hls 文件；</li><li>mp4：输出 mp4 文件，MP4 文件的大小不超过5G，时长小于2小时。仅当 Precision 选择 Precise 且 IsPersistence  选择0时有效，即只有非固化的精确剪辑时支持输出 MP4。</li>默认取值 hls。
+     */
+    public void setOutputMediaType(String OutputMediaType) {
+        this.OutputMediaType = OutputMediaType;
+    }
+
+    /**
+     * Get 保留字段，特殊用途时使用。 示例值："" 
+     * @return ExtInfo 保留字段，特殊用途时使用。 示例值：""
+     */
+    public String getExtInfo() {
+        return this.ExtInfo;
+    }
+
+    /**
+     * Set 保留字段，特殊用途时使用。 示例值：""
+     * @param ExtInfo 保留字段，特殊用途时使用。 示例值：""
+     */
+    public void setExtInfo(String ExtInfo) {
+        this.ExtInfo = ExtInfo;
+    }
+
     public SimpleHlsClipRequest() {
     }
 
@@ -300,6 +370,15 @@ public class SimpleHlsClipRequest extends AbstractModel{
         if (source.SessionContext != null) {
             this.SessionContext = new String(source.SessionContext);
         }
+        if (source.Precision != null) {
+            this.Precision = new String(source.Precision);
+        }
+        if (source.OutputMediaType != null) {
+            this.OutputMediaType = new String(source.OutputMediaType);
+        }
+        if (source.ExtInfo != null) {
+            this.ExtInfo = new String(source.ExtInfo);
+        }
     }
 
 
@@ -317,6 +396,9 @@ public class SimpleHlsClipRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClassId", this.ClassId);
         this.setParamSimple(map, prefix + "SourceContext", this.SourceContext);
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);
+        this.setParamSimple(map, prefix + "Precision", this.Precision);
+        this.setParamSimple(map, prefix + "OutputMediaType", this.OutputMediaType);
+        this.setParamSimple(map, prefix + "ExtInfo", this.ExtInfo);
 
     }
 }

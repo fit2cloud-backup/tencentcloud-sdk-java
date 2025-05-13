@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ecm.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SecurityGroupPolicy extends AbstractModel{
+public class SecurityGroupPolicy extends AbstractModel {
 
     /**
     * 安全组规则索引号
@@ -87,7 +88,6 @@ public class SecurityGroupPolicy extends AbstractModel{
 
     /**
     * 修改时间，例如 2020-07-22 19：27：23
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModifyTime")
     @Expose
@@ -246,10 +246,8 @@ public class SecurityGroupPolicy extends AbstractModel{
     }
 
     /**
-     * Get 修改时间，例如 2020-07-22 19：27：23
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修改时间，例如 2020-07-22 19：27：23 
      * @return ModifyTime 修改时间，例如 2020-07-22 19：27：23
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModifyTime() {
         return this.ModifyTime;
@@ -257,9 +255,7 @@ public class SecurityGroupPolicy extends AbstractModel{
 
     /**
      * Set 修改时间，例如 2020-07-22 19：27：23
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModifyTime 修改时间，例如 2020-07-22 19：27：23
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;

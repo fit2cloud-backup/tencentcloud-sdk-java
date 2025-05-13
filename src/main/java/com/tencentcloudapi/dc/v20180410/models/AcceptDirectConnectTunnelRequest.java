@@ -16,30 +16,31 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AcceptDirectConnectTunnelRequest extends AbstractModel{
+public class AcceptDirectConnectTunnelRequest extends AbstractModel {
 
     /**
-    * 物理专线拥有者接受共享专用通道申请
+    * 专用通道ID。可以通过[DescribeDirectConnectTunnels](https://cloud.tencent.com/document/product/216/19819)接口获取。
     */
     @SerializedName("DirectConnectTunnelId")
     @Expose
     private String DirectConnectTunnelId;
 
     /**
-     * Get 物理专线拥有者接受共享专用通道申请 
-     * @return DirectConnectTunnelId 物理专线拥有者接受共享专用通道申请
+     * Get 专用通道ID。可以通过[DescribeDirectConnectTunnels](https://cloud.tencent.com/document/product/216/19819)接口获取。 
+     * @return DirectConnectTunnelId 专用通道ID。可以通过[DescribeDirectConnectTunnels](https://cloud.tencent.com/document/product/216/19819)接口获取。
      */
     public String getDirectConnectTunnelId() {
         return this.DirectConnectTunnelId;
     }
 
     /**
-     * Set 物理专线拥有者接受共享专用通道申请
-     * @param DirectConnectTunnelId 物理专线拥有者接受共享专用通道申请
+     * Set 专用通道ID。可以通过[DescribeDirectConnectTunnels](https://cloud.tencent.com/document/product/216/19819)接口获取。
+     * @param DirectConnectTunnelId 专用通道ID。可以通过[DescribeDirectConnectTunnels](https://cloud.tencent.com/document/product/216/19819)接口获取。
      */
     public void setDirectConnectTunnelId(String DirectConnectTunnelId) {
         this.DirectConnectTunnelId = DirectConnectTunnelId;

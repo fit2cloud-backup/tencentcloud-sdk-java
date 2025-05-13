@@ -16,14 +16,15 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAIRecognitionTemplatesRequest extends AbstractModel{
+public class DescribeAIRecognitionTemplatesRequest extends AbstractModel {
 
     /**
-    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
     */
     @SerializedName("SubAppId")
     @Expose
@@ -35,6 +36,13 @@ public class DescribeAIRecognitionTemplatesRequest extends AbstractModel{
     @SerializedName("Definitions")
     @Expose
     private Long [] Definitions;
+
+    /**
+    * 模板类型过滤条件，可选值：<li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>不填默认为空，即不对模板类型过滤。
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
 
     /**
     * 分页偏移量，默认值：0。
@@ -51,16 +59,16 @@ public class DescribeAIRecognitionTemplatesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
-     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public Long getSubAppId() {
         return this.SubAppId;
     }
 
     /**
-     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
@@ -80,6 +88,22 @@ public class DescribeAIRecognitionTemplatesRequest extends AbstractModel{
      */
     public void setDefinitions(Long [] Definitions) {
         this.Definitions = Definitions;
+    }
+
+    /**
+     * Get 模板类型过滤条件，可选值：<li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>不填默认为空，即不对模板类型过滤。 
+     * @return Type 模板类型过滤条件，可选值：<li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>不填默认为空，即不对模板类型过滤。
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 模板类型过滤条件，可选值：<li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>不填默认为空，即不对模板类型过滤。
+     * @param Type 模板类型过滤条件，可选值：<li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>不填默认为空，即不对模板类型过滤。
+     */
+    public void setType(String Type) {
+        this.Type = Type;
     }
 
     /**
@@ -131,6 +155,9 @@ public class DescribeAIRecognitionTemplatesRequest extends AbstractModel{
                 this.Definitions[i] = new Long(source.Definitions[i]);
             }
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
@@ -146,6 +173,7 @@ public class DescribeAIRecognitionTemplatesRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
         this.setParamArraySimple(map, prefix + "Definitions.", this.Definitions);
+        this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
 

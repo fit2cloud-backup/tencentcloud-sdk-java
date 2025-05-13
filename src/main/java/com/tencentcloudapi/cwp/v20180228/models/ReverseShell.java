@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReverseShell extends AbstractModel{
+public class ReverseShell extends AbstractModel {
 
     /**
     * ID 主键
@@ -128,7 +129,7 @@ public class ReverseShell extends AbstractModel{
     private String ParentProcPath;
 
     /**
-    * 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
+    * 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
     */
     @SerializedName("Status")
     @Expose
@@ -156,7 +157,7 @@ public class ReverseShell extends AbstractModel{
     private String ProcTree;
 
     /**
-    * 检测方法
+    * 检测方法: 0行为分析; 1命令特征检测
     */
     @SerializedName("DetectBy")
     @Expose
@@ -164,7 +165,6 @@ public class ReverseShell extends AbstractModel{
 
     /**
     *  主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
@@ -172,11 +172,24 @@ public class ReverseShell extends AbstractModel{
 
     /**
     * 进程id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Pid")
     @Expose
     private Long Pid;
+
+    /**
+    * 威胁等级：0中危，1高危
+    */
+    @SerializedName("RiskLevel")
+    @Expose
+    private Long RiskLevel;
+
+    /**
+    * 命令详情的转义后内容，供正则加白全字符串匹配使用	
+    */
+    @SerializedName("CmdLineQuote")
+    @Expose
+    private String CmdLineQuote;
 
     /**
      * Get ID 主键 
@@ -419,16 +432,16 @@ public class ReverseShell extends AbstractModel{
     }
 
     /**
-     * Get 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 
-     * @return Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
+     * Get 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截 
+     * @return Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
-     * @param Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略
+     * Set 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
+     * @param Status 处理状态：0-待处理 2-白名单 3-已处理 4-已忽略 6-已拦截
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -483,26 +496,24 @@ public class ReverseShell extends AbstractModel{
     }
 
     /**
-     * Get 检测方法 
-     * @return DetectBy 检测方法
+     * Get 检测方法: 0行为分析; 1命令特征检测 
+     * @return DetectBy 检测方法: 0行为分析; 1命令特征检测
      */
     public Long getDetectBy() {
         return this.DetectBy;
     }
 
     /**
-     * Set 检测方法
-     * @param DetectBy 检测方法
+     * Set 检测方法: 0行为分析; 1命令特征检测
+     * @param DetectBy 检测方法: 0行为分析; 1命令特征检测
      */
     public void setDetectBy(Long DetectBy) {
         this.DetectBy = DetectBy;
     }
 
     /**
-     * Get  主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get  主机额外信息 
      * @return MachineExtraInfo  主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -510,19 +521,15 @@ public class ReverseShell extends AbstractModel{
 
     /**
      * Set  主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo  主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
     }
 
     /**
-     * Get 进程id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进程id 
      * @return Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPid() {
         return this.Pid;
@@ -530,12 +537,42 @@ public class ReverseShell extends AbstractModel{
 
     /**
      * Set 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPid(Long Pid) {
         this.Pid = Pid;
+    }
+
+    /**
+     * Get 威胁等级：0中危，1高危 
+     * @return RiskLevel 威胁等级：0中危，1高危
+     */
+    public Long getRiskLevel() {
+        return this.RiskLevel;
+    }
+
+    /**
+     * Set 威胁等级：0中危，1高危
+     * @param RiskLevel 威胁等级：0中危，1高危
+     */
+    public void setRiskLevel(Long RiskLevel) {
+        this.RiskLevel = RiskLevel;
+    }
+
+    /**
+     * Get 命令详情的转义后内容，供正则加白全字符串匹配使用	 
+     * @return CmdLineQuote 命令详情的转义后内容，供正则加白全字符串匹配使用	
+     */
+    public String getCmdLineQuote() {
+        return this.CmdLineQuote;
+    }
+
+    /**
+     * Set 命令详情的转义后内容，供正则加白全字符串匹配使用	
+     * @param CmdLineQuote 命令详情的转义后内容，供正则加白全字符串匹配使用	
+     */
+    public void setCmdLineQuote(String CmdLineQuote) {
+        this.CmdLineQuote = CmdLineQuote;
     }
 
     public ReverseShell() {
@@ -612,6 +649,12 @@ public class ReverseShell extends AbstractModel{
         if (source.Pid != null) {
             this.Pid = new Long(source.Pid);
         }
+        if (source.RiskLevel != null) {
+            this.RiskLevel = new Long(source.RiskLevel);
+        }
+        if (source.CmdLineQuote != null) {
+            this.CmdLineQuote = new String(source.CmdLineQuote);
+        }
     }
 
 
@@ -641,6 +684,8 @@ public class ReverseShell extends AbstractModel{
         this.setParamSimple(map, prefix + "DetectBy", this.DetectBy);
         this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
         this.setParamSimple(map, prefix + "Pid", this.Pid);
+        this.setParamSimple(map, prefix + "RiskLevel", this.RiskLevel);
+        this.setParamSimple(map, prefix + "CmdLineQuote", this.CmdLineQuote);
 
     }
 }

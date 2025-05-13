@@ -16,23 +16,22 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServeParticipant extends AbstractModel{
+public class ServeParticipant extends AbstractModel {
 
     /**
-    * 坐席邮箱
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席邮箱
     */
     @SerializedName("Mail")
     @Expose
     private String Mail;
 
     /**
-    * 坐席电话
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席电话
     */
     @SerializedName("Phone")
     @Expose
@@ -40,7 +39,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 振铃时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RingTimestamp")
     @Expose
@@ -48,7 +46,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 接听时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AcceptTimestamp")
     @Expose
@@ -56,15 +53,13 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 结束时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndedTimestamp")
     @Expose
     private Long EndedTimestamp;
 
     /**
-    * 录音 ID，能够索引到坐席侧的录音
-注意：此字段可能返回 null，表示取不到有效值。
+    * 录音 ID，能够索引到座席侧的录音
     */
     @SerializedName("RecordId")
     @Expose
@@ -72,15 +67,13 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 参与者类型，"staffSeat", "outboundSeat", "staffPhoneSeat"
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-    * 转接来源坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 转接来源座席信息
     */
     @SerializedName("TransferFrom")
     @Expose
@@ -88,15 +81,13 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 转接来源参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TransferFromType")
     @Expose
     private String TransferFromType;
 
     /**
-    * 转接去向坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 转接去向座席信息
     */
     @SerializedName("TransferTo")
     @Expose
@@ -104,7 +95,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 转接去向参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TransferToType")
     @Expose
@@ -112,7 +102,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 技能组 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SkillGroupId")
     @Expose
@@ -120,7 +109,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 结束状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndStatusString")
     @Expose
@@ -128,7 +116,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 录音 URL
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RecordURL")
     @Expose
@@ -136,7 +123,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 参与者序号，从 0 开始
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Sequence")
     @Expose
@@ -144,7 +130,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 开始时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTimestamp")
     @Expose
@@ -152,7 +137,6 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SkillGroupName")
     @Expose
@@ -160,57 +144,46 @@ public class ServeParticipant extends AbstractModel{
 
     /**
     * 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomRecordURL")
     @Expose
     private String CustomRecordURL;
 
     /**
-     * Get 坐席邮箱
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Mail 坐席邮箱
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 座席邮箱 
+     * @return Mail 座席邮箱
      */
     public String getMail() {
         return this.Mail;
     }
 
     /**
-     * Set 坐席邮箱
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Mail 坐席邮箱
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 座席邮箱
+     * @param Mail 座席邮箱
      */
     public void setMail(String Mail) {
         this.Mail = Mail;
     }
 
     /**
-     * Get 坐席电话
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Phone 坐席电话
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 座席电话 
+     * @return Phone 座席电话
      */
     public String getPhone() {
         return this.Phone;
     }
 
     /**
-     * Set 坐席电话
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Phone 坐席电话
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 座席电话
+     * @param Phone 座席电话
      */
     public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 
     /**
-     * Get 振铃时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 振铃时间戳，Unix 秒级时间戳 
      * @return RingTimestamp 振铃时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRingTimestamp() {
         return this.RingTimestamp;
@@ -218,19 +191,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 振铃时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RingTimestamp 振铃时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRingTimestamp(Long RingTimestamp) {
         this.RingTimestamp = RingTimestamp;
     }
 
     /**
-     * Get 接听时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接听时间戳，Unix 秒级时间戳 
      * @return AcceptTimestamp 接听时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAcceptTimestamp() {
         return this.AcceptTimestamp;
@@ -238,19 +207,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 接听时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AcceptTimestamp 接听时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAcceptTimestamp(Long AcceptTimestamp) {
         this.AcceptTimestamp = AcceptTimestamp;
     }
 
     /**
-     * Get 结束时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间戳，Unix 秒级时间戳 
      * @return EndedTimestamp 结束时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEndedTimestamp() {
         return this.EndedTimestamp;
@@ -258,39 +223,31 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 结束时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndedTimestamp 结束时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndedTimestamp(Long EndedTimestamp) {
         this.EndedTimestamp = EndedTimestamp;
     }
 
     /**
-     * Get 录音 ID，能够索引到坐席侧的录音
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RecordId 录音 ID，能够索引到坐席侧的录音
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 录音 ID，能够索引到座席侧的录音 
+     * @return RecordId 录音 ID，能够索引到座席侧的录音
      */
     public String getRecordId() {
         return this.RecordId;
     }
 
     /**
-     * Set 录音 ID，能够索引到坐席侧的录音
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RecordId 录音 ID，能够索引到坐席侧的录音
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 录音 ID，能够索引到座席侧的录音
+     * @param RecordId 录音 ID，能够索引到座席侧的录音
      */
     public void setRecordId(String RecordId) {
         this.RecordId = RecordId;
     }
 
     /**
-     * Get 参与者类型，"staffSeat", "outboundSeat", "staffPhoneSeat"
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参与者类型，"staffSeat", "outboundSeat", "staffPhoneSeat" 
      * @return Type 参与者类型，"staffSeat", "outboundSeat", "staffPhoneSeat"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -298,39 +255,31 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 参与者类型，"staffSeat", "outboundSeat", "staffPhoneSeat"
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 参与者类型，"staffSeat", "outboundSeat", "staffPhoneSeat"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 转接来源坐席信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TransferFrom 转接来源坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 转接来源座席信息 
+     * @return TransferFrom 转接来源座席信息
      */
     public String getTransferFrom() {
         return this.TransferFrom;
     }
 
     /**
-     * Set 转接来源坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TransferFrom 转接来源坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 转接来源座席信息
+     * @param TransferFrom 转接来源座席信息
      */
     public void setTransferFrom(String TransferFrom) {
         this.TransferFrom = TransferFrom;
     }
 
     /**
-     * Get 转接来源参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转接来源参与者类型，取值与 Type 一致 
      * @return TransferFromType 转接来源参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTransferFromType() {
         return this.TransferFromType;
@@ -338,39 +287,31 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 转接来源参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TransferFromType 转接来源参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTransferFromType(String TransferFromType) {
         this.TransferFromType = TransferFromType;
     }
 
     /**
-     * Get 转接去向坐席信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TransferTo 转接去向坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 转接去向座席信息 
+     * @return TransferTo 转接去向座席信息
      */
     public String getTransferTo() {
         return this.TransferTo;
     }
 
     /**
-     * Set 转接去向坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TransferTo 转接去向坐席信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 转接去向座席信息
+     * @param TransferTo 转接去向座席信息
      */
     public void setTransferTo(String TransferTo) {
         this.TransferTo = TransferTo;
     }
 
     /**
-     * Get 转接去向参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转接去向参与者类型，取值与 Type 一致 
      * @return TransferToType 转接去向参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTransferToType() {
         return this.TransferToType;
@@ -378,19 +319,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 转接去向参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TransferToType 转接去向参与者类型，取值与 Type 一致
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTransferToType(String TransferToType) {
         this.TransferToType = TransferToType;
     }
 
     /**
-     * Get 技能组 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 技能组 ID 
      * @return SkillGroupId 技能组 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSkillGroupId() {
         return this.SkillGroupId;
@@ -398,19 +335,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 技能组 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SkillGroupId 技能组 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSkillGroupId(Long SkillGroupId) {
         this.SkillGroupId = SkillGroupId;
     }
 
     /**
-     * Get 结束状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束状态 
      * @return EndStatusString 结束状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndStatusString() {
         return this.EndStatusString;
@@ -418,19 +351,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 结束状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndStatusString 结束状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndStatusString(String EndStatusString) {
         this.EndStatusString = EndStatusString;
     }
 
     /**
-     * Get 录音 URL
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 录音 URL 
      * @return RecordURL 录音 URL
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRecordURL() {
         return this.RecordURL;
@@ -438,19 +367,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 录音 URL
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RecordURL 录音 URL
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRecordURL(String RecordURL) {
         this.RecordURL = RecordURL;
     }
 
     /**
-     * Get 参与者序号，从 0 开始
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参与者序号，从 0 开始 
      * @return Sequence 参与者序号，从 0 开始
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSequence() {
         return this.Sequence;
@@ -458,19 +383,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 参与者序号，从 0 开始
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Sequence 参与者序号，从 0 开始
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSequence(Long Sequence) {
         this.Sequence = Sequence;
     }
 
     /**
-     * Get 开始时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始时间戳，Unix 秒级时间戳 
      * @return StartTimestamp 开始时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStartTimestamp() {
         return this.StartTimestamp;
@@ -478,19 +399,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 开始时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTimestamp 开始时间戳，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTimestamp(Long StartTimestamp) {
         this.StartTimestamp = StartTimestamp;
     }
 
     /**
-     * Get 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 技能组名称 
      * @return SkillGroupName 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSkillGroupName() {
         return this.SkillGroupName;
@@ -498,19 +415,15 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SkillGroupName 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSkillGroupName(String SkillGroupName) {
         this.SkillGroupName = SkillGroupName;
     }
 
     /**
-     * Get 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 录音转存第三方COS地址 
      * @return CustomRecordURL 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomRecordURL() {
         return this.CustomRecordURL;
@@ -518,9 +431,7 @@ public class ServeParticipant extends AbstractModel{
 
     /**
      * Set 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomRecordURL 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomRecordURL(String CustomRecordURL) {
         this.CustomRecordURL = CustomRecordURL;

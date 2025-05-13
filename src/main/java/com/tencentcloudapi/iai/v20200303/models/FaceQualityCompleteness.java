@@ -16,15 +16,17 @@
 package com.tencentcloudapi.iai.v20200303.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FaceQualityCompleteness extends AbstractModel{
+public class FaceQualityCompleteness extends AbstractModel {
 
     /**
-    * 眉毛的遮挡分数[0,100]，分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+    * 眉毛的遮挡分数。
+- 取值范围：[0,100]，分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Eyebrow")
@@ -32,8 +34,9 @@ public class FaceQualityCompleteness extends AbstractModel{
     private Long Eyebrow;
 
     /**
-    * 眼睛的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+    * 眼睛的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Eye")
@@ -41,8 +44,9 @@ public class FaceQualityCompleteness extends AbstractModel{
     private Long Eye;
 
     /**
-    * 鼻子的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,60]表示发生遮挡。
+    * 鼻子的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,60]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Nose")
@@ -50,8 +54,9 @@ public class FaceQualityCompleteness extends AbstractModel{
     private Long Nose;
 
     /**
-    * 脸颊的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+    * 脸颊的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cheek")
@@ -59,8 +64,9 @@ public class FaceQualityCompleteness extends AbstractModel{
     private Long Cheek;
 
     /**
-    * 嘴巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,50]表示发生遮挡。
+    * 嘴巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,50]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Mouth")
@@ -68,8 +74,9 @@ public class FaceQualityCompleteness extends AbstractModel{
     private Long Mouth;
 
     /**
-    * 下巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+    * 下巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Chin")
@@ -77,11 +84,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     private Long Chin;
 
     /**
-     * Get 眉毛的遮挡分数[0,100]，分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * Get 眉毛的遮挡分数。
+- 取值范围：[0,100]，分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Eyebrow 眉毛的遮挡分数[0,100]，分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * @return Eyebrow 眉毛的遮挡分数。
+- 取值范围：[0,100]，分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEyebrow() {
@@ -89,11 +98,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Set 眉毛的遮挡分数[0,100]，分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * Set 眉毛的遮挡分数。
+- 取值范围：[0,100]，分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Eyebrow 眉毛的遮挡分数[0,100]，分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * @param Eyebrow 眉毛的遮挡分数。
+- 取值范围：[0,100]，分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEyebrow(Long Eyebrow) {
@@ -101,11 +112,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Get 眼睛的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * Get 眼睛的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Eye 眼睛的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * @return Eye 眼睛的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEye() {
@@ -113,11 +126,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Set 眼睛的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * Set 眼睛的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Eye 眼睛的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,80]表示发生遮挡。
+     * @param Eye 眼睛的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,80]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEye(Long Eye) {
@@ -125,11 +140,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Get 鼻子的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,60]表示发生遮挡。
+     * Get 鼻子的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,60]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Nose 鼻子的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,60]表示发生遮挡。
+     * @return Nose 鼻子的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,60]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNose() {
@@ -137,11 +154,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Set 鼻子的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,60]表示发生遮挡。
+     * Set 鼻子的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,60]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Nose 鼻子的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,60]表示发生遮挡。
+     * @param Nose 鼻子的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,60]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNose(Long Nose) {
@@ -149,11 +168,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Get 脸颊的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * Get 脸颊的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Cheek 脸颊的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * @return Cheek 脸颊的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCheek() {
@@ -161,11 +182,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Set 脸颊的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * Set 脸颊的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Cheek 脸颊的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * @param Cheek 脸颊的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCheek(Long Cheek) {
@@ -173,11 +196,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Get 嘴巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,50]表示发生遮挡。
+     * Get 嘴巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,50]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Mouth 嘴巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,50]表示发生遮挡。
+     * @return Mouth 嘴巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,50]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMouth() {
@@ -185,11 +210,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Set 嘴巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,50]表示发生遮挡。
+     * Set 嘴巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,50]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Mouth 嘴巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,50]表示发生遮挡。
+     * @param Mouth 嘴巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,50]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMouth(Long Mouth) {
@@ -197,11 +224,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Get 下巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * Get 下巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Chin 下巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * @return Chin 下巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getChin() {
@@ -209,11 +238,13 @@ public class FaceQualityCompleteness extends AbstractModel{
     }
 
     /**
-     * Set 下巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * Set 下巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Chin 下巴的遮挡分数[0,100],分数越高遮挡越少。 
-参考范围：[0,70]表示发生遮挡。
+     * @param Chin 下巴的遮挡分数。
+- 取值范围：[0,100],分数越高遮挡越少。 
+- 参考范围：[0,70]表示发生遮挡。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChin(Long Chin) {

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeListBGPInstancesRequest extends AbstractModel{
+public class DescribeListBGPInstancesRequest extends AbstractModel {
 
     /**
     * 页起始偏移，取值为(页码-1)*一页条数
@@ -154,6 +155,27 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
     @SerializedName("FilterBasicPlusFlag")
     @Expose
     private Long FilterBasicPlusFlag;
+
+    /**
+    * 是否标准版2.0 0: 包含标准版2.0 0 1: 只查询标准版2.0 0 2: 不查标准版2.0
+    */
+    @SerializedName("FilterPlanCntFlag")
+    @Expose
+    private Long FilterPlanCntFlag;
+
+    /**
+    * 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品 3: 包含全部
+    */
+    @SerializedName("FilterTransRegionFlag")
+    @Expose
+    private Long FilterTransRegionFlag;
+
+    /**
+    * zoenid列表
+    */
+    @SerializedName("FilterZoneIdList")
+    @Expose
+    private Long [] FilterZoneIdList;
 
     /**
      * Get 页起始偏移，取值为(页码-1)*一页条数 
@@ -459,6 +481,54 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
         this.FilterBasicPlusFlag = FilterBasicPlusFlag;
     }
 
+    /**
+     * Get 是否标准版2.0 0: 包含标准版2.0 0 1: 只查询标准版2.0 0 2: 不查标准版2.0 
+     * @return FilterPlanCntFlag 是否标准版2.0 0: 包含标准版2.0 0 1: 只查询标准版2.0 0 2: 不查标准版2.0
+     */
+    public Long getFilterPlanCntFlag() {
+        return this.FilterPlanCntFlag;
+    }
+
+    /**
+     * Set 是否标准版2.0 0: 包含标准版2.0 0 1: 只查询标准版2.0 0 2: 不查标准版2.0
+     * @param FilterPlanCntFlag 是否标准版2.0 0: 包含标准版2.0 0 1: 只查询标准版2.0 0 2: 不查标准版2.0
+     */
+    public void setFilterPlanCntFlag(Long FilterPlanCntFlag) {
+        this.FilterPlanCntFlag = FilterPlanCntFlag;
+    }
+
+    /**
+     * Get 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品 3: 包含全部 
+     * @return FilterTransRegionFlag 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品 3: 包含全部
+     */
+    public Long getFilterTransRegionFlag() {
+        return this.FilterTransRegionFlag;
+    }
+
+    /**
+     * Set 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品 3: 包含全部
+     * @param FilterTransRegionFlag 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品 3: 包含全部
+     */
+    public void setFilterTransRegionFlag(Long FilterTransRegionFlag) {
+        this.FilterTransRegionFlag = FilterTransRegionFlag;
+    }
+
+    /**
+     * Get zoenid列表 
+     * @return FilterZoneIdList zoenid列表
+     */
+    public Long [] getFilterZoneIdList() {
+        return this.FilterZoneIdList;
+    }
+
+    /**
+     * Set zoenid列表
+     * @param FilterZoneIdList zoenid列表
+     */
+    public void setFilterZoneIdList(Long [] FilterZoneIdList) {
+        this.FilterZoneIdList = FilterZoneIdList;
+    }
+
     public DescribeListBGPInstancesRequest() {
     }
 
@@ -530,6 +600,18 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
         if (source.FilterBasicPlusFlag != null) {
             this.FilterBasicPlusFlag = new Long(source.FilterBasicPlusFlag);
         }
+        if (source.FilterPlanCntFlag != null) {
+            this.FilterPlanCntFlag = new Long(source.FilterPlanCntFlag);
+        }
+        if (source.FilterTransRegionFlag != null) {
+            this.FilterTransRegionFlag = new Long(source.FilterTransRegionFlag);
+        }
+        if (source.FilterZoneIdList != null) {
+            this.FilterZoneIdList = new Long[source.FilterZoneIdList.length];
+            for (int i = 0; i < source.FilterZoneIdList.length; i++) {
+                this.FilterZoneIdList[i] = new Long(source.FilterZoneIdList[i]);
+            }
+        }
     }
 
 
@@ -556,6 +638,9 @@ public class DescribeListBGPInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ExcludeAdvancedInfo", this.ExcludeAdvancedInfo);
         this.setParamArraySimple(map, prefix + "FilterAssetIpList.", this.FilterAssetIpList);
         this.setParamSimple(map, prefix + "FilterBasicPlusFlag", this.FilterBasicPlusFlag);
+        this.setParamSimple(map, prefix + "FilterPlanCntFlag", this.FilterPlanCntFlag);
+        this.setParamSimple(map, prefix + "FilterTransRegionFlag", this.FilterTransRegionFlag);
+        this.setParamArraySimple(map, prefix + "FilterZoneIdList.", this.FilterZoneIdList);
 
     }
 }

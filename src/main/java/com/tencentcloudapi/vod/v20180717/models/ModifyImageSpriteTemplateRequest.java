@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyImageSpriteTemplateRequest extends AbstractModel{
+public class ModifyImageSpriteTemplateRequest extends AbstractModel {
 
     /**
     * 雪碧图模板唯一标识。
@@ -30,7 +31,7 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     private Long Definition;
 
     /**
-    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
     */
     @SerializedName("SubAppId")
     @Expose
@@ -44,14 +45,14 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 雪碧图中小图的宽度，取值范围： [128, 4096]，单位：px。
+    * 雪碧图中小图的宽度，取值范围： [32, 4096]，单位：px。
     */
     @SerializedName("Width")
     @Expose
     private Long Width;
 
     /**
-    * 雪碧图中小图的高度，取值范围： [128, 4096]，单位：px。
+    * 雪碧图中小图的高度，取值范围： [32, 4096]，单位：px。
     */
     @SerializedName("Height")
     @Expose
@@ -100,10 +101,7 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     private Long ColumnCount;
 
     /**
-    * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
+    * 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li><li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li><li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li><li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>默认值：black 。
     */
     @SerializedName("FillType")
     @Expose
@@ -143,16 +141,16 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
-     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public Long getSubAppId() {
         return this.SubAppId;
     }
 
     /**
-     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
@@ -175,32 +173,32 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 雪碧图中小图的宽度，取值范围： [128, 4096]，单位：px。 
-     * @return Width 雪碧图中小图的宽度，取值范围： [128, 4096]，单位：px。
+     * Get 雪碧图中小图的宽度，取值范围： [32, 4096]，单位：px。 
+     * @return Width 雪碧图中小图的宽度，取值范围： [32, 4096]，单位：px。
      */
     public Long getWidth() {
         return this.Width;
     }
 
     /**
-     * Set 雪碧图中小图的宽度，取值范围： [128, 4096]，单位：px。
-     * @param Width 雪碧图中小图的宽度，取值范围： [128, 4096]，单位：px。
+     * Set 雪碧图中小图的宽度，取值范围： [32, 4096]，单位：px。
+     * @param Width 雪碧图中小图的宽度，取值范围： [32, 4096]，单位：px。
      */
     public void setWidth(Long Width) {
         this.Width = Width;
     }
 
     /**
-     * Get 雪碧图中小图的高度，取值范围： [128, 4096]，单位：px。 
-     * @return Height 雪碧图中小图的高度，取值范围： [128, 4096]，单位：px。
+     * Get 雪碧图中小图的高度，取值范围： [32, 4096]，单位：px。 
+     * @return Height 雪碧图中小图的高度，取值范围： [32, 4096]，单位：px。
      */
     public Long getHeight() {
         return this.Height;
     }
 
     /**
-     * Set 雪碧图中小图的高度，取值范围： [128, 4096]，单位：px。
-     * @param Height 雪碧图中小图的高度，取值范围： [128, 4096]，单位：px。
+     * Set 雪碧图中小图的高度，取值范围： [32, 4096]，单位：px。
+     * @param Height 雪碧图中小图的高度，取值范围： [32, 4096]，单位：px。
      */
     public void setHeight(Long Height) {
         this.Height = Height;
@@ -315,28 +313,16 @@ public class ModifyImageSpriteTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。 
-     * @return FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
+     * Get 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li><li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li><li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li><li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>默认值：black 。 
+     * @return FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li><li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li><li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li><li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>默认值：black 。
      */
     public String getFillType() {
         return this.FillType;
     }
 
     /**
-     * Set 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
-     * @param FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：
-<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li>
-<li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li>
-默认值：black 。
+     * Set 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li><li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li><li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li><li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>默认值：black 。
+     * @param FillType 填充方式，当视频流配置宽高参数与原始视频的宽高比不一致时，对转码的处理方式，即为“填充”。可选填充方式：<li> stretch：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“；</li><li>black：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。</li><li>white：留白，保持视频宽高比不变，边缘剩余部分使用白色填充。</li><li>gauss：高斯模糊，保持视频宽高比不变，边缘剩余部分使用高斯模糊。</li>默认值：black 。
      */
     public void setFillType(String FillType) {
         this.FillType = FillType;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateBasicDBInstancesRequest extends AbstractModel{
+public class CreateBasicDBInstancesRequest extends AbstractModel {
 
     /**
     * 实例可用区，类似ap-guangzhou-1（广州一区）；实例可售卖区域可以通过接口DescribeZones获取
@@ -65,7 +66,7 @@ public class CreateBasicDBInstancesRequest extends AbstractModel{
     private String VpcId;
 
     /**
-    * 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云盘，CLOUD_SSD-虚拟机SSD云盘,CLOUD_HSSD-虚拟机加强型SSD云盘，CLOUD_TSSD-虚拟机极速型SSD云盘，CLOUD_BSSD-虚拟机通用型SSD云盘
+    * 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云硬盘，CLOUD_SSD-虚拟机SSD云硬盘,CLOUD_HSSD-虚拟机增强型SSD云硬盘，CLOUD_BSSD-虚拟机通用型SSD云盘
     */
     @SerializedName("MachineType")
     @Expose
@@ -177,6 +178,13 @@ public class CreateBasicDBInstancesRequest extends AbstractModel{
     private String TimeZone;
 
     /**
+    * 磁盘加密标识，0-不加密，1-加密
+    */
+    @SerializedName("DiskEncryptFlag")
+    @Expose
+    private Long DiskEncryptFlag;
+
+    /**
      * Get 实例可用区，类似ap-guangzhou-1（广州一区）；实例可售卖区域可以通过接口DescribeZones获取 
      * @return Zone 实例可用区，类似ap-guangzhou-1（广州一区）；实例可售卖区域可以通过接口DescribeZones获取
      */
@@ -273,16 +281,16 @@ public class CreateBasicDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云盘，CLOUD_SSD-虚拟机SSD云盘,CLOUD_HSSD-虚拟机加强型SSD云盘，CLOUD_TSSD-虚拟机极速型SSD云盘，CLOUD_BSSD-虚拟机通用型SSD云盘 
-     * @return MachineType 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云盘，CLOUD_SSD-虚拟机SSD云盘,CLOUD_HSSD-虚拟机加强型SSD云盘，CLOUD_TSSD-虚拟机极速型SSD云盘，CLOUD_BSSD-虚拟机通用型SSD云盘
+     * Get 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云硬盘，CLOUD_SSD-虚拟机SSD云硬盘,CLOUD_HSSD-虚拟机增强型SSD云硬盘，CLOUD_BSSD-虚拟机通用型SSD云盘 
+     * @return MachineType 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云硬盘，CLOUD_SSD-虚拟机SSD云硬盘,CLOUD_HSSD-虚拟机增强型SSD云硬盘，CLOUD_BSSD-虚拟机通用型SSD云盘
      */
     public String getMachineType() {
         return this.MachineType;
     }
 
     /**
-     * Set 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云盘，CLOUD_SSD-虚拟机SSD云盘,CLOUD_HSSD-虚拟机加强型SSD云盘，CLOUD_TSSD-虚拟机极速型SSD云盘，CLOUD_BSSD-虚拟机通用型SSD云盘
-     * @param MachineType 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云盘，CLOUD_SSD-虚拟机SSD云盘,CLOUD_HSSD-虚拟机加强型SSD云盘，CLOUD_TSSD-虚拟机极速型SSD云盘，CLOUD_BSSD-虚拟机通用型SSD云盘
+     * Set 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云硬盘，CLOUD_SSD-虚拟机SSD云硬盘,CLOUD_HSSD-虚拟机增强型SSD云硬盘，CLOUD_BSSD-虚拟机通用型SSD云盘
+     * @param MachineType 购买实例的宿主机类型，CLOUD_PREMIUM-虚拟机高性能云硬盘，CLOUD_SSD-虚拟机SSD云硬盘,CLOUD_HSSD-虚拟机增强型SSD云硬盘，CLOUD_BSSD-虚拟机通用型SSD云盘
      */
     public void setMachineType(String MachineType) {
         this.MachineType = MachineType;
@@ -528,6 +536,22 @@ public class CreateBasicDBInstancesRequest extends AbstractModel{
         this.TimeZone = TimeZone;
     }
 
+    /**
+     * Get 磁盘加密标识，0-不加密，1-加密 
+     * @return DiskEncryptFlag 磁盘加密标识，0-不加密，1-加密
+     */
+    public Long getDiskEncryptFlag() {
+        return this.DiskEncryptFlag;
+    }
+
+    /**
+     * Set 磁盘加密标识，0-不加密，1-加密
+     * @param DiskEncryptFlag 磁盘加密标识，0-不加密，1-加密
+     */
+    public void setDiskEncryptFlag(Long DiskEncryptFlag) {
+        this.DiskEncryptFlag = DiskEncryptFlag;
+    }
+
     public CreateBasicDBInstancesRequest() {
     }
 
@@ -614,6 +638,9 @@ public class CreateBasicDBInstancesRequest extends AbstractModel{
         if (source.TimeZone != null) {
             this.TimeZone = new String(source.TimeZone);
         }
+        if (source.DiskEncryptFlag != null) {
+            this.DiskEncryptFlag = new Long(source.DiskEncryptFlag);
+        }
     }
 
 
@@ -643,6 +670,7 @@ public class CreateBasicDBInstancesRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
         this.setParamSimple(map, prefix + "Collation", this.Collation);
         this.setParamSimple(map, prefix + "TimeZone", this.TimeZone);
+        this.setParamSimple(map, prefix + "DiskEncryptFlag", this.DiskEncryptFlag);
 
     }
 }

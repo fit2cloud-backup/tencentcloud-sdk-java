@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyTargetGroupAttributeRequest extends AbstractModel{
+public class ModifyTargetGroupAttributeRequest extends AbstractModel {
 
     /**
     * 目标组的ID。
@@ -37,11 +38,37 @@ public class ModifyTargetGroupAttributeRequest extends AbstractModel{
     private String TargetGroupName;
 
     /**
-    * 目标组的新默认端口。
+    * 目标组的新默认端口。全监听目标组不支持此参数。
     */
     @SerializedName("Port")
     @Expose
     private Long Port;
+
+    /**
+    * 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li> 
+</ul>
+v1目标组类型不支持设置Weight参数。
+    */
+    @SerializedName("Weight")
+    @Expose
+    private Long Weight;
+
+    /**
+    * 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，true:关闭；false:开启， 默认关闭。
+    */
+    @SerializedName("KeepaliveEnable")
+    @Expose
+    private Boolean KeepaliveEnable;
+
+    /**
+    * 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+    */
+    @SerializedName("SessionExpireTime")
+    @Expose
+    private Long SessionExpireTime;
 
     /**
      * Get 目标组的ID。 
@@ -76,19 +103,87 @@ public class ModifyTargetGroupAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get 目标组的新默认端口。 
-     * @return Port 目标组的新默认端口。
+     * Get 目标组的新默认端口。全监听目标组不支持此参数。 
+     * @return Port 目标组的新默认端口。全监听目标组不支持此参数。
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 目标组的新默认端口。
-     * @param Port 目标组的新默认端口。
+     * Set 目标组的新默认端口。全监听目标组不支持此参数。
+     * @param Port 目标组的新默认端口。全监听目标组不支持此参数。
      */
     public void setPort(Long Port) {
         this.Port = Port;
+    }
+
+    /**
+     * Get 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li> 
+</ul>
+v1目标组类型不支持设置Weight参数。 
+     * @return Weight 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li> 
+</ul>
+v1目标组类型不支持设置Weight参数。
+     */
+    public Long getWeight() {
+        return this.Weight;
+    }
+
+    /**
+     * Set 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li> 
+</ul>
+v1目标组类型不支持设置Weight参数。
+     * @param Weight 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li> 
+</ul>
+v1目标组类型不支持设置Weight参数。
+     */
+    public void setWeight(Long Weight) {
+        this.Weight = Weight;
+    }
+
+    /**
+     * Get 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，true:关闭；false:开启， 默认关闭。 
+     * @return KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，true:关闭；false:开启， 默认关闭。
+     */
+    public Boolean getKeepaliveEnable() {
+        return this.KeepaliveEnable;
+    }
+
+    /**
+     * Set 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，true:关闭；false:开启， 默认关闭。
+     * @param KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，true:关闭；false:开启， 默认关闭。
+     */
+    public void setKeepaliveEnable(Boolean KeepaliveEnable) {
+        this.KeepaliveEnable = KeepaliveEnable;
+    }
+
+    /**
+     * Get 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。 
+     * @return SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+     */
+    public Long getSessionExpireTime() {
+        return this.SessionExpireTime;
+    }
+
+    /**
+     * Set 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+     * @param SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+     */
+    public void setSessionExpireTime(Long SessionExpireTime) {
+        this.SessionExpireTime = SessionExpireTime;
     }
 
     public ModifyTargetGroupAttributeRequest() {
@@ -108,6 +203,15 @@ public class ModifyTargetGroupAttributeRequest extends AbstractModel{
         if (source.Port != null) {
             this.Port = new Long(source.Port);
         }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
+        if (source.KeepaliveEnable != null) {
+            this.KeepaliveEnable = new Boolean(source.KeepaliveEnable);
+        }
+        if (source.SessionExpireTime != null) {
+            this.SessionExpireTime = new Long(source.SessionExpireTime);
+        }
     }
 
 
@@ -118,6 +222,9 @@ public class ModifyTargetGroupAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TargetGroupId", this.TargetGroupId);
         this.setParamSimple(map, prefix + "TargetGroupName", this.TargetGroupName);
         this.setParamSimple(map, prefix + "Port", this.Port);
+        this.setParamSimple(map, prefix + "Weight", this.Weight);
+        this.setParamSimple(map, prefix + "KeepaliveEnable", this.KeepaliveEnable);
+        this.setParamSimple(map, prefix + "SessionExpireTime", this.SessionExpireTime);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RedisBackupSet extends AbstractModel{
+public class RedisBackupSet extends AbstractModel {
 
     /**
     * 备份开始时间。
@@ -75,7 +76,6 @@ public class RedisBackupSet extends AbstractModel{
 
     /**
     * 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupSize")
     @Expose
@@ -83,7 +83,6 @@ public class RedisBackupSet extends AbstractModel{
 
     /**
     * 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FullBackup")
     @Expose
@@ -91,7 +90,6 @@ public class RedisBackupSet extends AbstractModel{
 
     /**
     * 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceType")
     @Expose
@@ -272,10 +270,8 @@ public class RedisBackupSet extends AbstractModel{
     }
 
     /**
-     * Get 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内部字段，用户可忽略。 
      * @return BackupSize 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBackupSize() {
         return this.BackupSize;
@@ -283,19 +279,15 @@ public class RedisBackupSet extends AbstractModel{
 
     /**
      * Set 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupSize 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupSize(Long BackupSize) {
         this.BackupSize = BackupSize;
     }
 
     /**
-     * Get 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内部字段，用户可忽略。 
      * @return FullBackup 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFullBackup() {
         return this.FullBackup;
@@ -303,19 +295,15 @@ public class RedisBackupSet extends AbstractModel{
 
     /**
      * Set 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FullBackup 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFullBackup(Long FullBackup) {
         this.FullBackup = FullBackup;
     }
 
     /**
-     * Get 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内部字段，用户可忽略。 
      * @return InstanceType 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceType() {
         return this.InstanceType;
@@ -323,9 +311,7 @@ public class RedisBackupSet extends AbstractModel{
 
     /**
      * Set 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceType 内部字段，用户可忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceType(Long InstanceType) {
         this.InstanceType = InstanceType;

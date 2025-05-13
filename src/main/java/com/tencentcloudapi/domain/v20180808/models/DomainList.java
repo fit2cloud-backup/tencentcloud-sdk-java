@@ -16,11 +16,12 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DomainList extends AbstractModel{
+public class DomainList extends AbstractModel {
 
     /**
     * 是否是溢价域名：
@@ -57,6 +58,7 @@ false 不是
 
     /**
     * 注册时间。
+格式:YYYY-MM-DD HH:mm:ss
     */
     @SerializedName("CreationDate")
     @Expose
@@ -64,20 +66,30 @@ false 不是
 
     /**
     * 到期时间。
+格式:YYYY-MM-DD HH:mm:ss
     */
     @SerializedName("ExpirationDate")
     @Expose
     private String ExpirationDate;
 
     /**
-    * 域名后缀
+    * 域名后缀，根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.中国
+
     */
     @SerializedName("Tld")
     @Expose
     private String Tld;
 
     /**
-    * 编码后的后缀（中文会进行编码）
+    * 编码后的后缀（中文会进行Punycode编码）根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.xn--fiqs8s
     */
     @SerializedName("CodeTld")
     @Expose
@@ -187,8 +199,10 @@ false 不是
     }
 
     /**
-     * Get 注册时间。 
+     * Get 注册时间。
+格式:YYYY-MM-DD HH:mm:ss 
      * @return CreationDate 注册时间。
+格式:YYYY-MM-DD HH:mm:ss
      */
     public String getCreationDate() {
         return this.CreationDate;
@@ -196,15 +210,19 @@ false 不是
 
     /**
      * Set 注册时间。
+格式:YYYY-MM-DD HH:mm:ss
      * @param CreationDate 注册时间。
+格式:YYYY-MM-DD HH:mm:ss
      */
     public void setCreationDate(String CreationDate) {
         this.CreationDate = CreationDate;
     }
 
     /**
-     * Get 到期时间。 
+     * Get 到期时间。
+格式:YYYY-MM-DD HH:mm:ss 
      * @return ExpirationDate 到期时间。
+格式:YYYY-MM-DD HH:mm:ss
      */
     public String getExpirationDate() {
         return this.ExpirationDate;
@@ -212,39 +230,77 @@ false 不是
 
     /**
      * Set 到期时间。
+格式:YYYY-MM-DD HH:mm:ss
      * @param ExpirationDate 到期时间。
+格式:YYYY-MM-DD HH:mm:ss
      */
     public void setExpirationDate(String ExpirationDate) {
         this.ExpirationDate = ExpirationDate;
     }
 
     /**
-     * Get 域名后缀 
-     * @return Tld 域名后缀
+     * Get 域名后缀，根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.中国
+ 
+     * @return Tld 域名后缀，根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.中国
+
      */
     public String getTld() {
         return this.Tld;
     }
 
     /**
-     * Set 域名后缀
-     * @param Tld 域名后缀
+     * Set 域名后缀，根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.中国
+
+     * @param Tld 域名后缀，根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.中国
+
      */
     public void setTld(String Tld) {
         this.Tld = Tld;
     }
 
     /**
-     * Get 编码后的后缀（中文会进行编码） 
-     * @return CodeTld 编码后的后缀（中文会进行编码）
+     * Get 编码后的后缀（中文会进行Punycode编码）根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.xn--fiqs8s 
+     * @return CodeTld 编码后的后缀（中文会进行Punycode编码）根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.xn--fiqs8s
      */
     public String getCodeTld() {
         return this.CodeTld;
     }
 
     /**
-     * Set 编码后的后缀（中文会进行编码）
-     * @param CodeTld 编码后的后缀（中文会进行编码）
+     * Set 编码后的后缀（中文会进行Punycode编码）根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.xn--fiqs8s
+     * @param CodeTld 编码后的后缀（中文会进行Punycode编码）根据具体域名确定
+例如:
+123.com 后缀则为.com
+123.com.cn 后缀则为.com.cn
+123.中国 后缀则为.xn--fiqs8s
      */
     public void setCodeTld(String CodeTld) {
         this.CodeTld = CodeTld;

@@ -16,33 +16,57 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUserRequest extends AbstractModel{
+public class DescribeUserRequest extends AbstractModel {
 
     /**
-    * 用户Id。
+    * 用户id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询。
     */
     @SerializedName("UserId")
     @Expose
     private String UserId;
 
     /**
-     * Get 用户Id。 
-     * @return UserId 用户Id。
+    * 用户在客户系统的Id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询（UserId不为空时，OriginId不生效）。
+    */
+    @SerializedName("OriginId")
+    @Expose
+    private String OriginId;
+
+    /**
+     * Get 用户id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询。 
+     * @return UserId 用户id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询。
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 用户Id。
-     * @param UserId 用户Id。
+     * Set 用户id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询。
+     * @param UserId 用户id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
+    }
+
+    /**
+     * Get 用户在客户系统的Id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询（UserId不为空时，OriginId不生效）。 
+     * @return OriginId 用户在客户系统的Id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询（UserId不为空时，OriginId不生效）。
+     */
+    public String getOriginId() {
+        return this.OriginId;
+    }
+
+    /**
+     * Set 用户在客户系统的Id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询（UserId不为空时，OriginId不生效）。
+     * @param OriginId 用户在客户系统的Id。支持通过 user_id 或 OriginId 查询用户信息，优先使用 user_id 进行查询（UserId不为空时，OriginId不生效）。
+     */
+    public void setOriginId(String OriginId) {
+        this.OriginId = OriginId;
     }
 
     public DescribeUserRequest() {
@@ -56,6 +80,9 @@ public class DescribeUserRequest extends AbstractModel{
         if (source.UserId != null) {
             this.UserId = new String(source.UserId);
         }
+        if (source.OriginId != null) {
+            this.OriginId = new String(source.OriginId);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DescribeUserRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "OriginId", this.OriginId);
 
     }
 }

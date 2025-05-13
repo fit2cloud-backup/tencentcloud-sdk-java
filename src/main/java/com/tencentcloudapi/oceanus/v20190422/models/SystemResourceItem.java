@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SystemResourceItem extends AbstractModel{
+public class SystemResourceItem extends AbstractModel {
 
     /**
     * 资源ID
@@ -63,6 +64,13 @@ public class SystemResourceItem extends AbstractModel{
     @SerializedName("LatestResourceConfigVersion")
     @Expose
     private Long LatestResourceConfigVersion;
+
+    /**
+    * 1 是系统提供资源 2 用户提供CONNECTOR
+    */
+    @SerializedName("SystemProvide")
+    @Expose
+    private Long SystemProvide;
 
     /**
      * Get 资源ID 
@@ -160,6 +168,22 @@ public class SystemResourceItem extends AbstractModel{
         this.LatestResourceConfigVersion = LatestResourceConfigVersion;
     }
 
+    /**
+     * Get 1 是系统提供资源 2 用户提供CONNECTOR 
+     * @return SystemProvide 1 是系统提供资源 2 用户提供CONNECTOR
+     */
+    public Long getSystemProvide() {
+        return this.SystemProvide;
+    }
+
+    /**
+     * Set 1 是系统提供资源 2 用户提供CONNECTOR
+     * @param SystemProvide 1 是系统提供资源 2 用户提供CONNECTOR
+     */
+    public void setSystemProvide(Long SystemProvide) {
+        this.SystemProvide = SystemProvide;
+    }
+
     public SystemResourceItem() {
     }
 
@@ -186,6 +210,9 @@ public class SystemResourceItem extends AbstractModel{
         if (source.LatestResourceConfigVersion != null) {
             this.LatestResourceConfigVersion = new Long(source.LatestResourceConfigVersion);
         }
+        if (source.SystemProvide != null) {
+            this.SystemProvide = new Long(source.SystemProvide);
+        }
     }
 
 
@@ -199,6 +226,7 @@ public class SystemResourceItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "LatestResourceConfigVersion", this.LatestResourceConfigVersion);
+        this.setParamSimple(map, prefix + "SystemProvide", this.SystemProvide);
 
     }
 }

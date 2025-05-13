@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MaternitySummary extends AbstractModel{
+public class MaternitySummary extends AbstractModel {
 
     /**
     * 胎儿数据结构
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Fetus")
     @Expose
@@ -32,7 +32,6 @@ public class MaternitySummary extends AbstractModel{
 
     /**
     * 胎儿数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FetusNum")
     @Expose
@@ -40,7 +39,6 @@ public class MaternitySummary extends AbstractModel{
 
     /**
     * 病变
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Sym")
     @Expose
@@ -48,7 +46,6 @@ public class MaternitySummary extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Text")
     @Expose
@@ -56,17 +53,14 @@ public class MaternitySummary extends AbstractModel{
 
     /**
     * 坐标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Coords")
     @Expose
     private Coord [] Coords;
 
     /**
-     * Get 胎儿数据结构
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 胎儿数据结构 
      * @return Fetus 胎儿数据结构
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Fetus [] getFetus() {
         return this.Fetus;
@@ -74,19 +68,15 @@ public class MaternitySummary extends AbstractModel{
 
     /**
      * Set 胎儿数据结构
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Fetus 胎儿数据结构
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFetus(Fetus [] Fetus) {
         this.Fetus = Fetus;
     }
 
     /**
-     * Get 胎儿数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 胎儿数量 
      * @return FetusNum 胎儿数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FieldInfo getFetusNum() {
         return this.FetusNum;
@@ -94,19 +84,15 @@ public class MaternitySummary extends AbstractModel{
 
     /**
      * Set 胎儿数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FetusNum 胎儿数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFetusNum(FieldInfo FetusNum) {
         this.FetusNum = FetusNum;
     }
 
     /**
-     * Get 病变
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 病变 
      * @return Sym 病变
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FieldInfo [] getSym() {
         return this.Sym;
@@ -114,19 +100,15 @@ public class MaternitySummary extends AbstractModel{
 
     /**
      * Set 病变
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Sym 病变
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSym(FieldInfo [] Sym) {
         this.Sym = Sym;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Text 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getText() {
         return this.Text;
@@ -134,19 +116,15 @@ public class MaternitySummary extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Text 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setText(String Text) {
         this.Text = Text;
     }
 
     /**
-     * Get 坐标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 坐标 
      * @return Coords 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Coord [] getCoords() {
         return this.Coords;
@@ -154,9 +132,7 @@ public class MaternitySummary extends AbstractModel{
 
     /**
      * Set 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Coords 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoords(Coord [] Coords) {
         this.Coords = Coords;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterInstanceDetail extends AbstractModel{
+public class ClusterInstanceDetail extends AbstractModel {
 
     /**
     * 实例ID
@@ -87,7 +88,6 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
     * 执行开始时间(距离0点的秒数)	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaintainStartTime")
     @Expose
@@ -95,7 +95,6 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
     * 持续的时间(单位：秒)	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaintainDuration")
     @Expose
@@ -103,7 +102,6 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
     * 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaintainWeekDays")
     @Expose
@@ -111,11 +109,45 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
     * serverless实例子状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServerlessStatus")
     @Expose
     private String ServerlessStatus;
+
+    /**
+    * 实例任务信息
+    */
+    @SerializedName("InstanceTasks")
+    @Expose
+    private ObjectTask [] InstanceTasks;
+
+    /**
+    * 实例机器类型
+    */
+    @SerializedName("InstanceDeviceType")
+    @Expose
+    private String InstanceDeviceType;
+
+    /**
+    * 实例存储类型
+    */
+    @SerializedName("InstanceStorageType")
+    @Expose
+    private String InstanceStorageType;
+
+    /**
+    * 数据库类型
+    */
+    @SerializedName("DbMode")
+    @Expose
+    private String DbMode;
+
+    /**
+    * 节点列表
+    */
+    @SerializedName("NodeList")
+    @Expose
+    private String [] NodeList;
 
     /**
      * Get 实例ID 
@@ -262,10 +294,8 @@ public class ClusterInstanceDetail extends AbstractModel{
     }
 
     /**
-     * Get 执行开始时间(距离0点的秒数)	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 执行开始时间(距离0点的秒数)	 
      * @return MaintainStartTime 执行开始时间(距离0点的秒数)	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaintainStartTime() {
         return this.MaintainStartTime;
@@ -273,19 +303,15 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
      * Set 执行开始时间(距离0点的秒数)	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaintainStartTime 执行开始时间(距离0点的秒数)	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaintainStartTime(Long MaintainStartTime) {
         this.MaintainStartTime = MaintainStartTime;
     }
 
     /**
-     * Get 持续的时间(单位：秒)	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 持续的时间(单位：秒)	 
      * @return MaintainDuration 持续的时间(单位：秒)	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaintainDuration() {
         return this.MaintainDuration;
@@ -293,19 +319,15 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
      * Set 持续的时间(单位：秒)	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaintainDuration 持续的时间(单位：秒)	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaintainDuration(Long MaintainDuration) {
         this.MaintainDuration = MaintainDuration;
     }
 
     /**
-     * Get 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"] 
      * @return MaintainWeekDays 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getMaintainWeekDays() {
         return this.MaintainWeekDays;
@@ -313,19 +335,15 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
      * Set 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaintainWeekDays 可以执行的时间，枚举值：["Mon","Tue","Wed","Thu","Fri", "Sat", "Sun"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaintainWeekDays(String [] MaintainWeekDays) {
         this.MaintainWeekDays = MaintainWeekDays;
     }
 
     /**
-     * Get serverless实例子状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get serverless实例子状态 
      * @return ServerlessStatus serverless实例子状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServerlessStatus() {
         return this.ServerlessStatus;
@@ -333,12 +351,90 @@ public class ClusterInstanceDetail extends AbstractModel{
 
     /**
      * Set serverless实例子状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServerlessStatus serverless实例子状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServerlessStatus(String ServerlessStatus) {
         this.ServerlessStatus = ServerlessStatus;
+    }
+
+    /**
+     * Get 实例任务信息 
+     * @return InstanceTasks 实例任务信息
+     */
+    public ObjectTask [] getInstanceTasks() {
+        return this.InstanceTasks;
+    }
+
+    /**
+     * Set 实例任务信息
+     * @param InstanceTasks 实例任务信息
+     */
+    public void setInstanceTasks(ObjectTask [] InstanceTasks) {
+        this.InstanceTasks = InstanceTasks;
+    }
+
+    /**
+     * Get 实例机器类型 
+     * @return InstanceDeviceType 实例机器类型
+     */
+    public String getInstanceDeviceType() {
+        return this.InstanceDeviceType;
+    }
+
+    /**
+     * Set 实例机器类型
+     * @param InstanceDeviceType 实例机器类型
+     */
+    public void setInstanceDeviceType(String InstanceDeviceType) {
+        this.InstanceDeviceType = InstanceDeviceType;
+    }
+
+    /**
+     * Get 实例存储类型 
+     * @return InstanceStorageType 实例存储类型
+     */
+    public String getInstanceStorageType() {
+        return this.InstanceStorageType;
+    }
+
+    /**
+     * Set 实例存储类型
+     * @param InstanceStorageType 实例存储类型
+     */
+    public void setInstanceStorageType(String InstanceStorageType) {
+        this.InstanceStorageType = InstanceStorageType;
+    }
+
+    /**
+     * Get 数据库类型 
+     * @return DbMode 数据库类型
+     */
+    public String getDbMode() {
+        return this.DbMode;
+    }
+
+    /**
+     * Set 数据库类型
+     * @param DbMode 数据库类型
+     */
+    public void setDbMode(String DbMode) {
+        this.DbMode = DbMode;
+    }
+
+    /**
+     * Get 节点列表 
+     * @return NodeList 节点列表
+     */
+    public String [] getNodeList() {
+        return this.NodeList;
+    }
+
+    /**
+     * Set 节点列表
+     * @param NodeList 节点列表
+     */
+    public void setNodeList(String [] NodeList) {
+        this.NodeList = NodeList;
     }
 
     public ClusterInstanceDetail() {
@@ -391,6 +487,27 @@ public class ClusterInstanceDetail extends AbstractModel{
         if (source.ServerlessStatus != null) {
             this.ServerlessStatus = new String(source.ServerlessStatus);
         }
+        if (source.InstanceTasks != null) {
+            this.InstanceTasks = new ObjectTask[source.InstanceTasks.length];
+            for (int i = 0; i < source.InstanceTasks.length; i++) {
+                this.InstanceTasks[i] = new ObjectTask(source.InstanceTasks[i]);
+            }
+        }
+        if (source.InstanceDeviceType != null) {
+            this.InstanceDeviceType = new String(source.InstanceDeviceType);
+        }
+        if (source.InstanceStorageType != null) {
+            this.InstanceStorageType = new String(source.InstanceStorageType);
+        }
+        if (source.DbMode != null) {
+            this.DbMode = new String(source.DbMode);
+        }
+        if (source.NodeList != null) {
+            this.NodeList = new String[source.NodeList.length];
+            for (int i = 0; i < source.NodeList.length; i++) {
+                this.NodeList[i] = new String(source.NodeList[i]);
+            }
+        }
     }
 
 
@@ -411,6 +528,11 @@ public class ClusterInstanceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "MaintainDuration", this.MaintainDuration);
         this.setParamArraySimple(map, prefix + "MaintainWeekDays.", this.MaintainWeekDays);
         this.setParamSimple(map, prefix + "ServerlessStatus", this.ServerlessStatus);
+        this.setParamArrayObj(map, prefix + "InstanceTasks.", this.InstanceTasks);
+        this.setParamSimple(map, prefix + "InstanceDeviceType", this.InstanceDeviceType);
+        this.setParamSimple(map, prefix + "InstanceStorageType", this.InstanceStorageType);
+        this.setParamSimple(map, prefix + "DbMode", this.DbMode);
+        this.setParamArraySimple(map, prefix + "NodeList.", this.NodeList);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionTaskFaceResult extends AbstractModel{
+public class AiRecognitionTaskFaceResult extends AbstractModel {
 
     /**
     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -59,7 +60,6 @@ public class AiRecognitionTaskFaceResult extends AbstractModel{
 
     /**
     * 人脸识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
     @Expose
@@ -167,10 +167,8 @@ public class AiRecognitionTaskFaceResult extends AbstractModel{
     }
 
     /**
-     * Get 人脸识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 人脸识别任务输出信息。 
      * @return Output 人脸识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiRecognitionTaskFaceResultOutput getOutput() {
         return this.Output;
@@ -178,9 +176,7 @@ public class AiRecognitionTaskFaceResult extends AbstractModel{
 
     /**
      * Set 人脸识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Output 人脸识别任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(AiRecognitionTaskFaceResultOutput Output) {
         this.Output = Output;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KongUpstreamInfo extends AbstractModel{
+public class KongUpstreamInfo extends AbstractModel {
 
     /**
     * IP或域名
@@ -59,6 +60,7 @@ public class KongUpstreamInfo extends AbstractModel{
 
     /**
     * 服务后端类型是IPList时提供
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Targets")
     @Expose
@@ -156,6 +158,34 @@ public class KongUpstreamInfo extends AbstractModel{
     private String RealSourceType;
 
     /**
+    * upstream健康状态HEALTHY（健康）, UNHEALTHY（异常）, HEALTHCHECKS_OFF（未开启）和NONE（不支持健康检查）
+    */
+    @SerializedName("HealthStatus")
+    @Expose
+    private String HealthStatus;
+
+    /**
+    * 云函数是否开启CAM鉴权，不填时默认为开启(true)
+    */
+    @SerializedName("ScfCamAuthEnable")
+    @Expose
+    private Boolean ScfCamAuthEnable;
+
+    /**
+    * 云函数是否开启Base64编码，默认为false
+    */
+    @SerializedName("ScfIsBase64Encoded")
+    @Expose
+    private Boolean ScfIsBase64Encoded;
+
+    /**
+    * 云函数是否开启响应集成，默认为false
+    */
+    @SerializedName("ScfIsIntegratedResponse")
+    @Expose
+    private Boolean ScfIsIntegratedResponse;
+
+    /**
      * Get IP或域名 
      * @return Host IP或域名
      */
@@ -236,8 +266,10 @@ public class KongUpstreamInfo extends AbstractModel{
     }
 
     /**
-     * Get 服务后端类型是IPList时提供 
+     * Get 服务后端类型是IPList时提供
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Targets 服务后端类型是IPList时提供
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public KongTarget [] getTargets() {
         return this.Targets;
@@ -245,7 +277,9 @@ public class KongUpstreamInfo extends AbstractModel{
 
     /**
      * Set 服务后端类型是IPList时提供
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Targets 服务后端类型是IPList时提供
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargets(KongTarget [] Targets) {
         this.Targets = Targets;
@@ -459,6 +493,70 @@ public class KongUpstreamInfo extends AbstractModel{
         this.RealSourceType = RealSourceType;
     }
 
+    /**
+     * Get upstream健康状态HEALTHY（健康）, UNHEALTHY（异常）, HEALTHCHECKS_OFF（未开启）和NONE（不支持健康检查） 
+     * @return HealthStatus upstream健康状态HEALTHY（健康）, UNHEALTHY（异常）, HEALTHCHECKS_OFF（未开启）和NONE（不支持健康检查）
+     */
+    public String getHealthStatus() {
+        return this.HealthStatus;
+    }
+
+    /**
+     * Set upstream健康状态HEALTHY（健康）, UNHEALTHY（异常）, HEALTHCHECKS_OFF（未开启）和NONE（不支持健康检查）
+     * @param HealthStatus upstream健康状态HEALTHY（健康）, UNHEALTHY（异常）, HEALTHCHECKS_OFF（未开启）和NONE（不支持健康检查）
+     */
+    public void setHealthStatus(String HealthStatus) {
+        this.HealthStatus = HealthStatus;
+    }
+
+    /**
+     * Get 云函数是否开启CAM鉴权，不填时默认为开启(true) 
+     * @return ScfCamAuthEnable 云函数是否开启CAM鉴权，不填时默认为开启(true)
+     */
+    public Boolean getScfCamAuthEnable() {
+        return this.ScfCamAuthEnable;
+    }
+
+    /**
+     * Set 云函数是否开启CAM鉴权，不填时默认为开启(true)
+     * @param ScfCamAuthEnable 云函数是否开启CAM鉴权，不填时默认为开启(true)
+     */
+    public void setScfCamAuthEnable(Boolean ScfCamAuthEnable) {
+        this.ScfCamAuthEnable = ScfCamAuthEnable;
+    }
+
+    /**
+     * Get 云函数是否开启Base64编码，默认为false 
+     * @return ScfIsBase64Encoded 云函数是否开启Base64编码，默认为false
+     */
+    public Boolean getScfIsBase64Encoded() {
+        return this.ScfIsBase64Encoded;
+    }
+
+    /**
+     * Set 云函数是否开启Base64编码，默认为false
+     * @param ScfIsBase64Encoded 云函数是否开启Base64编码，默认为false
+     */
+    public void setScfIsBase64Encoded(Boolean ScfIsBase64Encoded) {
+        this.ScfIsBase64Encoded = ScfIsBase64Encoded;
+    }
+
+    /**
+     * Get 云函数是否开启响应集成，默认为false 
+     * @return ScfIsIntegratedResponse 云函数是否开启响应集成，默认为false
+     */
+    public Boolean getScfIsIntegratedResponse() {
+        return this.ScfIsIntegratedResponse;
+    }
+
+    /**
+     * Set 云函数是否开启响应集成，默认为false
+     * @param ScfIsIntegratedResponse 云函数是否开启响应集成，默认为false
+     */
+    public void setScfIsIntegratedResponse(Boolean ScfIsIntegratedResponse) {
+        this.ScfIsIntegratedResponse = ScfIsIntegratedResponse;
+    }
+
     public KongUpstreamInfo() {
     }
 
@@ -527,6 +625,18 @@ public class KongUpstreamInfo extends AbstractModel{
         if (source.RealSourceType != null) {
             this.RealSourceType = new String(source.RealSourceType);
         }
+        if (source.HealthStatus != null) {
+            this.HealthStatus = new String(source.HealthStatus);
+        }
+        if (source.ScfCamAuthEnable != null) {
+            this.ScfCamAuthEnable = new Boolean(source.ScfCamAuthEnable);
+        }
+        if (source.ScfIsBase64Encoded != null) {
+            this.ScfIsBase64Encoded = new Boolean(source.ScfIsBase64Encoded);
+        }
+        if (source.ScfIsIntegratedResponse != null) {
+            this.ScfIsIntegratedResponse = new Boolean(source.ScfIsIntegratedResponse);
+        }
     }
 
 
@@ -553,6 +663,10 @@ public class KongUpstreamInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "AutoScalingHookStatus", this.AutoScalingHookStatus);
         this.setParamSimple(map, prefix + "SourceName", this.SourceName);
         this.setParamSimple(map, prefix + "RealSourceType", this.RealSourceType);
+        this.setParamSimple(map, prefix + "HealthStatus", this.HealthStatus);
+        this.setParamSimple(map, prefix + "ScfCamAuthEnable", this.ScfCamAuthEnable);
+        this.setParamSimple(map, prefix + "ScfIsBase64Encoded", this.ScfIsBase64Encoded);
+        this.setParamSimple(map, prefix + "ScfIsIntegratedResponse", this.ScfIsIntegratedResponse);
 
     }
 }

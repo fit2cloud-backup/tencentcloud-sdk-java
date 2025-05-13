@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tag.v20180813.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetTagKeysRequest extends AbstractModel{
+public class GetTagKeysRequest extends AbstractModel {
 
     /**
     * 从上一页的响应中获取的下一页的Token值。
@@ -37,6 +38,13 @@ public class GetTagKeysRequest extends AbstractModel{
     @SerializedName("MaxResults")
     @Expose
     private Long MaxResults;
+
+    /**
+    * 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+    */
+    @SerializedName("Category")
+    @Expose
+    private String Category;
 
     /**
      * Get 从上一页的响应中获取的下一页的Token值。
@@ -78,6 +86,22 @@ public class GetTagKeysRequest extends AbstractModel{
         this.MaxResults = MaxResults;
     }
 
+    /**
+     * Get 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。 
+     * @return Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     */
+    public String getCategory() {
+        return this.Category;
+    }
+
+    /**
+     * Set 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     * @param Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     */
+    public void setCategory(String Category) {
+        this.Category = Category;
+    }
+
     public GetTagKeysRequest() {
     }
 
@@ -92,6 +116,9 @@ public class GetTagKeysRequest extends AbstractModel{
         if (source.MaxResults != null) {
             this.MaxResults = new Long(source.MaxResults);
         }
+        if (source.Category != null) {
+            this.Category = new String(source.Category);
+        }
     }
 
 
@@ -101,6 +128,7 @@ public class GetTagKeysRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "PaginationToken", this.PaginationToken);
         this.setParamSimple(map, prefix + "MaxResults", this.MaxResults);
+        this.setParamSimple(map, prefix + "Category", this.Category);
 
     }
 }

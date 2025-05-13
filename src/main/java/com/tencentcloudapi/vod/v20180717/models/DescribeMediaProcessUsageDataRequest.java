@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
+public class DescribeMediaProcessUsageDataRequest extends AbstractModel {
 
     /**
     * 起始日期。使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#52)。
@@ -37,7 +38,7 @@ public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
     */
     @SerializedName("SubAppId")
     @Expose
@@ -62,7 +63,12 @@ public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
 <li> VideoClassification:  视频智能分类</li>
 <li> VideoCover: 视频智能封面</li>
 <li> VideoSegment: 视频智能拆条</li>
+<li> VideoProduce: 视频制作</li>
+<li> MediaCast: 媒体转推</li>
 <li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li>
+<li>VoiceTranslation: 语音翻译</li>
+<li>JITTranscoding: 即时转码</li>
+<li>VideoSnapshot: 视频截图</li>
     */
     @SerializedName("Type")
     @Expose
@@ -101,16 +107,16 @@ public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
     }
 
     /**
-     * Get <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
-     * @return SubAppId <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public Long getSubAppId() {
         return this.SubAppId;
     }
 
     /**
-     * Set <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param SubAppId <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
@@ -135,7 +141,12 @@ public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
 <li> VideoClassification:  视频智能分类</li>
 <li> VideoCover: 视频智能封面</li>
 <li> VideoSegment: 视频智能拆条</li>
-<li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li> 
+<li> VideoProduce: 视频制作</li>
+<li> MediaCast: 媒体转推</li>
+<li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li>
+<li>VoiceTranslation: 语音翻译</li>
+<li>JITTranscoding: 即时转码</li>
+<li>VideoSnapshot: 视频截图</li> 
      * @return Type 查询视频处理任务类型，目前支持的任务类型包括：
 <li> Transcoding: 普通转码</li>
 <li> Transcoding-TESHD: 极速高清转码</li>
@@ -154,7 +165,12 @@ public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
 <li> VideoClassification:  视频智能分类</li>
 <li> VideoCover: 视频智能封面</li>
 <li> VideoSegment: 视频智能拆条</li>
+<li> VideoProduce: 视频制作</li>
+<li> MediaCast: 媒体转推</li>
 <li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li>
+<li>VoiceTranslation: 语音翻译</li>
+<li>JITTranscoding: 即时转码</li>
+<li>VideoSnapshot: 视频截图</li>
      */
     public String getType() {
         return this.Type;
@@ -179,7 +195,12 @@ public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
 <li> VideoClassification:  视频智能分类</li>
 <li> VideoCover: 视频智能封面</li>
 <li> VideoSegment: 视频智能拆条</li>
+<li> VideoProduce: 视频制作</li>
+<li> MediaCast: 媒体转推</li>
 <li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li>
+<li>VoiceTranslation: 语音翻译</li>
+<li>JITTranscoding: 即时转码</li>
+<li>VideoSnapshot: 视频截图</li>
      * @param Type 查询视频处理任务类型，目前支持的任务类型包括：
 <li> Transcoding: 普通转码</li>
 <li> Transcoding-TESHD: 极速高清转码</li>
@@ -198,7 +219,12 @@ public class DescribeMediaProcessUsageDataRequest extends AbstractModel{
 <li> VideoClassification:  视频智能分类</li>
 <li> VideoCover: 视频智能封面</li>
 <li> VideoSegment: 视频智能拆条</li>
+<li> VideoProduce: 视频制作</li>
+<li> MediaCast: 媒体转推</li>
 <li>Transcode: 转码，包含普通转码、极速高清和视频编辑（不推荐使用）</li>
+<li>VoiceTranslation: 语音翻译</li>
+<li>JITTranscoding: 即时转码</li>
+<li>VideoSnapshot: 视频截图</li>
      */
     public void setType(String Type) {
         this.Type = Type;

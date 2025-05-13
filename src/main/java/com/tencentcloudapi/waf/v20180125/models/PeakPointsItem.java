@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PeakPointsItem extends AbstractModel{
+public class PeakPointsItem extends AbstractModel {
 
     /**
     * 秒级别时间戳
@@ -72,60 +73,109 @@ public class PeakPointsItem extends AbstractModel{
     private Long BotAccess;
 
     /**
-    * WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+    * WAF返回给客户端状态码5xx次数
     */
     @SerializedName("StatusServerError")
     @Expose
     private Long StatusServerError;
 
     /**
-    * WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+    * WAF返回给客户端状态码4xx次数
     */
     @SerializedName("StatusClientError")
     @Expose
     private Long StatusClientError;
 
     /**
-    * WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+    * WAF返回给客户端状态码302次数
     */
     @SerializedName("StatusRedirect")
     @Expose
     private Long StatusRedirect;
 
     /**
-    * WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+    * WAF返回给客户端状态码202次数
     */
     @SerializedName("StatusOk")
     @Expose
     private Long StatusOk;
 
     /**
-    * 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 源站返回给WAF状态码5xx次数
     */
     @SerializedName("UpstreamServerError")
     @Expose
     private Long UpstreamServerError;
 
     /**
-    * 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 源站返回给WAF状态码4xx次数
     */
     @SerializedName("UpstreamClientError")
     @Expose
     private Long UpstreamClientError;
 
     /**
-    * 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 源站返回给WAF状态码302次数
     */
     @SerializedName("UpstreamRedirect")
     @Expose
     private Long UpstreamRedirect;
+
+    /**
+    * 黑名单次数
+    */
+    @SerializedName("BlackIP")
+    @Expose
+    private Long BlackIP;
+
+    /**
+    * 防篡改次数
+    */
+    @SerializedName("Tamper")
+    @Expose
+    private Long Tamper;
+
+    /**
+    * 信息防泄露次数
+    */
+    @SerializedName("Leak")
+    @Expose
+    private Long Leak;
+
+    /**
+    * 访问控制 
+    */
+    @SerializedName("ACL")
+    @Expose
+    private Long ACL;
+
+    /**
+    * 小程序 qps
+    */
+    @SerializedName("WxAccess")
+    @Expose
+    private Long WxAccess;
+
+    /**
+    * 小程序请求数
+    */
+    @SerializedName("WxCount")
+    @Expose
+    private Long WxCount;
+
+    /**
+    * 小程序上行带宽峰值，单位B
+    */
+    @SerializedName("WxUp")
+    @Expose
+    private Long WxUp;
+
+    /**
+    * 小程序下行带宽峰值，单位B
+    */
+    @SerializedName("WxDown")
+    @Expose
+    private Long WxDown;
 
     /**
      * Get 秒级别时间戳 
@@ -240,143 +290,243 @@ public class PeakPointsItem extends AbstractModel{
     }
 
     /**
-     * Get WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StatusServerError WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get WAF返回给客户端状态码5xx次数 
+     * @return StatusServerError WAF返回给客户端状态码5xx次数
      */
     public Long getStatusServerError() {
         return this.StatusServerError;
     }
 
     /**
-     * Set WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StatusServerError WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set WAF返回给客户端状态码5xx次数
+     * @param StatusServerError WAF返回给客户端状态码5xx次数
      */
     public void setStatusServerError(Long StatusServerError) {
         this.StatusServerError = StatusServerError;
     }
 
     /**
-     * Get WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StatusClientError WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get WAF返回给客户端状态码4xx次数 
+     * @return StatusClientError WAF返回给客户端状态码4xx次数
      */
     public Long getStatusClientError() {
         return this.StatusClientError;
     }
 
     /**
-     * Set WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StatusClientError WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set WAF返回给客户端状态码4xx次数
+     * @param StatusClientError WAF返回给客户端状态码4xx次数
      */
     public void setStatusClientError(Long StatusClientError) {
         this.StatusClientError = StatusClientError;
     }
 
     /**
-     * Get WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StatusRedirect WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get WAF返回给客户端状态码302次数 
+     * @return StatusRedirect WAF返回给客户端状态码302次数
      */
     public Long getStatusRedirect() {
         return this.StatusRedirect;
     }
 
     /**
-     * Set WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StatusRedirect WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set WAF返回给客户端状态码302次数
+     * @param StatusRedirect WAF返回给客户端状态码302次数
      */
     public void setStatusRedirect(Long StatusRedirect) {
         this.StatusRedirect = StatusRedirect;
     }
 
     /**
-     * Get WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StatusOk WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get WAF返回给客户端状态码202次数 
+     * @return StatusOk WAF返回给客户端状态码202次数
      */
     public Long getStatusOk() {
         return this.StatusOk;
     }
 
     /**
-     * Set WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StatusOk WAF返回给客户端状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set WAF返回给客户端状态码202次数
+     * @param StatusOk WAF返回给客户端状态码202次数
      */
     public void setStatusOk(Long StatusOk) {
         this.StatusOk = StatusOk;
     }
 
     /**
-     * Get 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UpstreamServerError 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 源站返回给WAF状态码5xx次数 
+     * @return UpstreamServerError 源站返回给WAF状态码5xx次数
      */
     public Long getUpstreamServerError() {
         return this.UpstreamServerError;
     }
 
     /**
-     * Set 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UpstreamServerError 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 源站返回给WAF状态码5xx次数
+     * @param UpstreamServerError 源站返回给WAF状态码5xx次数
      */
     public void setUpstreamServerError(Long UpstreamServerError) {
         this.UpstreamServerError = UpstreamServerError;
     }
 
     /**
-     * Get 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UpstreamClientError 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 源站返回给WAF状态码4xx次数 
+     * @return UpstreamClientError 源站返回给WAF状态码4xx次数
      */
     public Long getUpstreamClientError() {
         return this.UpstreamClientError;
     }
 
     /**
-     * Set 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UpstreamClientError 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 源站返回给WAF状态码4xx次数
+     * @param UpstreamClientError 源站返回给WAF状态码4xx次数
      */
     public void setUpstreamClientError(Long UpstreamClientError) {
         this.UpstreamClientError = UpstreamClientError;
     }
 
     /**
-     * Get 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UpstreamRedirect 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 源站返回给WAF状态码302次数 
+     * @return UpstreamRedirect 源站返回给WAF状态码302次数
      */
     public Long getUpstreamRedirect() {
         return this.UpstreamRedirect;
     }
 
     /**
-     * Set 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UpstreamRedirect 源站返回给WAF状态码次数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 源站返回给WAF状态码302次数
+     * @param UpstreamRedirect 源站返回给WAF状态码302次数
      */
     public void setUpstreamRedirect(Long UpstreamRedirect) {
         this.UpstreamRedirect = UpstreamRedirect;
+    }
+
+    /**
+     * Get 黑名单次数 
+     * @return BlackIP 黑名单次数
+     */
+    public Long getBlackIP() {
+        return this.BlackIP;
+    }
+
+    /**
+     * Set 黑名单次数
+     * @param BlackIP 黑名单次数
+     */
+    public void setBlackIP(Long BlackIP) {
+        this.BlackIP = BlackIP;
+    }
+
+    /**
+     * Get 防篡改次数 
+     * @return Tamper 防篡改次数
+     */
+    public Long getTamper() {
+        return this.Tamper;
+    }
+
+    /**
+     * Set 防篡改次数
+     * @param Tamper 防篡改次数
+     */
+    public void setTamper(Long Tamper) {
+        this.Tamper = Tamper;
+    }
+
+    /**
+     * Get 信息防泄露次数 
+     * @return Leak 信息防泄露次数
+     */
+    public Long getLeak() {
+        return this.Leak;
+    }
+
+    /**
+     * Set 信息防泄露次数
+     * @param Leak 信息防泄露次数
+     */
+    public void setLeak(Long Leak) {
+        this.Leak = Leak;
+    }
+
+    /**
+     * Get 访问控制  
+     * @return ACL 访问控制 
+     */
+    public Long getACL() {
+        return this.ACL;
+    }
+
+    /**
+     * Set 访问控制 
+     * @param ACL 访问控制 
+     */
+    public void setACL(Long ACL) {
+        this.ACL = ACL;
+    }
+
+    /**
+     * Get 小程序 qps 
+     * @return WxAccess 小程序 qps
+     */
+    public Long getWxAccess() {
+        return this.WxAccess;
+    }
+
+    /**
+     * Set 小程序 qps
+     * @param WxAccess 小程序 qps
+     */
+    public void setWxAccess(Long WxAccess) {
+        this.WxAccess = WxAccess;
+    }
+
+    /**
+     * Get 小程序请求数 
+     * @return WxCount 小程序请求数
+     */
+    public Long getWxCount() {
+        return this.WxCount;
+    }
+
+    /**
+     * Set 小程序请求数
+     * @param WxCount 小程序请求数
+     */
+    public void setWxCount(Long WxCount) {
+        this.WxCount = WxCount;
+    }
+
+    /**
+     * Get 小程序上行带宽峰值，单位B 
+     * @return WxUp 小程序上行带宽峰值，单位B
+     */
+    public Long getWxUp() {
+        return this.WxUp;
+    }
+
+    /**
+     * Set 小程序上行带宽峰值，单位B
+     * @param WxUp 小程序上行带宽峰值，单位B
+     */
+    public void setWxUp(Long WxUp) {
+        this.WxUp = WxUp;
+    }
+
+    /**
+     * Get 小程序下行带宽峰值，单位B 
+     * @return WxDown 小程序下行带宽峰值，单位B
+     */
+    public Long getWxDown() {
+        return this.WxDown;
+    }
+
+    /**
+     * Set 小程序下行带宽峰值，单位B
+     * @param WxDown 小程序下行带宽峰值，单位B
+     */
+    public void setWxDown(Long WxDown) {
+        this.WxDown = WxDown;
     }
 
     public PeakPointsItem() {
@@ -429,6 +579,30 @@ public class PeakPointsItem extends AbstractModel{
         if (source.UpstreamRedirect != null) {
             this.UpstreamRedirect = new Long(source.UpstreamRedirect);
         }
+        if (source.BlackIP != null) {
+            this.BlackIP = new Long(source.BlackIP);
+        }
+        if (source.Tamper != null) {
+            this.Tamper = new Long(source.Tamper);
+        }
+        if (source.Leak != null) {
+            this.Leak = new Long(source.Leak);
+        }
+        if (source.ACL != null) {
+            this.ACL = new Long(source.ACL);
+        }
+        if (source.WxAccess != null) {
+            this.WxAccess = new Long(source.WxAccess);
+        }
+        if (source.WxCount != null) {
+            this.WxCount = new Long(source.WxCount);
+        }
+        if (source.WxUp != null) {
+            this.WxUp = new Long(source.WxUp);
+        }
+        if (source.WxDown != null) {
+            this.WxDown = new Long(source.WxDown);
+        }
     }
 
 
@@ -450,6 +624,14 @@ public class PeakPointsItem extends AbstractModel{
         this.setParamSimple(map, prefix + "UpstreamServerError", this.UpstreamServerError);
         this.setParamSimple(map, prefix + "UpstreamClientError", this.UpstreamClientError);
         this.setParamSimple(map, prefix + "UpstreamRedirect", this.UpstreamRedirect);
+        this.setParamSimple(map, prefix + "BlackIP", this.BlackIP);
+        this.setParamSimple(map, prefix + "Tamper", this.Tamper);
+        this.setParamSimple(map, prefix + "Leak", this.Leak);
+        this.setParamSimple(map, prefix + "ACL", this.ACL);
+        this.setParamSimple(map, prefix + "WxAccess", this.WxAccess);
+        this.setParamSimple(map, prefix + "WxCount", this.WxCount);
+        this.setParamSimple(map, prefix + "WxUp", this.WxUp);
+        this.setParamSimple(map, prefix + "WxDown", this.WxDown);
 
     }
 }

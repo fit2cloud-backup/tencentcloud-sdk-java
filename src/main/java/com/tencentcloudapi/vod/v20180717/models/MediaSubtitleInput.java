@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MediaSubtitleInput extends AbstractModel{
+public class MediaSubtitleInput extends AbstractModel {
 
     /**
     * 字幕名字，长度限制：64 个字符。
@@ -31,9 +32,19 @@ public class MediaSubtitleInput extends AbstractModel{
 
     /**
     * 字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
     */
     @SerializedName("Language")
@@ -80,14 +91,34 @@ public class MediaSubtitleInput extends AbstractModel{
 
     /**
      * Get 字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646) 
      * @return Language 字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
      */
     public String getLanguage() {
@@ -96,14 +127,34 @@ public class MediaSubtitleInput extends AbstractModel{
 
     /**
      * Set 字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
      * @param Language 字幕语言。常见的取值如下：
-<li>cn：中文</li>
-<li>ja：日文</li>
-<li>en-US：英文</li>
+<li>zh：中文；</li>
+<li>en：英文；</li>
+<li>ja：日文；</li>
+<li>ko：韩文；</li>
+<li>vi：越南语；</li>
+<li>ms：马来语；</li>
+<li>th：泰语；</li>
+<li>pt：葡萄牙语；</li>
+<li>tr：土耳其语；</li>
+<li>ar：阿拉伯语；</li>
+<li>es：西班牙语；</li>
+<li>hi：印地语；</li>
+<li>fr：法语。</li>
 其他取值参考 [RFC5646](https://tools.ietf.org/html/rfc5646)
      */
     public void setLanguage(String Language) {

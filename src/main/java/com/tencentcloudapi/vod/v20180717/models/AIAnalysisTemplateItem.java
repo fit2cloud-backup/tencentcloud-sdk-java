@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AIAnalysisTemplateItem extends AbstractModel{
+public class AIAnalysisTemplateItem extends AbstractModel {
 
     /**
     * 智能分析模板唯一标识。
@@ -45,7 +46,6 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
     * 智能分类任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClassificationConfigure")
     @Expose
@@ -53,7 +53,6 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
     * 智能标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagConfigure")
     @Expose
@@ -61,7 +60,6 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
     * 智能封面任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CoverConfigure")
     @Expose
@@ -69,7 +67,6 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
     * 智能按帧标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FrameTagConfigure")
     @Expose
@@ -145,10 +142,8 @@ public class AIAnalysisTemplateItem extends AbstractModel{
     }
 
     /**
-     * Get 智能分类任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 智能分类任务控制参数。 
      * @return ClassificationConfigure 智能分类任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ClassificationConfigureInfo getClassificationConfigure() {
         return this.ClassificationConfigure;
@@ -156,19 +151,15 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
      * Set 智能分类任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClassificationConfigure 智能分类任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClassificationConfigure(ClassificationConfigureInfo ClassificationConfigure) {
         this.ClassificationConfigure = ClassificationConfigure;
     }
 
     /**
-     * Get 智能标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 智能标签任务控制参数。 
      * @return TagConfigure 智能标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagConfigureInfo getTagConfigure() {
         return this.TagConfigure;
@@ -176,19 +167,15 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
      * Set 智能标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagConfigure 智能标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagConfigure(TagConfigureInfo TagConfigure) {
         this.TagConfigure = TagConfigure;
     }
 
     /**
-     * Get 智能封面任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 智能封面任务控制参数。 
      * @return CoverConfigure 智能封面任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CoverConfigureInfo getCoverConfigure() {
         return this.CoverConfigure;
@@ -196,19 +183,15 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
      * Set 智能封面任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CoverConfigure 智能封面任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoverConfigure(CoverConfigureInfo CoverConfigure) {
         this.CoverConfigure = CoverConfigure;
     }
 
     /**
-     * Get 智能按帧标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 智能按帧标签任务控制参数。 
      * @return FrameTagConfigure 智能按帧标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FrameTagConfigureInfo getFrameTagConfigure() {
         return this.FrameTagConfigure;
@@ -216,9 +199,7 @@ public class AIAnalysisTemplateItem extends AbstractModel{
 
     /**
      * Set 智能按帧标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FrameTagConfigure 智能按帧标签任务控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFrameTagConfigure(FrameTagConfigureInfo FrameTagConfigure) {
         this.FrameTagConfigure = FrameTagConfigure;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListTopClsLogDataRequest extends AbstractModel{
+public class ListTopClsLogDataRequest extends AbstractModel {
 
     /**
     * 需要查询的日志集ID
@@ -75,7 +76,7 @@ public class ListTopClsLogDataRequest extends AbstractModel{
     private String Channel;
 
     /**
-    * 要查询的Top条数，最大值为100，默认为10
+    * 要查询的Top条数，建议最大值100，默认为10
     */
     @SerializedName("Limit")
     @Expose
@@ -213,16 +214,16 @@ public class ListTopClsLogDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 要查询的Top条数，最大值为100，默认为10 
-     * @return Limit 要查询的Top条数，最大值为100，默认为10
+     * Get 要查询的Top条数，建议最大值100，默认为10 
+     * @return Limit 要查询的Top条数，建议最大值100，默认为10
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 要查询的Top条数，最大值为100，默认为10
-     * @param Limit 要查询的Top条数，最大值为100，默认为10
+     * Set 要查询的Top条数，建议最大值100，默认为10
+     * @param Limit 要查询的Top条数，建议最大值100，默认为10
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

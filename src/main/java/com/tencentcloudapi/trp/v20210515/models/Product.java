@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Product extends AbstractModel{
+public class Product extends AbstractModel {
 
     /**
     * 商户标识码
@@ -59,7 +60,6 @@ public class Product extends AbstractModel{
 
     /**
     * 商品规格
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Specification")
     @Expose
@@ -67,7 +67,6 @@ public class Product extends AbstractModel{
 
     /**
     * 备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -75,7 +74,6 @@ public class Product extends AbstractModel{
 
     /**
     * 商品图片
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Logo")
     @Expose
@@ -97,7 +95,6 @@ public class Product extends AbstractModel{
 
     /**
     * 预留字段
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ext")
     @Expose
@@ -109,6 +106,13 @@ public class Product extends AbstractModel{
     @SerializedName("MerchantName")
     @Expose
     private String MerchantName;
+
+    /**
+    * 认证状态
+    */
+    @SerializedName("CertState")
+    @Expose
+    private Long CertState;
 
     /**
      * Get 商户标识码 
@@ -191,10 +195,8 @@ public class Product extends AbstractModel{
     }
 
     /**
-     * Get 商品规格
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商品规格 
      * @return Specification 商品规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSpecification() {
         return this.Specification;
@@ -202,19 +204,15 @@ public class Product extends AbstractModel{
 
     /**
      * Set 商品规格
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Specification 商品规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSpecification(String Specification) {
         this.Specification = Specification;
     }
 
     /**
-     * Get 备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注 
      * @return Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -222,19 +220,15 @@ public class Product extends AbstractModel{
 
     /**
      * Set 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get 商品图片
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商品图片 
      * @return Logo 商品图片
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getLogo() {
         return this.Logo;
@@ -242,9 +236,7 @@ public class Product extends AbstractModel{
 
     /**
      * Set 商品图片
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Logo 商品图片
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogo(String [] Logo) {
         this.Logo = Logo;
@@ -283,10 +275,8 @@ public class Product extends AbstractModel{
     }
 
     /**
-     * Get 预留字段
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预留字段 
      * @return Ext 预留字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Ext getExt() {
         return this.Ext;
@@ -294,9 +284,7 @@ public class Product extends AbstractModel{
 
     /**
      * Set 预留字段
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ext 预留字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExt(Ext Ext) {
         this.Ext = Ext;
@@ -316,6 +304,22 @@ public class Product extends AbstractModel{
      */
     public void setMerchantName(String MerchantName) {
         this.MerchantName = MerchantName;
+    }
+
+    /**
+     * Get 认证状态 
+     * @return CertState 认证状态
+     */
+    public Long getCertState() {
+        return this.CertState;
+    }
+
+    /**
+     * Set 认证状态
+     * @param CertState 认证状态
+     */
+    public void setCertState(Long CertState) {
+        this.CertState = CertState;
     }
 
     public Product() {
@@ -365,6 +369,9 @@ public class Product extends AbstractModel{
         if (source.MerchantName != null) {
             this.MerchantName = new String(source.MerchantName);
         }
+        if (source.CertState != null) {
+            this.CertState = new Long(source.CertState);
+        }
     }
 
 
@@ -384,6 +391,7 @@ public class Product extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamObj(map, prefix + "Ext.", this.Ext);
         this.setParamSimple(map, prefix + "MerchantName", this.MerchantName);
+        this.setParamSimple(map, prefix + "CertState", this.CertState);
 
     }
 }

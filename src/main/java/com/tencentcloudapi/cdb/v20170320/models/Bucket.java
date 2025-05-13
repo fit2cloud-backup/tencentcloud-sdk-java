@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Bucket extends AbstractModel{
+public class Bucket extends AbstractModel {
 
     /**
     * 无
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Key")
     @Expose
@@ -38,10 +38,8 @@ public class Bucket extends AbstractModel{
     private Long Count;
 
     /**
-     * Get 无
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 无 
      * @return Key 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKey() {
         return this.Key;
@@ -49,9 +47,7 @@ public class Bucket extends AbstractModel{
 
     /**
      * Set 无
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Key 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKey(String Key) {
         this.Key = Key;

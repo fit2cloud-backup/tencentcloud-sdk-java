@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDirectConnectRequest extends AbstractModel{
+public class CreateDirectConnectRequest extends AbstractModel {
 
     /**
     * 物理专线的名称。
@@ -31,7 +32,7 @@ public class CreateDirectConnectRequest extends AbstractModel{
 
     /**
     * 物理专线所在的接入点。
-您可以通过调用 DescribeAccessPoints接口获取地域ID。所选择的接入点必须存在且处于可接入的状态。
+您可以通过调用[DescribeAccessPoints](https://cloud.tencent.com/document/product/216/34827)接口获取接入点ID。
     */
     @SerializedName("AccessPointId")
     @Expose
@@ -154,6 +155,13 @@ ChinaOther：中国其他；
     private Boolean SignLaw;
 
     /**
+    * 标签键值对
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
      * Get 物理专线的名称。 
      * @return DirectConnectName 物理专线的名称。
      */
@@ -171,9 +179,9 @@ ChinaOther：中国其他；
 
     /**
      * Get 物理专线所在的接入点。
-您可以通过调用 DescribeAccessPoints接口获取地域ID。所选择的接入点必须存在且处于可接入的状态。 
+您可以通过调用[DescribeAccessPoints](https://cloud.tencent.com/document/product/216/34827)接口获取接入点ID。 
      * @return AccessPointId 物理专线所在的接入点。
-您可以通过调用 DescribeAccessPoints接口获取地域ID。所选择的接入点必须存在且处于可接入的状态。
+您可以通过调用[DescribeAccessPoints](https://cloud.tencent.com/document/product/216/34827)接口获取接入点ID。
      */
     public String getAccessPointId() {
         return this.AccessPointId;
@@ -181,9 +189,9 @@ ChinaOther：中国其他；
 
     /**
      * Set 物理专线所在的接入点。
-您可以通过调用 DescribeAccessPoints接口获取地域ID。所选择的接入点必须存在且处于可接入的状态。
+您可以通过调用[DescribeAccessPoints](https://cloud.tencent.com/document/product/216/34827)接口获取接入点ID。
      * @param AccessPointId 物理专线所在的接入点。
-您可以通过调用 DescribeAccessPoints接口获取地域ID。所选择的接入点必须存在且处于可接入的状态。
+您可以通过调用[DescribeAccessPoints](https://cloud.tencent.com/document/product/216/34827)接口获取接入点ID。
      */
     public void setAccessPointId(String AccessPointId) {
         this.AccessPointId = AccessPointId;
@@ -473,6 +481,22 @@ ChinaOther：中国其他；
         this.SignLaw = SignLaw;
     }
 
+    /**
+     * Get 标签键值对 
+     * @return Tags 标签键值对
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签键值对
+     * @param Tags 标签键值对
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateDirectConnectRequest() {
     }
 
@@ -532,6 +556,12 @@ ChinaOther：中国其他；
         if (source.SignLaw != null) {
             this.SignLaw = new Boolean(source.SignLaw);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -556,6 +586,7 @@ ChinaOther：中国其他；
         this.setParamSimple(map, prefix + "FaultReportContactPerson", this.FaultReportContactPerson);
         this.setParamSimple(map, prefix + "FaultReportContactNumber", this.FaultReportContactNumber);
         this.setParamSimple(map, prefix + "SignLaw", this.SignLaw);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

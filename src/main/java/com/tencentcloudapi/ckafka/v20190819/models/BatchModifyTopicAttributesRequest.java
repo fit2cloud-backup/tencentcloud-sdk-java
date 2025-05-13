@@ -16,53 +16,54 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchModifyTopicAttributesRequest extends AbstractModel{
+public class BatchModifyTopicAttributesRequest extends AbstractModel {
 
     /**
-    * 实例id
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 主题属性列表
+    * 主题属性列表 (同一个批次最多支持10个)
     */
     @SerializedName("Topic")
     @Expose
     private BatchModifyTopicInfo [] Topic;
 
     /**
-     * Get 实例id 
-     * @return InstanceId 实例id
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例id
-     * @param InstanceId 实例id
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 主题属性列表 
-     * @return Topic 主题属性列表
+     * Get 主题属性列表 (同一个批次最多支持10个) 
+     * @return Topic 主题属性列表 (同一个批次最多支持10个)
      */
     public BatchModifyTopicInfo [] getTopic() {
         return this.Topic;
     }
 
     /**
-     * Set 主题属性列表
-     * @param Topic 主题属性列表
+     * Set 主题属性列表 (同一个批次最多支持10个)
+     * @param Topic 主题属性列表 (同一个批次最多支持10个)
      */
     public void setTopic(BatchModifyTopicInfo [] Topic) {
         this.Topic = Topic;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCloneInstanceRequest extends AbstractModel{
+public class CreateCloneInstanceRequest extends AbstractModel {
 
     /**
     * 克隆源实例Id。
@@ -30,14 +31,16 @@ public class CreateCloneInstanceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 如果需要克隆实例回档到指定时间，则指定该值。时间格式为： yyyy-mm-dd hh:mm:ss 。
+    * 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
     */
     @SerializedName("SpecifiedRollbackTime")
     @Expose
     private String SpecifiedRollbackTime;
 
     /**
-    * 如果需要克隆实例回档到指定备份的时间点，则指定该值为物理备份的Id。请使用 [查询数据备份文件列表](/document/api/236/15842) 。
+    * 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
     */
     @SerializedName("SpecifiedBackupId")
     @Expose
@@ -128,7 +131,7 @@ public class CreateCloneInstanceRequest extends AbstractModel{
     private String BackupZone;
 
     /**
-    * 克隆实例类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例。 不指定则默认为通用型。
+    * 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
     */
     @SerializedName("DeviceType")
     @Expose
@@ -170,6 +173,27 @@ public class CreateCloneInstanceRequest extends AbstractModel{
     private Long ProjectId;
 
     /**
+    * 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
+    */
+    @SerializedName("PayType")
+    @Expose
+    private String PayType;
+
+    /**
+    * 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+    */
+    @SerializedName("Period")
+    @Expose
+    private Long Period;
+
+    /**
+    * 集群版节点拓扑配置。
+    */
+    @SerializedName("ClusterTopology")
+    @Expose
+    private ClusterTopology ClusterTopology;
+
+    /**
      * Get 克隆源实例Id。 
      * @return InstanceId 克隆源实例Id。
      */
@@ -186,32 +210,40 @@ public class CreateCloneInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 如果需要克隆实例回档到指定时间，则指定该值。时间格式为： yyyy-mm-dd hh:mm:ss 。 
-     * @return SpecifiedRollbackTime 如果需要克隆实例回档到指定时间，则指定该值。时间格式为： yyyy-mm-dd hh:mm:ss 。
+     * Get 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。 
+     * @return SpecifiedRollbackTime 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
      */
     public String getSpecifiedRollbackTime() {
         return this.SpecifiedRollbackTime;
     }
 
     /**
-     * Set 如果需要克隆实例回档到指定时间，则指定该值。时间格式为： yyyy-mm-dd hh:mm:ss 。
-     * @param SpecifiedRollbackTime 如果需要克隆实例回档到指定时间，则指定该值。时间格式为： yyyy-mm-dd hh:mm:ss 。
+     * Set 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
+     * @param SpecifiedRollbackTime 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
      */
     public void setSpecifiedRollbackTime(String SpecifiedRollbackTime) {
         this.SpecifiedRollbackTime = SpecifiedRollbackTime;
     }
 
     /**
-     * Get 如果需要克隆实例回档到指定备份的时间点，则指定该值为物理备份的Id。请使用 [查询数据备份文件列表](/document/api/236/15842) 。 
-     * @return SpecifiedBackupId 如果需要克隆实例回档到指定备份的时间点，则指定该值为物理备份的Id。请使用 [查询数据备份文件列表](/document/api/236/15842) 。
+     * Get 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。 
+     * @return SpecifiedBackupId 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
      */
     public Long getSpecifiedBackupId() {
         return this.SpecifiedBackupId;
     }
 
     /**
-     * Set 如果需要克隆实例回档到指定备份的时间点，则指定该值为物理备份的Id。请使用 [查询数据备份文件列表](/document/api/236/15842) 。
-     * @param SpecifiedBackupId 如果需要克隆实例回档到指定备份的时间点，则指定该值为物理备份的Id。请使用 [查询数据备份文件列表](/document/api/236/15842) 。
+     * Set 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
+     * @param SpecifiedBackupId 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
      */
     public void setSpecifiedBackupId(Long SpecifiedBackupId) {
         this.SpecifiedBackupId = SpecifiedBackupId;
@@ -410,16 +442,16 @@ public class CreateCloneInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 克隆实例类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例。 不指定则默认为通用型。 
-     * @return DeviceType 克隆实例类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例。 不指定则默认为通用型。
+     * Get 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。 
+     * @return DeviceType 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
      */
     public String getDeviceType() {
         return this.DeviceType;
     }
 
     /**
-     * Set 克隆实例类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例。 不指定则默认为通用型。
-     * @param DeviceType 克隆实例类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例。 不指定则默认为通用型。
+     * Set 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
+     * @param DeviceType 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
      */
     public void setDeviceType(String DeviceType) {
         this.DeviceType = DeviceType;
@@ -505,6 +537,54 @@ public class CreateCloneInstanceRequest extends AbstractModel{
         this.ProjectId = ProjectId;
     }
 
+    /**
+     * Get 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费 
+     * @return PayType 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
+     */
+    public String getPayType() {
+        return this.PayType;
+    }
+
+    /**
+     * Set 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
+     * @param PayType 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
+     */
+    public void setPayType(String PayType) {
+        this.PayType = PayType;
+    }
+
+    /**
+     * Get 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。 
+     * @return Period 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+     */
+    public Long getPeriod() {
+        return this.Period;
+    }
+
+    /**
+     * Set 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+     * @param Period 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+     */
+    public void setPeriod(Long Period) {
+        this.Period = Period;
+    }
+
+    /**
+     * Get 集群版节点拓扑配置。 
+     * @return ClusterTopology 集群版节点拓扑配置。
+     */
+    public ClusterTopology getClusterTopology() {
+        return this.ClusterTopology;
+    }
+
+    /**
+     * Set 集群版节点拓扑配置。
+     * @param ClusterTopology 集群版节点拓扑配置。
+     */
+    public void setClusterTopology(ClusterTopology ClusterTopology) {
+        this.ClusterTopology = ClusterTopology;
+    }
+
     public CreateCloneInstanceRequest() {
     }
 
@@ -582,6 +662,15 @@ public class CreateCloneInstanceRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new Long(source.ProjectId);
         }
+        if (source.PayType != null) {
+            this.PayType = new String(source.PayType);
+        }
+        if (source.Period != null) {
+            this.Period = new Long(source.Period);
+        }
+        if (source.ClusterTopology != null) {
+            this.ClusterTopology = new ClusterTopology(source.ClusterTopology);
+        }
     }
 
 
@@ -610,6 +699,9 @@ public class CreateCloneInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
         this.setParamSimple(map, prefix + "CageId", this.CageId);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "PayType", this.PayType);
+        this.setParamSimple(map, prefix + "Period", this.Period);
+        this.setParamObj(map, prefix + "ClusterTopology.", this.ClusterTopology);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AppChart extends AbstractModel{
+public class AppChart extends AbstractModel {
 
     /**
     * chart名称
@@ -31,7 +32,6 @@ public class AppChart extends AbstractModel{
 
     /**
     * chart的标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Label")
     @Expose
@@ -61,10 +61,8 @@ public class AppChart extends AbstractModel{
     }
 
     /**
-     * Get chart的标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get chart的标签 
      * @return Label chart的标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLabel() {
         return this.Label;
@@ -72,9 +70,7 @@ public class AppChart extends AbstractModel{
 
     /**
      * Set chart的标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Label chart的标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabel(String Label) {
         this.Label = Label;

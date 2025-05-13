@@ -16,18 +16,15 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskDetailResponse extends AbstractModel{
+public class DescribeTaskDetailResponse extends AbstractModel {
 
     /**
-    * 任务类型，目前取值有：
-<li>WorkflowTask：视频工作流处理任务。</li>
-<li>EditMediaTask：视频编辑任务。</li>
-<li>LiveStreamProcessTask：直播流处理任务。</li>
-<li>ScheduleTask：编排处理任务。</li>
+    * 任务类型，目前取值有：<li>WorkflowTask：视频工作流处理任务。</li><li>EditMediaTask：视频编辑任务。</li><li>LiveStreamProcessTask：直播流处理任务。</li><li>ScheduleTask：编排处理任务。</li><li>EvaluationTask：评测任务。</li>
     */
     @SerializedName("TaskType")
     @Expose
@@ -133,39 +130,31 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private ScheduleTask ScheduleTask;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 直播编排处理任务信息，仅当 TaskType 为 LiveScheduleTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LiveScheduleTask")
+    @Expose
+    private LiveScheduleTask LiveScheduleTask;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 任务类型，目前取值有：
-<li>WorkflowTask：视频工作流处理任务。</li>
-<li>EditMediaTask：视频编辑任务。</li>
-<li>LiveStreamProcessTask：直播流处理任务。</li>
-<li>ScheduleTask：编排处理任务。</li> 
-     * @return TaskType 任务类型，目前取值有：
-<li>WorkflowTask：视频工作流处理任务。</li>
-<li>EditMediaTask：视频编辑任务。</li>
-<li>LiveStreamProcessTask：直播流处理任务。</li>
-<li>ScheduleTask：编排处理任务。</li>
+     * Get 任务类型，目前取值有：<li>WorkflowTask：视频工作流处理任务。</li><li>EditMediaTask：视频编辑任务。</li><li>LiveStreamProcessTask：直播流处理任务。</li><li>ScheduleTask：编排处理任务。</li><li>EvaluationTask：评测任务。</li> 
+     * @return TaskType 任务类型，目前取值有：<li>WorkflowTask：视频工作流处理任务。</li><li>EditMediaTask：视频编辑任务。</li><li>LiveStreamProcessTask：直播流处理任务。</li><li>ScheduleTask：编排处理任务。</li><li>EvaluationTask：评测任务。</li>
      */
     public String getTaskType() {
         return this.TaskType;
     }
 
     /**
-     * Set 任务类型，目前取值有：
-<li>WorkflowTask：视频工作流处理任务。</li>
-<li>EditMediaTask：视频编辑任务。</li>
-<li>LiveStreamProcessTask：直播流处理任务。</li>
-<li>ScheduleTask：编排处理任务。</li>
-     * @param TaskType 任务类型，目前取值有：
-<li>WorkflowTask：视频工作流处理任务。</li>
-<li>EditMediaTask：视频编辑任务。</li>
-<li>LiveStreamProcessTask：直播流处理任务。</li>
-<li>ScheduleTask：编排处理任务。</li>
+     * Set 任务类型，目前取值有：<li>WorkflowTask：视频工作流处理任务。</li><li>EditMediaTask：视频编辑任务。</li><li>LiveStreamProcessTask：直播流处理任务。</li><li>ScheduleTask：编排处理任务。</li><li>EvaluationTask：评测任务。</li>
+     * @param TaskType 任务类型，目前取值有：<li>WorkflowTask：视频工作流处理任务。</li><li>EditMediaTask：视频编辑任务。</li><li>LiveStreamProcessTask：直播流处理任务。</li><li>ScheduleTask：编排处理任务。</li><li>EvaluationTask：评测任务。</li>
      */
     public void setTaskType(String TaskType) {
         this.TaskType = TaskType;
@@ -412,16 +401,36 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 直播编排处理任务信息，仅当 TaskType 为 LiveScheduleTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LiveScheduleTask 直播编排处理任务信息，仅当 TaskType 为 LiveScheduleTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public LiveScheduleTask getLiveScheduleTask() {
+        return this.LiveScheduleTask;
+    }
+
+    /**
+     * Set 直播编排处理任务信息，仅当 TaskType 为 LiveScheduleTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LiveScheduleTask 直播编排处理任务信息，仅当 TaskType 为 LiveScheduleTask，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLiveScheduleTask(LiveScheduleTask LiveScheduleTask) {
+        this.LiveScheduleTask = LiveScheduleTask;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -477,6 +486,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         if (source.ScheduleTask != null) {
             this.ScheduleTask = new ScheduleTask(source.ScheduleTask);
         }
+        if (source.LiveScheduleTask != null) {
+            this.LiveScheduleTask = new LiveScheduleTask(source.LiveScheduleTask);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -501,6 +513,7 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);
         this.setParamSimple(map, prefix + "ExtInfo", this.ExtInfo);
         this.setParamObj(map, prefix + "ScheduleTask.", this.ScheduleTask);
+        this.setParamObj(map, prefix + "LiveScheduleTask.", this.LiveScheduleTask);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSecurityEventsCntResponse extends AbstractModel{
+public class DescribeSecurityEventsCntResponse extends AbstractModel {
 
     /**
     * 木马文件相关风险事件
@@ -122,7 +123,6 @@ public class DescribeSecurityEventsCntResponse extends AbstractModel{
 
     /**
     * window 系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WindowVul")
     @Expose
@@ -130,14 +130,13 @@ public class DescribeSecurityEventsCntResponse extends AbstractModel{
 
     /**
     * linux系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LinuxVul")
     @Expose
     private SecurityEventInfo LinuxVul;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -368,10 +367,8 @@ public class DescribeSecurityEventsCntResponse extends AbstractModel{
     }
 
     /**
-     * Get window 系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get window 系统漏洞事件总数 
      * @return WindowVul window 系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SecurityEventInfo getWindowVul() {
         return this.WindowVul;
@@ -379,19 +376,15 @@ public class DescribeSecurityEventsCntResponse extends AbstractModel{
 
     /**
      * Set window 系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WindowVul window 系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWindowVul(SecurityEventInfo WindowVul) {
         this.WindowVul = WindowVul;
     }
 
     /**
-     * Get linux系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get linux系统漏洞事件总数 
      * @return LinuxVul linux系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SecurityEventInfo getLinuxVul() {
         return this.LinuxVul;
@@ -399,25 +392,23 @@ public class DescribeSecurityEventsCntResponse extends AbstractModel{
 
     /**
      * Set linux系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LinuxVul linux系统漏洞事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLinuxVul(SecurityEventInfo LinuxVul) {
         this.LinuxVul = LinuxVul;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

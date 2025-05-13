@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NumberInfo extends AbstractModel{
+public class NumberInfo extends AbstractModel {
 
     /**
     * 号码
@@ -35,6 +36,13 @@ public class NumberInfo extends AbstractModel{
     @SerializedName("CallOutSkillGroupIds")
     @Expose
     private Long [] CallOutSkillGroupIds;
+
+    /**
+    * 号码状态，1-正常，2-欠费停用，4-管理员停用，5-违规停用
+    */
+    @SerializedName("State")
+    @Expose
+    private Long State;
 
     /**
      * Get 号码 
@@ -68,6 +76,22 @@ public class NumberInfo extends AbstractModel{
         this.CallOutSkillGroupIds = CallOutSkillGroupIds;
     }
 
+    /**
+     * Get 号码状态，1-正常，2-欠费停用，4-管理员停用，5-违规停用 
+     * @return State 号码状态，1-正常，2-欠费停用，4-管理员停用，5-违规停用
+     */
+    public Long getState() {
+        return this.State;
+    }
+
+    /**
+     * Set 号码状态，1-正常，2-欠费停用，4-管理员停用，5-违规停用
+     * @param State 号码状态，1-正常，2-欠费停用，4-管理员停用，5-违规停用
+     */
+    public void setState(Long State) {
+        this.State = State;
+    }
+
     public NumberInfo() {
     }
 
@@ -85,6 +109,9 @@ public class NumberInfo extends AbstractModel{
                 this.CallOutSkillGroupIds[i] = new Long(source.CallOutSkillGroupIds[i]);
             }
         }
+        if (source.State != null) {
+            this.State = new Long(source.State);
+        }
     }
 
 
@@ -94,6 +121,7 @@ public class NumberInfo extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Number", this.Number);
         this.setParamArraySimple(map, prefix + "CallOutSkillGroupIds.", this.CallOutSkillGroupIds);
+        this.setParamSimple(map, prefix + "State", this.State);
 
     }
 }

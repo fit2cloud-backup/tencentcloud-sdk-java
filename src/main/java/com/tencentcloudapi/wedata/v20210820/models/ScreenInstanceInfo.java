@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScreenInstanceInfo extends AbstractModel{
+public class ScreenInstanceInfo extends AbstractModel {
 
     /**
     * 统计标示 0：全部、1：当前天、2：昨天
@@ -93,6 +94,13 @@ public class ScreenInstanceInfo extends AbstractModel{
     @SerializedName("FailedNum")
     @Expose
     private Long FailedNum;
+
+    /**
+    * 跳过运行总数
+    */
+    @SerializedName("SkipRunningNum")
+    @Expose
+    private Long SkipRunningNum;
 
     /**
      * Get 统计标示 0：全部、1：当前天、2：昨天
@@ -274,6 +282,22 @@ public class ScreenInstanceInfo extends AbstractModel{
         this.FailedNum = FailedNum;
     }
 
+    /**
+     * Get 跳过运行总数 
+     * @return SkipRunningNum 跳过运行总数
+     */
+    public Long getSkipRunningNum() {
+        return this.SkipRunningNum;
+    }
+
+    /**
+     * Set 跳过运行总数
+     * @param SkipRunningNum 跳过运行总数
+     */
+    public void setSkipRunningNum(Long SkipRunningNum) {
+        this.SkipRunningNum = SkipRunningNum;
+    }
+
     public ScreenInstanceInfo() {
     }
 
@@ -309,6 +333,9 @@ public class ScreenInstanceInfo extends AbstractModel{
         if (source.FailedNum != null) {
             this.FailedNum = new Long(source.FailedNum);
         }
+        if (source.SkipRunningNum != null) {
+            this.SkipRunningNum = new Long(source.SkipRunningNum);
+        }
     }
 
 
@@ -325,6 +352,7 @@ public class ScreenInstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "StoppingNum", this.StoppingNum);
         this.setParamSimple(map, prefix + "SucceedNum", this.SucceedNum);
         this.setParamSimple(map, prefix + "FailedNum", this.FailedNum);
+        this.setParamSimple(map, prefix + "SkipRunningNum", this.SkipRunningNum);
 
     }
 }

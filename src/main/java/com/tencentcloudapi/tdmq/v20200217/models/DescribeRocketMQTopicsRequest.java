@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRocketMQTopicsRequest extends AbstractModel{
+public class DescribeRocketMQTopicsRequest extends AbstractModel {
 
     /**
     * 查询偏移量
@@ -63,6 +64,13 @@ public class DescribeRocketMQTopicsRequest extends AbstractModel{
     @SerializedName("FilterName")
     @Expose
     private String FilterName;
+
+    /**
+    * 按订阅消费组名称过滤
+    */
+    @SerializedName("FilterGroup")
+    @Expose
+    private String FilterGroup;
 
     /**
      * Get 查询偏移量 
@@ -160,6 +168,22 @@ public class DescribeRocketMQTopicsRequest extends AbstractModel{
         this.FilterName = FilterName;
     }
 
+    /**
+     * Get 按订阅消费组名称过滤 
+     * @return FilterGroup 按订阅消费组名称过滤
+     */
+    public String getFilterGroup() {
+        return this.FilterGroup;
+    }
+
+    /**
+     * Set 按订阅消费组名称过滤
+     * @param FilterGroup 按订阅消费组名称过滤
+     */
+    public void setFilterGroup(String FilterGroup) {
+        this.FilterGroup = FilterGroup;
+    }
+
     public DescribeRocketMQTopicsRequest() {
     }
 
@@ -189,6 +213,9 @@ public class DescribeRocketMQTopicsRequest extends AbstractModel{
         if (source.FilterName != null) {
             this.FilterName = new String(source.FilterName);
         }
+        if (source.FilterGroup != null) {
+            this.FilterGroup = new String(source.FilterGroup);
+        }
     }
 
 
@@ -202,6 +229,7 @@ public class DescribeRocketMQTopicsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NamespaceId", this.NamespaceId);
         this.setParamArraySimple(map, prefix + "FilterType.", this.FilterType);
         this.setParamSimple(map, prefix + "FilterName", this.FilterName);
+        this.setParamSimple(map, prefix + "FilterGroup", this.FilterGroup);
 
     }
 }

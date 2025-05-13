@@ -16,14 +16,15 @@
 package com.tencentcloudapi.vm.v20210922.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateVideoModerationTaskRequest extends AbstractModel{
+public class CreateVideoModerationTaskRequest extends AbstractModel {
 
     /**
-    * 业务类型, 定义 模版策略，输出存储配置。如果没有BizType，可以先参考 【创建业务配置】接口进行创建
+    * 该字段表示特定审核策略的编号，用于接口调度。需要提前在[内容安全控制台](https://console.cloud.tencent.com/cms/clouds/manage)中创建策略后获取该Biztype字段，传入该字段，会根据业务场景在审核时调用相应的审核策略。 备注：Biztype仅为数字、字母与下划线的组合，长度为3-32个字符；不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。
     */
     @SerializedName("BizType")
     @Expose
@@ -44,14 +45,14 @@ public class CreateVideoModerationTaskRequest extends AbstractModel{
     private TaskInput [] Tasks;
 
     /**
-    * 回调签名key，具体可以查看签名文档。
+    * 可选参数，该字段表示回调签名的key信息，用于保证数据的安全性。 签名方法为在返回的HTTP头部添加 X-Signature 的字段，值为： seed + body 的 SHA256 编码和Hex字符串，在收到回调数据后，可以根据返回的body，用 **sha256(seed + body)**, 计算出 `X-Signature` 进行验证。<br>具体使用实例可参考 [回调签名示例](https://cloud.tencent.com/document/product/1265/104001#42dd87d2-580f-46cf-a953-639a787d1eda)。
     */
     @SerializedName("Seed")
     @Expose
     private String Seed;
 
     /**
-    * 接收审核信息回调地址，如果设置，则审核过程中产生的违规音频片段和画面截帧发送此接口
+    * 接收审核信息回调地址。如果设置了该字段，在审核过程中发现违规音频片段和画面截帧结果将发送至该接口。更多详情请参阅[回调配置说明](https://cloud.tencent.com/document/product/1265/104001)。
     */
     @SerializedName("CallbackUrl")
     @Expose
@@ -65,16 +66,23 @@ public class CreateVideoModerationTaskRequest extends AbstractModel{
     private Long Priority;
 
     /**
-     * Get 业务类型, 定义 模版策略，输出存储配置。如果没有BizType，可以先参考 【创建业务配置】接口进行创建 
-     * @return BizType 业务类型, 定义 模版策略，输出存储配置。如果没有BizType，可以先参考 【创建业务配置】接口进行创建
+    * 该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户
+    */
+    @SerializedName("User")
+    @Expose
+    private User User;
+
+    /**
+     * Get 该字段表示特定审核策略的编号，用于接口调度。需要提前在[内容安全控制台](https://console.cloud.tencent.com/cms/clouds/manage)中创建策略后获取该Biztype字段，传入该字段，会根据业务场景在审核时调用相应的审核策略。 备注：Biztype仅为数字、字母与下划线的组合，长度为3-32个字符；不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。 
+     * @return BizType 该字段表示特定审核策略的编号，用于接口调度。需要提前在[内容安全控制台](https://console.cloud.tencent.com/cms/clouds/manage)中创建策略后获取该Biztype字段，传入该字段，会根据业务场景在审核时调用相应的审核策略。 备注：Biztype仅为数字、字母与下划线的组合，长度为3-32个字符；不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。
      */
     public String getBizType() {
         return this.BizType;
     }
 
     /**
-     * Set 业务类型, 定义 模版策略，输出存储配置。如果没有BizType，可以先参考 【创建业务配置】接口进行创建
-     * @param BizType 业务类型, 定义 模版策略，输出存储配置。如果没有BizType，可以先参考 【创建业务配置】接口进行创建
+     * Set 该字段表示特定审核策略的编号，用于接口调度。需要提前在[内容安全控制台](https://console.cloud.tencent.com/cms/clouds/manage)中创建策略后获取该Biztype字段，传入该字段，会根据业务场景在审核时调用相应的审核策略。 备注：Biztype仅为数字、字母与下划线的组合，长度为3-32个字符；不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。
+     * @param BizType 该字段表示特定审核策略的编号，用于接口调度。需要提前在[内容安全控制台](https://console.cloud.tencent.com/cms/clouds/manage)中创建策略后获取该Biztype字段，传入该字段，会根据业务场景在审核时调用相应的审核策略。 备注：Biztype仅为数字、字母与下划线的组合，长度为3-32个字符；不同Biztype关联不同的业务场景与识别能力策略，调用前请确认正确的Biztype。
      */
     public void setBizType(String BizType) {
         this.BizType = BizType;
@@ -113,32 +121,32 @@ public class CreateVideoModerationTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 回调签名key，具体可以查看签名文档。 
-     * @return Seed 回调签名key，具体可以查看签名文档。
+     * Get 可选参数，该字段表示回调签名的key信息，用于保证数据的安全性。 签名方法为在返回的HTTP头部添加 X-Signature 的字段，值为： seed + body 的 SHA256 编码和Hex字符串，在收到回调数据后，可以根据返回的body，用 **sha256(seed + body)**, 计算出 `X-Signature` 进行验证。<br>具体使用实例可参考 [回调签名示例](https://cloud.tencent.com/document/product/1265/104001#42dd87d2-580f-46cf-a953-639a787d1eda)。 
+     * @return Seed 可选参数，该字段表示回调签名的key信息，用于保证数据的安全性。 签名方法为在返回的HTTP头部添加 X-Signature 的字段，值为： seed + body 的 SHA256 编码和Hex字符串，在收到回调数据后，可以根据返回的body，用 **sha256(seed + body)**, 计算出 `X-Signature` 进行验证。<br>具体使用实例可参考 [回调签名示例](https://cloud.tencent.com/document/product/1265/104001#42dd87d2-580f-46cf-a953-639a787d1eda)。
      */
     public String getSeed() {
         return this.Seed;
     }
 
     /**
-     * Set 回调签名key，具体可以查看签名文档。
-     * @param Seed 回调签名key，具体可以查看签名文档。
+     * Set 可选参数，该字段表示回调签名的key信息，用于保证数据的安全性。 签名方法为在返回的HTTP头部添加 X-Signature 的字段，值为： seed + body 的 SHA256 编码和Hex字符串，在收到回调数据后，可以根据返回的body，用 **sha256(seed + body)**, 计算出 `X-Signature` 进行验证。<br>具体使用实例可参考 [回调签名示例](https://cloud.tencent.com/document/product/1265/104001#42dd87d2-580f-46cf-a953-639a787d1eda)。
+     * @param Seed 可选参数，该字段表示回调签名的key信息，用于保证数据的安全性。 签名方法为在返回的HTTP头部添加 X-Signature 的字段，值为： seed + body 的 SHA256 编码和Hex字符串，在收到回调数据后，可以根据返回的body，用 **sha256(seed + body)**, 计算出 `X-Signature` 进行验证。<br>具体使用实例可参考 [回调签名示例](https://cloud.tencent.com/document/product/1265/104001#42dd87d2-580f-46cf-a953-639a787d1eda)。
      */
     public void setSeed(String Seed) {
         this.Seed = Seed;
     }
 
     /**
-     * Get 接收审核信息回调地址，如果设置，则审核过程中产生的违规音频片段和画面截帧发送此接口 
-     * @return CallbackUrl 接收审核信息回调地址，如果设置，则审核过程中产生的违规音频片段和画面截帧发送此接口
+     * Get 接收审核信息回调地址。如果设置了该字段，在审核过程中发现违规音频片段和画面截帧结果将发送至该接口。更多详情请参阅[回调配置说明](https://cloud.tencent.com/document/product/1265/104001)。 
+     * @return CallbackUrl 接收审核信息回调地址。如果设置了该字段，在审核过程中发现违规音频片段和画面截帧结果将发送至该接口。更多详情请参阅[回调配置说明](https://cloud.tencent.com/document/product/1265/104001)。
      */
     public String getCallbackUrl() {
         return this.CallbackUrl;
     }
 
     /**
-     * Set 接收审核信息回调地址，如果设置，则审核过程中产生的违规音频片段和画面截帧发送此接口
-     * @param CallbackUrl 接收审核信息回调地址，如果设置，则审核过程中产生的违规音频片段和画面截帧发送此接口
+     * Set 接收审核信息回调地址。如果设置了该字段，在审核过程中发现违规音频片段和画面截帧结果将发送至该接口。更多详情请参阅[回调配置说明](https://cloud.tencent.com/document/product/1265/104001)。
+     * @param CallbackUrl 接收审核信息回调地址。如果设置了该字段，在审核过程中发现违规音频片段和画面截帧结果将发送至该接口。更多详情请参阅[回调配置说明](https://cloud.tencent.com/document/product/1265/104001)。
      */
     public void setCallbackUrl(String CallbackUrl) {
         this.CallbackUrl = CallbackUrl;
@@ -158,6 +166,22 @@ public class CreateVideoModerationTaskRequest extends AbstractModel{
      */
     public void setPriority(Long Priority) {
         this.Priority = Priority;
+    }
+
+    /**
+     * Get 该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户 
+     * @return User 该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户
+     */
+    public User getUser() {
+        return this.User;
+    }
+
+    /**
+     * Set 该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户
+     * @param User 该字段表示待检测对象对应的用户相关信息，若填入则可甄别相应违规风险用户
+     */
+    public void setUser(User User) {
+        this.User = User;
     }
 
     public CreateVideoModerationTaskRequest() {
@@ -189,6 +213,9 @@ public class CreateVideoModerationTaskRequest extends AbstractModel{
         if (source.Priority != null) {
             this.Priority = new Long(source.Priority);
         }
+        if (source.User != null) {
+            this.User = new User(source.User);
+        }
     }
 
 
@@ -202,6 +229,7 @@ public class CreateVideoModerationTaskRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Seed", this.Seed);
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamSimple(map, prefix + "Priority", this.Priority);
+        this.setParamObj(map, prefix + "User.", this.User);
 
     }
 }

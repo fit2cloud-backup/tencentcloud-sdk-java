@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SecLogJoinObjectInfo extends AbstractModel{
+public class SecLogJoinObjectInfo extends AbstractModel {
 
     /**
     * 主机ID
@@ -31,7 +32,6 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
     * 主机名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostName")
     @Expose
@@ -39,7 +39,6 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
     * 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostIP")
     @Expose
@@ -54,7 +53,6 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
     * 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterID")
     @Expose
@@ -62,7 +60,6 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
     * 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterName")
     @Expose
@@ -70,7 +67,6 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
     * 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicIP")
     @Expose
@@ -85,7 +81,6 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
     * 集群版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterVersion")
     @Expose
@@ -97,6 +92,27 @@ public class SecLogJoinObjectInfo extends AbstractModel{
     @SerializedName("ClusterMainAddress")
     @Expose
     private String ClusterMainAddress;
+
+    /**
+    * 容器数
+    */
+    @SerializedName("ContainerCnt")
+    @Expose
+    private Long ContainerCnt;
+
+    /**
+    * 集群类型
+    */
+    @SerializedName("ClusterType")
+    @Expose
+    private String ClusterType;
+
+    /**
+    * 集群状态
+    */
+    @SerializedName("ClusterStatus")
+    @Expose
+    private String ClusterStatus;
 
     /**
      * Get 主机ID 
@@ -115,10 +131,8 @@ public class SecLogJoinObjectInfo extends AbstractModel{
     }
 
     /**
-     * Get 主机名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机名称 
      * @return HostName 主机名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostName() {
         return this.HostName;
@@ -126,19 +140,15 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
      * Set 主机名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostName 主机名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostName(String HostName) {
         this.HostName = HostName;
     }
 
     /**
-     * Get 主机IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机IP 
      * @return HostIP 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostIP() {
         return this.HostIP;
@@ -146,9 +156,7 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
      * Set 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostIP 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostIP(String HostIP) {
         this.HostIP = HostIP;
@@ -171,10 +179,8 @@ public class SecLogJoinObjectInfo extends AbstractModel{
     }
 
     /**
-     * Get 集群ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群ID 
      * @return ClusterID 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterID() {
         return this.ClusterID;
@@ -182,19 +188,15 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
      * Set 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterID 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterID(String ClusterID) {
         this.ClusterID = ClusterID;
     }
 
     /**
-     * Get 集群名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群名称 
      * @return ClusterName 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterName() {
         return this.ClusterName;
@@ -202,19 +204,15 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
      * Set 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterName 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;
     }
 
     /**
-     * Get 外网IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外网IP 
      * @return PublicIP 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPublicIP() {
         return this.PublicIP;
@@ -222,9 +220,7 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
      * Set 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PublicIP 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicIP(String PublicIP) {
         this.PublicIP = PublicIP;
@@ -247,10 +243,8 @@ public class SecLogJoinObjectInfo extends AbstractModel{
     }
 
     /**
-     * Get 集群版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群版本 
      * @return ClusterVersion 集群版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterVersion() {
         return this.ClusterVersion;
@@ -258,9 +252,7 @@ public class SecLogJoinObjectInfo extends AbstractModel{
 
     /**
      * Set 集群版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterVersion 集群版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterVersion(String ClusterVersion) {
         this.ClusterVersion = ClusterVersion;
@@ -280,6 +272,54 @@ public class SecLogJoinObjectInfo extends AbstractModel{
      */
     public void setClusterMainAddress(String ClusterMainAddress) {
         this.ClusterMainAddress = ClusterMainAddress;
+    }
+
+    /**
+     * Get 容器数 
+     * @return ContainerCnt 容器数
+     */
+    public Long getContainerCnt() {
+        return this.ContainerCnt;
+    }
+
+    /**
+     * Set 容器数
+     * @param ContainerCnt 容器数
+     */
+    public void setContainerCnt(Long ContainerCnt) {
+        this.ContainerCnt = ContainerCnt;
+    }
+
+    /**
+     * Get 集群类型 
+     * @return ClusterType 集群类型
+     */
+    public String getClusterType() {
+        return this.ClusterType;
+    }
+
+    /**
+     * Set 集群类型
+     * @param ClusterType 集群类型
+     */
+    public void setClusterType(String ClusterType) {
+        this.ClusterType = ClusterType;
+    }
+
+    /**
+     * Get 集群状态 
+     * @return ClusterStatus 集群状态
+     */
+    public String getClusterStatus() {
+        return this.ClusterStatus;
+    }
+
+    /**
+     * Set 集群状态
+     * @param ClusterStatus 集群状态
+     */
+    public void setClusterStatus(String ClusterStatus) {
+        this.ClusterStatus = ClusterStatus;
     }
 
     public SecLogJoinObjectInfo() {
@@ -320,6 +360,15 @@ public class SecLogJoinObjectInfo extends AbstractModel{
         if (source.ClusterMainAddress != null) {
             this.ClusterMainAddress = new String(source.ClusterMainAddress);
         }
+        if (source.ContainerCnt != null) {
+            this.ContainerCnt = new Long(source.ContainerCnt);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.ClusterStatus != null) {
+            this.ClusterStatus = new String(source.ClusterStatus);
+        }
     }
 
 
@@ -337,6 +386,9 @@ public class SecLogJoinObjectInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "JoinState", this.JoinState);
         this.setParamSimple(map, prefix + "ClusterVersion", this.ClusterVersion);
         this.setParamSimple(map, prefix + "ClusterMainAddress", this.ClusterMainAddress);
+        this.setParamSimple(map, prefix + "ContainerCnt", this.ContainerCnt);
+        this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
+        this.setParamSimple(map, prefix + "ClusterStatus", this.ClusterStatus);
 
     }
 }

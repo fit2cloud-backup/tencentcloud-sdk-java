@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionTaskObjectResultItem extends AbstractModel{
+public class AiRecognitionTaskObjectResultItem extends AbstractModel {
 
     /**
     * 识别的物体名称。
@@ -35,6 +36,13 @@ public class AiRecognitionTaskObjectResultItem extends AbstractModel{
     @SerializedName("SegmentSet")
     @Expose
     private AiRecognitionTaskObjectSeqmentItem [] SegmentSet;
+
+    /**
+    * 物体出现的片段列表。
+    */
+    @SerializedName("RecognitionSegmentSet")
+    @Expose
+    private AiRecognitionTaskObjectSegmentItem [] RecognitionSegmentSet;
 
     /**
      * Get 识别的物体名称。 
@@ -55,7 +63,9 @@ public class AiRecognitionTaskObjectResultItem extends AbstractModel{
     /**
      * Get 物体出现的片段列表。 
      * @return SegmentSet 物体出现的片段列表。
+     * @deprecated
      */
+    @Deprecated
     public AiRecognitionTaskObjectSeqmentItem [] getSegmentSet() {
         return this.SegmentSet;
     }
@@ -63,9 +73,27 @@ public class AiRecognitionTaskObjectResultItem extends AbstractModel{
     /**
      * Set 物体出现的片段列表。
      * @param SegmentSet 物体出现的片段列表。
+     * @deprecated
      */
+    @Deprecated
     public void setSegmentSet(AiRecognitionTaskObjectSeqmentItem [] SegmentSet) {
         this.SegmentSet = SegmentSet;
+    }
+
+    /**
+     * Get 物体出现的片段列表。 
+     * @return RecognitionSegmentSet 物体出现的片段列表。
+     */
+    public AiRecognitionTaskObjectSegmentItem [] getRecognitionSegmentSet() {
+        return this.RecognitionSegmentSet;
+    }
+
+    /**
+     * Set 物体出现的片段列表。
+     * @param RecognitionSegmentSet 物体出现的片段列表。
+     */
+    public void setRecognitionSegmentSet(AiRecognitionTaskObjectSegmentItem [] RecognitionSegmentSet) {
+        this.RecognitionSegmentSet = RecognitionSegmentSet;
     }
 
     public AiRecognitionTaskObjectResultItem() {
@@ -85,6 +113,12 @@ public class AiRecognitionTaskObjectResultItem extends AbstractModel{
                 this.SegmentSet[i] = new AiRecognitionTaskObjectSeqmentItem(source.SegmentSet[i]);
             }
         }
+        if (source.RecognitionSegmentSet != null) {
+            this.RecognitionSegmentSet = new AiRecognitionTaskObjectSegmentItem[source.RecognitionSegmentSet.length];
+            for (int i = 0; i < source.RecognitionSegmentSet.length; i++) {
+                this.RecognitionSegmentSet[i] = new AiRecognitionTaskObjectSegmentItem(source.RecognitionSegmentSet[i]);
+            }
+        }
     }
 
 
@@ -94,6 +128,7 @@ public class AiRecognitionTaskObjectResultItem extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamArrayObj(map, prefix + "SegmentSet.", this.SegmentSet);
+        this.setParamArrayObj(map, prefix + "RecognitionSegmentSet.", this.RecognitionSegmentSet);
 
     }
 }

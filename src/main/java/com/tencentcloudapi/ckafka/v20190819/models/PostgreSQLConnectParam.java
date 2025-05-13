@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PostgreSQLConnectParam extends AbstractModel{
+public class PostgreSQLConnectParam extends AbstractModel {
 
     /**
     * PostgreSQL的连接port
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
@@ -32,7 +32,6 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * PostgreSQL连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserName")
     @Expose
@@ -40,7 +39,6 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * PostgreSQL连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Password")
     @Expose
@@ -48,7 +46,6 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * PostgreSQL连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resource")
     @Expose
@@ -56,7 +53,6 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * PostgreSQL连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceVip")
     @Expose
@@ -64,7 +60,6 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * PostgreSQL连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UniqVpcId")
     @Expose
@@ -72,7 +67,6 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * 当type为TDSQL_C_POSTGRESQL时，必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -80,7 +74,6 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsUpdate")
     @Expose
@@ -88,17 +81,14 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
     * PostgreSQL连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SelfBuilt")
     @Expose
     private Boolean SelfBuilt;
 
     /**
-     * Get PostgreSQL的连接port
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PostgreSQL的连接port 
      * @return Port PostgreSQL的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -106,19 +96,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set PostgreSQL的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Port PostgreSQL的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get PostgreSQL连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PostgreSQL连接源的用户名 
      * @return UserName PostgreSQL连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserName() {
         return this.UserName;
@@ -126,19 +112,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set PostgreSQL连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserName PostgreSQL连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
     }
 
     /**
-     * Get PostgreSQL连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PostgreSQL连接源的密码 
      * @return Password PostgreSQL连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPassword() {
         return this.Password;
@@ -146,19 +128,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set PostgreSQL连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Password PostgreSQL连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
     /**
-     * Get PostgreSQL连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PostgreSQL连接源的实例资源 
      * @return Resource PostgreSQL连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResource() {
         return this.Resource;
@@ -166,19 +144,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set PostgreSQL连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Resource PostgreSQL连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResource(String Resource) {
         this.Resource = Resource;
     }
 
     /**
-     * Get PostgreSQL连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PostgreSQL连接源的实例vip，当为腾讯云实例时，必填 
      * @return ServiceVip PostgreSQL连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceVip() {
         return this.ServiceVip;
@@ -186,19 +160,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set PostgreSQL连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceVip PostgreSQL连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceVip(String ServiceVip) {
         this.ServiceVip = ServiceVip;
     }
 
     /**
-     * Get PostgreSQL连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PostgreSQL连接源的vpcId，当为腾讯云实例时，必填 
      * @return UniqVpcId PostgreSQL连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUniqVpcId() {
         return this.UniqVpcId;
@@ -206,19 +176,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set PostgreSQL连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UniqVpcId PostgreSQL连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUniqVpcId(String UniqVpcId) {
         this.UniqVpcId = UniqVpcId;
     }
 
     /**
-     * Get 当type为TDSQL_C_POSTGRESQL时，必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当type为TDSQL_C_POSTGRESQL时，必填 
      * @return ClusterId 当type为TDSQL_C_POSTGRESQL时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -226,19 +192,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set 当type为TDSQL_C_POSTGRESQL时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 当type为TDSQL_C_POSTGRESQL时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否更新到关联的Datahub任务 
      * @return IsUpdate 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsUpdate() {
         return this.IsUpdate;
@@ -246,19 +208,15 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsUpdate 是否更新到关联的Datahub任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsUpdate(Boolean IsUpdate) {
         this.IsUpdate = IsUpdate;
     }
 
     /**
-     * Get PostgreSQL连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get PostgreSQL连接源是否为自建集群 
      * @return SelfBuilt PostgreSQL连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSelfBuilt() {
         return this.SelfBuilt;
@@ -266,9 +224,7 @@ public class PostgreSQLConnectParam extends AbstractModel{
 
     /**
      * Set PostgreSQL连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SelfBuilt PostgreSQL连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSelfBuilt(Boolean SelfBuilt) {
         this.SelfBuilt = SelfBuilt;

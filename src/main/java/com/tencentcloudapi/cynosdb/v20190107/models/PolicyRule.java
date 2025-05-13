@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PolicyRule extends AbstractModel{
+public class PolicyRule extends AbstractModel {
 
     /**
     * 策略，ACCEPT或者DROP
@@ -30,7 +31,7 @@ public class PolicyRule extends AbstractModel{
     private String Action;
 
     /**
-    * 来源IP或IP段，例如192.168.0.0/16
+    * 来源Ip或Ip段，例如192.168.0.0/16
     */
     @SerializedName("CidrIp")
     @Expose
@@ -95,16 +96,16 @@ public class PolicyRule extends AbstractModel{
     }
 
     /**
-     * Get 来源IP或IP段，例如192.168.0.0/16 
-     * @return CidrIp 来源IP或IP段，例如192.168.0.0/16
+     * Get 来源Ip或Ip段，例如192.168.0.0/16 
+     * @return CidrIp 来源Ip或Ip段，例如192.168.0.0/16
      */
     public String getCidrIp() {
         return this.CidrIp;
     }
 
     /**
-     * Set 来源IP或IP段，例如192.168.0.0/16
-     * @param CidrIp 来源IP或IP段，例如192.168.0.0/16
+     * Set 来源Ip或Ip段，例如192.168.0.0/16
+     * @param CidrIp 来源Ip或Ip段，例如192.168.0.0/16
      */
     public void setCidrIp(String CidrIp) {
         this.CidrIp = CidrIp;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClientIpHeader extends AbstractModel{
+public class ClientIpHeader extends AbstractModel {
 
     /**
     * 配置开关，取值有：
@@ -32,9 +33,7 @@ public class ClientIpHeader extends AbstractModel{
     private String Switch;
 
     /**
-    * 回源时，存放客户端 IP 的请求头名称。
-为空则使用默认值：X-Forwarded-IP。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 回源时，存放客户端 IP 的请求头名称。当 Switch 为 on 时，该参数必填。该参数不允许填写 X-Forwarded-For。
     */
     @SerializedName("HeaderName")
     @Expose
@@ -65,24 +64,16 @@ public class ClientIpHeader extends AbstractModel{
     }
 
     /**
-     * Get 回源时，存放客户端 IP 的请求头名称。
-为空则使用默认值：X-Forwarded-IP。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HeaderName 回源时，存放客户端 IP 的请求头名称。
-为空则使用默认值：X-Forwarded-IP。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 回源时，存放客户端 IP 的请求头名称。当 Switch 为 on 时，该参数必填。该参数不允许填写 X-Forwarded-For。 
+     * @return HeaderName 回源时，存放客户端 IP 的请求头名称。当 Switch 为 on 时，该参数必填。该参数不允许填写 X-Forwarded-For。
      */
     public String getHeaderName() {
         return this.HeaderName;
     }
 
     /**
-     * Set 回源时，存放客户端 IP 的请求头名称。
-为空则使用默认值：X-Forwarded-IP。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param HeaderName 回源时，存放客户端 IP 的请求头名称。
-为空则使用默认值：X-Forwarded-IP。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 回源时，存放客户端 IP 的请求头名称。当 Switch 为 on 时，该参数必填。该参数不允许填写 X-Forwarded-For。
+     * @param HeaderName 回源时，存放客户端 IP 的请求头名称。当 Switch 为 on 时，该参数必填。该参数不允许填写 X-Forwarded-For。
      */
     public void setHeaderName(String HeaderName) {
         this.HeaderName = HeaderName;

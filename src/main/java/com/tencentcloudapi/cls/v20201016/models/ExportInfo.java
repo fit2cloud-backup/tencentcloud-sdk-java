@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExportInfo extends AbstractModel{
+public class ExportInfo extends AbstractModel {
 
     /**
     * 日志主题ID
@@ -100,7 +101,7 @@ public class ExportInfo extends AbstractModel{
     private Long To;
 
     /**
-    * 日志导出路径
+    * 日志导出路径,有效期一个小时，请尽快使用该路径下载。
     */
     @SerializedName("CosPath")
     @Expose
@@ -112,6 +113,21 @@ public class ExportInfo extends AbstractModel{
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
+
+    /**
+    * 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
+    */
+    @SerializedName("SyntaxRule")
+    @Expose
+    private Long SyntaxRule;
+
+    /**
+    * 导出字段
+    */
+    @SerializedName("DerivedFields")
+    @Expose
+    private String [] DerivedFields;
 
     /**
      * Get 日志主题ID 
@@ -290,16 +306,16 @@ public class ExportInfo extends AbstractModel{
     }
 
     /**
-     * Get 日志导出路径 
-     * @return CosPath 日志导出路径
+     * Get 日志导出路径,有效期一个小时，请尽快使用该路径下载。 
+     * @return CosPath 日志导出路径,有效期一个小时，请尽快使用该路径下载。
      */
     public String getCosPath() {
         return this.CosPath;
     }
 
     /**
-     * Set 日志导出路径
-     * @param CosPath 日志导出路径
+     * Set 日志导出路径,有效期一个小时，请尽快使用该路径下载。
+     * @param CosPath 日志导出路径,有效期一个小时，请尽快使用该路径下载。
      */
     public void setCosPath(String CosPath) {
         this.CosPath = CosPath;
@@ -319,6 +335,42 @@ public class ExportInfo extends AbstractModel{
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。 
+     * @return SyntaxRule 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
+     */
+    public Long getSyntaxRule() {
+        return this.SyntaxRule;
+    }
+
+    /**
+     * Set 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
+     * @param SyntaxRule 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
+     */
+    public void setSyntaxRule(Long SyntaxRule) {
+        this.SyntaxRule = SyntaxRule;
+    }
+
+    /**
+     * Get 导出字段 
+     * @return DerivedFields 导出字段
+     */
+    public String [] getDerivedFields() {
+        return this.DerivedFields;
+    }
+
+    /**
+     * Set 导出字段
+     * @param DerivedFields 导出字段
+     */
+    public void setDerivedFields(String [] DerivedFields) {
+        this.DerivedFields = DerivedFields;
     }
 
     public ExportInfo() {
@@ -368,6 +420,15 @@ public class ExportInfo extends AbstractModel{
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.SyntaxRule != null) {
+            this.SyntaxRule = new Long(source.SyntaxRule);
+        }
+        if (source.DerivedFields != null) {
+            this.DerivedFields = new String[source.DerivedFields.length];
+            for (int i = 0; i < source.DerivedFields.length; i++) {
+                this.DerivedFields[i] = new String(source.DerivedFields[i]);
+            }
+        }
     }
 
 
@@ -388,6 +449,8 @@ public class ExportInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "To", this.To);
         this.setParamSimple(map, prefix + "CosPath", this.CosPath);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "SyntaxRule", this.SyntaxRule);
+        this.setParamArraySimple(map, prefix + "DerivedFields.", this.DerivedFields);
 
     }
 }

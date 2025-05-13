@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccountInfo extends AbstractModel{
+public class AccountInfo extends AbstractModel {
 
     /**
     * 账号备注信息
@@ -70,6 +71,13 @@ public class AccountInfo extends AbstractModel{
     @SerializedName("MaxUserConnections")
     @Expose
     private Long MaxUserConnections;
+
+    /**
+    * 用户账号是否开启了密码轮转
+    */
+    @SerializedName("OpenCam")
+    @Expose
+    private Boolean OpenCam;
 
     /**
      * Get 账号备注信息 
@@ -183,6 +191,22 @@ public class AccountInfo extends AbstractModel{
         this.MaxUserConnections = MaxUserConnections;
     }
 
+    /**
+     * Get 用户账号是否开启了密码轮转 
+     * @return OpenCam 用户账号是否开启了密码轮转
+     */
+    public Boolean getOpenCam() {
+        return this.OpenCam;
+    }
+
+    /**
+     * Set 用户账号是否开启了密码轮转
+     * @param OpenCam 用户账号是否开启了密码轮转
+     */
+    public void setOpenCam(Boolean OpenCam) {
+        this.OpenCam = OpenCam;
+    }
+
     public AccountInfo() {
     }
 
@@ -212,6 +236,9 @@ public class AccountInfo extends AbstractModel{
         if (source.MaxUserConnections != null) {
             this.MaxUserConnections = new Long(source.MaxUserConnections);
         }
+        if (source.OpenCam != null) {
+            this.OpenCam = new Boolean(source.OpenCam);
+        }
     }
 
 
@@ -226,6 +253,7 @@ public class AccountInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ModifyPasswordTime", this.ModifyPasswordTime);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "MaxUserConnections", this.MaxUserConnections);
+        this.setParamSimple(map, prefix + "OpenCam", this.OpenCam);
 
     }
 }

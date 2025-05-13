@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mna.v20210119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateDeviceRequest extends AbstractModel{
+public class UpdateDeviceRequest extends AbstractModel {
 
     /**
     * 设备id
@@ -49,6 +50,13 @@ public class UpdateDeviceRequest extends AbstractModel{
     @SerializedName("UpdateNetInfo")
     @Expose
     private UpdateNetInfo [] UpdateNetInfo;
+
+    /**
+    * 设备无流量包处理方式，0: 按量付费，1: 截断加速
+    */
+    @SerializedName("FlowTrunc")
+    @Expose
+    private Long FlowTrunc;
 
     /**
      * Get 设备id 
@@ -114,6 +122,22 @@ public class UpdateDeviceRequest extends AbstractModel{
         this.UpdateNetInfo = UpdateNetInfo;
     }
 
+    /**
+     * Get 设备无流量包处理方式，0: 按量付费，1: 截断加速 
+     * @return FlowTrunc 设备无流量包处理方式，0: 按量付费，1: 截断加速
+     */
+    public Long getFlowTrunc() {
+        return this.FlowTrunc;
+    }
+
+    /**
+     * Set 设备无流量包处理方式，0: 按量付费，1: 截断加速
+     * @param FlowTrunc 设备无流量包处理方式，0: 按量付费，1: 截断加速
+     */
+    public void setFlowTrunc(Long FlowTrunc) {
+        this.FlowTrunc = FlowTrunc;
+    }
+
     public UpdateDeviceRequest() {
     }
 
@@ -137,6 +161,9 @@ public class UpdateDeviceRequest extends AbstractModel{
                 this.UpdateNetInfo[i] = new UpdateNetInfo(source.UpdateNetInfo[i]);
             }
         }
+        if (source.FlowTrunc != null) {
+            this.FlowTrunc = new Long(source.FlowTrunc);
+        }
     }
 
 
@@ -148,6 +175,7 @@ public class UpdateDeviceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DeviceName", this.DeviceName);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamArrayObj(map, prefix + "UpdateNetInfo.", this.UpdateNetInfo);
+        this.setParamSimple(map, prefix + "FlowTrunc", this.FlowTrunc);
 
     }
 }

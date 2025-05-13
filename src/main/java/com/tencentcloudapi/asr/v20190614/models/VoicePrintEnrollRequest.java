@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VoicePrintEnrollRequest extends AbstractModel{
+public class VoicePrintEnrollRequest extends AbstractModel {
 
     /**
     * 音频格式 0: pcm, 1: wav
@@ -49,6 +50,13 @@ public class VoicePrintEnrollRequest extends AbstractModel{
     @SerializedName("SpeakerNick")
     @Expose
     private String SpeakerNick;
+
+    /**
+    * 分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
 
     /**
      * Get 音频格式 0: pcm, 1: wav 
@@ -114,6 +122,22 @@ public class VoicePrintEnrollRequest extends AbstractModel{
         this.SpeakerNick = SpeakerNick;
     }
 
+    /**
+     * Get 分组id, 仅支持大小写字母和下划线的组合，不超过128个字符 
+     * @return GroupId 分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
+     * @param GroupId 分组id, 仅支持大小写字母和下划线的组合，不超过128个字符
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
     public VoicePrintEnrollRequest() {
     }
 
@@ -134,6 +158,9 @@ public class VoicePrintEnrollRequest extends AbstractModel{
         if (source.SpeakerNick != null) {
             this.SpeakerNick = new String(source.SpeakerNick);
         }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class VoicePrintEnrollRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SampleRate", this.SampleRate);
         this.setParamSimple(map, prefix + "Data", this.Data);
         this.setParamSimple(map, prefix + "SpeakerNick", this.SpeakerNick);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
 
     }
 }

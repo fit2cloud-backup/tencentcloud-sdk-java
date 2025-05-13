@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloudNativeAPIGatewayRateLimitDetail extends AbstractModel{
+public class CloudNativeAPIGatewayRateLimitDetail extends AbstractModel {
 
     /**
     * 插件启用状态
@@ -37,12 +38,59 @@ public class CloudNativeAPIGatewayRateLimitDetail extends AbstractModel{
     private QpsThreshold [] QpsThresholds;
 
     /**
+    * 需要进行流量控制的请求路径
+    */
+    @SerializedName("Path")
+    @Expose
+    private String Path;
+
+    /**
+    * 需要进行流量控制的请求头Key
+    */
+    @SerializedName("Header")
+    @Expose
+    private String Header;
+
+    /**
     * 限流依据
 ip service consumer credential path header
     */
     @SerializedName("LimitBy")
     @Expose
     private String LimitBy;
+
+    /**
+    * 外部redis配置
+    */
+    @SerializedName("ExternalRedis")
+    @Expose
+    private ExternalRedis ExternalRedis;
+
+    /**
+    * 计数器策略 
+local 单机
+redis  默认redis
+external_redis 外部redis
+
+    */
+    @SerializedName("Policy")
+    @Expose
+    private String Policy;
+
+    /**
+    * 响应配置，响应策略为text
+
+    */
+    @SerializedName("RateLimitResponse")
+    @Expose
+    private RateLimitResponse RateLimitResponse;
+
+    /**
+    * 请求转发地址
+    */
+    @SerializedName("RateLimitResponseUrl")
+    @Expose
+    private String RateLimitResponseUrl;
 
     /**
     * 响应策略
@@ -63,6 +111,13 @@ default 直接返回
     private Boolean HideClientHeaders;
 
     /**
+    * 排队时间
+    */
+    @SerializedName("LineUpTime")
+    @Expose
+    private Long LineUpTime;
+
+    /**
     * 是否开启请求排队
     */
     @SerializedName("IsDelay")
@@ -70,64 +125,20 @@ default 直接返回
     private Boolean IsDelay;
 
     /**
-    * 需要进行流量控制的请求路径
+    * 基础限流
 注意：此字段可能返回 null，表示取不到有效值。
     */
-    @SerializedName("Path")
+    @SerializedName("BasicLimitQpsThresholds")
     @Expose
-    private String Path;
+    private QpsThreshold [] BasicLimitQpsThresholds;
 
     /**
-    * 需要进行流量控制的请求头Key
+    * 参数限流的规则
 注意：此字段可能返回 null，表示取不到有效值。
     */
-    @SerializedName("Header")
+    @SerializedName("LimitRules")
     @Expose
-    private String Header;
-
-    /**
-    * 外部redis配置
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("ExternalRedis")
-    @Expose
-    private ExternalRedis ExternalRedis;
-
-    /**
-    * 计数器策略 
-local 单机
-redis  默认redis
-external_redis 外部redis
-
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("Policy")
-    @Expose
-    private String Policy;
-
-    /**
-    * 响应配置，响应策略为text
-
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("RateLimitResponse")
-    @Expose
-    private RateLimitResponse RateLimitResponse;
-
-    /**
-    * 请求转发地址
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("RateLimitResponseUrl")
-    @Expose
-    private String RateLimitResponseUrl;
-
-    /**
-    * 排队时间
-    */
-    @SerializedName("LineUpTime")
-    @Expose
-    private Long LineUpTime;
+    private LimitRule [] LimitRules;
 
     /**
      * Get 插件启用状态 
@@ -162,6 +173,38 @@ external_redis 外部redis
     }
 
     /**
+     * Get 需要进行流量控制的请求路径 
+     * @return Path 需要进行流量控制的请求路径
+     */
+    public String getPath() {
+        return this.Path;
+    }
+
+    /**
+     * Set 需要进行流量控制的请求路径
+     * @param Path 需要进行流量控制的请求路径
+     */
+    public void setPath(String Path) {
+        this.Path = Path;
+    }
+
+    /**
+     * Get 需要进行流量控制的请求头Key 
+     * @return Header 需要进行流量控制的请求头Key
+     */
+    public String getHeader() {
+        return this.Header;
+    }
+
+    /**
+     * Set 需要进行流量控制的请求头Key
+     * @param Header 需要进行流量控制的请求头Key
+     */
+    public void setHeader(String Header) {
+        this.Header = Header;
+    }
+
+    /**
      * Get 限流依据
 ip service consumer credential path header 
      * @return LimitBy 限流依据
@@ -179,6 +222,90 @@ ip service consumer credential path header
      */
     public void setLimitBy(String LimitBy) {
         this.LimitBy = LimitBy;
+    }
+
+    /**
+     * Get 外部redis配置 
+     * @return ExternalRedis 外部redis配置
+     */
+    public ExternalRedis getExternalRedis() {
+        return this.ExternalRedis;
+    }
+
+    /**
+     * Set 外部redis配置
+     * @param ExternalRedis 外部redis配置
+     */
+    public void setExternalRedis(ExternalRedis ExternalRedis) {
+        this.ExternalRedis = ExternalRedis;
+    }
+
+    /**
+     * Get 计数器策略 
+local 单机
+redis  默认redis
+external_redis 外部redis
+ 
+     * @return Policy 计数器策略 
+local 单机
+redis  默认redis
+external_redis 外部redis
+
+     */
+    public String getPolicy() {
+        return this.Policy;
+    }
+
+    /**
+     * Set 计数器策略 
+local 单机
+redis  默认redis
+external_redis 外部redis
+
+     * @param Policy 计数器策略 
+local 单机
+redis  默认redis
+external_redis 外部redis
+
+     */
+    public void setPolicy(String Policy) {
+        this.Policy = Policy;
+    }
+
+    /**
+     * Get 响应配置，响应策略为text
+ 
+     * @return RateLimitResponse 响应配置，响应策略为text
+
+     */
+    public RateLimitResponse getRateLimitResponse() {
+        return this.RateLimitResponse;
+    }
+
+    /**
+     * Set 响应配置，响应策略为text
+
+     * @param RateLimitResponse 响应配置，响应策略为text
+
+     */
+    public void setRateLimitResponse(RateLimitResponse RateLimitResponse) {
+        this.RateLimitResponse = RateLimitResponse;
+    }
+
+    /**
+     * Get 请求转发地址 
+     * @return RateLimitResponseUrl 请求转发地址
+     */
+    public String getRateLimitResponseUrl() {
+        return this.RateLimitResponseUrl;
+    }
+
+    /**
+     * Set 请求转发地址
+     * @param RateLimitResponseUrl 请求转发地址
+     */
+    public void setRateLimitResponseUrl(String RateLimitResponseUrl) {
+        this.RateLimitResponseUrl = RateLimitResponseUrl;
     }
 
     /**
@@ -230,6 +357,22 @@ default 直接返回
     }
 
     /**
+     * Get 排队时间 
+     * @return LineUpTime 排队时间
+     */
+    public Long getLineUpTime() {
+        return this.LineUpTime;
+    }
+
+    /**
+     * Set 排队时间
+     * @param LineUpTime 排队时间
+     */
+    public void setLineUpTime(Long LineUpTime) {
+        this.LineUpTime = LineUpTime;
+    }
+
+    /**
      * Get 是否开启请求排队 
      * @return IsDelay 是否开启请求排队
      */
@@ -246,159 +389,43 @@ default 直接返回
     }
 
     /**
-     * Get 需要进行流量控制的请求路径
+     * Get 基础限流
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Path 需要进行流量控制的请求路径
+     * @return BasicLimitQpsThresholds 基础限流
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public String getPath() {
-        return this.Path;
+    public QpsThreshold [] getBasicLimitQpsThresholds() {
+        return this.BasicLimitQpsThresholds;
     }
 
     /**
-     * Set 需要进行流量控制的请求路径
+     * Set 基础限流
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Path 需要进行流量控制的请求路径
+     * @param BasicLimitQpsThresholds 基础限流
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setPath(String Path) {
-        this.Path = Path;
+    public void setBasicLimitQpsThresholds(QpsThreshold [] BasicLimitQpsThresholds) {
+        this.BasicLimitQpsThresholds = BasicLimitQpsThresholds;
     }
 
     /**
-     * Get 需要进行流量控制的请求头Key
+     * Get 参数限流的规则
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Header 需要进行流量控制的请求头Key
+     * @return LimitRules 参数限流的规则
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public String getHeader() {
-        return this.Header;
+    public LimitRule [] getLimitRules() {
+        return this.LimitRules;
     }
 
     /**
-     * Set 需要进行流量控制的请求头Key
+     * Set 参数限流的规则
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Header 需要进行流量控制的请求头Key
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setHeader(String Header) {
-        this.Header = Header;
-    }
-
-    /**
-     * Get 外部redis配置
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ExternalRedis 外部redis配置
+     * @param LimitRules 参数限流的规则
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public ExternalRedis getExternalRedis() {
-        return this.ExternalRedis;
-    }
-
-    /**
-     * Set 外部redis配置
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ExternalRedis 外部redis配置
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setExternalRedis(ExternalRedis ExternalRedis) {
-        this.ExternalRedis = ExternalRedis;
-    }
-
-    /**
-     * Get 计数器策略 
-local 单机
-redis  默认redis
-external_redis 外部redis
-
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Policy 计数器策略 
-local 单机
-redis  默认redis
-external_redis 外部redis
-
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String getPolicy() {
-        return this.Policy;
-    }
-
-    /**
-     * Set 计数器策略 
-local 单机
-redis  默认redis
-external_redis 外部redis
-
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Policy 计数器策略 
-local 单机
-redis  默认redis
-external_redis 外部redis
-
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setPolicy(String Policy) {
-        this.Policy = Policy;
-    }
-
-    /**
-     * Get 响应配置，响应策略为text
-
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RateLimitResponse 响应配置，响应策略为text
-
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public RateLimitResponse getRateLimitResponse() {
-        return this.RateLimitResponse;
-    }
-
-    /**
-     * Set 响应配置，响应策略为text
-
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RateLimitResponse 响应配置，响应策略为text
-
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setRateLimitResponse(RateLimitResponse RateLimitResponse) {
-        this.RateLimitResponse = RateLimitResponse;
-    }
-
-    /**
-     * Get 请求转发地址
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RateLimitResponseUrl 请求转发地址
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String getRateLimitResponseUrl() {
-        return this.RateLimitResponseUrl;
-    }
-
-    /**
-     * Set 请求转发地址
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RateLimitResponseUrl 请求转发地址
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setRateLimitResponseUrl(String RateLimitResponseUrl) {
-        this.RateLimitResponseUrl = RateLimitResponseUrl;
-    }
-
-    /**
-     * Get 排队时间 
-     * @return LineUpTime 排队时间
-     */
-    public Long getLineUpTime() {
-        return this.LineUpTime;
-    }
-
-    /**
-     * Set 排队时间
-     * @param LineUpTime 排队时间
-     */
-    public void setLineUpTime(Long LineUpTime) {
-        this.LineUpTime = LineUpTime;
+    public void setLimitRules(LimitRule [] LimitRules) {
+        this.LimitRules = LimitRules;
     }
 
     public CloudNativeAPIGatewayRateLimitDetail() {
@@ -418,23 +445,14 @@ external_redis 外部redis
                 this.QpsThresholds[i] = new QpsThreshold(source.QpsThresholds[i]);
             }
         }
-        if (source.LimitBy != null) {
-            this.LimitBy = new String(source.LimitBy);
-        }
-        if (source.ResponseType != null) {
-            this.ResponseType = new String(source.ResponseType);
-        }
-        if (source.HideClientHeaders != null) {
-            this.HideClientHeaders = new Boolean(source.HideClientHeaders);
-        }
-        if (source.IsDelay != null) {
-            this.IsDelay = new Boolean(source.IsDelay);
-        }
         if (source.Path != null) {
             this.Path = new String(source.Path);
         }
         if (source.Header != null) {
             this.Header = new String(source.Header);
+        }
+        if (source.LimitBy != null) {
+            this.LimitBy = new String(source.LimitBy);
         }
         if (source.ExternalRedis != null) {
             this.ExternalRedis = new ExternalRedis(source.ExternalRedis);
@@ -448,8 +466,29 @@ external_redis 外部redis
         if (source.RateLimitResponseUrl != null) {
             this.RateLimitResponseUrl = new String(source.RateLimitResponseUrl);
         }
+        if (source.ResponseType != null) {
+            this.ResponseType = new String(source.ResponseType);
+        }
+        if (source.HideClientHeaders != null) {
+            this.HideClientHeaders = new Boolean(source.HideClientHeaders);
+        }
         if (source.LineUpTime != null) {
             this.LineUpTime = new Long(source.LineUpTime);
+        }
+        if (source.IsDelay != null) {
+            this.IsDelay = new Boolean(source.IsDelay);
+        }
+        if (source.BasicLimitQpsThresholds != null) {
+            this.BasicLimitQpsThresholds = new QpsThreshold[source.BasicLimitQpsThresholds.length];
+            for (int i = 0; i < source.BasicLimitQpsThresholds.length; i++) {
+                this.BasicLimitQpsThresholds[i] = new QpsThreshold(source.BasicLimitQpsThresholds[i]);
+            }
+        }
+        if (source.LimitRules != null) {
+            this.LimitRules = new LimitRule[source.LimitRules.length];
+            for (int i = 0; i < source.LimitRules.length; i++) {
+                this.LimitRules[i] = new LimitRule(source.LimitRules[i]);
+            }
         }
     }
 
@@ -460,17 +499,19 @@ external_redis 外部redis
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Enabled", this.Enabled);
         this.setParamArrayObj(map, prefix + "QpsThresholds.", this.QpsThresholds);
-        this.setParamSimple(map, prefix + "LimitBy", this.LimitBy);
-        this.setParamSimple(map, prefix + "ResponseType", this.ResponseType);
-        this.setParamSimple(map, prefix + "HideClientHeaders", this.HideClientHeaders);
-        this.setParamSimple(map, prefix + "IsDelay", this.IsDelay);
         this.setParamSimple(map, prefix + "Path", this.Path);
         this.setParamSimple(map, prefix + "Header", this.Header);
+        this.setParamSimple(map, prefix + "LimitBy", this.LimitBy);
         this.setParamObj(map, prefix + "ExternalRedis.", this.ExternalRedis);
         this.setParamSimple(map, prefix + "Policy", this.Policy);
         this.setParamObj(map, prefix + "RateLimitResponse.", this.RateLimitResponse);
         this.setParamSimple(map, prefix + "RateLimitResponseUrl", this.RateLimitResponseUrl);
+        this.setParamSimple(map, prefix + "ResponseType", this.ResponseType);
+        this.setParamSimple(map, prefix + "HideClientHeaders", this.HideClientHeaders);
         this.setParamSimple(map, prefix + "LineUpTime", this.LineUpTime);
+        this.setParamSimple(map, prefix + "IsDelay", this.IsDelay);
+        this.setParamArrayObj(map, prefix + "BasicLimitQpsThresholds.", this.BasicLimitQpsThresholds);
+        this.setParamArrayObj(map, prefix + "LimitRules.", this.LimitRules);
 
     }
 }

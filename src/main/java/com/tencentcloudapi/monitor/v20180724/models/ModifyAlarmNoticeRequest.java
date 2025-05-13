@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyAlarmNoticeRequest extends AbstractModel{
+public class ModifyAlarmNoticeRequest extends AbstractModel {
 
     /**
     * 模块名，这里填“monitor”
@@ -65,7 +66,7 @@ public class ModifyAlarmNoticeRequest extends AbstractModel{
     private UserNotice [] UserNotices;
 
     /**
-    * 回调通知 最多3个
+    * 回调通知 最多6个
     */
     @SerializedName("URLNotices")
     @Expose
@@ -182,16 +183,16 @@ public class ModifyAlarmNoticeRequest extends AbstractModel{
     }
 
     /**
-     * Get 回调通知 最多3个 
-     * @return URLNotices 回调通知 最多3个
+     * Get 回调通知 最多6个 
+     * @return URLNotices 回调通知 最多6个
      */
     public URLNotice [] getURLNotices() {
         return this.URLNotices;
     }
 
     /**
-     * Set 回调通知 最多3个
-     * @param URLNotices 回调通知 最多3个
+     * Set 回调通知 最多6个
+     * @param URLNotices 回调通知 最多6个
      */
     public void setURLNotices(URLNotice [] URLNotices) {
         this.URLNotices = URLNotices;

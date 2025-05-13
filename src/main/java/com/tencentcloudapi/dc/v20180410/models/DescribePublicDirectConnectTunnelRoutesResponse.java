@@ -16,76 +16,77 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePublicDirectConnectTunnelRoutesResponse extends AbstractModel{
+public class DescribePublicDirectConnectTunnelRoutesResponse extends AbstractModel {
 
     /**
-    * 互联网通道路由列表
+    * 互联网通道路由列表。
     */
     @SerializedName("Routes")
     @Expose
     private DirectConnectTunnelRoute [] Routes;
 
     /**
-    * 记录总数
+    * 路由总数量。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 互联网通道路由列表 
-     * @return Routes 互联网通道路由列表
+     * Get 互联网通道路由列表。 
+     * @return Routes 互联网通道路由列表。
      */
     public DirectConnectTunnelRoute [] getRoutes() {
         return this.Routes;
     }
 
     /**
-     * Set 互联网通道路由列表
-     * @param Routes 互联网通道路由列表
+     * Set 互联网通道路由列表。
+     * @param Routes 互联网通道路由列表。
      */
     public void setRoutes(DirectConnectTunnelRoute [] Routes) {
         this.Routes = Routes;
     }
 
     /**
-     * Get 记录总数 
-     * @return TotalCount 记录总数
+     * Get 路由总数量。 
+     * @return TotalCount 路由总数量。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 记录总数
-     * @param TotalCount 记录总数
+     * Set 路由总数量。
+     * @param TotalCount 路由总数量。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeployRecordDetail extends AbstractModel{
+public class DeployRecordDetail extends AbstractModel {
 
     /**
     * 部署记录详情ID
@@ -38,7 +39,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 原绑定证书ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OldCertId")
     @Expose
@@ -60,7 +60,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 部署监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ListenerId")
     @Expose
@@ -75,7 +74,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 部署监听器协议
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Protocol")
     @Expose
@@ -90,7 +88,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 部署错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorMsg")
     @Expose
@@ -126,7 +123,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * COS存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Bucket")
     @Expose
@@ -134,7 +130,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Namespace")
     @Expose
@@ -142,7 +137,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * secret名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SecretName")
     @Expose
@@ -150,7 +144,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
@@ -158,7 +151,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * TCB环境ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvId")
     @Expose
@@ -166,7 +158,6 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 部署的TCB类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TCBType")
     @Expose
@@ -174,11 +165,17 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
     * 部署的TCB地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
     private String Region;
+
+    /**
+    * 部署CLB监听器的Url
+    */
+    @SerializedName("Url")
+    @Expose
+    private String [] Url;
 
     /**
      * Get 部署记录详情ID 
@@ -213,10 +210,8 @@ public class DeployRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get 原绑定证书ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原绑定证书ID 
      * @return OldCertId 原绑定证书ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOldCertId() {
         return this.OldCertId;
@@ -224,9 +219,7 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 原绑定证书ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OldCertId 原绑定证书ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOldCertId(String OldCertId) {
         this.OldCertId = OldCertId;
@@ -265,10 +258,8 @@ public class DeployRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get 部署监听器ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署监听器ID 
      * @return ListenerId 部署监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getListenerId() {
         return this.ListenerId;
@@ -276,9 +267,7 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 部署监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ListenerId 部署监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
@@ -301,10 +290,8 @@ public class DeployRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get 部署监听器协议
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署监听器协议 
      * @return Protocol 部署监听器协议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProtocol() {
         return this.Protocol;
@@ -312,9 +299,7 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 部署监听器协议
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Protocol 部署监听器协议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -337,10 +322,8 @@ public class DeployRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get 部署错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署错误信息 
      * @return ErrorMsg 部署错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorMsg() {
         return this.ErrorMsg;
@@ -348,9 +331,7 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 部署错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorMsg 部署错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorMsg(String ErrorMsg) {
         this.ErrorMsg = ErrorMsg;
@@ -421,10 +402,8 @@ public class DeployRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get COS存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get COS存储桶名称 
      * @return Bucket COS存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucket() {
         return this.Bucket;
@@ -432,19 +411,15 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set COS存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Bucket COS存储桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucket(String Bucket) {
         this.Bucket = Bucket;
     }
 
     /**
-     * Get 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命名空间名称 
      * @return Namespace 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespace() {
         return this.Namespace;
@@ -452,19 +427,15 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Namespace 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
     }
 
     /**
-     * Get secret名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get secret名称 
      * @return SecretName secret名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSecretName() {
         return this.SecretName;
@@ -472,19 +443,15 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set secret名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SecretName secret名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecretName(String SecretName) {
         this.SecretName = SecretName;
     }
 
     /**
-     * Get 端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 端口 
      * @return Port 端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -492,19 +459,15 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Port 端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get TCB环境ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TCB环境ID 
      * @return EnvId TCB环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvId() {
         return this.EnvId;
@@ -512,19 +475,15 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set TCB环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvId TCB环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvId(String EnvId) {
         this.EnvId = EnvId;
     }
 
     /**
-     * Get 部署的TCB类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署的TCB类型 
      * @return TCBType 部署的TCB类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTCBType() {
         return this.TCBType;
@@ -532,19 +491,15 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 部署的TCB类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TCBType 部署的TCB类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTCBType(String TCBType) {
         this.TCBType = TCBType;
     }
 
     /**
-     * Get 部署的TCB地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署的TCB地域 
      * @return Region 部署的TCB地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -552,12 +507,26 @@ public class DeployRecordDetail extends AbstractModel{
 
     /**
      * Set 部署的TCB地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 部署的TCB地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
+    }
+
+    /**
+     * Get 部署CLB监听器的Url 
+     * @return Url 部署CLB监听器的Url
+     */
+    public String [] getUrl() {
+        return this.Url;
+    }
+
+    /**
+     * Set 部署CLB监听器的Url
+     * @param Url 部署CLB监听器的Url
+     */
+    public void setUrl(String [] Url) {
+        this.Url = Url;
     }
 
     public DeployRecordDetail() {
@@ -634,6 +603,12 @@ public class DeployRecordDetail extends AbstractModel{
         if (source.Region != null) {
             this.Region = new String(source.Region);
         }
+        if (source.Url != null) {
+            this.Url = new String[source.Url.length];
+            for (int i = 0; i < source.Url.length; i++) {
+                this.Url[i] = new String(source.Url[i]);
+            }
+        }
     }
 
 
@@ -662,6 +637,7 @@ public class DeployRecordDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "EnvId", this.EnvId);
         this.setParamSimple(map, prefix + "TCBType", this.TCBType);
         this.setParamSimple(map, prefix + "Region", this.Region);
+        this.setParamArraySimple(map, prefix + "Url.", this.Url);
 
     }
 }

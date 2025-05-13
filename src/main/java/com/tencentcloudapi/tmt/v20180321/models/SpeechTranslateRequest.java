@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tmt.v20180321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SpeechTranslateRequest extends AbstractModel{
+public class SpeechTranslateRequest extends AbstractModel {
 
     /**
     * 一段完整的语音对应一个SessionUuid
@@ -223,7 +224,9 @@ public class SpeechTranslateRequest extends AbstractModel{
     /**
      * Get 识别模式，该参数已废弃 
      * @return Mode 识别模式，该参数已废弃
+     * @deprecated
      */
+    @Deprecated
     public String getMode() {
         return this.Mode;
     }
@@ -231,7 +234,9 @@ public class SpeechTranslateRequest extends AbstractModel{
     /**
      * Set 识别模式，该参数已废弃
      * @param Mode 识别模式，该参数已废弃
+     * @deprecated
      */
+    @Deprecated
     public void setMode(String Mode) {
         this.Mode = Mode;
     }
@@ -239,7 +244,9 @@ public class SpeechTranslateRequest extends AbstractModel{
     /**
      * Get 该参数已废弃 
      * @return TransType 该参数已废弃
+     * @deprecated
      */
+    @Deprecated
     public Long getTransType() {
         return this.TransType;
     }
@@ -247,7 +254,9 @@ public class SpeechTranslateRequest extends AbstractModel{
     /**
      * Set 该参数已废弃
      * @param TransType 该参数已废弃
+     * @deprecated
      */
+    @Deprecated
     public void setTransType(Long TransType) {
         this.TransType = TransType;
     }

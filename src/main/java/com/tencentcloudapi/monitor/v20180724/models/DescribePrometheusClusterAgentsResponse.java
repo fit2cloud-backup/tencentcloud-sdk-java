@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePrometheusClusterAgentsResponse extends AbstractModel{
+public class DescribePrometheusClusterAgentsResponse extends AbstractModel {
 
     /**
     * 被关联集群信息
@@ -37,14 +38,21 @@ public class DescribePrometheusClusterAgentsResponse extends AbstractModel{
     private Long Total;
 
     /**
-    * 是否为首次绑定，需要安装预聚合规则
+    * 是否为首次绑定，如果是首次绑定则需要安装预聚合规则
     */
     @SerializedName("IsFirstBind")
     @Expose
     private Boolean IsFirstBind;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 实例组件是否需要更新镜像版本
+    */
+    @SerializedName("ImageNeedUpdate")
+    @Expose
+    private Boolean ImageNeedUpdate;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -83,32 +91,48 @@ public class DescribePrometheusClusterAgentsResponse extends AbstractModel{
     }
 
     /**
-     * Get 是否为首次绑定，需要安装预聚合规则 
-     * @return IsFirstBind 是否为首次绑定，需要安装预聚合规则
+     * Get 是否为首次绑定，如果是首次绑定则需要安装预聚合规则 
+     * @return IsFirstBind 是否为首次绑定，如果是首次绑定则需要安装预聚合规则
      */
     public Boolean getIsFirstBind() {
         return this.IsFirstBind;
     }
 
     /**
-     * Set 是否为首次绑定，需要安装预聚合规则
-     * @param IsFirstBind 是否为首次绑定，需要安装预聚合规则
+     * Set 是否为首次绑定，如果是首次绑定则需要安装预聚合规则
+     * @param IsFirstBind 是否为首次绑定，如果是首次绑定则需要安装预聚合规则
      */
     public void setIsFirstBind(Boolean IsFirstBind) {
         this.IsFirstBind = IsFirstBind;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 实例组件是否需要更新镜像版本 
+     * @return ImageNeedUpdate 实例组件是否需要更新镜像版本
+     */
+    public Boolean getImageNeedUpdate() {
+        return this.ImageNeedUpdate;
+    }
+
+    /**
+     * Set 实例组件是否需要更新镜像版本
+     * @param ImageNeedUpdate 实例组件是否需要更新镜像版本
+     */
+    public void setImageNeedUpdate(Boolean ImageNeedUpdate) {
+        this.ImageNeedUpdate = ImageNeedUpdate;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -134,6 +158,9 @@ public class DescribePrometheusClusterAgentsResponse extends AbstractModel{
         if (source.IsFirstBind != null) {
             this.IsFirstBind = new Boolean(source.IsFirstBind);
         }
+        if (source.ImageNeedUpdate != null) {
+            this.ImageNeedUpdate = new Boolean(source.ImageNeedUpdate);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -147,6 +174,7 @@ public class DescribePrometheusClusterAgentsResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Agents.", this.Agents);
         this.setParamSimple(map, prefix + "Total", this.Total);
         this.setParamSimple(map, prefix + "IsFirstBind", this.IsFirstBind);
+        this.setParamSimple(map, prefix + "ImageNeedUpdate", this.ImageNeedUpdate);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

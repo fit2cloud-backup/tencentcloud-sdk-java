@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyCcnAttributeRequest extends AbstractModel{
+public class ModifyCcnAttributeRequest extends AbstractModel {
 
     /**
     * CCN实例ID。形如：ccn-f49l6u0z。
@@ -42,6 +43,20 @@ public class ModifyCcnAttributeRequest extends AbstractModel{
     @SerializedName("CcnDescription")
     @Expose
     private String CcnDescription;
+
+    /**
+    * 是否开启等价路由功能。`False` 不开启，`True` 开启。
+    */
+    @SerializedName("RouteECMPFlag")
+    @Expose
+    private Boolean RouteECMPFlag;
+
+    /**
+    * 是否开启路由重叠功能。`False` 不开启，`True` 开启。
+    */
+    @SerializedName("RouteOverlapFlag")
+    @Expose
+    private Boolean RouteOverlapFlag;
 
     /**
      * Get CCN实例ID。形如：ccn-f49l6u0z。 
@@ -91,6 +106,38 @@ public class ModifyCcnAttributeRequest extends AbstractModel{
         this.CcnDescription = CcnDescription;
     }
 
+    /**
+     * Get 是否开启等价路由功能。`False` 不开启，`True` 开启。 
+     * @return RouteECMPFlag 是否开启等价路由功能。`False` 不开启，`True` 开启。
+     */
+    public Boolean getRouteECMPFlag() {
+        return this.RouteECMPFlag;
+    }
+
+    /**
+     * Set 是否开启等价路由功能。`False` 不开启，`True` 开启。
+     * @param RouteECMPFlag 是否开启等价路由功能。`False` 不开启，`True` 开启。
+     */
+    public void setRouteECMPFlag(Boolean RouteECMPFlag) {
+        this.RouteECMPFlag = RouteECMPFlag;
+    }
+
+    /**
+     * Get 是否开启路由重叠功能。`False` 不开启，`True` 开启。 
+     * @return RouteOverlapFlag 是否开启路由重叠功能。`False` 不开启，`True` 开启。
+     */
+    public Boolean getRouteOverlapFlag() {
+        return this.RouteOverlapFlag;
+    }
+
+    /**
+     * Set 是否开启路由重叠功能。`False` 不开启，`True` 开启。
+     * @param RouteOverlapFlag 是否开启路由重叠功能。`False` 不开启，`True` 开启。
+     */
+    public void setRouteOverlapFlag(Boolean RouteOverlapFlag) {
+        this.RouteOverlapFlag = RouteOverlapFlag;
+    }
+
     public ModifyCcnAttributeRequest() {
     }
 
@@ -108,6 +155,12 @@ public class ModifyCcnAttributeRequest extends AbstractModel{
         if (source.CcnDescription != null) {
             this.CcnDescription = new String(source.CcnDescription);
         }
+        if (source.RouteECMPFlag != null) {
+            this.RouteECMPFlag = new Boolean(source.RouteECMPFlag);
+        }
+        if (source.RouteOverlapFlag != null) {
+            this.RouteOverlapFlag = new Boolean(source.RouteOverlapFlag);
+        }
     }
 
 
@@ -118,6 +171,8 @@ public class ModifyCcnAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CcnId", this.CcnId);
         this.setParamSimple(map, prefix + "CcnName", this.CcnName);
         this.setParamSimple(map, prefix + "CcnDescription", this.CcnDescription);
+        this.setParamSimple(map, prefix + "RouteECMPFlag", this.RouteECMPFlag);
+        this.setParamSimple(map, prefix + "RouteOverlapFlag", this.RouteOverlapFlag);
 
     }
 }

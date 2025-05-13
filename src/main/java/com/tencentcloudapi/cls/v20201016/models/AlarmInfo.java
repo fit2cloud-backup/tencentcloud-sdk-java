@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlarmInfo extends AbstractModel{
+public class AlarmInfo extends AbstractModel {
 
     /**
     * 告警策略名称。
@@ -44,7 +45,7 @@ public class AlarmInfo extends AbstractModel{
     private MonitorTime MonitorTime;
 
     /**
-    * 触发条件。
+    * 单触发条件。与MultiConditions参数互斥。
     */
     @SerializedName("Condition")
     @Expose
@@ -109,7 +110,6 @@ public class AlarmInfo extends AbstractModel{
 
     /**
     * 自定义回调模板
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CallBack")
     @Expose
@@ -117,11 +117,60 @@ public class AlarmInfo extends AbstractModel{
 
     /**
     * 多维分析设置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Analysis")
     @Expose
     private AnalysisDimensional [] Analysis;
+
+    /**
+    * 分组触发状态。true：开启，false：关闭（默认）
+    */
+    @SerializedName("GroupTriggerStatus")
+    @Expose
+    private Boolean GroupTriggerStatus;
+
+    /**
+    * 分组触发条件。
+    */
+    @SerializedName("GroupTriggerCondition")
+    @Expose
+    private String [] GroupTriggerCondition;
+
+    /**
+    * 告警策略绑定的标签信息。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 监控对象类型。0:执行语句共用监控对象;1:每个执行语句单独选择监控对象。 
+    */
+    @SerializedName("MonitorObjectType")
+    @Expose
+    private Long MonitorObjectType;
+
+    /**
+    * 告警级别。0:警告(Warn);1:提醒(Info);2:紧急 (Critical)。
+    */
+    @SerializedName("AlarmLevel")
+    @Expose
+    private Long AlarmLevel;
+
+    /**
+    * 告警附加分类字段。
+    */
+    @SerializedName("Classifications")
+    @Expose
+    private AlarmClassification [] Classifications;
+
+    /**
+    * 多触发条件。与
+Condition互斥。
+    */
+    @SerializedName("MultiConditions")
+    @Expose
+    private MultiCondition [] MultiConditions;
 
     /**
      * Get 告警策略名称。 
@@ -172,16 +221,16 @@ public class AlarmInfo extends AbstractModel{
     }
 
     /**
-     * Get 触发条件。 
-     * @return Condition 触发条件。
+     * Get 单触发条件。与MultiConditions参数互斥。 
+     * @return Condition 单触发条件。与MultiConditions参数互斥。
      */
     public String getCondition() {
         return this.Condition;
     }
 
     /**
-     * Set 触发条件。
-     * @param Condition 触发条件。
+     * Set 单触发条件。与MultiConditions参数互斥。
+     * @param Condition 单触发条件。与MultiConditions参数互斥。
      */
     public void setCondition(String Condition) {
         this.Condition = Condition;
@@ -320,10 +369,8 @@ public class AlarmInfo extends AbstractModel{
     }
 
     /**
-     * Get 自定义回调模板
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自定义回调模板 
      * @return CallBack 自定义回调模板
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CallBackInfo getCallBack() {
         return this.CallBack;
@@ -331,19 +378,15 @@ public class AlarmInfo extends AbstractModel{
 
     /**
      * Set 自定义回调模板
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CallBack 自定义回调模板
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCallBack(CallBackInfo CallBack) {
         this.CallBack = CallBack;
     }
 
     /**
-     * Get 多维分析设置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 多维分析设置 
      * @return Analysis 多维分析设置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AnalysisDimensional [] getAnalysis() {
         return this.Analysis;
@@ -351,12 +394,126 @@ public class AlarmInfo extends AbstractModel{
 
     /**
      * Set 多维分析设置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Analysis 多维分析设置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAnalysis(AnalysisDimensional [] Analysis) {
         this.Analysis = Analysis;
+    }
+
+    /**
+     * Get 分组触发状态。true：开启，false：关闭（默认） 
+     * @return GroupTriggerStatus 分组触发状态。true：开启，false：关闭（默认）
+     */
+    public Boolean getGroupTriggerStatus() {
+        return this.GroupTriggerStatus;
+    }
+
+    /**
+     * Set 分组触发状态。true：开启，false：关闭（默认）
+     * @param GroupTriggerStatus 分组触发状态。true：开启，false：关闭（默认）
+     */
+    public void setGroupTriggerStatus(Boolean GroupTriggerStatus) {
+        this.GroupTriggerStatus = GroupTriggerStatus;
+    }
+
+    /**
+     * Get 分组触发条件。 
+     * @return GroupTriggerCondition 分组触发条件。
+     */
+    public String [] getGroupTriggerCondition() {
+        return this.GroupTriggerCondition;
+    }
+
+    /**
+     * Set 分组触发条件。
+     * @param GroupTriggerCondition 分组触发条件。
+     */
+    public void setGroupTriggerCondition(String [] GroupTriggerCondition) {
+        this.GroupTriggerCondition = GroupTriggerCondition;
+    }
+
+    /**
+     * Get 告警策略绑定的标签信息。 
+     * @return Tags 告警策略绑定的标签信息。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 告警策略绑定的标签信息。
+     * @param Tags 告警策略绑定的标签信息。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 监控对象类型。0:执行语句共用监控对象;1:每个执行语句单独选择监控对象。  
+     * @return MonitorObjectType 监控对象类型。0:执行语句共用监控对象;1:每个执行语句单独选择监控对象。 
+     */
+    public Long getMonitorObjectType() {
+        return this.MonitorObjectType;
+    }
+
+    /**
+     * Set 监控对象类型。0:执行语句共用监控对象;1:每个执行语句单独选择监控对象。 
+     * @param MonitorObjectType 监控对象类型。0:执行语句共用监控对象;1:每个执行语句单独选择监控对象。 
+     */
+    public void setMonitorObjectType(Long MonitorObjectType) {
+        this.MonitorObjectType = MonitorObjectType;
+    }
+
+    /**
+     * Get 告警级别。0:警告(Warn);1:提醒(Info);2:紧急 (Critical)。 
+     * @return AlarmLevel 告警级别。0:警告(Warn);1:提醒(Info);2:紧急 (Critical)。
+     */
+    public Long getAlarmLevel() {
+        return this.AlarmLevel;
+    }
+
+    /**
+     * Set 告警级别。0:警告(Warn);1:提醒(Info);2:紧急 (Critical)。
+     * @param AlarmLevel 告警级别。0:警告(Warn);1:提醒(Info);2:紧急 (Critical)。
+     */
+    public void setAlarmLevel(Long AlarmLevel) {
+        this.AlarmLevel = AlarmLevel;
+    }
+
+    /**
+     * Get 告警附加分类字段。 
+     * @return Classifications 告警附加分类字段。
+     */
+    public AlarmClassification [] getClassifications() {
+        return this.Classifications;
+    }
+
+    /**
+     * Set 告警附加分类字段。
+     * @param Classifications 告警附加分类字段。
+     */
+    public void setClassifications(AlarmClassification [] Classifications) {
+        this.Classifications = Classifications;
+    }
+
+    /**
+     * Get 多触发条件。与
+Condition互斥。 
+     * @return MultiConditions 多触发条件。与
+Condition互斥。
+     */
+    public MultiCondition [] getMultiConditions() {
+        return this.MultiConditions;
+    }
+
+    /**
+     * Set 多触发条件。与
+Condition互斥。
+     * @param MultiConditions 多触发条件。与
+Condition互斥。
+     */
+    public void setMultiConditions(MultiCondition [] MultiConditions) {
+        this.MultiConditions = MultiConditions;
     }
 
     public AlarmInfo() {
@@ -418,6 +575,39 @@ public class AlarmInfo extends AbstractModel{
                 this.Analysis[i] = new AnalysisDimensional(source.Analysis[i]);
             }
         }
+        if (source.GroupTriggerStatus != null) {
+            this.GroupTriggerStatus = new Boolean(source.GroupTriggerStatus);
+        }
+        if (source.GroupTriggerCondition != null) {
+            this.GroupTriggerCondition = new String[source.GroupTriggerCondition.length];
+            for (int i = 0; i < source.GroupTriggerCondition.length; i++) {
+                this.GroupTriggerCondition[i] = new String(source.GroupTriggerCondition[i]);
+            }
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.MonitorObjectType != null) {
+            this.MonitorObjectType = new Long(source.MonitorObjectType);
+        }
+        if (source.AlarmLevel != null) {
+            this.AlarmLevel = new Long(source.AlarmLevel);
+        }
+        if (source.Classifications != null) {
+            this.Classifications = new AlarmClassification[source.Classifications.length];
+            for (int i = 0; i < source.Classifications.length; i++) {
+                this.Classifications[i] = new AlarmClassification(source.Classifications[i]);
+            }
+        }
+        if (source.MultiConditions != null) {
+            this.MultiConditions = new MultiCondition[source.MultiConditions.length];
+            for (int i = 0; i < source.MultiConditions.length; i++) {
+                this.MultiConditions[i] = new MultiCondition(source.MultiConditions[i]);
+            }
+        }
     }
 
 
@@ -439,6 +629,13 @@ public class AlarmInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "MessageTemplate", this.MessageTemplate);
         this.setParamObj(map, prefix + "CallBack.", this.CallBack);
         this.setParamArrayObj(map, prefix + "Analysis.", this.Analysis);
+        this.setParamSimple(map, prefix + "GroupTriggerStatus", this.GroupTriggerStatus);
+        this.setParamArraySimple(map, prefix + "GroupTriggerCondition.", this.GroupTriggerCondition);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "MonitorObjectType", this.MonitorObjectType);
+        this.setParamSimple(map, prefix + "AlarmLevel", this.AlarmLevel);
+        this.setParamArrayObj(map, prefix + "Classifications.", this.Classifications);
+        this.setParamArrayObj(map, prefix + "MultiConditions.", this.MultiConditions);
 
     }
 }

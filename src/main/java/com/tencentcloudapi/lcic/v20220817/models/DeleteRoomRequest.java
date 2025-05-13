@@ -16,30 +16,31 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteRoomRequest extends AbstractModel{
+public class DeleteRoomRequest extends AbstractModel {
 
     /**
-    * 房间ID。
+    * 课堂ID。
     */
     @SerializedName("RoomId")
     @Expose
     private Long RoomId;
 
     /**
-     * Get 房间ID。 
-     * @return RoomId 房间ID。
+     * Get 课堂ID。 
+     * @return RoomId 课堂ID。
      */
     public Long getRoomId() {
         return this.RoomId;
     }
 
     /**
-     * Set 房间ID。
-     * @param RoomId 房间ID。
+     * Set 课堂ID。
+     * @param RoomId 课堂ID。
      */
     public void setRoomId(Long RoomId) {
         this.RoomId = RoomId;

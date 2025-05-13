@@ -16,252 +16,241 @@
 package com.tencentcloudapi.mongodb.v20190725.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CurrentOp extends AbstractModel{
+public class CurrentOp extends AbstractModel {
 
     /**
-    * 操作序号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 操作序号。
     */
     @SerializedName("OpId")
     @Expose
     private Long OpId;
 
     /**
-    * 操作所在的命名空间，形式如db.collection
-注意：此字段可能返回 null，表示取不到有效值。
+    * 操作所在的命名空间，形式如db.collection。
     */
     @SerializedName("Ns")
     @Expose
     private String Ns;
 
     /**
-    * 操作执行语句
-注意：此字段可能返回 null，表示取不到有效值。
+    * 操作执行语句。
     */
     @SerializedName("Query")
     @Expose
     private String Query;
 
     /**
-    * 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command
-注意：此字段可能返回 null，表示取不到有效值。
+    * 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command。
     */
     @SerializedName("Op")
     @Expose
     private String Op;
 
     /**
-    * 操作所在的分片名称
+    * 操作所在的分片名称。
     */
     @SerializedName("ReplicaSetName")
     @Expose
     private String ReplicaSetName;
 
     /**
-    * 筛选条件，节点状态，可能的取值为：Primary、Secondary
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("State")
-    @Expose
-    private String State;
-
-    /**
-    * 操作详细信息
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("Operation")
-    @Expose
-    private String Operation;
-
-    /**
-    * 操作所在的节点名称
+    * 操作所在的节点名称。
     */
     @SerializedName("NodeName")
     @Expose
     private String NodeName;
 
     /**
-    * 操作已执行时间（ms）
-注意：此字段可能返回 null，表示取不到有效值。
+    * 操作详细信息。
+    */
+    @SerializedName("Operation")
+    @Expose
+    private String Operation;
+
+    /**
+    * 筛选条件，节点状态，可能的取值为：Primary、Secondary。
+    */
+    @SerializedName("State")
+    @Expose
+    private String State;
+
+    /**
+    * 操作已执行时间（ms）。
     */
     @SerializedName("MicrosecsRunning")
     @Expose
     private Long MicrosecsRunning;
 
     /**
-     * Get 操作序号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OpId 操作序号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前操作所在节点信息。
+    */
+    @SerializedName("ExecNode")
+    @Expose
+    private String ExecNode;
+
+    /**
+     * Get 操作序号。 
+     * @return OpId 操作序号。
      */
     public Long getOpId() {
         return this.OpId;
     }
 
     /**
-     * Set 操作序号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OpId 操作序号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 操作序号。
+     * @param OpId 操作序号。
      */
     public void setOpId(Long OpId) {
         this.OpId = OpId;
     }
 
     /**
-     * Get 操作所在的命名空间，形式如db.collection
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Ns 操作所在的命名空间，形式如db.collection
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 操作所在的命名空间，形式如db.collection。 
+     * @return Ns 操作所在的命名空间，形式如db.collection。
      */
     public String getNs() {
         return this.Ns;
     }
 
     /**
-     * Set 操作所在的命名空间，形式如db.collection
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Ns 操作所在的命名空间，形式如db.collection
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 操作所在的命名空间，形式如db.collection。
+     * @param Ns 操作所在的命名空间，形式如db.collection。
      */
     public void setNs(String Ns) {
         this.Ns = Ns;
     }
 
     /**
-     * Get 操作执行语句
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Query 操作执行语句
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 操作执行语句。 
+     * @return Query 操作执行语句。
      */
     public String getQuery() {
         return this.Query;
     }
 
     /**
-     * Set 操作执行语句
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Query 操作执行语句
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 操作执行语句。
+     * @param Query 操作执行语句。
      */
     public void setQuery(String Query) {
         this.Query = Query;
     }
 
     /**
-     * Get 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Op 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command。 
+     * @return Op 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command。
      */
     public String getOp() {
         return this.Op;
     }
 
     /**
-     * Set 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Op 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command。
+     * @param Op 操作类型，可能的取值：aggregate、count、delete、distinct、find、findAndModify、getMore、insert、mapReduce、update和command。
      */
     public void setOp(String Op) {
         this.Op = Op;
     }
 
     /**
-     * Get 操作所在的分片名称 
-     * @return ReplicaSetName 操作所在的分片名称
+     * Get 操作所在的分片名称。 
+     * @return ReplicaSetName 操作所在的分片名称。
      */
     public String getReplicaSetName() {
         return this.ReplicaSetName;
     }
 
     /**
-     * Set 操作所在的分片名称
-     * @param ReplicaSetName 操作所在的分片名称
+     * Set 操作所在的分片名称。
+     * @param ReplicaSetName 操作所在的分片名称。
      */
     public void setReplicaSetName(String ReplicaSetName) {
         this.ReplicaSetName = ReplicaSetName;
     }
 
     /**
-     * Get 筛选条件，节点状态，可能的取值为：Primary、Secondary
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return State 筛选条件，节点状态，可能的取值为：Primary、Secondary
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String getState() {
-        return this.State;
-    }
-
-    /**
-     * Set 筛选条件，节点状态，可能的取值为：Primary、Secondary
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param State 筛选条件，节点状态，可能的取值为：Primary、Secondary
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setState(String State) {
-        this.State = State;
-    }
-
-    /**
-     * Get 操作详细信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Operation 操作详细信息
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String getOperation() {
-        return this.Operation;
-    }
-
-    /**
-     * Set 操作详细信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Operation 操作详细信息
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setOperation(String Operation) {
-        this.Operation = Operation;
-    }
-
-    /**
-     * Get 操作所在的节点名称 
-     * @return NodeName 操作所在的节点名称
+     * Get 操作所在的节点名称。 
+     * @return NodeName 操作所在的节点名称。
      */
     public String getNodeName() {
         return this.NodeName;
     }
 
     /**
-     * Set 操作所在的节点名称
-     * @param NodeName 操作所在的节点名称
+     * Set 操作所在的节点名称。
+     * @param NodeName 操作所在的节点名称。
      */
     public void setNodeName(String NodeName) {
         this.NodeName = NodeName;
     }
 
     /**
-     * Get 操作已执行时间（ms）
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MicrosecsRunning 操作已执行时间（ms）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 操作详细信息。 
+     * @return Operation 操作详细信息。
+     */
+    public String getOperation() {
+        return this.Operation;
+    }
+
+    /**
+     * Set 操作详细信息。
+     * @param Operation 操作详细信息。
+     */
+    public void setOperation(String Operation) {
+        this.Operation = Operation;
+    }
+
+    /**
+     * Get 筛选条件，节点状态，可能的取值为：Primary、Secondary。 
+     * @return State 筛选条件，节点状态，可能的取值为：Primary、Secondary。
+     */
+    public String getState() {
+        return this.State;
+    }
+
+    /**
+     * Set 筛选条件，节点状态，可能的取值为：Primary、Secondary。
+     * @param State 筛选条件，节点状态，可能的取值为：Primary、Secondary。
+     */
+    public void setState(String State) {
+        this.State = State;
+    }
+
+    /**
+     * Get 操作已执行时间（ms）。 
+     * @return MicrosecsRunning 操作已执行时间（ms）。
      */
     public Long getMicrosecsRunning() {
         return this.MicrosecsRunning;
     }
 
     /**
-     * Set 操作已执行时间（ms）
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param MicrosecsRunning 操作已执行时间（ms）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 操作已执行时间（ms）。
+     * @param MicrosecsRunning 操作已执行时间（ms）。
      */
     public void setMicrosecsRunning(Long MicrosecsRunning) {
         this.MicrosecsRunning = MicrosecsRunning;
+    }
+
+    /**
+     * Get 当前操作所在节点信息。 
+     * @return ExecNode 当前操作所在节点信息。
+     */
+    public String getExecNode() {
+        return this.ExecNode;
+    }
+
+    /**
+     * Set 当前操作所在节点信息。
+     * @param ExecNode 当前操作所在节点信息。
+     */
+    public void setExecNode(String ExecNode) {
+        this.ExecNode = ExecNode;
     }
 
     public CurrentOp() {
@@ -287,17 +276,20 @@ public class CurrentOp extends AbstractModel{
         if (source.ReplicaSetName != null) {
             this.ReplicaSetName = new String(source.ReplicaSetName);
         }
-        if (source.State != null) {
-            this.State = new String(source.State);
+        if (source.NodeName != null) {
+            this.NodeName = new String(source.NodeName);
         }
         if (source.Operation != null) {
             this.Operation = new String(source.Operation);
         }
-        if (source.NodeName != null) {
-            this.NodeName = new String(source.NodeName);
+        if (source.State != null) {
+            this.State = new String(source.State);
         }
         if (source.MicrosecsRunning != null) {
             this.MicrosecsRunning = new Long(source.MicrosecsRunning);
+        }
+        if (source.ExecNode != null) {
+            this.ExecNode = new String(source.ExecNode);
         }
     }
 
@@ -311,10 +303,11 @@ public class CurrentOp extends AbstractModel{
         this.setParamSimple(map, prefix + "Query", this.Query);
         this.setParamSimple(map, prefix + "Op", this.Op);
         this.setParamSimple(map, prefix + "ReplicaSetName", this.ReplicaSetName);
-        this.setParamSimple(map, prefix + "State", this.State);
-        this.setParamSimple(map, prefix + "Operation", this.Operation);
         this.setParamSimple(map, prefix + "NodeName", this.NodeName);
+        this.setParamSimple(map, prefix + "Operation", this.Operation);
+        this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "MicrosecsRunning", this.MicrosecsRunning);
+        this.setParamSimple(map, prefix + "ExecNode", this.ExecNode);
 
     }
 }

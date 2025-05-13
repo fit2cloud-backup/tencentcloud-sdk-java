@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
+public class AdaptiveDynamicStreamingTemplate extends AbstractModel {
 
     /**
     * 转自适应码流模板唯一标识。
@@ -99,6 +100,31 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
     @SerializedName("UpdateTime")
     @Expose
     private String UpdateTime;
+
+    /**
+    * 是否为纯音频，0表示视频，1表示纯音频
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PureAudio")
+    @Expose
+    private Long PureAudio;
+
+    /**
+    * hls 分片类型，可选值：
+<li>ts-segment：HLS+TS 切片</li>
+<li>ts-byterange：HLS+TS byte range</li>
+<li>mp4-segment：HLS+MP4 切片</li>
+<li>mp4-byterange：HLS+MP4 byte range</li>
+<li>ts-packed-audio：TS+Packed Audio</li>
+<li>mp4-packed-audio：MP4+Packed Audio</li>
+默认值：ts-segment
+
+注：自适应码流的hls分片格式已此字段为准
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SegmentType")
+    @Expose
+    private String SegmentType;
 
     /**
      * Get 转自适应码流模板唯一标识。 
@@ -292,6 +318,82 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
         this.UpdateTime = UpdateTime;
     }
 
+    /**
+     * Get 是否为纯音频，0表示视频，1表示纯音频
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PureAudio 是否为纯音频，0表示视频，1表示纯音频
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPureAudio() {
+        return this.PureAudio;
+    }
+
+    /**
+     * Set 是否为纯音频，0表示视频，1表示纯音频
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PureAudio 是否为纯音频，0表示视频，1表示纯音频
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPureAudio(Long PureAudio) {
+        this.PureAudio = PureAudio;
+    }
+
+    /**
+     * Get hls 分片类型，可选值：
+<li>ts-segment：HLS+TS 切片</li>
+<li>ts-byterange：HLS+TS byte range</li>
+<li>mp4-segment：HLS+MP4 切片</li>
+<li>mp4-byterange：HLS+MP4 byte range</li>
+<li>ts-packed-audio：TS+Packed Audio</li>
+<li>mp4-packed-audio：MP4+Packed Audio</li>
+默认值：ts-segment
+
+注：自适应码流的hls分片格式已此字段为准
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SegmentType hls 分片类型，可选值：
+<li>ts-segment：HLS+TS 切片</li>
+<li>ts-byterange：HLS+TS byte range</li>
+<li>mp4-segment：HLS+MP4 切片</li>
+<li>mp4-byterange：HLS+MP4 byte range</li>
+<li>ts-packed-audio：TS+Packed Audio</li>
+<li>mp4-packed-audio：MP4+Packed Audio</li>
+默认值：ts-segment
+
+注：自适应码流的hls分片格式已此字段为准
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSegmentType() {
+        return this.SegmentType;
+    }
+
+    /**
+     * Set hls 分片类型，可选值：
+<li>ts-segment：HLS+TS 切片</li>
+<li>ts-byterange：HLS+TS byte range</li>
+<li>mp4-segment：HLS+MP4 切片</li>
+<li>mp4-byterange：HLS+MP4 byte range</li>
+<li>ts-packed-audio：TS+Packed Audio</li>
+<li>mp4-packed-audio：MP4+Packed Audio</li>
+默认值：ts-segment
+
+注：自适应码流的hls分片格式已此字段为准
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SegmentType hls 分片类型，可选值：
+<li>ts-segment：HLS+TS 切片</li>
+<li>ts-byterange：HLS+TS byte range</li>
+<li>mp4-segment：HLS+MP4 切片</li>
+<li>mp4-byterange：HLS+MP4 byte range</li>
+<li>ts-packed-audio：TS+Packed Audio</li>
+<li>mp4-packed-audio：MP4+Packed Audio</li>
+默认值：ts-segment
+
+注：自适应码流的hls分片格式已此字段为准
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSegmentType(String SegmentType) {
+        this.SegmentType = SegmentType;
+    }
+
     public AdaptiveDynamicStreamingTemplate() {
     }
 
@@ -333,6 +435,12 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
         if (source.UpdateTime != null) {
             this.UpdateTime = new String(source.UpdateTime);
         }
+        if (source.PureAudio != null) {
+            this.PureAudio = new Long(source.PureAudio);
+        }
+        if (source.SegmentType != null) {
+            this.SegmentType = new String(source.SegmentType);
+        }
     }
 
 
@@ -350,6 +458,8 @@ public class AdaptiveDynamicStreamingTemplate extends AbstractModel{
         this.setParamSimple(map, prefix + "DisableHigherVideoResolution", this.DisableHigherVideoResolution);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamSimple(map, prefix + "PureAudio", this.PureAudio);
+        this.setParamSimple(map, prefix + "SegmentType", this.SegmentType);
 
     }
 }

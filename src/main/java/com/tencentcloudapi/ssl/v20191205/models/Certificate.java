@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Certificate extends AbstractModel{
+public class Certificate extends AbstractModel {
 
     /**
     * 证书ID
@@ -35,6 +36,20 @@ public class Certificate extends AbstractModel{
     @SerializedName("DnsNames")
     @Expose
     private String [] DnsNames;
+
+    /**
+    * 根证书ID
+    */
+    @SerializedName("CertCaId")
+    @Expose
+    private String CertCaId;
+
+    /**
+    * 证书认证模式：UNIDIRECTIONAL单向认证，MUTUAL双向认证
+    */
+    @SerializedName("SSLMode")
+    @Expose
+    private String SSLMode;
 
     /**
      * Get 证书ID 
@@ -68,6 +83,38 @@ public class Certificate extends AbstractModel{
         this.DnsNames = DnsNames;
     }
 
+    /**
+     * Get 根证书ID 
+     * @return CertCaId 根证书ID
+     */
+    public String getCertCaId() {
+        return this.CertCaId;
+    }
+
+    /**
+     * Set 根证书ID
+     * @param CertCaId 根证书ID
+     */
+    public void setCertCaId(String CertCaId) {
+        this.CertCaId = CertCaId;
+    }
+
+    /**
+     * Get 证书认证模式：UNIDIRECTIONAL单向认证，MUTUAL双向认证 
+     * @return SSLMode 证书认证模式：UNIDIRECTIONAL单向认证，MUTUAL双向认证
+     */
+    public String getSSLMode() {
+        return this.SSLMode;
+    }
+
+    /**
+     * Set 证书认证模式：UNIDIRECTIONAL单向认证，MUTUAL双向认证
+     * @param SSLMode 证书认证模式：UNIDIRECTIONAL单向认证，MUTUAL双向认证
+     */
+    public void setSSLMode(String SSLMode) {
+        this.SSLMode = SSLMode;
+    }
+
     public Certificate() {
     }
 
@@ -85,6 +132,12 @@ public class Certificate extends AbstractModel{
                 this.DnsNames[i] = new String(source.DnsNames[i]);
             }
         }
+        if (source.CertCaId != null) {
+            this.CertCaId = new String(source.CertCaId);
+        }
+        if (source.SSLMode != null) {
+            this.SSLMode = new String(source.SSLMode);
+        }
     }
 
 
@@ -94,6 +147,8 @@ public class Certificate extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertId", this.CertId);
         this.setParamArraySimple(map, prefix + "DnsNames.", this.DnsNames);
+        this.setParamSimple(map, prefix + "CertCaId", this.CertCaId);
+        this.setParamSimple(map, prefix + "SSLMode", this.SSLMode);
 
     }
 }

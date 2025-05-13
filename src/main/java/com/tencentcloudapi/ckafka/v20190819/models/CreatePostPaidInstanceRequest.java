@@ -16,21 +16,22 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePostPaidInstanceRequest extends AbstractModel{
+public class CreatePostPaidInstanceRequest extends AbstractModel {
 
     /**
-    * 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+    * ckafka集群实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
     */
     @SerializedName("InstanceName")
     @Expose
     private String InstanceName;
 
     /**
-    * 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+    * 私有网络Id  创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
     */
     @SerializedName("VpcId")
     @Expose
@@ -72,7 +73,7 @@ public class CreatePostPaidInstanceRequest extends AbstractModel{
     private String KafkaVersion;
 
     /**
-    * 实例类型。"standard"：标准版，"profession"：专业版
+    * 实例类型。"standard"：标准版，"profession"：专业版。  (标准版仅国际站支持，国内站目前支持专业版)
     */
     @SerializedName("SpecificationsType")
     @Expose
@@ -149,32 +150,46 @@ public class CreatePostPaidInstanceRequest extends AbstractModel{
     private Long PublicNetworkMonthly;
 
     /**
-     * Get 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-) 
-     * @return InstanceName 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+    * 标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 弹性带宽开关 0不开启  1开启（0默认)
+    */
+    @SerializedName("ElasticBandwidthSwitch")
+    @Expose
+    private Long ElasticBandwidthSwitch;
+
+    /**
+     * Get ckafka集群实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-) 
+     * @return InstanceName ckafka集群实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
-     * @param InstanceName 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+     * Set ckafka集群实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+     * @param InstanceName ckafka集群实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填 
-     * @return VpcId 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+     * Get 私有网络Id  创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填 
+     * @return VpcId 私有网络Id  创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
-     * @param VpcId 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+     * Set 私有网络Id  创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+     * @param VpcId 私有网络Id  创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -261,16 +276,16 @@ public class CreatePostPaidInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例类型。"standard"：标准版，"profession"：专业版 
-     * @return SpecificationsType 实例类型。"standard"：标准版，"profession"：专业版
+     * Get 实例类型。"standard"：标准版，"profession"：专业版。  (标准版仅国际站支持，国内站目前支持专业版) 
+     * @return SpecificationsType 实例类型。"standard"：标准版，"profession"：专业版。  (标准版仅国际站支持，国内站目前支持专业版)
      */
     public String getSpecificationsType() {
         return this.SpecificationsType;
     }
 
     /**
-     * Set 实例类型。"standard"：标准版，"profession"：专业版
-     * @param SpecificationsType 实例类型。"standard"：标准版，"profession"：专业版
+     * Set 实例类型。"standard"：标准版，"profession"：专业版。  (标准版仅国际站支持，国内站目前支持专业版)
+     * @param SpecificationsType 实例类型。"standard"：标准版，"profession"：专业版。  (标准版仅国际站支持，国内站目前支持专业版)
      */
     public void setSpecificationsType(String SpecificationsType) {
         this.SpecificationsType = SpecificationsType;
@@ -436,6 +451,38 @@ public class CreatePostPaidInstanceRequest extends AbstractModel{
         this.PublicNetworkMonthly = PublicNetworkMonthly;
     }
 
+    /**
+     * Get 标签 
+     * @return Tags 标签
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+     * @param Tags 标签
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 弹性带宽开关 0不开启  1开启（0默认) 
+     * @return ElasticBandwidthSwitch 弹性带宽开关 0不开启  1开启（0默认)
+     */
+    public Long getElasticBandwidthSwitch() {
+        return this.ElasticBandwidthSwitch;
+    }
+
+    /**
+     * Set 弹性带宽开关 0不开启  1开启（0默认)
+     * @param ElasticBandwidthSwitch 弹性带宽开关 0不开启  1开启（0默认)
+     */
+    public void setElasticBandwidthSwitch(Long ElasticBandwidthSwitch) {
+        this.ElasticBandwidthSwitch = ElasticBandwidthSwitch;
+    }
+
     public CreatePostPaidInstanceRequest() {
     }
 
@@ -501,6 +548,15 @@ public class CreatePostPaidInstanceRequest extends AbstractModel{
         if (source.PublicNetworkMonthly != null) {
             this.PublicNetworkMonthly = new Long(source.PublicNetworkMonthly);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.ElasticBandwidthSwitch != null) {
+            this.ElasticBandwidthSwitch = new Long(source.ElasticBandwidthSwitch);
+        }
     }
 
 
@@ -526,6 +582,8 @@ public class CreatePostPaidInstanceRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamSimple(map, prefix + "InstanceNum", this.InstanceNum);
         this.setParamSimple(map, prefix + "PublicNetworkMonthly", this.PublicNetworkMonthly);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "ElasticBandwidthSwitch", this.ElasticBandwidthSwitch);
 
     }
 }

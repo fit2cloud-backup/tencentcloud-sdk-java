@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterReleasesResponse extends AbstractModel{
+public class DescribeClusterReleasesResponse extends AbstractModel {
 
     /**
     * 数量限制
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Limit")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeClusterReleasesResponse extends AbstractModel{
 
     /**
     * 偏移量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Offset")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeClusterReleasesResponse extends AbstractModel{
 
     /**
     * 已安装应用列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReleaseSet")
     @Expose
@@ -48,24 +46,21 @@ public class DescribeClusterReleasesResponse extends AbstractModel{
 
     /**
     * 已安装应用总数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Total")
     @Expose
     private Long Total;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 数量限制
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数量限制 
      * @return Limit 数量限制
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLimit() {
         return this.Limit;
@@ -73,19 +68,15 @@ public class DescribeClusterReleasesResponse extends AbstractModel{
 
     /**
      * Set 数量限制
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Limit 数量限制
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 偏移量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 偏移量 
      * @return Offset 偏移量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOffset() {
         return this.Offset;
@@ -93,19 +84,15 @@ public class DescribeClusterReleasesResponse extends AbstractModel{
 
     /**
      * Set 偏移量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Offset 偏移量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 已安装应用列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已安装应用列表 
      * @return ReleaseSet 已安装应用列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Release [] getReleaseSet() {
         return this.ReleaseSet;
@@ -113,19 +100,15 @@ public class DescribeClusterReleasesResponse extends AbstractModel{
 
     /**
      * Set 已安装应用列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReleaseSet 已安装应用列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReleaseSet(Release [] ReleaseSet) {
         this.ReleaseSet = ReleaseSet;
     }
 
     /**
-     * Get 已安装应用总数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已安装应用总数量 
      * @return Total 已安装应用总数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotal() {
         return this.Total;
@@ -133,25 +116,23 @@ public class DescribeClusterReleasesResponse extends AbstractModel{
 
     /**
      * Set 已安装应用总数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Total 已安装应用总数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotal(Long Total) {
         this.Total = Total;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

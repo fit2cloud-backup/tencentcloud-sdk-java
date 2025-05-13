@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetRunCallsRequest extends AbstractModel{
+public class GetRunCallsRequest extends AbstractModel {
 
     /**
     * 任务Uuid。
@@ -30,18 +31,19 @@ public class GetRunCallsRequest extends AbstractModel{
     private String RunUuid;
 
     /**
-    * 项目ID。
-    */
-    @SerializedName("ProjectId")
-    @Expose
-    private String ProjectId;
-
-    /**
     * 作业路径
     */
     @SerializedName("Path")
     @Expose
     private String Path;
+
+    /**
+    * 项目ID。
+（不填使用指定地域下的默认项目）
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
 
     /**
      * Get 任务Uuid。 
@@ -60,22 +62,6 @@ public class GetRunCallsRequest extends AbstractModel{
     }
 
     /**
-     * Get 项目ID。 
-     * @return ProjectId 项目ID。
-     */
-    public String getProjectId() {
-        return this.ProjectId;
-    }
-
-    /**
-     * Set 项目ID。
-     * @param ProjectId 项目ID。
-     */
-    public void setProjectId(String ProjectId) {
-        this.ProjectId = ProjectId;
-    }
-
-    /**
      * Get 作业路径 
      * @return Path 作业路径
      */
@@ -91,6 +77,26 @@ public class GetRunCallsRequest extends AbstractModel{
         this.Path = Path;
     }
 
+    /**
+     * Get 项目ID。
+（不填使用指定地域下的默认项目） 
+     * @return ProjectId 项目ID。
+（不填使用指定地域下的默认项目）
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID。
+（不填使用指定地域下的默认项目）
+     * @param ProjectId 项目ID。
+（不填使用指定地域下的默认项目）
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
     public GetRunCallsRequest() {
     }
 
@@ -102,11 +108,11 @@ public class GetRunCallsRequest extends AbstractModel{
         if (source.RunUuid != null) {
             this.RunUuid = new String(source.RunUuid);
         }
-        if (source.ProjectId != null) {
-            this.ProjectId = new String(source.ProjectId);
-        }
         if (source.Path != null) {
             this.Path = new String(source.Path);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
         }
     }
 
@@ -116,8 +122,8 @@ public class GetRunCallsRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "RunUuid", this.RunUuid);
-        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Path", this.Path);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

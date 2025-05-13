@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SubscribedInfo extends AbstractModel{
+public class SubscribedInfo extends AbstractModel {
 
     /**
     * 订阅的主题名
@@ -31,7 +32,6 @@ public class SubscribedInfo extends AbstractModel{
 
     /**
     * 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Partition")
     @Expose
@@ -39,7 +39,6 @@ public class SubscribedInfo extends AbstractModel{
 
     /**
     * 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PartitionOffset")
     @Expose
@@ -47,7 +46,6 @@ public class SubscribedInfo extends AbstractModel{
 
     /**
     * 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicId")
     @Expose
@@ -70,10 +68,8 @@ public class SubscribedInfo extends AbstractModel{
     }
 
     /**
-     * Get 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订阅的分区 
      * @return Partition 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getPartition() {
         return this.Partition;
@@ -81,19 +77,15 @@ public class SubscribedInfo extends AbstractModel{
 
     /**
      * Set 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Partition 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPartition(Long [] Partition) {
         this.Partition = Partition;
     }
 
     /**
-     * Get 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分区offset信息 
      * @return PartitionOffset 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PartitionOffset [] getPartitionOffset() {
         return this.PartitionOffset;
@@ -101,19 +93,15 @@ public class SubscribedInfo extends AbstractModel{
 
     /**
      * Set 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PartitionOffset 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPartitionOffset(PartitionOffset [] PartitionOffset) {
         this.PartitionOffset = PartitionOffset;
     }
 
     /**
-     * Get 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订阅的主题ID 
      * @return TopicId 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicId() {
         return this.TopicId;
@@ -121,9 +109,7 @@ public class SubscribedInfo extends AbstractModel{
 
     /**
      * Set 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicId 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicId(String TopicId) {
         this.TopicId = TopicId;

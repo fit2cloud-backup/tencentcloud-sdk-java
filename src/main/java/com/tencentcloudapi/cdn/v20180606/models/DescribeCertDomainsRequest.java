@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCertDomainsRequest extends AbstractModel{
+public class DescribeCertDomainsRequest extends AbstractModel {
 
     /**
     * PEM格式证书Base64编码后的字符串
@@ -30,7 +31,7 @@ public class DescribeCertDomainsRequest extends AbstractModel{
     private String Cert;
 
     /**
-    * 托管证书ID，Cert和CertId不能均未空，都填写时以CerId为准。
+    * 托管证书ID，Cert和CertId不能均未空，都填写时以CertId为准。
     */
     @SerializedName("CertId")
     @Expose
@@ -60,16 +61,16 @@ public class DescribeCertDomainsRequest extends AbstractModel{
     }
 
     /**
-     * Get 托管证书ID，Cert和CertId不能均未空，都填写时以CerId为准。 
-     * @return CertId 托管证书ID，Cert和CertId不能均未空，都填写时以CerId为准。
+     * Get 托管证书ID，Cert和CertId不能均未空，都填写时以CertId为准。 
+     * @return CertId 托管证书ID，Cert和CertId不能均未空，都填写时以CertId为准。
      */
     public String getCertId() {
         return this.CertId;
     }
 
     /**
-     * Set 托管证书ID，Cert和CertId不能均未空，都填写时以CerId为准。
-     * @param CertId 托管证书ID，Cert和CertId不能均未空，都填写时以CerId为准。
+     * Set 托管证书ID，Cert和CertId不能均未空，都填写时以CertId为准。
+     * @param CertId 托管证书ID，Cert和CertId不能均未空，都填写时以CertId为准。
      */
     public void setCertId(String CertId) {
         this.CertId = CertId;

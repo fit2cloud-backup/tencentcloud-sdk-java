@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeLabelValuesRequest extends AbstractModel{
+public class DescribeLabelValuesRequest extends AbstractModel {
 
     /**
     * 任务ID
@@ -37,14 +38,14 @@ public class DescribeLabelValuesRequest extends AbstractModel{
     private String ScenarioId;
 
     /**
-    * 指标名称
+    * 指标名。取值范围参见 DescribeMetricLabelWithValues 接口返回的所有指标名
     */
     @SerializedName("Metric")
     @Expose
     private String Metric;
 
     /**
-    * 查询标签名称
+    * 标签名。取值范围参见 DescribeMetricLabelWithValues 接口返回的指标及其支持的标签名
     */
     @SerializedName("LabelName")
     @Expose
@@ -90,32 +91,32 @@ public class DescribeLabelValuesRequest extends AbstractModel{
     }
 
     /**
-     * Get 指标名称 
-     * @return Metric 指标名称
+     * Get 指标名。取值范围参见 DescribeMetricLabelWithValues 接口返回的所有指标名 
+     * @return Metric 指标名。取值范围参见 DescribeMetricLabelWithValues 接口返回的所有指标名
      */
     public String getMetric() {
         return this.Metric;
     }
 
     /**
-     * Set 指标名称
-     * @param Metric 指标名称
+     * Set 指标名。取值范围参见 DescribeMetricLabelWithValues 接口返回的所有指标名
+     * @param Metric 指标名。取值范围参见 DescribeMetricLabelWithValues 接口返回的所有指标名
      */
     public void setMetric(String Metric) {
         this.Metric = Metric;
     }
 
     /**
-     * Get 查询标签名称 
-     * @return LabelName 查询标签名称
+     * Get 标签名。取值范围参见 DescribeMetricLabelWithValues 接口返回的指标及其支持的标签名 
+     * @return LabelName 标签名。取值范围参见 DescribeMetricLabelWithValues 接口返回的指标及其支持的标签名
      */
     public String getLabelName() {
         return this.LabelName;
     }
 
     /**
-     * Set 查询标签名称
-     * @param LabelName 查询标签名称
+     * Set 标签名。取值范围参见 DescribeMetricLabelWithValues 接口返回的指标及其支持的标签名
+     * @param LabelName 标签名。取值范围参见 DescribeMetricLabelWithValues 接口返回的指标及其支持的标签名
      */
     public void setLabelName(String LabelName) {
         this.LabelName = LabelName;

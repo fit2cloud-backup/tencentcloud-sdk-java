@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeWafAutoDenyRulesResponse extends AbstractModel{
+public class DescribeWafAutoDenyRulesResponse extends AbstractModel {
 
     /**
     * 攻击次数阈值
@@ -51,7 +52,22 @@ public class DescribeWafAutoDenyRulesResponse extends AbstractModel{
     private Long DefenseStatus;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 数据来源Source字段 custom-自定义(默认)、batch-domain-批量域名
+
+    */
+    @SerializedName("Source")
+    @Expose
+    private String Source;
+
+    /**
+    * 重保护网域名状态
+    */
+    @SerializedName("HWState")
+    @Expose
+    private Long HWState;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -122,16 +138,52 @@ public class DescribeWafAutoDenyRulesResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 数据来源Source字段 custom-自定义(默认)、batch-domain-批量域名
+ 
+     * @return Source 数据来源Source字段 custom-自定义(默认)、batch-domain-批量域名
+
+     */
+    public String getSource() {
+        return this.Source;
+    }
+
+    /**
+     * Set 数据来源Source字段 custom-自定义(默认)、batch-domain-批量域名
+
+     * @param Source 数据来源Source字段 custom-自定义(默认)、batch-domain-批量域名
+
+     */
+    public void setSource(String Source) {
+        this.Source = Source;
+    }
+
+    /**
+     * Get 重保护网域名状态 
+     * @return HWState 重保护网域名状态
+     */
+    public Long getHWState() {
+        return this.HWState;
+    }
+
+    /**
+     * Set 重保护网域名状态
+     * @param HWState 重保护网域名状态
+     */
+    public void setHWState(Long HWState) {
+        this.HWState = HWState;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -157,6 +209,12 @@ public class DescribeWafAutoDenyRulesResponse extends AbstractModel{
         if (source.DefenseStatus != null) {
             this.DefenseStatus = new Long(source.DefenseStatus);
         }
+        if (source.Source != null) {
+            this.Source = new String(source.Source);
+        }
+        if (source.HWState != null) {
+            this.HWState = new Long(source.HWState);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -171,6 +229,8 @@ public class DescribeWafAutoDenyRulesResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "TimeThreshold", this.TimeThreshold);
         this.setParamSimple(map, prefix + "DenyTimeThreshold", this.DenyTimeThreshold);
         this.setParamSimple(map, prefix + "DefenseStatus", this.DefenseStatus);
+        this.setParamSimple(map, prefix + "Source", this.Source);
+        this.setParamSimple(map, prefix + "HWState", this.HWState);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

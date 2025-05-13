@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDisasterRecoverGroupRequest extends AbstractModel{
+public class CreateDisasterRecoverGroupRequest extends AbstractModel {
 
     /**
     * 分散置放群组名称，长度1-60个字符，支持中、英文。
@@ -30,7 +31,7 @@ public class CreateDisasterRecoverGroupRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+    * 分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li>
     */
     @SerializedName("Type")
     @Expose
@@ -42,6 +43,20 @@ public class CreateDisasterRecoverGroupRequest extends AbstractModel{
     @SerializedName("ClientToken")
     @Expose
     private String ClientToken;
+
+    /**
+    * 置放群组的亲和度，在置放群组的实例会按该亲和度分布，亲和度的取值范围是：1-10，默认为1
+    */
+    @SerializedName("Affinity")
+    @Expose
+    private Long Affinity;
+
+    /**
+    * 标签描述列表。通过指定该参数可以绑定标签到置放群组。
+    */
+    @SerializedName("TagSpecification")
+    @Expose
+    private TagSpecification [] TagSpecification;
 
     /**
      * Get 分散置放群组名称，长度1-60个字符，支持中、英文。 
@@ -60,16 +75,16 @@ public class CreateDisasterRecoverGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架 
-     * @return Type 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+     * Get 分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li> 
+     * @return Type 分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li>
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
-     * @param Type 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+     * Set 分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li>
+     * @param Type 分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -91,6 +106,38 @@ public class CreateDisasterRecoverGroupRequest extends AbstractModel{
         this.ClientToken = ClientToken;
     }
 
+    /**
+     * Get 置放群组的亲和度，在置放群组的实例会按该亲和度分布，亲和度的取值范围是：1-10，默认为1 
+     * @return Affinity 置放群组的亲和度，在置放群组的实例会按该亲和度分布，亲和度的取值范围是：1-10，默认为1
+     */
+    public Long getAffinity() {
+        return this.Affinity;
+    }
+
+    /**
+     * Set 置放群组的亲和度，在置放群组的实例会按该亲和度分布，亲和度的取值范围是：1-10，默认为1
+     * @param Affinity 置放群组的亲和度，在置放群组的实例会按该亲和度分布，亲和度的取值范围是：1-10，默认为1
+     */
+    public void setAffinity(Long Affinity) {
+        this.Affinity = Affinity;
+    }
+
+    /**
+     * Get 标签描述列表。通过指定该参数可以绑定标签到置放群组。 
+     * @return TagSpecification 标签描述列表。通过指定该参数可以绑定标签到置放群组。
+     */
+    public TagSpecification [] getTagSpecification() {
+        return this.TagSpecification;
+    }
+
+    /**
+     * Set 标签描述列表。通过指定该参数可以绑定标签到置放群组。
+     * @param TagSpecification 标签描述列表。通过指定该参数可以绑定标签到置放群组。
+     */
+    public void setTagSpecification(TagSpecification [] TagSpecification) {
+        this.TagSpecification = TagSpecification;
+    }
+
     public CreateDisasterRecoverGroupRequest() {
     }
 
@@ -108,6 +155,15 @@ public class CreateDisasterRecoverGroupRequest extends AbstractModel{
         if (source.ClientToken != null) {
             this.ClientToken = new String(source.ClientToken);
         }
+        if (source.Affinity != null) {
+            this.Affinity = new Long(source.Affinity);
+        }
+        if (source.TagSpecification != null) {
+            this.TagSpecification = new TagSpecification[source.TagSpecification.length];
+            for (int i = 0; i < source.TagSpecification.length; i++) {
+                this.TagSpecification[i] = new TagSpecification(source.TagSpecification[i]);
+            }
+        }
     }
 
 
@@ -118,6 +174,8 @@ public class CreateDisasterRecoverGroupRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
+        this.setParamSimple(map, prefix + "Affinity", this.Affinity);
+        this.setParamArrayObj(map, prefix + "TagSpecification.", this.TagSpecification);
 
     }
 }

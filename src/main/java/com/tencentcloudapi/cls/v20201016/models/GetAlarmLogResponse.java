@@ -16,35 +16,37 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetAlarmLogResponse extends AbstractModel{
+public class GetAlarmLogResponse extends AbstractModel {
 
     /**
-    * 加载后续内容的Context
+    * 加载后续详情的Context
     */
     @SerializedName("Context")
     @Expose
     private String Context;
 
     /**
-    * 日志查询结果是否全部返回
+    * 指定时间范围内的告警执行详情是否完整返回
     */
     @SerializedName("ListOver")
     @Expose
     private Boolean ListOver;
 
     /**
-    * 返回的是否为分析结果
+    * 返回的结果是否为SQL分析结果
     */
     @SerializedName("Analysis")
     @Expose
     private Boolean Analysis;
 
     /**
-    * 如果Analysis为True，则返回分析结果的列名，否则为空
+    * 分析结果的列名，如果Query语句有SQL查询，则返回查询字段的列名；
+否则为空。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ColNames")
@@ -52,7 +54,9 @@ public class GetAlarmLogResponse extends AbstractModel{
     private String [] ColNames;
 
     /**
-    * 日志查询结果；当Analysis为True时，可能返回为null
+    * 执行详情查询结果。
+当Query字段无SQL语句时，返回查询结果。
+当Query字段有SQL语句时，可能返回null。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Results")
@@ -60,7 +64,8 @@ public class GetAlarmLogResponse extends AbstractModel{
     private LogInfo [] Results;
 
     /**
-    * 日志分析结果；当Analysis为False时，可能返回为null
+    * 执行详情统计分析结果。当Query字段有SQL语句时，返回SQL统计结果，否则可能返回null。
+
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AnalysisResults")
@@ -68,7 +73,7 @@ public class GetAlarmLogResponse extends AbstractModel{
     private LogItems [] AnalysisResults;
 
     /**
-    * 新的日志分析结果; UseNewAnalysis为true有效
+    * 执行详情统计分析结果；UseNewAnalysis为true有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AnalysisRecords")
@@ -76,7 +81,7 @@ public class GetAlarmLogResponse extends AbstractModel{
     private String [] AnalysisRecords;
 
     /**
-    * 日志分析的列属性; UseNewAnalysis为true有效
+    * 分析结果的列名， UseNewAnalysis为true有效
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Columns")
@@ -84,64 +89,66 @@ public class GetAlarmLogResponse extends AbstractModel{
     private Column [] Columns;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 加载后续内容的Context 
-     * @return Context 加载后续内容的Context
+     * Get 加载后续详情的Context 
+     * @return Context 加载后续详情的Context
      */
     public String getContext() {
         return this.Context;
     }
 
     /**
-     * Set 加载后续内容的Context
-     * @param Context 加载后续内容的Context
+     * Set 加载后续详情的Context
+     * @param Context 加载后续详情的Context
      */
     public void setContext(String Context) {
         this.Context = Context;
     }
 
     /**
-     * Get 日志查询结果是否全部返回 
-     * @return ListOver 日志查询结果是否全部返回
+     * Get 指定时间范围内的告警执行详情是否完整返回 
+     * @return ListOver 指定时间范围内的告警执行详情是否完整返回
      */
     public Boolean getListOver() {
         return this.ListOver;
     }
 
     /**
-     * Set 日志查询结果是否全部返回
-     * @param ListOver 日志查询结果是否全部返回
+     * Set 指定时间范围内的告警执行详情是否完整返回
+     * @param ListOver 指定时间范围内的告警执行详情是否完整返回
      */
     public void setListOver(Boolean ListOver) {
         this.ListOver = ListOver;
     }
 
     /**
-     * Get 返回的是否为分析结果 
-     * @return Analysis 返回的是否为分析结果
+     * Get 返回的结果是否为SQL分析结果 
+     * @return Analysis 返回的结果是否为SQL分析结果
      */
     public Boolean getAnalysis() {
         return this.Analysis;
     }
 
     /**
-     * Set 返回的是否为分析结果
-     * @param Analysis 返回的是否为分析结果
+     * Set 返回的结果是否为SQL分析结果
+     * @param Analysis 返回的结果是否为SQL分析结果
      */
     public void setAnalysis(Boolean Analysis) {
         this.Analysis = Analysis;
     }
 
     /**
-     * Get 如果Analysis为True，则返回分析结果的列名，否则为空
+     * Get 分析结果的列名，如果Query语句有SQL查询，则返回查询字段的列名；
+否则为空。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ColNames 如果Analysis为True，则返回分析结果的列名，否则为空
+     * @return ColNames 分析结果的列名，如果Query语句有SQL查询，则返回查询字段的列名；
+否则为空。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getColNames() {
@@ -149,9 +156,11 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Set 如果Analysis为True，则返回分析结果的列名，否则为空
+     * Set 分析结果的列名，如果Query语句有SQL查询，则返回查询字段的列名；
+否则为空。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ColNames 如果Analysis为True，则返回分析结果的列名，否则为空
+     * @param ColNames 分析结果的列名，如果Query语句有SQL查询，则返回查询字段的列名；
+否则为空。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setColNames(String [] ColNames) {
@@ -159,9 +168,13 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Get 日志查询结果；当Analysis为True时，可能返回为null
+     * Get 执行详情查询结果。
+当Query字段无SQL语句时，返回查询结果。
+当Query字段有SQL语句时，可能返回null。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Results 日志查询结果；当Analysis为True时，可能返回为null
+     * @return Results 执行详情查询结果。
+当Query字段无SQL语句时，返回查询结果。
+当Query字段有SQL语句时，可能返回null。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public LogInfo [] getResults() {
@@ -169,9 +182,13 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Set 日志查询结果；当Analysis为True时，可能返回为null
+     * Set 执行详情查询结果。
+当Query字段无SQL语句时，返回查询结果。
+当Query字段有SQL语句时，可能返回null。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Results 日志查询结果；当Analysis为True时，可能返回为null
+     * @param Results 执行详情查询结果。
+当Query字段无SQL语句时，返回查询结果。
+当Query字段有SQL语句时，可能返回null。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResults(LogInfo [] Results) {
@@ -179,9 +196,11 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Get 日志分析结果；当Analysis为False时，可能返回为null
+     * Get 执行详情统计分析结果。当Query字段有SQL语句时，返回SQL统计结果，否则可能返回null。
+
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AnalysisResults 日志分析结果；当Analysis为False时，可能返回为null
+     * @return AnalysisResults 执行详情统计分析结果。当Query字段有SQL语句时，返回SQL统计结果，否则可能返回null。
+
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public LogItems [] getAnalysisResults() {
@@ -189,9 +208,11 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Set 日志分析结果；当Analysis为False时，可能返回为null
+     * Set 执行详情统计分析结果。当Query字段有SQL语句时，返回SQL统计结果，否则可能返回null。
+
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AnalysisResults 日志分析结果；当Analysis为False时，可能返回为null
+     * @param AnalysisResults 执行详情统计分析结果。当Query字段有SQL语句时，返回SQL统计结果，否则可能返回null。
+
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAnalysisResults(LogItems [] AnalysisResults) {
@@ -199,9 +220,9 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Get 新的日志分析结果; UseNewAnalysis为true有效
+     * Get 执行详情统计分析结果；UseNewAnalysis为true有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AnalysisRecords 新的日志分析结果; UseNewAnalysis为true有效
+     * @return AnalysisRecords 执行详情统计分析结果；UseNewAnalysis为true有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAnalysisRecords() {
@@ -209,9 +230,9 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Set 新的日志分析结果; UseNewAnalysis为true有效
+     * Set 执行详情统计分析结果；UseNewAnalysis为true有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AnalysisRecords 新的日志分析结果; UseNewAnalysis为true有效
+     * @param AnalysisRecords 执行详情统计分析结果；UseNewAnalysis为true有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAnalysisRecords(String [] AnalysisRecords) {
@@ -219,9 +240,9 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Get 日志分析的列属性; UseNewAnalysis为true有效
+     * Get 分析结果的列名， UseNewAnalysis为true有效
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Columns 日志分析的列属性; UseNewAnalysis为true有效
+     * @return Columns 分析结果的列名， UseNewAnalysis为true有效
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Column [] getColumns() {
@@ -229,9 +250,9 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Set 日志分析的列属性; UseNewAnalysis为true有效
+     * Set 分析结果的列名， UseNewAnalysis为true有效
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Columns 日志分析的列属性; UseNewAnalysis为true有效
+     * @param Columns 分析结果的列名， UseNewAnalysis为true有效
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setColumns(Column [] Columns) {
@@ -239,16 +260,16 @@ public class GetAlarmLogResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

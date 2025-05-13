@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateTaskRequest extends AbstractModel{
+public class CreateTaskRequest extends AbstractModel {
 
     /**
-    * 媒资文件ID，最长32B
+    * 媒资文件ID
     */
     @SerializedName("MediaId")
     @Expose
@@ -65,16 +66,16 @@ public class CreateTaskRequest extends AbstractModel{
     private String CallbackURL;
 
     /**
-     * Get 媒资文件ID，最长32B 
-     * @return MediaId 媒资文件ID，最长32B
+     * Get 媒资文件ID 
+     * @return MediaId 媒资文件ID
      */
     public String getMediaId() {
         return this.MediaId;
     }
 
     /**
-     * Set 媒资文件ID，最长32B
-     * @param MediaId 媒资文件ID，最长32B
+     * Set 媒资文件ID
+     * @param MediaId 媒资文件ID
      */
     public void setMediaId(String MediaId) {
         this.MediaId = MediaId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Application extends AbstractModel{
+public class Application extends AbstractModel {
 
     /**
     * 应用程序的交付方式，包括PACKAGE、LOCAL 两种取值，分别指远程存储的软件包、计算环境本地。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeliveryForm")
     @Expose
@@ -32,7 +32,6 @@ public class Application extends AbstractModel{
 
     /**
     * 任务执行命令。与Commands不能同时指定。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Command")
     @Expose
@@ -40,7 +39,6 @@ public class Application extends AbstractModel{
 
     /**
     * 应用程序软件包的远程存储路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackagePath")
     @Expose
@@ -48,17 +46,21 @@ public class Application extends AbstractModel{
 
     /**
     * 应用使用Docker的相关配置。在使用Docker配置的情况下，DeliveryForm 为 LOCAL 表示直接使用Docker镜像内部的应用软件，通过Docker方式运行；DeliveryForm 为 PACKAGE，表示将远程应用包注入到Docker镜像后，通过Docker方式运行。为避免Docker不同版本的兼容性问题，Docker安装包及相关依赖由Batch统一负责，对于已安装Docker的自定义镜像，请卸载后再使用Docker特性。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Docker")
     @Expose
     private Docker Docker;
 
     /**
-     * Get 应用程序的交付方式，包括PACKAGE、LOCAL 两种取值，分别指远程存储的软件包、计算环境本地。
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 任务执行命令信息。与Command不能同时指定。
+    */
+    @SerializedName("Commands")
+    @Expose
+    private CommandLine [] Commands;
+
+    /**
+     * Get 应用程序的交付方式，包括PACKAGE、LOCAL 两种取值，分别指远程存储的软件包、计算环境本地。 
      * @return DeliveryForm 应用程序的交付方式，包括PACKAGE、LOCAL 两种取值，分别指远程存储的软件包、计算环境本地。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeliveryForm() {
         return this.DeliveryForm;
@@ -66,19 +68,15 @@ public class Application extends AbstractModel{
 
     /**
      * Set 应用程序的交付方式，包括PACKAGE、LOCAL 两种取值，分别指远程存储的软件包、计算环境本地。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeliveryForm 应用程序的交付方式，包括PACKAGE、LOCAL 两种取值，分别指远程存储的软件包、计算环境本地。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeliveryForm(String DeliveryForm) {
         this.DeliveryForm = DeliveryForm;
     }
 
     /**
-     * Get 任务执行命令。与Commands不能同时指定。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务执行命令。与Commands不能同时指定。 
      * @return Command 任务执行命令。与Commands不能同时指定。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCommand() {
         return this.Command;
@@ -86,19 +84,15 @@ public class Application extends AbstractModel{
 
     /**
      * Set 任务执行命令。与Commands不能同时指定。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Command 任务执行命令。与Commands不能同时指定。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCommand(String Command) {
         this.Command = Command;
     }
 
     /**
-     * Get 应用程序软件包的远程存储路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用程序软件包的远程存储路径 
      * @return PackagePath 应用程序软件包的远程存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackagePath() {
         return this.PackagePath;
@@ -106,19 +100,15 @@ public class Application extends AbstractModel{
 
     /**
      * Set 应用程序软件包的远程存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackagePath 应用程序软件包的远程存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackagePath(String PackagePath) {
         this.PackagePath = PackagePath;
     }
 
     /**
-     * Get 应用使用Docker的相关配置。在使用Docker配置的情况下，DeliveryForm 为 LOCAL 表示直接使用Docker镜像内部的应用软件，通过Docker方式运行；DeliveryForm 为 PACKAGE，表示将远程应用包注入到Docker镜像后，通过Docker方式运行。为避免Docker不同版本的兼容性问题，Docker安装包及相关依赖由Batch统一负责，对于已安装Docker的自定义镜像，请卸载后再使用Docker特性。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用使用Docker的相关配置。在使用Docker配置的情况下，DeliveryForm 为 LOCAL 表示直接使用Docker镜像内部的应用软件，通过Docker方式运行；DeliveryForm 为 PACKAGE，表示将远程应用包注入到Docker镜像后，通过Docker方式运行。为避免Docker不同版本的兼容性问题，Docker安装包及相关依赖由Batch统一负责，对于已安装Docker的自定义镜像，请卸载后再使用Docker特性。 
      * @return Docker 应用使用Docker的相关配置。在使用Docker配置的情况下，DeliveryForm 为 LOCAL 表示直接使用Docker镜像内部的应用软件，通过Docker方式运行；DeliveryForm 为 PACKAGE，表示将远程应用包注入到Docker镜像后，通过Docker方式运行。为避免Docker不同版本的兼容性问题，Docker安装包及相关依赖由Batch统一负责，对于已安装Docker的自定义镜像，请卸载后再使用Docker特性。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Docker getDocker() {
         return this.Docker;
@@ -126,12 +116,26 @@ public class Application extends AbstractModel{
 
     /**
      * Set 应用使用Docker的相关配置。在使用Docker配置的情况下，DeliveryForm 为 LOCAL 表示直接使用Docker镜像内部的应用软件，通过Docker方式运行；DeliveryForm 为 PACKAGE，表示将远程应用包注入到Docker镜像后，通过Docker方式运行。为避免Docker不同版本的兼容性问题，Docker安装包及相关依赖由Batch统一负责，对于已安装Docker的自定义镜像，请卸载后再使用Docker特性。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Docker 应用使用Docker的相关配置。在使用Docker配置的情况下，DeliveryForm 为 LOCAL 表示直接使用Docker镜像内部的应用软件，通过Docker方式运行；DeliveryForm 为 PACKAGE，表示将远程应用包注入到Docker镜像后，通过Docker方式运行。为避免Docker不同版本的兼容性问题，Docker安装包及相关依赖由Batch统一负责，对于已安装Docker的自定义镜像，请卸载后再使用Docker特性。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDocker(Docker Docker) {
         this.Docker = Docker;
+    }
+
+    /**
+     * Get 任务执行命令信息。与Command不能同时指定。 
+     * @return Commands 任务执行命令信息。与Command不能同时指定。
+     */
+    public CommandLine [] getCommands() {
+        return this.Commands;
+    }
+
+    /**
+     * Set 任务执行命令信息。与Command不能同时指定。
+     * @param Commands 任务执行命令信息。与Command不能同时指定。
+     */
+    public void setCommands(CommandLine [] Commands) {
+        this.Commands = Commands;
     }
 
     public Application() {
@@ -154,6 +158,12 @@ public class Application extends AbstractModel{
         if (source.Docker != null) {
             this.Docker = new Docker(source.Docker);
         }
+        if (source.Commands != null) {
+            this.Commands = new CommandLine[source.Commands.length];
+            for (int i = 0; i < source.Commands.length; i++) {
+                this.Commands[i] = new CommandLine(source.Commands[i]);
+            }
+        }
     }
 
 
@@ -165,6 +175,7 @@ public class Application extends AbstractModel{
         this.setParamSimple(map, prefix + "Command", this.Command);
         this.setParamSimple(map, prefix + "PackagePath", this.PackagePath);
         this.setParamObj(map, prefix + "Docker.", this.Docker);
+        this.setParamArrayObj(map, prefix + "Commands.", this.Commands);
 
     }
 }

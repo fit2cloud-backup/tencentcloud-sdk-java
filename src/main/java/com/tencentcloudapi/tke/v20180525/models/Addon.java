@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Addon extends AbstractModel{
+public class Addon extends AbstractModel {
 
     /**
     * addon名称
@@ -38,7 +39,6 @@ public class Addon extends AbstractModel{
 
     /**
     * addon的参数，是一个json格式的base64转码后的字符串
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RawValues")
     @Expose
@@ -46,7 +46,6 @@ public class Addon extends AbstractModel{
 
     /**
     * addon的状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Phase")
     @Expose
@@ -54,11 +53,17 @@ public class Addon extends AbstractModel{
 
     /**
     * addon失败的原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Reason")
     @Expose
     private String Reason;
+
+    /**
+    * addon的创建时间
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
 
     /**
      * Get addon名称 
@@ -93,10 +98,8 @@ public class Addon extends AbstractModel{
     }
 
     /**
-     * Get addon的参数，是一个json格式的base64转码后的字符串
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get addon的参数，是一个json格式的base64转码后的字符串 
      * @return RawValues addon的参数，是一个json格式的base64转码后的字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRawValues() {
         return this.RawValues;
@@ -104,19 +107,15 @@ public class Addon extends AbstractModel{
 
     /**
      * Set addon的参数，是一个json格式的base64转码后的字符串
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RawValues addon的参数，是一个json格式的base64转码后的字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRawValues(String RawValues) {
         this.RawValues = RawValues;
     }
 
     /**
-     * Get addon的状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get addon的状态 
      * @return Phase addon的状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPhase() {
         return this.Phase;
@@ -124,19 +123,15 @@ public class Addon extends AbstractModel{
 
     /**
      * Set addon的状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Phase addon的状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPhase(String Phase) {
         this.Phase = Phase;
     }
 
     /**
-     * Get addon失败的原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get addon失败的原因 
      * @return Reason addon失败的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReason() {
         return this.Reason;
@@ -144,12 +139,26 @@ public class Addon extends AbstractModel{
 
     /**
      * Set addon失败的原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Reason addon失败的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReason(String Reason) {
         this.Reason = Reason;
+    }
+
+    /**
+     * Get addon的创建时间 
+     * @return CreateTime addon的创建时间
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set addon的创建时间
+     * @param CreateTime addon的创建时间
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
     }
 
     public Addon() {
@@ -175,6 +184,9 @@ public class Addon extends AbstractModel{
         if (source.Reason != null) {
             this.Reason = new String(source.Reason);
         }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
     }
 
 
@@ -187,6 +199,7 @@ public class Addon extends AbstractModel{
         this.setParamSimple(map, prefix + "RawValues", this.RawValues);
         this.setParamSimple(map, prefix + "Phase", this.Phase);
         this.setParamSimple(map, prefix + "Reason", this.Reason);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
 
     }
 }

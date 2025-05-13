@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MainlandPermitOCRResponse extends AbstractModel{
+public class MainlandPermitOCRResponse extends AbstractModel {
 
     /**
     * 中文姓名
@@ -100,7 +101,21 @@ public class MainlandPermitOCRResponse extends AbstractModel{
     private String Profile;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 国籍
+    */
+    @SerializedName("Nationality")
+    @Expose
+    private String Nationality;
+
+    /**
+    * 背面字段信息
+    */
+    @SerializedName("MainlandTravelPermitBackInfos")
+    @Expose
+    private MainlandTravelPermitBackInfos MainlandTravelPermitBackInfos;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -283,16 +298,48 @@ public class MainlandPermitOCRResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 国籍 
+     * @return Nationality 国籍
+     */
+    public String getNationality() {
+        return this.Nationality;
+    }
+
+    /**
+     * Set 国籍
+     * @param Nationality 国籍
+     */
+    public void setNationality(String Nationality) {
+        this.Nationality = Nationality;
+    }
+
+    /**
+     * Get 背面字段信息 
+     * @return MainlandTravelPermitBackInfos 背面字段信息
+     */
+    public MainlandTravelPermitBackInfos getMainlandTravelPermitBackInfos() {
+        return this.MainlandTravelPermitBackInfos;
+    }
+
+    /**
+     * Set 背面字段信息
+     * @param MainlandTravelPermitBackInfos 背面字段信息
+     */
+    public void setMainlandTravelPermitBackInfos(MainlandTravelPermitBackInfos MainlandTravelPermitBackInfos) {
+        this.MainlandTravelPermitBackInfos = MainlandTravelPermitBackInfos;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -339,6 +386,12 @@ public class MainlandPermitOCRResponse extends AbstractModel{
         if (source.Profile != null) {
             this.Profile = new String(source.Profile);
         }
+        if (source.Nationality != null) {
+            this.Nationality = new String(source.Nationality);
+        }
+        if (source.MainlandTravelPermitBackInfos != null) {
+            this.MainlandTravelPermitBackInfos = new MainlandTravelPermitBackInfos(source.MainlandTravelPermitBackInfos);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -360,6 +413,8 @@ public class MainlandPermitOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "IssueNumber", this.IssueNumber);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "Profile", this.Profile);
+        this.setParamSimple(map, prefix + "Nationality", this.Nationality);
+        this.setParamObj(map, prefix + "MainlandTravelPermitBackInfos.", this.MainlandTravelPermitBackInfos);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

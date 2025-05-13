@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParamInfo extends AbstractModel{
+public class ParamInfo extends AbstractModel {
 
     /**
     * 当前值
@@ -38,7 +39,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数为enum/string/bool时，可选值列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnumValue")
     @Expose
@@ -102,7 +102,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 是否为全局参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsGlobal")
     @Expose
@@ -110,7 +109,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 参数是否可修改
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModifiableInfo")
     @Expose
@@ -118,7 +116,6 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 是否为函数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsFunc")
     @Expose
@@ -126,11 +123,17 @@ public class ParamInfo extends AbstractModel{
 
     /**
     * 函数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Func")
     @Expose
     private String Func;
+
+    /**
+    * 支持公式的参数的默认公式样式
+    */
+    @SerializedName("FuncPattern")
+    @Expose
+    private String FuncPattern;
 
     /**
      * Get 当前值 
@@ -165,10 +168,8 @@ public class ParamInfo extends AbstractModel{
     }
 
     /**
-     * Get 参数为enum/string/bool时，可选值列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数为enum/string/bool时，可选值列表 
      * @return EnumValue 参数为enum/string/bool时，可选值列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getEnumValue() {
         return this.EnumValue;
@@ -176,9 +177,7 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数为enum/string/bool时，可选值列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnumValue 参数为enum/string/bool时，可选值列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnumValue(String [] EnumValue) {
         this.EnumValue = EnumValue;
@@ -313,10 +312,8 @@ public class ParamInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否为全局参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否为全局参数 
      * @return IsGlobal 是否为全局参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsGlobal() {
         return this.IsGlobal;
@@ -324,19 +321,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 是否为全局参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsGlobal 是否为全局参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsGlobal(Long IsGlobal) {
         this.IsGlobal = IsGlobal;
     }
 
     /**
-     * Get 参数是否可修改
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数是否可修改 
      * @return ModifiableInfo 参数是否可修改
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ModifiableInfo getModifiableInfo() {
         return this.ModifiableInfo;
@@ -344,19 +337,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 参数是否可修改
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModifiableInfo 参数是否可修改
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModifiableInfo(ModifiableInfo ModifiableInfo) {
         this.ModifiableInfo = ModifiableInfo;
     }
 
     /**
-     * Get 是否为函数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否为函数 
      * @return IsFunc 是否为函数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsFunc() {
         return this.IsFunc;
@@ -364,19 +353,15 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 是否为函数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsFunc 是否为函数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsFunc(Boolean IsFunc) {
         this.IsFunc = IsFunc;
     }
 
     /**
-     * Get 函数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 函数 
      * @return Func 函数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFunc() {
         return this.Func;
@@ -384,12 +369,26 @@ public class ParamInfo extends AbstractModel{
 
     /**
      * Set 函数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Func 函数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFunc(String Func) {
         this.Func = Func;
+    }
+
+    /**
+     * Get 支持公式的参数的默认公式样式 
+     * @return FuncPattern 支持公式的参数的默认公式样式
+     */
+    public String getFuncPattern() {
+        return this.FuncPattern;
+    }
+
+    /**
+     * Set 支持公式的参数的默认公式样式
+     * @param FuncPattern 支持公式的参数的默认公式样式
+     */
+    public void setFuncPattern(String FuncPattern) {
+        this.FuncPattern = FuncPattern;
     }
 
     public ParamInfo() {
@@ -448,6 +447,9 @@ public class ParamInfo extends AbstractModel{
         if (source.Func != null) {
             this.Func = new String(source.Func);
         }
+        if (source.FuncPattern != null) {
+            this.FuncPattern = new String(source.FuncPattern);
+        }
     }
 
 
@@ -470,6 +472,7 @@ public class ParamInfo extends AbstractModel{
         this.setParamObj(map, prefix + "ModifiableInfo.", this.ModifiableInfo);
         this.setParamSimple(map, prefix + "IsFunc", this.IsFunc);
         this.setParamSimple(map, prefix + "Func", this.Func);
+        this.setParamSimple(map, prefix + "FuncPattern", this.FuncPattern);
 
     }
 }

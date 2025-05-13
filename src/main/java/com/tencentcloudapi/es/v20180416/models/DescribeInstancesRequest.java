@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstancesRequest extends AbstractModel{
+public class DescribeInstancesRequest extends AbstractModel {
 
     /**
     * 集群实例所属可用区，不传则默认所有可用区
@@ -105,6 +106,13 @@ public class DescribeInstancesRequest extends AbstractModel{
     @SerializedName("VpcIds")
     @Expose
     private String [] VpcIds;
+
+    /**
+    * cdc集群id
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
 
     /**
      * Get 集群实例所属可用区，不传则默认所有可用区 
@@ -298,6 +306,22 @@ public class DescribeInstancesRequest extends AbstractModel{
         this.VpcIds = VpcIds;
     }
 
+    /**
+     * Get cdc集群id 
+     * @return CdcId cdc集群id
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set cdc集群id
+     * @param CdcId cdc集群id
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
     public DescribeInstancesRequest() {
     }
 
@@ -363,6 +387,9 @@ public class DescribeInstancesRequest extends AbstractModel{
                 this.VpcIds[i] = new String(source.VpcIds[i]);
             }
         }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
     }
 
 
@@ -382,6 +409,7 @@ public class DescribeInstancesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ZoneList.", this.ZoneList);
         this.setParamArraySimple(map, prefix + "HealthStatus.", this.HealthStatus);
         this.setParamArraySimple(map, prefix + "VpcIds.", this.VpcIds);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
 
     }
 }

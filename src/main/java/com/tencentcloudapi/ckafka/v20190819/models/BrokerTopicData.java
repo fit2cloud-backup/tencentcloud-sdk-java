@@ -16,23 +16,22 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BrokerTopicData extends AbstractModel{
+public class BrokerTopicData extends AbstractModel {
 
     /**
     * 主题名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicName")
     @Expose
     private String TopicName;
 
     /**
-    * 主题ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 主题Id
     */
     @SerializedName("TopicId")
     @Expose
@@ -40,17 +39,14 @@ public class BrokerTopicData extends AbstractModel{
 
     /**
     * 主题占用Broker 容量大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataSize")
     @Expose
     private Long DataSize;
 
     /**
-     * Get 主题名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主题名称 
      * @return TopicName 主题名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicName() {
         return this.TopicName;
@@ -58,39 +54,31 @@ public class BrokerTopicData extends AbstractModel{
 
     /**
      * Set 主题名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicName 主题名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
     }
 
     /**
-     * Get 主题ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TopicId 主题ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 主题Id 
+     * @return TopicId 主题Id
      */
     public String getTopicId() {
         return this.TopicId;
     }
 
     /**
-     * Set 主题ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TopicId 主题ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 主题Id
+     * @param TopicId 主题Id
      */
     public void setTopicId(String TopicId) {
         this.TopicId = TopicId;
     }
 
     /**
-     * Get 主题占用Broker 容量大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主题占用Broker 容量大小 
      * @return DataSize 主题占用Broker 容量大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDataSize() {
         return this.DataSize;
@@ -98,9 +86,7 @@ public class BrokerTopicData extends AbstractModel{
 
     /**
      * Set 主题占用Broker 容量大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataSize 主题占用Broker 容量大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataSize(Long DataSize) {
         this.DataSize = DataSize;

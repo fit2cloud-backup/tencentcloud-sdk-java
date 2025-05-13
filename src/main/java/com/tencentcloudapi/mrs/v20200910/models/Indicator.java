@@ -16,25 +16,37 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Indicator extends AbstractModel{
+public class Indicator extends AbstractModel {
 
     /**
     * 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Indicators")
     @Expose
     private IndicatorItem [] Indicators;
 
     /**
-     * Get 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 检验报告块标题
+    */
+    @SerializedName("BlockTitle")
+    @Expose
+    private BlockTitle [] BlockTitle;
+
+    /**
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 检验指标项 
      * @return Indicators 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IndicatorItem [] getIndicators() {
         return this.Indicators;
@@ -42,12 +54,42 @@ public class Indicator extends AbstractModel{
 
     /**
      * Set 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Indicators 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndicators(IndicatorItem [] Indicators) {
         this.Indicators = Indicators;
+    }
+
+    /**
+     * Get 检验报告块标题 
+     * @return BlockTitle 检验报告块标题
+     */
+    public BlockTitle [] getBlockTitle() {
+        return this.BlockTitle;
+    }
+
+    /**
+     * Set 检验报告块标题
+     * @param BlockTitle 检验报告块标题
+     */
+    public void setBlockTitle(BlockTitle [] BlockTitle) {
+        this.BlockTitle = BlockTitle;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public Indicator() {
@@ -64,6 +106,15 @@ public class Indicator extends AbstractModel{
                 this.Indicators[i] = new IndicatorItem(source.Indicators[i]);
             }
         }
+        if (source.BlockTitle != null) {
+            this.BlockTitle = new BlockTitle[source.BlockTitle.length];
+            for (int i = 0; i < source.BlockTitle.length; i++) {
+                this.BlockTitle[i] = new BlockTitle(source.BlockTitle[i]);
+            }
+        }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -72,6 +123,8 @@ public class Indicator extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Indicators.", this.Indicators);
+        this.setParamArrayObj(map, prefix + "BlockTitle.", this.BlockTitle);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

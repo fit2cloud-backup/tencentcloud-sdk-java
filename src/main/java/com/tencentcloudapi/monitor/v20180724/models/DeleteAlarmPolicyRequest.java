@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteAlarmPolicyRequest extends AbstractModel{
+public class DeleteAlarmPolicyRequest extends AbstractModel {
 
     /**
     * 模块名，固定值 monitor
@@ -35,6 +36,13 @@ public class DeleteAlarmPolicyRequest extends AbstractModel{
     @SerializedName("PolicyIds")
     @Expose
     private String [] PolicyIds;
+
+    /**
+    * prom的实例id
+    */
+    @SerializedName("PromInsIds")
+    @Expose
+    private String [] PromInsIds;
 
     /**
      * Get 模块名，固定值 monitor 
@@ -68,6 +76,22 @@ public class DeleteAlarmPolicyRequest extends AbstractModel{
         this.PolicyIds = PolicyIds;
     }
 
+    /**
+     * Get prom的实例id 
+     * @return PromInsIds prom的实例id
+     */
+    public String [] getPromInsIds() {
+        return this.PromInsIds;
+    }
+
+    /**
+     * Set prom的实例id
+     * @param PromInsIds prom的实例id
+     */
+    public void setPromInsIds(String [] PromInsIds) {
+        this.PromInsIds = PromInsIds;
+    }
+
     public DeleteAlarmPolicyRequest() {
     }
 
@@ -85,6 +109,12 @@ public class DeleteAlarmPolicyRequest extends AbstractModel{
                 this.PolicyIds[i] = new String(source.PolicyIds[i]);
             }
         }
+        if (source.PromInsIds != null) {
+            this.PromInsIds = new String[source.PromInsIds.length];
+            for (int i = 0; i < source.PromInsIds.length; i++) {
+                this.PromInsIds[i] = new String(source.PromInsIds[i]);
+            }
+        }
     }
 
 
@@ -94,6 +124,7 @@ public class DeleteAlarmPolicyRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Module", this.Module);
         this.setParamArraySimple(map, prefix + "PolicyIds.", this.PolicyIds);
+        this.setParamArraySimple(map, prefix + "PromInsIds.", this.PromInsIds);
 
     }
 }

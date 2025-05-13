@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteIpAccessControlRequest extends AbstractModel{
+public class DeleteIpAccessControlRequest extends AbstractModel {
 
     /**
     * 域名
@@ -37,6 +38,13 @@ public class DeleteIpAccessControlRequest extends AbstractModel{
     private String [] Items;
 
     /**
+    * 若IsId字段为True，则Items列表元素需为Id，否则为IP
+    */
+    @SerializedName("IsId")
+    @Expose
+    private Boolean IsId;
+
+    /**
     * 是否删除对应的域名下的所有黑/白IP名单，true表示全部删除，false表示只删除指定ip名单
     */
     @SerializedName("DeleteAll")
@@ -49,6 +57,13 @@ public class DeleteIpAccessControlRequest extends AbstractModel{
     @SerializedName("SourceType")
     @Expose
     private String SourceType;
+
+    /**
+    * IP黑白名单类型，40为IP白名单，42为IP黑名单
+    */
+    @SerializedName("ActionType")
+    @Expose
+    private Long ActionType;
 
     /**
      * Get 域名 
@@ -83,6 +98,22 @@ public class DeleteIpAccessControlRequest extends AbstractModel{
     }
 
     /**
+     * Get 若IsId字段为True，则Items列表元素需为Id，否则为IP 
+     * @return IsId 若IsId字段为True，则Items列表元素需为Id，否则为IP
+     */
+    public Boolean getIsId() {
+        return this.IsId;
+    }
+
+    /**
+     * Set 若IsId字段为True，则Items列表元素需为Id，否则为IP
+     * @param IsId 若IsId字段为True，则Items列表元素需为Id，否则为IP
+     */
+    public void setIsId(Boolean IsId) {
+        this.IsId = IsId;
+    }
+
+    /**
      * Get 是否删除对应的域名下的所有黑/白IP名单，true表示全部删除，false表示只删除指定ip名单 
      * @return DeleteAll 是否删除对应的域名下的所有黑/白IP名单，true表示全部删除，false表示只删除指定ip名单
      */
@@ -114,6 +145,22 @@ public class DeleteIpAccessControlRequest extends AbstractModel{
         this.SourceType = SourceType;
     }
 
+    /**
+     * Get IP黑白名单类型，40为IP白名单，42为IP黑名单 
+     * @return ActionType IP黑白名单类型，40为IP白名单，42为IP黑名单
+     */
+    public Long getActionType() {
+        return this.ActionType;
+    }
+
+    /**
+     * Set IP黑白名单类型，40为IP白名单，42为IP黑名单
+     * @param ActionType IP黑白名单类型，40为IP白名单，42为IP黑名单
+     */
+    public void setActionType(Long ActionType) {
+        this.ActionType = ActionType;
+    }
+
     public DeleteIpAccessControlRequest() {
     }
 
@@ -131,11 +178,17 @@ public class DeleteIpAccessControlRequest extends AbstractModel{
                 this.Items[i] = new String(source.Items[i]);
             }
         }
+        if (source.IsId != null) {
+            this.IsId = new Boolean(source.IsId);
+        }
         if (source.DeleteAll != null) {
             this.DeleteAll = new Boolean(source.DeleteAll);
         }
         if (source.SourceType != null) {
             this.SourceType = new String(source.SourceType);
+        }
+        if (source.ActionType != null) {
+            this.ActionType = new Long(source.ActionType);
         }
     }
 
@@ -146,8 +199,10 @@ public class DeleteIpAccessControlRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Domain", this.Domain);
         this.setParamArraySimple(map, prefix + "Items.", this.Items);
+        this.setParamSimple(map, prefix + "IsId", this.IsId);
         this.setParamSimple(map, prefix + "DeleteAll", this.DeleteAll);
         this.setParamSimple(map, prefix + "SourceType", this.SourceType);
+        this.setParamSimple(map, prefix + "ActionType", this.ActionType);
 
     }
 }

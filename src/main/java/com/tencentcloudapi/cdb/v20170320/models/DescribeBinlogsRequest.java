@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBinlogsRequest extends AbstractModel{
+public class DescribeBinlogsRequest extends AbstractModel {
 
     /**
     * 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
@@ -56,6 +57,13 @@ public class DescribeBinlogsRequest extends AbstractModel{
     @SerializedName("MaxStartTime")
     @Expose
     private String MaxStartTime;
+
+    /**
+    * 返回binlog列表是否包含MinStartTime起始节点，默认为否
+    */
+    @SerializedName("ContainsMinStartTime")
+    @Expose
+    private Boolean ContainsMinStartTime;
 
     /**
      * Get 实例 ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。 
@@ -137,6 +145,22 @@ public class DescribeBinlogsRequest extends AbstractModel{
         this.MaxStartTime = MaxStartTime;
     }
 
+    /**
+     * Get 返回binlog列表是否包含MinStartTime起始节点，默认为否 
+     * @return ContainsMinStartTime 返回binlog列表是否包含MinStartTime起始节点，默认为否
+     */
+    public Boolean getContainsMinStartTime() {
+        return this.ContainsMinStartTime;
+    }
+
+    /**
+     * Set 返回binlog列表是否包含MinStartTime起始节点，默认为否
+     * @param ContainsMinStartTime 返回binlog列表是否包含MinStartTime起始节点，默认为否
+     */
+    public void setContainsMinStartTime(Boolean ContainsMinStartTime) {
+        this.ContainsMinStartTime = ContainsMinStartTime;
+    }
+
     public DescribeBinlogsRequest() {
     }
 
@@ -160,6 +184,9 @@ public class DescribeBinlogsRequest extends AbstractModel{
         if (source.MaxStartTime != null) {
             this.MaxStartTime = new String(source.MaxStartTime);
         }
+        if (source.ContainsMinStartTime != null) {
+            this.ContainsMinStartTime = new Boolean(source.ContainsMinStartTime);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class DescribeBinlogsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "MinStartTime", this.MinStartTime);
         this.setParamSimple(map, prefix + "MaxStartTime", this.MaxStartTime);
+        this.setParamSimple(map, prefix + "ContainsMinStartTime", this.ContainsMinStartTime);
 
     }
 }

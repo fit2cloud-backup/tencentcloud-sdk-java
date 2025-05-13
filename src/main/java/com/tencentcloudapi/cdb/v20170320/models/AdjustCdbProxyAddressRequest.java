@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AdjustCdbProxyAddressRequest extends AbstractModel{
+public class AdjustCdbProxyAddressRequest extends AbstractModel {
 
     /**
     * 代理组ID
@@ -95,6 +96,7 @@ public class AdjustCdbProxyAddressRequest extends AbstractModel{
 
     /**
     * 是否开启连接池
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
     */
     @SerializedName("ConnectionPool")
     @Expose
@@ -106,6 +108,20 @@ public class AdjustCdbProxyAddressRequest extends AbstractModel{
     @SerializedName("ProxyAllocation")
     @Expose
     private ProxyAllocation [] ProxyAllocation;
+
+    /**
+    * 是否开启自适应负载均衡
+    */
+    @SerializedName("AutoLoadBalance")
+    @Expose
+    private Boolean AutoLoadBalance;
+
+    /**
+    * 访问模式：就近访问，均衡分配
+    */
+    @SerializedName("AccessMode")
+    @Expose
+    private String AccessMode;
 
     /**
      * Get 代理组ID 
@@ -272,8 +288,10 @@ public class AdjustCdbProxyAddressRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启连接池 
+     * Get 是否开启连接池
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。 
      * @return ConnectionPool 是否开启连接池
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
      */
     public Boolean getConnectionPool() {
         return this.ConnectionPool;
@@ -281,7 +299,9 @@ public class AdjustCdbProxyAddressRequest extends AbstractModel{
 
     /**
      * Set 是否开启连接池
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
      * @param ConnectionPool 是否开启连接池
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
      */
     public void setConnectionPool(Boolean ConnectionPool) {
         this.ConnectionPool = ConnectionPool;
@@ -301,6 +321,38 @@ public class AdjustCdbProxyAddressRequest extends AbstractModel{
      */
     public void setProxyAllocation(ProxyAllocation [] ProxyAllocation) {
         this.ProxyAllocation = ProxyAllocation;
+    }
+
+    /**
+     * Get 是否开启自适应负载均衡 
+     * @return AutoLoadBalance 是否开启自适应负载均衡
+     */
+    public Boolean getAutoLoadBalance() {
+        return this.AutoLoadBalance;
+    }
+
+    /**
+     * Set 是否开启自适应负载均衡
+     * @param AutoLoadBalance 是否开启自适应负载均衡
+     */
+    public void setAutoLoadBalance(Boolean AutoLoadBalance) {
+        this.AutoLoadBalance = AutoLoadBalance;
+    }
+
+    /**
+     * Get 访问模式：就近访问，均衡分配 
+     * @return AccessMode 访问模式：就近访问，均衡分配
+     */
+    public String getAccessMode() {
+        return this.AccessMode;
+    }
+
+    /**
+     * Set 访问模式：就近访问，均衡分配
+     * @param AccessMode 访问模式：就近访问，均衡分配
+     */
+    public void setAccessMode(String AccessMode) {
+        this.AccessMode = AccessMode;
     }
 
     public AdjustCdbProxyAddressRequest() {
@@ -350,6 +402,12 @@ public class AdjustCdbProxyAddressRequest extends AbstractModel{
                 this.ProxyAllocation[i] = new ProxyAllocation(source.ProxyAllocation[i]);
             }
         }
+        if (source.AutoLoadBalance != null) {
+            this.AutoLoadBalance = new Boolean(source.AutoLoadBalance);
+        }
+        if (source.AccessMode != null) {
+            this.AccessMode = new String(source.AccessMode);
+        }
     }
 
 
@@ -369,6 +427,8 @@ public class AdjustCdbProxyAddressRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TransSplit", this.TransSplit);
         this.setParamSimple(map, prefix + "ConnectionPool", this.ConnectionPool);
         this.setParamArrayObj(map, prefix + "ProxyAllocation.", this.ProxyAllocation);
+        this.setParamSimple(map, prefix + "AutoLoadBalance", this.AutoLoadBalance);
+        this.setParamSimple(map, prefix + "AccessMode", this.AccessMode);
 
     }
 }

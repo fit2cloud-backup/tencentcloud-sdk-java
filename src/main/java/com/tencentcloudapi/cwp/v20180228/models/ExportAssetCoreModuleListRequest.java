@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExportAssetCoreModuleListRequest extends AbstractModel{
+public class ExportAssetCoreModuleListRequest extends AbstractModel {
 
     /**
     * 服务器Uuid
@@ -39,7 +40,7 @@ public class ExportAssetCoreModuleListRequest extends AbstractModel{
     /**
     * 过滤条件。
 <li>Name- string - 是否必填：否 - 包名</li>
-<li>User- string - 是否必填：否 - 用户</li>
+<li>User- string - 是否必填：否 - 用户名</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -94,10 +95,10 @@ public class ExportAssetCoreModuleListRequest extends AbstractModel{
     /**
      * Get 过滤条件。
 <li>Name- string - 是否必填：否 - 包名</li>
-<li>User- string - 是否必填：否 - 用户</li> 
+<li>User- string - 是否必填：否 - 用户名</li> 
      * @return Filters 过滤条件。
 <li>Name- string - 是否必填：否 - 包名</li>
-<li>User- string - 是否必填：否 - 用户</li>
+<li>User- string - 是否必填：否 - 用户名</li>
      */
     public AssetFilters [] getFilters() {
         return this.Filters;
@@ -106,10 +107,10 @@ public class ExportAssetCoreModuleListRequest extends AbstractModel{
     /**
      * Set 过滤条件。
 <li>Name- string - 是否必填：否 - 包名</li>
-<li>User- string - 是否必填：否 - 用户</li>
+<li>User- string - 是否必填：否 - 用户名</li>
      * @param Filters 过滤条件。
 <li>Name- string - 是否必填：否 - 包名</li>
-<li>User- string - 是否必填：否 - 用户</li>
+<li>User- string - 是否必填：否 - 用户名</li>
      */
     public void setFilters(AssetFilters [] Filters) {
         this.Filters = Filters;

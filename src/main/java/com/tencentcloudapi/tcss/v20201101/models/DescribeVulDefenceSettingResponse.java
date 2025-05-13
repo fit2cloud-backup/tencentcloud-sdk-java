@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVulDefenceSettingResponse extends AbstractModel{
+public class DescribeVulDefenceSettingResponse extends AbstractModel {
 
     /**
     * 是否开启:0: 关闭 1:开启
@@ -52,7 +53,6 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
 
     /**
     * 自选漏洞防御主机
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostIDs")
     @Expose
@@ -60,7 +60,6 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
 
     /**
     * 开通容器安全的主机总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostTotalCount")
     @Expose
@@ -68,7 +67,6 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
 
     /**
     * 支持防御的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SupportDefenseVulCount")
     @Expose
@@ -110,7 +108,7 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
     private Long NodeTotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -181,10 +179,8 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
     }
 
     /**
-     * Get 自选漏洞防御主机
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自选漏洞防御主机 
      * @return HostIDs 自选漏洞防御主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getHostIDs() {
         return this.HostIDs;
@@ -192,19 +188,15 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
 
     /**
      * Set 自选漏洞防御主机
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostIDs 自选漏洞防御主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostIDs(String [] HostIDs) {
         this.HostIDs = HostIDs;
     }
 
     /**
-     * Get 开通容器安全的主机总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开通容器安全的主机总数 
      * @return HostTotalCount 开通容器安全的主机总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHostTotalCount() {
         return this.HostTotalCount;
@@ -212,19 +204,15 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
 
     /**
      * Set 开通容器安全的主机总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostTotalCount 开通容器安全的主机总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostTotalCount(Long HostTotalCount) {
         this.HostTotalCount = HostTotalCount;
     }
 
     /**
-     * Get 支持防御的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 支持防御的漏洞数 
      * @return SupportDefenseVulCount 支持防御的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSupportDefenseVulCount() {
         return this.SupportDefenseVulCount;
@@ -232,9 +220,7 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
 
     /**
      * Set 支持防御的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SupportDefenseVulCount 支持防御的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupportDefenseVulCount(Long SupportDefenseVulCount) {
         this.SupportDefenseVulCount = SupportDefenseVulCount;
@@ -321,16 +307,16 @@ public class DescribeVulDefenceSettingResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

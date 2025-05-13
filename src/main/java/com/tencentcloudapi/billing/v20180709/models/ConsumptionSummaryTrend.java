@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConsumptionSummaryTrend extends AbstractModel{
+public class ConsumptionSummaryTrend extends AbstractModel {
 
     /**
     * 趋势类型，upward上升/downward下降/none无
@@ -31,7 +32,6 @@ public class ConsumptionSummaryTrend extends AbstractModel{
 
     /**
     * 趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -54,10 +54,8 @@ public class ConsumptionSummaryTrend extends AbstractModel{
     }
 
     /**
-     * Get 趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 趋势值，Type为none是该字段值为null 
      * @return Value 趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -65,9 +63,7 @@ public class ConsumptionSummaryTrend extends AbstractModel{
 
     /**
      * Set 趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 趋势值，Type为none是该字段值为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

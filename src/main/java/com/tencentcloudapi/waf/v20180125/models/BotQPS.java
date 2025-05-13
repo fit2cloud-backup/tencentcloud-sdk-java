@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BotQPS extends AbstractModel{
+public class BotQPS extends AbstractModel {
 
     /**
     * 资源id
@@ -59,7 +60,6 @@ public class BotQPS extends AbstractModel{
 
     /**
     * 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RenewFlag")
     @Expose
@@ -146,10 +146,8 @@ public class BotQPS extends AbstractModel{
     }
 
     /**
-     * Get 续费标志
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 续费标志 
      * @return RenewFlag 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRenewFlag() {
         return this.RenewFlag;
@@ -157,9 +155,7 @@ public class BotQPS extends AbstractModel{
 
     /**
      * Set 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RenewFlag 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRenewFlag(Long RenewFlag) {
         this.RenewFlag = RenewFlag;

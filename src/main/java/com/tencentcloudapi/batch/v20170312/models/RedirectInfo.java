@@ -16,14 +16,15 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RedirectInfo extends AbstractModel{
+public class RedirectInfo extends AbstractModel {
 
     /**
-    * 标准输出重定向路径
+    * 标准输出重定向路径; 
     */
     @SerializedName("StdoutRedirectPath")
     @Expose
@@ -51,16 +52,16 @@ public class RedirectInfo extends AbstractModel{
     private String StderrRedirectFileName;
 
     /**
-     * Get 标准输出重定向路径 
-     * @return StdoutRedirectPath 标准输出重定向路径
+     * Get 标准输出重定向路径;  
+     * @return StdoutRedirectPath 标准输出重定向路径; 
      */
     public String getStdoutRedirectPath() {
         return this.StdoutRedirectPath;
     }
 
     /**
-     * Set 标准输出重定向路径
-     * @param StdoutRedirectPath 标准输出重定向路径
+     * Set 标准输出重定向路径; 
+     * @param StdoutRedirectPath 标准输出重定向路径; 
      */
     public void setStdoutRedirectPath(String StdoutRedirectPath) {
         this.StdoutRedirectPath = StdoutRedirectPath;

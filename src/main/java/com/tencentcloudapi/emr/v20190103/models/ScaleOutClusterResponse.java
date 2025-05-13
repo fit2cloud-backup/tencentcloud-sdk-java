@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScaleOutClusterResponse extends AbstractModel{
+public class ScaleOutClusterResponse extends AbstractModel {
 
     /**
     * 实例ID。
@@ -31,7 +32,6 @@ public class ScaleOutClusterResponse extends AbstractModel{
 
     /**
     * 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientToken")
     @Expose
@@ -39,14 +39,35 @@ public class ScaleOutClusterResponse extends AbstractModel{
 
     /**
     * 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowId")
     @Expose
     private Long FlowId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 查询流程状态，流程额外信息
+    */
+    @SerializedName("TraceId")
+    @Expose
+    private String TraceId;
+
+    /**
+    * 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DealNames")
+    @Expose
+    private String [] DealNames;
+
+    /**
+    * 大订单号。
+    */
+    @SerializedName("BillId")
+    @Expose
+    private String BillId;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -69,10 +90,8 @@ public class ScaleOutClusterResponse extends AbstractModel{
     }
 
     /**
-     * Get 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端Token。 
      * @return ClientToken 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClientToken() {
         return this.ClientToken;
@@ -80,19 +99,15 @@ public class ScaleOutClusterResponse extends AbstractModel{
 
     /**
      * Set 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientToken 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
     }
 
     /**
-     * Get 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扩容流程ID。 
      * @return FlowId 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFlowId() {
         return this.FlowId;
@@ -100,25 +115,75 @@ public class ScaleOutClusterResponse extends AbstractModel{
 
     /**
      * Set 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowId 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowId(Long FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 查询流程状态，流程额外信息 
+     * @return TraceId 查询流程状态，流程额外信息
+     */
+    public String getTraceId() {
+        return this.TraceId;
+    }
+
+    /**
+     * Set 查询流程状态，流程额外信息
+     * @param TraceId 查询流程状态，流程额外信息
+     */
+    public void setTraceId(String TraceId) {
+        this.TraceId = TraceId;
+    }
+
+    /**
+     * Get 订单号。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DealNames 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getDealNames() {
+        return this.DealNames;
+    }
+
+    /**
+     * Set 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DealNames 订单号。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDealNames(String [] DealNames) {
+        this.DealNames = DealNames;
+    }
+
+    /**
+     * Get 大订单号。 
+     * @return BillId 大订单号。
+     */
+    public String getBillId() {
+        return this.BillId;
+    }
+
+    /**
+     * Set 大订单号。
+     * @param BillId 大订单号。
+     */
+    public void setBillId(String BillId) {
+        this.BillId = BillId;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -141,6 +206,18 @@ public class ScaleOutClusterResponse extends AbstractModel{
         if (source.FlowId != null) {
             this.FlowId = new Long(source.FlowId);
         }
+        if (source.TraceId != null) {
+            this.TraceId = new String(source.TraceId);
+        }
+        if (source.DealNames != null) {
+            this.DealNames = new String[source.DealNames.length];
+            for (int i = 0; i < source.DealNames.length; i++) {
+                this.DealNames[i] = new String(source.DealNames[i]);
+            }
+        }
+        if (source.BillId != null) {
+            this.BillId = new String(source.BillId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -154,6 +231,9 @@ public class ScaleOutClusterResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
+        this.setParamSimple(map, prefix + "TraceId", this.TraceId);
+        this.setParamArraySimple(map, prefix + "DealNames.", this.DealNames);
+        this.setParamSimple(map, prefix + "BillId", this.BillId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

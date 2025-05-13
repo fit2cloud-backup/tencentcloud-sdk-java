@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCCLevelPolicyRequest extends AbstractModel{
+public class DescribeCCLevelPolicyRequest extends AbstractModel {
 
     /**
     * 实例Id
@@ -44,7 +45,7 @@ public class DescribeCCLevelPolicyRequest extends AbstractModel{
     private String Domain;
 
     /**
-    * 协议，可取值HTTP，HTTPS
+    * 协议，可取值http、https、http/https
     */
     @SerializedName("Protocol")
     @Expose
@@ -99,16 +100,16 @@ public class DescribeCCLevelPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 协议，可取值HTTP，HTTPS 
-     * @return Protocol 协议，可取值HTTP，HTTPS
+     * Get 协议，可取值http、https、http/https 
+     * @return Protocol 协议，可取值http、https、http/https
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议，可取值HTTP，HTTPS
-     * @param Protocol 协议，可取值HTTP，HTTPS
+     * Set 协议，可取值http、https、http/https
+     * @param Protocol 协议，可取值http、https、http/https
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;

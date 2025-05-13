@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
+public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel {
 
     /**
     * 时间点。表示要查询这分钟内的明细。如：`2019-02-28 18:15:20`，将查询 `18:15` 这一分钟内的明细。
@@ -72,7 +73,7 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
+    * 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
     */
     @SerializedName("OrderField")
     @Expose
@@ -84,6 +85,13 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
     @SerializedName("OrderDirection")
     @Expose
     private String OrderDirection;
+
+    /**
+    * VPC内部IPv4地址，精确匹配
+    */
+    @SerializedName("PrivateIpAddress")
+    @Expose
+    private String PrivateIpAddress;
 
     /**
      * Get 时间点。表示要查询这分钟内的明细。如：`2019-02-28 18:15:20`，将查询 `18:15` 这一分钟内的明细。 
@@ -198,16 +206,16 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。 
-     * @return OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
+     * Get 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。 
+     * @return OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
      */
     public String getOrderField() {
         return this.OrderField;
     }
 
     /**
-     * Set 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
-     * @param OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`。默认值`OutTraffic`。
+     * Set 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
+     * @param OrderField 排序字段。支持 `InPkg` `OutPkg` `InTraffic` `OutTraffic`，标准型nat额外支持 并发连接数`ConcurrentConnectionCount` 、新建连接速率`NewConnectionRate`。默认值`OutTraffic`。
      */
     public void setOrderField(String OrderField) {
         this.OrderField = OrderField;
@@ -227,6 +235,22 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
      */
     public void setOrderDirection(String OrderDirection) {
         this.OrderDirection = OrderDirection;
+    }
+
+    /**
+     * Get VPC内部IPv4地址，精确匹配 
+     * @return PrivateIpAddress VPC内部IPv4地址，精确匹配
+     */
+    public String getPrivateIpAddress() {
+        return this.PrivateIpAddress;
+    }
+
+    /**
+     * Set VPC内部IPv4地址，精确匹配
+     * @param PrivateIpAddress VPC内部IPv4地址，精确匹配
+     */
+    public void setPrivateIpAddress(String PrivateIpAddress) {
+        this.PrivateIpAddress = PrivateIpAddress;
     }
 
     public DescribeGatewayFlowMonitorDetailRequest() {
@@ -264,6 +288,9 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
         if (source.OrderDirection != null) {
             this.OrderDirection = new String(source.OrderDirection);
         }
+        if (source.PrivateIpAddress != null) {
+            this.PrivateIpAddress = new String(source.PrivateIpAddress);
+        }
     }
 
 
@@ -280,6 +307,7 @@ public class DescribeGatewayFlowMonitorDetailRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "OrderField", this.OrderField);
         this.setParamSimple(map, prefix + "OrderDirection", this.OrderDirection);
+        this.setParamSimple(map, prefix + "PrivateIpAddress", this.PrivateIpAddress);
 
     }
 }

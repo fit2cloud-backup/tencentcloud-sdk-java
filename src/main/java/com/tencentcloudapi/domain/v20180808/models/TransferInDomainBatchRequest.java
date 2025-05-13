@@ -16,14 +16,16 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TransferInDomainBatchRequest extends AbstractModel{
+public class TransferInDomainBatchRequest extends AbstractModel {
 
     /**
     * 转入的域名名称数组。
+一次提交不大于4000个
     */
     @SerializedName("Domains")
     @Expose
@@ -38,6 +40,7 @@ public class TransferInDomainBatchRequest extends AbstractModel{
 
     /**
     * 模板ID。
+可通过DescribeTemplates接口获取
     */
     @SerializedName("TemplateId")
     @Expose
@@ -104,8 +107,10 @@ false：关闭60天内禁止转移注册商锁定
     private String ActivityId;
 
     /**
-     * Get 转入的域名名称数组。 
+     * Get 转入的域名名称数组。
+一次提交不大于4000个 
      * @return Domains 转入的域名名称数组。
+一次提交不大于4000个
      */
     public String [] getDomains() {
         return this.Domains;
@@ -113,7 +118,9 @@ false：关闭60天内禁止转移注册商锁定
 
     /**
      * Set 转入的域名名称数组。
+一次提交不大于4000个
      * @param Domains 转入的域名名称数组。
+一次提交不大于4000个
      */
     public void setDomains(String [] Domains) {
         this.Domains = Domains;
@@ -136,8 +143,10 @@ false：关闭60天内禁止转移注册商锁定
     }
 
     /**
-     * Get 模板ID。 
+     * Get 模板ID。
+可通过DescribeTemplates接口获取 
      * @return TemplateId 模板ID。
+可通过DescribeTemplates接口获取
      */
     public String getTemplateId() {
         return this.TemplateId;
@@ -145,7 +154,9 @@ false：关闭60天内禁止转移注册商锁定
 
     /**
      * Set 模板ID。
+可通过DescribeTemplates接口获取
      * @param TemplateId 模板ID。
+可通过DescribeTemplates接口获取
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;

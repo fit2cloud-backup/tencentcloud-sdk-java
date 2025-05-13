@@ -16,21 +16,22 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateRuleRequest extends AbstractModel{
+public class CreateRuleRequest extends AbstractModel {
 
     /**
-    * 负载均衡实例 ID。
+    * 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 监听器 ID。
+    * 监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取
     */
     @SerializedName("ListenerId")
     @Expose
@@ -44,32 +45,32 @@ public class CreateRuleRequest extends AbstractModel{
     private RuleInput [] Rules;
 
     /**
-     * Get 负载均衡实例 ID。 
-     * @return LoadBalancerId 负载均衡实例 ID。
+     * Get 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取 
+     * @return LoadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID。
-     * @param LoadBalancerId 负载均衡实例 ID。
+     * Set 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取
+     * @param LoadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 监听器 ID。 
-     * @return ListenerId 监听器 ID。
+     * Get 监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取 
+     * @return ListenerId 监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取
      */
     public String getListenerId() {
         return this.ListenerId;
     }
 
     /**
-     * Set 监听器 ID。
-     * @param ListenerId 监听器 ID。
+     * Set 监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取
+     * @param ListenerId 监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateRabbitMQVirtualHostRequest extends AbstractModel{
+public class CreateRabbitMQVirtualHostRequest extends AbstractModel {
 
     /**
-    * 集群实例Id
+    * 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -51,16 +52,23 @@ public class CreateRabbitMQVirtualHostRequest extends AbstractModel{
     private Boolean TraceFlag;
 
     /**
-     * Get 集群实例Id 
-     * @return InstanceId 集群实例Id
+    * 是否创建镜像队列策略，默认值 true
+    */
+    @SerializedName("MirrorQueuePolicyFlag")
+    @Expose
+    private Boolean MirrorQueuePolicyFlag;
+
+    /**
+     * Get 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。 
+     * @return InstanceId 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 集群实例Id
-     * @param InstanceId 集群实例Id
+     * Set 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
+     * @param InstanceId 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -114,6 +122,22 @@ public class CreateRabbitMQVirtualHostRequest extends AbstractModel{
         this.TraceFlag = TraceFlag;
     }
 
+    /**
+     * Get 是否创建镜像队列策略，默认值 true 
+     * @return MirrorQueuePolicyFlag 是否创建镜像队列策略，默认值 true
+     */
+    public Boolean getMirrorQueuePolicyFlag() {
+        return this.MirrorQueuePolicyFlag;
+    }
+
+    /**
+     * Set 是否创建镜像队列策略，默认值 true
+     * @param MirrorQueuePolicyFlag 是否创建镜像队列策略，默认值 true
+     */
+    public void setMirrorQueuePolicyFlag(Boolean MirrorQueuePolicyFlag) {
+        this.MirrorQueuePolicyFlag = MirrorQueuePolicyFlag;
+    }
+
     public CreateRabbitMQVirtualHostRequest() {
     }
 
@@ -134,6 +158,9 @@ public class CreateRabbitMQVirtualHostRequest extends AbstractModel{
         if (source.TraceFlag != null) {
             this.TraceFlag = new Boolean(source.TraceFlag);
         }
+        if (source.MirrorQueuePolicyFlag != null) {
+            this.MirrorQueuePolicyFlag = new Boolean(source.MirrorQueuePolicyFlag);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class CreateRabbitMQVirtualHostRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VirtualHost", this.VirtualHost);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "TraceFlag", this.TraceFlag);
+        this.setParamSimple(map, prefix + "MirrorQueuePolicyFlag", this.MirrorQueuePolicyFlag);
 
     }
 }

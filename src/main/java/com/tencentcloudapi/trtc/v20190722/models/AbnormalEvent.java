@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AbnormalEvent extends AbstractModel{
+public class AbnormalEvent extends AbstractModel {
 
     /**
     * 异常事件ID，具体值查看附录：异常体验ID映射表：https://cloud.tencent.com/document/product/647/44916
@@ -31,7 +32,6 @@ public class AbnormalEvent extends AbstractModel{
 
     /**
     * 远端用户ID,""：表示异常事件不是由远端用户产生
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PeerId")
     @Expose
@@ -54,10 +54,8 @@ public class AbnormalEvent extends AbstractModel{
     }
 
     /**
-     * Get 远端用户ID,""：表示异常事件不是由远端用户产生
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 远端用户ID,""：表示异常事件不是由远端用户产生 
      * @return PeerId 远端用户ID,""：表示异常事件不是由远端用户产生
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPeerId() {
         return this.PeerId;
@@ -65,9 +63,7 @@ public class AbnormalEvent extends AbstractModel{
 
     /**
      * Set 远端用户ID,""：表示异常事件不是由远端用户产生
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PeerId 远端用户ID,""：表示异常事件不是由远端用户产生
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPeerId(String PeerId) {
         this.PeerId = PeerId;

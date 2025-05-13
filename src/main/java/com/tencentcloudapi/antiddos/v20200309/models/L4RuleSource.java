@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class L4RuleSource extends AbstractModel{
+public class L4RuleSource extends AbstractModel {
 
     /**
     * 回源IP或域名
@@ -46,7 +47,6 @@ public class L4RuleSource extends AbstractModel{
 
     /**
     * 备份源站，1: 备份源站，0: 普通源站
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Backup")
     @Expose
@@ -105,10 +105,8 @@ public class L4RuleSource extends AbstractModel{
     }
 
     /**
-     * Get 备份源站，1: 备份源站，0: 普通源站
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份源站，1: 备份源站，0: 普通源站 
      * @return Backup 备份源站，1: 备份源站，0: 普通源站
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBackup() {
         return this.Backup;
@@ -116,9 +114,7 @@ public class L4RuleSource extends AbstractModel{
 
     /**
      * Set 备份源站，1: 备份源站，0: 普通源站
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Backup 备份源站，1: 备份源站，0: 普通源站
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackup(Long Backup) {
         this.Backup = Backup;

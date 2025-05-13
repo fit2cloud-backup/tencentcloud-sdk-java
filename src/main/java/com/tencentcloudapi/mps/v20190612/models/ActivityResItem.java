@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ActivityResItem extends AbstractModel{
+public class ActivityResItem extends AbstractModel {
 
     /**
     * 转码任务输出
@@ -44,7 +45,7 @@ public class ActivityResItem extends AbstractModel{
     */
     @SerializedName("SnapshotByTimeOffsetTask")
     @Expose
-    private MediaProcessTaskSampleSnapshotResult SnapshotByTimeOffsetTask;
+    private MediaProcessTaskSnapshotByTimeOffsetResult SnapshotByTimeOffsetTask;
 
     /**
     * 采样截图任务输出
@@ -95,6 +96,22 @@ public class ActivityResItem extends AbstractModel{
     private ScheduleAnalysisTaskResult AnalysisTask;
 
     /**
+    * 媒体质检任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QualityControlTask")
+    @Expose
+    private ScheduleQualityControlTaskResult QualityControlTask;
+
+    /**
+    * 智能字幕任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SmartSubtitlesTask")
+    @Expose
+    private ScheduleSmartSubtitleTaskResult SmartSubtitlesTask;
+
+    /**
      * Get 转码任务输出
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return TranscodeTask 转码任务输出
@@ -140,7 +157,7 @@ public class ActivityResItem extends AbstractModel{
      * @return SnapshotByTimeOffsetTask 时间点截图任务输出
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public MediaProcessTaskSampleSnapshotResult getSnapshotByTimeOffsetTask() {
+    public MediaProcessTaskSnapshotByTimeOffsetResult getSnapshotByTimeOffsetTask() {
         return this.SnapshotByTimeOffsetTask;
     }
 
@@ -150,7 +167,7 @@ public class ActivityResItem extends AbstractModel{
      * @param SnapshotByTimeOffsetTask 时间点截图任务输出
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setSnapshotByTimeOffsetTask(MediaProcessTaskSampleSnapshotResult SnapshotByTimeOffsetTask) {
+    public void setSnapshotByTimeOffsetTask(MediaProcessTaskSnapshotByTimeOffsetResult SnapshotByTimeOffsetTask) {
         this.SnapshotByTimeOffsetTask = SnapshotByTimeOffsetTask;
     }
 
@@ -274,6 +291,46 @@ public class ActivityResItem extends AbstractModel{
         this.AnalysisTask = AnalysisTask;
     }
 
+    /**
+     * Get 媒体质检任务输出
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QualityControlTask 媒体质检任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ScheduleQualityControlTaskResult getQualityControlTask() {
+        return this.QualityControlTask;
+    }
+
+    /**
+     * Set 媒体质检任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QualityControlTask 媒体质检任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQualityControlTask(ScheduleQualityControlTaskResult QualityControlTask) {
+        this.QualityControlTask = QualityControlTask;
+    }
+
+    /**
+     * Get 智能字幕任务输出
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SmartSubtitlesTask 智能字幕任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ScheduleSmartSubtitleTaskResult getSmartSubtitlesTask() {
+        return this.SmartSubtitlesTask;
+    }
+
+    /**
+     * Set 智能字幕任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SmartSubtitlesTask 智能字幕任务输出
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSmartSubtitlesTask(ScheduleSmartSubtitleTaskResult SmartSubtitlesTask) {
+        this.SmartSubtitlesTask = SmartSubtitlesTask;
+    }
+
     public ActivityResItem() {
     }
 
@@ -289,7 +346,7 @@ public class ActivityResItem extends AbstractModel{
             this.AnimatedGraphicTask = new MediaProcessTaskAnimatedGraphicResult(source.AnimatedGraphicTask);
         }
         if (source.SnapshotByTimeOffsetTask != null) {
-            this.SnapshotByTimeOffsetTask = new MediaProcessTaskSampleSnapshotResult(source.SnapshotByTimeOffsetTask);
+            this.SnapshotByTimeOffsetTask = new MediaProcessTaskSnapshotByTimeOffsetResult(source.SnapshotByTimeOffsetTask);
         }
         if (source.SampleSnapshotTask != null) {
             this.SampleSnapshotTask = new MediaProcessTaskSampleSnapshotResult(source.SampleSnapshotTask);
@@ -309,6 +366,12 @@ public class ActivityResItem extends AbstractModel{
         if (source.AnalysisTask != null) {
             this.AnalysisTask = new ScheduleAnalysisTaskResult(source.AnalysisTask);
         }
+        if (source.QualityControlTask != null) {
+            this.QualityControlTask = new ScheduleQualityControlTaskResult(source.QualityControlTask);
+        }
+        if (source.SmartSubtitlesTask != null) {
+            this.SmartSubtitlesTask = new ScheduleSmartSubtitleTaskResult(source.SmartSubtitlesTask);
+        }
     }
 
 
@@ -325,6 +388,8 @@ public class ActivityResItem extends AbstractModel{
         this.setParamObj(map, prefix + "RecognitionTask.", this.RecognitionTask);
         this.setParamObj(map, prefix + "ReviewTask.", this.ReviewTask);
         this.setParamObj(map, prefix + "AnalysisTask.", this.AnalysisTask);
+        this.setParamObj(map, prefix + "QualityControlTask.", this.QualityControlTask);
+        this.setParamObj(map, prefix + "SmartSubtitlesTask.", this.SmartSubtitlesTask);
 
     }
 }

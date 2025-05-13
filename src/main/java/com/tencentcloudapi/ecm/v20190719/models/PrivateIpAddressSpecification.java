@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ecm.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PrivateIpAddressSpecification extends AbstractModel{
+public class PrivateIpAddressSpecification extends AbstractModel {
 
     /**
     * 内网IP地址。
@@ -31,7 +32,6 @@ public class PrivateIpAddressSpecification extends AbstractModel{
 
     /**
     * 是否是主IP。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Primary")
     @Expose
@@ -60,7 +60,6 @@ public class PrivateIpAddressSpecification extends AbstractModel{
 
     /**
     * 公网IP是否被封堵。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsWanIpBlocked")
     @Expose
@@ -94,10 +93,8 @@ AVAILABLE：可用的
     }
 
     /**
-     * Get 是否是主IP。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否是主IP。 
      * @return Primary 是否是主IP。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getPrimary() {
         return this.Primary;
@@ -105,9 +102,7 @@ AVAILABLE：可用的
 
     /**
      * Set 是否是主IP。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Primary 是否是主IP。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrimary(Boolean Primary) {
         this.Primary = Primary;
@@ -162,10 +157,8 @@ AVAILABLE：可用的
     }
 
     /**
-     * Get 公网IP是否被封堵。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 公网IP是否被封堵。 
      * @return IsWanIpBlocked 公网IP是否被封堵。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsWanIpBlocked() {
         return this.IsWanIpBlocked;
@@ -173,9 +166,7 @@ AVAILABLE：可用的
 
     /**
      * Set 公网IP是否被封堵。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsWanIpBlocked 公网IP是否被封堵。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsWanIpBlocked(Boolean IsWanIpBlocked) {
         this.IsWanIpBlocked = IsWanIpBlocked;

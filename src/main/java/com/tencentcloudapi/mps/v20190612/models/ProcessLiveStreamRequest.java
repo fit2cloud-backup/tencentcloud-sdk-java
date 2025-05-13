@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProcessLiveStreamRequest extends AbstractModel{
+public class ProcessLiveStreamRequest extends AbstractModel {
 
     /**
     * 直播流 URL（必须是直播文件地址，支持 rtmp，hls 和 flv 等）。
@@ -72,7 +73,7 @@ public class ProcessLiveStreamRequest extends AbstractModel{
     private AiAnalysisTaskInput AiAnalysisTask;
 
     /**
-    * 视频内容质检类型任务参数。
+    * 媒体质检类型任务参数。
     */
     @SerializedName("AiQualityControlTask")
     @Expose
@@ -91,6 +92,17 @@ public class ProcessLiveStreamRequest extends AbstractModel{
     @SerializedName("SessionContext")
     @Expose
     private String SessionContext;
+
+    /**
+    * 直播编排ID。
+注意1：对于OutputStorage、OutputDir参数：
+<li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若对直播流发起处理（ProcessLiveStream）有输出，将覆盖原有编排的默认输出。</li>
+注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessLiveStream）有设置，将覆盖原有编排的默认回调。
+    */
+    @SerializedName("ScheduleId")
+    @Expose
+    private Long ScheduleId;
 
     /**
      * Get 直播流 URL（必须是直播文件地址，支持 rtmp，hls 和 flv 等）。 
@@ -205,16 +217,16 @@ public class ProcessLiveStreamRequest extends AbstractModel{
     }
 
     /**
-     * Get 视频内容质检类型任务参数。 
-     * @return AiQualityControlTask 视频内容质检类型任务参数。
+     * Get 媒体质检类型任务参数。 
+     * @return AiQualityControlTask 媒体质检类型任务参数。
      */
     public AiQualityControlTaskInput getAiQualityControlTask() {
         return this.AiQualityControlTask;
     }
 
     /**
-     * Set 视频内容质检类型任务参数。
-     * @param AiQualityControlTask 视频内容质检类型任务参数。
+     * Set 媒体质检类型任务参数。
+     * @param AiQualityControlTask 媒体质检类型任务参数。
      */
     public void setAiQualityControlTask(AiQualityControlTaskInput AiQualityControlTask) {
         this.AiQualityControlTask = AiQualityControlTask;
@@ -250,6 +262,38 @@ public class ProcessLiveStreamRequest extends AbstractModel{
      */
     public void setSessionContext(String SessionContext) {
         this.SessionContext = SessionContext;
+    }
+
+    /**
+     * Get 直播编排ID。
+注意1：对于OutputStorage、OutputDir参数：
+<li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若对直播流发起处理（ProcessLiveStream）有输出，将覆盖原有编排的默认输出。</li>
+注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessLiveStream）有设置，将覆盖原有编排的默认回调。 
+     * @return ScheduleId 直播编排ID。
+注意1：对于OutputStorage、OutputDir参数：
+<li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若对直播流发起处理（ProcessLiveStream）有输出，将覆盖原有编排的默认输出。</li>
+注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessLiveStream）有设置，将覆盖原有编排的默认回调。
+     */
+    public Long getScheduleId() {
+        return this.ScheduleId;
+    }
+
+    /**
+     * Set 直播编排ID。
+注意1：对于OutputStorage、OutputDir参数：
+<li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若对直播流发起处理（ProcessLiveStream）有输出，将覆盖原有编排的默认输出。</li>
+注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessLiveStream）有设置，将覆盖原有编排的默认回调。
+     * @param ScheduleId 直播编排ID。
+注意1：对于OutputStorage、OutputDir参数：
+<li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若对直播流发起处理（ProcessLiveStream）有输出，将覆盖原有编排的默认输出。</li>
+注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessLiveStream）有设置，将覆盖原有编排的默认回调。
+     */
+    public void setScheduleId(Long ScheduleId) {
+        this.ScheduleId = ScheduleId;
     }
 
     public ProcessLiveStreamRequest() {
@@ -290,6 +334,9 @@ public class ProcessLiveStreamRequest extends AbstractModel{
         if (source.SessionContext != null) {
             this.SessionContext = new String(source.SessionContext);
         }
+        if (source.ScheduleId != null) {
+            this.ScheduleId = new Long(source.ScheduleId);
+        }
     }
 
 
@@ -307,6 +354,7 @@ public class ProcessLiveStreamRequest extends AbstractModel{
         this.setParamObj(map, prefix + "AiQualityControlTask.", this.AiQualityControlTask);
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);
+        this.setParamSimple(map, prefix + "ScheduleId", this.ScheduleId);
 
     }
 }

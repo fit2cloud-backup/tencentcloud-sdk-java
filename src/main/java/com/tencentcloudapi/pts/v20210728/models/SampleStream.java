@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SampleStream extends AbstractModel{
+public class SampleStream extends AbstractModel {
 
     /**
     * labels描述
@@ -39,7 +40,6 @@ public class SampleStream extends AbstractModel{
 
     /**
     * 指标序列名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -82,10 +82,8 @@ public class SampleStream extends AbstractModel{
     }
 
     /**
-     * Get 指标序列名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 指标序列名字 
      * @return Name 指标序列名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -93,9 +91,7 @@ public class SampleStream extends AbstractModel{
 
     /**
      * Set 指标序列名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 指标序列名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;

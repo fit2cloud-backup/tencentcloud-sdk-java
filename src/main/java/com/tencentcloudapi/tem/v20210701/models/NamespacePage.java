@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NamespacePage extends AbstractModel{
+public class NamespacePage extends AbstractModel {
 
     /**
     * 分页内容
@@ -52,7 +53,6 @@ public class NamespacePage extends AbstractModel{
 
     /**
     * 当前条目
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Current")
     @Expose
@@ -123,10 +123,8 @@ public class NamespacePage extends AbstractModel{
     }
 
     /**
-     * Get 当前条目
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前条目 
      * @return Current 当前条目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCurrent() {
         return this.Current;
@@ -134,9 +132,7 @@ public class NamespacePage extends AbstractModel{
 
     /**
      * Set 当前条目
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Current 当前条目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCurrent(Long Current) {
         this.Current = Current;

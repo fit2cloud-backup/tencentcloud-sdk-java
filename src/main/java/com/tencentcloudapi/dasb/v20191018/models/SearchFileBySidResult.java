@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchFileBySidResult extends AbstractModel{
+public class SearchFileBySidResult extends AbstractModel {
 
     /**
     * 文件操作时间
@@ -52,7 +53,6 @@ public class SearchFileBySidResult extends AbstractModel{
 
     /**
     * method为重命名、移动文件时代表移动后的新位置.其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileNew")
     @Expose
@@ -60,7 +60,6 @@ public class SearchFileBySidResult extends AbstractModel{
 
     /**
     * method为上传文件、下载文件、删除文件时显示文件大小。其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Size")
     @Expose
@@ -72,6 +71,13 @@ public class SearchFileBySidResult extends AbstractModel{
     @SerializedName("Action")
     @Expose
     private Long Action;
+
+    /**
+    * 签名值
+    */
+    @SerializedName("SignValue")
+    @Expose
+    private String SignValue;
 
     /**
      * Get 文件操作时间 
@@ -138,10 +144,8 @@ public class SearchFileBySidResult extends AbstractModel{
     }
 
     /**
-     * Get method为重命名、移动文件时代表移动后的新位置.其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get method为重命名、移动文件时代表移动后的新位置.其他情况为null 
      * @return FileNew method为重命名、移动文件时代表移动后的新位置.其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFileNew() {
         return this.FileNew;
@@ -149,19 +153,15 @@ public class SearchFileBySidResult extends AbstractModel{
 
     /**
      * Set method为重命名、移动文件时代表移动后的新位置.其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FileNew method为重命名、移动文件时代表移动后的新位置.其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileNew(String FileNew) {
         this.FileNew = FileNew;
     }
 
     /**
-     * Get method为上传文件、下载文件、删除文件时显示文件大小。其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get method为上传文件、下载文件、删除文件时显示文件大小。其他情况为null 
      * @return Size method为上传文件、下载文件、删除文件时显示文件大小。其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSize() {
         return this.Size;
@@ -169,9 +169,7 @@ public class SearchFileBySidResult extends AbstractModel{
 
     /**
      * Set method为上传文件、下载文件、删除文件时显示文件大小。其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Size method为上传文件、下载文件、删除文件时显示文件大小。其他情况为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSize(Long Size) {
         this.Size = Size;
@@ -191,6 +189,22 @@ public class SearchFileBySidResult extends AbstractModel{
      */
     public void setAction(Long Action) {
         this.Action = Action;
+    }
+
+    /**
+     * Get 签名值 
+     * @return SignValue 签名值
+     */
+    public String getSignValue() {
+        return this.SignValue;
+    }
+
+    /**
+     * Set 签名值
+     * @param SignValue 签名值
+     */
+    public void setSignValue(String SignValue) {
+        this.SignValue = SignValue;
     }
 
     public SearchFileBySidResult() {
@@ -222,6 +236,9 @@ public class SearchFileBySidResult extends AbstractModel{
         if (source.Action != null) {
             this.Action = new Long(source.Action);
         }
+        if (source.SignValue != null) {
+            this.SignValue = new String(source.SignValue);
+        }
     }
 
 
@@ -236,6 +253,7 @@ public class SearchFileBySidResult extends AbstractModel{
         this.setParamSimple(map, prefix + "FileNew", this.FileNew);
         this.setParamSimple(map, prefix + "Size", this.Size);
         this.setParamSimple(map, prefix + "Action", this.Action);
+        this.setParamSimple(map, prefix + "SignValue", this.SignValue);
 
     }
 }

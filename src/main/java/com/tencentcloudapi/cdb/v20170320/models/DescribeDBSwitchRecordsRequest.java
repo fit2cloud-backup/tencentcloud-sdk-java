@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBSwitchRecordsRequest extends AbstractModel{
+public class DescribeDBSwitchRecordsRequest extends AbstractModel {
 
     /**
     * 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
@@ -37,7 +38,7 @@ public class DescribeDBSwitchRecordsRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 分页大小，默认值为 50，最小值为 1，最大值为 2000。
+    * 分页大小，默认值为50，最小值为1，最大值为1000。
     */
     @SerializedName("Limit")
     @Expose
@@ -76,16 +77,16 @@ public class DescribeDBSwitchRecordsRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页大小，默认值为 50，最小值为 1，最大值为 2000。 
-     * @return Limit 分页大小，默认值为 50，最小值为 1，最大值为 2000。
+     * Get 分页大小，默认值为50，最小值为1，最大值为1000。 
+     * @return Limit 分页大小，默认值为50，最小值为1，最大值为1000。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页大小，默认值为 50，最小值为 1，最大值为 2000。
-     * @param Limit 分页大小，默认值为 50，最小值为 1，最大值为 2000。
+     * Set 分页大小，默认值为50，最小值为1，最大值为1000。
+     * @param Limit 分页大小，默认值为50，最小值为1，最大值为1000。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

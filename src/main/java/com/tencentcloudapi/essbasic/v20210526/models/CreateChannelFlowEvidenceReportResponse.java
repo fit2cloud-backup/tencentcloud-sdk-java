@@ -16,27 +16,26 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
+public class CreateChannelFlowEvidenceReportResponse extends AbstractModel {
 
     /**
-    * 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
-
-注意：此字段可能返回 null，表示取不到有效值。
+    * 出证报告 ID，可用于<a href="https://qian.tencent.com/developers/partnerApis/certificate/DescribeChannelFlowEvidenceReport" target="_blank">获取出证报告任务执行结果</a>查询出证任务结果和出证PDF的下载URL
     */
     @SerializedName("ReportId")
     @Expose
     private String ReportId;
 
     /**
-    * 出征任务的执行状态,状态列表如下
+    * 出证任务执行的状态, 状态含义如下：
 
-- EvidenceStatusExecuting : 出征任务正在执行中
-- EvidenceStatusSuccess : 出征任务执行成功
-- EvidenceStatusFailed : 出征任务执行失败
+<ul><li>**EvidenceStatusExecuting**：  出证任务在执行中</li>
+<li>**EvidenceStatusSuccess**：  出证任务执行成功</li>
+<li>**EvidenceStatusFailed** ： 出证任务执行失败</li></ul>
     */
     @SerializedName("Status")
     @Expose
@@ -44,80 +43,69 @@ public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
 
     /**
     * 废除，字段无效
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReportUrl")
     @Expose
     private String ReportUrl;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
-
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReportId 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
-
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 出证报告 ID，可用于<a href="https://qian.tencent.com/developers/partnerApis/certificate/DescribeChannelFlowEvidenceReport" target="_blank">获取出证报告任务执行结果</a>查询出证任务结果和出证PDF的下载URL 
+     * @return ReportId 出证报告 ID，可用于<a href="https://qian.tencent.com/developers/partnerApis/certificate/DescribeChannelFlowEvidenceReport" target="_blank">获取出证报告任务执行结果</a>查询出证任务结果和出证PDF的下载URL
      */
     public String getReportId() {
         return this.ReportId;
     }
 
     /**
-     * Set 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
-
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReportId 出证报告 ID，可用户DescribeChannelFlowEvidenceReport接口查询出证PDF的下载地址
-
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 出证报告 ID，可用于<a href="https://qian.tencent.com/developers/partnerApis/certificate/DescribeChannelFlowEvidenceReport" target="_blank">获取出证报告任务执行结果</a>查询出证任务结果和出证PDF的下载URL
+     * @param ReportId 出证报告 ID，可用于<a href="https://qian.tencent.com/developers/partnerApis/certificate/DescribeChannelFlowEvidenceReport" target="_blank">获取出证报告任务执行结果</a>查询出证任务结果和出证PDF的下载URL
      */
     public void setReportId(String ReportId) {
         this.ReportId = ReportId;
     }
 
     /**
-     * Get 出征任务的执行状态,状态列表如下
+     * Get 出证任务执行的状态, 状态含义如下：
 
-- EvidenceStatusExecuting : 出征任务正在执行中
-- EvidenceStatusSuccess : 出征任务执行成功
-- EvidenceStatusFailed : 出征任务执行失败 
-     * @return Status 出征任务的执行状态,状态列表如下
+<ul><li>**EvidenceStatusExecuting**：  出证任务在执行中</li>
+<li>**EvidenceStatusSuccess**：  出证任务执行成功</li>
+<li>**EvidenceStatusFailed** ： 出证任务执行失败</li></ul> 
+     * @return Status 出证任务执行的状态, 状态含义如下：
 
-- EvidenceStatusExecuting : 出征任务正在执行中
-- EvidenceStatusSuccess : 出征任务执行成功
-- EvidenceStatusFailed : 出征任务执行失败
+<ul><li>**EvidenceStatusExecuting**：  出证任务在执行中</li>
+<li>**EvidenceStatusSuccess**：  出证任务执行成功</li>
+<li>**EvidenceStatusFailed** ： 出证任务执行失败</li></ul>
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 出征任务的执行状态,状态列表如下
+     * Set 出证任务执行的状态, 状态含义如下：
 
-- EvidenceStatusExecuting : 出征任务正在执行中
-- EvidenceStatusSuccess : 出征任务执行成功
-- EvidenceStatusFailed : 出征任务执行失败
-     * @param Status 出征任务的执行状态,状态列表如下
+<ul><li>**EvidenceStatusExecuting**：  出证任务在执行中</li>
+<li>**EvidenceStatusSuccess**：  出证任务执行成功</li>
+<li>**EvidenceStatusFailed** ： 出证任务执行失败</li></ul>
+     * @param Status 出证任务执行的状态, 状态含义如下：
 
-- EvidenceStatusExecuting : 出征任务正在执行中
-- EvidenceStatusSuccess : 出征任务执行成功
-- EvidenceStatusFailed : 出征任务执行失败
+<ul><li>**EvidenceStatusExecuting**：  出证任务在执行中</li>
+<li>**EvidenceStatusSuccess**：  出证任务执行成功</li>
+<li>**EvidenceStatusFailed** ： 出证任务执行失败</li></ul>
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 废除，字段无效
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 废除，字段无效 
      * @return ReportUrl 废除，字段无效
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReportUrl() {
         return this.ReportUrl;
@@ -125,25 +113,23 @@ public class CreateChannelFlowEvidenceReportResponse extends AbstractModel{
 
     /**
      * Set 废除，字段无效
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReportUrl 废除，字段无效
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReportUrl(String ReportUrl) {
         this.ReportUrl = ReportUrl;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

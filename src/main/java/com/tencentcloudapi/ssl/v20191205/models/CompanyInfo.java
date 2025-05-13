@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CompanyInfo extends AbstractModel{
+public class CompanyInfo extends AbstractModel {
 
     /**
     * 公司名称
@@ -72,20 +73,28 @@ public class CompanyInfo extends AbstractModel{
     private String CompanyPhone;
 
     /**
-    * 类型
-注意：此字段可能返回 null，表示取不到有效值。
+    * 公司证件类型，取值范围：
+TYDMZ（统一社会信用代码 ）：仅CFCA类型证书需要使用本字段， 其他类型证书不需要使用本字段
+OTHERS（其他）
     */
     @SerializedName("IdType")
     @Expose
     private String IdType;
 
     /**
-    * ID号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 公司证件号码，取值范围：
+TYDMZ（统一社会信用代码 ）：11532xxxxxxxx24820
     */
     @SerializedName("IdNumber")
     @Expose
     private String IdNumber;
+
+    /**
+    * 标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tags [] Tags;
 
     /**
      * Get 公司名称 
@@ -200,43 +209,63 @@ public class CompanyInfo extends AbstractModel{
     }
 
     /**
-     * Get 类型
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IdType 类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 公司证件类型，取值范围：
+TYDMZ（统一社会信用代码 ）：仅CFCA类型证书需要使用本字段， 其他类型证书不需要使用本字段
+OTHERS（其他） 
+     * @return IdType 公司证件类型，取值范围：
+TYDMZ（统一社会信用代码 ）：仅CFCA类型证书需要使用本字段， 其他类型证书不需要使用本字段
+OTHERS（其他）
      */
     public String getIdType() {
         return this.IdType;
     }
 
     /**
-     * Set 类型
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param IdType 类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 公司证件类型，取值范围：
+TYDMZ（统一社会信用代码 ）：仅CFCA类型证书需要使用本字段， 其他类型证书不需要使用本字段
+OTHERS（其他）
+     * @param IdType 公司证件类型，取值范围：
+TYDMZ（统一社会信用代码 ）：仅CFCA类型证书需要使用本字段， 其他类型证书不需要使用本字段
+OTHERS（其他）
      */
     public void setIdType(String IdType) {
         this.IdType = IdType;
     }
 
     /**
-     * Get ID号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IdNumber ID号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 公司证件号码，取值范围：
+TYDMZ（统一社会信用代码 ）：11532xxxxxxxx24820 
+     * @return IdNumber 公司证件号码，取值范围：
+TYDMZ（统一社会信用代码 ）：11532xxxxxxxx24820
      */
     public String getIdNumber() {
         return this.IdNumber;
     }
 
     /**
-     * Set ID号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param IdNumber ID号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 公司证件号码，取值范围：
+TYDMZ（统一社会信用代码 ）：11532xxxxxxxx24820
+     * @param IdNumber 公司证件号码，取值范围：
+TYDMZ（统一社会信用代码 ）：11532xxxxxxxx24820
      */
     public void setIdNumber(String IdNumber) {
         this.IdNumber = IdNumber;
+    }
+
+    /**
+     * Get 标签 
+     * @return Tags 标签
+     */
+    public Tags [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+     * @param Tags 标签
+     */
+    public void setTags(Tags [] Tags) {
+        this.Tags = Tags;
     }
 
     public CompanyInfo() {
@@ -274,6 +303,12 @@ public class CompanyInfo extends AbstractModel{
         if (source.IdNumber != null) {
             this.IdNumber = new String(source.IdNumber);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tags[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tags(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -290,6 +325,7 @@ public class CompanyInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CompanyPhone", this.CompanyPhone);
         this.setParamSimple(map, prefix + "IdType", this.IdType);
         this.setParamSimple(map, prefix + "IdNumber", this.IdNumber);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

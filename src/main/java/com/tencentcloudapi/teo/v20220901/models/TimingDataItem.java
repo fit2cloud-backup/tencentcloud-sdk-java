@@ -16,14 +16,15 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TimingDataItem extends AbstractModel{
+public class TimingDataItem extends AbstractModel {
 
     /**
-    * 返回数据对应时间点，采用unix秒级时间戳。
+    * 返回数据对应时间点，采用 unix 秒级时间戳。
     */
     @SerializedName("Timestamp")
     @Expose
@@ -37,16 +38,16 @@ public class TimingDataItem extends AbstractModel{
     private Long Value;
 
     /**
-     * Get 返回数据对应时间点，采用unix秒级时间戳。 
-     * @return Timestamp 返回数据对应时间点，采用unix秒级时间戳。
+     * Get 返回数据对应时间点，采用 unix 秒级时间戳。 
+     * @return Timestamp 返回数据对应时间点，采用 unix 秒级时间戳。
      */
     public Long getTimestamp() {
         return this.Timestamp;
     }
 
     /**
-     * Set 返回数据对应时间点，采用unix秒级时间戳。
-     * @param Timestamp 返回数据对应时间点，采用unix秒级时间戳。
+     * Set 返回数据对应时间点，采用 unix 秒级时间戳。
+     * @param Timestamp 返回数据对应时间点，采用 unix 秒级时间戳。
      */
     public void setTimestamp(Long Timestamp) {
         this.Timestamp = Timestamp;

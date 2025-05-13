@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DirectConnectGateway extends AbstractModel{
+public class DirectConnectGateway extends AbstractModel {
 
     /**
     * 专线网关`ID`。
@@ -117,7 +118,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
     * 绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NatGatewayId")
     @Expose
@@ -125,7 +125,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
     * 专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VXLANSupport")
     @Expose
@@ -133,7 +132,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
     * 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModeType")
     @Expose
@@ -141,7 +139,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
     * 是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LocalZone")
     @Expose
@@ -149,7 +146,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
     * 专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Zone")
     @Expose
@@ -159,7 +155,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
     * 网关流控明细启用状态：
 0：关闭
 1：开启
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableFlowDetails")
     @Expose
@@ -167,7 +162,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
     * 开启、关闭网关流控明细时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowDetailsUpdateTime")
     @Expose
@@ -177,7 +171,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
     * 是否支持开启网关流控明细
 0：不支持
 1：支持
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NewAfc")
     @Expose
@@ -188,7 +181,6 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 <li>`VXLAN` - VXLAN类型。</li>
 <li>`MPLS` - MPLS类型。</li>
 <li>`Hybrid` - Hybrid类型。</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AccessNetworkType")
     @Expose
@@ -196,11 +188,17 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
     * 跨可用区容灾专线网关的可用区列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HaZoneList")
     @Expose
     private String [] HaZoneList;
+
+    /**
+    * 专线网关自定义ASN
+    */
+    @SerializedName("GatewayAsn")
+    @Expose
+    private Long GatewayAsn;
 
     /**
      * Get 专线网关`ID`。 
@@ -431,10 +429,8 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
     }
 
     /**
-     * Get 绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定的NAT网关ID。 
      * @return NatGatewayId 绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNatGatewayId() {
         return this.NatGatewayId;
@@ -442,19 +438,15 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * Set 绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NatGatewayId 绑定的NAT网关ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNatGatewayId(String NatGatewayId) {
         this.NatGatewayId = NatGatewayId;
     }
 
     /**
-     * Get 专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专线网关是否支持VXLAN架构 
      * @return VXLANSupport 专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean [] getVXLANSupport() {
         return this.VXLANSupport;
@@ -462,19 +454,15 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * Set 专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VXLANSupport 专线网关是否支持VXLAN架构
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVXLANSupport(Boolean [] VXLANSupport) {
         this.VXLANSupport = VXLANSupport;
     }
 
     /**
-     * Get 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。 
      * @return ModeType 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModeType() {
         return this.ModeType;
@@ -482,19 +470,15 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * Set 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModeType 云联网路由发布模式：`standard`（标准模式）、`exquisite`（精细模式）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModeType(String ModeType) {
         this.ModeType = ModeType;
     }
 
     /**
-     * Get 是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否为localZone专线网关。 
      * @return LocalZone 是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getLocalZone() {
         return this.LocalZone;
@@ -502,19 +486,15 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * Set 是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LocalZone 是否为localZone专线网关。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocalZone(Boolean LocalZone) {
         this.LocalZone = LocalZone;
     }
 
     /**
-     * Get 专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专线网关所在可用区 
      * @return Zone 专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZone() {
         return this.Zone;
@@ -522,9 +502,7 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * Set 专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Zone 专线网关所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
@@ -533,12 +511,10 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
     /**
      * Get 网关流控明细启用状态：
 0：关闭
-1：开启
-注意：此字段可能返回 null，表示取不到有效值。 
+1：开启 
      * @return EnableFlowDetails 网关流控明细启用状态：
 0：关闭
 1：开启
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEnableFlowDetails() {
         return this.EnableFlowDetails;
@@ -548,21 +524,17 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
      * Set 网关流控明细启用状态：
 0：关闭
 1：开启
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableFlowDetails 网关流控明细启用状态：
 0：关闭
 1：开启
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableFlowDetails(Long EnableFlowDetails) {
         this.EnableFlowDetails = EnableFlowDetails;
     }
 
     /**
-     * Get 开启、关闭网关流控明细时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开启、关闭网关流控明细时间 
      * @return FlowDetailsUpdateTime 开启、关闭网关流控明细时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFlowDetailsUpdateTime() {
         return this.FlowDetailsUpdateTime;
@@ -570,9 +542,7 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * Set 开启、关闭网关流控明细时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowDetailsUpdateTime 开启、关闭网关流控明细时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowDetailsUpdateTime(String FlowDetailsUpdateTime) {
         this.FlowDetailsUpdateTime = FlowDetailsUpdateTime;
@@ -581,12 +551,10 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
     /**
      * Get 是否支持开启网关流控明细
 0：不支持
-1：支持
-注意：此字段可能返回 null，表示取不到有效值。 
+1：支持 
      * @return NewAfc 是否支持开启网关流控明细
 0：不支持
 1：支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNewAfc() {
         return this.NewAfc;
@@ -596,11 +564,9 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
      * Set 是否支持开启网关流控明细
 0：不支持
 1：支持
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NewAfc 是否支持开启网关流控明细
 0：不支持
 1：支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNewAfc(Long NewAfc) {
         this.NewAfc = NewAfc;
@@ -610,13 +576,11 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
      * Get 专线网关接入网络类型：
 <li>`VXLAN` - VXLAN类型。</li>
 <li>`MPLS` - MPLS类型。</li>
-<li>`Hybrid` - Hybrid类型。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>`Hybrid` - Hybrid类型。</li> 
      * @return AccessNetworkType 专线网关接入网络类型：
 <li>`VXLAN` - VXLAN类型。</li>
 <li>`MPLS` - MPLS类型。</li>
 <li>`Hybrid` - Hybrid类型。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAccessNetworkType() {
         return this.AccessNetworkType;
@@ -627,22 +591,18 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 <li>`VXLAN` - VXLAN类型。</li>
 <li>`MPLS` - MPLS类型。</li>
 <li>`Hybrid` - Hybrid类型。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AccessNetworkType 专线网关接入网络类型：
 <li>`VXLAN` - VXLAN类型。</li>
 <li>`MPLS` - MPLS类型。</li>
 <li>`Hybrid` - Hybrid类型。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccessNetworkType(String AccessNetworkType) {
         this.AccessNetworkType = AccessNetworkType;
     }
 
     /**
-     * Get 跨可用区容灾专线网关的可用区列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 跨可用区容灾专线网关的可用区列表 
      * @return HaZoneList 跨可用区容灾专线网关的可用区列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getHaZoneList() {
         return this.HaZoneList;
@@ -650,12 +610,26 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
 
     /**
      * Set 跨可用区容灾专线网关的可用区列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HaZoneList 跨可用区容灾专线网关的可用区列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHaZoneList(String [] HaZoneList) {
         this.HaZoneList = HaZoneList;
+    }
+
+    /**
+     * Get 专线网关自定义ASN 
+     * @return GatewayAsn 专线网关自定义ASN
+     */
+    public Long getGatewayAsn() {
+        return this.GatewayAsn;
+    }
+
+    /**
+     * Set 专线网关自定义ASN
+     * @param GatewayAsn 专线网关自定义ASN
+     */
+    public void setGatewayAsn(Long GatewayAsn) {
+        this.GatewayAsn = GatewayAsn;
     }
 
     public DirectConnectGateway() {
@@ -738,6 +712,9 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
                 this.HaZoneList[i] = new String(source.HaZoneList[i]);
             }
         }
+        if (source.GatewayAsn != null) {
+            this.GatewayAsn = new Long(source.GatewayAsn);
+        }
     }
 
 
@@ -767,6 +744,7 @@ NAT类型支持网络地址转换配置，类型确定后不能修改；一个�
         this.setParamSimple(map, prefix + "NewAfc", this.NewAfc);
         this.setParamSimple(map, prefix + "AccessNetworkType", this.AccessNetworkType);
         this.setParamArraySimple(map, prefix + "HaZoneList.", this.HaZoneList);
+        this.setParamSimple(map, prefix + "GatewayAsn", this.GatewayAsn);
 
     }
 }

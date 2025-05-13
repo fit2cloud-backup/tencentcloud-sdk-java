@@ -16,11 +16,12 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyLoadBalancersRequest extends AbstractModel{
+public class ModifyLoadBalancersRequest extends AbstractModel {
 
     /**
     * 伸缩组ID
@@ -45,8 +46,8 @@ public class ModifyLoadBalancersRequest extends AbstractModel{
 
     /**
     * 负载均衡器校验策略，取值包括 ALL 和 DIFF，默认取值为 ALL。
-<br><li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。
-<br><li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。
+<li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。</li> 
+<li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。</li> 
     */
     @SerializedName("LoadBalancersCheckPolicy")
     @Expose
@@ -102,11 +103,11 @@ public class ModifyLoadBalancersRequest extends AbstractModel{
 
     /**
      * Get 负载均衡器校验策略，取值包括 ALL 和 DIFF，默认取值为 ALL。
-<br><li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。
-<br><li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。 
+<li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。</li> 
+<li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。</li>  
      * @return LoadBalancersCheckPolicy 负载均衡器校验策略，取值包括 ALL 和 DIFF，默认取值为 ALL。
-<br><li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。
-<br><li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。
+<li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。</li> 
+<li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。</li> 
      */
     public String getLoadBalancersCheckPolicy() {
         return this.LoadBalancersCheckPolicy;
@@ -114,11 +115,11 @@ public class ModifyLoadBalancersRequest extends AbstractModel{
 
     /**
      * Set 负载均衡器校验策略，取值包括 ALL 和 DIFF，默认取值为 ALL。
-<br><li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。
-<br><li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。
+<li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。</li> 
+<li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。</li> 
      * @param LoadBalancersCheckPolicy 负载均衡器校验策略，取值包括 ALL 和 DIFF，默认取值为 ALL。
-<br><li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。
-<br><li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。
+<li> ALL，所有负载均衡器都合法则通过校验，否则校验报错。</li> 
+<li> DIFF，仅校验负载均衡器参数中实际变化的部分，如果合法则通过校验，否则校验报错。</li> 
      */
     public void setLoadBalancersCheckPolicy(String LoadBalancersCheckPolicy) {
         this.LoadBalancersCheckPolicy = LoadBalancersCheckPolicy;

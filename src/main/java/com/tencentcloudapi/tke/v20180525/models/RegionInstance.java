@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegionInstance extends AbstractModel{
+public class RegionInstance extends AbstractModel {
 
     /**
     * 地域名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionName")
     @Expose
@@ -32,7 +32,6 @@ public class RegionInstance extends AbstractModel{
 
     /**
     * 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionId")
     @Expose
@@ -40,7 +39,6 @@ public class RegionInstance extends AbstractModel{
 
     /**
     * 地域状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -48,7 +46,6 @@ public class RegionInstance extends AbstractModel{
 
     /**
     * 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FeatureGates")
     @Expose
@@ -56,7 +53,6 @@ public class RegionInstance extends AbstractModel{
 
     /**
     * 地域简称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Alias")
     @Expose
@@ -64,17 +60,14 @@ public class RegionInstance extends AbstractModel{
 
     /**
     * 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
     private String Remark;
 
     /**
-     * Get 地域名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域名称 
      * @return RegionName 地域名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionName() {
         return this.RegionName;
@@ -82,19 +75,15 @@ public class RegionInstance extends AbstractModel{
 
     /**
      * Set 地域名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionName 地域名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionName(String RegionName) {
         this.RegionName = RegionName;
     }
 
     /**
-     * Get 地域ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域ID 
      * @return RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRegionId() {
         return this.RegionId;
@@ -102,19 +91,15 @@ public class RegionInstance extends AbstractModel{
 
     /**
      * Set 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionId(Long RegionId) {
         this.RegionId = RegionId;
     }
 
     /**
-     * Get 地域状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域状态 
      * @return Status 地域状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -122,19 +107,15 @@ public class RegionInstance extends AbstractModel{
 
     /**
      * Set 地域状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 地域状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域特性开关(按照JSON的形式返回所有属性) 
      * @return FeatureGates 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFeatureGates() {
         return this.FeatureGates;
@@ -142,19 +123,15 @@ public class RegionInstance extends AbstractModel{
 
     /**
      * Set 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FeatureGates 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFeatureGates(String FeatureGates) {
         this.FeatureGates = FeatureGates;
     }
 
     /**
-     * Get 地域简称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域简称 
      * @return Alias 地域简称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAlias() {
         return this.Alias;
@@ -162,19 +139,15 @@ public class RegionInstance extends AbstractModel{
 
     /**
      * Set 地域简称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Alias 地域简称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAlias(String Alias) {
         this.Alias = Alias;
     }
 
     /**
-     * Get 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域白名单 
      * @return Remark 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -182,9 +155,7 @@ public class RegionInstance extends AbstractModel{
 
     /**
      * Set 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;

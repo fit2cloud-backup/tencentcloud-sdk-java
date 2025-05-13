@@ -16,11 +16,12 @@
 package com.tencentcloudapi.privatedns.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeletePrivateZoneRecordRequest extends AbstractModel{
+public class DeletePrivateZoneRecordRequest extends AbstractModel {
 
     /**
     * 私有域ID
@@ -30,7 +31,7 @@ public class DeletePrivateZoneRecordRequest extends AbstractModel{
     private String ZoneId;
 
     /**
-    * 记录ID
+    * 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
     */
     @SerializedName("RecordId")
     @Expose
@@ -60,16 +61,16 @@ public class DeletePrivateZoneRecordRequest extends AbstractModel{
     }
 
     /**
-     * Get 记录ID 
-     * @return RecordId 记录ID
+     * Get 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId） 
+     * @return RecordId 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
      */
     public String getRecordId() {
         return this.RecordId;
     }
 
     /**
-     * Set 记录ID
-     * @param RecordId 记录ID
+     * Set 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
+     * @param RecordId 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
      */
     public void setRecordId(String RecordId) {
         this.RecordId = RecordId;

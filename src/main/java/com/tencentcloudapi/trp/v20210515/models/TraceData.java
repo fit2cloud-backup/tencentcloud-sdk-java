@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TraceData extends AbstractModel{
+public class TraceData extends AbstractModel {
 
     /**
     * 溯源ID
@@ -45,7 +46,6 @@ public class TraceData extends AbstractModel{
 
     /**
     * 码值，跟码类型一一对应
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Code")
     @Expose
@@ -74,7 +74,6 @@ public class TraceData extends AbstractModel{
 
     /**
     * 溯源时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TraceTime")
     @Expose
@@ -82,7 +81,6 @@ public class TraceData extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -90,7 +88,6 @@ public class TraceData extends AbstractModel{
 
     /**
     * 上链状态 0: 未上链 1: 上链中 2: 已上链 -1: 异常
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChainStatus")
     @Expose
@@ -98,7 +95,6 @@ public class TraceData extends AbstractModel{
 
     /**
     * 上链时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChainTime")
     @Expose
@@ -106,7 +102,6 @@ public class TraceData extends AbstractModel{
 
     /**
     * 上链数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChainData")
     @Expose
@@ -114,7 +109,6 @@ public class TraceData extends AbstractModel{
 
     /**
     * 溯源阶段配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PhaseData")
     @Expose
@@ -183,10 +177,8 @@ public class TraceData extends AbstractModel{
     }
 
     /**
-     * Get 码值，跟码类型一一对应
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码值，跟码类型一一对应 
      * @return Code 码值，跟码类型一一对应
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCode() {
         return this.Code;
@@ -194,9 +186,7 @@ public class TraceData extends AbstractModel{
 
     /**
      * Set 码值，跟码类型一一对应
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Code 码值，跟码类型一一对应
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCode(String Code) {
         this.Code = Code;
@@ -251,10 +241,8 @@ public class TraceData extends AbstractModel{
     }
 
     /**
-     * Get 溯源时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 溯源时间 
      * @return TraceTime 溯源时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTraceTime() {
         return this.TraceTime;
@@ -262,19 +250,15 @@ public class TraceData extends AbstractModel{
 
     /**
      * Set 溯源时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TraceTime 溯源时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTraceTime(String TraceTime) {
         this.TraceTime = TraceTime;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -282,19 +266,15 @@ public class TraceData extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 上链状态 0: 未上链 1: 上链中 2: 已上链 -1: 异常
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上链状态 0: 未上链 1: 上链中 2: 已上链 -1: 异常 
      * @return ChainStatus 上链状态 0: 未上链 1: 上链中 2: 已上链 -1: 异常
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getChainStatus() {
         return this.ChainStatus;
@@ -302,19 +282,15 @@ public class TraceData extends AbstractModel{
 
     /**
      * Set 上链状态 0: 未上链 1: 上链中 2: 已上链 -1: 异常
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChainStatus 上链状态 0: 未上链 1: 上链中 2: 已上链 -1: 异常
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChainStatus(Long ChainStatus) {
         this.ChainStatus = ChainStatus;
     }
 
     /**
-     * Get 上链时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上链时间 
      * @return ChainTime 上链时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChainTime() {
         return this.ChainTime;
@@ -322,19 +298,15 @@ public class TraceData extends AbstractModel{
 
     /**
      * Set 上链时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChainTime 上链时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChainTime(String ChainTime) {
         this.ChainTime = ChainTime;
     }
 
     /**
-     * Get 上链数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上链数据 
      * @return ChainData 上链数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ChainData getChainData() {
         return this.ChainData;
@@ -342,19 +314,15 @@ public class TraceData extends AbstractModel{
 
     /**
      * Set 上链数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChainData 上链数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChainData(ChainData ChainData) {
         this.ChainData = ChainData;
     }
 
     /**
-     * Get 溯源阶段配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 溯源阶段配置 
      * @return PhaseData 溯源阶段配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PhaseData getPhaseData() {
         return this.PhaseData;
@@ -362,9 +330,7 @@ public class TraceData extends AbstractModel{
 
     /**
      * Set 溯源阶段配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PhaseData 溯源阶段配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPhaseData(PhaseData PhaseData) {
         this.PhaseData = PhaseData;

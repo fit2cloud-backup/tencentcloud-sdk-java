@@ -16,14 +16,15 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdatePrometheusAgentStatusRequest extends AbstractModel{
+public class UpdatePrometheusAgentStatusRequest extends AbstractModel {
 
     /**
-    * Prometheus 实例 ID，例如：prom-abcd1234
+    * Prometheus 实例 ID
     */
     @SerializedName("InstanceId")
     @Expose
@@ -46,16 +47,16 @@ public class UpdatePrometheusAgentStatusRequest extends AbstractModel{
     private Long Status;
 
     /**
-     * Get Prometheus 实例 ID，例如：prom-abcd1234 
-     * @return InstanceId Prometheus 实例 ID，例如：prom-abcd1234
+     * Get Prometheus 实例 ID 
+     * @return InstanceId Prometheus 实例 ID
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set Prometheus 实例 ID，例如：prom-abcd1234
-     * @param InstanceId Prometheus 实例 ID，例如：prom-abcd1234
+     * Set Prometheus 实例 ID
+     * @param InstanceId Prometheus 实例 ID
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;

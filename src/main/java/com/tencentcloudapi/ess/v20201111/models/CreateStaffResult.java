@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateStaffResult extends AbstractModel{
+public class CreateStaffResult extends AbstractModel {
 
     /**
     * 创建员工的成功列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SuccessEmployeeData")
     @Expose
@@ -32,17 +32,14 @@ public class CreateStaffResult extends AbstractModel{
 
     /**
     * 创建员工的失败列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedEmployeeData")
     @Expose
     private FailedCreateStaffData [] FailedEmployeeData;
 
     /**
-     * Get 创建员工的成功列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建员工的成功列表 
      * @return SuccessEmployeeData 创建员工的成功列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SuccessCreateStaffData [] getSuccessEmployeeData() {
         return this.SuccessEmployeeData;
@@ -50,19 +47,15 @@ public class CreateStaffResult extends AbstractModel{
 
     /**
      * Set 创建员工的成功列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SuccessEmployeeData 创建员工的成功列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSuccessEmployeeData(SuccessCreateStaffData [] SuccessEmployeeData) {
         this.SuccessEmployeeData = SuccessEmployeeData;
     }
 
     /**
-     * Get 创建员工的失败列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建员工的失败列表 
      * @return FailedEmployeeData 创建员工的失败列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FailedCreateStaffData [] getFailedEmployeeData() {
         return this.FailedEmployeeData;
@@ -70,9 +63,7 @@ public class CreateStaffResult extends AbstractModel{
 
     /**
      * Set 创建员工的失败列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedEmployeeData 创建员工的失败列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedEmployeeData(FailedCreateStaffData [] FailedEmployeeData) {
         this.FailedEmployeeData = FailedEmployeeData;

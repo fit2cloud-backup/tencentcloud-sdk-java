@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterInfoItem extends AbstractModel{
+public class ClusterInfoItem extends AbstractModel {
 
     /**
     * 集群id
@@ -72,7 +73,10 @@ public class ClusterInfoItem extends AbstractModel{
     private String Region;
 
     /**
-    * 监控组件的状态，为Defender_Uninstall、Defender_Normal、Defender_Error、Defender_Installing
+    * 防护状态: 
+已防护: Defended 
+未防护: UnDefended
+部分防护: PartDefened
     */
     @SerializedName("DefenderStatus")
     @Expose
@@ -84,6 +88,13 @@ public class ClusterInfoItem extends AbstractModel{
     @SerializedName("ClusterStatus")
     @Expose
     private String ClusterStatus;
+
+    /**
+    * 集群运行子状态
+    */
+    @SerializedName("ClusterSubStatus")
+    @Expose
+    private String ClusterSubStatus;
 
     /**
     * 集群的检测模式，为Cluster_Normal或者Cluster_Actived.
@@ -163,8 +174,15 @@ public class ClusterInfoItem extends AbstractModel{
     private String TaskCreateTime;
 
     /**
-    * 接入状态
-注意：此字段可能返回 null，表示取不到有效值。
+    * 接入状态:
+未接入: AccessedNone
+已防护: AccessedDefended
+未防护: AccessedInstalled
+部分防护: AccessedPartialDefence
+接入异常: AccessedException
+卸载异常: AccessedUninstallException
+接入中: AccessedInstalling
+卸载中: AccessedUninstalling
     */
     @SerializedName("AccessedStatus")
     @Expose
@@ -172,7 +190,6 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
     * 接入失败原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AccessedSubStatus")
     @Expose
@@ -180,7 +197,6 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
     * 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeCount")
     @Expose
@@ -188,7 +204,6 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
     * 离线节点数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OffLineNodeCount")
     @Expose
@@ -196,11 +211,46 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
     * 未安装agent节点数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnInstallAgentNodeCount")
     @Expose
     private Long UnInstallAgentNodeCount;
+
+    /**
+    * 计费核数(弹性计费核数+普通计费核数)
+    */
+    @SerializedName("ChargeCoresCnt")
+    @Expose
+    private Long ChargeCoresCnt;
+
+    /**
+    * master 地址列表
+    */
+    @SerializedName("MasterAddresses")
+    @Expose
+    private String [] MasterAddresses;
+
+    /**
+    * 核数
+    */
+    @SerializedName("CoresCnt")
+    @Expose
+    private Long CoresCnt;
+
+    /**
+    * 集群审计开关状态：
+已关闭Closed/关闭中Closing/关闭失败CloseFailed/已开启Opened/开启中Opening/开启失败OpenFailed
+    */
+    @SerializedName("ClusterAuditStatus")
+    @Expose
+    private String ClusterAuditStatus;
+
+    /**
+    * 集群审计开关失败信息
+    */
+    @SerializedName("ClusterAuditFailedInfo")
+    @Expose
+    private String ClusterAuditFailedInfo;
 
     /**
      * Get 集群id 
@@ -315,16 +365,28 @@ public class ClusterInfoItem extends AbstractModel{
     }
 
     /**
-     * Get 监控组件的状态，为Defender_Uninstall、Defender_Normal、Defender_Error、Defender_Installing 
-     * @return DefenderStatus 监控组件的状态，为Defender_Uninstall、Defender_Normal、Defender_Error、Defender_Installing
+     * Get 防护状态: 
+已防护: Defended 
+未防护: UnDefended
+部分防护: PartDefened 
+     * @return DefenderStatus 防护状态: 
+已防护: Defended 
+未防护: UnDefended
+部分防护: PartDefened
      */
     public String getDefenderStatus() {
         return this.DefenderStatus;
     }
 
     /**
-     * Set 监控组件的状态，为Defender_Uninstall、Defender_Normal、Defender_Error、Defender_Installing
-     * @param DefenderStatus 监控组件的状态，为Defender_Uninstall、Defender_Normal、Defender_Error、Defender_Installing
+     * Set 防护状态: 
+已防护: Defended 
+未防护: UnDefended
+部分防护: PartDefened
+     * @param DefenderStatus 防护状态: 
+已防护: Defended 
+未防护: UnDefended
+部分防护: PartDefened
      */
     public void setDefenderStatus(String DefenderStatus) {
         this.DefenderStatus = DefenderStatus;
@@ -344,6 +406,22 @@ public class ClusterInfoItem extends AbstractModel{
      */
     public void setClusterStatus(String ClusterStatus) {
         this.ClusterStatus = ClusterStatus;
+    }
+
+    /**
+     * Get 集群运行子状态 
+     * @return ClusterSubStatus 集群运行子状态
+     */
+    public String getClusterSubStatus() {
+        return this.ClusterSubStatus;
+    }
+
+    /**
+     * Set 集群运行子状态
+     * @param ClusterSubStatus 集群运行子状态
+     */
+    public void setClusterSubStatus(String ClusterSubStatus) {
+        this.ClusterSubStatus = ClusterSubStatus;
     }
 
     /**
@@ -523,30 +601,56 @@ public class ClusterInfoItem extends AbstractModel{
     }
 
     /**
-     * Get 接入状态
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AccessedStatus 接入状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 接入状态:
+未接入: AccessedNone
+已防护: AccessedDefended
+未防护: AccessedInstalled
+部分防护: AccessedPartialDefence
+接入异常: AccessedException
+卸载异常: AccessedUninstallException
+接入中: AccessedInstalling
+卸载中: AccessedUninstalling 
+     * @return AccessedStatus 接入状态:
+未接入: AccessedNone
+已防护: AccessedDefended
+未防护: AccessedInstalled
+部分防护: AccessedPartialDefence
+接入异常: AccessedException
+卸载异常: AccessedUninstallException
+接入中: AccessedInstalling
+卸载中: AccessedUninstalling
      */
     public String getAccessedStatus() {
         return this.AccessedStatus;
     }
 
     /**
-     * Set 接入状态
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AccessedStatus 接入状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 接入状态:
+未接入: AccessedNone
+已防护: AccessedDefended
+未防护: AccessedInstalled
+部分防护: AccessedPartialDefence
+接入异常: AccessedException
+卸载异常: AccessedUninstallException
+接入中: AccessedInstalling
+卸载中: AccessedUninstalling
+     * @param AccessedStatus 接入状态:
+未接入: AccessedNone
+已防护: AccessedDefended
+未防护: AccessedInstalled
+部分防护: AccessedPartialDefence
+接入异常: AccessedException
+卸载异常: AccessedUninstallException
+接入中: AccessedInstalling
+卸载中: AccessedUninstalling
      */
     public void setAccessedStatus(String AccessedStatus) {
         this.AccessedStatus = AccessedStatus;
     }
 
     /**
-     * Get 接入失败原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接入失败原因 
      * @return AccessedSubStatus 接入失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAccessedSubStatus() {
         return this.AccessedSubStatus;
@@ -554,19 +658,15 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
      * Set 接入失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AccessedSubStatus 接入失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccessedSubStatus(String AccessedSubStatus) {
         this.AccessedSubStatus = AccessedSubStatus;
     }
 
     /**
-     * Get 节点总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点总数 
      * @return NodeCount 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNodeCount() {
         return this.NodeCount;
@@ -574,19 +674,15 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
      * Set 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeCount 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeCount(Long NodeCount) {
         this.NodeCount = NodeCount;
     }
 
     /**
-     * Get 离线节点数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 离线节点数 
      * @return OffLineNodeCount 离线节点数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOffLineNodeCount() {
         return this.OffLineNodeCount;
@@ -594,19 +690,15 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
      * Set 离线节点数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OffLineNodeCount 离线节点数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOffLineNodeCount(Long OffLineNodeCount) {
         this.OffLineNodeCount = OffLineNodeCount;
     }
 
     /**
-     * Get 未安装agent节点数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 未安装agent节点数 
      * @return UnInstallAgentNodeCount 未安装agent节点数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUnInstallAgentNodeCount() {
         return this.UnInstallAgentNodeCount;
@@ -614,12 +706,94 @@ public class ClusterInfoItem extends AbstractModel{
 
     /**
      * Set 未安装agent节点数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnInstallAgentNodeCount 未安装agent节点数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnInstallAgentNodeCount(Long UnInstallAgentNodeCount) {
         this.UnInstallAgentNodeCount = UnInstallAgentNodeCount;
+    }
+
+    /**
+     * Get 计费核数(弹性计费核数+普通计费核数) 
+     * @return ChargeCoresCnt 计费核数(弹性计费核数+普通计费核数)
+     */
+    public Long getChargeCoresCnt() {
+        return this.ChargeCoresCnt;
+    }
+
+    /**
+     * Set 计费核数(弹性计费核数+普通计费核数)
+     * @param ChargeCoresCnt 计费核数(弹性计费核数+普通计费核数)
+     */
+    public void setChargeCoresCnt(Long ChargeCoresCnt) {
+        this.ChargeCoresCnt = ChargeCoresCnt;
+    }
+
+    /**
+     * Get master 地址列表 
+     * @return MasterAddresses master 地址列表
+     */
+    public String [] getMasterAddresses() {
+        return this.MasterAddresses;
+    }
+
+    /**
+     * Set master 地址列表
+     * @param MasterAddresses master 地址列表
+     */
+    public void setMasterAddresses(String [] MasterAddresses) {
+        this.MasterAddresses = MasterAddresses;
+    }
+
+    /**
+     * Get 核数 
+     * @return CoresCnt 核数
+     */
+    public Long getCoresCnt() {
+        return this.CoresCnt;
+    }
+
+    /**
+     * Set 核数
+     * @param CoresCnt 核数
+     */
+    public void setCoresCnt(Long CoresCnt) {
+        this.CoresCnt = CoresCnt;
+    }
+
+    /**
+     * Get 集群审计开关状态：
+已关闭Closed/关闭中Closing/关闭失败CloseFailed/已开启Opened/开启中Opening/开启失败OpenFailed 
+     * @return ClusterAuditStatus 集群审计开关状态：
+已关闭Closed/关闭中Closing/关闭失败CloseFailed/已开启Opened/开启中Opening/开启失败OpenFailed
+     */
+    public String getClusterAuditStatus() {
+        return this.ClusterAuditStatus;
+    }
+
+    /**
+     * Set 集群审计开关状态：
+已关闭Closed/关闭中Closing/关闭失败CloseFailed/已开启Opened/开启中Opening/开启失败OpenFailed
+     * @param ClusterAuditStatus 集群审计开关状态：
+已关闭Closed/关闭中Closing/关闭失败CloseFailed/已开启Opened/开启中Opening/开启失败OpenFailed
+     */
+    public void setClusterAuditStatus(String ClusterAuditStatus) {
+        this.ClusterAuditStatus = ClusterAuditStatus;
+    }
+
+    /**
+     * Get 集群审计开关失败信息 
+     * @return ClusterAuditFailedInfo 集群审计开关失败信息
+     */
+    public String getClusterAuditFailedInfo() {
+        return this.ClusterAuditFailedInfo;
+    }
+
+    /**
+     * Set 集群审计开关失败信息
+     * @param ClusterAuditFailedInfo 集群审计开关失败信息
+     */
+    public void setClusterAuditFailedInfo(String ClusterAuditFailedInfo) {
+        this.ClusterAuditFailedInfo = ClusterAuditFailedInfo;
     }
 
     public ClusterInfoItem() {
@@ -656,6 +830,9 @@ public class ClusterInfoItem extends AbstractModel{
         }
         if (source.ClusterStatus != null) {
             this.ClusterStatus = new String(source.ClusterStatus);
+        }
+        if (source.ClusterSubStatus != null) {
+            this.ClusterSubStatus = new String(source.ClusterSubStatus);
         }
         if (source.ClusterCheckMode != null) {
             this.ClusterCheckMode = new String(source.ClusterCheckMode);
@@ -705,6 +882,24 @@ public class ClusterInfoItem extends AbstractModel{
         if (source.UnInstallAgentNodeCount != null) {
             this.UnInstallAgentNodeCount = new Long(source.UnInstallAgentNodeCount);
         }
+        if (source.ChargeCoresCnt != null) {
+            this.ChargeCoresCnt = new Long(source.ChargeCoresCnt);
+        }
+        if (source.MasterAddresses != null) {
+            this.MasterAddresses = new String[source.MasterAddresses.length];
+            for (int i = 0; i < source.MasterAddresses.length; i++) {
+                this.MasterAddresses[i] = new String(source.MasterAddresses[i]);
+            }
+        }
+        if (source.CoresCnt != null) {
+            this.CoresCnt = new Long(source.CoresCnt);
+        }
+        if (source.ClusterAuditStatus != null) {
+            this.ClusterAuditStatus = new String(source.ClusterAuditStatus);
+        }
+        if (source.ClusterAuditFailedInfo != null) {
+            this.ClusterAuditFailedInfo = new String(source.ClusterAuditFailedInfo);
+        }
     }
 
 
@@ -721,6 +916,7 @@ public class ClusterInfoItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "DefenderStatus", this.DefenderStatus);
         this.setParamSimple(map, prefix + "ClusterStatus", this.ClusterStatus);
+        this.setParamSimple(map, prefix + "ClusterSubStatus", this.ClusterSubStatus);
         this.setParamSimple(map, prefix + "ClusterCheckMode", this.ClusterCheckMode);
         this.setParamSimple(map, prefix + "ClusterAutoCheck", this.ClusterAutoCheck);
         this.setParamSimple(map, prefix + "DefenderErrorReason", this.DefenderErrorReason);
@@ -737,6 +933,11 @@ public class ClusterInfoItem extends AbstractModel{
         this.setParamSimple(map, prefix + "NodeCount", this.NodeCount);
         this.setParamSimple(map, prefix + "OffLineNodeCount", this.OffLineNodeCount);
         this.setParamSimple(map, prefix + "UnInstallAgentNodeCount", this.UnInstallAgentNodeCount);
+        this.setParamSimple(map, prefix + "ChargeCoresCnt", this.ChargeCoresCnt);
+        this.setParamArraySimple(map, prefix + "MasterAddresses.", this.MasterAddresses);
+        this.setParamSimple(map, prefix + "CoresCnt", this.CoresCnt);
+        this.setParamSimple(map, prefix + "ClusterAuditStatus", this.ClusterAuditStatus);
+        this.setParamSimple(map, prefix + "ClusterAuditFailedInfo", this.ClusterAuditFailedInfo);
 
     }
 }

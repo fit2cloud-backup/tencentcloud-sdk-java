@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
+public class DescribeAssetRecentMachineInfoResponse extends AbstractModel {
 
     /**
     * 总数量列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalList")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
 
     /**
     * 在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LiveList")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
 
     /**
     * 离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OfflineList")
     @Expose
@@ -48,24 +46,21 @@ public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
 
     /**
     * 风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskList")
     @Expose
     private AssetKeyVal [] RiskList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 总数量列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总数量列表 
      * @return TotalList 总数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AssetKeyVal [] getTotalList() {
         return this.TotalList;
@@ -73,19 +68,15 @@ public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
 
     /**
      * Set 总数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalList 总数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalList(AssetKeyVal [] TotalList) {
         this.TotalList = TotalList;
     }
 
     /**
-     * Get 在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 在线数量列表 
      * @return LiveList 在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AssetKeyVal [] getLiveList() {
         return this.LiveList;
@@ -93,19 +84,15 @@ public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
 
     /**
      * Set 在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LiveList 在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLiveList(AssetKeyVal [] LiveList) {
         this.LiveList = LiveList;
     }
 
     /**
-     * Get 离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 离线数量列表 
      * @return OfflineList 离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AssetKeyVal [] getOfflineList() {
         return this.OfflineList;
@@ -113,19 +100,15 @@ public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
 
     /**
      * Set 离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OfflineList 离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOfflineList(AssetKeyVal [] OfflineList) {
         this.OfflineList = OfflineList;
     }
 
     /**
-     * Get 风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 风险数量列表 
      * @return RiskList 风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AssetKeyVal [] getRiskList() {
         return this.RiskList;
@@ -133,25 +116,23 @@ public class DescribeAssetRecentMachineInfoResponse extends AbstractModel{
 
     /**
      * Set 风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskList 风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskList(AssetKeyVal [] RiskList) {
         this.RiskList = RiskList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

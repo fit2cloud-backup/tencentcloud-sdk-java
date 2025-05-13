@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssetJarDetail extends AbstractModel{
+public class AssetJarDetail extends AbstractModel {
 
     /**
     * 名称
@@ -80,7 +81,6 @@ public class AssetJarDetail extends AbstractModel{
 
     /**
     * 引用进程列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Process")
     @Expose
@@ -88,7 +88,6 @@ public class AssetJarDetail extends AbstractModel{
 
     /**
     * Jar包Md5
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Md5")
     @Expose
@@ -96,7 +95,6 @@ public class AssetJarDetail extends AbstractModel{
 
     /**
     * 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -231,10 +229,8 @@ public class AssetJarDetail extends AbstractModel{
     }
 
     /**
-     * Get 引用进程列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 引用进程列表 
      * @return Process 引用进程列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AssetAppProcessInfo [] getProcess() {
         return this.Process;
@@ -242,19 +238,15 @@ public class AssetJarDetail extends AbstractModel{
 
     /**
      * Set 引用进程列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Process 引用进程列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProcess(AssetAppProcessInfo [] Process) {
         this.Process = Process;
     }
 
     /**
-     * Get Jar包Md5
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Jar包Md5 
      * @return Md5 Jar包Md5
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMd5() {
         return this.Md5;
@@ -262,19 +254,15 @@ public class AssetJarDetail extends AbstractModel{
 
     /**
      * Set Jar包Md5
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Md5 Jar包Md5
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMd5(String Md5) {
         this.Md5 = Md5;
     }
 
     /**
-     * Get 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据更新时间 
      * @return UpdateTime 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -282,9 +270,7 @@ public class AssetJarDetail extends AbstractModel{
 
     /**
      * Set 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;

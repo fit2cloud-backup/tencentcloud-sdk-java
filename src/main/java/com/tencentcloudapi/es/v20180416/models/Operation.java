@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Operation extends AbstractModel{
+public class Operation extends AbstractModel {
 
     /**
     * 操作唯一id
@@ -70,6 +71,21 @@ public class Operation extends AbstractModel{
     @SerializedName("Progress")
     @Expose
     private Float Progress;
+
+    /**
+    * 回滚标记， 0未回滚 ，1回滚中，2已回滚
+    */
+    @SerializedName("RollbackTag")
+    @Expose
+    private Long RollbackTag;
+
+    /**
+    * 操作者Uin
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubAccountUin")
+    @Expose
+    private String SubAccountUin;
 
     /**
      * Get 操作唯一id 
@@ -183,6 +199,42 @@ public class Operation extends AbstractModel{
         this.Progress = Progress;
     }
 
+    /**
+     * Get 回滚标记， 0未回滚 ，1回滚中，2已回滚 
+     * @return RollbackTag 回滚标记， 0未回滚 ，1回滚中，2已回滚
+     */
+    public Long getRollbackTag() {
+        return this.RollbackTag;
+    }
+
+    /**
+     * Set 回滚标记， 0未回滚 ，1回滚中，2已回滚
+     * @param RollbackTag 回滚标记， 0未回滚 ，1回滚中，2已回滚
+     */
+    public void setRollbackTag(Long RollbackTag) {
+        this.RollbackTag = RollbackTag;
+    }
+
+    /**
+     * Get 操作者Uin
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubAccountUin 操作者Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubAccountUin() {
+        return this.SubAccountUin;
+    }
+
+    /**
+     * Set 操作者Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubAccountUin 操作者Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubAccountUin(String SubAccountUin) {
+        this.SubAccountUin = SubAccountUin;
+    }
+
     public Operation() {
     }
 
@@ -215,6 +267,12 @@ public class Operation extends AbstractModel{
         if (source.Progress != null) {
             this.Progress = new Float(source.Progress);
         }
+        if (source.RollbackTag != null) {
+            this.RollbackTag = new Long(source.RollbackTag);
+        }
+        if (source.SubAccountUin != null) {
+            this.SubAccountUin = new String(source.SubAccountUin);
+        }
     }
 
 
@@ -229,6 +287,8 @@ public class Operation extends AbstractModel{
         this.setParamSimple(map, prefix + "Result", this.Result);
         this.setParamArrayObj(map, prefix + "Tasks.", this.Tasks);
         this.setParamSimple(map, prefix + "Progress", this.Progress);
+        this.setParamSimple(map, prefix + "RollbackTag", this.RollbackTag);
+        this.setParamSimple(map, prefix + "SubAccountUin", this.SubAccountUin);
 
     }
 }

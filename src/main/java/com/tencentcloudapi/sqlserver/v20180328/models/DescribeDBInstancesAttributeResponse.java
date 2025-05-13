@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBInstancesAttributeResponse extends AbstractModel{
+public class DescribeDBInstancesAttributeResponse extends AbstractModel {
 
     /**
     * 实例ID
@@ -86,7 +87,49 @@ public class DescribeDBInstancesAttributeResponse extends AbstractModel{
     private TDEConfigAttribute TDEConfig;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * SSL加密
+    */
+    @SerializedName("SSLConfig")
+    @Expose
+    private SSLConfig SSLConfig;
+
+    /**
+    * 双节点备机只读信息
+    */
+    @SerializedName("DrReadableInfo")
+    @Expose
+    private DrReadableInfo DrReadableInfo;
+
+    /**
+    * 等待回收的IP列表
+    */
+    @SerializedName("OldVipList")
+    @Expose
+    private OldVip [] OldVipList;
+
+    /**
+    * 操作日志采集状态，enable-采集中，disable-不可用，renew_doing-配置开启或关闭中
+    */
+    @SerializedName("XEventStatus")
+    @Expose
+    private String XEventStatus;
+
+    /**
+    * 多节点备机只读信息
+    */
+    @SerializedName("MultiDrReadableInfo")
+    @Expose
+    private DrReadableInfo [] MultiDrReadableInfo;
+
+    /**
+    * 是否开启磁盘加密，1-开启，0-未开启
+    */
+    @SerializedName("IsDiskEncryptFlag")
+    @Expose
+    private Long IsDiskEncryptFlag;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -237,16 +280,112 @@ public class DescribeDBInstancesAttributeResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get SSL加密 
+     * @return SSLConfig SSL加密
+     */
+    public SSLConfig getSSLConfig() {
+        return this.SSLConfig;
+    }
+
+    /**
+     * Set SSL加密
+     * @param SSLConfig SSL加密
+     */
+    public void setSSLConfig(SSLConfig SSLConfig) {
+        this.SSLConfig = SSLConfig;
+    }
+
+    /**
+     * Get 双节点备机只读信息 
+     * @return DrReadableInfo 双节点备机只读信息
+     */
+    public DrReadableInfo getDrReadableInfo() {
+        return this.DrReadableInfo;
+    }
+
+    /**
+     * Set 双节点备机只读信息
+     * @param DrReadableInfo 双节点备机只读信息
+     */
+    public void setDrReadableInfo(DrReadableInfo DrReadableInfo) {
+        this.DrReadableInfo = DrReadableInfo;
+    }
+
+    /**
+     * Get 等待回收的IP列表 
+     * @return OldVipList 等待回收的IP列表
+     */
+    public OldVip [] getOldVipList() {
+        return this.OldVipList;
+    }
+
+    /**
+     * Set 等待回收的IP列表
+     * @param OldVipList 等待回收的IP列表
+     */
+    public void setOldVipList(OldVip [] OldVipList) {
+        this.OldVipList = OldVipList;
+    }
+
+    /**
+     * Get 操作日志采集状态，enable-采集中，disable-不可用，renew_doing-配置开启或关闭中 
+     * @return XEventStatus 操作日志采集状态，enable-采集中，disable-不可用，renew_doing-配置开启或关闭中
+     */
+    public String getXEventStatus() {
+        return this.XEventStatus;
+    }
+
+    /**
+     * Set 操作日志采集状态，enable-采集中，disable-不可用，renew_doing-配置开启或关闭中
+     * @param XEventStatus 操作日志采集状态，enable-采集中，disable-不可用，renew_doing-配置开启或关闭中
+     */
+    public void setXEventStatus(String XEventStatus) {
+        this.XEventStatus = XEventStatus;
+    }
+
+    /**
+     * Get 多节点备机只读信息 
+     * @return MultiDrReadableInfo 多节点备机只读信息
+     */
+    public DrReadableInfo [] getMultiDrReadableInfo() {
+        return this.MultiDrReadableInfo;
+    }
+
+    /**
+     * Set 多节点备机只读信息
+     * @param MultiDrReadableInfo 多节点备机只读信息
+     */
+    public void setMultiDrReadableInfo(DrReadableInfo [] MultiDrReadableInfo) {
+        this.MultiDrReadableInfo = MultiDrReadableInfo;
+    }
+
+    /**
+     * Get 是否开启磁盘加密，1-开启，0-未开启 
+     * @return IsDiskEncryptFlag 是否开启磁盘加密，1-开启，0-未开启
+     */
+    public Long getIsDiskEncryptFlag() {
+        return this.IsDiskEncryptFlag;
+    }
+
+    /**
+     * Set 是否开启磁盘加密，1-开启，0-未开启
+     * @param IsDiskEncryptFlag 是否开启磁盘加密，1-开启，0-未开启
+     */
+    public void setIsDiskEncryptFlag(Long IsDiskEncryptFlag) {
+        this.IsDiskEncryptFlag = IsDiskEncryptFlag;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -287,6 +426,30 @@ public class DescribeDBInstancesAttributeResponse extends AbstractModel{
         if (source.TDEConfig != null) {
             this.TDEConfig = new TDEConfigAttribute(source.TDEConfig);
         }
+        if (source.SSLConfig != null) {
+            this.SSLConfig = new SSLConfig(source.SSLConfig);
+        }
+        if (source.DrReadableInfo != null) {
+            this.DrReadableInfo = new DrReadableInfo(source.DrReadableInfo);
+        }
+        if (source.OldVipList != null) {
+            this.OldVipList = new OldVip[source.OldVipList.length];
+            for (int i = 0; i < source.OldVipList.length; i++) {
+                this.OldVipList[i] = new OldVip(source.OldVipList[i]);
+            }
+        }
+        if (source.XEventStatus != null) {
+            this.XEventStatus = new String(source.XEventStatus);
+        }
+        if (source.MultiDrReadableInfo != null) {
+            this.MultiDrReadableInfo = new DrReadableInfo[source.MultiDrReadableInfo.length];
+            for (int i = 0; i < source.MultiDrReadableInfo.length; i++) {
+                this.MultiDrReadableInfo[i] = new DrReadableInfo(source.MultiDrReadableInfo[i]);
+            }
+        }
+        if (source.IsDiskEncryptFlag != null) {
+            this.IsDiskEncryptFlag = new Long(source.IsDiskEncryptFlag);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -306,6 +469,12 @@ public class DescribeDBInstancesAttributeResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "BlockedThreshold", this.BlockedThreshold);
         this.setParamSimple(map, prefix + "EventSaveDays", this.EventSaveDays);
         this.setParamObj(map, prefix + "TDEConfig.", this.TDEConfig);
+        this.setParamObj(map, prefix + "SSLConfig.", this.SSLConfig);
+        this.setParamObj(map, prefix + "DrReadableInfo.", this.DrReadableInfo);
+        this.setParamArrayObj(map, prefix + "OldVipList.", this.OldVipList);
+        this.setParamSimple(map, prefix + "XEventStatus", this.XEventStatus);
+        this.setParamArrayObj(map, prefix + "MultiDrReadableInfo.", this.MultiDrReadableInfo);
+        this.setParamSimple(map, prefix + "IsDiskEncryptFlag", this.IsDiskEncryptFlag);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceInfo extends AbstractModel{
+public class InstanceInfo extends AbstractModel {
 
     /**
     * 实例ID。
@@ -220,7 +221,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternalVip")
     @Expose
@@ -228,7 +228,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternalVport")
     @Expose
@@ -243,7 +242,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -251,11 +249,24 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterName")
     @Expose
     private String ClusterName;
+
+    /**
+    * 自建MySQL的Agent状态，"not_deployed" - 未部署，"deploying" - 部署中，"connected" - 连接正常，"deploy_failed" - 连接失败，"monitoring" - 连接正常，"stopped" - 暂停连接，"connect_failed" - 连接失败，unknown - 未知。
+    */
+    @SerializedName("AgentStatus")
+    @Expose
+    private String AgentStatus;
+
+    /**
+    * 自建MySQL的实例状态，"not_attached" - 未连接，"attached" - 连接正常，"failed" - 连接失败，"stopped" - 停止监控，unknown- 未知。
+    */
+    @SerializedName("InstanceStatus")
+    @Expose
+    private String InstanceStatus;
 
     /**
      * Get 实例ID。 
@@ -706,10 +717,8 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内网vip。 
      * @return InternalVip 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInternalVip() {
         return this.InternalVip;
@@ -717,19 +726,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InternalVip 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternalVip(String InternalVip) {
         this.InternalVip = InternalVip;
     }
 
     /**
-     * Get 内网port。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内网port。 
      * @return InternalVport 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInternalVport() {
         return this.InternalVport;
@@ -737,9 +742,7 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InternalVport 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternalVport(Long InternalVport) {
         this.InternalVport = InternalVport;
@@ -762,10 +765,8 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。 
      * @return ClusterId 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -773,19 +774,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。 
      * @return ClusterName 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterName() {
         return this.ClusterName;
@@ -793,12 +790,42 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterName 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;
+    }
+
+    /**
+     * Get 自建MySQL的Agent状态，"not_deployed" - 未部署，"deploying" - 部署中，"connected" - 连接正常，"deploy_failed" - 连接失败，"monitoring" - 连接正常，"stopped" - 暂停连接，"connect_failed" - 连接失败，unknown - 未知。 
+     * @return AgentStatus 自建MySQL的Agent状态，"not_deployed" - 未部署，"deploying" - 部署中，"connected" - 连接正常，"deploy_failed" - 连接失败，"monitoring" - 连接正常，"stopped" - 暂停连接，"connect_failed" - 连接失败，unknown - 未知。
+     */
+    public String getAgentStatus() {
+        return this.AgentStatus;
+    }
+
+    /**
+     * Set 自建MySQL的Agent状态，"not_deployed" - 未部署，"deploying" - 部署中，"connected" - 连接正常，"deploy_failed" - 连接失败，"monitoring" - 连接正常，"stopped" - 暂停连接，"connect_failed" - 连接失败，unknown - 未知。
+     * @param AgentStatus 自建MySQL的Agent状态，"not_deployed" - 未部署，"deploying" - 部署中，"connected" - 连接正常，"deploy_failed" - 连接失败，"monitoring" - 连接正常，"stopped" - 暂停连接，"connect_failed" - 连接失败，unknown - 未知。
+     */
+    public void setAgentStatus(String AgentStatus) {
+        this.AgentStatus = AgentStatus;
+    }
+
+    /**
+     * Get 自建MySQL的实例状态，"not_attached" - 未连接，"attached" - 连接正常，"failed" - 连接失败，"stopped" - 停止监控，unknown- 未知。 
+     * @return InstanceStatus 自建MySQL的实例状态，"not_attached" - 未连接，"attached" - 连接正常，"failed" - 连接失败，"stopped" - 停止监控，unknown- 未知。
+     */
+    public String getInstanceStatus() {
+        return this.InstanceStatus;
+    }
+
+    /**
+     * Set 自建MySQL的实例状态，"not_attached" - 未连接，"attached" - 连接正常，"failed" - 连接失败，"stopped" - 停止监控，unknown- 未知。
+     * @param InstanceStatus 自建MySQL的实例状态，"not_attached" - 未连接，"attached" - 连接正常，"failed" - 连接失败，"stopped" - 停止监控，unknown- 未知。
+     */
+    public void setInstanceStatus(String InstanceStatus) {
+        this.InstanceStatus = InstanceStatus;
     }
 
     public InstanceInfo() {
@@ -908,6 +935,12 @@ public class InstanceInfo extends AbstractModel{
         if (source.ClusterName != null) {
             this.ClusterName = new String(source.ClusterName);
         }
+        if (source.AgentStatus != null) {
+            this.AgentStatus = new String(source.AgentStatus);
+        }
+        if (source.InstanceStatus != null) {
+            this.InstanceStatus = new String(source.InstanceStatus);
+        }
     }
 
 
@@ -948,6 +981,8 @@ public class InstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
+        this.setParamSimple(map, prefix + "AgentStatus", this.AgentStatus);
+        this.setParamSimple(map, prefix + "InstanceStatus", this.InstanceStatus);
 
     }
 }

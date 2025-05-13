@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UploadLogRequest extends AbstractModel{
+public class UploadLogRequest extends AbstractModel {
 
     /**
     * 主题id
@@ -30,7 +31,7 @@ public class UploadLogRequest extends AbstractModel{
     private String TopicId;
 
     /**
-    * 根据 hashkey 写入相应范围的主题分区
+    * 该参数已废弃，请勿使用
     */
     @SerializedName("HashKey")
     @Expose
@@ -60,17 +61,21 @@ public class UploadLogRequest extends AbstractModel{
     }
 
     /**
-     * Get 根据 hashkey 写入相应范围的主题分区 
-     * @return HashKey 根据 hashkey 写入相应范围的主题分区
+     * Get 该参数已废弃，请勿使用 
+     * @return HashKey 该参数已废弃，请勿使用
+     * @deprecated
      */
+    @Deprecated
     public String getHashKey() {
         return this.HashKey;
     }
 
     /**
-     * Set 根据 hashkey 写入相应范围的主题分区
-     * @param HashKey 根据 hashkey 写入相应范围的主题分区
+     * Set 该参数已废弃，请勿使用
+     * @param HashKey 该参数已废弃，请勿使用
+     * @deprecated
      */
+    @Deprecated
     public void setHashKey(String HashKey) {
         this.HashKey = HashKey;
     }

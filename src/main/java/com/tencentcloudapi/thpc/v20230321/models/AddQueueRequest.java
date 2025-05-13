@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20230321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddQueueRequest extends AbstractModel{
+public class AddQueueRequest extends AbstractModel {
 
     /**
     * 集群ID。
@@ -30,7 +31,7 @@ public class AddQueueRequest extends AbstractModel{
     private String ClusterId;
 
     /**
-    * 队列名称。<br><li>最多支持32个字符。
+    * 队列名称。<br><li>最多支持32个字符。</li>
     */
     @SerializedName("QueueName")
     @Expose
@@ -53,16 +54,16 @@ public class AddQueueRequest extends AbstractModel{
     }
 
     /**
-     * Get 队列名称。<br><li>最多支持32个字符。 
-     * @return QueueName 队列名称。<br><li>最多支持32个字符。
+     * Get 队列名称。<br><li>最多支持32个字符。</li> 
+     * @return QueueName 队列名称。<br><li>最多支持32个字符。</li>
      */
     public String getQueueName() {
         return this.QueueName;
     }
 
     /**
-     * Set 队列名称。<br><li>最多支持32个字符。
-     * @param QueueName 队列名称。<br><li>最多支持32个字符。
+     * Set 队列名称。<br><li>最多支持32个字符。</li>
+     * @param QueueName 队列名称。<br><li>最多支持32个字符。</li>
      */
     public void setQueueName(String QueueName) {
         this.QueueName = QueueName;

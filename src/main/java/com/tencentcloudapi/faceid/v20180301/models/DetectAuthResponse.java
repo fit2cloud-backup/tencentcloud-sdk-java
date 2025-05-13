@@ -16,11 +16,12 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DetectAuthResponse extends AbstractModel{
+public class DetectAuthResponse extends AbstractModel {
 
     /**
     * 用于发起核身流程的URL，仅微信H5场景使用。
@@ -30,15 +31,16 @@ public class DetectAuthResponse extends AbstractModel{
     private String Url;
 
     /**
-    * 一次核身流程的标识，有效时间为7,200秒；
-完成核身后，可用该标识获取验证结果信息。
+    * 一次核验流程的唯一标识。
+- 有效时间为7,200秒，超过有效期再进行人脸核验会报错，请在有效期内进行核验。
+- 完成人脸核验后，需根据此标识调用[获取实名核身结果信息增强版](https://cloud.tencent.com/document/api/1007/41957)获取用户最终验证结果信息。
     */
     @SerializedName("BizToken")
     @Expose
     private String BizToken;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,36 +63,40 @@ public class DetectAuthResponse extends AbstractModel{
     }
 
     /**
-     * Get 一次核身流程的标识，有效时间为7,200秒；
-完成核身后，可用该标识获取验证结果信息。 
-     * @return BizToken 一次核身流程的标识，有效时间为7,200秒；
-完成核身后，可用该标识获取验证结果信息。
+     * Get 一次核验流程的唯一标识。
+- 有效时间为7,200秒，超过有效期再进行人脸核验会报错，请在有效期内进行核验。
+- 完成人脸核验后，需根据此标识调用[获取实名核身结果信息增强版](https://cloud.tencent.com/document/api/1007/41957)获取用户最终验证结果信息。 
+     * @return BizToken 一次核验流程的唯一标识。
+- 有效时间为7,200秒，超过有效期再进行人脸核验会报错，请在有效期内进行核验。
+- 完成人脸核验后，需根据此标识调用[获取实名核身结果信息增强版](https://cloud.tencent.com/document/api/1007/41957)获取用户最终验证结果信息。
      */
     public String getBizToken() {
         return this.BizToken;
     }
 
     /**
-     * Set 一次核身流程的标识，有效时间为7,200秒；
-完成核身后，可用该标识获取验证结果信息。
-     * @param BizToken 一次核身流程的标识，有效时间为7,200秒；
-完成核身后，可用该标识获取验证结果信息。
+     * Set 一次核验流程的唯一标识。
+- 有效时间为7,200秒，超过有效期再进行人脸核验会报错，请在有效期内进行核验。
+- 完成人脸核验后，需根据此标识调用[获取实名核身结果信息增强版](https://cloud.tencent.com/document/api/1007/41957)获取用户最终验证结果信息。
+     * @param BizToken 一次核验流程的唯一标识。
+- 有效时间为7,200秒，超过有效期再进行人脸核验会报错，请在有效期内进行核验。
+- 完成人脸核验后，需根据此标识调用[获取实名核身结果信息增强版](https://cloud.tencent.com/document/api/1007/41957)获取用户最终验证结果信息。
      */
     public void setBizToken(String BizToken) {
         this.BizToken = BizToken;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

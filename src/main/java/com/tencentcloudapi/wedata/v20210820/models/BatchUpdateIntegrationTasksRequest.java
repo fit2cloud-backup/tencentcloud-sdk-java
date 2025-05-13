@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchUpdateIntegrationTasksRequest extends AbstractModel{
+public class BatchUpdateIntegrationTasksRequest extends AbstractModel {
 
     /**
     * 任务id
@@ -49,6 +50,20 @@ public class BatchUpdateIntegrationTasksRequest extends AbstractModel{
     @SerializedName("ProjectId")
     @Expose
     private String ProjectId;
+
+    /**
+    * 责任人Id（多个责任人用小写分号隔开）
+    */
+    @SerializedName("InchargeIds")
+    @Expose
+    private String InchargeIds;
+
+    /**
+    * 本次批量操作涉及任务，用于审计
+    */
+    @SerializedName("TaskNames")
+    @Expose
+    private String [] TaskNames;
 
     /**
      * Get 任务id 
@@ -114,6 +129,38 @@ public class BatchUpdateIntegrationTasksRequest extends AbstractModel{
         this.ProjectId = ProjectId;
     }
 
+    /**
+     * Get 责任人Id（多个责任人用小写分号隔开） 
+     * @return InchargeIds 责任人Id（多个责任人用小写分号隔开）
+     */
+    public String getInchargeIds() {
+        return this.InchargeIds;
+    }
+
+    /**
+     * Set 责任人Id（多个责任人用小写分号隔开）
+     * @param InchargeIds 责任人Id（多个责任人用小写分号隔开）
+     */
+    public void setInchargeIds(String InchargeIds) {
+        this.InchargeIds = InchargeIds;
+    }
+
+    /**
+     * Get 本次批量操作涉及任务，用于审计 
+     * @return TaskNames 本次批量操作涉及任务，用于审计
+     */
+    public String [] getTaskNames() {
+        return this.TaskNames;
+    }
+
+    /**
+     * Set 本次批量操作涉及任务，用于审计
+     * @param TaskNames 本次批量操作涉及任务，用于审计
+     */
+    public void setTaskNames(String [] TaskNames) {
+        this.TaskNames = TaskNames;
+    }
+
     public BatchUpdateIntegrationTasksRequest() {
     }
 
@@ -137,6 +184,15 @@ public class BatchUpdateIntegrationTasksRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
+        if (source.InchargeIds != null) {
+            this.InchargeIds = new String(source.InchargeIds);
+        }
+        if (source.TaskNames != null) {
+            this.TaskNames = new String[source.TaskNames.length];
+            for (int i = 0; i < source.TaskNames.length; i++) {
+                this.TaskNames[i] = new String(source.TaskNames[i]);
+            }
+        }
     }
 
 
@@ -148,6 +204,8 @@ public class BatchUpdateIntegrationTasksRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Incharge", this.Incharge);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "InchargeIds", this.InchargeIds);
+        this.setParamArraySimple(map, prefix + "TaskNames.", this.TaskNames);
 
     }
 }

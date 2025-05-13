@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
+public class ModifyVpnConnectionAttributeRequest extends AbstractModel {
 
     /**
     * VPN通道实例ID。形如：vpnx-f49l6u0z。
@@ -119,6 +120,20 @@ public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
     @SerializedName("CustomerGatewayId")
     @Expose
     private String CustomerGatewayId;
+
+    /**
+    * 健康检查配置
+    */
+    @SerializedName("HealthCheckConfig")
+    @Expose
+    private HealthCheckConfig HealthCheckConfig;
+
+    /**
+    * BGP隧道配置
+    */
+    @SerializedName("BgpConfig")
+    @Expose
+    private BgpConfig BgpConfig;
 
     /**
      * Get VPN通道实例ID。形如：vpnx-f49l6u0z。 
@@ -344,6 +359,38 @@ public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
         this.CustomerGatewayId = CustomerGatewayId;
     }
 
+    /**
+     * Get 健康检查配置 
+     * @return HealthCheckConfig 健康检查配置
+     */
+    public HealthCheckConfig getHealthCheckConfig() {
+        return this.HealthCheckConfig;
+    }
+
+    /**
+     * Set 健康检查配置
+     * @param HealthCheckConfig 健康检查配置
+     */
+    public void setHealthCheckConfig(HealthCheckConfig HealthCheckConfig) {
+        this.HealthCheckConfig = HealthCheckConfig;
+    }
+
+    /**
+     * Get BGP隧道配置 
+     * @return BgpConfig BGP隧道配置
+     */
+    public BgpConfig getBgpConfig() {
+        return this.BgpConfig;
+    }
+
+    /**
+     * Set BGP隧道配置
+     * @param BgpConfig BGP隧道配置
+     */
+    public void setBgpConfig(BgpConfig BgpConfig) {
+        this.BgpConfig = BgpConfig;
+    }
+
     public ModifyVpnConnectionAttributeRequest() {
     }
 
@@ -397,6 +444,12 @@ public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
         if (source.CustomerGatewayId != null) {
             this.CustomerGatewayId = new String(source.CustomerGatewayId);
         }
+        if (source.HealthCheckConfig != null) {
+            this.HealthCheckConfig = new HealthCheckConfig(source.HealthCheckConfig);
+        }
+        if (source.BgpConfig != null) {
+            this.BgpConfig = new BgpConfig(source.BgpConfig);
+        }
     }
 
 
@@ -418,6 +471,8 @@ public class ModifyVpnConnectionAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DpdTimeout", this.DpdTimeout);
         this.setParamSimple(map, prefix + "DpdAction", this.DpdAction);
         this.setParamSimple(map, prefix + "CustomerGatewayId", this.CustomerGatewayId);
+        this.setParamObj(map, prefix + "HealthCheckConfig.", this.HealthCheckConfig);
+        this.setParamObj(map, prefix + "BgpConfig.", this.BgpConfig);
 
     }
 }

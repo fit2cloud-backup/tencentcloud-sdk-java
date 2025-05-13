@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccessControlEventDescription extends AbstractModel{
+public class AccessControlEventDescription extends AbstractModel {
 
     /**
     * 事件规则
@@ -38,7 +39,6 @@ public class AccessControlEventDescription extends AbstractModel{
 
     /**
     * 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -67,7 +67,6 @@ public class AccessControlEventDescription extends AbstractModel{
 
     /**
     * 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OperationTime")
     @Expose
@@ -106,10 +105,8 @@ public class AccessControlEventDescription extends AbstractModel{
     }
 
     /**
-     * Get 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件备注信息 
      * @return Remark 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -117,9 +114,7 @@ public class AccessControlEventDescription extends AbstractModel{
 
     /**
      * Set 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
@@ -174,10 +169,8 @@ public class AccessControlEventDescription extends AbstractModel{
     }
 
     /**
-     * Get 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件最后一次处理的时间 
      * @return OperationTime 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperationTime() {
         return this.OperationTime;
@@ -185,9 +178,7 @@ public class AccessControlEventDescription extends AbstractModel{
 
     /**
      * Set 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OperationTime 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperationTime(String OperationTime) {
         this.OperationTime = OperationTime;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Ipv6Address extends AbstractModel{
+public class Ipv6Address extends AbstractModel {
 
     /**
     * `IPv6`地址，形如：`3402:4e00:20:100:0:8cd9:2a67:71f3`
@@ -37,7 +38,7 @@ public class Ipv6Address extends AbstractModel{
     private Boolean Primary;
 
     /**
-    * `EIP`实例`ID`，形如：`eip-hxlqja90`。
+    * `EIP`实例`ID`，形如：`eip-hxlqja90`。作为入参数时，可通过[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取。
     */
     @SerializedName("AddressId")
     @Expose
@@ -67,6 +68,20 @@ public class Ipv6Address extends AbstractModel{
     @SerializedName("State")
     @Expose
     private String State;
+
+    /**
+    * 如果 IPv6地址是 ULA 类型，绑定的公网IP地址。
+    */
+    @SerializedName("PublicIpAddress")
+    @Expose
+    private String PublicIpAddress;
+
+    /**
+    * `IPv6`地址的类型: `GUA`(全球单播地址), `ULA`(唯一本地地址)
+    */
+    @SerializedName("AddressType")
+    @Expose
+    private String AddressType;
 
     /**
      * Get `IPv6`地址，形如：`3402:4e00:20:100:0:8cd9:2a67:71f3` 
@@ -101,16 +116,16 @@ public class Ipv6Address extends AbstractModel{
     }
 
     /**
-     * Get `EIP`实例`ID`，形如：`eip-hxlqja90`。 
-     * @return AddressId `EIP`实例`ID`，形如：`eip-hxlqja90`。
+     * Get `EIP`实例`ID`，形如：`eip-hxlqja90`。作为入参数时，可通过[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取。 
+     * @return AddressId `EIP`实例`ID`，形如：`eip-hxlqja90`。作为入参数时，可通过[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取。
      */
     public String getAddressId() {
         return this.AddressId;
     }
 
     /**
-     * Set `EIP`实例`ID`，形如：`eip-hxlqja90`。
-     * @param AddressId `EIP`实例`ID`，形如：`eip-hxlqja90`。
+     * Set `EIP`实例`ID`，形如：`eip-hxlqja90`。作为入参数时，可通过[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取。
+     * @param AddressId `EIP`实例`ID`，形如：`eip-hxlqja90`。作为入参数时，可通过[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取。
      */
     public void setAddressId(String AddressId) {
         this.AddressId = AddressId;
@@ -180,6 +195,38 @@ public class Ipv6Address extends AbstractModel{
         this.State = State;
     }
 
+    /**
+     * Get 如果 IPv6地址是 ULA 类型，绑定的公网IP地址。 
+     * @return PublicIpAddress 如果 IPv6地址是 ULA 类型，绑定的公网IP地址。
+     */
+    public String getPublicIpAddress() {
+        return this.PublicIpAddress;
+    }
+
+    /**
+     * Set 如果 IPv6地址是 ULA 类型，绑定的公网IP地址。
+     * @param PublicIpAddress 如果 IPv6地址是 ULA 类型，绑定的公网IP地址。
+     */
+    public void setPublicIpAddress(String PublicIpAddress) {
+        this.PublicIpAddress = PublicIpAddress;
+    }
+
+    /**
+     * Get `IPv6`地址的类型: `GUA`(全球单播地址), `ULA`(唯一本地地址) 
+     * @return AddressType `IPv6`地址的类型: `GUA`(全球单播地址), `ULA`(唯一本地地址)
+     */
+    public String getAddressType() {
+        return this.AddressType;
+    }
+
+    /**
+     * Set `IPv6`地址的类型: `GUA`(全球单播地址), `ULA`(唯一本地地址)
+     * @param AddressType `IPv6`地址的类型: `GUA`(全球单播地址), `ULA`(唯一本地地址)
+     */
+    public void setAddressType(String AddressType) {
+        this.AddressType = AddressType;
+    }
+
     public Ipv6Address() {
     }
 
@@ -206,6 +253,12 @@ public class Ipv6Address extends AbstractModel{
         if (source.State != null) {
             this.State = new String(source.State);
         }
+        if (source.PublicIpAddress != null) {
+            this.PublicIpAddress = new String(source.PublicIpAddress);
+        }
+        if (source.AddressType != null) {
+            this.AddressType = new String(source.AddressType);
+        }
     }
 
 
@@ -219,6 +272,8 @@ public class Ipv6Address extends AbstractModel{
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "IsWanIpBlocked", this.IsWanIpBlocked);
         this.setParamSimple(map, prefix + "State", this.State);
+        this.setParamSimple(map, prefix + "PublicIpAddress", this.PublicIpAddress);
+        this.setParamSimple(map, prefix + "AddressType", this.AddressType);
 
     }
 }

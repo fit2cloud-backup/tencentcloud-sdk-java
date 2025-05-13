@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KeyPair extends AbstractModel{
+public class KeyPair extends AbstractModel {
 
     /**
     * 密钥对的`ID`，是密钥对的唯一标识。
@@ -37,7 +38,7 @@ public class KeyPair extends AbstractModel{
     private String KeyName;
 
     /**
-    * 密钥对所属的项目`ID`。
+    * 密钥对所属的项目 `ID`，ProjectId 为 0 时表示默认项目。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -80,7 +81,6 @@ public class KeyPair extends AbstractModel{
 
     /**
     * 密钥关联的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -119,16 +119,16 @@ public class KeyPair extends AbstractModel{
     }
 
     /**
-     * Get 密钥对所属的项目`ID`。 
-     * @return ProjectId 密钥对所属的项目`ID`。
+     * Get 密钥对所属的项目 `ID`，ProjectId 为 0 时表示默认项目。 
+     * @return ProjectId 密钥对所属的项目 `ID`，ProjectId 为 0 时表示默认项目。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 密钥对所属的项目`ID`。
-     * @param ProjectId 密钥对所属的项目`ID`。
+     * Set 密钥对所属的项目 `ID`，ProjectId 为 0 时表示默认项目。
+     * @param ProjectId 密钥对所属的项目 `ID`，ProjectId 为 0 时表示默认项目。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
@@ -215,10 +215,8 @@ public class KeyPair extends AbstractModel{
     }
 
     /**
-     * Get 密钥关联的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 密钥关联的标签列表。 
      * @return Tags 密钥关联的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -226,9 +224,7 @@ public class KeyPair extends AbstractModel{
 
     /**
      * Set 密钥关联的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 密钥关联的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;

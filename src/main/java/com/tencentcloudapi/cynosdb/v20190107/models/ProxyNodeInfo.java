@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProxyNodeInfo extends AbstractModel{
+public class ProxyNodeInfo extends AbstractModel {
 
     /**
     * 数据库代理节点ID
@@ -91,6 +92,13 @@ public class ProxyNodeInfo extends AbstractModel{
     @SerializedName("Zone")
     @Expose
     private String Zone;
+
+    /**
+    * 数据库代理节点名字
+    */
+    @SerializedName("OssProxyNodeName")
+    @Expose
+    private String OssProxyNodeName;
 
     /**
      * Get 数据库代理节点ID 
@@ -252,6 +260,22 @@ public class ProxyNodeInfo extends AbstractModel{
         this.Zone = Zone;
     }
 
+    /**
+     * Get 数据库代理节点名字 
+     * @return OssProxyNodeName 数据库代理节点名字
+     */
+    public String getOssProxyNodeName() {
+        return this.OssProxyNodeName;
+    }
+
+    /**
+     * Set 数据库代理节点名字
+     * @param OssProxyNodeName 数据库代理节点名字
+     */
+    public void setOssProxyNodeName(String OssProxyNodeName) {
+        this.OssProxyNodeName = OssProxyNodeName;
+    }
+
     public ProxyNodeInfo() {
     }
 
@@ -290,6 +314,9 @@ public class ProxyNodeInfo extends AbstractModel{
         if (source.Zone != null) {
             this.Zone = new String(source.Zone);
         }
+        if (source.OssProxyNodeName != null) {
+            this.OssProxyNodeName = new String(source.OssProxyNodeName);
+        }
     }
 
 
@@ -307,6 +334,7 @@ public class ProxyNodeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "AppId", this.AppId);
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamSimple(map, prefix + "OssProxyNodeName", this.OssProxyNodeName);
 
     }
 }

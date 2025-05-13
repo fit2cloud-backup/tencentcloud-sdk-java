@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TargetGroupInstance extends AbstractModel{
+public class TargetGroupInstance extends AbstractModel {
 
     /**
     * 目标组实例的内网IP
@@ -30,7 +31,7 @@ public class TargetGroupInstance extends AbstractModel{
     private String BindIP;
 
     /**
-    * 目标组实例的端口
+    * 目标组实例的端口，全监听目标组不支持传此字段。
     */
     @SerializedName("Port")
     @Expose
@@ -38,13 +39,15 @@ public class TargetGroupInstance extends AbstractModel{
 
     /**
     * 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
     */
     @SerializedName("Weight")
     @Expose
     private Long Weight;
 
     /**
-    * 目标组实例的新端口
+    * 目标组实例的新端口，全监听目标组不支持传此字段。
     */
     @SerializedName("NewPort")
     @Expose
@@ -67,24 +70,28 @@ public class TargetGroupInstance extends AbstractModel{
     }
 
     /**
-     * Get 目标组实例的端口 
-     * @return Port 目标组实例的端口
+     * Get 目标组实例的端口，全监听目标组不支持传此字段。 
+     * @return Port 目标组实例的端口，全监听目标组不支持传此字段。
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 目标组实例的端口
-     * @param Port 目标组实例的端口
+     * Set 目标组实例的端口，全监听目标组不支持传此字段。
+     * @param Port 目标组实例的端口，全监听目标组不支持传此字段。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get 目标组实例的权重 
+     * Get 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100 
      * @return Weight 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
      */
     public Long getWeight() {
         return this.Weight;
@@ -92,23 +99,27 @@ public class TargetGroupInstance extends AbstractModel{
 
     /**
      * Set 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
      * @param Weight 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
      */
     public void setWeight(Long Weight) {
         this.Weight = Weight;
     }
 
     /**
-     * Get 目标组实例的新端口 
-     * @return NewPort 目标组实例的新端口
+     * Get 目标组实例的新端口，全监听目标组不支持传此字段。 
+     * @return NewPort 目标组实例的新端口，全监听目标组不支持传此字段。
      */
     public Long getNewPort() {
         return this.NewPort;
     }
 
     /**
-     * Set 目标组实例的新端口
-     * @param NewPort 目标组实例的新端口
+     * Set 目标组实例的新端口，全监听目标组不支持传此字段。
+     * @param NewPort 目标组实例的新端口，全监听目标组不支持传此字段。
      */
     public void setNewPort(Long NewPort) {
         this.NewPort = NewPort;

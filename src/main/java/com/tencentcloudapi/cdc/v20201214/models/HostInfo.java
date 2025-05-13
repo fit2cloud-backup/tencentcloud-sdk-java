@@ -16,14 +16,15 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostInfo extends AbstractModel{
+public class HostInfo extends AbstractModel {
 
     /**
-    * 宿主机IP
+    * 宿主机IP（废弃）
     */
     @SerializedName("HostIp")
     @Expose
@@ -94,23 +95,22 @@ public class HostInfo extends AbstractModel{
 
     /**
     * 宿主机id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostId")
     @Expose
     private String HostId;
 
     /**
-     * Get 宿主机IP 
-     * @return HostIp 宿主机IP
+     * Get 宿主机IP（废弃） 
+     * @return HostIp 宿主机IP（废弃）
      */
     public String getHostIp() {
         return this.HostIp;
     }
 
     /**
-     * Set 宿主机IP
-     * @param HostIp 宿主机IP
+     * Set 宿主机IP（废弃）
+     * @param HostIp 宿主机IP（废弃）
      */
     public void setHostIp(String HostIp) {
         this.HostIp = HostIp;
@@ -261,10 +261,8 @@ public class HostInfo extends AbstractModel{
     }
 
     /**
-     * Get 宿主机id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 宿主机id 
      * @return HostId 宿主机id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostId() {
         return this.HostId;
@@ -272,9 +270,7 @@ public class HostInfo extends AbstractModel{
 
     /**
      * Set 宿主机id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostId 宿主机id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostId(String HostId) {
         this.HostId = HostId;

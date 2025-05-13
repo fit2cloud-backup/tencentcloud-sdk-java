@@ -16,14 +16,15 @@
 package com.tencentcloudapi.mongodb.v20190725.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BackupInfo extends AbstractModel{
+public class BackupInfo extends AbstractModel {
 
     /**
-    * 实例ID
+    * 实例ID。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -45,7 +46,6 @@ public class BackupInfo extends AbstractModel{
 
     /**
     * 备份备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupDesc")
     @Expose
@@ -53,7 +53,6 @@ public class BackupInfo extends AbstractModel{
 
     /**
     * 备份文件大小，单位KB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupSize")
     @Expose
@@ -61,7 +60,6 @@ public class BackupInfo extends AbstractModel{
 
     /**
     * 备份开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -69,7 +67,6 @@ public class BackupInfo extends AbstractModel{
 
     /**
     * 备份结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -90,16 +87,37 @@ public class BackupInfo extends AbstractModel{
     private Long BackupMethod;
 
     /**
-     * Get 实例ID 
-     * @return InstanceId 实例ID
+    * 备份记录id
+    */
+    @SerializedName("BackId")
+    @Expose
+    private Long BackId;
+
+    /**
+    * 备份删除时间
+    */
+    @SerializedName("DeleteTime")
+    @Expose
+    private String DeleteTime;
+
+    /**
+    * 异地备份地域
+    */
+    @SerializedName("BackupRegion")
+    @Expose
+    private String BackupRegion;
+
+    /**
+     * Get 实例ID。 
+     * @return InstanceId 实例ID。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID
-     * @param InstanceId 实例ID
+     * Set 实例ID。
+     * @param InstanceId 实例ID。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -138,10 +156,8 @@ public class BackupInfo extends AbstractModel{
     }
 
     /**
-     * Get 备份备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份备注 
      * @return BackupDesc 备份备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBackupDesc() {
         return this.BackupDesc;
@@ -149,19 +165,15 @@ public class BackupInfo extends AbstractModel{
 
     /**
      * Set 备份备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupDesc 备份备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupDesc(String BackupDesc) {
         this.BackupDesc = BackupDesc;
     }
 
     /**
-     * Get 备份文件大小，单位KB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份文件大小，单位KB 
      * @return BackupSize 备份文件大小，单位KB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBackupSize() {
         return this.BackupSize;
@@ -169,19 +181,15 @@ public class BackupInfo extends AbstractModel{
 
     /**
      * Set 备份文件大小，单位KB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupSize 备份文件大小，单位KB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupSize(Long BackupSize) {
         this.BackupSize = BackupSize;
     }
 
     /**
-     * Get 备份开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份开始时间 
      * @return StartTime 备份开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -189,19 +197,15 @@ public class BackupInfo extends AbstractModel{
 
     /**
      * Set 备份开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 备份开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 备份结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份结束时间 
      * @return EndTime 备份结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -209,9 +213,7 @@ public class BackupInfo extends AbstractModel{
 
     /**
      * Set 备份结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 备份结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -249,6 +251,54 @@ public class BackupInfo extends AbstractModel{
         this.BackupMethod = BackupMethod;
     }
 
+    /**
+     * Get 备份记录id 
+     * @return BackId 备份记录id
+     */
+    public Long getBackId() {
+        return this.BackId;
+    }
+
+    /**
+     * Set 备份记录id
+     * @param BackId 备份记录id
+     */
+    public void setBackId(Long BackId) {
+        this.BackId = BackId;
+    }
+
+    /**
+     * Get 备份删除时间 
+     * @return DeleteTime 备份删除时间
+     */
+    public String getDeleteTime() {
+        return this.DeleteTime;
+    }
+
+    /**
+     * Set 备份删除时间
+     * @param DeleteTime 备份删除时间
+     */
+    public void setDeleteTime(String DeleteTime) {
+        this.DeleteTime = DeleteTime;
+    }
+
+    /**
+     * Get 异地备份地域 
+     * @return BackupRegion 异地备份地域
+     */
+    public String getBackupRegion() {
+        return this.BackupRegion;
+    }
+
+    /**
+     * Set 异地备份地域
+     * @param BackupRegion 异地备份地域
+     */
+    public void setBackupRegion(String BackupRegion) {
+        this.BackupRegion = BackupRegion;
+    }
+
     public BackupInfo() {
     }
 
@@ -284,6 +334,15 @@ public class BackupInfo extends AbstractModel{
         if (source.BackupMethod != null) {
             this.BackupMethod = new Long(source.BackupMethod);
         }
+        if (source.BackId != null) {
+            this.BackId = new Long(source.BackId);
+        }
+        if (source.DeleteTime != null) {
+            this.DeleteTime = new String(source.DeleteTime);
+        }
+        if (source.BackupRegion != null) {
+            this.BackupRegion = new String(source.BackupRegion);
+        }
     }
 
 
@@ -300,6 +359,9 @@ public class BackupInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "BackupMethod", this.BackupMethod);
+        this.setParamSimple(map, prefix + "BackId", this.BackId);
+        this.setParamSimple(map, prefix + "DeleteTime", this.DeleteTime);
+        this.setParamSimple(map, prefix + "BackupRegion", this.BackupRegion);
 
     }
 }

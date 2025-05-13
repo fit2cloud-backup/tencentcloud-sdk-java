@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AIRecognitionTemplateItem extends AbstractModel{
+public class AIRecognitionTemplateItem extends AbstractModel {
 
     /**
     * 视频内容识别模板唯一标识。
@@ -44,8 +45,16 @@ public class AIRecognitionTemplateItem extends AbstractModel{
     private String Comment;
 
     /**
+    * 模板类型，取值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
     * 头尾识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HeadTailConfigure")
     @Expose
@@ -53,7 +62,6 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
     * 拆条识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SegmentConfigure")
     @Expose
@@ -61,7 +69,6 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
     * 人脸识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FaceConfigure")
     @Expose
@@ -69,7 +76,6 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
     * 文本全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OcrFullTextConfigure")
     @Expose
@@ -77,7 +83,6 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
     * 文本关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OcrWordsConfigure")
     @Expose
@@ -85,7 +90,7 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
     * 语音全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
     */
     @SerializedName("AsrFullTextConfigure")
     @Expose
@@ -93,15 +98,20 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
     * 语音关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsrWordsConfigure")
     @Expose
     private AsrWordsConfigureInfo AsrWordsConfigure;
 
     /**
+    * 语音翻译识别控制参数。
+    */
+    @SerializedName("AsrTranslateConfigure")
+    @Expose
+    private AsrTranslateConfigureInfo AsrTranslateConfigure;
+
+    /**
     * 物体识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ObjectConfigure")
     @Expose
@@ -177,10 +187,32 @@ public class AIRecognitionTemplateItem extends AbstractModel{
     }
 
     /**
-     * Get 头尾识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 模板类型，取值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li> 
+     * @return Type 模板类型，取值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 模板类型，取值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+     * @param Type 模板类型，取值：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 头尾识别控制参数。 
      * @return HeadTailConfigure 头尾识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public HeadTailConfigureInfo getHeadTailConfigure() {
         return this.HeadTailConfigure;
@@ -188,19 +220,15 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 头尾识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HeadTailConfigure 头尾识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeadTailConfigure(HeadTailConfigureInfo HeadTailConfigure) {
         this.HeadTailConfigure = HeadTailConfigure;
     }
 
     /**
-     * Get 拆条识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 拆条识别控制参数。 
      * @return SegmentConfigure 拆条识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SegmentConfigureInfo getSegmentConfigure() {
         return this.SegmentConfigure;
@@ -208,19 +236,15 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 拆条识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SegmentConfigure 拆条识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSegmentConfigure(SegmentConfigureInfo SegmentConfigure) {
         this.SegmentConfigure = SegmentConfigure;
     }
 
     /**
-     * Get 人脸识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 人脸识别控制参数。 
      * @return FaceConfigure 人脸识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FaceConfigureInfo getFaceConfigure() {
         return this.FaceConfigure;
@@ -228,19 +252,15 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 人脸识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FaceConfigure 人脸识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFaceConfigure(FaceConfigureInfo FaceConfigure) {
         this.FaceConfigure = FaceConfigure;
     }
 
     /**
-     * Get 文本全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文本全文识别控制参数。 
      * @return OcrFullTextConfigure 文本全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OcrFullTextConfigureInfo getOcrFullTextConfigure() {
         return this.OcrFullTextConfigure;
@@ -248,19 +268,15 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 文本全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OcrFullTextConfigure 文本全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOcrFullTextConfigure(OcrFullTextConfigureInfo OcrFullTextConfigure) {
         this.OcrFullTextConfigure = OcrFullTextConfigure;
     }
 
     /**
-     * Get 文本关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文本关键词识别控制参数。 
      * @return OcrWordsConfigure 文本关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OcrWordsConfigureInfo getOcrWordsConfigure() {
         return this.OcrWordsConfigure;
@@ -268,9 +284,7 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 文本关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OcrWordsConfigure 文本关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOcrWordsConfigure(OcrWordsConfigureInfo OcrWordsConfigure) {
         this.OcrWordsConfigure = OcrWordsConfigure;
@@ -278,9 +292,9 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Get 语音全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font>  
      * @return AsrFullTextConfigure 语音全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
      */
     public AsrFullTextConfigureInfo getAsrFullTextConfigure() {
         return this.AsrFullTextConfigure;
@@ -288,19 +302,17 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 语音全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
      * @param AsrFullTextConfigure 语音全文识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
      */
     public void setAsrFullTextConfigure(AsrFullTextConfigureInfo AsrFullTextConfigure) {
         this.AsrFullTextConfigure = AsrFullTextConfigure;
     }
 
     /**
-     * Get 语音关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语音关键词识别控制参数。 
      * @return AsrWordsConfigure 语音关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AsrWordsConfigureInfo getAsrWordsConfigure() {
         return this.AsrWordsConfigure;
@@ -308,19 +320,31 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 语音关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsrWordsConfigure 语音关键词识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsrWordsConfigure(AsrWordsConfigureInfo AsrWordsConfigure) {
         this.AsrWordsConfigure = AsrWordsConfigure;
     }
 
     /**
-     * Get 物体识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语音翻译识别控制参数。 
+     * @return AsrTranslateConfigure 语音翻译识别控制参数。
+     */
+    public AsrTranslateConfigureInfo getAsrTranslateConfigure() {
+        return this.AsrTranslateConfigure;
+    }
+
+    /**
+     * Set 语音翻译识别控制参数。
+     * @param AsrTranslateConfigure 语音翻译识别控制参数。
+     */
+    public void setAsrTranslateConfigure(AsrTranslateConfigureInfo AsrTranslateConfigure) {
+        this.AsrTranslateConfigure = AsrTranslateConfigure;
+    }
+
+    /**
+     * Get 物体识别控制参数。 
      * @return ObjectConfigure 物体识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ObjectConfigureInfo getObjectConfigure() {
         return this.ObjectConfigure;
@@ -328,9 +352,7 @@ public class AIRecognitionTemplateItem extends AbstractModel{
 
     /**
      * Set 物体识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ObjectConfigure 物体识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setObjectConfigure(ObjectConfigureInfo ObjectConfigure) {
         this.ObjectConfigure = ObjectConfigure;
@@ -401,6 +423,9 @@ public class AIRecognitionTemplateItem extends AbstractModel{
         if (source.Comment != null) {
             this.Comment = new String(source.Comment);
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
         if (source.HeadTailConfigure != null) {
             this.HeadTailConfigure = new HeadTailConfigureInfo(source.HeadTailConfigure);
         }
@@ -421,6 +446,9 @@ public class AIRecognitionTemplateItem extends AbstractModel{
         }
         if (source.AsrWordsConfigure != null) {
             this.AsrWordsConfigure = new AsrWordsConfigureInfo(source.AsrWordsConfigure);
+        }
+        if (source.AsrTranslateConfigure != null) {
+            this.AsrTranslateConfigure = new AsrTranslateConfigureInfo(source.AsrTranslateConfigure);
         }
         if (source.ObjectConfigure != null) {
             this.ObjectConfigure = new ObjectConfigureInfo(source.ObjectConfigure);
@@ -444,6 +472,7 @@ public class AIRecognitionTemplateItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Definition", this.Definition);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamObj(map, prefix + "HeadTailConfigure.", this.HeadTailConfigure);
         this.setParamObj(map, prefix + "SegmentConfigure.", this.SegmentConfigure);
         this.setParamObj(map, prefix + "FaceConfigure.", this.FaceConfigure);
@@ -451,6 +480,7 @@ public class AIRecognitionTemplateItem extends AbstractModel{
         this.setParamObj(map, prefix + "OcrWordsConfigure.", this.OcrWordsConfigure);
         this.setParamObj(map, prefix + "AsrFullTextConfigure.", this.AsrFullTextConfigure);
         this.setParamObj(map, prefix + "AsrWordsConfigure.", this.AsrWordsConfigure);
+        this.setParamObj(map, prefix + "AsrTranslateConfigure.", this.AsrTranslateConfigure);
         this.setParamObj(map, prefix + "ObjectConfigure.", this.ObjectConfigure);
         this.setParamSimple(map, prefix + "ScreenshotInterval", this.ScreenshotInterval);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);

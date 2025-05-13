@@ -16,23 +16,22 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskAssetObject extends AbstractModel{
+public class TaskAssetObject extends AbstractModel {
 
     /**
     * 资产名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetName")
     @Expose
     private String AssetName;
 
     /**
-    * 	资产类型
-注意：此字段可能返回 null，表示取不到有效值。
+    * 资产类型
     */
     @SerializedName("InstanceType")
     @Expose
@@ -40,7 +39,6 @@ public class TaskAssetObject extends AbstractModel{
 
     /**
     * 资产分类
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetType")
     @Expose
@@ -55,17 +53,21 @@ public class TaskAssetObject extends AbstractModel{
 
     /**
     * 地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
     private String Region;
 
     /**
-     * Get 资产名
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 多云资产唯一id
+    */
+    @SerializedName("Arn")
+    @Expose
+    private String Arn;
+
+    /**
+     * Get 资产名 
      * @return AssetName 资产名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAssetName() {
         return this.AssetName;
@@ -73,39 +75,31 @@ public class TaskAssetObject extends AbstractModel{
 
     /**
      * Set 资产名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetName 资产名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetName(String AssetName) {
         this.AssetName = AssetName;
     }
 
     /**
-     * Get 	资产类型
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceType 	资产类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 资产类型 
+     * @return InstanceType 资产类型
      */
     public String getInstanceType() {
         return this.InstanceType;
     }
 
     /**
-     * Set 	资产类型
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceType 	资产类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 资产类型
+     * @param InstanceType 资产类型
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
     }
 
     /**
-     * Get 资产分类
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产分类 
      * @return AssetType 资产分类
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAssetType() {
         return this.AssetType;
@@ -113,9 +107,7 @@ public class TaskAssetObject extends AbstractModel{
 
     /**
      * Set 资产分类
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetType 资产分类
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetType(String AssetType) {
         this.AssetType = AssetType;
@@ -138,10 +130,8 @@ public class TaskAssetObject extends AbstractModel{
     }
 
     /**
-     * Get 地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域 
      * @return Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -149,12 +139,26 @@ public class TaskAssetObject extends AbstractModel{
 
     /**
      * Set 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
+    }
+
+    /**
+     * Get 多云资产唯一id 
+     * @return Arn 多云资产唯一id
+     */
+    public String getArn() {
+        return this.Arn;
+    }
+
+    /**
+     * Set 多云资产唯一id
+     * @param Arn 多云资产唯一id
+     */
+    public void setArn(String Arn) {
+        this.Arn = Arn;
     }
 
     public TaskAssetObject() {
@@ -180,6 +184,9 @@ public class TaskAssetObject extends AbstractModel{
         if (source.Region != null) {
             this.Region = new String(source.Region);
         }
+        if (source.Arn != null) {
+            this.Arn = new String(source.Arn);
+        }
     }
 
 
@@ -192,6 +199,7 @@ public class TaskAssetObject extends AbstractModel{
         this.setParamSimple(map, prefix + "AssetType", this.AssetType);
         this.setParamSimple(map, prefix + "Asset", this.Asset);
         this.setParamSimple(map, prefix + "Region", this.Region);
+        this.setParamSimple(map, prefix + "Arn", this.Arn);
 
     }
 }

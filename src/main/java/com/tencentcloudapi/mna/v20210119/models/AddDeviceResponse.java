@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mna.v20210119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddDeviceResponse extends AbstractModel{
+public class AddDeviceResponse extends AbstractModel {
 
     /**
     * 经过加密算法加密后的base64格式密钥
@@ -38,14 +39,13 @@ public class AddDeviceResponse extends AbstractModel{
 
     /**
     * 签名字符串
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Signature")
     @Expose
     private String Signature;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -84,10 +84,8 @@ public class AddDeviceResponse extends AbstractModel{
     }
 
     /**
-     * Get 签名字符串
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签名字符串 
      * @return Signature 签名字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSignature() {
         return this.Signature;
@@ -95,25 +93,23 @@ public class AddDeviceResponse extends AbstractModel{
 
     /**
      * Set 签名字符串
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Signature 签名字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSignature(String Signature) {
         this.Signature = Signature;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

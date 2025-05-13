@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mna.v20210119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetMultiFlowStatisticRequest extends AbstractModel{
+public class GetMultiFlowStatisticRequest extends AbstractModel {
 
     /**
     * 设备id列表，单次最多请求10个设备
@@ -44,7 +45,7 @@ public class GetMultiFlowStatisticRequest extends AbstractModel{
     private Long EndTime;
 
     /**
-    * 统计流量类型（1：上行流量，2：下行流量）
+    * 统计流量类型（1：上行流量，2：下行流量， 3: 上下行总和）
     */
     @SerializedName("Type")
     @Expose
@@ -56,6 +57,20 @@ public class GetMultiFlowStatisticRequest extends AbstractModel{
     @SerializedName("TimeGranularity")
     @Expose
     private Long TimeGranularity;
+
+    /**
+    * 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+    */
+    @SerializedName("AccessRegion")
+    @Expose
+    private String AccessRegion;
+
+    /**
+    * 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+    */
+    @SerializedName("GatewayType")
+    @Expose
+    private Long GatewayType;
 
     /**
      * Get 设备id列表，单次最多请求10个设备 
@@ -106,16 +121,16 @@ public class GetMultiFlowStatisticRequest extends AbstractModel{
     }
 
     /**
-     * Get 统计流量类型（1：上行流量，2：下行流量） 
-     * @return Type 统计流量类型（1：上行流量，2：下行流量）
+     * Get 统计流量类型（1：上行流量，2：下行流量， 3: 上下行总和） 
+     * @return Type 统计流量类型（1：上行流量，2：下行流量， 3: 上下行总和）
      */
     public Long getType() {
         return this.Type;
     }
 
     /**
-     * Set 统计流量类型（1：上行流量，2：下行流量）
-     * @param Type 统计流量类型（1：上行流量，2：下行流量）
+     * Set 统计流量类型（1：上行流量，2：下行流量， 3: 上下行总和）
+     * @param Type 统计流量类型（1：上行流量，2：下行流量， 3: 上下行总和）
      */
     public void setType(Long Type) {
         this.Type = Type;
@@ -135,6 +150,38 @@ public class GetMultiFlowStatisticRequest extends AbstractModel{
      */
     public void setTimeGranularity(Long TimeGranularity) {
         this.TimeGranularity = TimeGranularity;
+    }
+
+    /**
+     * Get 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。 
+     * @return AccessRegion 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+     */
+    public String getAccessRegion() {
+        return this.AccessRegion;
+    }
+
+    /**
+     * Set 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+     * @param AccessRegion 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+     */
+    public void setAccessRegion(String AccessRegion) {
+        this.AccessRegion = AccessRegion;
+    }
+
+    /**
+     * Get 网关类型。0：公有云网关；1：自有网关。不传默认为0。 
+     * @return GatewayType 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+     */
+    public Long getGatewayType() {
+        return this.GatewayType;
+    }
+
+    /**
+     * Set 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+     * @param GatewayType 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+     */
+    public void setGatewayType(Long GatewayType) {
+        this.GatewayType = GatewayType;
     }
 
     public GetMultiFlowStatisticRequest() {
@@ -163,6 +210,12 @@ public class GetMultiFlowStatisticRequest extends AbstractModel{
         if (source.TimeGranularity != null) {
             this.TimeGranularity = new Long(source.TimeGranularity);
         }
+        if (source.AccessRegion != null) {
+            this.AccessRegion = new String(source.AccessRegion);
+        }
+        if (source.GatewayType != null) {
+            this.GatewayType = new Long(source.GatewayType);
+        }
     }
 
 
@@ -175,6 +228,8 @@ public class GetMultiFlowStatisticRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "TimeGranularity", this.TimeGranularity);
+        this.setParamSimple(map, prefix + "AccessRegion", this.AccessRegion);
+        this.setParamSimple(map, prefix + "GatewayType", this.GatewayType);
 
     }
 }

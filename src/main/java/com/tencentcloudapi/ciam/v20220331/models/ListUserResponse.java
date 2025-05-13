@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ciam.v20220331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListUserResponse extends AbstractModel{
+public class ListUserResponse extends AbstractModel {
 
     /**
     * 总条数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Total")
     @Expose
@@ -40,24 +40,21 @@ public class ListUserResponse extends AbstractModel{
 
     /**
     * 用户列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
     private User [] Content;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 总条数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总条数 
      * @return Total 总条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotal() {
         return this.Total;
@@ -65,9 +62,7 @@ public class ListUserResponse extends AbstractModel{
 
     /**
      * Set 总条数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Total 总条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotal(Long Total) {
         this.Total = Total;
@@ -94,10 +89,8 @@ public class ListUserResponse extends AbstractModel{
     }
 
     /**
-     * Get 用户列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户列表 
      * @return Content 用户列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public User [] getContent() {
         return this.Content;
@@ -105,25 +98,23 @@ public class ListUserResponse extends AbstractModel{
 
     /**
      * Set 用户列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 用户列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(User [] Content) {
         this.Content = Content;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,282 +16,238 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOrganizationMemberEmailBindResponse extends AbstractModel{
+public class DescribeOrganizationMemberEmailBindResponse extends AbstractModel {
 
     /**
-    * 绑定ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 绑定ID。
     */
     @SerializedName("BindId")
     @Expose
     private Long BindId;
 
     /**
-    * 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
+    * 申请时间。
     */
     @SerializedName("ApplyTime")
     @Expose
     private String ApplyTime;
 
     /**
-    * 邮箱地址
-注意：此字段可能返回 null，表示取不到有效值。
+    * 邮箱地址。
     */
     @SerializedName("Email")
     @Expose
     private String Email;
 
     /**
-    * 手机号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 安全手机号。
     */
     @SerializedName("Phone")
     @Expose
     private String Phone;
 
     /**
-    * 绑定状态    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
-注意：此字段可能返回 null，表示取不到有效值。
+    * 绑定状态。    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
     */
     @SerializedName("BindStatus")
     @Expose
     private String BindStatus;
 
     /**
-    * 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
+    * 绑定时间。
     */
     @SerializedName("BindTime")
     @Expose
     private String BindTime;
 
     /**
-    * 失败说明
-注意：此字段可能返回 null，表示取不到有效值。
+    * 失败说明。
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-    * 安全手机绑定状态  未绑定：0，已绑定：1
-注意：此字段可能返回 null，表示取不到有效值。
+    * 安全手机绑定状态 。 未绑定：0，已绑定：1
     */
     @SerializedName("PhoneBind")
     @Expose
     private Long PhoneBind;
 
     /**
-    * 国际区号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 国际区号。
     */
     @SerializedName("CountryCode")
     @Expose
     private String CountryCode;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 绑定ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BindId 绑定ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 绑定ID。 
+     * @return BindId 绑定ID。
      */
     public Long getBindId() {
         return this.BindId;
     }
 
     /**
-     * Set 绑定ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param BindId 绑定ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 绑定ID。
+     * @param BindId 绑定ID。
      */
     public void setBindId(Long BindId) {
         this.BindId = BindId;
     }
 
     /**
-     * Get 申请时间
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApplyTime 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 申请时间。 
+     * @return ApplyTime 申请时间。
      */
     public String getApplyTime() {
         return this.ApplyTime;
     }
 
     /**
-     * Set 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApplyTime 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 申请时间。
+     * @param ApplyTime 申请时间。
      */
     public void setApplyTime(String ApplyTime) {
         this.ApplyTime = ApplyTime;
     }
 
     /**
-     * Get 邮箱地址
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Email 邮箱地址
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 邮箱地址。 
+     * @return Email 邮箱地址。
      */
     public String getEmail() {
         return this.Email;
     }
 
     /**
-     * Set 邮箱地址
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Email 邮箱地址
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 邮箱地址。
+     * @param Email 邮箱地址。
      */
     public void setEmail(String Email) {
         this.Email = Email;
     }
 
     /**
-     * Get 手机号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Phone 手机号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 安全手机号。 
+     * @return Phone 安全手机号。
      */
     public String getPhone() {
         return this.Phone;
     }
 
     /**
-     * Set 手机号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Phone 手机号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 安全手机号。
+     * @param Phone 安全手机号。
      */
     public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 
     /**
-     * Get 绑定状态    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BindStatus 绑定状态    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 绑定状态。    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed 
+     * @return BindStatus 绑定状态。    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
      */
     public String getBindStatus() {
         return this.BindStatus;
     }
 
     /**
-     * Set 绑定状态    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param BindStatus 绑定状态    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 绑定状态。    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
+     * @param BindStatus 绑定状态。    未绑定：Unbound，待激活：Valid，绑定成功：Success，绑定失败：Failed
      */
     public void setBindStatus(String BindStatus) {
         this.BindStatus = BindStatus;
     }
 
     /**
-     * Get 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BindTime 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 绑定时间。 
+     * @return BindTime 绑定时间。
      */
     public String getBindTime() {
         return this.BindTime;
     }
 
     /**
-     * Set 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param BindTime 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 绑定时间。
+     * @param BindTime 绑定时间。
      */
     public void setBindTime(String BindTime) {
         this.BindTime = BindTime;
     }
 
     /**
-     * Get 失败说明
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Description 失败说明
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 失败说明。 
+     * @return Description 失败说明。
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 失败说明
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Description 失败说明
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 失败说明。
+     * @param Description 失败说明。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 安全手机绑定状态  未绑定：0，已绑定：1
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PhoneBind 安全手机绑定状态  未绑定：0，已绑定：1
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 安全手机绑定状态 。 未绑定：0，已绑定：1 
+     * @return PhoneBind 安全手机绑定状态 。 未绑定：0，已绑定：1
      */
     public Long getPhoneBind() {
         return this.PhoneBind;
     }
 
     /**
-     * Set 安全手机绑定状态  未绑定：0，已绑定：1
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PhoneBind 安全手机绑定状态  未绑定：0，已绑定：1
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 安全手机绑定状态 。 未绑定：0，已绑定：1
+     * @param PhoneBind 安全手机绑定状态 。 未绑定：0，已绑定：1
      */
     public void setPhoneBind(Long PhoneBind) {
         this.PhoneBind = PhoneBind;
     }
 
     /**
-     * Get 国际区号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CountryCode 国际区号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 国际区号。 
+     * @return CountryCode 国际区号。
      */
     public String getCountryCode() {
         return this.CountryCode;
     }
 
     /**
-     * Set 国际区号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CountryCode 国际区号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 国际区号。
+     * @param CountryCode 国际区号。
      */
     public void setCountryCode(String CountryCode) {
         this.CountryCode = CountryCode;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddInstanceResult extends AbstractModel{
+public class AddInstanceResult extends AbstractModel {
 
     /**
     * 添加集群失败的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedInstanceIds")
     @Expose
@@ -32,7 +32,6 @@ public class AddInstanceResult extends AbstractModel{
 
     /**
     * 添加集群成功的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SuccInstanceIds")
     @Expose
@@ -40,7 +39,6 @@ public class AddInstanceResult extends AbstractModel{
 
     /**
     * 添加集群超时的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeoutInstanceIds")
     @Expose
@@ -55,10 +53,8 @@ public class AddInstanceResult extends AbstractModel{
     private String [] FailedReasons;
 
     /**
-     * Get 添加集群失败的节点列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 添加集群失败的节点列表 
      * @return FailedInstanceIds 添加集群失败的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFailedInstanceIds() {
         return this.FailedInstanceIds;
@@ -66,19 +62,15 @@ public class AddInstanceResult extends AbstractModel{
 
     /**
      * Set 添加集群失败的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedInstanceIds 添加集群失败的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedInstanceIds(String [] FailedInstanceIds) {
         this.FailedInstanceIds = FailedInstanceIds;
     }
 
     /**
-     * Get 添加集群成功的节点列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 添加集群成功的节点列表 
      * @return SuccInstanceIds 添加集群成功的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSuccInstanceIds() {
         return this.SuccInstanceIds;
@@ -86,19 +78,15 @@ public class AddInstanceResult extends AbstractModel{
 
     /**
      * Set 添加集群成功的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SuccInstanceIds 添加集群成功的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSuccInstanceIds(String [] SuccInstanceIds) {
         this.SuccInstanceIds = SuccInstanceIds;
     }
 
     /**
-     * Get 添加集群超时的节点列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 添加集群超时的节点列表 
      * @return TimeoutInstanceIds 添加集群超时的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTimeoutInstanceIds() {
         return this.TimeoutInstanceIds;
@@ -106,9 +94,7 @@ public class AddInstanceResult extends AbstractModel{
 
     /**
      * Set 添加集群超时的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeoutInstanceIds 添加集群超时的节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeoutInstanceIds(String [] TimeoutInstanceIds) {
         this.TimeoutInstanceIds = TimeoutInstanceIds;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RebuildMediaTemplate extends AbstractModel{
+public class RebuildMediaTemplate extends AbstractModel {
 
     /**
     * 音画质重生模板号。
@@ -54,7 +55,6 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
     * 音画质重生视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RebuildVideoInfo")
     @Expose
@@ -62,7 +62,6 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
     * 音画质重生音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RebuildAudioInfo")
     @Expose
@@ -70,7 +69,6 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
     * 输出视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetVideoInfo")
     @Expose
@@ -78,7 +76,6 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
     * 输出音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetAudioInfo")
     @Expose
@@ -198,10 +195,8 @@ public class RebuildMediaTemplate extends AbstractModel{
     }
 
     /**
-     * Get 音画质重生视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音画质重生视频控制信息。 
      * @return RebuildVideoInfo 音画质重生视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RebuildVideoInfo getRebuildVideoInfo() {
         return this.RebuildVideoInfo;
@@ -209,19 +204,15 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
      * Set 音画质重生视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RebuildVideoInfo 音画质重生视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRebuildVideoInfo(RebuildVideoInfo RebuildVideoInfo) {
         this.RebuildVideoInfo = RebuildVideoInfo;
     }
 
     /**
-     * Get 音画质重生音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音画质重生音频控制信息。 
      * @return RebuildAudioInfo 音画质重生音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RebuildAudioInfo getRebuildAudioInfo() {
         return this.RebuildAudioInfo;
@@ -229,19 +220,15 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
      * Set 音画质重生音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RebuildAudioInfo 音画质重生音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRebuildAudioInfo(RebuildAudioInfo RebuildAudioInfo) {
         this.RebuildAudioInfo = RebuildAudioInfo;
     }
 
     /**
-     * Get 输出视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出视频控制信息。 
      * @return TargetVideoInfo 输出视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RebuildMediaTargetVideoStream getTargetVideoInfo() {
         return this.TargetVideoInfo;
@@ -249,19 +236,15 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
      * Set 输出视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetVideoInfo 输出视频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetVideoInfo(RebuildMediaTargetVideoStream TargetVideoInfo) {
         this.TargetVideoInfo = TargetVideoInfo;
     }
 
     /**
-     * Get 输出音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出音频控制信息。 
      * @return TargetAudioInfo 输出音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RebuildMediaTargetAudioStream getTargetAudioInfo() {
         return this.TargetAudioInfo;
@@ -269,9 +252,7 @@ public class RebuildMediaTemplate extends AbstractModel{
 
     /**
      * Set 输出音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetAudioInfo 输出音频控制信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetAudioInfo(RebuildMediaTargetAudioStream TargetAudioInfo) {
         this.TargetAudioInfo = TargetAudioInfo;

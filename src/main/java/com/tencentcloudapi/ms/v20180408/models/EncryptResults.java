@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ms.v20180408.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EncryptResults extends AbstractModel{
+public class EncryptResults extends AbstractModel {
 
     /**
     * 平台类型枚举值  1-android加固   2-ios源码混淆  3-sdk加固  4-applet小程序加固
@@ -80,7 +81,6 @@ public class EncryptResults extends AbstractModel{
 
     /**
     * 对应PlatformType平台类型值   1-android加固结果
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AndroidResult")
     @Expose
@@ -88,7 +88,6 @@ public class EncryptResults extends AbstractModel{
 
     /**
     * 对应PlatformType平台类型值   2-ios源码混淆加固结果
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IOSResult")
     @Expose
@@ -96,7 +95,6 @@ public class EncryptResults extends AbstractModel{
 
     /**
     * 对应PlatformType平台类型值   3-sdk加固结果
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SDKResult")
     @Expose
@@ -104,7 +102,6 @@ public class EncryptResults extends AbstractModel{
 
     /**
     * 对应PlatformType平台类型值   4-applet小程序加固结果
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppletResult")
     @Expose
@@ -239,10 +236,8 @@ public class EncryptResults extends AbstractModel{
     }
 
     /**
-     * Get 对应PlatformType平台类型值   1-android加固结果
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对应PlatformType平台类型值   1-android加固结果 
      * @return AndroidResult 对应PlatformType平台类型值   1-android加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AndroidResult getAndroidResult() {
         return this.AndroidResult;
@@ -250,19 +245,15 @@ public class EncryptResults extends AbstractModel{
 
     /**
      * Set 对应PlatformType平台类型值   1-android加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AndroidResult 对应PlatformType平台类型值   1-android加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAndroidResult(AndroidResult AndroidResult) {
         this.AndroidResult = AndroidResult;
     }
 
     /**
-     * Get 对应PlatformType平台类型值   2-ios源码混淆加固结果
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对应PlatformType平台类型值   2-ios源码混淆加固结果 
      * @return IOSResult 对应PlatformType平台类型值   2-ios源码混淆加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IOSResult getIOSResult() {
         return this.IOSResult;
@@ -270,19 +261,15 @@ public class EncryptResults extends AbstractModel{
 
     /**
      * Set 对应PlatformType平台类型值   2-ios源码混淆加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IOSResult 对应PlatformType平台类型值   2-ios源码混淆加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIOSResult(IOSResult IOSResult) {
         this.IOSResult = IOSResult;
     }
 
     /**
-     * Get 对应PlatformType平台类型值   3-sdk加固结果
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对应PlatformType平台类型值   3-sdk加固结果 
      * @return SDKResult 对应PlatformType平台类型值   3-sdk加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SDKResult getSDKResult() {
         return this.SDKResult;
@@ -290,19 +277,15 @@ public class EncryptResults extends AbstractModel{
 
     /**
      * Set 对应PlatformType平台类型值   3-sdk加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SDKResult 对应PlatformType平台类型值   3-sdk加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSDKResult(SDKResult SDKResult) {
         this.SDKResult = SDKResult;
     }
 
     /**
-     * Get 对应PlatformType平台类型值   4-applet小程序加固结果
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对应PlatformType平台类型值   4-applet小程序加固结果 
      * @return AppletResult 对应PlatformType平台类型值   4-applet小程序加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AppletResult getAppletResult() {
         return this.AppletResult;
@@ -310,9 +293,7 @@ public class EncryptResults extends AbstractModel{
 
     /**
      * Set 对应PlatformType平台类型值   4-applet小程序加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppletResult 对应PlatformType平台类型值   4-applet小程序加固结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppletResult(AppletResult AppletResult) {
         this.AppletResult = AppletResult;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SurgeryHistory extends AbstractModel{
+public class SurgeryHistory extends AbstractModel {
 
     /**
     * 手术名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SurgeryName")
     @Expose
@@ -32,7 +32,6 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
     * 手术日期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SurgeryDate")
     @Expose
@@ -40,7 +39,6 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
     * 术前诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PreoperativePathology")
     @Expose
@@ -48,7 +46,6 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
     * 术中诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntraoperativePathology")
     @Expose
@@ -56,7 +53,6 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
     * 术后诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PostoperativePathology")
     @Expose
@@ -64,17 +60,14 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
     * 出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DischargeDiagnosis")
     @Expose
     private SurgeryAttr DischargeDiagnosis;
 
     /**
-     * Get 手术名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 手术名称 
      * @return SurgeryName 手术名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryAttr getSurgeryName() {
         return this.SurgeryName;
@@ -82,19 +75,15 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
      * Set 手术名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SurgeryName 手术名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSurgeryName(SurgeryAttr SurgeryName) {
         this.SurgeryName = SurgeryName;
     }
 
     /**
-     * Get 手术日期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 手术日期 
      * @return SurgeryDate 手术日期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryAttr getSurgeryDate() {
         return this.SurgeryDate;
@@ -102,19 +91,15 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
      * Set 手术日期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SurgeryDate 手术日期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSurgeryDate(SurgeryAttr SurgeryDate) {
         this.SurgeryDate = SurgeryDate;
     }
 
     /**
-     * Get 术前诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 术前诊断 
      * @return PreoperativePathology 术前诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryAttr getPreoperativePathology() {
         return this.PreoperativePathology;
@@ -122,19 +107,15 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
      * Set 术前诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PreoperativePathology 术前诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPreoperativePathology(SurgeryAttr PreoperativePathology) {
         this.PreoperativePathology = PreoperativePathology;
     }
 
     /**
-     * Get 术中诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 术中诊断 
      * @return IntraoperativePathology 术中诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryAttr getIntraoperativePathology() {
         return this.IntraoperativePathology;
@@ -142,19 +123,15 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
      * Set 术中诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IntraoperativePathology 术中诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntraoperativePathology(SurgeryAttr IntraoperativePathology) {
         this.IntraoperativePathology = IntraoperativePathology;
     }
 
     /**
-     * Get 术后诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 术后诊断 
      * @return PostoperativePathology 术后诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryAttr getPostoperativePathology() {
         return this.PostoperativePathology;
@@ -162,19 +139,15 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
      * Set 术后诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PostoperativePathology 术后诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPostoperativePathology(SurgeryAttr PostoperativePathology) {
         this.PostoperativePathology = PostoperativePathology;
     }
 
     /**
-     * Get 出院诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出院诊断 
      * @return DischargeDiagnosis 出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryAttr getDischargeDiagnosis() {
         return this.DischargeDiagnosis;
@@ -182,9 +155,7 @@ public class SurgeryHistory extends AbstractModel{
 
     /**
      * Set 出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DischargeDiagnosis 出院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDischargeDiagnosis(SurgeryAttr DischargeDiagnosis) {
         this.DischargeDiagnosis = DischargeDiagnosis;

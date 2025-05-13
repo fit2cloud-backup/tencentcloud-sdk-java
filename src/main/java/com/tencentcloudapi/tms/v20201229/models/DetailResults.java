@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tms.v20201229.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DetailResults extends AbstractModel{
+public class DetailResults extends AbstractModel {
 
     /**
-    * 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+    * 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
     */
     @SerializedName("Label")
     @Expose
@@ -54,7 +55,7 @@ public class DetailResults extends AbstractModel{
     private Long Score;
 
     /**
-    * 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
+    * 该字段用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LibType")
@@ -62,7 +63,7 @@ public class DetailResults extends AbstractModel{
     private Long LibType;
 
     /**
-    * 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+    * 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LibId")
@@ -70,7 +71,7 @@ public class DetailResults extends AbstractModel{
     private String LibId;
 
     /**
-    * 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+    * 该字段用于返回自定义库的名称,以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LibName")
@@ -94,16 +95,24 @@ public class DetailResults extends AbstractModel{
     private Tag [] Tags;
 
     /**
-     * Get 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。 
-     * @return Label 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+    * 该字段用于返回违规文本命中信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HitInfos")
+    @Expose
+    private HitInfo [] HitInfos;
+
+    /**
+     * Get 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。 
+     * @return Label 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
      */
     public String getLabel() {
         return this.Label;
     }
 
     /**
-     * Set 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
-     * @param Label 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+     * Set 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
+     * @param Label 该字段用于返回检测结果所对应的全部恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
      */
     public void setLabel(String Label) {
         this.Label = Label;
@@ -170,9 +179,9 @@ public class DetailResults extends AbstractModel{
     }
 
     /**
-     * Get 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
+     * Get 该字段用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LibType 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
+     * @return LibType 该字段用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLibType() {
@@ -180,9 +189,9 @@ public class DetailResults extends AbstractModel{
     }
 
     /**
-     * Set 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
+     * Set 该字段用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LibType 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
+     * @param LibType 该字段用于返回自定义关键词对应的词库类型，取值为**1**（黑白库）和**2**（自定义关键词库），若未配置自定义关键词库,则默认值为1（黑白库匹配）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLibType(Long LibType) {
@@ -190,9 +199,9 @@ public class DetailResults extends AbstractModel{
     }
 
     /**
-     * Get 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+     * Get 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LibId 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+     * @return LibId 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLibId() {
@@ -200,9 +209,9 @@ public class DetailResults extends AbstractModel{
     }
 
     /**
-     * Set 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+     * Set 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LibId 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的ID，以方便自定义库管理和配置。
+     * @param LibId 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLibId(String LibId) {
@@ -210,9 +219,9 @@ public class DetailResults extends AbstractModel{
     }
 
     /**
-     * Get 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+     * Get 该字段用于返回自定义库的名称,以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LibName 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+     * @return LibName 该字段用于返回自定义库的名称,以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLibName() {
@@ -220,9 +229,9 @@ public class DetailResults extends AbstractModel{
     }
 
     /**
-     * Set 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+     * Set 该字段用于返回自定义库的名称,以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LibName 该字段**仅当Label为Custom：自定义关键词时该参数有效**,用于返回自定义库的名称,以方便自定义库管理和配置。
+     * @param LibName 该字段用于返回自定义库的名称,以方便自定义库管理和配置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLibName(String LibName) {
@@ -269,6 +278,26 @@ public class DetailResults extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 该字段用于返回违规文本命中信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HitInfos 该字段用于返回违规文本命中信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public HitInfo [] getHitInfos() {
+        return this.HitInfos;
+    }
+
+    /**
+     * Set 该字段用于返回违规文本命中信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HitInfos 该字段用于返回违规文本命中信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHitInfos(HitInfo [] HitInfos) {
+        this.HitInfos = HitInfos;
+    }
+
     public DetailResults() {
     }
 
@@ -310,6 +339,12 @@ public class DetailResults extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.HitInfos != null) {
+            this.HitInfos = new HitInfo[source.HitInfos.length];
+            for (int i = 0; i < source.HitInfos.length; i++) {
+                this.HitInfos[i] = new HitInfo(source.HitInfos[i]);
+            }
+        }
     }
 
 
@@ -326,6 +361,7 @@ public class DetailResults extends AbstractModel{
         this.setParamSimple(map, prefix + "LibName", this.LibName);
         this.setParamSimple(map, prefix + "SubLabel", this.SubLabel);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamArrayObj(map, prefix + "HitInfos.", this.HitInfos);
 
     }
 }

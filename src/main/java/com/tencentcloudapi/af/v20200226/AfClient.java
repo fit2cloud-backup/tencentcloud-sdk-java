@@ -39,7 +39,9 @@ public class AfClient extends AbstractClient{
     }
 
     /**
-     *天御反欺诈服务，主要应用于银行、证券、保险、消费金融等金融行业客户，通过腾讯的大数据风控能力，
+     *该接口未在使用，后端地址已无法访问，经查近60天日志无正常业务访问记录，申请预下线。
+
+天御反欺诈服务，主要应用于银行、证券、保险、消费金融等金融行业客户，通过腾讯的大数据风控能力，
 可以准确识别恶意用户信息，解决客户在支付、活动、理财，风控等业务环节遇到的欺诈威胁，降低企业
 的损失。
      * @param req DescribeAntiFraudRequest
@@ -47,18 +49,8 @@ public class AfClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAntiFraudResponse DescribeAntiFraud(DescribeAntiFraudRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAntiFraudResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAntiFraudResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAntiFraud");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAntiFraud", DescribeAntiFraudResponse.class);
     }
 
     /**
@@ -68,18 +60,8 @@ public class AfClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetAntiFraudResponse GetAntiFraud(GetAntiFraudRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetAntiFraudResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetAntiFraudResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetAntiFraud");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetAntiFraud", GetAntiFraudResponse.class);
     }
 
     /**
@@ -91,18 +73,8 @@ public class AfClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public QueryAntiFraudResponse QueryAntiFraud(QueryAntiFraudRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<QueryAntiFraudResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<QueryAntiFraudResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "QueryAntiFraud");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "QueryAntiFraud", QueryAntiFraudResponse.class);
     }
 
 }

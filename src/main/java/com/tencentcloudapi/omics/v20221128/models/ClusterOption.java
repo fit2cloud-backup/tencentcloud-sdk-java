@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterOption extends AbstractModel{
+public class ClusterOption extends AbstractModel {
 
     /**
     * 计算集群可用区。
@@ -36,6 +37,27 @@ public class ClusterOption extends AbstractModel{
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 计算集群Service CIDR，不能与VPC网段重合。
+    */
+    @SerializedName("ServiceCidr")
+    @Expose
+    private String ServiceCidr;
+
+    /**
+    * 资源配额。
+    */
+    @SerializedName("ResourceQuota")
+    @Expose
+    private ResourceQuota ResourceQuota;
+
+    /**
+    * 限制范围。
+    */
+    @SerializedName("LimitRange")
+    @Expose
+    private LimitRange LimitRange;
 
     /**
      * Get 计算集群可用区。 
@@ -73,6 +95,54 @@ public class ClusterOption extends AbstractModel{
         this.Type = Type;
     }
 
+    /**
+     * Get 计算集群Service CIDR，不能与VPC网段重合。 
+     * @return ServiceCidr 计算集群Service CIDR，不能与VPC网段重合。
+     */
+    public String getServiceCidr() {
+        return this.ServiceCidr;
+    }
+
+    /**
+     * Set 计算集群Service CIDR，不能与VPC网段重合。
+     * @param ServiceCidr 计算集群Service CIDR，不能与VPC网段重合。
+     */
+    public void setServiceCidr(String ServiceCidr) {
+        this.ServiceCidr = ServiceCidr;
+    }
+
+    /**
+     * Get 资源配额。 
+     * @return ResourceQuota 资源配额。
+     */
+    public ResourceQuota getResourceQuota() {
+        return this.ResourceQuota;
+    }
+
+    /**
+     * Set 资源配额。
+     * @param ResourceQuota 资源配额。
+     */
+    public void setResourceQuota(ResourceQuota ResourceQuota) {
+        this.ResourceQuota = ResourceQuota;
+    }
+
+    /**
+     * Get 限制范围。 
+     * @return LimitRange 限制范围。
+     */
+    public LimitRange getLimitRange() {
+        return this.LimitRange;
+    }
+
+    /**
+     * Set 限制范围。
+     * @param LimitRange 限制范围。
+     */
+    public void setLimitRange(LimitRange LimitRange) {
+        this.LimitRange = LimitRange;
+    }
+
     public ClusterOption() {
     }
 
@@ -87,6 +157,15 @@ public class ClusterOption extends AbstractModel{
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.ServiceCidr != null) {
+            this.ServiceCidr = new String(source.ServiceCidr);
+        }
+        if (source.ResourceQuota != null) {
+            this.ResourceQuota = new ResourceQuota(source.ResourceQuota);
+        }
+        if (source.LimitRange != null) {
+            this.LimitRange = new LimitRange(source.LimitRange);
+        }
     }
 
 
@@ -96,6 +175,9 @@ public class ClusterOption extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "ServiceCidr", this.ServiceCidr);
+        this.setParamObj(map, prefix + "ResourceQuota.", this.ResourceQuota);
+        this.setParamObj(map, prefix + "LimitRange.", this.LimitRange);
 
     }
 }

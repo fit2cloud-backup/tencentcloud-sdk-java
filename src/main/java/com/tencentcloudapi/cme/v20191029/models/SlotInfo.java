@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cme.v20191029.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlotInfo extends AbstractModel{
+public class SlotInfo extends AbstractModel {
 
     /**
     * 卡槽 Id。
@@ -61,6 +62,13 @@ public class SlotInfo extends AbstractModel{
     @SerializedName("Duration")
     @Expose
     private Float Duration;
+
+    /**
+    * 卡槽起始时间，单位秒。
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private Float StartTime;
 
     /**
      * Get 卡槽 Id。 
@@ -162,6 +170,22 @@ public class SlotInfo extends AbstractModel{
         this.Duration = Duration;
     }
 
+    /**
+     * Get 卡槽起始时间，单位秒。 
+     * @return StartTime 卡槽起始时间，单位秒。
+     */
+    public Float getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 卡槽起始时间，单位秒。
+     * @param StartTime 卡槽起始时间，单位秒。
+     */
+    public void setStartTime(Float StartTime) {
+        this.StartTime = StartTime;
+    }
+
     public SlotInfo() {
     }
 
@@ -185,6 +209,9 @@ public class SlotInfo extends AbstractModel{
         if (source.Duration != null) {
             this.Duration = new Float(source.Duration);
         }
+        if (source.StartTime != null) {
+            this.StartTime = new Float(source.StartTime);
+        }
     }
 
 
@@ -197,6 +224,7 @@ public class SlotInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DefaultMaterialId", this.DefaultMaterialId);
         this.setParamObj(map, prefix + "DefaultTextSlotInfo.", this.DefaultTextSlotInfo);
         this.setParamSimple(map, prefix + "Duration", this.Duration);
+        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
 
     }
 }

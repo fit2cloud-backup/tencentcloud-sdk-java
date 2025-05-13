@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleGroup extends AbstractModel{
+public class RuleGroup extends AbstractModel {
 
     /**
     * 规则组Id
@@ -127,6 +128,14 @@ public class RuleGroup extends AbstractModel{
     private String DatabaseName;
 
     /**
+    * 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SchemaName")
+    @Expose
+    private String SchemaName;
+
+    /**
     * 是否有权限
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -165,6 +174,93 @@ public class RuleGroup extends AbstractModel{
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
+
+    /**
+    * 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
+
+    /**
+    * 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StrategyConfig")
+    @Expose
+    private Boolean StrategyConfig;
+
+    /**
+    * 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubscribeConfig")
+    @Expose
+    private Boolean SubscribeConfig;
+
+    /**
+    * 数据源环境：0或者未返回.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DsEnvType")
+    @Expose
+    private Long DsEnvType;
+
+    /**
+    * EMR集群部署方式：CVM/TKE
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClusterDeployType")
+    @Expose
+    private String ClusterDeployType;
+
+    /**
+    * 任务名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
+
+    /**
+    * 执行详情
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExecDetail")
+    @Expose
+    private String ExecDetail;
+
+    /**
+    * 事中关联任务数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PipelineTaskCount")
+    @Expose
+    private Long PipelineTaskCount;
+
+    /**
+    * 有效规则数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnableRuleCount")
+    @Expose
+    private Long EnableRuleCount;
+
+    /**
+    * 任务描述
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
+
+    /**
+    * 监控创建人
+    */
+    @SerializedName("CreateUserName")
+    @Expose
+    private String CreateUserName;
 
     /**
      * Get 规则组Id
@@ -427,6 +523,26 @@ public class RuleGroup extends AbstractModel{
     }
 
     /**
+     * Get 模式名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SchemaName 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSchemaName() {
+        return this.SchemaName;
+    }
+
+    /**
+     * Set 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SchemaName 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSchemaName(String SchemaName) {
+        this.SchemaName = SchemaName;
+    }
+
+    /**
      * Get 是否有权限
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Permission 是否有权限
@@ -526,6 +642,222 @@ public class RuleGroup extends AbstractModel{
         this.InstanceId = InstanceId;
     }
 
+    /**
+     * Get 创建时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StrategyConfig 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getStrategyConfig() {
+        return this.StrategyConfig;
+    }
+
+    /**
+     * Set 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StrategyConfig 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStrategyConfig(Boolean StrategyConfig) {
+        this.StrategyConfig = StrategyConfig;
+    }
+
+    /**
+     * Get 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubscribeConfig 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getSubscribeConfig() {
+        return this.SubscribeConfig;
+    }
+
+    /**
+     * Set 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubscribeConfig 是否已配置执行策略
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubscribeConfig(Boolean SubscribeConfig) {
+        this.SubscribeConfig = SubscribeConfig;
+    }
+
+    /**
+     * Get 数据源环境：0或者未返回.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DsEnvType 数据源环境：0或者未返回.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDsEnvType() {
+        return this.DsEnvType;
+    }
+
+    /**
+     * Set 数据源环境：0或者未返回.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DsEnvType 数据源环境：0或者未返回.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDsEnvType(Long DsEnvType) {
+        this.DsEnvType = DsEnvType;
+    }
+
+    /**
+     * Get EMR集群部署方式：CVM/TKE
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClusterDeployType EMR集群部署方式：CVM/TKE
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getClusterDeployType() {
+        return this.ClusterDeployType;
+    }
+
+    /**
+     * Set EMR集群部署方式：CVM/TKE
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClusterDeployType EMR集群部署方式：CVM/TKE
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClusterDeployType(String ClusterDeployType) {
+        this.ClusterDeployType = ClusterDeployType;
+    }
+
+    /**
+     * Get 任务名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Name 任务名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 任务名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Name 任务名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    /**
+     * Get 执行详情
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecDetail 执行详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExecDetail() {
+        return this.ExecDetail;
+    }
+
+    /**
+     * Set 执行详情
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecDetail 执行详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExecDetail(String ExecDetail) {
+        this.ExecDetail = ExecDetail;
+    }
+
+    /**
+     * Get 事中关联任务数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PipelineTaskCount 事中关联任务数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPipelineTaskCount() {
+        return this.PipelineTaskCount;
+    }
+
+    /**
+     * Set 事中关联任务数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PipelineTaskCount 事中关联任务数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPipelineTaskCount(Long PipelineTaskCount) {
+        this.PipelineTaskCount = PipelineTaskCount;
+    }
+
+    /**
+     * Get 有效规则数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnableRuleCount 有效规则数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getEnableRuleCount() {
+        return this.EnableRuleCount;
+    }
+
+    /**
+     * Set 有效规则数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnableRuleCount 有效规则数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnableRuleCount(Long EnableRuleCount) {
+        this.EnableRuleCount = EnableRuleCount;
+    }
+
+    /**
+     * Get 任务描述
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Description 任务描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 任务描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Description 任务描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    /**
+     * Get 监控创建人 
+     * @return CreateUserName 监控创建人
+     */
+    public String getCreateUserName() {
+        return this.CreateUserName;
+    }
+
+    /**
+     * Set 监控创建人
+     * @param CreateUserName 监控创建人
+     */
+    public void setCreateUserName(String CreateUserName) {
+        this.CreateUserName = CreateUserName;
+    }
+
     public RuleGroup() {
     }
 
@@ -573,6 +905,9 @@ public class RuleGroup extends AbstractModel{
         if (source.DatabaseName != null) {
             this.DatabaseName = new String(source.DatabaseName);
         }
+        if (source.SchemaName != null) {
+            this.SchemaName = new String(source.SchemaName);
+        }
         if (source.Permission != null) {
             this.Permission = new Boolean(source.Permission);
         }
@@ -587,6 +922,39 @@ public class RuleGroup extends AbstractModel{
         }
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.StrategyConfig != null) {
+            this.StrategyConfig = new Boolean(source.StrategyConfig);
+        }
+        if (source.SubscribeConfig != null) {
+            this.SubscribeConfig = new Boolean(source.SubscribeConfig);
+        }
+        if (source.DsEnvType != null) {
+            this.DsEnvType = new Long(source.DsEnvType);
+        }
+        if (source.ClusterDeployType != null) {
+            this.ClusterDeployType = new String(source.ClusterDeployType);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.ExecDetail != null) {
+            this.ExecDetail = new String(source.ExecDetail);
+        }
+        if (source.PipelineTaskCount != null) {
+            this.PipelineTaskCount = new Long(source.PipelineTaskCount);
+        }
+        if (source.EnableRuleCount != null) {
+            this.EnableRuleCount = new Long(source.EnableRuleCount);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.CreateUserName != null) {
+            this.CreateUserName = new String(source.CreateUserName);
         }
     }
 
@@ -608,11 +976,23 @@ public class RuleGroup extends AbstractModel{
         this.setParamObj(map, prefix + "Subscription.", this.Subscription);
         this.setParamSimple(map, prefix + "DatabaseId", this.DatabaseId);
         this.setParamSimple(map, prefix + "DatabaseName", this.DatabaseName);
+        this.setParamSimple(map, prefix + "SchemaName", this.SchemaName);
         this.setParamSimple(map, prefix + "Permission", this.Permission);
         this.setParamSimple(map, prefix + "RuleCount", this.RuleCount);
         this.setParamSimple(map, prefix + "MonitorStatus", this.MonitorStatus);
         this.setParamSimple(map, prefix + "TableOwnerUserId", this.TableOwnerUserId);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "StrategyConfig", this.StrategyConfig);
+        this.setParamSimple(map, prefix + "SubscribeConfig", this.SubscribeConfig);
+        this.setParamSimple(map, prefix + "DsEnvType", this.DsEnvType);
+        this.setParamSimple(map, prefix + "ClusterDeployType", this.ClusterDeployType);
+        this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "ExecDetail", this.ExecDetail);
+        this.setParamSimple(map, prefix + "PipelineTaskCount", this.PipelineTaskCount);
+        this.setParamSimple(map, prefix + "EnableRuleCount", this.EnableRuleCount);
+        this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "CreateUserName", this.CreateUserName);
 
     }
 }

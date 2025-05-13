@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VolumeMount extends AbstractModel{
+public class VolumeMount extends AbstractModel {
 
     /**
     * cfs的配置信息
@@ -30,7 +31,7 @@ public class VolumeMount extends AbstractModel{
     private CFSConfig CFSConfig;
 
     /**
-    * 挂载源类型
+    * 挂载源类型，CFS、COS，默认为CFS
     */
     @SerializedName("VolumeSourceType")
     @Expose
@@ -53,16 +54,16 @@ public class VolumeMount extends AbstractModel{
     }
 
     /**
-     * Get 挂载源类型 
-     * @return VolumeSourceType 挂载源类型
+     * Get 挂载源类型，CFS、COS，默认为CFS 
+     * @return VolumeSourceType 挂载源类型，CFS、COS，默认为CFS
      */
     public String getVolumeSourceType() {
         return this.VolumeSourceType;
     }
 
     /**
-     * Set 挂载源类型
-     * @param VolumeSourceType 挂载源类型
+     * Set 挂载源类型，CFS、COS，默认为CFS
+     * @param VolumeSourceType 挂载源类型，CFS、COS，默认为CFS
      */
     public void setVolumeSourceType(String VolumeSourceType) {
         this.VolumeSourceType = VolumeSourceType;

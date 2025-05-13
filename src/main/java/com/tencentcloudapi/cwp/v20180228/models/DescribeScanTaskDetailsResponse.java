@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeScanTaskDetailsResponse extends AbstractModel{
+public class DescribeScanTaskDetailsResponse extends AbstractModel {
 
     /**
     * 扫描任务信息列表
@@ -94,7 +95,6 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
     * 漏洞信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VulInfo")
     @Expose
@@ -102,7 +102,6 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
     * 风险事件个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskEventCount")
     @Expose
@@ -110,7 +109,6 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
     * 0一键检测 1定时检测
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -118,7 +116,6 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
     * 任务是否全部正在被停止 ture是
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StoppingAll")
     @Expose
@@ -126,14 +123,13 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
     * 扫描出漏洞个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VulCount")
     @Expose
     private Long VulCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -300,10 +296,8 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
     }
 
     /**
-     * Get 漏洞信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞信息 
      * @return VulInfo 漏洞信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VulDetailInfo [] getVulInfo() {
         return this.VulInfo;
@@ -311,19 +305,15 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
      * Set 漏洞信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VulInfo 漏洞信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVulInfo(VulDetailInfo [] VulInfo) {
         this.VulInfo = VulInfo;
     }
 
     /**
-     * Get 风险事件个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 风险事件个数 
      * @return RiskEventCount 风险事件个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRiskEventCount() {
         return this.RiskEventCount;
@@ -331,19 +321,15 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
      * Set 风险事件个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskEventCount 风险事件个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskEventCount(Long RiskEventCount) {
         this.RiskEventCount = RiskEventCount;
     }
 
     /**
-     * Get 0一键检测 1定时检测
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0一键检测 1定时检测 
      * @return Type 0一键检测 1定时检测
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getType() {
         return this.Type;
@@ -351,19 +337,15 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
      * Set 0一键检测 1定时检测
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 0一键检测 1定时检测
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(Long Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 任务是否全部正在被停止 ture是
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务是否全部正在被停止 ture是 
      * @return StoppingAll 任务是否全部正在被停止 ture是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getStoppingAll() {
         return this.StoppingAll;
@@ -371,19 +353,15 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
      * Set 任务是否全部正在被停止 ture是
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StoppingAll 任务是否全部正在被停止 ture是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStoppingAll(Boolean StoppingAll) {
         this.StoppingAll = StoppingAll;
     }
 
     /**
-     * Get 扫描出漏洞个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描出漏洞个数 
      * @return VulCount 扫描出漏洞个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVulCount() {
         return this.VulCount;
@@ -391,25 +369,23 @@ public class DescribeScanTaskDetailsResponse extends AbstractModel{
 
     /**
      * Set 扫描出漏洞个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VulCount 扫描出漏洞个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVulCount(Long VulCount) {
         this.VulCount = VulCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

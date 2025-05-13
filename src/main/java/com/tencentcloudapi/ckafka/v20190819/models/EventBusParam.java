@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EventBusParam extends AbstractModel{
+public class EventBusParam extends AbstractModel {
 
     /**
-    * 资源类型。EB_COS/EB_ES/EB_CLS
+    * 资源类型。COS/ES/CLS
     */
     @SerializedName("Type")
     @Expose
@@ -65,16 +66,16 @@ public class EventBusParam extends AbstractModel{
     private String Qualifier;
 
     /**
-     * Get 资源类型。EB_COS/EB_ES/EB_CLS 
-     * @return Type 资源类型。EB_COS/EB_ES/EB_CLS
+     * Get 资源类型。COS/ES/CLS 
+     * @return Type 资源类型。COS/ES/CLS
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 资源类型。EB_COS/EB_ES/EB_CLS
-     * @param Type 资源类型。EB_COS/EB_ES/EB_CLS
+     * Set 资源类型。COS/ES/CLS
+     * @param Type 资源类型。COS/ES/CLS
      */
     public void setType(String Type) {
         this.Type = Type;

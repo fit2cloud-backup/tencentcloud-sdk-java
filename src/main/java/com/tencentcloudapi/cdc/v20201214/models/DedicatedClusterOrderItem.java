@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DedicatedClusterOrderItem extends AbstractModel{
+public class DedicatedClusterOrderItem extends AbstractModel {
 
     /**
     * 专用集群类型id
@@ -136,7 +137,6 @@ public class DedicatedClusterOrderItem extends AbstractModel{
 
     /**
     * 规格展示
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ComputeFormat")
     @Expose
@@ -144,7 +144,6 @@ public class DedicatedClusterOrderItem extends AbstractModel{
 
     /**
     * 规格类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TypeFamily")
     @Expose
@@ -152,7 +151,6 @@ public class DedicatedClusterOrderItem extends AbstractModel{
 
     /**
     * 0未支付，1已支付
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubOrderPayStatus")
     @Expose
@@ -415,10 +413,8 @@ public class DedicatedClusterOrderItem extends AbstractModel{
     }
 
     /**
-     * Get 规格展示
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规格展示 
      * @return ComputeFormat 规格展示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getComputeFormat() {
         return this.ComputeFormat;
@@ -426,19 +422,15 @@ public class DedicatedClusterOrderItem extends AbstractModel{
 
     /**
      * Set 规格展示
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ComputeFormat 规格展示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setComputeFormat(String ComputeFormat) {
         this.ComputeFormat = ComputeFormat;
     }
 
     /**
-     * Get 规格类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规格类型 
      * @return TypeFamily 规格类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTypeFamily() {
         return this.TypeFamily;
@@ -446,19 +438,15 @@ public class DedicatedClusterOrderItem extends AbstractModel{
 
     /**
      * Set 规格类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TypeFamily 规格类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTypeFamily(String TypeFamily) {
         this.TypeFamily = TypeFamily;
     }
 
     /**
-     * Get 0未支付，1已支付
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0未支付，1已支付 
      * @return SubOrderPayStatus 0未支付，1已支付
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSubOrderPayStatus() {
         return this.SubOrderPayStatus;
@@ -466,9 +454,7 @@ public class DedicatedClusterOrderItem extends AbstractModel{
 
     /**
      * Set 0未支付，1已支付
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubOrderPayStatus 0未支付，1已支付
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubOrderPayStatus(Long SubOrderPayStatus) {
         this.SubOrderPayStatus = SubOrderPayStatus;

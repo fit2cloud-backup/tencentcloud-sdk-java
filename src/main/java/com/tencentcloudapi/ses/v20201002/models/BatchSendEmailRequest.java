@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ses.v20201002.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchSendEmailRequest extends AbstractModel{
+public class BatchSendEmailRequest extends AbstractModel {
 
     /**
     * 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com。如需填写发件人说明，请按照
@@ -61,13 +62,14 @@ public class BatchSendEmailRequest extends AbstractModel{
 
     /**
     * 使用模板发送时，填写的模板相关参数
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
     */
     @SerializedName("Template")
     @Expose
     private Template Template;
 
     /**
-    * 已废弃
+    * 已废弃<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
     */
     @SerializedName("Simple")
     @Expose
@@ -197,8 +199,10 @@ public class BatchSendEmailRequest extends AbstractModel{
     }
 
     /**
-     * Get 使用模板发送时，填写的模板相关参数 
+     * Get 使用模板发送时，填写的模板相关参数
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert> 
      * @return Template 使用模板发送时，填写的模板相关参数
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
      */
     public Template getTemplate() {
         return this.Template;
@@ -206,23 +210,25 @@ public class BatchSendEmailRequest extends AbstractModel{
 
     /**
      * Set 使用模板发送时，填写的模板相关参数
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
      * @param Template 使用模板发送时，填写的模板相关参数
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
      */
     public void setTemplate(Template Template) {
         this.Template = Template;
     }
 
     /**
-     * Get 已废弃 
-     * @return Simple 已废弃
+     * Get 已废弃<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert> 
+     * @return Simple 已废弃<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
      */
     public Simple getSimple() {
         return this.Simple;
     }
 
     /**
-     * Set 已废弃
-     * @param Simple 已废弃
+     * Set 已废弃<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
+     * @param Simple 已废弃<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
      */
     public void setSimple(Simple Simple) {
         this.Simple = Simple;

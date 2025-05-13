@@ -16,49 +16,61 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OperateChannelTemplateRequest extends AbstractModel{
+public class OperateChannelTemplateRequest extends AbstractModel {
 
     /**
-    * 应用相关信息。 
-此接口Agent.AppId必填。
+    * 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识: Agent.AppId</li>
+</ul>
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 操作类型，
-查询:"SELECT"，
-删除:"DELETE"，
-更新:"UPDATE"
+    * 操作类型，可取值如下:
+<ul>
+<li>SELECT:  查询</li>
+<li>DELETE:  删除</li>
+<li>UPDATE: 更新</li>
+</ul>
     */
     @SerializedName("OperateType")
     @Expose
     private String OperateType;
 
     /**
-    * 第三方应用平台模板库模板唯一标识
+    * 合同模板ID，为32位字符串。
+注: ` 此处为第三方应用平台模板库模板ID，非子客模板ID`
     */
     @SerializedName("TemplateId")
     @Expose
     private String TemplateId;
 
     /**
-    * 合作企业方第三方机构唯一标识数据.
-支持多个， 用","进行分隔
+    * 第三方平台子客企业的唯一标识，支持批量(用,分割)，
     */
     @SerializedName("ProxyOrganizationOpenIds")
     @Expose
     private String ProxyOrganizationOpenIds;
 
     /**
-    * 模板可见性, 
-全部可见-"all",
- 部分可见-"part"
+    * 模板可见范围, 可以设置的值如下:
+
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
+
+对应控制台的位置
+![image](https://qcloudimg.tencent-cloud.cn/raw/68b97812c68d6af77a5991e3bff5c790.png)
+
     */
     @SerializedName("AuthTag")
     @Expose
@@ -66,10 +78,15 @@ public class OperateChannelTemplateRequest extends AbstractModel{
 
     /**
     * 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
-若此字段值为0，则不会修改模板Available，
-1为启用模板，
-2为停用模板。
-启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
+<ul>
+<li>0: 不修改模板可用状态</li>
+<li>1:  启用模板</li>
+<li>2: 停用模板</li>
+</ul>
+启用后模板可以正常领取。
+
+停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。
+如果Available更新失败，会直接返回错误。
     */
     @SerializedName("Available")
     @Expose
@@ -83,108 +100,152 @@ public class OperateChannelTemplateRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-     * Get 应用相关信息。 
-此接口Agent.AppId必填。 
-     * @return Agent 应用相关信息。 
-此接口Agent.AppId必填。
+     * Get 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识: Agent.AppId</li>
+</ul> 
+     * @return Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识: Agent.AppId</li>
+</ul>
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息。 
-此接口Agent.AppId必填。
-     * @param Agent 应用相关信息。 
-此接口Agent.AppId必填。
+     * Set 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识: Agent.AppId</li>
+</ul>
+     * @param Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识: Agent.AppId</li>
+</ul>
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 操作类型，
-查询:"SELECT"，
-删除:"DELETE"，
-更新:"UPDATE" 
-     * @return OperateType 操作类型，
-查询:"SELECT"，
-删除:"DELETE"，
-更新:"UPDATE"
+     * Get 操作类型，可取值如下:
+<ul>
+<li>SELECT:  查询</li>
+<li>DELETE:  删除</li>
+<li>UPDATE: 更新</li>
+</ul> 
+     * @return OperateType 操作类型，可取值如下:
+<ul>
+<li>SELECT:  查询</li>
+<li>DELETE:  删除</li>
+<li>UPDATE: 更新</li>
+</ul>
      */
     public String getOperateType() {
         return this.OperateType;
     }
 
     /**
-     * Set 操作类型，
-查询:"SELECT"，
-删除:"DELETE"，
-更新:"UPDATE"
-     * @param OperateType 操作类型，
-查询:"SELECT"，
-删除:"DELETE"，
-更新:"UPDATE"
+     * Set 操作类型，可取值如下:
+<ul>
+<li>SELECT:  查询</li>
+<li>DELETE:  删除</li>
+<li>UPDATE: 更新</li>
+</ul>
+     * @param OperateType 操作类型，可取值如下:
+<ul>
+<li>SELECT:  查询</li>
+<li>DELETE:  删除</li>
+<li>UPDATE: 更新</li>
+</ul>
      */
     public void setOperateType(String OperateType) {
         this.OperateType = OperateType;
     }
 
     /**
-     * Get 第三方应用平台模板库模板唯一标识 
-     * @return TemplateId 第三方应用平台模板库模板唯一标识
+     * Get 合同模板ID，为32位字符串。
+注: ` 此处为第三方应用平台模板库模板ID，非子客模板ID` 
+     * @return TemplateId 合同模板ID，为32位字符串。
+注: ` 此处为第三方应用平台模板库模板ID，非子客模板ID`
      */
     public String getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 第三方应用平台模板库模板唯一标识
-     * @param TemplateId 第三方应用平台模板库模板唯一标识
+     * Set 合同模板ID，为32位字符串。
+注: ` 此处为第三方应用平台模板库模板ID，非子客模板ID`
+     * @param TemplateId 合同模板ID，为32位字符串。
+注: ` 此处为第三方应用平台模板库模板ID，非子客模板ID`
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;
     }
 
     /**
-     * Get 合作企业方第三方机构唯一标识数据.
-支持多个， 用","进行分隔 
-     * @return ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据.
-支持多个， 用","进行分隔
+     * Get 第三方平台子客企业的唯一标识，支持批量(用,分割)， 
+     * @return ProxyOrganizationOpenIds 第三方平台子客企业的唯一标识，支持批量(用,分割)，
      */
     public String getProxyOrganizationOpenIds() {
         return this.ProxyOrganizationOpenIds;
     }
 
     /**
-     * Set 合作企业方第三方机构唯一标识数据.
-支持多个， 用","进行分隔
-     * @param ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据.
-支持多个， 用","进行分隔
+     * Set 第三方平台子客企业的唯一标识，支持批量(用,分割)，
+     * @param ProxyOrganizationOpenIds 第三方平台子客企业的唯一标识，支持批量(用,分割)，
      */
     public void setProxyOrganizationOpenIds(String ProxyOrganizationOpenIds) {
         this.ProxyOrganizationOpenIds = ProxyOrganizationOpenIds;
     }
 
     /**
-     * Get 模板可见性, 
-全部可见-"all",
- 部分可见-"part" 
-     * @return AuthTag 模板可见性, 
-全部可见-"all",
- 部分可见-"part"
+     * Get 模板可见范围, 可以设置的值如下:
+
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
+
+对应控制台的位置
+![image](https://qcloudimg.tencent-cloud.cn/raw/68b97812c68d6af77a5991e3bff5c790.png)
+ 
+     * @return AuthTag 模板可见范围, 可以设置的值如下:
+
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
+
+对应控制台的位置
+![image](https://qcloudimg.tencent-cloud.cn/raw/68b97812c68d6af77a5991e3bff5c790.png)
+
      */
     public String getAuthTag() {
         return this.AuthTag;
     }
 
     /**
-     * Set 模板可见性, 
-全部可见-"all",
- 部分可见-"part"
-     * @param AuthTag 模板可见性, 
-全部可见-"all",
- 部分可见-"part"
+     * Set 模板可见范围, 可以设置的值如下:
+
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
+
+对应控制台的位置
+![image](https://qcloudimg.tencent-cloud.cn/raw/68b97812c68d6af77a5991e3bff5c790.png)
+
+     * @param AuthTag 模板可见范围, 可以设置的值如下:
+
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
+
+对应控制台的位置
+![image](https://qcloudimg.tencent-cloud.cn/raw/68b97812c68d6af77a5991e3bff5c790.png)
+
      */
     public void setAuthTag(String AuthTag) {
         this.AuthTag = AuthTag;
@@ -192,15 +253,25 @@ public class OperateChannelTemplateRequest extends AbstractModel{
 
     /**
      * Get 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
-若此字段值为0，则不会修改模板Available，
-1为启用模板，
-2为停用模板。
-启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。 
+<ul>
+<li>0: 不修改模板可用状态</li>
+<li>1:  启用模板</li>
+<li>2: 停用模板</li>
+</ul>
+启用后模板可以正常领取。
+
+停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。
+如果Available更新失败，会直接返回错误。 
      * @return Available 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
-若此字段值为0，则不会修改模板Available，
-1为启用模板，
-2为停用模板。
-启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
+<ul>
+<li>0: 不修改模板可用状态</li>
+<li>1:  启用模板</li>
+<li>2: 停用模板</li>
+</ul>
+启用后模板可以正常领取。
+
+停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。
+如果Available更新失败，会直接返回错误。
      */
     public Long getAvailable() {
         return this.Available;
@@ -208,15 +279,25 @@ public class OperateChannelTemplateRequest extends AbstractModel{
 
     /**
      * Set 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
-若此字段值为0，则不会修改模板Available，
-1为启用模板，
-2为停用模板。
-启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
+<ul>
+<li>0: 不修改模板可用状态</li>
+<li>1:  启用模板</li>
+<li>2: 停用模板</li>
+</ul>
+启用后模板可以正常领取。
+
+停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。
+如果Available更新失败，会直接返回错误。
      * @param Available 当OperateType=UPDATE时，可以通过设置此字段对模板启停用状态进行操作。
-若此字段值为0，则不会修改模板Available，
-1为启用模板，
-2为停用模板。
-启用后模板可以正常领取。停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。如果Available更新失败，会直接返回错误。
+<ul>
+<li>0: 不修改模板可用状态</li>
+<li>1:  启用模板</li>
+<li>2: 停用模板</li>
+</ul>
+启用后模板可以正常领取。
+
+停用后，推送方式为【自动推送】的模板则无法被子客使用，推送方式为【手动领取】的模板则无法出现被模板库被子客领用。
+如果Available更新失败，会直接返回错误。
      */
     public void setAvailable(Long Available) {
         this.Available = Available;

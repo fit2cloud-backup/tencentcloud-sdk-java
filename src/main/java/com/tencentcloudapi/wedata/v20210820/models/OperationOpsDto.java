@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OperationOpsDto extends AbstractModel{
+public class OperationOpsDto extends AbstractModel {
 
     /**
     * 操作是否成功
@@ -53,6 +54,13 @@ public class OperationOpsDto extends AbstractModel{
     @SerializedName("ErrorDesc")
     @Expose
     private String ErrorDesc;
+
+    /**
+    * 异步操作记录id
+    */
+    @SerializedName("AsyncActionId")
+    @Expose
+    private String AsyncActionId;
 
     /**
      * Get 操作是否成功
@@ -134,6 +142,22 @@ public class OperationOpsDto extends AbstractModel{
         this.ErrorDesc = ErrorDesc;
     }
 
+    /**
+     * Get 异步操作记录id 
+     * @return AsyncActionId 异步操作记录id
+     */
+    public String getAsyncActionId() {
+        return this.AsyncActionId;
+    }
+
+    /**
+     * Set 异步操作记录id
+     * @param AsyncActionId 异步操作记录id
+     */
+    public void setAsyncActionId(String AsyncActionId) {
+        this.AsyncActionId = AsyncActionId;
+    }
+
     public OperationOpsDto() {
     }
 
@@ -154,6 +178,9 @@ public class OperationOpsDto extends AbstractModel{
         if (source.ErrorDesc != null) {
             this.ErrorDesc = new String(source.ErrorDesc);
         }
+        if (source.AsyncActionId != null) {
+            this.AsyncActionId = new String(source.AsyncActionId);
+        }
     }
 
 
@@ -165,6 +192,7 @@ public class OperationOpsDto extends AbstractModel{
         this.setParamSimple(map, prefix + "ResultMsg", this.ResultMsg);
         this.setParamSimple(map, prefix + "ErrorId", this.ErrorId);
         this.setParamSimple(map, prefix + "ErrorDesc", this.ErrorDesc);
+        this.setParamSimple(map, prefix + "AsyncActionId", this.AsyncActionId);
 
     }
 }

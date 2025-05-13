@@ -16,32 +16,37 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIpAccessControlResponse extends AbstractModel{
+public class DescribeIpAccessControlResponse extends AbstractModel {
 
     /**
     * 输出
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private IpAccessControlData Data;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 已经使用的IP黑白名单的IP总数
+    */
+    @SerializedName("UsedTotal")
+    @Expose
+    private Long UsedTotal;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 输出
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出 
      * @return Data 输出
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IpAccessControlData getData() {
         return this.Data;
@@ -49,25 +54,39 @@ public class DescribeIpAccessControlResponse extends AbstractModel{
 
     /**
      * Set 输出
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 输出
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(IpAccessControlData Data) {
         this.Data = Data;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 已经使用的IP黑白名单的IP总数 
+     * @return UsedTotal 已经使用的IP黑白名单的IP总数
+     */
+    public Long getUsedTotal() {
+        return this.UsedTotal;
+    }
+
+    /**
+     * Set 已经使用的IP黑白名单的IP总数
+     * @param UsedTotal 已经使用的IP黑白名单的IP总数
+     */
+    public void setUsedTotal(Long UsedTotal) {
+        this.UsedTotal = UsedTotal;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -84,6 +103,9 @@ public class DescribeIpAccessControlResponse extends AbstractModel{
         if (source.Data != null) {
             this.Data = new IpAccessControlData(source.Data);
         }
+        if (source.UsedTotal != null) {
+            this.UsedTotal = new Long(source.UsedTotal);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -95,6 +117,7 @@ public class DescribeIpAccessControlResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Data.", this.Data);
+        this.setParamSimple(map, prefix + "UsedTotal", this.UsedTotal);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetworkPeer extends AbstractModel{
+public class NetworkPeer extends AbstractModel {
 
     /**
     * 对象类型：
@@ -37,7 +38,6 @@ ip类型：IPBlock，代表只有IPBlock有值
 
     /**
     * 空间选择器
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NamespaceSelector")
     @Expose
@@ -45,7 +45,6 @@ ip类型：IPBlock，代表只有IPBlock有值
 
     /**
     * pod选择器
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PodSelector")
     @Expose
@@ -53,7 +52,6 @@ ip类型：IPBlock，代表只有IPBlock有值
 
     /**
     * Ip选择器
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IPBlock")
     @Expose
@@ -100,10 +98,8 @@ ip类型：IPBlock，代表只有IPBlock有值
     }
 
     /**
-     * Get 空间选择器
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 空间选择器 
      * @return NamespaceSelector 空间选择器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespaceSelector() {
         return this.NamespaceSelector;
@@ -111,19 +107,15 @@ ip类型：IPBlock，代表只有IPBlock有值
 
     /**
      * Set 空间选择器
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NamespaceSelector 空间选择器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespaceSelector(String NamespaceSelector) {
         this.NamespaceSelector = NamespaceSelector;
     }
 
     /**
-     * Get pod选择器
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get pod选择器 
      * @return PodSelector pod选择器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPodSelector() {
         return this.PodSelector;
@@ -131,19 +123,15 @@ ip类型：IPBlock，代表只有IPBlock有值
 
     /**
      * Set pod选择器
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PodSelector pod选择器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPodSelector(String PodSelector) {
         this.PodSelector = PodSelector;
     }
 
     /**
-     * Get Ip选择器
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Ip选择器 
      * @return IPBlock Ip选择器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIPBlock() {
         return this.IPBlock;
@@ -151,9 +139,7 @@ ip类型：IPBlock，代表只有IPBlock有值
 
     /**
      * Set Ip选择器
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IPBlock Ip选择器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIPBlock(String IPBlock) {
         this.IPBlock = IPBlock;

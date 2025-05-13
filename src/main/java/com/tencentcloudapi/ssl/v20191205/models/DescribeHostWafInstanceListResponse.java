@@ -16,58 +16,54 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostWafInstanceListResponse extends AbstractModel{
+public class DescribeHostWafInstanceListResponse extends AbstractModel {
 
     /**
-    * WAF实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+    * WAF实例列表，如果没有取到值返回空数组
     */
     @SerializedName("InstanceList")
     @Expose
-    private LiveInstanceDetail [] InstanceList;
+    private WafInstanceDetail [] InstanceList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get WAF实例列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceList WAF实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get WAF实例列表，如果没有取到值返回空数组 
+     * @return InstanceList WAF实例列表，如果没有取到值返回空数组
      */
-    public LiveInstanceDetail [] getInstanceList() {
+    public WafInstanceDetail [] getInstanceList() {
         return this.InstanceList;
     }
 
     /**
-     * Set WAF实例列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceList WAF实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set WAF实例列表，如果没有取到值返回空数组
+     * @param InstanceList WAF实例列表，如果没有取到值返回空数组
      */
-    public void setInstanceList(LiveInstanceDetail [] InstanceList) {
+    public void setInstanceList(WafInstanceDetail [] InstanceList) {
         this.InstanceList = InstanceList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -82,9 +78,9 @@ public class DescribeHostWafInstanceListResponse extends AbstractModel{
      */
     public DescribeHostWafInstanceListResponse(DescribeHostWafInstanceListResponse source) {
         if (source.InstanceList != null) {
-            this.InstanceList = new LiveInstanceDetail[source.InstanceList.length];
+            this.InstanceList = new WafInstanceDetail[source.InstanceList.length];
             for (int i = 0; i < source.InstanceList.length; i++) {
-                this.InstanceList[i] = new LiveInstanceDetail(source.InstanceList[i]);
+                this.InstanceList[i] = new WafInstanceDetail(source.InstanceList[i]);
             }
         }
         if (source.RequestId != null) {

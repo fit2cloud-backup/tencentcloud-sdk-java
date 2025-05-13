@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImportTableFileRequest extends AbstractModel{
+public class ImportTableFileRequest extends AbstractModel {
 
     /**
     * 表格关联的项目ID。
@@ -30,7 +31,7 @@ public class ImportTableFileRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-    * 表格名称，支持20个字符内的英文字符、数字和下划线。
+    * 表格名称。最多支持200个字符。
     */
     @SerializedName("Name")
     @Expose
@@ -44,14 +45,14 @@ public class ImportTableFileRequest extends AbstractModel{
     private String CosUri;
 
     /**
-    * 表格文件中每列的数据类型，支持的类型包括：Int、String、File、Array[File]
+    * 表格文件中每列的数据类型，支持的类型包括：Int、Float、String、File、Boolean、Array[Int]、Array[Float]、Array[String]、Array[File]、Array[Boolean]
     */
     @SerializedName("DataType")
     @Expose
     private String [] DataType;
 
     /**
-    * 表格描述。
+    * 表格描述。最多支持500个字符。
     */
     @SerializedName("Description")
     @Expose
@@ -74,16 +75,16 @@ public class ImportTableFileRequest extends AbstractModel{
     }
 
     /**
-     * Get 表格名称，支持20个字符内的英文字符、数字和下划线。 
-     * @return Name 表格名称，支持20个字符内的英文字符、数字和下划线。
+     * Get 表格名称。最多支持200个字符。 
+     * @return Name 表格名称。最多支持200个字符。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 表格名称，支持20个字符内的英文字符、数字和下划线。
-     * @param Name 表格名称，支持20个字符内的英文字符、数字和下划线。
+     * Set 表格名称。最多支持200个字符。
+     * @param Name 表格名称。最多支持200个字符。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -106,32 +107,32 @@ public class ImportTableFileRequest extends AbstractModel{
     }
 
     /**
-     * Get 表格文件中每列的数据类型，支持的类型包括：Int、String、File、Array[File] 
-     * @return DataType 表格文件中每列的数据类型，支持的类型包括：Int、String、File、Array[File]
+     * Get 表格文件中每列的数据类型，支持的类型包括：Int、Float、String、File、Boolean、Array[Int]、Array[Float]、Array[String]、Array[File]、Array[Boolean] 
+     * @return DataType 表格文件中每列的数据类型，支持的类型包括：Int、Float、String、File、Boolean、Array[Int]、Array[Float]、Array[String]、Array[File]、Array[Boolean]
      */
     public String [] getDataType() {
         return this.DataType;
     }
 
     /**
-     * Set 表格文件中每列的数据类型，支持的类型包括：Int、String、File、Array[File]
-     * @param DataType 表格文件中每列的数据类型，支持的类型包括：Int、String、File、Array[File]
+     * Set 表格文件中每列的数据类型，支持的类型包括：Int、Float、String、File、Boolean、Array[Int]、Array[Float]、Array[String]、Array[File]、Array[Boolean]
+     * @param DataType 表格文件中每列的数据类型，支持的类型包括：Int、Float、String、File、Boolean、Array[Int]、Array[Float]、Array[String]、Array[File]、Array[Boolean]
      */
     public void setDataType(String [] DataType) {
         this.DataType = DataType;
     }
 
     /**
-     * Get 表格描述。 
-     * @return Description 表格描述。
+     * Get 表格描述。最多支持500个字符。 
+     * @return Description 表格描述。最多支持500个字符。
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 表格描述。
-     * @param Description 表格描述。
+     * Set 表格描述。最多支持500个字符。
+     * @param Description 表格描述。最多支持500个字符。
      */
     public void setDescription(String Description) {
         this.Description = Description;

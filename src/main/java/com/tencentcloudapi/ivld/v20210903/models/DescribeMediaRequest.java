@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeMediaRequest extends AbstractModel{
+public class DescribeMediaRequest extends AbstractModel {
 
     /**
-    * 导入媒资返回的媒资ID，最长32B
+    * 导入媒资返回的媒资ID
     */
     @SerializedName("MediaId")
     @Expose
     private String MediaId;
 
     /**
-     * Get 导入媒资返回的媒资ID，最长32B 
-     * @return MediaId 导入媒资返回的媒资ID，最长32B
+     * Get 导入媒资返回的媒资ID 
+     * @return MediaId 导入媒资返回的媒资ID
      */
     public String getMediaId() {
         return this.MediaId;
     }
 
     /**
-     * Set 导入媒资返回的媒资ID，最长32B
-     * @param MediaId 导入媒资返回的媒资ID，最长32B
+     * Set 导入媒资返回的媒资ID
+     * @param MediaId 导入媒资返回的媒资ID
      */
     public void setMediaId(String MediaId) {
         this.MediaId = MediaId;

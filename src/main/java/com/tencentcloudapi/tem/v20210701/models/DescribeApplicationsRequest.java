@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeApplicationsRequest extends AbstractModel{
+public class DescribeApplicationsRequest extends AbstractModel {
 
     /**
     * 命名空间ID
@@ -30,14 +31,14 @@ public class DescribeApplicationsRequest extends AbstractModel{
     private String EnvironmentId;
 
     /**
-    * 分页Limit
+    * 分页Limit，默认值：20
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 分页offset
+    * 分页offset,默认值：0
     */
     @SerializedName("Offset")
     @Expose
@@ -95,32 +96,32 @@ public class DescribeApplicationsRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页Limit 
-     * @return Limit 分页Limit
+     * Get 分页Limit，默认值：20 
+     * @return Limit 分页Limit，默认值：20
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页Limit
-     * @param Limit 分页Limit
+     * Set 分页Limit，默认值：20
+     * @param Limit 分页Limit，默认值：20
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 分页offset 
-     * @return Offset 分页offset
+     * Get 分页offset,默认值：0 
+     * @return Offset 分页offset,默认值：0
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页offset
-     * @param Offset 分页offset
+     * Set 分页offset,默认值：0
+     * @param Offset 分页offset,默认值：0
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;

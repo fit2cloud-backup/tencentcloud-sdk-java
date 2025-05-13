@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePluginInstancesRequest extends AbstractModel{
+public class DescribePluginInstancesRequest extends AbstractModel {
 
     /**
     * 分组或者API的ID
@@ -28,13 +29,6 @@ public class DescribePluginInstancesRequest extends AbstractModel{
     @SerializedName("ScopeValue")
     @Expose
     private String ScopeValue;
-
-    /**
-    * 绑定: true; 未绑定: false
-    */
-    @SerializedName("Bound")
-    @Expose
-    private Boolean Bound;
 
     /**
     * 翻页偏移量
@@ -49,6 +43,13 @@ public class DescribePluginInstancesRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 绑定: true; 未绑定: false
+    */
+    @SerializedName("Bound")
+    @Expose
+    private Boolean Bound;
 
     /**
     * 插件类型
@@ -81,22 +82,6 @@ public class DescribePluginInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 绑定: true; 未绑定: false 
-     * @return Bound 绑定: true; 未绑定: false
-     */
-    public Boolean getBound() {
-        return this.Bound;
-    }
-
-    /**
-     * Set 绑定: true; 未绑定: false
-     * @param Bound 绑定: true; 未绑定: false
-     */
-    public void setBound(Boolean Bound) {
-        this.Bound = Bound;
-    }
-
-    /**
      * Get 翻页偏移量 
      * @return Offset 翻页偏移量
      */
@@ -126,6 +111,22 @@ public class DescribePluginInstancesRequest extends AbstractModel{
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
+    }
+
+    /**
+     * Get 绑定: true; 未绑定: false 
+     * @return Bound 绑定: true; 未绑定: false
+     */
+    public Boolean getBound() {
+        return this.Bound;
+    }
+
+    /**
+     * Set 绑定: true; 未绑定: false
+     * @param Bound 绑定: true; 未绑定: false
+     */
+    public void setBound(Boolean Bound) {
+        this.Bound = Bound;
     }
 
     /**
@@ -171,14 +172,14 @@ public class DescribePluginInstancesRequest extends AbstractModel{
         if (source.ScopeValue != null) {
             this.ScopeValue = new String(source.ScopeValue);
         }
-        if (source.Bound != null) {
-            this.Bound = new Boolean(source.Bound);
-        }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
+        }
+        if (source.Bound != null) {
+            this.Bound = new Boolean(source.Bound);
         }
         if (source.Type != null) {
             this.Type = new String(source.Type);
@@ -194,9 +195,9 @@ public class DescribePluginInstancesRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ScopeValue", this.ScopeValue);
-        this.setParamSimple(map, prefix + "Bound", this.Bound);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Bound", this.Bound);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "SearchWord", this.SearchWord);
 

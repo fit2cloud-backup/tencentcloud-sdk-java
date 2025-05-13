@@ -1,67 +1,85 @@
 package com.tencentcloudapi.cdc.v20201214;
 public enum CdcErrorCode {
-    // CDC绑定VPC失败。
+     /* CDC绑定VPC失败。 */
      FAILEDOPERATION_CDCBINDVPCFAIL("FailedOperation.CdcBindVpcFail"),
      
-    // 删除site失败。
+     /* 删除site失败。 */
      FAILEDOPERATION_FAILDELETESITE("FailedOperation.FailDeleteSite"),
      
-    // 该机型暂不支持。
+     /* 镜像的状态不支持镜像同步 */
+     FAILEDOPERATION_INVALIDIMAGESTATE("FailedOperation.InvalidImageState"),
+     
+     /* 内部错误。 */
+     INTERNALERROR("InternalError"),
+     
+     /* 当前镜像已经在本地专用集群中缓存 */
+     INVALIDPARAMETER_IMAGEISCACHEDINCDC("InvalidParameter.ImageIsCachedInCdc"),
+     
+     /* 当前镜像没有在本地专用集群中缓存 */
+     INVALIDPARAMETER_IMAGENOTCACHEINCDC("InvalidParameter.ImageNotCacheInCdc"),
+     
+     /* 该机型暂不支持。 */
      INVALIDPARAMETER_INSTANCETYPENOTSUPPORT("InvalidParameter.InstanceTypeNotSupport"),
      
-    // 参数取值错误。
+     /* 参数取值错误。 */
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
-    // ccdb返回结果不为0。
+     /* 无效的AppId */
      INVALIDPARAMETERVALUE_INVALIDAPPIDFORMAT("InvalidParameterValue.InvalidAppIdFormat"),
      
-    // 本地专用集群COS大小不正确。
+     /* 本地专用集群COS大小不正确。 */
      INVALIDPARAMETERVALUE_INVALIDVALUEDEDICATEDCLUSTERCOSSIZE("InvalidParameterValue.InvalidValueDedicatedClusterCosSize"),
      
-    // CBS大小不正确，它必须是40的整数倍。
+     /* CBS大小不正确，它必须是40的整数倍。 */
      INVALIDPARAMETERVALUE_INVALIDVALUEDEDICATEDCLUSTERDATASTEPSIZE("InvalidParameterValue.InvalidValueDedicatedClusterDataStepSize"),
      
-    // region无效。
+     /* region无效。 */
      INVALIDPARAMETERVALUE_INVALIDVALUEREGION("InvalidParameterValue.InvalidValueRegion"),
      
-    // 超出大小限制。
+     /* 超出大小限制。 */
      INVALIDPARAMETERVALUE_LIMITEXCEEDED("InvalidParameterValue.LimitExceeded"),
      
-    // 无效Region ID 。
+     /* 无效Region ID 。 */
      INVALIDPARAMETERVALUE_REGION("InvalidParameterValue.Region"),
      
-    // 参数名过长。
+     /* 参数名过长。 */
      INVALIDPARAMETERVALUE_TOOLONG("InvalidParameterValue.TooLong"),
      
-    // zone和region不匹配。
+     /* zone和region不匹配。 */
      INVALIDPARAMETERVALUE_ZONEMISMATCHREGION("InvalidParameterValue.ZoneMismatchRegion"),
      
-    // 当前可用区暂未支持。
+     /* 当前可用区暂未支持。 */
      INVALIDPARAMETERVALUE_ZONENOTSUPPORTED("InvalidParameterValue.ZoneNotSupported"),
      
-    // 缺少参数错误。
+     /* 当前集群的镜像任务数量已达上限 */
+     LIMITEXCEEDED_CDCIMAGETASKQUOTA("LimitExceeded.CdcImageTaskQuota"),
+     
+     /* 缺少参数错误。 */
      MISSINGPARAMETER("MissingParameter"),
      
-    // 至少输入一个入参。
+     /* 至少输入一个入参。 */
      MISSINGPARAMETER_ATLEASTONE("MissingParameter.AtLeastOne"),
      
-    // 云硬盘余量不足。
+     /* 云硬盘余量不足。 */
      RESOURCEINSUFFICIENT_CLOUDDISKUNAVAILABLE("ResourceInsufficient.CloudDiskUnavailable"),
      
-    // 该资源没有找到。
+     /* 该资源没有找到。 */
      RESOURCENOTFOUND_INVALIDDEDICATEDCLUSTERID("ResourceNotFound.InvalidDedicatedClusterId"),
      
-    // 请确认资源ID 是否存在。
+     /* 请确认资源ID 是否存在。 */
      RESOURCENOTFOUND_INVALIDDEDICATEDCLUSTERORDERID("ResourceNotFound.InvalidDedicatedClusterOrderId"),
      
-    // 该资源没有找到。
+     /* 该资源没有找到。 */
      RESOURCENOTFOUND_INVALIDDEDICATEDCLUSTERTYPEID("ResourceNotFound.InvalidDedicatedClusterTypeId"),
      
-    // 站点机房无效。
+     /* 站点机房无效。 */
      RESOURCENOTFOUND_INVALIDSITEID("ResourceNotFound.InvalidSiteId"),
      
-    // 不支持非CUSTOMER类型的app id。
-     UNSUPPORTEDOPERATION_NONCUSTOMERAPPIDNOTSUPPORT("UnsupportedOperation.NonCustomerAppIdNotSupport");
+     /* 不支持非CUSTOMER类型的app id。 */
+     UNSUPPORTEDOPERATION_NONCUSTOMERAPPIDNOTSUPPORT("UnsupportedOperation.NonCustomerAppIdNotSupport"),
+     
+     /* 账户不支持cdc镜像同步，需要先加白 */
+     UNSUPPORTEDOPERATION_SYNCCDCIMAGENOTSUPPORT("UnsupportedOperation.SyncCdcImageNotSupport");
      
     private String value;
     private CdcErrorCode (String value){

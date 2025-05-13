@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetDatabaseListRequest extends AbstractModel{
+public class DescribeAssetDatabaseListRequest extends AbstractModel {
 
     /**
     * 查询指定Quuid主机的信息
@@ -31,9 +32,10 @@ public class DescribeAssetDatabaseListRequest extends AbstractModel{
 
     /**
     * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName- String - 是否必填：否 - 主机别名筛选</li>
+<li>IP- String - 是否必填：否 - 主机ip筛选</li>
+<li>InstanceID- String - 是否必填：否 - 主机实例ID筛选</li>
 <li>User- string - 是否必填：否 - 运行用户</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
 <li>Port - Int - 是否必填：否 - 端口</li>
 <li>Name - Int - 是否必填：否 - 数据库名称
 0:全部
@@ -101,9 +103,10 @@ public class DescribeAssetDatabaseListRequest extends AbstractModel{
 
     /**
      * Get 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName- String - 是否必填：否 - 主机别名筛选</li>
+<li>IP- String - 是否必填：否 - 主机ip筛选</li>
+<li>InstanceID- String - 是否必填：否 - 主机实例ID筛选</li>
 <li>User- string - 是否必填：否 - 运行用户</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
 <li>Port - Int - 是否必填：否 - 端口</li>
 <li>Name - Int - 是否必填：否 - 数据库名称
 0:全部
@@ -121,9 +124,10 @@ public class DescribeAssetDatabaseListRequest extends AbstractModel{
 <li>OsType - String - 是否必填：否 - 操作系统: linux/windows</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li> 
      * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName- String - 是否必填：否 - 主机别名筛选</li>
+<li>IP- String - 是否必填：否 - 主机ip筛选</li>
+<li>InstanceID- String - 是否必填：否 - 主机实例ID筛选</li>
 <li>User- string - 是否必填：否 - 运行用户</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
 <li>Port - Int - 是否必填：否 - 端口</li>
 <li>Name - Int - 是否必填：否 - 数据库名称
 0:全部
@@ -147,9 +151,10 @@ public class DescribeAssetDatabaseListRequest extends AbstractModel{
 
     /**
      * Set 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName- String - 是否必填：否 - 主机别名筛选</li>
+<li>IP- String - 是否必填：否 - 主机ip筛选</li>
+<li>InstanceID- String - 是否必填：否 - 主机实例ID筛选</li>
 <li>User- string - 是否必填：否 - 运行用户</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
 <li>Port - Int - 是否必填：否 - 端口</li>
 <li>Name - Int - 是否必填：否 - 数据库名称
 0:全部
@@ -167,9 +172,10 @@ public class DescribeAssetDatabaseListRequest extends AbstractModel{
 <li>OsType - String - 是否必填：否 - 操作系统: linux/windows</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>MachineName- String - 是否必填：否 - 主机别名筛选</li>
+<li>IP- String - 是否必填：否 - 主机ip筛选</li>
+<li>InstanceID- String - 是否必填：否 - 主机实例ID筛选</li>
 <li>User- string - 是否必填：否 - 运行用户</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
 <li>Port - Int - 是否必填：否 - 端口</li>
 <li>Name - Int - 是否必填：否 - 数据库名称
 0:全部

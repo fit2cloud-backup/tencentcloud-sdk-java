@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostRiskLevelCount extends AbstractModel{
+public class HostRiskLevelCount extends AbstractModel {
 
     /**
     * 主机ID
@@ -31,7 +32,6 @@ public class HostRiskLevelCount extends AbstractModel{
 
     /**
     * 主机名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostName")
     @Expose
@@ -82,10 +82,8 @@ public class HostRiskLevelCount extends AbstractModel{
     }
 
     /**
-     * Get 主机名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机名 
      * @return HostName 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostName() {
         return this.HostName;
@@ -93,9 +91,7 @@ public class HostRiskLevelCount extends AbstractModel{
 
     /**
      * Set 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostName 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostName(String HostName) {
         this.HostName = HostName;

@@ -16,96 +16,92 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SyncProxyOrganizationOperatorsResponse extends AbstractModel{
+public class SyncProxyOrganizationOperatorsResponse extends AbstractModel {
 
     /**
-    * Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。
+    *  同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul>
     */
     @SerializedName("Status")
     @Expose
     private Long Status;
 
     /**
-    * 同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。
+    * 同步失败员工ID及其失败原因
     */
     @SerializedName("FailedList")
     @Expose
     private SyncFailReason [] FailedList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get  同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul> 
+     * @return Status  同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul>
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set  同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul>
+     * @param Status  同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul>
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FailedList 同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 同步失败员工ID及其失败原因 
+     * @return FailedList 同步失败员工ID及其失败原因
      */
     public SyncFailReason [] getFailedList() {
         return this.FailedList;
     }
 
     /**
-     * Set 同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param FailedList 同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 同步失败员工ID及其失败原因
+     * @param FailedList 同步失败员工ID及其失败原因
      */
     public void setFailedList(SyncFailReason [] FailedList) {
         this.FailedList = FailedList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

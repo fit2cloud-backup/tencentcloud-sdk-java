@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeployContainerGroupRequest extends AbstractModel{
+public class DeployContainerGroupRequest extends AbstractModel {
 
     /**
     * 部署组ID，分组唯一标识
@@ -219,7 +220,7 @@ public class DeployContainerGroupRequest extends AbstractModel{
     private Boolean DeployAgent;
 
     /**
-    * 节点调度策略。若不指定改参数，则默认不使用节点调度策略。
+    * 节点调度策略。若不指定该参数，则默认不使用节点调度策略。
     */
     @SerializedName("SchedulingStrategy")
     @Expose
@@ -355,7 +356,9 @@ public class DeployContainerGroupRequest extends AbstractModel{
     /**
      * Get 旧版镜像名，如/tsf/nginx 
      * @return Reponame 旧版镜像名，如/tsf/nginx
+     * @deprecated
      */
+    @Deprecated
     public String getReponame() {
         return this.Reponame;
     }
@@ -363,7 +366,9 @@ public class DeployContainerGroupRequest extends AbstractModel{
     /**
      * Set 旧版镜像名，如/tsf/nginx
      * @param Reponame 旧版镜像名，如/tsf/nginx
+     * @deprecated
      */
+    @Deprecated
     public void setReponame(String Reponame) {
         this.Reponame = Reponame;
     }
@@ -737,16 +742,16 @@ public class DeployContainerGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 节点调度策略。若不指定改参数，则默认不使用节点调度策略。 
-     * @return SchedulingStrategy 节点调度策略。若不指定改参数，则默认不使用节点调度策略。
+     * Get 节点调度策略。若不指定该参数，则默认不使用节点调度策略。 
+     * @return SchedulingStrategy 节点调度策略。若不指定该参数，则默认不使用节点调度策略。
      */
     public SchedulingStrategy getSchedulingStrategy() {
         return this.SchedulingStrategy;
     }
 
     /**
-     * Set 节点调度策略。若不指定改参数，则默认不使用节点调度策略。
-     * @param SchedulingStrategy 节点调度策略。若不指定改参数，则默认不使用节点调度策略。
+     * Set 节点调度策略。若不指定该参数，则默认不使用节点调度策略。
+     * @param SchedulingStrategy 节点调度策略。若不指定该参数，则默认不使用节点调度策略。
      */
     public void setSchedulingStrategy(SchedulingStrategy SchedulingStrategy) {
         this.SchedulingStrategy = SchedulingStrategy;

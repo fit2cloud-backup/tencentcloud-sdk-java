@@ -16,99 +16,153 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIntegrationDepartmentsRequest extends AbstractModel{
+public class DescribeIntegrationDepartmentsRequest extends AbstractModel {
 
     /**
-    * 操作人信息，UserId必填且需拥有组织架构管理权限
+    * 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 查询类型 0-查询单个部门节点 1-单个部门节点及一级子节点部门列表
+    * 查询类型，支持以下类型：
+<ul><li>**0**：查询单个部门节点列表，不包含子节点部门信息</li>
+<li>**1**：查询单个部门节点级一级子节点部门信息列表</li></ul>
     */
     @SerializedName("QueryType")
     @Expose
     private Long QueryType;
 
     /**
-    * 部门ID,与DeptOpenId二选一,优先DeptId,都为空时获取根节点数据
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
+
+    /**
+    * 查询的部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
     */
     @SerializedName("DeptId")
     @Expose
     private String DeptId;
 
     /**
-    * 客户系统部门ID,与DeptId二选一,优先DeptId,都为空时获取根节点数据
+    * 查询的客户系统部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
     */
     @SerializedName("DeptOpenId")
     @Expose
     private String DeptOpenId;
 
     /**
-     * Get 操作人信息，UserId必填且需拥有组织架构管理权限 
-     * @return Operator 操作人信息，UserId必填且需拥有组织架构管理权限
+     * Get 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作人信息，UserId必填且需拥有组织架构管理权限
-     * @param Operator 操作人信息，UserId必填且需拥有组织架构管理权限
+     * Set 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 查询类型 0-查询单个部门节点 1-单个部门节点及一级子节点部门列表 
-     * @return QueryType 查询类型 0-查询单个部门节点 1-单个部门节点及一级子节点部门列表
+     * Get 查询类型，支持以下类型：
+<ul><li>**0**：查询单个部门节点列表，不包含子节点部门信息</li>
+<li>**1**：查询单个部门节点级一级子节点部门信息列表</li></ul> 
+     * @return QueryType 查询类型，支持以下类型：
+<ul><li>**0**：查询单个部门节点列表，不包含子节点部门信息</li>
+<li>**1**：查询单个部门节点级一级子节点部门信息列表</li></ul>
      */
     public Long getQueryType() {
         return this.QueryType;
     }
 
     /**
-     * Set 查询类型 0-查询单个部门节点 1-单个部门节点及一级子节点部门列表
-     * @param QueryType 查询类型 0-查询单个部门节点 1-单个部门节点及一级子节点部门列表
+     * Set 查询类型，支持以下类型：
+<ul><li>**0**：查询单个部门节点列表，不包含子节点部门信息</li>
+<li>**1**：查询单个部门节点级一级子节点部门信息列表</li></ul>
+     * @param QueryType 查询类型，支持以下类型：
+<ul><li>**0**：查询单个部门节点列表，不包含子节点部门信息</li>
+<li>**1**：查询单个部门节点级一级子节点部门信息列表</li></ul>
      */
     public void setQueryType(Long QueryType) {
         this.QueryType = QueryType;
     }
 
     /**
-     * Get 部门ID,与DeptOpenId二选一,优先DeptId,都为空时获取根节点数据 
-     * @return DeptId 部门ID,与DeptOpenId二选一,优先DeptId,都为空时获取根节点数据
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
+    }
+
+    /**
+     * Get 查询的部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。` 
+     * @return DeptId 查询的部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
      */
     public String getDeptId() {
         return this.DeptId;
     }
 
     /**
-     * Set 部门ID,与DeptOpenId二选一,优先DeptId,都为空时获取根节点数据
-     * @param DeptId 部门ID,与DeptOpenId二选一,优先DeptId,都为空时获取根节点数据
+     * Set 查询的部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
+     * @param DeptId 查询的部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
      */
     public void setDeptId(String DeptId) {
         this.DeptId = DeptId;
     }
 
     /**
-     * Get 客户系统部门ID,与DeptId二选一,优先DeptId,都为空时获取根节点数据 
-     * @return DeptOpenId 客户系统部门ID,与DeptId二选一,优先DeptId,都为空时获取根节点数据
+     * Get 查询的客户系统部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。` 
+     * @return DeptOpenId 查询的客户系统部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
      */
     public String getDeptOpenId() {
         return this.DeptOpenId;
     }
 
     /**
-     * Set 客户系统部门ID,与DeptId二选一,优先DeptId,都为空时获取根节点数据
-     * @param DeptOpenId 客户系统部门ID,与DeptId二选一,优先DeptId,都为空时获取根节点数据
+     * Set 查询的客户系统部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
+     * @param DeptOpenId 查询的客户系统部门ID。
+注：`如果同时指定了DeptId与DeptOpenId参数，系统将优先使用DeptId参数进行查询。当二者都未指定时，系统将返回根节点部门数据。`
      */
     public void setDeptOpenId(String DeptOpenId) {
         this.DeptOpenId = DeptOpenId;
@@ -128,6 +182,9 @@ public class DescribeIntegrationDepartmentsRequest extends AbstractModel{
         if (source.QueryType != null) {
             this.QueryType = new Long(source.QueryType);
         }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
+        }
         if (source.DeptId != null) {
             this.DeptId = new String(source.DeptId);
         }
@@ -143,6 +200,7 @@ public class DescribeIntegrationDepartmentsRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamSimple(map, prefix + "QueryType", this.QueryType);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamSimple(map, prefix + "DeptId", this.DeptId);
         this.setParamSimple(map, prefix + "DeptOpenId", this.DeptOpenId);
 

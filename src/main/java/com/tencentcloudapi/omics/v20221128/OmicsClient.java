@@ -45,18 +45,19 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateEnvironmentResponse CreateEnvironment(CreateEnvironmentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateEnvironmentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateEnvironmentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateEnvironment");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateEnvironment", CreateEnvironmentResponse.class);
+    }
+
+    /**
+     *创建缓存卷。
+     * @param req CreateVolumeRequest
+     * @return CreateVolumeResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateVolumeResponse CreateVolume(CreateVolumeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateVolume", CreateVolumeResponse.class);
     }
 
     /**
@@ -66,18 +67,30 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteEnvironmentResponse DeleteEnvironment(DeleteEnvironmentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteEnvironmentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteEnvironmentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteEnvironment");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteEnvironment", DeleteEnvironmentResponse.class);
+    }
+
+    /**
+     *删除缓存卷。
+     * @param req DeleteVolumeRequest
+     * @return DeleteVolumeResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteVolumeResponse DeleteVolume(DeleteVolumeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteVolume", DeleteVolumeResponse.class);
+    }
+
+    /**
+     *删除缓存卷数据。
+     * @param req DeleteVolumeDataRequest
+     * @return DeleteVolumeDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteVolumeDataResponse DeleteVolumeData(DeleteVolumeDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteVolumeData", DeleteVolumeDataResponse.class);
     }
 
     /**
@@ -87,18 +100,8 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeEnvironmentsResponse DescribeEnvironments(DescribeEnvironmentsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeEnvironmentsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeEnvironmentsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeEnvironments");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeEnvironments", DescribeEnvironmentsResponse.class);
     }
 
     /**
@@ -108,18 +111,8 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRunGroupsResponse DescribeRunGroups(DescribeRunGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRunGroupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRunGroupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRunGroups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRunGroups", DescribeRunGroupsResponse.class);
     }
 
     /**
@@ -129,18 +122,8 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRunsResponse DescribeRuns(DescribeRunsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRunsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRunsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRuns");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRuns", DescribeRunsResponse.class);
     }
 
     /**
@@ -150,18 +133,8 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTablesResponse DescribeTables(DescribeTablesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTablesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTablesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTables");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTables", DescribeTablesResponse.class);
     }
 
     /**
@@ -171,18 +144,19 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTablesRowsResponse DescribeTablesRows(DescribeTablesRowsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTablesRowsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTablesRowsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTablesRows");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTablesRows", DescribeTablesRowsResponse.class);
+    }
+
+    /**
+     *查询缓存卷列表。
+     * @param req DescribeVolumesRequest
+     * @return DescribeVolumesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeVolumesResponse DescribeVolumes(DescribeVolumesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeVolumes", DescribeVolumesResponse.class);
     }
 
     /**
@@ -192,18 +166,19 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetRunCallsResponse GetRunCalls(GetRunCallsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetRunCallsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetRunCallsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetRunCalls");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetRunCalls", GetRunCallsResponse.class);
+    }
+
+    /**
+     *获取任务详情文件。
+     * @param req GetRunMetadataFileRequest
+     * @return GetRunMetadataFileResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetRunMetadataFileResponse GetRunMetadataFile(GetRunMetadataFileRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "GetRunMetadataFile", GetRunMetadataFileResponse.class);
     }
 
     /**
@@ -213,18 +188,8 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetRunStatusResponse GetRunStatus(GetRunStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetRunStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetRunStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetRunStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetRunStatus", GetRunStatusResponse.class);
     }
 
     /**
@@ -234,18 +199,19 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ImportTableFileResponse ImportTableFile(ImportTableFileRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ImportTableFileResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ImportTableFileResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ImportTableFile");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ImportTableFile", ImportTableFileResponse.class);
+    }
+
+    /**
+     *修改缓存卷。
+     * @param req ModifyVolumeRequest
+     * @return ModifyVolumeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyVolumeResponse ModifyVolume(ModifyVolumeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyVolume", ModifyVolumeResponse.class);
     }
 
     /**
@@ -255,18 +221,8 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RetryRunsResponse RetryRuns(RetryRunsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RetryRunsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RetryRunsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RetryRuns");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RetryRuns", RetryRunsResponse.class);
     }
 
     /**
@@ -276,18 +232,30 @@ public class OmicsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RunApplicationResponse RunApplication(RunApplicationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RunApplicationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RunApplicationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RunApplication");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RunApplication", RunApplicationResponse.class);
+    }
+
+    /**
+     *运行工作流。
+     * @param req RunWorkflowRequest
+     * @return RunWorkflowResponse
+     * @throws TencentCloudSDKException
+     */
+    public RunWorkflowResponse RunWorkflow(RunWorkflowRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "RunWorkflow", RunWorkflowResponse.class);
+    }
+
+    /**
+     *终止任务批次。
+     * @param req TerminateRunGroupRequest
+     * @return TerminateRunGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public TerminateRunGroupResponse TerminateRunGroup(TerminateRunGroupRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "TerminateRunGroup", TerminateRunGroupResponse.class);
     }
 
 }

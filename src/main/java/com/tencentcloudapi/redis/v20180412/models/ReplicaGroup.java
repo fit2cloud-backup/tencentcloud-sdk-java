@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReplicaGroup extends AbstractModel{
+public class ReplicaGroup extends AbstractModel {
 
     /**
     * 节点组 ID。
@@ -44,7 +45,7 @@ public class ReplicaGroup extends AbstractModel{
     private String ZoneId;
 
     /**
-    * 节点组类型，master为主节点，replica为副本节点
+    * 节点组类型，master为主节点，replica为副本节点。
     */
     @SerializedName("Role")
     @Expose
@@ -106,16 +107,16 @@ public class ReplicaGroup extends AbstractModel{
     }
 
     /**
-     * Get 节点组类型，master为主节点，replica为副本节点 
-     * @return Role 节点组类型，master为主节点，replica为副本节点
+     * Get 节点组类型，master为主节点，replica为副本节点。 
+     * @return Role 节点组类型，master为主节点，replica为副本节点。
      */
     public String getRole() {
         return this.Role;
     }
 
     /**
-     * Set 节点组类型，master为主节点，replica为副本节点
-     * @param Role 节点组类型，master为主节点，replica为副本节点
+     * Set 节点组类型，master为主节点，replica为副本节点。
+     * @param Role 节点组类型，master为主节点，replica为副本节点。
      */
     public void setRole(String Role) {
         this.Role = Role;

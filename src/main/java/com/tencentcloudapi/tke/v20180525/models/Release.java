@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Release extends AbstractModel{
+public class Release extends AbstractModel {
 
     /**
     * 应用名称
@@ -38,7 +39,6 @@ public class Release extends AbstractModel{
 
     /**
     * 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Revision")
     @Expose
@@ -46,7 +46,6 @@ public class Release extends AbstractModel{
 
     /**
     * 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -54,7 +53,6 @@ public class Release extends AbstractModel{
 
     /**
     * 制品名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChartName")
     @Expose
@@ -62,7 +60,6 @@ public class Release extends AbstractModel{
 
     /**
     * 制品版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChartVersion")
     @Expose
@@ -70,7 +67,6 @@ public class Release extends AbstractModel{
 
     /**
     * 制品应用版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppVersion")
     @Expose
@@ -78,7 +74,6 @@ public class Release extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdatedTime")
     @Expose
@@ -86,7 +81,6 @@ public class Release extends AbstractModel{
 
     /**
     * 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -125,10 +119,8 @@ public class Release extends AbstractModel{
     }
 
     /**
-     * Get 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用当前版本 
      * @return Revision 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRevision() {
         return this.Revision;
@@ -136,19 +128,15 @@ public class Release extends AbstractModel{
 
     /**
      * Set 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Revision 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRevision(String Revision) {
         this.Revision = Revision;
     }
 
     /**
-     * Get 应用状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用状态 
      * @return Status 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -156,19 +144,15 @@ public class Release extends AbstractModel{
 
     /**
      * Set 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 制品名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 制品名称 
      * @return ChartName 制品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChartName() {
         return this.ChartName;
@@ -176,19 +160,15 @@ public class Release extends AbstractModel{
 
     /**
      * Set 制品名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChartName 制品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChartName(String ChartName) {
         this.ChartName = ChartName;
     }
 
     /**
-     * Get 制品版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 制品版本 
      * @return ChartVersion 制品版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChartVersion() {
         return this.ChartVersion;
@@ -196,19 +176,15 @@ public class Release extends AbstractModel{
 
     /**
      * Set 制品版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChartVersion 制品版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChartVersion(String ChartVersion) {
         this.ChartVersion = ChartVersion;
     }
 
     /**
-     * Get 制品应用版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 制品应用版本 
      * @return AppVersion 制品应用版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAppVersion() {
         return this.AppVersion;
@@ -216,19 +192,15 @@ public class Release extends AbstractModel{
 
     /**
      * Set 制品应用版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppVersion 制品应用版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppVersion(String AppVersion) {
         this.AppVersion = AppVersion;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdatedTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdatedTime() {
         return this.UpdatedTime;
@@ -236,19 +208,15 @@ public class Release extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdatedTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdatedTime(String UpdatedTime) {
         this.UpdatedTime = UpdatedTime;
     }
 
     /**
-     * Get 应用描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用描述 
      * @return Description 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -256,9 +224,7 @@ public class Release extends AbstractModel{
 
     /**
      * Set 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;

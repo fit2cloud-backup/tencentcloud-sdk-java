@@ -16,76 +16,77 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListAttachedUserAllPoliciesResponse extends AbstractModel{
+public class ListAttachedUserAllPoliciesResponse extends AbstractModel {
 
     /**
-    * 策略列表数据
+    * 策略列表数据。
     */
     @SerializedName("PolicyList")
     @Expose
     private AttachedUserPolicy [] PolicyList;
 
     /**
-    * 策略总数
+    * 策略总数。
     */
     @SerializedName("TotalNum")
     @Expose
     private Long TotalNum;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 策略列表数据 
-     * @return PolicyList 策略列表数据
+     * Get 策略列表数据。 
+     * @return PolicyList 策略列表数据。
      */
     public AttachedUserPolicy [] getPolicyList() {
         return this.PolicyList;
     }
 
     /**
-     * Set 策略列表数据
-     * @param PolicyList 策略列表数据
+     * Set 策略列表数据。
+     * @param PolicyList 策略列表数据。
      */
     public void setPolicyList(AttachedUserPolicy [] PolicyList) {
         this.PolicyList = PolicyList;
     }
 
     /**
-     * Get 策略总数 
-     * @return TotalNum 策略总数
+     * Get 策略总数。 
+     * @return TotalNum 策略总数。
      */
     public Long getTotalNum() {
         return this.TotalNum;
     }
 
     /**
-     * Set 策略总数
-     * @param TotalNum 策略总数
+     * Set 策略总数。
+     * @param TotalNum 策略总数。
      */
     public void setTotalNum(Long TotalNum) {
         this.TotalNum = TotalNum;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

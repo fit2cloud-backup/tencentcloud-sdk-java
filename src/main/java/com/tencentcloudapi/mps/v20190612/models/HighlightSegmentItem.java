@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HighlightSegmentItem extends AbstractModel{
+public class HighlightSegmentItem extends AbstractModel {
 
     /**
     * 置信度。
@@ -42,6 +43,30 @@ public class HighlightSegmentItem extends AbstractModel{
     @SerializedName("EndTimeOffset")
     @Expose
     private Float EndTimeOffset;
+
+    /**
+    * 片段标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SegmentTags")
+    @Expose
+    private String [] SegmentTags;
+
+    /**
+    * 直播切片对应直播起始时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BeginTime")
+    @Expose
+    private String BeginTime;
+
+    /**
+    * 直播切片对应直播结束时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EndTime")
+    @Expose
+    private String EndTime;
 
     /**
      * Get 置信度。 
@@ -91,6 +116,66 @@ public class HighlightSegmentItem extends AbstractModel{
         this.EndTimeOffset = EndTimeOffset;
     }
 
+    /**
+     * Get 片段标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SegmentTags 片段标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSegmentTags() {
+        return this.SegmentTags;
+    }
+
+    /**
+     * Set 片段标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SegmentTags 片段标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSegmentTags(String [] SegmentTags) {
+        this.SegmentTags = SegmentTags;
+    }
+
+    /**
+     * Get 直播切片对应直播起始时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BeginTime 直播切片对应直播起始时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBeginTime() {
+        return this.BeginTime;
+    }
+
+    /**
+     * Set 直播切片对应直播起始时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BeginTime 直播切片对应直播起始时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBeginTime(String BeginTime) {
+        this.BeginTime = BeginTime;
+    }
+
+    /**
+     * Get 直播切片对应直播结束时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EndTime 直播切片对应直播结束时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEndTime() {
+        return this.EndTime;
+    }
+
+    /**
+     * Set 直播切片对应直播结束时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EndTime 直播切片对应直播结束时间点，采用 ISO 日期格式。	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEndTime(String EndTime) {
+        this.EndTime = EndTime;
+    }
+
     public HighlightSegmentItem() {
     }
 
@@ -108,6 +193,18 @@ public class HighlightSegmentItem extends AbstractModel{
         if (source.EndTimeOffset != null) {
             this.EndTimeOffset = new Float(source.EndTimeOffset);
         }
+        if (source.SegmentTags != null) {
+            this.SegmentTags = new String[source.SegmentTags.length];
+            for (int i = 0; i < source.SegmentTags.length; i++) {
+                this.SegmentTags[i] = new String(source.SegmentTags[i]);
+            }
+        }
+        if (source.BeginTime != null) {
+            this.BeginTime = new String(source.BeginTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
     }
 
 
@@ -118,6 +215,9 @@ public class HighlightSegmentItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Confidence", this.Confidence);
         this.setParamSimple(map, prefix + "StartTimeOffset", this.StartTimeOffset);
         this.setParamSimple(map, prefix + "EndTimeOffset", this.EndTimeOffset);
+        this.setParamArraySimple(map, prefix + "SegmentTags.", this.SegmentTags);
+        this.setParamSimple(map, prefix + "BeginTime", this.BeginTime);
+        this.setParamSimple(map, prefix + "EndTime", this.EndTime);
 
     }
 }

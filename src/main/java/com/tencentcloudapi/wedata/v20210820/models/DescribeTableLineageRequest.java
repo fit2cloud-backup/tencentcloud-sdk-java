@@ -16,14 +16,19 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTableLineageRequest extends AbstractModel{
+public class DescribeTableLineageRequest extends AbstractModel {
 
     /**
-    * 查询方向，INPUT,OUTPUT,BOTH枚举值
+    * 查询方向枚举值
+
+- INPUT
+- OUTPUT
+- BOTH
     */
     @SerializedName("Direction")
     @Expose
@@ -72,16 +77,32 @@ public class DescribeTableLineageRequest extends AbstractModel{
     private Boolean RecursiveSecond;
 
     /**
-     * Get 查询方向，INPUT,OUTPUT,BOTH枚举值 
-     * @return Direction 查询方向，INPUT,OUTPUT,BOTH枚举值
+     * Get 查询方向枚举值
+
+- INPUT
+- OUTPUT
+- BOTH 
+     * @return Direction 查询方向枚举值
+
+- INPUT
+- OUTPUT
+- BOTH
      */
     public String getDirection() {
         return this.Direction;
     }
 
     /**
-     * Set 查询方向，INPUT,OUTPUT,BOTH枚举值
-     * @param Direction 查询方向，INPUT,OUTPUT,BOTH枚举值
+     * Set 查询方向枚举值
+
+- INPUT
+- OUTPUT
+- BOTH
+     * @param Direction 查询方向枚举值
+
+- INPUT
+- OUTPUT
+- BOTH
      */
     public void setDirection(String Direction) {
         this.Direction = Direction;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SubnetInfo extends AbstractModel{
+public class SubnetInfo extends AbstractModel {
 
     /**
     * 子网信息（名字）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetName")
     @Expose
@@ -32,17 +32,14 @@ public class SubnetInfo extends AbstractModel{
 
     /**
     * 子网信息（ID）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetId")
     @Expose
     private String SubnetId;
 
     /**
-     * Get 子网信息（名字）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网信息（名字） 
      * @return SubnetName 子网信息（名字）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetName() {
         return this.SubnetName;
@@ -50,19 +47,15 @@ public class SubnetInfo extends AbstractModel{
 
     /**
      * Set 子网信息（名字）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetName 子网信息（名字）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetName(String SubnetName) {
         this.SubnetName = SubnetName;
     }
 
     /**
-     * Get 子网信息（ID）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网信息（ID） 
      * @return SubnetId 子网信息（ID）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetId() {
         return this.SubnetId;
@@ -70,9 +63,7 @@ public class SubnetInfo extends AbstractModel{
 
     /**
      * Set 子网信息（ID）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetId 子网信息（ID）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
+public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel {
 
     /**
     * 版本名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionName")
     @Expose
@@ -32,7 +32,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 版本备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -40,7 +39,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * cpu规格
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cpu")
     @Expose
@@ -48,7 +46,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 内存规格
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Mem")
     @Expose
@@ -56,7 +53,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 最小副本数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MinNum")
     @Expose
@@ -64,7 +60,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 最大副本数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxNum")
     @Expose
@@ -72,7 +67,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 镜像url
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageUrl")
     @Expose
@@ -80,7 +74,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyType")
     @Expose
@@ -88,7 +81,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 策略阈值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyThreshold")
     @Expose
@@ -96,7 +88,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 环境参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvParams")
     @Expose
@@ -104,7 +95,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 容器端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerPort")
     @Expose
@@ -112,7 +102,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -120,7 +109,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -128,7 +116,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 更新类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UploadType")
     @Expose
@@ -136,7 +123,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * dockerfile路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DockerfilePath")
     @Expose
@@ -144,7 +130,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 构建路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BuildDir")
     @Expose
@@ -152,7 +137,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * repo类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepoType")
     @Expose
@@ -160,7 +144,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 仓库
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Repo")
     @Expose
@@ -168,7 +151,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 分支
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Branch")
     @Expose
@@ -176,7 +158,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 环境id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvId")
     @Expose
@@ -184,7 +165,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 服务名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServerName")
     @Expose
@@ -192,7 +172,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * package名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageName")
     @Expose
@@ -200,7 +179,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * package版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageVersion")
     @Expose
@@ -208,7 +186,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 自定义log路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomLogs")
     @Expose
@@ -216,7 +193,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 延时健康检查时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InitialDelaySeconds")
     @Expose
@@ -224,7 +200,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * snapshot名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SnapshotName")
     @Expose
@@ -232,7 +207,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 镜像信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageInfo")
     @Expose
@@ -240,7 +214,6 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 代码仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CodeDetail")
     @Expose
@@ -248,17 +221,14 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
     * 状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
     private String Status;
 
     /**
-     * Get 版本名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本名 
      * @return VersionName 版本名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersionName() {
         return this.VersionName;
@@ -266,19 +236,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 版本名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VersionName 版本名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionName(String VersionName) {
         this.VersionName = VersionName;
     }
 
     /**
-     * Get 版本备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本备注 
      * @return Remark 版本备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -286,19 +252,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 版本备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 版本备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get cpu规格
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cpu规格 
      * @return Cpu cpu规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getCpu() {
         return this.Cpu;
@@ -306,19 +268,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set cpu规格
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Cpu cpu规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCpu(Float Cpu) {
         this.Cpu = Cpu;
     }
 
     /**
-     * Get 内存规格
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内存规格 
      * @return Mem 内存规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getMem() {
         return this.Mem;
@@ -326,19 +284,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 内存规格
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Mem 内存规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMem(Float Mem) {
         this.Mem = Mem;
     }
 
     /**
-     * Get 最小副本数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最小副本数 
      * @return MinNum 最小副本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMinNum() {
         return this.MinNum;
@@ -346,19 +300,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 最小副本数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MinNum 最小副本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMinNum(Long MinNum) {
         this.MinNum = MinNum;
     }
 
     /**
-     * Get 最大副本数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大副本数 
      * @return MaxNum 最大副本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxNum() {
         return this.MaxNum;
@@ -366,19 +316,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 最大副本数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxNum 最大副本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxNum(Long MaxNum) {
         this.MaxNum = MaxNum;
     }
 
     /**
-     * Get 镜像url
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像url 
      * @return ImageUrl 镜像url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageUrl() {
         return this.ImageUrl;
@@ -386,19 +332,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 镜像url
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageUrl 镜像url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
     }
 
     /**
-     * Get 扩容策略
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扩容策略 
      * @return PolicyType 扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPolicyType() {
         return this.PolicyType;
@@ -406,19 +348,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyType 扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyType(String PolicyType) {
         this.PolicyType = PolicyType;
     }
 
     /**
-     * Get 策略阈值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略阈值 
      * @return PolicyThreshold 策略阈值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPolicyThreshold() {
         return this.PolicyThreshold;
@@ -426,19 +364,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 策略阈值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyThreshold 策略阈值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyThreshold(Long PolicyThreshold) {
         this.PolicyThreshold = PolicyThreshold;
     }
 
     /**
-     * Get 环境参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境参数 
      * @return EnvParams 环境参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvParams() {
         return this.EnvParams;
@@ -446,19 +380,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 环境参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvParams 环境参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvParams(String EnvParams) {
         this.EnvParams = EnvParams;
     }
 
     /**
-     * Get 容器端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器端口 
      * @return ContainerPort 容器端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getContainerPort() {
         return this.ContainerPort;
@@ -466,19 +396,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 容器端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerPort 容器端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerPort(Long ContainerPort) {
         this.ContainerPort = ContainerPort;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -486,19 +412,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -506,19 +428,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 更新类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新类型 
      * @return UploadType 更新类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUploadType() {
         return this.UploadType;
@@ -526,19 +444,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 更新类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UploadType 更新类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUploadType(String UploadType) {
         this.UploadType = UploadType;
     }
 
     /**
-     * Get dockerfile路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get dockerfile路径 
      * @return DockerfilePath dockerfile路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDockerfilePath() {
         return this.DockerfilePath;
@@ -546,19 +460,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set dockerfile路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DockerfilePath dockerfile路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDockerfilePath(String DockerfilePath) {
         this.DockerfilePath = DockerfilePath;
     }
 
     /**
-     * Get 构建路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 构建路径 
      * @return BuildDir 构建路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBuildDir() {
         return this.BuildDir;
@@ -566,19 +476,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 构建路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BuildDir 构建路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBuildDir(String BuildDir) {
         this.BuildDir = BuildDir;
     }
 
     /**
-     * Get repo类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get repo类型 
      * @return RepoType repo类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepoType() {
         return this.RepoType;
@@ -586,19 +492,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set repo类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepoType repo类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepoType(String RepoType) {
         this.RepoType = RepoType;
     }
 
     /**
-     * Get 仓库
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库 
      * @return Repo 仓库
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepo() {
         return this.Repo;
@@ -606,19 +508,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 仓库
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Repo 仓库
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepo(String Repo) {
         this.Repo = Repo;
     }
 
     /**
-     * Get 分支
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分支 
      * @return Branch 分支
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBranch() {
         return this.Branch;
@@ -626,19 +524,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 分支
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Branch 分支
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBranch(String Branch) {
         this.Branch = Branch;
     }
 
     /**
-     * Get 环境id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境id 
      * @return EnvId 环境id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvId() {
         return this.EnvId;
@@ -646,19 +540,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 环境id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvId 环境id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvId(String EnvId) {
         this.EnvId = EnvId;
     }
 
     /**
-     * Get 服务名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务名 
      * @return ServerName 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServerName() {
         return this.ServerName;
@@ -666,19 +556,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServerName 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServerName(String ServerName) {
         this.ServerName = ServerName;
     }
 
     /**
-     * Get package名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get package名字 
      * @return PackageName package名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageName() {
         return this.PackageName;
@@ -686,19 +572,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set package名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageName package名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageName(String PackageName) {
         this.PackageName = PackageName;
     }
 
     /**
-     * Get package版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get package版本 
      * @return PackageVersion package版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageVersion() {
         return this.PackageVersion;
@@ -706,19 +588,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set package版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageVersion package版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageVersion(String PackageVersion) {
         this.PackageVersion = PackageVersion;
     }
 
     /**
-     * Get 自定义log路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自定义log路径 
      * @return CustomLogs 自定义log路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomLogs() {
         return this.CustomLogs;
@@ -726,19 +604,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 自定义log路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomLogs 自定义log路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomLogs(String CustomLogs) {
         this.CustomLogs = CustomLogs;
     }
 
     /**
-     * Get 延时健康检查时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 延时健康检查时间 
      * @return InitialDelaySeconds 延时健康检查时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInitialDelaySeconds() {
         return this.InitialDelaySeconds;
@@ -746,19 +620,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 延时健康检查时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InitialDelaySeconds 延时健康检查时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInitialDelaySeconds(Long InitialDelaySeconds) {
         this.InitialDelaySeconds = InitialDelaySeconds;
     }
 
     /**
-     * Get snapshot名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get snapshot名 
      * @return SnapshotName snapshot名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSnapshotName() {
         return this.SnapshotName;
@@ -766,19 +636,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set snapshot名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SnapshotName snapshot名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSnapshotName(String SnapshotName) {
         this.SnapshotName = SnapshotName;
     }
 
     /**
-     * Get 镜像信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像信息 
      * @return ImageInfo 镜像信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CloudBaseRunImageInfo getImageInfo() {
         return this.ImageInfo;
@@ -786,19 +652,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 镜像信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageInfo 镜像信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageInfo(CloudBaseRunImageInfo ImageInfo) {
         this.ImageInfo = ImageInfo;
     }
 
     /**
-     * Get 代码仓库信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代码仓库信息 
      * @return CodeDetail 代码仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CloudBaseCodeRepoDetail getCodeDetail() {
         return this.CodeDetail;
@@ -806,19 +668,15 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 代码仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CodeDetail 代码仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCodeDetail(CloudBaseCodeRepoDetail CodeDetail) {
         this.CodeDetail = CodeDetail;
     }
 
     /**
-     * Get 状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态 
      * @return Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -826,9 +684,7 @@ public class CloudRunServiceSimpleVersionSnapshot extends AbstractModel{
 
     /**
      * Set 状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;

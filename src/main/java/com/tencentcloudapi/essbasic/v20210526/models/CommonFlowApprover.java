@@ -16,28 +16,43 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CommonFlowApprover extends AbstractModel{
+public class CommonFlowApprover extends AbstractModel {
 
     /**
-    * 指定当前签署人为第三方应用集成子客，默认false：当前签署人为第三方应用集成子客，true：当前签署人为saas企业用户
+    * 指定签署人非第三方平台子客企业下员工还是SaaS平台企业，在ApproverType为ORGANIZATION时指定。
+<ul>
+<li>false: 默认值，第三方平台子客企业下员工</li>
+<li>true: SaaS平台企业下的员工</li>
+</ul>
+
     */
     @SerializedName("NotChannelOrganization")
     @Expose
     private Boolean NotChannelOrganization;
 
     /**
-    * 签署人类型,目前支持：0-企业签署人，1-个人签署人，3-企业静默签署人
+    * 在指定签署方时，可选择企业B端或个人C端等不同的参与者类型，可选类型如下:
+
+ **0** :企业/企业员工（企业签署方或模板发起时的企业静默签）
+ **1** :个人/自然人
+**3** :企业/企业员工自动签（他方企业自动签署或文件发起时的本方企业自动签）
+
+注：类型为3（企业/企业员工自动签）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
+使用自动签时，请确保企业已经开通自动签功能，开通方式：控制台 -> 企业设置 -> 扩展服务 -> 企业自动签。
+使用文件发起自动签时使用前请联系对接的客户经理沟通。
+
     */
     @SerializedName("ApproverType")
     @Expose
     private Long ApproverType;
 
     /**
-    * 企业id
+    * 电子签平台给企业生成的企业id
     */
     @SerializedName("OrganizationId")
     @Expose
@@ -58,21 +73,22 @@ public class CommonFlowApprover extends AbstractModel{
     private String OrganizationName;
 
     /**
-    * 用户id
+    * 电子签平台给企业员工或者自热人生成的用户id
     */
     @SerializedName("UserId")
     @Expose
     private String UserId;
 
     /**
-    * 用户openId，第三方应用集成非静默签子客企业签署人必传
+    * 第三方平台子客企业员工的唯一标识
     */
     @SerializedName("OpenId")
     @Expose
     private String OpenId;
 
     /**
-    * 签署人名称，saas企业签署人，个人签署人必传
+    * 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
     */
     @SerializedName("ApproverName")
     @Expose
@@ -84,6 +100,30 @@ public class CommonFlowApprover extends AbstractModel{
     @SerializedName("ApproverMobile")
     @Expose
     private String ApproverMobile;
+
+    /**
+    * 签署方经办人的证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证  (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li>
+<li>OTHER_CARD_TYPE : 其他证件</li></ul>
+
+注: `其他证件类型为白名单功能，使用前请联系对接的客户经理沟通。`
+    */
+    @SerializedName("ApproverIdCardType")
+    @Expose
+    private String ApproverIdCardType;
+
+    /**
+    * 签署方经办人的证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。
+</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+    */
+    @SerializedName("ApproverIdCardNumber")
+    @Expose
+    private String ApproverIdCardNumber;
 
     /**
     * 签署人Id，使用模板发起是，对应模板配置中的签署人RecipientId
@@ -108,62 +148,162 @@ public class CommonFlowApprover extends AbstractModel{
     private Boolean IsFullText;
 
     /**
-    * 通知类型：SMS（短信） NONE（不做通知）, 不传 默认SMS
+    * 通知签署方经办人的方式, 有以下途径:
+<ul><li> **SMS** :(默认)短信</li>
+<li> **NONE** : 不通知</li></ul>
+
+注: `签署方为第三方子客企业时会被置为NONE,   不会发短信通知`
     */
     @SerializedName("NotifyType")
     @Expose
     private String NotifyType;
 
     /**
-    * 签署人配置
+    * 签署人配置，用于控制签署人相关属性
     */
     @SerializedName("ApproverOption")
     @Expose
     private CommonApproverOption ApproverOption;
 
     /**
-     * Get 指定当前签署人为第三方应用集成子客，默认false：当前签署人为第三方应用集成子客，true：当前签署人为saas企业用户 
-     * @return NotChannelOrganization 指定当前签署人为第三方应用集成子客，默认false：当前签署人为第三方应用集成子客，true：当前签署人为saas企业用户
+    * 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
+    */
+    @SerializedName("SignComponents")
+    @Expose
+    private Component [] SignComponents;
+
+    /**
+    * 指定个人签署方查看合同的校验方式,可以传值如下:
+<ul><li>  **1**   : （默认）人脸识别,人脸识别后才能合同内容</li>
+<li>  **2**  : 手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）
+</li></ul>
+注: 
+<ul><li>如果合同流程设置ApproverVerifyType查看合同的校验方式,    则忽略此签署人的查看合同的校验方式</li>
+<li>此字段可传多个校验方式</li></ul>
+    */
+    @SerializedName("ApproverVerifyTypes")
+    @Expose
+    private Long [] ApproverVerifyTypes;
+
+    /**
+    * 签署人签署合同时的认证方式
+<ul><li> **1** :人脸认证</li>
+<li> **2** :签署密码</li>
+<li> **3** :运营商三要素</li>
+<li> **5** :设备指纹识别</li>
+<li> **6** :设备面容识别</li></ul>
+
+默认为1(人脸认证 ),2(签署密码),3(运营商三要素),5(设备指纹识别),6(设备面容识别)
+
+注: 
+1. 用<font color='red'>模板创建合同场景</font>, 签署人的认证方式需要在配置模板的时候指定, <font color='red'>在创建合同重新指定无效</font>
+2. 运营商三要素认证方式对手机号运营商及前缀有限制,可以参考[运营商支持列表类](https://qian.tencent.com/developers/partner/mobile_support)得到具体的支持说明
+3. 校验方式不允许只包含<font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>，至少需要再增加一种其他校验方式。
+4. <font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>只支持小程序使用，其他端暂不支持。
+    */
+    @SerializedName("ApproverSignTypes")
+    @Expose
+    private Long [] ApproverSignTypes;
+
+    /**
+     * Get 指定签署人非第三方平台子客企业下员工还是SaaS平台企业，在ApproverType为ORGANIZATION时指定。
+<ul>
+<li>false: 默认值，第三方平台子客企业下员工</li>
+<li>true: SaaS平台企业下的员工</li>
+</ul>
+ 
+     * @return NotChannelOrganization 指定签署人非第三方平台子客企业下员工还是SaaS平台企业，在ApproverType为ORGANIZATION时指定。
+<ul>
+<li>false: 默认值，第三方平台子客企业下员工</li>
+<li>true: SaaS平台企业下的员工</li>
+</ul>
+
      */
     public Boolean getNotChannelOrganization() {
         return this.NotChannelOrganization;
     }
 
     /**
-     * Set 指定当前签署人为第三方应用集成子客，默认false：当前签署人为第三方应用集成子客，true：当前签署人为saas企业用户
-     * @param NotChannelOrganization 指定当前签署人为第三方应用集成子客，默认false：当前签署人为第三方应用集成子客，true：当前签署人为saas企业用户
+     * Set 指定签署人非第三方平台子客企业下员工还是SaaS平台企业，在ApproverType为ORGANIZATION时指定。
+<ul>
+<li>false: 默认值，第三方平台子客企业下员工</li>
+<li>true: SaaS平台企业下的员工</li>
+</ul>
+
+     * @param NotChannelOrganization 指定签署人非第三方平台子客企业下员工还是SaaS平台企业，在ApproverType为ORGANIZATION时指定。
+<ul>
+<li>false: 默认值，第三方平台子客企业下员工</li>
+<li>true: SaaS平台企业下的员工</li>
+</ul>
+
      */
     public void setNotChannelOrganization(Boolean NotChannelOrganization) {
         this.NotChannelOrganization = NotChannelOrganization;
     }
 
     /**
-     * Get 签署人类型,目前支持：0-企业签署人，1-个人签署人，3-企业静默签署人 
-     * @return ApproverType 签署人类型,目前支持：0-企业签署人，1-个人签署人，3-企业静默签署人
+     * Get 在指定签署方时，可选择企业B端或个人C端等不同的参与者类型，可选类型如下:
+
+ **0** :企业/企业员工（企业签署方或模板发起时的企业静默签）
+ **1** :个人/自然人
+**3** :企业/企业员工自动签（他方企业自动签署或文件发起时的本方企业自动签）
+
+注：类型为3（企业/企业员工自动签）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
+使用自动签时，请确保企业已经开通自动签功能，开通方式：控制台 -> 企业设置 -> 扩展服务 -> 企业自动签。
+使用文件发起自动签时使用前请联系对接的客户经理沟通。
+ 
+     * @return ApproverType 在指定签署方时，可选择企业B端或个人C端等不同的参与者类型，可选类型如下:
+
+ **0** :企业/企业员工（企业签署方或模板发起时的企业静默签）
+ **1** :个人/自然人
+**3** :企业/企业员工自动签（他方企业自动签署或文件发起时的本方企业自动签）
+
+注：类型为3（企业/企业员工自动签）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
+使用自动签时，请确保企业已经开通自动签功能，开通方式：控制台 -> 企业设置 -> 扩展服务 -> 企业自动签。
+使用文件发起自动签时使用前请联系对接的客户经理沟通。
+
      */
     public Long getApproverType() {
         return this.ApproverType;
     }
 
     /**
-     * Set 签署人类型,目前支持：0-企业签署人，1-个人签署人，3-企业静默签署人
-     * @param ApproverType 签署人类型,目前支持：0-企业签署人，1-个人签署人，3-企业静默签署人
+     * Set 在指定签署方时，可选择企业B端或个人C端等不同的参与者类型，可选类型如下:
+
+ **0** :企业/企业员工（企业签署方或模板发起时的企业静默签）
+ **1** :个人/自然人
+**3** :企业/企业员工自动签（他方企业自动签署或文件发起时的本方企业自动签）
+
+注：类型为3（企业/企业员工自动签）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
+使用自动签时，请确保企业已经开通自动签功能，开通方式：控制台 -> 企业设置 -> 扩展服务 -> 企业自动签。
+使用文件发起自动签时使用前请联系对接的客户经理沟通。
+
+     * @param ApproverType 在指定签署方时，可选择企业B端或个人C端等不同的参与者类型，可选类型如下:
+
+ **0** :企业/企业员工（企业签署方或模板发起时的企业静默签）
+ **1** :个人/自然人
+**3** :企业/企业员工自动签（他方企业自动签署或文件发起时的本方企业自动签）
+
+注：类型为3（企业/企业员工自动签）时，此接口会默认完成该签署方的签署。静默签署仅进行盖章操作，不能自动签名。
+使用自动签时，请确保企业已经开通自动签功能，开通方式：控制台 -> 企业设置 -> 扩展服务 -> 企业自动签。
+使用文件发起自动签时使用前请联系对接的客户经理沟通。
+
      */
     public void setApproverType(Long ApproverType) {
         this.ApproverType = ApproverType;
     }
 
     /**
-     * Get 企业id 
-     * @return OrganizationId 企业id
+     * Get 电子签平台给企业生成的企业id 
+     * @return OrganizationId 电子签平台给企业生成的企业id
      */
     public String getOrganizationId() {
         return this.OrganizationId;
     }
 
     /**
-     * Set 企业id
-     * @param OrganizationId 企业id
+     * Set 电子签平台给企业生成的企业id
+     * @param OrganizationId 电子签平台给企业生成的企业id
      */
     public void setOrganizationId(String OrganizationId) {
         this.OrganizationId = OrganizationId;
@@ -202,48 +342,52 @@ public class CommonFlowApprover extends AbstractModel{
     }
 
     /**
-     * Get 用户id 
-     * @return UserId 用户id
+     * Get 电子签平台给企业员工或者自热人生成的用户id 
+     * @return UserId 电子签平台给企业员工或者自热人生成的用户id
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 用户id
-     * @param UserId 用户id
+     * Set 电子签平台给企业员工或者自热人生成的用户id
+     * @param UserId 电子签平台给企业员工或者自热人生成的用户id
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
 
     /**
-     * Get 用户openId，第三方应用集成非静默签子客企业签署人必传 
-     * @return OpenId 用户openId，第三方应用集成非静默签子客企业签署人必传
+     * Get 第三方平台子客企业员工的唯一标识 
+     * @return OpenId 第三方平台子客企业员工的唯一标识
      */
     public String getOpenId() {
         return this.OpenId;
     }
 
     /**
-     * Set 用户openId，第三方应用集成非静默签子客企业签署人必传
-     * @param OpenId 用户openId，第三方应用集成非静默签子客企业签署人必传
+     * Set 第三方平台子客企业员工的唯一标识
+     * @param OpenId 第三方平台子客企业员工的唯一标识
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
     }
 
     /**
-     * Get 签署人名称，saas企业签署人，个人签署人必传 
-     * @return ApproverName 签署人名称，saas企业签署人，个人签署人必传
+     * Get 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。 
+     * @return ApproverName 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
      */
     public String getApproverName() {
         return this.ApproverName;
     }
 
     /**
-     * Set 签署人名称，saas企业签署人，个人签署人必传
-     * @param ApproverName 签署人名称，saas企业签署人，个人签署人必传
+     * Set 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
+     * @param ApproverName 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
      */
     public void setApproverName(String ApproverName) {
         this.ApproverName = ApproverName;
@@ -263,6 +407,78 @@ public class CommonFlowApprover extends AbstractModel{
      */
     public void setApproverMobile(String ApproverMobile) {
         this.ApproverMobile = ApproverMobile;
+    }
+
+    /**
+     * Get 签署方经办人的证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证  (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li>
+<li>OTHER_CARD_TYPE : 其他证件</li></ul>
+
+注: `其他证件类型为白名单功能，使用前请联系对接的客户经理沟通。` 
+     * @return ApproverIdCardType 签署方经办人的证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证  (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li>
+<li>OTHER_CARD_TYPE : 其他证件</li></ul>
+
+注: `其他证件类型为白名单功能，使用前请联系对接的客户经理沟通。`
+     */
+    public String getApproverIdCardType() {
+        return this.ApproverIdCardType;
+    }
+
+    /**
+     * Set 签署方经办人的证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证  (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li>
+<li>OTHER_CARD_TYPE : 其他证件</li></ul>
+
+注: `其他证件类型为白名单功能，使用前请联系对接的客户经理沟通。`
+     * @param ApproverIdCardType 签署方经办人的证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证  (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li>
+<li>OTHER_CARD_TYPE : 其他证件</li></ul>
+
+注: `其他证件类型为白名单功能，使用前请联系对接的客户经理沟通。`
+     */
+    public void setApproverIdCardType(String ApproverIdCardType) {
+        this.ApproverIdCardType = ApproverIdCardType;
+    }
+
+    /**
+     * Get 签署方经办人的证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。
+</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul> 
+     * @return ApproverIdCardNumber 签署方经办人的证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。
+</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+     */
+    public String getApproverIdCardNumber() {
+        return this.ApproverIdCardNumber;
+    }
+
+    /**
+     * Set 签署方经办人的证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。
+</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+     * @param ApproverIdCardNumber 签署方经办人的证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。
+</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+     */
+    public void setApproverIdCardNumber(String ApproverIdCardNumber) {
+        this.ApproverIdCardNumber = ApproverIdCardNumber;
     }
 
     /**
@@ -318,39 +534,175 @@ public class CommonFlowApprover extends AbstractModel{
     }
 
     /**
-     * Get 通知类型：SMS（短信） NONE（不做通知）, 不传 默认SMS 
-     * @return NotifyType 通知类型：SMS（短信） NONE（不做通知）, 不传 默认SMS
-     * @deprecated
+     * Get 通知签署方经办人的方式, 有以下途径:
+<ul><li> **SMS** :(默认)短信</li>
+<li> **NONE** : 不通知</li></ul>
+
+注: `签署方为第三方子客企业时会被置为NONE,   不会发短信通知` 
+     * @return NotifyType 通知签署方经办人的方式, 有以下途径:
+<ul><li> **SMS** :(默认)短信</li>
+<li> **NONE** : 不通知</li></ul>
+
+注: `签署方为第三方子客企业时会被置为NONE,   不会发短信通知`
      */
-    @Deprecated
     public String getNotifyType() {
         return this.NotifyType;
     }
 
     /**
-     * Set 通知类型：SMS（短信） NONE（不做通知）, 不传 默认SMS
-     * @param NotifyType 通知类型：SMS（短信） NONE（不做通知）, 不传 默认SMS
-     * @deprecated
+     * Set 通知签署方经办人的方式, 有以下途径:
+<ul><li> **SMS** :(默认)短信</li>
+<li> **NONE** : 不通知</li></ul>
+
+注: `签署方为第三方子客企业时会被置为NONE,   不会发短信通知`
+     * @param NotifyType 通知签署方经办人的方式, 有以下途径:
+<ul><li> **SMS** :(默认)短信</li>
+<li> **NONE** : 不通知</li></ul>
+
+注: `签署方为第三方子客企业时会被置为NONE,   不会发短信通知`
      */
-    @Deprecated
     public void setNotifyType(String NotifyType) {
         this.NotifyType = NotifyType;
     }
 
     /**
-     * Get 签署人配置 
-     * @return ApproverOption 签署人配置
+     * Get 签署人配置，用于控制签署人相关属性 
+     * @return ApproverOption 签署人配置，用于控制签署人相关属性
      */
     public CommonApproverOption getApproverOption() {
         return this.ApproverOption;
     }
 
     /**
-     * Set 签署人配置
-     * @param ApproverOption 签署人配置
+     * Set 签署人配置，用于控制签署人相关属性
+     * @param ApproverOption 签署人配置，用于控制签署人相关属性
      */
     public void setApproverOption(CommonApproverOption ApproverOption) {
         this.ApproverOption = ApproverOption;
+    }
+
+    /**
+     * Get 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。 
+     * @return SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
+     */
+    public Component [] getSignComponents() {
+        return this.SignComponents;
+    }
+
+    /**
+     * Set 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
+     * @param SignComponents 使用PDF文件直接发起合同时，签署人指定的签署控件；<br/>使用模板发起合同时，指定本企业印章签署控件的印章ID: <br/>通过ComponentId或ComponenetName指定签署控件，ComponentValue为印章ID。
+     */
+    public void setSignComponents(Component [] SignComponents) {
+        this.SignComponents = SignComponents;
+    }
+
+    /**
+     * Get 指定个人签署方查看合同的校验方式,可以传值如下:
+<ul><li>  **1**   : （默认）人脸识别,人脸识别后才能合同内容</li>
+<li>  **2**  : 手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）
+</li></ul>
+注: 
+<ul><li>如果合同流程设置ApproverVerifyType查看合同的校验方式,    则忽略此签署人的查看合同的校验方式</li>
+<li>此字段可传多个校验方式</li></ul> 
+     * @return ApproverVerifyTypes 指定个人签署方查看合同的校验方式,可以传值如下:
+<ul><li>  **1**   : （默认）人脸识别,人脸识别后才能合同内容</li>
+<li>  **2**  : 手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）
+</li></ul>
+注: 
+<ul><li>如果合同流程设置ApproverVerifyType查看合同的校验方式,    则忽略此签署人的查看合同的校验方式</li>
+<li>此字段可传多个校验方式</li></ul>
+     */
+    public Long [] getApproverVerifyTypes() {
+        return this.ApproverVerifyTypes;
+    }
+
+    /**
+     * Set 指定个人签署方查看合同的校验方式,可以传值如下:
+<ul><li>  **1**   : （默认）人脸识别,人脸识别后才能合同内容</li>
+<li>  **2**  : 手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）
+</li></ul>
+注: 
+<ul><li>如果合同流程设置ApproverVerifyType查看合同的校验方式,    则忽略此签署人的查看合同的校验方式</li>
+<li>此字段可传多个校验方式</li></ul>
+     * @param ApproverVerifyTypes 指定个人签署方查看合同的校验方式,可以传值如下:
+<ul><li>  **1**   : （默认）人脸识别,人脸识别后才能合同内容</li>
+<li>  **2**  : 手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）
+</li></ul>
+注: 
+<ul><li>如果合同流程设置ApproverVerifyType查看合同的校验方式,    则忽略此签署人的查看合同的校验方式</li>
+<li>此字段可传多个校验方式</li></ul>
+     */
+    public void setApproverVerifyTypes(Long [] ApproverVerifyTypes) {
+        this.ApproverVerifyTypes = ApproverVerifyTypes;
+    }
+
+    /**
+     * Get 签署人签署合同时的认证方式
+<ul><li> **1** :人脸认证</li>
+<li> **2** :签署密码</li>
+<li> **3** :运营商三要素</li>
+<li> **5** :设备指纹识别</li>
+<li> **6** :设备面容识别</li></ul>
+
+默认为1(人脸认证 ),2(签署密码),3(运营商三要素),5(设备指纹识别),6(设备面容识别)
+
+注: 
+1. 用<font color='red'>模板创建合同场景</font>, 签署人的认证方式需要在配置模板的时候指定, <font color='red'>在创建合同重新指定无效</font>
+2. 运营商三要素认证方式对手机号运营商及前缀有限制,可以参考[运营商支持列表类](https://qian.tencent.com/developers/partner/mobile_support)得到具体的支持说明
+3. 校验方式不允许只包含<font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>，至少需要再增加一种其他校验方式。
+4. <font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>只支持小程序使用，其他端暂不支持。 
+     * @return ApproverSignTypes 签署人签署合同时的认证方式
+<ul><li> **1** :人脸认证</li>
+<li> **2** :签署密码</li>
+<li> **3** :运营商三要素</li>
+<li> **5** :设备指纹识别</li>
+<li> **6** :设备面容识别</li></ul>
+
+默认为1(人脸认证 ),2(签署密码),3(运营商三要素),5(设备指纹识别),6(设备面容识别)
+
+注: 
+1. 用<font color='red'>模板创建合同场景</font>, 签署人的认证方式需要在配置模板的时候指定, <font color='red'>在创建合同重新指定无效</font>
+2. 运营商三要素认证方式对手机号运营商及前缀有限制,可以参考[运营商支持列表类](https://qian.tencent.com/developers/partner/mobile_support)得到具体的支持说明
+3. 校验方式不允许只包含<font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>，至少需要再增加一种其他校验方式。
+4. <font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>只支持小程序使用，其他端暂不支持。
+     */
+    public Long [] getApproverSignTypes() {
+        return this.ApproverSignTypes;
+    }
+
+    /**
+     * Set 签署人签署合同时的认证方式
+<ul><li> **1** :人脸认证</li>
+<li> **2** :签署密码</li>
+<li> **3** :运营商三要素</li>
+<li> **5** :设备指纹识别</li>
+<li> **6** :设备面容识别</li></ul>
+
+默认为1(人脸认证 ),2(签署密码),3(运营商三要素),5(设备指纹识别),6(设备面容识别)
+
+注: 
+1. 用<font color='red'>模板创建合同场景</font>, 签署人的认证方式需要在配置模板的时候指定, <font color='red'>在创建合同重新指定无效</font>
+2. 运营商三要素认证方式对手机号运营商及前缀有限制,可以参考[运营商支持列表类](https://qian.tencent.com/developers/partner/mobile_support)得到具体的支持说明
+3. 校验方式不允许只包含<font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>，至少需要再增加一种其他校验方式。
+4. <font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>只支持小程序使用，其他端暂不支持。
+     * @param ApproverSignTypes 签署人签署合同时的认证方式
+<ul><li> **1** :人脸认证</li>
+<li> **2** :签署密码</li>
+<li> **3** :运营商三要素</li>
+<li> **5** :设备指纹识别</li>
+<li> **6** :设备面容识别</li></ul>
+
+默认为1(人脸认证 ),2(签署密码),3(运营商三要素),5(设备指纹识别),6(设备面容识别)
+
+注: 
+1. 用<font color='red'>模板创建合同场景</font>, 签署人的认证方式需要在配置模板的时候指定, <font color='red'>在创建合同重新指定无效</font>
+2. 运营商三要素认证方式对手机号运营商及前缀有限制,可以参考[运营商支持列表类](https://qian.tencent.com/developers/partner/mobile_support)得到具体的支持说明
+3. 校验方式不允许只包含<font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>，至少需要再增加一种其他校验方式。
+4. <font color='red'>设备指纹识别</font>和<font color='red'>设备面容识别</font>只支持小程序使用，其他端暂不支持。
+     */
+    public void setApproverSignTypes(Long [] ApproverSignTypes) {
+        this.ApproverSignTypes = ApproverSignTypes;
     }
 
     public CommonFlowApprover() {
@@ -388,6 +740,12 @@ public class CommonFlowApprover extends AbstractModel{
         if (source.ApproverMobile != null) {
             this.ApproverMobile = new String(source.ApproverMobile);
         }
+        if (source.ApproverIdCardType != null) {
+            this.ApproverIdCardType = new String(source.ApproverIdCardType);
+        }
+        if (source.ApproverIdCardNumber != null) {
+            this.ApproverIdCardNumber = new String(source.ApproverIdCardNumber);
+        }
         if (source.RecipientId != null) {
             this.RecipientId = new String(source.RecipientId);
         }
@@ -402,6 +760,24 @@ public class CommonFlowApprover extends AbstractModel{
         }
         if (source.ApproverOption != null) {
             this.ApproverOption = new CommonApproverOption(source.ApproverOption);
+        }
+        if (source.SignComponents != null) {
+            this.SignComponents = new Component[source.SignComponents.length];
+            for (int i = 0; i < source.SignComponents.length; i++) {
+                this.SignComponents[i] = new Component(source.SignComponents[i]);
+            }
+        }
+        if (source.ApproverVerifyTypes != null) {
+            this.ApproverVerifyTypes = new Long[source.ApproverVerifyTypes.length];
+            for (int i = 0; i < source.ApproverVerifyTypes.length; i++) {
+                this.ApproverVerifyTypes[i] = new Long(source.ApproverVerifyTypes[i]);
+            }
+        }
+        if (source.ApproverSignTypes != null) {
+            this.ApproverSignTypes = new Long[source.ApproverSignTypes.length];
+            for (int i = 0; i < source.ApproverSignTypes.length; i++) {
+                this.ApproverSignTypes[i] = new Long(source.ApproverSignTypes[i]);
+            }
         }
     }
 
@@ -419,11 +795,16 @@ public class CommonFlowApprover extends AbstractModel{
         this.setParamSimple(map, prefix + "OpenId", this.OpenId);
         this.setParamSimple(map, prefix + "ApproverName", this.ApproverName);
         this.setParamSimple(map, prefix + "ApproverMobile", this.ApproverMobile);
+        this.setParamSimple(map, prefix + "ApproverIdCardType", this.ApproverIdCardType);
+        this.setParamSimple(map, prefix + "ApproverIdCardNumber", this.ApproverIdCardNumber);
         this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
         this.setParamSimple(map, prefix + "PreReadTime", this.PreReadTime);
         this.setParamSimple(map, prefix + "IsFullText", this.IsFullText);
         this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
         this.setParamObj(map, prefix + "ApproverOption.", this.ApproverOption);
+        this.setParamArrayObj(map, prefix + "SignComponents.", this.SignComponents);
+        this.setParamArraySimple(map, prefix + "ApproverVerifyTypes.", this.ApproverVerifyTypes);
+        this.setParamArraySimple(map, prefix + "ApproverSignTypes.", this.ApproverSignTypes);
 
     }
 }

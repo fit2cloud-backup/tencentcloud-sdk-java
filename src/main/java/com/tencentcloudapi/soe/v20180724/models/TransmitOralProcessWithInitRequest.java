@@ -16,11 +16,12 @@
 package com.tencentcloudapi.soe.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TransmitOralProcessWithInitRequest extends AbstractModel{
+public class TransmitOralProcessWithInitRequest extends AbstractModel {
 
     /**
     * 流式数据包的序号，从1开始，当IsEnd字段为1后后续序号无意义，当IsLongLifeSession不为1且为非流式模式时无意义。
@@ -76,7 +77,7 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
 
     /**
     * 被评估语音对应的文本，仅支持中文和英文。
-句子模式下不超过个 30 单词或者中文文字，段落模式不超过 120 单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
+句子模式下不超过 30个 单词或者中文文字，段落模式不超过 120 个单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
 关于RefText的文本键入要求，请参考[评测模式介绍](https://cloud.tencent.com/document/product/884/56131)。
 如需要在评测模式下使用自定义注音（支持中英文），可以通过设置「TextMode」参数实现，设置方式请参考[音素标注](https://cloud.tencent.com/document/product/884/33698)。
     */
@@ -187,6 +188,14 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
     @SerializedName("Keyword")
     @Expose
     private String Keyword;
+
+    /**
+    * 音频存储模式，此参数已废弃，无需设置；
+注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。
+    */
+    @SerializedName("COSBucketURL")
+    @Expose
+    private String COSBucketURL;
 
     /**
      * Get 流式数据包的序号，从1开始，当IsEnd字段为1后后续序号无意义，当IsLongLifeSession不为1且为非流式模式时无意义。
@@ -326,11 +335,11 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
 
     /**
      * Get 被评估语音对应的文本，仅支持中文和英文。
-句子模式下不超过个 30 单词或者中文文字，段落模式不超过 120 单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
+句子模式下不超过 30个 单词或者中文文字，段落模式不超过 120 个单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
 关于RefText的文本键入要求，请参考[评测模式介绍](https://cloud.tencent.com/document/product/884/56131)。
 如需要在评测模式下使用自定义注音（支持中英文），可以通过设置「TextMode」参数实现，设置方式请参考[音素标注](https://cloud.tencent.com/document/product/884/33698)。 
      * @return RefText 被评估语音对应的文本，仅支持中文和英文。
-句子模式下不超过个 30 单词或者中文文字，段落模式不超过 120 单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
+句子模式下不超过 30个 单词或者中文文字，段落模式不超过 120 个单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
 关于RefText的文本键入要求，请参考[评测模式介绍](https://cloud.tencent.com/document/product/884/56131)。
 如需要在评测模式下使用自定义注音（支持中英文），可以通过设置「TextMode」参数实现，设置方式请参考[音素标注](https://cloud.tencent.com/document/product/884/33698)。
      */
@@ -340,11 +349,11 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
 
     /**
      * Set 被评估语音对应的文本，仅支持中文和英文。
-句子模式下不超过个 30 单词或者中文文字，段落模式不超过 120 单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
+句子模式下不超过 30个 单词或者中文文字，段落模式不超过 120 个单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
 关于RefText的文本键入要求，请参考[评测模式介绍](https://cloud.tencent.com/document/product/884/56131)。
 如需要在评测模式下使用自定义注音（支持中英文），可以通过设置「TextMode」参数实现，设置方式请参考[音素标注](https://cloud.tencent.com/document/product/884/33698)。
      * @param RefText 被评估语音对应的文本，仅支持中文和英文。
-句子模式下不超过个 30 单词或者中文文字，段落模式不超过 120 单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
+句子模式下不超过 30个 单词或者中文文字，段落模式不超过 120 个单词或者中文文字，中文评估使用 utf-8 编码，自由说模式RefText可以不填。
 关于RefText的文本键入要求，请参考[评测模式介绍](https://cloud.tencent.com/document/product/884/56131)。
 如需要在评测模式下使用自定义注音（支持中英文），可以通过设置「TextMode」参数实现，设置方式请参考[音素标注](https://cloud.tencent.com/document/product/884/33698)。
      */
@@ -485,7 +494,9 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
 注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。 
      * @return StorageMode 音频存储模式，此参数已废弃，无需设置，设置与否都默认为0不存储；
 注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。
+     * @deprecated
      */
+    @Deprecated
     public Long getStorageMode() {
         return this.StorageMode;
     }
@@ -495,7 +506,9 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
 注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。
      * @param StorageMode 音频存储模式，此参数已废弃，无需设置，设置与否都默认为0不存储；
 注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。
+     * @deprecated
      */
+    @Deprecated
     public void setStorageMode(Long StorageMode) {
         this.StorageMode = StorageMode;
     }
@@ -636,6 +649,26 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
         this.Keyword = Keyword;
     }
 
+    /**
+     * Get 音频存储模式，此参数已废弃，无需设置；
+注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。 
+     * @return COSBucketURL 音频存储模式，此参数已废弃，无需设置；
+注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。
+     */
+    public String getCOSBucketURL() {
+        return this.COSBucketURL;
+    }
+
+    /**
+     * Set 音频存储模式，此参数已废弃，无需设置；
+注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。
+     * @param COSBucketURL 音频存储模式，此参数已废弃，无需设置；
+注：有存储需求的用户建议自行存储至腾讯云COS[对象存储](https://cloud.tencent.com/product/cos)使用。
+     */
+    public void setCOSBucketURL(String COSBucketURL) {
+        this.COSBucketURL = COSBucketURL;
+    }
+
     public TransmitOralProcessWithInitRequest() {
     }
 
@@ -698,6 +731,9 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
         if (source.Keyword != null) {
             this.Keyword = new String(source.Keyword);
         }
+        if (source.COSBucketURL != null) {
+            this.COSBucketURL = new String(source.COSBucketURL);
+        }
     }
 
 
@@ -723,6 +759,7 @@ public class TransmitOralProcessWithInitRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsQuery", this.IsQuery);
         this.setParamSimple(map, prefix + "TextMode", this.TextMode);
         this.setParamSimple(map, prefix + "Keyword", this.Keyword);
+        this.setParamSimple(map, prefix + "COSBucketURL", this.COSBucketURL);
 
     }
 }

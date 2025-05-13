@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EdgeCluster extends AbstractModel{
+public class EdgeCluster extends AbstractModel {
 
     /**
     * 集群Id
@@ -94,7 +95,6 @@ public class EdgeCluster extends AbstractModel{
 
     /**
     * 节点最大Pod数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxNodePodNum")
     @Expose
@@ -102,7 +102,6 @@ public class EdgeCluster extends AbstractModel{
 
     /**
     * 集群高级设置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterAdvancedSettings")
     @Expose
@@ -110,7 +109,6 @@ public class EdgeCluster extends AbstractModel{
 
     /**
     * 边缘容器集群级别
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Level")
     @Expose
@@ -118,7 +116,6 @@ public class EdgeCluster extends AbstractModel{
 
     /**
     * 是否支持自动提升集群配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoUpgradeClusterLevel")
     @Expose
@@ -126,7 +123,6 @@ public class EdgeCluster extends AbstractModel{
 
     /**
     * 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChargeType")
     @Expose
@@ -134,7 +130,6 @@ public class EdgeCluster extends AbstractModel{
 
     /**
     * 边缘集群组件的版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EdgeVersion")
     @Expose
@@ -309,10 +304,8 @@ public class EdgeCluster extends AbstractModel{
     }
 
     /**
-     * Get 节点最大Pod数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点最大Pod数 
      * @return MaxNodePodNum 节点最大Pod数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxNodePodNum() {
         return this.MaxNodePodNum;
@@ -320,19 +313,15 @@ public class EdgeCluster extends AbstractModel{
 
     /**
      * Set 节点最大Pod数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxNodePodNum 节点最大Pod数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxNodePodNum(Long MaxNodePodNum) {
         this.MaxNodePodNum = MaxNodePodNum;
     }
 
     /**
-     * Get 集群高级设置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群高级设置 
      * @return ClusterAdvancedSettings 集群高级设置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EdgeClusterAdvancedSettings getClusterAdvancedSettings() {
         return this.ClusterAdvancedSettings;
@@ -340,19 +329,15 @@ public class EdgeCluster extends AbstractModel{
 
     /**
      * Set 集群高级设置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterAdvancedSettings 集群高级设置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterAdvancedSettings(EdgeClusterAdvancedSettings ClusterAdvancedSettings) {
         this.ClusterAdvancedSettings = ClusterAdvancedSettings;
     }
 
     /**
-     * Get 边缘容器集群级别
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 边缘容器集群级别 
      * @return Level 边缘容器集群级别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLevel() {
         return this.Level;
@@ -360,19 +345,15 @@ public class EdgeCluster extends AbstractModel{
 
     /**
      * Set 边缘容器集群级别
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Level 边缘容器集群级别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLevel(String Level) {
         this.Level = Level;
     }
 
     /**
-     * Get 是否支持自动提升集群配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否支持自动提升集群配置 
      * @return AutoUpgradeClusterLevel 是否支持自动提升集群配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAutoUpgradeClusterLevel() {
         return this.AutoUpgradeClusterLevel;
@@ -380,19 +361,15 @@ public class EdgeCluster extends AbstractModel{
 
     /**
      * Set 是否支持自动提升集群配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoUpgradeClusterLevel 是否支持自动提升集群配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoUpgradeClusterLevel(Boolean AutoUpgradeClusterLevel) {
         this.AutoUpgradeClusterLevel = AutoUpgradeClusterLevel;
     }
 
     /**
-     * Get 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID 
      * @return ChargeType 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChargeType() {
         return this.ChargeType;
@@ -400,19 +377,15 @@ public class EdgeCluster extends AbstractModel{
 
     /**
      * Set 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChargeType 集群付费模式，支持POSTPAID_BY_HOUR或者PREPAID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChargeType(String ChargeType) {
         this.ChargeType = ChargeType;
     }
 
     /**
-     * Get 边缘集群组件的版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 边缘集群组件的版本 
      * @return EdgeVersion 边缘集群组件的版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEdgeVersion() {
         return this.EdgeVersion;
@@ -420,9 +393,7 @@ public class EdgeCluster extends AbstractModel{
 
     /**
      * Set 边缘集群组件的版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EdgeVersion 边缘集群组件的版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEdgeVersion(String EdgeVersion) {
         this.EdgeVersion = EdgeVersion;

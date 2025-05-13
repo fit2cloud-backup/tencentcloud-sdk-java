@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CertificateOutput extends AbstractModel{
+public class CertificateOutput extends AbstractModel {
 
     /**
     * 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
@@ -28,6 +29,13 @@ public class CertificateOutput extends AbstractModel{
     @SerializedName("SSLMode")
     @Expose
     private String SSLMode;
+
+    /**
+    * 是否开启客户端证书验证，只在双向认证时生效。
+    */
+    @SerializedName("SSLVerifyClient")
+    @Expose
+    private String SSLVerifyClient;
 
     /**
     * 服务端证书的ID。
@@ -38,7 +46,6 @@ public class CertificateOutput extends AbstractModel{
 
     /**
     * 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CertCaId")
     @Expose
@@ -46,7 +53,6 @@ public class CertificateOutput extends AbstractModel{
 
     /**
     * 多本服务器证书场景扩展的服务器证书ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtCertIds")
     @Expose
@@ -69,6 +75,22 @@ public class CertificateOutput extends AbstractModel{
     }
 
     /**
+     * Get 是否开启客户端证书验证，只在双向认证时生效。 
+     * @return SSLVerifyClient 是否开启客户端证书验证，只在双向认证时生效。
+     */
+    public String getSSLVerifyClient() {
+        return this.SSLVerifyClient;
+    }
+
+    /**
+     * Set 是否开启客户端证书验证，只在双向认证时生效。
+     * @param SSLVerifyClient 是否开启客户端证书验证，只在双向认证时生效。
+     */
+    public void setSSLVerifyClient(String SSLVerifyClient) {
+        this.SSLVerifyClient = SSLVerifyClient;
+    }
+
+    /**
      * Get 服务端证书的ID。 
      * @return CertId 服务端证书的ID。
      */
@@ -85,10 +107,8 @@ public class CertificateOutput extends AbstractModel{
     }
 
     /**
-     * Get 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端证书的 ID。 
      * @return CertCaId 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCertCaId() {
         return this.CertCaId;
@@ -96,19 +116,15 @@ public class CertificateOutput extends AbstractModel{
 
     /**
      * Set 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CertCaId 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCertCaId(String CertCaId) {
         this.CertCaId = CertCaId;
     }
 
     /**
-     * Get 多本服务器证书场景扩展的服务器证书ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 多本服务器证书场景扩展的服务器证书ID。 
      * @return ExtCertIds 多本服务器证书场景扩展的服务器证书ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getExtCertIds() {
         return this.ExtCertIds;
@@ -116,9 +132,7 @@ public class CertificateOutput extends AbstractModel{
 
     /**
      * Set 多本服务器证书场景扩展的服务器证书ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtCertIds 多本服务器证书场景扩展的服务器证书ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtCertIds(String [] ExtCertIds) {
         this.ExtCertIds = ExtCertIds;
@@ -134,6 +148,9 @@ public class CertificateOutput extends AbstractModel{
     public CertificateOutput(CertificateOutput source) {
         if (source.SSLMode != null) {
             this.SSLMode = new String(source.SSLMode);
+        }
+        if (source.SSLVerifyClient != null) {
+            this.SSLVerifyClient = new String(source.SSLVerifyClient);
         }
         if (source.CertId != null) {
             this.CertId = new String(source.CertId);
@@ -155,6 +172,7 @@ public class CertificateOutput extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SSLMode", this.SSLMode);
+        this.setParamSimple(map, prefix + "SSLVerifyClient", this.SSLVerifyClient);
         this.setParamSimple(map, prefix + "CertId", this.CertId);
         this.setParamSimple(map, prefix + "CertCaId", this.CertCaId);
         this.setParamArraySimple(map, prefix + "ExtCertIds.", this.ExtCertIds);

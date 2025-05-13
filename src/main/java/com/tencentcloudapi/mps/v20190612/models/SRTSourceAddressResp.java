@@ -16,14 +16,16 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SRTSourceAddressResp extends AbstractModel{
+public class SRTSourceAddressResp extends AbstractModel {
 
     /**
     * 对端IP。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ip")
     @Expose
@@ -31,14 +33,17 @@ public class SRTSourceAddressResp extends AbstractModel{
 
     /**
     * 对端端口。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
     private Long Port;
 
     /**
-     * Get 对端IP。 
+     * Get 对端IP。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Ip 对端IP。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIp() {
         return this.Ip;
@@ -46,15 +51,19 @@ public class SRTSourceAddressResp extends AbstractModel{
 
     /**
      * Set 对端IP。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Ip 对端IP。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
     }
 
     /**
-     * Get 对端端口。 
+     * Get 对端端口。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Port 对端端口。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -62,7 +71,9 @@ public class SRTSourceAddressResp extends AbstractModel{
 
     /**
      * Set 对端端口。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Port 对端端口。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;

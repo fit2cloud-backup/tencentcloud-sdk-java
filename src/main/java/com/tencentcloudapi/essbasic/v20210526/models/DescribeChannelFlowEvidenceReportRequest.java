@@ -16,21 +16,30 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
+public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel {
 
     /**
-    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+    * 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 出证报告编号
+    * 签署报告编号, 由<a href="https://qian.tencent.com/developers/partnerApis/certificate/CreateChannelFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
     */
     @SerializedName("ReportId")
     @Expose
@@ -44,32 +53,73 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填 
-     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+    * 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+    */
+    @SerializedName("ReportType")
+    @Expose
+    private Long ReportType;
+
+    /**
+     * Get 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证 
+     * @return Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
-     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+     * Set 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
+     * @param Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 出证报告编号 
-     * @return ReportId 出证报告编号
+     * Get 签署报告编号, 由<a href="https://qian.tencent.com/developers/partnerApis/certificate/CreateChannelFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生 
+     * @return ReportId 签署报告编号, 由<a href="https://qian.tencent.com/developers/partnerApis/certificate/CreateChannelFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
      */
     public String getReportId() {
         return this.ReportId;
     }
 
     /**
-     * Set 出证报告编号
-     * @param ReportId 出证报告编号
+     * Set 签署报告编号, 由<a href="https://qian.tencent.com/developers/partnerApis/certificate/CreateChannelFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
+     * @param ReportId 签署报告编号, 由<a href="https://qian.tencent.com/developers/partnerApis/certificate/CreateChannelFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
      */
     public void setReportId(String ReportId) {
         this.ReportId = ReportId;
@@ -95,6 +145,30 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
         this.Operator = Operator;
     }
 
+    /**
+     * Get 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul> 
+     * @return ReportType 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+     */
+    public Long getReportType() {
+        return this.ReportType;
+    }
+
+    /**
+     * Set 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+     * @param ReportType 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+     */
+    public void setReportType(Long ReportType) {
+        this.ReportType = ReportType;
+    }
+
     public DescribeChannelFlowEvidenceReportRequest() {
     }
 
@@ -112,6 +186,9 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
+        if (source.ReportType != null) {
+            this.ReportType = new Long(source.ReportType);
+        }
     }
 
 
@@ -122,6 +199,7 @@ public class DescribeChannelFlowEvidenceReportRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamSimple(map, prefix + "ReportId", this.ReportId);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
+        this.setParamSimple(map, prefix + "ReportType", this.ReportType);
 
     }
 }

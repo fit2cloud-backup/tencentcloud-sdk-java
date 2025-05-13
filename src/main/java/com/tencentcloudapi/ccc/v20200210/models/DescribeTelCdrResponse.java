@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTelCdrResponse extends AbstractModel{
+public class DescribeTelCdrResponse extends AbstractModel {
 
     /**
     * 话单记录总数
@@ -37,7 +38,14 @@ public class DescribeTelCdrResponse extends AbstractModel{
     private TelCdrInfo [] TelCdrs;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 话单记录
+    */
+    @SerializedName("TelCdrList")
+    @Expose
+    private TelCdrInfo [] TelCdrList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -62,7 +70,9 @@ public class DescribeTelCdrResponse extends AbstractModel{
     /**
      * Get 话单记录 
      * @return TelCdrs 话单记录
+     * @deprecated
      */
+    @Deprecated
     public TelCdrInfo [] getTelCdrs() {
         return this.TelCdrs;
     }
@@ -70,22 +80,40 @@ public class DescribeTelCdrResponse extends AbstractModel{
     /**
      * Set 话单记录
      * @param TelCdrs 话单记录
+     * @deprecated
      */
+    @Deprecated
     public void setTelCdrs(TelCdrInfo [] TelCdrs) {
         this.TelCdrs = TelCdrs;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 话单记录 
+     * @return TelCdrList 话单记录
+     */
+    public TelCdrInfo [] getTelCdrList() {
+        return this.TelCdrList;
+    }
+
+    /**
+     * Set 话单记录
+     * @param TelCdrList 话单记录
+     */
+    public void setTelCdrList(TelCdrInfo [] TelCdrList) {
+        this.TelCdrList = TelCdrList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -108,6 +136,12 @@ public class DescribeTelCdrResponse extends AbstractModel{
                 this.TelCdrs[i] = new TelCdrInfo(source.TelCdrs[i]);
             }
         }
+        if (source.TelCdrList != null) {
+            this.TelCdrList = new TelCdrInfo[source.TelCdrList.length];
+            for (int i = 0; i < source.TelCdrList.length; i++) {
+                this.TelCdrList[i] = new TelCdrInfo(source.TelCdrList[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +154,7 @@ public class DescribeTelCdrResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "TelCdrs.", this.TelCdrs);
+        this.setParamArrayObj(map, prefix + "TelCdrList.", this.TelCdrList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

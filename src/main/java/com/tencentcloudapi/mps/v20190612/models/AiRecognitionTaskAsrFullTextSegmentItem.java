@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionTaskAsrFullTextSegmentItem extends AbstractModel{
+public class AiRecognitionTaskAsrFullTextSegmentItem extends AbstractModel {
 
     /**
     * 识别片段置信度。取值：0~100。
@@ -49,6 +50,13 @@ public class AiRecognitionTaskAsrFullTextSegmentItem extends AbstractModel{
     @SerializedName("Text")
     @Expose
     private String Text;
+
+    /**
+    * 字词时间戳信息。
+    */
+    @SerializedName("Wordlist")
+    @Expose
+    private WordResult [] Wordlist;
 
     /**
      * Get 识别片段置信度。取值：0~100。 
@@ -114,6 +122,22 @@ public class AiRecognitionTaskAsrFullTextSegmentItem extends AbstractModel{
         this.Text = Text;
     }
 
+    /**
+     * Get 字词时间戳信息。 
+     * @return Wordlist 字词时间戳信息。
+     */
+    public WordResult [] getWordlist() {
+        return this.Wordlist;
+    }
+
+    /**
+     * Set 字词时间戳信息。
+     * @param Wordlist 字词时间戳信息。
+     */
+    public void setWordlist(WordResult [] Wordlist) {
+        this.Wordlist = Wordlist;
+    }
+
     public AiRecognitionTaskAsrFullTextSegmentItem() {
     }
 
@@ -134,6 +158,12 @@ public class AiRecognitionTaskAsrFullTextSegmentItem extends AbstractModel{
         if (source.Text != null) {
             this.Text = new String(source.Text);
         }
+        if (source.Wordlist != null) {
+            this.Wordlist = new WordResult[source.Wordlist.length];
+            for (int i = 0; i < source.Wordlist.length; i++) {
+                this.Wordlist[i] = new WordResult(source.Wordlist[i]);
+            }
+        }
     }
 
 
@@ -145,6 +175,7 @@ public class AiRecognitionTaskAsrFullTextSegmentItem extends AbstractModel{
         this.setParamSimple(map, prefix + "StartTimeOffset", this.StartTimeOffset);
         this.setParamSimple(map, prefix + "EndTimeOffset", this.EndTimeOffset);
         this.setParamSimple(map, prefix + "Text", this.Text);
+        this.setParamArrayObj(map, prefix + "Wordlist.", this.Wordlist);
 
     }
 }

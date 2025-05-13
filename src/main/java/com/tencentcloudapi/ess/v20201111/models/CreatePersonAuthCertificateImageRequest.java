@@ -16,14 +16,16 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePersonAuthCertificateImageRequest extends AbstractModel{
+public class CreatePersonAuthCertificateImageRequest extends AbstractModel {
 
     /**
-    * 操作人信息
+    * 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
@@ -37,35 +39,58 @@ public class CreatePersonAuthCertificateImageRequest extends AbstractModel{
     private String UserName;
 
     /**
-    * 身份证件类型取值：
-ID_CARD 身居民身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 港澳居民来往内地通行证
-FOREIGN_ID_CARD 外国人永久居留身份证
-HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
+    * 证件类型，支持以下类型
+<ul><li> ID_CARD  : 中国大陆居民身份证 (默认值)</li>
+<li> HONGKONG_AND_MACAO  : 中国港澳居民来往内地通行证</li>
+<li> HONGKONG_MACAO_AND_TAIWAN  : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
     */
     @SerializedName("IdCardType")
     @Expose
     private String IdCardType;
 
     /**
-    * 身份证件号码
+    * 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
     */
     @SerializedName("IdCardNumber")
     @Expose
     private String IdCardNumber;
 
     /**
-     * Get 操作人信息 
-     * @return Operator 操作人信息
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
+
+    /**
+    * 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+    */
+    @SerializedName("SceneKey")
+    @Expose
+    private String SceneKey;
+
+    /**
+     * Get 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作人信息
-     * @param Operator 操作人信息
+     * Set 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
@@ -88,55 +113,107 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
     }
 
     /**
-     * Get 身份证件类型取值：
-ID_CARD 身居民身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 港澳居民来往内地通行证
-FOREIGN_ID_CARD 外国人永久居留身份证
-HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证) 
-     * @return IdCardType 身份证件类型取值：
-ID_CARD 身居民身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 港澳居民来往内地通行证
-FOREIGN_ID_CARD 外国人永久居留身份证
-HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
+     * Get 证件类型，支持以下类型
+<ul><li> ID_CARD  : 中国大陆居民身份证 (默认值)</li>
+<li> HONGKONG_AND_MACAO  : 中国港澳居民来往内地通行证</li>
+<li> HONGKONG_MACAO_AND_TAIWAN  : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul> 
+     * @return IdCardType 证件类型，支持以下类型
+<ul><li> ID_CARD  : 中国大陆居民身份证 (默认值)</li>
+<li> HONGKONG_AND_MACAO  : 中国港澳居民来往内地通行证</li>
+<li> HONGKONG_MACAO_AND_TAIWAN  : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
      */
     public String getIdCardType() {
         return this.IdCardType;
     }
 
     /**
-     * Set 身份证件类型取值：
-ID_CARD 身居民身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 港澳居民来往内地通行证
-FOREIGN_ID_CARD 外国人永久居留身份证
-HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
-     * @param IdCardType 身份证件类型取值：
-ID_CARD 身居民身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 港澳居民来往内地通行证
-FOREIGN_ID_CARD 外国人永久居留身份证
-HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
+     * Set 证件类型，支持以下类型
+<ul><li> ID_CARD  : 中国大陆居民身份证 (默认值)</li>
+<li> HONGKONG_AND_MACAO  : 中国港澳居民来往内地通行证</li>
+<li> HONGKONG_MACAO_AND_TAIWAN  : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
+     * @param IdCardType 证件类型，支持以下类型
+<ul><li> ID_CARD  : 中国大陆居民身份证 (默认值)</li>
+<li> HONGKONG_AND_MACAO  : 中国港澳居民来往内地通行证</li>
+<li> HONGKONG_MACAO_AND_TAIWAN  : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
      */
     public void setIdCardType(String IdCardType) {
         this.IdCardType = IdCardType;
     }
 
     /**
-     * Get 身份证件号码 
-     * @return IdCardNumber 身份证件号码
+     * Get 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul> 
+     * @return IdCardNumber 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
      */
     public String getIdCardNumber() {
         return this.IdCardNumber;
     }
 
     /**
-     * Set 身份证件号码
-     * @param IdCardNumber 身份证件号码
+     * Set 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+     * @param IdCardNumber 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
      */
     public void setIdCardNumber(String IdCardNumber) {
         this.IdCardNumber = IdCardNumber;
+    }
+
+    /**
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
+    }
+
+    /**
+     * Get 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN` 
+     * @return SceneKey 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+     */
+    public String getSceneKey() {
+        return this.SceneKey;
+    }
+
+    /**
+     * Set 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+     * @param SceneKey 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+     */
+    public void setSceneKey(String SceneKey) {
+        this.SceneKey = SceneKey;
     }
 
     public CreatePersonAuthCertificateImageRequest() {
@@ -159,6 +236,12 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
         if (source.IdCardNumber != null) {
             this.IdCardNumber = new String(source.IdCardNumber);
         }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
+        }
+        if (source.SceneKey != null) {
+            this.SceneKey = new String(source.SceneKey);
+        }
     }
 
 
@@ -170,6 +253,8 @@ HONGKONG_MACAO_AND_TAIWAN 港澳台居民居住证(格式同居民身份证)
         this.setParamSimple(map, prefix + "UserName", this.UserName);
         this.setParamSimple(map, prefix + "IdCardType", this.IdCardType);
         this.setParamSimple(map, prefix + "IdCardNumber", this.IdCardNumber);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "SceneKey", this.SceneKey);
 
     }
 }

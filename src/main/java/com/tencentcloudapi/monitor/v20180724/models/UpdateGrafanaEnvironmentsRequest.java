@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateGrafanaEnvironmentsRequest extends AbstractModel{
+public class UpdateGrafanaEnvironmentsRequest extends AbstractModel {
 
     /**
     * Grafana 实例 ID，例如：grafana-12345678
@@ -30,7 +31,8 @@ public class UpdateGrafanaEnvironmentsRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 环境变量字符串
+    * JSON 序列化后的环境变量字符串，如 "{\"key1\":\"key2\"}"
+
     */
     @SerializedName("Envs")
     @Expose
@@ -53,16 +55,20 @@ public class UpdateGrafanaEnvironmentsRequest extends AbstractModel{
     }
 
     /**
-     * Get 环境变量字符串 
-     * @return Envs 环境变量字符串
+     * Get JSON 序列化后的环境变量字符串，如 "{\"key1\":\"key2\"}"
+ 
+     * @return Envs JSON 序列化后的环境变量字符串，如 "{\"key1\":\"key2\"}"
+
      */
     public String getEnvs() {
         return this.Envs;
     }
 
     /**
-     * Set 环境变量字符串
-     * @param Envs 环境变量字符串
+     * Set JSON 序列化后的环境变量字符串，如 "{\"key1\":\"key2\"}"
+
+     * @param Envs JSON 序列化后的环境变量字符串，如 "{\"key1\":\"key2\"}"
+
      */
     public void setEnvs(String Envs) {
         this.Envs = Envs;

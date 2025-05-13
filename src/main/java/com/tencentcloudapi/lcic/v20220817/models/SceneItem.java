@@ -16,11 +16,127 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SceneItem extends AbstractModel{
+public class SceneItem extends AbstractModel {
+
+    /**
+    * 场景名称
+    */
+    @SerializedName("Scene")
+    @Expose
+    private String Scene;
+
+    /**
+    * logo地址
+    */
+    @SerializedName("LogoUrl")
+    @Expose
+    private String LogoUrl;
+
+    /**
+    * 主页地址
+    */
+    @SerializedName("HomeUrl")
+    @Expose
+    private String HomeUrl;
+
+    /**
+    * 自定义的js
+    */
+    @SerializedName("JSUrl")
+    @Expose
+    private String JSUrl;
+
+    /**
+    * 自定义的css
+    */
+    @SerializedName("CSSUrl")
+    @Expose
+    private String CSSUrl;
+
+    /**
+     * Get 场景名称 
+     * @return Scene 场景名称
+     */
+    public String getScene() {
+        return this.Scene;
+    }
+
+    /**
+     * Set 场景名称
+     * @param Scene 场景名称
+     */
+    public void setScene(String Scene) {
+        this.Scene = Scene;
+    }
+
+    /**
+     * Get logo地址 
+     * @return LogoUrl logo地址
+     */
+    public String getLogoUrl() {
+        return this.LogoUrl;
+    }
+
+    /**
+     * Set logo地址
+     * @param LogoUrl logo地址
+     */
+    public void setLogoUrl(String LogoUrl) {
+        this.LogoUrl = LogoUrl;
+    }
+
+    /**
+     * Get 主页地址 
+     * @return HomeUrl 主页地址
+     */
+    public String getHomeUrl() {
+        return this.HomeUrl;
+    }
+
+    /**
+     * Set 主页地址
+     * @param HomeUrl 主页地址
+     */
+    public void setHomeUrl(String HomeUrl) {
+        this.HomeUrl = HomeUrl;
+    }
+
+    /**
+     * Get 自定义的js 
+     * @return JSUrl 自定义的js
+     */
+    public String getJSUrl() {
+        return this.JSUrl;
+    }
+
+    /**
+     * Set 自定义的js
+     * @param JSUrl 自定义的js
+     */
+    public void setJSUrl(String JSUrl) {
+        this.JSUrl = JSUrl;
+    }
+
+    /**
+     * Get 自定义的css 
+     * @return CSSUrl 自定义的css
+     */
+    public String getCSSUrl() {
+        return this.CSSUrl;
+    }
+
+    /**
+     * Set 自定义的css
+     * @param CSSUrl 自定义的css
+     */
+    public void setCSSUrl(String CSSUrl) {
+        this.CSSUrl = CSSUrl;
+    }
 
     public SceneItem() {
     }
@@ -30,6 +146,21 @@ public class SceneItem extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public SceneItem(SceneItem source) {
+        if (source.Scene != null) {
+            this.Scene = new String(source.Scene);
+        }
+        if (source.LogoUrl != null) {
+            this.LogoUrl = new String(source.LogoUrl);
+        }
+        if (source.HomeUrl != null) {
+            this.HomeUrl = new String(source.HomeUrl);
+        }
+        if (source.JSUrl != null) {
+            this.JSUrl = new String(source.JSUrl);
+        }
+        if (source.CSSUrl != null) {
+            this.CSSUrl = new String(source.CSSUrl);
+        }
     }
 
 
@@ -37,6 +168,11 @@ public class SceneItem extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "Scene", this.Scene);
+        this.setParamSimple(map, prefix + "LogoUrl", this.LogoUrl);
+        this.setParamSimple(map, prefix + "HomeUrl", this.HomeUrl);
+        this.setParamSimple(map, prefix + "JSUrl", this.JSUrl);
+        this.setParamSimple(map, prefix + "CSSUrl", this.CSSUrl);
 
     }
 }

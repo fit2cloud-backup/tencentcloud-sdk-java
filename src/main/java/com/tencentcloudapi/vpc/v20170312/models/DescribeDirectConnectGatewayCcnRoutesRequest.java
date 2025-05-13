@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDirectConnectGatewayCcnRoutesRequest extends AbstractModel{
+public class DescribeDirectConnectGatewayCcnRoutesRequest extends AbstractModel {
 
     /**
     * 专线网关ID，形如：`dcg-prpqlmg1`。
@@ -37,6 +38,13 @@ public class DescribeDirectConnectGatewayCcnRoutesRequest extends AbstractModel{
     @SerializedName("CcnRouteType")
     @Expose
     private String CcnRouteType;
+
+    /**
+    * 地址类型，支持：IPv4、IPv6。默认IPv4。
+    */
+    @SerializedName("AddressType")
+    @Expose
+    private String AddressType;
 
     /**
     * 偏移量。
@@ -93,6 +101,22 @@ public class DescribeDirectConnectGatewayCcnRoutesRequest extends AbstractModel{
     }
 
     /**
+     * Get 地址类型，支持：IPv4、IPv6。默认IPv4。 
+     * @return AddressType 地址类型，支持：IPv4、IPv6。默认IPv4。
+     */
+    public String getAddressType() {
+        return this.AddressType;
+    }
+
+    /**
+     * Set 地址类型，支持：IPv4、IPv6。默认IPv4。
+     * @param AddressType 地址类型，支持：IPv4、IPv6。默认IPv4。
+     */
+    public void setAddressType(String AddressType) {
+        this.AddressType = AddressType;
+    }
+
+    /**
      * Get 偏移量。 
      * @return Offset 偏移量。
      */
@@ -138,6 +162,9 @@ public class DescribeDirectConnectGatewayCcnRoutesRequest extends AbstractModel{
         if (source.CcnRouteType != null) {
             this.CcnRouteType = new String(source.CcnRouteType);
         }
+        if (source.AddressType != null) {
+            this.AddressType = new String(source.AddressType);
+        }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
@@ -153,6 +180,7 @@ public class DescribeDirectConnectGatewayCcnRoutesRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DirectConnectGatewayId", this.DirectConnectGatewayId);
         this.setParamSimple(map, prefix + "CcnRouteType", this.CcnRouteType);
+        this.setParamSimple(map, prefix + "AddressType", this.AddressType);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
 

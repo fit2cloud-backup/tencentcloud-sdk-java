@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dts.v20180330.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSubscribeConfResponse extends AbstractModel{
+public class DescribeSubscribeConfResponse extends AbstractModel {
 
     /**
     * 订阅实例ID
@@ -192,7 +193,6 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
 
     /**
     * 订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -200,7 +200,6 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
 
     /**
     * 自动续费标识,0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoRenewFlag")
     @Expose
@@ -222,7 +221,7 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
     private SubsErr [] Errors;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -613,10 +612,8 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
     }
 
     /**
-     * Get 订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订阅实例的标签 
      * @return Tags 订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagItem [] getTags() {
         return this.Tags;
@@ -624,19 +621,15 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
 
     /**
      * Set 订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 订阅实例的标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(TagItem [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 自动续费标识,0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自动续费标识,0-不自动续费，1-自动续费 
      * @return AutoRenewFlag 自动续费标识,0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAutoRenewFlag() {
         return this.AutoRenewFlag;
@@ -644,9 +637,7 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
 
     /**
      * Set 自动续费标识,0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoRenewFlag 自动续费标识,0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoRenewFlag(Long AutoRenewFlag) {
         this.AutoRenewFlag = AutoRenewFlag;
@@ -689,16 +680,16 @@ public class DescribeSubscribeConfResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

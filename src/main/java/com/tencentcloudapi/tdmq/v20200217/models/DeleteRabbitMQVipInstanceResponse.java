@@ -16,86 +16,77 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteRabbitMQVipInstanceResponse extends AbstractModel{
+public class DeleteRabbitMQVipInstanceResponse extends AbstractModel {
 
     /**
-    * 订单号Id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 订单号 ID
     */
     @SerializedName("TranId")
     @Expose
     private String TranId;
 
     /**
-    * 实例Id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 实例 ID
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 订单号Id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TranId 订单号Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 订单号 ID 
+     * @return TranId 订单号 ID
      */
     public String getTranId() {
         return this.TranId;
     }
 
     /**
-     * Set 订单号Id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TranId 订单号Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 订单号 ID
+     * @param TranId 订单号 ID
      */
     public void setTranId(String TranId) {
         this.TranId = TranId;
     }
 
     /**
-     * Get 实例Id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceId 实例Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 实例 ID 
+     * @return InstanceId 实例 ID
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例Id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceId 实例Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 实例 ID
+     * @param InstanceId 实例 ID
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

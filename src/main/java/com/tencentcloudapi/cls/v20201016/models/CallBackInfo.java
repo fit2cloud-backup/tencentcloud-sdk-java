@@ -16,58 +16,134 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CallBackInfo extends AbstractModel{
+public class CallBackInfo extends AbstractModel {
 
     /**
-    * 回调时的Body
+    * 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
     */
     @SerializedName("Body")
     @Expose
     private String Body;
 
     /**
-    * 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
+    * 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
     */
     @SerializedName("Headers")
     @Expose
     private String [] Headers;
 
     /**
-     * Get 回调时的Body 
-     * @return Body 回调时的Body
+     * Get 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+``` 
+     * @return Body 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
      */
     public String getBody() {
         return this.Body;
     }
 
     /**
-     * Set 回调时的Body
-     * @param Body 回调时的Body
+     * Set 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
+     * @param Body 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
      */
     public void setBody(String Body) {
         this.Body = Body;
     }
 
     /**
-     * Get 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Headers 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+``` 
+     * @return Headers 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
      */
     public String [] getHeaders() {
         return this.Headers;
     }
 
     /**
-     * Set 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Headers 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
+     * @param Headers 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
      */
     public void setHeaders(String [] Headers) {
         this.Headers = Headers;

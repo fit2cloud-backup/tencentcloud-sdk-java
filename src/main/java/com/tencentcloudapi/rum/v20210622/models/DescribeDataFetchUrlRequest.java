@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataFetchUrlRequest extends AbstractModel{
+public class DescribeDataFetchUrlRequest extends AbstractModel {
 
     /**
     * 开始时间
@@ -30,7 +31,7 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
     private Long StartTime;
 
     /**
-    * allcount：性能视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
+    * allcount：性能视图，pagepv：pv视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
     */
     @SerializedName("Type")
     @Expose
@@ -142,7 +143,7 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
     private String Device;
 
     /**
-    * 是否海外
+    * 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
     */
     @SerializedName("IsAbroad")
     @Expose
@@ -221,16 +222,16 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get allcount：性能视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等 
-     * @return Type allcount：性能视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
+     * Get allcount：性能视图，pagepv：pv视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等 
+     * @return Type allcount：性能视图，pagepv：pv视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set allcount：性能视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
-     * @param Type allcount：性能视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
+     * Set allcount：性能视图，pagepv：pv视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
+     * @param Type allcount：性能视图，pagepv：pv视图，day：14天数据，count40x：40X视图，count50x：50X视图，count5xand4x：40∑50视图，top：资源top视图，nettype/version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：网络平台视图/Version视图/设备视图/ISP视图/地区视图/浏览器视图/ext1视图等等
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -477,16 +478,16 @@ public class DescribeDataFetchUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否海外 
-     * @return IsAbroad 是否海外
+     * Get 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。 
+     * @return IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public String getIsAbroad() {
         return this.IsAbroad;
     }
 
     /**
-     * Set 是否海外
-     * @param IsAbroad 是否海外
+     * Set 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public void setIsAbroad(String IsAbroad) {
         this.IsAbroad = IsAbroad;

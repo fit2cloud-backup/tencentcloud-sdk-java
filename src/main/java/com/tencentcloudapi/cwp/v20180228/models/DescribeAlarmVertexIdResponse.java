@@ -16,32 +16,30 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAlarmVertexIdResponse extends AbstractModel{
+public class DescribeAlarmVertexIdResponse extends AbstractModel {
 
     /**
     * 告警点id列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AlarmVertexIds")
     @Expose
     private String [] AlarmVertexIds;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 告警点id列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 告警点id列表 
      * @return AlarmVertexIds 告警点id列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAlarmVertexIds() {
         return this.AlarmVertexIds;
@@ -49,25 +47,23 @@ public class DescribeAlarmVertexIdResponse extends AbstractModel{
 
     /**
      * Set 告警点id列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AlarmVertexIds 告警点id列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAlarmVertexIds(String [] AlarmVertexIds) {
         this.AlarmVertexIds = AlarmVertexIds;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

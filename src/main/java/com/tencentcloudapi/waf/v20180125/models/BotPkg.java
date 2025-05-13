@@ -16,15 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BotPkg extends AbstractModel{
+public class BotPkg extends AbstractModel {
 
     /**
     * 资源id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceIds")
     @Expose
@@ -32,7 +32,6 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -40,7 +39,6 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -48,7 +46,6 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BeginTime")
     @Expose
@@ -56,7 +53,6 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -64,7 +60,6 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InquireNum")
     @Expose
@@ -72,7 +67,6 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UsedNum")
     @Expose
@@ -80,7 +74,6 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 子产品code
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -88,17 +81,35 @@ public class BotPkg extends AbstractModel{
 
     /**
     * 续费标志	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RenewFlag")
     @Expose
     private Long RenewFlag;
 
     /**
-     * Get 资源id
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 购买页bot6折
+    */
+    @SerializedName("BotCPWaf")
+    @Expose
+    private Long BotCPWaf;
+
+    /**
+    * 控制台买bot5折
+    */
+    @SerializedName("BotNPWaf")
+    @Expose
+    private Long BotNPWaf;
+
+    /**
+    * 7天bot试用标识 1 试用 0 没有试用
+    */
+    @SerializedName("IsBotTrial")
+    @Expose
+    private Long IsBotTrial;
+
+    /**
+     * Get 资源id 
      * @return ResourceIds 资源id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceIds() {
         return this.ResourceIds;
@@ -106,19 +117,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 资源id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceIds 资源id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceIds(String ResourceIds) {
         this.ResourceIds = ResourceIds;
     }
 
     /**
-     * Get 状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态 
      * @return Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -126,19 +133,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域 
      * @return Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRegion() {
         return this.Region;
@@ -146,19 +149,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(Long Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始时间 
      * @return BeginTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBeginTime() {
         return this.BeginTime;
@@ -166,19 +165,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BeginTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBeginTime(String BeginTime) {
         this.BeginTime = BeginTime;
     }
 
     /**
-     * Get 结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间 
      * @return EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -186,19 +181,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 申请数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 申请数量 
      * @return InquireNum 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInquireNum() {
         return this.InquireNum;
@@ -206,19 +197,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InquireNum 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInquireNum(Long InquireNum) {
         this.InquireNum = InquireNum;
     }
 
     /**
-     * Get 使用数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 使用数量 
      * @return UsedNum 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUsedNum() {
         return this.UsedNum;
@@ -226,19 +213,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UsedNum 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsedNum(Long UsedNum) {
         this.UsedNum = UsedNum;
     }
 
     /**
-     * Get 子产品code
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子产品code 
      * @return Type 子产品code
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -246,19 +229,15 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 子产品code
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 子产品code
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 续费标志	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 续费标志	 
      * @return RenewFlag 续费标志	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRenewFlag() {
         return this.RenewFlag;
@@ -266,12 +245,58 @@ public class BotPkg extends AbstractModel{
 
     /**
      * Set 续费标志	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RenewFlag 续费标志	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRenewFlag(Long RenewFlag) {
         this.RenewFlag = RenewFlag;
+    }
+
+    /**
+     * Get 购买页bot6折 
+     * @return BotCPWaf 购买页bot6折
+     */
+    public Long getBotCPWaf() {
+        return this.BotCPWaf;
+    }
+
+    /**
+     * Set 购买页bot6折
+     * @param BotCPWaf 购买页bot6折
+     */
+    public void setBotCPWaf(Long BotCPWaf) {
+        this.BotCPWaf = BotCPWaf;
+    }
+
+    /**
+     * Get 控制台买bot5折 
+     * @return BotNPWaf 控制台买bot5折
+     */
+    public Long getBotNPWaf() {
+        return this.BotNPWaf;
+    }
+
+    /**
+     * Set 控制台买bot5折
+     * @param BotNPWaf 控制台买bot5折
+     */
+    public void setBotNPWaf(Long BotNPWaf) {
+        this.BotNPWaf = BotNPWaf;
+    }
+
+    /**
+     * Get 7天bot试用标识 1 试用 0 没有试用 
+     * @return IsBotTrial 7天bot试用标识 1 试用 0 没有试用
+     */
+    public Long getIsBotTrial() {
+        return this.IsBotTrial;
+    }
+
+    /**
+     * Set 7天bot试用标识 1 试用 0 没有试用
+     * @param IsBotTrial 7天bot试用标识 1 试用 0 没有试用
+     */
+    public void setIsBotTrial(Long IsBotTrial) {
+        this.IsBotTrial = IsBotTrial;
     }
 
     public BotPkg() {
@@ -309,6 +334,15 @@ public class BotPkg extends AbstractModel{
         if (source.RenewFlag != null) {
             this.RenewFlag = new Long(source.RenewFlag);
         }
+        if (source.BotCPWaf != null) {
+            this.BotCPWaf = new Long(source.BotCPWaf);
+        }
+        if (source.BotNPWaf != null) {
+            this.BotNPWaf = new Long(source.BotNPWaf);
+        }
+        if (source.IsBotTrial != null) {
+            this.IsBotTrial = new Long(source.IsBotTrial);
+        }
     }
 
 
@@ -325,6 +359,9 @@ public class BotPkg extends AbstractModel{
         this.setParamSimple(map, prefix + "UsedNum", this.UsedNum);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "RenewFlag", this.RenewFlag);
+        this.setParamSimple(map, prefix + "BotCPWaf", this.BotCPWaf);
+        this.setParamSimple(map, prefix + "BotNPWaf", this.BotNPWaf);
+        this.setParamSimple(map, prefix + "IsBotTrial", this.IsBotTrial);
 
     }
 }

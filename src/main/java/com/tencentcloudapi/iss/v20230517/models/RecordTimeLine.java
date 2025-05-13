@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RecordTimeLine extends AbstractModel{
+public class RecordTimeLine extends AbstractModel {
 
     /**
     * 时间片段开始时间，UTC秒数，例如：1662114146
@@ -35,6 +36,13 @@ public class RecordTimeLine extends AbstractModel{
     @SerializedName("End")
     @Expose
     private Long End;
+
+    /**
+    * 对应时间片段的播放url
+    */
+    @SerializedName("HlsUrl")
+    @Expose
+    private String HlsUrl;
 
     /**
      * Get 时间片段开始时间，UTC秒数，例如：1662114146 
@@ -68,6 +76,22 @@ public class RecordTimeLine extends AbstractModel{
         this.End = End;
     }
 
+    /**
+     * Get 对应时间片段的播放url 
+     * @return HlsUrl 对应时间片段的播放url
+     */
+    public String getHlsUrl() {
+        return this.HlsUrl;
+    }
+
+    /**
+     * Set 对应时间片段的播放url
+     * @param HlsUrl 对应时间片段的播放url
+     */
+    public void setHlsUrl(String HlsUrl) {
+        this.HlsUrl = HlsUrl;
+    }
+
     public RecordTimeLine() {
     }
 
@@ -82,6 +106,9 @@ public class RecordTimeLine extends AbstractModel{
         if (source.End != null) {
             this.End = new Long(source.End);
         }
+        if (source.HlsUrl != null) {
+            this.HlsUrl = new String(source.HlsUrl);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class RecordTimeLine extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Begin", this.Begin);
         this.setParamSimple(map, prefix + "End", this.End);
+        this.setParamSimple(map, prefix + "HlsUrl", this.HlsUrl);
 
     }
 }

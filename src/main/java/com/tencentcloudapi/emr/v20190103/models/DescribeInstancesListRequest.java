@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstancesListRequest extends AbstractModel{
+public class DescribeInstancesListRequest extends AbstractModel {
 
     /**
     * 集群筛选策略。取值范围：<li>clusterList：表示查询除了已销毁集群之外的集群列表。</li><li>monitorManage：表示查询除了已销毁、创建中以及创建失败的集群之外的集群列表。</li><li>cloudHardwareManage/componentManage：目前这两个取值为预留取值，暂时和monitorManage表示同样的含义。</li>
@@ -37,7 +38,8 @@ public class DescribeInstancesListRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 每页返回数量，默认值为10，最大值为100。
+    * 每页返回数量，默认值为100，最大值为100。
+如果limit和offset都为0，则查询全部记录；
     */
     @SerializedName("Limit")
     @Expose
@@ -51,14 +53,14 @@ public class DescribeInstancesListRequest extends AbstractModel{
     private String OrderField;
 
     /**
-    * 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示降序。</li><li>1：表示升序。</li>默认值为0。
+    * 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示升序。</li><li>1：表示降序。</li>默认值为0。
     */
     @SerializedName("Asc")
     @Expose
     private Long Asc;
 
     /**
-    * 自定义查询
+    * 自定义查询过滤器。示例：<li>根据ClusterId过滤实例：[{"Name":"ClusterId","Values":["emr-xxxxxxxx"]}]</li><li>根据clusterName过滤实例：[{"Name": "ClusterName","Values": ["cluster_name"]}]</li><li>根据ClusterStatus过滤实例：[{"Name": "ClusterStatus","Values": ["2"]}]</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -97,16 +99,20 @@ public class DescribeInstancesListRequest extends AbstractModel{
     }
 
     /**
-     * Get 每页返回数量，默认值为10，最大值为100。 
-     * @return Limit 每页返回数量，默认值为10，最大值为100。
+     * Get 每页返回数量，默认值为100，最大值为100。
+如果limit和offset都为0，则查询全部记录； 
+     * @return Limit 每页返回数量，默认值为100，最大值为100。
+如果limit和offset都为0，则查询全部记录；
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页返回数量，默认值为10，最大值为100。
-     * @param Limit 每页返回数量，默认值为10，最大值为100。
+     * Set 每页返回数量，默认值为100，最大值为100。
+如果limit和offset都为0，则查询全部记录；
+     * @param Limit 每页返回数量，默认值为100，最大值为100。
+如果limit和offset都为0，则查询全部记录；
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -129,32 +135,32 @@ public class DescribeInstancesListRequest extends AbstractModel{
     }
 
     /**
-     * Get 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示降序。</li><li>1：表示升序。</li>默认值为0。 
-     * @return Asc 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示降序。</li><li>1：表示升序。</li>默认值为0。
+     * Get 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示升序。</li><li>1：表示降序。</li>默认值为0。 
+     * @return Asc 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示升序。</li><li>1：表示降序。</li>默认值为0。
      */
     public Long getAsc() {
         return this.Asc;
     }
 
     /**
-     * Set 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示降序。</li><li>1：表示升序。</li>默认值为0。
-     * @param Asc 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示降序。</li><li>1：表示升序。</li>默认值为0。
+     * Set 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示升序。</li><li>1：表示降序。</li>默认值为0。
+     * @param Asc 按照OrderField升序或者降序进行排序。取值范围：<li>0：表示升序。</li><li>1：表示降序。</li>默认值为0。
      */
     public void setAsc(Long Asc) {
         this.Asc = Asc;
     }
 
     /**
-     * Get 自定义查询 
-     * @return Filters 自定义查询
+     * Get 自定义查询过滤器。示例：<li>根据ClusterId过滤实例：[{"Name":"ClusterId","Values":["emr-xxxxxxxx"]}]</li><li>根据clusterName过滤实例：[{"Name": "ClusterName","Values": ["cluster_name"]}]</li><li>根据ClusterStatus过滤实例：[{"Name": "ClusterStatus","Values": ["2"]}]</li> 
+     * @return Filters 自定义查询过滤器。示例：<li>根据ClusterId过滤实例：[{"Name":"ClusterId","Values":["emr-xxxxxxxx"]}]</li><li>根据clusterName过滤实例：[{"Name": "ClusterName","Values": ["cluster_name"]}]</li><li>根据ClusterStatus过滤实例：[{"Name": "ClusterStatus","Values": ["2"]}]</li>
      */
     public Filters [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 自定义查询
-     * @param Filters 自定义查询
+     * Set 自定义查询过滤器。示例：<li>根据ClusterId过滤实例：[{"Name":"ClusterId","Values":["emr-xxxxxxxx"]}]</li><li>根据clusterName过滤实例：[{"Name": "ClusterName","Values": ["cluster_name"]}]</li><li>根据ClusterStatus过滤实例：[{"Name": "ClusterStatus","Values": ["2"]}]</li>
+     * @param Filters 自定义查询过滤器。示例：<li>根据ClusterId过滤实例：[{"Name":"ClusterId","Values":["emr-xxxxxxxx"]}]</li><li>根据clusterName过滤实例：[{"Name": "ClusterName","Values": ["cluster_name"]}]</li><li>根据ClusterStatus过滤实例：[{"Name": "ClusterStatus","Values": ["2"]}]</li>
      */
     public void setFilters(Filters [] Filters) {
         this.Filters = Filters;

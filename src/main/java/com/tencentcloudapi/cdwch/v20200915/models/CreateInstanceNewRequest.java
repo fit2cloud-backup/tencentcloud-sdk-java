@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInstanceNewRequest extends AbstractModel{
+public class CreateInstanceNewRequest extends AbstractModel {
 
     /**
     * 可用区
@@ -51,7 +52,7 @@ public class CreateInstanceNewRequest extends AbstractModel{
     private String UserSubnetId;
 
     /**
-    * 版本
+    * 系统版本
     */
     @SerializedName("ProductVersion")
     @Expose
@@ -73,13 +74,14 @@ public class CreateInstanceNewRequest extends AbstractModel{
 
     /**
     * 数据节点
+SpecName从DescribeSpec接口中返回的DataSpec.Name获取
     */
     @SerializedName("DataSpec")
     @Expose
     private NodeSpec DataSpec;
 
     /**
-    * 标签列表
+    * 标签列表（废弃）
     */
     @SerializedName("Tags")
     @Expose
@@ -100,7 +102,7 @@ public class CreateInstanceNewRequest extends AbstractModel{
     private String CosBucketName;
 
     /**
-    * 是否是裸盘挂载
+    * 是否是裸盘挂载，默认值 0 为 未挂载，1 为挂载。
     */
     @SerializedName("MountDiskType")
     @Expose
@@ -115,10 +117,25 @@ public class CreateInstanceNewRequest extends AbstractModel{
 
     /**
     * ZK节点
+SpecName从DescribeSpec接口中返回的CommonSpec.Name（ZK节点）获取
     */
     @SerializedName("CommonSpec")
     @Expose
     private NodeSpec CommonSpec;
+
+    /**
+    * 标签列表
+    */
+    @SerializedName("TagItems")
+    @Expose
+    private Tag [] TagItems;
+
+    /**
+    * 副可用去信息
+    */
+    @SerializedName("SecondaryZoneInfo")
+    @Expose
+    private SecondaryZoneInfo [] SecondaryZoneInfo;
 
     /**
      * Get 可用区 
@@ -185,16 +202,16 @@ public class CreateInstanceNewRequest extends AbstractModel{
     }
 
     /**
-     * Get 版本 
-     * @return ProductVersion 版本
+     * Get 系统版本 
+     * @return ProductVersion 系统版本
      */
     public String getProductVersion() {
         return this.ProductVersion;
     }
 
     /**
-     * Set 版本
-     * @param ProductVersion 版本
+     * Set 系统版本
+     * @param ProductVersion 系统版本
      */
     public void setProductVersion(String ProductVersion) {
         this.ProductVersion = ProductVersion;
@@ -233,8 +250,10 @@ public class CreateInstanceNewRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据节点 
+     * Get 数据节点
+SpecName从DescribeSpec接口中返回的DataSpec.Name获取 
      * @return DataSpec 数据节点
+SpecName从DescribeSpec接口中返回的DataSpec.Name获取
      */
     public NodeSpec getDataSpec() {
         return this.DataSpec;
@@ -242,24 +261,30 @@ public class CreateInstanceNewRequest extends AbstractModel{
 
     /**
      * Set 数据节点
+SpecName从DescribeSpec接口中返回的DataSpec.Name获取
      * @param DataSpec 数据节点
+SpecName从DescribeSpec接口中返回的DataSpec.Name获取
      */
     public void setDataSpec(NodeSpec DataSpec) {
         this.DataSpec = DataSpec;
     }
 
     /**
-     * Get 标签列表 
-     * @return Tags 标签列表
+     * Get 标签列表（废弃） 
+     * @return Tags 标签列表（废弃）
+     * @deprecated
      */
+    @Deprecated
     public Tag getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 标签列表
-     * @param Tags 标签列表
+     * Set 标签列表（废弃）
+     * @param Tags 标签列表（废弃）
+     * @deprecated
      */
+    @Deprecated
     public void setTags(Tag Tags) {
         this.Tags = Tags;
     }
@@ -297,16 +322,16 @@ public class CreateInstanceNewRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否是裸盘挂载 
-     * @return MountDiskType 是否是裸盘挂载
+     * Get 是否是裸盘挂载，默认值 0 为 未挂载，1 为挂载。 
+     * @return MountDiskType 是否是裸盘挂载，默认值 0 为 未挂载，1 为挂载。
      */
     public Long getMountDiskType() {
         return this.MountDiskType;
     }
 
     /**
-     * Set 是否是裸盘挂载
-     * @param MountDiskType 是否是裸盘挂载
+     * Set 是否是裸盘挂载，默认值 0 为 未挂载，1 为挂载。
+     * @param MountDiskType 是否是裸盘挂载，默认值 0 为 未挂载，1 为挂载。
      */
     public void setMountDiskType(Long MountDiskType) {
         this.MountDiskType = MountDiskType;
@@ -329,8 +354,10 @@ public class CreateInstanceNewRequest extends AbstractModel{
     }
 
     /**
-     * Get ZK节点 
+     * Get ZK节点
+SpecName从DescribeSpec接口中返回的CommonSpec.Name（ZK节点）获取 
      * @return CommonSpec ZK节点
+SpecName从DescribeSpec接口中返回的CommonSpec.Name（ZK节点）获取
      */
     public NodeSpec getCommonSpec() {
         return this.CommonSpec;
@@ -338,10 +365,44 @@ public class CreateInstanceNewRequest extends AbstractModel{
 
     /**
      * Set ZK节点
+SpecName从DescribeSpec接口中返回的CommonSpec.Name（ZK节点）获取
      * @param CommonSpec ZK节点
+SpecName从DescribeSpec接口中返回的CommonSpec.Name（ZK节点）获取
      */
     public void setCommonSpec(NodeSpec CommonSpec) {
         this.CommonSpec = CommonSpec;
+    }
+
+    /**
+     * Get 标签列表 
+     * @return TagItems 标签列表
+     */
+    public Tag [] getTagItems() {
+        return this.TagItems;
+    }
+
+    /**
+     * Set 标签列表
+     * @param TagItems 标签列表
+     */
+    public void setTagItems(Tag [] TagItems) {
+        this.TagItems = TagItems;
+    }
+
+    /**
+     * Get 副可用去信息 
+     * @return SecondaryZoneInfo 副可用去信息
+     */
+    public SecondaryZoneInfo [] getSecondaryZoneInfo() {
+        return this.SecondaryZoneInfo;
+    }
+
+    /**
+     * Set 副可用去信息
+     * @param SecondaryZoneInfo 副可用去信息
+     */
+    public void setSecondaryZoneInfo(SecondaryZoneInfo [] SecondaryZoneInfo) {
+        this.SecondaryZoneInfo = SecondaryZoneInfo;
     }
 
     public CreateInstanceNewRequest() {
@@ -394,6 +455,18 @@ public class CreateInstanceNewRequest extends AbstractModel{
         if (source.CommonSpec != null) {
             this.CommonSpec = new NodeSpec(source.CommonSpec);
         }
+        if (source.TagItems != null) {
+            this.TagItems = new Tag[source.TagItems.length];
+            for (int i = 0; i < source.TagItems.length; i++) {
+                this.TagItems[i] = new Tag(source.TagItems[i]);
+            }
+        }
+        if (source.SecondaryZoneInfo != null) {
+            this.SecondaryZoneInfo = new SecondaryZoneInfo[source.SecondaryZoneInfo.length];
+            for (int i = 0; i < source.SecondaryZoneInfo.length; i++) {
+                this.SecondaryZoneInfo[i] = new SecondaryZoneInfo(source.SecondaryZoneInfo[i]);
+            }
+        }
     }
 
 
@@ -415,6 +488,8 @@ public class CreateInstanceNewRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MountDiskType", this.MountDiskType);
         this.setParamSimple(map, prefix + "HAZk", this.HAZk);
         this.setParamObj(map, prefix + "CommonSpec.", this.CommonSpec);
+        this.setParamArrayObj(map, prefix + "TagItems.", this.TagItems);
+        this.setParamArrayObj(map, prefix + "SecondaryZoneInfo.", this.SecondaryZoneInfo);
 
     }
 }

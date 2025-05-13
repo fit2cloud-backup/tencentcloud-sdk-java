@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExternalRedis extends AbstractModel{
+public class ExternalRedis extends AbstractModel {
 
     /**
     * redis ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RedisHost")
     @Expose
@@ -32,7 +32,6 @@ public class ExternalRedis extends AbstractModel{
 
     /**
     * redis密码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RedisPassword")
     @Expose
@@ -40,7 +39,6 @@ public class ExternalRedis extends AbstractModel{
 
     /**
     * redis端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RedisPort")
     @Expose
@@ -48,17 +46,14 @@ public class ExternalRedis extends AbstractModel{
 
     /**
     * 超时时间  ms
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RedisTimeout")
     @Expose
     private Long RedisTimeout;
 
     /**
-     * Get redis ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get redis ip 
      * @return RedisHost redis ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRedisHost() {
         return this.RedisHost;
@@ -66,19 +61,15 @@ public class ExternalRedis extends AbstractModel{
 
     /**
      * Set redis ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RedisHost redis ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRedisHost(String RedisHost) {
         this.RedisHost = RedisHost;
     }
 
     /**
-     * Get redis密码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get redis密码 
      * @return RedisPassword redis密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRedisPassword() {
         return this.RedisPassword;
@@ -86,19 +77,15 @@ public class ExternalRedis extends AbstractModel{
 
     /**
      * Set redis密码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RedisPassword redis密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRedisPassword(String RedisPassword) {
         this.RedisPassword = RedisPassword;
     }
 
     /**
-     * Get redis端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get redis端口 
      * @return RedisPort redis端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRedisPort() {
         return this.RedisPort;
@@ -106,19 +93,15 @@ public class ExternalRedis extends AbstractModel{
 
     /**
      * Set redis端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RedisPort redis端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRedisPort(Long RedisPort) {
         this.RedisPort = RedisPort;
     }
 
     /**
-     * Get 超时时间  ms
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 超时时间  ms 
      * @return RedisTimeout 超时时间  ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRedisTimeout() {
         return this.RedisTimeout;
@@ -126,9 +109,7 @@ public class ExternalRedis extends AbstractModel{
 
     /**
      * Set 超时时间  ms
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RedisTimeout 超时时间  ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRedisTimeout(Long RedisTimeout) {
         this.RedisTimeout = RedisTimeout;

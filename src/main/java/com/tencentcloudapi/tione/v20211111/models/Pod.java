@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Pod extends AbstractModel{
+public class Pod extends AbstractModel {
 
     /**
     * pod名
@@ -85,6 +86,21 @@ public class Pod extends AbstractModel{
     @SerializedName("ContainerInfos")
     @Expose
     private Container [] ContainerInfos;
+
+    /**
+    * 容器调用信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CrossTenantENIInfo")
+    @Expose
+    private CrossTenantENIInfo CrossTenantENIInfo;
+
+    /**
+    * 实例的状态信息
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
 
     /**
      * Get pod名
@@ -211,7 +227,9 @@ public class Pod extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Containers 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public Container getContainers() {
         return this.Containers;
     }
@@ -221,7 +239,9 @@ public class Pod extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Containers 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setContainers(Container Containers) {
         this.Containers = Containers;
     }
@@ -244,6 +264,42 @@ public class Pod extends AbstractModel{
      */
     public void setContainerInfos(Container [] ContainerInfos) {
         this.ContainerInfos = ContainerInfos;
+    }
+
+    /**
+     * Get 容器调用信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CrossTenantENIInfo 容器调用信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CrossTenantENIInfo getCrossTenantENIInfo() {
+        return this.CrossTenantENIInfo;
+    }
+
+    /**
+     * Set 容器调用信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CrossTenantENIInfo 容器调用信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCrossTenantENIInfo(CrossTenantENIInfo CrossTenantENIInfo) {
+        this.CrossTenantENIInfo = CrossTenantENIInfo;
+    }
+
+    /**
+     * Get 实例的状态信息 
+     * @return Status 实例的状态信息
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 实例的状态信息
+     * @param Status 实例的状态信息
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     public Pod() {
@@ -281,6 +337,12 @@ public class Pod extends AbstractModel{
                 this.ContainerInfos[i] = new Container(source.ContainerInfos[i]);
             }
         }
+        if (source.CrossTenantENIInfo != null) {
+            this.CrossTenantENIInfo = new CrossTenantENIInfo(source.CrossTenantENIInfo);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
     }
 
 
@@ -296,6 +358,8 @@ public class Pod extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamObj(map, prefix + "Containers.", this.Containers);
         this.setParamArrayObj(map, prefix + "ContainerInfos.", this.ContainerInfos);
+        this.setParamObj(map, prefix + "CrossTenantENIInfo.", this.CrossTenantENIInfo);
+        this.setParamSimple(map, prefix + "Status", this.Status);
 
     }
 }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloudBaseCodeRepoName extends AbstractModel{
+public class CloudBaseCodeRepoName extends AbstractModel {
 
     /**
     * repo的名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,17 +32,14 @@ public class CloudBaseCodeRepoName extends AbstractModel{
 
     /**
     * repo的完整全名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FullName")
     @Expose
     private String FullName;
 
     /**
-     * Get repo的名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get repo的名字 
      * @return Name repo的名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -50,19 +47,15 @@ public class CloudBaseCodeRepoName extends AbstractModel{
 
     /**
      * Set repo的名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name repo的名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get repo的完整全名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get repo的完整全名 
      * @return FullName repo的完整全名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFullName() {
         return this.FullName;
@@ -70,9 +63,7 @@ public class CloudBaseCodeRepoName extends AbstractModel{
 
     /**
      * Set repo的完整全名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FullName repo的完整全名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFullName(String FullName) {
         this.FullName = FullName;

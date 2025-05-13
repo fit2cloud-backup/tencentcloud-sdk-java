@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReplicationRule extends AbstractModel{
+public class ReplicationRule extends AbstractModel {
 
     /**
     * 同步规则名称
@@ -49,6 +50,13 @@ public class ReplicationRule extends AbstractModel{
     @SerializedName("Filters")
     @Expose
     private ReplicationFilter [] Filters;
+
+    /**
+    * 是否同步删除事件
+    */
+    @SerializedName("Deletion")
+    @Expose
+    private Boolean Deletion;
 
     /**
      * Get 同步规则名称 
@@ -114,6 +122,22 @@ public class ReplicationRule extends AbstractModel{
         this.Filters = Filters;
     }
 
+    /**
+     * Get 是否同步删除事件 
+     * @return Deletion 是否同步删除事件
+     */
+    public Boolean getDeletion() {
+        return this.Deletion;
+    }
+
+    /**
+     * Set 是否同步删除事件
+     * @param Deletion 是否同步删除事件
+     */
+    public void setDeletion(Boolean Deletion) {
+        this.Deletion = Deletion;
+    }
+
     public ReplicationRule() {
     }
 
@@ -137,6 +161,9 @@ public class ReplicationRule extends AbstractModel{
                 this.Filters[i] = new ReplicationFilter(source.Filters[i]);
             }
         }
+        if (source.Deletion != null) {
+            this.Deletion = new Boolean(source.Deletion);
+        }
     }
 
 
@@ -148,6 +175,7 @@ public class ReplicationRule extends AbstractModel{
         this.setParamSimple(map, prefix + "DestNamespace", this.DestNamespace);
         this.setParamSimple(map, prefix + "Override", this.Override);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "Deletion", this.Deletion);
 
     }
 }

@@ -16,231 +16,192 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceDTSInstanceInfo extends AbstractModel{
+public class DescribeInstanceDTSInstanceInfo extends AbstractModel {
 
     /**
-    * 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 地域 ID。
     */
     @SerializedName("RegionId")
     @Expose
     private Long RegionId;
 
     /**
-    * 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 实例 ID。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 仓库ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 仓库ID。
     */
     @SerializedName("SetId")
     @Expose
     private Long SetId;
 
     /**
-    * 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 可用区ID。
     */
     @SerializedName("ZoneId")
     @Expose
     private Long ZoneId;
 
     /**
-    * 实例类型
-注意：此字段可能返回 null，表示取不到有效值。
+    * 实例类型。
     */
     @SerializedName("Type")
     @Expose
     private Long Type;
 
     /**
-    * 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 实例名称。
     */
     @SerializedName("InstanceName")
     @Expose
     private String InstanceName;
 
     /**
-    * 实例访问地址
-注意：此字段可能返回 null，表示取不到有效值。
+    * 实例访问地址。
     */
     @SerializedName("Vip")
     @Expose
     private String Vip;
 
     /**
-    * 状态
-注意：此字段可能返回 null，表示取不到有效值。
+    * 状态。
     */
     @SerializedName("Status")
     @Expose
     private Long Status;
 
     /**
-     * Get 地域ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 地域 ID。 
+     * @return RegionId 地域 ID。
      */
     public Long getRegionId() {
         return this.RegionId;
     }
 
     /**
-     * Set 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 地域 ID。
+     * @param RegionId 地域 ID。
      */
     public void setRegionId(Long RegionId) {
         this.RegionId = RegionId;
     }
 
     /**
-     * Get 实例ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceId 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 实例 ID。 
+     * @return InstanceId 实例 ID。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceId 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 实例 ID。
+     * @param InstanceId 实例 ID。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 仓库ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SetId 仓库ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 仓库ID。 
+     * @return SetId 仓库ID。
      */
     public Long getSetId() {
         return this.SetId;
     }
 
     /**
-     * Set 仓库ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SetId 仓库ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 仓库ID。
+     * @param SetId 仓库ID。
      */
     public void setSetId(Long SetId) {
         this.SetId = SetId;
     }
 
     /**
-     * Get 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ZoneId 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 可用区ID。 
+     * @return ZoneId 可用区ID。
      */
     public Long getZoneId() {
         return this.ZoneId;
     }
 
     /**
-     * Set 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ZoneId 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 可用区ID。
+     * @param ZoneId 可用区ID。
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;
     }
 
     /**
-     * Get 实例类型
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Type 实例类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 实例类型。 
+     * @return Type 实例类型。
      */
     public Long getType() {
         return this.Type;
     }
 
     /**
-     * Set 实例类型
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Type 实例类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 实例类型。
+     * @param Type 实例类型。
      */
     public void setType(Long Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 实例名称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 实例名称。 
+     * @return InstanceName 实例名称。
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 实例名称。
+     * @param InstanceName 实例名称。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 实例访问地址
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Vip 实例访问地址
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 实例访问地址。 
+     * @return Vip 实例访问地址。
      */
     public String getVip() {
         return this.Vip;
     }
 
     /**
-     * Set 实例访问地址
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Vip 实例访问地址
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 实例访问地址。
+     * @param Vip 实例访问地址。
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
     }
 
     /**
-     * Get 状态
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 状态。 
+     * @return Status 状态。
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 状态。
+     * @param Status 状态。
      */
     public void setStatus(Long Status) {
         this.Status = Status;

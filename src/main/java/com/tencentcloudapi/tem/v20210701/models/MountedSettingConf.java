@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MountedSettingConf extends AbstractModel{
+public class MountedSettingConf extends AbstractModel {
 
     /**
     * 配置名称
@@ -45,6 +46,7 @@ public class MountedSettingConf extends AbstractModel{
 
     /**
     * 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SecretDataName")
     @Expose
@@ -99,8 +101,10 @@ public class MountedSettingConf extends AbstractModel{
     }
 
     /**
-     * Get 加密配置名称 
+     * Get 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return SecretDataName 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSecretDataName() {
         return this.SecretDataName;
@@ -108,7 +112,9 @@ public class MountedSettingConf extends AbstractModel{
 
     /**
      * Set 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
      * @param SecretDataName 加密配置名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecretDataName(String SecretDataName) {
         this.SecretDataName = SecretDataName;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DomainHTTPSConfig extends AbstractModel{
+public class DomainHTTPSConfig extends AbstractModel {
 
     /**
     * 证书过期时间。
@@ -29,6 +30,13 @@ public class DomainHTTPSConfig extends AbstractModel{
     @SerializedName("CertExpireTime")
     @Expose
     private String CertExpireTime;
+
+    /**
+    * 腾讯云 SSL 产品中的证书 ID。
+    */
+    @SerializedName("CloudCertId")
+    @Expose
+    private String CloudCertId;
 
     /**
      * Get 证书过期时间。
@@ -50,6 +58,22 @@ public class DomainHTTPSConfig extends AbstractModel{
         this.CertExpireTime = CertExpireTime;
     }
 
+    /**
+     * Get 腾讯云 SSL 产品中的证书 ID。 
+     * @return CloudCertId 腾讯云 SSL 产品中的证书 ID。
+     */
+    public String getCloudCertId() {
+        return this.CloudCertId;
+    }
+
+    /**
+     * Set 腾讯云 SSL 产品中的证书 ID。
+     * @param CloudCertId 腾讯云 SSL 产品中的证书 ID。
+     */
+    public void setCloudCertId(String CloudCertId) {
+        this.CloudCertId = CloudCertId;
+    }
+
     public DomainHTTPSConfig() {
     }
 
@@ -61,6 +85,9 @@ public class DomainHTTPSConfig extends AbstractModel{
         if (source.CertExpireTime != null) {
             this.CertExpireTime = new String(source.CertExpireTime);
         }
+        if (source.CloudCertId != null) {
+            this.CloudCertId = new String(source.CloudCertId);
+        }
     }
 
 
@@ -69,6 +96,7 @@ public class DomainHTTPSConfig extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertExpireTime", this.CertExpireTime);
+        this.setParamSimple(map, prefix + "CloudCertId", this.CloudCertId);
 
     }
 }

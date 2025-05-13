@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SdkAppIdBuyInfo extends AbstractModel{
+public class SdkAppIdBuyInfo extends AbstractModel {
 
     /**
     * 应用ID
@@ -37,14 +38,14 @@ public class SdkAppIdBuyInfo extends AbstractModel{
     private String Name;
 
     /**
-    * 坐席购买数（还在有效期内）
+    * 座席购买数（还在有效期内）
     */
     @SerializedName("StaffBuyNum")
     @Expose
     private Long StaffBuyNum;
 
     /**
-    * 坐席购买列表 （还在有效期内）
+    * 座席购买列表 （还在有效期内）
     */
     @SerializedName("StaffBuyList")
     @Expose
@@ -59,7 +60,6 @@ public class SdkAppIdBuyInfo extends AbstractModel{
 
     /**
     * 办公电话购买数（还在有效期内）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SipBuyNum")
     @Expose
@@ -98,32 +98,32 @@ public class SdkAppIdBuyInfo extends AbstractModel{
     }
 
     /**
-     * Get 坐席购买数（还在有效期内） 
-     * @return StaffBuyNum 坐席购买数（还在有效期内）
+     * Get 座席购买数（还在有效期内） 
+     * @return StaffBuyNum 座席购买数（还在有效期内）
      */
     public Long getStaffBuyNum() {
         return this.StaffBuyNum;
     }
 
     /**
-     * Set 坐席购买数（还在有效期内）
-     * @param StaffBuyNum 坐席购买数（还在有效期内）
+     * Set 座席购买数（还在有效期内）
+     * @param StaffBuyNum 座席购买数（还在有效期内）
      */
     public void setStaffBuyNum(Long StaffBuyNum) {
         this.StaffBuyNum = StaffBuyNum;
     }
 
     /**
-     * Get 坐席购买列表 （还在有效期内） 
-     * @return StaffBuyList 坐席购买列表 （还在有效期内）
+     * Get 座席购买列表 （还在有效期内） 
+     * @return StaffBuyList 座席购买列表 （还在有效期内）
      */
     public StaffBuyInfo [] getStaffBuyList() {
         return this.StaffBuyList;
     }
 
     /**
-     * Set 坐席购买列表 （还在有效期内）
-     * @param StaffBuyList 坐席购买列表 （还在有效期内）
+     * Set 座席购买列表 （还在有效期内）
+     * @param StaffBuyList 座席购买列表 （还在有效期内）
      */
     public void setStaffBuyList(StaffBuyInfo [] StaffBuyList) {
         this.StaffBuyList = StaffBuyList;
@@ -146,10 +146,8 @@ public class SdkAppIdBuyInfo extends AbstractModel{
     }
 
     /**
-     * Get 办公电话购买数（还在有效期内）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 办公电话购买数（还在有效期内） 
      * @return SipBuyNum 办公电话购买数（还在有效期内）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSipBuyNum() {
         return this.SipBuyNum;
@@ -157,9 +155,7 @@ public class SdkAppIdBuyInfo extends AbstractModel{
 
     /**
      * Set 办公电话购买数（还在有效期内）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SipBuyNum 办公电话购买数（还在有效期内）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSipBuyNum(Long SipBuyNum) {
         this.SipBuyNum = SipBuyNum;

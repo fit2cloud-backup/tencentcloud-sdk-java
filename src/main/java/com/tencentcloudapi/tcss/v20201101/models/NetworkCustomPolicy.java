@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetworkCustomPolicy extends AbstractModel{
+public class NetworkCustomPolicy extends AbstractModel {
 
     /**
     * 网络策略方向，分为FROM和TO
@@ -31,7 +32,6 @@ public class NetworkCustomPolicy extends AbstractModel{
 
     /**
     * 网络策略策略端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ports")
     @Expose
@@ -49,7 +49,6 @@ public class NetworkCustomPolicy extends AbstractModel{
 开启中：Publishing
 
 待开启：unPublishEdit
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Peer")
     @Expose
@@ -72,10 +71,8 @@ public class NetworkCustomPolicy extends AbstractModel{
     }
 
     /**
-     * Get 网络策略策略端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络策略策略端口 
      * @return Ports 网络策略策略端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public NetworkPorts [] getPorts() {
         return this.Ports;
@@ -83,9 +80,7 @@ public class NetworkCustomPolicy extends AbstractModel{
 
     /**
      * Set 网络策略策略端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ports 网络策略策略端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPorts(NetworkPorts [] Ports) {
         this.Ports = Ports;
@@ -102,8 +97,7 @@ public class NetworkCustomPolicy extends AbstractModel{
 
 开启中：Publishing
 
-待开启：unPublishEdit
-注意：此字段可能返回 null，表示取不到有效值。 
+待开启：unPublishEdit 
      * @return Peer 网络策略策略对象
 
 开启待确认：PublishedNoConfirm
@@ -115,7 +109,6 @@ public class NetworkCustomPolicy extends AbstractModel{
 开启中：Publishing
 
 待开启：unPublishEdit
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public NetworkPeer [] getPeer() {
         return this.Peer;
@@ -133,7 +126,6 @@ public class NetworkCustomPolicy extends AbstractModel{
 开启中：Publishing
 
 待开启：unPublishEdit
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Peer 网络策略策略对象
 
 开启待确认：PublishedNoConfirm
@@ -145,7 +137,6 @@ public class NetworkCustomPolicy extends AbstractModel{
 开启中：Publishing
 
 待开启：unPublishEdit
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPeer(NetworkPeer [] Peer) {
         this.Peer = Peer;

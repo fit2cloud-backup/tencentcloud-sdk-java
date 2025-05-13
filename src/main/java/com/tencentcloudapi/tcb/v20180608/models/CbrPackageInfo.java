@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CbrPackageInfo extends AbstractModel{
+public class CbrPackageInfo extends AbstractModel {
 
     /**
     * 代码包名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageName")
     @Expose
@@ -32,17 +32,14 @@ public class CbrPackageInfo extends AbstractModel{
 
     /**
     * 代码包版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageVersion")
     @Expose
     private String PackageVersion;
 
     /**
-     * Get 代码包名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代码包名称 
      * @return PackageName 代码包名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageName() {
         return this.PackageName;
@@ -50,19 +47,15 @@ public class CbrPackageInfo extends AbstractModel{
 
     /**
      * Set 代码包名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageName 代码包名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageName(String PackageName) {
         this.PackageName = PackageName;
     }
 
     /**
-     * Get 代码包版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代码包版本 
      * @return PackageVersion 代码包版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageVersion() {
         return this.PackageVersion;
@@ -70,9 +63,7 @@ public class CbrPackageInfo extends AbstractModel{
 
     /**
      * Set 代码包版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageVersion 代码包版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageVersion(String PackageVersion) {
         this.PackageVersion = PackageVersion;

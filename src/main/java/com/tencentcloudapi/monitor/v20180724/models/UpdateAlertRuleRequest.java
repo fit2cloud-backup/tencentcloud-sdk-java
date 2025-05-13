@@ -16,14 +16,15 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateAlertRuleRequest extends AbstractModel{
+public class UpdateAlertRuleRequest extends AbstractModel {
 
     /**
-    * Prometheus 报警规则 ID
+    * Prometheus 告警规则 ID
     */
     @SerializedName("RuleId")
     @Expose
@@ -48,42 +49,42 @@ public class UpdateAlertRuleRequest extends AbstractModel{
     private Long RuleState;
 
     /**
-    * 报警规则名称
+    * 告警规则名称
     */
     @SerializedName("RuleName")
     @Expose
     private String RuleName;
 
     /**
-    * 报警规则表达式
+    * 告警规则表达式
     */
     @SerializedName("Expr")
     @Expose
     private String Expr;
 
     /**
-    * 报警规则持续时间
+    * 告警规则持续时间
     */
     @SerializedName("Duration")
     @Expose
     private String Duration;
 
     /**
-    * 报警规则接收组列表
+    * 告警规则接收组列表(当前规则绑定的接收组列表可通过 DescribeAlertRules 接口获取；用户已有的接收组列表可通过 DescribeAlarmNotices 接口获取)
     */
     @SerializedName("Receivers")
     @Expose
     private String [] Receivers;
 
     /**
-    * 报警规则标签列表
+    * 告警规则标签列表
     */
     @SerializedName("Labels")
     @Expose
     private PrometheusRuleKV [] Labels;
 
     /**
-    * 报警规则注释列表。
+    * 告警规则注释列表。
 
 告警对象和告警消息是 Prometheus Rule Annotations 的特殊字段，需要通过 annotations 来传递，对应的 Key 分别为summary/description。
     */
@@ -92,23 +93,23 @@ public class UpdateAlertRuleRequest extends AbstractModel{
     private PrometheusRuleKV [] Annotations;
 
     /**
-    * 报警策略模板分类
+    * 告警策略模板分类(自定义，可不填)
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-     * Get Prometheus 报警规则 ID 
-     * @return RuleId Prometheus 报警规则 ID
+     * Get Prometheus 告警规则 ID 
+     * @return RuleId Prometheus 告警规则 ID
      */
     public String getRuleId() {
         return this.RuleId;
     }
 
     /**
-     * Set Prometheus 报警规则 ID
-     * @param RuleId Prometheus 报警规则 ID
+     * Set Prometheus 告警规则 ID
+     * @param RuleId Prometheus 告警规则 ID
      */
     public void setRuleId(String RuleId) {
         this.RuleId = RuleId;
@@ -163,90 +164,90 @@ public class UpdateAlertRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 报警规则名称 
-     * @return RuleName 报警规则名称
+     * Get 告警规则名称 
+     * @return RuleName 告警规则名称
      */
     public String getRuleName() {
         return this.RuleName;
     }
 
     /**
-     * Set 报警规则名称
-     * @param RuleName 报警规则名称
+     * Set 告警规则名称
+     * @param RuleName 告警规则名称
      */
     public void setRuleName(String RuleName) {
         this.RuleName = RuleName;
     }
 
     /**
-     * Get 报警规则表达式 
-     * @return Expr 报警规则表达式
+     * Get 告警规则表达式 
+     * @return Expr 告警规则表达式
      */
     public String getExpr() {
         return this.Expr;
     }
 
     /**
-     * Set 报警规则表达式
-     * @param Expr 报警规则表达式
+     * Set 告警规则表达式
+     * @param Expr 告警规则表达式
      */
     public void setExpr(String Expr) {
         this.Expr = Expr;
     }
 
     /**
-     * Get 报警规则持续时间 
-     * @return Duration 报警规则持续时间
+     * Get 告警规则持续时间 
+     * @return Duration 告警规则持续时间
      */
     public String getDuration() {
         return this.Duration;
     }
 
     /**
-     * Set 报警规则持续时间
-     * @param Duration 报警规则持续时间
+     * Set 告警规则持续时间
+     * @param Duration 告警规则持续时间
      */
     public void setDuration(String Duration) {
         this.Duration = Duration;
     }
 
     /**
-     * Get 报警规则接收组列表 
-     * @return Receivers 报警规则接收组列表
+     * Get 告警规则接收组列表(当前规则绑定的接收组列表可通过 DescribeAlertRules 接口获取；用户已有的接收组列表可通过 DescribeAlarmNotices 接口获取) 
+     * @return Receivers 告警规则接收组列表(当前规则绑定的接收组列表可通过 DescribeAlertRules 接口获取；用户已有的接收组列表可通过 DescribeAlarmNotices 接口获取)
      */
     public String [] getReceivers() {
         return this.Receivers;
     }
 
     /**
-     * Set 报警规则接收组列表
-     * @param Receivers 报警规则接收组列表
+     * Set 告警规则接收组列表(当前规则绑定的接收组列表可通过 DescribeAlertRules 接口获取；用户已有的接收组列表可通过 DescribeAlarmNotices 接口获取)
+     * @param Receivers 告警规则接收组列表(当前规则绑定的接收组列表可通过 DescribeAlertRules 接口获取；用户已有的接收组列表可通过 DescribeAlarmNotices 接口获取)
      */
     public void setReceivers(String [] Receivers) {
         this.Receivers = Receivers;
     }
 
     /**
-     * Get 报警规则标签列表 
-     * @return Labels 报警规则标签列表
+     * Get 告警规则标签列表 
+     * @return Labels 告警规则标签列表
      */
     public PrometheusRuleKV [] getLabels() {
         return this.Labels;
     }
 
     /**
-     * Set 报警规则标签列表
-     * @param Labels 报警规则标签列表
+     * Set 告警规则标签列表
+     * @param Labels 告警规则标签列表
      */
     public void setLabels(PrometheusRuleKV [] Labels) {
         this.Labels = Labels;
     }
 
     /**
-     * Get 报警规则注释列表。
+     * Get 告警规则注释列表。
 
 告警对象和告警消息是 Prometheus Rule Annotations 的特殊字段，需要通过 annotations 来传递，对应的 Key 分别为summary/description。 
-     * @return Annotations 报警规则注释列表。
+     * @return Annotations 告警规则注释列表。
 
 告警对象和告警消息是 Prometheus Rule Annotations 的特殊字段，需要通过 annotations 来传递，对应的 Key 分别为summary/description。
      */
@@ -255,10 +256,10 @@ public class UpdateAlertRuleRequest extends AbstractModel{
     }
 
     /**
-     * Set 报警规则注释列表。
+     * Set 告警规则注释列表。
 
 告警对象和告警消息是 Prometheus Rule Annotations 的特殊字段，需要通过 annotations 来传递，对应的 Key 分别为summary/description。
-     * @param Annotations 报警规则注释列表。
+     * @param Annotations 告警规则注释列表。
 
 告警对象和告警消息是 Prometheus Rule Annotations 的特殊字段，需要通过 annotations 来传递，对应的 Key 分别为summary/description。
      */
@@ -267,16 +268,16 @@ public class UpdateAlertRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 报警策略模板分类 
-     * @return Type 报警策略模板分类
+     * Get 告警策略模板分类(自定义，可不填) 
+     * @return Type 告警策略模板分类(自定义，可不填)
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 报警策略模板分类
-     * @param Type 报警策略模板分类
+     * Set 告警策略模板分类(自定义，可不填)
+     * @param Type 告警策略模板分类(自定义，可不填)
      */
     public void setType(String Type) {
         this.Type = Type;

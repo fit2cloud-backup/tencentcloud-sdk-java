@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EsConnectParam extends AbstractModel{
+public class EsConnectParam extends AbstractModel {
 
     /**
     * Es的连接port
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
@@ -32,7 +32,6 @@ public class EsConnectParam extends AbstractModel{
 
     /**
     * Es连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserName")
     @Expose
@@ -40,7 +39,6 @@ public class EsConnectParam extends AbstractModel{
 
     /**
     * Es连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Password")
     @Expose
@@ -48,7 +46,6 @@ public class EsConnectParam extends AbstractModel{
 
     /**
     * Es连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resource")
     @Expose
@@ -56,7 +53,6 @@ public class EsConnectParam extends AbstractModel{
 
     /**
     * Es连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SelfBuilt")
     @Expose
@@ -64,7 +60,6 @@ public class EsConnectParam extends AbstractModel{
 
     /**
     * Es连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceVip")
     @Expose
@@ -72,7 +67,6 @@ public class EsConnectParam extends AbstractModel{
 
     /**
     * Es连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UniqVpcId")
     @Expose
@@ -87,10 +81,8 @@ public class EsConnectParam extends AbstractModel{
     private Boolean IsUpdate;
 
     /**
-     * Get Es的连接port
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Es的连接port 
      * @return Port Es的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -98,19 +90,15 @@ public class EsConnectParam extends AbstractModel{
 
     /**
      * Set Es的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Port Es的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get Es连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Es连接源的用户名 
      * @return UserName Es连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserName() {
         return this.UserName;
@@ -118,19 +106,15 @@ public class EsConnectParam extends AbstractModel{
 
     /**
      * Set Es连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserName Es连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
     }
 
     /**
-     * Get Es连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Es连接源的密码 
      * @return Password Es连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPassword() {
         return this.Password;
@@ -138,19 +122,15 @@ public class EsConnectParam extends AbstractModel{
 
     /**
      * Set Es连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Password Es连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
     /**
-     * Get Es连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Es连接源的实例资源 
      * @return Resource Es连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResource() {
         return this.Resource;
@@ -158,19 +138,15 @@ public class EsConnectParam extends AbstractModel{
 
     /**
      * Set Es连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Resource Es连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResource(String Resource) {
         this.Resource = Resource;
     }
 
     /**
-     * Get Es连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Es连接源是否为自建集群 
      * @return SelfBuilt Es连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSelfBuilt() {
         return this.SelfBuilt;
@@ -178,19 +154,15 @@ public class EsConnectParam extends AbstractModel{
 
     /**
      * Set Es连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SelfBuilt Es连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSelfBuilt(Boolean SelfBuilt) {
         this.SelfBuilt = SelfBuilt;
     }
 
     /**
-     * Get Es连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Es连接源的实例vip，当为腾讯云实例时，必填 
      * @return ServiceVip Es连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceVip() {
         return this.ServiceVip;
@@ -198,19 +170,15 @@ public class EsConnectParam extends AbstractModel{
 
     /**
      * Set Es连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceVip Es连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceVip(String ServiceVip) {
         this.ServiceVip = ServiceVip;
     }
 
     /**
-     * Get Es连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Es连接源的vpcId，当为腾讯云实例时，必填 
      * @return UniqVpcId Es连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUniqVpcId() {
         return this.UniqVpcId;
@@ -218,9 +186,7 @@ public class EsConnectParam extends AbstractModel{
 
     /**
      * Set Es连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UniqVpcId Es连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUniqVpcId(String UniqVpcId) {
         this.UniqVpcId = UniqVpcId;

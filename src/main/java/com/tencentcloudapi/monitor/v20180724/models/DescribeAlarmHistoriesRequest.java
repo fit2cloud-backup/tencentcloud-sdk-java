@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAlarmHistoriesRequest extends AbstractModel{
+public class DescribeAlarmHistoriesRequest extends AbstractModel {
 
     /**
     * 固定值，为"monitor"
@@ -65,7 +66,8 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
     private Long EndTime;
 
     /**
-    * 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能观测；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测
+    * 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能监控；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测，"MT_TRTC"=实时音视频，
+"MT_RUMAPP"=终端性能监控
     */
     @SerializedName("MonitorTypes")
     @Expose
@@ -116,7 +118,7 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
     private String [] MetricNames;
 
     /**
-    * 根据策略名称模糊搜索
+    * 根据策略名称模糊搜索,不支持大小写区分
     */
     @SerializedName("PolicyName")
     @Expose
@@ -149,6 +151,27 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
     @SerializedName("PolicyIds")
     @Expose
     private String [] PolicyIds;
+
+    /**
+    * 告警等级,取值范围：Remind、Serious、Warn
+    */
+    @SerializedName("AlarmLevels")
+    @Expose
+    private String [] AlarmLevels;
+
+    /**
+    * 收敛历史的唯一id
+    */
+    @SerializedName("ConvergenceHistoryIDs")
+    @Expose
+    private String [] ConvergenceHistoryIDs;
+
+    /**
+    * 告警类型
+    */
+    @SerializedName("AlarmTypes")
+    @Expose
+    private String [] AlarmTypes;
 
     /**
      * Get 固定值，为"monitor" 
@@ -247,16 +270,20 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
     }
 
     /**
-     * Get 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能观测；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测 
-     * @return MonitorTypes 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能观测；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测
+     * Get 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能监控；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测，"MT_TRTC"=实时音视频，
+"MT_RUMAPP"=终端性能监控 
+     * @return MonitorTypes 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能监控；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测，"MT_TRTC"=实时音视频，
+"MT_RUMAPP"=终端性能监控
      */
     public String [] getMonitorTypes() {
         return this.MonitorTypes;
     }
 
     /**
-     * Set 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能观测；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测
-     * @param MonitorTypes 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能观测；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测
+     * Set 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能监控；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测，"MT_TRTC"=实时音视频，
+"MT_RUMAPP"=终端性能监控
+     * @param MonitorTypes 根据监控类型过滤，不选默认查所有类型。"MT_QCE"=云产品监控，支持的枚举值有："MT_QCE"=云产品监控；"MT_TAW"=应用性能监控；"MT_RUM"=前端性能监控；"MT_PROBE"=云拨测，"MT_TRTC"=实时音视频，
+"MT_RUMAPP"=终端性能监控
      */
     public void setMonitorTypes(String [] MonitorTypes) {
         this.MonitorTypes = MonitorTypes;
@@ -367,16 +394,16 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
     }
 
     /**
-     * Get 根据策略名称模糊搜索 
-     * @return PolicyName 根据策略名称模糊搜索
+     * Get 根据策略名称模糊搜索,不支持大小写区分 
+     * @return PolicyName 根据策略名称模糊搜索,不支持大小写区分
      */
     public String getPolicyName() {
         return this.PolicyName;
     }
 
     /**
-     * Set 根据策略名称模糊搜索
-     * @param PolicyName 根据策略名称模糊搜索
+     * Set 根据策略名称模糊搜索,不支持大小写区分
+     * @param PolicyName 根据策略名称模糊搜索,不支持大小写区分
      */
     public void setPolicyName(String PolicyName) {
         this.PolicyName = PolicyName;
@@ -444,6 +471,54 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
      */
     public void setPolicyIds(String [] PolicyIds) {
         this.PolicyIds = PolicyIds;
+    }
+
+    /**
+     * Get 告警等级,取值范围：Remind、Serious、Warn 
+     * @return AlarmLevels 告警等级,取值范围：Remind、Serious、Warn
+     */
+    public String [] getAlarmLevels() {
+        return this.AlarmLevels;
+    }
+
+    /**
+     * Set 告警等级,取值范围：Remind、Serious、Warn
+     * @param AlarmLevels 告警等级,取值范围：Remind、Serious、Warn
+     */
+    public void setAlarmLevels(String [] AlarmLevels) {
+        this.AlarmLevels = AlarmLevels;
+    }
+
+    /**
+     * Get 收敛历史的唯一id 
+     * @return ConvergenceHistoryIDs 收敛历史的唯一id
+     */
+    public String [] getConvergenceHistoryIDs() {
+        return this.ConvergenceHistoryIDs;
+    }
+
+    /**
+     * Set 收敛历史的唯一id
+     * @param ConvergenceHistoryIDs 收敛历史的唯一id
+     */
+    public void setConvergenceHistoryIDs(String [] ConvergenceHistoryIDs) {
+        this.ConvergenceHistoryIDs = ConvergenceHistoryIDs;
+    }
+
+    /**
+     * Get 告警类型 
+     * @return AlarmTypes 告警类型
+     */
+    public String [] getAlarmTypes() {
+        return this.AlarmTypes;
+    }
+
+    /**
+     * Set 告警类型
+     * @param AlarmTypes 告警类型
+     */
+    public void setAlarmTypes(String [] AlarmTypes) {
+        this.AlarmTypes = AlarmTypes;
     }
 
     public DescribeAlarmHistoriesRequest() {
@@ -535,6 +610,24 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
                 this.PolicyIds[i] = new String(source.PolicyIds[i]);
             }
         }
+        if (source.AlarmLevels != null) {
+            this.AlarmLevels = new String[source.AlarmLevels.length];
+            for (int i = 0; i < source.AlarmLevels.length; i++) {
+                this.AlarmLevels[i] = new String(source.AlarmLevels[i]);
+            }
+        }
+        if (source.ConvergenceHistoryIDs != null) {
+            this.ConvergenceHistoryIDs = new String[source.ConvergenceHistoryIDs.length];
+            for (int i = 0; i < source.ConvergenceHistoryIDs.length; i++) {
+                this.ConvergenceHistoryIDs[i] = new String(source.ConvergenceHistoryIDs[i]);
+            }
+        }
+        if (source.AlarmTypes != null) {
+            this.AlarmTypes = new String[source.AlarmTypes.length];
+            for (int i = 0; i < source.AlarmTypes.length; i++) {
+                this.AlarmTypes[i] = new String(source.AlarmTypes[i]);
+            }
+        }
     }
 
 
@@ -560,6 +653,9 @@ public class DescribeAlarmHistoriesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ReceiverUids.", this.ReceiverUids);
         this.setParamArraySimple(map, prefix + "ReceiverGroups.", this.ReceiverGroups);
         this.setParamArraySimple(map, prefix + "PolicyIds.", this.PolicyIds);
+        this.setParamArraySimple(map, prefix + "AlarmLevels.", this.AlarmLevels);
+        this.setParamArraySimple(map, prefix + "ConvergenceHistoryIDs.", this.ConvergenceHistoryIDs);
+        this.setParamArraySimple(map, prefix + "AlarmTypes.", this.AlarmTypes);
 
     }
 }

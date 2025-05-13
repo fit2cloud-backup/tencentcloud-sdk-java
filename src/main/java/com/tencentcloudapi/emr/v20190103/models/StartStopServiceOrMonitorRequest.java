@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StartStopServiceOrMonitorRequest extends AbstractModel{
+public class StartStopServiceOrMonitorRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -54,6 +55,20 @@ public class StartStopServiceOrMonitorRequest extends AbstractModel{
     @SerializedName("StrategyConfig")
     @Expose
     private StrategyConfig StrategyConfig;
+
+    /**
+    * 暂停服务时用的参数
+    */
+    @SerializedName("StopParams")
+    @Expose
+    private StopParams StopParams;
+
+    /**
+    * 当OpType为<li>StopMonitor</li>才有用，true表示进入维护模式但是仍然监控进程但是不拉起进程
+    */
+    @SerializedName("KeepMonitorButNotRecoverProcess")
+    @Expose
+    private Boolean KeepMonitorButNotRecoverProcess;
 
     /**
      * Get 集群ID 
@@ -139,6 +154,38 @@ public class StartStopServiceOrMonitorRequest extends AbstractModel{
         this.StrategyConfig = StrategyConfig;
     }
 
+    /**
+     * Get 暂停服务时用的参数 
+     * @return StopParams 暂停服务时用的参数
+     */
+    public StopParams getStopParams() {
+        return this.StopParams;
+    }
+
+    /**
+     * Set 暂停服务时用的参数
+     * @param StopParams 暂停服务时用的参数
+     */
+    public void setStopParams(StopParams StopParams) {
+        this.StopParams = StopParams;
+    }
+
+    /**
+     * Get 当OpType为<li>StopMonitor</li>才有用，true表示进入维护模式但是仍然监控进程但是不拉起进程 
+     * @return KeepMonitorButNotRecoverProcess 当OpType为<li>StopMonitor</li>才有用，true表示进入维护模式但是仍然监控进程但是不拉起进程
+     */
+    public Boolean getKeepMonitorButNotRecoverProcess() {
+        return this.KeepMonitorButNotRecoverProcess;
+    }
+
+    /**
+     * Set 当OpType为<li>StopMonitor</li>才有用，true表示进入维护模式但是仍然监控进程但是不拉起进程
+     * @param KeepMonitorButNotRecoverProcess 当OpType为<li>StopMonitor</li>才有用，true表示进入维护模式但是仍然监控进程但是不拉起进程
+     */
+    public void setKeepMonitorButNotRecoverProcess(Boolean KeepMonitorButNotRecoverProcess) {
+        this.KeepMonitorButNotRecoverProcess = KeepMonitorButNotRecoverProcess;
+    }
+
     public StartStopServiceOrMonitorRequest() {
     }
 
@@ -159,6 +206,12 @@ public class StartStopServiceOrMonitorRequest extends AbstractModel{
         if (source.StrategyConfig != null) {
             this.StrategyConfig = new StrategyConfig(source.StrategyConfig);
         }
+        if (source.StopParams != null) {
+            this.StopParams = new StopParams(source.StopParams);
+        }
+        if (source.KeepMonitorButNotRecoverProcess != null) {
+            this.KeepMonitorButNotRecoverProcess = new Boolean(source.KeepMonitorButNotRecoverProcess);
+        }
     }
 
 
@@ -170,6 +223,8 @@ public class StartStopServiceOrMonitorRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OpType", this.OpType);
         this.setParamObj(map, prefix + "OpScope.", this.OpScope);
         this.setParamObj(map, prefix + "StrategyConfig.", this.StrategyConfig);
+        this.setParamObj(map, prefix + "StopParams.", this.StopParams);
+        this.setParamSimple(map, prefix + "KeepMonitorButNotRecoverProcess", this.KeepMonitorButNotRecoverProcess);
 
     }
 }

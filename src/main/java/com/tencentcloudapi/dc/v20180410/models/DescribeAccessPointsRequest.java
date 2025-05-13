@@ -16,16 +16,15 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAccessPointsRequest extends AbstractModel{
+public class DescribeAccessPointsRequest extends AbstractModel {
 
     /**
-    * 接入点所在的地域。使用DescribeRegions查询
-
-您可以通过调用 DescribeRegions接口获取地域ID。
+    * 接入点所在的地域。你可以通过调用[DescribeRegions](https://cloud.tencent.com/document/product/1596/77930)接口获取地域ID。
     */
     @SerializedName("RegionId")
     @Expose
@@ -46,24 +45,23 @@ public class DescribeAccessPointsRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 接入点所在的地域。使用DescribeRegions查询
+    * 过滤参数，支持：access-point-id、isp
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
 
-您可以通过调用 DescribeRegions接口获取地域ID。 
-     * @return RegionId 接入点所在的地域。使用DescribeRegions查询
-
-您可以通过调用 DescribeRegions接口获取地域ID。
+    /**
+     * Get 接入点所在的地域。你可以通过调用[DescribeRegions](https://cloud.tencent.com/document/product/1596/77930)接口获取地域ID。 
+     * @return RegionId 接入点所在的地域。你可以通过调用[DescribeRegions](https://cloud.tencent.com/document/product/1596/77930)接口获取地域ID。
      */
     public String getRegionId() {
         return this.RegionId;
     }
 
     /**
-     * Set 接入点所在的地域。使用DescribeRegions查询
-
-您可以通过调用 DescribeRegions接口获取地域ID。
-     * @param RegionId 接入点所在的地域。使用DescribeRegions查询
-
-您可以通过调用 DescribeRegions接口获取地域ID。
+     * Set 接入点所在的地域。你可以通过调用[DescribeRegions](https://cloud.tencent.com/document/product/1596/77930)接口获取地域ID。
+     * @param RegionId 接入点所在的地域。你可以通过调用[DescribeRegions](https://cloud.tencent.com/document/product/1596/77930)接口获取地域ID。
      */
     public void setRegionId(String RegionId) {
         this.RegionId = RegionId;
@@ -101,6 +99,22 @@ public class DescribeAccessPointsRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    /**
+     * Get 过滤参数，支持：access-point-id、isp 
+     * @return Filters 过滤参数，支持：access-point-id、isp
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤参数，支持：access-point-id、isp
+     * @param Filters 过滤参数，支持：access-point-id、isp
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
     public DescribeAccessPointsRequest() {
     }
 
@@ -118,6 +132,12 @@ public class DescribeAccessPointsRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
     }
 
 
@@ -128,6 +148,7 @@ public class DescribeAccessPointsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "RegionId", this.RegionId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSampleMatrixBatchQueryRequest extends AbstractModel{
+public class DescribeSampleMatrixBatchQueryRequest extends AbstractModel {
 
     /**
     * 任务ID
@@ -49,6 +50,13 @@ public class DescribeSampleMatrixBatchQueryRequest extends AbstractModel{
     @SerializedName("Queries")
     @Expose
     private InternalMetricQuery [] Queries;
+
+    /**
+    * 最多返回的数据点个数
+    */
+    @SerializedName("MaxPoint")
+    @Expose
+    private Long MaxPoint;
 
     /**
      * Get 任务ID 
@@ -114,6 +122,22 @@ public class DescribeSampleMatrixBatchQueryRequest extends AbstractModel{
         this.Queries = Queries;
     }
 
+    /**
+     * Get 最多返回的数据点个数 
+     * @return MaxPoint 最多返回的数据点个数
+     */
+    public Long getMaxPoint() {
+        return this.MaxPoint;
+    }
+
+    /**
+     * Set 最多返回的数据点个数
+     * @param MaxPoint 最多返回的数据点个数
+     */
+    public void setMaxPoint(Long MaxPoint) {
+        this.MaxPoint = MaxPoint;
+    }
+
     public DescribeSampleMatrixBatchQueryRequest() {
     }
 
@@ -137,6 +161,9 @@ public class DescribeSampleMatrixBatchQueryRequest extends AbstractModel{
                 this.Queries[i] = new InternalMetricQuery(source.Queries[i]);
             }
         }
+        if (source.MaxPoint != null) {
+            this.MaxPoint = new Long(source.MaxPoint);
+        }
     }
 
 
@@ -148,6 +175,7 @@ public class DescribeSampleMatrixBatchQueryRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "ScenarioId", this.ScenarioId);
         this.setParamArrayObj(map, prefix + "Queries.", this.Queries);
+        this.setParamSimple(map, prefix + "MaxPoint", this.MaxPoint);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchKillIntegrationTaskInstancesResponse extends AbstractModel{
+public class BatchKillIntegrationTaskInstancesResponse extends AbstractModel {
 
     /**
     * 操作成功的任务数
@@ -44,7 +45,15 @@ public class BatchKillIntegrationTaskInstancesResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 实际传的为taskId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskNames")
+    @Expose
+    private String [] TaskNames;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -99,16 +108,36 @@ public class BatchKillIntegrationTaskInstancesResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 实际传的为taskId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskNames 实际传的为taskId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getTaskNames() {
+        return this.TaskNames;
+    }
+
+    /**
+     * Set 实际传的为taskId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskNames 实际传的为taskId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskNames(String [] TaskNames) {
+        this.TaskNames = TaskNames;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -131,6 +160,12 @@ public class BatchKillIntegrationTaskInstancesResponse extends AbstractModel{
         if (source.TotalCount != null) {
             this.TotalCount = new Long(source.TotalCount);
         }
+        if (source.TaskNames != null) {
+            this.TaskNames = new String[source.TaskNames.length];
+            for (int i = 0; i < source.TaskNames.length; i++) {
+                this.TaskNames[i] = new String(source.TaskNames[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -144,6 +179,7 @@ public class BatchKillIntegrationTaskInstancesResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "SuccessCount", this.SuccessCount);
         this.setParamSimple(map, prefix + "FailedCount", this.FailedCount);
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
+        this.setParamArraySimple(map, prefix + "TaskNames.", this.TaskNames);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

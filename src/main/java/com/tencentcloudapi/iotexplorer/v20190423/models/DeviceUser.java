@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeviceUser extends AbstractModel{
+public class DeviceUser extends AbstractModel {
 
     /**
     * 用户ID
@@ -38,7 +39,6 @@ public class DeviceUser extends AbstractModel{
 
     /**
     * 家庭ID，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FamilyId")
     @Expose
@@ -46,7 +46,6 @@ public class DeviceUser extends AbstractModel{
 
     /**
     * 家庭名称，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FamilyName")
     @Expose
@@ -85,10 +84,8 @@ public class DeviceUser extends AbstractModel{
     }
 
     /**
-     * Get 家庭ID，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 家庭ID，所有者带该参数 
      * @return FamilyId 家庭ID，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFamilyId() {
         return this.FamilyId;
@@ -96,19 +93,15 @@ public class DeviceUser extends AbstractModel{
 
     /**
      * Set 家庭ID，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FamilyId 家庭ID，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFamilyId(String FamilyId) {
         this.FamilyId = FamilyId;
     }
 
     /**
-     * Get 家庭名称，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 家庭名称，所有者带该参数 
      * @return FamilyName 家庭名称，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFamilyName() {
         return this.FamilyName;
@@ -116,9 +109,7 @@ public class DeviceUser extends AbstractModel{
 
     /**
      * Set 家庭名称，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FamilyName 家庭名称，所有者带该参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFamilyName(String FamilyName) {
         this.FamilyName = FamilyName;

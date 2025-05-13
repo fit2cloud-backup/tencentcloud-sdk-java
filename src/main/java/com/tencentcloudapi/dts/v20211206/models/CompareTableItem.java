@@ -16,25 +16,37 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CompareTableItem extends AbstractModel{
+public class CompareTableItem extends AbstractModel {
 
     /**
     * 表名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TableName")
     @Expose
     private String TableName;
 
     /**
-     * Get 表名称
-注意：此字段可能返回 null，表示取不到有效值。 
+    * column 模式，all 为全部，partial 表示部分(该参数仅对数据同步任务有效)
+    */
+    @SerializedName("ColumnMode")
+    @Expose
+    private String ColumnMode;
+
+    /**
+    * 当 ColumnMode 为 partial 时必填(该参数仅对数据同步任务有效)
+    */
+    @SerializedName("Columns")
+    @Expose
+    private CompareColumnItem [] Columns;
+
+    /**
+     * Get 表名称 
      * @return TableName 表名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTableName() {
         return this.TableName;
@@ -42,12 +54,42 @@ public class CompareTableItem extends AbstractModel{
 
     /**
      * Set 表名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TableName 表名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTableName(String TableName) {
         this.TableName = TableName;
+    }
+
+    /**
+     * Get column 模式，all 为全部，partial 表示部分(该参数仅对数据同步任务有效) 
+     * @return ColumnMode column 模式，all 为全部，partial 表示部分(该参数仅对数据同步任务有效)
+     */
+    public String getColumnMode() {
+        return this.ColumnMode;
+    }
+
+    /**
+     * Set column 模式，all 为全部，partial 表示部分(该参数仅对数据同步任务有效)
+     * @param ColumnMode column 模式，all 为全部，partial 表示部分(该参数仅对数据同步任务有效)
+     */
+    public void setColumnMode(String ColumnMode) {
+        this.ColumnMode = ColumnMode;
+    }
+
+    /**
+     * Get 当 ColumnMode 为 partial 时必填(该参数仅对数据同步任务有效) 
+     * @return Columns 当 ColumnMode 为 partial 时必填(该参数仅对数据同步任务有效)
+     */
+    public CompareColumnItem [] getColumns() {
+        return this.Columns;
+    }
+
+    /**
+     * Set 当 ColumnMode 为 partial 时必填(该参数仅对数据同步任务有效)
+     * @param Columns 当 ColumnMode 为 partial 时必填(该参数仅对数据同步任务有效)
+     */
+    public void setColumns(CompareColumnItem [] Columns) {
+        this.Columns = Columns;
     }
 
     public CompareTableItem() {
@@ -61,6 +103,15 @@ public class CompareTableItem extends AbstractModel{
         if (source.TableName != null) {
             this.TableName = new String(source.TableName);
         }
+        if (source.ColumnMode != null) {
+            this.ColumnMode = new String(source.ColumnMode);
+        }
+        if (source.Columns != null) {
+            this.Columns = new CompareColumnItem[source.Columns.length];
+            for (int i = 0; i < source.Columns.length; i++) {
+                this.Columns[i] = new CompareColumnItem(source.Columns[i]);
+            }
+        }
     }
 
 
@@ -69,6 +120,8 @@ public class CompareTableItem extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TableName", this.TableName);
+        this.setParamSimple(map, prefix + "ColumnMode", this.ColumnMode);
+        this.setParamArrayObj(map, prefix + "Columns.", this.Columns);
 
     }
 }

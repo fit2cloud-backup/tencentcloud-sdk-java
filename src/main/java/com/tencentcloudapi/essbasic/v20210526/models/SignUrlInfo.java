@@ -16,15 +16,17 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SignUrlInfo extends AbstractModel{
+public class SignUrlInfo extends AbstractModel {
 
     /**
-    * 签署链接，过期时间为30天
-注意：此字段可能返回 null，表示取不到有效值。
+    * 签署链接，过期时间为90天
+
+注：<font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
     */
     @SerializedName("SignUrl")
     @Expose
@@ -32,7 +34,6 @@ public class SignUrlInfo extends AbstractModel{
 
     /**
     * 合同过期时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Deadline")
     @Expose
@@ -40,7 +41,6 @@ public class SignUrlInfo extends AbstractModel{
 
     /**
     * 当流程为顺序签署此参数有效时，数字越小优先级越高，暂不支持并行签署 可选
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SignOrder")
     @Expose
@@ -48,7 +48,6 @@ public class SignUrlInfo extends AbstractModel{
 
     /**
     * 签署人编号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SignId")
     @Expose
@@ -64,7 +63,6 @@ public class SignUrlInfo extends AbstractModel{
 
     /**
     * 用户姓名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -72,7 +70,6 @@ public class SignUrlInfo extends AbstractModel{
 
     /**
     * 用户手机号码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Mobile")
     @Expose
@@ -80,17 +77,15 @@ public class SignUrlInfo extends AbstractModel{
 
     /**
     * 签署参与者机构名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrganizationName")
     @Expose
     private String OrganizationName;
 
     /**
-    * 参与者类型:
-ORGANIZATION 企业经办人
-PERSON 自然人
-注意：此字段可能返回 null，表示取不到有效值。
+    * 参与者类型, 类型如下:
+**ORGANIZATION**:企业经办人
+**PERSON**: 自然人
     */
     @SerializedName("ApproverType")
     @Expose
@@ -98,7 +93,6 @@ PERSON 自然人
 
     /**
     * 经办人身份证号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IdCardNumber")
     @Expose
@@ -106,7 +100,6 @@ PERSON 自然人
 
     /**
     * 签署链接对应流程Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowId")
     @Expose
@@ -114,7 +107,6 @@ PERSON 自然人
 
     /**
     * 企业经办人 用户在渠道的编号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OpenId")
     @Expose
@@ -122,37 +114,45 @@ PERSON 自然人
 
     /**
     * 合同组签署链接对应的合同组id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowGroupId")
     @Expose
     private String FlowGroupId;
 
     /**
-     * Get 签署链接，过期时间为30天
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SignUrl 签署链接，过期时间为30天
-注意：此字段可能返回 null，表示取不到有效值。
+    * 二维码，在生成动态签署人跳转封面页链接时返回
+    */
+    @SerializedName("SignQrcodeUrl")
+    @Expose
+    private String SignQrcodeUrl;
+
+    /**
+     * Get 签署链接，过期时间为90天
+
+注：<font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误） 
+     * @return SignUrl 签署链接，过期时间为90天
+
+注：<font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
      */
     public String getSignUrl() {
         return this.SignUrl;
     }
 
     /**
-     * Set 签署链接，过期时间为30天
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SignUrl 签署链接，过期时间为30天
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 签署链接，过期时间为90天
+
+注：<font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
+     * @param SignUrl 签署链接，过期时间为90天
+
+注：<font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
      */
     public void setSignUrl(String SignUrl) {
         this.SignUrl = SignUrl;
     }
 
     /**
-     * Get 合同过期时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 合同过期时间戳，单位秒 
      * @return Deadline 合同过期时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDeadline() {
         return this.Deadline;
@@ -160,19 +160,15 @@ PERSON 自然人
 
     /**
      * Set 合同过期时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Deadline 合同过期时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeadline(Long Deadline) {
         this.Deadline = Deadline;
     }
 
     /**
-     * Get 当流程为顺序签署此参数有效时，数字越小优先级越高，暂不支持并行签署 可选
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当流程为顺序签署此参数有效时，数字越小优先级越高，暂不支持并行签署 可选 
      * @return SignOrder 当流程为顺序签署此参数有效时，数字越小优先级越高，暂不支持并行签署 可选
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSignOrder() {
         return this.SignOrder;
@@ -180,19 +176,15 @@ PERSON 自然人
 
     /**
      * Set 当流程为顺序签署此参数有效时，数字越小优先级越高，暂不支持并行签署 可选
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SignOrder 当流程为顺序签署此参数有效时，数字越小优先级越高，暂不支持并行签署 可选
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSignOrder(Long SignOrder) {
         this.SignOrder = SignOrder;
     }
 
     /**
-     * Get 签署人编号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签署人编号 
      * @return SignId 签署人编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSignId() {
         return this.SignId;
@@ -200,9 +192,7 @@ PERSON 自然人
 
     /**
      * Set 签署人编号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SignId 签署人编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSignId(String SignId) {
         this.SignId = SignId;
@@ -233,10 +223,8 @@ PERSON 自然人
     }
 
     /**
-     * Get 用户姓名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户姓名 
      * @return Name 用户姓名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -244,19 +232,15 @@ PERSON 自然人
 
     /**
      * Set 用户姓名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 用户姓名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 用户手机号码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户手机号码 
      * @return Mobile 用户手机号码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMobile() {
         return this.Mobile;
@@ -264,19 +248,15 @@ PERSON 自然人
 
     /**
      * Set 用户手机号码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Mobile 用户手机号码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;
     }
 
     /**
-     * Get 签署参与者机构名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签署参与者机构名字 
      * @return OrganizationName 签署参与者机构名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOrganizationName() {
         return this.OrganizationName;
@@ -284,47 +264,39 @@ PERSON 自然人
 
     /**
      * Set 签署参与者机构名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrganizationName 签署参与者机构名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrganizationName(String OrganizationName) {
         this.OrganizationName = OrganizationName;
     }
 
     /**
-     * Get 参与者类型:
-ORGANIZATION 企业经办人
-PERSON 自然人
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApproverType 参与者类型:
-ORGANIZATION 企业经办人
-PERSON 自然人
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 参与者类型, 类型如下:
+**ORGANIZATION**:企业经办人
+**PERSON**: 自然人 
+     * @return ApproverType 参与者类型, 类型如下:
+**ORGANIZATION**:企业经办人
+**PERSON**: 自然人
      */
     public String getApproverType() {
         return this.ApproverType;
     }
 
     /**
-     * Set 参与者类型:
-ORGANIZATION 企业经办人
-PERSON 自然人
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApproverType 参与者类型:
-ORGANIZATION 企业经办人
-PERSON 自然人
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 参与者类型, 类型如下:
+**ORGANIZATION**:企业经办人
+**PERSON**: 自然人
+     * @param ApproverType 参与者类型, 类型如下:
+**ORGANIZATION**:企业经办人
+**PERSON**: 自然人
      */
     public void setApproverType(String ApproverType) {
         this.ApproverType = ApproverType;
     }
 
     /**
-     * Get 经办人身份证号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 经办人身份证号 
      * @return IdCardNumber 经办人身份证号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIdCardNumber() {
         return this.IdCardNumber;
@@ -332,19 +304,15 @@ PERSON 自然人
 
     /**
      * Set 经办人身份证号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IdCardNumber 经办人身份证号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdCardNumber(String IdCardNumber) {
         this.IdCardNumber = IdCardNumber;
     }
 
     /**
-     * Get 签署链接对应流程Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签署链接对应流程Id 
      * @return FlowId 签署链接对应流程Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFlowId() {
         return this.FlowId;
@@ -352,19 +320,15 @@ PERSON 自然人
 
     /**
      * Set 签署链接对应流程Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowId 签署链接对应流程Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowId(String FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 企业经办人 用户在渠道的编号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 企业经办人 用户在渠道的编号 
      * @return OpenId 企业经办人 用户在渠道的编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOpenId() {
         return this.OpenId;
@@ -372,19 +336,15 @@ PERSON 自然人
 
     /**
      * Set 企业经办人 用户在渠道的编号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OpenId 企业经办人 用户在渠道的编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
     }
 
     /**
-     * Get 合同组签署链接对应的合同组id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 合同组签署链接对应的合同组id 
      * @return FlowGroupId 合同组签署链接对应的合同组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFlowGroupId() {
         return this.FlowGroupId;
@@ -392,12 +352,26 @@ PERSON 自然人
 
     /**
      * Set 合同组签署链接对应的合同组id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowGroupId 合同组签署链接对应的合同组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowGroupId(String FlowGroupId) {
         this.FlowGroupId = FlowGroupId;
+    }
+
+    /**
+     * Get 二维码，在生成动态签署人跳转封面页链接时返回 
+     * @return SignQrcodeUrl 二维码，在生成动态签署人跳转封面页链接时返回
+     */
+    public String getSignQrcodeUrl() {
+        return this.SignQrcodeUrl;
+    }
+
+    /**
+     * Set 二维码，在生成动态签署人跳转封面页链接时返回
+     * @param SignQrcodeUrl 二维码，在生成动态签署人跳转封面页链接时返回
+     */
+    public void setSignQrcodeUrl(String SignQrcodeUrl) {
+        this.SignQrcodeUrl = SignQrcodeUrl;
     }
 
     public SignUrlInfo() {
@@ -447,6 +421,9 @@ PERSON 自然人
         if (source.FlowGroupId != null) {
             this.FlowGroupId = new String(source.FlowGroupId);
         }
+        if (source.SignQrcodeUrl != null) {
+            this.SignQrcodeUrl = new String(source.SignQrcodeUrl);
+        }
     }
 
 
@@ -467,6 +444,7 @@ PERSON 自然人
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
         this.setParamSimple(map, prefix + "OpenId", this.OpenId);
         this.setParamSimple(map, prefix + "FlowGroupId", this.FlowGroupId);
+        this.setParamSimple(map, prefix + "SignQrcodeUrl", this.SignQrcodeUrl);
 
     }
 }

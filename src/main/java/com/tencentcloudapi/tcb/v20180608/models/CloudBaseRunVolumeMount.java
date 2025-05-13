@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloudBaseRunVolumeMount extends AbstractModel{
+public class CloudBaseRunVolumeMount extends AbstractModel {
 
     /**
     * 资源名
@@ -45,10 +46,18 @@ public class CloudBaseRunVolumeMount extends AbstractModel{
 
     /**
     * Nfs挂载信息
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NfsVolumes")
     @Expose
     private CloudBaseRunNfsVolumeSource [] NfsVolumes;
+
+    /**
+    * 挂载配置
+    */
+    @SerializedName("MountPropagation")
+    @Expose
+    private String MountPropagation;
 
     /**
      * Get 资源名 
@@ -99,8 +108,10 @@ public class CloudBaseRunVolumeMount extends AbstractModel{
     }
 
     /**
-     * Get Nfs挂载信息 
+     * Get Nfs挂载信息
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return NfsVolumes Nfs挂载信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public CloudBaseRunNfsVolumeSource [] getNfsVolumes() {
         return this.NfsVolumes;
@@ -108,10 +119,28 @@ public class CloudBaseRunVolumeMount extends AbstractModel{
 
     /**
      * Set Nfs挂载信息
+注意：此字段可能返回 null，表示取不到有效值。
      * @param NfsVolumes Nfs挂载信息
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNfsVolumes(CloudBaseRunNfsVolumeSource [] NfsVolumes) {
         this.NfsVolumes = NfsVolumes;
+    }
+
+    /**
+     * Get 挂载配置 
+     * @return MountPropagation 挂载配置
+     */
+    public String getMountPropagation() {
+        return this.MountPropagation;
+    }
+
+    /**
+     * Set 挂载配置
+     * @param MountPropagation 挂载配置
+     */
+    public void setMountPropagation(String MountPropagation) {
+        this.MountPropagation = MountPropagation;
     }
 
     public CloudBaseRunVolumeMount() {
@@ -137,6 +166,9 @@ public class CloudBaseRunVolumeMount extends AbstractModel{
                 this.NfsVolumes[i] = new CloudBaseRunNfsVolumeSource(source.NfsVolumes[i]);
             }
         }
+        if (source.MountPropagation != null) {
+            this.MountPropagation = new String(source.MountPropagation);
+        }
     }
 
 
@@ -148,6 +180,7 @@ public class CloudBaseRunVolumeMount extends AbstractModel{
         this.setParamSimple(map, prefix + "MountPath", this.MountPath);
         this.setParamSimple(map, prefix + "ReadOnly", this.ReadOnly);
         this.setParamArrayObj(map, prefix + "NfsVolumes.", this.NfsVolumes);
+        this.setParamSimple(map, prefix + "MountPropagation", this.MountPropagation);
 
     }
 }

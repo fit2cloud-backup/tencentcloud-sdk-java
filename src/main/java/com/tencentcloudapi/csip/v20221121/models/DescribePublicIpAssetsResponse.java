@@ -16,15 +16,15 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePublicIpAssetsResponse extends AbstractModel{
+public class DescribePublicIpAssetsResponse extends AbstractModel {
 
     /**
     * 列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
@@ -39,7 +39,6 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
     * 资产归属地
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetLocationList")
     @Expose
@@ -47,7 +46,6 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
     * ip列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IpTypeList")
     @Expose
@@ -55,7 +53,6 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
     * 地域列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionList")
     @Expose
@@ -63,7 +60,6 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
     * 防护枚举
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DefenseStatusList")
     @Expose
@@ -71,7 +67,6 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
     * 资产类型枚举
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetTypeList")
     @Expose
@@ -79,24 +74,21 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
     * AppId枚举
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppIdList")
     @Expose
     private FilterDataObject [] AppIdList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 列表 
      * @return Data 列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IpAssetListVO [] getData() {
         return this.Data;
@@ -104,9 +96,7 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
      * Set 列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(IpAssetListVO [] Data) {
         this.Data = Data;
@@ -129,10 +119,8 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
     }
 
     /**
-     * Get 资产归属地
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产归属地 
      * @return AssetLocationList 资产归属地
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getAssetLocationList() {
         return this.AssetLocationList;
@@ -140,19 +128,15 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
      * Set 资产归属地
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetLocationList 资产归属地
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetLocationList(FilterDataObject [] AssetLocationList) {
         this.AssetLocationList = AssetLocationList;
     }
 
     /**
-     * Get ip列表枚举
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ip列表枚举 
      * @return IpTypeList ip列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getIpTypeList() {
         return this.IpTypeList;
@@ -160,19 +144,15 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
      * Set ip列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IpTypeList ip列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIpTypeList(FilterDataObject [] IpTypeList) {
         this.IpTypeList = IpTypeList;
     }
 
     /**
-     * Get 地域列表枚举
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域列表枚举 
      * @return RegionList 地域列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getRegionList() {
         return this.RegionList;
@@ -180,19 +160,15 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
      * Set 地域列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionList 地域列表枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionList(FilterDataObject [] RegionList) {
         this.RegionList = RegionList;
     }
 
     /**
-     * Get 防护枚举
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 防护枚举 
      * @return DefenseStatusList 防护枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getDefenseStatusList() {
         return this.DefenseStatusList;
@@ -200,19 +176,15 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
      * Set 防护枚举
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DefenseStatusList 防护枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDefenseStatusList(FilterDataObject [] DefenseStatusList) {
         this.DefenseStatusList = DefenseStatusList;
     }
 
     /**
-     * Get 资产类型枚举
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产类型枚举 
      * @return AssetTypeList 资产类型枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getAssetTypeList() {
         return this.AssetTypeList;
@@ -220,19 +192,15 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
      * Set 资产类型枚举
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetTypeList 资产类型枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetTypeList(FilterDataObject [] AssetTypeList) {
         this.AssetTypeList = AssetTypeList;
     }
 
     /**
-     * Get AppId枚举
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get AppId枚举 
      * @return AppIdList AppId枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getAppIdList() {
         return this.AppIdList;
@@ -240,25 +208,23 @@ public class DescribePublicIpAssetsResponse extends AbstractModel{
 
     /**
      * Set AppId枚举
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppIdList AppId枚举
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppIdList(FilterDataObject [] AppIdList) {
         this.AppIdList = AppIdList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

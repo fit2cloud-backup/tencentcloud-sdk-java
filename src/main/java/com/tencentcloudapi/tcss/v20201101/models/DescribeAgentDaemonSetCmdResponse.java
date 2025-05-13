@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAgentDaemonSetCmdResponse extends AbstractModel{
+public class DescribeAgentDaemonSetCmdResponse extends AbstractModel {
 
     /**
     * 安装命令
@@ -30,7 +31,21 @@ public class DescribeAgentDaemonSetCmdResponse extends AbstractModel{
     private String Command;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 文件url
+    */
+    @SerializedName("URL")
+    @Expose
+    private String URL;
+
+    /**
+    * 文件内容(base64编码)
+    */
+    @SerializedName("FileContent")
+    @Expose
+    private String FileContent;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +68,48 @@ public class DescribeAgentDaemonSetCmdResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 文件url 
+     * @return URL 文件url
+     */
+    public String getURL() {
+        return this.URL;
+    }
+
+    /**
+     * Set 文件url
+     * @param URL 文件url
+     */
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+
+    /**
+     * Get 文件内容(base64编码) 
+     * @return FileContent 文件内容(base64编码)
+     */
+    public String getFileContent() {
+        return this.FileContent;
+    }
+
+    /**
+     * Set 文件内容(base64编码)
+     * @param FileContent 文件内容(base64编码)
+     */
+    public void setFileContent(String FileContent) {
+        this.FileContent = FileContent;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -79,6 +126,12 @@ public class DescribeAgentDaemonSetCmdResponse extends AbstractModel{
         if (source.Command != null) {
             this.Command = new String(source.Command);
         }
+        if (source.URL != null) {
+            this.URL = new String(source.URL);
+        }
+        if (source.FileContent != null) {
+            this.FileContent = new String(source.FileContent);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +143,8 @@ public class DescribeAgentDaemonSetCmdResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Command", this.Command);
+        this.setParamSimple(map, prefix + "URL", this.URL);
+        this.setParamSimple(map, prefix + "FileContent", this.FileContent);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EdgeClusterAdvancedSettings extends AbstractModel{
+public class EdgeClusterAdvancedSettings extends AbstractModel {
 
     /**
     * 集群自定义参数
@@ -32,7 +33,6 @@ public class EdgeClusterAdvancedSettings extends AbstractModel{
 
     /**
     * 运行时类型，支持"docker"和"containerd"，默认为docker
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Runtime")
     @Expose
@@ -40,7 +40,6 @@ public class EdgeClusterAdvancedSettings extends AbstractModel{
 
     /**
     * 集群kube-proxy转发模式，支持"iptables"和"ipvs"，默认为iptables
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyMode")
     @Expose
@@ -67,10 +66,8 @@ public class EdgeClusterAdvancedSettings extends AbstractModel{
     }
 
     /**
-     * Get 运行时类型，支持"docker"和"containerd"，默认为docker
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 运行时类型，支持"docker"和"containerd"，默认为docker 
      * @return Runtime 运行时类型，支持"docker"和"containerd"，默认为docker
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuntime() {
         return this.Runtime;
@@ -78,19 +75,15 @@ public class EdgeClusterAdvancedSettings extends AbstractModel{
 
     /**
      * Set 运行时类型，支持"docker"和"containerd"，默认为docker
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Runtime 运行时类型，支持"docker"和"containerd"，默认为docker
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuntime(String Runtime) {
         this.Runtime = Runtime;
     }
 
     /**
-     * Get 集群kube-proxy转发模式，支持"iptables"和"ipvs"，默认为iptables
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群kube-proxy转发模式，支持"iptables"和"ipvs"，默认为iptables 
      * @return ProxyMode 集群kube-proxy转发模式，支持"iptables"和"ipvs"，默认为iptables
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProxyMode() {
         return this.ProxyMode;
@@ -98,9 +91,7 @@ public class EdgeClusterAdvancedSettings extends AbstractModel{
 
     /**
      * Set 集群kube-proxy转发模式，支持"iptables"和"ipvs"，默认为iptables
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProxyMode 集群kube-proxy转发模式，支持"iptables"和"ipvs"，默认为iptables
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyMode(String ProxyMode) {
         this.ProxyMode = ProxyMode;

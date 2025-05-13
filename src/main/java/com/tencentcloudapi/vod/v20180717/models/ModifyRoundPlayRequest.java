@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyRoundPlayRequest extends AbstractModel{
+public class ModifyRoundPlayRequest extends AbstractModel {
 
     /**
     * 轮播播单唯一标识。
@@ -30,7 +31,7 @@ public class ModifyRoundPlayRequest extends AbstractModel{
     private String RoundPlayId;
 
     /**
-    * <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
     */
     @SerializedName("SubAppId")
     @Expose
@@ -66,9 +67,7 @@ public class ModifyRoundPlayRequest extends AbstractModel{
     private String Desc;
 
     /**
-    * 播放状态，可选值：
-<li>Disabled：结束播放，结束后轮播任务不能再次启动。</li>
-
+    * 播放状态，可选值：<li>Disabled：停止播放。</li><li>Enabled：启播时长到达后启动播放。</li>
     */
     @SerializedName("Status")
     @Expose
@@ -82,6 +81,13 @@ public class ModifyRoundPlayRequest extends AbstractModel{
     @SerializedName("PlayBackMode")
     @Expose
     private String PlayBackMode;
+
+    /**
+    * 过期时间，格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)，过期后将停止播放。“9999-12-31T23:59:59+08:00”表示不过期。
+    */
+    @SerializedName("ExpiredTime")
+    @Expose
+    private String ExpiredTime;
 
     /**
      * Get 轮播播单唯一标识。 
@@ -100,16 +106,16 @@ public class ModifyRoundPlayRequest extends AbstractModel{
     }
 
     /**
-     * Get <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
-     * @return SubAppId <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public Long getSubAppId() {
         return this.SubAppId;
     }
 
     /**
-     * Set <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param SubAppId <b>点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
@@ -184,24 +190,16 @@ public class ModifyRoundPlayRequest extends AbstractModel{
     }
 
     /**
-     * Get 播放状态，可选值：
-<li>Disabled：结束播放，结束后轮播任务不能再次启动。</li>
- 
-     * @return Status 播放状态，可选值：
-<li>Disabled：结束播放，结束后轮播任务不能再次启动。</li>
-
+     * Get 播放状态，可选值：<li>Disabled：停止播放。</li><li>Enabled：启播时长到达后启动播放。</li> 
+     * @return Status 播放状态，可选值：<li>Disabled：停止播放。</li><li>Enabled：启播时长到达后启动播放。</li>
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 播放状态，可选值：
-<li>Disabled：结束播放，结束后轮播任务不能再次启动。</li>
-
-     * @param Status 播放状态，可选值：
-<li>Disabled：结束播放，结束后轮播任务不能再次启动。</li>
-
+     * Set 播放状态，可选值：<li>Disabled：停止播放。</li><li>Enabled：启播时长到达后启动播放。</li>
+     * @param Status 播放状态，可选值：<li>Disabled：停止播放。</li><li>Enabled：启播时长到达后启动播放。</li>
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -229,6 +227,22 @@ public class ModifyRoundPlayRequest extends AbstractModel{
      */
     public void setPlayBackMode(String PlayBackMode) {
         this.PlayBackMode = PlayBackMode;
+    }
+
+    /**
+     * Get 过期时间，格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)，过期后将停止播放。“9999-12-31T23:59:59+08:00”表示不过期。 
+     * @return ExpiredTime 过期时间，格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)，过期后将停止播放。“9999-12-31T23:59:59+08:00”表示不过期。
+     */
+    public String getExpiredTime() {
+        return this.ExpiredTime;
+    }
+
+    /**
+     * Set 过期时间，格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)，过期后将停止播放。“9999-12-31T23:59:59+08:00”表示不过期。
+     * @param ExpiredTime 过期时间，格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)，过期后将停止播放。“9999-12-31T23:59:59+08:00”表示不过期。
+     */
+    public void setExpiredTime(String ExpiredTime) {
+        this.ExpiredTime = ExpiredTime;
     }
 
     public ModifyRoundPlayRequest() {
@@ -266,6 +280,9 @@ public class ModifyRoundPlayRequest extends AbstractModel{
         if (source.PlayBackMode != null) {
             this.PlayBackMode = new String(source.PlayBackMode);
         }
+        if (source.ExpiredTime != null) {
+            this.ExpiredTime = new String(source.ExpiredTime);
+        }
     }
 
 
@@ -281,6 +298,7 @@ public class ModifyRoundPlayRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Desc", this.Desc);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "PlayBackMode", this.PlayBackMode);
+        this.setParamSimple(map, prefix + "ExpiredTime", this.ExpiredTime);
 
     }
 }

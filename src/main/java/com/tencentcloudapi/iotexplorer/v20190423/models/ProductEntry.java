@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProductEntry extends AbstractModel{
+public class ProductEntry extends AbstractModel {
 
     /**
     * 产品ID
@@ -44,7 +45,7 @@ public class ProductEntry extends AbstractModel{
     private Long CategoryId;
 
     /**
-    * 加密类型。1表示证书认证，2表示秘钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
+    * 加密类型。1表示证书认证，2表示密钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
     */
     @SerializedName("EncryptionType")
     @Expose
@@ -123,7 +124,6 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
     * 是否使用脚本进行二进制转json功能 可以取值 true / false
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableProductScript")
     @Expose
@@ -131,7 +131,6 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
     * 创建人 UinId
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateUserId")
     @Expose
@@ -139,7 +138,6 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
     * 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatorNickName")
     @Expose
@@ -147,11 +145,38 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
     * 绑定策略（1：强踢；2：非强踢；0：表示无意义）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BindStrategy")
     @Expose
     private Long BindStrategy;
+
+    /**
+    * 设备数量
+    */
+    @SerializedName("DeviceCount")
+    @Expose
+    private Long DeviceCount;
+
+    /**
+    * 平均传输速率
+    */
+    @SerializedName("Rate")
+    @Expose
+    private String Rate;
+
+    /**
+    * 有效期
+    */
+    @SerializedName("Period")
+    @Expose
+    private String Period;
+
+    /**
+    * 互联互通标识
+    */
+    @SerializedName("IsInterconnection")
+    @Expose
+    private Long IsInterconnection;
 
     /**
      * Get 产品ID 
@@ -202,16 +227,16 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
     }
 
     /**
-     * Get 加密类型。1表示证书认证，2表示秘钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式 
-     * @return EncryptionType 加密类型。1表示证书认证，2表示秘钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
+     * Get 加密类型。1表示证书认证，2表示密钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式 
+     * @return EncryptionType 加密类型。1表示证书认证，2表示密钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
      */
     public String getEncryptionType() {
         return this.EncryptionType;
     }
 
     /**
-     * Set 加密类型。1表示证书认证，2表示秘钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
-     * @param EncryptionType 加密类型。1表示证书认证，2表示秘钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
+     * Set 加密类型。1表示证书认证，2表示密钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
+     * @param EncryptionType 加密类型。1表示证书认证，2表示密钥认证，21表示TID认证-SE方式，22表示TID认证-软加固方式
      */
     public void setEncryptionType(String EncryptionType) {
         this.EncryptionType = EncryptionType;
@@ -382,10 +407,8 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
     }
 
     /**
-     * Get 是否使用脚本进行二进制转json功能 可以取值 true / false
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否使用脚本进行二进制转json功能 可以取值 true / false 
      * @return EnableProductScript 是否使用脚本进行二进制转json功能 可以取值 true / false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnableProductScript() {
         return this.EnableProductScript;
@@ -393,19 +416,15 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
      * Set 是否使用脚本进行二进制转json功能 可以取值 true / false
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableProductScript 是否使用脚本进行二进制转json功能 可以取值 true / false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableProductScript(String EnableProductScript) {
         this.EnableProductScript = EnableProductScript;
     }
 
     /**
-     * Get 创建人 UinId
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建人 UinId 
      * @return CreateUserId 创建人 UinId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCreateUserId() {
         return this.CreateUserId;
@@ -413,19 +432,15 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
      * Set 创建人 UinId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateUserId 创建人 UinId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateUserId(Long CreateUserId) {
         this.CreateUserId = CreateUserId;
     }
 
     /**
-     * Get 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建者昵称 
      * @return CreatorNickName 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreatorNickName() {
         return this.CreatorNickName;
@@ -433,19 +448,15 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
      * Set 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreatorNickName 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatorNickName(String CreatorNickName) {
         this.CreatorNickName = CreatorNickName;
     }
 
     /**
-     * Get 绑定策略（1：强踢；2：非强踢；0：表示无意义）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定策略（1：强踢；2：非强踢；0：表示无意义） 
      * @return BindStrategy 绑定策略（1：强踢；2：非强踢；0：表示无意义）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBindStrategy() {
         return this.BindStrategy;
@@ -453,12 +464,74 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
 
     /**
      * Set 绑定策略（1：强踢；2：非强踢；0：表示无意义）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BindStrategy 绑定策略（1：强踢；2：非强踢；0：表示无意义）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBindStrategy(Long BindStrategy) {
         this.BindStrategy = BindStrategy;
+    }
+
+    /**
+     * Get 设备数量 
+     * @return DeviceCount 设备数量
+     */
+    public Long getDeviceCount() {
+        return this.DeviceCount;
+    }
+
+    /**
+     * Set 设备数量
+     * @param DeviceCount 设备数量
+     */
+    public void setDeviceCount(Long DeviceCount) {
+        this.DeviceCount = DeviceCount;
+    }
+
+    /**
+     * Get 平均传输速率 
+     * @return Rate 平均传输速率
+     */
+    public String getRate() {
+        return this.Rate;
+    }
+
+    /**
+     * Set 平均传输速率
+     * @param Rate 平均传输速率
+     */
+    public void setRate(String Rate) {
+        this.Rate = Rate;
+    }
+
+    /**
+     * Get 有效期 
+     * @return Period 有效期
+     */
+    public String getPeriod() {
+        return this.Period;
+    }
+
+    /**
+     * Set 有效期
+     * @param Period 有效期
+     */
+    public void setPeriod(String Period) {
+        this.Period = Period;
+    }
+
+    /**
+     * Get 互联互通标识 
+     * @return IsInterconnection 互联互通标识
+     */
+    public Long getIsInterconnection() {
+        return this.IsInterconnection;
+    }
+
+    /**
+     * Set 互联互通标识
+     * @param IsInterconnection 互联互通标识
+     */
+    public void setIsInterconnection(Long IsInterconnection) {
+        this.IsInterconnection = IsInterconnection;
     }
 
     public ProductEntry() {
@@ -523,6 +596,18 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
         if (source.BindStrategy != null) {
             this.BindStrategy = new Long(source.BindStrategy);
         }
+        if (source.DeviceCount != null) {
+            this.DeviceCount = new Long(source.DeviceCount);
+        }
+        if (source.Rate != null) {
+            this.Rate = new String(source.Rate);
+        }
+        if (source.Period != null) {
+            this.Period = new String(source.Period);
+        }
+        if (source.IsInterconnection != null) {
+            this.IsInterconnection = new Long(source.IsInterconnection);
+        }
     }
 
 
@@ -548,6 +633,10 @@ wifi、wifi-ble、cellular、5g、lorawan、ble、ethernet、wifi-ethernet、els
         this.setParamSimple(map, prefix + "CreateUserId", this.CreateUserId);
         this.setParamSimple(map, prefix + "CreatorNickName", this.CreatorNickName);
         this.setParamSimple(map, prefix + "BindStrategy", this.BindStrategy);
+        this.setParamSimple(map, prefix + "DeviceCount", this.DeviceCount);
+        this.setParamSimple(map, prefix + "Rate", this.Rate);
+        this.setParamSimple(map, prefix + "Period", this.Period);
+        this.setParamSimple(map, prefix + "IsInterconnection", this.IsInterconnection);
 
     }
 }

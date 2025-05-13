@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SecurityGroupListData extends AbstractModel{
+public class SecurityGroupListData extends AbstractModel {
 
     /**
     * 执行顺序
@@ -115,7 +116,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -123,7 +123,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetId")
     @Expose
@@ -131,7 +130,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -139,7 +137,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 公网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicIp")
     @Expose
@@ -147,7 +144,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 内网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PrivateIp")
     @Expose
@@ -155,7 +151,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 掩码地址，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cidr")
     @Expose
@@ -163,7 +158,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 端口协议类型参数模板id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceTemplateId")
     @Expose
@@ -171,7 +165,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 生成双向下发规则
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BothWayInfo")
     @Expose
@@ -193,7 +186,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * Uuid
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uuid")
     @Expose
@@ -201,7 +193,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -209,7 +200,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetGroupNameIn")
     @Expose
@@ -217,7 +207,6 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetGroupNameOut")
     @Expose
@@ -225,11 +214,17 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
     * 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParameterName")
     @Expose
     private String ParameterName;
+
+    /**
+    * 端口协议类型参数模板名称
+    */
+    @SerializedName("ProtocolPortName")
+    @Expose
+    private String ProtocolPortName;
 
     /**
      * Get 执行顺序 
@@ -440,10 +435,8 @@ public class SecurityGroupListData extends AbstractModel{
     }
 
     /**
-     * Get 私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 私有网络ID 
      * @return VpcId 私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -451,19 +444,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId 私有网络ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 子网ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网ID 
      * @return SubnetId 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetId() {
         return this.SubnetId;
@@ -471,19 +460,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetId 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
     }
 
     /**
-     * Get 实例名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例名称 
      * @return InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -491,19 +476,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 公网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 公网IP，多个以英文逗号分隔 
      * @return PublicIp 公网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPublicIp() {
         return this.PublicIp;
@@ -511,19 +492,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 公网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PublicIp 公网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicIp(String PublicIp) {
         this.PublicIp = PublicIp;
     }
 
     /**
-     * Get 内网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内网IP，多个以英文逗号分隔 
      * @return PrivateIp 内网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPrivateIp() {
         return this.PrivateIp;
@@ -531,19 +508,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 内网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PrivateIp 内网IP，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrivateIp(String PrivateIp) {
         this.PrivateIp = PrivateIp;
     }
 
     /**
-     * Get 掩码地址，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 掩码地址，多个以英文逗号分隔 
      * @return Cidr 掩码地址，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCidr() {
         return this.Cidr;
@@ -551,19 +524,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 掩码地址，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Cidr 掩码地址，多个以英文逗号分隔
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCidr(String Cidr) {
         this.Cidr = Cidr;
     }
 
     /**
-     * Get 端口协议类型参数模板id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 端口协议类型参数模板id 
      * @return ServiceTemplateId 端口协议类型参数模板id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceTemplateId() {
         return this.ServiceTemplateId;
@@ -571,19 +540,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 端口协议类型参数模板id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceTemplateId 端口协议类型参数模板id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceTemplateId(String ServiceTemplateId) {
         this.ServiceTemplateId = ServiceTemplateId;
     }
 
     /**
-     * Get 生成双向下发规则
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 生成双向下发规则 
      * @return BothWayInfo 生成双向下发规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SecurityGroupBothWayInfo [] getBothWayInfo() {
         return this.BothWayInfo;
@@ -591,9 +556,7 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 生成双向下发规则
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BothWayInfo 生成双向下发规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBothWayInfo(SecurityGroupBothWayInfo [] BothWayInfo) {
         this.BothWayInfo = BothWayInfo;
@@ -632,10 +595,8 @@ public class SecurityGroupListData extends AbstractModel{
     }
 
     /**
-     * Get Uuid
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Uuid 
      * @return Uuid Uuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUuid() {
         return this.Uuid;
@@ -643,19 +604,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set Uuid
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uuid Uuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
     }
 
     /**
-     * Get 地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域 
      * @return Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -663,19 +620,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产分组名称 
      * @return AssetGroupNameIn 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAssetGroupNameIn() {
         return this.AssetGroupNameIn;
@@ -683,19 +636,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetGroupNameIn 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetGroupNameIn(String AssetGroupNameIn) {
         this.AssetGroupNameIn = AssetGroupNameIn;
     }
 
     /**
-     * Get 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产分组名称 
      * @return AssetGroupNameOut 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAssetGroupNameOut() {
         return this.AssetGroupNameOut;
@@ -703,19 +652,15 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetGroupNameOut 资产分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetGroupNameOut(String AssetGroupNameOut) {
         this.AssetGroupNameOut = AssetGroupNameOut;
     }
 
     /**
-     * Get 模板名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 模板名称 
      * @return ParameterName 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParameterName() {
         return this.ParameterName;
@@ -723,12 +668,26 @@ public class SecurityGroupListData extends AbstractModel{
 
     /**
      * Set 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParameterName 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParameterName(String ParameterName) {
         this.ParameterName = ParameterName;
+    }
+
+    /**
+     * Get 端口协议类型参数模板名称 
+     * @return ProtocolPortName 端口协议类型参数模板名称
+     */
+    public String getProtocolPortName() {
+        return this.ProtocolPortName;
+    }
+
+    /**
+     * Set 端口协议类型参数模板名称
+     * @param ProtocolPortName 端口协议类型参数模板名称
+     */
+    public void setProtocolPortName(String ProtocolPortName) {
+        this.ProtocolPortName = ProtocolPortName;
     }
 
     public SecurityGroupListData() {
@@ -826,6 +785,9 @@ public class SecurityGroupListData extends AbstractModel{
         if (source.ParameterName != null) {
             this.ParameterName = new String(source.ParameterName);
         }
+        if (source.ProtocolPortName != null) {
+            this.ProtocolPortName = new String(source.ProtocolPortName);
+        }
     }
 
 
@@ -861,6 +823,7 @@ public class SecurityGroupListData extends AbstractModel{
         this.setParamSimple(map, prefix + "AssetGroupNameIn", this.AssetGroupNameIn);
         this.setParamSimple(map, prefix + "AssetGroupNameOut", this.AssetGroupNameOut);
         this.setParamSimple(map, prefix + "ParameterName", this.ParameterName);
+        this.setParamSimple(map, prefix + "ProtocolPortName", this.ProtocolPortName);
 
     }
 }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TemEnvironmentStoppingStatus extends AbstractModel{
+public class TemEnvironmentStoppingStatus extends AbstractModel {
 
     /**
     * 需要停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationNumNeedToStop")
     @Expose
@@ -32,7 +32,6 @@ public class TemEnvironmentStoppingStatus extends AbstractModel{
 
     /**
     * 已经停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StoppedApplicationNum")
     @Expose
@@ -40,17 +39,14 @@ public class TemEnvironmentStoppingStatus extends AbstractModel{
 
     /**
     * 停止失败的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StopFailedApplicationNum")
     @Expose
     private Long StopFailedApplicationNum;
 
     /**
-     * Get 需要停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 需要停止的应用数量 
      * @return ApplicationNumNeedToStop 需要停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getApplicationNumNeedToStop() {
         return this.ApplicationNumNeedToStop;
@@ -58,19 +54,15 @@ public class TemEnvironmentStoppingStatus extends AbstractModel{
 
     /**
      * Set 需要停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationNumNeedToStop 需要停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationNumNeedToStop(Long ApplicationNumNeedToStop) {
         this.ApplicationNumNeedToStop = ApplicationNumNeedToStop;
     }
 
     /**
-     * Get 已经停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已经停止的应用数量 
      * @return StoppedApplicationNum 已经停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStoppedApplicationNum() {
         return this.StoppedApplicationNum;
@@ -78,19 +70,15 @@ public class TemEnvironmentStoppingStatus extends AbstractModel{
 
     /**
      * Set 已经停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StoppedApplicationNum 已经停止的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStoppedApplicationNum(Long StoppedApplicationNum) {
         this.StoppedApplicationNum = StoppedApplicationNum;
     }
 
     /**
-     * Get 停止失败的应用数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 停止失败的应用数量 
      * @return StopFailedApplicationNum 停止失败的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStopFailedApplicationNum() {
         return this.StopFailedApplicationNum;
@@ -98,9 +86,7 @@ public class TemEnvironmentStoppingStatus extends AbstractModel{
 
     /**
      * Set 停止失败的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StopFailedApplicationNum 停止失败的应用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStopFailedApplicationNum(Long StopFailedApplicationNum) {
         this.StopFailedApplicationNum = StopFailedApplicationNum;

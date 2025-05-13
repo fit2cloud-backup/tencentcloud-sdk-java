@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EsParam extends AbstractModel{
+public class EsParam extends AbstractModel {
 
     /**
-    * 实例资源
+    * Es实例资源Id
     */
     @SerializedName("Resource")
     @Expose
@@ -163,16 +164,16 @@ public class EsParam extends AbstractModel{
     private String RecordMappingMode;
 
     /**
-     * Get 实例资源 
-     * @return Resource 实例资源
+     * Get Es实例资源Id 
+     * @return Resource Es实例资源Id
      */
     public String getResource() {
         return this.Resource;
     }
 
     /**
-     * Set 实例资源
-     * @param Resource 实例资源
+     * Set Es实例资源Id
+     * @param Resource Es实例资源Id
      */
     public void setResource(String Resource) {
         this.Resource = Resource;

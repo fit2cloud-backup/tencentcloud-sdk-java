@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DBTDEEncrypt extends AbstractModel{
+public class DBTDEEncrypt extends AbstractModel {
 
     /**
     * 数据库名称
@@ -30,7 +31,7 @@ public class DBTDEEncrypt extends AbstractModel{
     private String DBName;
 
     /**
-    * enable-开启加密，disable-关闭加密
+    * enable-开启数据库TDE加密，disable-关闭数据库TDE加密
     */
     @SerializedName("Encryption")
     @Expose
@@ -53,16 +54,16 @@ public class DBTDEEncrypt extends AbstractModel{
     }
 
     /**
-     * Get enable-开启加密，disable-关闭加密 
-     * @return Encryption enable-开启加密，disable-关闭加密
+     * Get enable-开启数据库TDE加密，disable-关闭数据库TDE加密 
+     * @return Encryption enable-开启数据库TDE加密，disable-关闭数据库TDE加密
      */
     public String getEncryption() {
         return this.Encryption;
     }
 
     /**
-     * Set enable-开启加密，disable-关闭加密
-     * @param Encryption enable-开启加密，disable-关闭加密
+     * Set enable-开启数据库TDE加密，disable-关闭数据库TDE加密
+     * @param Encryption enable-开启数据库TDE加密，disable-关闭数据库TDE加密
      */
     public void setEncryption(String Encryption) {
         this.Encryption = Encryption;

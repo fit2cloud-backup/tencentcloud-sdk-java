@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResultInfo extends AbstractModel{
+public class ResultInfo extends AbstractModel {
 
     /**
     * 段落文本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Text")
     @Expose
@@ -32,17 +32,21 @@ public class ResultInfo extends AbstractModel{
 
     /**
     * 结论详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Items")
     @Expose
     private BaseInfo [] Items;
 
     /**
-     * Get 段落文本
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 段落文本 
      * @return Text 段落文本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getText() {
         return this.Text;
@@ -50,19 +54,15 @@ public class ResultInfo extends AbstractModel{
 
     /**
      * Set 段落文本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Text 段落文本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setText(BaseInfo Text) {
         this.Text = Text;
     }
 
     /**
-     * Get 结论详情
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结论详情 
      * @return Items 结论详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo [] getItems() {
         return this.Items;
@@ -70,12 +70,26 @@ public class ResultInfo extends AbstractModel{
 
     /**
      * Set 结论详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Items 结论详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItems(BaseInfo [] Items) {
         this.Items = Items;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public ResultInfo() {
@@ -95,6 +109,9 @@ public class ResultInfo extends AbstractModel{
                 this.Items[i] = new BaseInfo(source.Items[i]);
             }
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -104,6 +121,7 @@ public class ResultInfo extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Text.", this.Text);
         this.setParamArrayObj(map, prefix + "Items.", this.Items);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfg.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskReportInfo extends AbstractModel{
+public class TaskReportInfo extends AbstractModel {
 
     /**
     * 0--未开始，1--正在导出，2--导出成功，3--导出失败
@@ -52,7 +53,6 @@ public class TaskReportInfo extends AbstractModel{
 
     /**
     * 演练报告cos文件地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CosUrl")
     @Expose
@@ -65,6 +65,27 @@ public class TaskReportInfo extends AbstractModel{
     @SerializedName("Log")
     @Expose
     private String Log;
+
+    /**
+    * 0--未开始，1--正在归档，2--归档成功，3--归档失败
+    */
+    @SerializedName("ArchiveStage")
+    @Expose
+    private Long ArchiveStage;
+
+    /**
+    * 归档时间
+    */
+    @SerializedName("ArchiveTime")
+    @Expose
+    private String ArchiveTime;
+
+    /**
+    * 归档ID
+    */
+    @SerializedName("ArchiveUuid")
+    @Expose
+    private String ArchiveUuid;
 
     /**
      * Get 0--未开始，1--正在导出，2--导出成功，3--导出失败 
@@ -131,10 +152,8 @@ public class TaskReportInfo extends AbstractModel{
     }
 
     /**
-     * Get 演练报告cos文件地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 演练报告cos文件地址 
      * @return CosUrl 演练报告cos文件地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCosUrl() {
         return this.CosUrl;
@@ -142,9 +161,7 @@ public class TaskReportInfo extends AbstractModel{
 
     /**
      * Set 演练报告cos文件地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CosUrl 演练报告cos文件地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCosUrl(String CosUrl) {
         this.CosUrl = CosUrl;
@@ -168,6 +185,54 @@ public class TaskReportInfo extends AbstractModel{
      */
     public void setLog(String Log) {
         this.Log = Log;
+    }
+
+    /**
+     * Get 0--未开始，1--正在归档，2--归档成功，3--归档失败 
+     * @return ArchiveStage 0--未开始，1--正在归档，2--归档成功，3--归档失败
+     */
+    public Long getArchiveStage() {
+        return this.ArchiveStage;
+    }
+
+    /**
+     * Set 0--未开始，1--正在归档，2--归档成功，3--归档失败
+     * @param ArchiveStage 0--未开始，1--正在归档，2--归档成功，3--归档失败
+     */
+    public void setArchiveStage(Long ArchiveStage) {
+        this.ArchiveStage = ArchiveStage;
+    }
+
+    /**
+     * Get 归档时间 
+     * @return ArchiveTime 归档时间
+     */
+    public String getArchiveTime() {
+        return this.ArchiveTime;
+    }
+
+    /**
+     * Set 归档时间
+     * @param ArchiveTime 归档时间
+     */
+    public void setArchiveTime(String ArchiveTime) {
+        this.ArchiveTime = ArchiveTime;
+    }
+
+    /**
+     * Get 归档ID 
+     * @return ArchiveUuid 归档ID
+     */
+    public String getArchiveUuid() {
+        return this.ArchiveUuid;
+    }
+
+    /**
+     * Set 归档ID
+     * @param ArchiveUuid 归档ID
+     */
+    public void setArchiveUuid(String ArchiveUuid) {
+        this.ArchiveUuid = ArchiveUuid;
     }
 
     public TaskReportInfo() {
@@ -196,6 +261,15 @@ public class TaskReportInfo extends AbstractModel{
         if (source.Log != null) {
             this.Log = new String(source.Log);
         }
+        if (source.ArchiveStage != null) {
+            this.ArchiveStage = new Long(source.ArchiveStage);
+        }
+        if (source.ArchiveTime != null) {
+            this.ArchiveTime = new String(source.ArchiveTime);
+        }
+        if (source.ArchiveUuid != null) {
+            this.ArchiveUuid = new String(source.ArchiveUuid);
+        }
     }
 
 
@@ -209,6 +283,9 @@ public class TaskReportInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Expired", this.Expired);
         this.setParamSimple(map, prefix + "CosUrl", this.CosUrl);
         this.setParamSimple(map, prefix + "Log", this.Log);
+        this.setParamSimple(map, prefix + "ArchiveStage", this.ArchiveStage);
+        this.setParamSimple(map, prefix + "ArchiveTime", this.ArchiveTime);
+        this.setParamSimple(map, prefix + "ArchiveUuid", this.ArchiveUuid);
 
     }
 }

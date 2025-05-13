@@ -16,22 +16,29 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteInvokerRequest extends AbstractModel{
+public class DeleteInvokerRequest extends AbstractModel {
 
     /**
     * 待删除的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
     */
     @SerializedName("InvokerId")
     @Expose
     private String InvokerId;
 
     /**
-     * Get 待删除的执行器ID。 
+     * Get 待删除的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。 
      * @return InvokerId 待删除的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      */
     public String getInvokerId() {
         return this.InvokerId;
@@ -39,7 +46,11 @@ public class DeleteInvokerRequest extends AbstractModel{
 
     /**
      * Set 待删除的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      * @param InvokerId 待删除的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      */
     public void setInvokerId(String InvokerId) {
         this.InvokerId = InvokerId;

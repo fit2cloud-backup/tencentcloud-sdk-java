@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConfigRelease extends AbstractModel{
+public class ConfigRelease extends AbstractModel {
 
     /**
     * 配置项发布ID
@@ -125,6 +126,24 @@ public class ConfigRelease extends AbstractModel{
     @SerializedName("ApplicationId")
     @Expose
     private String ApplicationId;
+
+    /**
+    * 配置中心发布情况
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ConfigCenters")
+    @Expose
+    private TsfConfigCenter [] ConfigCenters;
+
+    /**
+    * DUAL_STATUS_WRITE_REGISTRATION_ON 双写&&双注册开启
+
+DUAL_STATUS_WRITE_REGISTRATION_OFF 双写&&双注册关闭
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DaulStatus")
+    @Expose
+    private String DaulStatus;
 
     /**
      * Get 配置项发布ID
@@ -386,6 +405,54 @@ public class ConfigRelease extends AbstractModel{
         this.ApplicationId = ApplicationId;
     }
 
+    /**
+     * Get 配置中心发布情况
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ConfigCenters 配置中心发布情况
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TsfConfigCenter [] getConfigCenters() {
+        return this.ConfigCenters;
+    }
+
+    /**
+     * Set 配置中心发布情况
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ConfigCenters 配置中心发布情况
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setConfigCenters(TsfConfigCenter [] ConfigCenters) {
+        this.ConfigCenters = ConfigCenters;
+    }
+
+    /**
+     * Get DUAL_STATUS_WRITE_REGISTRATION_ON 双写&&双注册开启
+
+DUAL_STATUS_WRITE_REGISTRATION_OFF 双写&&双注册关闭
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DaulStatus DUAL_STATUS_WRITE_REGISTRATION_ON 双写&&双注册开启
+
+DUAL_STATUS_WRITE_REGISTRATION_OFF 双写&&双注册关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDaulStatus() {
+        return this.DaulStatus;
+    }
+
+    /**
+     * Set DUAL_STATUS_WRITE_REGISTRATION_ON 双写&&双注册开启
+
+DUAL_STATUS_WRITE_REGISTRATION_OFF 双写&&双注册关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DaulStatus DUAL_STATUS_WRITE_REGISTRATION_ON 双写&&双注册开启
+
+DUAL_STATUS_WRITE_REGISTRATION_OFF 双写&&双注册关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDaulStatus(String DaulStatus) {
+        this.DaulStatus = DaulStatus;
+    }
+
     public ConfigRelease() {
     }
 
@@ -433,6 +500,15 @@ public class ConfigRelease extends AbstractModel{
         if (source.ApplicationId != null) {
             this.ApplicationId = new String(source.ApplicationId);
         }
+        if (source.ConfigCenters != null) {
+            this.ConfigCenters = new TsfConfigCenter[source.ConfigCenters.length];
+            for (int i = 0; i < source.ConfigCenters.length; i++) {
+                this.ConfigCenters[i] = new TsfConfigCenter(source.ConfigCenters[i]);
+            }
+        }
+        if (source.DaulStatus != null) {
+            this.DaulStatus = new String(source.DaulStatus);
+        }
     }
 
 
@@ -453,6 +529,8 @@ public class ConfigRelease extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
         this.setParamSimple(map, prefix + "ReleaseDesc", this.ReleaseDesc);
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
+        this.setParamArrayObj(map, prefix + "ConfigCenters.", this.ConfigCenters);
+        this.setParamSimple(map, prefix + "DaulStatus", this.DaulStatus);
 
     }
 }

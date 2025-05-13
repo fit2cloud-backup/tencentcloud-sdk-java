@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TopicAttributesResponse extends AbstractModel{
+public class TopicAttributesResponse extends AbstractModel {
 
     /**
     * 主题 ID
@@ -38,7 +39,6 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
     * 主题备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Note")
     @Expose
@@ -81,7 +81,6 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
     * ACL预设策略开关，1：打开； 0：关闭
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableAclRule")
     @Expose
@@ -89,7 +88,6 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
     * 预设策略列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AclRuleList")
     @Expose
@@ -97,7 +95,6 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
     * topic 限流策略
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QuotaConfig")
     @Expose
@@ -105,7 +102,6 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
     * 副本数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReplicaNum")
     @Expose
@@ -144,10 +140,8 @@ public class TopicAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 主题备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主题备注 
      * @return Note 主题备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNote() {
         return this.Note;
@@ -155,9 +149,7 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
      * Set 主题备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Note 主题备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNote(String Note) {
         this.Note = Note;
@@ -244,10 +236,8 @@ public class TopicAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get ACL预设策略开关，1：打开； 0：关闭
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ACL预设策略开关，1：打开； 0：关闭 
      * @return EnableAclRule ACL预设策略开关，1：打开； 0：关闭
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEnableAclRule() {
         return this.EnableAclRule;
@@ -255,19 +245,15 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
      * Set ACL预设策略开关，1：打开； 0：关闭
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableAclRule ACL预设策略开关，1：打开； 0：关闭
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableAclRule(Long EnableAclRule) {
         this.EnableAclRule = EnableAclRule;
     }
 
     /**
-     * Get 预设策略列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预设策略列表 
      * @return AclRuleList 预设策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AclRule [] getAclRuleList() {
         return this.AclRuleList;
@@ -275,19 +261,15 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
      * Set 预设策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AclRuleList 预设策略列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAclRuleList(AclRule [] AclRuleList) {
         this.AclRuleList = AclRuleList;
     }
 
     /**
-     * Get topic 限流策略
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get topic 限流策略 
      * @return QuotaConfig topic 限流策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InstanceQuotaConfigResp getQuotaConfig() {
         return this.QuotaConfig;
@@ -295,19 +277,15 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
      * Set topic 限流策略
-注意：此字段可能返回 null，表示取不到有效值。
      * @param QuotaConfig topic 限流策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQuotaConfig(InstanceQuotaConfigResp QuotaConfig) {
         this.QuotaConfig = QuotaConfig;
     }
 
     /**
-     * Get 副本数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 副本数 
      * @return ReplicaNum 副本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReplicaNum() {
         return this.ReplicaNum;
@@ -315,9 +293,7 @@ public class TopicAttributesResponse extends AbstractModel{
 
     /**
      * Set 副本数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReplicaNum 副本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReplicaNum(Long ReplicaNum) {
         this.ReplicaNum = ReplicaNum;

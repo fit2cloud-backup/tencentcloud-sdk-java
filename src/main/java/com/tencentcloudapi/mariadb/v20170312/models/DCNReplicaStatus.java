@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DCNReplicaStatus extends AbstractModel{
+public class DCNReplicaStatus extends AbstractModel {
 
     /**
     * DCN 的运行状态，START为正常运行，STOP为暂停，
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -38,10 +38,8 @@ public class DCNReplicaStatus extends AbstractModel{
     private Long Delay;
 
     /**
-     * Get DCN 的运行状态，START为正常运行，STOP为暂停，
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DCN 的运行状态，START为正常运行，STOP为暂停， 
      * @return Status DCN 的运行状态，START为正常运行，STOP为暂停，
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -49,9 +47,7 @@ public class DCNReplicaStatus extends AbstractModel{
 
     /**
      * Set DCN 的运行状态，START为正常运行，STOP为暂停，
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status DCN 的运行状态，START为正常运行，STOP为暂停，
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;

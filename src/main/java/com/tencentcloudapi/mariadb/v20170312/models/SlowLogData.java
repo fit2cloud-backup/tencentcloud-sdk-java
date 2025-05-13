@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlowLogData extends AbstractModel{
+public class SlowLogData extends AbstractModel {
 
     /**
     * 语句校验和，用于查询详情
@@ -135,7 +136,7 @@ public class SlowLogData extends AbstractModel{
     private String TsMin;
 
     /**
-    * 帐号
+    * 账号
     */
     @SerializedName("User")
     @Expose
@@ -143,7 +144,6 @@ public class SlowLogData extends AbstractModel{
 
     /**
     * 样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExampleSql")
     @Expose
@@ -413,26 +413,24 @@ public class SlowLogData extends AbstractModel{
     }
 
     /**
-     * Get 帐号 
-     * @return User 帐号
+     * Get 账号 
+     * @return User 账号
      */
     public String getUser() {
         return this.User;
     }
 
     /**
-     * Set 帐号
-     * @param User 帐号
+     * Set 账号
+     * @param User 账号
      */
     public void setUser(String User) {
         this.User = User;
     }
 
     /**
-     * Get 样例Sql
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 样例Sql 
      * @return ExampleSql 样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExampleSql() {
         return this.ExampleSql;
@@ -440,9 +438,7 @@ public class SlowLogData extends AbstractModel{
 
     /**
      * Set 样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExampleSql 样例Sql
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExampleSql(String ExampleSql) {
         this.ExampleSql = ExampleSql;

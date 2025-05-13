@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GroupOffsetTopic extends AbstractModel{
+public class GroupOffsetTopic extends AbstractModel {
 
     /**
     * 主题名称
@@ -31,7 +32,6 @@ public class GroupOffsetTopic extends AbstractModel{
 
     /**
     * 该主题分区数组，其中每个元素为一个 json object
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Partitions")
     @Expose
@@ -54,10 +54,8 @@ public class GroupOffsetTopic extends AbstractModel{
     }
 
     /**
-     * Get 该主题分区数组，其中每个元素为一个 json object
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该主题分区数组，其中每个元素为一个 json object 
      * @return Partitions 该主题分区数组，其中每个元素为一个 json object
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public GroupOffsetPartition [] getPartitions() {
         return this.Partitions;
@@ -65,9 +63,7 @@ public class GroupOffsetTopic extends AbstractModel{
 
     /**
      * Set 该主题分区数组，其中每个元素为一个 json object
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Partitions 该主题分区数组，其中每个元素为一个 json object
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPartitions(GroupOffsetPartition [] Partitions) {
         this.Partitions = Partitions;

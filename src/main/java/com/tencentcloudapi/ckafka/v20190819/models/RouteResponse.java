@@ -16,25 +16,23 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RouteResponse extends AbstractModel{
+public class RouteResponse extends AbstractModel {
 
     /**
     * 路由信息列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Routers")
     @Expose
     private Route [] Routers;
 
     /**
-     * Get 路由信息列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 路由信息列表 
      * @return Routers 路由信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Route [] getRouters() {
         return this.Routers;
@@ -42,9 +40,7 @@ public class RouteResponse extends AbstractModel{
 
     /**
      * Set 路由信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Routers 路由信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRouters(Route [] Routers) {
         this.Routers = Routers;

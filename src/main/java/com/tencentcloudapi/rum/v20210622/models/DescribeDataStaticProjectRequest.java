@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataStaticProjectRequest extends AbstractModel{
+public class DescribeDataStaticProjectRequest extends AbstractModel {
 
     /**
     * 开始时间
@@ -79,7 +80,7 @@ public class DescribeDataStaticProjectRequest extends AbstractModel{
     private String From;
 
     /**
-    * 日志等级
+    * 日志等级（1表示白名单日志，2表示一般日志，4表示错误日志，8表示Promise 错误，16表示Ajax 请求异常，32表示JS 加载异常，64表示图片加载异常，128表示css 加载异常，256表示console.error，512表示音视频资源异常，1024表示retcode 异常，2048表示aegis report，4096表示PV日志，8192表示自定义事件，16384表示小程序 页面不存在，32768表示websocket错误，65536表示js bridge错误）
     */
     @SerializedName("Level")
     @Expose
@@ -128,7 +129,7 @@ public class DescribeDataStaticProjectRequest extends AbstractModel{
     private String ExtFirst;
 
     /**
-    * 网络类型
+    * 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
     */
     @SerializedName("NetType")
     @Expose
@@ -142,7 +143,7 @@ public class DescribeDataStaticProjectRequest extends AbstractModel{
     private String Device;
 
     /**
-    * 是否海外
+    * 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
     */
     @SerializedName("IsAbroad")
     @Expose
@@ -312,16 +313,16 @@ public class DescribeDataStaticProjectRequest extends AbstractModel{
     }
 
     /**
-     * Get 日志等级 
-     * @return Level 日志等级
+     * Get 日志等级（1表示白名单日志，2表示一般日志，4表示错误日志，8表示Promise 错误，16表示Ajax 请求异常，32表示JS 加载异常，64表示图片加载异常，128表示css 加载异常，256表示console.error，512表示音视频资源异常，1024表示retcode 异常，2048表示aegis report，4096表示PV日志，8192表示自定义事件，16384表示小程序 页面不存在，32768表示websocket错误，65536表示js bridge错误） 
+     * @return Level 日志等级（1表示白名单日志，2表示一般日志，4表示错误日志，8表示Promise 错误，16表示Ajax 请求异常，32表示JS 加载异常，64表示图片加载异常，128表示css 加载异常，256表示console.error，512表示音视频资源异常，1024表示retcode 异常，2048表示aegis report，4096表示PV日志，8192表示自定义事件，16384表示小程序 页面不存在，32768表示websocket错误，65536表示js bridge错误）
      */
     public String getLevel() {
         return this.Level;
     }
 
     /**
-     * Set 日志等级
-     * @param Level 日志等级
+     * Set 日志等级（1表示白名单日志，2表示一般日志，4表示错误日志，8表示Promise 错误，16表示Ajax 请求异常，32表示JS 加载异常，64表示图片加载异常，128表示css 加载异常，256表示console.error，512表示音视频资源异常，1024表示retcode 异常，2048表示aegis report，4096表示PV日志，8192表示自定义事件，16384表示小程序 页面不存在，32768表示websocket错误，65536表示js bridge错误）
+     * @param Level 日志等级（1表示白名单日志，2表示一般日志，4表示错误日志，8表示Promise 错误，16表示Ajax 请求异常，32表示JS 加载异常，64表示图片加载异常，128表示css 加载异常，256表示console.error，512表示音视频资源异常，1024表示retcode 异常，2048表示aegis report，4096表示PV日志，8192表示自定义事件，16384表示小程序 页面不存在，32768表示websocket错误，65536表示js bridge错误）
      */
     public void setLevel(String Level) {
         this.Level = Level;
@@ -424,16 +425,16 @@ public class DescribeDataStaticProjectRequest extends AbstractModel{
     }
 
     /**
-     * Get 网络类型 
-     * @return NetType 网络类型
+     * Get 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。 
+     * @return NetType 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
      */
     public String getNetType() {
         return this.NetType;
     }
 
     /**
-     * Set 网络类型
-     * @param NetType 网络类型
+     * Set 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
+     * @param NetType 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
      */
     public void setNetType(String NetType) {
         this.NetType = NetType;
@@ -456,16 +457,16 @@ public class DescribeDataStaticProjectRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否海外 
-     * @return IsAbroad 是否海外
+     * Get 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。 
+     * @return IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public String getIsAbroad() {
         return this.IsAbroad;
     }
 
     /**
-     * Set 是否海外
-     * @param IsAbroad 是否海外
+     * Set 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public void setIsAbroad(String IsAbroad) {
         this.IsAbroad = IsAbroad;

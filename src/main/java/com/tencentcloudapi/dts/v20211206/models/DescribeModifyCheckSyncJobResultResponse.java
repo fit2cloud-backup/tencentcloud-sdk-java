@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
+public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel {
 
     /**
     * 校验任务执行状态，如：notStarted(未开始)、running(校验中)、failed(校验任务失败)、success(任务成功)
@@ -31,7 +32,6 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
 
     /**
     * 校验的步骤总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StepCount")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
 
     /**
     * 当前所在步骤
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StepCur")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
 
     /**
     * 总体进度，范围为[0,100]	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Progress")
     @Expose
@@ -62,7 +60,7 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
     private StepInfo [] StepInfos;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -85,10 +83,8 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
     }
 
     /**
-     * Get 校验的步骤总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 校验的步骤总数 
      * @return StepCount 校验的步骤总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStepCount() {
         return this.StepCount;
@@ -96,19 +92,15 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
 
     /**
      * Set 校验的步骤总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StepCount 校验的步骤总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStepCount(Long StepCount) {
         this.StepCount = StepCount;
     }
 
     /**
-     * Get 当前所在步骤
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前所在步骤 
      * @return StepCur 当前所在步骤
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStepCur() {
         return this.StepCur;
@@ -116,19 +108,15 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
 
     /**
      * Set 当前所在步骤
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StepCur 当前所在步骤
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStepCur(Long StepCur) {
         this.StepCur = StepCur;
     }
 
     /**
-     * Get 总体进度，范围为[0,100]	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总体进度，范围为[0,100]	 
      * @return Progress 总体进度，范围为[0,100]	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProgress() {
         return this.Progress;
@@ -136,9 +124,7 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
 
     /**
      * Set 总体进度，范围为[0,100]	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Progress 总体进度，范围为[0,100]	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProgress(Long Progress) {
         this.Progress = Progress;
@@ -165,16 +151,16 @@ public class DescribeModifyCheckSyncJobResultResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

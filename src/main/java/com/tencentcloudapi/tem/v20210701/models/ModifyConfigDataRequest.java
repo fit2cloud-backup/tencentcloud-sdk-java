@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyConfigDataRequest extends AbstractModel{
+public class ModifyConfigDataRequest extends AbstractModel {
 
     /**
     * 环境 ID
@@ -37,18 +38,18 @@ public class ModifyConfigDataRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 来源渠道
-    */
-    @SerializedName("SourceChannel")
-    @Expose
-    private Long SourceChannel;
-
-    /**
     * 配置信息
     */
     @SerializedName("Data")
     @Expose
     private Pair [] Data;
+
+    /**
+    * 来源渠道
+    */
+    @SerializedName("SourceChannel")
+    @Expose
+    private Long SourceChannel;
 
     /**
      * Get 环境 ID 
@@ -83,22 +84,6 @@ public class ModifyConfigDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 来源渠道 
-     * @return SourceChannel 来源渠道
-     */
-    public Long getSourceChannel() {
-        return this.SourceChannel;
-    }
-
-    /**
-     * Set 来源渠道
-     * @param SourceChannel 来源渠道
-     */
-    public void setSourceChannel(Long SourceChannel) {
-        this.SourceChannel = SourceChannel;
-    }
-
-    /**
      * Get 配置信息 
      * @return Data 配置信息
      */
@@ -112,6 +97,22 @@ public class ModifyConfigDataRequest extends AbstractModel{
      */
     public void setData(Pair [] Data) {
         this.Data = Data;
+    }
+
+    /**
+     * Get 来源渠道 
+     * @return SourceChannel 来源渠道
+     */
+    public Long getSourceChannel() {
+        return this.SourceChannel;
+    }
+
+    /**
+     * Set 来源渠道
+     * @param SourceChannel 来源渠道
+     */
+    public void setSourceChannel(Long SourceChannel) {
+        this.SourceChannel = SourceChannel;
     }
 
     public ModifyConfigDataRequest() {
@@ -128,14 +129,14 @@ public class ModifyConfigDataRequest extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
-        if (source.SourceChannel != null) {
-            this.SourceChannel = new Long(source.SourceChannel);
-        }
         if (source.Data != null) {
             this.Data = new Pair[source.Data.length];
             for (int i = 0; i < source.Data.length; i++) {
                 this.Data[i] = new Pair(source.Data[i]);
             }
+        }
+        if (source.SourceChannel != null) {
+            this.SourceChannel = new Long(source.SourceChannel);
         }
     }
 
@@ -146,8 +147,8 @@ public class ModifyConfigDataRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
         this.setParamSimple(map, prefix + "Name", this.Name);
-        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
         this.setParamArrayObj(map, prefix + "Data.", this.Data);
+        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
 
     }
 }

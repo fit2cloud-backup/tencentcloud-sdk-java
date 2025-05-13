@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGatewayAllGroupApisRequest extends AbstractModel{
+public class DescribeGatewayAllGroupApisRequest extends AbstractModel {
 
     /**
     * 网关部署组ID
@@ -30,7 +31,7 @@ public class DescribeGatewayAllGroupApisRequest extends AbstractModel{
     private String GatewayDeployGroupId;
 
     /**
-    * 搜索关键字，支持分组名称或API Path
+    * 搜索关键字，支持命名空间名称或服务名称
     */
     @SerializedName("SearchWord")
     @Expose
@@ -53,16 +54,16 @@ public class DescribeGatewayAllGroupApisRequest extends AbstractModel{
     }
 
     /**
-     * Get 搜索关键字，支持分组名称或API Path 
-     * @return SearchWord 搜索关键字，支持分组名称或API Path
+     * Get 搜索关键字，支持命名空间名称或服务名称 
+     * @return SearchWord 搜索关键字，支持命名空间名称或服务名称
      */
     public String getSearchWord() {
         return this.SearchWord;
     }
 
     /**
-     * Set 搜索关键字，支持分组名称或API Path
-     * @param SearchWord 搜索关键字，支持分组名称或API Path
+     * Set 搜索关键字，支持命名空间名称或服务名称
+     * @param SearchWord 搜索关键字，支持命名空间名称或服务名称
      */
     public void setSearchWord(String SearchWord) {
         this.SearchWord = SearchWord;

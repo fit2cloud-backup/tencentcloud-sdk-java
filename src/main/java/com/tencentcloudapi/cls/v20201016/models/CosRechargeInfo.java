@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CosRechargeInfo extends AbstractModel{
+public class CosRechargeInfo extends AbstractModel {
 
     /**
     * COS导入配置ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Id")
     @Expose
@@ -32,7 +32,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicId")
     @Expose
@@ -40,7 +39,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogsetId")
     @Expose
@@ -48,7 +46,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * COS导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -56,7 +53,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * COS存储桶
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Bucket")
     @Expose
@@ -64,7 +60,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * COS存储桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BucketRegion")
     @Expose
@@ -72,7 +67,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * COS文件所在文件夹的前缀
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Prefix")
     @Expose
@@ -81,7 +75,6 @@ public class CosRechargeInfo extends AbstractModel{
     /**
     * 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表单行全文；
 默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogType")
     @Expose
@@ -89,7 +82,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 状态   status 0: 已创建, 1: 运行中, 2: 已停止, 3: 已完成, 4: 运行失败。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -97,7 +89,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 是否启用:   0： 未启用  ， 1：启用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Enable")
     @Expose
@@ -105,7 +96,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -113,7 +103,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -121,7 +110,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 进度条百分值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Progress")
     @Expose
@@ -129,7 +117,6 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * supported: "", "gzip", "lzop", "snappy”; 默认空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Compress")
     @Expose
@@ -137,17 +124,28 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
     * 见： ExtractRuleInfo 结构描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtractRuleInfo")
     @Expose
     private ExtractRuleInfo ExtractRuleInfo;
 
     /**
-     * Get COS导入配置ID
-注意：此字段可能返回 null，表示取不到有效值。 
+    * COS导入任务类型。1：一次性导入任务；2：持续性导入任务。
+    */
+    @SerializedName("TaskType")
+    @Expose
+    private Long TaskType;
+
+    /**
+    * 元数据。支持 bucket，object。
+    */
+    @SerializedName("Metadata")
+    @Expose
+    private String [] Metadata;
+
+    /**
+     * Get COS导入配置ID 
      * @return Id COS导入配置ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getId() {
         return this.Id;
@@ -155,19 +153,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set COS导入配置ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Id COS导入配置ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setId(String Id) {
         this.Id = Id;
     }
 
     /**
-     * Get 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志主题ID 
      * @return TopicId 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicId() {
         return this.TopicId;
@@ -175,19 +169,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicId 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicId(String TopicId) {
         this.TopicId = TopicId;
     }
 
     /**
-     * Get 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志集ID 
      * @return LogsetId 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLogsetId() {
         return this.LogsetId;
@@ -195,19 +185,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogsetId 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogsetId(String LogsetId) {
         this.LogsetId = LogsetId;
     }
 
     /**
-     * Get COS导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get COS导入任务名称 
      * @return Name COS导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -215,19 +201,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set COS导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name COS导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get COS存储桶
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get COS存储桶 
      * @return Bucket COS存储桶
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucket() {
         return this.Bucket;
@@ -235,19 +217,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set COS存储桶
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Bucket COS存储桶
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucket(String Bucket) {
         this.Bucket = Bucket;
     }
 
     /**
-     * Get COS存储桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get COS存储桶所在地域 
      * @return BucketRegion COS存储桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucketRegion() {
         return this.BucketRegion;
@@ -255,19 +233,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set COS存储桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BucketRegion COS存储桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucketRegion(String BucketRegion) {
         this.BucketRegion = BucketRegion;
     }
 
     /**
-     * Get COS文件所在文件夹的前缀
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get COS文件所在文件夹的前缀 
      * @return Prefix COS文件所在文件夹的前缀
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPrefix() {
         return this.Prefix;
@@ -275,9 +249,7 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set COS文件所在文件夹的前缀
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Prefix COS文件所在文件夹的前缀
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrefix(String Prefix) {
         this.Prefix = Prefix;
@@ -285,11 +257,9 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Get 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表单行全文；
-默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。 
+默认为minimalist_log 
      * @return LogType 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表单行全文；
 默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLogType() {
         return this.LogType;
@@ -298,20 +268,16 @@ public class CosRechargeInfo extends AbstractModel{
     /**
      * Set 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表单行全文；
 默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogType 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表单行全文；
 默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogType(String LogType) {
         this.LogType = LogType;
     }
 
     /**
-     * Get 状态   status 0: 已创建, 1: 运行中, 2: 已停止, 3: 已完成, 4: 运行失败。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态   status 0: 已创建, 1: 运行中, 2: 已停止, 3: 已完成, 4: 运行失败。 
      * @return Status 状态   status 0: 已创建, 1: 运行中, 2: 已停止, 3: 已完成, 4: 运行失败。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -319,19 +285,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 状态   status 0: 已创建, 1: 运行中, 2: 已停止, 3: 已完成, 4: 运行失败。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态   status 0: 已创建, 1: 运行中, 2: 已停止, 3: 已完成, 4: 运行失败。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 是否启用:   0： 未启用  ， 1：启用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否启用:   0： 未启用  ， 1：启用 
      * @return Enable 是否启用:   0： 未启用  ， 1：启用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEnable() {
         return this.Enable;
@@ -339,19 +301,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 是否启用:   0： 未启用  ， 1：启用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Enable 是否启用:   0： 未启用  ， 1：启用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnable(Long Enable) {
         this.Enable = Enable;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -359,19 +317,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -379,19 +333,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 进度条百分值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进度条百分值 
      * @return Progress 进度条百分值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProgress() {
         return this.Progress;
@@ -399,19 +349,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 进度条百分值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Progress 进度条百分值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProgress(Long Progress) {
         this.Progress = Progress;
     }
 
     /**
-     * Get supported: "", "gzip", "lzop", "snappy”; 默认空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get supported: "", "gzip", "lzop", "snappy”; 默认空 
      * @return Compress supported: "", "gzip", "lzop", "snappy”; 默认空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCompress() {
         return this.Compress;
@@ -419,19 +365,15 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set supported: "", "gzip", "lzop", "snappy”; 默认空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Compress supported: "", "gzip", "lzop", "snappy”; 默认空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCompress(String Compress) {
         this.Compress = Compress;
     }
 
     /**
-     * Get 见： ExtractRuleInfo 结构描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 见： ExtractRuleInfo 结构描述 
      * @return ExtractRuleInfo 见： ExtractRuleInfo 结构描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ExtractRuleInfo getExtractRuleInfo() {
         return this.ExtractRuleInfo;
@@ -439,12 +381,42 @@ public class CosRechargeInfo extends AbstractModel{
 
     /**
      * Set 见： ExtractRuleInfo 结构描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtractRuleInfo 见： ExtractRuleInfo 结构描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtractRuleInfo(ExtractRuleInfo ExtractRuleInfo) {
         this.ExtractRuleInfo = ExtractRuleInfo;
+    }
+
+    /**
+     * Get COS导入任务类型。1：一次性导入任务；2：持续性导入任务。 
+     * @return TaskType COS导入任务类型。1：一次性导入任务；2：持续性导入任务。
+     */
+    public Long getTaskType() {
+        return this.TaskType;
+    }
+
+    /**
+     * Set COS导入任务类型。1：一次性导入任务；2：持续性导入任务。
+     * @param TaskType COS导入任务类型。1：一次性导入任务；2：持续性导入任务。
+     */
+    public void setTaskType(Long TaskType) {
+        this.TaskType = TaskType;
+    }
+
+    /**
+     * Get 元数据。支持 bucket，object。 
+     * @return Metadata 元数据。支持 bucket，object。
+     */
+    public String [] getMetadata() {
+        return this.Metadata;
+    }
+
+    /**
+     * Set 元数据。支持 bucket，object。
+     * @param Metadata 元数据。支持 bucket，object。
+     */
+    public void setMetadata(String [] Metadata) {
+        this.Metadata = Metadata;
     }
 
     public CosRechargeInfo() {
@@ -500,6 +472,15 @@ public class CosRechargeInfo extends AbstractModel{
         if (source.ExtractRuleInfo != null) {
             this.ExtractRuleInfo = new ExtractRuleInfo(source.ExtractRuleInfo);
         }
+        if (source.TaskType != null) {
+            this.TaskType = new Long(source.TaskType);
+        }
+        if (source.Metadata != null) {
+            this.Metadata = new String[source.Metadata.length];
+            for (int i = 0; i < source.Metadata.length; i++) {
+                this.Metadata[i] = new String(source.Metadata[i]);
+            }
+        }
     }
 
 
@@ -522,6 +503,8 @@ public class CosRechargeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Progress", this.Progress);
         this.setParamSimple(map, prefix + "Compress", this.Compress);
         this.setParamObj(map, prefix + "ExtractRuleInfo.", this.ExtractRuleInfo);
+        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
+        this.setParamArraySimple(map, prefix + "Metadata.", this.Metadata);
 
     }
 }

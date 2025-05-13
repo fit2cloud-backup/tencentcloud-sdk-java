@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeMySqlProcessListRequest extends AbstractModel{
+public class DescribeMySqlProcessListRequest extends AbstractModel {
 
     /**
     * 实例ID。
@@ -98,6 +99,13 @@ public class DescribeMySqlProcessListRequest extends AbstractModel{
     @SerializedName("Product")
     @Expose
     private String Product;
+
+    /**
+    * 会话统计的维度信息,可以多个维度。
+    */
+    @SerializedName("StatDimensions")
+    @Expose
+    private StatDimension [] StatDimensions;
 
     /**
      * Get 实例ID。 
@@ -275,6 +283,22 @@ public class DescribeMySqlProcessListRequest extends AbstractModel{
         this.Product = Product;
     }
 
+    /**
+     * Get 会话统计的维度信息,可以多个维度。 
+     * @return StatDimensions 会话统计的维度信息,可以多个维度。
+     */
+    public StatDimension [] getStatDimensions() {
+        return this.StatDimensions;
+    }
+
+    /**
+     * Set 会话统计的维度信息,可以多个维度。
+     * @param StatDimensions 会话统计的维度信息,可以多个维度。
+     */
+    public void setStatDimensions(StatDimension [] StatDimensions) {
+        this.StatDimensions = StatDimensions;
+    }
+
     public DescribeMySqlProcessListRequest() {
     }
 
@@ -316,6 +340,12 @@ public class DescribeMySqlProcessListRequest extends AbstractModel{
         if (source.Product != null) {
             this.Product = new String(source.Product);
         }
+        if (source.StatDimensions != null) {
+            this.StatDimensions = new StatDimension[source.StatDimensions.length];
+            for (int i = 0; i < source.StatDimensions.length; i++) {
+                this.StatDimensions[i] = new StatDimension(source.StatDimensions[i]);
+            }
+        }
     }
 
 
@@ -334,6 +364,7 @@ public class DescribeMySqlProcessListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Info", this.Info);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Product", this.Product);
+        this.setParamArrayObj(map, prefix + "StatDimensions.", this.StatDimensions);
 
     }
 }

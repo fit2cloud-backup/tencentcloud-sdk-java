@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleOutput extends AbstractModel{
+public class RuleOutput extends AbstractModel {
 
     /**
     * 转发规则的 ID
@@ -31,7 +32,6 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * 转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domain")
     @Expose
@@ -39,7 +39,6 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * 转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Url")
     @Expose
@@ -54,7 +53,6 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * 健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HealthCheck")
     @Expose
@@ -69,7 +67,8 @@ public class RuleOutput extends AbstractModel{
     private CertificateOutput Certificate;
 
     /**
-    * 规则的请求转发方式
+    * 规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
     */
     @SerializedName("Scheduler")
     @Expose
@@ -84,7 +83,6 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * 转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RewriteTarget")
     @Expose
@@ -133,7 +131,7 @@ public class RuleOutput extends AbstractModel{
     private String CreateTime;
 
     /**
-    * 后端服务器类型
+    * 后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
     */
     @SerializedName("TargetType")
     @Expose
@@ -149,7 +147,6 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * WAF实例ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WafDomainId")
     @Expose
@@ -157,7 +154,6 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TrpcCallee")
     @Expose
@@ -165,15 +161,13 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TrpcFunc")
     @Expose
     private String TrpcFunc;
 
     /**
-    * QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
+    * QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
     */
     @SerializedName("QuicStatus")
     @Expose
@@ -181,7 +175,6 @@ public class RuleOutput extends AbstractModel{
 
     /**
     * 转发规则的域名列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domains")
     @Expose
@@ -194,6 +187,13 @@ public class RuleOutput extends AbstractModel{
     @SerializedName("TargetGroupList")
     @Expose
     private BasicTargetGroupInfo [] TargetGroupList;
+
+    /**
+    * OAuth配置状态信息。
+    */
+    @SerializedName("OAuth")
+    @Expose
+    private OAuth OAuth;
 
     /**
      * Get 转发规则的 ID 
@@ -212,10 +212,8 @@ public class RuleOutput extends AbstractModel{
     }
 
     /**
-     * Get 转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转发规则的域名。 
      * @return Domain 转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDomain() {
         return this.Domain;
@@ -223,19 +221,15 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set 转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domain 转发规则的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
     }
 
     /**
-     * Get 转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转发规则的路径。 
      * @return Url 转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUrl() {
         return this.Url;
@@ -243,9 +237,7 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set 转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Url 转发规则的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUrl(String Url) {
         this.Url = Url;
@@ -268,10 +260,8 @@ public class RuleOutput extends AbstractModel{
     }
 
     /**
-     * Get 健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 健康检查信息 
      * @return HealthCheck 健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public HealthCheck getHealthCheck() {
         return this.HealthCheck;
@@ -279,9 +269,7 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set 健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HealthCheck 健康检查信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHealthCheck(HealthCheck HealthCheck) {
         this.HealthCheck = HealthCheck;
@@ -308,16 +296,20 @@ public class RuleOutput extends AbstractModel{
     }
 
     /**
-     * Get 规则的请求转发方式 
-     * @return Scheduler 规则的请求转发方式
+     * Get 规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。 
+     * @return Scheduler 规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
      */
     public String getScheduler() {
         return this.Scheduler;
     }
 
     /**
-     * Set 规则的请求转发方式
-     * @param Scheduler 规则的请求转发方式
+     * Set 规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
+     * @param Scheduler 规则的请求转发方式。
+WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
      */
     public void setScheduler(String Scheduler) {
         this.Scheduler = Scheduler;
@@ -340,10 +332,8 @@ public class RuleOutput extends AbstractModel{
     }
 
     /**
-     * Get 转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转发规则的重定向目标信息 
      * @return RewriteTarget 转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RewriteTarget getRewriteTarget() {
         return this.RewriteTarget;
@@ -351,9 +341,7 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set 转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RewriteTarget 转发规则的重定向目标信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRewriteTarget(RewriteTarget RewriteTarget) {
         this.RewriteTarget = RewriteTarget;
@@ -456,16 +444,16 @@ public class RuleOutput extends AbstractModel{
     }
 
     /**
-     * Get 后端服务器类型 
-     * @return TargetType 后端服务器类型
+     * Get 后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。 
+     * @return TargetType 后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
      */
     public String getTargetType() {
         return this.TargetType;
     }
 
     /**
-     * Set 后端服务器类型
-     * @param TargetType 后端服务器类型
+     * Set 后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
+     * @param TargetType 后端服务器类型。NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
      */
     public void setTargetType(String TargetType) {
         this.TargetType = TargetType;
@@ -492,10 +480,8 @@ public class RuleOutput extends AbstractModel{
     }
 
     /**
-     * Get WAF实例ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get WAF实例ID 
      * @return WafDomainId WAF实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getWafDomainId() {
         return this.WafDomainId;
@@ -503,19 +489,15 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set WAF实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WafDomainId WAF实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWafDomainId(String WafDomainId) {
         this.WafDomainId = WafDomainId;
     }
 
     /**
-     * Get TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。 
      * @return TrpcCallee TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTrpcCallee() {
         return this.TrpcCallee;
@@ -523,19 +505,15 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TrpcCallee TRPC被调服务器路由，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTrpcCallee(String TrpcCallee) {
         this.TrpcCallee = TrpcCallee;
     }
 
     /**
-     * Get TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。 
      * @return TrpcFunc TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTrpcFunc() {
         return this.TrpcFunc;
@@ -543,39 +521,31 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TrpcFunc TRPC调用服务接口，ForwardType为TRPC时有效。目前暂未对外开放。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTrpcFunc(String TrpcFunc) {
         this.TrpcFunc = TrpcFunc;
     }
 
     /**
-     * Get QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return QuicStatus QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。 
+     * @return QuicStatus QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
      */
     public String getQuicStatus() {
         return this.QuicStatus;
     }
 
     /**
-     * Set QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param QuicStatus QUIC状态
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
+     * @param QuicStatus QUIC状态。QUIC_ACTIVE表示开启，QUIC_INACTIVE表示未开启。注意，只有HTTPS域名才能开启QUIC。
      */
     public void setQuicStatus(String QuicStatus) {
         this.QuicStatus = QuicStatus;
     }
 
     /**
-     * Get 转发规则的域名列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转发规则的域名列表。 
      * @return Domains 转发规则的域名列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDomains() {
         return this.Domains;
@@ -583,9 +553,7 @@ public class RuleOutput extends AbstractModel{
 
     /**
      * Set 转发规则的域名列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domains 转发规则的域名列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomains(String [] Domains) {
         this.Domains = Domains;
@@ -609,6 +577,22 @@ public class RuleOutput extends AbstractModel{
      */
     public void setTargetGroupList(BasicTargetGroupInfo [] TargetGroupList) {
         this.TargetGroupList = TargetGroupList;
+    }
+
+    /**
+     * Get OAuth配置状态信息。 
+     * @return OAuth OAuth配置状态信息。
+     */
+    public OAuth getOAuth() {
+        return this.OAuth;
+    }
+
+    /**
+     * Set OAuth配置状态信息。
+     * @param OAuth OAuth配置状态信息。
+     */
+    public void setOAuth(OAuth OAuth) {
+        this.OAuth = OAuth;
     }
 
     public RuleOutput() {
@@ -694,6 +678,9 @@ public class RuleOutput extends AbstractModel{
                 this.TargetGroupList[i] = new BasicTargetGroupInfo(source.TargetGroupList[i]);
             }
         }
+        if (source.OAuth != null) {
+            this.OAuth = new OAuth(source.OAuth);
+        }
     }
 
 
@@ -724,6 +711,7 @@ public class RuleOutput extends AbstractModel{
         this.setParamSimple(map, prefix + "QuicStatus", this.QuicStatus);
         this.setParamArraySimple(map, prefix + "Domains.", this.Domains);
         this.setParamArrayObj(map, prefix + "TargetGroupList.", this.TargetGroupList);
+        this.setParamObj(map, prefix + "OAuth.", this.OAuth);
 
     }
 }

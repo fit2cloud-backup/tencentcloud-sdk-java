@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BindingPolicyTagRequest extends AbstractModel{
+public class BindingPolicyTagRequest extends AbstractModel {
 
     /**
     * 固定取值 monitor
@@ -84,6 +85,13 @@ public class BindingPolicyTagRequest extends AbstractModel{
     @SerializedName("EbSubject")
     @Expose
     private String EbSubject;
+
+    /**
+    * 标识标签取交/并集关系
+    */
+    @SerializedName("TagOperation")
+    @Expose
+    private String TagOperation;
 
     /**
      * Get 固定取值 monitor 
@@ -229,6 +237,22 @@ public class BindingPolicyTagRequest extends AbstractModel{
         this.EbSubject = EbSubject;
     }
 
+    /**
+     * Get 标识标签取交/并集关系 
+     * @return TagOperation 标识标签取交/并集关系
+     */
+    public String getTagOperation() {
+        return this.TagOperation;
+    }
+
+    /**
+     * Set 标识标签取交/并集关系
+     * @param TagOperation 标识标签取交/并集关系
+     */
+    public void setTagOperation(String TagOperation) {
+        this.TagOperation = TagOperation;
+    }
+
     public BindingPolicyTagRequest() {
     }
 
@@ -267,6 +291,9 @@ public class BindingPolicyTagRequest extends AbstractModel{
         if (source.EbSubject != null) {
             this.EbSubject = new String(source.EbSubject);
         }
+        if (source.TagOperation != null) {
+            this.TagOperation = new String(source.TagOperation);
+        }
     }
 
 
@@ -283,6 +310,7 @@ public class BindingPolicyTagRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "BatchTag.", this.BatchTag);
         this.setParamSimple(map, prefix + "EbEventFlag", this.EbEventFlag);
         this.setParamSimple(map, prefix + "EbSubject", this.EbSubject);
+        this.setParamSimple(map, prefix + "TagOperation", this.TagOperation);
 
     }
 }

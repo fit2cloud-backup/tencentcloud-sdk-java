@@ -16,17 +16,18 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeZonesRequest extends AbstractModel{
+public class DescribeZonesRequest extends AbstractModel {
 
     /**
     * 可用区列表排序的依据字段。取值范围：
-<li>ZONE：依据可用区排序。
+<li>ZONE：依据可用区排序。</li>
 <li>INSTANCE_DISPLAY_LABEL：依据可用区展示标签排序，可用区展示标签包括：HIDDEN（隐藏）、NORMAL（普通）、SELECTED（默认选中），默认采用的升序排列为：['HIDDEN', 'NORMAL', 'SELECTED']。
-默认按可用区排序。
+默认按可用区排序。</li>
     */
     @SerializedName("OrderField")
     @Expose
@@ -34,8 +35,8 @@ public class DescribeZonesRequest extends AbstractModel{
 
     /**
     * 输出可用区列表的排列顺序。取值范围：
-<li>ASC：升序排列。 
-<li>DESC：降序排列。
+<li>ASC：升序排列。 </li>
+<li>DESC：降序排列。</li>
 默认按升序排列。
     */
     @SerializedName("Order")
@@ -44,13 +45,13 @@ public class DescribeZonesRequest extends AbstractModel{
 
     /**
      * Get 可用区列表排序的依据字段。取值范围：
-<li>ZONE：依据可用区排序。
+<li>ZONE：依据可用区排序。</li>
 <li>INSTANCE_DISPLAY_LABEL：依据可用区展示标签排序，可用区展示标签包括：HIDDEN（隐藏）、NORMAL（普通）、SELECTED（默认选中），默认采用的升序排列为：['HIDDEN', 'NORMAL', 'SELECTED']。
-默认按可用区排序。 
+默认按可用区排序。</li> 
      * @return OrderField 可用区列表排序的依据字段。取值范围：
-<li>ZONE：依据可用区排序。
+<li>ZONE：依据可用区排序。</li>
 <li>INSTANCE_DISPLAY_LABEL：依据可用区展示标签排序，可用区展示标签包括：HIDDEN（隐藏）、NORMAL（普通）、SELECTED（默认选中），默认采用的升序排列为：['HIDDEN', 'NORMAL', 'SELECTED']。
-默认按可用区排序。
+默认按可用区排序。</li>
      */
     public String getOrderField() {
         return this.OrderField;
@@ -58,13 +59,13 @@ public class DescribeZonesRequest extends AbstractModel{
 
     /**
      * Set 可用区列表排序的依据字段。取值范围：
-<li>ZONE：依据可用区排序。
+<li>ZONE：依据可用区排序。</li>
 <li>INSTANCE_DISPLAY_LABEL：依据可用区展示标签排序，可用区展示标签包括：HIDDEN（隐藏）、NORMAL（普通）、SELECTED（默认选中），默认采用的升序排列为：['HIDDEN', 'NORMAL', 'SELECTED']。
-默认按可用区排序。
+默认按可用区排序。</li>
      * @param OrderField 可用区列表排序的依据字段。取值范围：
-<li>ZONE：依据可用区排序。
+<li>ZONE：依据可用区排序。</li>
 <li>INSTANCE_DISPLAY_LABEL：依据可用区展示标签排序，可用区展示标签包括：HIDDEN（隐藏）、NORMAL（普通）、SELECTED（默认选中），默认采用的升序排列为：['HIDDEN', 'NORMAL', 'SELECTED']。
-默认按可用区排序。
+默认按可用区排序。</li>
      */
     public void setOrderField(String OrderField) {
         this.OrderField = OrderField;
@@ -72,12 +73,12 @@ public class DescribeZonesRequest extends AbstractModel{
 
     /**
      * Get 输出可用区列表的排列顺序。取值范围：
-<li>ASC：升序排列。 
-<li>DESC：降序排列。
+<li>ASC：升序排列。 </li>
+<li>DESC：降序排列。</li>
 默认按升序排列。 
      * @return Order 输出可用区列表的排列顺序。取值范围：
-<li>ASC：升序排列。 
-<li>DESC：降序排列。
+<li>ASC：升序排列。 </li>
+<li>DESC：降序排列。</li>
 默认按升序排列。
      */
     public String getOrder() {
@@ -86,12 +87,12 @@ public class DescribeZonesRequest extends AbstractModel{
 
     /**
      * Set 输出可用区列表的排列顺序。取值范围：
-<li>ASC：升序排列。 
-<li>DESC：降序排列。
+<li>ASC：升序排列。 </li>
+<li>DESC：降序排列。</li>
 默认按升序排列。
      * @param Order 输出可用区列表的排列顺序。取值范围：
-<li>ASC：升序排列。 
-<li>DESC：降序排列。
+<li>ASC：升序排列。 </li>
+<li>DESC：降序排列。</li>
 默认按升序排列。
      */
     public void setOrder(String Order) {

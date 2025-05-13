@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NotebookSetItem extends AbstractModel{
+public class NotebookSetItem extends AbstractModel {
 
     /**
     * notebook ID
@@ -217,6 +218,37 @@ public class NotebookSetItem extends AbstractModel{
     @SerializedName("UserTypes")
     @Expose
     private String [] UserTypes;
+
+    /**
+    * SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SSHConfig")
+    @Expose
+    private SSHConfig SSHConfig;
+
+    /**
+    * GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VolumeSourceGooseFS")
+    @Expose
+    private GooseFS VolumeSourceGooseFS;
+
+    /**
+    * 子用户名称
+    */
+    @SerializedName("SubUinName")
+    @Expose
+    private String SubUinName;
+
+    /**
+    * AppId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AppId")
+    @Expose
+    private String AppId;
 
     /**
      * Get notebook ID 
@@ -702,6 +734,82 @@ public class NotebookSetItem extends AbstractModel{
         this.UserTypes = UserTypes;
     }
 
+    /**
+     * Get SSH配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SSHConfig SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SSHConfig getSSHConfig() {
+        return this.SSHConfig;
+    }
+
+    /**
+     * Set SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SSHConfig SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSSHConfig(SSHConfig SSHConfig) {
+        this.SSHConfig = SSHConfig;
+    }
+
+    /**
+     * Get GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VolumeSourceGooseFS GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public GooseFS getVolumeSourceGooseFS() {
+        return this.VolumeSourceGooseFS;
+    }
+
+    /**
+     * Set GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VolumeSourceGooseFS GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVolumeSourceGooseFS(GooseFS VolumeSourceGooseFS) {
+        this.VolumeSourceGooseFS = VolumeSourceGooseFS;
+    }
+
+    /**
+     * Get 子用户名称 
+     * @return SubUinName 子用户名称
+     */
+    public String getSubUinName() {
+        return this.SubUinName;
+    }
+
+    /**
+     * Set 子用户名称
+     * @param SubUinName 子用户名称
+     */
+    public void setSubUinName(String SubUinName) {
+        this.SubUinName = SubUinName;
+    }
+
+    /**
+     * Get AppId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AppId AppId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAppId() {
+        return this.AppId;
+    }
+
+    /**
+     * Set AppId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AppId AppId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAppId(String AppId) {
+        this.AppId = AppId;
+    }
+
     public NotebookSetItem() {
     }
 
@@ -794,6 +902,18 @@ public class NotebookSetItem extends AbstractModel{
                 this.UserTypes[i] = new String(source.UserTypes[i]);
             }
         }
+        if (source.SSHConfig != null) {
+            this.SSHConfig = new SSHConfig(source.SSHConfig);
+        }
+        if (source.VolumeSourceGooseFS != null) {
+            this.VolumeSourceGooseFS = new GooseFS(source.VolumeSourceGooseFS);
+        }
+        if (source.SubUinName != null) {
+            this.SubUinName = new String(source.SubUinName);
+        }
+        if (source.AppId != null) {
+            this.AppId = new String(source.AppId);
+        }
     }
 
 
@@ -826,6 +946,10 @@ public class NotebookSetItem extends AbstractModel{
         this.setParamObj(map, prefix + "VolumeSourceCFS.", this.VolumeSourceCFS);
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamArraySimple(map, prefix + "UserTypes.", this.UserTypes);
+        this.setParamObj(map, prefix + "SSHConfig.", this.SSHConfig);
+        this.setParamObj(map, prefix + "VolumeSourceGooseFS.", this.VolumeSourceGooseFS);
+        this.setParamSimple(map, prefix + "SubUinName", this.SubUinName);
+        this.setParamSimple(map, prefix + "AppId", this.AppId);
 
     }
 }

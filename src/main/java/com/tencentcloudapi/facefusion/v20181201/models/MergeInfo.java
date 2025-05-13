@@ -16,99 +16,135 @@
 package com.tencentcloudapi.facefusion.v20181201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MergeInfo extends AbstractModel{
+public class MergeInfo extends AbstractModel {
 
     /**
-    * 输入图片base64
+    * 输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
     */
     @SerializedName("Image")
     @Expose
     private String Image;
 
     /**
-    * 输入图片url
+    * 输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
     */
     @SerializedName("Url")
     @Expose
     private String Url;
 
     /**
-    * 上传的图片人脸位置信息（人脸框）
+    * 输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
     */
     @SerializedName("InputImageFaceRect")
     @Expose
     private FaceRect InputImageFaceRect;
 
     /**
-    * 控制台上传的素材人脸ID，不填默认取最大人脸
+    * 素材人脸ID，不填默认取素材中最大人脸。
     */
     @SerializedName("TemplateFaceID")
     @Expose
     private String TemplateFaceID;
 
     /**
-     * Get 输入图片base64 
-     * @return Image 输入图片base64
+     * Get 输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。 
+     * @return Image 输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
      */
     public String getImage() {
         return this.Image;
     }
 
     /**
-     * Set 输入图片base64
-     * @param Image 输入图片base64
+     * Set 输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+     * @param Image 输入图片base64。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
      */
     public void setImage(String Image) {
         this.Image = Image;
     }
 
     /**
-     * Get 输入图片url 
-     * @return Url 输入图片url
+     * Get 输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。 
+     * @return Url 输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
      */
     public String getUrl() {
         return this.Url;
     }
 
     /**
-     * Set 输入图片url
-     * @param Url 输入图片url
+     * Set 输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
+     * @param Url 输入图片url。
+●base64 和 url 必须提供一个，如果都提供以 url 为准。
+●素材图片限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64。（图片编码之后可能会大30%左右，建议合理控制图片大小）。
+●支持图片格式：支持jpg或png。
      */
     public void setUrl(String Url) {
         this.Url = Url;
     }
 
     /**
-     * Get 上传的图片人脸位置信息（人脸框） 
-     * @return InputImageFaceRect 上传的图片人脸位置信息（人脸框）
+     * Get 输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。 
+     * @return InputImageFaceRect 输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
      */
     public FaceRect getInputImageFaceRect() {
         return this.InputImageFaceRect;
     }
 
     /**
-     * Set 上传的图片人脸位置信息（人脸框）
-     * @param InputImageFaceRect 上传的图片人脸位置信息（人脸框）
+     * Set 输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
+     * @param InputImageFaceRect 输入图片人脸位置信息（人脸框）。不填默认取输入图中最大人脸。
+Width、Height >= 30。
      */
     public void setInputImageFaceRect(FaceRect InputImageFaceRect) {
         this.InputImageFaceRect = InputImageFaceRect;
     }
 
     /**
-     * Get 控制台上传的素材人脸ID，不填默认取最大人脸 
-     * @return TemplateFaceID 控制台上传的素材人脸ID，不填默认取最大人脸
+     * Get 素材人脸ID，不填默认取素材中最大人脸。 
+     * @return TemplateFaceID 素材人脸ID，不填默认取素材中最大人脸。
      */
     public String getTemplateFaceID() {
         return this.TemplateFaceID;
     }
 
     /**
-     * Set 控制台上传的素材人脸ID，不填默认取最大人脸
-     * @param TemplateFaceID 控制台上传的素材人脸ID，不填默认取最大人脸
+     * Set 素材人脸ID，不填默认取素材中最大人脸。
+     * @param TemplateFaceID 素材人脸ID，不填默认取素材中最大人脸。
      */
     public void setTemplateFaceID(String TemplateFaceID) {
         this.TemplateFaceID = TemplateFaceID;

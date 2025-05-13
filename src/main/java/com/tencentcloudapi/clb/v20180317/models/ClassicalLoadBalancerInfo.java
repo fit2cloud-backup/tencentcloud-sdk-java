@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClassicalLoadBalancerInfo extends AbstractModel{
+public class ClassicalLoadBalancerInfo extends AbstractModel {
 
     /**
     * 后端实例ID
@@ -31,7 +32,6 @@ public class ClassicalLoadBalancerInfo extends AbstractModel{
 
     /**
     * 负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerIds")
     @Expose
@@ -54,10 +54,8 @@ public class ClassicalLoadBalancerInfo extends AbstractModel{
     }
 
     /**
-     * Get 负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 负载均衡实例ID列表 
      * @return LoadBalancerIds 负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getLoadBalancerIds() {
         return this.LoadBalancerIds;
@@ -65,9 +63,7 @@ public class ClassicalLoadBalancerInfo extends AbstractModel{
 
     /**
      * Set 负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadBalancerIds 负载均衡实例ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerIds(String [] LoadBalancerIds) {
         this.LoadBalancerIds = LoadBalancerIds;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TColumn extends AbstractModel{
+public class TColumn extends AbstractModel {
 
     /**
     * 字段名称
@@ -56,6 +57,35 @@ public class TColumn extends AbstractModel{
     @SerializedName("NotNull")
     @Expose
     private Boolean NotNull;
+
+    /**
+    * 表示整个 numeric 的长度,取值1-38
+    */
+    @SerializedName("Precision")
+    @Expose
+    private Long Precision;
+
+    /**
+    * 表示小数部分的长度
+Scale小于Precision
+    */
+    @SerializedName("Scale")
+    @Expose
+    private Long Scale;
+
+    /**
+    * 字段位置，小的在前
+    */
+    @SerializedName("Position")
+    @Expose
+    private Long Position;
+
+    /**
+    * 是否为分区字段
+    */
+    @SerializedName("IsPartition")
+    @Expose
+    private Boolean IsPartition;
 
     /**
      * Get 字段名称 
@@ -137,6 +167,74 @@ public class TColumn extends AbstractModel{
         this.NotNull = NotNull;
     }
 
+    /**
+     * Get 表示整个 numeric 的长度,取值1-38 
+     * @return Precision 表示整个 numeric 的长度,取值1-38
+     */
+    public Long getPrecision() {
+        return this.Precision;
+    }
+
+    /**
+     * Set 表示整个 numeric 的长度,取值1-38
+     * @param Precision 表示整个 numeric 的长度,取值1-38
+     */
+    public void setPrecision(Long Precision) {
+        this.Precision = Precision;
+    }
+
+    /**
+     * Get 表示小数部分的长度
+Scale小于Precision 
+     * @return Scale 表示小数部分的长度
+Scale小于Precision
+     */
+    public Long getScale() {
+        return this.Scale;
+    }
+
+    /**
+     * Set 表示小数部分的长度
+Scale小于Precision
+     * @param Scale 表示小数部分的长度
+Scale小于Precision
+     */
+    public void setScale(Long Scale) {
+        this.Scale = Scale;
+    }
+
+    /**
+     * Get 字段位置，小的在前 
+     * @return Position 字段位置，小的在前
+     */
+    public Long getPosition() {
+        return this.Position;
+    }
+
+    /**
+     * Set 字段位置，小的在前
+     * @param Position 字段位置，小的在前
+     */
+    public void setPosition(Long Position) {
+        this.Position = Position;
+    }
+
+    /**
+     * Get 是否为分区字段 
+     * @return IsPartition 是否为分区字段
+     */
+    public Boolean getIsPartition() {
+        return this.IsPartition;
+    }
+
+    /**
+     * Set 是否为分区字段
+     * @param IsPartition 是否为分区字段
+     */
+    public void setIsPartition(Boolean IsPartition) {
+        this.IsPartition = IsPartition;
+    }
+
     public TColumn() {
     }
 
@@ -160,6 +258,18 @@ public class TColumn extends AbstractModel{
         if (source.NotNull != null) {
             this.NotNull = new Boolean(source.NotNull);
         }
+        if (source.Precision != null) {
+            this.Precision = new Long(source.Precision);
+        }
+        if (source.Scale != null) {
+            this.Scale = new Long(source.Scale);
+        }
+        if (source.Position != null) {
+            this.Position = new Long(source.Position);
+        }
+        if (source.IsPartition != null) {
+            this.IsPartition = new Boolean(source.IsPartition);
+        }
     }
 
 
@@ -172,6 +282,10 @@ public class TColumn extends AbstractModel{
         this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamSimple(map, prefix + "Default", this.Default);
         this.setParamSimple(map, prefix + "NotNull", this.NotNull);
+        this.setParamSimple(map, prefix + "Precision", this.Precision);
+        this.setParamSimple(map, prefix + "Scale", this.Scale);
+        this.setParamSimple(map, prefix + "Position", this.Position);
+        this.setParamSimple(map, prefix + "IsPartition", this.IsPartition);
 
     }
 }

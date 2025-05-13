@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Instance extends AbstractModel{
+public class Instance extends AbstractModel {
 
     /**
     * 资源组节点id
@@ -112,6 +113,37 @@ DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不�
     @SerializedName("SpecAlias")
     @Expose
     private String SpecAlias;
+
+    /**
+    * 计费项特性列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SpecFeatures")
+    @Expose
+    private String [] SpecFeatures;
+
+    /**
+    * 纳管cvmid
+    */
+    @SerializedName("CvmInstanceId")
+    @Expose
+    private String CvmInstanceId;
+
+    /**
+    * 部署失败错误码
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ErrCode")
+    @Expose
+    private String ErrCode;
+
+    /**
+    * 部署失败错误信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ErrMsg")
+    @Expose
+    private String ErrMsg;
 
     /**
      * Get 资源组节点id 
@@ -357,6 +389,82 @@ DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不�
         this.SpecAlias = SpecAlias;
     }
 
+    /**
+     * Get 计费项特性列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SpecFeatures 计费项特性列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSpecFeatures() {
+        return this.SpecFeatures;
+    }
+
+    /**
+     * Set 计费项特性列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SpecFeatures 计费项特性列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSpecFeatures(String [] SpecFeatures) {
+        this.SpecFeatures = SpecFeatures;
+    }
+
+    /**
+     * Get 纳管cvmid 
+     * @return CvmInstanceId 纳管cvmid
+     */
+    public String getCvmInstanceId() {
+        return this.CvmInstanceId;
+    }
+
+    /**
+     * Set 纳管cvmid
+     * @param CvmInstanceId 纳管cvmid
+     */
+    public void setCvmInstanceId(String CvmInstanceId) {
+        this.CvmInstanceId = CvmInstanceId;
+    }
+
+    /**
+     * Get 部署失败错误码
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ErrCode 部署失败错误码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getErrCode() {
+        return this.ErrCode;
+    }
+
+    /**
+     * Set 部署失败错误码
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ErrCode 部署失败错误码
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setErrCode(String ErrCode) {
+        this.ErrCode = ErrCode;
+    }
+
+    /**
+     * Get 部署失败错误信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ErrMsg 部署失败错误信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getErrMsg() {
+        return this.ErrMsg;
+    }
+
+    /**
+     * Set 部署失败错误信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ErrMsg 部署失败错误信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setErrMsg(String ErrMsg) {
+        this.ErrMsg = ErrMsg;
+    }
+
     public Instance() {
     }
 
@@ -395,6 +503,21 @@ DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不�
         if (source.SpecAlias != null) {
             this.SpecAlias = new String(source.SpecAlias);
         }
+        if (source.SpecFeatures != null) {
+            this.SpecFeatures = new String[source.SpecFeatures.length];
+            for (int i = 0; i < source.SpecFeatures.length; i++) {
+                this.SpecFeatures[i] = new String(source.SpecFeatures[i]);
+            }
+        }
+        if (source.CvmInstanceId != null) {
+            this.CvmInstanceId = new String(source.CvmInstanceId);
+        }
+        if (source.ErrCode != null) {
+            this.ErrCode = new String(source.ErrCode);
+        }
+        if (source.ErrMsg != null) {
+            this.ErrMsg = new String(source.ErrMsg);
+        }
     }
 
 
@@ -412,6 +535,10 @@ DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不�
         this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
         this.setParamSimple(map, prefix + "SpecId", this.SpecId);
         this.setParamSimple(map, prefix + "SpecAlias", this.SpecAlias);
+        this.setParamArraySimple(map, prefix + "SpecFeatures.", this.SpecFeatures);
+        this.setParamSimple(map, prefix + "CvmInstanceId", this.CvmInstanceId);
+        this.setParamSimple(map, prefix + "ErrCode", this.ErrCode);
+        this.setParamSimple(map, prefix + "ErrMsg", this.ErrMsg);
 
     }
 }

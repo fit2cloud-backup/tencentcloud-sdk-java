@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyStaffRequest extends AbstractModel{
+public class ModifyStaffRequest extends AbstractModel {
 
     /**
-    * 应用ID
+    * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
     */
     @SerializedName("SdkAppId")
     @Expose
@@ -58,6 +59,13 @@ public class ModifyStaffRequest extends AbstractModel{
     private String Nick;
 
     /**
+    * 座席工号
+    */
+    @SerializedName("StaffNo")
+    @Expose
+    private String StaffNo;
+
+    /**
     * 绑定技能组ID列表
     */
     @SerializedName("SkillGroupIds")
@@ -79,16 +87,23 @@ public class ModifyStaffRequest extends AbstractModel{
     private Long UseMobileAccept;
 
     /**
-     * Get 应用ID 
-     * @return SdkAppId 应用ID
+    * 座席分机号（1 到 8 打头，4 - 6 位）
+    */
+    @SerializedName("ExtensionNumber")
+    @Expose
+    private String ExtensionNumber;
+
+    /**
+     * Get 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc 
+     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
      */
     public Long getSdkAppId() {
         return this.SdkAppId;
     }
 
     /**
-     * Set 应用ID
-     * @param SdkAppId 应用ID
+     * Set 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+     * @param SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
      */
     public void setSdkAppId(Long SdkAppId) {
         this.SdkAppId = SdkAppId;
@@ -159,6 +174,22 @@ public class ModifyStaffRequest extends AbstractModel{
     }
 
     /**
+     * Get 座席工号 
+     * @return StaffNo 座席工号
+     */
+    public String getStaffNo() {
+        return this.StaffNo;
+    }
+
+    /**
+     * Set 座席工号
+     * @param StaffNo 座席工号
+     */
+    public void setStaffNo(String StaffNo) {
+        this.StaffNo = StaffNo;
+    }
+
+    /**
      * Get 绑定技能组ID列表 
      * @return SkillGroupIds 绑定技能组ID列表
      */
@@ -206,6 +237,22 @@ public class ModifyStaffRequest extends AbstractModel{
         this.UseMobileAccept = UseMobileAccept;
     }
 
+    /**
+     * Get 座席分机号（1 到 8 打头，4 - 6 位） 
+     * @return ExtensionNumber 座席分机号（1 到 8 打头，4 - 6 位）
+     */
+    public String getExtensionNumber() {
+        return this.ExtensionNumber;
+    }
+
+    /**
+     * Set 座席分机号（1 到 8 打头，4 - 6 位）
+     * @param ExtensionNumber 座席分机号（1 到 8 打头，4 - 6 位）
+     */
+    public void setExtensionNumber(String ExtensionNumber) {
+        this.ExtensionNumber = ExtensionNumber;
+    }
+
     public ModifyStaffRequest() {
     }
 
@@ -229,6 +276,9 @@ public class ModifyStaffRequest extends AbstractModel{
         if (source.Nick != null) {
             this.Nick = new String(source.Nick);
         }
+        if (source.StaffNo != null) {
+            this.StaffNo = new String(source.StaffNo);
+        }
         if (source.SkillGroupIds != null) {
             this.SkillGroupIds = new Long[source.SkillGroupIds.length];
             for (int i = 0; i < source.SkillGroupIds.length; i++) {
@@ -240,6 +290,9 @@ public class ModifyStaffRequest extends AbstractModel{
         }
         if (source.UseMobileAccept != null) {
             this.UseMobileAccept = new Long(source.UseMobileAccept);
+        }
+        if (source.ExtensionNumber != null) {
+            this.ExtensionNumber = new String(source.ExtensionNumber);
         }
     }
 
@@ -253,9 +306,11 @@ public class ModifyStaffRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Phone", this.Phone);
         this.setParamSimple(map, prefix + "Nick", this.Nick);
+        this.setParamSimple(map, prefix + "StaffNo", this.StaffNo);
         this.setParamArraySimple(map, prefix + "SkillGroupIds.", this.SkillGroupIds);
         this.setParamSimple(map, prefix + "UseMobileCallOut", this.UseMobileCallOut);
         this.setParamSimple(map, prefix + "UseMobileAccept", this.UseMobileAccept);
+        this.setParamSimple(map, prefix + "ExtensionNumber", this.ExtensionNumber);
 
     }
 }

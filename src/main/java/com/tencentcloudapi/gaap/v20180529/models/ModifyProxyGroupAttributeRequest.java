@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyProxyGroupAttributeRequest extends AbstractModel{
+public class ModifyProxyGroupAttributeRequest extends AbstractModel {
 
     /**
     * 需要修改的通道组ID。
@@ -30,7 +31,7 @@ public class ModifyProxyGroupAttributeRequest extends AbstractModel{
     private String GroupId;
 
     /**
-    * 修改后的通道组名称：不超过30个字符，超过部分会被截断。
+    * 修改后的通道组名称：不超过30个字符，否则修改失败。
     */
     @SerializedName("GroupName")
     @Expose
@@ -60,16 +61,16 @@ public class ModifyProxyGroupAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get 修改后的通道组名称：不超过30个字符，超过部分会被截断。 
-     * @return GroupName 修改后的通道组名称：不超过30个字符，超过部分会被截断。
+     * Get 修改后的通道组名称：不超过30个字符，否则修改失败。 
+     * @return GroupName 修改后的通道组名称：不超过30个字符，否则修改失败。
      */
     public String getGroupName() {
         return this.GroupName;
     }
 
     /**
-     * Set 修改后的通道组名称：不超过30个字符，超过部分会被截断。
-     * @param GroupName 修改后的通道组名称：不超过30个字符，超过部分会被截断。
+     * Set 修改后的通道组名称：不超过30个字符，否则修改失败。
+     * @param GroupName 修改后的通道组名称：不超过30个字符，否则修改失败。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;

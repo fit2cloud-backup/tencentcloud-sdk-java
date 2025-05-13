@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PullUploadRequest extends AbstractModel{
+public class PullUploadRequest extends AbstractModel {
 
     /**
     * 要拉取的媒体 URL，暂不支持拉取 Dash 格式（可以支持 HLS）。
@@ -39,7 +40,7 @@ public class PullUploadRequest extends AbstractModel{
     private String MediaType;
 
     /**
-    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
     */
     @SerializedName("SubAppId")
     @Expose
@@ -88,6 +89,13 @@ public class PullUploadRequest extends AbstractModel{
     @SerializedName("ClassId")
     @Expose
     private Long ClassId;
+
+    /**
+    * 任务的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
+    */
+    @SerializedName("TasksPriority")
+    @Expose
+    private Long TasksPriority;
 
     /**
     * 来源上下文，用于透传用户请求信息，当指定 Procedure 任务后，任务流状态变更回调将返回该字段值，最长 1000 个字符。
@@ -158,16 +166,16 @@ public class PullUploadRequest extends AbstractModel{
     }
 
     /**
-     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
-     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public Long getSubAppId() {
         return this.SubAppId;
     }
 
     /**
-     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
@@ -278,6 +286,22 @@ public class PullUploadRequest extends AbstractModel{
     }
 
     /**
+     * Get 任务的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。 
+     * @return TasksPriority 任务的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
+     */
+    public Long getTasksPriority() {
+        return this.TasksPriority;
+    }
+
+    /**
+     * Set 任务的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
+     * @param TasksPriority 任务的优先级，数值越大优先级越高，取值范围是 -10 到 10，不填代表 0。
+     */
+    public void setTasksPriority(Long TasksPriority) {
+        this.TasksPriority = TasksPriority;
+    }
+
+    /**
      * Get 来源上下文，用于透传用户请求信息，当指定 Procedure 任务后，任务流状态变更回调将返回该字段值，最长 1000 个字符。 
      * @return SessionContext 来源上下文，用于透传用户请求信息，当指定 Procedure 任务后，任务流状态变更回调将返回该字段值，最长 1000 个字符。
      */
@@ -376,6 +400,9 @@ public class PullUploadRequest extends AbstractModel{
         if (source.ClassId != null) {
             this.ClassId = new Long(source.ClassId);
         }
+        if (source.TasksPriority != null) {
+            this.TasksPriority = new Long(source.TasksPriority);
+        }
         if (source.SessionContext != null) {
             this.SessionContext = new String(source.SessionContext);
         }
@@ -404,6 +431,7 @@ public class PullUploadRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamSimple(map, prefix + "StorageRegion", this.StorageRegion);
         this.setParamSimple(map, prefix + "ClassId", this.ClassId);
+        this.setParamSimple(map, prefix + "TasksPriority", this.TasksPriority);
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);
         this.setParamSimple(map, prefix + "ExtInfo", this.ExtInfo);

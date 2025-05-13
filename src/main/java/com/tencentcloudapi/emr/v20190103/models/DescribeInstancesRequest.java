@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstancesRequest extends AbstractModel{
+public class DescribeInstancesRequest extends AbstractModel {
 
     /**
     * 集群筛选策略。取值范围：
@@ -47,7 +48,7 @@ public class DescribeInstancesRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 每页返回数量，默认值为10，最大值为100。
+    * 每页返回数量，默认值为100，最大值为100。
     */
     @SerializedName("Limit")
     @Expose
@@ -142,16 +143,16 @@ public class DescribeInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 每页返回数量，默认值为10，最大值为100。 
-     * @return Limit 每页返回数量，默认值为10，最大值为100。
+     * Get 每页返回数量，默认值为100，最大值为100。 
+     * @return Limit 每页返回数量，默认值为100，最大值为100。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页返回数量，默认值为10，最大值为100。
-     * @param Limit 每页返回数量，默认值为10，最大值为100。
+     * Set 每页返回数量，默认值为100，最大值为100。
+     * @param Limit 每页返回数量，默认值为100，最大值为100。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

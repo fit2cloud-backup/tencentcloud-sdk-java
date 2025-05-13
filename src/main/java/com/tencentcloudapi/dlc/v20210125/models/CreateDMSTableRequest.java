@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDMSTableRequest extends AbstractModel{
+public class CreateDMSTableRequest extends AbstractModel {
 
     /**
     * 基础对象
@@ -30,7 +31,7 @@ public class CreateDMSTableRequest extends AbstractModel{
     private Asset Asset;
 
     /**
-    * 表类型
+    * 表类型：EXTERNAL_TABLE, VIRTUAL_VIEW, MATERIALIZED_VIEW
     */
     @SerializedName("Type")
     @Expose
@@ -135,6 +136,13 @@ public class CreateDMSTableRequest extends AbstractModel{
     private String Name;
 
     /**
+    * 数据源连接名
+    */
+    @SerializedName("DatasourceConnectionName")
+    @Expose
+    private String DatasourceConnectionName;
+
+    /**
      * Get 基础对象 
      * @return Asset 基础对象
      */
@@ -151,16 +159,16 @@ public class CreateDMSTableRequest extends AbstractModel{
     }
 
     /**
-     * Get 表类型 
-     * @return Type 表类型
+     * Get 表类型：EXTERNAL_TABLE, VIRTUAL_VIEW, MATERIALIZED_VIEW 
+     * @return Type 表类型：EXTERNAL_TABLE, VIRTUAL_VIEW, MATERIALIZED_VIEW
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 表类型
-     * @param Type 表类型
+     * Set 表类型：EXTERNAL_TABLE, VIRTUAL_VIEW, MATERIALIZED_VIEW
+     * @param Type 表类型：EXTERNAL_TABLE, VIRTUAL_VIEW, MATERIALIZED_VIEW
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -390,6 +398,22 @@ public class CreateDMSTableRequest extends AbstractModel{
         this.Name = Name;
     }
 
+    /**
+     * Get 数据源连接名 
+     * @return DatasourceConnectionName 数据源连接名
+     */
+    public String getDatasourceConnectionName() {
+        return this.DatasourceConnectionName;
+    }
+
+    /**
+     * Set 数据源连接名
+     * @param DatasourceConnectionName 数据源连接名
+     */
+    public void setDatasourceConnectionName(String DatasourceConnectionName) {
+        this.DatasourceConnectionName = DatasourceConnectionName;
+    }
+
     public CreateDMSTableRequest() {
     }
 
@@ -455,6 +479,9 @@ public class CreateDMSTableRequest extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
+        if (source.DatasourceConnectionName != null) {
+            this.DatasourceConnectionName = new String(source.DatasourceConnectionName);
+        }
     }
 
 
@@ -478,6 +505,7 @@ public class CreateDMSTableRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ViewExpandedText", this.ViewExpandedText);
         this.setParamArrayObj(map, prefix + "Partitions.", this.Partitions);
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "DatasourceConnectionName", this.DatasourceConnectionName);
 
     }
 }

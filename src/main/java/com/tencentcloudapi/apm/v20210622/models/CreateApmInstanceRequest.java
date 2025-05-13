@@ -16,125 +16,172 @@
 package com.tencentcloudapi.apm.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateApmInstanceRequest extends AbstractModel{
+public class CreateApmInstanceRequest extends AbstractModel {
 
     /**
-    * 实例名
+    * 业务系统名
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 实例描述信息
+    * 业务系统描述信息
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-    * Trace数据保存时长
+    * Trace 数据保存时长（单位：天，默认存储时长为3天）
     */
     @SerializedName("TraceDuration")
     @Expose
     private Long TraceDuration;
 
     /**
-    * 标签列表
+    * 业务系统 Tag 列表
     */
     @SerializedName("Tags")
     @Expose
     private ApmTag [] Tags;
 
     /**
-    * 实例上报额度值
+    * 业务系统上报额度值，默认赋值为0表示不限制上报额度，已废弃
     */
     @SerializedName("SpanDailyCounters")
     @Expose
     private Long SpanDailyCounters;
 
     /**
-     * Get 实例名 
-     * @return Name 实例名
+    * 业务系统的计费模式（0=按量付费，1=预付费）
+    */
+    @SerializedName("PayMode")
+    @Expose
+    private Long PayMode;
+
+    /**
+    * 是否为免费版业务系统（0=付费版；1=TSF 受限免费版；2=免费版）
+    */
+    @SerializedName("Free")
+    @Expose
+    private Long Free;
+
+    /**
+     * Get 业务系统名 
+     * @return Name 业务系统名
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 实例名
-     * @param Name 实例名
+     * Set 业务系统名
+     * @param Name 业务系统名
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 实例描述信息 
-     * @return Description 实例描述信息
+     * Get 业务系统描述信息 
+     * @return Description 业务系统描述信息
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 实例描述信息
-     * @param Description 实例描述信息
+     * Set 业务系统描述信息
+     * @param Description 业务系统描述信息
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get Trace数据保存时长 
-     * @return TraceDuration Trace数据保存时长
+     * Get Trace 数据保存时长（单位：天，默认存储时长为3天） 
+     * @return TraceDuration Trace 数据保存时长（单位：天，默认存储时长为3天）
      */
     public Long getTraceDuration() {
         return this.TraceDuration;
     }
 
     /**
-     * Set Trace数据保存时长
-     * @param TraceDuration Trace数据保存时长
+     * Set Trace 数据保存时长（单位：天，默认存储时长为3天）
+     * @param TraceDuration Trace 数据保存时长（单位：天，默认存储时长为3天）
      */
     public void setTraceDuration(Long TraceDuration) {
         this.TraceDuration = TraceDuration;
     }
 
     /**
-     * Get 标签列表 
-     * @return Tags 标签列表
+     * Get 业务系统 Tag 列表 
+     * @return Tags 业务系统 Tag 列表
      */
     public ApmTag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 标签列表
-     * @param Tags 标签列表
+     * Set 业务系统 Tag 列表
+     * @param Tags 业务系统 Tag 列表
      */
     public void setTags(ApmTag [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 实例上报额度值 
-     * @return SpanDailyCounters 实例上报额度值
+     * Get 业务系统上报额度值，默认赋值为0表示不限制上报额度，已废弃 
+     * @return SpanDailyCounters 业务系统上报额度值，默认赋值为0表示不限制上报额度，已废弃
      */
     public Long getSpanDailyCounters() {
         return this.SpanDailyCounters;
     }
 
     /**
-     * Set 实例上报额度值
-     * @param SpanDailyCounters 实例上报额度值
+     * Set 业务系统上报额度值，默认赋值为0表示不限制上报额度，已废弃
+     * @param SpanDailyCounters 业务系统上报额度值，默认赋值为0表示不限制上报额度，已废弃
      */
     public void setSpanDailyCounters(Long SpanDailyCounters) {
         this.SpanDailyCounters = SpanDailyCounters;
+    }
+
+    /**
+     * Get 业务系统的计费模式（0=按量付费，1=预付费） 
+     * @return PayMode 业务系统的计费模式（0=按量付费，1=预付费）
+     */
+    public Long getPayMode() {
+        return this.PayMode;
+    }
+
+    /**
+     * Set 业务系统的计费模式（0=按量付费，1=预付费）
+     * @param PayMode 业务系统的计费模式（0=按量付费，1=预付费）
+     */
+    public void setPayMode(Long PayMode) {
+        this.PayMode = PayMode;
+    }
+
+    /**
+     * Get 是否为免费版业务系统（0=付费版；1=TSF 受限免费版；2=免费版） 
+     * @return Free 是否为免费版业务系统（0=付费版；1=TSF 受限免费版；2=免费版）
+     */
+    public Long getFree() {
+        return this.Free;
+    }
+
+    /**
+     * Set 是否为免费版业务系统（0=付费版；1=TSF 受限免费版；2=免费版）
+     * @param Free 是否为免费版业务系统（0=付费版；1=TSF 受限免费版；2=免费版）
+     */
+    public void setFree(Long Free) {
+        this.Free = Free;
     }
 
     public CreateApmInstanceRequest() {
@@ -163,6 +210,12 @@ public class CreateApmInstanceRequest extends AbstractModel{
         if (source.SpanDailyCounters != null) {
             this.SpanDailyCounters = new Long(source.SpanDailyCounters);
         }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.Free != null) {
+            this.Free = new Long(source.Free);
+        }
     }
 
 
@@ -175,6 +228,8 @@ public class CreateApmInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TraceDuration", this.TraceDuration);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "SpanDailyCounters", this.SpanDailyCounters);
+        this.setParamSimple(map, prefix + "PayMode", this.PayMode);
+        this.setParamSimple(map, prefix + "Free", this.Free);
 
     }
 }

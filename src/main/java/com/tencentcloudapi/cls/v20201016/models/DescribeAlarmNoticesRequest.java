@@ -16,29 +16,36 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAlarmNoticesRequest extends AbstractModel{
+public class DescribeAlarmNoticesRequest extends AbstractModel {
 
     /**
     * <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
+必选：否</li>
+
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
 必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
     */
@@ -64,37 +71,49 @@ public class DescribeAlarmNoticesRequest extends AbstractModel{
      * Get <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
+必选：否</li>
+
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
 必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。 
      * @return Filters <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
+必选：否</li>
+
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
 必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      */
@@ -106,37 +125,49 @@ public class DescribeAlarmNoticesRequest extends AbstractModel{
      * Set <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
+必选：否</li>
+
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
 必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      * @param Filters <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
+必选：否</li>
+
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
 必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
 
 每次请求的Filters的上限为10，Filter.Values的上限为5。
      */

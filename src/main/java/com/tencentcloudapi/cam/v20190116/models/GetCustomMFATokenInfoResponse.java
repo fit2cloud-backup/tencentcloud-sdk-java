@@ -16,53 +16,54 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetCustomMFATokenInfoResponse extends AbstractModel{
+public class GetCustomMFATokenInfoResponse extends AbstractModel {
 
     /**
-    * 自定义多因子验证Token对应的帐号Id
+    * 自定义多因子验证Token对应的账号Id
     */
     @SerializedName("Uin")
     @Expose
     private Long Uin;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 自定义多因子验证Token对应的帐号Id 
-     * @return Uin 自定义多因子验证Token对应的帐号Id
+     * Get 自定义多因子验证Token对应的账号Id 
+     * @return Uin 自定义多因子验证Token对应的账号Id
      */
     public Long getUin() {
         return this.Uin;
     }
 
     /**
-     * Set 自定义多因子验证Token对应的帐号Id
-     * @param Uin 自定义多因子验证Token对应的帐号Id
+     * Set 自定义多因子验证Token对应的账号Id
+     * @param Uin 自定义多因子验证Token对应的账号Id
      */
     public void setUin(Long Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

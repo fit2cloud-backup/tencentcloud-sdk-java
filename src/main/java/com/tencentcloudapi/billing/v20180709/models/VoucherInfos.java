@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VoucherInfos extends AbstractModel{
+public class VoucherInfos extends AbstractModel {
 
     /**
     * 代金券拥有者
@@ -87,7 +88,6 @@ public class VoucherInfos extends AbstractModel{
 
     /**
     * 适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicableProducts")
     @Expose
@@ -95,11 +95,24 @@ public class VoucherInfos extends AbstractModel{
 
     /**
     * 不适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExcludedProducts")
     @Expose
     private ExcludedProducts [] ExcludedProducts;
+
+    /**
+    * 使用说明/批次备注
+    */
+    @SerializedName("PolicyRemark")
+    @Expose
+    private String PolicyRemark;
+
+    /**
+    * 发券时间
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
 
     /**
      * Get 代金券拥有者 
@@ -246,10 +259,8 @@ public class VoucherInfos extends AbstractModel{
     }
 
     /**
-     * Get 适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 适用商品信息 
      * @return ApplicableProducts 适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ApplicableProducts getApplicableProducts() {
         return this.ApplicableProducts;
@@ -257,19 +268,15 @@ public class VoucherInfos extends AbstractModel{
 
     /**
      * Set 适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicableProducts 适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicableProducts(ApplicableProducts ApplicableProducts) {
         this.ApplicableProducts = ApplicableProducts;
     }
 
     /**
-     * Get 不适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 不适用商品信息 
      * @return ExcludedProducts 不适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ExcludedProducts [] getExcludedProducts() {
         return this.ExcludedProducts;
@@ -277,12 +284,42 @@ public class VoucherInfos extends AbstractModel{
 
     /**
      * Set 不适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExcludedProducts 不适用商品信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExcludedProducts(ExcludedProducts [] ExcludedProducts) {
         this.ExcludedProducts = ExcludedProducts;
+    }
+
+    /**
+     * Get 使用说明/批次备注 
+     * @return PolicyRemark 使用说明/批次备注
+     */
+    public String getPolicyRemark() {
+        return this.PolicyRemark;
+    }
+
+    /**
+     * Set 使用说明/批次备注
+     * @param PolicyRemark 使用说明/批次备注
+     */
+    public void setPolicyRemark(String PolicyRemark) {
+        this.PolicyRemark = PolicyRemark;
+    }
+
+    /**
+     * Get 发券时间 
+     * @return CreateTime 发券时间
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 发券时间
+     * @param CreateTime 发券时间
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
     }
 
     public VoucherInfos() {
@@ -329,6 +366,12 @@ public class VoucherInfos extends AbstractModel{
                 this.ExcludedProducts[i] = new ExcludedProducts(source.ExcludedProducts[i]);
             }
         }
+        if (source.PolicyRemark != null) {
+            this.PolicyRemark = new String(source.PolicyRemark);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
     }
 
 
@@ -347,6 +390,8 @@ public class VoucherInfos extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamObj(map, prefix + "ApplicableProducts.", this.ApplicableProducts);
         this.setParamArrayObj(map, prefix + "ExcludedProducts.", this.ExcludedProducts);
+        this.setParamSimple(map, prefix + "PolicyRemark", this.PolicyRemark);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
 
     }
 }

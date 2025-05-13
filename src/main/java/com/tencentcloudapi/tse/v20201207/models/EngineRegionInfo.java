@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EngineRegionInfo extends AbstractModel{
+public class EngineRegionInfo extends AbstractModel {
 
     /**
     * 引擎节点所在地域
@@ -42,6 +43,21 @@ public class EngineRegionInfo extends AbstractModel{
     @SerializedName("VpcInfos")
     @Expose
     private VpcInfo [] VpcInfos;
+
+    /**
+    * Polaris: 是否为主地域
+Zookeeper: 是否为Leader固定地域
+    */
+    @SerializedName("MainRegion")
+    @Expose
+    private Boolean MainRegion;
+
+    /**
+    * 引擎规格ID
+    */
+    @SerializedName("SpecId")
+    @Expose
+    private String SpecId;
 
     /**
      * Get 引擎节点所在地域 
@@ -91,6 +107,42 @@ public class EngineRegionInfo extends AbstractModel{
         this.VpcInfos = VpcInfos;
     }
 
+    /**
+     * Get Polaris: 是否为主地域
+Zookeeper: 是否为Leader固定地域 
+     * @return MainRegion Polaris: 是否为主地域
+Zookeeper: 是否为Leader固定地域
+     */
+    public Boolean getMainRegion() {
+        return this.MainRegion;
+    }
+
+    /**
+     * Set Polaris: 是否为主地域
+Zookeeper: 是否为Leader固定地域
+     * @param MainRegion Polaris: 是否为主地域
+Zookeeper: 是否为Leader固定地域
+     */
+    public void setMainRegion(Boolean MainRegion) {
+        this.MainRegion = MainRegion;
+    }
+
+    /**
+     * Get 引擎规格ID 
+     * @return SpecId 引擎规格ID
+     */
+    public String getSpecId() {
+        return this.SpecId;
+    }
+
+    /**
+     * Set 引擎规格ID
+     * @param SpecId 引擎规格ID
+     */
+    public void setSpecId(String SpecId) {
+        this.SpecId = SpecId;
+    }
+
     public EngineRegionInfo() {
     }
 
@@ -111,6 +163,12 @@ public class EngineRegionInfo extends AbstractModel{
                 this.VpcInfos[i] = new VpcInfo(source.VpcInfos[i]);
             }
         }
+        if (source.MainRegion != null) {
+            this.MainRegion = new Boolean(source.MainRegion);
+        }
+        if (source.SpecId != null) {
+            this.SpecId = new String(source.SpecId);
+        }
     }
 
 
@@ -121,6 +179,8 @@ public class EngineRegionInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "EngineRegion", this.EngineRegion);
         this.setParamSimple(map, prefix + "Replica", this.Replica);
         this.setParamArrayObj(map, prefix + "VpcInfos.", this.VpcInfos);
+        this.setParamSimple(map, prefix + "MainRegion", this.MainRegion);
+        this.setParamSimple(map, prefix + "SpecId", this.SpecId);
 
     }
 }

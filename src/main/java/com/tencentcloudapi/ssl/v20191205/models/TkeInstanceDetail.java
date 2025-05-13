@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TkeInstanceDetail extends AbstractModel{
+public class TkeInstanceDetail extends AbstractModel {
 
     /**
     * 集群ID
@@ -42,6 +43,20 @@ public class TkeInstanceDetail extends AbstractModel{
     @SerializedName("NamespaceList")
     @Expose
     private TkeNameSpaceDetail [] NamespaceList;
+
+    /**
+    * 集群类型
+    */
+    @SerializedName("ClusterType")
+    @Expose
+    private String ClusterType;
+
+    /**
+    * 集群版本
+    */
+    @SerializedName("ClusterVersion")
+    @Expose
+    private String ClusterVersion;
 
     /**
      * Get 集群ID 
@@ -91,6 +106,38 @@ public class TkeInstanceDetail extends AbstractModel{
         this.NamespaceList = NamespaceList;
     }
 
+    /**
+     * Get 集群类型 
+     * @return ClusterType 集群类型
+     */
+    public String getClusterType() {
+        return this.ClusterType;
+    }
+
+    /**
+     * Set 集群类型
+     * @param ClusterType 集群类型
+     */
+    public void setClusterType(String ClusterType) {
+        this.ClusterType = ClusterType;
+    }
+
+    /**
+     * Get 集群版本 
+     * @return ClusterVersion 集群版本
+     */
+    public String getClusterVersion() {
+        return this.ClusterVersion;
+    }
+
+    /**
+     * Set 集群版本
+     * @param ClusterVersion 集群版本
+     */
+    public void setClusterVersion(String ClusterVersion) {
+        this.ClusterVersion = ClusterVersion;
+    }
+
     public TkeInstanceDetail() {
     }
 
@@ -111,6 +158,12 @@ public class TkeInstanceDetail extends AbstractModel{
                 this.NamespaceList[i] = new TkeNameSpaceDetail(source.NamespaceList[i]);
             }
         }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.ClusterVersion != null) {
+            this.ClusterVersion = new String(source.ClusterVersion);
+        }
     }
 
 
@@ -121,6 +174,8 @@ public class TkeInstanceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
         this.setParamArrayObj(map, prefix + "NamespaceList.", this.NamespaceList);
+        this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
+        this.setParamSimple(map, prefix + "ClusterVersion", this.ClusterVersion);
 
     }
 }

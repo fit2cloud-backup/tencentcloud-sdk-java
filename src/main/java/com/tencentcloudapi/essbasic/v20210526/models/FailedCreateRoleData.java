@@ -16,15 +16,15 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FailedCreateRoleData extends AbstractModel{
+public class FailedCreateRoleData extends AbstractModel {
 
     /**
     * 用户userId
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserId")
     @Expose
@@ -32,17 +32,14 @@ public class FailedCreateRoleData extends AbstractModel{
 
     /**
     * 角色RoleId列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RoleIds")
     @Expose
     private String [] RoleIds;
 
     /**
-     * Get 用户userId
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户userId 
      * @return UserId 用户userId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserId() {
         return this.UserId;
@@ -50,19 +47,15 @@ public class FailedCreateRoleData extends AbstractModel{
 
     /**
      * Set 用户userId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserId 用户userId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
 
     /**
-     * Get 角色RoleId列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 角色RoleId列表 
      * @return RoleIds 角色RoleId列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getRoleIds() {
         return this.RoleIds;
@@ -70,9 +63,7 @@ public class FailedCreateRoleData extends AbstractModel{
 
     /**
      * Set 角色RoleId列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RoleIds 角色RoleId列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRoleIds(String [] RoleIds) {
         this.RoleIds = RoleIds;

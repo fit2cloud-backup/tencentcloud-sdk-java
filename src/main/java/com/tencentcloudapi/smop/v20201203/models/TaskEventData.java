@@ -16,15 +16,15 @@
 package com.tencentcloudapi.smop.v20201203.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskEventData extends AbstractModel{
+public class TaskEventData extends AbstractModel {
 
     /**
-    * 状态码
-注意：此字段可能返回 null，表示取不到有效值。
+    * 状态码，0为成功，-1为失败
     */
     @SerializedName("Code")
     @Expose
@@ -32,7 +32,6 @@ public class TaskEventData extends AbstractModel{
 
     /**
     * 提示信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -40,31 +39,27 @@ public class TaskEventData extends AbstractModel{
 
     /**
     * 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskId")
     @Expose
     private Long TaskId;
 
     /**
-    * 当前完成或正在完成的任务订单ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前完成或正在完成的安心用户运营平台的任务订单ID
     */
     @SerializedName("TaskOrderId")
     @Expose
     private String TaskOrderId;
 
     /**
-    * 当前任务订单状态码
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前任务订单状态码。1代表未完成；2代表已完成但未提交任务；3表示已完成，且已提交获得积分任务；4表示过期任务，提交后不获得积分。
     */
     @SerializedName("TaskCode")
     @Expose
     private Long TaskCode;
 
     /**
-    * 获得积分数/成长值
-注意：此字段可能返回 null，表示取不到有效值。
+    * 获得积分数
     */
     @SerializedName("TaskCoinNumber")
     @Expose
@@ -72,23 +67,20 @@ public class TaskEventData extends AbstractModel{
 
     /**
     * 任务类型后台代码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskType")
     @Expose
     private Long TaskType;
 
     /**
-    * 当前积分
-注意：此字段可能返回 null，表示取不到有效值。
+    * 用户的当前积分
     */
     @SerializedName("TotalCoin")
     @Expose
     private Long TotalCoin;
 
     /**
-    * 用户透传的代码块
-注意：此字段可能返回 null，表示取不到有效值。
+    * 用户透传的附加数据
     */
     @SerializedName("Attach")
     @Expose
@@ -96,7 +88,6 @@ public class TaskEventData extends AbstractModel{
 
     /**
     * 计次任务当前完成次数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DoneTimes")
     @Expose
@@ -104,7 +95,6 @@ public class TaskEventData extends AbstractModel{
 
     /**
     * 计次任务当前所需完成次数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalTimes")
     @Expose
@@ -112,45 +102,37 @@ public class TaskEventData extends AbstractModel{
 
     /**
     * 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskName")
     @Expose
     private String TaskName;
 
     /**
-    * 当前成长值
-注意：此字段可能返回 null，表示取不到有效值。
+    * 用户当前成长值
     */
     @SerializedName("GrowScore")
     @Expose
     private Long GrowScore;
 
     /**
-     * Get 状态码
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Code 状态码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 状态码，0为成功，-1为失败 
+     * @return Code 状态码，0为成功，-1为失败
      */
     public Long getCode() {
         return this.Code;
     }
 
     /**
-     * Set 状态码
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Code 状态码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 状态码，0为成功，-1为失败
+     * @param Code 状态码，0为成功，-1为失败
      */
     public void setCode(Long Code) {
         this.Code = Code;
     }
 
     /**
-     * Get 提示信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 提示信息 
      * @return Message 提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -158,19 +140,15 @@ public class TaskEventData extends AbstractModel{
 
     /**
      * Set 提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message 提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;
     }
 
     /**
-     * Get 任务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务ID 
      * @return TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskId() {
         return this.TaskId;
@@ -178,79 +156,63 @@ public class TaskEventData extends AbstractModel{
 
     /**
      * Set 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskId(Long TaskId) {
         this.TaskId = TaskId;
     }
 
     /**
-     * Get 当前完成或正在完成的任务订单ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TaskOrderId 当前完成或正在完成的任务订单ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前完成或正在完成的安心用户运营平台的任务订单ID 
+     * @return TaskOrderId 当前完成或正在完成的安心用户运营平台的任务订单ID
      */
     public String getTaskOrderId() {
         return this.TaskOrderId;
     }
 
     /**
-     * Set 当前完成或正在完成的任务订单ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TaskOrderId 当前完成或正在完成的任务订单ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前完成或正在完成的安心用户运营平台的任务订单ID
+     * @param TaskOrderId 当前完成或正在完成的安心用户运营平台的任务订单ID
      */
     public void setTaskOrderId(String TaskOrderId) {
         this.TaskOrderId = TaskOrderId;
     }
 
     /**
-     * Get 当前任务订单状态码
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TaskCode 当前任务订单状态码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前任务订单状态码。1代表未完成；2代表已完成但未提交任务；3表示已完成，且已提交获得积分任务；4表示过期任务，提交后不获得积分。 
+     * @return TaskCode 当前任务订单状态码。1代表未完成；2代表已完成但未提交任务；3表示已完成，且已提交获得积分任务；4表示过期任务，提交后不获得积分。
      */
     public Long getTaskCode() {
         return this.TaskCode;
     }
 
     /**
-     * Set 当前任务订单状态码
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TaskCode 当前任务订单状态码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前任务订单状态码。1代表未完成；2代表已完成但未提交任务；3表示已完成，且已提交获得积分任务；4表示过期任务，提交后不获得积分。
+     * @param TaskCode 当前任务订单状态码。1代表未完成；2代表已完成但未提交任务；3表示已完成，且已提交获得积分任务；4表示过期任务，提交后不获得积分。
      */
     public void setTaskCode(Long TaskCode) {
         this.TaskCode = TaskCode;
     }
 
     /**
-     * Get 获得积分数/成长值
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TaskCoinNumber 获得积分数/成长值
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 获得积分数 
+     * @return TaskCoinNumber 获得积分数
      */
     public Long getTaskCoinNumber() {
         return this.TaskCoinNumber;
     }
 
     /**
-     * Set 获得积分数/成长值
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TaskCoinNumber 获得积分数/成长值
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 获得积分数
+     * @param TaskCoinNumber 获得积分数
      */
     public void setTaskCoinNumber(Long TaskCoinNumber) {
         this.TaskCoinNumber = TaskCoinNumber;
     }
 
     /**
-     * Get 任务类型后台代码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务类型后台代码 
      * @return TaskType 任务类型后台代码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskType() {
         return this.TaskType;
@@ -258,59 +220,47 @@ public class TaskEventData extends AbstractModel{
 
     /**
      * Set 任务类型后台代码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskType 任务类型后台代码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskType(Long TaskType) {
         this.TaskType = TaskType;
     }
 
     /**
-     * Get 当前积分
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TotalCoin 当前积分
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 用户的当前积分 
+     * @return TotalCoin 用户的当前积分
      */
     public Long getTotalCoin() {
         return this.TotalCoin;
     }
 
     /**
-     * Set 当前积分
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TotalCoin 当前积分
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 用户的当前积分
+     * @param TotalCoin 用户的当前积分
      */
     public void setTotalCoin(Long TotalCoin) {
         this.TotalCoin = TotalCoin;
     }
 
     /**
-     * Get 用户透传的代码块
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Attach 用户透传的代码块
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 用户透传的附加数据 
+     * @return Attach 用户透传的附加数据
      */
     public String getAttach() {
         return this.Attach;
     }
 
     /**
-     * Set 用户透传的代码块
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Attach 用户透传的代码块
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 用户透传的附加数据
+     * @param Attach 用户透传的附加数据
      */
     public void setAttach(String Attach) {
         this.Attach = Attach;
     }
 
     /**
-     * Get 计次任务当前完成次数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 计次任务当前完成次数 
      * @return DoneTimes 计次任务当前完成次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDoneTimes() {
         return this.DoneTimes;
@@ -318,19 +268,15 @@ public class TaskEventData extends AbstractModel{
 
     /**
      * Set 计次任务当前完成次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DoneTimes 计次任务当前完成次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDoneTimes(Long DoneTimes) {
         this.DoneTimes = DoneTimes;
     }
 
     /**
-     * Get 计次任务当前所需完成次数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 计次任务当前所需完成次数 
      * @return TotalTimes 计次任务当前所需完成次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalTimes() {
         return this.TotalTimes;
@@ -338,19 +284,15 @@ public class TaskEventData extends AbstractModel{
 
     /**
      * Set 计次任务当前所需完成次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalTimes 计次任务当前所需完成次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalTimes(Long TotalTimes) {
         this.TotalTimes = TotalTimes;
     }
 
     /**
-     * Get 任务名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务名称 
      * @return TaskName 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskName() {
         return this.TaskName;
@@ -358,29 +300,23 @@ public class TaskEventData extends AbstractModel{
 
     /**
      * Set 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskName 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskName(String TaskName) {
         this.TaskName = TaskName;
     }
 
     /**
-     * Get 当前成长值
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return GrowScore 当前成长值
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 用户当前成长值 
+     * @return GrowScore 用户当前成长值
      */
     public Long getGrowScore() {
         return this.GrowScore;
     }
 
     /**
-     * Set 当前成长值
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param GrowScore 当前成长值
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 用户当前成长值
+     * @param GrowScore 用户当前成长值
      */
     public void setGrowScore(Long GrowScore) {
         this.GrowScore = GrowScore;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SparkSessionBatchLogOperate extends AbstractModel{
+public class SparkSessionBatchLogOperate extends AbstractModel {
 
     /**
     * 操作提示
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Text")
     @Expose
@@ -32,7 +32,6 @@ public class SparkSessionBatchLogOperate extends AbstractModel{
 
     /**
     * 操作类型：COPY、LOG、UI、RESULT、List、TAB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Operate")
     @Expose
@@ -47,10 +46,8 @@ public class SparkSessionBatchLogOperate extends AbstractModel{
     private KVPair [] Supplement;
 
     /**
-     * Get 操作提示
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作提示 
      * @return Text 操作提示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getText() {
         return this.Text;
@@ -58,19 +55,15 @@ public class SparkSessionBatchLogOperate extends AbstractModel{
 
     /**
      * Set 操作提示
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Text 操作提示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setText(String Text) {
         this.Text = Text;
     }
 
     /**
-     * Get 操作类型：COPY、LOG、UI、RESULT、List、TAB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作类型：COPY、LOG、UI、RESULT、List、TAB 
      * @return Operate 操作类型：COPY、LOG、UI、RESULT、List、TAB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperate() {
         return this.Operate;
@@ -78,9 +71,7 @@ public class SparkSessionBatchLogOperate extends AbstractModel{
 
     /**
      * Set 操作类型：COPY、LOG、UI、RESULT、List、TAB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Operate 操作类型：COPY、LOG、UI、RESULT、List、TAB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperate(String Operate) {
         this.Operate = Operate;

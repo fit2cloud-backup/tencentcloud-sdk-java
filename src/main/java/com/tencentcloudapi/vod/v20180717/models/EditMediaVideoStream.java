@@ -16,11 +16,31 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EditMediaVideoStream extends AbstractModel{
+public class EditMediaVideoStream extends AbstractModel {
+
+    /**
+    * 视频流的编码格式，可选值：
+<li>libx264：H.264 编码；</li>
+<li>libx265：H.265 编码；</li>
+<li>av1：AOMedia Video 1 编码；</li>
+<li>H.266：H.266 编码。</li>
+    */
+    @SerializedName("Codec")
+    @Expose
+    private String Codec;
+
+    /**
+    * 视频流的码率，取值范围：0 和 [128, 100000]，单位：kbps。
+当取值为 0 或不填时，表示自动选择最佳视频码率。
+    */
+    @SerializedName("Bitrate")
+    @Expose
+    private Long Bitrate;
 
     /**
     * 分辨率自适应，可选值：
@@ -64,6 +84,58 @@ public class EditMediaVideoStream extends AbstractModel{
     @SerializedName("Fps")
     @Expose
     private Long Fps;
+
+    /**
+     * Get 视频流的编码格式，可选值：
+<li>libx264：H.264 编码；</li>
+<li>libx265：H.265 编码；</li>
+<li>av1：AOMedia Video 1 编码；</li>
+<li>H.266：H.266 编码。</li> 
+     * @return Codec 视频流的编码格式，可选值：
+<li>libx264：H.264 编码；</li>
+<li>libx265：H.265 编码；</li>
+<li>av1：AOMedia Video 1 编码；</li>
+<li>H.266：H.266 编码。</li>
+     */
+    public String getCodec() {
+        return this.Codec;
+    }
+
+    /**
+     * Set 视频流的编码格式，可选值：
+<li>libx264：H.264 编码；</li>
+<li>libx265：H.265 编码；</li>
+<li>av1：AOMedia Video 1 编码；</li>
+<li>H.266：H.266 编码。</li>
+     * @param Codec 视频流的编码格式，可选值：
+<li>libx264：H.264 编码；</li>
+<li>libx265：H.265 编码；</li>
+<li>av1：AOMedia Video 1 编码；</li>
+<li>H.266：H.266 编码。</li>
+     */
+    public void setCodec(String Codec) {
+        this.Codec = Codec;
+    }
+
+    /**
+     * Get 视频流的码率，取值范围：0 和 [128, 100000]，单位：kbps。
+当取值为 0 或不填时，表示自动选择最佳视频码率。 
+     * @return Bitrate 视频流的码率，取值范围：0 和 [128, 100000]，单位：kbps。
+当取值为 0 或不填时，表示自动选择最佳视频码率。
+     */
+    public Long getBitrate() {
+        return this.Bitrate;
+    }
+
+    /**
+     * Set 视频流的码率，取值范围：0 和 [128, 100000]，单位：kbps。
+当取值为 0 或不填时，表示自动选择最佳视频码率。
+     * @param Bitrate 视频流的码率，取值范围：0 和 [128, 100000]，单位：kbps。
+当取值为 0 或不填时，表示自动选择最佳视频码率。
+     */
+    public void setBitrate(Long Bitrate) {
+        this.Bitrate = Bitrate;
+    }
 
     /**
      * Get 分辨率自适应，可选值：
@@ -197,6 +269,12 @@ public class EditMediaVideoStream extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public EditMediaVideoStream(EditMediaVideoStream source) {
+        if (source.Codec != null) {
+            this.Codec = new String(source.Codec);
+        }
+        if (source.Bitrate != null) {
+            this.Bitrate = new Long(source.Bitrate);
+        }
         if (source.ResolutionAdaptive != null) {
             this.ResolutionAdaptive = new String(source.ResolutionAdaptive);
         }
@@ -216,6 +294,8 @@ public class EditMediaVideoStream extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "Codec", this.Codec);
+        this.setParamSimple(map, prefix + "Bitrate", this.Bitrate);
         this.setParamSimple(map, prefix + "ResolutionAdaptive", this.ResolutionAdaptive);
         this.setParamSimple(map, prefix + "Width", this.Width);
         this.setParamSimple(map, prefix + "Height", this.Height);

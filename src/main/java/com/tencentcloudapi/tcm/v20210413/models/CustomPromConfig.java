@@ -16,14 +16,16 @@
 package com.tencentcloudapi.tcm.v20210413.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CustomPromConfig extends AbstractModel{
+public class CustomPromConfig extends AbstractModel {
 
     /**
     * Prometheus 访问地址
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Url")
     @Expose
@@ -31,6 +33,7 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
     * 认证方式
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthType")
     @Expose
@@ -38,6 +41,7 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
     * 是否公网地址，缺省为 false
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsPublicAddr")
     @Expose
@@ -45,6 +49,7 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
     * 虚拟网络id
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -52,6 +57,7 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
     * Prometheus 用户名（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Username")
     @Expose
@@ -59,14 +65,17 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
     * Prometheus 密码（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Password")
     @Expose
     private String Password;
 
     /**
-     * Get Prometheus 访问地址 
+     * Get Prometheus 访问地址
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Url Prometheus 访问地址
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUrl() {
         return this.Url;
@@ -74,15 +83,19 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
      * Set Prometheus 访问地址
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Url Prometheus 访问地址
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUrl(String Url) {
         this.Url = Url;
     }
 
     /**
-     * Get 认证方式 
+     * Get 认证方式
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return AuthType 认证方式
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAuthType() {
         return this.AuthType;
@@ -90,15 +103,19 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
      * Set 认证方式
+注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthType 认证方式
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthType(String AuthType) {
         this.AuthType = AuthType;
     }
 
     /**
-     * Get 是否公网地址，缺省为 false 
+     * Get 是否公网地址，缺省为 false
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return IsPublicAddr 是否公网地址，缺省为 false
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsPublicAddr() {
         return this.IsPublicAddr;
@@ -106,15 +123,19 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
      * Set 是否公网地址，缺省为 false
+注意：此字段可能返回 null，表示取不到有效值。
      * @param IsPublicAddr 是否公网地址，缺省为 false
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsPublicAddr(Boolean IsPublicAddr) {
         this.IsPublicAddr = IsPublicAddr;
     }
 
     /**
-     * Get 虚拟网络id 
+     * Get 虚拟网络id
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return VpcId 虚拟网络id
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -122,15 +143,19 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
      * Set 虚拟网络id
+注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId 虚拟网络id
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get Prometheus 用户名（用于 basic 认证方式） 
+     * Get Prometheus 用户名（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Username Prometheus 用户名（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUsername() {
         return this.Username;
@@ -138,15 +163,19 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
      * Set Prometheus 用户名（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Username Prometheus 用户名（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsername(String Username) {
         this.Username = Username;
     }
 
     /**
-     * Get Prometheus 密码（用于 basic 认证方式） 
+     * Get Prometheus 密码（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Password Prometheus 密码（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPassword() {
         return this.Password;
@@ -154,7 +183,9 @@ public class CustomPromConfig extends AbstractModel{
 
     /**
      * Set Prometheus 密码（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Password Prometheus 密码（用于 basic 认证方式）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassword(String Password) {
         this.Password = Password;

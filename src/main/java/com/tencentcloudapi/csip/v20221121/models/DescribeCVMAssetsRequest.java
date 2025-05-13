@@ -16,30 +16,54 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCVMAssetsRequest extends AbstractModel{
+public class DescribeCVMAssetsRequest extends AbstractModel {
 
     /**
-    * -
+    * 集团账号的成员id
+    */
+    @SerializedName("MemberId")
+    @Expose
+    private String [] MemberId;
+
+    /**
+    * 过滤器参数
     */
     @SerializedName("Filter")
     @Expose
     private Filter Filter;
 
     /**
-     * Get - 
-     * @return Filter -
+     * Get 集团账号的成员id 
+     * @return MemberId 集团账号的成员id
+     */
+    public String [] getMemberId() {
+        return this.MemberId;
+    }
+
+    /**
+     * Set 集团账号的成员id
+     * @param MemberId 集团账号的成员id
+     */
+    public void setMemberId(String [] MemberId) {
+        this.MemberId = MemberId;
+    }
+
+    /**
+     * Get 过滤器参数 
+     * @return Filter 过滤器参数
      */
     public Filter getFilter() {
         return this.Filter;
     }
 
     /**
-     * Set -
-     * @param Filter -
+     * Set 过滤器参数
+     * @param Filter 过滤器参数
      */
     public void setFilter(Filter Filter) {
         this.Filter = Filter;
@@ -53,6 +77,12 @@ public class DescribeCVMAssetsRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeCVMAssetsRequest(DescribeCVMAssetsRequest source) {
+        if (source.MemberId != null) {
+            this.MemberId = new String[source.MemberId.length];
+            for (int i = 0; i < source.MemberId.length; i++) {
+                this.MemberId[i] = new String(source.MemberId[i]);
+            }
+        }
         if (source.Filter != null) {
             this.Filter = new Filter(source.Filter);
         }
@@ -63,6 +93,7 @@ public class DescribeCVMAssetsRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArraySimple(map, prefix + "MemberId.", this.MemberId);
         this.setParamObj(map, prefix + "Filter.", this.Filter);
 
     }

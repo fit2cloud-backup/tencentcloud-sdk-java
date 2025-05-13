@@ -16,11 +16,12 @@
 package com.tencentcloudapi.chdfs.v20201112.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFileSystemResponse extends AbstractModel{
+public class DescribeFileSystemResponse extends AbstractModel {
 
     /**
     * 文件系统
@@ -31,7 +32,6 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
     * 文件系统已使用容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CapacityUsed")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
     * 已使用COS归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ArchiveCapacityUsed")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
     * 已使用COS标准存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StandardCapacityUsed")
     @Expose
@@ -55,7 +53,6 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
     * 已使用COS低频存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DegradeCapacityUsed")
     @Expose
@@ -63,7 +60,6 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
     * 已使用COS深度归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeepArchiveCapacityUsed")
     @Expose
@@ -71,14 +67,13 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
     * 已使用COS智能分层存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntelligentCapacityUsed")
     @Expose
     private Long IntelligentCapacityUsed;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -101,10 +96,8 @@ public class DescribeFileSystemResponse extends AbstractModel{
     }
 
     /**
-     * Get 文件系统已使用容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件系统已使用容量（byte） 
      * @return CapacityUsed 文件系统已使用容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCapacityUsed() {
         return this.CapacityUsed;
@@ -112,19 +105,15 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
      * Set 文件系统已使用容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CapacityUsed 文件系统已使用容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCapacityUsed(Long CapacityUsed) {
         this.CapacityUsed = CapacityUsed;
     }
 
     /**
-     * Get 已使用COS归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已使用COS归档存储容量（byte） 
      * @return ArchiveCapacityUsed 已使用COS归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getArchiveCapacityUsed() {
         return this.ArchiveCapacityUsed;
@@ -132,19 +121,15 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
      * Set 已使用COS归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ArchiveCapacityUsed 已使用COS归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setArchiveCapacityUsed(Long ArchiveCapacityUsed) {
         this.ArchiveCapacityUsed = ArchiveCapacityUsed;
     }
 
     /**
-     * Get 已使用COS标准存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已使用COS标准存储容量（byte） 
      * @return StandardCapacityUsed 已使用COS标准存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStandardCapacityUsed() {
         return this.StandardCapacityUsed;
@@ -152,19 +137,15 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
      * Set 已使用COS标准存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StandardCapacityUsed 已使用COS标准存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStandardCapacityUsed(Long StandardCapacityUsed) {
         this.StandardCapacityUsed = StandardCapacityUsed;
     }
 
     /**
-     * Get 已使用COS低频存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已使用COS低频存储容量（byte） 
      * @return DegradeCapacityUsed 已使用COS低频存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDegradeCapacityUsed() {
         return this.DegradeCapacityUsed;
@@ -172,19 +153,15 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
      * Set 已使用COS低频存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DegradeCapacityUsed 已使用COS低频存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDegradeCapacityUsed(Long DegradeCapacityUsed) {
         this.DegradeCapacityUsed = DegradeCapacityUsed;
     }
 
     /**
-     * Get 已使用COS深度归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已使用COS深度归档存储容量（byte） 
      * @return DeepArchiveCapacityUsed 已使用COS深度归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDeepArchiveCapacityUsed() {
         return this.DeepArchiveCapacityUsed;
@@ -192,19 +169,15 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
      * Set 已使用COS深度归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeepArchiveCapacityUsed 已使用COS深度归档存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeepArchiveCapacityUsed(Long DeepArchiveCapacityUsed) {
         this.DeepArchiveCapacityUsed = DeepArchiveCapacityUsed;
     }
 
     /**
-     * Get 已使用COS智能分层存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已使用COS智能分层存储容量（byte） 
      * @return IntelligentCapacityUsed 已使用COS智能分层存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIntelligentCapacityUsed() {
         return this.IntelligentCapacityUsed;
@@ -212,25 +185,23 @@ public class DescribeFileSystemResponse extends AbstractModel{
 
     /**
      * Set 已使用COS智能分层存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IntelligentCapacityUsed 已使用COS智能分层存储容量（byte）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntelligentCapacityUsed(Long IntelligentCapacityUsed) {
         this.IntelligentCapacityUsed = IntelligentCapacityUsed;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

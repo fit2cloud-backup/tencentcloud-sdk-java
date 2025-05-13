@@ -16,15 +16,15 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RequestsPerSecond extends AbstractModel{
+public class RequestsPerSecond extends AbstractModel {
 
     /**
     * 最大RPS
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxRequestsPerSecond")
     @Expose
@@ -32,7 +32,6 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
     * 施压时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DurationSeconds")
     @Expose
@@ -40,7 +39,6 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
     * deprecated
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetVirtualUsers")
     @Expose
@@ -48,7 +46,6 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
     * 资源数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resources")
     @Expose
@@ -56,7 +53,6 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
     * 起始RPS
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartRequestsPerSecond")
     @Expose
@@ -64,7 +60,6 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
     * 目标RPS，入参无效
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetRequestsPerSecond")
     @Expose
@@ -72,17 +67,14 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
     * 优雅关停的等待时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GracefulStopSeconds")
     @Expose
     private Long GracefulStopSeconds;
 
     /**
-     * Get 最大RPS
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大RPS 
      * @return MaxRequestsPerSecond 最大RPS
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxRequestsPerSecond() {
         return this.MaxRequestsPerSecond;
@@ -90,19 +82,15 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
      * Set 最大RPS
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxRequestsPerSecond 最大RPS
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxRequestsPerSecond(Long MaxRequestsPerSecond) {
         this.MaxRequestsPerSecond = MaxRequestsPerSecond;
     }
 
     /**
-     * Get 施压时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 施压时间 
      * @return DurationSeconds 施压时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDurationSeconds() {
         return this.DurationSeconds;
@@ -110,19 +98,15 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
      * Set 施压时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DurationSeconds 施压时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDurationSeconds(Long DurationSeconds) {
         this.DurationSeconds = DurationSeconds;
     }
 
     /**
-     * Get deprecated
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get deprecated 
      * @return TargetVirtualUsers deprecated
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTargetVirtualUsers() {
         return this.TargetVirtualUsers;
@@ -130,19 +114,15 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
      * Set deprecated
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetVirtualUsers deprecated
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetVirtualUsers(Long TargetVirtualUsers) {
         this.TargetVirtualUsers = TargetVirtualUsers;
     }
 
     /**
-     * Get 资源数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源数 
      * @return Resources 资源数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getResources() {
         return this.Resources;
@@ -150,19 +130,15 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
      * Set 资源数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Resources 资源数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResources(Long Resources) {
         this.Resources = Resources;
     }
 
     /**
-     * Get 起始RPS
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 起始RPS 
      * @return StartRequestsPerSecond 起始RPS
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStartRequestsPerSecond() {
         return this.StartRequestsPerSecond;
@@ -170,19 +146,15 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
      * Set 起始RPS
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartRequestsPerSecond 起始RPS
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartRequestsPerSecond(Long StartRequestsPerSecond) {
         this.StartRequestsPerSecond = StartRequestsPerSecond;
     }
 
     /**
-     * Get 目标RPS，入参无效
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目标RPS，入参无效 
      * @return TargetRequestsPerSecond 目标RPS，入参无效
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTargetRequestsPerSecond() {
         return this.TargetRequestsPerSecond;
@@ -190,19 +162,15 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
      * Set 目标RPS，入参无效
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetRequestsPerSecond 目标RPS，入参无效
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetRequestsPerSecond(Long TargetRequestsPerSecond) {
         this.TargetRequestsPerSecond = TargetRequestsPerSecond;
     }
 
     /**
-     * Get 优雅关停的等待时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 优雅关停的等待时间 
      * @return GracefulStopSeconds 优雅关停的等待时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGracefulStopSeconds() {
         return this.GracefulStopSeconds;
@@ -210,9 +178,7 @@ public class RequestsPerSecond extends AbstractModel{
 
     /**
      * Set 优雅关停的等待时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GracefulStopSeconds 优雅关停的等待时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGracefulStopSeconds(Long GracefulStopSeconds) {
         this.GracefulStopSeconds = GracefulStopSeconds;

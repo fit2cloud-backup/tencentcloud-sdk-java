@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SslVpnSever extends AbstractModel{
+public class SslVpnSever extends AbstractModel {
 
     /**
     * VPC实例ID.
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -165,10 +165,15 @@ public class SslVpnSever extends AbstractModel{
     private AccessPolicy [] AccessPolicy;
 
     /**
-     * Get VPC实例ID.
-注意：此字段可能返回 null，表示取不到有效值。 
+    * CAM服务提供商Name
+    */
+    @SerializedName("SpName")
+    @Expose
+    private String SpName;
+
+    /**
+     * Get VPC实例ID. 
      * @return VpcId VPC实例ID.
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -176,9 +181,7 @@ public class SslVpnSever extends AbstractModel{
 
     /**
      * Set VPC实例ID.
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId VPC实例ID.
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -504,6 +507,22 @@ public class SslVpnSever extends AbstractModel{
         this.AccessPolicy = AccessPolicy;
     }
 
+    /**
+     * Get CAM服务提供商Name 
+     * @return SpName CAM服务提供商Name
+     */
+    public String getSpName() {
+        return this.SpName;
+    }
+
+    /**
+     * Set CAM服务提供商Name
+     * @param SpName CAM服务提供商Name
+     */
+    public void setSpName(String SpName) {
+        this.SpName = SpName;
+    }
+
     public SslVpnSever() {
     }
 
@@ -575,6 +594,9 @@ public class SslVpnSever extends AbstractModel{
                 this.AccessPolicy[i] = new AccessPolicy(source.AccessPolicy[i]);
             }
         }
+        if (source.SpName != null) {
+            this.SpName = new String(source.SpName);
+        }
     }
 
 
@@ -601,6 +623,7 @@ public class SslVpnSever extends AbstractModel{
         this.setParamSimple(map, prefix + "EiamApplicationId", this.EiamApplicationId);
         this.setParamSimple(map, prefix + "AccessPolicyEnabled", this.AccessPolicyEnabled);
         this.setParamArrayObj(map, prefix + "AccessPolicy.", this.AccessPolicy);
+        this.setParamSimple(map, prefix + "SpName", this.SpName);
 
     }
 }

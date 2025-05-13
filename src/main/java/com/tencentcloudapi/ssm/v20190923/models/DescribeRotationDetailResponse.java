@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRotationDetailResponse extends AbstractModel{
+public class DescribeRotationDetailResponse extends AbstractModel {
 
     /**
     * 否允许轮转，true表示开启轮转，false表示禁止轮转。
@@ -31,7 +32,6 @@ public class DescribeRotationDetailResponse extends AbstractModel{
 
     /**
     * 轮转的频率，以天为单位，默认为1天。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Frequency")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeRotationDetailResponse extends AbstractModel{
 
     /**
     * 最近一次轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LatestRotateTime")
     @Expose
@@ -47,14 +46,13 @@ public class DescribeRotationDetailResponse extends AbstractModel{
 
     /**
     * 下一次开始轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NextRotateBeginTime")
     @Expose
     private String NextRotateBeginTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -77,10 +75,8 @@ public class DescribeRotationDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 轮转的频率，以天为单位，默认为1天。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 轮转的频率，以天为单位，默认为1天。 
      * @return Frequency 轮转的频率，以天为单位，默认为1天。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFrequency() {
         return this.Frequency;
@@ -88,19 +84,15 @@ public class DescribeRotationDetailResponse extends AbstractModel{
 
     /**
      * Set 轮转的频率，以天为单位，默认为1天。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Frequency 轮转的频率，以天为单位，默认为1天。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFrequency(Long Frequency) {
         this.Frequency = Frequency;
     }
 
     /**
-     * Get 最近一次轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近一次轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。 
      * @return LatestRotateTime 最近一次轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLatestRotateTime() {
         return this.LatestRotateTime;
@@ -108,19 +100,15 @@ public class DescribeRotationDetailResponse extends AbstractModel{
 
     /**
      * Set 最近一次轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LatestRotateTime 最近一次轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLatestRotateTime(String LatestRotateTime) {
         this.LatestRotateTime = LatestRotateTime;
     }
 
     /**
-     * Get 下一次开始轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下一次开始轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。 
      * @return NextRotateBeginTime 下一次开始轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNextRotateBeginTime() {
         return this.NextRotateBeginTime;
@@ -128,25 +116,23 @@ public class DescribeRotationDetailResponse extends AbstractModel{
 
     /**
      * Set 下一次开始轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NextRotateBeginTime 下一次开始轮转的时间，显式可见的时间字符串，格式 2006-01-02 15:04:05。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNextRotateBeginTime(String NextRotateBeginTime) {
         this.NextRotateBeginTime = NextRotateBeginTime;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

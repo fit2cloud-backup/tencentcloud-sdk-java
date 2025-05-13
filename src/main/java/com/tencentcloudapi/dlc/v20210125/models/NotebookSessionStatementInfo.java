@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NotebookSessionStatementInfo extends AbstractModel{
+public class NotebookSessionStatementInfo extends AbstractModel {
 
     /**
     * 完成时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Completed")
     @Expose
@@ -32,7 +32,6 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
     * 开始时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Started")
     @Expose
@@ -40,7 +39,6 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
     * 完成进度，百分制
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Progress")
     @Expose
@@ -70,7 +68,6 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
     * 批任务id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchId")
     @Expose
@@ -78,7 +75,6 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
     * 运行语句
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Code")
     @Expose
@@ -86,17 +82,14 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
     * 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskId")
     @Expose
     private String TaskId;
 
     /**
-     * Get 完成时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 完成时间戳 
      * @return Completed 完成时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCompleted() {
         return this.Completed;
@@ -104,19 +97,15 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
      * Set 完成时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Completed 完成时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCompleted(Long Completed) {
         this.Completed = Completed;
     }
 
     /**
-     * Get 开始时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始时间戳 
      * @return Started 开始时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStarted() {
         return this.Started;
@@ -124,19 +113,15 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
      * Set 开始时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Started 开始时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStarted(Long Started) {
         this.Started = Started;
     }
 
     /**
-     * Get 完成进度，百分制
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 完成进度，百分制 
      * @return Progress 完成进度，百分制
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getProgress() {
         return this.Progress;
@@ -144,9 +129,7 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
      * Set 完成进度，百分制
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Progress 完成进度，百分制
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProgress(Float Progress) {
         this.Progress = Progress;
@@ -205,10 +188,8 @@ public class NotebookSessionStatementInfo extends AbstractModel{
     }
 
     /**
-     * Get 批任务id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 批任务id 
      * @return BatchId 批任务id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBatchId() {
         return this.BatchId;
@@ -216,19 +197,15 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
      * Set 批任务id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchId 批任务id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchId(String BatchId) {
         this.BatchId = BatchId;
     }
 
     /**
-     * Get 运行语句
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 运行语句 
      * @return Code 运行语句
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCode() {
         return this.Code;
@@ -236,19 +213,15 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
      * Set 运行语句
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Code 运行语句
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCode(String Code) {
         this.Code = Code;
     }
 
     /**
-     * Get 任务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务ID 
      * @return TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskId() {
         return this.TaskId;
@@ -256,9 +229,7 @@ public class NotebookSessionStatementInfo extends AbstractModel{
 
     /**
      * Set 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TextMetadata extends AbstractModel{
+public class TextMetadata extends AbstractModel {
 
     /**
     * 媒资文本文件大小，单位为字节
@@ -53,6 +54,14 @@ public class TextMetadata extends AbstractModel{
     @SerializedName("Format")
     @Expose
     private String Format;
+
+    /**
+    * 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ShortFormat")
+    @Expose
+    private String ShortFormat;
 
     /**
      * Get 媒资文本文件大小，单位为字节
@@ -134,6 +143,26 @@ public class TextMetadata extends AbstractModel{
         this.Format = Format;
     }
 
+    /**
+     * Get 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ShortFormat 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getShortFormat() {
+        return this.ShortFormat;
+    }
+
+    /**
+     * Set 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ShortFormat 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setShortFormat(String ShortFormat) {
+        this.ShortFormat = ShortFormat;
+    }
+
     public TextMetadata() {
     }
 
@@ -154,6 +183,9 @@ public class TextMetadata extends AbstractModel{
         if (source.Format != null) {
             this.Format = new String(source.Format);
         }
+        if (source.ShortFormat != null) {
+            this.ShortFormat = new String(source.ShortFormat);
+        }
     }
 
 
@@ -165,6 +197,7 @@ public class TextMetadata extends AbstractModel{
         this.setParamSimple(map, prefix + "MD5", this.MD5);
         this.setParamSimple(map, prefix + "Length", this.Length);
         this.setParamSimple(map, prefix + "Format", this.Format);
+        this.setParamSimple(map, prefix + "ShortFormat", this.ShortFormat);
 
     }
 }

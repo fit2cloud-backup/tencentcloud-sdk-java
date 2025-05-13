@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchStopIntegrationTasksRequest extends AbstractModel{
+public class BatchStopIntegrationTasksRequest extends AbstractModel {
 
     /**
     * 任务id
@@ -30,7 +31,7 @@ public class BatchStopIntegrationTasksRequest extends AbstractModel{
     private String [] TaskIds;
 
     /**
-    * 任务类型
+    * 任务类型，201为实时任务，202为离线任务
     */
     @SerializedName("TaskType")
     @Expose
@@ -60,16 +61,16 @@ public class BatchStopIntegrationTasksRequest extends AbstractModel{
     }
 
     /**
-     * Get 任务类型 
-     * @return TaskType 任务类型
+     * Get 任务类型，201为实时任务，202为离线任务 
+     * @return TaskType 任务类型，201为实时任务，202为离线任务
      */
     public Long getTaskType() {
         return this.TaskType;
     }
 
     /**
-     * Set 任务类型
-     * @param TaskType 任务类型
+     * Set 任务类型，201为实时任务，202为离线任务
+     * @param TaskType 任务类型，201为实时任务，202为离线任务
      */
     public void setTaskType(Long TaskType) {
         this.TaskType = TaskType;

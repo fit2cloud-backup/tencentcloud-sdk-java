@@ -16,11 +16,12 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LaunchConfiguration extends AbstractModel{
+public class LaunchConfiguration extends AbstractModel {
 
     /**
     * 实例所属项目ID。
@@ -122,16 +123,14 @@ public class LaunchConfiguration extends AbstractModel{
     private String ImageId;
 
     /**
-    * 启动配置当前状态。取值范围：<br><li>NORMAL：正常<br><li>IMAGE_ABNORMAL：启动配置镜像异常<br><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常<br><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常<br>
+    * 启动配置当前状态。取值范围：<li>NORMAL：正常</li><li>IMAGE_ABNORMAL：启动配置镜像异常</li><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常</li><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常</li>
     */
     @SerializedName("LaunchConfigurationStatus")
     @Expose
     private String LaunchConfigurationStatus;
 
     /**
-    * 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
+    * 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。<li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -161,7 +160,6 @@ public class LaunchConfiguration extends AbstractModel{
 
     /**
     * 标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -217,9 +215,7 @@ public class LaunchConfiguration extends AbstractModel{
     private InstanceChargePrepaid InstanceChargePrepaid;
 
     /**
-    * 云盘类型选择策略。取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型
+    * 云盘类型选择策略。取值范围：<li>ORIGINAL：使用设置的云盘类型</li><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型</li>
     */
     @SerializedName("DiskTypePolicy")
     @Expose
@@ -239,6 +235,27 @@ public class LaunchConfiguration extends AbstractModel{
     @SerializedName("IPv6InternetAccessible")
     @Expose
     private IPv6InternetAccessible IPv6InternetAccessible;
+
+    /**
+    * 置放群组id，仅支持指定一个。
+    */
+    @SerializedName("DisasterRecoverGroupIds")
+    @Expose
+    private String [] DisasterRecoverGroupIds;
+
+    /**
+    * 镜像族名称。
+    */
+    @SerializedName("ImageFamily")
+    @Expose
+    private String ImageFamily;
+
+    /**
+    * 本地专用集群 ID。
+    */
+    @SerializedName("DedicatedClusterId")
+    @Expose
+    private String DedicatedClusterId;
 
     /**
      * Get 实例所属项目ID。 
@@ -469,40 +486,32 @@ public class LaunchConfiguration extends AbstractModel{
     }
 
     /**
-     * Get 启动配置当前状态。取值范围：<br><li>NORMAL：正常<br><li>IMAGE_ABNORMAL：启动配置镜像异常<br><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常<br><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常<br> 
-     * @return LaunchConfigurationStatus 启动配置当前状态。取值范围：<br><li>NORMAL：正常<br><li>IMAGE_ABNORMAL：启动配置镜像异常<br><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常<br><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常<br>
+     * Get 启动配置当前状态。取值范围：<li>NORMAL：正常</li><li>IMAGE_ABNORMAL：启动配置镜像异常</li><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常</li><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常</li> 
+     * @return LaunchConfigurationStatus 启动配置当前状态。取值范围：<li>NORMAL：正常</li><li>IMAGE_ABNORMAL：启动配置镜像异常</li><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常</li><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常</li>
      */
     public String getLaunchConfigurationStatus() {
         return this.LaunchConfigurationStatus;
     }
 
     /**
-     * Set 启动配置当前状态。取值范围：<br><li>NORMAL：正常<br><li>IMAGE_ABNORMAL：启动配置镜像异常<br><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常<br><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常<br>
-     * @param LaunchConfigurationStatus 启动配置当前状态。取值范围：<br><li>NORMAL：正常<br><li>IMAGE_ABNORMAL：启动配置镜像异常<br><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常<br><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常<br>
+     * Set 启动配置当前状态。取值范围：<li>NORMAL：正常</li><li>IMAGE_ABNORMAL：启动配置镜像异常</li><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常</li><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常</li>
+     * @param LaunchConfigurationStatus 启动配置当前状态。取值范围：<li>NORMAL：正常</li><li>IMAGE_ABNORMAL：启动配置镜像异常</li><li>CBS_SNAP_ABNORMAL：启动配置数据盘快照异常</li><li>SECURITY_GROUP_ABNORMAL：启动配置安全组异常</li>
      */
     public void setLaunchConfigurationStatus(String LaunchConfigurationStatus) {
         this.LaunchConfigurationStatus = LaunchConfigurationStatus;
     }
 
     /**
-     * Get 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费 
-     * @return InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
+     * Get 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。<li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li> 
+     * @return InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。<li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
     }
 
     /**
-     * Set 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-     * @param InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
+     * Set 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。<li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>
+     * @param InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。<li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
@@ -561,10 +570,8 @@ public class LaunchConfiguration extends AbstractModel{
     }
 
     /**
-     * Get 标签列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签列表。 
      * @return Tags 标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -572,9 +579,7 @@ public class LaunchConfiguration extends AbstractModel{
 
     /**
      * Set 标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
@@ -693,24 +698,16 @@ public class LaunchConfiguration extends AbstractModel{
     }
 
     /**
-     * Get 云盘类型选择策略。取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型 
-     * @return DiskTypePolicy 云盘类型选择策略。取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型
+     * Get 云盘类型选择策略。取值范围：<li>ORIGINAL：使用设置的云盘类型</li><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型</li> 
+     * @return DiskTypePolicy 云盘类型选择策略。取值范围：<li>ORIGINAL：使用设置的云盘类型</li><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型</li>
      */
     public String getDiskTypePolicy() {
         return this.DiskTypePolicy;
     }
 
     /**
-     * Set 云盘类型选择策略。取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型
-     * @param DiskTypePolicy 云盘类型选择策略。取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型
+     * Set 云盘类型选择策略。取值范围：<li>ORIGINAL：使用设置的云盘类型</li><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型</li>
+     * @param DiskTypePolicy 云盘类型选择策略。取值范围：<li>ORIGINAL：使用设置的云盘类型</li><li>AUTOMATIC：自动选择当前可用区下可用的云盘类型</li>
      */
     public void setDiskTypePolicy(String DiskTypePolicy) {
         this.DiskTypePolicy = DiskTypePolicy;
@@ -750,6 +747,54 @@ public class LaunchConfiguration extends AbstractModel{
      */
     public void setIPv6InternetAccessible(IPv6InternetAccessible IPv6InternetAccessible) {
         this.IPv6InternetAccessible = IPv6InternetAccessible;
+    }
+
+    /**
+     * Get 置放群组id，仅支持指定一个。 
+     * @return DisasterRecoverGroupIds 置放群组id，仅支持指定一个。
+     */
+    public String [] getDisasterRecoverGroupIds() {
+        return this.DisasterRecoverGroupIds;
+    }
+
+    /**
+     * Set 置放群组id，仅支持指定一个。
+     * @param DisasterRecoverGroupIds 置放群组id，仅支持指定一个。
+     */
+    public void setDisasterRecoverGroupIds(String [] DisasterRecoverGroupIds) {
+        this.DisasterRecoverGroupIds = DisasterRecoverGroupIds;
+    }
+
+    /**
+     * Get 镜像族名称。 
+     * @return ImageFamily 镜像族名称。
+     */
+    public String getImageFamily() {
+        return this.ImageFamily;
+    }
+
+    /**
+     * Set 镜像族名称。
+     * @param ImageFamily 镜像族名称。
+     */
+    public void setImageFamily(String ImageFamily) {
+        this.ImageFamily = ImageFamily;
+    }
+
+    /**
+     * Get 本地专用集群 ID。 
+     * @return DedicatedClusterId 本地专用集群 ID。
+     */
+    public String getDedicatedClusterId() {
+        return this.DedicatedClusterId;
+    }
+
+    /**
+     * Set 本地专用集群 ID。
+     * @param DedicatedClusterId 本地专用集群 ID。
+     */
+    public void setDedicatedClusterId(String DedicatedClusterId) {
+        this.DedicatedClusterId = DedicatedClusterId;
     }
 
     public LaunchConfiguration() {
@@ -868,6 +913,18 @@ public class LaunchConfiguration extends AbstractModel{
         if (source.IPv6InternetAccessible != null) {
             this.IPv6InternetAccessible = new IPv6InternetAccessible(source.IPv6InternetAccessible);
         }
+        if (source.DisasterRecoverGroupIds != null) {
+            this.DisasterRecoverGroupIds = new String[source.DisasterRecoverGroupIds.length];
+            for (int i = 0; i < source.DisasterRecoverGroupIds.length; i++) {
+                this.DisasterRecoverGroupIds[i] = new String(source.DisasterRecoverGroupIds[i]);
+            }
+        }
+        if (source.ImageFamily != null) {
+            this.ImageFamily = new String(source.ImageFamily);
+        }
+        if (source.DedicatedClusterId != null) {
+            this.DedicatedClusterId = new String(source.DedicatedClusterId);
+        }
     }
 
 
@@ -905,6 +962,9 @@ public class LaunchConfiguration extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskTypePolicy", this.DiskTypePolicy);
         this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
         this.setParamObj(map, prefix + "IPv6InternetAccessible.", this.IPv6InternetAccessible);
+        this.setParamArraySimple(map, prefix + "DisasterRecoverGroupIds.", this.DisasterRecoverGroupIds);
+        this.setParamSimple(map, prefix + "ImageFamily", this.ImageFamily);
+        this.setParamSimple(map, prefix + "DedicatedClusterId", this.DedicatedClusterId);
 
     }
 }

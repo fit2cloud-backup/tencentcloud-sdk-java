@@ -16,15 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpsertIpAccessControlResponse extends AbstractModel{
+public class UpsertIpAccessControlResponse extends AbstractModel {
 
     /**
     * 添加或修改失败的条目
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedItems")
     @Expose
@@ -32,24 +32,28 @@ public class UpsertIpAccessControlResponse extends AbstractModel{
 
     /**
     * 添加或修改失败的数目
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedCount")
     @Expose
     private Long FailedCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 添加或修改的IP数据Id列表
+    */
+    @SerializedName("Ids")
+    @Expose
+    private String [] Ids;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 添加或修改失败的条目
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 添加或修改失败的条目 
      * @return FailedItems 添加或修改失败的条目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFailedItems() {
         return this.FailedItems;
@@ -57,19 +61,15 @@ public class UpsertIpAccessControlResponse extends AbstractModel{
 
     /**
      * Set 添加或修改失败的条目
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedItems 添加或修改失败的条目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedItems(String FailedItems) {
         this.FailedItems = FailedItems;
     }
 
     /**
-     * Get 添加或修改失败的数目
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 添加或修改失败的数目 
      * @return FailedCount 添加或修改失败的数目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFailedCount() {
         return this.FailedCount;
@@ -77,25 +77,39 @@ public class UpsertIpAccessControlResponse extends AbstractModel{
 
     /**
      * Set 添加或修改失败的数目
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedCount 添加或修改失败的数目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedCount(Long FailedCount) {
         this.FailedCount = FailedCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 添加或修改的IP数据Id列表 
+     * @return Ids 添加或修改的IP数据Id列表
+     */
+    public String [] getIds() {
+        return this.Ids;
+    }
+
+    /**
+     * Set 添加或修改的IP数据Id列表
+     * @param Ids 添加或修改的IP数据Id列表
+     */
+    public void setIds(String [] Ids) {
+        this.Ids = Ids;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -115,6 +129,12 @@ public class UpsertIpAccessControlResponse extends AbstractModel{
         if (source.FailedCount != null) {
             this.FailedCount = new Long(source.FailedCount);
         }
+        if (source.Ids != null) {
+            this.Ids = new String[source.Ids.length];
+            for (int i = 0; i < source.Ids.length; i++) {
+                this.Ids[i] = new String(source.Ids[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -127,6 +147,7 @@ public class UpsertIpAccessControlResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FailedItems", this.FailedItems);
         this.setParamSimple(map, prefix + "FailedCount", this.FailedCount);
+        this.setParamArraySimple(map, prefix + "Ids.", this.Ids);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

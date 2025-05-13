@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ComplianceImageDetailInfo extends AbstractModel{
+public class ComplianceImageDetailInfo extends AbstractModel {
 
     /**
     * 镜像在主机上的ID。
@@ -45,7 +46,6 @@ public class ComplianceImageDetailInfo extends AbstractModel{
 
     /**
     * 镜像所在远程仓库的路径。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Repository")
     @Expose
@@ -100,10 +100,8 @@ public class ComplianceImageDetailInfo extends AbstractModel{
     }
 
     /**
-     * Get 镜像所在远程仓库的路径。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像所在远程仓库的路径。 
      * @return Repository 镜像所在远程仓库的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepository() {
         return this.Repository;
@@ -111,9 +109,7 @@ public class ComplianceImageDetailInfo extends AbstractModel{
 
     /**
      * Set 镜像所在远程仓库的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Repository 镜像所在远程仓库的路径。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepository(String Repository) {
         this.Repository = Repository;

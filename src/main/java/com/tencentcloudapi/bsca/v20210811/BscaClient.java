@@ -45,18 +45,19 @@ public class BscaClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeKBComponentResponse DescribeKBComponent(DescribeKBComponentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeKBComponentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeKBComponentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeKBComponent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeKBComponent", DescribeKBComponentResponse.class);
+    }
+
+    /**
+     *查询特定组件的版本列表
+     * @param req DescribeKBComponentVersionListRequest
+     * @return DescribeKBComponentVersionListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeKBComponentVersionListResponse DescribeKBComponentVersionList(DescribeKBComponentVersionListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeKBComponentVersionList", DescribeKBComponentVersionListResponse.class);
     }
 
     /**
@@ -66,18 +67,8 @@ public class BscaClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeKBComponentVulnerabilityResponse DescribeKBComponentVulnerability(DescribeKBComponentVulnerabilityRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeKBComponentVulnerabilityResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeKBComponentVulnerabilityResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeKBComponentVulnerability");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeKBComponentVulnerability", DescribeKBComponentVulnerabilityResponse.class);
     }
 
     /**
@@ -87,39 +78,19 @@ public class BscaClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeKBLicenseResponse DescribeKBLicense(DescribeKBLicenseRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeKBLicenseResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeKBLicenseResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeKBLicense");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeKBLicense", DescribeKBLicenseResponse.class);
     }
 
     /**
-     *本接口(DescribeKBVulnerability)用于在知识库中查询漏洞详细信息，支持根据CVE ID查询或者根据Vul ID查询。
+     *本接口(DescribeKBVulnerability)用于在知识库中查询漏洞详细信息，支持根据CVE、Vul ID、CNVD ID、CNNVD ID查询。
      * @param req DescribeKBVulnerabilityRequest
      * @return DescribeKBVulnerabilityResponse
      * @throws TencentCloudSDKException
      */
     public DescribeKBVulnerabilityResponse DescribeKBVulnerability(DescribeKBVulnerabilityRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeKBVulnerabilityResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeKBVulnerabilityResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeKBVulnerability");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeKBVulnerability", DescribeKBVulnerabilityResponse.class);
     }
 
     /**
@@ -129,18 +100,19 @@ public class BscaClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public MatchKBPURLListResponse MatchKBPURLList(MatchKBPURLListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<MatchKBPURLListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<MatchKBPURLListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "MatchKBPURLList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "MatchKBPURLList", MatchKBPURLListResponse.class);
+    }
+
+    /**
+     *根据输入的组件名、组件类型搜索相应的组件，返回符合条件的组件列表
+     * @param req SearchKBComponentRequest
+     * @return SearchKBComponentResponse
+     * @throws TencentCloudSDKException
+     */
+    public SearchKBComponentResponse SearchKBComponent(SearchKBComponentRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "SearchKBComponent", SearchKBComponentResponse.class);
     }
 
 }

@@ -16,14 +16,30 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Quota extends AbstractModel{
+public class Quota extends AbstractModel {
 
     /**
-    * 配额名称，取值范围：<br><li>`TOTAL_EIP_QUOTA`：用户当前地域下EIP的配额数；<br><li>`DAILY_EIP_APPLY`：用户当前地域下今日申购次数；<br><li>`DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数。
+    * 配额名称，取值范围：
+- `TOTAL_EIP_QUOTA`：用户当前地域下，EIP的配额数；
+- `LOCALBGP_EIP_QUOTA`：用户当前地域下，本地BGP IP配额数；
+- `SINGLEISP_EIP_QUOTA`：用户当前地域下，静态单线 IP 配额数；
+- `DAILY_EIP_APPLY`：用户当前地域下，除静态单线 IP外今日申购次数；
+- `DAILY_SINGLEISP_APPLY`：用户当前地域下，静态单线 IP今日申购次数；
+- `DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数；
+- `MONTHLY_RECOVER_QUOTA`：用户当前地域下，每月申请指定 IP次数；
+- `TOTAL_EIP6_QUOTA`：用户当前地域下，传统弹性公网IPv6的配额数；
+- `BGP_EIPv6_QUOTA`：用户当前地域下，可申请的 BGP 弹性公网IPv6 的配额数；
+- `SINGLEISP_EIPv6_QUOTA`：用户当前地域下，可申请的静态单线弹性公网IPv6 的配额数；
+- `TOTAL_BANDWIDTHPKG_QUOTA`：用户当前地域下，可申请的带宽包总配额；
+- `PRIMARY_TRAFFIC_SINGLE_BWP_QUOTA`：用户当前地域下，可申请的静态单线主流量带宽包配额数；
+- `PRIMARY_TRAFFIC_BGP_BWP_QUOTA`：用户当前地域下，可申请的BGP主流量带宽包配额数；
+- `BandwidthGuaranteedRatio`：用户当前地域下，保底带宽包默认保底比例；
+- `TezBandwidthGuaranteedRatio`：用户当前地域下，边缘可用区保底带宽包默认保底比例；
     */
     @SerializedName("QuotaId")
     @Expose
@@ -44,16 +60,83 @@ public class Quota extends AbstractModel{
     private Long QuotaLimit;
 
     /**
-     * Get 配额名称，取值范围：<br><li>`TOTAL_EIP_QUOTA`：用户当前地域下EIP的配额数；<br><li>`DAILY_EIP_APPLY`：用户当前地域下今日申购次数；<br><li>`DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数。 
-     * @return QuotaId 配额名称，取值范围：<br><li>`TOTAL_EIP_QUOTA`：用户当前地域下EIP的配额数；<br><li>`DAILY_EIP_APPLY`：用户当前地域下今日申购次数；<br><li>`DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数。
+    * 配额所属的网络组
+    */
+    @SerializedName("QuotaGroup")
+    @Expose
+    private String QuotaGroup;
+
+    /**
+     * Get 配额名称，取值范围：
+- `TOTAL_EIP_QUOTA`：用户当前地域下，EIP的配额数；
+- `LOCALBGP_EIP_QUOTA`：用户当前地域下，本地BGP IP配额数；
+- `SINGLEISP_EIP_QUOTA`：用户当前地域下，静态单线 IP 配额数；
+- `DAILY_EIP_APPLY`：用户当前地域下，除静态单线 IP外今日申购次数；
+- `DAILY_SINGLEISP_APPLY`：用户当前地域下，静态单线 IP今日申购次数；
+- `DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数；
+- `MONTHLY_RECOVER_QUOTA`：用户当前地域下，每月申请指定 IP次数；
+- `TOTAL_EIP6_QUOTA`：用户当前地域下，传统弹性公网IPv6的配额数；
+- `BGP_EIPv6_QUOTA`：用户当前地域下，可申请的 BGP 弹性公网IPv6 的配额数；
+- `SINGLEISP_EIPv6_QUOTA`：用户当前地域下，可申请的静态单线弹性公网IPv6 的配额数；
+- `TOTAL_BANDWIDTHPKG_QUOTA`：用户当前地域下，可申请的带宽包总配额；
+- `PRIMARY_TRAFFIC_SINGLE_BWP_QUOTA`：用户当前地域下，可申请的静态单线主流量带宽包配额数；
+- `PRIMARY_TRAFFIC_BGP_BWP_QUOTA`：用户当前地域下，可申请的BGP主流量带宽包配额数；
+- `BandwidthGuaranteedRatio`：用户当前地域下，保底带宽包默认保底比例；
+- `TezBandwidthGuaranteedRatio`：用户当前地域下，边缘可用区保底带宽包默认保底比例； 
+     * @return QuotaId 配额名称，取值范围：
+- `TOTAL_EIP_QUOTA`：用户当前地域下，EIP的配额数；
+- `LOCALBGP_EIP_QUOTA`：用户当前地域下，本地BGP IP配额数；
+- `SINGLEISP_EIP_QUOTA`：用户当前地域下，静态单线 IP 配额数；
+- `DAILY_EIP_APPLY`：用户当前地域下，除静态单线 IP外今日申购次数；
+- `DAILY_SINGLEISP_APPLY`：用户当前地域下，静态单线 IP今日申购次数；
+- `DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数；
+- `MONTHLY_RECOVER_QUOTA`：用户当前地域下，每月申请指定 IP次数；
+- `TOTAL_EIP6_QUOTA`：用户当前地域下，传统弹性公网IPv6的配额数；
+- `BGP_EIPv6_QUOTA`：用户当前地域下，可申请的 BGP 弹性公网IPv6 的配额数；
+- `SINGLEISP_EIPv6_QUOTA`：用户当前地域下，可申请的静态单线弹性公网IPv6 的配额数；
+- `TOTAL_BANDWIDTHPKG_QUOTA`：用户当前地域下，可申请的带宽包总配额；
+- `PRIMARY_TRAFFIC_SINGLE_BWP_QUOTA`：用户当前地域下，可申请的静态单线主流量带宽包配额数；
+- `PRIMARY_TRAFFIC_BGP_BWP_QUOTA`：用户当前地域下，可申请的BGP主流量带宽包配额数；
+- `BandwidthGuaranteedRatio`：用户当前地域下，保底带宽包默认保底比例；
+- `TezBandwidthGuaranteedRatio`：用户当前地域下，边缘可用区保底带宽包默认保底比例；
      */
     public String getQuotaId() {
         return this.QuotaId;
     }
 
     /**
-     * Set 配额名称，取值范围：<br><li>`TOTAL_EIP_QUOTA`：用户当前地域下EIP的配额数；<br><li>`DAILY_EIP_APPLY`：用户当前地域下今日申购次数；<br><li>`DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数。
-     * @param QuotaId 配额名称，取值范围：<br><li>`TOTAL_EIP_QUOTA`：用户当前地域下EIP的配额数；<br><li>`DAILY_EIP_APPLY`：用户当前地域下今日申购次数；<br><li>`DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数。
+     * Set 配额名称，取值范围：
+- `TOTAL_EIP_QUOTA`：用户当前地域下，EIP的配额数；
+- `LOCALBGP_EIP_QUOTA`：用户当前地域下，本地BGP IP配额数；
+- `SINGLEISP_EIP_QUOTA`：用户当前地域下，静态单线 IP 配额数；
+- `DAILY_EIP_APPLY`：用户当前地域下，除静态单线 IP外今日申购次数；
+- `DAILY_SINGLEISP_APPLY`：用户当前地域下，静态单线 IP今日申购次数；
+- `DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数；
+- `MONTHLY_RECOVER_QUOTA`：用户当前地域下，每月申请指定 IP次数；
+- `TOTAL_EIP6_QUOTA`：用户当前地域下，传统弹性公网IPv6的配额数；
+- `BGP_EIPv6_QUOTA`：用户当前地域下，可申请的 BGP 弹性公网IPv6 的配额数；
+- `SINGLEISP_EIPv6_QUOTA`：用户当前地域下，可申请的静态单线弹性公网IPv6 的配额数；
+- `TOTAL_BANDWIDTHPKG_QUOTA`：用户当前地域下，可申请的带宽包总配额；
+- `PRIMARY_TRAFFIC_SINGLE_BWP_QUOTA`：用户当前地域下，可申请的静态单线主流量带宽包配额数；
+- `PRIMARY_TRAFFIC_BGP_BWP_QUOTA`：用户当前地域下，可申请的BGP主流量带宽包配额数；
+- `BandwidthGuaranteedRatio`：用户当前地域下，保底带宽包默认保底比例；
+- `TezBandwidthGuaranteedRatio`：用户当前地域下，边缘可用区保底带宽包默认保底比例；
+     * @param QuotaId 配额名称，取值范围：
+- `TOTAL_EIP_QUOTA`：用户当前地域下，EIP的配额数；
+- `LOCALBGP_EIP_QUOTA`：用户当前地域下，本地BGP IP配额数；
+- `SINGLEISP_EIP_QUOTA`：用户当前地域下，静态单线 IP 配额数；
+- `DAILY_EIP_APPLY`：用户当前地域下，除静态单线 IP外今日申购次数；
+- `DAILY_SINGLEISP_APPLY`：用户当前地域下，静态单线 IP今日申购次数；
+- `DAILY_PUBLIC_IP_ASSIGN`：用户当前地域下，重新分配公网 IP次数；
+- `MONTHLY_RECOVER_QUOTA`：用户当前地域下，每月申请指定 IP次数；
+- `TOTAL_EIP6_QUOTA`：用户当前地域下，传统弹性公网IPv6的配额数；
+- `BGP_EIPv6_QUOTA`：用户当前地域下，可申请的 BGP 弹性公网IPv6 的配额数；
+- `SINGLEISP_EIPv6_QUOTA`：用户当前地域下，可申请的静态单线弹性公网IPv6 的配额数；
+- `TOTAL_BANDWIDTHPKG_QUOTA`：用户当前地域下，可申请的带宽包总配额；
+- `PRIMARY_TRAFFIC_SINGLE_BWP_QUOTA`：用户当前地域下，可申请的静态单线主流量带宽包配额数；
+- `PRIMARY_TRAFFIC_BGP_BWP_QUOTA`：用户当前地域下，可申请的BGP主流量带宽包配额数；
+- `BandwidthGuaranteedRatio`：用户当前地域下，保底带宽包默认保底比例；
+- `TezBandwidthGuaranteedRatio`：用户当前地域下，边缘可用区保底带宽包默认保底比例；
      */
     public void setQuotaId(String QuotaId) {
         this.QuotaId = QuotaId;
@@ -91,6 +174,22 @@ public class Quota extends AbstractModel{
         this.QuotaLimit = QuotaLimit;
     }
 
+    /**
+     * Get 配额所属的网络组 
+     * @return QuotaGroup 配额所属的网络组
+     */
+    public String getQuotaGroup() {
+        return this.QuotaGroup;
+    }
+
+    /**
+     * Set 配额所属的网络组
+     * @param QuotaGroup 配额所属的网络组
+     */
+    public void setQuotaGroup(String QuotaGroup) {
+        this.QuotaGroup = QuotaGroup;
+    }
+
     public Quota() {
     }
 
@@ -108,6 +207,9 @@ public class Quota extends AbstractModel{
         if (source.QuotaLimit != null) {
             this.QuotaLimit = new Long(source.QuotaLimit);
         }
+        if (source.QuotaGroup != null) {
+            this.QuotaGroup = new String(source.QuotaGroup);
+        }
     }
 
 
@@ -118,6 +220,7 @@ public class Quota extends AbstractModel{
         this.setParamSimple(map, prefix + "QuotaId", this.QuotaId);
         this.setParamSimple(map, prefix + "QuotaCurrent", this.QuotaCurrent);
         this.setParamSimple(map, prefix + "QuotaLimit", this.QuotaLimit);
+        this.setParamSimple(map, prefix + "QuotaGroup", this.QuotaGroup);
 
     }
 }

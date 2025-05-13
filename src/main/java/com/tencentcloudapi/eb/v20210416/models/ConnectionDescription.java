@@ -16,11 +16,12 @@
 package com.tencentcloudapi.eb.v20210416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConnectionDescription extends AbstractModel{
+public class ConnectionDescription extends AbstractModel {
 
     /**
     * 资源qcs六段式，更多参考 [资源六段式](https://cloud.tencent.com/document/product/598/10606)
@@ -52,6 +53,14 @@ public class ConnectionDescription extends AbstractModel{
     @SerializedName("DTSParams")
     @Expose
     private DTSParams DTSParams;
+
+    /**
+    * tdmq参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TDMQParams")
+    @Expose
+    private TDMQParams TDMQParams;
 
     /**
      * Get 资源qcs六段式，更多参考 [资源六段式](https://cloud.tencent.com/document/product/598/10606) 
@@ -129,6 +138,26 @@ public class ConnectionDescription extends AbstractModel{
         this.DTSParams = DTSParams;
     }
 
+    /**
+     * Get tdmq参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TDMQParams tdmq参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TDMQParams getTDMQParams() {
+        return this.TDMQParams;
+    }
+
+    /**
+     * Set tdmq参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TDMQParams tdmq参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTDMQParams(TDMQParams TDMQParams) {
+        this.TDMQParams = TDMQParams;
+    }
+
     public ConnectionDescription() {
     }
 
@@ -149,6 +178,9 @@ public class ConnectionDescription extends AbstractModel{
         if (source.DTSParams != null) {
             this.DTSParams = new DTSParams(source.DTSParams);
         }
+        if (source.TDMQParams != null) {
+            this.TDMQParams = new TDMQParams(source.TDMQParams);
+        }
     }
 
 
@@ -160,6 +192,7 @@ public class ConnectionDescription extends AbstractModel{
         this.setParamObj(map, prefix + "APIGWParams.", this.APIGWParams);
         this.setParamObj(map, prefix + "CkafkaParams.", this.CkafkaParams);
         this.setParamObj(map, prefix + "DTSParams.", this.DTSParams);
+        this.setParamObj(map, prefix + "TDMQParams.", this.TDMQParams);
 
     }
 }

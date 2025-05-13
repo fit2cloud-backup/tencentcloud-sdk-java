@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTrainingTaskPodsResponse extends AbstractModel{
+public class DescribeTrainingTaskPodsResponse extends AbstractModel {
 
     /**
     * pod名称列表
@@ -41,10 +42,10 @@ public class DescribeTrainingTaskPodsResponse extends AbstractModel{
     */
     @SerializedName("PodInfoList")
     @Expose
-    private PodInfo PodInfoList;
+    private PodInfo [] PodInfoList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -86,7 +87,7 @@ public class DescribeTrainingTaskPodsResponse extends AbstractModel{
      * Get pod详细信息 
      * @return PodInfoList pod详细信息
      */
-    public PodInfo getPodInfoList() {
+    public PodInfo [] getPodInfoList() {
         return this.PodInfoList;
     }
 
@@ -94,21 +95,21 @@ public class DescribeTrainingTaskPodsResponse extends AbstractModel{
      * Set pod详细信息
      * @param PodInfoList pod详细信息
      */
-    public void setPodInfoList(PodInfo PodInfoList) {
+    public void setPodInfoList(PodInfo [] PodInfoList) {
         this.PodInfoList = PodInfoList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -132,7 +133,10 @@ public class DescribeTrainingTaskPodsResponse extends AbstractModel{
             this.TotalCount = new Long(source.TotalCount);
         }
         if (source.PodInfoList != null) {
-            this.PodInfoList = new PodInfo(source.PodInfoList);
+            this.PodInfoList = new PodInfo[source.PodInfoList.length];
+            for (int i = 0; i < source.PodInfoList.length; i++) {
+                this.PodInfoList[i] = new PodInfo(source.PodInfoList[i]);
+            }
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
@@ -146,7 +150,7 @@ public class DescribeTrainingTaskPodsResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "PodNames.", this.PodNames);
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
-        this.setParamObj(map, prefix + "PodInfoList.", this.PodInfoList);
+        this.setParamArrayObj(map, prefix + "PodInfoList.", this.PodInfoList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

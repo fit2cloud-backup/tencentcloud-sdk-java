@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCfsFileSystemsRequest extends AbstractModel{
+public class DescribeCfsFileSystemsRequest extends AbstractModel {
 
     /**
     * 文件系统 ID
@@ -56,6 +57,13 @@ public class DescribeCfsFileSystemsRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * 用户自定义名称
+    */
+    @SerializedName("CreationToken")
+    @Expose
+    private String CreationToken;
 
     /**
      * Get 文件系统 ID 
@@ -137,6 +145,22 @@ public class DescribeCfsFileSystemsRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    /**
+     * Get 用户自定义名称 
+     * @return CreationToken 用户自定义名称
+     */
+    public String getCreationToken() {
+        return this.CreationToken;
+    }
+
+    /**
+     * Set 用户自定义名称
+     * @param CreationToken 用户自定义名称
+     */
+    public void setCreationToken(String CreationToken) {
+        this.CreationToken = CreationToken;
+    }
+
     public DescribeCfsFileSystemsRequest() {
     }
 
@@ -160,6 +184,9 @@ public class DescribeCfsFileSystemsRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.CreationToken != null) {
+            this.CreationToken = new String(source.CreationToken);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class DescribeCfsFileSystemsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "CreationToken", this.CreationToken);
 
     }
 }

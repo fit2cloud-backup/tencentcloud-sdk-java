@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BasicTargetGroupInfo extends AbstractModel{
+public class BasicTargetGroupInfo extends AbstractModel {
 
     /**
     * 目标组ID
@@ -35,6 +36,13 @@ public class BasicTargetGroupInfo extends AbstractModel{
     @SerializedName("TargetGroupName")
     @Expose
     private String TargetGroupName;
+
+    /**
+    * 目标组权重
+    */
+    @SerializedName("Weight")
+    @Expose
+    private Long Weight;
 
     /**
      * Get 目标组ID 
@@ -68,6 +76,22 @@ public class BasicTargetGroupInfo extends AbstractModel{
         this.TargetGroupName = TargetGroupName;
     }
 
+    /**
+     * Get 目标组权重 
+     * @return Weight 目标组权重
+     */
+    public Long getWeight() {
+        return this.Weight;
+    }
+
+    /**
+     * Set 目标组权重
+     * @param Weight 目标组权重
+     */
+    public void setWeight(Long Weight) {
+        this.Weight = Weight;
+    }
+
     public BasicTargetGroupInfo() {
     }
 
@@ -82,6 +106,9 @@ public class BasicTargetGroupInfo extends AbstractModel{
         if (source.TargetGroupName != null) {
             this.TargetGroupName = new String(source.TargetGroupName);
         }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class BasicTargetGroupInfo extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TargetGroupId", this.TargetGroupId);
         this.setParamSimple(map, prefix + "TargetGroupName", this.TargetGroupName);
+        this.setParamSimple(map, prefix + "Weight", this.Weight);
 
     }
 }

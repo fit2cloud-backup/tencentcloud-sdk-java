@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ForbidLiveStreamRequest extends AbstractModel{
+public class ForbidLiveStreamRequest extends AbstractModel {
 
     /**
     * 推流路径，与推流和播放地址中的AppName保持一致，默认为 live。
@@ -47,7 +48,7 @@ public class ForbidLiveStreamRequest extends AbstractModel{
     * 恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
 1. 默认禁推7天，且最长支持禁推90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
     */
     @SerializedName("ResumeTime")
     @Expose
@@ -114,11 +115,11 @@ public class ForbidLiveStreamRequest extends AbstractModel{
      * Get 恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
 1. 默认禁推7天，且最长支持禁推90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。 
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。 
      * @return ResumeTime 恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
 1. 默认禁推7天，且最长支持禁推90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public String getResumeTime() {
         return this.ResumeTime;
@@ -128,11 +129,11 @@ public class ForbidLiveStreamRequest extends AbstractModel{
      * Set 恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
 1. 默认禁推7天，且最长支持禁推90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      * @param ResumeTime 恢复流的时间。UTC 格式，例如：2018-11-29T19:00:00Z。
 注意：
 1. 默认禁推7天，且最长支持禁推90天。
-2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+2. 北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public void setResumeTime(String ResumeTime) {
         this.ResumeTime = ResumeTime;

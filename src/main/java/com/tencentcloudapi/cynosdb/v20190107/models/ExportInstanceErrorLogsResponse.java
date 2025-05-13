@@ -16,32 +16,37 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExportInstanceErrorLogsResponse extends AbstractModel{
+public class ExportInstanceErrorLogsResponse extends AbstractModel {
 
     /**
     * 错误日志导出内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorLogItems")
     @Expose
     private ErrorLogItemExport [] ErrorLogItems;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 错误日志字符串
+    */
+    @SerializedName("FileContent")
+    @Expose
+    private String FileContent;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 错误日志导出内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误日志导出内容 
      * @return ErrorLogItems 错误日志导出内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ErrorLogItemExport [] getErrorLogItems() {
         return this.ErrorLogItems;
@@ -49,25 +54,39 @@ public class ExportInstanceErrorLogsResponse extends AbstractModel{
 
     /**
      * Set 错误日志导出内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorLogItems 错误日志导出内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorLogItems(ErrorLogItemExport [] ErrorLogItems) {
         this.ErrorLogItems = ErrorLogItems;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 错误日志字符串 
+     * @return FileContent 错误日志字符串
+     */
+    public String getFileContent() {
+        return this.FileContent;
+    }
+
+    /**
+     * Set 错误日志字符串
+     * @param FileContent 错误日志字符串
+     */
+    public void setFileContent(String FileContent) {
+        this.FileContent = FileContent;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -87,6 +106,9 @@ public class ExportInstanceErrorLogsResponse extends AbstractModel{
                 this.ErrorLogItems[i] = new ErrorLogItemExport(source.ErrorLogItems[i]);
             }
         }
+        if (source.FileContent != null) {
+            this.FileContent = new String(source.FileContent);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -98,6 +120,7 @@ public class ExportInstanceErrorLogsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "ErrorLogItems.", this.ErrorLogItems);
+        this.setParamSimple(map, prefix + "FileContent", this.FileContent);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NeonatalInfo extends AbstractModel{
+public class NeonatalInfo extends AbstractModel {
 
     /**
     * 新生儿名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NeonatalName")
     @Expose
@@ -32,7 +32,6 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
     * 新生儿性别
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NeonatalGender")
     @Expose
@@ -40,7 +39,6 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
     * 出生身长
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BirthLength")
     @Expose
@@ -48,7 +46,6 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
     * 出生体重
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BirthWeight")
     @Expose
@@ -56,7 +53,6 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
     * 出生孕周
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GestationalAge")
     @Expose
@@ -64,7 +60,6 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
     * 出生时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BirthTime")
     @Expose
@@ -72,7 +67,6 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
     * 出生地点
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BirthPlace")
     @Expose
@@ -80,17 +74,14 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
     * 医疗机构
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MedicalInstitutions")
     @Expose
     private String MedicalInstitutions;
 
     /**
-     * Get 新生儿名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 新生儿名字 
      * @return NeonatalName 新生儿名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNeonatalName() {
         return this.NeonatalName;
@@ -98,19 +89,15 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 新生儿名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NeonatalName 新生儿名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNeonatalName(String NeonatalName) {
         this.NeonatalName = NeonatalName;
     }
 
     /**
-     * Get 新生儿性别
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 新生儿性别 
      * @return NeonatalGender 新生儿性别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNeonatalGender() {
         return this.NeonatalGender;
@@ -118,19 +105,15 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 新生儿性别
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NeonatalGender 新生儿性别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNeonatalGender(String NeonatalGender) {
         this.NeonatalGender = NeonatalGender;
     }
 
     /**
-     * Get 出生身长
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出生身长 
      * @return BirthLength 出生身长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBirthLength() {
         return this.BirthLength;
@@ -138,19 +121,15 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 出生身长
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BirthLength 出生身长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBirthLength(String BirthLength) {
         this.BirthLength = BirthLength;
     }
 
     /**
-     * Get 出生体重
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出生体重 
      * @return BirthWeight 出生体重
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBirthWeight() {
         return this.BirthWeight;
@@ -158,19 +137,15 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 出生体重
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BirthWeight 出生体重
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBirthWeight(String BirthWeight) {
         this.BirthWeight = BirthWeight;
     }
 
     /**
-     * Get 出生孕周
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出生孕周 
      * @return GestationalAge 出生孕周
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGestationalAge() {
         return this.GestationalAge;
@@ -178,19 +153,15 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 出生孕周
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GestationalAge 出生孕周
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGestationalAge(String GestationalAge) {
         this.GestationalAge = GestationalAge;
     }
 
     /**
-     * Get 出生时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出生时间 
      * @return BirthTime 出生时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBirthTime() {
         return this.BirthTime;
@@ -198,19 +169,15 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 出生时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BirthTime 出生时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBirthTime(String BirthTime) {
         this.BirthTime = BirthTime;
     }
 
     /**
-     * Get 出生地点
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出生地点 
      * @return BirthPlace 出生地点
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBirthPlace() {
         return this.BirthPlace;
@@ -218,19 +185,15 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 出生地点
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BirthPlace 出生地点
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBirthPlace(String BirthPlace) {
         this.BirthPlace = BirthPlace;
     }
 
     /**
-     * Get 医疗机构
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 医疗机构 
      * @return MedicalInstitutions 医疗机构
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMedicalInstitutions() {
         return this.MedicalInstitutions;
@@ -238,9 +201,7 @@ public class NeonatalInfo extends AbstractModel{
 
     /**
      * Set 医疗机构
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MedicalInstitutions 医疗机构
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMedicalInstitutions(String MedicalInstitutions) {
         this.MedicalInstitutions = MedicalInstitutions;

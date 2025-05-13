@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageWatermarkInputForUpdate extends AbstractModel{
+public class ImageWatermarkInputForUpdate extends AbstractModel {
 
     /**
     * 水印图片 [Base64](https://tools.ietf.org/html/rfc4648) 编码后的字符串。支持 jpeg、png 图片格式。
@@ -42,7 +43,7 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
     * 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
 <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
-默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
+
     */
     @SerializedName("Height")
     @Expose
@@ -102,11 +103,11 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
      * Get 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
 <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
-默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。 
+ 
      * @return Height 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
 <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
-默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
+
      */
     public String getHeight() {
         return this.Height;
@@ -116,11 +117,11 @@ public class ImageWatermarkInputForUpdate extends AbstractModel{
      * Set 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
 <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
-默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
+
      * @param Height 水印的高度。支持 %、px 两种格式：
 <li>当字符串以 % 结尾，表示水印 Height 为视频高度的百分比大小，如 10% 表示 Height 为视频高度的 10%；</li>
 <li>当字符串以 px 结尾，表示水印 Height 单位为像素，如 100px 表示 Height 为 100 像素。取值范围为0或[8, 4096]。</li>
-默认值：0px，表示 Height 按照原始水印图片的宽高比缩放。
+
      */
     public void setHeight(String Height) {
         this.Height = Height;

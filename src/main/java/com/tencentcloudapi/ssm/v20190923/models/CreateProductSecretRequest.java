@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateProductSecretRequest extends AbstractModel{
+public class CreateProductSecretRequest extends AbstractModel {
 
     /**
     * 凭据名称，同一region内不可重复，最长128字节，使用字母、数字或者 - _ 的组合，第一个字符必须为字母或者数字。
@@ -117,6 +118,13 @@ False -- 不开启
     @SerializedName("RotationFrequency")
     @Expose
     private Long RotationFrequency;
+
+    /**
+    * KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+    */
+    @SerializedName("KmsHsmClusterId")
+    @Expose
+    private String KmsHsmClusterId;
 
     /**
      * Get 凭据名称，同一region内不可重复，最长128字节，使用字母、数字或者 - _ 的组合，第一个字符必须为字母或者数字。 
@@ -358,6 +366,22 @@ False -- 不开启
         this.RotationFrequency = RotationFrequency;
     }
 
+    /**
+     * Get KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。 
+     * @return KmsHsmClusterId KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     */
+    public String getKmsHsmClusterId() {
+        return this.KmsHsmClusterId;
+    }
+
+    /**
+     * Set KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     * @param KmsHsmClusterId KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     */
+    public void setKmsHsmClusterId(String KmsHsmClusterId) {
+        this.KmsHsmClusterId = KmsHsmClusterId;
+    }
+
     public CreateProductSecretRequest() {
     }
 
@@ -411,6 +435,9 @@ False -- 不开启
         if (source.RotationFrequency != null) {
             this.RotationFrequency = new Long(source.RotationFrequency);
         }
+        if (source.KmsHsmClusterId != null) {
+            this.KmsHsmClusterId = new String(source.KmsHsmClusterId);
+        }
     }
 
 
@@ -430,6 +457,7 @@ False -- 不开启
         this.setParamSimple(map, prefix + "RotationBeginTime", this.RotationBeginTime);
         this.setParamSimple(map, prefix + "EnableRotation", this.EnableRotation);
         this.setParamSimple(map, prefix + "RotationFrequency", this.RotationFrequency);
+        this.setParamSimple(map, prefix + "KmsHsmClusterId", this.KmsHsmClusterId);
 
     }
 }

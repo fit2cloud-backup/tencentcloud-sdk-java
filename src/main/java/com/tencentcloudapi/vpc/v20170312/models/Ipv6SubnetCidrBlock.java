@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Ipv6SubnetCidrBlock extends AbstractModel{
+public class Ipv6SubnetCidrBlock extends AbstractModel {
 
     /**
     * 子网实例`ID`。形如：`subnet-pxir56ns`。
@@ -30,7 +31,7 @@ public class Ipv6SubnetCidrBlock extends AbstractModel{
     private String SubnetId;
 
     /**
-    * `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
+    * `IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
     */
     @SerializedName("Ipv6CidrBlock")
     @Expose
@@ -53,16 +54,16 @@ public class Ipv6SubnetCidrBlock extends AbstractModel{
     }
 
     /**
-     * Get `IPv6`子网段。形如：`3402:4e00:20:1001::/64` 
-     * @return Ipv6CidrBlock `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
+     * Get `IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。 
+     * @return Ipv6CidrBlock `IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
      */
     public String getIpv6CidrBlock() {
         return this.Ipv6CidrBlock;
     }
 
     /**
-     * Set `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
-     * @param Ipv6CidrBlock `IPv6`子网段。形如：`3402:4e00:20:1001::/64`
+     * Set `IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
+     * @param Ipv6CidrBlock `IPv6`子网段。形如：`3402:4e00:20:1001::/64`。作为AssignIpv6SubnetCidrBlock接口入参时，该参数必填。
      */
     public void setIpv6CidrBlock(String Ipv6CidrBlock) {
         this.Ipv6CidrBlock = Ipv6CidrBlock;

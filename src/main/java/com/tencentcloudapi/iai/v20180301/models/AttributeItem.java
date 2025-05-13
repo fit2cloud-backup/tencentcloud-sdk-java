@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iai.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AttributeItem extends AbstractModel{
+public class AttributeItem extends AbstractModel {
 
     /**
     * 属性值
@@ -30,7 +31,7 @@ public class AttributeItem extends AbstractModel{
     private Long Type;
 
     /**
-    * Type识别概率值，【0,1】,代表判断正确的概率。
+    * Type识别概率值,[0,1],代表判断正确的概率。
     */
     @SerializedName("Probability")
     @Expose
@@ -53,16 +54,16 @@ public class AttributeItem extends AbstractModel{
     }
 
     /**
-     * Get Type识别概率值，【0,1】,代表判断正确的概率。 
-     * @return Probability Type识别概率值，【0,1】,代表判断正确的概率。
+     * Get Type识别概率值,[0,1],代表判断正确的概率。 
+     * @return Probability Type识别概率值,[0,1],代表判断正确的概率。
      */
     public Float getProbability() {
         return this.Probability;
     }
 
     /**
-     * Set Type识别概率值，【0,1】,代表判断正确的概率。
-     * @param Probability Type识别概率值，【0,1】,代表判断正确的概率。
+     * Set Type识别概率值,[0,1],代表判断正确的概率。
+     * @param Probability Type识别概率值,[0,1],代表判断正确的概率。
      */
     public void setProbability(Float Probability) {
         this.Probability = Probability;

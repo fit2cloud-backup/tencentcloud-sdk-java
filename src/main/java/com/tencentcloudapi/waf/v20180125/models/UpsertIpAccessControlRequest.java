@@ -16,25 +16,34 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpsertIpAccessControlRequest extends AbstractModel{
+public class UpsertIpAccessControlRequest extends AbstractModel {
 
     /**
-    * 域名
+    * 具体域名如：test.qcloudwaf.com
+全局域名为：global
     */
     @SerializedName("Domain")
     @Expose
     private String Domain;
 
     /**
-    * ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
+    * IP 参数列表，json数组由IP，source，note，action，valid_ts组成。IP对应配置的IP地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
     */
     @SerializedName("Items")
     @Expose
     private String [] Items;
+
+    /**
+    * 实例Id
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
 
     /**
     * WAF实例类型，sparta-waf表示SAAS型WAF，clb-waf表示负载均衡型WAF
@@ -44,42 +53,62 @@ public class UpsertIpAccessControlRequest extends AbstractModel{
     private String Edition;
 
     /**
-    * 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
+    * 可选值为：batch（批量添加）、bot、cc、custom（非批量添加时的默认值）
     */
     @SerializedName("SourceType")
     @Expose
     private String SourceType;
 
     /**
-     * Get 域名 
-     * @return Domain 域名
+     * Get 具体域名如：test.qcloudwaf.com
+全局域名为：global 
+     * @return Domain 具体域名如：test.qcloudwaf.com
+全局域名为：global
      */
     public String getDomain() {
         return this.Domain;
     }
 
     /**
-     * Set 域名
-     * @param Domain 域名
+     * Set 具体域名如：test.qcloudwaf.com
+全局域名为：global
+     * @param Domain 具体域名如：test.qcloudwaf.com
+全局域名为：global
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
     }
 
     /**
-     * Get ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00）） 
-     * @return Items ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
+     * Get IP 参数列表，json数组由IP，source，note，action，valid_ts组成。IP对应配置的IP地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00）） 
+     * @return Items IP 参数列表，json数组由IP，source，note，action，valid_ts组成。IP对应配置的IP地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
      */
     public String [] getItems() {
         return this.Items;
     }
 
     /**
-     * Set ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
-     * @param Items ip 参数列表，json数组由ip，source，note，action，valid_ts组成。ip对应配置的ip地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
+     * Set IP 参数列表，json数组由IP，source，note，action，valid_ts组成。IP对应配置的IP地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
+     * @param Items IP 参数列表，json数组由IP，source，note，action，valid_ts组成。IP对应配置的IP地址，source固定为custom值，note为注释，action值42为黑名单，40为白名单，valid_ts为有效日期，值为秒级时间戳（（如1680570420代表2023-04-04 09:07:00））
      */
     public void setItems(String [] Items) {
         this.Items = Items;
+    }
+
+    /**
+     * Get 实例Id 
+     * @return InstanceId 实例Id
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例Id
+     * @param InstanceId 实例Id
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
     }
 
     /**
@@ -99,16 +128,16 @@ public class UpsertIpAccessControlRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空 
-     * @return SourceType 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
+     * Get 可选值为：batch（批量添加）、bot、cc、custom（非批量添加时的默认值） 
+     * @return SourceType 可选值为：batch（批量添加）、bot、cc、custom（非批量添加时的默认值）
      */
     public String getSourceType() {
         return this.SourceType;
     }
 
     /**
-     * Set 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
-     * @param SourceType 是否为多域名黑白名单，当为多域名的黑白名单时，取值为batch，否则为空
+     * Set 可选值为：batch（批量添加）、bot、cc、custom（非批量添加时的默认值）
+     * @param SourceType 可选值为：batch（批量添加）、bot、cc、custom（非批量添加时的默认值）
      */
     public void setSourceType(String SourceType) {
         this.SourceType = SourceType;
@@ -131,6 +160,9 @@ public class UpsertIpAccessControlRequest extends AbstractModel{
                 this.Items[i] = new String(source.Items[i]);
             }
         }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
         if (source.Edition != null) {
             this.Edition = new String(source.Edition);
         }
@@ -146,6 +178,7 @@ public class UpsertIpAccessControlRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Domain", this.Domain);
         this.setParamArraySimple(map, prefix + "Items.", this.Items);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Edition", this.Edition);
         this.setParamSimple(map, prefix + "SourceType", this.SourceType);
 

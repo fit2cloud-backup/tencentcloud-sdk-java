@@ -16,26 +16,19 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IngressInfo extends AbstractModel{
+public class IngressInfo extends AbstractModel {
 
     /**
     * 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvironmentId")
     @Expose
     private String EnvironmentId;
-
-    /**
-    * 环境namespace
-    */
-    @SerializedName("ClusterNamespace")
-    @Expose
-    private String ClusterNamespace;
 
     /**
     * ip version
@@ -60,11 +53,17 @@ public class IngressInfo extends AbstractModel{
 
     /**
     * clb ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClbId")
     @Expose
     private String ClbId;
+
+    /**
+    * 环境namespace
+    */
+    @SerializedName("ClusterNamespace")
+    @Expose
+    private String ClusterNamespace;
 
     /**
     * tls 配置
@@ -76,7 +75,6 @@ public class IngressInfo extends AbstractModel{
 
     /**
     * 环境集群ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -84,7 +82,6 @@ public class IngressInfo extends AbstractModel{
 
     /**
     * clb ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vip")
     @Expose
@@ -92,7 +89,6 @@ public class IngressInfo extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -109,7 +105,6 @@ public class IngressInfo extends AbstractModel{
     * 重定向模式，可选值：
 - AUTO（自动重定向http到https）
 - NONE（不使用重定向）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RewriteType")
     @Expose
@@ -117,17 +112,14 @@ public class IngressInfo extends AbstractModel{
 
     /**
     * clb 域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domain")
     @Expose
     private String Domain;
 
     /**
-     * Get 环境ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境ID 
      * @return EnvironmentId 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvironmentId() {
         return this.EnvironmentId;
@@ -135,28 +127,10 @@ public class IngressInfo extends AbstractModel{
 
     /**
      * Set 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvironmentId 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvironmentId(String EnvironmentId) {
         this.EnvironmentId = EnvironmentId;
-    }
-
-    /**
-     * Get 环境namespace 
-     * @return ClusterNamespace 环境namespace
-     */
-    public String getClusterNamespace() {
-        return this.ClusterNamespace;
-    }
-
-    /**
-     * Set 环境namespace
-     * @param ClusterNamespace 环境namespace
-     */
-    public void setClusterNamespace(String ClusterNamespace) {
-        this.ClusterNamespace = ClusterNamespace;
     }
 
     /**
@@ -208,10 +182,8 @@ public class IngressInfo extends AbstractModel{
     }
 
     /**
-     * Get clb ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get clb ID 
      * @return ClbId clb ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClbId() {
         return this.ClbId;
@@ -219,12 +191,26 @@ public class IngressInfo extends AbstractModel{
 
     /**
      * Set clb ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClbId clb ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClbId(String ClbId) {
         this.ClbId = ClbId;
+    }
+
+    /**
+     * Get 环境namespace 
+     * @return ClusterNamespace 环境namespace
+     */
+    public String getClusterNamespace() {
+        return this.ClusterNamespace;
+    }
+
+    /**
+     * Set 环境namespace
+     * @param ClusterNamespace 环境namespace
+     */
+    public void setClusterNamespace(String ClusterNamespace) {
+        this.ClusterNamespace = ClusterNamespace;
     }
 
     /**
@@ -248,10 +234,8 @@ public class IngressInfo extends AbstractModel{
     }
 
     /**
-     * Get 环境集群ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境集群ID 
      * @return ClusterId 环境集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -259,19 +243,15 @@ public class IngressInfo extends AbstractModel{
 
     /**
      * Set 环境集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 环境集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get clb ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get clb ip 
      * @return Vip clb ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVip() {
         return this.Vip;
@@ -279,19 +259,15 @@ public class IngressInfo extends AbstractModel{
 
     /**
      * Set clb ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vip clb ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -299,9 +275,7 @@ public class IngressInfo extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
@@ -326,12 +300,10 @@ public class IngressInfo extends AbstractModel{
     /**
      * Get 重定向模式，可选值：
 - AUTO（自动重定向http到https）
-- NONE（不使用重定向）
-注意：此字段可能返回 null，表示取不到有效值。 
+- NONE（不使用重定向） 
      * @return RewriteType 重定向模式，可选值：
 - AUTO（自动重定向http到https）
 - NONE（不使用重定向）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRewriteType() {
         return this.RewriteType;
@@ -341,21 +313,17 @@ public class IngressInfo extends AbstractModel{
      * Set 重定向模式，可选值：
 - AUTO（自动重定向http到https）
 - NONE（不使用重定向）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RewriteType 重定向模式，可选值：
 - AUTO（自动重定向http到https）
 - NONE（不使用重定向）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRewriteType(String RewriteType) {
         this.RewriteType = RewriteType;
     }
 
     /**
-     * Get clb 域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get clb 域名 
      * @return Domain clb 域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDomain() {
         return this.Domain;
@@ -363,9 +331,7 @@ public class IngressInfo extends AbstractModel{
 
     /**
      * Set clb 域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domain clb 域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
@@ -382,9 +348,6 @@ public class IngressInfo extends AbstractModel{
         if (source.EnvironmentId != null) {
             this.EnvironmentId = new String(source.EnvironmentId);
         }
-        if (source.ClusterNamespace != null) {
-            this.ClusterNamespace = new String(source.ClusterNamespace);
-        }
         if (source.AddressIPVersion != null) {
             this.AddressIPVersion = new String(source.AddressIPVersion);
         }
@@ -399,6 +362,9 @@ public class IngressInfo extends AbstractModel{
         }
         if (source.ClbId != null) {
             this.ClbId = new String(source.ClbId);
+        }
+        if (source.ClusterNamespace != null) {
+            this.ClusterNamespace = new String(source.ClusterNamespace);
         }
         if (source.Tls != null) {
             this.Tls = new IngressTls[source.Tls.length];
@@ -432,11 +398,11 @@ public class IngressInfo extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
-        this.setParamSimple(map, prefix + "ClusterNamespace", this.ClusterNamespace);
         this.setParamSimple(map, prefix + "AddressIPVersion", this.AddressIPVersion);
         this.setParamSimple(map, prefix + "IngressName", this.IngressName);
         this.setParamArrayObj(map, prefix + "Rules.", this.Rules);
         this.setParamSimple(map, prefix + "ClbId", this.ClbId);
+        this.setParamSimple(map, prefix + "ClusterNamespace", this.ClusterNamespace);
         this.setParamArrayObj(map, prefix + "Tls.", this.Tls);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "Vip", this.Vip);

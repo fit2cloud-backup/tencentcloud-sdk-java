@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NodeInfo extends AbstractModel{
+public class NodeInfo extends AbstractModel {
 
     /**
     * DB节点ID
@@ -35,6 +36,13 @@ public class NodeInfo extends AbstractModel{
     @SerializedName("Role")
     @Expose
     private String Role;
+
+    /**
+    * 节点所在可用区
+    */
+    @SerializedName("Zone")
+    @Expose
+    private String Zone;
 
     /**
      * Get DB节点ID 
@@ -68,6 +76,22 @@ public class NodeInfo extends AbstractModel{
         this.Role = Role;
     }
 
+    /**
+     * Get 节点所在可用区 
+     * @return Zone 节点所在可用区
+     */
+    public String getZone() {
+        return this.Zone;
+    }
+
+    /**
+     * Set 节点所在可用区
+     * @param Zone 节点所在可用区
+     */
+    public void setZone(String Zone) {
+        this.Zone = Zone;
+    }
+
     public NodeInfo() {
     }
 
@@ -82,6 +106,9 @@ public class NodeInfo extends AbstractModel{
         if (source.Role != null) {
             this.Role = new String(source.Role);
         }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class NodeInfo extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "NodeId", this.NodeId);
         this.setParamSimple(map, prefix + "Role", this.Role);
+        this.setParamSimple(map, prefix + "Zone", this.Zone);
 
     }
 }

@@ -16,30 +16,31 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeConfigTemplateRequest extends AbstractModel{
+public class DescribeConfigTemplateRequest extends AbstractModel {
 
     /**
-    * 无
+    * 配置模板Id
     */
     @SerializedName("ConfigTemplateId")
     @Expose
     private String ConfigTemplateId;
 
     /**
-     * Get 无 
-     * @return ConfigTemplateId 无
+     * Get 配置模板Id 
+     * @return ConfigTemplateId 配置模板Id
      */
     public String getConfigTemplateId() {
         return this.ConfigTemplateId;
     }
 
     /**
-     * Set 无
-     * @param ConfigTemplateId 无
+     * Set 配置模板Id
+     * @param ConfigTemplateId 配置模板Id
      */
     public void setConfigTemplateId(String ConfigTemplateId) {
         this.ConfigTemplateId = ConfigTemplateId;

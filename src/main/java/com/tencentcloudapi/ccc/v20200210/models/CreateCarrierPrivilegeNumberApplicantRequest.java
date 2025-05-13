@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCarrierPrivilegeNumberApplicantRequest extends AbstractModel{
+public class CreateCarrierPrivilegeNumberApplicantRequest extends AbstractModel {
 
     /**
-    * SdkAppId
+    * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
     */
     @SerializedName("SdkAppId")
     @Expose
@@ -51,16 +52,16 @@ public class CreateCarrierPrivilegeNumberApplicantRequest extends AbstractModel{
     private String Description;
 
     /**
-     * Get SdkAppId 
-     * @return SdkAppId SdkAppId
+     * Get 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc 
+     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
      */
     public Long getSdkAppId() {
         return this.SdkAppId;
     }
 
     /**
-     * Set SdkAppId
-     * @param SdkAppId SdkAppId
+     * Set 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+     * @param SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
      */
     public void setSdkAppId(Long SdkAppId) {
         this.SdkAppId = SdkAppId;

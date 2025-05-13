@@ -16,76 +16,77 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTraceDataListResponse extends AbstractModel{
+public class DescribeTraceDataListResponse extends AbstractModel {
 
     /**
-    * 数量
+    * 溯源阶段数量
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 无
+    * 溯源明细
     */
     @SerializedName("TraceDataList")
     @Expose
     private TraceData [] TraceDataList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 数量 
-     * @return TotalCount 数量
+     * Get 溯源阶段数量 
+     * @return TotalCount 溯源阶段数量
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 数量
-     * @param TotalCount 数量
+     * Set 溯源阶段数量
+     * @param TotalCount 溯源阶段数量
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 无 
-     * @return TraceDataList 无
+     * Get 溯源明细 
+     * @return TraceDataList 溯源明细
      */
     public TraceData [] getTraceDataList() {
         return this.TraceDataList;
     }
 
     /**
-     * Set 无
-     * @param TraceDataList 无
+     * Set 溯源明细
+     * @param TraceDataList 溯源明细
      */
     public void setTraceDataList(TraceData [] TraceDataList) {
         this.TraceDataList = TraceDataList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

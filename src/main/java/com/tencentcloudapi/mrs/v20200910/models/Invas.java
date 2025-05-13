@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Invas extends AbstractModel{
+public class Invas extends AbstractModel {
 
     /**
     * 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Index")
     @Expose
@@ -32,7 +32,6 @@ public class Invas extends AbstractModel{
 
     /**
     * 部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Part")
     @Expose
@@ -40,7 +39,6 @@ public class Invas extends AbstractModel{
 
     /**
     * 阳性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Positive")
     @Expose
@@ -48,17 +46,14 @@ public class Invas extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
     private String Src;
 
     /**
-     * Get 原文位置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文位置 
      * @return Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getIndex() {
         return this.Index;
@@ -66,19 +61,15 @@ public class Invas extends AbstractModel{
 
     /**
      * Set 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndex(Long [] Index) {
         this.Index = Index;
     }
 
     /**
-     * Get 部位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部位 
      * @return Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Part getPart() {
         return this.Part;
@@ -86,19 +77,15 @@ public class Invas extends AbstractModel{
 
     /**
      * Set 部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPart(Part Part) {
         this.Part = Part;
     }
 
     /**
-     * Get 阳性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 阳性 
      * @return Positive 阳性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPositive() {
         return this.Positive;
@@ -106,19 +93,15 @@ public class Invas extends AbstractModel{
 
     /**
      * Set 阳性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Positive 阳性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPositive(String Positive) {
         this.Positive = Positive;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -126,9 +109,7 @@ public class Invas extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;

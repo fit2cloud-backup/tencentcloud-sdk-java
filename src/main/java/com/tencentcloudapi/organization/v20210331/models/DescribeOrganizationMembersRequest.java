@@ -16,11 +16,12 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOrganizationMembersRequest extends AbstractModel{
+public class DescribeOrganizationMembersRequest extends AbstractModel {
 
     /**
     * 偏移量。取值是limit的整数倍，默认值 : 0
@@ -63,6 +64,27 @@ public class DescribeOrganizationMembersRequest extends AbstractModel{
     @SerializedName("Product")
     @Expose
     private String Product;
+
+    /**
+    * 成员标签搜索列表，最大10个
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 组织单元ID
+    */
+    @SerializedName("NodeId")
+    @Expose
+    private Long NodeId;
+
+    /**
+    * 组织单元名称
+    */
+    @SerializedName("NodeName")
+    @Expose
+    private String NodeName;
 
     /**
      * Get 偏移量。取值是limit的整数倍，默认值 : 0 
@@ -160,6 +182,54 @@ public class DescribeOrganizationMembersRequest extends AbstractModel{
         this.Product = Product;
     }
 
+    /**
+     * Get 成员标签搜索列表，最大10个 
+     * @return Tags 成员标签搜索列表，最大10个
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 成员标签搜索列表，最大10个
+     * @param Tags 成员标签搜索列表，最大10个
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 组织单元ID 
+     * @return NodeId 组织单元ID
+     */
+    public Long getNodeId() {
+        return this.NodeId;
+    }
+
+    /**
+     * Set 组织单元ID
+     * @param NodeId 组织单元ID
+     */
+    public void setNodeId(Long NodeId) {
+        this.NodeId = NodeId;
+    }
+
+    /**
+     * Get 组织单元名称 
+     * @return NodeName 组织单元名称
+     */
+    public String getNodeName() {
+        return this.NodeName;
+    }
+
+    /**
+     * Set 组织单元名称
+     * @param NodeName 组织单元名称
+     */
+    public void setNodeName(String NodeName) {
+        this.NodeName = NodeName;
+    }
+
     public DescribeOrganizationMembersRequest() {
     }
 
@@ -186,6 +256,18 @@ public class DescribeOrganizationMembersRequest extends AbstractModel{
         if (source.Product != null) {
             this.Product = new String(source.Product);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.NodeId != null) {
+            this.NodeId = new Long(source.NodeId);
+        }
+        if (source.NodeName != null) {
+            this.NodeName = new String(source.NodeName);
+        }
     }
 
 
@@ -199,6 +281,9 @@ public class DescribeOrganizationMembersRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SearchKey", this.SearchKey);
         this.setParamSimple(map, prefix + "AuthName", this.AuthName);
         this.setParamSimple(map, prefix + "Product", this.Product);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "NodeId", this.NodeId);
+        this.setParamSimple(map, prefix + "NodeName", this.NodeName);
 
     }
 }

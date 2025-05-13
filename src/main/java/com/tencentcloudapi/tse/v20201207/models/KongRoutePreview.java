@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KongRoutePreview extends AbstractModel{
+public class KongRoutePreview extends AbstractModel {
 
     /**
     * 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ID")
     @Expose
@@ -32,7 +32,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -64,7 +63,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 无
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Protocols")
     @Expose
@@ -72,7 +70,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 无
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PreserveHost")
     @Expose
@@ -80,7 +77,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 无
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HttpsRedirectStatusCode")
     @Expose
@@ -88,7 +84,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 无
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StripPath")
     @Expose
@@ -96,7 +91,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 无
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatedTime")
     @Expose
@@ -112,7 +106,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 服务名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceName")
     @Expose
@@ -120,7 +113,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceID")
     @Expose
@@ -128,7 +120,6 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 目的端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DestinationPorts")
     @Expose
@@ -136,17 +127,35 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
     * 路由的Headers
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Headers")
     @Expose
     private KVMapping [] Headers;
 
     /**
-     * Get 服务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 是否缓存请求body，默认true
+    */
+    @SerializedName("RequestBuffering")
+    @Expose
+    private Boolean RequestBuffering;
+
+    /**
+    * 是否缓存响应body，默认true
+    */
+    @SerializedName("ResponseBuffering")
+    @Expose
+    private Boolean ResponseBuffering;
+
+    /**
+    * 正则优先级
+    */
+    @SerializedName("RegexPriority")
+    @Expose
+    private Long RegexPriority;
+
+    /**
+     * Get 服务ID 
      * @return ID 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getID() {
         return this.ID;
@@ -154,19 +163,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ID 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setID(String ID) {
         this.ID = ID;
     }
 
     /**
-     * Get 服务名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务名字 
      * @return Name 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -174,9 +179,7 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -243,10 +246,8 @@ public class KongRoutePreview extends AbstractModel{
     }
 
     /**
-     * Get 无
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 无 
      * @return Protocols 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getProtocols() {
         return this.Protocols;
@@ -254,19 +255,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 无
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Protocols 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocols(String [] Protocols) {
         this.Protocols = Protocols;
     }
 
     /**
-     * Get 无
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 无 
      * @return PreserveHost 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getPreserveHost() {
         return this.PreserveHost;
@@ -274,19 +271,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 无
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PreserveHost 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPreserveHost(Boolean PreserveHost) {
         this.PreserveHost = PreserveHost;
     }
 
     /**
-     * Get 无
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 无 
      * @return HttpsRedirectStatusCode 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHttpsRedirectStatusCode() {
         return this.HttpsRedirectStatusCode;
@@ -294,19 +287,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 无
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HttpsRedirectStatusCode 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHttpsRedirectStatusCode(Long HttpsRedirectStatusCode) {
         this.HttpsRedirectStatusCode = HttpsRedirectStatusCode;
     }
 
     /**
-     * Get 无
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 无 
      * @return StripPath 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getStripPath() {
         return this.StripPath;
@@ -314,19 +303,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 无
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StripPath 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStripPath(Boolean StripPath) {
         this.StripPath = StripPath;
     }
 
     /**
-     * Get 无
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 无 
      * @return CreatedTime 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreatedTime() {
         return this.CreatedTime;
@@ -334,9 +319,7 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 无
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreatedTime 无
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
@@ -367,10 +350,8 @@ public class KongRoutePreview extends AbstractModel{
     }
 
     /**
-     * Get 服务名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务名 
      * @return ServiceName 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceName() {
         return this.ServiceName;
@@ -378,19 +359,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceName 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceName(String ServiceName) {
         this.ServiceName = ServiceName;
     }
 
     /**
-     * Get 服务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务ID 
      * @return ServiceID 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceID() {
         return this.ServiceID;
@@ -398,19 +375,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceID 服务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceID(String ServiceID) {
         this.ServiceID = ServiceID;
     }
 
     /**
-     * Get 目的端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目的端口 
      * @return DestinationPorts 目的端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getDestinationPorts() {
         return this.DestinationPorts;
@@ -418,19 +391,15 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 目的端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DestinationPorts 目的端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDestinationPorts(Long [] DestinationPorts) {
         this.DestinationPorts = DestinationPorts;
     }
 
     /**
-     * Get 路由的Headers
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 路由的Headers 
      * @return Headers 路由的Headers
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public KVMapping [] getHeaders() {
         return this.Headers;
@@ -438,12 +407,58 @@ public class KongRoutePreview extends AbstractModel{
 
     /**
      * Set 路由的Headers
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Headers 路由的Headers
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeaders(KVMapping [] Headers) {
         this.Headers = Headers;
+    }
+
+    /**
+     * Get 是否缓存请求body，默认true 
+     * @return RequestBuffering 是否缓存请求body，默认true
+     */
+    public Boolean getRequestBuffering() {
+        return this.RequestBuffering;
+    }
+
+    /**
+     * Set 是否缓存请求body，默认true
+     * @param RequestBuffering 是否缓存请求body，默认true
+     */
+    public void setRequestBuffering(Boolean RequestBuffering) {
+        this.RequestBuffering = RequestBuffering;
+    }
+
+    /**
+     * Get 是否缓存响应body，默认true 
+     * @return ResponseBuffering 是否缓存响应body，默认true
+     */
+    public Boolean getResponseBuffering() {
+        return this.ResponseBuffering;
+    }
+
+    /**
+     * Set 是否缓存响应body，默认true
+     * @param ResponseBuffering 是否缓存响应body，默认true
+     */
+    public void setResponseBuffering(Boolean ResponseBuffering) {
+        this.ResponseBuffering = ResponseBuffering;
+    }
+
+    /**
+     * Get 正则优先级 
+     * @return RegexPriority 正则优先级
+     */
+    public Long getRegexPriority() {
+        return this.RegexPriority;
+    }
+
+    /**
+     * Set 正则优先级
+     * @param RegexPriority 正则优先级
+     */
+    public void setRegexPriority(Long RegexPriority) {
+        this.RegexPriority = RegexPriority;
     }
 
     public KongRoutePreview() {
@@ -517,6 +532,15 @@ public class KongRoutePreview extends AbstractModel{
                 this.Headers[i] = new KVMapping(source.Headers[i]);
             }
         }
+        if (source.RequestBuffering != null) {
+            this.RequestBuffering = new Boolean(source.RequestBuffering);
+        }
+        if (source.ResponseBuffering != null) {
+            this.ResponseBuffering = new Boolean(source.ResponseBuffering);
+        }
+        if (source.RegexPriority != null) {
+            this.RegexPriority = new Long(source.RegexPriority);
+        }
     }
 
 
@@ -539,6 +563,9 @@ public class KongRoutePreview extends AbstractModel{
         this.setParamSimple(map, prefix + "ServiceID", this.ServiceID);
         this.setParamArraySimple(map, prefix + "DestinationPorts.", this.DestinationPorts);
         this.setParamArrayObj(map, prefix + "Headers.", this.Headers);
+        this.setParamSimple(map, prefix + "RequestBuffering", this.RequestBuffering);
+        this.setParamSimple(map, prefix + "ResponseBuffering", this.ResponseBuffering);
+        this.setParamSimple(map, prefix + "RegexPriority", this.RegexPriority);
 
     }
 }

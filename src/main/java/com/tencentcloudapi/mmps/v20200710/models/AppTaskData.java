@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mmps.v20200710.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AppTaskData extends AbstractModel{
+public class AppTaskData extends AbstractModel {
 
     /**
     * 任务id
@@ -45,7 +46,6 @@ public class AppTaskData extends AbstractModel{
 
     /**
     * 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskErrMsg")
     @Expose
@@ -81,7 +81,6 @@ public class AppTaskData extends AbstractModel{
 
     /**
     * 联系人信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContactName")
     @Expose
@@ -136,10 +135,8 @@ public class AppTaskData extends AbstractModel{
     }
 
     /**
-     * Get 错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误信息 
      * @return TaskErrMsg 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskErrMsg() {
         return this.TaskErrMsg;
@@ -147,9 +144,7 @@ public class AppTaskData extends AbstractModel{
 
     /**
      * Set 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskErrMsg 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskErrMsg(String TaskErrMsg) {
         this.TaskErrMsg = TaskErrMsg;
@@ -220,10 +215,8 @@ public class AppTaskData extends AbstractModel{
     }
 
     /**
-     * Get 联系人信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 联系人信息 
      * @return ContactName 联系人信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContactName() {
         return this.ContactName;
@@ -231,9 +224,7 @@ public class AppTaskData extends AbstractModel{
 
     /**
      * Set 联系人信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContactName 联系人信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContactName(String ContactName) {
         this.ContactName = ContactName;

@@ -16,11 +16,19 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyEventConfigRequest extends AbstractModel{
+public class ModifyEventConfigRequest extends AbstractModel {
+
+    /**
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
 
     /**
     * 接收事件通知的方式。
@@ -54,11 +62,27 @@ public class ModifyEventConfigRequest extends AbstractModel{
     private String DeleteMediaCompleteEventSwitch;
 
     /**
-    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+    * 是否接收剪辑固化完成事件通知，  默认 "OFF" 为忽略该事件通知，"ON" 为接收事件通知。
     */
-    @SerializedName("SubAppId")
+    @SerializedName("PersistenceCompleteEventSwitch")
     @Expose
-    private Long SubAppId;
+    private String PersistenceCompleteEventSwitch;
+
+    /**
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
+    }
 
     /**
      * Get 接收事件通知的方式。
@@ -137,19 +161,19 @@ public class ModifyEventConfigRequest extends AbstractModel{
     }
 
     /**
-     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
-     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * Get 是否接收剪辑固化完成事件通知，  默认 "OFF" 为忽略该事件通知，"ON" 为接收事件通知。 
+     * @return PersistenceCompleteEventSwitch 是否接收剪辑固化完成事件通知，  默认 "OFF" 为忽略该事件通知，"ON" 为接收事件通知。
      */
-    public Long getSubAppId() {
-        return this.SubAppId;
+    public String getPersistenceCompleteEventSwitch() {
+        return this.PersistenceCompleteEventSwitch;
     }
 
     /**
-     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+     * Set 是否接收剪辑固化完成事件通知，  默认 "OFF" 为忽略该事件通知，"ON" 为接收事件通知。
+     * @param PersistenceCompleteEventSwitch 是否接收剪辑固化完成事件通知，  默认 "OFF" 为忽略该事件通知，"ON" 为接收事件通知。
      */
-    public void setSubAppId(Long SubAppId) {
-        this.SubAppId = SubAppId;
+    public void setPersistenceCompleteEventSwitch(String PersistenceCompleteEventSwitch) {
+        this.PersistenceCompleteEventSwitch = PersistenceCompleteEventSwitch;
     }
 
     public ModifyEventConfigRequest() {
@@ -160,6 +184,9 @@ public class ModifyEventConfigRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public ModifyEventConfigRequest(ModifyEventConfigRequest source) {
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
         if (source.Mode != null) {
             this.Mode = new String(source.Mode);
         }
@@ -172,8 +199,8 @@ public class ModifyEventConfigRequest extends AbstractModel{
         if (source.DeleteMediaCompleteEventSwitch != null) {
             this.DeleteMediaCompleteEventSwitch = new String(source.DeleteMediaCompleteEventSwitch);
         }
-        if (source.SubAppId != null) {
-            this.SubAppId = new Long(source.SubAppId);
+        if (source.PersistenceCompleteEventSwitch != null) {
+            this.PersistenceCompleteEventSwitch = new String(source.PersistenceCompleteEventSwitch);
         }
     }
 
@@ -182,11 +209,12 @@ public class ModifyEventConfigRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
         this.setParamSimple(map, prefix + "Mode", this.Mode);
         this.setParamSimple(map, prefix + "NotificationUrl", this.NotificationUrl);
         this.setParamSimple(map, prefix + "UploadMediaCompleteEventSwitch", this.UploadMediaCompleteEventSwitch);
         this.setParamSimple(map, prefix + "DeleteMediaCompleteEventSwitch", this.DeleteMediaCompleteEventSwitch);
-        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
+        this.setParamSimple(map, prefix + "PersistenceCompleteEventSwitch", this.PersistenceCompleteEventSwitch);
 
     }
 }

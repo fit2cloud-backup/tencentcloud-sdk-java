@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBackupDownloadRestrictionResponse extends AbstractModel{
+public class DescribeBackupDownloadRestrictionResponse extends AbstractModel {
 
     /**
     * 下载备份文件的网络限制类型：
@@ -58,14 +59,14 @@ public class DescribeBackupDownloadRestrictionResponse extends AbstractModel{
     private BackupLimitVpcItem [] LimitVpc;
 
     /**
-    * 自定义的可下载备份文件的 VPC ID。当参数**LimitType**为**Customize **时，显示该参数。
+    * 自定义的可下载备份文件的 VPC IP 地址。当参数**LimitType**为**Customize **时，显示该参数。
     */
     @SerializedName("LimitIp")
     @Expose
     private String [] LimitIp;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -164,32 +165,32 @@ public class DescribeBackupDownloadRestrictionResponse extends AbstractModel{
     }
 
     /**
-     * Get 自定义的可下载备份文件的 VPC ID。当参数**LimitType**为**Customize **时，显示该参数。 
-     * @return LimitIp 自定义的可下载备份文件的 VPC ID。当参数**LimitType**为**Customize **时，显示该参数。
+     * Get 自定义的可下载备份文件的 VPC IP 地址。当参数**LimitType**为**Customize **时，显示该参数。 
+     * @return LimitIp 自定义的可下载备份文件的 VPC IP 地址。当参数**LimitType**为**Customize **时，显示该参数。
      */
     public String [] getLimitIp() {
         return this.LimitIp;
     }
 
     /**
-     * Set 自定义的可下载备份文件的 VPC ID。当参数**LimitType**为**Customize **时，显示该参数。
-     * @param LimitIp 自定义的可下载备份文件的 VPC ID。当参数**LimitType**为**Customize **时，显示该参数。
+     * Set 自定义的可下载备份文件的 VPC IP 地址。当参数**LimitType**为**Customize **时，显示该参数。
+     * @param LimitIp 自定义的可下载备份文件的 VPC IP 地址。当参数**LimitType**为**Customize **时，显示该参数。
      */
     public void setLimitIp(String [] LimitIp) {
         this.LimitIp = LimitIp;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

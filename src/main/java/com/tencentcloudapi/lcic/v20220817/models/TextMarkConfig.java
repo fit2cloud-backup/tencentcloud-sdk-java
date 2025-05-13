@@ -16,15 +16,15 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TextMarkConfig extends AbstractModel{
+public class TextMarkConfig extends AbstractModel {
 
     /**
     * 文字水印内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Text")
     @Expose
@@ -32,17 +32,14 @@ public class TextMarkConfig extends AbstractModel{
 
     /**
     * 文字水印颜色
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Color")
     @Expose
     private String Color;
 
     /**
-     * Get 文字水印内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文字水印内容 
      * @return Text 文字水印内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getText() {
         return this.Text;
@@ -50,19 +47,15 @@ public class TextMarkConfig extends AbstractModel{
 
     /**
      * Set 文字水印内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Text 文字水印内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setText(String Text) {
         this.Text = Text;
     }
 
     /**
-     * Get 文字水印颜色
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文字水印颜色 
      * @return Color 文字水印颜色
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getColor() {
         return this.Color;
@@ -70,9 +63,7 @@ public class TextMarkConfig extends AbstractModel{
 
     /**
      * Set 文字水印颜色
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Color 文字水印颜色
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setColor(String Color) {
         this.Color = Color;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TrainTicket extends AbstractModel{
+public class TrainTicket extends AbstractModel {
 
     /**
     * 发票名称
@@ -189,6 +190,20 @@ public class TrainTicket extends AbstractModel{
     @SerializedName("ReimburseOnlyMark")
     @Expose
     private Long ReimburseOnlyMark;
+
+    /**
+    * 是否有退票费标识（0：没有，1：有）
+    */
+    @SerializedName("RefundMark")
+    @Expose
+    private Long RefundMark;
+
+    /**
+    * 是否有改签费标识（0：没有，1：有）
+    */
+    @SerializedName("TicketChangeMark")
+    @Expose
+    private Long TicketChangeMark;
 
     /**
      * Get 发票名称 
@@ -574,6 +589,38 @@ public class TrainTicket extends AbstractModel{
         this.ReimburseOnlyMark = ReimburseOnlyMark;
     }
 
+    /**
+     * Get 是否有退票费标识（0：没有，1：有） 
+     * @return RefundMark 是否有退票费标识（0：没有，1：有）
+     */
+    public Long getRefundMark() {
+        return this.RefundMark;
+    }
+
+    /**
+     * Set 是否有退票费标识（0：没有，1：有）
+     * @param RefundMark 是否有退票费标识（0：没有，1：有）
+     */
+    public void setRefundMark(Long RefundMark) {
+        this.RefundMark = RefundMark;
+    }
+
+    /**
+     * Get 是否有改签费标识（0：没有，1：有） 
+     * @return TicketChangeMark 是否有改签费标识（0：没有，1：有）
+     */
+    public Long getTicketChangeMark() {
+        return this.TicketChangeMark;
+    }
+
+    /**
+     * Set 是否有改签费标识（0：没有，1：有）
+     * @param TicketChangeMark 是否有改签费标识（0：没有，1：有）
+     */
+    public void setTicketChangeMark(Long TicketChangeMark) {
+        this.TicketChangeMark = TicketChangeMark;
+    }
+
     public TrainTicket() {
     }
 
@@ -654,6 +701,12 @@ public class TrainTicket extends AbstractModel{
         if (source.ReimburseOnlyMark != null) {
             this.ReimburseOnlyMark = new Long(source.ReimburseOnlyMark);
         }
+        if (source.RefundMark != null) {
+            this.RefundMark = new Long(source.RefundMark);
+        }
+        if (source.TicketChangeMark != null) {
+            this.TicketChangeMark = new Long(source.TicketChangeMark);
+        }
     }
 
 
@@ -685,6 +738,8 @@ public class TrainTicket extends AbstractModel{
         this.setParamSimple(map, prefix + "ReceiptNumber", this.ReceiptNumber);
         this.setParamSimple(map, prefix + "QRCodeMark", this.QRCodeMark);
         this.setParamSimple(map, prefix + "ReimburseOnlyMark", this.ReimburseOnlyMark);
+        this.setParamSimple(map, prefix + "RefundMark", this.RefundMark);
+        this.setParamSimple(map, prefix + "TicketChangeMark", this.TicketChangeMark);
 
     }
 }

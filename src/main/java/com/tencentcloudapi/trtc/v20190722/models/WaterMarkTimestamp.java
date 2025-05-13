@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WaterMarkTimestamp extends AbstractModel{
+public class WaterMarkTimestamp extends AbstractModel {
 
     /**
     * 时间戳的位置，取值范围0-6，分别代表上左，上右，下左，下右，上居中，下居中，居中
@@ -35,6 +36,15 @@ public class WaterMarkTimestamp extends AbstractModel{
     @SerializedName("TimeZone")
     @Expose
     private Long TimeZone;
+
+    /**
+    * 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+    */
+    @SerializedName("Font")
+    @Expose
+    private String Font;
 
     /**
      * Get 时间戳的位置，取值范围0-6，分别代表上左，上右，下左，下右，上居中，下居中，居中 
@@ -68,6 +78,30 @@ public class WaterMarkTimestamp extends AbstractModel{
         this.TimeZone = TimeZone;
     }
 
+    /**
+     * Get 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans 
+     * @return Font 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+     */
+    public String getFont() {
+        return this.Font;
+    }
+
+    /**
+     * Set 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+     * @param Font 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+     */
+    public void setFont(String Font) {
+        this.Font = Font;
+    }
+
     public WaterMarkTimestamp() {
     }
 
@@ -82,6 +116,9 @@ public class WaterMarkTimestamp extends AbstractModel{
         if (source.TimeZone != null) {
             this.TimeZone = new Long(source.TimeZone);
         }
+        if (source.Font != null) {
+            this.Font = new String(source.Font);
+        }
     }
 
 
@@ -91,6 +128,7 @@ public class WaterMarkTimestamp extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Pos", this.Pos);
         this.setParamSimple(map, prefix + "TimeZone", this.TimeZone);
+        this.setParamSimple(map, prefix + "Font", this.Font);
 
     }
 }

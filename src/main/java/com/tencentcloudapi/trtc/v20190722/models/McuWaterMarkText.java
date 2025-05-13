@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class McuWaterMarkText extends AbstractModel{
+public class McuWaterMarkText extends AbstractModel {
 
     /**
     * 文字水印内容。
@@ -77,6 +78,27 @@ public class McuWaterMarkText extends AbstractModel{
     @SerializedName("BackGroundColor")
     @Expose
     private String BackGroundColor;
+
+    /**
+    * 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+    */
+    @SerializedName("DynamicPosType")
+    @Expose
+    private Long DynamicPosType;
+
+    /**
+    * 水印在输出时的层级，不填默认为0。
+    */
+    @SerializedName("ZOrder")
+    @Expose
+    private Long ZOrder;
+
+    /**
+    * 水印字体，不填默认为Tencent。支持设置以下值： Tencent （默认） SourceHanSans
+    */
+    @SerializedName("Font")
+    @Expose
+    private String Font;
 
     /**
      * Get 文字水印内容。 
@@ -206,6 +228,54 @@ public class McuWaterMarkText extends AbstractModel{
         this.BackGroundColor = BackGroundColor;
     }
 
+    /**
+     * Get 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。 
+     * @return DynamicPosType 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+     */
+    public Long getDynamicPosType() {
+        return this.DynamicPosType;
+    }
+
+    /**
+     * Set 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+     * @param DynamicPosType 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+     */
+    public void setDynamicPosType(Long DynamicPosType) {
+        this.DynamicPosType = DynamicPosType;
+    }
+
+    /**
+     * Get 水印在输出时的层级，不填默认为0。 
+     * @return ZOrder 水印在输出时的层级，不填默认为0。
+     */
+    public Long getZOrder() {
+        return this.ZOrder;
+    }
+
+    /**
+     * Set 水印在输出时的层级，不填默认为0。
+     * @param ZOrder 水印在输出时的层级，不填默认为0。
+     */
+    public void setZOrder(Long ZOrder) {
+        this.ZOrder = ZOrder;
+    }
+
+    /**
+     * Get 水印字体，不填默认为Tencent。支持设置以下值： Tencent （默认） SourceHanSans 
+     * @return Font 水印字体，不填默认为Tencent。支持设置以下值： Tencent （默认） SourceHanSans
+     */
+    public String getFont() {
+        return this.Font;
+    }
+
+    /**
+     * Set 水印字体，不填默认为Tencent。支持设置以下值： Tencent （默认） SourceHanSans
+     * @param Font 水印字体，不填默认为Tencent。支持设置以下值： Tencent （默认） SourceHanSans
+     */
+    public void setFont(String Font) {
+        this.Font = Font;
+    }
+
     public McuWaterMarkText() {
     }
 
@@ -238,6 +308,15 @@ public class McuWaterMarkText extends AbstractModel{
         if (source.BackGroundColor != null) {
             this.BackGroundColor = new String(source.BackGroundColor);
         }
+        if (source.DynamicPosType != null) {
+            this.DynamicPosType = new Long(source.DynamicPosType);
+        }
+        if (source.ZOrder != null) {
+            this.ZOrder = new Long(source.ZOrder);
+        }
+        if (source.Font != null) {
+            this.Font = new String(source.Font);
+        }
     }
 
 
@@ -253,6 +332,9 @@ public class McuWaterMarkText extends AbstractModel{
         this.setParamSimple(map, prefix + "FontSize", this.FontSize);
         this.setParamSimple(map, prefix + "FontColor", this.FontColor);
         this.setParamSimple(map, prefix + "BackGroundColor", this.BackGroundColor);
+        this.setParamSimple(map, prefix + "DynamicPosType", this.DynamicPosType);
+        this.setParamSimple(map, prefix + "ZOrder", this.ZOrder);
+        this.setParamSimple(map, prefix + "Font", this.Font);
 
     }
 }

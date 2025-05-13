@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MetricDataPoint extends AbstractModel{
+public class MetricDataPoint extends AbstractModel {
 
     /**
     * 数据点键
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Key")
     @Expose
@@ -32,7 +32,6 @@ public class MetricDataPoint extends AbstractModel{
 
     /**
     * 数据点值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -40,17 +39,14 @@ public class MetricDataPoint extends AbstractModel{
 
     /**
     * 数据点标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
     @Expose
     private String Tag;
 
     /**
-     * Get 数据点键
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据点键 
      * @return Key 数据点键
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKey() {
         return this.Key;
@@ -58,19 +54,15 @@ public class MetricDataPoint extends AbstractModel{
 
     /**
      * Set 数据点键
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Key 数据点键
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKey(String Key) {
         this.Key = Key;
     }
 
     /**
-     * Get 数据点值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据点值 
      * @return Value 数据点值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -78,19 +70,15 @@ public class MetricDataPoint extends AbstractModel{
 
     /**
      * Set 数据点值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 数据点值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;
     }
 
     /**
-     * Get 数据点标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据点标签 
      * @return Tag 数据点标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTag() {
         return this.Tag;
@@ -98,9 +86,7 @@ public class MetricDataPoint extends AbstractModel{
 
     /**
      * Set 数据点标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tag 数据点标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(String Tag) {
         this.Tag = Tag;

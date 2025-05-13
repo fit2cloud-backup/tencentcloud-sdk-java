@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeInstanceRequest extends AbstractModel{
+public class UpgradeInstanceRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -49,6 +50,13 @@ public class UpgradeInstanceRequest extends AbstractModel{
     @SerializedName("UpgradeType")
     @Expose
     private String UpgradeType;
+
+    /**
+    * 实例机器类型
+    */
+    @SerializedName("DeviceType")
+    @Expose
+    private String DeviceType;
 
     /**
     * 该参数已废弃
@@ -84,6 +92,13 @@ public class UpgradeInstanceRequest extends AbstractModel{
     @SerializedName("UpgradeMode")
     @Expose
     private String UpgradeMode;
+
+    /**
+    * proxy同步升级
+    */
+    @SerializedName("UpgradeProxy")
+    @Expose
+    private UpgradeProxy UpgradeProxy;
 
     /**
      * Get 实例ID 
@@ -147,6 +162,22 @@ public class UpgradeInstanceRequest extends AbstractModel{
      */
     public void setUpgradeType(String UpgradeType) {
         this.UpgradeType = UpgradeType;
+    }
+
+    /**
+     * Get 实例机器类型 
+     * @return DeviceType 实例机器类型
+     */
+    public String getDeviceType() {
+        return this.DeviceType;
+    }
+
+    /**
+     * Set 实例机器类型
+     * @param DeviceType 实例机器类型
+     */
+    public void setDeviceType(String DeviceType) {
+        this.DeviceType = DeviceType;
     }
 
     /**
@@ -229,6 +260,22 @@ public class UpgradeInstanceRequest extends AbstractModel{
         this.UpgradeMode = UpgradeMode;
     }
 
+    /**
+     * Get proxy同步升级 
+     * @return UpgradeProxy proxy同步升级
+     */
+    public UpgradeProxy getUpgradeProxy() {
+        return this.UpgradeProxy;
+    }
+
+    /**
+     * Set proxy同步升级
+     * @param UpgradeProxy proxy同步升级
+     */
+    public void setUpgradeProxy(UpgradeProxy UpgradeProxy) {
+        this.UpgradeProxy = UpgradeProxy;
+    }
+
     public UpgradeInstanceRequest() {
     }
 
@@ -249,6 +296,9 @@ public class UpgradeInstanceRequest extends AbstractModel{
         if (source.UpgradeType != null) {
             this.UpgradeType = new String(source.UpgradeType);
         }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
         if (source.StorageLimit != null) {
             this.StorageLimit = new Long(source.StorageLimit);
         }
@@ -264,6 +314,9 @@ public class UpgradeInstanceRequest extends AbstractModel{
         if (source.UpgradeMode != null) {
             this.UpgradeMode = new String(source.UpgradeMode);
         }
+        if (source.UpgradeProxy != null) {
+            this.UpgradeProxy = new UpgradeProxy(source.UpgradeProxy);
+        }
     }
 
 
@@ -275,11 +328,13 @@ public class UpgradeInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "Memory", this.Memory);
         this.setParamSimple(map, prefix + "UpgradeType", this.UpgradeType);
+        this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
         this.setParamSimple(map, prefix + "StorageLimit", this.StorageLimit);
         this.setParamSimple(map, prefix + "AutoVoucher", this.AutoVoucher);
         this.setParamSimple(map, prefix + "DbType", this.DbType);
         this.setParamSimple(map, prefix + "DealMode", this.DealMode);
         this.setParamSimple(map, prefix + "UpgradeMode", this.UpgradeMode);
+        this.setParamObj(map, prefix + "UpgradeProxy.", this.UpgradeProxy);
 
     }
 }

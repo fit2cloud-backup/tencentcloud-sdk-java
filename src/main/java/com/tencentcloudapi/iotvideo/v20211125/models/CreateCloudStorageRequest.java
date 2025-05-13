@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotvideo.v20211125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCloudStorageRequest extends AbstractModel{
+public class CreateCloudStorageRequest extends AbstractModel {
 
     /**
     * 产品ID
@@ -83,6 +84,20 @@ lye1y30d：低功耗事件30天年套餐。
     @SerializedName("OrderId")
     @Expose
     private String OrderId;
+
+    /**
+    * 通道ID
+    */
+    @SerializedName("ChannelId")
+    @Expose
+    private Long ChannelId;
+
+    /**
+    * 云存视频存储区域，国内默认为ap-guangzhou。海外默认为东南亚ap-singapore，可选美东na-ashburn、欧洲eu-frankfurt。
+    */
+    @SerializedName("StorageRegion")
+    @Expose
+    private String StorageRegion;
 
     /**
      * Get 产品ID 
@@ -260,6 +275,38 @@ lye1y30d：低功耗事件30天年套餐。
         this.OrderId = OrderId;
     }
 
+    /**
+     * Get 通道ID 
+     * @return ChannelId 通道ID
+     */
+    public Long getChannelId() {
+        return this.ChannelId;
+    }
+
+    /**
+     * Set 通道ID
+     * @param ChannelId 通道ID
+     */
+    public void setChannelId(Long ChannelId) {
+        this.ChannelId = ChannelId;
+    }
+
+    /**
+     * Get 云存视频存储区域，国内默认为ap-guangzhou。海外默认为东南亚ap-singapore，可选美东na-ashburn、欧洲eu-frankfurt。 
+     * @return StorageRegion 云存视频存储区域，国内默认为ap-guangzhou。海外默认为东南亚ap-singapore，可选美东na-ashburn、欧洲eu-frankfurt。
+     */
+    public String getStorageRegion() {
+        return this.StorageRegion;
+    }
+
+    /**
+     * Set 云存视频存储区域，国内默认为ap-guangzhou。海外默认为东南亚ap-singapore，可选美东na-ashburn、欧洲eu-frankfurt。
+     * @param StorageRegion 云存视频存储区域，国内默认为ap-guangzhou。海外默认为东南亚ap-singapore，可选美东na-ashburn、欧洲eu-frankfurt。
+     */
+    public void setStorageRegion(String StorageRegion) {
+        this.StorageRegion = StorageRegion;
+    }
+
     public CreateCloudStorageRequest() {
     }
 
@@ -286,6 +333,12 @@ lye1y30d：低功耗事件30天年套餐。
         if (source.OrderId != null) {
             this.OrderId = new String(source.OrderId);
         }
+        if (source.ChannelId != null) {
+            this.ChannelId = new Long(source.ChannelId);
+        }
+        if (source.StorageRegion != null) {
+            this.StorageRegion = new String(source.StorageRegion);
+        }
     }
 
 
@@ -299,6 +352,8 @@ lye1y30d：低功耗事件30天年套餐。
         this.setParamSimple(map, prefix + "Override", this.Override);
         this.setParamSimple(map, prefix + "PackageQueue", this.PackageQueue);
         this.setParamSimple(map, prefix + "OrderId", this.OrderId);
+        this.setParamSimple(map, prefix + "ChannelId", this.ChannelId);
+        this.setParamSimple(map, prefix + "StorageRegion", this.StorageRegion);
 
     }
 }

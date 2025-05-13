@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScheduledSqlTaskInfo extends AbstractModel{
+public class ScheduledSqlTaskInfo extends AbstractModel {
 
     /**
     * ScheduledSql任务id
@@ -145,11 +146,17 @@ public class ScheduledSqlTaskInfo extends AbstractModel{
 
     /**
     * 语法规则，0：Lucene语法，1：CQL语法
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SyntaxRule")
     @Expose
     private Long SyntaxRule;
+
+    /**
+    * 是否开启投递服务日志。1：关闭，2：开启。
+    */
+    @SerializedName("HasServicesLog")
+    @Expose
+    private Long HasServicesLog;
 
     /**
      * Get ScheduledSql任务id 
@@ -432,10 +439,8 @@ public class ScheduledSqlTaskInfo extends AbstractModel{
     }
 
     /**
-     * Get 语法规则，0：Lucene语法，1：CQL语法
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语法规则，0：Lucene语法，1：CQL语法 
      * @return SyntaxRule 语法规则，0：Lucene语法，1：CQL语法
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSyntaxRule() {
         return this.SyntaxRule;
@@ -443,12 +448,26 @@ public class ScheduledSqlTaskInfo extends AbstractModel{
 
     /**
      * Set 语法规则，0：Lucene语法，1：CQL语法
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SyntaxRule 语法规则，0：Lucene语法，1：CQL语法
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSyntaxRule(Long SyntaxRule) {
         this.SyntaxRule = SyntaxRule;
+    }
+
+    /**
+     * Get 是否开启投递服务日志。1：关闭，2：开启。 
+     * @return HasServicesLog 是否开启投递服务日志。1：关闭，2：开启。
+     */
+    public Long getHasServicesLog() {
+        return this.HasServicesLog;
+    }
+
+    /**
+     * Set 是否开启投递服务日志。1：关闭，2：开启。
+     * @param HasServicesLog 是否开启投递服务日志。1：关闭，2：开启。
+     */
+    public void setHasServicesLog(Long HasServicesLog) {
+        this.HasServicesLog = HasServicesLog;
     }
 
     public ScheduledSqlTaskInfo() {
@@ -513,6 +532,9 @@ public class ScheduledSqlTaskInfo extends AbstractModel{
         if (source.SyntaxRule != null) {
             this.SyntaxRule = new Long(source.SyntaxRule);
         }
+        if (source.HasServicesLog != null) {
+            this.HasServicesLog = new Long(source.HasServicesLog);
+        }
     }
 
 
@@ -538,6 +560,7 @@ public class ScheduledSqlTaskInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ProcessDelay", this.ProcessDelay);
         this.setParamSimple(map, prefix + "SrcTopicRegion", this.SrcTopicRegion);
         this.setParamSimple(map, prefix + "SyntaxRule", this.SyntaxRule);
+        this.setParamSimple(map, prefix + "HasServicesLog", this.HasServicesLog);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNamespaceBundlesOptResponse extends AbstractModel{
+public class DescribeNamespaceBundlesOptResponse extends AbstractModel {
 
     /**
     * 记录条数
@@ -30,14 +31,7 @@ public class DescribeNamespaceBundlesOptResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * bundle列表
-    */
-    @SerializedName("BundleSet")
-    @Expose
-    private BundleSetOpt [] BundleSet;
-
-    /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -60,32 +54,16 @@ public class DescribeNamespaceBundlesOptResponse extends AbstractModel{
     }
 
     /**
-     * Get bundle列表 
-     * @return BundleSet bundle列表
-     */
-    public BundleSetOpt [] getBundleSet() {
-        return this.BundleSet;
-    }
-
-    /**
-     * Set bundle列表
-     * @param BundleSet bundle列表
-     */
-    public void setBundleSet(BundleSetOpt [] BundleSet) {
-        this.BundleSet = BundleSet;
-    }
-
-    /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -102,12 +80,6 @@ public class DescribeNamespaceBundlesOptResponse extends AbstractModel{
         if (source.TotalCount != null) {
             this.TotalCount = new Long(source.TotalCount);
         }
-        if (source.BundleSet != null) {
-            this.BundleSet = new BundleSetOpt[source.BundleSet.length];
-            for (int i = 0; i < source.BundleSet.length; i++) {
-                this.BundleSet[i] = new BundleSetOpt(source.BundleSet[i]);
-            }
-        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -119,7 +91,6 @@ public class DescribeNamespaceBundlesOptResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
-        this.setParamArrayObj(map, prefix + "BundleSet.", this.BundleSet);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

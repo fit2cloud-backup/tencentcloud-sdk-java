@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScanVulRequest extends AbstractModel{
+public class ScanVulRequest extends AbstractModel {
 
     /**
     * 危害等级：1-低危；2-中危；3-高危；4-严重 (多选英文;分隔)
@@ -70,6 +71,13 @@ public class ScanVulRequest extends AbstractModel{
     @SerializedName("VulIds")
     @Expose
     private Long [] VulIds;
+
+    /**
+    * 0版本比对，2版本比对+poc
+    */
+    @SerializedName("ScanMethod")
+    @Expose
+    private Long ScanMethod;
 
     /**
      * Get 危害等级：1-低危；2-中危；3-高危；4-严重 (多选英文;分隔) 
@@ -183,6 +191,22 @@ public class ScanVulRequest extends AbstractModel{
         this.VulIds = VulIds;
     }
 
+    /**
+     * Get 0版本比对，2版本比对+poc 
+     * @return ScanMethod 0版本比对，2版本比对+poc
+     */
+    public Long getScanMethod() {
+        return this.ScanMethod;
+    }
+
+    /**
+     * Set 0版本比对，2版本比对+poc
+     * @param ScanMethod 0版本比对，2版本比对+poc
+     */
+    public void setScanMethod(Long ScanMethod) {
+        this.ScanMethod = ScanMethod;
+    }
+
     public ScanVulRequest() {
     }
 
@@ -218,6 +242,9 @@ public class ScanVulRequest extends AbstractModel{
                 this.VulIds[i] = new Long(source.VulIds[i]);
             }
         }
+        if (source.ScanMethod != null) {
+            this.ScanMethod = new Long(source.ScanMethod);
+        }
     }
 
 
@@ -232,6 +259,7 @@ public class ScanVulRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VulEmergency", this.VulEmergency);
         this.setParamSimple(map, prefix + "TimeoutPeriod", this.TimeoutPeriod);
         this.setParamArraySimple(map, prefix + "VulIds.", this.VulIds);
+        this.setParamSimple(map, prefix + "ScanMethod", this.ScanMethod);
 
     }
 }

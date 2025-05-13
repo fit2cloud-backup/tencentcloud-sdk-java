@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterBasicSettings extends AbstractModel{
+public class ClusterBasicSettings extends AbstractModel {
 
     /**
     * 集群操作系统，支持设置公共镜像(字段传相应镜像Name)和自定义镜像(字段传相应镜像ID)，详情参考：https://cloud.tencent.com/document/product/457/68289
@@ -51,7 +52,7 @@ public class ClusterBasicSettings extends AbstractModel{
     private String ClusterDescription;
 
     /**
-    * 私有网络ID，形如vpc-xxx。创建托管空集群时必传。
+    * 私有网络ID，形如vpc-e55paxnt。创建托管空集群时必传。
     */
     @SerializedName("VpcId")
     @Expose
@@ -171,16 +172,16 @@ public class ClusterBasicSettings extends AbstractModel{
     }
 
     /**
-     * Get 私有网络ID，形如vpc-xxx。创建托管空集群时必传。 
-     * @return VpcId 私有网络ID，形如vpc-xxx。创建托管空集群时必传。
+     * Get 私有网络ID，形如vpc-e55paxnt。创建托管空集群时必传。 
+     * @return VpcId 私有网络ID，形如vpc-e55paxnt。创建托管空集群时必传。
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set 私有网络ID，形如vpc-xxx。创建托管空集群时必传。
-     * @param VpcId 私有网络ID，形如vpc-xxx。创建托管空集群时必传。
+     * Set 私有网络ID，形如vpc-e55paxnt。创建托管空集群时必传。
+     * @param VpcId 私有网络ID，形如vpc-e55paxnt。创建托管空集群时必传。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;

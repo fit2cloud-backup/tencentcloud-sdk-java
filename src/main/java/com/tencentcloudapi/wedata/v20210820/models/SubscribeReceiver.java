@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SubscribeReceiver extends AbstractModel{
+public class SubscribeReceiver extends AbstractModel {
 
     /**
     * 接收人Uin
@@ -37,6 +38,14 @@ public class SubscribeReceiver extends AbstractModel{
     @SerializedName("ReceiverName")
     @Expose
     private String ReceiverName;
+
+    /**
+    * 接收人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReceiverUserIdStr")
+    @Expose
+    private String ReceiverUserIdStr;
 
     /**
      * Get 接收人Uin
@@ -78,6 +87,26 @@ public class SubscribeReceiver extends AbstractModel{
         this.ReceiverName = ReceiverName;
     }
 
+    /**
+     * Get 接收人Uin
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReceiverUserIdStr 接收人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getReceiverUserIdStr() {
+        return this.ReceiverUserIdStr;
+    }
+
+    /**
+     * Set 接收人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReceiverUserIdStr 接收人Uin
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReceiverUserIdStr(String ReceiverUserIdStr) {
+        this.ReceiverUserIdStr = ReceiverUserIdStr;
+    }
+
     public SubscribeReceiver() {
     }
 
@@ -92,6 +121,9 @@ public class SubscribeReceiver extends AbstractModel{
         if (source.ReceiverName != null) {
             this.ReceiverName = new String(source.ReceiverName);
         }
+        if (source.ReceiverUserIdStr != null) {
+            this.ReceiverUserIdStr = new String(source.ReceiverUserIdStr);
+        }
     }
 
 
@@ -101,6 +133,7 @@ public class SubscribeReceiver extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ReceiverUserId", this.ReceiverUserId);
         this.setParamSimple(map, prefix + "ReceiverName", this.ReceiverName);
+        this.setParamSimple(map, prefix + "ReceiverUserIdStr", this.ReceiverUserIdStr);
 
     }
 }

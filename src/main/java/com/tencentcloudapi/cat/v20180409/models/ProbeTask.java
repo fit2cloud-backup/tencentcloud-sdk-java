@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cat.v20180409.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProbeTask extends AbstractModel{
+public class ProbeTask extends AbstractModel {
 
     /**
     * 任务名
@@ -60,7 +61,15 @@ public class ProbeTask extends AbstractModel{
     private String [] Nodes;
 
     /**
-    * 拨测间隔
+    * 拨测任务所选的拨测点IP类型，0-不限，1-IPv4，2-IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NodeIpType")
+    @Expose
+    private Long NodeIpType;
+
+    /**
+    * 拨测间隔，单位为分钟
     */
     @SerializedName("Interval")
     @Expose
@@ -156,6 +165,14 @@ public class ProbeTask extends AbstractModel{
     @SerializedName("TagInfoList")
     @Expose
     private KeyValuePair [] TagInfoList;
+
+    /**
+    * 是否为同步账号
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubSyncFlag")
+    @Expose
+    private Long SubSyncFlag;
 
     /**
      * Get 任务名
@@ -258,16 +275,36 @@ public class ProbeTask extends AbstractModel{
     }
 
     /**
-     * Get 拨测间隔 
-     * @return Interval 拨测间隔
+     * Get 拨测任务所选的拨测点IP类型，0-不限，1-IPv4，2-IPv6
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NodeIpType 拨测任务所选的拨测点IP类型，0-不限，1-IPv4，2-IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getNodeIpType() {
+        return this.NodeIpType;
+    }
+
+    /**
+     * Set 拨测任务所选的拨测点IP类型，0-不限，1-IPv4，2-IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NodeIpType 拨测任务所选的拨测点IP类型，0-不限，1-IPv4，2-IPv6
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNodeIpType(Long NodeIpType) {
+        this.NodeIpType = NodeIpType;
+    }
+
+    /**
+     * Get 拨测间隔，单位为分钟 
+     * @return Interval 拨测间隔，单位为分钟
      */
     public Long getInterval() {
         return this.Interval;
     }
 
     /**
-     * Set 拨测间隔
-     * @param Interval 拨测间隔
+     * Set 拨测间隔，单位为分钟
+     * @param Interval 拨测间隔，单位为分钟
      */
     public void setInterval(Long Interval) {
         this.Interval = Interval;
@@ -517,6 +554,26 @@ public class ProbeTask extends AbstractModel{
         this.TagInfoList = TagInfoList;
     }
 
+    /**
+     * Get 是否为同步账号
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubSyncFlag 是否为同步账号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getSubSyncFlag() {
+        return this.SubSyncFlag;
+    }
+
+    /**
+     * Set 是否为同步账号
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubSyncFlag 是否为同步账号
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubSyncFlag(Long SubSyncFlag) {
+        this.SubSyncFlag = SubSyncFlag;
+    }
+
     public ProbeTask() {
     }
 
@@ -539,6 +596,9 @@ public class ProbeTask extends AbstractModel{
             for (int i = 0; i < source.Nodes.length; i++) {
                 this.Nodes[i] = new String(source.Nodes[i]);
             }
+        }
+        if (source.NodeIpType != null) {
+            this.NodeIpType = new Long(source.NodeIpType);
         }
         if (source.Interval != null) {
             this.Interval = new Long(source.Interval);
@@ -576,6 +636,9 @@ public class ProbeTask extends AbstractModel{
                 this.TagInfoList[i] = new KeyValuePair(source.TagInfoList[i]);
             }
         }
+        if (source.SubSyncFlag != null) {
+            this.SubSyncFlag = new Long(source.SubSyncFlag);
+        }
     }
 
 
@@ -587,6 +650,7 @@ public class ProbeTask extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamArraySimple(map, prefix + "Nodes.", this.Nodes);
+        this.setParamSimple(map, prefix + "NodeIpType", this.NodeIpType);
         this.setParamSimple(map, prefix + "Interval", this.Interval);
         this.setParamSimple(map, prefix + "Parameters", this.Parameters);
         this.setParamSimple(map, prefix + "Status", this.Status);
@@ -598,6 +662,7 @@ public class ProbeTask extends AbstractModel{
         this.setParamSimple(map, prefix + "Cron", this.Cron);
         this.setParamSimple(map, prefix + "CronState", this.CronState);
         this.setParamArrayObj(map, prefix + "TagInfoList.", this.TagInfoList);
+        this.setParamSimple(map, prefix + "SubSyncFlag", this.SubSyncFlag);
 
     }
 }

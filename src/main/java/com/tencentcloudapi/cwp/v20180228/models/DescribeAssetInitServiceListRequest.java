@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetInitServiceListRequest extends AbstractModel{
+public class DescribeAssetInitServiceListRequest extends AbstractModel {
 
     /**
     * 服务器Uuid
@@ -38,9 +39,12 @@ public class DescribeAssetInitServiceListRequest extends AbstractModel{
 
     /**
     * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -124,9 +128,12 @@ public class DescribeAssetInitServiceListRequest extends AbstractModel{
 
     /**
      * Get 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -144,9 +151,12 @@ public class DescribeAssetInitServiceListRequest extends AbstractModel{
 13:驱动服务
 14:登录</li> 
      * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -170,9 +180,12 @@ public class DescribeAssetInitServiceListRequest extends AbstractModel{
 
     /**
      * Set 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -190,9 +203,12 @@ public class DescribeAssetInitServiceListRequest extends AbstractModel{
 13:驱动服务
 14:登录</li>
      * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZoneSetting extends AbstractModel{
+public class ZoneSetting extends AbstractModel {
 
     /**
     * 站点名称。
@@ -205,6 +206,14 @@ public class ZoneSetting extends AbstractModel{
     @SerializedName("StandardDebug")
     @Expose
     private StandardDebug StandardDebug;
+
+    /**
+    * 视频即时处理配置。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("JITVideoProcess")
+    @Expose
+    private JITVideoProcess JITVideoProcess;
 
     /**
      * Get 站点名称。 
@@ -666,6 +675,26 @@ public class ZoneSetting extends AbstractModel{
         this.StandardDebug = StandardDebug;
     }
 
+    /**
+     * Get 视频即时处理配置。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return JITVideoProcess 视频即时处理配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public JITVideoProcess getJITVideoProcess() {
+        return this.JITVideoProcess;
+    }
+
+    /**
+     * Set 视频即时处理配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param JITVideoProcess 视频即时处理配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setJITVideoProcess(JITVideoProcess JITVideoProcess) {
+        this.JITVideoProcess = JITVideoProcess;
+    }
+
     public ZoneSetting() {
     }
 
@@ -743,6 +772,9 @@ public class ZoneSetting extends AbstractModel{
         if (source.StandardDebug != null) {
             this.StandardDebug = new StandardDebug(source.StandardDebug);
         }
+        if (source.JITVideoProcess != null) {
+            this.JITVideoProcess = new JITVideoProcess(source.JITVideoProcess);
+        }
     }
 
 
@@ -773,6 +805,7 @@ public class ZoneSetting extends AbstractModel{
         this.setParamObj(map, prefix + "ImageOptimize.", this.ImageOptimize);
         this.setParamObj(map, prefix + "AccelerateMainland.", this.AccelerateMainland);
         this.setParamObj(map, prefix + "StandardDebug.", this.StandardDebug);
+        this.setParamObj(map, prefix + "JITVideoProcess.", this.JITVideoProcess);
 
     }
 }

@@ -16,18 +16,26 @@
 package com.tencentcloudapi.cfg.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskMonitor extends AbstractModel{
+public class TaskMonitor extends AbstractModel {
 
     /**
-    * 监控指标ID
+    * 演练监控指标ID
     */
     @SerializedName("TaskMonitorId")
     @Expose
     private Long TaskMonitorId;
+
+    /**
+    * 监控指标ID
+    */
+    @SerializedName("MetricId")
+    @Expose
+    private Long MetricId;
 
     /**
     * 监控指标对象类型ID
@@ -52,7 +60,6 @@ public class TaskMonitor extends AbstractModel{
 
     /**
     * 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MetricChineseName")
     @Expose
@@ -60,26 +67,41 @@ public class TaskMonitor extends AbstractModel{
 
     /**
     * 单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Unit")
     @Expose
     private String Unit;
 
     /**
-     * Get 监控指标ID 
-     * @return TaskMonitorId 监控指标ID
+     * Get 演练监控指标ID 
+     * @return TaskMonitorId 演练监控指标ID
      */
     public Long getTaskMonitorId() {
         return this.TaskMonitorId;
     }
 
     /**
-     * Set 监控指标ID
-     * @param TaskMonitorId 监控指标ID
+     * Set 演练监控指标ID
+     * @param TaskMonitorId 演练监控指标ID
      */
     public void setTaskMonitorId(Long TaskMonitorId) {
         this.TaskMonitorId = TaskMonitorId;
+    }
+
+    /**
+     * Get 监控指标ID 
+     * @return MetricId 监控指标ID
+     */
+    public Long getMetricId() {
+        return this.MetricId;
+    }
+
+    /**
+     * Set 监控指标ID
+     * @param MetricId 监控指标ID
+     */
+    public void setMetricId(Long MetricId) {
+        this.MetricId = MetricId;
     }
 
     /**
@@ -131,10 +153,8 @@ public class TaskMonitor extends AbstractModel{
     }
 
     /**
-     * Get 中文指标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 中文指标 
      * @return MetricChineseName 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMetricChineseName() {
         return this.MetricChineseName;
@@ -142,19 +162,15 @@ public class TaskMonitor extends AbstractModel{
 
     /**
      * Set 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MetricChineseName 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetricChineseName(String MetricChineseName) {
         this.MetricChineseName = MetricChineseName;
     }
 
     /**
-     * Get 单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 单位 
      * @return Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnit() {
         return this.Unit;
@@ -162,9 +178,7 @@ public class TaskMonitor extends AbstractModel{
 
     /**
      * Set 单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnit(String Unit) {
         this.Unit = Unit;
@@ -180,6 +194,9 @@ public class TaskMonitor extends AbstractModel{
     public TaskMonitor(TaskMonitor source) {
         if (source.TaskMonitorId != null) {
             this.TaskMonitorId = new Long(source.TaskMonitorId);
+        }
+        if (source.MetricId != null) {
+            this.MetricId = new Long(source.MetricId);
         }
         if (source.TaskMonitorObjectTypeId != null) {
             this.TaskMonitorObjectTypeId = new Long(source.TaskMonitorObjectTypeId);
@@ -207,6 +224,7 @@ public class TaskMonitor extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskMonitorId", this.TaskMonitorId);
+        this.setParamSimple(map, prefix + "MetricId", this.MetricId);
         this.setParamSimple(map, prefix + "TaskMonitorObjectTypeId", this.TaskMonitorObjectTypeId);
         this.setParamSimple(map, prefix + "MetricName", this.MetricName);
         this.setParamArraySimple(map, prefix + "InstancesIds.", this.InstancesIds);

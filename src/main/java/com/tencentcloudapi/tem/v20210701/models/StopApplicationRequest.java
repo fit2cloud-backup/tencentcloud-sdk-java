@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StopApplicationRequest extends AbstractModel{
+public class StopApplicationRequest extends AbstractModel {
 
     /**
     * 服务id
@@ -30,18 +31,18 @@ public class StopApplicationRequest extends AbstractModel{
     private String ApplicationId;
 
     /**
+    * 环境ID/命名空间ID
+    */
+    @SerializedName("EnvironmentId")
+    @Expose
+    private String EnvironmentId;
+
+    /**
     * 来源渠道
     */
     @SerializedName("SourceChannel")
     @Expose
     private Long SourceChannel;
-
-    /**
-    * 环境ID
-    */
-    @SerializedName("EnvironmentId")
-    @Expose
-    private String EnvironmentId;
 
     /**
      * Get 服务id 
@@ -60,6 +61,22 @@ public class StopApplicationRequest extends AbstractModel{
     }
 
     /**
+     * Get 环境ID/命名空间ID 
+     * @return EnvironmentId 环境ID/命名空间ID
+     */
+    public String getEnvironmentId() {
+        return this.EnvironmentId;
+    }
+
+    /**
+     * Set 环境ID/命名空间ID
+     * @param EnvironmentId 环境ID/命名空间ID
+     */
+    public void setEnvironmentId(String EnvironmentId) {
+        this.EnvironmentId = EnvironmentId;
+    }
+
+    /**
      * Get 来源渠道 
      * @return SourceChannel 来源渠道
      */
@@ -75,22 +92,6 @@ public class StopApplicationRequest extends AbstractModel{
         this.SourceChannel = SourceChannel;
     }
 
-    /**
-     * Get 环境ID 
-     * @return EnvironmentId 环境ID
-     */
-    public String getEnvironmentId() {
-        return this.EnvironmentId;
-    }
-
-    /**
-     * Set 环境ID
-     * @param EnvironmentId 环境ID
-     */
-    public void setEnvironmentId(String EnvironmentId) {
-        this.EnvironmentId = EnvironmentId;
-    }
-
     public StopApplicationRequest() {
     }
 
@@ -102,11 +103,11 @@ public class StopApplicationRequest extends AbstractModel{
         if (source.ApplicationId != null) {
             this.ApplicationId = new String(source.ApplicationId);
         }
-        if (source.SourceChannel != null) {
-            this.SourceChannel = new Long(source.SourceChannel);
-        }
         if (source.EnvironmentId != null) {
             this.EnvironmentId = new String(source.EnvironmentId);
+        }
+        if (source.SourceChannel != null) {
+            this.SourceChannel = new Long(source.SourceChannel);
         }
     }
 
@@ -116,8 +117,8 @@ public class StopApplicationRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
-        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
+        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
 
     }
 }

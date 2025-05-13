@@ -16,11 +16,12 @@
 package com.tencentcloudapi.bma.v20221115.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FakeURLData extends AbstractModel{
+public class FakeURLData extends AbstractModel {
 
     /**
     * 仿冒网址id
@@ -205,6 +206,14 @@ public class FakeURLData extends AbstractModel{
     @SerializedName("AuditStatus")
     @Expose
     private Long AuditStatus;
+
+    /**
+    * 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OfflineTime")
+    @Expose
+    private String OfflineTime;
 
     /**
      * Get 仿冒网址id
@@ -666,6 +675,26 @@ public class FakeURLData extends AbstractModel{
         this.AuditStatus = AuditStatus;
     }
 
+    /**
+     * Get 下线时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OfflineTime 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOfflineTime() {
+        return this.OfflineTime;
+    }
+
+    /**
+     * Set 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OfflineTime 下线时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOfflineTime(String OfflineTime) {
+        this.OfflineTime = OfflineTime;
+    }
+
     public FakeURLData() {
     }
 
@@ -743,6 +772,9 @@ public class FakeURLData extends AbstractModel{
         if (source.AuditStatus != null) {
             this.AuditStatus = new Long(source.AuditStatus);
         }
+        if (source.OfflineTime != null) {
+            this.OfflineTime = new String(source.OfflineTime);
+        }
     }
 
 
@@ -773,6 +805,7 @@ public class FakeURLData extends AbstractModel{
         this.setParamSimple(map, prefix + "Snapshot", this.Snapshot);
         this.setParamSimple(map, prefix + "AccountStatus", this.AccountStatus);
         this.setParamSimple(map, prefix + "AuditStatus", this.AuditStatus);
+        this.setParamSimple(map, prefix + "OfflineTime", this.OfflineTime);
 
     }
 }

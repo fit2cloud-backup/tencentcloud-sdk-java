@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FileSystemInfo extends AbstractModel{
+public class FileSystemInfo extends AbstractModel {
 
     /**
     * 创建时间
@@ -57,14 +58,14 @@ public class FileSystemInfo extends AbstractModel{
     private String LifeCycleState;
 
     /**
-    * 文件系统已使用容量,单位Byte
+    * 文件系统已使用容量。单位：Byte
     */
     @SerializedName("SizeByte")
     @Expose
     private Long SizeByte;
 
     /**
-    * 文件系统最大空间限制,GiB
+    * 文件系统空间限制。单位:GiB
     */
     @SerializedName("SizeLimit")
     @Expose
@@ -155,7 +156,22 @@ public class FileSystemInfo extends AbstractModel{
     private Float BandwidthLimit;
 
     /**
-    * 文件系统总容量
+    * 文件系统关联的快照策略
+    */
+    @SerializedName("AutoSnapshotPolicyId")
+    @Expose
+    private String AutoSnapshotPolicyId;
+
+    /**
+    * 文件系统处理快照状态
+    */
+    @SerializedName("SnapStatus")
+    @Expose
+    private String SnapStatus;
+
+    /**
+    * 文件系统容量规格上限
+单位:GiB
     */
     @SerializedName("Capacity")
     @Expose
@@ -179,11 +195,24 @@ Available:可用
 
     /**
     * 分层存储详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TieringDetail")
     @Expose
     private TieringDetailInfo TieringDetail;
+
+    /**
+    * 文件系统自动扩容策略
+    */
+    @SerializedName("AutoScaleUpRule")
+    @Expose
+    private AutoScaleUpRule AutoScaleUpRule;
+
+    /**
+    * 文件系统版本
+    */
+    @SerializedName("Version")
+    @Expose
+    private String Version;
 
     /**
      * Get 创建时间 
@@ -274,32 +303,32 @@ Available:可用
     }
 
     /**
-     * Get 文件系统已使用容量,单位Byte 
-     * @return SizeByte 文件系统已使用容量,单位Byte
+     * Get 文件系统已使用容量。单位：Byte 
+     * @return SizeByte 文件系统已使用容量。单位：Byte
      */
     public Long getSizeByte() {
         return this.SizeByte;
     }
 
     /**
-     * Set 文件系统已使用容量,单位Byte
-     * @param SizeByte 文件系统已使用容量,单位Byte
+     * Set 文件系统已使用容量。单位：Byte
+     * @param SizeByte 文件系统已使用容量。单位：Byte
      */
     public void setSizeByte(Long SizeByte) {
         this.SizeByte = SizeByte;
     }
 
     /**
-     * Get 文件系统最大空间限制,GiB 
-     * @return SizeLimit 文件系统最大空间限制,GiB
+     * Get 文件系统空间限制。单位:GiB 
+     * @return SizeLimit 文件系统空间限制。单位:GiB
      */
     public Long getSizeLimit() {
         return this.SizeLimit;
     }
 
     /**
-     * Set 文件系统最大空间限制,GiB
-     * @param SizeLimit 文件系统最大空间限制,GiB
+     * Set 文件系统空间限制。单位:GiB
+     * @param SizeLimit 文件系统空间限制。单位:GiB
      */
     public void setSizeLimit(Long SizeLimit) {
         this.SizeLimit = SizeLimit;
@@ -498,16 +527,52 @@ Available:可用
     }
 
     /**
-     * Get 文件系统总容量 
-     * @return Capacity 文件系统总容量
+     * Get 文件系统关联的快照策略 
+     * @return AutoSnapshotPolicyId 文件系统关联的快照策略
+     */
+    public String getAutoSnapshotPolicyId() {
+        return this.AutoSnapshotPolicyId;
+    }
+
+    /**
+     * Set 文件系统关联的快照策略
+     * @param AutoSnapshotPolicyId 文件系统关联的快照策略
+     */
+    public void setAutoSnapshotPolicyId(String AutoSnapshotPolicyId) {
+        this.AutoSnapshotPolicyId = AutoSnapshotPolicyId;
+    }
+
+    /**
+     * Get 文件系统处理快照状态 
+     * @return SnapStatus 文件系统处理快照状态
+     */
+    public String getSnapStatus() {
+        return this.SnapStatus;
+    }
+
+    /**
+     * Set 文件系统处理快照状态
+     * @param SnapStatus 文件系统处理快照状态
+     */
+    public void setSnapStatus(String SnapStatus) {
+        this.SnapStatus = SnapStatus;
+    }
+
+    /**
+     * Get 文件系统容量规格上限
+单位:GiB 
+     * @return Capacity 文件系统容量规格上限
+单位:GiB
      */
     public Long getCapacity() {
         return this.Capacity;
     }
 
     /**
-     * Set 文件系统总容量
-     * @param Capacity 文件系统总容量
+     * Set 文件系统容量规格上限
+单位:GiB
+     * @param Capacity 文件系统容量规格上限
+单位:GiB
      */
     public void setCapacity(Long Capacity) {
         this.Capacity = Capacity;
@@ -554,10 +619,8 @@ Available:可用
     }
 
     /**
-     * Get 分层存储详情
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分层存储详情 
      * @return TieringDetail 分层存储详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TieringDetailInfo getTieringDetail() {
         return this.TieringDetail;
@@ -565,12 +628,42 @@ Available:可用
 
     /**
      * Set 分层存储详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TieringDetail 分层存储详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTieringDetail(TieringDetailInfo TieringDetail) {
         this.TieringDetail = TieringDetail;
+    }
+
+    /**
+     * Get 文件系统自动扩容策略 
+     * @return AutoScaleUpRule 文件系统自动扩容策略
+     */
+    public AutoScaleUpRule getAutoScaleUpRule() {
+        return this.AutoScaleUpRule;
+    }
+
+    /**
+     * Set 文件系统自动扩容策略
+     * @param AutoScaleUpRule 文件系统自动扩容策略
+     */
+    public void setAutoScaleUpRule(AutoScaleUpRule AutoScaleUpRule) {
+        this.AutoScaleUpRule = AutoScaleUpRule;
+    }
+
+    /**
+     * Get 文件系统版本 
+     * @return Version 文件系统版本
+     */
+    public String getVersion() {
+        return this.Version;
+    }
+
+    /**
+     * Set 文件系统版本
+     * @param Version 文件系统版本
+     */
+    public void setVersion(String Version) {
+        this.Version = Version;
     }
 
     public FileSystemInfo() {
@@ -635,6 +728,12 @@ Available:可用
         if (source.BandwidthLimit != null) {
             this.BandwidthLimit = new Float(source.BandwidthLimit);
         }
+        if (source.AutoSnapshotPolicyId != null) {
+            this.AutoSnapshotPolicyId = new String(source.AutoSnapshotPolicyId);
+        }
+        if (source.SnapStatus != null) {
+            this.SnapStatus = new String(source.SnapStatus);
+        }
         if (source.Capacity != null) {
             this.Capacity = new Long(source.Capacity);
         }
@@ -649,6 +748,12 @@ Available:可用
         }
         if (source.TieringDetail != null) {
             this.TieringDetail = new TieringDetailInfo(source.TieringDetail);
+        }
+        if (source.AutoScaleUpRule != null) {
+            this.AutoScaleUpRule = new AutoScaleUpRule(source.AutoScaleUpRule);
+        }
+        if (source.Version != null) {
+            this.Version = new String(source.Version);
         }
     }
 
@@ -675,10 +780,14 @@ Available:可用
         this.setParamSimple(map, prefix + "KmsKeyId", this.KmsKeyId);
         this.setParamSimple(map, prefix + "AppId", this.AppId);
         this.setParamSimple(map, prefix + "BandwidthLimit", this.BandwidthLimit);
+        this.setParamSimple(map, prefix + "AutoSnapshotPolicyId", this.AutoSnapshotPolicyId);
+        this.setParamSimple(map, prefix + "SnapStatus", this.SnapStatus);
         this.setParamSimple(map, prefix + "Capacity", this.Capacity);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "TieringState", this.TieringState);
         this.setParamObj(map, prefix + "TieringDetail.", this.TieringDetail);
+        this.setParamObj(map, prefix + "AutoScaleUpRule.", this.AutoScaleUpRule);
+        this.setParamSimple(map, prefix + "Version", this.Version);
 
     }
 }

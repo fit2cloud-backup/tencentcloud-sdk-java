@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TeoInstanceDetail extends AbstractModel{
+public class TeoInstanceDetail extends AbstractModel {
 
     /**
     * 域名
@@ -46,6 +47,11 @@ public class TeoInstanceDetail extends AbstractModel{
 
     /**
     * 域名状态
+deployed：已部署；
+processing：部署中；
+applying：申请中；
+failed：申请失败；
+issued：绑定失败。
     */
     @SerializedName("Status")
     @Expose
@@ -104,8 +110,18 @@ public class TeoInstanceDetail extends AbstractModel{
     }
 
     /**
-     * Get 域名状态 
+     * Get 域名状态
+deployed：已部署；
+processing：部署中；
+applying：申请中；
+failed：申请失败；
+issued：绑定失败。 
      * @return Status 域名状态
+deployed：已部署；
+processing：部署中；
+applying：申请中；
+failed：申请失败；
+issued：绑定失败。
      */
     public String getStatus() {
         return this.Status;
@@ -113,7 +129,17 @@ public class TeoInstanceDetail extends AbstractModel{
 
     /**
      * Set 域名状态
+deployed：已部署；
+processing：部署中；
+applying：申请中；
+failed：申请失败；
+issued：绑定失败。
      * @param Status 域名状态
+deployed：已部署；
+processing：部署中；
+applying：申请中；
+failed：申请失败；
+issued：绑定失败。
      */
     public void setStatus(String Status) {
         this.Status = Status;

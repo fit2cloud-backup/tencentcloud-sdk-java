@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tbaas.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DownloadUserCertResponse extends AbstractModel{
+public class DownloadUserCertResponse extends AbstractModel {
 
     /**
     * 证书名称
@@ -37,7 +38,14 @@ public class DownloadUserCertResponse extends AbstractModel{
     private String CertCtx;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 证书内容
+    */
+    @SerializedName("Cert")
+    @Expose
+    private String Cert;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -62,7 +70,9 @@ public class DownloadUserCertResponse extends AbstractModel{
     /**
      * Get 证书内容 
      * @return CertCtx 证书内容
+     * @deprecated
      */
+    @Deprecated
     public String getCertCtx() {
         return this.CertCtx;
     }
@@ -70,22 +80,40 @@ public class DownloadUserCertResponse extends AbstractModel{
     /**
      * Set 证书内容
      * @param CertCtx 证书内容
+     * @deprecated
      */
+    @Deprecated
     public void setCertCtx(String CertCtx) {
         this.CertCtx = CertCtx;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 证书内容 
+     * @return Cert 证书内容
+     */
+    public String getCert() {
+        return this.Cert;
+    }
+
+    /**
+     * Set 证书内容
+     * @param Cert 证书内容
+     */
+    public void setCert(String Cert) {
+        this.Cert = Cert;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -105,6 +133,9 @@ public class DownloadUserCertResponse extends AbstractModel{
         if (source.CertCtx != null) {
             this.CertCtx = new String(source.CertCtx);
         }
+        if (source.Cert != null) {
+            this.Cert = new String(source.Cert);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -117,6 +148,7 @@ public class DownloadUserCertResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertName", this.CertName);
         this.setParamSimple(map, prefix + "CertCtx", this.CertCtx);
+        this.setParamSimple(map, prefix + "Cert", this.Cert);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

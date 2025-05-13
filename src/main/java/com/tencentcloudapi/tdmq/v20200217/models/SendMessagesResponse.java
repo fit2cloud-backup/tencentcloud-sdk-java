@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SendMessagesResponse extends AbstractModel{
+public class SendMessagesResponse extends AbstractModel {
 
     /**
     * 消息的messageID, 是全局唯一的，用来标识消息的元数据信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MessageId")
     @Expose
@@ -32,24 +32,21 @@ public class SendMessagesResponse extends AbstractModel{
 
     /**
     * 返回的错误消息，如果返回为 “”，说明没有错误
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorMsg")
     @Expose
     private String ErrorMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 消息的messageID, 是全局唯一的，用来标识消息的元数据信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 消息的messageID, 是全局唯一的，用来标识消息的元数据信息 
      * @return MessageId 消息的messageID, 是全局唯一的，用来标识消息的元数据信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessageId() {
         return this.MessageId;
@@ -57,19 +54,15 @@ public class SendMessagesResponse extends AbstractModel{
 
     /**
      * Set 消息的messageID, 是全局唯一的，用来标识消息的元数据信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MessageId 消息的messageID, 是全局唯一的，用来标识消息的元数据信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessageId(String MessageId) {
         this.MessageId = MessageId;
     }
 
     /**
-     * Get 返回的错误消息，如果返回为 “”，说明没有错误
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 返回的错误消息，如果返回为 “”，说明没有错误 
      * @return ErrorMsg 返回的错误消息，如果返回为 “”，说明没有错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorMsg() {
         return this.ErrorMsg;
@@ -77,25 +70,23 @@ public class SendMessagesResponse extends AbstractModel{
 
     /**
      * Set 返回的错误消息，如果返回为 “”，说明没有错误
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorMsg 返回的错误消息，如果返回为 “”，说明没有错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorMsg(String ErrorMsg) {
         this.ErrorMsg = ErrorMsg;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOutput extends AbstractModel{
+public class DescribeOutput extends AbstractModel {
 
     /**
     * 输出Id。
@@ -42,6 +43,13 @@ public class DescribeOutput extends AbstractModel{
     @SerializedName("OutputType")
     @Expose
     private String OutputType;
+
+    /**
+    * 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+    */
+    @SerializedName("OutputKind")
+    @Expose
+    private String OutputKind;
 
     /**
     * 输出描述。
@@ -138,6 +146,43 @@ public class DescribeOutput extends AbstractModel{
     private Long MaxConcurrent;
 
     /**
+    * 绑定的安全组 ID。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
+
+    /**
+    * 可用区，output目前最多只支持一个。	
+    */
+    @SerializedName("Zones")
+    @Expose
+    private String [] Zones;
+
+    /**
+    * 输出的RIST配置信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RISTSettings")
+    @Expose
+    private DescribeOutputRISTSettings RISTSettings;
+
+    /**
+    * 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+    */
+    @SerializedName("PidSelector")
+    @Expose
+    private PidSelector PidSelector;
+
+    /**
+    * 输出模块配置，相关的URL，包括提供的拉流地址，或者配置的输出到第三方的转推地址
+    */
+    @SerializedName("StreamUrls")
+    @Expose
+    private StreamUrlDetail [] StreamUrls;
+
+    /**
      * Get 输出Id。 
      * @return OutputId 输出Id。
      */
@@ -183,6 +228,22 @@ public class DescribeOutput extends AbstractModel{
      */
     public void setOutputType(String OutputType) {
         this.OutputType = OutputType;
+    }
+
+    /**
+     * Get 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。 
+     * @return OutputKind 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+     */
+    public String getOutputKind() {
+        return this.OutputKind;
+    }
+
+    /**
+     * Set 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+     * @param OutputKind 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+     */
+    public void setOutputKind(String OutputKind) {
+        this.OutputKind = OutputKind;
     }
 
     /**
@@ -417,6 +478,94 @@ public class DescribeOutput extends AbstractModel{
         this.MaxConcurrent = MaxConcurrent;
     }
 
+    /**
+     * Get 绑定的安全组 ID。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SecurityGroupIds 绑定的安全组 ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set 绑定的安全组 ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SecurityGroupIds 绑定的安全组 ID。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    /**
+     * Get 可用区，output目前最多只支持一个。	 
+     * @return Zones 可用区，output目前最多只支持一个。	
+     */
+    public String [] getZones() {
+        return this.Zones;
+    }
+
+    /**
+     * Set 可用区，output目前最多只支持一个。	
+     * @param Zones 可用区，output目前最多只支持一个。	
+     */
+    public void setZones(String [] Zones) {
+        this.Zones = Zones;
+    }
+
+    /**
+     * Get 输出的RIST配置信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RISTSettings 输出的RIST配置信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DescribeOutputRISTSettings getRISTSettings() {
+        return this.RISTSettings;
+    }
+
+    /**
+     * Set 输出的RIST配置信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RISTSettings 输出的RIST配置信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRISTSettings(DescribeOutputRISTSettings RISTSettings) {
+        this.RISTSettings = RISTSettings;
+    }
+
+    /**
+     * Get 对于含有多个音/视频轨的流，可以指定需要使用的轨道 
+     * @return PidSelector 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+     */
+    public PidSelector getPidSelector() {
+        return this.PidSelector;
+    }
+
+    /**
+     * Set 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+     * @param PidSelector 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+     */
+    public void setPidSelector(PidSelector PidSelector) {
+        this.PidSelector = PidSelector;
+    }
+
+    /**
+     * Get 输出模块配置，相关的URL，包括提供的拉流地址，或者配置的输出到第三方的转推地址 
+     * @return StreamUrls 输出模块配置，相关的URL，包括提供的拉流地址，或者配置的输出到第三方的转推地址
+     */
+    public StreamUrlDetail [] getStreamUrls() {
+        return this.StreamUrls;
+    }
+
+    /**
+     * Set 输出模块配置，相关的URL，包括提供的拉流地址，或者配置的输出到第三方的转推地址
+     * @param StreamUrls 输出模块配置，相关的URL，包括提供的拉流地址，或者配置的输出到第三方的转推地址
+     */
+    public void setStreamUrls(StreamUrlDetail [] StreamUrls) {
+        this.StreamUrls = StreamUrls;
+    }
+
     public DescribeOutput() {
     }
 
@@ -433,6 +582,9 @@ public class DescribeOutput extends AbstractModel{
         }
         if (source.OutputType != null) {
             this.OutputType = new String(source.OutputType);
+        }
+        if (source.OutputKind != null) {
+            this.OutputKind = new String(source.OutputKind);
         }
         if (source.Description != null) {
             this.Description = new String(source.Description);
@@ -476,6 +628,30 @@ public class DescribeOutput extends AbstractModel{
         if (source.MaxConcurrent != null) {
             this.MaxConcurrent = new Long(source.MaxConcurrent);
         }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.RISTSettings != null) {
+            this.RISTSettings = new DescribeOutputRISTSettings(source.RISTSettings);
+        }
+        if (source.PidSelector != null) {
+            this.PidSelector = new PidSelector(source.PidSelector);
+        }
+        if (source.StreamUrls != null) {
+            this.StreamUrls = new StreamUrlDetail[source.StreamUrls.length];
+            for (int i = 0; i < source.StreamUrls.length; i++) {
+                this.StreamUrls[i] = new StreamUrlDetail(source.StreamUrls[i]);
+            }
+        }
     }
 
 
@@ -486,6 +662,7 @@ public class DescribeOutput extends AbstractModel{
         this.setParamSimple(map, prefix + "OutputId", this.OutputId);
         this.setParamSimple(map, prefix + "OutputName", this.OutputName);
         this.setParamSimple(map, prefix + "OutputType", this.OutputType);
+        this.setParamSimple(map, prefix + "OutputKind", this.OutputKind);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
         this.setParamArrayObj(map, prefix + "OutputAddressList.", this.OutputAddressList);
@@ -498,6 +675,11 @@ public class DescribeOutput extends AbstractModel{
         this.setParamObj(map, prefix + "RTSPPullSettings.", this.RTSPPullSettings);
         this.setParamObj(map, prefix + "HLSPullSettings.", this.HLSPullSettings);
         this.setParamSimple(map, prefix + "MaxConcurrent", this.MaxConcurrent);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
+        this.setParamObj(map, prefix + "RISTSettings.", this.RISTSettings);
+        this.setParamObj(map, prefix + "PidSelector.", this.PidSelector);
+        this.setParamArrayObj(map, prefix + "StreamUrls.", this.StreamUrls);
 
     }
 }

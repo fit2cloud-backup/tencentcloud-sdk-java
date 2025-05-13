@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
+public class DescribeRabbitMQVipInstanceResponse extends AbstractModel {
 
     /**
     * 集群信息
@@ -38,7 +39,6 @@ public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
 
     /**
     * 集群访问
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterNetInfo")
     @Expose
@@ -46,7 +46,6 @@ public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
 
     /**
     * 集群白名单
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterWhiteListInfo")
     @Expose
@@ -74,7 +73,7 @@ public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
     private QueueQuota QueueQuota;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -113,10 +112,8 @@ public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
     }
 
     /**
-     * Get 集群访问
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群访问 
      * @return ClusterNetInfo 集群访问
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RabbitMQClusterAccessInfo getClusterNetInfo() {
         return this.ClusterNetInfo;
@@ -124,19 +121,15 @@ public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
 
     /**
      * Set 集群访问
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterNetInfo 集群访问
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterNetInfo(RabbitMQClusterAccessInfo ClusterNetInfo) {
         this.ClusterNetInfo = ClusterNetInfo;
     }
 
     /**
-     * Get 集群白名单
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群白名单 
      * @return ClusterWhiteListInfo 集群白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RabbitMQClusterWhiteListInfo getClusterWhiteListInfo() {
         return this.ClusterWhiteListInfo;
@@ -144,9 +137,7 @@ public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
 
     /**
      * Set 集群白名单
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterWhiteListInfo 集群白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterWhiteListInfo(RabbitMQClusterWhiteListInfo ClusterWhiteListInfo) {
         this.ClusterWhiteListInfo = ClusterWhiteListInfo;
@@ -201,16 +192,16 @@ public class DescribeRabbitMQVipInstanceResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

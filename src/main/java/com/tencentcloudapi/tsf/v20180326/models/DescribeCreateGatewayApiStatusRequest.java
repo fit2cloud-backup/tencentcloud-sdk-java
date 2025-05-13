@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCreateGatewayApiStatusRequest extends AbstractModel{
+public class DescribeCreateGatewayApiStatusRequest extends AbstractModel {
 
     /**
-    * 请求方法
+    * 所属分组ID
     */
     @SerializedName("GroupId")
     @Expose
@@ -37,16 +38,16 @@ public class DescribeCreateGatewayApiStatusRequest extends AbstractModel{
     private String MicroserviceId;
 
     /**
-     * Get 请求方法 
-     * @return GroupId 请求方法
+     * Get 所属分组ID 
+     * @return GroupId 所属分组ID
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 请求方法
-     * @param GroupId 请求方法
+     * Set 所属分组ID
+     * @param GroupId 所属分组ID
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;

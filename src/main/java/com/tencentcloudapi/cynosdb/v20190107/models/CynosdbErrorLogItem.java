@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CynosdbErrorLogItem extends AbstractModel{
+public class CynosdbErrorLogItem extends AbstractModel {
 
     /**
     * 日志时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Timestamp")
     @Expose
@@ -32,7 +32,6 @@ public class CynosdbErrorLogItem extends AbstractModel{
 
     /**
     * 日志等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Level")
     @Expose
@@ -40,17 +39,14 @@ public class CynosdbErrorLogItem extends AbstractModel{
 
     /**
     * 日志内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
     private String Content;
 
     /**
-     * Get 日志时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志时间戳 
      * @return Timestamp 日志时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTimestamp() {
         return this.Timestamp;
@@ -58,19 +54,15 @@ public class CynosdbErrorLogItem extends AbstractModel{
 
     /**
      * Set 日志时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Timestamp 日志时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimestamp(Long Timestamp) {
         this.Timestamp = Timestamp;
     }
 
     /**
-     * Get 日志等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志等级 
      * @return Level 日志等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLevel() {
         return this.Level;
@@ -78,19 +70,15 @@ public class CynosdbErrorLogItem extends AbstractModel{
 
     /**
      * Set 日志等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Level 日志等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLevel(String Level) {
         this.Level = Level;
     }
 
     /**
-     * Get 日志内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志内容 
      * @return Content 日志内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContent() {
         return this.Content;
@@ -98,9 +86,7 @@ public class CynosdbErrorLogItem extends AbstractModel{
 
     /**
      * Set 日志内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 日志内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(String Content) {
         this.Content = Content;

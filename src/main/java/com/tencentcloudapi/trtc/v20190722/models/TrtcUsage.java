@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TrtcUsage extends AbstractModel{
+public class TrtcUsage extends AbstractModel {
 
     /**
     * 时间点，格式为YYYY-MM-DD HH:mm:ss。多天查询时，HH:mm:ss为00:00:00。
@@ -30,7 +31,14 @@ public class TrtcUsage extends AbstractModel{
     private String TimeKey;
 
     /**
-    * 用量数组。每个数值含义与UsageKey对应。单位：分钟。
+    * 时间点时间戳
+    */
+    @SerializedName("TimeStampKey")
+    @Expose
+    private Long TimeStampKey;
+
+    /**
+    * 用量数组。每个数值含义与UsageKey对应。单位:分钟。
     */
     @SerializedName("UsageValue")
     @Expose
@@ -53,16 +61,32 @@ public class TrtcUsage extends AbstractModel{
     }
 
     /**
-     * Get 用量数组。每个数值含义与UsageKey对应。单位：分钟。 
-     * @return UsageValue 用量数组。每个数值含义与UsageKey对应。单位：分钟。
+     * Get 时间点时间戳 
+     * @return TimeStampKey 时间点时间戳
+     */
+    public Long getTimeStampKey() {
+        return this.TimeStampKey;
+    }
+
+    /**
+     * Set 时间点时间戳
+     * @param TimeStampKey 时间点时间戳
+     */
+    public void setTimeStampKey(Long TimeStampKey) {
+        this.TimeStampKey = TimeStampKey;
+    }
+
+    /**
+     * Get 用量数组。每个数值含义与UsageKey对应。单位:分钟。 
+     * @return UsageValue 用量数组。每个数值含义与UsageKey对应。单位:分钟。
      */
     public Float [] getUsageValue() {
         return this.UsageValue;
     }
 
     /**
-     * Set 用量数组。每个数值含义与UsageKey对应。单位：分钟。
-     * @param UsageValue 用量数组。每个数值含义与UsageKey对应。单位：分钟。
+     * Set 用量数组。每个数值含义与UsageKey对应。单位:分钟。
+     * @param UsageValue 用量数组。每个数值含义与UsageKey对应。单位:分钟。
      */
     public void setUsageValue(Float [] UsageValue) {
         this.UsageValue = UsageValue;
@@ -79,6 +103,9 @@ public class TrtcUsage extends AbstractModel{
         if (source.TimeKey != null) {
             this.TimeKey = new String(source.TimeKey);
         }
+        if (source.TimeStampKey != null) {
+            this.TimeStampKey = new Long(source.TimeStampKey);
+        }
         if (source.UsageValue != null) {
             this.UsageValue = new Float[source.UsageValue.length];
             for (int i = 0; i < source.UsageValue.length; i++) {
@@ -93,6 +120,7 @@ public class TrtcUsage extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TimeKey", this.TimeKey);
+        this.setParamSimple(map, prefix + "TimeStampKey", this.TimeStampKey);
         this.setParamArraySimple(map, prefix + "UsageValue.", this.UsageValue);
 
     }

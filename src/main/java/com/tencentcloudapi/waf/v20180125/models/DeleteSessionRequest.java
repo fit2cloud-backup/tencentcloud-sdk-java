@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteSessionRequest extends AbstractModel{
+public class DeleteSessionRequest extends AbstractModel {
 
     /**
     * 域名
@@ -35,6 +36,13 @@ public class DeleteSessionRequest extends AbstractModel{
     @SerializedName("Edition")
     @Expose
     private String Edition;
+
+    /**
+    * 要删除的SessionID
+    */
+    @SerializedName("SessionID")
+    @Expose
+    private Long SessionID;
 
     /**
      * Get 域名 
@@ -68,6 +76,22 @@ public class DeleteSessionRequest extends AbstractModel{
         this.Edition = Edition;
     }
 
+    /**
+     * Get 要删除的SessionID 
+     * @return SessionID 要删除的SessionID
+     */
+    public Long getSessionID() {
+        return this.SessionID;
+    }
+
+    /**
+     * Set 要删除的SessionID
+     * @param SessionID 要删除的SessionID
+     */
+    public void setSessionID(Long SessionID) {
+        this.SessionID = SessionID;
+    }
+
     public DeleteSessionRequest() {
     }
 
@@ -82,6 +106,9 @@ public class DeleteSessionRequest extends AbstractModel{
         if (source.Edition != null) {
             this.Edition = new String(source.Edition);
         }
+        if (source.SessionID != null) {
+            this.SessionID = new Long(source.SessionID);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class DeleteSessionRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Domain", this.Domain);
         this.setParamSimple(map, prefix + "Edition", this.Edition);
+        this.setParamSimple(map, prefix + "SessionID", this.SessionID);
 
     }
 }

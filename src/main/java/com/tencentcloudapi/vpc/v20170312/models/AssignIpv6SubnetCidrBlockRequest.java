@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssignIpv6SubnetCidrBlockRequest extends AbstractModel{
+public class AssignIpv6SubnetCidrBlockRequest extends AbstractModel {
 
     /**
     * 子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。
@@ -35,6 +36,13 @@ public class AssignIpv6SubnetCidrBlockRequest extends AbstractModel{
     @SerializedName("Ipv6SubnetCidrBlocks")
     @Expose
     private Ipv6SubnetCidrBlock [] Ipv6SubnetCidrBlocks;
+
+    /**
+    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+    */
+    @SerializedName("ClientToken")
+    @Expose
+    private String ClientToken;
 
     /**
      * Get 子网所在私有网络`ID`。形如：`vpc-f49l6u0z`。 
@@ -68,6 +76,22 @@ public class AssignIpv6SubnetCidrBlockRequest extends AbstractModel{
         this.Ipv6SubnetCidrBlocks = Ipv6SubnetCidrBlocks;
     }
 
+    /**
+     * Get 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。 
+     * @return ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     */
+    public String getClientToken() {
+        return this.ClientToken;
+    }
+
+    /**
+     * Set 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     * @param ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。
+     */
+    public void setClientToken(String ClientToken) {
+        this.ClientToken = ClientToken;
+    }
+
     public AssignIpv6SubnetCidrBlockRequest() {
     }
 
@@ -85,6 +109,9 @@ public class AssignIpv6SubnetCidrBlockRequest extends AbstractModel{
                 this.Ipv6SubnetCidrBlocks[i] = new Ipv6SubnetCidrBlock(source.Ipv6SubnetCidrBlocks[i]);
             }
         }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
     }
 
 
@@ -94,6 +121,7 @@ public class AssignIpv6SubnetCidrBlockRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamArrayObj(map, prefix + "Ipv6SubnetCidrBlocks.", this.Ipv6SubnetCidrBlocks);
+        this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iai.v20200303.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DetectFaceResponse extends AbstractModel{
+public class DetectFaceResponse extends AbstractModel {
 
     /**
     * 请求的图片宽度。
@@ -37,7 +38,8 @@ public class DetectFaceResponse extends AbstractModel{
     private Long ImageHeight;
 
     /**
-    * 人脸信息列表。包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
+    * 人脸信息列表。
+- 包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
     */
     @SerializedName("FaceInfos")
     @Expose
@@ -51,7 +53,7 @@ public class DetectFaceResponse extends AbstractModel{
     private String FaceModelVersion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -90,16 +92,20 @@ public class DetectFaceResponse extends AbstractModel{
     }
 
     /**
-     * Get 人脸信息列表。包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。 
-     * @return FaceInfos 人脸信息列表。包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
+     * Get 人脸信息列表。
+- 包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。 
+     * @return FaceInfos 人脸信息列表。
+- 包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
      */
     public FaceInfo [] getFaceInfos() {
         return this.FaceInfos;
     }
 
     /**
-     * Set 人脸信息列表。包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
-     * @param FaceInfos 人脸信息列表。包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
+     * Set 人脸信息列表。
+- 包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
+     * @param FaceInfos 人脸信息列表。
+- 包含人脸坐标信息、属性信息（若需要）、质量分信息（若需要）。
      */
     public void setFaceInfos(FaceInfo [] FaceInfos) {
         this.FaceInfos = FaceInfos;
@@ -122,16 +128,16 @@ public class DetectFaceResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

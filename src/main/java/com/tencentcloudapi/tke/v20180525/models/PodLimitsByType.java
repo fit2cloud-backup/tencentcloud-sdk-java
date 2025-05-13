@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PodLimitsByType extends AbstractModel{
+public class PodLimitsByType extends AbstractModel {
 
     /**
     * TKE共享网卡非固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TKERouteENINonStaticIP")
     @Expose
@@ -32,7 +32,6 @@ public class PodLimitsByType extends AbstractModel{
 
     /**
     * TKE共享网卡固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TKERouteENIStaticIP")
     @Expose
@@ -40,17 +39,21 @@ public class PodLimitsByType extends AbstractModel{
 
     /**
     * TKE独立网卡模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TKEDirectENI")
     @Expose
     private Long TKEDirectENI;
 
     /**
-     * Get TKE共享网卡非固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。 
+    * TKE中继网卡模式可支持的Pod数量
+    */
+    @SerializedName("TKESubENI")
+    @Expose
+    private Long TKESubENI;
+
+    /**
+     * Get TKE共享网卡非固定IP模式可支持的Pod数量 
      * @return TKERouteENINonStaticIP TKE共享网卡非固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTKERouteENINonStaticIP() {
         return this.TKERouteENINonStaticIP;
@@ -58,19 +61,15 @@ public class PodLimitsByType extends AbstractModel{
 
     /**
      * Set TKE共享网卡非固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TKERouteENINonStaticIP TKE共享网卡非固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTKERouteENINonStaticIP(Long TKERouteENINonStaticIP) {
         this.TKERouteENINonStaticIP = TKERouteENINonStaticIP;
     }
 
     /**
-     * Get TKE共享网卡固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TKE共享网卡固定IP模式可支持的Pod数量 
      * @return TKERouteENIStaticIP TKE共享网卡固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTKERouteENIStaticIP() {
         return this.TKERouteENIStaticIP;
@@ -78,19 +77,15 @@ public class PodLimitsByType extends AbstractModel{
 
     /**
      * Set TKE共享网卡固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TKERouteENIStaticIP TKE共享网卡固定IP模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTKERouteENIStaticIP(Long TKERouteENIStaticIP) {
         this.TKERouteENIStaticIP = TKERouteENIStaticIP;
     }
 
     /**
-     * Get TKE独立网卡模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TKE独立网卡模式可支持的Pod数量 
      * @return TKEDirectENI TKE独立网卡模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTKEDirectENI() {
         return this.TKEDirectENI;
@@ -98,12 +93,26 @@ public class PodLimitsByType extends AbstractModel{
 
     /**
      * Set TKE独立网卡模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TKEDirectENI TKE独立网卡模式可支持的Pod数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTKEDirectENI(Long TKEDirectENI) {
         this.TKEDirectENI = TKEDirectENI;
+    }
+
+    /**
+     * Get TKE中继网卡模式可支持的Pod数量 
+     * @return TKESubENI TKE中继网卡模式可支持的Pod数量
+     */
+    public Long getTKESubENI() {
+        return this.TKESubENI;
+    }
+
+    /**
+     * Set TKE中继网卡模式可支持的Pod数量
+     * @param TKESubENI TKE中继网卡模式可支持的Pod数量
+     */
+    public void setTKESubENI(Long TKESubENI) {
+        this.TKESubENI = TKESubENI;
     }
 
     public PodLimitsByType() {
@@ -123,6 +132,9 @@ public class PodLimitsByType extends AbstractModel{
         if (source.TKEDirectENI != null) {
             this.TKEDirectENI = new Long(source.TKEDirectENI);
         }
+        if (source.TKESubENI != null) {
+            this.TKESubENI = new Long(source.TKESubENI);
+        }
     }
 
 
@@ -133,6 +145,7 @@ public class PodLimitsByType extends AbstractModel{
         this.setParamSimple(map, prefix + "TKERouteENINonStaticIP", this.TKERouteENINonStaticIP);
         this.setParamSimple(map, prefix + "TKERouteENIStaticIP", this.TKERouteENIStaticIP);
         this.setParamSimple(map, prefix + "TKEDirectENI", this.TKEDirectENI);
+        this.setParamSimple(map, prefix + "TKESubENI", this.TKESubENI);
 
     }
 }

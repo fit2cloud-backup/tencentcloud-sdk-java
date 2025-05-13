@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FileConfigRelease extends AbstractModel{
+public class FileConfigRelease extends AbstractModel {
 
     /**
     * 配置项发布ID
@@ -117,6 +118,14 @@ public class FileConfigRelease extends AbstractModel{
     @SerializedName("ClusterName")
     @Expose
     private String ClusterName;
+
+    /**
+    * 配置中心发布详情
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ConfigCenters")
+    @Expose
+    private TsfConfigCenter [] ConfigCenters;
 
     /**
      * Get 配置项发布ID
@@ -358,6 +367,26 @@ public class FileConfigRelease extends AbstractModel{
         this.ClusterName = ClusterName;
     }
 
+    /**
+     * Get 配置中心发布详情
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ConfigCenters 配置中心发布详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TsfConfigCenter [] getConfigCenters() {
+        return this.ConfigCenters;
+    }
+
+    /**
+     * Set 配置中心发布详情
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ConfigCenters 配置中心发布详情
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setConfigCenters(TsfConfigCenter [] ConfigCenters) {
+        this.ConfigCenters = ConfigCenters;
+    }
+
     public FileConfigRelease() {
     }
 
@@ -402,6 +431,12 @@ public class FileConfigRelease extends AbstractModel{
         if (source.ClusterName != null) {
             this.ClusterName = new String(source.ClusterName);
         }
+        if (source.ConfigCenters != null) {
+            this.ConfigCenters = new TsfConfigCenter[source.ConfigCenters.length];
+            for (int i = 0; i < source.ConfigCenters.length; i++) {
+                this.ConfigCenters[i] = new TsfConfigCenter(source.ConfigCenters[i]);
+            }
+        }
     }
 
 
@@ -421,6 +456,7 @@ public class FileConfigRelease extends AbstractModel{
         this.setParamSimple(map, prefix + "NamespaceName", this.NamespaceName);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
+        this.setParamArrayObj(map, prefix + "ConfigCenters.", this.ConfigCenters);
 
     }
 }

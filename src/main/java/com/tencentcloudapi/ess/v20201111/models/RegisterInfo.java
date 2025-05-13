@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegisterInfo extends AbstractModel{
+public class RegisterInfo extends AbstractModel {
 
     /**
     * 法人姓名
@@ -31,6 +32,7 @@ public class RegisterInfo extends AbstractModel{
 
     /**
     * 社会统一信用代码
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uscc")
     @Expose
@@ -60,8 +62,10 @@ public class RegisterInfo extends AbstractModel{
     }
 
     /**
-     * Get 社会统一信用代码 
+     * Get 社会统一信用代码
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Uscc 社会统一信用代码
+注意：此字段可能返回 null，表示取不到有效值。
      * @deprecated
      */
     @Deprecated
@@ -71,7 +75,9 @@ public class RegisterInfo extends AbstractModel{
 
     /**
      * Set 社会统一信用代码
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Uscc 社会统一信用代码
+注意：此字段可能返回 null，表示取不到有效值。
      * @deprecated
      */
     @Deprecated

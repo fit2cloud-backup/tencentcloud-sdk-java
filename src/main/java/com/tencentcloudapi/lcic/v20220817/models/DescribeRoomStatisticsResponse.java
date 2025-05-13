@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRoomStatisticsResponse extends AbstractModel{
+public class DescribeRoomStatisticsResponse extends AbstractModel {
 
     /**
     * 峰值在线成员人数。
@@ -52,7 +53,6 @@ public class DescribeRoomStatisticsResponse extends AbstractModel{
 
     /**
     * 秒级unix时间戳，实际房间开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealStartTime")
     @Expose
@@ -60,28 +60,27 @@ public class DescribeRoomStatisticsResponse extends AbstractModel{
 
     /**
     * 秒级unix时间戳，实际房间结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealEndTime")
     @Expose
     private Long RealEndTime;
 
     /**
-    * 房间消息总数。
+    * 课堂消息总数。
     */
     @SerializedName("MessageCount")
     @Expose
     private Long MessageCount;
 
     /**
-    * 房间连麦总数。
+    * 课堂连麦总数。
     */
     @SerializedName("MicCount")
     @Expose
     private Long MicCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -152,10 +151,8 @@ public class DescribeRoomStatisticsResponse extends AbstractModel{
     }
 
     /**
-     * Get 秒级unix时间戳，实际房间开始时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 秒级unix时间戳，实际房间开始时间。 
      * @return RealStartTime 秒级unix时间戳，实际房间开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRealStartTime() {
         return this.RealStartTime;
@@ -163,19 +160,15 @@ public class DescribeRoomStatisticsResponse extends AbstractModel{
 
     /**
      * Set 秒级unix时间戳，实际房间开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealStartTime 秒级unix时间戳，实际房间开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealStartTime(Long RealStartTime) {
         this.RealStartTime = RealStartTime;
     }
 
     /**
-     * Get 秒级unix时间戳，实际房间结束时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 秒级unix时间戳，实际房间结束时间。 
      * @return RealEndTime 秒级unix时间戳，实际房间结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRealEndTime() {
         return this.RealEndTime;
@@ -183,57 +176,55 @@ public class DescribeRoomStatisticsResponse extends AbstractModel{
 
     /**
      * Set 秒级unix时间戳，实际房间结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealEndTime 秒级unix时间戳，实际房间结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealEndTime(Long RealEndTime) {
         this.RealEndTime = RealEndTime;
     }
 
     /**
-     * Get 房间消息总数。 
-     * @return MessageCount 房间消息总数。
+     * Get 课堂消息总数。 
+     * @return MessageCount 课堂消息总数。
      */
     public Long getMessageCount() {
         return this.MessageCount;
     }
 
     /**
-     * Set 房间消息总数。
-     * @param MessageCount 房间消息总数。
+     * Set 课堂消息总数。
+     * @param MessageCount 课堂消息总数。
      */
     public void setMessageCount(Long MessageCount) {
         this.MessageCount = MessageCount;
     }
 
     /**
-     * Get 房间连麦总数。 
-     * @return MicCount 房间连麦总数。
+     * Get 课堂连麦总数。 
+     * @return MicCount 课堂连麦总数。
      */
     public Long getMicCount() {
         return this.MicCount;
     }
 
     /**
-     * Set 房间连麦总数。
-     * @param MicCount 房间连麦总数。
+     * Set 课堂连麦总数。
+     * @param MicCount 课堂连麦总数。
      */
     public void setMicCount(Long MicCount) {
         this.MicCount = MicCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

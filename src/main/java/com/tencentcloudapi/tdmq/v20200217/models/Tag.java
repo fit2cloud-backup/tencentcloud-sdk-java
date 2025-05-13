@@ -16,14 +16,16 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Tag extends AbstractModel{
+public class Tag extends AbstractModel {
 
     /**
     * 标签的key的值
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagKey")
     @Expose
@@ -31,14 +33,17 @@ public class Tag extends AbstractModel{
 
     /**
     * 标签的Value的值
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagValue")
     @Expose
     private String TagValue;
 
     /**
-     * Get 标签的key的值 
+     * Get 标签的key的值
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return TagKey 标签的key的值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTagKey() {
         return this.TagKey;
@@ -46,15 +51,19 @@ public class Tag extends AbstractModel{
 
     /**
      * Set 标签的key的值
+注意：此字段可能返回 null，表示取不到有效值。
      * @param TagKey 标签的key的值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagKey(String TagKey) {
         this.TagKey = TagKey;
     }
 
     /**
-     * Get 标签的Value的值 
+     * Get 标签的Value的值
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return TagValue 标签的Value的值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTagValue() {
         return this.TagValue;
@@ -62,7 +71,9 @@ public class Tag extends AbstractModel{
 
     /**
      * Set 标签的Value的值
+注意：此字段可能返回 null，表示取不到有效值。
      * @param TagValue 标签的Value的值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagValue(String TagValue) {
         this.TagValue = TagValue;

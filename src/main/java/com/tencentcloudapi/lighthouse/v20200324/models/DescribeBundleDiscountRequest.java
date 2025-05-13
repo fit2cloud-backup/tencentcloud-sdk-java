@@ -16,30 +16,31 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBundleDiscountRequest extends AbstractModel{
+public class DescribeBundleDiscountRequest extends AbstractModel {
 
     /**
-    * 套餐 ID。
+    * 套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
     */
     @SerializedName("BundleId")
     @Expose
     private String BundleId;
 
     /**
-     * Get 套餐 ID。 
-     * @return BundleId 套餐 ID。
+     * Get 套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。 
+     * @return BundleId 套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
      */
     public String getBundleId() {
         return this.BundleId;
     }
 
     /**
-     * Set 套餐 ID。
-     * @param BundleId 套餐 ID。
+     * Set 套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
+     * @param BundleId 套餐 ID。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
      */
     public void setBundleId(String BundleId) {
         this.BundleId = BundleId;

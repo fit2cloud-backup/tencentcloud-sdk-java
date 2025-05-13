@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyLivePullStreamTaskRequest extends AbstractModel{
+public class ModifyLivePullStreamTaskRequest extends AbstractModel {
 
     /**
     * 任务Id。
@@ -49,7 +50,7 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
     * 开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
     */
     @SerializedName("StartTime")
     @Expose
@@ -59,10 +60,10 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
     * 结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
     */
     @SerializedName("EndTime")
     @Expose
@@ -136,6 +137,23 @@ ResetTaskConfig：任务更新回调。
     private Long OffsetTime;
 
     /**
+    * 指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+    */
+    @SerializedName("SpecifyTaskId")
+    @Expose
+    private String SpecifyTaskId;
+
+    /**
+    * 目标 Url。
+换目标地址，会断流重推到新地址。
+    */
+    @SerializedName("ToUrl")
+    @Expose
+    private String ToUrl;
+
+    /**
     * 任务备注。
     */
     @SerializedName("Comment")
@@ -188,6 +206,21 @@ PullVodPushLive -点播。
     @SerializedName("VodLocalMode")
     @Expose
     private Long VodLocalMode;
+
+    /**
+    * 新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+    */
+    @SerializedName("BackupToUrl")
+    @Expose
+    private String BackupToUrl;
+
+    /**
+    * 点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
+    */
+    @SerializedName("BackupVodUrl")
+    @Expose
+    private String BackupVodUrl;
 
     /**
      * Get 任务Id。 
@@ -249,11 +282,11 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
      * Get 开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。 
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。 
      * @return StartTime 开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -263,11 +296,11 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
      * Set 开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      * @param StartTime 开始时间。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
@@ -277,17 +310,17 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
      * Get 结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。 
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。 
      * @return EndTime 结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -297,17 +330,17 @@ SourceType为点播（PullVodPushLive）可以填多个，上限30个。
      * Set 结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      * @param EndTime 结束时间，注意：
 1. 结束时间必须大于开始时间；
 2. 结束时间和开始时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
+3. 结束时间 和 开始时间 间隔必须小于30天。
 使用UTC格式时间，
 例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/267/38543#I)。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -498,6 +531,50 @@ ResetTaskConfig：任务更新回调。
     }
 
     /**
+     * Get 指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。 
+     * @return SpecifyTaskId 指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+     */
+    public String getSpecifyTaskId() {
+        return this.SpecifyTaskId;
+    }
+
+    /**
+     * Set 指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+     * @param SpecifyTaskId 指定任务 ID 修改任务。
+
+注意：该自定义任务 ID 只有在创建任务时指定了，才可在此处修改时使用。否则请使用系统返回的任务 ID。
+     */
+    public void setSpecifyTaskId(String SpecifyTaskId) {
+        this.SpecifyTaskId = SpecifyTaskId;
+    }
+
+    /**
+     * Get 目标 Url。
+换目标地址，会断流重推到新地址。 
+     * @return ToUrl 目标 Url。
+换目标地址，会断流重推到新地址。
+     */
+    public String getToUrl() {
+        return this.ToUrl;
+    }
+
+    /**
+     * Set 目标 Url。
+换目标地址，会断流重推到新地址。
+     * @param ToUrl 目标 Url。
+换目标地址，会断流重推到新地址。
+     */
+    public void setToUrl(String ToUrl) {
+        this.ToUrl = ToUrl;
+    }
+
+    /**
      * Get 任务备注。 
      * @return Comment 任务备注。
      */
@@ -653,6 +730,42 @@ PullVodPushLive -点播。
         this.VodLocalMode = VodLocalMode;
     }
 
+    /**
+     * Get 新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。 
+     * @return BackupToUrl 新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+     */
+    public String getBackupToUrl() {
+        return this.BackupToUrl;
+    }
+
+    /**
+     * Set 新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+     * @param BackupToUrl 新的目标地址。传空值，则取消该地址的推流。
+传入新值，则替换原有地址。
+     */
+    public void setBackupToUrl(String BackupToUrl) {
+        this.BackupToUrl = BackupToUrl;
+    }
+
+    /**
+     * Get 点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。 
+     * @return BackupVodUrl 点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
+     */
+    public String getBackupVodUrl() {
+        return this.BackupVodUrl;
+    }
+
+    /**
+     * Set 点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
+     * @param BackupVodUrl 点播垫片文件地址。注意：用于在主源拉不到时自动兜底到垫片文件，切到垫片文件后，每次播完垫片会尝试拉主源，如果主源恢复则自动切回主源。可根据需要的轮询检查时长来传入对应时长的垫片文件。
+     */
+    public void setBackupVodUrl(String BackupVodUrl) {
+        this.BackupVodUrl = BackupVodUrl;
+    }
+
     public ModifyLivePullStreamTaskRequest() {
     }
 
@@ -703,6 +816,12 @@ PullVodPushLive -点播。
         if (source.OffsetTime != null) {
             this.OffsetTime = new Long(source.OffsetTime);
         }
+        if (source.SpecifyTaskId != null) {
+            this.SpecifyTaskId = new String(source.SpecifyTaskId);
+        }
+        if (source.ToUrl != null) {
+            this.ToUrl = new String(source.ToUrl);
+        }
         if (source.Comment != null) {
             this.Comment = new String(source.Comment);
         }
@@ -720,6 +839,12 @@ PullVodPushLive -点播。
         }
         if (source.VodLocalMode != null) {
             this.VodLocalMode = new Long(source.VodLocalMode);
+        }
+        if (source.BackupToUrl != null) {
+            this.BackupToUrl = new String(source.BackupToUrl);
+        }
+        if (source.BackupVodUrl != null) {
+            this.BackupVodUrl = new String(source.BackupVodUrl);
         }
     }
 
@@ -740,11 +865,15 @@ PullVodPushLive -点播。
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamSimple(map, prefix + "FileIndex", this.FileIndex);
         this.setParamSimple(map, prefix + "OffsetTime", this.OffsetTime);
+        this.setParamSimple(map, prefix + "SpecifyTaskId", this.SpecifyTaskId);
+        this.setParamSimple(map, prefix + "ToUrl", this.ToUrl);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamSimple(map, prefix + "BackupSourceType", this.BackupSourceType);
         this.setParamSimple(map, prefix + "BackupSourceUrl", this.BackupSourceUrl);
         this.setParamArrayObj(map, prefix + "WatermarkList.", this.WatermarkList);
         this.setParamSimple(map, prefix + "VodLocalMode", this.VodLocalMode);
+        this.setParamSimple(map, prefix + "BackupToUrl", this.BackupToUrl);
+        this.setParamSimple(map, prefix + "BackupVodUrl", this.BackupVodUrl);
 
     }
 }

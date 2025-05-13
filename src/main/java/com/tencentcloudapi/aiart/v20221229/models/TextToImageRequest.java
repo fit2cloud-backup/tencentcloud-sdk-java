@@ -16,11 +16,12 @@
 package com.tencentcloudapi.aiart.v20221229.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TextToImageRequest extends AbstractModel{
+public class TextToImageRequest extends AbstractModel {
 
     /**
     * 文本描述。
@@ -51,6 +52,8 @@ public class TextToImageRequest extends AbstractModel{
 
     /**
     * 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：768:768（1:1）、768:1024（3:4）、1024:768（4:3）、1024:1024（1:1）、720:1280（9:16）、1280:720（16:9）、768:1280（3:5）、1280:768（5:3）、1080:1920（9:16）、1920:1080（16:9），不传默认使用768:768。
+
     */
     @SerializedName("ResultConfig")
     @Expose
@@ -155,8 +158,12 @@ public class TextToImageRequest extends AbstractModel{
     }
 
     /**
-     * Get 生成图结果的配置，包括输出图片分辨率和尺寸等。 
+     * Get 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：768:768（1:1）、768:1024（3:4）、1024:768（4:3）、1024:1024（1:1）、720:1280（9:16）、1280:720（16:9）、768:1280（3:5）、1280:768（5:3）、1080:1920（9:16）、1920:1080（16:9），不传默认使用768:768。
+ 
      * @return ResultConfig 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：768:768（1:1）、768:1024（3:4）、1024:768（4:3）、1024:1024（1:1）、720:1280（9:16）、1280:720（16:9）、768:1280（3:5）、1280:768（5:3）、1080:1920（9:16）、1920:1080（16:9），不传默认使用768:768。
+
      */
     public ResultConfig getResultConfig() {
         return this.ResultConfig;
@@ -164,7 +171,11 @@ public class TextToImageRequest extends AbstractModel{
 
     /**
      * Set 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：768:768（1:1）、768:1024（3:4）、1024:768（4:3）、1024:1024（1:1）、720:1280（9:16）、1280:720（16:9）、768:1280（3:5）、1280:768（5:3）、1080:1920（9:16）、1920:1080（16:9），不传默认使用768:768。
+
      * @param ResultConfig 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：768:768（1:1）、768:1024（3:4）、1024:768（4:3）、1024:1024（1:1）、720:1280（9:16）、1280:720（16:9）、768:1280（3:5）、1280:768（5:3）、1080:1920（9:16）、1920:1080（16:9），不传默认使用768:768。
+
      */
     public void setResultConfig(ResultConfig ResultConfig) {
         this.ResultConfig = ResultConfig;

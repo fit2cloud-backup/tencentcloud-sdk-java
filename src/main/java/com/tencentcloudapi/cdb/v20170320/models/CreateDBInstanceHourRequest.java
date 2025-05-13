@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDBInstanceHourRequest extends AbstractModel{
+public class CreateDBInstanceHourRequest extends AbstractModel {
 
     /**
     * 实例数量，默认值为 1，最小值 1，最大值为 100。
@@ -44,7 +45,8 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private Long Volume;
 
     /**
-    * MySQL 版本，值包括：5.5、5.6 、5.7 、8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+    * MySQL 版本，值包括：5.5、5.6、5.7和8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+说明：创建非集群版实例时，请根据需要指定实例版本（推荐5.7或8.0），若此参数不填，则默认值为5.6；若创建的是集群版实例，则此参数仅能指定为5.7或8.0。
     */
     @SerializedName("EngineVersion")
     @Expose
@@ -52,13 +54,14 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
 
     /**
     * 私有网络 ID，如果不传则默认选择基础网络，请使用 [查询私有网络列表](/document/api/215/15778) 。
+说明：如果创建的是集群版实例，此参数为必填且为私有网络类型。
     */
     @SerializedName("UniqVpcId")
     @Expose
     private String UniqVpcId;
 
     /**
-    * 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用[查询子网列表](/document/api/215/15784)。
+    * 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
     */
     @SerializedName("UniqSubnetId")
     @Expose
@@ -72,7 +75,8 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private Long ProjectId;
 
     /**
-    * 可用区信息，该参数缺省时，系统会自动选择一个可用区，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+    * 可用区信息，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+说明：若您创建单节点、双节点、三节点实例，此参数为必填项，请指定可用区，若不指定可用区，则系统会自动选择一个可用区（可能不是您希望部署的可用区）；若您创建集群版实例，此参数不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置。
     */
     @SerializedName("Zone")
     @Expose
@@ -86,7 +90,8 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private String MasterInstanceId;
 
     /**
-    * 实例类型，默认为 master，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+    * 实例类型，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+说明：必填项。
     */
     @SerializedName("InstanceRole")
     @Expose
@@ -107,7 +112,7 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private Long Port;
 
     /**
-    * 设置 root 帐号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
+    * 设置 root 账号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
     */
     @SerializedName("Password")
     @Expose
@@ -135,7 +140,8 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private Long DeployMode;
 
     /**
-    * 备库 1 的可用区信息，默认为 Zone 的值，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
+    * 备库 1 的可用区信息。
+说明：双节点、三节点实例请指定此参数值，若不指定，则默认为 Zone 的值；集群版实例此参数可不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置；单节点实例为单可用区，无需指定此参数。
     */
     @SerializedName("SlaveZone")
     @Expose
@@ -198,14 +204,16 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     private String ClientToken;
 
     /**
-    * 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+    * 实例隔离类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"BASIC_V2" - ONTKE 单节点实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型实例。
+说明：如果创建的是集群版实例，此参数为必填。
     */
     @SerializedName("DeviceType")
     @Expose
     private String DeviceType;
 
     /**
-    * 参数模板id。
+    * 参数模板 id。
+备注：如您使用自定义参数模板 id，可传入自定义参数模板 id；如您计划使用默认参数模板，该参数模板 id 传入 id 无效，需设置 ParamTemplateType。
     */
     @SerializedName("ParamTemplateId")
     @Expose
@@ -248,6 +256,7 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
 
     /**
     * 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板，默认值是："HIGH_STABILITY"。
+备注：如您需使用云数据库 MySQL 默认参数模板，请设置 ParamTemplateType。
     */
     @SerializedName("ParamTemplateType")
     @Expose
@@ -280,6 +289,36 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     @SerializedName("Vips")
     @Expose
     private String [] Vips;
+
+    /**
+    * 集群版实例的数据保护空间大小，单位 GB，设置范围1 - 10。
+    */
+    @SerializedName("DataProtectVolume")
+    @Expose
+    private Long DataProtectVolume;
+
+    /**
+    * 集群版节点拓扑配置。
+说明：若购买的是集群版实例，此参数为必填，需设置集群版实例的 RW 和 RO 节点拓扑，RO 节点范围是1 - 5个，请至少设置1个 RO 节点。
+    */
+    @SerializedName("ClusterTopology")
+    @Expose
+    private ClusterTopology ClusterTopology;
+
+    /**
+    * 硬盘类型，单节点（云盘版）或者集群版实例可以指定此参数。CLOUD_SSD 表示 SSD 云硬盘，CLOUD_HSSD 表示增强型 SSD 云硬盘。
+说明：单节点（云盘版）、集群版实例硬盘类型所支持的地域略有不同，具体支持情况请参考 [地域和可用区](https://cloud.tencent.com/document/product/236/8458)。
+    */
+    @SerializedName("DiskType")
+    @Expose
+    private String DiskType;
+
+    /**
+    * 集群类型:cage——金融围拢，cdc——CDB ON CDC；dedicate——独享集群
+    */
+    @SerializedName("ClusterType")
+    @Expose
+    private String ClusterType;
 
     /**
      * Get 实例数量，默认值为 1，最小值 1，最大值为 100。 
@@ -330,24 +369,30 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get MySQL 版本，值包括：5.5、5.6 、5.7 、8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。 
-     * @return EngineVersion MySQL 版本，值包括：5.5、5.6 、5.7 、8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+     * Get MySQL 版本，值包括：5.5、5.6、5.7和8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+说明：创建非集群版实例时，请根据需要指定实例版本（推荐5.7或8.0），若此参数不填，则默认值为5.6；若创建的是集群版实例，则此参数仅能指定为5.7或8.0。 
+     * @return EngineVersion MySQL 版本，值包括：5.5、5.6、5.7和8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+说明：创建非集群版实例时，请根据需要指定实例版本（推荐5.7或8.0），若此参数不填，则默认值为5.6；若创建的是集群版实例，则此参数仅能指定为5.7或8.0。
      */
     public String getEngineVersion() {
         return this.EngineVersion;
     }
 
     /**
-     * Set MySQL 版本，值包括：5.5、5.6 、5.7 、8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
-     * @param EngineVersion MySQL 版本，值包括：5.5、5.6 、5.7 、8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+     * Set MySQL 版本，值包括：5.5、5.6、5.7和8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+说明：创建非集群版实例时，请根据需要指定实例版本（推荐5.7或8.0），若此参数不填，则默认值为5.6；若创建的是集群版实例，则此参数仅能指定为5.7或8.0。
+     * @param EngineVersion MySQL 版本，值包括：5.5、5.6、5.7和8.0，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的实例版本。
+说明：创建非集群版实例时，请根据需要指定实例版本（推荐5.7或8.0），若此参数不填，则默认值为5.6；若创建的是集群版实例，则此参数仅能指定为5.7或8.0。
      */
     public void setEngineVersion(String EngineVersion) {
         this.EngineVersion = EngineVersion;
     }
 
     /**
-     * Get 私有网络 ID，如果不传则默认选择基础网络，请使用 [查询私有网络列表](/document/api/215/15778) 。 
+     * Get 私有网络 ID，如果不传则默认选择基础网络，请使用 [查询私有网络列表](/document/api/215/15778) 。
+说明：如果创建的是集群版实例，此参数为必填且为私有网络类型。 
      * @return UniqVpcId 私有网络 ID，如果不传则默认选择基础网络，请使用 [查询私有网络列表](/document/api/215/15778) 。
+说明：如果创建的是集群版实例，此参数为必填且为私有网络类型。
      */
     public String getUniqVpcId() {
         return this.UniqVpcId;
@@ -355,23 +400,25 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
 
     /**
      * Set 私有网络 ID，如果不传则默认选择基础网络，请使用 [查询私有网络列表](/document/api/215/15778) 。
+说明：如果创建的是集群版实例，此参数为必填且为私有网络类型。
      * @param UniqVpcId 私有网络 ID，如果不传则默认选择基础网络，请使用 [查询私有网络列表](/document/api/215/15778) 。
+说明：如果创建的是集群版实例，此参数为必填且为私有网络类型。
      */
     public void setUniqVpcId(String UniqVpcId) {
         this.UniqVpcId = UniqVpcId;
     }
 
     /**
-     * Get 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用[查询子网列表](/document/api/215/15784)。 
-     * @return UniqSubnetId 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用[查询子网列表](/document/api/215/15784)。
+     * Get 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。 
+     * @return UniqSubnetId 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
      */
     public String getUniqSubnetId() {
         return this.UniqSubnetId;
     }
 
     /**
-     * Set 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用[查询子网列表](/document/api/215/15784)。
-     * @param UniqSubnetId 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用[查询子网列表](/document/api/215/15784)。
+     * Set 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
+     * @param UniqSubnetId 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
      */
     public void setUniqSubnetId(String UniqSubnetId) {
         this.UniqSubnetId = UniqSubnetId;
@@ -394,16 +441,20 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 可用区信息，该参数缺省时，系统会自动选择一个可用区，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。 
-     * @return Zone 可用区信息，该参数缺省时，系统会自动选择一个可用区，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+     * Get 可用区信息，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+说明：若您创建单节点、双节点、三节点实例，此参数为必填项，请指定可用区，若不指定可用区，则系统会自动选择一个可用区（可能不是您希望部署的可用区）；若您创建集群版实例，此参数不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置。 
+     * @return Zone 可用区信息，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+说明：若您创建单节点、双节点、三节点实例，此参数为必填项，请指定可用区，若不指定可用区，则系统会自动选择一个可用区（可能不是您希望部署的可用区）；若您创建集群版实例，此参数不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置。
      */
     public String getZone() {
         return this.Zone;
     }
 
     /**
-     * Set 可用区信息，该参数缺省时，系统会自动选择一个可用区，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
-     * @param Zone 可用区信息，该参数缺省时，系统会自动选择一个可用区，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+     * Set 可用区信息，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+说明：若您创建单节点、双节点、三节点实例，此参数为必填项，请指定可用区，若不指定可用区，则系统会自动选择一个可用区（可能不是您希望部署的可用区）；若您创建集群版实例，此参数不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置。
+     * @param Zone 可用区信息，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的可用区。
+说明：若您创建单节点、双节点、三节点实例，此参数为必填项，请指定可用区，若不指定可用区，则系统会自动选择一个可用区（可能不是您希望部署的可用区）；若您创建集群版实例，此参数不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
@@ -426,16 +477,20 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例类型，默认为 master，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。 
-     * @return InstanceRole 实例类型，默认为 master，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+     * Get 实例类型，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+说明：必填项。 
+     * @return InstanceRole 实例类型，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+说明：必填项。
      */
     public String getInstanceRole() {
         return this.InstanceRole;
     }
 
     /**
-     * Set 实例类型，默认为 master，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
-     * @param InstanceRole 实例类型，默认为 master，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+     * Set 实例类型，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+说明：必填项。
+     * @param InstanceRole 实例类型，支持值包括：master - 表示主实例，dr - 表示灾备实例，ro - 表示只读实例。
+说明：必填项。
      */
     public void setInstanceRole(String InstanceRole) {
         this.InstanceRole = InstanceRole;
@@ -474,16 +529,16 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 设置 root 帐号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。 
-     * @return Password 设置 root 帐号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
+     * Get 设置 root 账号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。 
+     * @return Password 设置 root 账号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
      */
     public String getPassword() {
         return this.Password;
     }
 
     /**
-     * Set 设置 root 帐号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
-     * @param Password 设置 root 帐号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
+     * Set 设置 root 账号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
+     * @param Password 设置 root 账号密码，密码规则：8 - 64 个字符，至少包含字母、数字、字符（支持的字符：_+-&=!@#$%^*()）中的两种，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
      */
     public void setPassword(String Password) {
         this.Password = Password;
@@ -538,16 +593,20 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 备库 1 的可用区信息，默认为 Zone 的值，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。 
-     * @return SlaveZone 备库 1 的可用区信息，默认为 Zone 的值，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
+     * Get 备库 1 的可用区信息。
+说明：双节点、三节点实例请指定此参数值，若不指定，则默认为 Zone 的值；集群版实例此参数可不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置；单节点实例为单可用区，无需指定此参数。 
+     * @return SlaveZone 备库 1 的可用区信息。
+说明：双节点、三节点实例请指定此参数值，若不指定，则默认为 Zone 的值；集群版实例此参数可不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置；单节点实例为单可用区，无需指定此参数。
      */
     public String getSlaveZone() {
         return this.SlaveZone;
     }
 
     /**
-     * Set 备库 1 的可用区信息，默认为 Zone 的值，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
-     * @param SlaveZone 备库 1 的可用区信息，默认为 Zone 的值，购买主实例时可指定该参数，购买只读实例或者灾备实例时指定该参数无意义。
+     * Set 备库 1 的可用区信息。
+说明：双节点、三节点实例请指定此参数值，若不指定，则默认为 Zone 的值；集群版实例此参数可不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置；单节点实例为单可用区，无需指定此参数。
+     * @param SlaveZone 备库 1 的可用区信息。
+说明：双节点、三节点实例请指定此参数值，若不指定，则默认为 Zone 的值；集群版实例此参数可不填，请通过参数 ClusterTopology 进行读写节点和只读节点的可用区配置；单节点实例为单可用区，无需指定此参数。
      */
     public void setSlaveZone(String SlaveZone) {
         this.SlaveZone = SlaveZone;
@@ -682,32 +741,40 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。 
-     * @return DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     * Get 实例隔离类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"BASIC_V2" - ONTKE 单节点实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型实例。
+说明：如果创建的是集群版实例，此参数为必填。 
+     * @return DeviceType 实例隔离类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"BASIC_V2" - ONTKE 单节点实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型实例。
+说明：如果创建的是集群版实例，此参数为必填。
      */
     public String getDeviceType() {
         return this.DeviceType;
     }
 
     /**
-     * Set 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
-     * @param DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC" - 基础版实例。 不指定则默认为通用型实例。
+     * Set 实例隔离类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"BASIC_V2" - ONTKE 单节点实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型实例。
+说明：如果创建的是集群版实例，此参数为必填。
+     * @param DeviceType 实例隔离类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"BASIC_V2" - ONTKE 单节点实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型实例。
+说明：如果创建的是集群版实例，此参数为必填。
      */
     public void setDeviceType(String DeviceType) {
         this.DeviceType = DeviceType;
     }
 
     /**
-     * Get 参数模板id。 
-     * @return ParamTemplateId 参数模板id。
+     * Get 参数模板 id。
+备注：如您使用自定义参数模板 id，可传入自定义参数模板 id；如您计划使用默认参数模板，该参数模板 id 传入 id 无效，需设置 ParamTemplateType。 
+     * @return ParamTemplateId 参数模板 id。
+备注：如您使用自定义参数模板 id，可传入自定义参数模板 id；如您计划使用默认参数模板，该参数模板 id 传入 id 无效，需设置 ParamTemplateType。
      */
     public Long getParamTemplateId() {
         return this.ParamTemplateId;
     }
 
     /**
-     * Set 参数模板id。
-     * @param ParamTemplateId 参数模板id。
+     * Set 参数模板 id。
+备注：如您使用自定义参数模板 id，可传入自定义参数模板 id；如您计划使用默认参数模板，该参数模板 id 传入 id 无效，需设置 ParamTemplateType。
+     * @param ParamTemplateId 参数模板 id。
+备注：如您使用自定义参数模板 id，可传入自定义参数模板 id；如您计划使用默认参数模板，该参数模板 id 传入 id 无效，需设置 ParamTemplateType。
      */
     public void setParamTemplateId(Long ParamTemplateId) {
         this.ParamTemplateId = ParamTemplateId;
@@ -794,8 +861,10 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
     }
 
     /**
-     * Get 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板，默认值是："HIGH_STABILITY"。 
+     * Get 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板，默认值是："HIGH_STABILITY"。
+备注：如您需使用云数据库 MySQL 默认参数模板，请设置 ParamTemplateType。 
      * @return ParamTemplateType 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板，默认值是："HIGH_STABILITY"。
+备注：如您需使用云数据库 MySQL 默认参数模板，请设置 ParamTemplateType。
      */
     public String getParamTemplateType() {
         return this.ParamTemplateType;
@@ -803,7 +872,9 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
 
     /**
      * Set 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板，默认值是："HIGH_STABILITY"。
+备注：如您需使用云数据库 MySQL 默认参数模板，请设置 ParamTemplateType。
      * @param ParamTemplateType 默认参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板，默认值是："HIGH_STABILITY"。
+备注：如您需使用云数据库 MySQL 默认参数模板，请设置 ParamTemplateType。
      */
     public void setParamTemplateType(String ParamTemplateType) {
         this.ParamTemplateType = ParamTemplateType;
@@ -871,6 +942,78 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
      */
     public void setVips(String [] Vips) {
         this.Vips = Vips;
+    }
+
+    /**
+     * Get 集群版实例的数据保护空间大小，单位 GB，设置范围1 - 10。 
+     * @return DataProtectVolume 集群版实例的数据保护空间大小，单位 GB，设置范围1 - 10。
+     */
+    public Long getDataProtectVolume() {
+        return this.DataProtectVolume;
+    }
+
+    /**
+     * Set 集群版实例的数据保护空间大小，单位 GB，设置范围1 - 10。
+     * @param DataProtectVolume 集群版实例的数据保护空间大小，单位 GB，设置范围1 - 10。
+     */
+    public void setDataProtectVolume(Long DataProtectVolume) {
+        this.DataProtectVolume = DataProtectVolume;
+    }
+
+    /**
+     * Get 集群版节点拓扑配置。
+说明：若购买的是集群版实例，此参数为必填，需设置集群版实例的 RW 和 RO 节点拓扑，RO 节点范围是1 - 5个，请至少设置1个 RO 节点。 
+     * @return ClusterTopology 集群版节点拓扑配置。
+说明：若购买的是集群版实例，此参数为必填，需设置集群版实例的 RW 和 RO 节点拓扑，RO 节点范围是1 - 5个，请至少设置1个 RO 节点。
+     */
+    public ClusterTopology getClusterTopology() {
+        return this.ClusterTopology;
+    }
+
+    /**
+     * Set 集群版节点拓扑配置。
+说明：若购买的是集群版实例，此参数为必填，需设置集群版实例的 RW 和 RO 节点拓扑，RO 节点范围是1 - 5个，请至少设置1个 RO 节点。
+     * @param ClusterTopology 集群版节点拓扑配置。
+说明：若购买的是集群版实例，此参数为必填，需设置集群版实例的 RW 和 RO 节点拓扑，RO 节点范围是1 - 5个，请至少设置1个 RO 节点。
+     */
+    public void setClusterTopology(ClusterTopology ClusterTopology) {
+        this.ClusterTopology = ClusterTopology;
+    }
+
+    /**
+     * Get 硬盘类型，单节点（云盘版）或者集群版实例可以指定此参数。CLOUD_SSD 表示 SSD 云硬盘，CLOUD_HSSD 表示增强型 SSD 云硬盘。
+说明：单节点（云盘版）、集群版实例硬盘类型所支持的地域略有不同，具体支持情况请参考 [地域和可用区](https://cloud.tencent.com/document/product/236/8458)。 
+     * @return DiskType 硬盘类型，单节点（云盘版）或者集群版实例可以指定此参数。CLOUD_SSD 表示 SSD 云硬盘，CLOUD_HSSD 表示增强型 SSD 云硬盘。
+说明：单节点（云盘版）、集群版实例硬盘类型所支持的地域略有不同，具体支持情况请参考 [地域和可用区](https://cloud.tencent.com/document/product/236/8458)。
+     */
+    public String getDiskType() {
+        return this.DiskType;
+    }
+
+    /**
+     * Set 硬盘类型，单节点（云盘版）或者集群版实例可以指定此参数。CLOUD_SSD 表示 SSD 云硬盘，CLOUD_HSSD 表示增强型 SSD 云硬盘。
+说明：单节点（云盘版）、集群版实例硬盘类型所支持的地域略有不同，具体支持情况请参考 [地域和可用区](https://cloud.tencent.com/document/product/236/8458)。
+     * @param DiskType 硬盘类型，单节点（云盘版）或者集群版实例可以指定此参数。CLOUD_SSD 表示 SSD 云硬盘，CLOUD_HSSD 表示增强型 SSD 云硬盘。
+说明：单节点（云盘版）、集群版实例硬盘类型所支持的地域略有不同，具体支持情况请参考 [地域和可用区](https://cloud.tencent.com/document/product/236/8458)。
+     */
+    public void setDiskType(String DiskType) {
+        this.DiskType = DiskType;
+    }
+
+    /**
+     * Get 集群类型:cage——金融围拢，cdc——CDB ON CDC；dedicate——独享集群 
+     * @return ClusterType 集群类型:cage——金融围拢，cdc——CDB ON CDC；dedicate——独享集群
+     */
+    public String getClusterType() {
+        return this.ClusterType;
+    }
+
+    /**
+     * Set 集群类型:cage——金融围拢，cdc——CDB ON CDC；dedicate——独享集群
+     * @param ClusterType 集群类型:cage——金融围拢，cdc——CDB ON CDC；dedicate——独享集群
+     */
+    public void setClusterType(String ClusterType) {
+        this.ClusterType = ClusterType;
     }
 
     public CreateDBInstanceHourRequest() {
@@ -1010,6 +1153,18 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
                 this.Vips[i] = new String(source.Vips[i]);
             }
         }
+        if (source.DataProtectVolume != null) {
+            this.DataProtectVolume = new Long(source.DataProtectVolume);
+        }
+        if (source.ClusterTopology != null) {
+            this.ClusterTopology = new ClusterTopology(source.ClusterTopology);
+        }
+        if (source.DiskType != null) {
+            this.DiskType = new String(source.DiskType);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
     }
 
 
@@ -1054,6 +1209,10 @@ public class CreateDBInstanceHourRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
         this.setParamSimple(map, prefix + "EngineType", this.EngineType);
         this.setParamArraySimple(map, prefix + "Vips.", this.Vips);
+        this.setParamSimple(map, prefix + "DataProtectVolume", this.DataProtectVolume);
+        this.setParamObj(map, prefix + "ClusterTopology.", this.ClusterTopology);
+        this.setParamSimple(map, prefix + "DiskType", this.DiskType);
+        this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
 
     }
 }

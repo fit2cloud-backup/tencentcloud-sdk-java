@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DimensionScoreInfo extends AbstractModel{
+public class DimensionScoreInfo extends AbstractModel {
 
     /**
     * 维度名称
@@ -75,6 +76,14 @@ public class DimensionScoreInfo extends AbstractModel{
     @SerializedName("Score")
     @Expose
     private Float Score;
+
+    /**
+    * 设置人idStr
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserIdStr")
+    @Expose
+    private String UserIdStr;
 
     /**
      * Get 维度名称
@@ -208,6 +217,26 @@ public class DimensionScoreInfo extends AbstractModel{
         this.Score = Score;
     }
 
+    /**
+     * Get 设置人idStr
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserIdStr 设置人idStr
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUserIdStr() {
+        return this.UserIdStr;
+    }
+
+    /**
+     * Set 设置人idStr
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserIdStr 设置人idStr
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserIdStr(String UserIdStr) {
+        this.UserIdStr = UserIdStr;
+    }
+
     public DimensionScoreInfo() {
     }
 
@@ -237,6 +266,9 @@ public class DimensionScoreInfo extends AbstractModel{
         if (source.Score != null) {
             this.Score = new Float(source.Score);
         }
+        if (source.UserIdStr != null) {
+            this.UserIdStr = new String(source.UserIdStr);
+        }
     }
 
 
@@ -251,6 +283,7 @@ public class DimensionScoreInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamSimple(map, prefix + "JoinTableNumber", this.JoinTableNumber);
         this.setParamSimple(map, prefix + "Score", this.Score);
+        this.setParamSimple(map, prefix + "UserIdStr", this.UserIdStr);
 
     }
 }

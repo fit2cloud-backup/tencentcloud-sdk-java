@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PlayStatInfo extends AbstractModel{
+public class PlayStatInfo extends AbstractModel {
 
     /**
     * 数据时间点。
@@ -31,7 +32,6 @@ public class PlayStatInfo extends AbstractModel{
 
     /**
     * 带宽/流量/请求数/并发连接数/下载速度的值，若没数据返回时该值为0。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -54,10 +54,8 @@ public class PlayStatInfo extends AbstractModel{
     }
 
     /**
-     * Get 带宽/流量/请求数/并发连接数/下载速度的值，若没数据返回时该值为0。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带宽/流量/请求数/并发连接数/下载速度的值，若没数据返回时该值为0。 
      * @return Value 带宽/流量/请求数/并发连接数/下载速度的值，若没数据返回时该值为0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getValue() {
         return this.Value;
@@ -65,9 +63,7 @@ public class PlayStatInfo extends AbstractModel{
 
     /**
      * Set 带宽/流量/请求数/并发连接数/下载速度的值，若没数据返回时该值为0。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 带宽/流量/请求数/并发连接数/下载速度的值，若没数据返回时该值为0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(Float Value) {
         this.Value = Value;

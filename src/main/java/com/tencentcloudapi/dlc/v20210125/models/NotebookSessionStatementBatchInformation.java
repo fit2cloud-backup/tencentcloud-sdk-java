@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NotebookSessionStatementBatchInformation extends AbstractModel{
+public class NotebookSessionStatementBatchInformation extends AbstractModel {
 
     /**
     * 任务详情列表
@@ -32,7 +33,6 @@ public class NotebookSessionStatementBatchInformation extends AbstractModel{
 
     /**
     * 当前批任务是否运行完成
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsAvailable")
     @Expose
@@ -40,7 +40,6 @@ public class NotebookSessionStatementBatchInformation extends AbstractModel{
 
     /**
     * Session唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SessionId")
     @Expose
@@ -75,10 +74,8 @@ public class NotebookSessionStatementBatchInformation extends AbstractModel{
     }
 
     /**
-     * Get 当前批任务是否运行完成
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前批任务是否运行完成 
      * @return IsAvailable 当前批任务是否运行完成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsAvailable() {
         return this.IsAvailable;
@@ -86,19 +83,15 @@ public class NotebookSessionStatementBatchInformation extends AbstractModel{
 
     /**
      * Set 当前批任务是否运行完成
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsAvailable 当前批任务是否运行完成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsAvailable(Boolean IsAvailable) {
         this.IsAvailable = IsAvailable;
     }
 
     /**
-     * Get Session唯一标识
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Session唯一标识 
      * @return SessionId Session唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSessionId() {
         return this.SessionId;
@@ -106,9 +99,7 @@ public class NotebookSessionStatementBatchInformation extends AbstractModel{
 
     /**
      * Set Session唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SessionId Session唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;

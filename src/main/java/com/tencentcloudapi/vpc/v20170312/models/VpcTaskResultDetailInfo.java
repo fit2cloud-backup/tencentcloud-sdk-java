@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VpcTaskResultDetailInfo extends AbstractModel{
+public class VpcTaskResultDetailInfo extends AbstractModel {
 
     /**
     * 资源ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceId")
     @Expose
@@ -32,17 +32,14 @@ public class VpcTaskResultDetailInfo extends AbstractModel{
 
     /**
     * 状态。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
     private String Status;
 
     /**
-     * Get 资源ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源ID。 
      * @return ResourceId 资源ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceId() {
         return this.ResourceId;
@@ -50,19 +47,15 @@ public class VpcTaskResultDetailInfo extends AbstractModel{
 
     /**
      * Set 资源ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceId 资源ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
     }
 
     /**
-     * Get 状态。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态。 
      * @return Status 状态。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -70,9 +63,7 @@ public class VpcTaskResultDetailInfo extends AbstractModel{
 
     /**
      * Set 状态。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;

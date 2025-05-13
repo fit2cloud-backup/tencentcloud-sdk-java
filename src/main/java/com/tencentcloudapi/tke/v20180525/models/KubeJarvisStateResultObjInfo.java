@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KubeJarvisStateResultObjInfo extends AbstractModel{
+public class KubeJarvisStateResultObjInfo extends AbstractModel {
 
     /**
     * 对象属性名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PropertyName")
     @Expose
@@ -32,17 +32,14 @@ public class KubeJarvisStateResultObjInfo extends AbstractModel{
 
     /**
     * 对象属性值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PropertyValue")
     @Expose
     private String PropertyValue;
 
     /**
-     * Get 对象属性名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对象属性名称 
      * @return PropertyName 对象属性名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPropertyName() {
         return this.PropertyName;
@@ -50,19 +47,15 @@ public class KubeJarvisStateResultObjInfo extends AbstractModel{
 
     /**
      * Set 对象属性名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PropertyName 对象属性名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPropertyName(String PropertyName) {
         this.PropertyName = PropertyName;
     }
 
     /**
-     * Get 对象属性值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对象属性值 
      * @return PropertyValue 对象属性值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPropertyValue() {
         return this.PropertyValue;
@@ -70,9 +63,7 @@ public class KubeJarvisStateResultObjInfo extends AbstractModel{
 
     /**
      * Set 对象属性值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PropertyValue 对象属性值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPropertyValue(String PropertyValue) {
         this.PropertyValue = PropertyValue;

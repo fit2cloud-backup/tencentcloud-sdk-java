@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProtocolPort extends AbstractModel{
+public class ProtocolPort extends AbstractModel {
 
     /**
     * TCP UDP
@@ -45,11 +46,17 @@ public class ProtocolPort extends AbstractModel{
 
     /**
     * 主机端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodePort")
     @Expose
     private Long NodePort;
+
+    /**
+    * 端口名称
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get TCP UDP 
@@ -100,10 +107,8 @@ public class ProtocolPort extends AbstractModel{
     }
 
     /**
-     * Get 主机端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机端口 
      * @return NodePort 主机端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNodePort() {
         return this.NodePort;
@@ -111,12 +116,26 @@ public class ProtocolPort extends AbstractModel{
 
     /**
      * Set 主机端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodePort 主机端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodePort(Long NodePort) {
         this.NodePort = NodePort;
+    }
+
+    /**
+     * Get 端口名称 
+     * @return Name 端口名称
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 端口名称
+     * @param Name 端口名称
+     */
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
     public ProtocolPort() {
@@ -139,6 +158,9 @@ public class ProtocolPort extends AbstractModel{
         if (source.NodePort != null) {
             this.NodePort = new Long(source.NodePort);
         }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
     }
 
 
@@ -150,6 +172,7 @@ public class ProtocolPort extends AbstractModel{
         this.setParamSimple(map, prefix + "Port", this.Port);
         this.setParamSimple(map, prefix + "TargetPort", this.TargetPort);
         this.setParamSimple(map, prefix + "NodePort", this.NodePort);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

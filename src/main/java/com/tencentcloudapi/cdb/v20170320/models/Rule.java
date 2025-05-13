@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Rule extends AbstractModel{
+public class Rule extends AbstractModel {
 
     /**
     * 划分上限
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LessThan")
     @Expose
@@ -32,17 +32,14 @@ public class Rule extends AbstractModel{
 
     /**
     * 权重
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Weight")
     @Expose
     private Long Weight;
 
     /**
-     * Get 划分上限
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 划分上限 
      * @return LessThan 划分上限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLessThan() {
         return this.LessThan;
@@ -50,19 +47,15 @@ public class Rule extends AbstractModel{
 
     /**
      * Set 划分上限
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LessThan 划分上限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLessThan(Long LessThan) {
         this.LessThan = LessThan;
     }
 
     /**
-     * Get 权重
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 权重 
      * @return Weight 权重
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWeight() {
         return this.Weight;
@@ -70,9 +63,7 @@ public class Rule extends AbstractModel{
 
     /**
      * Set 权重
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Weight 权重
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWeight(Long Weight) {
         this.Weight = Weight;

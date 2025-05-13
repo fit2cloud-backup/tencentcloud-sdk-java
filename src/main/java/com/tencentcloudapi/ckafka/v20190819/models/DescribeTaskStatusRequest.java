@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskStatusRequest extends AbstractModel{
+public class DescribeTaskStatusRequest extends AbstractModel {
 
     /**
-    * 任务唯一标记
+    * 流程Id
     */
     @SerializedName("FlowId")
     @Expose
     private Long FlowId;
 
     /**
-     * Get 任务唯一标记 
-     * @return FlowId 任务唯一标记
+     * Get 流程Id 
+     * @return FlowId 流程Id
      */
     public Long getFlowId() {
         return this.FlowId;
     }
 
     /**
-     * Set 任务唯一标记
-     * @param FlowId 任务唯一标记
+     * Set 流程Id
+     * @param FlowId 流程Id
      */
     public void setFlowId(Long FlowId) {
         this.FlowId = FlowId;

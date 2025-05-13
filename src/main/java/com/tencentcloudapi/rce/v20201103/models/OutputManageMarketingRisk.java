@@ -16,15 +16,20 @@
 package com.tencentcloudapi.rce.v20201103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OutputManageMarketingRisk extends AbstractModel{
+public class OutputManageMarketingRisk extends AbstractModel {
 
     /**
-    * 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
     */
     @SerializedName("Code")
     @Expose
@@ -32,7 +37,6 @@ public class OutputManageMarketingRisk extends AbstractModel{
 
     /**
     * UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -48,37 +52,50 @@ public class OutputManageMarketingRisk extends AbstractModel{
 
     /**
     * 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UUid")
     @Expose
     private String UUid;
 
     /**
-     * Get 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Code 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品 
+     * @return Code 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
      */
     public Long getCode() {
         return this.Code;
     }
 
     /**
-     * Set 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Code 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
+     * @param Code 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
      */
     public void setCode(Long Code) {
         this.Code = Code;
     }
 
     /**
-     * Get UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get UTF-8编码，出错消息。 
      * @return Message UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -86,9 +103,7 @@ public class OutputManageMarketingRisk extends AbstractModel{
 
     /**
      * Set UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;
@@ -115,10 +130,8 @@ public class OutputManageMarketingRisk extends AbstractModel{
     }
 
     /**
-     * Get 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 控制台显示的req_id。 
      * @return UUid 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUUid() {
         return this.UUid;
@@ -126,9 +139,7 @@ public class OutputManageMarketingRisk extends AbstractModel{
 
     /**
      * Set 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UUid 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUUid(String UUid) {
         this.UUid = UUid;

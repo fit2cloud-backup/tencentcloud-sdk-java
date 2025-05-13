@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RepositoryList extends AbstractModel{
+public class RepositoryList extends AbstractModel {
 
     /**
     * 仓库总量
@@ -31,7 +32,6 @@ public class RepositoryList extends AbstractModel{
 
     /**
     * 仓库信息列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
@@ -54,10 +54,8 @@ public class RepositoryList extends AbstractModel{
     }
 
     /**
-     * Get 仓库信息列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库信息列表 
      * @return Content 仓库信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RepositoryInfo [] getContent() {
         return this.Content;
@@ -65,9 +63,7 @@ public class RepositoryList extends AbstractModel{
 
     /**
      * Set 仓库信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 仓库信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(RepositoryInfo [] Content) {
         this.Content = Content;

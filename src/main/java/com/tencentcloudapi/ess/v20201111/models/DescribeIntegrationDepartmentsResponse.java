@@ -16,53 +16,54 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIntegrationDepartmentsResponse extends AbstractModel{
+public class DescribeIntegrationDepartmentsResponse extends AbstractModel {
 
     /**
-    * 部门列表
+    * 部门信息列表。部门信息根据部门排序号OrderNo降序排列，根据部门创建时间升序排列。
     */
     @SerializedName("Departments")
     @Expose
     private IntegrationDepartment [] Departments;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 部门列表 
-     * @return Departments 部门列表
+     * Get 部门信息列表。部门信息根据部门排序号OrderNo降序排列，根据部门创建时间升序排列。 
+     * @return Departments 部门信息列表。部门信息根据部门排序号OrderNo降序排列，根据部门创建时间升序排列。
      */
     public IntegrationDepartment [] getDepartments() {
         return this.Departments;
     }
 
     /**
-     * Set 部门列表
-     * @param Departments 部门列表
+     * Set 部门信息列表。部门信息根据部门排序号OrderNo降序排列，根据部门创建时间升序排列。
+     * @param Departments 部门信息列表。部门信息根据部门排序号OrderNo降序排列，根据部门创建时间升序排列。
      */
     public void setDepartments(IntegrationDepartment [] Departments) {
         this.Departments = Departments;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IndexMetaField extends AbstractModel{
+public class IndexMetaField extends AbstractModel {
 
     /**
     * 索引类型
@@ -37,6 +38,14 @@ public class IndexMetaField extends AbstractModel{
     @SerializedName("IndexName")
     @Expose
     private String IndexName;
+
+    /**
+    * 索引元数据JSON
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndexMetaJson")
+    @Expose
+    private String IndexMetaJson;
 
     /**
     * 索引状态
@@ -119,6 +128,14 @@ public class IndexMetaField extends AbstractModel{
     private IndexSettingsField IndexSettingsField;
 
     /**
+    * 索引别名字段
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndexAliasesField")
+    @Expose
+    private String [] IndexAliasesField;
+
+    /**
     * 索引所属集群APP ID
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -172,6 +189,26 @@ public class IndexMetaField extends AbstractModel{
      */
     public void setIndexName(String IndexName) {
         this.IndexName = IndexName;
+    }
+
+    /**
+     * Get 索引元数据JSON
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndexMetaJson 索引元数据JSON
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIndexMetaJson() {
+        return this.IndexMetaJson;
+    }
+
+    /**
+     * Set 索引元数据JSON
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndexMetaJson 索引元数据JSON
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndexMetaJson(String IndexMetaJson) {
+        this.IndexMetaJson = IndexMetaJson;
     }
 
     /**
@@ -375,6 +412,26 @@ public class IndexMetaField extends AbstractModel{
     }
 
     /**
+     * Get 索引别名字段
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndexAliasesField 索引别名字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getIndexAliasesField() {
+        return this.IndexAliasesField;
+    }
+
+    /**
+     * Set 索引别名字段
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndexAliasesField 索引别名字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndexAliasesField(String [] IndexAliasesField) {
+        this.IndexAliasesField = IndexAliasesField;
+    }
+
+    /**
      * Get 索引所属集群APP ID
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return AppId 索引所属集群APP ID
@@ -428,6 +485,9 @@ public class IndexMetaField extends AbstractModel{
         if (source.IndexName != null) {
             this.IndexName = new String(source.IndexName);
         }
+        if (source.IndexMetaJson != null) {
+            this.IndexMetaJson = new String(source.IndexMetaJson);
+        }
         if (source.IndexStatus != null) {
             this.IndexStatus = new String(source.IndexStatus);
         }
@@ -461,6 +521,12 @@ public class IndexMetaField extends AbstractModel{
         if (source.IndexSettingsField != null) {
             this.IndexSettingsField = new IndexSettingsField(source.IndexSettingsField);
         }
+        if (source.IndexAliasesField != null) {
+            this.IndexAliasesField = new String[source.IndexAliasesField.length];
+            for (int i = 0; i < source.IndexAliasesField.length; i++) {
+                this.IndexAliasesField[i] = new String(source.IndexAliasesField[i]);
+            }
+        }
         if (source.AppId != null) {
             this.AppId = new Long(source.AppId);
         }
@@ -476,6 +542,7 @@ public class IndexMetaField extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "IndexType", this.IndexType);
         this.setParamSimple(map, prefix + "IndexName", this.IndexName);
+        this.setParamSimple(map, prefix + "IndexMetaJson", this.IndexMetaJson);
         this.setParamSimple(map, prefix + "IndexStatus", this.IndexStatus);
         this.setParamSimple(map, prefix + "IndexStorage", this.IndexStorage);
         this.setParamSimple(map, prefix + "IndexCreateTime", this.IndexCreateTime);
@@ -486,6 +553,7 @@ public class IndexMetaField extends AbstractModel{
         this.setParamObj(map, prefix + "IndexPolicyField.", this.IndexPolicyField);
         this.setParamObj(map, prefix + "IndexOptionsField.", this.IndexOptionsField);
         this.setParamObj(map, prefix + "IndexSettingsField.", this.IndexSettingsField);
+        this.setParamArraySimple(map, prefix + "IndexAliasesField.", this.IndexAliasesField);
         this.setParamSimple(map, prefix + "AppId", this.AppId);
         this.setParamSimple(map, prefix + "IndexDocs", this.IndexDocs);
 

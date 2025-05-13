@@ -16,21 +16,26 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CheckIdCardInformationResponse extends AbstractModel{
+public class CheckIdCardInformationResponse extends AbstractModel {
 
     /**
-    * 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
+    * 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
     */
     @SerializedName("Sim")
     @Expose
     private Float Sim;
 
     /**
-    * 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
+    * 业务错误码。
+- 成功情况返回Success,。
+- 错误情况请参考下方错误码 列表中FailedOperation部分
     */
     @SerializedName("Result")
     @Expose
@@ -44,42 +49,42 @@ public class CheckIdCardInformationResponse extends AbstractModel{
     private String Description;
 
     /**
-    * 姓名
+    * 姓名。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 性别
+    * 性别。
     */
     @SerializedName("Sex")
     @Expose
     private String Sex;
 
     /**
-    * 民族
+    * 民族。
     */
     @SerializedName("Nation")
     @Expose
     private String Nation;
 
     /**
-    * 出生日期
+    * 出生日期。
     */
     @SerializedName("Birth")
     @Expose
     private String Birth;
 
     /**
-    * 地址
+    * 地址。
     */
     @SerializedName("Address")
     @Expose
     private String Address;
 
     /**
-    * 身份证号
+    * 身份证号。
     */
     @SerializedName("IdNum")
     @Expose
@@ -93,23 +98,27 @@ public class CheckIdCardInformationResponse extends AbstractModel{
     private String Portrait;
 
     /**
-    * 告警信息，当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息，Code 告警码列表和释义：
+    * 告警信息。
+- 当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息。
+- Code 告警码列表和释义：
+'-9101'：身份证边框不完整告警。
+'-9102'：身份证复印件告警。
+'-9103'：身份证翻拍告警。
+'-9105'：身份证框内遮挡告警。
+'-9104'：临时身份证告警。
+'-9106'：身份证 PS 告警（疑似存在PS痕迹）。
+'-8001'：图片模糊告警。
 
--9101 身份证边框不完整告警，
--9102 身份证复印件告警，
--9103 身份证翻拍告警，
--9105 身份证框内遮挡告警，
--9104 临时身份证告警，
--9106 身份证 PS 告警（疑似存在PS痕迹）。
--8001 图片模糊告警
-多个会 |  隔开如 "-9101|-9106|-9104"
+- 多个会用“|” 隔开，如 "-9101|-9106|-9104"。
     */
     @SerializedName("Warnings")
     @Expose
     private String Warnings;
 
     /**
-    * 图片质量分数，当请求Config中配置图片模糊告警该参数才有意义，取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
+    * 图片质量分数。
+- 当请求Config中配置图片模糊告警该参数才有意义。
+- 取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
     */
     @SerializedName("Quality")
     @Expose
@@ -124,39 +133,62 @@ public class CheckIdCardInformationResponse extends AbstractModel{
     private Encryption Encryption;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 加密后的数据。
+    */
+    @SerializedName("EncryptedBody")
+    @Expose
+    private String EncryptedBody;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一） 
-     * @return Sim 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
+     * Get 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。 
+     * @return Sim 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
      */
     public Float getSim() {
         return this.Sim;
     }
 
     /**
-     * Set 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
-     * @param Sim 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）
+     * Set 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
+     * @param Sim 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
      */
     public void setSim(Float Sim) {
         this.Sim = Sim;
     }
 
     /**
-     * Get 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分 
-     * @return Result 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
+     * Get 业务错误码。
+- 成功情况返回Success,。
+- 错误情况请参考下方错误码 列表中FailedOperation部分 
+     * @return Result 业务错误码。
+- 成功情况返回Success,。
+- 错误情况请参考下方错误码 列表中FailedOperation部分
      */
     public String getResult() {
         return this.Result;
     }
 
     /**
-     * Set 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
-     * @param Result 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
+     * Set 业务错误码。
+- 成功情况返回Success,。
+- 错误情况请参考下方错误码 列表中FailedOperation部分
+     * @param Result 业务错误码。
+- 成功情况返回Success,。
+- 错误情况请参考下方错误码 列表中FailedOperation部分
      */
     public void setResult(String Result) {
         this.Result = Result;
@@ -179,96 +211,96 @@ public class CheckIdCardInformationResponse extends AbstractModel{
     }
 
     /**
-     * Get 姓名 
-     * @return Name 姓名
+     * Get 姓名。 
+     * @return Name 姓名。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 姓名
-     * @param Name 姓名
+     * Set 姓名。
+     * @param Name 姓名。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 性别 
-     * @return Sex 性别
+     * Get 性别。 
+     * @return Sex 性别。
      */
     public String getSex() {
         return this.Sex;
     }
 
     /**
-     * Set 性别
-     * @param Sex 性别
+     * Set 性别。
+     * @param Sex 性别。
      */
     public void setSex(String Sex) {
         this.Sex = Sex;
     }
 
     /**
-     * Get 民族 
-     * @return Nation 民族
+     * Get 民族。 
+     * @return Nation 民族。
      */
     public String getNation() {
         return this.Nation;
     }
 
     /**
-     * Set 民族
-     * @param Nation 民族
+     * Set 民族。
+     * @param Nation 民族。
      */
     public void setNation(String Nation) {
         this.Nation = Nation;
     }
 
     /**
-     * Get 出生日期 
-     * @return Birth 出生日期
+     * Get 出生日期。 
+     * @return Birth 出生日期。
      */
     public String getBirth() {
         return this.Birth;
     }
 
     /**
-     * Set 出生日期
-     * @param Birth 出生日期
+     * Set 出生日期。
+     * @param Birth 出生日期。
      */
     public void setBirth(String Birth) {
         this.Birth = Birth;
     }
 
     /**
-     * Get 地址 
-     * @return Address 地址
+     * Get 地址。 
+     * @return Address 地址。
      */
     public String getAddress() {
         return this.Address;
     }
 
     /**
-     * Set 地址
-     * @param Address 地址
+     * Set 地址。
+     * @param Address 地址。
      */
     public void setAddress(String Address) {
         this.Address = Address;
     }
 
     /**
-     * Get 身份证号 
-     * @return IdNum 身份证号
+     * Get 身份证号。 
+     * @return IdNum 身份证号。
      */
     public String getIdNum() {
         return this.IdNum;
     }
 
     /**
-     * Set 身份证号
-     * @param IdNum 身份证号
+     * Set 身份证号。
+     * @param IdNum 身份证号。
      */
     public void setIdNum(String IdNum) {
         this.IdNum = IdNum;
@@ -291,68 +323,84 @@ public class CheckIdCardInformationResponse extends AbstractModel{
     }
 
     /**
-     * Get 告警信息，当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息，Code 告警码列表和释义：
+     * Get 告警信息。
+- 当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息。
+- Code 告警码列表和释义：
+'-9101'：身份证边框不完整告警。
+'-9102'：身份证复印件告警。
+'-9103'：身份证翻拍告警。
+'-9105'：身份证框内遮挡告警。
+'-9104'：临时身份证告警。
+'-9106'：身份证 PS 告警（疑似存在PS痕迹）。
+'-8001'：图片模糊告警。
 
--9101 身份证边框不完整告警，
--9102 身份证复印件告警，
--9103 身份证翻拍告警，
--9105 身份证框内遮挡告警，
--9104 临时身份证告警，
--9106 身份证 PS 告警（疑似存在PS痕迹）。
--8001 图片模糊告警
-多个会 |  隔开如 "-9101|-9106|-9104" 
-     * @return Warnings 告警信息，当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息，Code 告警码列表和释义：
+- 多个会用“|” 隔开，如 "-9101|-9106|-9104"。 
+     * @return Warnings 告警信息。
+- 当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息。
+- Code 告警码列表和释义：
+'-9101'：身份证边框不完整告警。
+'-9102'：身份证复印件告警。
+'-9103'：身份证翻拍告警。
+'-9105'：身份证框内遮挡告警。
+'-9104'：临时身份证告警。
+'-9106'：身份证 PS 告警（疑似存在PS痕迹）。
+'-8001'：图片模糊告警。
 
--9101 身份证边框不完整告警，
--9102 身份证复印件告警，
--9103 身份证翻拍告警，
--9105 身份证框内遮挡告警，
--9104 临时身份证告警，
--9106 身份证 PS 告警（疑似存在PS痕迹）。
--8001 图片模糊告警
-多个会 |  隔开如 "-9101|-9106|-9104"
+- 多个会用“|” 隔开，如 "-9101|-9106|-9104"。
      */
     public String getWarnings() {
         return this.Warnings;
     }
 
     /**
-     * Set 告警信息，当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息，Code 告警码列表和释义：
+     * Set 告警信息。
+- 当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息。
+- Code 告警码列表和释义：
+'-9101'：身份证边框不完整告警。
+'-9102'：身份证复印件告警。
+'-9103'：身份证翻拍告警。
+'-9105'：身份证框内遮挡告警。
+'-9104'：临时身份证告警。
+'-9106'：身份证 PS 告警（疑似存在PS痕迹）。
+'-8001'：图片模糊告警。
 
--9101 身份证边框不完整告警，
--9102 身份证复印件告警，
--9103 身份证翻拍告警，
--9105 身份证框内遮挡告警，
--9104 临时身份证告警，
--9106 身份证 PS 告警（疑似存在PS痕迹）。
--8001 图片模糊告警
-多个会 |  隔开如 "-9101|-9106|-9104"
-     * @param Warnings 告警信息，当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息，Code 告警码列表和释义：
+- 多个会用“|” 隔开，如 "-9101|-9106|-9104"。
+     * @param Warnings 告警信息。
+- 当在Config中配置了告警信息会停止人像比对，Result返回错误（FailedOperation.OcrWarningOccurred）并有此告警信息。
+- Code 告警码列表和释义：
+'-9101'：身份证边框不完整告警。
+'-9102'：身份证复印件告警。
+'-9103'：身份证翻拍告警。
+'-9105'：身份证框内遮挡告警。
+'-9104'：临时身份证告警。
+'-9106'：身份证 PS 告警（疑似存在PS痕迹）。
+'-8001'：图片模糊告警。
 
--9101 身份证边框不完整告警，
--9102 身份证复印件告警，
--9103 身份证翻拍告警，
--9105 身份证框内遮挡告警，
--9104 临时身份证告警，
--9106 身份证 PS 告警（疑似存在PS痕迹）。
--8001 图片模糊告警
-多个会 |  隔开如 "-9101|-9106|-9104"
+- 多个会用“|” 隔开，如 "-9101|-9106|-9104"。
      */
     public void setWarnings(String Warnings) {
         this.Warnings = Warnings;
     }
 
     /**
-     * Get 图片质量分数，当请求Config中配置图片模糊告警该参数才有意义，取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。 
-     * @return Quality 图片质量分数，当请求Config中配置图片模糊告警该参数才有意义，取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
+     * Get 图片质量分数。
+- 当请求Config中配置图片模糊告警该参数才有意义。
+- 取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。 
+     * @return Quality 图片质量分数。
+- 当请求Config中配置图片模糊告警该参数才有意义。
+- 取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
      */
     public Float getQuality() {
         return this.Quality;
     }
 
     /**
-     * Set 图片质量分数，当请求Config中配置图片模糊告警该参数才有意义，取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
-     * @param Quality 图片质量分数，当请求Config中配置图片模糊告警该参数才有意义，取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
+     * Set 图片质量分数。
+- 当请求Config中配置图片模糊告警该参数才有意义。
+- 取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
+     * @param Quality 图片质量分数。
+- 当请求Config中配置图片模糊告警该参数才有意义。
+- 取值范围（0～100），目前默认阈值是50分，低于50分会触发模糊告警。
      */
     public void setQuality(Float Quality) {
         this.Quality = Quality;
@@ -379,16 +427,32 @@ public class CheckIdCardInformationResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 加密后的数据。 
+     * @return EncryptedBody 加密后的数据。
+     */
+    public String getEncryptedBody() {
+        return this.EncryptedBody;
+    }
+
+    /**
+     * Set 加密后的数据。
+     * @param EncryptedBody 加密后的数据。
+     */
+    public void setEncryptedBody(String EncryptedBody) {
+        this.EncryptedBody = EncryptedBody;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -441,6 +505,9 @@ public class CheckIdCardInformationResponse extends AbstractModel{
         if (source.Encryption != null) {
             this.Encryption = new Encryption(source.Encryption);
         }
+        if (source.EncryptedBody != null) {
+            this.EncryptedBody = new String(source.EncryptedBody);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -464,6 +531,7 @@ public class CheckIdCardInformationResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Warnings", this.Warnings);
         this.setParamSimple(map, prefix + "Quality", this.Quality);
         this.setParamObj(map, prefix + "Encryption.", this.Encryption);
+        this.setParamSimple(map, prefix + "EncryptedBody", this.EncryptedBody);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RunCommandRequest extends AbstractModel{
+public class RunCommandRequest extends AbstractModel {
 
     /**
     * Base64编码后的命令内容，长度不可超过64KB。
@@ -30,9 +31,12 @@ public class RunCommandRequest extends AbstractModel{
     private String Content;
 
     /**
-    * 待执行命令的实例ID列表，上限100。支持实例类型：
-<li> CVM
-<li> LIGHTHOUSE
+    * 待执行命令的实例ID列表，上限200。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：
+- CVM
+- Lighthouse
+- TAT 托管实例
     */
     @SerializedName("InstanceIds")
     @Expose
@@ -53,7 +57,7 @@ public class RunCommandRequest extends AbstractModel{
     private String Description;
 
     /**
-    * 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
+    * 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
     */
     @SerializedName("CommandType")
     @Expose
@@ -75,9 +79,9 @@ public class RunCommandRequest extends AbstractModel{
 
     /**
     * 是否保存命令，取值范围：
-<li> True：保存
-<li> False：不保存
-默认为 False。
+<li> true：保存</li>
+<li> false：不保存</li>
+默认为 false。
     */
     @SerializedName("SaveCommand")
     @Expose
@@ -86,15 +90,20 @@ public class RunCommandRequest extends AbstractModel{
     /**
     * 是否启用自定义参数功能。
 一旦创建，此值不提供修改。
-默认值：false。
+取值范围：
+<li> true：启用 </li>
+<li> false：不启用 </li>
+默认值：false。 
     */
     @SerializedName("EnableParameter")
     @Expose
     private Boolean EnableParameter;
 
     /**
-    * 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+    * 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 如果 Parameters 未提供，将使用这里的默认值进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
@@ -104,9 +113,20 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     private String DefaultParameters;
 
     /**
-    * Command 的自定义参数。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+    * 自定义参数数组。 如果 Parameters 未提供，将使用这里的默认值进行替换。 自定义参数最多20个。
+如果 Parameters 未提供，将使用这里的默认值进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+    */
+    @SerializedName("DefaultParameterConfs")
+    @Expose
+    private DefaultParameterConf [] DefaultParameterConfs;
+
+    /**
+    * Command 的自定义参数。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
-如果未提供该参数取值，将使用 DefaultParameters 进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+如果未提供该参数取值，将使用 DefaultParameters 或 DefaultParameterConfs 进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
     */
@@ -163,24 +183,36 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get 待执行命令的实例ID列表，上限100。支持实例类型：
-<li> CVM
-<li> LIGHTHOUSE 
-     * @return InstanceIds 待执行命令的实例ID列表，上限100。支持实例类型：
-<li> CVM
-<li> LIGHTHOUSE
+     * Get 待执行命令的实例ID列表，上限200。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：
+- CVM
+- Lighthouse
+- TAT 托管实例 
+     * @return InstanceIds 待执行命令的实例ID列表，上限200。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：
+- CVM
+- Lighthouse
+- TAT 托管实例
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
     }
 
     /**
-     * Set 待执行命令的实例ID列表，上限100。支持实例类型：
-<li> CVM
-<li> LIGHTHOUSE
-     * @param InstanceIds 待执行命令的实例ID列表，上限100。支持实例类型：
-<li> CVM
-<li> LIGHTHOUSE
+     * Set 待执行命令的实例ID列表，上限200。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：
+- CVM
+- Lighthouse
+- TAT 托管实例
+     * @param InstanceIds 待执行命令的实例ID列表，上限200。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：
+- CVM
+- Lighthouse
+- TAT 托管实例
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;
@@ -219,16 +251,16 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。 
-     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
+     * Get 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。 
+     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
      */
     public String getCommandType() {
         return this.CommandType;
     }
 
     /**
-     * Set 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
-     * @param CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
+     * Set 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
+     * @param CommandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
      */
     public void setCommandType(String CommandType) {
         this.CommandType = CommandType;
@@ -268,13 +300,13 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
 
     /**
      * Get 是否保存命令，取值范围：
-<li> True：保存
-<li> False：不保存
-默认为 False。 
+<li> true：保存</li>
+<li> false：不保存</li>
+默认为 false。 
      * @return SaveCommand 是否保存命令，取值范围：
-<li> True：保存
-<li> False：不保存
-默认为 False。
+<li> true：保存</li>
+<li> false：不保存</li>
+默认为 false。
      */
     public Boolean getSaveCommand() {
         return this.SaveCommand;
@@ -282,13 +314,13 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
 
     /**
      * Set 是否保存命令，取值范围：
-<li> True：保存
-<li> False：不保存
-默认为 False。
+<li> true：保存</li>
+<li> false：不保存</li>
+默认为 false。
      * @param SaveCommand 是否保存命令，取值范围：
-<li> True：保存
-<li> False：不保存
-默认为 False。
+<li> true：保存</li>
+<li> false：不保存</li>
+默认为 false。
      */
     public void setSaveCommand(Boolean SaveCommand) {
         this.SaveCommand = SaveCommand;
@@ -297,10 +329,16 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     /**
      * Get 是否启用自定义参数功能。
 一旦创建，此值不提供修改。
-默认值：false。 
+取值范围：
+<li> true：启用 </li>
+<li> false：不启用 </li>
+默认值：false。  
      * @return EnableParameter 是否启用自定义参数功能。
 一旦创建，此值不提供修改。
-默认值：false。
+取值范围：
+<li> true：启用 </li>
+<li> false：不启用 </li>
+默认值：false。 
      */
     public Boolean getEnableParameter() {
         return this.EnableParameter;
@@ -309,23 +347,33 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     /**
      * Set 是否启用自定义参数功能。
 一旦创建，此值不提供修改。
-默认值：false。
+取值范围：
+<li> true：启用 </li>
+<li> false：不启用 </li>
+默认值：false。 
      * @param EnableParameter 是否启用自定义参数功能。
 一旦创建，此值不提供修改。
-默认值：false。
+取值范围：
+<li> true：启用 </li>
+<li> false：不启用 </li>
+默认值：false。 
      */
     public void setEnableParameter(Boolean EnableParameter) {
         this.EnableParameter = EnableParameter;
     }
 
     /**
-     * Get 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Get 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 如果 Parameters 未提供，将使用这里的默认值进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。 
-     * @return DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @return DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 如果 Parameters 未提供，将使用这里的默认值进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
@@ -335,13 +383,17 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Set 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Set 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 如果 Parameters 未提供，将使用这里的默认值进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
-     * @param DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @param DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 如果 Parameters 未提供，将使用这里的默认值进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
@@ -351,14 +403,44 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get Command 的自定义参数。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Get 自定义参数数组。 如果 Parameters 未提供，将使用这里的默认值进行替换。 自定义参数最多20个。
+如果 Parameters 未提供，将使用这里的默认值进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。 
+     * @return DefaultParameterConfs 自定义参数数组。 如果 Parameters 未提供，将使用这里的默认值进行替换。 自定义参数最多20个。
+如果 Parameters 未提供，将使用这里的默认值进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+     */
+    public DefaultParameterConf [] getDefaultParameterConfs() {
+        return this.DefaultParameterConfs;
+    }
+
+    /**
+     * Set 自定义参数数组。 如果 Parameters 未提供，将使用这里的默认值进行替换。 自定义参数最多20个。
+如果 Parameters 未提供，将使用这里的默认值进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+     * @param DefaultParameterConfs 自定义参数数组。 如果 Parameters 未提供，将使用这里的默认值进行替换。 自定义参数最多20个。
+如果 Parameters 未提供，将使用这里的默认值进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+     */
+    public void setDefaultParameterConfs(DefaultParameterConf [] DefaultParameterConfs) {
+        this.DefaultParameterConfs = DefaultParameterConfs;
+    }
+
+    /**
+     * Get Command 的自定义参数。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
-如果未提供该参数取值，将使用 DefaultParameters 进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+如果未提供该参数取值，将使用 DefaultParameters 或 DefaultParameterConfs 进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。 
-     * @return Parameters Command 的自定义参数。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @return Parameters Command 的自定义参数。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
-如果未提供该参数取值，将使用 DefaultParameters 进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+如果未提供该参数取值，将使用 DefaultParameters 或 DefaultParameterConfs 进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
      */
@@ -367,14 +449,16 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Set Command 的自定义参数。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Set Command 的自定义参数。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
-如果未提供该参数取值，将使用 DefaultParameters 进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+如果未提供该参数取值，将使用 DefaultParameters 或 DefaultParameterConfs 进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
-     * @param Parameters Command 的自定义参数。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @param Parameters Command 的自定义参数。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
-如果未提供该参数取值，将使用 DefaultParameters 进行替换。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。
+如果未提供该参数取值，将使用 DefaultParameters 或 DefaultParameterConfs 进行替换。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
      */
@@ -503,6 +587,12 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         if (source.DefaultParameters != null) {
             this.DefaultParameters = new String(source.DefaultParameters);
         }
+        if (source.DefaultParameterConfs != null) {
+            this.DefaultParameterConfs = new DefaultParameterConf[source.DefaultParameterConfs.length];
+            for (int i = 0; i < source.DefaultParameterConfs.length; i++) {
+                this.DefaultParameterConfs[i] = new DefaultParameterConf(source.DefaultParameterConfs[i]);
+            }
+        }
         if (source.Parameters != null) {
             this.Parameters = new String(source.Parameters);
         }
@@ -538,6 +628,7 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         this.setParamSimple(map, prefix + "SaveCommand", this.SaveCommand);
         this.setParamSimple(map, prefix + "EnableParameter", this.EnableParameter);
         this.setParamSimple(map, prefix + "DefaultParameters", this.DefaultParameters);
+        this.setParamArrayObj(map, prefix + "DefaultParameterConfs.", this.DefaultParameterConfs);
         this.setParamSimple(map, prefix + "Parameters", this.Parameters);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "Username", this.Username);

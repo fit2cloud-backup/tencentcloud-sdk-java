@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskByStatusReportRequest extends AbstractModel{
+public class DescribeTaskByStatusReportRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -65,32 +66,46 @@ public class DescribeTaskByStatusReportRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 无
+    * 聚合单元，H小时
     */
     @SerializedName("AggregationUnit")
     @Expose
     private String AggregationUnit;
 
     /**
-    * 无
+    * 周期
     */
     @SerializedName("CycleUnit")
     @Expose
     private String CycleUnit;
 
     /**
-    * 无
+    * 状态
     */
     @SerializedName("Status")
     @Expose
     private String Status;
 
     /**
-    * 无
+    * 责任人
     */
     @SerializedName("InCharge")
     @Expose
     private String InCharge;
+
+    /**
+    * 工作流ID
+    */
+    @SerializedName("WorkflowId")
+    @Expose
+    private String WorkflowId;
+
+    /**
+    * 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+    */
+    @SerializedName("ProjectIds")
+    @Expose
+    private String [] ProjectIds;
 
     /**
      * Get 项目ID 
@@ -189,67 +204,99 @@ public class DescribeTaskByStatusReportRequest extends AbstractModel{
     }
 
     /**
-     * Get 无 
-     * @return AggregationUnit 无
+     * Get 聚合单元，H小时 
+     * @return AggregationUnit 聚合单元，H小时
      */
     public String getAggregationUnit() {
         return this.AggregationUnit;
     }
 
     /**
-     * Set 无
-     * @param AggregationUnit 无
+     * Set 聚合单元，H小时
+     * @param AggregationUnit 聚合单元，H小时
      */
     public void setAggregationUnit(String AggregationUnit) {
         this.AggregationUnit = AggregationUnit;
     }
 
     /**
-     * Get 无 
-     * @return CycleUnit 无
+     * Get 周期 
+     * @return CycleUnit 周期
      */
     public String getCycleUnit() {
         return this.CycleUnit;
     }
 
     /**
-     * Set 无
-     * @param CycleUnit 无
+     * Set 周期
+     * @param CycleUnit 周期
      */
     public void setCycleUnit(String CycleUnit) {
         this.CycleUnit = CycleUnit;
     }
 
     /**
-     * Get 无 
-     * @return Status 无
+     * Get 状态 
+     * @return Status 状态
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 无
-     * @param Status 无
+     * Set 状态
+     * @param Status 状态
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 无 
-     * @return InCharge 无
+     * Get 责任人 
+     * @return InCharge 责任人
      */
     public String getInCharge() {
         return this.InCharge;
     }
 
     /**
-     * Set 无
-     * @param InCharge 无
+     * Set 责任人
+     * @param InCharge 责任人
      */
     public void setInCharge(String InCharge) {
         this.InCharge = InCharge;
+    }
+
+    /**
+     * Get 工作流ID 
+     * @return WorkflowId 工作流ID
+     */
+    public String getWorkflowId() {
+        return this.WorkflowId;
+    }
+
+    /**
+     * Set 工作流ID
+     * @param WorkflowId 工作流ID
+     */
+    public void setWorkflowId(String WorkflowId) {
+        this.WorkflowId = WorkflowId;
+    }
+
+    /**
+     * Get 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选 
+     * @return ProjectIds 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+     */
+    public String [] getProjectIds() {
+        return this.ProjectIds;
+    }
+
+    /**
+     * Set 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+     * @param ProjectIds 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+     */
+    public void setProjectIds(String [] ProjectIds) {
+        this.ProjectIds = ProjectIds;
     }
 
     public DescribeTaskByStatusReportRequest() {
@@ -290,6 +337,15 @@ public class DescribeTaskByStatusReportRequest extends AbstractModel{
         if (source.InCharge != null) {
             this.InCharge = new String(source.InCharge);
         }
+        if (source.WorkflowId != null) {
+            this.WorkflowId = new String(source.WorkflowId);
+        }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new String[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new String(source.ProjectIds[i]);
+            }
+        }
     }
 
 
@@ -307,6 +363,8 @@ public class DescribeTaskByStatusReportRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CycleUnit", this.CycleUnit);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "InCharge", this.InCharge);
+        this.setParamSimple(map, prefix + "WorkflowId", this.WorkflowId);
+        this.setParamArraySimple(map, prefix + "ProjectIds.", this.ProjectIds);
 
     }
 }

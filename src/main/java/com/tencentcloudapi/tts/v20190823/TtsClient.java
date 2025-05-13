@@ -46,8 +46,8 @@ public class TtsClient extends AbstractClient{
 <li>支持中文普通话、英文、中英文混读、粤语合成</li>
 <li>支持语速、音量设置</li>
 <li>支持回调或轮询的方式获取结果，结果获取请参考 长文本语音合成结果查询。</li>
-<li>提交长文本语音合成请求后，合成结果在3小时内完成，音频文件在服务端可保存24小时</li>
-
+<li>提交长文本语音合成请求后，合成结果在3小时内完成。请注意：30分钟内提交任务超过 100 万字符或 200 条任务除外。</li>
+<li>音频文件在服务端可保存24小时，请及时下载。</li>
 <p></p>
 
 长文本合成支持 SSML，语法详见 [SSML 标记语言](https://cloud.tencent.com/document/product/1073/49575)，使用时需满足如下使用规范：
@@ -62,18 +62,8 @@ public class TtsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateTtsTaskResponse CreateTtsTask(CreateTtsTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateTtsTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateTtsTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateTtsTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateTtsTask", CreateTtsTaskResponse.class);
     }
 
     /**
@@ -86,43 +76,26 @@ public class TtsClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTtsTaskStatusResponse DescribeTtsTaskStatus(DescribeTtsTaskStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTtsTaskStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTtsTaskStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTtsTaskStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTtsTaskStatus", DescribeTtsTaskStatusResponse.class);
     }
 
     /**
      *腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。
 腾讯TTS技术可以应用到很多场景，比如，移动APP语音播报新闻；智能设备语音提醒；依靠网上现有节目或少量录音，快速合成明星语音，降低邀约成本；支持车载导航语音合成的个性化语音播报。
-内测期间免费使用。
 基础合成支持 SSML，语法详见 [SSML 标记语言](https://cloud.tencent.com/document/product/1073/49575)。
-默认接口请求频率限制：20次/秒。
+默认接口请求频率限制：
+精品音色和标准音色：默认20并发
+大模型音色：默认10并发
+一句话复刻音色：默认5并发
+超自然大模型音色：暂不支持
      * @param req TextToVoiceRequest
      * @return TextToVoiceResponse
      * @throws TencentCloudSDKException
      */
     public TextToVoiceResponse TextToVoice(TextToVoiceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TextToVoiceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TextToVoiceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TextToVoice");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TextToVoice", TextToVoiceResponse.class);
     }
 
 }

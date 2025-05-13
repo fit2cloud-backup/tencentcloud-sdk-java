@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRiskDnsEventDetailResponse extends AbstractModel{
+public class DescribeRiskDnsEventDetailResponse extends AbstractModel {
 
     /**
     * 事件ID
@@ -184,7 +185,6 @@ public class DescribeRiskDnsEventDetailResponse extends AbstractModel{
 
     /**
     * 恶意域名或IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Address")
     @Expose
@@ -192,7 +192,6 @@ public class DescribeRiskDnsEventDetailResponse extends AbstractModel{
 
     /**
     * 恶意IP所属城市
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("City")
     @Expose
@@ -339,7 +338,6 @@ EVENT_ADD_WHITE：已加白
 
     /**
     * 操作时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OperationTime")
     @Expose
@@ -430,7 +428,21 @@ EVENT_ADD_WHITE：已加白
     private String ClusterName;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * Namespace
+    */
+    @SerializedName("Namespace")
+    @Expose
+    private String Namespace;
+
+    /**
+    * 工作负载类型
+    */
+    @SerializedName("WorkloadType")
+    @Expose
+    private String WorkloadType;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -837,10 +849,8 @@ EVENT_ADD_WHITE：已加白
     }
 
     /**
-     * Get 恶意域名或IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 恶意域名或IP 
      * @return Address 恶意域名或IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAddress() {
         return this.Address;
@@ -848,19 +858,15 @@ EVENT_ADD_WHITE：已加白
 
     /**
      * Set 恶意域名或IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Address 恶意域名或IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddress(String Address) {
         this.Address = Address;
     }
 
     /**
-     * Get 恶意IP所属城市
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 恶意IP所属城市 
      * @return City 恶意IP所属城市
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCity() {
         return this.City;
@@ -868,9 +874,7 @@ EVENT_ADD_WHITE：已加白
 
     /**
      * Set 恶意IP所属城市
-注意：此字段可能返回 null，表示取不到有效值。
      * @param City 恶意IP所属城市
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCity(String City) {
         this.City = City;
@@ -1205,10 +1209,8 @@ EVENT_ADD_WHITE：已加白
     }
 
     /**
-     * Get 操作时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作时间 
      * @return OperationTime 操作时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperationTime() {
         return this.OperationTime;
@@ -1216,9 +1218,7 @@ EVENT_ADD_WHITE：已加白
 
     /**
      * Set 操作时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OperationTime 操作时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperationTime(String OperationTime) {
         this.OperationTime = OperationTime;
@@ -1417,16 +1417,48 @@ EVENT_ADD_WHITE：已加白
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get Namespace 
+     * @return Namespace Namespace
+     */
+    public String getNamespace() {
+        return this.Namespace;
+    }
+
+    /**
+     * Set Namespace
+     * @param Namespace Namespace
+     */
+    public void setNamespace(String Namespace) {
+        this.Namespace = Namespace;
+    }
+
+    /**
+     * Get 工作负载类型 
+     * @return WorkloadType 工作负载类型
+     */
+    public String getWorkloadType() {
+        return this.WorkloadType;
+    }
+
+    /**
+     * Set 工作负载类型
+     * @param WorkloadType 工作负载类型
+     */
+    public void setWorkloadType(String WorkloadType) {
+        this.WorkloadType = WorkloadType;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -1605,6 +1637,12 @@ EVENT_ADD_WHITE：已加白
         if (source.ClusterName != null) {
             this.ClusterName = new String(source.ClusterName);
         }
+        if (source.Namespace != null) {
+            this.Namespace = new String(source.Namespace);
+        }
+        if (source.WorkloadType != null) {
+            this.WorkloadType = new String(source.WorkloadType);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -1669,6 +1707,8 @@ EVENT_ADD_WHITE：已加白
         this.setParamSimple(map, prefix + "NodeUniqueID", this.NodeUniqueID);
         this.setParamSimple(map, prefix + "NodeID", this.NodeID);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
+        this.setParamSimple(map, prefix + "Namespace", this.Namespace);
+        this.setParamSimple(map, prefix + "WorkloadType", this.WorkloadType);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

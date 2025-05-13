@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BriefNodeInfo extends AbstractModel{
+public class BriefNodeInfo extends AbstractModel {
 
     /**
     * DB节点ID
@@ -42,6 +43,13 @@ public class BriefNodeInfo extends AbstractModel{
     @SerializedName("ShardId")
     @Expose
     private String ShardId;
+
+    /**
+    * 节点所在可用区
+    */
+    @SerializedName("Zone")
+    @Expose
+    private String Zone;
 
     /**
      * Get DB节点ID 
@@ -91,6 +99,22 @@ public class BriefNodeInfo extends AbstractModel{
         this.ShardId = ShardId;
     }
 
+    /**
+     * Get 节点所在可用区 
+     * @return Zone 节点所在可用区
+     */
+    public String getZone() {
+        return this.Zone;
+    }
+
+    /**
+     * Set 节点所在可用区
+     * @param Zone 节点所在可用区
+     */
+    public void setZone(String Zone) {
+        this.Zone = Zone;
+    }
+
     public BriefNodeInfo() {
     }
 
@@ -108,6 +132,9 @@ public class BriefNodeInfo extends AbstractModel{
         if (source.ShardId != null) {
             this.ShardId = new String(source.ShardId);
         }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class BriefNodeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "NodeId", this.NodeId);
         this.setParamSimple(map, prefix + "Role", this.Role);
         this.setParamSimple(map, prefix + "ShardId", this.ShardId);
+        this.setParamSimple(map, prefix + "Zone", this.Zone);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostDdosInstanceListRequest extends AbstractModel{
+public class DescribeHostDdosInstanceListRequest extends AbstractModel {
 
     /**
     * 待部署的证书ID
@@ -28,13 +29,6 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
     @SerializedName("CertificateId")
     @Expose
     private String CertificateId;
-
-    /**
-    * 部署资源类型
-    */
-    @SerializedName("ResourceType")
-    @Expose
-    private String ResourceType;
 
     /**
     * 是否查询缓存，1：是； 0：否， 默认为查询缓存，缓存半小时
@@ -51,11 +45,32 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
+    * 部署资源类型ddos
+    */
+    @SerializedName("ResourceType")
+    @Expose
+    private String ResourceType;
+
+    /**
     * 已部署的证书ID
     */
     @SerializedName("OldCertificateId")
     @Expose
     private String OldCertificateId;
+
+    /**
+    * 分页偏移量，从0开始。	
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * 每页数量，默认10。	
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
 
     /**
      * Get 待部署的证书ID 
@@ -71,22 +86,6 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
      */
     public void setCertificateId(String CertificateId) {
         this.CertificateId = CertificateId;
-    }
-
-    /**
-     * Get 部署资源类型 
-     * @return ResourceType 部署资源类型
-     */
-    public String getResourceType() {
-        return this.ResourceType;
-    }
-
-    /**
-     * Set 部署资源类型
-     * @param ResourceType 部署资源类型
-     */
-    public void setResourceType(String ResourceType) {
-        this.ResourceType = ResourceType;
     }
 
     /**
@@ -122,6 +121,22 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
     }
 
     /**
+     * Get 部署资源类型ddos 
+     * @return ResourceType 部署资源类型ddos
+     */
+    public String getResourceType() {
+        return this.ResourceType;
+    }
+
+    /**
+     * Set 部署资源类型ddos
+     * @param ResourceType 部署资源类型ddos
+     */
+    public void setResourceType(String ResourceType) {
+        this.ResourceType = ResourceType;
+    }
+
+    /**
      * Get 已部署的证书ID 
      * @return OldCertificateId 已部署的证书ID
      */
@@ -137,6 +152,38 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
         this.OldCertificateId = OldCertificateId;
     }
 
+    /**
+     * Get 分页偏移量，从0开始。	 
+     * @return Offset 分页偏移量，从0开始。	
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 分页偏移量，从0开始。	
+     * @param Offset 分页偏移量，从0开始。	
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get 每页数量，默认10。	 
+     * @return Limit 每页数量，默认10。	
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 每页数量，默认10。	
+     * @param Limit 每页数量，默认10。	
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
     public DescribeHostDdosInstanceListRequest() {
     }
 
@@ -148,9 +195,6 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
         if (source.CertificateId != null) {
             this.CertificateId = new String(source.CertificateId);
         }
-        if (source.ResourceType != null) {
-            this.ResourceType = new String(source.ResourceType);
-        }
         if (source.IsCache != null) {
             this.IsCache = new Long(source.IsCache);
         }
@@ -160,8 +204,17 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
                 this.Filters[i] = new Filter(source.Filters[i]);
             }
         }
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
         if (source.OldCertificateId != null) {
             this.OldCertificateId = new String(source.OldCertificateId);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
         }
     }
 
@@ -171,10 +224,12 @@ public class DescribeHostDdosInstanceListRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertificateId", this.CertificateId);
-        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "IsCache", this.IsCache);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "OldCertificateId", this.OldCertificateId);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
 
     }
 }

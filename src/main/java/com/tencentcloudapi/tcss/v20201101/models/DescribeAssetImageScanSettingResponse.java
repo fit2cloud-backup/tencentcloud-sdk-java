@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetImageScanSettingResponse extends AbstractModel{
+public class DescribeAssetImageScanSettingResponse extends AbstractModel {
 
     /**
     * 开关
@@ -79,7 +80,49 @@ public class DescribeAssetImageScanSettingResponse extends AbstractModel{
     private String [] Images;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 镜像是否存在运行中的容器
+    */
+    @SerializedName("ContainerRunning")
+    @Expose
+    private Boolean ContainerRunning;
+
+    /**
+    * 扫描范围 0 全部授权镜像，1自选镜像，2 推荐扫描
+    */
+    @SerializedName("ScanScope")
+    @Expose
+    private Long ScanScope;
+
+    /**
+    * 扫描结束时间 02:00 时分
+    */
+    @SerializedName("ScanEndTime")
+    @Expose
+    private String ScanEndTime;
+
+    /**
+    * 排除的扫描镜像
+    */
+    @SerializedName("ExcludeImages")
+    @Expose
+    private String [] ExcludeImages;
+
+    /**
+    * 最后一次扫描时间
+    */
+    @SerializedName("LastScanTime")
+    @Expose
+    private String LastScanTime;
+
+    /**
+    * 扫描结果(Success|InsufficientLicense|ImageNeedIsEmpty|InternalError)
+    */
+    @SerializedName("ScanResult")
+    @Expose
+    private String ScanResult;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -184,7 +227,9 @@ public class DescribeAssetImageScanSettingResponse extends AbstractModel{
     /**
      * Get 扫描全部镜像 
      * @return All 扫描全部镜像
+     * @deprecated
      */
+    @Deprecated
     public Boolean getAll() {
         return this.All;
     }
@@ -192,7 +237,9 @@ public class DescribeAssetImageScanSettingResponse extends AbstractModel{
     /**
      * Set 扫描全部镜像
      * @param All 扫描全部镜像
+     * @deprecated
      */
+    @Deprecated
     public void setAll(Boolean All) {
         this.All = All;
     }
@@ -214,16 +261,112 @@ public class DescribeAssetImageScanSettingResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 镜像是否存在运行中的容器 
+     * @return ContainerRunning 镜像是否存在运行中的容器
+     */
+    public Boolean getContainerRunning() {
+        return this.ContainerRunning;
+    }
+
+    /**
+     * Set 镜像是否存在运行中的容器
+     * @param ContainerRunning 镜像是否存在运行中的容器
+     */
+    public void setContainerRunning(Boolean ContainerRunning) {
+        this.ContainerRunning = ContainerRunning;
+    }
+
+    /**
+     * Get 扫描范围 0 全部授权镜像，1自选镜像，2 推荐扫描 
+     * @return ScanScope 扫描范围 0 全部授权镜像，1自选镜像，2 推荐扫描
+     */
+    public Long getScanScope() {
+        return this.ScanScope;
+    }
+
+    /**
+     * Set 扫描范围 0 全部授权镜像，1自选镜像，2 推荐扫描
+     * @param ScanScope 扫描范围 0 全部授权镜像，1自选镜像，2 推荐扫描
+     */
+    public void setScanScope(Long ScanScope) {
+        this.ScanScope = ScanScope;
+    }
+
+    /**
+     * Get 扫描结束时间 02:00 时分 
+     * @return ScanEndTime 扫描结束时间 02:00 时分
+     */
+    public String getScanEndTime() {
+        return this.ScanEndTime;
+    }
+
+    /**
+     * Set 扫描结束时间 02:00 时分
+     * @param ScanEndTime 扫描结束时间 02:00 时分
+     */
+    public void setScanEndTime(String ScanEndTime) {
+        this.ScanEndTime = ScanEndTime;
+    }
+
+    /**
+     * Get 排除的扫描镜像 
+     * @return ExcludeImages 排除的扫描镜像
+     */
+    public String [] getExcludeImages() {
+        return this.ExcludeImages;
+    }
+
+    /**
+     * Set 排除的扫描镜像
+     * @param ExcludeImages 排除的扫描镜像
+     */
+    public void setExcludeImages(String [] ExcludeImages) {
+        this.ExcludeImages = ExcludeImages;
+    }
+
+    /**
+     * Get 最后一次扫描时间 
+     * @return LastScanTime 最后一次扫描时间
+     */
+    public String getLastScanTime() {
+        return this.LastScanTime;
+    }
+
+    /**
+     * Set 最后一次扫描时间
+     * @param LastScanTime 最后一次扫描时间
+     */
+    public void setLastScanTime(String LastScanTime) {
+        this.LastScanTime = LastScanTime;
+    }
+
+    /**
+     * Get 扫描结果(Success|InsufficientLicense|ImageNeedIsEmpty|InternalError) 
+     * @return ScanResult 扫描结果(Success|InsufficientLicense|ImageNeedIsEmpty|InternalError)
+     */
+    public String getScanResult() {
+        return this.ScanResult;
+    }
+
+    /**
+     * Set 扫描结果(Success|InsufficientLicense|ImageNeedIsEmpty|InternalError)
+     * @param ScanResult 扫描结果(Success|InsufficientLicense|ImageNeedIsEmpty|InternalError)
+     */
+    public void setScanResult(String ScanResult) {
+        this.ScanResult = ScanResult;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -264,6 +407,27 @@ public class DescribeAssetImageScanSettingResponse extends AbstractModel{
                 this.Images[i] = new String(source.Images[i]);
             }
         }
+        if (source.ContainerRunning != null) {
+            this.ContainerRunning = new Boolean(source.ContainerRunning);
+        }
+        if (source.ScanScope != null) {
+            this.ScanScope = new Long(source.ScanScope);
+        }
+        if (source.ScanEndTime != null) {
+            this.ScanEndTime = new String(source.ScanEndTime);
+        }
+        if (source.ExcludeImages != null) {
+            this.ExcludeImages = new String[source.ExcludeImages.length];
+            for (int i = 0; i < source.ExcludeImages.length; i++) {
+                this.ExcludeImages[i] = new String(source.ExcludeImages[i]);
+            }
+        }
+        if (source.LastScanTime != null) {
+            this.LastScanTime = new String(source.LastScanTime);
+        }
+        if (source.ScanResult != null) {
+            this.ScanResult = new String(source.ScanResult);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -282,6 +446,12 @@ public class DescribeAssetImageScanSettingResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ScanVul", this.ScanVul);
         this.setParamSimple(map, prefix + "All", this.All);
         this.setParamArraySimple(map, prefix + "Images.", this.Images);
+        this.setParamSimple(map, prefix + "ContainerRunning", this.ContainerRunning);
+        this.setParamSimple(map, prefix + "ScanScope", this.ScanScope);
+        this.setParamSimple(map, prefix + "ScanEndTime", this.ScanEndTime);
+        this.setParamArraySimple(map, prefix + "ExcludeImages.", this.ExcludeImages);
+        this.setParamSimple(map, prefix + "LastScanTime", this.LastScanTime);
+        this.setParamSimple(map, prefix + "ScanResult", this.ScanResult);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

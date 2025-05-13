@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetworkAcl extends AbstractModel{
+public class NetworkAcl extends AbstractModel {
 
     /**
     * `VPC`实例`ID`。
@@ -58,14 +59,14 @@ public class NetworkAcl extends AbstractModel{
     private Subnet [] SubnetSet;
 
     /**
-    * 网络ACl入站规则。
+    * 该参数仅对三元组ACL有效，网络ACl入站规则。
     */
     @SerializedName("IngressEntries")
     @Expose
     private NetworkAclEntry [] IngressEntries;
 
     /**
-    * 网络ACL出站规则。
+    * 该参数仅对三元组ACL有效，网络ACL出站规则。
     */
     @SerializedName("EgressEntries")
     @Expose
@@ -166,32 +167,32 @@ public class NetworkAcl extends AbstractModel{
     }
 
     /**
-     * Get 网络ACl入站规则。 
-     * @return IngressEntries 网络ACl入站规则。
+     * Get 该参数仅对三元组ACL有效，网络ACl入站规则。 
+     * @return IngressEntries 该参数仅对三元组ACL有效，网络ACl入站规则。
      */
     public NetworkAclEntry [] getIngressEntries() {
         return this.IngressEntries;
     }
 
     /**
-     * Set 网络ACl入站规则。
-     * @param IngressEntries 网络ACl入站规则。
+     * Set 该参数仅对三元组ACL有效，网络ACl入站规则。
+     * @param IngressEntries 该参数仅对三元组ACL有效，网络ACl入站规则。
      */
     public void setIngressEntries(NetworkAclEntry [] IngressEntries) {
         this.IngressEntries = IngressEntries;
     }
 
     /**
-     * Get 网络ACL出站规则。 
-     * @return EgressEntries 网络ACL出站规则。
+     * Get 该参数仅对三元组ACL有效，网络ACL出站规则。 
+     * @return EgressEntries 该参数仅对三元组ACL有效，网络ACL出站规则。
      */
     public NetworkAclEntry [] getEgressEntries() {
         return this.EgressEntries;
     }
 
     /**
-     * Set 网络ACL出站规则。
-     * @param EgressEntries 网络ACL出站规则。
+     * Set 该参数仅对三元组ACL有效，网络ACL出站规则。
+     * @param EgressEntries 该参数仅对三元组ACL有效，网络ACL出站规则。
      */
     public void setEgressEntries(NetworkAclEntry [] EgressEntries) {
         this.EgressEntries = EgressEntries;

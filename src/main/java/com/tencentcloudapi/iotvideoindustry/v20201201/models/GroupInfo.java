@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotvideoindustry.v20201201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GroupInfo extends AbstractModel{
+public class GroupInfo extends AbstractModel {
 
     /**
     * 分组ID
@@ -80,7 +81,6 @@ public class GroupInfo extends AbstractModel{
 
     /**
     * 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupStatus")
     @Expose
@@ -88,7 +88,6 @@ public class GroupInfo extends AbstractModel{
 
     /**
     * 设备不存在时产生的错误
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Error")
     @Expose
@@ -223,10 +222,8 @@ public class GroupInfo extends AbstractModel{
     }
 
     /**
-     * Get 分组状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组状态 
      * @return GroupStatus 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGroupStatus() {
         return this.GroupStatus;
@@ -234,19 +231,15 @@ public class GroupInfo extends AbstractModel{
 
     /**
      * Set 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupStatus 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupStatus(Long GroupStatus) {
         this.GroupStatus = GroupStatus;
     }
 
     /**
-     * Get 设备不存在时产生的错误
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备不存在时产生的错误 
      * @return Error 设备不存在时产生的错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getError() {
         return this.Error;
@@ -254,9 +247,7 @@ public class GroupInfo extends AbstractModel{
 
     /**
      * Set 设备不存在时产生的错误
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Error 设备不存在时产生的错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setError(String Error) {
         this.Error = Error;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuntimeInstanceCntTop extends AbstractModel{
+public class RuntimeInstanceCntTop extends AbstractModel {
 
     /**
     * 任务ID
@@ -77,6 +78,30 @@ public class RuntimeInstanceCntTop extends AbstractModel{
     @SerializedName("CurRunTime")
     @Expose
     private String CurRunTime;
+
+    /**
+    * 等待调度耗时
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WaitScheduleTime")
+    @Expose
+    private Long WaitScheduleTime;
+
+    /**
+    * 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
+    * 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectName")
+    @Expose
+    private String ProjectName;
 
     /**
      * Get 任务ID
@@ -218,6 +243,66 @@ public class RuntimeInstanceCntTop extends AbstractModel{
         this.CurRunTime = CurRunTime;
     }
 
+    /**
+     * Get 等待调度耗时
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WaitScheduleTime 等待调度耗时
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getWaitScheduleTime() {
+        return this.WaitScheduleTime;
+    }
+
+    /**
+     * Set 等待调度耗时
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WaitScheduleTime 等待调度耗时
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWaitScheduleTime(Long WaitScheduleTime) {
+        this.WaitScheduleTime = WaitScheduleTime;
+    }
+
+    /**
+     * Get 项目ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectId 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectId 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 项目名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectName 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProjectName() {
+        return this.ProjectName;
+    }
+
+    /**
+     * Set 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectName 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectName(String ProjectName) {
+        this.ProjectName = ProjectName;
+    }
+
     public RuntimeInstanceCntTop() {
     }
 
@@ -247,6 +332,15 @@ public class RuntimeInstanceCntTop extends AbstractModel{
         if (source.CurRunTime != null) {
             this.CurRunTime = new String(source.CurRunTime);
         }
+        if (source.WaitScheduleTime != null) {
+            this.WaitScheduleTime = new Long(source.WaitScheduleTime);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ProjectName != null) {
+            this.ProjectName = new String(source.ProjectName);
+        }
     }
 
 
@@ -261,6 +355,9 @@ public class RuntimeInstanceCntTop extends AbstractModel{
         this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "RunTime", this.RunTime);
         this.setParamSimple(map, prefix + "CurRunTime", this.CurRunTime);
+        this.setParamSimple(map, prefix + "WaitScheduleTime", this.WaitScheduleTime);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
 
     }
 }

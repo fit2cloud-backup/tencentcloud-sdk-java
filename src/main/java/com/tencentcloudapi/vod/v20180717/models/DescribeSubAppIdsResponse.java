@@ -16,76 +16,77 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSubAppIdsResponse extends AbstractModel{
+public class DescribeSubAppIdsResponse extends AbstractModel {
 
     /**
-    * 子应用信息集合。
+    * 应用信息集合。
     */
     @SerializedName("SubAppIdInfoSet")
     @Expose
     private SubAppIdInfo [] SubAppIdInfoSet;
 
     /**
-    * 子应用总数量。
+    * 应用总数量。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 子应用信息集合。 
-     * @return SubAppIdInfoSet 子应用信息集合。
+     * Get 应用信息集合。 
+     * @return SubAppIdInfoSet 应用信息集合。
      */
     public SubAppIdInfo [] getSubAppIdInfoSet() {
         return this.SubAppIdInfoSet;
     }
 
     /**
-     * Set 子应用信息集合。
-     * @param SubAppIdInfoSet 子应用信息集合。
+     * Set 应用信息集合。
+     * @param SubAppIdInfoSet 应用信息集合。
      */
     public void setSubAppIdInfoSet(SubAppIdInfo [] SubAppIdInfoSet) {
         this.SubAppIdInfoSet = SubAppIdInfoSet;
     }
 
     /**
-     * Get 子应用总数量。 
-     * @return TotalCount 子应用总数量。
+     * Get 应用总数量。 
+     * @return TotalCount 应用总数量。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 子应用总数量。
-     * @param TotalCount 子应用总数量。
+     * Set 应用总数量。
+     * @param TotalCount 应用总数量。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

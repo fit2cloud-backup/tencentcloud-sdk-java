@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WorkflowCanvasOpsDto extends AbstractModel{
+public class WorkflowCanvasOpsDto extends AbstractModel {
 
     /**
     * 工作流id
@@ -133,6 +134,14 @@ public class WorkflowCanvasOpsDto extends AbstractModel{
     @SerializedName("OwnerId")
     @Expose
     private String OwnerId;
+
+    /**
+    * 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WorkflowType")
+    @Expose
+    private String WorkflowType;
 
     /**
      * Get 工作流id
@@ -414,6 +423,26 @@ public class WorkflowCanvasOpsDto extends AbstractModel{
         this.OwnerId = OwnerId;
     }
 
+    /**
+     * Get 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WorkflowType 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWorkflowType() {
+        return this.WorkflowType;
+    }
+
+    /**
+     * Set 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WorkflowType 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWorkflowType(String WorkflowType) {
+        this.WorkflowType = WorkflowType;
+    }
+
     public WorkflowCanvasOpsDto() {
     }
 
@@ -473,6 +502,9 @@ public class WorkflowCanvasOpsDto extends AbstractModel{
         if (source.OwnerId != null) {
             this.OwnerId = new String(source.OwnerId);
         }
+        if (source.WorkflowType != null) {
+            this.WorkflowType = new String(source.WorkflowType);
+        }
     }
 
 
@@ -494,6 +526,7 @@ public class WorkflowCanvasOpsDto extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
         this.setParamSimple(map, prefix + "Owner", this.Owner);
         this.setParamSimple(map, prefix + "OwnerId", this.OwnerId);
+        this.setParamSimple(map, prefix + "WorkflowType", this.WorkflowType);
 
     }
 }

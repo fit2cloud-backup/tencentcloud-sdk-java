@@ -16,99 +16,100 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePrometheusRecordRulesRequest extends AbstractModel{
+public class DescribePrometheusRecordRulesRequest extends AbstractModel {
 
     /**
-    * 实例id
+    * Prometheus 实例 ID
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 分页
+    * 偏移量，默认为0。
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 分页
+    * 返回数量，默认为20，最大值为100。
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 过滤
+    * 仅支持按Name, Values字段过滤。
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-     * Get 实例id 
-     * @return InstanceId 实例id
+     * Get Prometheus 实例 ID 
+     * @return InstanceId Prometheus 实例 ID
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例id
-     * @param InstanceId 实例id
+     * Set Prometheus 实例 ID
+     * @param InstanceId Prometheus 实例 ID
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 分页 
-     * @return Offset 分页
+     * Get 偏移量，默认为0。 
+     * @return Offset 偏移量，默认为0。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页
-     * @param Offset 分页
+     * Set 偏移量，默认为0。
+     * @param Offset 偏移量，默认为0。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 分页 
-     * @return Limit 分页
+     * Get 返回数量，默认为20，最大值为100。 
+     * @return Limit 返回数量，默认为20，最大值为100。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页
-     * @param Limit 分页
+     * Set 返回数量，默认为20，最大值为100。
+     * @param Limit 返回数量，默认为20，最大值为100。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 过滤 
-     * @return Filters 过滤
+     * Get 仅支持按Name, Values字段过滤。 
+     * @return Filters 仅支持按Name, Values字段过滤。
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤
-     * @param Filters 过滤
+     * Set 仅支持按Name, Values字段过滤。
+     * @param Filters 仅支持按Name, Values字段过滤。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

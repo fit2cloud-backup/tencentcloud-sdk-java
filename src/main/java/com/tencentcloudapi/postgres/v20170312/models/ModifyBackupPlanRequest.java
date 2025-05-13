@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyBackupPlanRequest extends AbstractModel{
+public class ModifyBackupPlanRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -51,11 +52,32 @@ public class ModifyBackupPlanRequest extends AbstractModel{
     private Long BaseBackupRetentionPeriod;
 
     /**
-    * 实例备份周期，按照星期维度，格式为小写星期英文单词
+    * 实例备份周期，若是星期维度，格式为小写星期英文单词；若是按月维度，格式为数字字符，如["1","2"]。
     */
     @SerializedName("BackupPeriod")
     @Expose
     private String [] BackupPeriod;
+
+    /**
+    * 实例日志备份保留时长，取值范围为7-1830，单位是天
+    */
+    @SerializedName("LogBackupRetentionPeriod")
+    @Expose
+    private Long LogBackupRetentionPeriod;
+
+    /**
+    * 备份计划ID，用于指明要修改哪个备份计划，不传则是修改默认备份计划。
+    */
+    @SerializedName("PlanId")
+    @Expose
+    private String PlanId;
+
+    /**
+    * 要修改的备份计划名称。
+    */
+    @SerializedName("PlanName")
+    @Expose
+    private String PlanName;
 
     /**
      * Get 实例ID 
@@ -122,19 +144,67 @@ public class ModifyBackupPlanRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例备份周期，按照星期维度，格式为小写星期英文单词 
-     * @return BackupPeriod 实例备份周期，按照星期维度，格式为小写星期英文单词
+     * Get 实例备份周期，若是星期维度，格式为小写星期英文单词；若是按月维度，格式为数字字符，如["1","2"]。 
+     * @return BackupPeriod 实例备份周期，若是星期维度，格式为小写星期英文单词；若是按月维度，格式为数字字符，如["1","2"]。
      */
     public String [] getBackupPeriod() {
         return this.BackupPeriod;
     }
 
     /**
-     * Set 实例备份周期，按照星期维度，格式为小写星期英文单词
-     * @param BackupPeriod 实例备份周期，按照星期维度，格式为小写星期英文单词
+     * Set 实例备份周期，若是星期维度，格式为小写星期英文单词；若是按月维度，格式为数字字符，如["1","2"]。
+     * @param BackupPeriod 实例备份周期，若是星期维度，格式为小写星期英文单词；若是按月维度，格式为数字字符，如["1","2"]。
      */
     public void setBackupPeriod(String [] BackupPeriod) {
         this.BackupPeriod = BackupPeriod;
+    }
+
+    /**
+     * Get 实例日志备份保留时长，取值范围为7-1830，单位是天 
+     * @return LogBackupRetentionPeriod 实例日志备份保留时长，取值范围为7-1830，单位是天
+     */
+    public Long getLogBackupRetentionPeriod() {
+        return this.LogBackupRetentionPeriod;
+    }
+
+    /**
+     * Set 实例日志备份保留时长，取值范围为7-1830，单位是天
+     * @param LogBackupRetentionPeriod 实例日志备份保留时长，取值范围为7-1830，单位是天
+     */
+    public void setLogBackupRetentionPeriod(Long LogBackupRetentionPeriod) {
+        this.LogBackupRetentionPeriod = LogBackupRetentionPeriod;
+    }
+
+    /**
+     * Get 备份计划ID，用于指明要修改哪个备份计划，不传则是修改默认备份计划。 
+     * @return PlanId 备份计划ID，用于指明要修改哪个备份计划，不传则是修改默认备份计划。
+     */
+    public String getPlanId() {
+        return this.PlanId;
+    }
+
+    /**
+     * Set 备份计划ID，用于指明要修改哪个备份计划，不传则是修改默认备份计划。
+     * @param PlanId 备份计划ID，用于指明要修改哪个备份计划，不传则是修改默认备份计划。
+     */
+    public void setPlanId(String PlanId) {
+        this.PlanId = PlanId;
+    }
+
+    /**
+     * Get 要修改的备份计划名称。 
+     * @return PlanName 要修改的备份计划名称。
+     */
+    public String getPlanName() {
+        return this.PlanName;
+    }
+
+    /**
+     * Set 要修改的备份计划名称。
+     * @param PlanName 要修改的备份计划名称。
+     */
+    public void setPlanName(String PlanName) {
+        this.PlanName = PlanName;
     }
 
     public ModifyBackupPlanRequest() {
@@ -163,6 +233,15 @@ public class ModifyBackupPlanRequest extends AbstractModel{
                 this.BackupPeriod[i] = new String(source.BackupPeriod[i]);
             }
         }
+        if (source.LogBackupRetentionPeriod != null) {
+            this.LogBackupRetentionPeriod = new Long(source.LogBackupRetentionPeriod);
+        }
+        if (source.PlanId != null) {
+            this.PlanId = new String(source.PlanId);
+        }
+        if (source.PlanName != null) {
+            this.PlanName = new String(source.PlanName);
+        }
     }
 
 
@@ -175,6 +254,9 @@ public class ModifyBackupPlanRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxBackupStartTime", this.MaxBackupStartTime);
         this.setParamSimple(map, prefix + "BaseBackupRetentionPeriod", this.BaseBackupRetentionPeriod);
         this.setParamArraySimple(map, prefix + "BackupPeriod.", this.BackupPeriod);
+        this.setParamSimple(map, prefix + "LogBackupRetentionPeriod", this.LogBackupRetentionPeriod);
+        this.setParamSimple(map, prefix + "PlanId", this.PlanId);
+        this.setParamSimple(map, prefix + "PlanName", this.PlanName);
 
     }
 }

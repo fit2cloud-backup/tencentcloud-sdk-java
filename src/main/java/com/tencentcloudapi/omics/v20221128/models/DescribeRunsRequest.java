@@ -16,14 +16,16 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRunsRequest extends AbstractModel{
+public class DescribeRunsRequest extends AbstractModel {
 
     /**
     * 项目ID。
+（不填使用指定地域下的默认项目）
     */
     @SerializedName("ProjectId")
     @Expose
@@ -48,15 +50,18 @@ public class DescribeRunsRequest extends AbstractModel{
 - RunGroupId：任务批次ID
 - Status：任务状态
 - RunUuid：任务UUID
-- UserDefinedId：用户定义ID
+- ApplicationId：应用ID
+- UserDefinedId：用户定义ID（批量运行表格第一列）
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-     * Get 项目ID。 
+     * Get 项目ID。
+（不填使用指定地域下的默认项目） 
      * @return ProjectId 项目ID。
+（不填使用指定地域下的默认项目）
      */
     public String getProjectId() {
         return this.ProjectId;
@@ -64,7 +69,9 @@ public class DescribeRunsRequest extends AbstractModel{
 
     /**
      * Set 项目ID。
+（不填使用指定地域下的默认项目）
      * @param ProjectId 项目ID。
+（不填使用指定地域下的默认项目）
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
@@ -107,12 +114,14 @@ public class DescribeRunsRequest extends AbstractModel{
 - RunGroupId：任务批次ID
 - Status：任务状态
 - RunUuid：任务UUID
-- UserDefinedId：用户定义ID 
+- ApplicationId：应用ID
+- UserDefinedId：用户定义ID（批量运行表格第一列） 
      * @return Filters 过滤器，支持过滤字段：
 - RunGroupId：任务批次ID
 - Status：任务状态
 - RunUuid：任务UUID
-- UserDefinedId：用户定义ID
+- ApplicationId：应用ID
+- UserDefinedId：用户定义ID（批量运行表格第一列）
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -123,12 +132,14 @@ public class DescribeRunsRequest extends AbstractModel{
 - RunGroupId：任务批次ID
 - Status：任务状态
 - RunUuid：任务UUID
-- UserDefinedId：用户定义ID
+- ApplicationId：应用ID
+- UserDefinedId：用户定义ID（批量运行表格第一列）
      * @param Filters 过滤器，支持过滤字段：
 - RunGroupId：任务批次ID
 - Status：任务状态
 - RunUuid：任务UUID
-- UserDefinedId：用户定义ID
+- ApplicationId：应用ID
+- UserDefinedId：用户定义ID（批量运行表格第一列）
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

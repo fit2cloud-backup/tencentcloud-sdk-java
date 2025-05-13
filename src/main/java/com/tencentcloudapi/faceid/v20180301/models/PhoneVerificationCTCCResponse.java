@@ -16,24 +16,25 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PhoneVerificationCTCCResponse extends AbstractModel{
+public class PhoneVerificationCTCCResponse extends AbstractModel {
 
     /**
     * 认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
     */
     @SerializedName("Result")
     @Expose
@@ -41,7 +42,7 @@ public class PhoneVerificationCTCCResponse extends AbstractModel{
 
     /**
     * 运营商名称。
-取值范围为["移动","联通","电信",""]
+- 取值范围为["移动","联通","电信",""]。
     */
     @SerializedName("Isp")
     @Expose
@@ -55,7 +56,7 @@ public class PhoneVerificationCTCCResponse extends AbstractModel{
     private String Description;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -63,27 +64,27 @@ public class PhoneVerificationCTCCResponse extends AbstractModel{
 
     /**
      * Get 认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙 
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。 
      * @return Result 认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
      */
     public String getResult() {
         return this.Result;
@@ -91,27 +92,27 @@ public class PhoneVerificationCTCCResponse extends AbstractModel{
 
     /**
      * Set 认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
      * @param Result 认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
      */
     public void setResult(String Result) {
         this.Result = Result;
@@ -119,9 +120,9 @@ public class PhoneVerificationCTCCResponse extends AbstractModel{
 
     /**
      * Get 运营商名称。
-取值范围为["移动","联通","电信",""] 
+- 取值范围为["移动","联通","电信",""]。 
      * @return Isp 运营商名称。
-取值范围为["移动","联通","电信",""]
+- 取值范围为["移动","联通","电信",""]。
      */
     public String getIsp() {
         return this.Isp;
@@ -129,9 +130,9 @@ public class PhoneVerificationCTCCResponse extends AbstractModel{
 
     /**
      * Set 运营商名称。
-取值范围为["移动","联通","电信",""]
+- 取值范围为["移动","联通","电信",""]。
      * @param Isp 运营商名称。
-取值范围为["移动","联通","电信",""]
+- 取值范围为["移动","联通","电信",""]。
      */
     public void setIsp(String Isp) {
         this.Isp = Isp;
@@ -154,16 +155,16 @@ public class PhoneVerificationCTCCResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

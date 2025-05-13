@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FavorResp extends AbstractModel{
+public class FavorResp extends AbstractModel {
 
     /**
     * 收藏仓库的总数
@@ -31,7 +32,6 @@ public class FavorResp extends AbstractModel{
 
     /**
     * 仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepoInfo")
     @Expose
@@ -54,10 +54,8 @@ public class FavorResp extends AbstractModel{
     }
 
     /**
-     * Get 仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库信息数组 
      * @return RepoInfo 仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Favors [] getRepoInfo() {
         return this.RepoInfo;
@@ -65,9 +63,7 @@ public class FavorResp extends AbstractModel{
 
     /**
      * Set 仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepoInfo 仓库信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepoInfo(Favors [] RepoInfo) {
         this.RepoInfo = RepoInfo;

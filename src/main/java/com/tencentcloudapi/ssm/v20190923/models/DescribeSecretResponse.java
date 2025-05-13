@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSecretResponse extends AbstractModel{
+public class DescribeSecretResponse extends AbstractModel {
 
     /**
     * 凭据名称。
@@ -72,8 +73,7 @@ public class DescribeSecretResponse extends AbstractModel{
     private Long CreateTime;
 
     /**
-    * 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型；3 -- 云API密钥（AKSK）凭据类型（使用此功能需要联系云助手单独开启白名单）；4 -- Redis类型凭据。
     */
     @SerializedName("SecretType")
     @Expose
@@ -81,7 +81,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 云产品名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProductName")
     @Expose
@@ -89,7 +88,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 云产品实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceID")
     @Expose
@@ -97,7 +95,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 是否开启轮转：True -- 开启轮转；False -- 关闭轮转。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RotationStatus")
     @Expose
@@ -105,7 +102,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 轮转周期，默认以天为单位。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RotationFrequency")
     @Expose
@@ -113,7 +109,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对凭据的名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceName")
     @Expose
@@ -121,7 +116,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所属的项目ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectID")
     @Expose
@@ -129,7 +123,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所关联的CVM实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssociatedInstanceIDs")
     @Expose
@@ -137,7 +130,6 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 当凭据类型为云API密钥对凭据时，此字段有效，用于表示此云API密钥对所属的用户UIN。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetUin")
     @Expose
@@ -145,14 +137,13 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
     * 凭据额外配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AdditionalConfig")
     @Expose
     private String AdditionalConfig;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -271,30 +262,24 @@ public class DescribeSecretResponse extends AbstractModel{
     }
 
     /**
-     * Get 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SecretType 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型；3 -- 云API密钥（AKSK）凭据类型（使用此功能需要联系云助手单独开启白名单）；4 -- Redis类型凭据。 
+     * @return SecretType 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型；3 -- 云API密钥（AKSK）凭据类型（使用此功能需要联系云助手单独开启白名单）；4 -- Redis类型凭据。
      */
     public Long getSecretType() {
         return this.SecretType;
     }
 
     /**
-     * Set 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SecretType 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型；3 -- 云API密钥（AKSK）凭据类型（使用此功能需要联系云助手单独开启白名单）；4 -- Redis类型凭据。
+     * @param SecretType 0 --  用户自定义凭据类型；1 -- 数据库凭据类型；2 -- SSH密钥对凭据类型；3 -- 云API密钥（AKSK）凭据类型（使用此功能需要联系云助手单独开启白名单）；4 -- Redis类型凭据。
      */
     public void setSecretType(Long SecretType) {
         this.SecretType = SecretType;
     }
 
     /**
-     * Get 云产品名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云产品名称。 
      * @return ProductName 云产品名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProductName() {
         return this.ProductName;
@@ -302,19 +287,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 云产品名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProductName 云产品名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProductName(String ProductName) {
         this.ProductName = ProductName;
     }
 
     /**
-     * Get 云产品实例ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云产品实例ID。 
      * @return ResourceID 云产品实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceID() {
         return this.ResourceID;
@@ -322,19 +303,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 云产品实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceID 云产品实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceID(String ResourceID) {
         this.ResourceID = ResourceID;
     }
 
     /**
-     * Get 是否开启轮转：True -- 开启轮转；False -- 关闭轮转。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启轮转：True -- 开启轮转；False -- 关闭轮转。 
      * @return RotationStatus 是否开启轮转：True -- 开启轮转；False -- 关闭轮转。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getRotationStatus() {
         return this.RotationStatus;
@@ -342,19 +319,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 是否开启轮转：True -- 开启轮转；False -- 关闭轮转。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RotationStatus 是否开启轮转：True -- 开启轮转；False -- 关闭轮转。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRotationStatus(Boolean RotationStatus) {
         this.RotationStatus = RotationStatus;
     }
 
     /**
-     * Get 轮转周期，默认以天为单位。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 轮转周期，默认以天为单位。 
      * @return RotationFrequency 轮转周期，默认以天为单位。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRotationFrequency() {
         return this.RotationFrequency;
@@ -362,19 +335,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 轮转周期，默认以天为单位。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RotationFrequency 轮转周期，默认以天为单位。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRotationFrequency(Long RotationFrequency) {
         this.RotationFrequency = RotationFrequency;
     }
 
     /**
-     * Get 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对凭据的名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对凭据的名称。 
      * @return ResourceName 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对凭据的名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceName() {
         return this.ResourceName;
@@ -382,19 +351,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对凭据的名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceName 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对凭据的名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceName(String ResourceName) {
         this.ResourceName = ResourceName;
     }
 
     /**
-     * Get 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所属的项目ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所属的项目ID。 
      * @return ProjectID 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所属的项目ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProjectID() {
         return this.ProjectID;
@@ -402,19 +367,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所属的项目ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectID 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所属的项目ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectID(Long ProjectID) {
         this.ProjectID = ProjectID;
     }
 
     /**
-     * Get 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所关联的CVM实例ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所关联的CVM实例ID。 
      * @return AssociatedInstanceIDs 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所关联的CVM实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAssociatedInstanceIDs() {
         return this.AssociatedInstanceIDs;
@@ -422,19 +383,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所关联的CVM实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssociatedInstanceIDs 当凭据类型为SSH密钥对凭据时，此字段有效，用于表示SSH密钥对所关联的CVM实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssociatedInstanceIDs(String [] AssociatedInstanceIDs) {
         this.AssociatedInstanceIDs = AssociatedInstanceIDs;
     }
 
     /**
-     * Get 当凭据类型为云API密钥对凭据时，此字段有效，用于表示此云API密钥对所属的用户UIN。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当凭据类型为云API密钥对凭据时，此字段有效，用于表示此云API密钥对所属的用户UIN。 
      * @return TargetUin 当凭据类型为云API密钥对凭据时，此字段有效，用于表示此云API密钥对所属的用户UIN。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTargetUin() {
         return this.TargetUin;
@@ -442,19 +399,15 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 当凭据类型为云API密钥对凭据时，此字段有效，用于表示此云API密钥对所属的用户UIN。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetUin 当凭据类型为云API密钥对凭据时，此字段有效，用于表示此云API密钥对所属的用户UIN。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetUin(Long TargetUin) {
         this.TargetUin = TargetUin;
     }
 
     /**
-     * Get 凭据额外配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 凭据额外配置 
      * @return AdditionalConfig 凭据额外配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAdditionalConfig() {
         return this.AdditionalConfig;
@@ -462,25 +415,23 @@ public class DescribeSecretResponse extends AbstractModel{
 
     /**
      * Set 凭据额外配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AdditionalConfig 凭据额外配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdditionalConfig(String AdditionalConfig) {
         this.AdditionalConfig = AdditionalConfig;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

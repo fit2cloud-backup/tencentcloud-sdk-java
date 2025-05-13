@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RabbitMQUser extends AbstractModel{
+public class RabbitMQUser extends AbstractModel {
 
     /**
     * 集群实例Id
@@ -45,7 +46,6 @@ public class RabbitMQUser extends AbstractModel{
 
     /**
     * 用户描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -53,7 +53,6 @@ public class RabbitMQUser extends AbstractModel{
 
     /**
     * 用户标签，用于决定改用户访问RabbitMQ Management的权限范围
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -79,6 +78,22 @@ public class RabbitMQUser extends AbstractModel{
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 单个用户最大可用连接数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxConnections")
+    @Expose
+    private Long MaxConnections;
+
+    /**
+    * 单个用户最大可用通道数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxChannels")
+    @Expose
+    private Long MaxChannels;
 
     /**
      * Get 集群实例Id 
@@ -129,10 +144,8 @@ public class RabbitMQUser extends AbstractModel{
     }
 
     /**
-     * Get 用户描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户描述 
      * @return Description 用户描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -140,19 +153,15 @@ public class RabbitMQUser extends AbstractModel{
 
     /**
      * Set 用户描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 用户描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 用户标签，用于决定改用户访问RabbitMQ Management的权限范围
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户标签，用于决定改用户访问RabbitMQ Management的权限范围 
      * @return Tags 用户标签，用于决定改用户访问RabbitMQ Management的权限范围
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTags() {
         return this.Tags;
@@ -160,9 +169,7 @@ public class RabbitMQUser extends AbstractModel{
 
     /**
      * Set 用户标签，用于决定改用户访问RabbitMQ Management的权限范围
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 用户标签，用于决定改用户访问RabbitMQ Management的权限范围
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(String [] Tags) {
         this.Tags = Tags;
@@ -216,6 +223,46 @@ public class RabbitMQUser extends AbstractModel{
         this.Type = Type;
     }
 
+    /**
+     * Get 单个用户最大可用连接数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxConnections 单个用户最大可用连接数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxConnections() {
+        return this.MaxConnections;
+    }
+
+    /**
+     * Set 单个用户最大可用连接数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxConnections 单个用户最大可用连接数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxConnections(Long MaxConnections) {
+        this.MaxConnections = MaxConnections;
+    }
+
+    /**
+     * Get 单个用户最大可用通道数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxChannels 单个用户最大可用通道数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxChannels() {
+        return this.MaxChannels;
+    }
+
+    /**
+     * Set 单个用户最大可用通道数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxChannels 单个用户最大可用通道数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxChannels(Long MaxChannels) {
+        this.MaxChannels = MaxChannels;
+    }
+
     public RabbitMQUser() {
     }
 
@@ -251,6 +298,12 @@ public class RabbitMQUser extends AbstractModel{
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.MaxConnections != null) {
+            this.MaxConnections = new Long(source.MaxConnections);
+        }
+        if (source.MaxChannels != null) {
+            this.MaxChannels = new Long(source.MaxChannels);
+        }
     }
 
 
@@ -266,6 +319,8 @@ public class RabbitMQUser extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "MaxConnections", this.MaxConnections);
+        this.setParamSimple(map, prefix + "MaxChannels", this.MaxChannels);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteVpcEndPointRequest extends AbstractModel{
+public class DeleteVpcEndPointRequest extends AbstractModel {
 
     /**
     * 终端节点ID。
@@ -28,6 +29,13 @@ public class DeleteVpcEndPointRequest extends AbstractModel{
     @SerializedName("EndPointId")
     @Expose
     private String EndPointId;
+
+    /**
+    * 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+    */
+    @SerializedName("IpAddressType")
+    @Expose
+    private String IpAddressType;
 
     /**
      * Get 终端节点ID。 
@@ -45,6 +53,22 @@ public class DeleteVpcEndPointRequest extends AbstractModel{
         this.EndPointId = EndPointId;
     }
 
+    /**
+     * Get 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。 
+     * @return IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public String getIpAddressType() {
+        return this.IpAddressType;
+    }
+
+    /**
+     * Set 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     * @param IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public void setIpAddressType(String IpAddressType) {
+        this.IpAddressType = IpAddressType;
+    }
+
     public DeleteVpcEndPointRequest() {
     }
 
@@ -56,6 +80,9 @@ public class DeleteVpcEndPointRequest extends AbstractModel{
         if (source.EndPointId != null) {
             this.EndPointId = new String(source.EndPointId);
         }
+        if (source.IpAddressType != null) {
+            this.IpAddressType = new String(source.IpAddressType);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DeleteVpcEndPointRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EndPointId", this.EndPointId);
+        this.setParamSimple(map, prefix + "IpAddressType", this.IpAddressType);
 
     }
 }

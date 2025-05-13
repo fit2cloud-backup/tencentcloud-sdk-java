@@ -16,30 +16,31 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExecuteTaskRequest extends AbstractModel{
+public class ExecuteTaskRequest extends AbstractModel {
 
     /**
-    * 任务 ID。
+    * 任务 ID
     */
     @SerializedName("TaskId")
     @Expose
     private String TaskId;
 
     /**
-     * Get 任务 ID。 
-     * @return TaskId 任务 ID。
+     * Get 任务 ID 
+     * @return TaskId 任务 ID
      */
     public String getTaskId() {
         return this.TaskId;
     }
 
     /**
-     * Set 任务 ID。
-     * @param TaskId 任务 ID。
+     * Set 任务 ID
+     * @param TaskId 任务 ID
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;

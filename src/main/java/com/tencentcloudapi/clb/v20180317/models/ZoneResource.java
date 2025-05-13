@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZoneResource extends AbstractModel{
+public class ZoneResource extends AbstractModel {
 
     /**
     * 主可用区，如"ap-guangzhou-1"。
@@ -31,7 +32,6 @@ public class ZoneResource extends AbstractModel{
 
     /**
     * 资源列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceSet")
     @Expose
@@ -81,6 +81,13 @@ public class ZoneResource extends AbstractModel{
     private Boolean EdgeZone;
 
     /**
+    * 网络出口
+    */
+    @SerializedName("Egress")
+    @Expose
+    private String Egress;
+
+    /**
      * Get 主可用区，如"ap-guangzhou-1"。 
      * @return MasterZone 主可用区，如"ap-guangzhou-1"。
      */
@@ -97,10 +104,8 @@ public class ZoneResource extends AbstractModel{
     }
 
     /**
-     * Get 资源列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源列表。 
      * @return ResourceSet 资源列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Resource [] getResourceSet() {
         return this.ResourceSet;
@@ -108,9 +113,7 @@ public class ZoneResource extends AbstractModel{
 
     /**
      * Set 资源列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceSet 资源列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceSet(Resource [] ResourceSet) {
         this.ResourceSet = ResourceSet;
@@ -216,6 +219,22 @@ public class ZoneResource extends AbstractModel{
         this.EdgeZone = EdgeZone;
     }
 
+    /**
+     * Get 网络出口 
+     * @return Egress 网络出口
+     */
+    public String getEgress() {
+        return this.Egress;
+    }
+
+    /**
+     * Set 网络出口
+     * @param Egress 网络出口
+     */
+    public void setEgress(String Egress) {
+        this.Egress = Egress;
+    }
+
     public ZoneResource() {
     }
 
@@ -251,6 +270,9 @@ public class ZoneResource extends AbstractModel{
         if (source.EdgeZone != null) {
             this.EdgeZone = new Boolean(source.EdgeZone);
         }
+        if (source.Egress != null) {
+            this.Egress = new String(source.Egress);
+        }
     }
 
 
@@ -266,6 +288,7 @@ public class ZoneResource extends AbstractModel{
         this.setParamSimple(map, prefix + "LocalZone", this.LocalZone);
         this.setParamSimple(map, prefix + "ZoneResourceType", this.ZoneResourceType);
         this.setParamSimple(map, prefix + "EdgeZone", this.EdgeZone);
+        this.setParamSimple(map, prefix + "Egress", this.Egress);
 
     }
 }

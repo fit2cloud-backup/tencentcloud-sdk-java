@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EmergencyVul extends AbstractModel{
+public class EmergencyVul extends AbstractModel {
 
     /**
     * 漏洞id
@@ -80,7 +81,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * cve编号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CveId")
     @Expose
@@ -88,7 +88,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * CVSS评分
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CvssScore")
     @Expose
@@ -96,7 +95,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * 漏洞标签 多个逗号分割
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Labels")
     @Expose
@@ -104,7 +102,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * 影响机器数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostCount")
     @Expose
@@ -112,7 +109,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * 是否支持防御， 0:不支持 1:支持
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsSupportDefense")
     @Expose
@@ -120,7 +116,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * 已防御的攻击次数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DefenseAttackCount")
     @Expose
@@ -128,7 +123,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * 检测规则 0 - 版本比对, 1 - POC验证
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Method")
     @Expose
@@ -136,7 +130,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * 攻击热度级别
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AttackLevel")
     @Expose
@@ -144,7 +137,6 @@ public class EmergencyVul extends AbstractModel{
 
     /**
     * 是否有漏洞主机开启漏洞防御
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DefenseState")
     @Expose
@@ -279,10 +271,8 @@ public class EmergencyVul extends AbstractModel{
     }
 
     /**
-     * Get cve编号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cve编号 
      * @return CveId cve编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCveId() {
         return this.CveId;
@@ -290,19 +280,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set cve编号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CveId cve编号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCveId(String CveId) {
         this.CveId = CveId;
     }
 
     /**
-     * Get CVSS评分
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CVSS评分 
      * @return CvssScore CVSS评分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getCvssScore() {
         return this.CvssScore;
@@ -310,19 +296,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set CVSS评分
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CvssScore CVSS评分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCvssScore(Float CvssScore) {
         this.CvssScore = CvssScore;
     }
 
     /**
-     * Get 漏洞标签 多个逗号分割
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞标签 多个逗号分割 
      * @return Labels 漏洞标签 多个逗号分割
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLabels() {
         return this.Labels;
@@ -330,19 +312,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set 漏洞标签 多个逗号分割
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Labels 漏洞标签 多个逗号分割
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabels(String Labels) {
         this.Labels = Labels;
     }
 
     /**
-     * Get 影响机器数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 影响机器数 
      * @return HostCount 影响机器数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHostCount() {
         return this.HostCount;
@@ -350,19 +328,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set 影响机器数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostCount 影响机器数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostCount(Long HostCount) {
         this.HostCount = HostCount;
     }
 
     /**
-     * Get 是否支持防御， 0:不支持 1:支持
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否支持防御， 0:不支持 1:支持 
      * @return IsSupportDefense 是否支持防御， 0:不支持 1:支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsSupportDefense() {
         return this.IsSupportDefense;
@@ -370,19 +344,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set 是否支持防御， 0:不支持 1:支持
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsSupportDefense 是否支持防御， 0:不支持 1:支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsSupportDefense(Long IsSupportDefense) {
         this.IsSupportDefense = IsSupportDefense;
     }
 
     /**
-     * Get 已防御的攻击次数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已防御的攻击次数 
      * @return DefenseAttackCount 已防御的攻击次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDefenseAttackCount() {
         return this.DefenseAttackCount;
@@ -390,19 +360,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set 已防御的攻击次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DefenseAttackCount 已防御的攻击次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDefenseAttackCount(Long DefenseAttackCount) {
         this.DefenseAttackCount = DefenseAttackCount;
     }
 
     /**
-     * Get 检测规则 0 - 版本比对, 1 - POC验证
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测规则 0 - 版本比对, 1 - POC验证 
      * @return Method 检测规则 0 - 版本比对, 1 - POC验证
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMethod() {
         return this.Method;
@@ -410,19 +376,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set 检测规则 0 - 版本比对, 1 - POC验证
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Method 检测规则 0 - 版本比对, 1 - POC验证
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMethod(Long Method) {
         this.Method = Method;
     }
 
     /**
-     * Get 攻击热度级别
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 攻击热度级别 
      * @return AttackLevel 攻击热度级别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAttackLevel() {
         return this.AttackLevel;
@@ -430,19 +392,15 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set 攻击热度级别
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AttackLevel 攻击热度级别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttackLevel(Long AttackLevel) {
         this.AttackLevel = AttackLevel;
     }
 
     /**
-     * Get 是否有漏洞主机开启漏洞防御
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否有漏洞主机开启漏洞防御 
      * @return DefenseState 是否有漏洞主机开启漏洞防御
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDefenseState() {
         return this.DefenseState;
@@ -450,9 +408,7 @@ public class EmergencyVul extends AbstractModel{
 
     /**
      * Set 是否有漏洞主机开启漏洞防御
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DefenseState 是否有漏洞主机开启漏洞防御
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDefenseState(Boolean DefenseState) {
         this.DefenseState = DefenseState;

@@ -16,170 +16,146 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostClbInstanceListResponse extends AbstractModel{
+public class DescribeHostClbInstanceListResponse extends AbstractModel {
 
     /**
-    * 总数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 总数，取不到值返回0
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * CLB实例监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
+    * CLB实例监听器列表，取不到值返回空数组
     */
     @SerializedName("InstanceList")
     @Expose
     private ClbInstanceDetail [] InstanceList;
 
     /**
-    * 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 异步刷新总数，取不到值返回0
     */
     @SerializedName("AsyncTotalNum")
     @Expose
     private Long AsyncTotalNum;
 
     /**
-    * 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 异步刷新当前执行数，取不到值返回0
     */
     @SerializedName("AsyncOffset")
     @Expose
     private Long AsyncOffset;
 
     /**
-    * 当前缓存读取时间	
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前缓存读取时间，去不到值返回空
     */
     @SerializedName("AsyncCacheTime")
     @Expose
     private String AsyncCacheTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 总数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 总数，取不到值返回0 
+     * @return TotalCount 总数，取不到值返回0
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 总数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 总数，取不到值返回0
+     * @param TotalCount 总数，取不到值返回0
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get CLB实例监听器列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceList CLB实例监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get CLB实例监听器列表，取不到值返回空数组 
+     * @return InstanceList CLB实例监听器列表，取不到值返回空数组
      */
     public ClbInstanceDetail [] getInstanceList() {
         return this.InstanceList;
     }
 
     /**
-     * Set CLB实例监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceList CLB实例监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set CLB实例监听器列表，取不到值返回空数组
+     * @param InstanceList CLB实例监听器列表，取不到值返回空数组
      */
     public void setInstanceList(ClbInstanceDetail [] InstanceList) {
         this.InstanceList = InstanceList;
     }
 
     /**
-     * Get 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AsyncTotalNum 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 异步刷新总数，取不到值返回0 
+     * @return AsyncTotalNum 异步刷新总数，取不到值返回0
      */
     public Long getAsyncTotalNum() {
         return this.AsyncTotalNum;
     }
 
     /**
-     * Set 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AsyncTotalNum 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 异步刷新总数，取不到值返回0
+     * @param AsyncTotalNum 异步刷新总数，取不到值返回0
      */
     public void setAsyncTotalNum(Long AsyncTotalNum) {
         this.AsyncTotalNum = AsyncTotalNum;
     }
 
     /**
-     * Get 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AsyncOffset 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 异步刷新当前执行数，取不到值返回0 
+     * @return AsyncOffset 异步刷新当前执行数，取不到值返回0
      */
     public Long getAsyncOffset() {
         return this.AsyncOffset;
     }
 
     /**
-     * Set 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AsyncOffset 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 异步刷新当前执行数，取不到值返回0
+     * @param AsyncOffset 异步刷新当前执行数，取不到值返回0
      */
     public void setAsyncOffset(Long AsyncOffset) {
         this.AsyncOffset = AsyncOffset;
     }
 
     /**
-     * Get 当前缓存读取时间	
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AsyncCacheTime 当前缓存读取时间	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前缓存读取时间，去不到值返回空 
+     * @return AsyncCacheTime 当前缓存读取时间，去不到值返回空
      */
     public String getAsyncCacheTime() {
         return this.AsyncCacheTime;
     }
 
     /**
-     * Set 当前缓存读取时间	
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AsyncCacheTime 当前缓存读取时间	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前缓存读取时间，去不到值返回空
+     * @param AsyncCacheTime 当前缓存读取时间，去不到值返回空
      */
     public void setAsyncCacheTime(String AsyncCacheTime) {
         this.AsyncCacheTime = AsyncCacheTime;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

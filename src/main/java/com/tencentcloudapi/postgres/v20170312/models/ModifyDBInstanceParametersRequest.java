@@ -16,53 +16,54 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyDBInstanceParametersRequest extends AbstractModel{
+public class ModifyDBInstanceParametersRequest extends AbstractModel {
 
     /**
-    * 实例ID
+    * 实例ID。
     */
     @SerializedName("DBInstanceId")
     @Expose
     private String DBInstanceId;
 
     /**
-    * 待修改参数及期望值
+    * 待修改参数及期望值。
     */
     @SerializedName("ParamList")
     @Expose
     private ParamEntry [] ParamList;
 
     /**
-     * Get 实例ID 
-     * @return DBInstanceId 实例ID
+     * Get 实例ID。 
+     * @return DBInstanceId 实例ID。
      */
     public String getDBInstanceId() {
         return this.DBInstanceId;
     }
 
     /**
-     * Set 实例ID
-     * @param DBInstanceId 实例ID
+     * Set 实例ID。
+     * @param DBInstanceId 实例ID。
      */
     public void setDBInstanceId(String DBInstanceId) {
         this.DBInstanceId = DBInstanceId;
     }
 
     /**
-     * Get 待修改参数及期望值 
-     * @return ParamList 待修改参数及期望值
+     * Get 待修改参数及期望值。 
+     * @return ParamList 待修改参数及期望值。
      */
     public ParamEntry [] getParamList() {
         return this.ParamList;
     }
 
     /**
-     * Set 待修改参数及期望值
-     * @param ParamList 待修改参数及期望值
+     * Set 待修改参数及期望值。
+     * @param ParamList 待修改参数及期望值。
      */
     public void setParamList(ParamEntry [] ParamList) {
         this.ParamList = ParamList;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PdfVerifyResult extends AbstractModel{
+public class PdfVerifyResult extends AbstractModel {
 
     /**
     * 验签结果。0-签名域未签名；1-验签成功； 3-验签失败；4-未找到签名域：文件内没有签名域；5-签名值格式不正确。
@@ -30,77 +31,85 @@ public class PdfVerifyResult extends AbstractModel{
     private Long VerifyResult;
 
     /**
-    * 签署平台，如果文件是在腾讯电子签平台签署，则返回腾讯电子签，如果文件不在腾讯电子签平台签署，则返回其他平台。
+    * 签署平台
+如果文件是在腾讯电子签平台签署，则为**腾讯电子签**，
+如果文件不在腾讯电子签平台签署，则为**其他平台**。
     */
     @SerializedName("SignPlatform")
     @Expose
     private String SignPlatform;
 
     /**
-    * 签署人名称
+    * 申请证书的主体的名字
+
+如果是在腾讯电子签平台签署, 则对应的主体的名字个数如下
+**企业**:  ESS@企业名称@编码
+**个人**: ESS@个人姓名@证件号@808854
+
+如果在其他平台签署的, 主体的名字参考其他平台的说明
     */
     @SerializedName("SignerName")
     @Expose
     private String SignerName;
 
     /**
-    * 签署时间戳，单位秒
+    * 签署时间的Unix时间戳，单位毫秒
     */
     @SerializedName("SignTime")
     @Expose
     private Long SignTime;
 
     /**
-    * 签名算法
+    * 证书签名算法,  如SHA1withRSA等算法
     */
     @SerializedName("SignAlgorithm")
     @Expose
     private String SignAlgorithm;
 
     /**
-    * 签名证书序列号
+    * 在数字证书申请过程中，系统会自动生成一个独一无二的序列号。
     */
     @SerializedName("CertSn")
     @Expose
     private String CertSn;
 
     /**
-    * 证书起始时间戳，单位毫秒
+    * 证书起始时间的Unix时间戳，单位毫秒
     */
     @SerializedName("CertNotBefore")
     @Expose
     private Long CertNotBefore;
 
     /**
-    * 证书过期时间戳，单位毫秒
+    * 证书过期时间的时间戳，单位毫秒
     */
     @SerializedName("CertNotAfter")
     @Expose
     private Long CertNotAfter;
 
     /**
-    * 签名域横坐标，单位pt
+    * 签名域横坐标，单位px
     */
     @SerializedName("ComponentPosX")
     @Expose
     private Float ComponentPosX;
 
     /**
-    * 签名域纵坐标，单位pt
+    * 签名域纵坐标，单位px
     */
     @SerializedName("ComponentPosY")
     @Expose
     private Float ComponentPosY;
 
     /**
-    * 签名域宽度，单位pt
+    * 签名域宽度，单位px
     */
     @SerializedName("ComponentWidth")
     @Expose
     private Float ComponentWidth;
 
     /**
-    * 签名域高度，单位pt
+    * 签名域高度，单位px
     */
     @SerializedName("ComponentHeight")
     @Expose
@@ -130,176 +139,208 @@ public class PdfVerifyResult extends AbstractModel{
     }
 
     /**
-     * Get 签署平台，如果文件是在腾讯电子签平台签署，则返回腾讯电子签，如果文件不在腾讯电子签平台签署，则返回其他平台。 
-     * @return SignPlatform 签署平台，如果文件是在腾讯电子签平台签署，则返回腾讯电子签，如果文件不在腾讯电子签平台签署，则返回其他平台。
+     * Get 签署平台
+如果文件是在腾讯电子签平台签署，则为**腾讯电子签**，
+如果文件不在腾讯电子签平台签署，则为**其他平台**。 
+     * @return SignPlatform 签署平台
+如果文件是在腾讯电子签平台签署，则为**腾讯电子签**，
+如果文件不在腾讯电子签平台签署，则为**其他平台**。
      */
     public String getSignPlatform() {
         return this.SignPlatform;
     }
 
     /**
-     * Set 签署平台，如果文件是在腾讯电子签平台签署，则返回腾讯电子签，如果文件不在腾讯电子签平台签署，则返回其他平台。
-     * @param SignPlatform 签署平台，如果文件是在腾讯电子签平台签署，则返回腾讯电子签，如果文件不在腾讯电子签平台签署，则返回其他平台。
+     * Set 签署平台
+如果文件是在腾讯电子签平台签署，则为**腾讯电子签**，
+如果文件不在腾讯电子签平台签署，则为**其他平台**。
+     * @param SignPlatform 签署平台
+如果文件是在腾讯电子签平台签署，则为**腾讯电子签**，
+如果文件不在腾讯电子签平台签署，则为**其他平台**。
      */
     public void setSignPlatform(String SignPlatform) {
         this.SignPlatform = SignPlatform;
     }
 
     /**
-     * Get 签署人名称 
-     * @return SignerName 签署人名称
+     * Get 申请证书的主体的名字
+
+如果是在腾讯电子签平台签署, 则对应的主体的名字个数如下
+**企业**:  ESS@企业名称@编码
+**个人**: ESS@个人姓名@证件号@808854
+
+如果在其他平台签署的, 主体的名字参考其他平台的说明 
+     * @return SignerName 申请证书的主体的名字
+
+如果是在腾讯电子签平台签署, 则对应的主体的名字个数如下
+**企业**:  ESS@企业名称@编码
+**个人**: ESS@个人姓名@证件号@808854
+
+如果在其他平台签署的, 主体的名字参考其他平台的说明
      */
     public String getSignerName() {
         return this.SignerName;
     }
 
     /**
-     * Set 签署人名称
-     * @param SignerName 签署人名称
+     * Set 申请证书的主体的名字
+
+如果是在腾讯电子签平台签署, 则对应的主体的名字个数如下
+**企业**:  ESS@企业名称@编码
+**个人**: ESS@个人姓名@证件号@808854
+
+如果在其他平台签署的, 主体的名字参考其他平台的说明
+     * @param SignerName 申请证书的主体的名字
+
+如果是在腾讯电子签平台签署, 则对应的主体的名字个数如下
+**企业**:  ESS@企业名称@编码
+**个人**: ESS@个人姓名@证件号@808854
+
+如果在其他平台签署的, 主体的名字参考其他平台的说明
      */
     public void setSignerName(String SignerName) {
         this.SignerName = SignerName;
     }
 
     /**
-     * Get 签署时间戳，单位秒 
-     * @return SignTime 签署时间戳，单位秒
+     * Get 签署时间的Unix时间戳，单位毫秒 
+     * @return SignTime 签署时间的Unix时间戳，单位毫秒
      */
     public Long getSignTime() {
         return this.SignTime;
     }
 
     /**
-     * Set 签署时间戳，单位秒
-     * @param SignTime 签署时间戳，单位秒
+     * Set 签署时间的Unix时间戳，单位毫秒
+     * @param SignTime 签署时间的Unix时间戳，单位毫秒
      */
     public void setSignTime(Long SignTime) {
         this.SignTime = SignTime;
     }
 
     /**
-     * Get 签名算法 
-     * @return SignAlgorithm 签名算法
+     * Get 证书签名算法,  如SHA1withRSA等算法 
+     * @return SignAlgorithm 证书签名算法,  如SHA1withRSA等算法
      */
     public String getSignAlgorithm() {
         return this.SignAlgorithm;
     }
 
     /**
-     * Set 签名算法
-     * @param SignAlgorithm 签名算法
+     * Set 证书签名算法,  如SHA1withRSA等算法
+     * @param SignAlgorithm 证书签名算法,  如SHA1withRSA等算法
      */
     public void setSignAlgorithm(String SignAlgorithm) {
         this.SignAlgorithm = SignAlgorithm;
     }
 
     /**
-     * Get 签名证书序列号 
-     * @return CertSn 签名证书序列号
+     * Get 在数字证书申请过程中，系统会自动生成一个独一无二的序列号。 
+     * @return CertSn 在数字证书申请过程中，系统会自动生成一个独一无二的序列号。
      */
     public String getCertSn() {
         return this.CertSn;
     }
 
     /**
-     * Set 签名证书序列号
-     * @param CertSn 签名证书序列号
+     * Set 在数字证书申请过程中，系统会自动生成一个独一无二的序列号。
+     * @param CertSn 在数字证书申请过程中，系统会自动生成一个独一无二的序列号。
      */
     public void setCertSn(String CertSn) {
         this.CertSn = CertSn;
     }
 
     /**
-     * Get 证书起始时间戳，单位毫秒 
-     * @return CertNotBefore 证书起始时间戳，单位毫秒
+     * Get 证书起始时间的Unix时间戳，单位毫秒 
+     * @return CertNotBefore 证书起始时间的Unix时间戳，单位毫秒
      */
     public Long getCertNotBefore() {
         return this.CertNotBefore;
     }
 
     /**
-     * Set 证书起始时间戳，单位毫秒
-     * @param CertNotBefore 证书起始时间戳，单位毫秒
+     * Set 证书起始时间的Unix时间戳，单位毫秒
+     * @param CertNotBefore 证书起始时间的Unix时间戳，单位毫秒
      */
     public void setCertNotBefore(Long CertNotBefore) {
         this.CertNotBefore = CertNotBefore;
     }
 
     /**
-     * Get 证书过期时间戳，单位毫秒 
-     * @return CertNotAfter 证书过期时间戳，单位毫秒
+     * Get 证书过期时间的时间戳，单位毫秒 
+     * @return CertNotAfter 证书过期时间的时间戳，单位毫秒
      */
     public Long getCertNotAfter() {
         return this.CertNotAfter;
     }
 
     /**
-     * Set 证书过期时间戳，单位毫秒
-     * @param CertNotAfter 证书过期时间戳，单位毫秒
+     * Set 证书过期时间的时间戳，单位毫秒
+     * @param CertNotAfter 证书过期时间的时间戳，单位毫秒
      */
     public void setCertNotAfter(Long CertNotAfter) {
         this.CertNotAfter = CertNotAfter;
     }
 
     /**
-     * Get 签名域横坐标，单位pt 
-     * @return ComponentPosX 签名域横坐标，单位pt
+     * Get 签名域横坐标，单位px 
+     * @return ComponentPosX 签名域横坐标，单位px
      */
     public Float getComponentPosX() {
         return this.ComponentPosX;
     }
 
     /**
-     * Set 签名域横坐标，单位pt
-     * @param ComponentPosX 签名域横坐标，单位pt
+     * Set 签名域横坐标，单位px
+     * @param ComponentPosX 签名域横坐标，单位px
      */
     public void setComponentPosX(Float ComponentPosX) {
         this.ComponentPosX = ComponentPosX;
     }
 
     /**
-     * Get 签名域纵坐标，单位pt 
-     * @return ComponentPosY 签名域纵坐标，单位pt
+     * Get 签名域纵坐标，单位px 
+     * @return ComponentPosY 签名域纵坐标，单位px
      */
     public Float getComponentPosY() {
         return this.ComponentPosY;
     }
 
     /**
-     * Set 签名域纵坐标，单位pt
-     * @param ComponentPosY 签名域纵坐标，单位pt
+     * Set 签名域纵坐标，单位px
+     * @param ComponentPosY 签名域纵坐标，单位px
      */
     public void setComponentPosY(Float ComponentPosY) {
         this.ComponentPosY = ComponentPosY;
     }
 
     /**
-     * Get 签名域宽度，单位pt 
-     * @return ComponentWidth 签名域宽度，单位pt
+     * Get 签名域宽度，单位px 
+     * @return ComponentWidth 签名域宽度，单位px
      */
     public Float getComponentWidth() {
         return this.ComponentWidth;
     }
 
     /**
-     * Set 签名域宽度，单位pt
-     * @param ComponentWidth 签名域宽度，单位pt
+     * Set 签名域宽度，单位px
+     * @param ComponentWidth 签名域宽度，单位px
      */
     public void setComponentWidth(Float ComponentWidth) {
         this.ComponentWidth = ComponentWidth;
     }
 
     /**
-     * Get 签名域高度，单位pt 
-     * @return ComponentHeight 签名域高度，单位pt
+     * Get 签名域高度，单位px 
+     * @return ComponentHeight 签名域高度，单位px
      */
     public Float getComponentHeight() {
         return this.ComponentHeight;
     }
 
     /**
-     * Set 签名域高度，单位pt
-     * @param ComponentHeight 签名域高度，单位pt
+     * Set 签名域高度，单位px
+     * @param ComponentHeight 签名域高度，单位px
      */
     public void setComponentHeight(Float ComponentHeight) {
         this.ComponentHeight = ComponentHeight;

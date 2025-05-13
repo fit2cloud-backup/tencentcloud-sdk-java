@@ -16,32 +16,37 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchRegisterTargetsResponse extends AbstractModel{
+public class BatchRegisterTargetsResponse extends AbstractModel {
 
     /**
     * 绑定失败的监听器ID，如为空表示全部绑定成功。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailListenerIdSet")
     @Expose
     private String [] FailListenerIdSet;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 绑定失败错误原因信息。
+    */
+    @SerializedName("Message")
+    @Expose
+    private String Message;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 绑定失败的监听器ID，如为空表示全部绑定成功。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定失败的监听器ID，如为空表示全部绑定成功。 
      * @return FailListenerIdSet 绑定失败的监听器ID，如为空表示全部绑定成功。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFailListenerIdSet() {
         return this.FailListenerIdSet;
@@ -49,25 +54,39 @@ public class BatchRegisterTargetsResponse extends AbstractModel{
 
     /**
      * Set 绑定失败的监听器ID，如为空表示全部绑定成功。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailListenerIdSet 绑定失败的监听器ID，如为空表示全部绑定成功。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailListenerIdSet(String [] FailListenerIdSet) {
         this.FailListenerIdSet = FailListenerIdSet;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 绑定失败错误原因信息。 
+     * @return Message 绑定失败错误原因信息。
+     */
+    public String getMessage() {
+        return this.Message;
+    }
+
+    /**
+     * Set 绑定失败错误原因信息。
+     * @param Message 绑定失败错误原因信息。
+     */
+    public void setMessage(String Message) {
+        this.Message = Message;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -87,6 +106,9 @@ public class BatchRegisterTargetsResponse extends AbstractModel{
                 this.FailListenerIdSet[i] = new String(source.FailListenerIdSet[i]);
             }
         }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -98,6 +120,7 @@ public class BatchRegisterTargetsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "FailListenerIdSet.", this.FailListenerIdSet);
+        this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

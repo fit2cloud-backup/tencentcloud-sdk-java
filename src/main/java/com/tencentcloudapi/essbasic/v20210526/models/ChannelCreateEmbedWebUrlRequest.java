@@ -16,14 +16,23 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
+public class ChannelCreateEmbedWebUrlRequest extends AbstractModel {
 
     /**
-    * 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+    * 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
     */
     @SerializedName("Agent")
     @Expose
@@ -32,15 +41,17 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
     /**
     * 要生成WEB嵌入界面的类型, 可以选择的值如下: 
 
-- CREATE_SEAL: 生成创建印章的嵌入页面
-- CREATE_TEMPLATE：生成创建模板的嵌入页面
-- MODIFY_TEMPLATE：生成修改模板的嵌入页面
-- PREVIEW_TEMPLATE：生成预览模板的嵌入页面
-- PREVIEW_FLOW：生成预览合同文档的嵌入页面
-- PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面
-- PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面
-- PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面
-- EXTEND_SERVICE：生成扩展服务的嵌入页面
+<ul>
+<li>CREATE_SEAL: 生成创建印章的嵌入页面</li>
+<li>CREATE_TEMPLATE：生成创建模板的嵌入页面</li>
+<li>MODIFY_TEMPLATE：生成修改模板的嵌入页面</li>
+<li>PREVIEW_TEMPLATE：生成预览模板的嵌入页面</li>
+<li>PREVIEW_FLOW：生成预览合同文档的嵌入页面（H5链接，支持移动端的浏览器中打开）</li>
+<li>PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面（仅支持PC的浏览器中打开）</li>
+<li>PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面</li>
+<li>PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面</li>
+<li>EXTEND_SERVICE：生成扩展服务的嵌入页面</li>
+</ul>
     */
     @SerializedName("EmbedType")
     @Expose
@@ -49,9 +60,17 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
     /**
     * WEB嵌入的业务资源ID
 
-- 当EmbedType取值MODIFY_TEMPLATE，PREVIEW_TEMPLATE时需要填写模板id作为BusinessId
-- 当EmbedType取值PREVIEW_FLOW，PREVIEW_FLOW_DETAIL时需要填写合同id作为BusinessId
-- 当EmbedType取值PREVIEW_SEAL_DETAIL需要填写印章id作为BusinessId
+当EmbedType取值
+<ul>
+<li>为MODIFY_TEMPLATE，PREVIEW_TEMPLATE必填，取值为模板id</li>
+<li>为CREATE_TEMPLATE，非必填，取值为资源id。*资源Id获取可使用接口[上传文件](https://qian.tencent.com/developers/partnerApis/files/UploadFiles)*</li>
+<li>为PREVIEW_FLOW，PREVIEW_FLOW_DETAIL必填，取值为合同id</li>
+<li>为PREVIEW_SEAL_DETAIL必填，取值为印章id</li>
+</ul>
+
+
+注意：
+ 1. CREATE_TEMPLATE中的BusinessId仅支持PDF文件类型， 如果您的文件不是PDF， 请使用接口[创建文件转换任务](https://qian.tencent.com/developers/partnerApis/files/ChannelCreateConvertTaskApi) 和[查询转换任务状态](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi) 来进行转换成PDF资源。
     */
     @SerializedName("BusinessId")
     @Expose
@@ -72,16 +91,72 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
     private UserInfo Operator;
 
     /**
-     * Get 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
-     * @return Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+    * 用户自定义参数
+<ul>
+<li>目前仅支持EmbedType=CREATE_TEMPLATE时传入</li>
+<li>指定后，创建，编辑，删除模板时，回调都会携带该userData</li>
+<li>支持的格式：json字符串的BASE64编码字符串</li>
+<li>示例：<ul>
+                 <li>json字符串：{"ComeFrom":"xxx"}，BASE64编码：eyJDb21lRnJvbSI6Inh4eCJ9</li>
+                 <li>eyJDb21lRnJvbSI6Inh4eCJ9，为符合要求的userData数据格式</li>
+</ul>
+</li>
+</ul>
+    */
+    @SerializedName("UserData")
+    @Expose
+    private String UserData;
+
+    /**
+    * 个性化参数，用于控制页面展示内容
+    */
+    @SerializedName("Option")
+    @Expose
+    private EmbedUrlOption Option;
+
+    /**
+     * Get 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证 
+     * @return Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
-     * @param Agent 渠道应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * Set 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
+     * @param Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -90,26 +165,30 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
     /**
      * Get 要生成WEB嵌入界面的类型, 可以选择的值如下: 
 
-- CREATE_SEAL: 生成创建印章的嵌入页面
-- CREATE_TEMPLATE：生成创建模板的嵌入页面
-- MODIFY_TEMPLATE：生成修改模板的嵌入页面
-- PREVIEW_TEMPLATE：生成预览模板的嵌入页面
-- PREVIEW_FLOW：生成预览合同文档的嵌入页面
-- PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面
-- PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面
-- PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面
-- EXTEND_SERVICE：生成扩展服务的嵌入页面 
+<ul>
+<li>CREATE_SEAL: 生成创建印章的嵌入页面</li>
+<li>CREATE_TEMPLATE：生成创建模板的嵌入页面</li>
+<li>MODIFY_TEMPLATE：生成修改模板的嵌入页面</li>
+<li>PREVIEW_TEMPLATE：生成预览模板的嵌入页面</li>
+<li>PREVIEW_FLOW：生成预览合同文档的嵌入页面（H5链接，支持移动端的浏览器中打开）</li>
+<li>PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面（仅支持PC的浏览器中打开）</li>
+<li>PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面</li>
+<li>PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面</li>
+<li>EXTEND_SERVICE：生成扩展服务的嵌入页面</li>
+</ul> 
      * @return EmbedType 要生成WEB嵌入界面的类型, 可以选择的值如下: 
 
-- CREATE_SEAL: 生成创建印章的嵌入页面
-- CREATE_TEMPLATE：生成创建模板的嵌入页面
-- MODIFY_TEMPLATE：生成修改模板的嵌入页面
-- PREVIEW_TEMPLATE：生成预览模板的嵌入页面
-- PREVIEW_FLOW：生成预览合同文档的嵌入页面
-- PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面
-- PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面
-- PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面
-- EXTEND_SERVICE：生成扩展服务的嵌入页面
+<ul>
+<li>CREATE_SEAL: 生成创建印章的嵌入页面</li>
+<li>CREATE_TEMPLATE：生成创建模板的嵌入页面</li>
+<li>MODIFY_TEMPLATE：生成修改模板的嵌入页面</li>
+<li>PREVIEW_TEMPLATE：生成预览模板的嵌入页面</li>
+<li>PREVIEW_FLOW：生成预览合同文档的嵌入页面（H5链接，支持移动端的浏览器中打开）</li>
+<li>PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面（仅支持PC的浏览器中打开）</li>
+<li>PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面</li>
+<li>PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面</li>
+<li>EXTEND_SERVICE：生成扩展服务的嵌入页面</li>
+</ul>
      */
     public String getEmbedType() {
         return this.EmbedType;
@@ -118,26 +197,30 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
     /**
      * Set 要生成WEB嵌入界面的类型, 可以选择的值如下: 
 
-- CREATE_SEAL: 生成创建印章的嵌入页面
-- CREATE_TEMPLATE：生成创建模板的嵌入页面
-- MODIFY_TEMPLATE：生成修改模板的嵌入页面
-- PREVIEW_TEMPLATE：生成预览模板的嵌入页面
-- PREVIEW_FLOW：生成预览合同文档的嵌入页面
-- PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面
-- PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面
-- PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面
-- EXTEND_SERVICE：生成扩展服务的嵌入页面
+<ul>
+<li>CREATE_SEAL: 生成创建印章的嵌入页面</li>
+<li>CREATE_TEMPLATE：生成创建模板的嵌入页面</li>
+<li>MODIFY_TEMPLATE：生成修改模板的嵌入页面</li>
+<li>PREVIEW_TEMPLATE：生成预览模板的嵌入页面</li>
+<li>PREVIEW_FLOW：生成预览合同文档的嵌入页面（H5链接，支持移动端的浏览器中打开）</li>
+<li>PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面（仅支持PC的浏览器中打开）</li>
+<li>PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面</li>
+<li>PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面</li>
+<li>EXTEND_SERVICE：生成扩展服务的嵌入页面</li>
+</ul>
      * @param EmbedType 要生成WEB嵌入界面的类型, 可以选择的值如下: 
 
-- CREATE_SEAL: 生成创建印章的嵌入页面
-- CREATE_TEMPLATE：生成创建模板的嵌入页面
-- MODIFY_TEMPLATE：生成修改模板的嵌入页面
-- PREVIEW_TEMPLATE：生成预览模板的嵌入页面
-- PREVIEW_FLOW：生成预览合同文档的嵌入页面
-- PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面
-- PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面
-- PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面
-- EXTEND_SERVICE：生成扩展服务的嵌入页面
+<ul>
+<li>CREATE_SEAL: 生成创建印章的嵌入页面</li>
+<li>CREATE_TEMPLATE：生成创建模板的嵌入页面</li>
+<li>MODIFY_TEMPLATE：生成修改模板的嵌入页面</li>
+<li>PREVIEW_TEMPLATE：生成预览模板的嵌入页面</li>
+<li>PREVIEW_FLOW：生成预览合同文档的嵌入页面（H5链接，支持移动端的浏览器中打开）</li>
+<li>PREVIEW_FLOW_DETAIL：生成预览合同详情的嵌入页面（仅支持PC的浏览器中打开）</li>
+<li>PREVIEW_SEAL_LIST：生成预览印章列表的嵌入页面</li>
+<li>PREVIEW_SEAL_DETAIL：生成预览印章详情的嵌入页面</li>
+<li>EXTEND_SERVICE：生成扩展服务的嵌入页面</li>
+</ul>
      */
     public void setEmbedType(String EmbedType) {
         this.EmbedType = EmbedType;
@@ -146,14 +229,30 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
     /**
      * Get WEB嵌入的业务资源ID
 
-- 当EmbedType取值MODIFY_TEMPLATE，PREVIEW_TEMPLATE时需要填写模板id作为BusinessId
-- 当EmbedType取值PREVIEW_FLOW，PREVIEW_FLOW_DETAIL时需要填写合同id作为BusinessId
-- 当EmbedType取值PREVIEW_SEAL_DETAIL需要填写印章id作为BusinessId 
+当EmbedType取值
+<ul>
+<li>为MODIFY_TEMPLATE，PREVIEW_TEMPLATE必填，取值为模板id</li>
+<li>为CREATE_TEMPLATE，非必填，取值为资源id。*资源Id获取可使用接口[上传文件](https://qian.tencent.com/developers/partnerApis/files/UploadFiles)*</li>
+<li>为PREVIEW_FLOW，PREVIEW_FLOW_DETAIL必填，取值为合同id</li>
+<li>为PREVIEW_SEAL_DETAIL必填，取值为印章id</li>
+</ul>
+
+
+注意：
+ 1. CREATE_TEMPLATE中的BusinessId仅支持PDF文件类型， 如果您的文件不是PDF， 请使用接口[创建文件转换任务](https://qian.tencent.com/developers/partnerApis/files/ChannelCreateConvertTaskApi) 和[查询转换任务状态](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi) 来进行转换成PDF资源。 
      * @return BusinessId WEB嵌入的业务资源ID
 
-- 当EmbedType取值MODIFY_TEMPLATE，PREVIEW_TEMPLATE时需要填写模板id作为BusinessId
-- 当EmbedType取值PREVIEW_FLOW，PREVIEW_FLOW_DETAIL时需要填写合同id作为BusinessId
-- 当EmbedType取值PREVIEW_SEAL_DETAIL需要填写印章id作为BusinessId
+当EmbedType取值
+<ul>
+<li>为MODIFY_TEMPLATE，PREVIEW_TEMPLATE必填，取值为模板id</li>
+<li>为CREATE_TEMPLATE，非必填，取值为资源id。*资源Id获取可使用接口[上传文件](https://qian.tencent.com/developers/partnerApis/files/UploadFiles)*</li>
+<li>为PREVIEW_FLOW，PREVIEW_FLOW_DETAIL必填，取值为合同id</li>
+<li>为PREVIEW_SEAL_DETAIL必填，取值为印章id</li>
+</ul>
+
+
+注意：
+ 1. CREATE_TEMPLATE中的BusinessId仅支持PDF文件类型， 如果您的文件不是PDF， 请使用接口[创建文件转换任务](https://qian.tencent.com/developers/partnerApis/files/ChannelCreateConvertTaskApi) 和[查询转换任务状态](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi) 来进行转换成PDF资源。
      */
     public String getBusinessId() {
         return this.BusinessId;
@@ -162,14 +261,30 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
     /**
      * Set WEB嵌入的业务资源ID
 
-- 当EmbedType取值MODIFY_TEMPLATE，PREVIEW_TEMPLATE时需要填写模板id作为BusinessId
-- 当EmbedType取值PREVIEW_FLOW，PREVIEW_FLOW_DETAIL时需要填写合同id作为BusinessId
-- 当EmbedType取值PREVIEW_SEAL_DETAIL需要填写印章id作为BusinessId
+当EmbedType取值
+<ul>
+<li>为MODIFY_TEMPLATE，PREVIEW_TEMPLATE必填，取值为模板id</li>
+<li>为CREATE_TEMPLATE，非必填，取值为资源id。*资源Id获取可使用接口[上传文件](https://qian.tencent.com/developers/partnerApis/files/UploadFiles)*</li>
+<li>为PREVIEW_FLOW，PREVIEW_FLOW_DETAIL必填，取值为合同id</li>
+<li>为PREVIEW_SEAL_DETAIL必填，取值为印章id</li>
+</ul>
+
+
+注意：
+ 1. CREATE_TEMPLATE中的BusinessId仅支持PDF文件类型， 如果您的文件不是PDF， 请使用接口[创建文件转换任务](https://qian.tencent.com/developers/partnerApis/files/ChannelCreateConvertTaskApi) 和[查询转换任务状态](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi) 来进行转换成PDF资源。
      * @param BusinessId WEB嵌入的业务资源ID
 
-- 当EmbedType取值MODIFY_TEMPLATE，PREVIEW_TEMPLATE时需要填写模板id作为BusinessId
-- 当EmbedType取值PREVIEW_FLOW，PREVIEW_FLOW_DETAIL时需要填写合同id作为BusinessId
-- 当EmbedType取值PREVIEW_SEAL_DETAIL需要填写印章id作为BusinessId
+当EmbedType取值
+<ul>
+<li>为MODIFY_TEMPLATE，PREVIEW_TEMPLATE必填，取值为模板id</li>
+<li>为CREATE_TEMPLATE，非必填，取值为资源id。*资源Id获取可使用接口[上传文件](https://qian.tencent.com/developers/partnerApis/files/UploadFiles)*</li>
+<li>为PREVIEW_FLOW，PREVIEW_FLOW_DETAIL必填，取值为合同id</li>
+<li>为PREVIEW_SEAL_DETAIL必填，取值为印章id</li>
+</ul>
+
+
+注意：
+ 1. CREATE_TEMPLATE中的BusinessId仅支持PDF文件类型， 如果您的文件不是PDF， 请使用接口[创建文件转换任务](https://qian.tencent.com/developers/partnerApis/files/ChannelCreateConvertTaskApi) 和[查询转换任务状态](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi) 来进行转换成PDF资源。
      */
     public void setBusinessId(String BusinessId) {
         this.BusinessId = BusinessId;
@@ -211,6 +326,78 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
         this.Operator = Operator;
     }
 
+    /**
+     * Get 用户自定义参数
+<ul>
+<li>目前仅支持EmbedType=CREATE_TEMPLATE时传入</li>
+<li>指定后，创建，编辑，删除模板时，回调都会携带该userData</li>
+<li>支持的格式：json字符串的BASE64编码字符串</li>
+<li>示例：<ul>
+                 <li>json字符串：{"ComeFrom":"xxx"}，BASE64编码：eyJDb21lRnJvbSI6Inh4eCJ9</li>
+                 <li>eyJDb21lRnJvbSI6Inh4eCJ9，为符合要求的userData数据格式</li>
+</ul>
+</li>
+</ul> 
+     * @return UserData 用户自定义参数
+<ul>
+<li>目前仅支持EmbedType=CREATE_TEMPLATE时传入</li>
+<li>指定后，创建，编辑，删除模板时，回调都会携带该userData</li>
+<li>支持的格式：json字符串的BASE64编码字符串</li>
+<li>示例：<ul>
+                 <li>json字符串：{"ComeFrom":"xxx"}，BASE64编码：eyJDb21lRnJvbSI6Inh4eCJ9</li>
+                 <li>eyJDb21lRnJvbSI6Inh4eCJ9，为符合要求的userData数据格式</li>
+</ul>
+</li>
+</ul>
+     */
+    public String getUserData() {
+        return this.UserData;
+    }
+
+    /**
+     * Set 用户自定义参数
+<ul>
+<li>目前仅支持EmbedType=CREATE_TEMPLATE时传入</li>
+<li>指定后，创建，编辑，删除模板时，回调都会携带该userData</li>
+<li>支持的格式：json字符串的BASE64编码字符串</li>
+<li>示例：<ul>
+                 <li>json字符串：{"ComeFrom":"xxx"}，BASE64编码：eyJDb21lRnJvbSI6Inh4eCJ9</li>
+                 <li>eyJDb21lRnJvbSI6Inh4eCJ9，为符合要求的userData数据格式</li>
+</ul>
+</li>
+</ul>
+     * @param UserData 用户自定义参数
+<ul>
+<li>目前仅支持EmbedType=CREATE_TEMPLATE时传入</li>
+<li>指定后，创建，编辑，删除模板时，回调都会携带该userData</li>
+<li>支持的格式：json字符串的BASE64编码字符串</li>
+<li>示例：<ul>
+                 <li>json字符串：{"ComeFrom":"xxx"}，BASE64编码：eyJDb21lRnJvbSI6Inh4eCJ9</li>
+                 <li>eyJDb21lRnJvbSI6Inh4eCJ9，为符合要求的userData数据格式</li>
+</ul>
+</li>
+</ul>
+     */
+    public void setUserData(String UserData) {
+        this.UserData = UserData;
+    }
+
+    /**
+     * Get 个性化参数，用于控制页面展示内容 
+     * @return Option 个性化参数，用于控制页面展示内容
+     */
+    public EmbedUrlOption getOption() {
+        return this.Option;
+    }
+
+    /**
+     * Set 个性化参数，用于控制页面展示内容
+     * @param Option 个性化参数，用于控制页面展示内容
+     */
+    public void setOption(EmbedUrlOption Option) {
+        this.Option = Option;
+    }
+
     public ChannelCreateEmbedWebUrlRequest() {
     }
 
@@ -234,6 +421,12 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
         if (source.Operator != null) {
             this.Operator = new UserInfo(source.Operator);
         }
+        if (source.UserData != null) {
+            this.UserData = new String(source.UserData);
+        }
+        if (source.Option != null) {
+            this.Option = new EmbedUrlOption(source.Option);
+        }
     }
 
 
@@ -246,6 +439,8 @@ public class ChannelCreateEmbedWebUrlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "BusinessId", this.BusinessId);
         this.setParamSimple(map, prefix + "HiddenComponents", this.HiddenComponents);
         this.setParamObj(map, prefix + "Operator.", this.Operator);
+        this.setParamSimple(map, prefix + "UserData", this.UserData);
+        this.setParamObj(map, prefix + "Option.", this.Option);
 
     }
 }

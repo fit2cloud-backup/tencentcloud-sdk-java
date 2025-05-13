@@ -16,19 +16,33 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GPUArgs extends AbstractModel{
+public class GPUArgs extends AbstractModel {
 
     /**
-    * 是否启用MIG特性
-注意：此字段可能返回 null，表示取不到有效值。
+    * CUDA版本信息
     */
-    @SerializedName("MIGEnable")
+    @SerializedName("CUDA")
     @Expose
-    private Boolean MIGEnable;
+    private DriverVersion CUDA;
+
+    /**
+    * cuDNN版本信息
+    */
+    @SerializedName("CUDNN")
+    @Expose
+    private CUDNN CUDNN;
+
+    /**
+    * 自定义GPU驱动信息
+    */
+    @SerializedName("CustomDriver")
+    @Expose
+    private CustomDriver CustomDriver;
 
     /**
     * GPU驱动版本信息
@@ -38,47 +52,58 @@ public class GPUArgs extends AbstractModel{
     private DriverVersion Driver;
 
     /**
-    * CUDA版本信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 是否启用MIG特性
     */
-    @SerializedName("CUDA")
+    @SerializedName("MIGEnable")
     @Expose
-    private DriverVersion CUDA;
+    private Boolean MIGEnable;
 
     /**
-    * cuDNN版本信息
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("CUDNN")
-    @Expose
-    private CUDNN CUDNN;
-
-    /**
-    * 自定义GPU驱动信息
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("CustomDriver")
-    @Expose
-    private CustomDriver CustomDriver;
-
-    /**
-     * Get 是否启用MIG特性
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MIGEnable 是否启用MIG特性
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get CUDA版本信息 
+     * @return CUDA CUDA版本信息
      */
-    public Boolean getMIGEnable() {
-        return this.MIGEnable;
+    public DriverVersion getCUDA() {
+        return this.CUDA;
     }
 
     /**
-     * Set 是否启用MIG特性
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param MIGEnable 是否启用MIG特性
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set CUDA版本信息
+     * @param CUDA CUDA版本信息
      */
-    public void setMIGEnable(Boolean MIGEnable) {
-        this.MIGEnable = MIGEnable;
+    public void setCUDA(DriverVersion CUDA) {
+        this.CUDA = CUDA;
+    }
+
+    /**
+     * Get cuDNN版本信息 
+     * @return CUDNN cuDNN版本信息
+     */
+    public CUDNN getCUDNN() {
+        return this.CUDNN;
+    }
+
+    /**
+     * Set cuDNN版本信息
+     * @param CUDNN cuDNN版本信息
+     */
+    public void setCUDNN(CUDNN CUDNN) {
+        this.CUDNN = CUDNN;
+    }
+
+    /**
+     * Get 自定义GPU驱动信息 
+     * @return CustomDriver 自定义GPU驱动信息
+     */
+    public CustomDriver getCustomDriver() {
+        return this.CustomDriver;
+    }
+
+    /**
+     * Set 自定义GPU驱动信息
+     * @param CustomDriver 自定义GPU驱动信息
+     */
+    public void setCustomDriver(CustomDriver CustomDriver) {
+        this.CustomDriver = CustomDriver;
     }
 
     /**
@@ -98,63 +123,19 @@ public class GPUArgs extends AbstractModel{
     }
 
     /**
-     * Get CUDA版本信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CUDA CUDA版本信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 是否启用MIG特性 
+     * @return MIGEnable 是否启用MIG特性
      */
-    public DriverVersion getCUDA() {
-        return this.CUDA;
+    public Boolean getMIGEnable() {
+        return this.MIGEnable;
     }
 
     /**
-     * Set CUDA版本信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CUDA CUDA版本信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 是否启用MIG特性
+     * @param MIGEnable 是否启用MIG特性
      */
-    public void setCUDA(DriverVersion CUDA) {
-        this.CUDA = CUDA;
-    }
-
-    /**
-     * Get cuDNN版本信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CUDNN cuDNN版本信息
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public CUDNN getCUDNN() {
-        return this.CUDNN;
-    }
-
-    /**
-     * Set cuDNN版本信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CUDNN cuDNN版本信息
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setCUDNN(CUDNN CUDNN) {
-        this.CUDNN = CUDNN;
-    }
-
-    /**
-     * Get 自定义GPU驱动信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CustomDriver 自定义GPU驱动信息
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public CustomDriver getCustomDriver() {
-        return this.CustomDriver;
-    }
-
-    /**
-     * Set 自定义GPU驱动信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CustomDriver 自定义GPU驱动信息
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setCustomDriver(CustomDriver CustomDriver) {
-        this.CustomDriver = CustomDriver;
+    public void setMIGEnable(Boolean MIGEnable) {
+        this.MIGEnable = MIGEnable;
     }
 
     public GPUArgs() {
@@ -165,12 +146,6 @@ public class GPUArgs extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public GPUArgs(GPUArgs source) {
-        if (source.MIGEnable != null) {
-            this.MIGEnable = new Boolean(source.MIGEnable);
-        }
-        if (source.Driver != null) {
-            this.Driver = new DriverVersion(source.Driver);
-        }
         if (source.CUDA != null) {
             this.CUDA = new DriverVersion(source.CUDA);
         }
@@ -180,6 +155,12 @@ public class GPUArgs extends AbstractModel{
         if (source.CustomDriver != null) {
             this.CustomDriver = new CustomDriver(source.CustomDriver);
         }
+        if (source.Driver != null) {
+            this.Driver = new DriverVersion(source.Driver);
+        }
+        if (source.MIGEnable != null) {
+            this.MIGEnable = new Boolean(source.MIGEnable);
+        }
     }
 
 
@@ -187,11 +168,11 @@ public class GPUArgs extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "MIGEnable", this.MIGEnable);
-        this.setParamObj(map, prefix + "Driver.", this.Driver);
         this.setParamObj(map, prefix + "CUDA.", this.CUDA);
         this.setParamObj(map, prefix + "CUDNN.", this.CUDNN);
         this.setParamObj(map, prefix + "CustomDriver.", this.CustomDriver);
+        this.setParamObj(map, prefix + "Driver.", this.Driver);
+        this.setParamSimple(map, prefix + "MIGEnable", this.MIGEnable);
 
     }
 }

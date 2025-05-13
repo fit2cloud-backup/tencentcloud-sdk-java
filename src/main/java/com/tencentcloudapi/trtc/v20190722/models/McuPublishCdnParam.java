@@ -16,14 +16,16 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class McuPublishCdnParam extends AbstractModel{
+public class McuPublishCdnParam extends AbstractModel {
 
     /**
-    * CDN转推URL。
+    * CDN转推URL，只支持rtmp链接。
+注：若更新转推时，URL有任何变化，都会断流重推。
     */
     @SerializedName("PublishCdnUrl")
     @Expose
@@ -37,16 +39,20 @@ public class McuPublishCdnParam extends AbstractModel{
     private Long IsTencentCdn;
 
     /**
-     * Get CDN转推URL。 
-     * @return PublishCdnUrl CDN转推URL。
+     * Get CDN转推URL，只支持rtmp链接。
+注：若更新转推时，URL有任何变化，都会断流重推。 
+     * @return PublishCdnUrl CDN转推URL，只支持rtmp链接。
+注：若更新转推时，URL有任何变化，都会断流重推。
      */
     public String getPublishCdnUrl() {
         return this.PublishCdnUrl;
     }
 
     /**
-     * Set CDN转推URL。
-     * @param PublishCdnUrl CDN转推URL。
+     * Set CDN转推URL，只支持rtmp链接。
+注：若更新转推时，URL有任何变化，都会断流重推。
+     * @param PublishCdnUrl CDN转推URL，只支持rtmp链接。
+注：若更新转推时，URL有任何变化，都会断流重推。
      */
     public void setPublishCdnUrl(String PublishCdnUrl) {
         this.PublishCdnUrl = PublishCdnUrl;

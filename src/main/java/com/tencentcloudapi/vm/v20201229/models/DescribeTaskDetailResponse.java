@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vm.v20201229.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskDetailResponse extends AbstractModel{
+public class DescribeTaskDetailResponse extends AbstractModel {
 
     /**
     * 该字段用于返回创建视频审核任务后返回的任务ID（在Results参数中），用于标识需要查询任务详情的审核任务。
@@ -120,7 +121,7 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private String UpdatedAt;
 
     /**
-    * 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+    * 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageSegments")
@@ -128,7 +129,7 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private ImageSegments [] ImageSegments;
 
     /**
-    * 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+    * 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AudioSegments")
@@ -162,7 +163,39 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private String Label;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 该字段用于返回检测结果明细数据相关的cos url
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SegmentCosUrlList")
+    @Expose
+    private SegmentCosUrlList SegmentCosUrlList;
+
+    /**
+    * 该字段用于返回音频审核的ASR识别结果
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AudioText")
+    @Expose
+    private String AudioText;
+
+    /**
+    * 在秒后重试
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TryInSeconds")
+    @Expose
+    private Long TryInSeconds;
+
+    /**
+    * 该字段用于返回音频文件识别出的对应文本内容。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Asrs")
+    @Expose
+    private RcbAsr [] Asrs;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -413,9 +446,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Get 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @return ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ImageSegments [] getImageSegments() {
@@ -423,9 +456,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Set 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Set 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @param ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageSegments(ImageSegments [] ImageSegments) {
@@ -433,9 +466,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Get 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @return AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AudioSegments [] getAudioSegments() {
@@ -443,9 +476,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Set 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Set 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @param AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudioSegments(AudioSegments [] AudioSegments) {
@@ -521,16 +554,96 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 该字段用于返回检测结果明细数据相关的cos url
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SegmentCosUrlList 该字段用于返回检测结果明细数据相关的cos url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SegmentCosUrlList getSegmentCosUrlList() {
+        return this.SegmentCosUrlList;
+    }
+
+    /**
+     * Set 该字段用于返回检测结果明细数据相关的cos url
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SegmentCosUrlList 该字段用于返回检测结果明细数据相关的cos url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSegmentCosUrlList(SegmentCosUrlList SegmentCosUrlList) {
+        this.SegmentCosUrlList = SegmentCosUrlList;
+    }
+
+    /**
+     * Get 该字段用于返回音频审核的ASR识别结果
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AudioText 该字段用于返回音频审核的ASR识别结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAudioText() {
+        return this.AudioText;
+    }
+
+    /**
+     * Set 该字段用于返回音频审核的ASR识别结果
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AudioText 该字段用于返回音频审核的ASR识别结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAudioText(String AudioText) {
+        this.AudioText = AudioText;
+    }
+
+    /**
+     * Get 在秒后重试
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TryInSeconds 在秒后重试
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTryInSeconds() {
+        return this.TryInSeconds;
+    }
+
+    /**
+     * Set 在秒后重试
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TryInSeconds 在秒后重试
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTryInSeconds(Long TryInSeconds) {
+        this.TryInSeconds = TryInSeconds;
+    }
+
+    /**
+     * Get 该字段用于返回音频文件识别出的对应文本内容。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Asrs 该字段用于返回音频文件识别出的对应文本内容。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RcbAsr [] getAsrs() {
+        return this.Asrs;
+    }
+
+    /**
+     * Set 该字段用于返回音频文件识别出的对应文本内容。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Asrs 该字段用于返回音频文件识别出的对应文本内容。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAsrs(RcbAsr [] Asrs) {
+        this.Asrs = Asrs;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -604,6 +717,21 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         if (source.Label != null) {
             this.Label = new String(source.Label);
         }
+        if (source.SegmentCosUrlList != null) {
+            this.SegmentCosUrlList = new SegmentCosUrlList(source.SegmentCosUrlList);
+        }
+        if (source.AudioText != null) {
+            this.AudioText = new String(source.AudioText);
+        }
+        if (source.TryInSeconds != null) {
+            this.TryInSeconds = new Long(source.TryInSeconds);
+        }
+        if (source.Asrs != null) {
+            this.Asrs = new RcbAsr[source.Asrs.length];
+            for (int i = 0; i < source.Asrs.length; i++) {
+                this.Asrs[i] = new RcbAsr(source.Asrs[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -631,6 +759,10 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ErrorType", this.ErrorType);
         this.setParamSimple(map, prefix + "ErrorDescription", this.ErrorDescription);
         this.setParamSimple(map, prefix + "Label", this.Label);
+        this.setParamObj(map, prefix + "SegmentCosUrlList.", this.SegmentCosUrlList);
+        this.setParamSimple(map, prefix + "AudioText", this.AudioText);
+        this.setParamSimple(map, prefix + "TryInSeconds", this.TryInSeconds);
+        this.setParamArrayObj(map, prefix + "Asrs.", this.Asrs);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

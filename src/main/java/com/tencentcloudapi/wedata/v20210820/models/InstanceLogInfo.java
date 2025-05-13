@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceLogInfo extends AbstractModel{
+public class InstanceLogInfo extends AbstractModel {
 
     /**
     * 任务id
@@ -117,6 +118,30 @@ public class InstanceLogInfo extends AbstractModel{
     @SerializedName("InstanceStatus")
     @Expose
     private String InstanceStatus;
+
+    /**
+    * 实例代码文件，为空表示对应代码文件不存在，可能是因为执行机未升级/对应类型任务无代码。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CodeFileName")
+    @Expose
+    private String CodeFileName;
+
+    /**
+    * 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExtensionInfo")
+    @Expose
+    private AttributeItemDTO [] ExtensionInfo;
+
+    /**
+    * 统一执行平台，下发执行Id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExecutionJobId")
+    @Expose
+    private String ExecutionJobId;
 
     /**
      * Get 任务id
@@ -358,6 +383,66 @@ public class InstanceLogInfo extends AbstractModel{
         this.InstanceStatus = InstanceStatus;
     }
 
+    /**
+     * Get 实例代码文件，为空表示对应代码文件不存在，可能是因为执行机未升级/对应类型任务无代码。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CodeFileName 实例代码文件，为空表示对应代码文件不存在，可能是因为执行机未升级/对应类型任务无代码。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCodeFileName() {
+        return this.CodeFileName;
+    }
+
+    /**
+     * Set 实例代码文件，为空表示对应代码文件不存在，可能是因为执行机未升级/对应类型任务无代码。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CodeFileName 实例代码文件，为空表示对应代码文件不存在，可能是因为执行机未升级/对应类型任务无代码。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCodeFileName(String CodeFileName) {
+        this.CodeFileName = CodeFileName;
+    }
+
+    /**
+     * Get 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExtensionInfo 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AttributeItemDTO [] getExtensionInfo() {
+        return this.ExtensionInfo;
+    }
+
+    /**
+     * Set 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExtensionInfo 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExtensionInfo(AttributeItemDTO [] ExtensionInfo) {
+        this.ExtensionInfo = ExtensionInfo;
+    }
+
+    /**
+     * Get 统一执行平台，下发执行Id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecutionJobId 统一执行平台，下发执行Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExecutionJobId() {
+        return this.ExecutionJobId;
+    }
+
+    /**
+     * Set 统一执行平台，下发执行Id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecutionJobId 统一执行平台，下发执行Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExecutionJobId(String ExecutionJobId) {
+        this.ExecutionJobId = ExecutionJobId;
+    }
+
     public InstanceLogInfo() {
     }
 
@@ -402,6 +487,18 @@ public class InstanceLogInfo extends AbstractModel{
         if (source.InstanceStatus != null) {
             this.InstanceStatus = new String(source.InstanceStatus);
         }
+        if (source.CodeFileName != null) {
+            this.CodeFileName = new String(source.CodeFileName);
+        }
+        if (source.ExtensionInfo != null) {
+            this.ExtensionInfo = new AttributeItemDTO[source.ExtensionInfo.length];
+            for (int i = 0; i < source.ExtensionInfo.length; i++) {
+                this.ExtensionInfo[i] = new AttributeItemDTO(source.ExtensionInfo[i]);
+            }
+        }
+        if (source.ExecutionJobId != null) {
+            this.ExecutionJobId = new String(source.ExecutionJobId);
+        }
     }
 
 
@@ -421,6 +518,9 @@ public class InstanceLogInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskName", this.TaskName);
         this.setParamSimple(map, prefix + "CostTime", this.CostTime);
         this.setParamSimple(map, prefix + "InstanceStatus", this.InstanceStatus);
+        this.setParamSimple(map, prefix + "CodeFileName", this.CodeFileName);
+        this.setParamArrayObj(map, prefix + "ExtensionInfo.", this.ExtensionInfo);
+        this.setParamSimple(map, prefix + "ExecutionJobId", this.ExecutionJobId);
 
     }
 }

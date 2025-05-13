@@ -16,33 +16,38 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IntentionQuestionResult extends AbstractModel{
+public class IntentionQuestionResult extends AbstractModel {
 
     /**
-    * 意愿核身错误码：
-0: "成功"       
--1: "参数错误"    
--2: "系统异常"    
--101: "请保持人脸在框内"    
--102: "检测到多张人脸"   
--103: "人脸检测失败"   
--104: "人脸检测不完整"   
--105: "请勿遮挡眼睛"    
--106: "请勿遮挡嘴巴"     
--107: "请勿遮挡鼻子"     
--201: "人脸比对相似度低"    
--202: "人脸比对失败"    
--301: "意愿核验不通过"   
--800: "前端不兼容错误"    
--801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
--803: "用户主动关闭链接/异常断开链接"   
--998: "系统数据异常"   
--999: "系统未知错误，请联系人工核实"   
+    * 意愿核身错误码。
+- 取值范围：
+    0: "成功"       
+    -1: "参数错误"    
+    -2: "系统异常"    
+    -101: "请保持人脸在框内"    
+    -102: "检测到多张人脸"   
+    -103: "人脸检测失败"   
+    -104: "人脸检测不完整"   
+    -105: "请勿遮挡眼睛"    
+    -106: "请勿遮挡嘴巴"     
+    -107: "请勿遮挡鼻子"     
+    -201: "人脸比对相似度低"    
+    -202: "人脸比对失败"    
+    -301: "意愿核验不通过"       
+    -302: "用户回答阶段未检测到张嘴动作"  
+    -800: "前端不兼容错误"    
+    -801: "用户未授权摄像头和麦克风权限"   
+    -802: "核验流程异常中断，请勿切屏或进行其他操作"   
+    -803: "用户主动关闭链接/异常断开链接"   
+    -804: "用户当前网络不稳定，请重试"
+    -998: "系统数据异常"   
+    -999: "系统未知错误，请联系人工核实"   
+- 若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FinalResultDetailCode")
@@ -50,7 +55,7 @@ public class IntentionQuestionResult extends AbstractModel{
     private Long FinalResultDetailCode;
 
     /**
-    * 意愿核身错误信息
+    * 意愿核身错误信息。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FinalResultMessage")
@@ -58,7 +63,8 @@ public class IntentionQuestionResult extends AbstractModel{
     private String FinalResultMessage;
 
     /**
-    * 视频base64（其中包含全程问题和回答音频，mp4格式）
+    * 视频base64。
+- 其中包含全程问题和回答音频，mp4格式。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Video")
@@ -66,7 +72,7 @@ public class IntentionQuestionResult extends AbstractModel{
     private String Video;
 
     /**
-    * 屏幕截图base64列表
+    * 屏幕截图base64列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScreenShot")
@@ -74,8 +80,8 @@ public class IntentionQuestionResult extends AbstractModel{
     private String [] ScreenShot;
 
     /**
-    * 和答案匹配结果列表
-0：成功，-1：不匹配
+    * 和答案匹配结果列表。
+- 取值范围（0：成功；-1：不匹配）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResultCode")
@@ -83,7 +89,7 @@ public class IntentionQuestionResult extends AbstractModel{
     private String [] ResultCode;
 
     /**
-    * 回答问题语音识别结果列表
+    * 回答问题语音识别结果列表。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsrResult")
@@ -91,7 +97,7 @@ public class IntentionQuestionResult extends AbstractModel{
     private String [] AsrResult;
 
     /**
-    * 答案录音音频
+    * 答案录音音频。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Audios")
@@ -99,8 +105,12 @@ public class IntentionQuestionResult extends AbstractModel{
     private String [] Audios;
 
     /**
-    * 意愿核身最终结果：
-0：认证通过，-1：认证未通过，-2：浏览器内核不兼容，无法进行意愿校验。建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
+    * 意愿核身最终结果。
+- 取值范围：
+0：认证通过。
+-1：认证未通过。
+-2：浏览器内核不兼容，无法进行意愿校验。
+- 建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FinalResultCode")
@@ -108,47 +118,55 @@ public class IntentionQuestionResult extends AbstractModel{
     private String FinalResultCode;
 
     /**
-     * Get 意愿核身错误码：
-0: "成功"       
--1: "参数错误"    
--2: "系统异常"    
--101: "请保持人脸在框内"    
--102: "检测到多张人脸"   
--103: "人脸检测失败"   
--104: "人脸检测不完整"   
--105: "请勿遮挡眼睛"    
--106: "请勿遮挡嘴巴"     
--107: "请勿遮挡鼻子"     
--201: "人脸比对相似度低"    
--202: "人脸比对失败"    
--301: "意愿核验不通过"   
--800: "前端不兼容错误"    
--801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
--803: "用户主动关闭链接/异常断开链接"   
--998: "系统数据异常"   
--999: "系统未知错误，请联系人工核实"   
+     * Get 意愿核身错误码。
+- 取值范围：
+    0: "成功"       
+    -1: "参数错误"    
+    -2: "系统异常"    
+    -101: "请保持人脸在框内"    
+    -102: "检测到多张人脸"   
+    -103: "人脸检测失败"   
+    -104: "人脸检测不完整"   
+    -105: "请勿遮挡眼睛"    
+    -106: "请勿遮挡嘴巴"     
+    -107: "请勿遮挡鼻子"     
+    -201: "人脸比对相似度低"    
+    -202: "人脸比对失败"    
+    -301: "意愿核验不通过"       
+    -302: "用户回答阶段未检测到张嘴动作"  
+    -800: "前端不兼容错误"    
+    -801: "用户未授权摄像头和麦克风权限"   
+    -802: "核验流程异常中断，请勿切屏或进行其他操作"   
+    -803: "用户主动关闭链接/异常断开链接"   
+    -804: "用户当前网络不稳定，请重试"
+    -998: "系统数据异常"   
+    -999: "系统未知错误，请联系人工核实"   
+- 若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FinalResultDetailCode 意愿核身错误码：
-0: "成功"       
--1: "参数错误"    
--2: "系统异常"    
--101: "请保持人脸在框内"    
--102: "检测到多张人脸"   
--103: "人脸检测失败"   
--104: "人脸检测不完整"   
--105: "请勿遮挡眼睛"    
--106: "请勿遮挡嘴巴"     
--107: "请勿遮挡鼻子"     
--201: "人脸比对相似度低"    
--202: "人脸比对失败"    
--301: "意愿核验不通过"   
--800: "前端不兼容错误"    
--801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
--803: "用户主动关闭链接/异常断开链接"   
--998: "系统数据异常"   
--999: "系统未知错误，请联系人工核实"   
+     * @return FinalResultDetailCode 意愿核身错误码。
+- 取值范围：
+    0: "成功"       
+    -1: "参数错误"    
+    -2: "系统异常"    
+    -101: "请保持人脸在框内"    
+    -102: "检测到多张人脸"   
+    -103: "人脸检测失败"   
+    -104: "人脸检测不完整"   
+    -105: "请勿遮挡眼睛"    
+    -106: "请勿遮挡嘴巴"     
+    -107: "请勿遮挡鼻子"     
+    -201: "人脸比对相似度低"    
+    -202: "人脸比对失败"    
+    -301: "意愿核验不通过"       
+    -302: "用户回答阶段未检测到张嘴动作"  
+    -800: "前端不兼容错误"    
+    -801: "用户未授权摄像头和麦克风权限"   
+    -802: "核验流程异常中断，请勿切屏或进行其他操作"   
+    -803: "用户主动关闭链接/异常断开链接"   
+    -804: "用户当前网络不稳定，请重试"
+    -998: "系统数据异常"   
+    -999: "系统未知错误，请联系人工核实"   
+- 若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFinalResultDetailCode() {
@@ -156,47 +174,55 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 意愿核身错误码：
-0: "成功"       
--1: "参数错误"    
--2: "系统异常"    
--101: "请保持人脸在框内"    
--102: "检测到多张人脸"   
--103: "人脸检测失败"   
--104: "人脸检测不完整"   
--105: "请勿遮挡眼睛"    
--106: "请勿遮挡嘴巴"     
--107: "请勿遮挡鼻子"     
--201: "人脸比对相似度低"    
--202: "人脸比对失败"    
--301: "意愿核验不通过"   
--800: "前端不兼容错误"    
--801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
--803: "用户主动关闭链接/异常断开链接"   
--998: "系统数据异常"   
--999: "系统未知错误，请联系人工核实"   
+     * Set 意愿核身错误码。
+- 取值范围：
+    0: "成功"       
+    -1: "参数错误"    
+    -2: "系统异常"    
+    -101: "请保持人脸在框内"    
+    -102: "检测到多张人脸"   
+    -103: "人脸检测失败"   
+    -104: "人脸检测不完整"   
+    -105: "请勿遮挡眼睛"    
+    -106: "请勿遮挡嘴巴"     
+    -107: "请勿遮挡鼻子"     
+    -201: "人脸比对相似度低"    
+    -202: "人脸比对失败"    
+    -301: "意愿核验不通过"       
+    -302: "用户回答阶段未检测到张嘴动作"  
+    -800: "前端不兼容错误"    
+    -801: "用户未授权摄像头和麦克风权限"   
+    -802: "核验流程异常中断，请勿切屏或进行其他操作"   
+    -803: "用户主动关闭链接/异常断开链接"   
+    -804: "用户当前网络不稳定，请重试"
+    -998: "系统数据异常"   
+    -999: "系统未知错误，请联系人工核实"   
+- 若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FinalResultDetailCode 意愿核身错误码：
-0: "成功"       
--1: "参数错误"    
--2: "系统异常"    
--101: "请保持人脸在框内"    
--102: "检测到多张人脸"   
--103: "人脸检测失败"   
--104: "人脸检测不完整"   
--105: "请勿遮挡眼睛"    
--106: "请勿遮挡嘴巴"     
--107: "请勿遮挡鼻子"     
--201: "人脸比对相似度低"    
--202: "人脸比对失败"    
--301: "意愿核验不通过"   
--800: "前端不兼容错误"    
--801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
--803: "用户主动关闭链接/异常断开链接"   
--998: "系统数据异常"   
--999: "系统未知错误，请联系人工核实"   
+     * @param FinalResultDetailCode 意愿核身错误码。
+- 取值范围：
+    0: "成功"       
+    -1: "参数错误"    
+    -2: "系统异常"    
+    -101: "请保持人脸在框内"    
+    -102: "检测到多张人脸"   
+    -103: "人脸检测失败"   
+    -104: "人脸检测不完整"   
+    -105: "请勿遮挡眼睛"    
+    -106: "请勿遮挡嘴巴"     
+    -107: "请勿遮挡鼻子"     
+    -201: "人脸比对相似度低"    
+    -202: "人脸比对失败"    
+    -301: "意愿核验不通过"       
+    -302: "用户回答阶段未检测到张嘴动作"  
+    -800: "前端不兼容错误"    
+    -801: "用户未授权摄像头和麦克风权限"   
+    -802: "核验流程异常中断，请勿切屏或进行其他操作"   
+    -803: "用户主动关闭链接/异常断开链接"   
+    -804: "用户当前网络不稳定，请重试"
+    -998: "系统数据异常"   
+    -999: "系统未知错误，请联系人工核实"   
+- 若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFinalResultDetailCode(Long FinalResultDetailCode) {
@@ -204,9 +230,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Get 意愿核身错误信息
+     * Get 意愿核身错误信息。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FinalResultMessage 意愿核身错误信息
+     * @return FinalResultMessage 意愿核身错误信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFinalResultMessage() {
@@ -214,9 +240,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 意愿核身错误信息
+     * Set 意愿核身错误信息。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FinalResultMessage 意愿核身错误信息
+     * @param FinalResultMessage 意愿核身错误信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFinalResultMessage(String FinalResultMessage) {
@@ -224,9 +250,11 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Get 视频base64（其中包含全程问题和回答音频，mp4格式）
+     * Get 视频base64。
+- 其中包含全程问题和回答音频，mp4格式。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Video 视频base64（其中包含全程问题和回答音频，mp4格式）
+     * @return Video 视频base64。
+- 其中包含全程问题和回答音频，mp4格式。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVideo() {
@@ -234,9 +262,11 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 视频base64（其中包含全程问题和回答音频，mp4格式）
+     * Set 视频base64。
+- 其中包含全程问题和回答音频，mp4格式。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Video 视频base64（其中包含全程问题和回答音频，mp4格式）
+     * @param Video 视频base64。
+- 其中包含全程问题和回答音频，mp4格式。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVideo(String Video) {
@@ -244,9 +274,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Get 屏幕截图base64列表
+     * Get 屏幕截图base64列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ScreenShot 屏幕截图base64列表
+     * @return ScreenShot 屏幕截图base64列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getScreenShot() {
@@ -254,9 +284,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 屏幕截图base64列表
+     * Set 屏幕截图base64列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ScreenShot 屏幕截图base64列表
+     * @param ScreenShot 屏幕截图base64列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScreenShot(String [] ScreenShot) {
@@ -264,11 +294,11 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Get 和答案匹配结果列表
-0：成功，-1：不匹配
+     * Get 和答案匹配结果列表。
+- 取值范围（0：成功；-1：不匹配）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ResultCode 和答案匹配结果列表
-0：成功，-1：不匹配
+     * @return ResultCode 和答案匹配结果列表。
+- 取值范围（0：成功；-1：不匹配）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getResultCode() {
@@ -276,11 +306,11 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 和答案匹配结果列表
-0：成功，-1：不匹配
+     * Set 和答案匹配结果列表。
+- 取值范围（0：成功；-1：不匹配）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ResultCode 和答案匹配结果列表
-0：成功，-1：不匹配
+     * @param ResultCode 和答案匹配结果列表。
+- 取值范围（0：成功；-1：不匹配）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResultCode(String [] ResultCode) {
@@ -288,9 +318,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Get 回答问题语音识别结果列表
+     * Get 回答问题语音识别结果列表。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AsrResult 回答问题语音识别结果列表
+     * @return AsrResult 回答问题语音识别结果列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAsrResult() {
@@ -298,9 +328,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 回答问题语音识别结果列表
+     * Set 回答问题语音识别结果列表。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AsrResult 回答问题语音识别结果列表
+     * @param AsrResult 回答问题语音识别结果列表。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsrResult(String [] AsrResult) {
@@ -308,9 +338,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Get 答案录音音频
+     * Get 答案录音音频。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Audios 答案录音音频
+     * @return Audios 答案录音音频。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAudios() {
@@ -318,9 +348,9 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 答案录音音频
+     * Set 答案录音音频。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Audios 答案录音音频
+     * @param Audios 答案录音音频。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudios(String [] Audios) {
@@ -328,11 +358,19 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Get 意愿核身最终结果：
-0：认证通过，-1：认证未通过，-2：浏览器内核不兼容，无法进行意愿校验。建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
+     * Get 意愿核身最终结果。
+- 取值范围：
+0：认证通过。
+-1：认证未通过。
+-2：浏览器内核不兼容，无法进行意愿校验。
+- 建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FinalResultCode 意愿核身最终结果：
-0：认证通过，-1：认证未通过，-2：浏览器内核不兼容，无法进行意愿校验。建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
+     * @return FinalResultCode 意愿核身最终结果。
+- 取值范围：
+0：认证通过。
+-1：认证未通过。
+-2：浏览器内核不兼容，无法进行意愿校验。
+- 建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFinalResultCode() {
@@ -340,11 +378,19 @@ public class IntentionQuestionResult extends AbstractModel{
     }
 
     /**
-     * Set 意愿核身最终结果：
-0：认证通过，-1：认证未通过，-2：浏览器内核不兼容，无法进行意愿校验。建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
+     * Set 意愿核身最终结果。
+- 取值范围：
+0：认证通过。
+-1：认证未通过。
+-2：浏览器内核不兼容，无法进行意愿校验。
+- 建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FinalResultCode 意愿核身最终结果：
-0：认证通过，-1：认证未通过，-2：浏览器内核不兼容，无法进行意愿校验。建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
+     * @param FinalResultCode 意愿核身最终结果。
+- 取值范围：
+0：认证通过。
+-1：认证未通过。
+-2：浏览器内核不兼容，无法进行意愿校验。
+- 建议使用“FinalResultDetailCode”参数获取详细的错误码信息。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFinalResultCode(String FinalResultCode) {

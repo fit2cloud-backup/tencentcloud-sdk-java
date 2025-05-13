@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceInfo extends AbstractModel{
+public class ServiceInfo extends AbstractModel {
 
     /**
     * 服务名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,17 +32,14 @@ public class ServiceInfo extends AbstractModel{
 
     /**
     * 服务的版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
     private String Version;
 
     /**
-     * Get 服务名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务名称 
      * @return Name 服务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -50,19 +47,15 @@ public class ServiceInfo extends AbstractModel{
 
     /**
      * Set 服务名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 服务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 服务的版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务的版本 
      * @return Version 服务的版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersion() {
         return this.Version;
@@ -70,9 +63,7 @@ public class ServiceInfo extends AbstractModel{
 
     /**
      * Set 服务的版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 服务的版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(String Version) {
         this.Version = Version;

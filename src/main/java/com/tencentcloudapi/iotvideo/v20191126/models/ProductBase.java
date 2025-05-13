@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotvideo.v20191126.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProductBase extends AbstractModel{
+public class ProductBase extends AbstractModel {
 
     /**
     * 产品ID
@@ -99,7 +100,6 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -289,7 +289,6 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ProductRegion 产品地域
@@ -297,7 +296,6 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -311,7 +309,6 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
 注意：此字段可能返回 null，表示取不到有效值。
      * @param ProductRegion 产品地域
@@ -319,7 +316,6 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
 注意：此字段可能返回 null，表示取不到有效值。
      */

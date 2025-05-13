@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeContainerEventsRequest extends AbstractModel{
+public class DescribeContainerEventsRequest extends AbstractModel {
 
     /**
     * event 的资源类型, group 或者 instance
@@ -56,6 +57,34 @@ public class DescribeContainerEventsRequest extends AbstractModel{
     @SerializedName("GroupId")
     @Expose
     private String GroupId;
+
+    /**
+    * event的资源kind
+    */
+    @SerializedName("Kind")
+    @Expose
+    private String Kind;
+
+    /**
+    * event 的type
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 资源名称
+    */
+    @SerializedName("ResourceName")
+    @Expose
+    private String ResourceName;
+
+    /**
+    * 关键词查询
+    */
+    @SerializedName("SearchWord")
+    @Expose
+    private String SearchWord;
 
     /**
      * Get event 的资源类型, group 或者 instance 
@@ -137,6 +166,70 @@ public class DescribeContainerEventsRequest extends AbstractModel{
         this.GroupId = GroupId;
     }
 
+    /**
+     * Get event的资源kind 
+     * @return Kind event的资源kind
+     */
+    public String getKind() {
+        return this.Kind;
+    }
+
+    /**
+     * Set event的资源kind
+     * @param Kind event的资源kind
+     */
+    public void setKind(String Kind) {
+        this.Kind = Kind;
+    }
+
+    /**
+     * Get event 的type 
+     * @return Type event 的type
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set event 的type
+     * @param Type event 的type
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 资源名称 
+     * @return ResourceName 资源名称
+     */
+    public String getResourceName() {
+        return this.ResourceName;
+    }
+
+    /**
+     * Set 资源名称
+     * @param ResourceName 资源名称
+     */
+    public void setResourceName(String ResourceName) {
+        this.ResourceName = ResourceName;
+    }
+
+    /**
+     * Get 关键词查询 
+     * @return SearchWord 关键词查询
+     */
+    public String getSearchWord() {
+        return this.SearchWord;
+    }
+
+    /**
+     * Set 关键词查询
+     * @param SearchWord 关键词查询
+     */
+    public void setSearchWord(String SearchWord) {
+        this.SearchWord = SearchWord;
+    }
+
     public DescribeContainerEventsRequest() {
     }
 
@@ -160,6 +253,18 @@ public class DescribeContainerEventsRequest extends AbstractModel{
         if (source.GroupId != null) {
             this.GroupId = new String(source.GroupId);
         }
+        if (source.Kind != null) {
+            this.Kind = new String(source.Kind);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.ResourceName != null) {
+            this.ResourceName = new String(source.ResourceName);
+        }
+        if (source.SearchWord != null) {
+            this.SearchWord = new String(source.SearchWord);
+        }
     }
 
 
@@ -172,6 +277,10 @@ public class DescribeContainerEventsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
+        this.setParamSimple(map, prefix + "Kind", this.Kind);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "ResourceName", this.ResourceName);
+        this.setParamSimple(map, prefix + "SearchWord", this.SearchWord);
 
     }
 }

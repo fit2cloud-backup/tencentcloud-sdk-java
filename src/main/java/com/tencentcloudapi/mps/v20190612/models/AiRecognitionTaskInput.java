@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionTaskInput extends AbstractModel{
+public class AiRecognitionTaskInput extends AbstractModel {
 
     /**
     * 视频智能识别模板 ID 。
@@ -28,6 +29,13 @@ public class AiRecognitionTaskInput extends AbstractModel{
     @SerializedName("Definition")
     @Expose
     private Long Definition;
+
+    /**
+    * 用户扩展字段，一般场景不用填。
+    */
+    @SerializedName("UserExtPara")
+    @Expose
+    private String UserExtPara;
 
     /**
      * Get 视频智能识别模板 ID 。 
@@ -45,6 +53,22 @@ public class AiRecognitionTaskInput extends AbstractModel{
         this.Definition = Definition;
     }
 
+    /**
+     * Get 用户扩展字段，一般场景不用填。 
+     * @return UserExtPara 用户扩展字段，一般场景不用填。
+     */
+    public String getUserExtPara() {
+        return this.UserExtPara;
+    }
+
+    /**
+     * Set 用户扩展字段，一般场景不用填。
+     * @param UserExtPara 用户扩展字段，一般场景不用填。
+     */
+    public void setUserExtPara(String UserExtPara) {
+        this.UserExtPara = UserExtPara;
+    }
+
     public AiRecognitionTaskInput() {
     }
 
@@ -56,6 +80,9 @@ public class AiRecognitionTaskInput extends AbstractModel{
         if (source.Definition != null) {
             this.Definition = new Long(source.Definition);
         }
+        if (source.UserExtPara != null) {
+            this.UserExtPara = new String(source.UserExtPara);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class AiRecognitionTaskInput extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Definition", this.Definition);
+        this.setParamSimple(map, prefix + "UserExtPara", this.UserExtPara);
 
     }
 }

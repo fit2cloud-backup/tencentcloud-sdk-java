@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CcnRegionBandwidthLimit extends AbstractModel{
+public class CcnRegionBandwidthLimit extends AbstractModel {
 
     /**
     * 地域，例如：ap-guangzhou
@@ -45,7 +46,6 @@ public class CcnRegionBandwidthLimit extends AbstractModel{
 
     /**
     * 目的地域，例如：ap-shanghai
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DstRegion")
     @Expose
@@ -107,10 +107,8 @@ public class CcnRegionBandwidthLimit extends AbstractModel{
     }
 
     /**
-     * Get 目的地域，例如：ap-shanghai
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目的地域，例如：ap-shanghai 
      * @return DstRegion 目的地域，例如：ap-shanghai
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDstRegion() {
         return this.DstRegion;
@@ -118,9 +116,7 @@ public class CcnRegionBandwidthLimit extends AbstractModel{
 
     /**
      * Set 目的地域，例如：ap-shanghai
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DstRegion 目的地域，例如：ap-shanghai
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDstRegion(String DstRegion) {
         this.DstRegion = DstRegion;

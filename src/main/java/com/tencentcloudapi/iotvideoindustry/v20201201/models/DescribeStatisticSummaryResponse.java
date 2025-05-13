@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotvideoindustry.v20201201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeStatisticSummaryResponse extends AbstractModel{
+public class DescribeStatisticSummaryResponse extends AbstractModel {
 
     /**
     * 录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RecordingDevice")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
     * 非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NonRecordingDevice")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
     * 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WatchFlux")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
     * 累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StorageUsage")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
     * X-P2P分享流量。单位 Byte
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("P2PFluxTotal")
     @Expose
@@ -64,7 +60,6 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
     * X-P2P峰值带宽。 单位bps
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("P2PPeakValue")
     @Expose
@@ -72,24 +67,21 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
     * RTMP推流路数 ( 直播推流)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LivePushTotal")
     @Expose
     private Long LivePushTotal;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 录制设备总数 
      * @return RecordingDevice 录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRecordingDevice() {
         return this.RecordingDevice;
@@ -97,19 +89,15 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
      * Set 录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RecordingDevice 录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRecordingDevice(Long RecordingDevice) {
         this.RecordingDevice = RecordingDevice;
     }
 
     /**
-     * Get 非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 非录制设备总数 
      * @return NonRecordingDevice 非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNonRecordingDevice() {
         return this.NonRecordingDevice;
@@ -117,19 +105,15 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
      * Set 非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NonRecordingDevice 非录制设备总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNonRecordingDevice(Long NonRecordingDevice) {
         this.NonRecordingDevice = NonRecordingDevice;
     }
 
     /**
-     * Get 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB 
      * @return WatchFlux 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getWatchFlux() {
         return this.WatchFlux;
@@ -137,19 +121,15 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
      * Set 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WatchFlux 观看流量总数。为直播观看流量与点播观看流量之和。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWatchFlux(Float WatchFlux) {
         this.WatchFlux = WatchFlux;
     }
 
     /**
-     * Get 累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 累计有效存储容量总数。单位：GB 
      * @return StorageUsage 累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getStorageUsage() {
         return this.StorageUsage;
@@ -157,19 +137,15 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
      * Set 累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StorageUsage 累计有效存储容量总数。单位：GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStorageUsage(Float StorageUsage) {
         this.StorageUsage = StorageUsage;
     }
 
     /**
-     * Get X-P2P分享流量。单位 Byte
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get X-P2P分享流量。单位 Byte 
      * @return P2PFluxTotal X-P2P分享流量。单位 Byte
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getP2PFluxTotal() {
         return this.P2PFluxTotal;
@@ -177,19 +153,15 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
      * Set X-P2P分享流量。单位 Byte
-注意：此字段可能返回 null，表示取不到有效值。
      * @param P2PFluxTotal X-P2P分享流量。单位 Byte
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setP2PFluxTotal(Float P2PFluxTotal) {
         this.P2PFluxTotal = P2PFluxTotal;
     }
 
     /**
-     * Get X-P2P峰值带宽。 单位bps
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get X-P2P峰值带宽。 单位bps 
      * @return P2PPeakValue X-P2P峰值带宽。 单位bps
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getP2PPeakValue() {
         return this.P2PPeakValue;
@@ -197,19 +169,15 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
      * Set X-P2P峰值带宽。 单位bps
-注意：此字段可能返回 null，表示取不到有效值。
      * @param P2PPeakValue X-P2P峰值带宽。 单位bps
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setP2PPeakValue(Float P2PPeakValue) {
         this.P2PPeakValue = P2PPeakValue;
     }
 
     /**
-     * Get RTMP推流路数 ( 直播推流)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get RTMP推流路数 ( 直播推流) 
      * @return LivePushTotal RTMP推流路数 ( 直播推流)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLivePushTotal() {
         return this.LivePushTotal;
@@ -217,25 +185,23 @@ public class DescribeStatisticSummaryResponse extends AbstractModel{
 
     /**
      * Set RTMP推流路数 ( 直播推流)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LivePushTotal RTMP推流路数 ( 直播推流)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLivePushTotal(Long LivePushTotal) {
         this.LivePushTotal = LivePushTotal;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

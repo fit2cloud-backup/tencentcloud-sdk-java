@@ -16,18 +16,19 @@
 package com.tencentcloudapi.apm.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeMetricRecordsRequest extends AbstractModel{
+public class DescribeMetricRecordsRequest extends AbstractModel {
 
     /**
-    * 过滤条件
+    * 业务系统 ID
     */
-    @SerializedName("Filters")
+    @SerializedName("InstanceId")
     @Expose
-    private Filter [] Filters;
+    private String InstanceId;
 
     /**
     * 指标列表
@@ -37,6 +38,20 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
     private QueryMetricItem [] Metrics;
 
     /**
+    * 开始时间（单位为秒）
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private Long StartTime;
+
+    /**
+    * 结束时间（单位为秒）
+    */
+    @SerializedName("EndTime")
+    @Expose
+    private Long EndTime;
+
+    /**
     * 聚合维度
     */
     @SerializedName("GroupBy")
@@ -44,32 +59,56 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
     private String [] GroupBy;
 
     /**
+    * 过滤条件
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
+
+    /**
+    * Or 过滤条件
+    */
+    @SerializedName("OrFilters")
+    @Expose
+    private Filter [] OrFilters;
+
+    /**
     * 排序
+现支持的 Key 有：
+
+- startTime(开始时间)
+- endTime(结束时间)
+- duration(响应时间)
+
+现支持的 Value 有：
+
+- desc(降序排序)
+- asc(升序排序)
     */
     @SerializedName("OrderBy")
     @Expose
     private OrderBy OrderBy;
 
     /**
-    * 实例ID
+    * 业务名称，控制台用户请填写taw。
     */
-    @SerializedName("InstanceId")
+    @SerializedName("BusinessName")
     @Expose
-    private String InstanceId;
+    private String BusinessName;
 
     /**
-    * 每页大小
+    * 特殊处理查询结果
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 每页大小，默认为1000，合法取值范围为0~1000
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
-
-    /**
-    * 开始时间
-    */
-    @SerializedName("StartTime")
-    @Expose
-    private Long StartTime;
 
     /**
     * 分页起始点
@@ -77,20 +116,6 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
     @SerializedName("Offset")
     @Expose
     private Long Offset;
-
-    /**
-    * 结束时间
-    */
-    @SerializedName("EndTime")
-    @Expose
-    private Long EndTime;
-
-    /**
-    * 业务名称（默认值：taw）
-    */
-    @SerializedName("BusinessName")
-    @Expose
-    private String BusinessName;
 
     /**
     * 页码
@@ -107,26 +132,19 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
     private Long PageSize;
 
     /**
-    * Or过滤条件
-    */
-    @SerializedName("OrFilters")
-    @Expose
-    private Filter [] OrFilters;
-
-    /**
-     * Get 过滤条件 
-     * @return Filters 过滤条件
+     * Get 业务系统 ID 
+     * @return InstanceId 业务系统 ID
      */
-    public Filter [] getFilters() {
-        return this.Filters;
+    public String getInstanceId() {
+        return this.InstanceId;
     }
 
     /**
-     * Set 过滤条件
-     * @param Filters 过滤条件
+     * Set 业务系统 ID
+     * @param InstanceId 业务系统 ID
      */
-    public void setFilters(Filter [] Filters) {
-        this.Filters = Filters;
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
     }
 
     /**
@@ -146,6 +164,38 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
     }
 
     /**
+     * Get 开始时间（单位为秒） 
+     * @return StartTime 开始时间（单位为秒）
+     */
+    public Long getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 开始时间（单位为秒）
+     * @param StartTime 开始时间（单位为秒）
+     */
+    public void setStartTime(Long StartTime) {
+        this.StartTime = StartTime;
+    }
+
+    /**
+     * Get 结束时间（单位为秒） 
+     * @return EndTime 结束时间（单位为秒）
+     */
+    public Long getEndTime() {
+        return this.EndTime;
+    }
+
+    /**
+     * Set 结束时间（单位为秒）
+     * @param EndTime 结束时间（单位为秒）
+     */
+    public void setEndTime(Long EndTime) {
+        this.EndTime = EndTime;
+    }
+
+    /**
      * Get 聚合维度 
      * @return GroupBy 聚合维度
      */
@@ -162,8 +212,60 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
     }
 
     /**
-     * Get 排序 
+     * Get 过滤条件 
+     * @return Filters 过滤条件
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤条件
+     * @param Filters 过滤条件
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
+     * Get Or 过滤条件 
+     * @return OrFilters Or 过滤条件
+     */
+    public Filter [] getOrFilters() {
+        return this.OrFilters;
+    }
+
+    /**
+     * Set Or 过滤条件
+     * @param OrFilters Or 过滤条件
+     */
+    public void setOrFilters(Filter [] OrFilters) {
+        this.OrFilters = OrFilters;
+    }
+
+    /**
+     * Get 排序
+现支持的 Key 有：
+
+- startTime(开始时间)
+- endTime(结束时间)
+- duration(响应时间)
+
+现支持的 Value 有：
+
+- desc(降序排序)
+- asc(升序排序) 
      * @return OrderBy 排序
+现支持的 Key 有：
+
+- startTime(开始时间)
+- endTime(结束时间)
+- duration(响应时间)
+
+现支持的 Value 有：
+
+- desc(降序排序)
+- asc(升序排序)
      */
     public OrderBy getOrderBy() {
         return this.OrderBy;
@@ -171,58 +273,78 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
 
     /**
      * Set 排序
+现支持的 Key 有：
+
+- startTime(开始时间)
+- endTime(结束时间)
+- duration(响应时间)
+
+现支持的 Value 有：
+
+- desc(降序排序)
+- asc(升序排序)
      * @param OrderBy 排序
+现支持的 Key 有：
+
+- startTime(开始时间)
+- endTime(结束时间)
+- duration(响应时间)
+
+现支持的 Value 有：
+
+- desc(降序排序)
+- asc(升序排序)
      */
     public void setOrderBy(OrderBy OrderBy) {
         this.OrderBy = OrderBy;
     }
 
     /**
-     * Get 实例ID 
-     * @return InstanceId 实例ID
+     * Get 业务名称，控制台用户请填写taw。 
+     * @return BusinessName 业务名称，控制台用户请填写taw。
      */
-    public String getInstanceId() {
-        return this.InstanceId;
+    public String getBusinessName() {
+        return this.BusinessName;
     }
 
     /**
-     * Set 实例ID
-     * @param InstanceId 实例ID
+     * Set 业务名称，控制台用户请填写taw。
+     * @param BusinessName 业务名称，控制台用户请填写taw。
      */
-    public void setInstanceId(String InstanceId) {
-        this.InstanceId = InstanceId;
+    public void setBusinessName(String BusinessName) {
+        this.BusinessName = BusinessName;
     }
 
     /**
-     * Get 每页大小 
-     * @return Limit 每页大小
+     * Get 特殊处理查询结果 
+     * @return Type 特殊处理查询结果
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 特殊处理查询结果
+     * @param Type 特殊处理查询结果
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 每页大小，默认为1000，合法取值范围为0~1000 
+     * @return Limit 每页大小，默认为1000，合法取值范围为0~1000
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页大小
-     * @param Limit 每页大小
+     * Set 每页大小，默认为1000，合法取值范围为0~1000
+     * @param Limit 每页大小，默认为1000，合法取值范围为0~1000
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
-    }
-
-    /**
-     * Get 开始时间 
-     * @return StartTime 开始时间
-     */
-    public Long getStartTime() {
-        return this.StartTime;
-    }
-
-    /**
-     * Set 开始时间
-     * @param StartTime 开始时间
-     */
-    public void setStartTime(Long StartTime) {
-        this.StartTime = StartTime;
     }
 
     /**
@@ -239,38 +361,6 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
-    }
-
-    /**
-     * Get 结束时间 
-     * @return EndTime 结束时间
-     */
-    public Long getEndTime() {
-        return this.EndTime;
-    }
-
-    /**
-     * Set 结束时间
-     * @param EndTime 结束时间
-     */
-    public void setEndTime(Long EndTime) {
-        this.EndTime = EndTime;
-    }
-
-    /**
-     * Get 业务名称（默认值：taw） 
-     * @return BusinessName 业务名称（默认值：taw）
-     */
-    public String getBusinessName() {
-        return this.BusinessName;
-    }
-
-    /**
-     * Set 业务名称（默认值：taw）
-     * @param BusinessName 业务名称（默认值：taw）
-     */
-    public void setBusinessName(String BusinessName) {
-        this.BusinessName = BusinessName;
     }
 
     /**
@@ -305,22 +395,6 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
         this.PageSize = PageSize;
     }
 
-    /**
-     * Get Or过滤条件 
-     * @return OrFilters Or过滤条件
-     */
-    public Filter [] getOrFilters() {
-        return this.OrFilters;
-    }
-
-    /**
-     * Set Or过滤条件
-     * @param OrFilters Or过滤条件
-     */
-    public void setOrFilters(Filter [] OrFilters) {
-        this.OrFilters = OrFilters;
-    }
-
     public DescribeMetricRecordsRequest() {
     }
 
@@ -329,11 +403,8 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeMetricRecordsRequest(DescribeMetricRecordsRequest source) {
-        if (source.Filters != null) {
-            this.Filters = new Filter[source.Filters.length];
-            for (int i = 0; i < source.Filters.length; i++) {
-                this.Filters[i] = new Filter(source.Filters[i]);
-            }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
         }
         if (source.Metrics != null) {
             this.Metrics = new QueryMetricItem[source.Metrics.length];
@@ -341,44 +412,50 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
                 this.Metrics[i] = new QueryMetricItem(source.Metrics[i]);
             }
         }
+        if (source.StartTime != null) {
+            this.StartTime = new Long(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new Long(source.EndTime);
+        }
         if (source.GroupBy != null) {
             this.GroupBy = new String[source.GroupBy.length];
             for (int i = 0; i < source.GroupBy.length; i++) {
                 this.GroupBy[i] = new String(source.GroupBy[i]);
             }
         }
-        if (source.OrderBy != null) {
-            this.OrderBy = new OrderBy(source.OrderBy);
-        }
-        if (source.InstanceId != null) {
-            this.InstanceId = new String(source.InstanceId);
-        }
-        if (source.Limit != null) {
-            this.Limit = new Long(source.Limit);
-        }
-        if (source.StartTime != null) {
-            this.StartTime = new Long(source.StartTime);
-        }
-        if (source.Offset != null) {
-            this.Offset = new Long(source.Offset);
-        }
-        if (source.EndTime != null) {
-            this.EndTime = new Long(source.EndTime);
-        }
-        if (source.BusinessName != null) {
-            this.BusinessName = new String(source.BusinessName);
-        }
-        if (source.PageIndex != null) {
-            this.PageIndex = new Long(source.PageIndex);
-        }
-        if (source.PageSize != null) {
-            this.PageSize = new Long(source.PageSize);
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
         }
         if (source.OrFilters != null) {
             this.OrFilters = new Filter[source.OrFilters.length];
             for (int i = 0; i < source.OrFilters.length; i++) {
                 this.OrFilters[i] = new Filter(source.OrFilters[i]);
             }
+        }
+        if (source.OrderBy != null) {
+            this.OrderBy = new OrderBy(source.OrderBy);
+        }
+        if (source.BusinessName != null) {
+            this.BusinessName = new String(source.BusinessName);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.PageIndex != null) {
+            this.PageIndex = new Long(source.PageIndex);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
         }
     }
 
@@ -387,19 +464,20 @@ public class DescribeMetricRecordsRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
-        this.setParamArrayObj(map, prefix + "Metrics.", this.Metrics);
-        this.setParamArraySimple(map, prefix + "GroupBy.", this.GroupBy);
-        this.setParamObj(map, prefix + "OrderBy.", this.OrderBy);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
-        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArrayObj(map, prefix + "Metrics.", this.Metrics);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
-        this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamArraySimple(map, prefix + "GroupBy.", this.GroupBy);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamArrayObj(map, prefix + "OrFilters.", this.OrFilters);
+        this.setParamObj(map, prefix + "OrderBy.", this.OrderBy);
         this.setParamSimple(map, prefix + "BusinessName", this.BusinessName);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "PageIndex", this.PageIndex);
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
-        this.setParamArrayObj(map, prefix + "OrFilters.", this.OrFilters);
 
     }
 }

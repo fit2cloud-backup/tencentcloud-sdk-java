@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PermitOCRRequest extends AbstractModel{
+public class PermitOCRRequest extends AbstractModel {
 
     /**
     * 图片的 Base64 值。
@@ -42,6 +43,13 @@ public class PermitOCRRequest extends AbstractModel{
     @SerializedName("ImageUrl")
     @Expose
     private String ImageUrl;
+
+    /**
+    * 是否返回头像照片，默认为 false
+    */
+    @SerializedName("CropPortrait")
+    @Expose
+    private Boolean CropPortrait;
 
     /**
      * Get 图片的 Base64 值。
@@ -103,6 +111,22 @@ public class PermitOCRRequest extends AbstractModel{
         this.ImageUrl = ImageUrl;
     }
 
+    /**
+     * Get 是否返回头像照片，默认为 false 
+     * @return CropPortrait 是否返回头像照片，默认为 false
+     */
+    public Boolean getCropPortrait() {
+        return this.CropPortrait;
+    }
+
+    /**
+     * Set 是否返回头像照片，默认为 false
+     * @param CropPortrait 是否返回头像照片，默认为 false
+     */
+    public void setCropPortrait(Boolean CropPortrait) {
+        this.CropPortrait = CropPortrait;
+    }
+
     public PermitOCRRequest() {
     }
 
@@ -117,6 +141,9 @@ public class PermitOCRRequest extends AbstractModel{
         if (source.ImageUrl != null) {
             this.ImageUrl = new String(source.ImageUrl);
         }
+        if (source.CropPortrait != null) {
+            this.CropPortrait = new Boolean(source.CropPortrait);
+        }
     }
 
 
@@ -126,6 +153,7 @@ public class PermitOCRRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ImageBase64", this.ImageBase64);
         this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
+        this.setParamSimple(map, prefix + "CropPortrait", this.CropPortrait);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VulScanImageInfo extends AbstractModel{
+public class VulScanImageInfo extends AbstractModel {
 
     /**
     * 镜像ID
@@ -52,7 +53,6 @@ public class VulScanImageInfo extends AbstractModel{
 
     /**
     * 扫描时长
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanDuration")
     @Expose
@@ -179,10 +179,8 @@ public class VulScanImageInfo extends AbstractModel{
     }
 
     /**
-     * Get 扫描时长
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描时长 
      * @return ScanDuration 扫描时长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getScanDuration() {
         return this.ScanDuration;
@@ -190,9 +188,7 @@ public class VulScanImageInfo extends AbstractModel{
 
     /**
      * Set 扫描时长
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanDuration 扫描时长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanDuration(Float ScanDuration) {
         this.ScanDuration = ScanDuration;

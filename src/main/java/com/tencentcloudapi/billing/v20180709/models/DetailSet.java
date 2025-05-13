@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DetailSet extends AbstractModel{
+public class DetailSet extends AbstractModel {
 
     /**
     * 域名
@@ -38,7 +39,6 @@ public class DetailSet extends AbstractModel{
 
     /**
     * 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceID")
     @Expose
@@ -77,10 +77,8 @@ public class DetailSet extends AbstractModel{
     }
 
     /**
-     * Get 实例ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例ID 
      * @return InstanceID 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceID() {
         return this.InstanceID;
@@ -88,9 +86,7 @@ public class DetailSet extends AbstractModel{
 
     /**
      * Set 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceID 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceID(String InstanceID) {
         this.InstanceID = InstanceID;

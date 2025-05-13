@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EdgeClusterInternalLB extends AbstractModel{
+public class EdgeClusterInternalLB extends AbstractModel {
 
     /**
     * 是否开启内网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Enabled")
     @Expose
@@ -32,17 +32,14 @@ public class EdgeClusterInternalLB extends AbstractModel{
 
     /**
     * 内网访问LB关联的子网Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetId")
     @Expose
     private String [] SubnetId;
 
     /**
-     * Get 是否开启内网访问LB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启内网访问LB 
      * @return Enabled 是否开启内网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnabled() {
         return this.Enabled;
@@ -50,19 +47,15 @@ public class EdgeClusterInternalLB extends AbstractModel{
 
     /**
      * Set 是否开启内网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Enabled 是否开启内网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnabled(Boolean Enabled) {
         this.Enabled = Enabled;
     }
 
     /**
-     * Get 内网访问LB关联的子网Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内网访问LB关联的子网Id 
      * @return SubnetId 内网访问LB关联的子网Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSubnetId() {
         return this.SubnetId;
@@ -70,9 +63,7 @@ public class EdgeClusterInternalLB extends AbstractModel{
 
     /**
      * Set 内网访问LB关联的子网Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetId 内网访问LB关联的子网Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetId(String [] SubnetId) {
         this.SubnetId = SubnetId;

@@ -16,29 +16,37 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EditMediaOutputConfig extends AbstractModel{
+public class EditMediaOutputConfig extends AbstractModel {
 
     /**
     * 封装格式，可选值：mp4、hls、mov、flv、avi。默认是 mp4。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Container")
     @Expose
     private String Container;
 
     /**
-    * 剪辑模式，可选值 normal、fast。默认是精确剪辑 normal
+    * 剪辑模式，可选值：
+normal（默认）：精准编辑
+fast：快速编辑，处理速度更快但精准度一定程度降低
+注意：fast只支持单文件，normal默认输出转码格式是h264
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-     * Get 封装格式，可选值：mp4、hls、mov、flv、avi。默认是 mp4。 
+     * Get 封装格式，可选值：mp4、hls、mov、flv、avi。默认是 mp4。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Container 封装格式，可选值：mp4、hls、mov、flv、avi。默认是 mp4。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContainer() {
         return this.Container;
@@ -46,23 +54,41 @@ public class EditMediaOutputConfig extends AbstractModel{
 
     /**
      * Set 封装格式，可选值：mp4、hls、mov、flv、avi。默认是 mp4。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Container 封装格式，可选值：mp4、hls、mov、flv、avi。默认是 mp4。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainer(String Container) {
         this.Container = Container;
     }
 
     /**
-     * Get 剪辑模式，可选值 normal、fast。默认是精确剪辑 normal 
-     * @return Type 剪辑模式，可选值 normal、fast。默认是精确剪辑 normal
+     * Get 剪辑模式，可选值：
+normal（默认）：精准编辑
+fast：快速编辑，处理速度更快但精准度一定程度降低
+注意：fast只支持单文件，normal默认输出转码格式是h264
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Type 剪辑模式，可选值：
+normal（默认）：精准编辑
+fast：快速编辑，处理速度更快但精准度一定程度降低
+注意：fast只支持单文件，normal默认输出转码格式是h264
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 剪辑模式，可选值 normal、fast。默认是精确剪辑 normal
-     * @param Type 剪辑模式，可选值 normal、fast。默认是精确剪辑 normal
+     * Set 剪辑模式，可选值：
+normal（默认）：精准编辑
+fast：快速编辑，处理速度更快但精准度一定程度降低
+注意：fast只支持单文件，normal默认输出转码格式是h264
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Type 剪辑模式，可选值：
+normal（默认）：精准编辑
+fast：快速编辑，处理速度更快但精准度一定程度降低
+注意：fast只支持单文件，normal默认输出转码格式是h264
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UserNotice extends AbstractModel{
+public class UserNotice extends AbstractModel {
 
     /**
     * 接收者类型 USER=用户 GROUP=用户组
@@ -133,6 +134,14 @@ public class UserNotice extends AbstractModel{
     @SerializedName("OnCallFormIDs")
     @Expose
     private String [] OnCallFormIDs;
+
+    /**
+    * 电话按键确认
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VoiceConfirmKey")
+    @Expose
+    private String VoiceConfirmKey;
 
     /**
      * Get 接收者类型 USER=用户 GROUP=用户组
@@ -414,6 +423,26 @@ public class UserNotice extends AbstractModel{
         this.OnCallFormIDs = OnCallFormIDs;
     }
 
+    /**
+     * Get 电话按键确认
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VoiceConfirmKey 电话按键确认
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getVoiceConfirmKey() {
+        return this.VoiceConfirmKey;
+    }
+
+    /**
+     * Set 电话按键确认
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VoiceConfirmKey 电话按键确认
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVoiceConfirmKey(String VoiceConfirmKey) {
+        this.VoiceConfirmKey = VoiceConfirmKey;
+    }
+
     public UserNotice() {
     }
 
@@ -482,6 +511,9 @@ public class UserNotice extends AbstractModel{
                 this.OnCallFormIDs[i] = new String(source.OnCallFormIDs[i]);
             }
         }
+        if (source.VoiceConfirmKey != null) {
+            this.VoiceConfirmKey = new String(source.VoiceConfirmKey);
+        }
     }
 
 
@@ -503,6 +535,7 @@ public class UserNotice extends AbstractModel{
         this.setParamSimple(map, prefix + "PhoneCallType", this.PhoneCallType);
         this.setParamArraySimple(map, prefix + "Weekday.", this.Weekday);
         this.setParamArraySimple(map, prefix + "OnCallFormIDs.", this.OnCallFormIDs);
+        this.setParamSimple(map, prefix + "VoiceConfirmKey", this.VoiceConfirmKey);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiAnalysisTaskHighlightOutput extends AbstractModel{
+public class AiAnalysisTaskHighlightOutput extends AbstractModel {
 
     /**
     * 视频智能精彩片段列表。
@@ -31,6 +32,7 @@ public class AiAnalysisTaskHighlightOutput extends AbstractModel{
 
     /**
     * 精彩片段的存储位置。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutputStorage")
     @Expose
@@ -53,8 +55,10 @@ public class AiAnalysisTaskHighlightOutput extends AbstractModel{
     }
 
     /**
-     * Get 精彩片段的存储位置。 
+     * Get 精彩片段的存储位置。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return OutputStorage 精彩片段的存储位置。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public TaskOutputStorage getOutputStorage() {
         return this.OutputStorage;
@@ -62,7 +66,9 @@ public class AiAnalysisTaskHighlightOutput extends AbstractModel{
 
     /**
      * Set 精彩片段的存储位置。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param OutputStorage 精彩片段的存储位置。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutputStorage(TaskOutputStorage OutputStorage) {
         this.OutputStorage = OutputStorage;

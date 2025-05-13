@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AudioMetadata extends AbstractModel{
+public class AudioMetadata extends AbstractModel {
 
     /**
     * 媒资音频文件大小，单位为Byte
@@ -69,6 +70,22 @@ public class AudioMetadata extends AbstractModel{
     @SerializedName("Format")
     @Expose
     private String Format;
+
+    /**
+    * Audio Bit Depth: 16/24 bit .etc
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BitDepth")
+    @Expose
+    private Long BitDepth;
+
+    /**
+    * 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ShortFormat")
+    @Expose
+    private String ShortFormat;
 
     /**
      * Get 媒资音频文件大小，单位为Byte
@@ -190,6 +207,46 @@ public class AudioMetadata extends AbstractModel{
         this.Format = Format;
     }
 
+    /**
+     * Get Audio Bit Depth: 16/24 bit .etc
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BitDepth Audio Bit Depth: 16/24 bit .etc
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getBitDepth() {
+        return this.BitDepth;
+    }
+
+    /**
+     * Set Audio Bit Depth: 16/24 bit .etc
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BitDepth Audio Bit Depth: 16/24 bit .etc
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBitDepth(Long BitDepth) {
+        this.BitDepth = BitDepth;
+    }
+
+    /**
+     * Get 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ShortFormat 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getShortFormat() {
+        return this.ShortFormat;
+    }
+
+    /**
+     * Set 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ShortFormat 封装格式短后缀
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setShortFormat(String ShortFormat) {
+        this.ShortFormat = ShortFormat;
+    }
+
     public AudioMetadata() {
     }
 
@@ -216,6 +273,12 @@ public class AudioMetadata extends AbstractModel{
         if (source.Format != null) {
             this.Format = new String(source.Format);
         }
+        if (source.BitDepth != null) {
+            this.BitDepth = new Long(source.BitDepth);
+        }
+        if (source.ShortFormat != null) {
+            this.ShortFormat = new String(source.ShortFormat);
+        }
     }
 
 
@@ -229,6 +292,8 @@ public class AudioMetadata extends AbstractModel{
         this.setParamSimple(map, prefix + "SampleRate", this.SampleRate);
         this.setParamSimple(map, prefix + "BitRate", this.BitRate);
         this.setParamSimple(map, prefix + "Format", this.Format);
+        this.setParamSimple(map, prefix + "BitDepth", this.BitDepth);
+        this.setParamSimple(map, prefix + "ShortFormat", this.ShortFormat);
 
     }
 }

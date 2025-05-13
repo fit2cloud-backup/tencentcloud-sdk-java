@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcbr.v20220217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServerBaseInfo extends AbstractModel{
+public class ServerBaseInfo extends AbstractModel {
 
     /**
     * 服务名
@@ -70,6 +71,20 @@ public class ServerBaseInfo extends AbstractModel{
     @SerializedName("CustomDomainNames")
     @Expose
     private String [] CustomDomainNames;
+
+    /**
+    * 服务类型: function 云函数2.0；container 容器服务
+    */
+    @SerializedName("ServerType")
+    @Expose
+    private String ServerType;
+
+    /**
+    * 流量类型，目前只有 FLOW
+    */
+    @SerializedName("TrafficType")
+    @Expose
+    private String TrafficType;
 
     /**
      * Get 服务名 
@@ -183,6 +198,38 @@ public class ServerBaseInfo extends AbstractModel{
         this.CustomDomainNames = CustomDomainNames;
     }
 
+    /**
+     * Get 服务类型: function 云函数2.0；container 容器服务 
+     * @return ServerType 服务类型: function 云函数2.0；container 容器服务
+     */
+    public String getServerType() {
+        return this.ServerType;
+    }
+
+    /**
+     * Set 服务类型: function 云函数2.0；container 容器服务
+     * @param ServerType 服务类型: function 云函数2.0；container 容器服务
+     */
+    public void setServerType(String ServerType) {
+        this.ServerType = ServerType;
+    }
+
+    /**
+     * Get 流量类型，目前只有 FLOW 
+     * @return TrafficType 流量类型，目前只有 FLOW
+     */
+    public String getTrafficType() {
+        return this.TrafficType;
+    }
+
+    /**
+     * Set 流量类型，目前只有 FLOW
+     * @param TrafficType 流量类型，目前只有 FLOW
+     */
+    public void setTrafficType(String TrafficType) {
+        this.TrafficType = TrafficType;
+    }
+
     public ServerBaseInfo() {
     }
 
@@ -218,6 +265,12 @@ public class ServerBaseInfo extends AbstractModel{
                 this.CustomDomainNames[i] = new String(source.CustomDomainNames[i]);
             }
         }
+        if (source.ServerType != null) {
+            this.ServerType = new String(source.ServerType);
+        }
+        if (source.TrafficType != null) {
+            this.TrafficType = new String(source.TrafficType);
+        }
     }
 
 
@@ -232,6 +285,8 @@ public class ServerBaseInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamArraySimple(map, prefix + "AccessTypes.", this.AccessTypes);
         this.setParamArraySimple(map, prefix + "CustomDomainNames.", this.CustomDomainNames);
+        this.setParamSimple(map, prefix + "ServerType", this.ServerType);
+        this.setParamSimple(map, prefix + "TrafficType", this.TrafficType);
 
     }
 }

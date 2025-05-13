@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EscapeEventInfo extends AbstractModel{
+public class EscapeEventInfo extends AbstractModel {
 
     /**
     * 事件类型
@@ -142,7 +143,6 @@ MountNamespace逃逸、
 
     /**
     * 节点IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeIP")
     @Expose
@@ -150,7 +150,6 @@ MountNamespace逃逸、
 
     /**
     * 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostID")
     @Expose
@@ -164,7 +163,6 @@ MountNamespace逃逸、
 隔离失败	ISOLATE_FAILED
 解除隔离中  RESTORING
 解除隔离失败 RESTORE_FAILED
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerNetStatus")
     @Expose
@@ -179,7 +177,6 @@ MountNamespace逃逸、
 "SHARED_HOST"         // 容器与主机共享网络
 "RESOURCE_LIMIT"      //隔离操作资源超限
 "UNKNOW"              // 原因未知
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerNetSubStatus")
     @Expose
@@ -187,7 +184,6 @@ MountNamespace逃逸、
 
     /**
     * 容器隔离操作来源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerIsolateOperationSrc")
     @Expose
@@ -556,10 +552,8 @@ MountNamespace逃逸、
     }
 
     /**
-     * Get 节点IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点IP 
      * @return NodeIP 节点IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNodeIP() {
         return this.NodeIP;
@@ -567,19 +561,15 @@ MountNamespace逃逸、
 
     /**
      * Set 节点IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeIP 节点IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeIP(String NodeIP) {
         this.NodeIP = NodeIP;
     }
 
     /**
-     * Get 主机IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机IP 
      * @return HostID 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostID() {
         return this.HostID;
@@ -587,9 +577,7 @@ MountNamespace逃逸、
 
     /**
      * Set 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostID 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostID(String HostID) {
         this.HostID = HostID;
@@ -602,8 +590,7 @@ MountNamespace逃逸、
 隔离中		ISOLATING
 隔离失败	ISOLATE_FAILED
 解除隔离中  RESTORING
-解除隔离失败 RESTORE_FAILED
-注意：此字段可能返回 null，表示取不到有效值。 
+解除隔离失败 RESTORE_FAILED 
      * @return ContainerNetStatus 网络状态
 未隔离  	NORMAL
 已隔离		ISOLATED
@@ -611,7 +598,6 @@ MountNamespace逃逸、
 隔离失败	ISOLATE_FAILED
 解除隔离中  RESTORING
 解除隔离失败 RESTORE_FAILED
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContainerNetStatus() {
         return this.ContainerNetStatus;
@@ -625,7 +611,6 @@ MountNamespace逃逸、
 隔离失败	ISOLATE_FAILED
 解除隔离中  RESTORING
 解除隔离失败 RESTORE_FAILED
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerNetStatus 网络状态
 未隔离  	NORMAL
 已隔离		ISOLATED
@@ -633,7 +618,6 @@ MountNamespace逃逸、
 隔离失败	ISOLATE_FAILED
 解除隔离中  RESTORING
 解除隔离失败 RESTORE_FAILED
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerNetStatus(String ContainerNetStatus) {
         this.ContainerNetStatus = ContainerNetStatus;
@@ -647,8 +631,7 @@ MountNamespace逃逸、
 "CONTAINER_DESTROYED" //容器已销毁
 "SHARED_HOST"         // 容器与主机共享网络
 "RESOURCE_LIMIT"      //隔离操作资源超限
-"UNKNOW"              // 原因未知
-注意：此字段可能返回 null，表示取不到有效值。 
+"UNKNOW"              // 原因未知 
      * @return ContainerNetSubStatus 容器子状态
 "AGENT_OFFLINE"       //Agent离线
 "NODE_DESTROYED"      //节点已销毁
@@ -657,7 +640,6 @@ MountNamespace逃逸、
 "SHARED_HOST"         // 容器与主机共享网络
 "RESOURCE_LIMIT"      //隔离操作资源超限
 "UNKNOW"              // 原因未知
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContainerNetSubStatus() {
         return this.ContainerNetSubStatus;
@@ -672,7 +654,6 @@ MountNamespace逃逸、
 "SHARED_HOST"         // 容器与主机共享网络
 "RESOURCE_LIMIT"      //隔离操作资源超限
 "UNKNOW"              // 原因未知
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerNetSubStatus 容器子状态
 "AGENT_OFFLINE"       //Agent离线
 "NODE_DESTROYED"      //节点已销毁
@@ -681,17 +662,14 @@ MountNamespace逃逸、
 "SHARED_HOST"         // 容器与主机共享网络
 "RESOURCE_LIMIT"      //隔离操作资源超限
 "UNKNOW"              // 原因未知
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerNetSubStatus(String ContainerNetSubStatus) {
         this.ContainerNetSubStatus = ContainerNetSubStatus;
     }
 
     /**
-     * Get 容器隔离操作来源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器隔离操作来源 
      * @return ContainerIsolateOperationSrc 容器隔离操作来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContainerIsolateOperationSrc() {
         return this.ContainerIsolateOperationSrc;
@@ -699,9 +677,7 @@ MountNamespace逃逸、
 
     /**
      * Set 容器隔离操作来源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerIsolateOperationSrc 容器隔离操作来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerIsolateOperationSrc(String ContainerIsolateOperationSrc) {
         this.ContainerIsolateOperationSrc = ContainerIsolateOperationSrc;

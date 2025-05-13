@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCallOutSessionRequest extends AbstractModel{
+public class CreateCallOutSessionRequest extends AbstractModel {
 
     /**
     * 应用 ID
@@ -30,7 +31,7 @@ public class CreateCallOutSessionRequest extends AbstractModel{
     private Long SdkAppId;
 
     /**
-    * 客服用户 ID，一般为客服邮箱
+    * 客服用户 ID，一般为客服邮箱，确保已经绑定了手机号 https://cloud.tencent.com/document/product/679/76067#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AE.8C.E5.96.84.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF
     */
     @SerializedName("UserId")
     @Expose
@@ -58,7 +59,7 @@ public class CreateCallOutSessionRequest extends AbstractModel{
     private String [] Callers;
 
     /**
-    * 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单
+    * 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单 https://cloud.tencent.com/document/product/679/76744#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4
     */
     @SerializedName("IsForceUseMobile")
     @Expose
@@ -70,6 +71,13 @@ public class CreateCallOutSessionRequest extends AbstractModel{
     @SerializedName("Uui")
     @Expose
     private String Uui;
+
+    /**
+    * 自定义数据，长度限制 1024 字节
+    */
+    @SerializedName("UUI")
+    @Expose
+    private String UUI;
 
     /**
      * Get 应用 ID 
@@ -88,16 +96,16 @@ public class CreateCallOutSessionRequest extends AbstractModel{
     }
 
     /**
-     * Get 客服用户 ID，一般为客服邮箱 
-     * @return UserId 客服用户 ID，一般为客服邮箱
+     * Get 客服用户 ID，一般为客服邮箱，确保已经绑定了手机号 https://cloud.tencent.com/document/product/679/76067#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AE.8C.E5.96.84.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF 
+     * @return UserId 客服用户 ID，一般为客服邮箱，确保已经绑定了手机号 https://cloud.tencent.com/document/product/679/76067#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AE.8C.E5.96.84.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 客服用户 ID，一般为客服邮箱
-     * @param UserId 客服用户 ID，一般为客服邮箱
+     * Set 客服用户 ID，一般为客服邮箱，确保已经绑定了手机号 https://cloud.tencent.com/document/product/679/76067#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AE.8C.E5.96.84.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF
+     * @param UserId 客服用户 ID，一般为客服邮箱，确保已经绑定了手机号 https://cloud.tencent.com/document/product/679/76067#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AE.8C.E5.96.84.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
@@ -152,16 +160,16 @@ public class CreateCallOutSessionRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单 
-     * @return IsForceUseMobile 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单
+     * Get 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单 https://cloud.tencent.com/document/product/679/76744#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4 
+     * @return IsForceUseMobile 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单 https://cloud.tencent.com/document/product/679/76744#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4
      */
     public Boolean getIsForceUseMobile() {
         return this.IsForceUseMobile;
     }
 
     /**
-     * Set 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单
-     * @param IsForceUseMobile 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单
+     * Set 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单 https://cloud.tencent.com/document/product/679/76744#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4
+     * @param IsForceUseMobile 是否强制使用手机外呼，当前只支持 true，若为 true 请确保已配置白名单 https://cloud.tencent.com/document/product/679/76744#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4
      */
     public void setIsForceUseMobile(Boolean IsForceUseMobile) {
         this.IsForceUseMobile = IsForceUseMobile;
@@ -170,7 +178,9 @@ public class CreateCallOutSessionRequest extends AbstractModel{
     /**
      * Get 自定义数据，长度限制 1024 字节 
      * @return Uui 自定义数据，长度限制 1024 字节
+     * @deprecated
      */
+    @Deprecated
     public String getUui() {
         return this.Uui;
     }
@@ -178,9 +188,27 @@ public class CreateCallOutSessionRequest extends AbstractModel{
     /**
      * Set 自定义数据，长度限制 1024 字节
      * @param Uui 自定义数据，长度限制 1024 字节
+     * @deprecated
      */
+    @Deprecated
     public void setUui(String Uui) {
         this.Uui = Uui;
+    }
+
+    /**
+     * Get 自定义数据，长度限制 1024 字节 
+     * @return UUI 自定义数据，长度限制 1024 字节
+     */
+    public String getUUI() {
+        return this.UUI;
+    }
+
+    /**
+     * Set 自定义数据，长度限制 1024 字节
+     * @param UUI 自定义数据，长度限制 1024 字节
+     */
+    public void setUUI(String UUI) {
+        this.UUI = UUI;
     }
 
     public CreateCallOutSessionRequest() {
@@ -215,6 +243,9 @@ public class CreateCallOutSessionRequest extends AbstractModel{
         if (source.Uui != null) {
             this.Uui = new String(source.Uui);
         }
+        if (source.UUI != null) {
+            this.UUI = new String(source.UUI);
+        }
     }
 
 
@@ -229,6 +260,7 @@ public class CreateCallOutSessionRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Callers.", this.Callers);
         this.setParamSimple(map, prefix + "IsForceUseMobile", this.IsForceUseMobile);
         this.setParamSimple(map, prefix + "Uui", this.Uui);
+        this.setParamSimple(map, prefix + "UUI", this.UUI);
 
     }
 }

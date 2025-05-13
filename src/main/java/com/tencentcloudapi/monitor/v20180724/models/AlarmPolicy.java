@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlarmPolicy extends AbstractModel{
+public class AlarmPolicy extends AbstractModel {
 
     /**
     * 告警策略 ID
@@ -258,6 +259,22 @@ public class AlarmPolicy extends AbstractModel{
     private TagInstance [] TagInstances;
 
     /**
+    * 过滤条件
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Filter")
+    @Expose
+    private AlarmConditionFilter Filter;
+
+    /**
+    * 聚合条件
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GroupBy")
+    @Expose
+    private AlarmGroupByItem [] GroupBy;
+
+    /**
     * 策略关联的过滤维度信息
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -304,6 +321,53 @@ public class AlarmPolicy extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private Tag [] Tags;
+
+    /**
+    * 是否支持告警标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsSupportAlarmTag")
+    @Expose
+    private Long IsSupportAlarmTag;
+
+    /**
+    * 多标签交/并集关系
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TagOperation")
+    @Expose
+    private String TagOperation;
+
+    /**
+    * 通知模板绑定内容模板信息
+    */
+    @SerializedName("NoticeTmplBindInfos")
+    @Expose
+    private NoticeContentTmplBindInfo [] NoticeTmplBindInfos;
+
+    /**
+    * 模板通知的等级
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HierarchicalNotices")
+    @Expose
+    private AlarmHierarchicalNotice [] HierarchicalNotices;
+
+    /**
+    * 通知模板绑定内容模板信息，同NoticeTmplBindInfos
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NoticeContentTmplBindInfos")
+    @Expose
+    private NoticeContentTmplBindInfo [] NoticeContentTmplBindInfos;
+
+    /**
+    * 预设配置id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PredefinedConfigID")
+    @Expose
+    private String PredefinedConfigID;
 
     /**
      * Get 告警策略 ID
@@ -898,6 +962,46 @@ public class AlarmPolicy extends AbstractModel{
     }
 
     /**
+     * Get 过滤条件
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Filter 过滤条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AlarmConditionFilter getFilter() {
+        return this.Filter;
+    }
+
+    /**
+     * Set 过滤条件
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Filter 过滤条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFilter(AlarmConditionFilter Filter) {
+        this.Filter = Filter;
+    }
+
+    /**
+     * Get 聚合条件
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GroupBy 聚合条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AlarmGroupByItem [] getGroupBy() {
+        return this.GroupBy;
+    }
+
+    /**
+     * Set 聚合条件
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GroupBy 聚合条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGroupBy(AlarmGroupByItem [] GroupBy) {
+        this.GroupBy = GroupBy;
+    }
+
+    /**
      * Get 策略关联的过滤维度信息
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return FilterDimensionsParam 策略关联的过滤维度信息
@@ -1017,6 +1121,122 @@ public class AlarmPolicy extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 是否支持告警标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsSupportAlarmTag 是否支持告警标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsSupportAlarmTag() {
+        return this.IsSupportAlarmTag;
+    }
+
+    /**
+     * Set 是否支持告警标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsSupportAlarmTag 是否支持告警标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsSupportAlarmTag(Long IsSupportAlarmTag) {
+        this.IsSupportAlarmTag = IsSupportAlarmTag;
+    }
+
+    /**
+     * Get 多标签交/并集关系
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TagOperation 多标签交/并集关系
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTagOperation() {
+        return this.TagOperation;
+    }
+
+    /**
+     * Set 多标签交/并集关系
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TagOperation 多标签交/并集关系
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTagOperation(String TagOperation) {
+        this.TagOperation = TagOperation;
+    }
+
+    /**
+     * Get 通知模板绑定内容模板信息 
+     * @return NoticeTmplBindInfos 通知模板绑定内容模板信息
+     */
+    public NoticeContentTmplBindInfo [] getNoticeTmplBindInfos() {
+        return this.NoticeTmplBindInfos;
+    }
+
+    /**
+     * Set 通知模板绑定内容模板信息
+     * @param NoticeTmplBindInfos 通知模板绑定内容模板信息
+     */
+    public void setNoticeTmplBindInfos(NoticeContentTmplBindInfo [] NoticeTmplBindInfos) {
+        this.NoticeTmplBindInfos = NoticeTmplBindInfos;
+    }
+
+    /**
+     * Get 模板通知的等级
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HierarchicalNotices 模板通知的等级
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AlarmHierarchicalNotice [] getHierarchicalNotices() {
+        return this.HierarchicalNotices;
+    }
+
+    /**
+     * Set 模板通知的等级
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HierarchicalNotices 模板通知的等级
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHierarchicalNotices(AlarmHierarchicalNotice [] HierarchicalNotices) {
+        this.HierarchicalNotices = HierarchicalNotices;
+    }
+
+    /**
+     * Get 通知模板绑定内容模板信息，同NoticeTmplBindInfos
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NoticeContentTmplBindInfos 通知模板绑定内容模板信息，同NoticeTmplBindInfos
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public NoticeContentTmplBindInfo [] getNoticeContentTmplBindInfos() {
+        return this.NoticeContentTmplBindInfos;
+    }
+
+    /**
+     * Set 通知模板绑定内容模板信息，同NoticeTmplBindInfos
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NoticeContentTmplBindInfos 通知模板绑定内容模板信息，同NoticeTmplBindInfos
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNoticeContentTmplBindInfos(NoticeContentTmplBindInfo [] NoticeContentTmplBindInfos) {
+        this.NoticeContentTmplBindInfos = NoticeContentTmplBindInfos;
+    }
+
+    /**
+     * Get 预设配置id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PredefinedConfigID 预设配置id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPredefinedConfigID() {
+        return this.PredefinedConfigID;
+    }
+
+    /**
+     * Set 预设配置id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PredefinedConfigID 预设配置id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPredefinedConfigID(String PredefinedConfigID) {
+        this.PredefinedConfigID = PredefinedConfigID;
+    }
+
     public AlarmPolicy() {
     }
 
@@ -1127,6 +1347,15 @@ public class AlarmPolicy extends AbstractModel{
                 this.TagInstances[i] = new TagInstance(source.TagInstances[i]);
             }
         }
+        if (source.Filter != null) {
+            this.Filter = new AlarmConditionFilter(source.Filter);
+        }
+        if (source.GroupBy != null) {
+            this.GroupBy = new AlarmGroupByItem[source.GroupBy.length];
+            for (int i = 0; i < source.GroupBy.length; i++) {
+                this.GroupBy[i] = new AlarmGroupByItem(source.GroupBy[i]);
+            }
+        }
         if (source.FilterDimensionsParam != null) {
             this.FilterDimensionsParam = new String(source.FilterDimensionsParam);
         }
@@ -1147,6 +1376,33 @@ public class AlarmPolicy extends AbstractModel{
             for (int i = 0; i < source.Tags.length; i++) {
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
+        }
+        if (source.IsSupportAlarmTag != null) {
+            this.IsSupportAlarmTag = new Long(source.IsSupportAlarmTag);
+        }
+        if (source.TagOperation != null) {
+            this.TagOperation = new String(source.TagOperation);
+        }
+        if (source.NoticeTmplBindInfos != null) {
+            this.NoticeTmplBindInfos = new NoticeContentTmplBindInfo[source.NoticeTmplBindInfos.length];
+            for (int i = 0; i < source.NoticeTmplBindInfos.length; i++) {
+                this.NoticeTmplBindInfos[i] = new NoticeContentTmplBindInfo(source.NoticeTmplBindInfos[i]);
+            }
+        }
+        if (source.HierarchicalNotices != null) {
+            this.HierarchicalNotices = new AlarmHierarchicalNotice[source.HierarchicalNotices.length];
+            for (int i = 0; i < source.HierarchicalNotices.length; i++) {
+                this.HierarchicalNotices[i] = new AlarmHierarchicalNotice(source.HierarchicalNotices[i]);
+            }
+        }
+        if (source.NoticeContentTmplBindInfos != null) {
+            this.NoticeContentTmplBindInfos = new NoticeContentTmplBindInfo[source.NoticeContentTmplBindInfos.length];
+            for (int i = 0; i < source.NoticeContentTmplBindInfos.length; i++) {
+                this.NoticeContentTmplBindInfos[i] = new NoticeContentTmplBindInfo(source.NoticeContentTmplBindInfos[i]);
+            }
+        }
+        if (source.PredefinedConfigID != null) {
+            this.PredefinedConfigID = new String(source.PredefinedConfigID);
         }
     }
 
@@ -1184,12 +1440,20 @@ public class AlarmPolicy extends AbstractModel{
         this.setParamSimple(map, prefix + "RuleType", this.RuleType);
         this.setParamSimple(map, prefix + "OriginId", this.OriginId);
         this.setParamArrayObj(map, prefix + "TagInstances.", this.TagInstances);
+        this.setParamObj(map, prefix + "Filter.", this.Filter);
+        this.setParamArrayObj(map, prefix + "GroupBy.", this.GroupBy);
         this.setParamSimple(map, prefix + "FilterDimensionsParam", this.FilterDimensionsParam);
         this.setParamSimple(map, prefix + "IsOneClick", this.IsOneClick);
         this.setParamSimple(map, prefix + "OneClickStatus", this.OneClickStatus);
         this.setParamSimple(map, prefix + "AdvancedMetricNumber", this.AdvancedMetricNumber);
         this.setParamSimple(map, prefix + "IsBindAll", this.IsBindAll);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "IsSupportAlarmTag", this.IsSupportAlarmTag);
+        this.setParamSimple(map, prefix + "TagOperation", this.TagOperation);
+        this.setParamArrayObj(map, prefix + "NoticeTmplBindInfos.", this.NoticeTmplBindInfos);
+        this.setParamArrayObj(map, prefix + "HierarchicalNotices.", this.HierarchicalNotices);
+        this.setParamArrayObj(map, prefix + "NoticeContentTmplBindInfos.", this.NoticeContentTmplBindInfos);
+        this.setParamSimple(map, prefix + "PredefinedConfigID", this.PredefinedConfigID);
 
     }
 }

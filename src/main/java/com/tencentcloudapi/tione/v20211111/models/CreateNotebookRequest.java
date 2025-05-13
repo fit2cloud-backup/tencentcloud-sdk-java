@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateNotebookRequest extends AbstractModel{
+public class CreateNotebookRequest extends AbstractModel {
 
     /**
     * 名称。不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头
@@ -96,17 +97,19 @@ POSTPAID_BY_HOUR：按小时后付费
 
     /**
     * 存储的类型。取值包含： 
-    FREE:    预付费的免费存储
-    CLOUD_PREMIUM： 高性能云硬盘
-    CLOUD_SSD： SSD云硬盘
-    CFS:     CFS存储，包含NFS和turbo
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
     */
     @SerializedName("VolumeSourceType")
     @Expose
     private String VolumeSourceType;
 
     /**
-    * 存储卷大小，单位GB
+    * 云硬盘存储卷大小，单位GB
     */
     @SerializedName("VolumeSizeInGB")
     @Expose
@@ -162,7 +165,7 @@ POSTPAID_BY_HOUR：按小时后付费
     private Tag [] Tags;
 
     /**
-    * 数据配置
+    * 数据配置，只支持WEDATA_HDFS存储类型
     */
     @SerializedName("DataConfigs")
     @Expose
@@ -176,11 +179,25 @@ POSTPAID_BY_HOUR：按小时后付费
     private ImageInfo ImageInfo;
 
     /**
-    * 镜像类型
+    * 镜像类型，包括SYSTEM、TCR、CCR
     */
     @SerializedName("ImageType")
     @Expose
     private String ImageType;
+
+    /**
+    * SSH配置信息
+    */
+    @SerializedName("SSHConfig")
+    @Expose
+    private SSHConfig SSHConfig;
+
+    /**
+    * GooseFS存储配置
+    */
+    @SerializedName("VolumeSourceGooseFS")
+    @Expose
+    private GooseFS VolumeSourceGooseFS;
 
     /**
      * Get 名称。不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头 
@@ -352,15 +369,19 @@ POSTPAID_BY_HOUR：按小时后付费
 
     /**
      * Get 存储的类型。取值包含： 
-    FREE:    预付费的免费存储
-    CLOUD_PREMIUM： 高性能云硬盘
-    CLOUD_SSD： SSD云硬盘
-    CFS:     CFS存储，包含NFS和turbo 
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储 
      * @return VolumeSourceType 存储的类型。取值包含： 
-    FREE:    预付费的免费存储
-    CLOUD_PREMIUM： 高性能云硬盘
-    CLOUD_SSD： SSD云硬盘
-    CFS:     CFS存储，包含NFS和turbo
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
      */
     public String getVolumeSourceType() {
         return this.VolumeSourceType;
@@ -368,31 +389,35 @@ POSTPAID_BY_HOUR：按小时后付费
 
     /**
      * Set 存储的类型。取值包含： 
-    FREE:    预付费的免费存储
-    CLOUD_PREMIUM： 高性能云硬盘
-    CLOUD_SSD： SSD云硬盘
-    CFS:     CFS存储，包含NFS和turbo
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
      * @param VolumeSourceType 存储的类型。取值包含： 
-    FREE:    预付费的免费存储
-    CLOUD_PREMIUM： 高性能云硬盘
-    CLOUD_SSD： SSD云硬盘
-    CFS:     CFS存储，包含NFS和turbo
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
      */
     public void setVolumeSourceType(String VolumeSourceType) {
         this.VolumeSourceType = VolumeSourceType;
     }
 
     /**
-     * Get 存储卷大小，单位GB 
-     * @return VolumeSizeInGB 存储卷大小，单位GB
+     * Get 云硬盘存储卷大小，单位GB 
+     * @return VolumeSizeInGB 云硬盘存储卷大小，单位GB
      */
     public Long getVolumeSizeInGB() {
         return this.VolumeSizeInGB;
     }
 
     /**
-     * Set 存储卷大小，单位GB
-     * @param VolumeSizeInGB 存储卷大小，单位GB
+     * Set 云硬盘存储卷大小，单位GB
+     * @param VolumeSizeInGB 云硬盘存储卷大小，单位GB
      */
     public void setVolumeSizeInGB(Long VolumeSizeInGB) {
         this.VolumeSizeInGB = VolumeSizeInGB;
@@ -511,16 +536,16 @@ POSTPAID_BY_HOUR：按小时后付费
     }
 
     /**
-     * Get 数据配置 
-     * @return DataConfigs 数据配置
+     * Get 数据配置，只支持WEDATA_HDFS存储类型 
+     * @return DataConfigs 数据配置，只支持WEDATA_HDFS存储类型
      */
     public DataConfig [] getDataConfigs() {
         return this.DataConfigs;
     }
 
     /**
-     * Set 数据配置
-     * @param DataConfigs 数据配置
+     * Set 数据配置，只支持WEDATA_HDFS存储类型
+     * @param DataConfigs 数据配置，只支持WEDATA_HDFS存储类型
      */
     public void setDataConfigs(DataConfig [] DataConfigs) {
         this.DataConfigs = DataConfigs;
@@ -543,19 +568,51 @@ POSTPAID_BY_HOUR：按小时后付费
     }
 
     /**
-     * Get 镜像类型 
-     * @return ImageType 镜像类型
+     * Get 镜像类型，包括SYSTEM、TCR、CCR 
+     * @return ImageType 镜像类型，包括SYSTEM、TCR、CCR
      */
     public String getImageType() {
         return this.ImageType;
     }
 
     /**
-     * Set 镜像类型
-     * @param ImageType 镜像类型
+     * Set 镜像类型，包括SYSTEM、TCR、CCR
+     * @param ImageType 镜像类型，包括SYSTEM、TCR、CCR
      */
     public void setImageType(String ImageType) {
         this.ImageType = ImageType;
+    }
+
+    /**
+     * Get SSH配置信息 
+     * @return SSHConfig SSH配置信息
+     */
+    public SSHConfig getSSHConfig() {
+        return this.SSHConfig;
+    }
+
+    /**
+     * Set SSH配置信息
+     * @param SSHConfig SSH配置信息
+     */
+    public void setSSHConfig(SSHConfig SSHConfig) {
+        this.SSHConfig = SSHConfig;
+    }
+
+    /**
+     * Get GooseFS存储配置 
+     * @return VolumeSourceGooseFS GooseFS存储配置
+     */
+    public GooseFS getVolumeSourceGooseFS() {
+        return this.VolumeSourceGooseFS;
+    }
+
+    /**
+     * Set GooseFS存储配置
+     * @param VolumeSourceGooseFS GooseFS存储配置
+     */
+    public void setVolumeSourceGooseFS(GooseFS VolumeSourceGooseFS) {
+        this.VolumeSourceGooseFS = VolumeSourceGooseFS;
     }
 
     public CreateNotebookRequest() {
@@ -641,6 +698,12 @@ POSTPAID_BY_HOUR：按小时后付费
         if (source.ImageType != null) {
             this.ImageType = new String(source.ImageType);
         }
+        if (source.SSHConfig != null) {
+            this.SSHConfig = new SSHConfig(source.SSHConfig);
+        }
+        if (source.VolumeSourceGooseFS != null) {
+            this.VolumeSourceGooseFS = new GooseFS(source.VolumeSourceGooseFS);
+        }
     }
 
 
@@ -670,6 +733,8 @@ POSTPAID_BY_HOUR：按小时后付费
         this.setParamArrayObj(map, prefix + "DataConfigs.", this.DataConfigs);
         this.setParamObj(map, prefix + "ImageInfo.", this.ImageInfo);
         this.setParamSimple(map, prefix + "ImageType", this.ImageType);
+        this.setParamObj(map, prefix + "SSHConfig.", this.SSHConfig);
+        this.setParamObj(map, prefix + "VolumeSourceGooseFS.", this.VolumeSourceGooseFS);
 
     }
 }

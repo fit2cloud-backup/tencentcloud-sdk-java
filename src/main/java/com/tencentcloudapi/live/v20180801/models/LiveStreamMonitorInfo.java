@@ -16,15 +16,15 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LiveStreamMonitorInfo extends AbstractModel{
+public class LiveStreamMonitorInfo extends AbstractModel {
 
     /**
     * 监播任务ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MonitorId")
     @Expose
@@ -32,7 +32,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 监播任务名称。128字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MonitorName")
     @Expose
@@ -40,7 +39,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 监播任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutputInfo")
     @Expose
@@ -48,7 +46,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 待监播的输入流信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputList")
     @Expose
@@ -58,7 +55,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
     * 监播任务状态。
 0： 代表空闲
 1： 代表监播中。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -66,7 +62,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 上一次的启动时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -74,7 +69,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 上一次的停止时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StopTime")
     @Expose
@@ -82,7 +76,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 监播任务创建时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -90,7 +83,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 监播任务更新时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -98,7 +90,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 监播事件通知策略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NotifyPolicy")
     @Expose
@@ -106,7 +97,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 输出音频的输入Index列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AudibleInputIndexList")
     @Expose
@@ -114,7 +104,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 开启智能语音识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AiAsrInputIndexList")
     @Expose
@@ -122,7 +111,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 是否开启断流检测
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CheckStreamBroken")
     @Expose
@@ -130,7 +118,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 是否开启低帧率检测
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CheckStreamLowFrameRate")
     @Expose
@@ -139,7 +126,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
     /**
     * 智能语音识别语种：
 0 关闭 1 中文 2 英文 3日文 4 韩文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsrLanguage")
     @Expose
@@ -148,7 +134,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
     /**
     * 智能文字识别语种：
 0 关闭 1 中、英文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OcrLanguage")
     @Expose
@@ -156,7 +141,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 开启智能文字识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AiOcrInputIndexList")
     @Expose
@@ -164,7 +148,6 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 是否存储监播事件到监播报告，以及是否允许查询监播报告
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AllowMonitorReport")
     @Expose
@@ -172,17 +155,35 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
     * 是否开启格式诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AiFormatDiagnose")
     @Expose
     private Long AiFormatDiagnose;
 
     /**
-     * Get 监播任务ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 是否开启内容质检。
+    */
+    @SerializedName("AiQualityControl")
+    @Expose
+    private Long AiQualityControl;
+
+    /**
+    * 导播台监播对应的导播台场次id
+    */
+    @SerializedName("CasterId")
+    @Expose
+    private String CasterId;
+
+    /**
+    * 拉流转推监播对应的拉流转推任务id
+    */
+    @SerializedName("PullPushTaskId")
+    @Expose
+    private String PullPushTaskId;
+
+    /**
+     * Get 监播任务ID。 
      * @return MonitorId 监播任务ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMonitorId() {
         return this.MonitorId;
@@ -190,19 +191,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 监播任务ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MonitorId 监播任务ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMonitorId(String MonitorId) {
         this.MonitorId = MonitorId;
     }
 
     /**
-     * Get 监播任务名称。128字节以内。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监播任务名称。128字节以内。 
      * @return MonitorName 监播任务名称。128字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMonitorName() {
         return this.MonitorName;
@@ -210,19 +207,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 监播任务名称。128字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MonitorName 监播任务名称。128字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMonitorName(String MonitorName) {
         this.MonitorName = MonitorName;
     }
 
     /**
-     * Get 监播任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监播任务输出信息。 
      * @return OutputInfo 监播任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public LiveStreamMonitorOutputInfo getOutputInfo() {
         return this.OutputInfo;
@@ -230,19 +223,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 监播任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OutputInfo 监播任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutputInfo(LiveStreamMonitorOutputInfo OutputInfo) {
         this.OutputInfo = OutputInfo;
     }
 
     /**
-     * Get 待监播的输入流信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 待监播的输入流信息。 
      * @return InputList 待监播的输入流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public LiveStreamMonitorInputInfo [] getInputList() {
         return this.InputList;
@@ -250,9 +239,7 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 待监播的输入流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputList 待监播的输入流信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputList(LiveStreamMonitorInputInfo [] InputList) {
         this.InputList = InputList;
@@ -261,12 +248,10 @@ public class LiveStreamMonitorInfo extends AbstractModel{
     /**
      * Get 监播任务状态。
 0： 代表空闲
-1： 代表监播中。
-注意：此字段可能返回 null，表示取不到有效值。 
+1： 代表监播中。 
      * @return Status 监播任务状态。
 0： 代表空闲
 1： 代表监播中。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -276,21 +261,17 @@ public class LiveStreamMonitorInfo extends AbstractModel{
      * Set 监播任务状态。
 0： 代表空闲
 1： 代表监播中。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 监播任务状态。
 0： 代表空闲
 1： 代表监播中。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 上一次的启动时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上一次的启动时间，unix时间戳。 
      * @return StartTime 上一次的启动时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStartTime() {
         return this.StartTime;
@@ -298,19 +279,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 上一次的启动时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 上一次的启动时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(Long StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 上一次的停止时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上一次的停止时间，unix时间戳。 
      * @return StopTime 上一次的停止时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStopTime() {
         return this.StopTime;
@@ -318,19 +295,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 上一次的停止时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StopTime 上一次的停止时间，unix时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStopTime(Long StopTime) {
         this.StopTime = StopTime;
     }
 
     /**
-     * Get 监播任务创建时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监播任务创建时间，unix时间戳 
      * @return CreateTime 监播任务创建时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCreateTime() {
         return this.CreateTime;
@@ -338,19 +311,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 监播任务创建时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 监播任务创建时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(Long CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 监播任务更新时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监播任务更新时间，unix时间戳 
      * @return UpdateTime 监播任务更新时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUpdateTime() {
         return this.UpdateTime;
@@ -358,19 +327,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 监播任务更新时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 监播任务更新时间，unix时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(Long UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 监播事件通知策略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监播事件通知策略。 
      * @return NotifyPolicy 监播事件通知策略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public LiveStreamMonitorNotifyPolicy getNotifyPolicy() {
         return this.NotifyPolicy;
@@ -378,19 +343,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 监播事件通知策略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NotifyPolicy 监播事件通知策略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNotifyPolicy(LiveStreamMonitorNotifyPolicy NotifyPolicy) {
         this.NotifyPolicy = NotifyPolicy;
     }
 
     /**
-     * Get 输出音频的输入Index列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出音频的输入Index列表。 
      * @return AudibleInputIndexList 输出音频的输入Index列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getAudibleInputIndexList() {
         return this.AudibleInputIndexList;
@@ -398,19 +359,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 输出音频的输入Index列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AudibleInputIndexList 输出音频的输入Index列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudibleInputIndexList(Long [] AudibleInputIndexList) {
         this.AudibleInputIndexList = AudibleInputIndexList;
     }
 
     /**
-     * Get 开启智能语音识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开启智能语音识别的输入Index列表 
      * @return AiAsrInputIndexList 开启智能语音识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getAiAsrInputIndexList() {
         return this.AiAsrInputIndexList;
@@ -418,19 +375,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 开启智能语音识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiAsrInputIndexList 开启智能语音识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAiAsrInputIndexList(Long [] AiAsrInputIndexList) {
         this.AiAsrInputIndexList = AiAsrInputIndexList;
     }
 
     /**
-     * Get 是否开启断流检测
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启断流检测 
      * @return CheckStreamBroken 是否开启断流检测
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCheckStreamBroken() {
         return this.CheckStreamBroken;
@@ -438,19 +391,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 是否开启断流检测
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CheckStreamBroken 是否开启断流检测
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCheckStreamBroken(Long CheckStreamBroken) {
         this.CheckStreamBroken = CheckStreamBroken;
     }
 
     /**
-     * Get 是否开启低帧率检测
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启低帧率检测 
      * @return CheckStreamLowFrameRate 是否开启低帧率检测
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCheckStreamLowFrameRate() {
         return this.CheckStreamLowFrameRate;
@@ -458,9 +407,7 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 是否开启低帧率检测
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CheckStreamLowFrameRate 是否开启低帧率检测
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCheckStreamLowFrameRate(Long CheckStreamLowFrameRate) {
         this.CheckStreamLowFrameRate = CheckStreamLowFrameRate;
@@ -468,11 +415,9 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Get 智能语音识别语种：
-0 关闭 1 中文 2 英文 3日文 4 韩文
-注意：此字段可能返回 null，表示取不到有效值。 
+0 关闭 1 中文 2 英文 3日文 4 韩文 
      * @return AsrLanguage 智能语音识别语种：
 0 关闭 1 中文 2 英文 3日文 4 韩文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAsrLanguage() {
         return this.AsrLanguage;
@@ -481,10 +426,8 @@ public class LiveStreamMonitorInfo extends AbstractModel{
     /**
      * Set 智能语音识别语种：
 0 关闭 1 中文 2 英文 3日文 4 韩文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsrLanguage 智能语音识别语种：
 0 关闭 1 中文 2 英文 3日文 4 韩文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsrLanguage(Long AsrLanguage) {
         this.AsrLanguage = AsrLanguage;
@@ -492,11 +435,9 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Get 智能文字识别语种：
-0 关闭 1 中、英文
-注意：此字段可能返回 null，表示取不到有效值。 
+0 关闭 1 中、英文 
      * @return OcrLanguage 智能文字识别语种：
 0 关闭 1 中、英文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOcrLanguage() {
         return this.OcrLanguage;
@@ -505,20 +446,16 @@ public class LiveStreamMonitorInfo extends AbstractModel{
     /**
      * Set 智能文字识别语种：
 0 关闭 1 中、英文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OcrLanguage 智能文字识别语种：
 0 关闭 1 中、英文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOcrLanguage(Long OcrLanguage) {
         this.OcrLanguage = OcrLanguage;
     }
 
     /**
-     * Get 开启智能文字识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开启智能文字识别的输入Index列表 
      * @return AiOcrInputIndexList 开启智能文字识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getAiOcrInputIndexList() {
         return this.AiOcrInputIndexList;
@@ -526,19 +463,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 开启智能文字识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiOcrInputIndexList 开启智能文字识别的输入Index列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAiOcrInputIndexList(Long [] AiOcrInputIndexList) {
         this.AiOcrInputIndexList = AiOcrInputIndexList;
     }
 
     /**
-     * Get 是否存储监播事件到监播报告，以及是否允许查询监播报告
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否存储监播事件到监播报告，以及是否允许查询监播报告 
      * @return AllowMonitorReport 是否存储监播事件到监播报告，以及是否允许查询监播报告
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAllowMonitorReport() {
         return this.AllowMonitorReport;
@@ -546,19 +479,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 是否存储监播事件到监播报告，以及是否允许查询监播报告
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AllowMonitorReport 是否存储监播事件到监播报告，以及是否允许查询监播报告
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAllowMonitorReport(Long AllowMonitorReport) {
         this.AllowMonitorReport = AllowMonitorReport;
     }
 
     /**
-     * Get 是否开启格式诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启格式诊断 
      * @return AiFormatDiagnose 是否开启格式诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAiFormatDiagnose() {
         return this.AiFormatDiagnose;
@@ -566,12 +495,58 @@ public class LiveStreamMonitorInfo extends AbstractModel{
 
     /**
      * Set 是否开启格式诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AiFormatDiagnose 是否开启格式诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAiFormatDiagnose(Long AiFormatDiagnose) {
         this.AiFormatDiagnose = AiFormatDiagnose;
+    }
+
+    /**
+     * Get 是否开启内容质检。 
+     * @return AiQualityControl 是否开启内容质检。
+     */
+    public Long getAiQualityControl() {
+        return this.AiQualityControl;
+    }
+
+    /**
+     * Set 是否开启内容质检。
+     * @param AiQualityControl 是否开启内容质检。
+     */
+    public void setAiQualityControl(Long AiQualityControl) {
+        this.AiQualityControl = AiQualityControl;
+    }
+
+    /**
+     * Get 导播台监播对应的导播台场次id 
+     * @return CasterId 导播台监播对应的导播台场次id
+     */
+    public String getCasterId() {
+        return this.CasterId;
+    }
+
+    /**
+     * Set 导播台监播对应的导播台场次id
+     * @param CasterId 导播台监播对应的导播台场次id
+     */
+    public void setCasterId(String CasterId) {
+        this.CasterId = CasterId;
+    }
+
+    /**
+     * Get 拉流转推监播对应的拉流转推任务id 
+     * @return PullPushTaskId 拉流转推监播对应的拉流转推任务id
+     */
+    public String getPullPushTaskId() {
+        return this.PullPushTaskId;
+    }
+
+    /**
+     * Set 拉流转推监播对应的拉流转推任务id
+     * @param PullPushTaskId 拉流转推监播对应的拉流转推任务id
+     */
+    public void setPullPushTaskId(String PullPushTaskId) {
+        this.PullPushTaskId = PullPushTaskId;
     }
 
     public LiveStreamMonitorInfo() {
@@ -651,6 +626,15 @@ public class LiveStreamMonitorInfo extends AbstractModel{
         if (source.AiFormatDiagnose != null) {
             this.AiFormatDiagnose = new Long(source.AiFormatDiagnose);
         }
+        if (source.AiQualityControl != null) {
+            this.AiQualityControl = new Long(source.AiQualityControl);
+        }
+        if (source.CasterId != null) {
+            this.CasterId = new String(source.CasterId);
+        }
+        if (source.PullPushTaskId != null) {
+            this.PullPushTaskId = new String(source.PullPushTaskId);
+        }
     }
 
 
@@ -677,6 +661,9 @@ public class LiveStreamMonitorInfo extends AbstractModel{
         this.setParamArraySimple(map, prefix + "AiOcrInputIndexList.", this.AiOcrInputIndexList);
         this.setParamSimple(map, prefix + "AllowMonitorReport", this.AllowMonitorReport);
         this.setParamSimple(map, prefix + "AiFormatDiagnose", this.AiFormatDiagnose);
+        this.setParamSimple(map, prefix + "AiQualityControl", this.AiQualityControl);
+        this.setParamSimple(map, prefix + "CasterId", this.CasterId);
+        this.setParamSimple(map, prefix + "PullPushTaskId", this.PullPushTaskId);
 
     }
 }

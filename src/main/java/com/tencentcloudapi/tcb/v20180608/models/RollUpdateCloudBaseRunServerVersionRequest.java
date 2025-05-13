@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RollUpdateCloudBaseRunServerVersionRequest extends AbstractModel{
+public class RollUpdateCloudBaseRunServerVersionRequest extends AbstractModel {
 
     /**
     * 环境ID
@@ -101,6 +102,7 @@ public class RollUpdateCloudBaseRunServerVersionRequest extends AbstractModel{
 
     /**
     * 策略类型
+cpu/mem
     */
     @SerializedName("PolicyType")
     @Expose
@@ -437,8 +439,10 @@ public class RollUpdateCloudBaseRunServerVersionRequest extends AbstractModel{
     }
 
     /**
-     * Get 策略类型 
+     * Get 策略类型
+cpu/mem 
      * @return PolicyType 策略类型
+cpu/mem
      */
     public String getPolicyType() {
         return this.PolicyType;
@@ -446,7 +450,9 @@ public class RollUpdateCloudBaseRunServerVersionRequest extends AbstractModel{
 
     /**
      * Set 策略类型
+cpu/mem
      * @param PolicyType 策略类型
+cpu/mem
      */
     public void setPolicyType(String PolicyType) {
         this.PolicyType = PolicyType;

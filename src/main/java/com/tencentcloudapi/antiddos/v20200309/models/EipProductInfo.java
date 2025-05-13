@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EipProductInfo extends AbstractModel{
+public class EipProductInfo extends AbstractModel {
 
     /**
     * IP地址
@@ -62,7 +63,6 @@ other(托管IP)
 
     /**
     * 域名化资产对应的域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domain")
     @Expose
@@ -173,10 +173,8 @@ other(托管IP)
     }
 
     /**
-     * Get 域名化资产对应的域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 域名化资产对应的域名 
      * @return Domain 域名化资产对应的域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDomain() {
         return this.Domain;
@@ -184,9 +182,7 @@ other(托管IP)
 
     /**
      * Set 域名化资产对应的域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domain 域名化资产对应的域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;

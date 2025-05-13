@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RoleInfo extends AbstractModel{
+public class RoleInfo extends AbstractModel {
 
     /**
     * 角色ID
@@ -102,6 +103,14 @@ public class RoleInfo extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private RoleTags [] Tags;
+
+    /**
+    * 角色RoleArn信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RoleArn")
+    @Expose
+    private String RoleArn;
 
     /**
      * Get 角色ID 
@@ -295,6 +304,26 @@ public class RoleInfo extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 角色RoleArn信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RoleArn 角色RoleArn信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRoleArn() {
+        return this.RoleArn;
+    }
+
+    /**
+     * Set 角色RoleArn信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RoleArn 角色RoleArn信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRoleArn(String RoleArn) {
+        this.RoleArn = RoleArn;
+    }
+
     public RoleInfo() {
     }
 
@@ -339,6 +368,9 @@ public class RoleInfo extends AbstractModel{
                 this.Tags[i] = new RoleTags(source.Tags[i]);
             }
         }
+        if (source.RoleArn != null) {
+            this.RoleArn = new String(source.RoleArn);
+        }
     }
 
 
@@ -357,6 +389,7 @@ public class RoleInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "SessionDuration", this.SessionDuration);
         this.setParamSimple(map, prefix + "DeletionTaskId", this.DeletionTaskId);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "RoleArn", this.RoleArn);
 
     }
 }

@@ -39,24 +39,28 @@ public class TchdClient extends AbstractClient{
     }
 
     /**
+     *本接口用于查询腾讯云健康看板的实时可用性事件信息，可以通过产品列表、地域进行过滤查询。
+可以参考健康看板历史事件页面来获取查询案例（链接：https://status.cloud.tencent.com/history）。
+     * @param req DescribeEventStatisticsRequest
+     * @return DescribeEventStatisticsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeEventStatisticsResponse DescribeEventStatistics(DescribeEventStatisticsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeEventStatistics", DescribeEventStatisticsResponse.class);
+    }
+
+    /**
      *本接口用于查询腾讯云健康看板的可用性事件信息，可以通过产品列表、地域列表和事件发生日期进行过滤查询。
+当查询的产品对应时间内无事件时将返回空结果。
+可以参考健康看板历史事件页面来获取查询案例（链接：https://status.cloud.tencent.com/history）。
      * @param req DescribeEventsRequest
      * @return DescribeEventsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeEventsResponse DescribeEvents(DescribeEventsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeEventsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeEventsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeEvents");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeEvents", DescribeEventsResponse.class);
     }
 
 }

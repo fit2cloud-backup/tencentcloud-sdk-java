@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RemoveWatermarkTask extends AbstractModel{
+public class RemoveWatermarkTask extends AbstractModel {
 
     /**
     * 任务 ID 。
@@ -64,7 +65,6 @@ public class RemoveWatermarkTask extends AbstractModel{
 
     /**
     * 智能去除水印任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Input")
     @Expose
@@ -193,10 +193,8 @@ public class RemoveWatermarkTask extends AbstractModel{
     }
 
     /**
-     * Get 智能去除水印任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 智能去除水印任务的输入。 
      * @return Input 智能去除水印任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RemoveWaterMarkTaskInput getInput() {
         return this.Input;
@@ -204,9 +202,7 @@ public class RemoveWatermarkTask extends AbstractModel{
 
     /**
      * Set 智能去除水印任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Input 智能去除水印任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInput(RemoveWaterMarkTaskInput Input) {
         this.Input = Input;

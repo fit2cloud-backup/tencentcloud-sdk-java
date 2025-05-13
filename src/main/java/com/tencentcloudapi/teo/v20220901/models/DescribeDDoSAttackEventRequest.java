@@ -16,21 +16,22 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDDoSAttackEventRequest extends AbstractModel{
+public class DescribeDDoSAttackEventRequest extends AbstractModel {
 
     /**
-    * 开始时间。
+    * 开始时间，时间范围为 30 天。
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 结束时间。
+    * 结束时间，时间范围为 30 天。
     */
     @SerializedName("EndTime")
     @Expose
@@ -44,7 +45,7 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     private Long [] PolicyIds;
 
     /**
-    * 站点集合，此参数必填，不填默认查询为空。
+    * 站点集合，此参数必填。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -65,7 +66,7 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 是否展示详细信息。
+    * 展示攻击详情的参数，若填false，默认只返回攻击次数，不返回攻击详情；若填true，返回攻击详情。
     */
     @SerializedName("ShowDetail")
     @Expose
@@ -100,32 +101,32 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     private String OrderType;
 
     /**
-     * Get 开始时间。 
-     * @return StartTime 开始时间。
+     * Get 开始时间，时间范围为 30 天。 
+     * @return StartTime 开始时间，时间范围为 30 天。
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 开始时间。
-     * @param StartTime 开始时间。
+     * Set 开始时间，时间范围为 30 天。
+     * @param StartTime 开始时间，时间范围为 30 天。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 结束时间。 
-     * @return EndTime 结束时间。
+     * Get 结束时间，时间范围为 30 天。 
+     * @return EndTime 结束时间，时间范围为 30 天。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间。
-     * @param EndTime 结束时间。
+     * Set 结束时间，时间范围为 30 天。
+     * @param EndTime 结束时间，时间范围为 30 天。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -148,16 +149,16 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     }
 
     /**
-     * Get 站点集合，此参数必填，不填默认查询为空。 
-     * @return ZoneIds 站点集合，此参数必填，不填默认查询为空。
+     * Get 站点集合，此参数必填。 
+     * @return ZoneIds 站点集合，此参数必填。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 站点集合，此参数必填，不填默认查询为空。
-     * @param ZoneIds 站点集合，此参数必填，不填默认查询为空。
+     * Set 站点集合，此参数必填。
+     * @param ZoneIds 站点集合，此参数必填。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;
@@ -196,16 +197,16 @@ public class DescribeDDoSAttackEventRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否展示详细信息。 
-     * @return ShowDetail 是否展示详细信息。
+     * Get 展示攻击详情的参数，若填false，默认只返回攻击次数，不返回攻击详情；若填true，返回攻击详情。 
+     * @return ShowDetail 展示攻击详情的参数，若填false，默认只返回攻击次数，不返回攻击详情；若填true，返回攻击详情。
      */
     public Boolean getShowDetail() {
         return this.ShowDetail;
     }
 
     /**
-     * Set 是否展示详细信息。
-     * @param ShowDetail 是否展示详细信息。
+     * Set 展示攻击详情的参数，若填false，默认只返回攻击次数，不返回攻击详情；若填true，返回攻击详情。
+     * @param ShowDetail 展示攻击详情的参数，若填false，默认只返回攻击次数，不返回攻击详情；若填true，返回攻击详情。
      */
     public void setShowDetail(Boolean ShowDetail) {
         this.ShowDetail = ShowDetail;

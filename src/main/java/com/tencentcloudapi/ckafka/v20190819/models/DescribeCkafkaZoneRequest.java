@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCkafkaZoneRequest extends AbstractModel{
+public class DescribeCkafkaZoneRequest extends AbstractModel {
 
     /**
-    * cdc专业集群业务参数
+    * cdc集群Id
     */
     @SerializedName("CdcId")
     @Expose
     private String CdcId;
 
     /**
-     * Get cdc专业集群业务参数 
-     * @return CdcId cdc专业集群业务参数
+     * Get cdc集群Id 
+     * @return CdcId cdc集群Id
      */
     public String getCdcId() {
         return this.CdcId;
     }
 
     /**
-     * Set cdc专业集群业务参数
-     * @param CdcId cdc专业集群业务参数
+     * Set cdc集群Id
+     * @param CdcId cdc集群Id
      */
     public void setCdcId(String CdcId) {
         this.CdcId = CdcId;

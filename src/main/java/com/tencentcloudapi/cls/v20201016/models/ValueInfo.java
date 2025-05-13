@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ValueInfo extends AbstractModel{
+public class ValueInfo extends AbstractModel {
 
     /**
     * 字段类型，目前支持的类型有：long、text、double
@@ -48,11 +49,17 @@ long及double类型字段需为空；
 
     /**
     * 是否包含中文，long及double类型字段需为false
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainZH")
     @Expose
     private Boolean ContainZH;
+
+    /**
+    * 字段别名
+    */
+    @SerializedName("Alias")
+    @Expose
+    private String Alias;
 
     /**
      * Get 字段类型，目前支持的类型有：long、text、double 
@@ -115,10 +122,8 @@ long及double类型字段需为空；
     }
 
     /**
-     * Get 是否包含中文，long及double类型字段需为false
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否包含中文，long及double类型字段需为false 
      * @return ContainZH 是否包含中文，long及double类型字段需为false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getContainZH() {
         return this.ContainZH;
@@ -126,12 +131,26 @@ long及double类型字段需为空；
 
     /**
      * Set 是否包含中文，long及double类型字段需为false
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainZH 是否包含中文，long及double类型字段需为false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainZH(Boolean ContainZH) {
         this.ContainZH = ContainZH;
+    }
+
+    /**
+     * Get 字段别名 
+     * @return Alias 字段别名
+     */
+    public String getAlias() {
+        return this.Alias;
+    }
+
+    /**
+     * Set 字段别名
+     * @param Alias 字段别名
+     */
+    public void setAlias(String Alias) {
+        this.Alias = Alias;
     }
 
     public ValueInfo() {
@@ -154,6 +173,9 @@ long及double类型字段需为空；
         if (source.ContainZH != null) {
             this.ContainZH = new Boolean(source.ContainZH);
         }
+        if (source.Alias != null) {
+            this.Alias = new String(source.Alias);
+        }
     }
 
 
@@ -165,6 +187,7 @@ long及double类型字段需为空；
         this.setParamSimple(map, prefix + "Tokenizer", this.Tokenizer);
         this.setParamSimple(map, prefix + "SqlFlag", this.SqlFlag);
         this.setParamSimple(map, prefix + "ContainZH", this.ContainZH);
+        this.setParamSimple(map, prefix + "Alias", this.Alias);
 
     }
 }

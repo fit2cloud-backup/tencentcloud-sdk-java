@@ -47,18 +47,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ApplyUploadResponse ApplyUpload(ApplyUploadRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ApplyUploadResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ApplyUploadResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ApplyUpload");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ApplyUpload", ApplyUploadResponse.class);
     }
 
     /**
@@ -68,18 +58,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AttachMediaSubtitlesResponse AttachMediaSubtitles(AttachMediaSubtitlesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AttachMediaSubtitlesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AttachMediaSubtitlesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AttachMediaSubtitles");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AttachMediaSubtitles", AttachMediaSubtitlesResponse.class);
     }
 
     /**
@@ -89,18 +69,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CommitUploadResponse CommitUpload(CommitUploadRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CommitUploadResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CommitUploadResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CommitUpload");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CommitUpload", CommitUploadResponse.class);
     }
 
     /**
@@ -121,18 +91,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ComposeMediaResponse ComposeMedia(ComposeMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ComposeMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ComposeMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ComposeMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ComposeMedia", ComposeMediaResponse.class);
     }
 
     /**
@@ -144,39 +104,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ConfirmEventsResponse ConfirmEvents(ConfirmEventsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ConfirmEventsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ConfirmEventsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ConfirmEvents");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ConfirmEvents", ConfirmEventsResponse.class);
     }
 
     /**
-     *创建用户自定义音视频内容分析模板，数量上限：50。
+     *创建用户自定义音视频内容分析模板，数量上限：50。暂时不支持 HLS 格式。
      * @param req CreateAIAnalysisTemplateRequest
      * @return CreateAIAnalysisTemplateResponse
      * @throws TencentCloudSDKException
      */
     public CreateAIAnalysisTemplateResponse CreateAIAnalysisTemplate(CreateAIAnalysisTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAIAnalysisTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAIAnalysisTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAIAnalysisTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAIAnalysisTemplate", CreateAIAnalysisTemplateResponse.class);
     }
 
     /**
@@ -186,18 +126,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAIRecognitionTemplateResponse CreateAIRecognitionTemplate(CreateAIRecognitionTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAIRecognitionTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAIRecognitionTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAIRecognitionTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAIRecognitionTemplate", CreateAIRecognitionTemplateResponse.class);
     }
 
     /**
@@ -207,18 +137,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAdaptiveDynamicStreamingTemplateResponse CreateAdaptiveDynamicStreamingTemplate(CreateAdaptiveDynamicStreamingTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAdaptiveDynamicStreamingTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAdaptiveDynamicStreamingTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAdaptiveDynamicStreamingTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAdaptiveDynamicStreamingTemplate", CreateAdaptiveDynamicStreamingTemplateResponse.class);
     }
 
     /**
@@ -228,18 +148,30 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAnimatedGraphicsTemplateResponse CreateAnimatedGraphicsTemplate(CreateAnimatedGraphicsTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAnimatedGraphicsTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAnimatedGraphicsTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAnimatedGraphicsTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAnimatedGraphicsTemplate", CreateAnimatedGraphicsTemplateResponse.class);
+    }
+
+    /**
+     *由 VOD 创建新的日志集。
+     * @param req CreateCLSLogsetRequest
+     * @return CreateCLSLogsetResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCLSLogsetResponse CreateCLSLogset(CreateCLSLogsetRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateCLSLogset", CreateCLSLogsetResponse.class);
+    }
+
+    /**
+     *创建 VOD 下新的 CLS 日志主题
+     * @param req CreateCLSTopicRequest
+     * @return CreateCLSTopicResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCLSTopicResponse CreateCLSTopic(CreateCLSTopicRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateCLSTopic", CreateCLSTopicResponse.class);
     }
 
     /**
@@ -252,18 +184,30 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateClassResponse CreateClass(CreateClassRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateClassResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateClassResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateClass");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateClass", CreateClassResponse.class);
+    }
+
+    /**
+     *发起复杂自适应码流处理任务，功能包括：
+1. 按指定的自适应码流模板输出 HLS、DASH 自适应码流；
+2. 自适应码流的内容保护方案可选择无加密、Widevine 或 FairPlay；
+3. 支持添加片头片尾；
+4. 输出的自适应码流可包含多语言音频流，每种语言分别来自不同的媒体文件；
+5. 输出的自适应码流可包含多语言字幕流。
+
+注意事项：
+1. 当使用片头时，片头媒体中的视频流需要和音频流对齐，否则将导致输出的内容音画不同步；
+2. 如果输出的自适应码流需要包含主媒体的音频，那么需要在 AudioSet 参数中指定主媒体的 FileId；
+3. 使用字幕时，需要先将字幕添加到主媒体，可通过 ModifyMediaInfo 接口或控制台的音视频详情页进行添加；
+4. 暂不支持极速高清、水印。
+     * @param req CreateComplexAdaptiveDynamicStreamingTaskRequest
+     * @return CreateComplexAdaptiveDynamicStreamingTaskResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateComplexAdaptiveDynamicStreamingTaskResponse CreateComplexAdaptiveDynamicStreamingTask(CreateComplexAdaptiveDynamicStreamingTaskRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateComplexAdaptiveDynamicStreamingTask", CreateComplexAdaptiveDynamicStreamingTaskResponse.class);
     }
 
     /**
@@ -274,60 +218,43 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateContentReviewTemplateResponse CreateContentReviewTemplate(CreateContentReviewTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateContentReviewTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateContentReviewTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateContentReviewTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateContentReviewTemplate", CreateContentReviewTemplateResponse.class);
     }
 
     /**
-     *创建音画质重生模板。
+     *该接口用于生成一条子域名解析，提示客户添加到域名解析上，用于泛域名及域名取回校验归属权。
+     * @param req CreateDomainVerifyRecordRequest
+     * @return CreateDomainVerifyRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateDomainVerifyRecordResponse CreateDomainVerifyRecord(CreateDomainVerifyRecordRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateDomainVerifyRecord", CreateDomainVerifyRecordResponse.class);
+    }
+
+    /**
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+创建音画质重生模板。
      * @param req CreateEnhanceMediaTemplateRequest
      * @return CreateEnhanceMediaTemplateResponse
      * @throws TencentCloudSDKException
      */
     public CreateEnhanceMediaTemplateResponse CreateEnhanceMediaTemplate(CreateEnhanceMediaTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateEnhanceMediaTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateEnhanceMediaTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateEnhanceMediaTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateEnhanceMediaTemplate", CreateEnhanceMediaTemplateResponse.class);
     }
 
     /**
      *创建片头片尾模板。
+- 最大支持模板数量为 100 个。
      * @param req CreateHeadTailTemplateRequest
      * @return CreateHeadTailTemplateResponse
      * @throws TencentCloudSDKException
      */
     public CreateHeadTailTemplateResponse CreateHeadTailTemplate(CreateHeadTailTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateHeadTailTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateHeadTailTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateHeadTailTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateHeadTailTemplate", CreateHeadTailTemplateResponse.class);
     }
 
     /**
@@ -337,18 +264,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateImageProcessingTemplateResponse CreateImageProcessingTemplate(CreateImageProcessingTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateImageProcessingTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateImageProcessingTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateImageProcessingTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateImageProcessingTemplate", CreateImageProcessingTemplateResponse.class);
     }
 
     /**
@@ -358,18 +275,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateImageSpriteTemplateResponse CreateImageSpriteTemplate(CreateImageSpriteTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateImageSpriteTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateImageSpriteTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateImageSpriteTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateImageSpriteTemplate", CreateImageSpriteTemplateResponse.class);
+    }
+
+    /**
+     *创建即时转码模板。
+     * @param req CreateJustInTimeTranscodeTemplateRequest
+     * @return CreateJustInTimeTranscodeTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateJustInTimeTranscodeTemplateResponse CreateJustInTimeTranscodeTemplate(CreateJustInTimeTranscodeTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateJustInTimeTranscodeTemplate", CreateJustInTimeTranscodeTemplateResponse.class);
     }
 
     /**
@@ -379,18 +297,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePersonSampleResponse CreatePersonSample(CreatePersonSampleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePersonSampleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePersonSampleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePersonSample");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePersonSample", CreatePersonSampleResponse.class);
     }
 
     /**
@@ -400,18 +308,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateProcedureTemplateResponse CreateProcedureTemplate(CreateProcedureTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateProcedureTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateProcedureTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateProcedureTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateProcedureTemplate", CreateProcedureTemplateResponse.class);
     }
 
     /**
@@ -421,39 +319,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateQualityInspectTemplateResponse CreateQualityInspectTemplate(CreateQualityInspectTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateQualityInspectTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateQualityInspectTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateQualityInspectTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateQualityInspectTemplate", CreateQualityInspectTemplateResponse.class);
     }
 
     /**
-     *创建视频重生模板。
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+创建视频重生模板。
      * @param req CreateRebuildMediaTemplateRequest
      * @return CreateRebuildMediaTemplateResponse
      * @throws TencentCloudSDKException
      */
     public CreateRebuildMediaTemplateResponse CreateRebuildMediaTemplate(CreateRebuildMediaTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateRebuildMediaTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateRebuildMediaTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateRebuildMediaTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateRebuildMediaTemplate", CreateRebuildMediaTemplateResponse.class);
     }
 
     /**
@@ -464,18 +343,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateReviewTemplateResponse CreateReviewTemplate(CreateReviewTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateReviewTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateReviewTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateReviewTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateReviewTemplate", CreateReviewTemplateResponse.class);
     }
 
     /**
@@ -487,18 +356,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateRoundPlayResponse CreateRoundPlay(CreateRoundPlayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateRoundPlayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateRoundPlayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateRoundPlay");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateRoundPlay", CreateRoundPlayResponse.class);
     }
 
     /**
@@ -508,18 +367,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSampleSnapshotTemplateResponse CreateSampleSnapshotTemplate(CreateSampleSnapshotTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSampleSnapshotTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSampleSnapshotTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSampleSnapshotTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSampleSnapshotTemplate", CreateSampleSnapshotTemplateResponse.class);
     }
 
     /**
@@ -529,18 +378,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSnapshotByTimeOffsetTemplateResponse CreateSnapshotByTimeOffsetTemplate(CreateSnapshotByTimeOffsetTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSnapshotByTimeOffsetTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSnapshotByTimeOffsetTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSnapshotByTimeOffsetTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSnapshotByTimeOffsetTemplate", CreateSnapshotByTimeOffsetTemplateResponse.class);
     }
 
     /**
@@ -552,39 +391,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateStorageRegionResponse CreateStorageRegion(CreateStorageRegionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateStorageRegionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateStorageRegionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateStorageRegion");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateStorageRegion", CreateStorageRegionResponse.class);
     }
 
     /**
-     *该接口用于创建点播子应用。
+     *该接口用于创建点播应用。
      * @param req CreateSubAppIdRequest
      * @return CreateSubAppIdResponse
      * @throws TencentCloudSDKException
      */
     public CreateSubAppIdResponse CreateSubAppId(CreateSubAppIdRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSubAppIdResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSubAppIdResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSubAppId");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSubAppId", CreateSubAppIdResponse.class);
     }
 
     /**
@@ -595,18 +414,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSuperPlayerConfigResponse CreateSuperPlayerConfig(CreateSuperPlayerConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSuperPlayerConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSuperPlayerConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSuperPlayerConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSuperPlayerConfig", CreateSuperPlayerConfigResponse.class);
     }
 
     /**
@@ -616,18 +425,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateTranscodeTemplateResponse CreateTranscodeTemplate(CreateTranscodeTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateTranscodeTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateTranscodeTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateTranscodeTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateTranscodeTemplate", CreateTranscodeTemplateResponse.class);
     }
 
     /**
@@ -638,18 +437,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVodDomainResponse CreateVodDomain(CreateVodDomainRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVodDomainResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVodDomainResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVodDomain");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVodDomain", CreateVodDomainResponse.class);
     }
 
     /**
@@ -659,18 +448,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateWatermarkTemplateResponse CreateWatermarkTemplate(CreateWatermarkTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateWatermarkTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateWatermarkTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateWatermarkTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateWatermarkTemplate", CreateWatermarkTemplateResponse.class);
     }
 
     /**
@@ -680,18 +459,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateWordSamplesResponse CreateWordSamples(CreateWordSamplesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateWordSamplesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateWordSamplesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateWordSamples");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateWordSamples", CreateWordSamplesResponse.class);
     }
 
     /**
@@ -703,18 +472,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAIAnalysisTemplateResponse DeleteAIAnalysisTemplate(DeleteAIAnalysisTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAIAnalysisTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAIAnalysisTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAIAnalysisTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAIAnalysisTemplate", DeleteAIAnalysisTemplateResponse.class);
     }
 
     /**
@@ -724,18 +483,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAIRecognitionTemplateResponse DeleteAIRecognitionTemplate(DeleteAIRecognitionTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAIRecognitionTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAIRecognitionTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAIRecognitionTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAIRecognitionTemplate", DeleteAIRecognitionTemplateResponse.class);
     }
 
     /**
@@ -745,18 +494,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAdaptiveDynamicStreamingTemplateResponse DeleteAdaptiveDynamicStreamingTemplate(DeleteAdaptiveDynamicStreamingTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAdaptiveDynamicStreamingTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAdaptiveDynamicStreamingTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAdaptiveDynamicStreamingTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAdaptiveDynamicStreamingTemplate", DeleteAdaptiveDynamicStreamingTemplateResponse.class);
     }
 
     /**
@@ -766,18 +505,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAnimatedGraphicsTemplateResponse DeleteAnimatedGraphicsTemplate(DeleteAnimatedGraphicsTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAnimatedGraphicsTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAnimatedGraphicsTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAnimatedGraphicsTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAnimatedGraphicsTemplate", DeleteAnimatedGraphicsTemplateResponse.class);
+    }
+
+    /**
+     *删除点播开通的日志主题。
+     * @param req DeleteCLSTopicRequest
+     * @return DeleteCLSTopicResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCLSTopicResponse DeleteCLSTopic(DeleteCLSTopicRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteCLSTopic", DeleteCLSTopicResponse.class);
     }
 
     /**
@@ -788,18 +528,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteClassResponse DeleteClass(DeleteClassRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteClassResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteClassResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteClass");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteClass", DeleteClassResponse.class);
     }
 
     /**
@@ -810,39 +540,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteContentReviewTemplateResponse DeleteContentReviewTemplate(DeleteContentReviewTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteContentReviewTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteContentReviewTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteContentReviewTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteContentReviewTemplate", DeleteContentReviewTemplateResponse.class);
     }
 
     /**
-     *删除音画质重生模板。
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+删除音画质重生模板。
      * @param req DeleteEnhanceMediaTemplateRequest
      * @return DeleteEnhanceMediaTemplateResponse
      * @throws TencentCloudSDKException
      */
     public DeleteEnhanceMediaTemplateResponse DeleteEnhanceMediaTemplate(DeleteEnhanceMediaTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteEnhanceMediaTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteEnhanceMediaTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteEnhanceMediaTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteEnhanceMediaTemplate", DeleteEnhanceMediaTemplateResponse.class);
     }
 
     /**
@@ -852,18 +563,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteHeadTailTemplateResponse DeleteHeadTailTemplate(DeleteHeadTailTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteHeadTailTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteHeadTailTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteHeadTailTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteHeadTailTemplate", DeleteHeadTailTemplateResponse.class);
     }
 
     /**
@@ -873,18 +574,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteImageProcessingTemplateResponse DeleteImageProcessingTemplate(DeleteImageProcessingTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteImageProcessingTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteImageProcessingTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteImageProcessingTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteImageProcessingTemplate", DeleteImageProcessingTemplateResponse.class);
     }
 
     /**
@@ -894,18 +585,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteImageSpriteTemplateResponse DeleteImageSpriteTemplate(DeleteImageSpriteTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteImageSpriteTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteImageSpriteTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteImageSpriteTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteImageSpriteTemplate", DeleteImageSpriteTemplateResponse.class);
+    }
+
+    /**
+     *删除即时转码模板。
+     * @param req DeleteJustInTimeTranscodeTemplateRequest
+     * @return DeleteJustInTimeTranscodeTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteJustInTimeTranscodeTemplateResponse DeleteJustInTimeTranscodeTemplate(DeleteJustInTimeTranscodeTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteJustInTimeTranscodeTemplate", DeleteJustInTimeTranscodeTemplateResponse.class);
     }
 
     /**
@@ -917,18 +609,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteMediaResponse DeleteMedia(DeleteMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteMedia", DeleteMediaResponse.class);
     }
 
     /**
@@ -938,39 +620,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePersonSampleResponse DeletePersonSample(DeletePersonSampleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePersonSampleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePersonSampleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePersonSample");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePersonSample", DeletePersonSampleResponse.class);
     }
 
     /**
-     *删除用户自定义的任务流模板。  
+     *删除用户自定义的任务流模板。
      * @param req DeleteProcedureTemplateRequest
      * @return DeleteProcedureTemplateResponse
      * @throws TencentCloudSDKException
      */
     public DeleteProcedureTemplateResponse DeleteProcedureTemplate(DeleteProcedureTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteProcedureTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteProcedureTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteProcedureTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteProcedureTemplate", DeleteProcedureTemplateResponse.class);
     }
 
     /**
@@ -980,39 +642,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteQualityInspectTemplateResponse DeleteQualityInspectTemplate(DeleteQualityInspectTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteQualityInspectTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteQualityInspectTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteQualityInspectTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteQualityInspectTemplate", DeleteQualityInspectTemplateResponse.class);
     }
 
     /**
-     *删除视频重生模板。
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+删除视频重生模板。
      * @param req DeleteRebuildMediaTemplateRequest
      * @return DeleteRebuildMediaTemplateResponse
      * @throws TencentCloudSDKException
      */
     public DeleteRebuildMediaTemplateResponse DeleteRebuildMediaTemplate(DeleteRebuildMediaTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteRebuildMediaTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteRebuildMediaTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteRebuildMediaTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteRebuildMediaTemplate", DeleteRebuildMediaTemplateResponse.class);
     }
 
     /**
@@ -1023,18 +666,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteReviewTemplateResponse DeleteReviewTemplate(DeleteReviewTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteReviewTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteReviewTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteReviewTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteReviewTemplate", DeleteReviewTemplateResponse.class);
     }
 
     /**
@@ -1044,18 +677,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteRoundPlayResponse DeleteRoundPlay(DeleteRoundPlayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteRoundPlayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteRoundPlayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteRoundPlay");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteRoundPlay", DeleteRoundPlayResponse.class);
     }
 
     /**
@@ -1065,18 +688,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSampleSnapshotTemplateResponse DeleteSampleSnapshotTemplate(DeleteSampleSnapshotTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSampleSnapshotTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSampleSnapshotTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSampleSnapshotTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSampleSnapshotTemplate", DeleteSampleSnapshotTemplateResponse.class);
     }
 
     /**
@@ -1086,18 +699,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSnapshotByTimeOffsetTemplateResponse DeleteSnapshotByTimeOffsetTemplate(DeleteSnapshotByTimeOffsetTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSnapshotByTimeOffsetTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSnapshotByTimeOffsetTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSnapshotByTimeOffsetTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSnapshotByTimeOffsetTemplate", DeleteSnapshotByTimeOffsetTemplateResponse.class);
     }
 
     /**
@@ -1109,18 +712,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSuperPlayerConfigResponse DeleteSuperPlayerConfig(DeleteSuperPlayerConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSuperPlayerConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSuperPlayerConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSuperPlayerConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSuperPlayerConfig", DeleteSuperPlayerConfigResponse.class);
     }
 
     /**
@@ -1130,18 +723,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteTranscodeTemplateResponse DeleteTranscodeTemplate(DeleteTranscodeTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteTranscodeTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteTranscodeTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteTranscodeTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteTranscodeTemplate", DeleteTranscodeTemplateResponse.class);
     }
 
     /**
@@ -1152,18 +735,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVodDomainResponse DeleteVodDomain(DeleteVodDomainRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVodDomainResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVodDomainResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVodDomain");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVodDomain", DeleteVodDomainResponse.class);
     }
 
     /**
@@ -1173,18 +746,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteWatermarkTemplateResponse DeleteWatermarkTemplate(DeleteWatermarkTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteWatermarkTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteWatermarkTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteWatermarkTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteWatermarkTemplate", DeleteWatermarkTemplateResponse.class);
     }
 
     /**
@@ -1194,18 +757,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteWordSamplesResponse DeleteWordSamples(DeleteWordSamplesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteWordSamplesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteWordSamplesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteWordSamples");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteWordSamples", DeleteWordSamplesResponse.class);
     }
 
     /**
@@ -1215,18 +768,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAIAnalysisTemplatesResponse DescribeAIAnalysisTemplates(DescribeAIAnalysisTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAIAnalysisTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAIAnalysisTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAIAnalysisTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAIAnalysisTemplates", DescribeAIAnalysisTemplatesResponse.class);
     }
 
     /**
@@ -1236,18 +779,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAIRecognitionTemplatesResponse DescribeAIRecognitionTemplates(DescribeAIRecognitionTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAIRecognitionTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAIRecognitionTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAIRecognitionTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAIRecognitionTemplates", DescribeAIRecognitionTemplatesResponse.class);
     }
 
     /**
@@ -1257,18 +790,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAdaptiveDynamicStreamingTemplatesResponse DescribeAdaptiveDynamicStreamingTemplates(DescribeAdaptiveDynamicStreamingTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAdaptiveDynamicStreamingTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAdaptiveDynamicStreamingTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAdaptiveDynamicStreamingTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAdaptiveDynamicStreamingTemplates", DescribeAdaptiveDynamicStreamingTemplatesResponse.class);
     }
 
     /**
@@ -1278,18 +801,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAllClassResponse DescribeAllClass(DescribeAllClassRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAllClassResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAllClassResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAllClass");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAllClass", DescribeAllClassResponse.class);
     }
 
     /**
@@ -1299,18 +812,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAnimatedGraphicsTemplatesResponse DescribeAnimatedGraphicsTemplates(DescribeAnimatedGraphicsTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAnimatedGraphicsTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAnimatedGraphicsTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAnimatedGraphicsTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAnimatedGraphicsTemplates", DescribeAnimatedGraphicsTemplatesResponse.class);
     }
 
     /**
@@ -1318,52 +821,67 @@ public class VodClient extends AbstractClient{
 * 查询的起始时间和结束时间跨度不超过90天。
 * 可以查询不同服务区域的数据。
 * 中国境内的数据支持查询指定地区、运营商的统计数据。
+* 播放统计仅针对 VOD 域名（即 EdgeOne 域名的分发不计入播放统计）。
      * @param req DescribeCDNStatDetailsRequest
      * @return DescribeCDNStatDetailsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeCDNStatDetailsResponse DescribeCDNStatDetails(DescribeCDNStatDetailsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCDNStatDetailsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCDNStatDetailsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCDNStatDetails");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCDNStatDetails", DescribeCDNStatDetailsResponse.class);
     }
 
     /**
      *该接口用于查询点播 CDN 的流量、带宽等统计数据。
    1. 可以查询最近365天内的 CDN 用量数据。
-   2.  查询时间跨度不超过90天。
+   2. 查询时间跨度不超过90天。
    3. 可以指定用量数据的时间粒度，支持5分钟、1小时、1天的时间粒度。
-   4.  流量为查询时间粒度内的总流量，带宽为查询时间粒度内的峰值带宽。
+   4. 流量为查询时间粒度内的总流量，带宽为查询时间粒度内的峰值带宽。
+   5. 播放统计仅针对 VOD 域名（即 EdgeOne 域名的分发不计入播放统计）。
      * @param req DescribeCDNUsageDataRequest
      * @return DescribeCDNUsageDataResponse
      * @throws TencentCloudSDKException
      */
     public DescribeCDNUsageDataResponse DescribeCDNUsageData(DescribeCDNUsageDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCDNUsageDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCDNUsageDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCDNUsageData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCDNUsageData", DescribeCDNUsageDataResponse.class);
     }
 
     /**
-     *查询点播域名的 CDN 访问日志的下载链接。
+     *查询 VOD 创建的 CLS 日志集。
+     * @param req DescribeCLSLogsetsRequest
+     * @return DescribeCLSLogsetsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCLSLogsetsResponse DescribeCLSLogsets(DescribeCLSLogsetsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCLSLogsets", DescribeCLSLogsetsResponse.class);
+    }
+
+    /**
+     *查询点播域名下日志投递的目标主题。
+     * @param req DescribeCLSPushTargetsRequest
+     * @return DescribeCLSPushTargetsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCLSPushTargetsResponse DescribeCLSPushTargets(DescribeCLSPushTargetsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCLSPushTargets", DescribeCLSPushTargetsResponse.class);
+    }
+
+    /**
+     *查询 VOD 创建的 CLS 日志主题列表。
+     * @param req DescribeCLSTopicsRequest
+     * @return DescribeCLSTopicsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCLSTopicsResponse DescribeCLSTopics(DescribeCLSTopicsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCLSTopics", DescribeCLSTopicsResponse.class);
+    }
+
+    /**
+     *查询点播域名的 CDN （不含 EdgeOne 回源到 VOD 域名）访问日志的下载链接。
     1. 可以查询最近30天内的 CDN 日志下载链接。
     2. 默认情况下 CDN 每小时生成一个日志文件，如果某一个小时没有 CDN 访问，不会生成日志文件。    
     3. CDN 日志下载链接的有效期为24小时。
@@ -1372,18 +890,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCdnLogsResponse DescribeCdnLogs(DescribeCdnLogsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCdnLogsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCdnLogsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCdnLogs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCdnLogs", DescribeCdnLogsResponse.class);
     }
 
     /**
@@ -1391,24 +899,13 @@ public class VodClient extends AbstractClient{
    1. 可以查询最近365天内的客户端上传加速统计数据。
    2. 查询时间跨度不超过90天。
    3. 查询时间跨度超过1天的，返回以天为粒度的数据，否则，返回以5分钟为粒度的数据。
-
      * @param req DescribeClientUploadAccelerationUsageDataRequest
      * @return DescribeClientUploadAccelerationUsageDataResponse
      * @throws TencentCloudSDKException
      */
     public DescribeClientUploadAccelerationUsageDataResponse DescribeClientUploadAccelerationUsageData(DescribeClientUploadAccelerationUsageDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeClientUploadAccelerationUsageDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeClientUploadAccelerationUsageDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeClientUploadAccelerationUsageData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeClientUploadAccelerationUsageData", DescribeClientUploadAccelerationUsageDataResponse.class);
     }
 
     /**
@@ -1419,41 +916,33 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeContentReviewTemplatesResponse DescribeContentReviewTemplates(DescribeContentReviewTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeContentReviewTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeContentReviewTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeContentReviewTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeContentReviewTemplates", DescribeContentReviewTemplatesResponse.class);
+    }
+
+    /**
+     *查询轮播当前播放列表。
+     * @param req DescribeCurrentPlaylistRequest
+     * @return DescribeCurrentPlaylistResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCurrentPlaylistResponse DescribeCurrentPlaylist(DescribeCurrentPlaylistRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCurrentPlaylist", DescribeCurrentPlaylistResponse.class);
     }
 
     /**
      *该接口用于查询指定日期范围内每天的播放统计数据。
 * 可以查询最近一年的播放统计数据。
 * 结束日期和起始日期的时间跨度最大为90天。
+* 播放统计仅针对 VOD 域名（即 EdgeOne 域名的分发不计入播放统计）。
      * @param req DescribeDailyMediaPlayStatRequest
      * @return DescribeDailyMediaPlayStatResponse
      * @throws TencentCloudSDKException
      */
     public DescribeDailyMediaPlayStatResponse DescribeDailyMediaPlayStat(DescribeDailyMediaPlayStatRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDailyMediaPlayStatResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDailyMediaPlayStatResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDailyMediaPlayStat");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDailyMediaPlayStat", DescribeDailyMediaPlayStatResponse.class);
     }
 
     /**
@@ -1463,23 +952,14 @@ public class VodClient extends AbstractClient{
 * 播放次数统计说明：
     1. HLS 文件：访问 M3U8 文件时统计播放次数；访问 TS 文件不统计播放次数。
     2. 其它文件（如 MP4 文件）：播放请求带有 range 参数且 range 的 start 参数不等于0时不统计播放次数，其它情况统计播放次数。
+* 播放统计仅针对 VOD 域名（即 EdgeOne 域名的分发不计入播放统计）。
      * @param req DescribeDailyMostPlayedStatRequest
      * @return DescribeDailyMostPlayedStatResponse
      * @throws TencentCloudSDKException
      */
     public DescribeDailyMostPlayedStatResponse DescribeDailyMostPlayedStat(DescribeDailyMostPlayedStatRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDailyMostPlayedStatResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDailyMostPlayedStatResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDailyMostPlayedStat");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDailyMostPlayedStat", DescribeDailyMostPlayedStatResponse.class);
     }
 
     /**
@@ -1491,23 +971,27 @@ public class VodClient extends AbstractClient{
     1. HLS 文件：访问M3U8 文件时统计播放次数；访问TS 文件不统计播放次数。
     2. 其它文件（如 MP4 文件）：播放请求带有 range 参数且 range 的 start 参数不等于0时不统计播放次数，其它情况统计播放次数。
 * 播放设备的统计：播放请求带了 UserAgent 参数，并且 UserAgent 包含 Android 或者 iPhone 等标识，会统计为移动端播放次数，否则统计为 PC 端播放次数。
+* 播放统计仅针对 VOD 域名（即 EdgeOne 域名的分发不计入播放统计）。
      * @param req DescribeDailyPlayStatFileListRequest
      * @return DescribeDailyPlayStatFileListResponse
      * @throws TencentCloudSDKException
      */
     public DescribeDailyPlayStatFileListResponse DescribeDailyPlayStatFileList(DescribeDailyPlayStatFileListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDailyPlayStatFileListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDailyPlayStatFileListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDailyPlayStatFileList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDailyPlayStatFileList", DescribeDailyPlayStatFileListResponse.class);
+    }
+
+    /**
+     *该接口用于查询默认分发配置。
+* 分发域名和分发协议，即媒体文件分发 URL 中的域名和协议。媒体文件按默认分发配置进行分发。
+* 播放密钥，用于计算播放器签名。
+     * @param req DescribeDefaultDistributionConfigRequest
+     * @return DescribeDefaultDistributionConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeDefaultDistributionConfigResponse DescribeDefaultDistributionConfig(DescribeDefaultDistributionConfigRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeDefaultDistributionConfig", DescribeDefaultDistributionConfigResponse.class);
     }
 
     /**
@@ -1519,18 +1003,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDrmDataKeyResponse DescribeDrmDataKey(DescribeDrmDataKeyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDrmDataKeyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDrmDataKeyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDrmDataKey");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDrmDataKey", DescribeDrmDataKeyResponse.class);
     }
 
     /**
@@ -1540,39 +1014,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDrmKeyProviderInfoResponse DescribeDrmKeyProviderInfo(DescribeDrmKeyProviderInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDrmKeyProviderInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDrmKeyProviderInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDrmKeyProviderInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDrmKeyProviderInfo", DescribeDrmKeyProviderInfoResponse.class);
     }
 
     /**
-     *获取音画质重生模板列表。
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+获取音画质重生模板列表。
      * @param req DescribeEnhanceMediaTemplatesRequest
      * @return DescribeEnhanceMediaTemplatesResponse
      * @throws TencentCloudSDKException
      */
     public DescribeEnhanceMediaTemplatesResponse DescribeEnhanceMediaTemplates(DescribeEnhanceMediaTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeEnhanceMediaTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeEnhanceMediaTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeEnhanceMediaTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeEnhanceMediaTemplates", DescribeEnhanceMediaTemplatesResponse.class);
     }
 
     /**
@@ -1586,63 +1041,32 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeEventConfigResponse DescribeEventConfig(DescribeEventConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeEventConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeEventConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeEventConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeEventConfig", DescribeEventConfigResponse.class);
     }
 
     /**
      ** 该接口用于业务服务器获取 [可靠回调](https://cloud.tencent.com/document/product/266/33779#.E5.8F.AF.E9.9D.A0.E5.9B.9E.E8.B0.83) 事件通知的状态。
-
      * @param req DescribeEventsStateRequest
      * @return DescribeEventsStateResponse
      * @throws TencentCloudSDKException
      */
     public DescribeEventsStateResponse DescribeEventsState(DescribeEventsStateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeEventsStateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeEventsStateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeEventsState");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeEventsState", DescribeEventsStateResponse.class);
     }
 
     /**
      *用于异步获取文件属性。
-- 当前仅支持获取源文件的 Md5。
+- 当前仅支持获取源文件的 Md5、Sha1。
 - 对输入文件为 HLS 或 DASH 的情况，仅获取索引文件的属性。
      * @param req DescribeFileAttributesRequest
      * @return DescribeFileAttributesResponse
      * @throws TencentCloudSDKException
      */
     public DescribeFileAttributesResponse DescribeFileAttributes(DescribeFileAttributesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeFileAttributesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeFileAttributesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeFileAttributes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeFileAttributes", DescribeFileAttributesResponse.class);
     }
 
     /**
@@ -1652,18 +1076,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeHeadTailTemplatesResponse DescribeHeadTailTemplates(DescribeHeadTailTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeHeadTailTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeHeadTailTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeHeadTailTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeHeadTailTemplates", DescribeHeadTailTemplatesResponse.class);
     }
 
     /**
@@ -1673,18 +1087,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeImageProcessingTemplatesResponse DescribeImageProcessingTemplates(DescribeImageProcessingTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeImageProcessingTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeImageProcessingTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeImageProcessingTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeImageProcessingTemplates", DescribeImageProcessingTemplatesResponse.class);
     }
 
     /**
@@ -1692,24 +1096,13 @@ public class VodClient extends AbstractClient{
    1. 可以查询最近365天内的图片审核统计数据。
    2. 查询时间跨度不超过90天。
    3. 查询时间跨度超过1天的，返回以天为粒度的数据，否则，返回以5分钟为粒度的数据。
-
      * @param req DescribeImageReviewUsageDataRequest
      * @return DescribeImageReviewUsageDataResponse
      * @throws TencentCloudSDKException
      */
     public DescribeImageReviewUsageDataResponse DescribeImageReviewUsageData(DescribeImageReviewUsageDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeImageReviewUsageDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeImageReviewUsageDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeImageReviewUsageData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeImageReviewUsageData", DescribeImageReviewUsageDataResponse.class);
     }
 
     /**
@@ -1719,18 +1112,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeImageSpriteTemplatesResponse DescribeImageSpriteTemplates(DescribeImageSpriteTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeImageSpriteTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeImageSpriteTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeImageSpriteTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeImageSpriteTemplates", DescribeImageSpriteTemplatesResponse.class);
+    }
+
+    /**
+     *获取即时转码模板列表。
+     * @param req DescribeJustInTimeTranscodeTemplatesRequest
+     * @return DescribeJustInTimeTranscodeTemplatesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeJustInTimeTranscodeTemplatesResponse DescribeJustInTimeTranscodeTemplates(DescribeJustInTimeTranscodeTemplatesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeJustInTimeTranscodeTemplates", DescribeJustInTimeTranscodeTemplatesResponse.class);
     }
 
     /**
@@ -1738,24 +1132,13 @@ public class VodClient extends AbstractClient{
    1. 可以查询最近365天内的 License 请求次数统计数据。
    2. 查询时间跨度不超过90天。
    3. 查询时间跨度超过1天的，返回以天为粒度的数据，否则，返回以5分钟为粒度的数据。
-
      * @param req DescribeLicenseUsageDataRequest
      * @return DescribeLicenseUsageDataResponse
      * @throws TencentCloudSDKException
      */
     public DescribeLicenseUsageDataResponse DescribeLicenseUsageData(DescribeLicenseUsageDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeLicenseUsageDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeLicenseUsageDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeLicenseUsageData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeLicenseUsageData", DescribeLicenseUsageDataResponse.class);
     }
 
     /**
@@ -1776,18 +1159,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeMediaInfosResponse DescribeMediaInfos(DescribeMediaInfosRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeMediaInfosResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeMediaInfosResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeMediaInfos");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeMediaInfos", DescribeMediaInfosResponse.class);
     }
 
     /**
@@ -1795,23 +1168,14 @@ public class VodClient extends AbstractClient{
 * 可以查询最近一年的播放统计数据。
 * 时间粒度为小时，结束时间和起始时间的跨度最大为7天。
 * 时间粒度为天，结束时间和起始时间的跨度最大为90天。
+* 播放统计仅针对 VOD 域名（即 EdgeOne 域名的分发不计入播放统计）。
      * @param req DescribeMediaPlayStatDetailsRequest
      * @return DescribeMediaPlayStatDetailsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeMediaPlayStatDetailsResponse DescribeMediaPlayStatDetails(DescribeMediaPlayStatDetailsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeMediaPlayStatDetailsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeMediaPlayStatDetailsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeMediaPlayStatDetails");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeMediaPlayStatDetails", DescribeMediaPlayStatDetailsResponse.class);
     }
 
     /**
@@ -1823,18 +1187,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeMediaProcessUsageDataResponse DescribeMediaProcessUsageData(DescribeMediaProcessUsageDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeMediaProcessUsageDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeMediaProcessUsageDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeMediaProcessUsageData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeMediaProcessUsageData", DescribeMediaProcessUsageDataResponse.class);
     }
 
     /**
@@ -1844,18 +1198,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePersonSamplesResponse DescribePersonSamples(DescribePersonSamplesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePersonSamplesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePersonSamplesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePersonSamples");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePersonSamples", DescribePersonSamplesResponse.class);
     }
 
     /**
@@ -1867,18 +1211,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrepaidProductsResponse DescribePrepaidProducts(DescribePrepaidProductsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrepaidProductsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrepaidProductsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrepaidProducts");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrepaidProducts", DescribePrepaidProductsResponse.class);
     }
 
     /**
@@ -1888,18 +1222,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeProcedureTemplatesResponse DescribeProcedureTemplates(DescribeProcedureTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProcedureTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProcedureTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProcedureTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProcedureTemplates", DescribeProcedureTemplatesResponse.class);
     }
 
     /**
@@ -1909,39 +1233,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeQualityInspectTemplatesResponse DescribeQualityInspectTemplates(DescribeQualityInspectTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeQualityInspectTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeQualityInspectTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeQualityInspectTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeQualityInspectTemplates", DescribeQualityInspectTemplatesResponse.class);
     }
 
     /**
-     *获取视频重生模板列表。
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+获取视频重生模板列表。
      * @param req DescribeRebuildMediaTemplatesRequest
      * @return DescribeRebuildMediaTemplatesResponse
      * @throws TencentCloudSDKException
      */
     public DescribeRebuildMediaTemplatesResponse DescribeRebuildMediaTemplates(DescribeRebuildMediaTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRebuildMediaTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRebuildMediaTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRebuildMediaTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRebuildMediaTemplates", DescribeRebuildMediaTemplatesResponse.class);
     }
 
     /**
@@ -1956,18 +1261,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeReviewDetailsResponse DescribeReviewDetails(DescribeReviewDetailsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeReviewDetailsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeReviewDetailsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeReviewDetails");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeReviewDetails", DescribeReviewDetailsResponse.class);
     }
 
     /**
@@ -1978,18 +1273,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeReviewTemplatesResponse DescribeReviewTemplates(DescribeReviewTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeReviewTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeReviewTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeReviewTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeReviewTemplates", DescribeReviewTemplatesResponse.class);
     }
 
     /**
@@ -1999,18 +1284,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRoundPlaysResponse DescribeRoundPlays(DescribeRoundPlaysRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRoundPlaysResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRoundPlaysResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRoundPlays");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRoundPlays", DescribeRoundPlaysResponse.class);
     }
 
     /**
@@ -2020,18 +1295,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSampleSnapshotTemplatesResponse DescribeSampleSnapshotTemplates(DescribeSampleSnapshotTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSampleSnapshotTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSampleSnapshotTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSampleSnapshotTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSampleSnapshotTemplates", DescribeSampleSnapshotTemplatesResponse.class);
     }
 
     /**
@@ -2041,18 +1306,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSnapshotByTimeOffsetTemplatesResponse DescribeSnapshotByTimeOffsetTemplates(DescribeSnapshotByTimeOffsetTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSnapshotByTimeOffsetTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotByTimeOffsetTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSnapshotByTimeOffsetTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSnapshotByTimeOffsetTemplates", DescribeSnapshotByTimeOffsetTemplatesResponse.class);
     }
 
     /**
@@ -2062,18 +1317,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeStorageDataResponse DescribeStorageData(DescribeStorageDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeStorageDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeStorageDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeStorageData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeStorageData", DescribeStorageDataResponse.class);
     }
 
     /**
@@ -2086,18 +1331,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeStorageDetailsResponse DescribeStorageDetails(DescribeStorageDetailsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeStorageDetailsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeStorageDetailsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeStorageDetails");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeStorageDetails", DescribeStorageDetailsResponse.class);
     }
 
     /**
@@ -2110,39 +1345,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeStorageRegionsResponse DescribeStorageRegions(DescribeStorageRegionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeStorageRegionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeStorageRegionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeStorageRegions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeStorageRegions", DescribeStorageRegionsResponse.class);
     }
 
     /**
-     *该接口用于获取当前账号的子应用列表，包含主应用。
+     *该接口用于获取当前账号的应用列表。
      * @param req DescribeSubAppIdsRequest
      * @return DescribeSubAppIdsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeSubAppIdsResponse DescribeSubAppIds(DescribeSubAppIdsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSubAppIdsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSubAppIdsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSubAppIds");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSubAppIds", DescribeSubAppIdsResponse.class);
     }
 
     /**
@@ -2153,18 +1368,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSuperPlayerConfigsResponse DescribeSuperPlayerConfigs(DescribeSuperPlayerConfigsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSuperPlayerConfigsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSuperPlayerConfigsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSuperPlayerConfigs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSuperPlayerConfigs", DescribeSuperPlayerConfigsResponse.class);
     }
 
     /**
@@ -2174,18 +1379,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTaskDetailResponse DescribeTaskDetail(DescribeTaskDetailRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTaskDetailResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTaskDetailResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTaskDetail");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTaskDetail", DescribeTaskDetailResponse.class);
     }
 
     /**
@@ -2197,18 +1392,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTasksResponse DescribeTasks(DescribeTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTasks", DescribeTasksResponse.class);
     }
 
     /**
@@ -2218,18 +1403,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTranscodeTemplatesResponse DescribeTranscodeTemplates(DescribeTranscodeTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTranscodeTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTranscodeTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTranscodeTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTranscodeTemplates", DescribeTranscodeTemplatesResponse.class);
     }
 
     /**
@@ -2239,18 +1414,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeVodDomainsResponse DescribeVodDomains(DescribeVodDomainsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVodDomainsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVodDomainsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVodDomains");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVodDomains", DescribeVodDomainsResponse.class);
     }
 
     /**
@@ -2260,18 +1425,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeWatermarkTemplatesResponse DescribeWatermarkTemplates(DescribeWatermarkTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeWatermarkTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeWatermarkTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeWatermarkTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeWatermarkTemplates", DescribeWatermarkTemplatesResponse.class);
     }
 
     /**
@@ -2281,18 +1436,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeWordSamplesResponse DescribeWordSamples(DescribeWordSamplesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeWordSamplesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeWordSamplesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeWordSamples");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeWordSamples", DescribeWordSamplesResponse.class);
     }
 
     /**
@@ -2316,39 +1461,31 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public EditMediaResponse EditMedia(EditMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EditMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EditMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EditMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EditMedia", EditMediaResponse.class);
     }
 
     /**
-     *使用模板发起音画质重生。
+     *该 API 已经<font color=red>不再维护</font>，请使用新版接口 [音画质重生](https://cloud.tencent.com/document/api/266/102571)。
+使用模板发起音画质重生。
      * @param req EnhanceMediaByTemplateRequest
      * @return EnhanceMediaByTemplateResponse
      * @throws TencentCloudSDKException
      */
     public EnhanceMediaByTemplateResponse EnhanceMediaByTemplate(EnhanceMediaByTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnhanceMediaByTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnhanceMediaByTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnhanceMediaByTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnhanceMediaByTemplate", EnhanceMediaByTemplateResponse.class);
+    }
+
+    /**
+     *对点播中的音视频媒体发起音画质重生任务。
+     * @param req EnhanceMediaQualityRequest
+     * @return EnhanceMediaQualityResponse
+     * @throws TencentCloudSDKException
+     */
+    public EnhanceMediaQualityResponse EnhanceMediaQuality(EnhanceMediaQualityRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "EnhanceMediaQuality", EnhanceMediaQualityResponse.class);
     }
 
     /**
@@ -2358,82 +1495,69 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ExecuteFunctionResponse ExecuteFunction(ExecuteFunctionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ExecuteFunctionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ExecuteFunctionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ExecuteFunction");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ExecuteFunction", ExecuteFunctionResponse.class);
     }
 
     /**
-     *提取版权水印信息。
+     *如果有盗录溯源需求，请参考 [幽灵水印](https://cloud.tencent.com/document/product/266/94228)。
      * @param req ExtractCopyRightWatermarkRequest
      * @return ExtractCopyRightWatermarkResponse
      * @throws TencentCloudSDKException
      */
     public ExtractCopyRightWatermarkResponse ExtractCopyRightWatermark(ExtractCopyRightWatermarkRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ExtractCopyRightWatermarkResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ExtractCopyRightWatermarkResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ExtractCopyRightWatermark");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ExtractCopyRightWatermark", ExtractCopyRightWatermarkResponse.class);
     }
 
     /**
-     *用于提取溯源水印。
+     *如果有盗录溯源需求，推荐使用 [幽灵水印](https://cloud.tencent.com/document/product/266/94228)。
      * @param req ExtractTraceWatermarkRequest
      * @return ExtractTraceWatermarkResponse
      * @throws TencentCloudSDKException
      */
     public ExtractTraceWatermarkResponse ExtractTraceWatermark(ExtractTraceWatermarkRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ExtractTraceWatermarkResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ExtractTraceWatermarkResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ExtractTraceWatermark");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ExtractTraceWatermark", ExtractTraceWatermarkResponse.class);
+    }
+
+    /**
+     *对云点播的 HLS 视频实现快速拼接和快速剪辑，生成新的 HLS 格式的媒体。
+
+快速拼接或剪辑生成的视频，将产生新的 FileId 并进行固化，固化成功后新视频的文件独立于原始输入视频存在，不受原始视频删除等影响。
+
+<font color='red'>注意：</font>通过 ModifyEventConfig 接口启用接收剪辑固化事件通知，固化成功后将会收到一个 PersitenceComplete 类型的事件通知。在收到这个事件通知之前，不应该对原始输入的视频进行删除、降冷等操作，否则拼接剪辑生成的视频播放可能出现异常。
+     * @param req FastEditMediaRequest
+     * @return FastEditMediaResponse
+     * @throws TencentCloudSDKException
+     */
+    public FastEditMediaResponse FastEditMedia(FastEditMediaRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "FastEditMedia", FastEditMediaResponse.class);
     }
 
     /**
      ** 对媒体禁播后，除了点播控制台预览，其他场景访问视频各种资源的 URL（原始文件、转码输出文件、截图等）均会返回 403。
   禁播/解禁操作全网生效时间约 5~10 分钟。
+* 注意：禁播媒体仅能操作标准存储和低频存储的媒体。低频存储媒体，必须存储至少 30 天，提前删除或变更存储类型，仍旧按照 30 天计费；如果禁播低频存储媒体，该媒体低频存储的时长不足 30 天，会产生提前删除计费；同时，禁播后该媒体的低频存储时长会从当前时间重新开始计算，如果不满 30 天继续对该媒体进行删除或变更存储类型，也将产生提前删除计费。例：媒体 001 已经低频存储了 10 天，此时对 001 进行禁播，低频存储的计费仍旧按 30 天计算（提前删除计费时长为 30 - 10 = 20 天）；禁播后 001 的低频存储时长重新开始计算，如果禁播后第 5 天删除了 001，低频存储计费也会按 30 天计算（提前删除计费时长为 30 - 5 = 25 天）；001 实际的低频存储时长为 10 + 5 = 15 天，低频存储计费时长为 10 + 20(提前删除计费)+ 5 + 25(提前删除计费) = 60 天。
      * @param req ForbidMediaDistributionRequest
      * @return ForbidMediaDistributionResponse
      * @throws TencentCloudSDKException
      */
     public ForbidMediaDistributionResponse ForbidMediaDistribution(ForbidMediaDistributionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ForbidMediaDistributionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ForbidMediaDistributionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ForbidMediaDistribution");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ForbidMediaDistribution", ForbidMediaDistributionResponse.class);
+    }
+
+    /**
+     *操作轮播当前播放列表。支持的操作有：<li> Insert：向当前播列表插入播放节目。</li><li> Delete：删除播列表中的播放节目。</li>
+     * @param req HandleCurrentPlaylistRequest
+     * @return HandleCurrentPlaylistResponse
+     * @throws TencentCloudSDKException
+     */
+    public HandleCurrentPlaylistResponse HandleCurrentPlaylist(HandleCurrentPlaylistRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "HandleCurrentPlaylist", HandleCurrentPlaylistResponse.class);
     }
 
     /**
@@ -2443,18 +1567,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public InspectMediaQualityResponse InspectMediaQuality(InspectMediaQualityRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InspectMediaQualityResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InspectMediaQualityResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InspectMediaQuality");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InspectMediaQuality", InspectMediaQualityResponse.class);
     }
 
     /**
@@ -2476,30 +1590,21 @@ public class VodClient extends AbstractClient{
 
 剪辑固化的优势在于其生命周期与原始录制视频相互独立，可以独立管理、长久保存。
 
+<font color='red'>注意：</font>如果剪辑时指定进行固化，通过 ModifyEventConfig 接口启用接收剪辑固化事件通知，固化成功后将会收到一个 PersitenceComplete 类型的事件通知。在收到这个事件通知之前，不应该对直播录制视频进行删除、降冷等操作，否则剪辑生成的视频播放可能出现异常。
+
 ### 剪辑不固化
 所谓剪辑不固化，是指剪辑所得到的结果（m3u8 文件）与直播录制视频共享相同的 ts 分片，新生成的视频不是一个独立完整的视频（没有独立 FileId，只有播放 URL），其有效期与直播录制的完整视频有效期是一致的。一旦直播录制出来的视频被删除，也会导致该片段无法播放。
 
 剪辑不固化，由于其剪辑结果不是一个独立的视频，因而也不会纳入点播媒资视频管理（例如控制台的视频总数不会统计这一片段）中，也无法单独针对这个片段做转码、微信发布等任何视频处理操作。
 
 剪辑不固化的优势在于其剪辑操作十分“轻量化”，不会产生额外的存储开销。但其不足之处在于生命周期与原始录制视频相同，且无法进一步进行转码等视频处理。
-
      * @param req LiveRealTimeClipRequest
      * @return LiveRealTimeClipResponse
      * @throws TencentCloudSDKException
      */
     public LiveRealTimeClipResponse LiveRealTimeClip(LiveRealTimeClipRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<LiveRealTimeClipResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<LiveRealTimeClipResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "LiveRealTimeClip");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "LiveRealTimeClip", LiveRealTimeClipResponse.class);
     }
 
     /**
@@ -2509,18 +1614,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ManageTaskResponse ManageTask(ManageTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ManageTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ManageTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ManageTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ManageTask", ManageTaskResponse.class);
     }
 
     /**
@@ -2532,18 +1627,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAIAnalysisTemplateResponse ModifyAIAnalysisTemplate(ModifyAIAnalysisTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAIAnalysisTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAIAnalysisTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAIAnalysisTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAIAnalysisTemplate", ModifyAIAnalysisTemplateResponse.class);
     }
 
     /**
@@ -2553,18 +1638,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAIRecognitionTemplateResponse ModifyAIRecognitionTemplate(ModifyAIRecognitionTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAIRecognitionTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAIRecognitionTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAIRecognitionTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAIRecognitionTemplate", ModifyAIRecognitionTemplateResponse.class);
     }
 
     /**
@@ -2574,18 +1649,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAdaptiveDynamicStreamingTemplateResponse ModifyAdaptiveDynamicStreamingTemplate(ModifyAdaptiveDynamicStreamingTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAdaptiveDynamicStreamingTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAdaptiveDynamicStreamingTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAdaptiveDynamicStreamingTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAdaptiveDynamicStreamingTemplate", ModifyAdaptiveDynamicStreamingTemplateResponse.class);
     }
 
     /**
@@ -2595,18 +1660,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAnimatedGraphicsTemplateResponse ModifyAnimatedGraphicsTemplate(ModifyAnimatedGraphicsTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAnimatedGraphicsTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAnimatedGraphicsTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAnimatedGraphicsTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAnimatedGraphicsTemplate", ModifyAnimatedGraphicsTemplateResponse.class);
     }
 
     /**
@@ -2616,18 +1671,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyClassResponse ModifyClass(ModifyClassRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyClassResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyClassResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyClass");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyClass", ModifyClassResponse.class);
     }
 
     /**
@@ -2638,18 +1683,21 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyContentReviewTemplateResponse ModifyContentReviewTemplate(ModifyContentReviewTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyContentReviewTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyContentReviewTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyContentReviewTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyContentReviewTemplate", ModifyContentReviewTemplateResponse.class);
+    }
+
+    /**
+     *该接口用于修改默认分发配置。
+* 分发域名和分发协议，即媒体文件分发 URL 中的域名和协议。媒体文件按默认分发配置进行分发。
+* 播放密钥，用于计算播放器签名。
+     * @param req ModifyDefaultDistributionConfigRequest
+     * @return ModifyDefaultDistributionConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDefaultDistributionConfigResponse ModifyDefaultDistributionConfig(ModifyDefaultDistributionConfigRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyDefaultDistributionConfig", ModifyDefaultDistributionConfigResponse.class);
     }
 
     /**
@@ -2659,39 +1707,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyDefaultStorageRegionResponse ModifyDefaultStorageRegion(ModifyDefaultStorageRegionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDefaultStorageRegionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDefaultStorageRegionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDefaultStorageRegion");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDefaultStorageRegion", ModifyDefaultStorageRegionResponse.class);
     }
 
     /**
-     *修改音画质重生模板。
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+修改音画质重生模板。
      * @param req ModifyEnhanceMediaTemplateRequest
      * @return ModifyEnhanceMediaTemplateResponse
      * @throws TencentCloudSDKException
      */
     public ModifyEnhanceMediaTemplateResponse ModifyEnhanceMediaTemplate(ModifyEnhanceMediaTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyEnhanceMediaTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyEnhanceMediaTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyEnhanceMediaTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyEnhanceMediaTemplate", ModifyEnhanceMediaTemplateResponse.class);
     }
 
     /**
@@ -2706,18 +1735,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyEventConfigResponse ModifyEventConfig(ModifyEventConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyEventConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyEventConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyEventConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyEventConfig", ModifyEventConfigResponse.class);
     }
 
     /**
@@ -2727,18 +1746,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyHeadTailTemplateResponse ModifyHeadTailTemplate(ModifyHeadTailTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyHeadTailTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyHeadTailTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyHeadTailTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyHeadTailTemplate", ModifyHeadTailTemplateResponse.class);
     }
 
     /**
@@ -2748,18 +1757,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyImageSpriteTemplateResponse ModifyImageSpriteTemplate(ModifyImageSpriteTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyImageSpriteTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyImageSpriteTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyImageSpriteTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyImageSpriteTemplate", ModifyImageSpriteTemplateResponse.class);
+    }
+
+    /**
+     *修改即时转码模板。
+- 注意：即时转码模板创建后，不推荐修改，如需修改参数，推荐使用新增模板。
+     * @param req ModifyJustInTimeTranscodeTemplateRequest
+     * @return ModifyJustInTimeTranscodeTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyJustInTimeTranscodeTemplateResponse ModifyJustInTimeTranscodeTemplate(ModifyJustInTimeTranscodeTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyJustInTimeTranscodeTemplate", ModifyJustInTimeTranscodeTemplateResponse.class);
     }
 
     /**
@@ -2769,18 +1780,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyMediaInfoResponse ModifyMediaInfo(ModifyMediaInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyMediaInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyMediaInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyMediaInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyMediaInfo", ModifyMediaInfoResponse.class);
     }
 
     /**
@@ -2802,18 +1803,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyMediaStorageClassResponse ModifyMediaStorageClass(ModifyMediaStorageClassRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyMediaStorageClassResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyMediaStorageClassResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyMediaStorageClass");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyMediaStorageClass", ModifyMediaStorageClassResponse.class);
     }
 
     /**
@@ -2823,18 +1814,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPersonSampleResponse ModifyPersonSample(ModifyPersonSampleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPersonSampleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPersonSampleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPersonSample");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPersonSample", ModifyPersonSampleResponse.class);
     }
 
     /**
@@ -2844,39 +1825,20 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyQualityInspectTemplateResponse ModifyQualityInspectTemplate(ModifyQualityInspectTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyQualityInspectTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyQualityInspectTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyQualityInspectTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyQualityInspectTemplate", ModifyQualityInspectTemplateResponse.class);
     }
 
     /**
-     *修改视频重生模板。
+     *该 API 已经<font color=red>不再维护</font>，新版 [音画质重生](https://cloud.tencent.com/document/product/266/102571) 接口使用预置模板，详情请参见 [音画质重生模板](https://cloud.tencent.com/document/product/266/102586#50604b3f-0286-4a10-a3f7-18218116aff7)。
+修改视频重生模板。
      * @param req ModifyRebuildMediaTemplateRequest
      * @return ModifyRebuildMediaTemplateResponse
      * @throws TencentCloudSDKException
      */
     public ModifyRebuildMediaTemplateResponse ModifyRebuildMediaTemplate(ModifyRebuildMediaTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyRebuildMediaTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyRebuildMediaTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyRebuildMediaTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyRebuildMediaTemplate", ModifyRebuildMediaTemplateResponse.class);
     }
 
     /**
@@ -2887,18 +1849,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyReviewTemplateResponse ModifyReviewTemplate(ModifyReviewTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyReviewTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyReviewTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyReviewTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyReviewTemplate", ModifyReviewTemplateResponse.class);
     }
 
     /**
@@ -2909,18 +1861,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyRoundPlayResponse ModifyRoundPlay(ModifyRoundPlayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyRoundPlayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyRoundPlayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyRoundPlay");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyRoundPlay", ModifyRoundPlayResponse.class);
     }
 
     /**
@@ -2930,18 +1872,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifySampleSnapshotTemplateResponse ModifySampleSnapshotTemplate(ModifySampleSnapshotTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySampleSnapshotTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySampleSnapshotTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySampleSnapshotTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySampleSnapshotTemplate", ModifySampleSnapshotTemplateResponse.class);
     }
 
     /**
@@ -2951,60 +1883,30 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifySnapshotByTimeOffsetTemplateResponse ModifySnapshotByTimeOffsetTemplate(ModifySnapshotByTimeOffsetTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySnapshotByTimeOffsetTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySnapshotByTimeOffsetTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySnapshotByTimeOffsetTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySnapshotByTimeOffsetTemplate", ModifySnapshotByTimeOffsetTemplateResponse.class);
     }
 
     /**
-     *该接口用于修改子应用信息，但不允许修改主应用信息。
+     *该接口用于修改应用信息，但不允许修改默认应用信息。
      * @param req ModifySubAppIdInfoRequest
      * @return ModifySubAppIdInfoResponse
      * @throws TencentCloudSDKException
      */
     public ModifySubAppIdInfoResponse ModifySubAppIdInfo(ModifySubAppIdInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySubAppIdInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySubAppIdInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySubAppIdInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySubAppIdInfo", ModifySubAppIdInfoResponse.class);
     }
 
     /**
-     *该接口用于启用、停用子应用。被停用的子应用将封停对应域名，并限制控制台访问。
+     *该接口用于启用、停用应用。被停用的应用将封停对应域名，并限制控制台访问。
      * @param req ModifySubAppIdStatusRequest
      * @return ModifySubAppIdStatusResponse
      * @throws TencentCloudSDKException
      */
     public ModifySubAppIdStatusResponse ModifySubAppIdStatus(ModifySubAppIdStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySubAppIdStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySubAppIdStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySubAppIdStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySubAppIdStatus", ModifySubAppIdStatusResponse.class);
     }
 
     /**
@@ -3015,18 +1917,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifySuperPlayerConfigResponse ModifySuperPlayerConfig(ModifySuperPlayerConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySuperPlayerConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySuperPlayerConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySuperPlayerConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySuperPlayerConfig", ModifySuperPlayerConfigResponse.class);
     }
 
     /**
@@ -3036,18 +1928,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyTranscodeTemplateResponse ModifyTranscodeTemplate(ModifyTranscodeTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyTranscodeTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyTranscodeTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyTranscodeTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyTranscodeTemplate", ModifyTranscodeTemplateResponse.class);
     }
 
     /**
@@ -3058,18 +1940,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyVodDomainAccelerateConfigResponse ModifyVodDomainAccelerateConfig(ModifyVodDomainAccelerateConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVodDomainAccelerateConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVodDomainAccelerateConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVodDomainAccelerateConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVodDomainAccelerateConfig", ModifyVodDomainAccelerateConfigResponse.class);
     }
 
     /**
@@ -3080,18 +1952,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyVodDomainConfigResponse ModifyVodDomainConfig(ModifyVodDomainConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVodDomainConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVodDomainConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVodDomainConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVodDomainConfig", ModifyVodDomainConfigResponse.class);
     }
 
     /**
@@ -3101,18 +1963,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyWatermarkTemplateResponse ModifyWatermarkTemplate(ModifyWatermarkTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyWatermarkTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyWatermarkTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyWatermarkTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyWatermarkTemplate", ModifyWatermarkTemplateResponse.class);
     }
 
     /**
@@ -3122,18 +1974,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyWordSampleResponse ModifyWordSample(ModifyWordSampleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyWordSampleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyWordSampleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyWordSample");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyWordSample", ModifyWordSampleResponse.class);
     }
 
     /**
@@ -3143,18 +1985,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ParseStreamingManifestResponse ParseStreamingManifest(ParseStreamingManifestRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ParseStreamingManifestResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ParseStreamingManifestResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ParseStreamingManifest");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ParseStreamingManifest", ParseStreamingManifestResponse.class);
     }
 
     /**
@@ -3167,24 +1999,13 @@ public class VodClient extends AbstractClient{
 ><li>图片文件大小支持：文件 < 5M；</li>
 ><li>图片文件分辨率支持：建议分辨率大于256x256，否则可能会影响识别效果；</li>
 ><li>图片文件支持格式：PNG、JPG、JPEG、BMP、GIF、WEBP格式。</li>
-
      * @param req ProcessImageRequest
      * @return ProcessImageResponse
      * @throws TencentCloudSDKException
      */
     public ProcessImageResponse ProcessImage(ProcessImageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ProcessImageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ProcessImageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ProcessImage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ProcessImage", ProcessImageResponse.class);
     }
 
     /**
@@ -3197,7 +2018,7 @@ public class VodClient extends AbstractClient{
 6. 对视频截取一张图做封面；
 7. 对视频转自适应码流（并加密）；
 8. 内容审核（令人反感的信息、不安全的信息、不适宜的信息），<font color=red>不建议</font> 使用该接口发起，推荐使用 [音视频审核(ReviewAudioVideo)](https://cloud.tencent.com/document/api/266/80283) 或 [图片审核(ReviewImage)](https://cloud.tencent.com/document/api/266/73217)；
-9. 内容分析（标签、分类、封面、按帧标签）；
+9. 内容分析（标签、分类、封面、按帧标签），暂时不支持 HLS 格式；
 10. 内容识别（视频片头片尾、人脸、文本全文、文本关键词、语音全文、语音关键词、物体）。
 
 如使用事件通知，事件通知的类型为 [任务流状态变更](https://cloud.tencent.com/document/product/266/9636)。
@@ -3206,18 +2027,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ProcessMediaResponse ProcessMedia(ProcessMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ProcessMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ProcessMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ProcessMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ProcessMedia", ProcessMediaResponse.class);
     }
 
     /**
@@ -3232,18 +2043,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ProcessMediaByProcedureResponse ProcessMediaByProcedure(ProcessMediaByProcedureRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ProcessMediaByProcedureResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ProcessMediaByProcedureResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ProcessMediaByProcedure");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ProcessMediaByProcedure", ProcessMediaByProcedureResponse.class);
     }
 
     /**
@@ -3253,18 +2054,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ProcessMediaByUrlResponse ProcessMediaByUrl(ProcessMediaByUrlRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ProcessMediaByUrlResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ProcessMediaByUrlResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ProcessMediaByUrl");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ProcessMediaByUrl", ProcessMediaByUrlResponse.class);
     }
 
     /**
@@ -3279,18 +2070,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public PullEventsResponse PullEvents(PullEventsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<PullEventsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<PullEventsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "PullEvents");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "PullEvents", PullEventsResponse.class);
     }
 
     /**
@@ -3300,18 +2081,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public PullUploadResponse PullUpload(PullUploadRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<PullUploadResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<PullUploadResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "PullUpload");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "PullUpload", PullUploadResponse.class);
     }
 
     /**
@@ -3324,60 +2095,32 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public PushUrlCacheResponse PushUrlCache(PushUrlCacheRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<PushUrlCacheResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<PushUrlCacheResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "PushUrlCache");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "PushUrlCache", PushUrlCacheResponse.class);
     }
 
     /**
-     *发起视频重生
+     *该 API 已经<font color=red>不再维护</font>，请使用新版接口 [音画质重生](https://cloud.tencent.com/document/api/266/102571)。
+发起音画质重生
      * @param req RebuildMediaRequest
      * @return RebuildMediaResponse
      * @throws TencentCloudSDKException
      */
     public RebuildMediaResponse RebuildMedia(RebuildMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RebuildMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RebuildMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RebuildMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RebuildMedia", RebuildMediaResponse.class);
     }
 
     /**
-     *使用模板发起视频重生。
+     *该 API 已经<font color=red>不再维护</font>，请使用新版接口 [音画质重生](https://cloud.tencent.com/document/api/266/102571)。
+使用模板发起视频重生。
      * @param req RebuildMediaByTemplateRequest
      * @return RebuildMediaByTemplateResponse
      * @throws TencentCloudSDKException
      */
     public RebuildMediaByTemplateResponse RebuildMediaByTemplate(RebuildMediaByTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RebuildMediaByTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RebuildMediaByTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RebuildMediaByTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RebuildMediaByTemplate", RebuildMediaByTemplateResponse.class);
     }
 
     /**
@@ -3390,18 +2133,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RefreshUrlCacheResponse RefreshUrlCache(RefreshUrlCacheRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RefreshUrlCacheResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RefreshUrlCacheResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RefreshUrlCache");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RefreshUrlCache", RefreshUrlCacheResponse.class);
     }
 
     /**
@@ -3411,18 +2144,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RemoveWatermarkResponse RemoveWatermark(RemoveWatermarkRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RemoveWatermarkResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RemoveWatermarkResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RemoveWatermark");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RemoveWatermark", RemoveWatermarkResponse.class);
     }
 
     /**
@@ -3432,18 +2155,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ResetProcedureTemplateResponse ResetProcedureTemplate(ResetProcedureTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetProcedureTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetProcedureTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetProcedureTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetProcedureTemplate", ResetProcedureTemplateResponse.class);
     }
 
     /**
@@ -3453,18 +2166,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RestoreMediaResponse RestoreMedia(RestoreMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RestoreMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RestoreMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RestoreMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RestoreMedia", RestoreMediaResponse.class);
     }
 
     /**
@@ -3476,18 +2179,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ReviewAudioVideoResponse ReviewAudioVideo(ReviewAudioVideoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReviewAudioVideoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReviewAudioVideoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReviewAudioVideo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReviewAudioVideo", ReviewAudioVideoResponse.class);
     }
 
     /**
@@ -3501,18 +2194,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ReviewImageResponse ReviewImage(ReviewImageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReviewImageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReviewImageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReviewImage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReviewImage", ReviewImageResponse.class);
     }
 
     /**
@@ -3548,6 +2231,7 @@ public class VodClient extends AbstractClient{
 - 允许对结果根据创建时间进行排序并分页返回，通过 Offset 和 Limit （见输入参数）来控制分页。
 
 <div id="maxResultsDesc">接口返回结果数限制：</div>
+
 - <b><a href="#p_offset">Offset</a> 和 <a href="#p_limit">Limit</a> 两个参数影响单次分页查询结果数。特别注意：当这2个值都缺省时，本接口最多只返回10条查询结果。</b>
 - <b>最大支持返回5000条搜索结果，超出部分不再支持查询。如果搜索结果量太大，建议使用更精细的筛选条件来减少搜索结果。</b>
 
@@ -3562,18 +2246,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SearchMediaResponse SearchMedia(SearchMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SearchMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SearchMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SearchMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SearchMedia", SearchMediaResponse.class);
+    }
+
+    /**
+     *为点播域名设置投递 CLS 的目标。
+     * @param req SetCLSPushTargetRequest
+     * @return SetCLSPushTargetResponse
+     * @throws TencentCloudSDKException
+     */
+    public SetCLSPushTargetResponse SetCLSPushTarget(SetCLSPushTargetRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "SetCLSPushTarget", SetCLSPushTargetResponse.class);
     }
 
     /**
@@ -3583,18 +2268,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SetDrmKeyProviderInfoResponse SetDrmKeyProviderInfo(SetDrmKeyProviderInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SetDrmKeyProviderInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SetDrmKeyProviderInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SetDrmKeyProviderInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SetDrmKeyProviderInfo", SetDrmKeyProviderInfoResponse.class);
+    }
+
+    /**
+     *设置点播域名 HTTPS 证书。
+     * @param req SetVodDomainCertificateRequest
+     * @return SetVodDomainCertificateResponse
+     * @throws TencentCloudSDKException
+     */
+    public SetVodDomainCertificateResponse SetVodDomainCertificate(SetVodDomainCertificateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "SetVodDomainCertificate", SetVodDomainCertificateResponse.class);
     }
 
     /**
@@ -3604,9 +2290,9 @@ public class VodClient extends AbstractClient{
 - 剪辑固化：将剪辑出来的视频保存成独立的视频，拥有独立 FileId；适用于将精彩片段长久保存的场景；
 - 剪辑不固化：剪辑得到的视频附属于输入文件，没有独立 FileId；适用于将精彩片段临时分享的场景。
 
-注意：
-- 剪辑是基于输入 m3u8 文件进行的，故而其最小剪辑精度为一个 ts 切片，无法实现秒级或者更为精确的剪辑精度。
-
+裁剪精度支持粗略裁剪和精确裁剪：
+- 粗略剪辑：基于输入 m3u8 文件进行裁剪，其最小剪辑精度为一个 ts 切片，无法实现秒级或者更为精确的剪辑精度。
+- 精确剪辑：按照 StartTimeOffset 和 EndTimeOffset 参数进行精确裁剪。使用精确裁剪需要开通[即时转码](/document/product/266/102174)的功能。
 
 ### 剪辑固化
 所谓剪辑固化，是指将剪辑出来的视频保存成一个独立的视频（拥有独立的 FileId）。其生命周期不受原始输入视频影响（即使原始输入视频被删除，剪辑结果也不会受到任何影响）；也可以对其进行转码、微信发布等二次处理。
@@ -3614,6 +2300,8 @@ public class VodClient extends AbstractClient{
 举例如下：一场完整的足球比赛，原始视频可能长达 2 个小时，客户出于节省成本的目的可以对这个视频存储 2 个月，但对于剪辑的「精彩时刻」视频却可以指定存储更长时间，同时可以单独对「精彩时刻」视频进行转码、微信发布等额外的点播操作，这时候可以选择剪辑并且固化的方案。
 
 剪辑固化的优势在于其生命周期与原始输入视频相互独立，可以独立管理、长久保存。
+
+<font color='red'>注意：</font>如果剪辑时指定进行固化，通过 ModifyEventConfig 接口启用接收剪辑固化事件通知，固化成功后将会收到一个 PersitenceComplete 类型的事件通知。在收到这个事件通知之前，不应该对原始输入的视频进行删除、降冷等操作，否则剪辑生成的视频播放可能出现异常。
 
 ### 剪辑不固化
 所谓剪辑不固化，是指剪辑所得到的结果（m3u8 文件）与原始输入视频共享相同的 ts 分片，新生成的视频不是一个独立完整的视频（没有独立 FileId，只有播放 URL），其有效期与原始输入的完整视频有效期是一致的。一旦原始输入的视频被删除，也会导致该片段无法播放。
@@ -3626,18 +2314,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SimpleHlsClipResponse SimpleHlsClip(SimpleHlsClipRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SimpleHlsClipResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SimpleHlsClipResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SimpleHlsClip");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SimpleHlsClip", SimpleHlsClipResponse.class);
     }
 
     /**
@@ -3647,18 +2325,19 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SplitMediaResponse SplitMedia(SplitMediaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SplitMediaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SplitMediaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SplitMedia");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SplitMedia", SplitMediaResponse.class);
+    }
+
+    /**
+     *该接口用于验证域名解析值。
+     * @param req VerifyDomainRecordRequest
+     * @return VerifyDomainRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public VerifyDomainRecordResponse VerifyDomainRecord(VerifyDomainRecordRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "VerifyDomainRecord", VerifyDomainRecordResponse.class);
     }
 
     /**
@@ -3669,18 +2348,8 @@ public class VodClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public WeChatMiniProgramPublishResponse WeChatMiniProgramPublish(WeChatMiniProgramPublishRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<WeChatMiniProgramPublishResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<WeChatMiniProgramPublishResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "WeChatMiniProgramPublish");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "WeChatMiniProgramPublish", WeChatMiniProgramPublishResponse.class);
     }
 
 }

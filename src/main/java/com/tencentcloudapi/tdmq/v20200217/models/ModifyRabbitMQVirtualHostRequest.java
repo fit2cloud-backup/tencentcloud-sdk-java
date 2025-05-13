@@ -16,28 +16,29 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyRabbitMQVirtualHostRequest extends AbstractModel{
+public class ModifyRabbitMQVirtualHostRequest extends AbstractModel {
 
     /**
-    * 集群实例Id
+    * 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * vhost名
+    * VirtualHost 名称，形如 testvhost。有效的 VirtualHost 名称可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询，在左侧导航栏点击 Vhost，并在 Vhost 列表中找到Vhost名称。
     */
     @SerializedName("VirtualHost")
     @Expose
     private String VirtualHost;
 
     /**
-    * 描述
+    * Virtual Host 描述
     */
     @SerializedName("Description")
     @Expose
@@ -51,48 +52,48 @@ public class ModifyRabbitMQVirtualHostRequest extends AbstractModel{
     private Boolean TraceFlag;
 
     /**
-     * Get 集群实例Id 
-     * @return InstanceId 集群实例Id
+     * Get 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。 
+     * @return InstanceId 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 集群实例Id
-     * @param InstanceId 集群实例Id
+     * Set 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
+     * @param InstanceId 实例 ID，形如amqp-xxxxxxxx。有效的 InstanceId 可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get vhost名 
-     * @return VirtualHost vhost名
+     * Get VirtualHost 名称，形如 testvhost。有效的 VirtualHost 名称可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询，在左侧导航栏点击 Vhost，并在 Vhost 列表中找到Vhost名称。 
+     * @return VirtualHost VirtualHost 名称，形如 testvhost。有效的 VirtualHost 名称可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询，在左侧导航栏点击 Vhost，并在 Vhost 列表中找到Vhost名称。
      */
     public String getVirtualHost() {
         return this.VirtualHost;
     }
 
     /**
-     * Set vhost名
-     * @param VirtualHost vhost名
+     * Set VirtualHost 名称，形如 testvhost。有效的 VirtualHost 名称可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询，在左侧导航栏点击 Vhost，并在 Vhost 列表中找到Vhost名称。
+     * @param VirtualHost VirtualHost 名称，形如 testvhost。有效的 VirtualHost 名称可通过登录 [TDMQ RabbitMQ 控制台](https://console.cloud.tencent.com/trabbitmq/cluster?rid=1)查询，在左侧导航栏点击 Vhost，并在 Vhost 列表中找到Vhost名称。
      */
     public void setVirtualHost(String VirtualHost) {
         this.VirtualHost = VirtualHost;
     }
 
     /**
-     * Get 描述 
-     * @return Description 描述
+     * Get Virtual Host 描述 
+     * @return Description Virtual Host 描述
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 描述
-     * @param Description 描述
+     * Set Virtual Host 描述
+     * @param Description Virtual Host 描述
      */
     public void setDescription(String Description) {
         this.Description = Description;

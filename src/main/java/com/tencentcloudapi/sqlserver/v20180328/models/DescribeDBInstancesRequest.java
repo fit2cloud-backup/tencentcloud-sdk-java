@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBInstancesRequest extends AbstractModel{
+public class DescribeDBInstancesRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -140,11 +141,18 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     private String [] UidSet;
 
     /**
-    * 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务
+    * 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
     */
     @SerializedName("InstanceType")
     @Expose
     private String InstanceType;
+
+    /**
+    * 分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
+    */
+    @SerializedName("PaginationType")
+    @Expose
+    private String PaginationType;
 
     /**
      * Get 项目ID 
@@ -435,19 +443,35 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务 
-     * @return InstanceType 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务
+     * Get 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点 
+     * @return InstanceType 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
      */
     public String getInstanceType() {
         return this.InstanceType;
     }
 
     /**
-     * Set 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务
-     * @param InstanceType 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务
+     * Set 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
+     * @param InstanceType 实例类型 HA-高可用 RO-只读实例 SI-基础版 BI-商业智能服务,cvmHA-云盘双机高可用，cvmRO-云盘只读副本,MultiHA-多节点,cvmMultiHA-云盘多节点
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
+    }
+
+    /**
+     * Get 分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber 
+     * @return PaginationType 分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
+     */
+    public String getPaginationType() {
+        return this.PaginationType;
+    }
+
+    /**
+     * Set 分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
+     * @param PaginationType 分页查询方式 offset-按照偏移量分页查询，pageNumber-按照页数分页查询，默认取值pageNumber
+     */
+    public void setPaginationType(String PaginationType) {
+        this.PaginationType = PaginationType;
     }
 
     public DescribeDBInstancesRequest() {
@@ -524,6 +548,9 @@ public class DescribeDBInstancesRequest extends AbstractModel{
         if (source.InstanceType != null) {
             this.InstanceType = new String(source.InstanceType);
         }
+        if (source.PaginationType != null) {
+            this.PaginationType = new String(source.PaginationType);
+        }
     }
 
 
@@ -547,6 +574,7 @@ public class DescribeDBInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SearchKey", this.SearchKey);
         this.setParamArraySimple(map, prefix + "UidSet.", this.UidSet);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "PaginationType", this.PaginationType);
 
     }
 }

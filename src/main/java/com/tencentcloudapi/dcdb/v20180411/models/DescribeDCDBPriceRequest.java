@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDCDBPriceRequest extends AbstractModel{
+public class DescribeDCDBPriceRequest extends AbstractModel {
 
     /**
     * 欲新购实例的可用区ID。
@@ -89,6 +90,13 @@ public class DescribeDCDBPriceRequest extends AbstractModel{
     @SerializedName("AmountUnit")
     @Expose
     private String AmountUnit;
+
+    /**
+    * Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+    */
+    @SerializedName("CpuType")
+    @Expose
+    private String CpuType;
 
     /**
      * Get 欲新购实例的可用区ID。 
@@ -254,6 +262,22 @@ public class DescribeDCDBPriceRequest extends AbstractModel{
         this.AmountUnit = AmountUnit;
     }
 
+    /**
+     * Get Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD 
+     * @return CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public String getCpuType() {
+        return this.CpuType;
+    }
+
+    /**
+     * Set Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     * @param CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public void setCpuType(String CpuType) {
+        this.CpuType = CpuType;
+    }
+
     public DescribeDCDBPriceRequest() {
     }
 
@@ -289,6 +313,9 @@ public class DescribeDCDBPriceRequest extends AbstractModel{
         if (source.AmountUnit != null) {
             this.AmountUnit = new String(source.AmountUnit);
         }
+        if (source.CpuType != null) {
+            this.CpuType = new String(source.CpuType);
+        }
     }
 
 
@@ -305,6 +332,7 @@ public class DescribeDCDBPriceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ShardCount", this.ShardCount);
         this.setParamSimple(map, prefix + "Paymode", this.Paymode);
         this.setParamSimple(map, prefix + "AmountUnit", this.AmountUnit);
+        this.setParamSimple(map, prefix + "CpuType", this.CpuType);
 
     }
 }

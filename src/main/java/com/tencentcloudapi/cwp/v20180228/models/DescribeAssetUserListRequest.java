@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetUserListRequest extends AbstractModel{
+public class DescribeAssetUserListRequest extends AbstractModel {
 
     /**
     * 查询指定Quuid主机的信息
@@ -31,7 +32,9 @@ public class DescribeAssetUserListRequest extends AbstractModel{
 
     /**
     * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 账户名（模糊匹配）</li>
 <li>NameStrict - String - 是否必填：否 - 账户名（严格匹配）</li>
 <li>Uid - uint64 - 是否必填：否 - Uid</li>
@@ -42,8 +45,8 @@ public class DescribeAssetUserListRequest extends AbstractModel{
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>Status - uint64 - 是否必填：否 - 账号状态：0-禁用；1-启用</li>
 <li>UserType - uint64 - 是否必填：否 - 账号类型：0访客用户，1标准用户，2管理员用户 仅windows</li>
-<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows
-<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux
+<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows</li>
+<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux</li>
 <li>IsSudo - uint64 - 是否必填：否 - 是否Sudo权限：0 不是，1是 仅linux</li>
 <li>IsSshLogin - uint64 - 是否必填：否 - 是否ssh登录：0 不是，1是 仅linux</li>
 <li>ShellLoginStatus - uint64 - 是否必填：否 - 是否shell登录性，0不是；1是 仅linux</li>
@@ -76,8 +79,8 @@ public class DescribeAssetUserListRequest extends AbstractModel{
     private String Order;
 
     /**
-    * 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime]
-PasswordLockDays
+    * 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime|PasswordLockDays]
+
     */
     @SerializedName("By")
     @Expose
@@ -101,7 +104,9 @@ PasswordLockDays
 
     /**
      * Get 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 账户名（模糊匹配）</li>
 <li>NameStrict - String - 是否必填：否 - 账户名（严格匹配）</li>
 <li>Uid - uint64 - 是否必填：否 - Uid</li>
@@ -112,15 +117,17 @@ PasswordLockDays
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>Status - uint64 - 是否必填：否 - 账号状态：0-禁用；1-启用</li>
 <li>UserType - uint64 - 是否必填：否 - 账号类型：0访客用户，1标准用户，2管理员用户 仅windows</li>
-<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows
-<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux
+<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows</li>
+<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux</li>
 <li>IsSudo - uint64 - 是否必填：否 - 是否Sudo权限：0 不是，1是 仅linux</li>
 <li>IsSshLogin - uint64 - 是否必填：否 - 是否ssh登录：0 不是，1是 仅linux</li>
 <li>ShellLoginStatus - uint64 - 是否必填：否 - 是否shell登录性，0不是；1是 仅linux</li>
 <li>PasswordStatus - uint64 - 是否必填：否 - 密码状态：1正常 2即将过期 3已过期 4已锁定 仅linux</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li> 
      * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 账户名（模糊匹配）</li>
 <li>NameStrict - String - 是否必填：否 - 账户名（严格匹配）</li>
 <li>Uid - uint64 - 是否必填：否 - Uid</li>
@@ -131,8 +138,8 @@ PasswordLockDays
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>Status - uint64 - 是否必填：否 - 账号状态：0-禁用；1-启用</li>
 <li>UserType - uint64 - 是否必填：否 - 账号类型：0访客用户，1标准用户，2管理员用户 仅windows</li>
-<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows
-<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux
+<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows</li>
+<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux</li>
 <li>IsSudo - uint64 - 是否必填：否 - 是否Sudo权限：0 不是，1是 仅linux</li>
 <li>IsSshLogin - uint64 - 是否必填：否 - 是否ssh登录：0 不是，1是 仅linux</li>
 <li>ShellLoginStatus - uint64 - 是否必填：否 - 是否shell登录性，0不是；1是 仅linux</li>
@@ -145,7 +152,9 @@ PasswordLockDays
 
     /**
      * Set 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 账户名（模糊匹配）</li>
 <li>NameStrict - String - 是否必填：否 - 账户名（严格匹配）</li>
 <li>Uid - uint64 - 是否必填：否 - Uid</li>
@@ -156,15 +165,17 @@ PasswordLockDays
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>Status - uint64 - 是否必填：否 - 账号状态：0-禁用；1-启用</li>
 <li>UserType - uint64 - 是否必填：否 - 账号类型：0访客用户，1标准用户，2管理员用户 仅windows</li>
-<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows
-<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux
+<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows</li>
+<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux</li>
 <li>IsSudo - uint64 - 是否必填：否 - 是否Sudo权限：0 不是，1是 仅linux</li>
 <li>IsSshLogin - uint64 - 是否必填：否 - 是否ssh登录：0 不是，1是 仅linux</li>
 <li>ShellLoginStatus - uint64 - 是否必填：否 - 是否shell登录性，0不是；1是 仅linux</li>
 <li>PasswordStatus - uint64 - 是否必填：否 - 密码状态：1正常 2即将过期 3已过期 4已锁定 仅linux</li>
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name - String - 是否必填：否 - 账户名（模糊匹配）</li>
 <li>NameStrict - String - 是否必填：否 - 账户名（严格匹配）</li>
 <li>Uid - uint64 - 是否必填：否 - Uid</li>
@@ -175,8 +186,8 @@ PasswordLockDays
 <li>OsType - String - 是否必填：否 - windows或linux</li>
 <li>Status - uint64 - 是否必填：否 - 账号状态：0-禁用；1-启用</li>
 <li>UserType - uint64 - 是否必填：否 - 账号类型：0访客用户，1标准用户，2管理员用户 仅windows</li>
-<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows
-<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux
+<li>IsDomain - uint64 - 是否必填：否 - 是否域账号：0 不是，1是 仅windows</li>
+<li>IsRoot - uint64 - 是否必填：否 - 是否Root权限：0 不是，1是 仅linux</li>
 <li>IsSudo - uint64 - 是否必填：否 - 是否Sudo权限：0 不是，1是 仅linux</li>
 <li>IsSshLogin - uint64 - 是否必填：否 - 是否ssh登录：0 不是，1是 仅linux</li>
 <li>ShellLoginStatus - uint64 - 是否必填：否 - 是否shell登录性，0不是；1是 仅linux</li>
@@ -236,20 +247,20 @@ PasswordLockDays
     }
 
     /**
-     * Get 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime]
-PasswordLockDays 
-     * @return By 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime]
-PasswordLockDays
+     * Get 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime|PasswordLockDays]
+ 
+     * @return By 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime|PasswordLockDays]
+
      */
     public String getBy() {
         return this.By;
     }
 
     /**
-     * Set 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime]
-PasswordLockDays
-     * @param By 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime]
-PasswordLockDays
+     * Set 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime|PasswordLockDays]
+
+     * @param By 可选排序：[FirstTime|LoginTime|PasswordChangeTime|PasswordDuaTime|PasswordLockDays]
+
      */
     public void setBy(String By) {
         this.By = By;

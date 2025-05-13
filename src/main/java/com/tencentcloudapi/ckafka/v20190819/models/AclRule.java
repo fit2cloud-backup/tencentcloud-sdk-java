@@ -16,31 +16,29 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AclRule extends AbstractModel{
+public class AclRule extends AbstractModel {
 
     /**
-    * Acl规则名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * ACL规则名
     */
     @SerializedName("RuleName")
     @Expose
     private String RuleName;
 
     /**
-    * 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
-注意：此字段可能返回 null，表示取不到有效值。
+    * ACL规则匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
     */
     @SerializedName("PatternType")
     @Expose
@@ -48,7 +46,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 表示前缀匹配的前缀的值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Pattern")
     @Expose
@@ -56,7 +53,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * Acl资源类型,目前只支持Topic,枚举值列表：Topic
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceType")
     @Expose
@@ -64,7 +60,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 该规则所包含的ACL信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AclList")
     @Expose
@@ -72,7 +67,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 规则所创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTimeStamp")
     @Expose
@@ -80,7 +74,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 预设ACL规则是否应用到新增的topic中
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsApplied")
     @Expose
@@ -88,7 +81,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 规则更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTimeStamp")
     @Expose
@@ -96,7 +88,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 规则的备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Comment")
     @Expose
@@ -104,7 +95,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 其中一个显示的对应的TopicName
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicName")
     @Expose
@@ -112,7 +102,6 @@ public class AclRule extends AbstractModel{
 
     /**
     * 应用该ACL规则的Topic数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicCount")
     @Expose
@@ -120,77 +109,62 @@ public class AclRule extends AbstractModel{
 
     /**
     * patternType的中文显示
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PatternTypeTitle")
     @Expose
     private String PatternTypeTitle;
 
     /**
-     * Get Acl规则名称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RuleName Acl规则名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get ACL规则名 
+     * @return RuleName ACL规则名
      */
     public String getRuleName() {
         return this.RuleName;
     }
 
     /**
-     * Set Acl规则名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RuleName Acl规则名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set ACL规则名
+     * @param RuleName ACL规则名
      */
     public void setRuleName(String RuleName) {
         this.RuleName = RuleName;
     }
 
     /**
-     * Get 实例ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceId 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceId 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PatternType 匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get ACL规则匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED 
+     * @return PatternType ACL规则匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
      */
     public String getPatternType() {
         return this.PatternType;
     }
 
     /**
-     * Set 匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PatternType 匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set ACL规则匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
+     * @param PatternType ACL规则匹配类型，目前只支持前缀匹配，枚举值列表：PREFIXED
      */
     public void setPatternType(String PatternType) {
         this.PatternType = PatternType;
     }
 
     /**
-     * Get 表示前缀匹配的前缀的值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表示前缀匹配的前缀的值 
      * @return Pattern 表示前缀匹配的前缀的值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPattern() {
         return this.Pattern;
@@ -198,19 +172,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 表示前缀匹配的前缀的值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Pattern 表示前缀匹配的前缀的值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPattern(String Pattern) {
         this.Pattern = Pattern;
     }
 
     /**
-     * Get Acl资源类型,目前只支持Topic,枚举值列表：Topic
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Acl资源类型,目前只支持Topic,枚举值列表：Topic 
      * @return ResourceType Acl资源类型,目前只支持Topic,枚举值列表：Topic
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceType() {
         return this.ResourceType;
@@ -218,19 +188,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set Acl资源类型,目前只支持Topic,枚举值列表：Topic
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceType Acl资源类型,目前只支持Topic,枚举值列表：Topic
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
     }
 
     /**
-     * Get 该规则所包含的ACL信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该规则所包含的ACL信息 
      * @return AclList 该规则所包含的ACL信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAclList() {
         return this.AclList;
@@ -238,19 +204,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 该规则所包含的ACL信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AclList 该规则所包含的ACL信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAclList(String AclList) {
         this.AclList = AclList;
     }
 
     /**
-     * Get 规则所创建的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则所创建的时间 
      * @return CreateTimeStamp 规则所创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTimeStamp() {
         return this.CreateTimeStamp;
@@ -258,19 +220,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 规则所创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTimeStamp 规则所创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTimeStamp(String CreateTimeStamp) {
         this.CreateTimeStamp = CreateTimeStamp;
     }
 
     /**
-     * Get 预设ACL规则是否应用到新增的topic中
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预设ACL规则是否应用到新增的topic中 
      * @return IsApplied 预设ACL规则是否应用到新增的topic中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsApplied() {
         return this.IsApplied;
@@ -278,19 +236,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 预设ACL规则是否应用到新增的topic中
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsApplied 预设ACL规则是否应用到新增的topic中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsApplied(Long IsApplied) {
         this.IsApplied = IsApplied;
     }
 
     /**
-     * Get 规则更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则更新时间 
      * @return UpdateTimeStamp 规则更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTimeStamp() {
         return this.UpdateTimeStamp;
@@ -298,19 +252,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 规则更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTimeStamp 规则更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTimeStamp(String UpdateTimeStamp) {
         this.UpdateTimeStamp = UpdateTimeStamp;
     }
 
     /**
-     * Get 规则的备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则的备注 
      * @return Comment 规则的备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getComment() {
         return this.Comment;
@@ -318,19 +268,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 规则的备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Comment 规则的备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setComment(String Comment) {
         this.Comment = Comment;
     }
 
     /**
-     * Get 其中一个显示的对应的TopicName
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 其中一个显示的对应的TopicName 
      * @return TopicName 其中一个显示的对应的TopicName
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicName() {
         return this.TopicName;
@@ -338,19 +284,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 其中一个显示的对应的TopicName
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicName 其中一个显示的对应的TopicName
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
     }
 
     /**
-     * Get 应用该ACL规则的Topic数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用该ACL规则的Topic数 
      * @return TopicCount 应用该ACL规则的Topic数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTopicCount() {
         return this.TopicCount;
@@ -358,19 +300,15 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set 应用该ACL规则的Topic数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicCount 应用该ACL规则的Topic数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicCount(Long TopicCount) {
         this.TopicCount = TopicCount;
     }
 
     /**
-     * Get patternType的中文显示
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get patternType的中文显示 
      * @return PatternTypeTitle patternType的中文显示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPatternTypeTitle() {
         return this.PatternTypeTitle;
@@ -378,9 +316,7 @@ public class AclRule extends AbstractModel{
 
     /**
      * Set patternType的中文显示
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PatternTypeTitle patternType的中文显示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPatternTypeTitle(String PatternTypeTitle) {
         this.PatternTypeTitle = PatternTypeTitle;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cmq.v20190304.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TransactionPolicy extends AbstractModel{
+public class TransactionPolicy extends AbstractModel {
 
     /**
     * 最大查询次数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxQueryCount")
     @Expose
@@ -32,17 +32,14 @@ public class TransactionPolicy extends AbstractModel{
 
     /**
     * 第一次回查时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FirstQueryInterval")
     @Expose
     private Long FirstQueryInterval;
 
     /**
-     * Get 最大查询次数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大查询次数。 
      * @return MaxQueryCount 最大查询次数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxQueryCount() {
         return this.MaxQueryCount;
@@ -50,19 +47,15 @@ public class TransactionPolicy extends AbstractModel{
 
     /**
      * Set 最大查询次数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxQueryCount 最大查询次数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxQueryCount(Long MaxQueryCount) {
         this.MaxQueryCount = MaxQueryCount;
     }
 
     /**
-     * Get 第一次回查时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 第一次回查时间。 
      * @return FirstQueryInterval 第一次回查时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFirstQueryInterval() {
         return this.FirstQueryInterval;
@@ -70,9 +63,7 @@ public class TransactionPolicy extends AbstractModel{
 
     /**
      * Set 第一次回查时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FirstQueryInterval 第一次回查时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFirstQueryInterval(Long FirstQueryInterval) {
         this.FirstQueryInterval = FirstQueryInterval;

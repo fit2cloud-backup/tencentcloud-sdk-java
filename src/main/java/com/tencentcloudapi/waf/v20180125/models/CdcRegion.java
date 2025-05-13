@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CdcRegion extends AbstractModel{
+public class CdcRegion extends AbstractModel {
 
     /**
     * 地域
@@ -31,7 +32,6 @@ public class CdcRegion extends AbstractModel{
 
     /**
     * 该地域对应的集群信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Clusters")
     @Expose
@@ -54,10 +54,8 @@ public class CdcRegion extends AbstractModel{
     }
 
     /**
-     * Get 该地域对应的集群信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该地域对应的集群信息 
      * @return Clusters 该地域对应的集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CdcCluster [] getClusters() {
         return this.Clusters;
@@ -65,9 +63,7 @@ public class CdcRegion extends AbstractModel{
 
     /**
      * Set 该地域对应的集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Clusters 该地域对应的集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusters(CdcCluster [] Clusters) {
         this.Clusters = Clusters;

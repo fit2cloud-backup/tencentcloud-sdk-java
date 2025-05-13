@@ -45,18 +45,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public BindPrometheusManagedGrafanaResponse BindPrometheusManagedGrafana(BindPrometheusManagedGrafanaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<BindPrometheusManagedGrafanaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<BindPrometheusManagedGrafanaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "BindPrometheusManagedGrafana");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "BindPrometheusManagedGrafana", BindPrometheusManagedGrafanaResponse.class);
     }
 
     /**
@@ -66,18 +56,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public BindingPolicyObjectResponse BindingPolicyObject(BindingPolicyObjectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<BindingPolicyObjectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<BindingPolicyObjectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "BindingPolicyObject");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "BindingPolicyObject", BindingPolicyObjectResponse.class);
     }
 
     /**
@@ -87,39 +67,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public BindingPolicyTagResponse BindingPolicyTag(BindingPolicyTagRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<BindingPolicyTagResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<BindingPolicyTagResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "BindingPolicyTag");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *判断用户是否为云原生监控新用户，即在任何地域下均未创建过监控实例的用户
-     * @param req CheckIsPrometheusNewUserRequest
-     * @return CheckIsPrometheusNewUserResponse
-     * @throws TencentCloudSDKException
-     */
-    public CheckIsPrometheusNewUserResponse CheckIsPrometheusNewUser(CheckIsPrometheusNewUserRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CheckIsPrometheusNewUserResponse> rsp = null;
-        String rspStr = "";
-        req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CheckIsPrometheusNewUserResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CheckIsPrometheusNewUser");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "BindingPolicyTag", BindingPolicyTagResponse.class);
     }
 
     /**
@@ -129,18 +78,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CleanGrafanaInstanceResponse CleanGrafanaInstance(CleanGrafanaInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CleanGrafanaInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CleanGrafanaInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CleanGrafanaInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CleanGrafanaInstance", CleanGrafanaInstanceResponse.class);
     }
 
     /**
@@ -150,18 +89,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAlarmNoticeResponse CreateAlarmNotice(CreateAlarmNoticeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAlarmNoticeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAlarmNoticeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAlarmNotice");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAlarmNotice", CreateAlarmNoticeResponse.class);
     }
 
     /**
@@ -171,18 +100,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAlarmPolicyResponse CreateAlarmPolicy(CreateAlarmPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAlarmPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAlarmPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAlarmPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAlarmPolicy", CreateAlarmPolicyResponse.class);
+    }
+
+    /**
+     *创建告警屏蔽规则
+     * @param req CreateAlarmShieldRequest
+     * @return CreateAlarmShieldResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAlarmShieldResponse CreateAlarmShield(CreateAlarmShieldRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateAlarmShield", CreateAlarmShieldResponse.class);
     }
 
     /**
@@ -194,39 +124,30 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAlertRuleResponse CreateAlertRule(CreateAlertRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAlertRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAlertRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAlertRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAlertRule", CreateAlertRuleResponse.class);
     }
 
     /**
-     *创建 exporter 集成
+     *创建告警条件模板
+     * @param req CreateConditionsTemplateRequest
+     * @return CreateConditionsTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateConditionsTemplateResponse CreateConditionsTemplate(CreateConditionsTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateConditionsTemplate", CreateConditionsTemplateResponse.class);
+    }
+
+    /**
+     *创建集成中心 exporter 集成，因集成较多，建议控制台创建集成。(前提：已授权创建托管 EKS 集群，验证方式：1. 控制台界面确认，未提示授权则表示已授权创建；2. 通过 DescribePrometheusInstanceInitStatus 接口查询集群状态，如果托管集群不存在，可通过 RunPrometheusInstance 接口创建)
      * @param req CreateExporterIntegrationRequest
      * @return CreateExporterIntegrationResponse
      * @throws TencentCloudSDKException
      */
     public CreateExporterIntegrationResponse CreateExporterIntegration(CreateExporterIntegrationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateExporterIntegrationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateExporterIntegrationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateExporterIntegration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateExporterIntegration", CreateExporterIntegrationResponse.class);
     }
 
     /**
@@ -236,39 +157,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateGrafanaInstanceResponse CreateGrafanaInstance(CreateGrafanaInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateGrafanaInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateGrafanaInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateGrafanaInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateGrafanaInstance", CreateGrafanaInstanceResponse.class);
     }
 
     /**
-     *创建 Grafana 集成配置
+     *创建 Grafana 集成配置，其中 Prometheus 集成不通过该接口创建，可参考 BindPrometheusManagedGrafana 接口
      * @param req CreateGrafanaIntegrationRequest
      * @return CreateGrafanaIntegrationResponse
      * @throws TencentCloudSDKException
      */
     public CreateGrafanaIntegrationResponse CreateGrafanaIntegration(CreateGrafanaIntegrationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateGrafanaIntegrationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateGrafanaIntegrationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateGrafanaIntegration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateGrafanaIntegration", CreateGrafanaIntegrationResponse.class);
     }
 
     /**
@@ -278,18 +179,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateGrafanaNotificationChannelResponse CreateGrafanaNotificationChannel(CreateGrafanaNotificationChannelRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateGrafanaNotificationChannelResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateGrafanaNotificationChannelResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateGrafanaNotificationChannel");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateGrafanaNotificationChannel", CreateGrafanaNotificationChannelResponse.class);
     }
 
     /**
@@ -299,18 +190,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePolicyGroupResponse CreatePolicyGroup(CreatePolicyGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePolicyGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePolicyGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePolicyGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePolicyGroup", CreatePolicyGroupResponse.class);
     }
 
     /**
@@ -320,39 +201,33 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusAgentResponse CreatePrometheusAgent(CreatePrometheusAgentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusAgentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusAgentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusAgent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusAgent", CreatePrometheusAgentResponse.class);
     }
 
     /**
-     *创建告警策略
+     *创建Prometheus告警规则分组
+
+告警分组中可包含多条告警规则，分组内告警消息通过告警分组的通知模板发送。
+支持单个告警分组下分别创建启用/禁用的告警规则。
+     * @param req CreatePrometheusAlertGroupRequest
+     * @return CreatePrometheusAlertGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePrometheusAlertGroupResponse CreatePrometheusAlertGroup(CreatePrometheusAlertGroupRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreatePrometheusAlertGroup", CreatePrometheusAlertGroupResponse.class);
+    }
+
+    /**
+     *创建 Prometheus 告警策略(将逐步废弃，建议使用 CreatePrometheusAlertGroup 创建告警策略)
      * @param req CreatePrometheusAlertPolicyRequest
      * @return CreatePrometheusAlertPolicyResponse
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusAlertPolicyResponse CreatePrometheusAlertPolicy(CreatePrometheusAlertPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusAlertPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusAlertPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusAlertPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusAlertPolicy", CreatePrometheusAlertPolicyResponse.class);
     }
 
     /**
@@ -362,18 +237,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusClusterAgentResponse CreatePrometheusClusterAgent(CreatePrometheusClusterAgentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusClusterAgentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusClusterAgentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusClusterAgent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusClusterAgent", CreatePrometheusClusterAgentResponse.class);
     }
 
     /**
@@ -383,39 +248,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusConfigResponse CreatePrometheusConfig(CreatePrometheusConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusConfig", CreatePrometheusConfigResponse.class);
     }
 
     /**
-     *创建全局告警通知渠道
+     *创建全局告警通知渠道。集群内创建的告警规则如果未配置告警通知渠道，默认走全局告警通知渠道（建议在控制台创建告警，集群内创建告警不易维护）
      * @param req CreatePrometheusGlobalNotificationRequest
      * @return CreatePrometheusGlobalNotificationResponse
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusGlobalNotificationResponse CreatePrometheusGlobalNotification(CreatePrometheusGlobalNotificationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusGlobalNotificationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusGlobalNotificationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusGlobalNotification");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusGlobalNotification", CreatePrometheusGlobalNotificationResponse.class);
     }
 
     /**
@@ -425,18 +270,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusMultiTenantInstancePostPayModeResponse CreatePrometheusMultiTenantInstancePostPayMode(CreatePrometheusMultiTenantInstancePostPayModeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusMultiTenantInstancePostPayModeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusMultiTenantInstancePostPayModeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusMultiTenantInstancePostPayMode");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusMultiTenantInstancePostPayMode", CreatePrometheusMultiTenantInstancePostPayModeResponse.class);
     }
 
     /**
@@ -446,39 +281,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusRecordRuleYamlResponse CreatePrometheusRecordRuleYaml(CreatePrometheusRecordRuleYamlRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusRecordRuleYamlResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusRecordRuleYamlResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusRecordRuleYaml");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusRecordRuleYaml", CreatePrometheusRecordRuleYamlResponse.class);
     }
 
     /**
-     *创建 Prometheus 抓取任务
+     *创建 Prometheus Agent 抓取任务
      * @param req CreatePrometheusScrapeJobRequest
      * @return CreatePrometheusScrapeJobResponse
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusScrapeJobResponse CreatePrometheusScrapeJob(CreatePrometheusScrapeJobRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusScrapeJobResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusScrapeJobResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusScrapeJob");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusScrapeJob", CreatePrometheusScrapeJobResponse.class);
     }
 
     /**
@@ -488,18 +303,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePrometheusTempResponse CreatePrometheusTemp(CreatePrometheusTempRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePrometheusTempResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePrometheusTempResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePrometheusTemp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePrometheusTemp", CreatePrometheusTempResponse.class);
     }
 
     /**
@@ -509,18 +314,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateRecordingRuleResponse CreateRecordingRule(CreateRecordingRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateRecordingRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateRecordingRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateRecordingRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateRecordingRule", CreateRecordingRuleResponse.class);
     }
 
     /**
@@ -530,18 +325,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSSOAccountResponse CreateSSOAccount(CreateSSOAccountRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSSOAccountResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSSOAccountResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSSOAccount");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSSOAccount", CreateSSOAccountResponse.class);
     }
 
     /**
@@ -553,18 +338,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateServiceDiscoveryResponse CreateServiceDiscovery(CreateServiceDiscoveryRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateServiceDiscoveryResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateServiceDiscoveryResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateServiceDiscovery");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateServiceDiscovery", CreateServiceDiscoveryResponse.class);
     }
 
     /**
@@ -574,18 +349,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAlarmNoticesResponse DeleteAlarmNotices(DeleteAlarmNoticesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAlarmNoticesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAlarmNoticesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAlarmNotices");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAlarmNotices", DeleteAlarmNoticesResponse.class);
     }
 
     /**
@@ -595,18 +360,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAlarmPolicyResponse DeleteAlarmPolicy(DeleteAlarmPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAlarmPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAlarmPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAlarmPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAlarmPolicy", DeleteAlarmPolicyResponse.class);
     }
 
     /**
@@ -616,39 +371,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAlertRulesResponse DeleteAlertRules(DeleteAlertRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAlertRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAlertRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAlertRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAlertRules", DeleteAlertRulesResponse.class);
     }
 
     /**
-     *删除 exporter 集成
+     *删除集成中心 exporter 集成
      * @param req DeleteExporterIntegrationRequest
      * @return DeleteExporterIntegrationResponse
      * @throws TencentCloudSDKException
      */
     public DeleteExporterIntegrationResponse DeleteExporterIntegration(DeleteExporterIntegrationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteExporterIntegrationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteExporterIntegrationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteExporterIntegration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteExporterIntegration", DeleteExporterIntegrationResponse.class);
     }
 
     /**
@@ -658,18 +393,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteGrafanaInstanceResponse DeleteGrafanaInstance(DeleteGrafanaInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteGrafanaInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteGrafanaInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteGrafanaInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteGrafanaInstance", DeleteGrafanaInstanceResponse.class);
     }
 
     /**
@@ -679,18 +404,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteGrafanaIntegrationResponse DeleteGrafanaIntegration(DeleteGrafanaIntegrationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteGrafanaIntegrationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteGrafanaIntegrationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteGrafanaIntegration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteGrafanaIntegration", DeleteGrafanaIntegrationResponse.class);
     }
 
     /**
@@ -700,18 +415,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteGrafanaNotificationChannelResponse DeleteGrafanaNotificationChannel(DeleteGrafanaNotificationChannelRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteGrafanaNotificationChannelResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteGrafanaNotificationChannelResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteGrafanaNotificationChannel");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteGrafanaNotificationChannel", DeleteGrafanaNotificationChannelResponse.class);
     }
 
     /**
@@ -721,18 +426,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePolicyGroupResponse DeletePolicyGroup(DeletePolicyGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePolicyGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePolicyGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePolicyGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePolicyGroup", DeletePolicyGroupResponse.class);
+    }
+
+    /**
+     *删除Prometheus告警规则分组
+     * @param req DeletePrometheusAlertGroupsRequest
+     * @return DeletePrometheusAlertGroupsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeletePrometheusAlertGroupsResponse DeletePrometheusAlertGroups(DeletePrometheusAlertGroupsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeletePrometheusAlertGroups", DeletePrometheusAlertGroupsResponse.class);
     }
 
     /**
@@ -742,18 +448,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePrometheusAlertPolicyResponse DeletePrometheusAlertPolicy(DeletePrometheusAlertPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePrometheusAlertPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePrometheusAlertPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePrometheusAlertPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePrometheusAlertPolicy", DeletePrometheusAlertPolicyResponse.class);
     }
 
     /**
@@ -763,18 +459,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePrometheusClusterAgentResponse DeletePrometheusClusterAgent(DeletePrometheusClusterAgentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePrometheusClusterAgentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePrometheusClusterAgentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePrometheusClusterAgent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePrometheusClusterAgent", DeletePrometheusClusterAgentResponse.class);
     }
 
     /**
@@ -784,18 +470,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePrometheusConfigResponse DeletePrometheusConfig(DeletePrometheusConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePrometheusConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePrometheusConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePrometheusConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePrometheusConfig", DeletePrometheusConfigResponse.class);
     }
 
     /**
@@ -805,39 +481,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePrometheusRecordRuleYamlResponse DeletePrometheusRecordRuleYaml(DeletePrometheusRecordRuleYamlRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePrometheusRecordRuleYamlResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePrometheusRecordRuleYamlResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePrometheusRecordRuleYaml");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePrometheusRecordRuleYaml", DeletePrometheusRecordRuleYamlResponse.class);
     }
 
     /**
-     *删除 Prometheus 抓取任务
+     *删除 Prometheus Agent 抓取任务
      * @param req DeletePrometheusScrapeJobsRequest
      * @return DeletePrometheusScrapeJobsResponse
      * @throws TencentCloudSDKException
      */
     public DeletePrometheusScrapeJobsResponse DeletePrometheusScrapeJobs(DeletePrometheusScrapeJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePrometheusScrapeJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePrometheusScrapeJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePrometheusScrapeJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePrometheusScrapeJobs", DeletePrometheusScrapeJobsResponse.class);
     }
 
     /**
@@ -847,18 +503,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePrometheusTempResponse DeletePrometheusTemp(DeletePrometheusTempRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePrometheusTempResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePrometheusTempResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePrometheusTemp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePrometheusTemp", DeletePrometheusTempResponse.class);
     }
 
     /**
@@ -868,18 +514,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePrometheusTempSyncResponse DeletePrometheusTempSync(DeletePrometheusTempSyncRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePrometheusTempSyncResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePrometheusTempSyncResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePrometheusTempSync");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePrometheusTempSync", DeletePrometheusTempSyncResponse.class);
     }
 
     /**
@@ -889,18 +525,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteRecordingRulesResponse DeleteRecordingRules(DeleteRecordingRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteRecordingRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteRecordingRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteRecordingRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteRecordingRules", DeleteRecordingRulesResponse.class);
     }
 
     /**
@@ -910,18 +536,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSSOAccountResponse DeleteSSOAccount(DeleteSSOAccountRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSSOAccountResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSSOAccountResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSSOAccount");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSSOAccount", DeleteSSOAccountResponse.class);
     }
 
     /**
@@ -933,18 +549,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteServiceDiscoveryResponse DeleteServiceDiscovery(DeleteServiceDiscoveryRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteServiceDiscoveryResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteServiceDiscoveryResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteServiceDiscovery");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteServiceDiscovery", DeleteServiceDiscoveryResponse.class);
     }
 
     /**
@@ -954,18 +560,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAccidentEventListResponse DescribeAccidentEventList(DescribeAccidentEventListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAccidentEventListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAccidentEventListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAccidentEventList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAccidentEventList", DescribeAccidentEventListResponse.class);
     }
 
     /**
@@ -975,18 +571,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmEventsResponse DescribeAlarmEvents(DescribeAlarmEventsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmEventsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmEventsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmEvents");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmEvents", DescribeAlarmEventsResponse.class);
     }
 
     /**
@@ -998,18 +584,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmHistoriesResponse DescribeAlarmHistories(DescribeAlarmHistoriesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmHistoriesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmHistoriesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmHistories");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmHistories", DescribeAlarmHistoriesResponse.class);
     }
 
     /**
@@ -1019,18 +595,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmMetricsResponse DescribeAlarmMetrics(DescribeAlarmMetricsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmMetricsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmMetricsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmMetrics");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmMetrics", DescribeAlarmMetricsResponse.class);
     }
 
     /**
@@ -1040,18 +606,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmNoticeResponse DescribeAlarmNotice(DescribeAlarmNoticeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmNoticeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmNoticeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmNotice");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmNotice", DescribeAlarmNoticeResponse.class);
     }
 
     /**
@@ -1061,18 +617,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmNoticeCallbacksResponse DescribeAlarmNoticeCallbacks(DescribeAlarmNoticeCallbacksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmNoticeCallbacksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmNoticeCallbacksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmNoticeCallbacks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmNoticeCallbacks", DescribeAlarmNoticeCallbacksResponse.class);
     }
 
     /**
@@ -1082,18 +628,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmNoticesResponse DescribeAlarmNotices(DescribeAlarmNoticesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmNoticesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmNoticesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmNotices");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmNotices", DescribeAlarmNoticesResponse.class);
     }
 
     /**
@@ -1103,18 +639,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmPoliciesResponse DescribeAlarmPolicies(DescribeAlarmPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmPolicies", DescribeAlarmPoliciesResponse.class);
     }
 
     /**
@@ -1124,18 +650,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlarmPolicyResponse DescribeAlarmPolicy(DescribeAlarmPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlarmPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlarmPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlarmPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlarmPolicy", DescribeAlarmPolicyResponse.class);
+    }
+
+    /**
+     *获取告警短信配额
+     * @param req DescribeAlarmSmsQuotaRequest
+     * @return DescribeAlarmSmsQuotaResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAlarmSmsQuotaResponse DescribeAlarmSmsQuota(DescribeAlarmSmsQuotaRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeAlarmSmsQuota", DescribeAlarmSmsQuotaResponse.class);
     }
 
     /**
@@ -1145,18 +672,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAlertRulesResponse DescribeAlertRules(DescribeAlertRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAlertRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAlertRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAlertRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAlertRules", DescribeAlertRulesResponse.class);
     }
 
     /**
@@ -1166,18 +683,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAllNamespacesResponse DescribeAllNamespaces(DescribeAllNamespacesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAllNamespacesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAllNamespacesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAllNamespaces");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAllNamespaces", DescribeAllNamespacesResponse.class);
     }
 
     /**
@@ -1187,18 +694,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBaseMetricsResponse DescribeBaseMetrics(DescribeBaseMetricsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBaseMetricsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBaseMetricsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBaseMetrics");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBaseMetrics", DescribeBaseMetricsResponse.class);
     }
 
     /**
@@ -1208,18 +705,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBasicAlarmListResponse DescribeBasicAlarmList(DescribeBasicAlarmListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBasicAlarmListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBasicAlarmListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBasicAlarmList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBasicAlarmList", DescribeBasicAlarmListResponse.class);
     }
 
     /**
@@ -1229,18 +716,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBindingPolicyObjectListResponse DescribeBindingPolicyObjectList(DescribeBindingPolicyObjectListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBindingPolicyObjectListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBindingPolicyObjectListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBindingPolicyObjectList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBindingPolicyObjectList", DescribeBindingPolicyObjectListResponse.class);
     }
 
     /**
@@ -1250,18 +727,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeClusterAgentCreatingProgressResponse DescribeClusterAgentCreatingProgress(DescribeClusterAgentCreatingProgressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeClusterAgentCreatingProgressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeClusterAgentCreatingProgressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeClusterAgentCreatingProgress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeClusterAgentCreatingProgress", DescribeClusterAgentCreatingProgressResponse.class);
     }
 
     /**
@@ -1271,18 +738,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeConditionsTemplateListResponse DescribeConditionsTemplateList(DescribeConditionsTemplateListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeConditionsTemplateListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeConditionsTemplateListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeConditionsTemplateList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeConditionsTemplateList", DescribeConditionsTemplateListResponse.class);
     }
 
     /**
@@ -1292,39 +749,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDNSConfigResponse DescribeDNSConfig(DescribeDNSConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDNSConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDNSConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDNSConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDNSConfig", DescribeDNSConfigResponse.class);
     }
 
     /**
-     *查询 exporter 集成列表
+     *查询集成中心 exporter 集成列表
      * @param req DescribeExporterIntegrationsRequest
      * @return DescribeExporterIntegrationsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeExporterIntegrationsResponse DescribeExporterIntegrations(DescribeExporterIntegrationsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeExporterIntegrationsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeExporterIntegrationsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeExporterIntegrations");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeExporterIntegrations", DescribeExporterIntegrationsResponse.class);
     }
 
     /**
@@ -1334,18 +771,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGrafanaChannelsResponse DescribeGrafanaChannels(DescribeGrafanaChannelsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGrafanaChannelsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGrafanaChannelsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGrafanaChannels");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGrafanaChannels", DescribeGrafanaChannelsResponse.class);
     }
 
     /**
@@ -1355,18 +782,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGrafanaConfigResponse DescribeGrafanaConfig(DescribeGrafanaConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGrafanaConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGrafanaConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGrafanaConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGrafanaConfig", DescribeGrafanaConfigResponse.class);
     }
 
     /**
@@ -1376,18 +793,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGrafanaEnvironmentsResponse DescribeGrafanaEnvironments(DescribeGrafanaEnvironmentsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGrafanaEnvironmentsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGrafanaEnvironmentsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGrafanaEnvironments");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGrafanaEnvironments", DescribeGrafanaEnvironmentsResponse.class);
     }
 
     /**
@@ -1397,18 +804,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGrafanaInstancesResponse DescribeGrafanaInstances(DescribeGrafanaInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGrafanaInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGrafanaInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGrafanaInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGrafanaInstances", DescribeGrafanaInstancesResponse.class);
     }
 
     /**
@@ -1418,18 +815,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGrafanaIntegrationsResponse DescribeGrafanaIntegrations(DescribeGrafanaIntegrationsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGrafanaIntegrationsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGrafanaIntegrationsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGrafanaIntegrations");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGrafanaIntegrations", DescribeGrafanaIntegrationsResponse.class);
     }
 
     /**
@@ -1439,18 +826,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGrafanaNotificationChannelsResponse DescribeGrafanaNotificationChannels(DescribeGrafanaNotificationChannelsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGrafanaNotificationChannelsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGrafanaNotificationChannelsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGrafanaNotificationChannels");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGrafanaNotificationChannels", DescribeGrafanaNotificationChannelsResponse.class);
     }
 
     /**
@@ -1460,18 +837,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGrafanaWhiteListResponse DescribeGrafanaWhiteList(DescribeGrafanaWhiteListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGrafanaWhiteListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGrafanaWhiteListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGrafanaWhiteList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGrafanaWhiteList", DescribeGrafanaWhiteListResponse.class);
     }
 
     /**
@@ -1481,18 +848,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeInstalledPluginsResponse DescribeInstalledPlugins(DescribeInstalledPluginsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstalledPluginsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstalledPluginsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstalledPlugins");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstalledPlugins", DescribeInstalledPluginsResponse.class);
+    }
+
+    /**
+     *获取资源消耗页概览
+     * @param req DescribeMonitorResourceInfoRequest
+     * @return DescribeMonitorResourceInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeMonitorResourceInfoResponse DescribeMonitorResourceInfo(DescribeMonitorResourceInfoRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeMonitorResourceInfo", DescribeMonitorResourceInfoResponse.class);
     }
 
     /**
@@ -1502,39 +870,30 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeMonitorTypesResponse DescribeMonitorTypes(DescribeMonitorTypesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeMonitorTypesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeMonitorTypesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeMonitorTypes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeMonitorTypes", DescribeMonitorTypesResponse.class);
     }
 
     /**
-     *列出可安装的所有 Grafana 插件
+     *查询周期内电话流水总数
+     * @param req DescribePhoneAlarmFlowTotalCountRequest
+     * @return DescribePhoneAlarmFlowTotalCountResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePhoneAlarmFlowTotalCountResponse DescribePhoneAlarmFlowTotalCount(DescribePhoneAlarmFlowTotalCountRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePhoneAlarmFlowTotalCount", DescribePhoneAlarmFlowTotalCountResponse.class);
+    }
+
+    /**
+     *列出可安装的所有 Grafana 插件。
      * @param req DescribePluginOverviewsRequest
      * @return DescribePluginOverviewsResponse
      * @throws TencentCloudSDKException
      */
     public DescribePluginOverviewsResponse DescribePluginOverviews(DescribePluginOverviewsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePluginOverviewsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePluginOverviewsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePluginOverviews");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePluginOverviews", DescribePluginOverviewsResponse.class);
     }
 
     /**
@@ -1544,18 +903,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePolicyConditionListResponse DescribePolicyConditionList(DescribePolicyConditionListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePolicyConditionListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePolicyConditionListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePolicyConditionList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePolicyConditionList", DescribePolicyConditionListResponse.class);
     }
 
     /**
@@ -1565,18 +914,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePolicyGroupInfoResponse DescribePolicyGroupInfo(DescribePolicyGroupInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePolicyGroupInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePolicyGroupInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePolicyGroupInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePolicyGroupInfo", DescribePolicyGroupInfoResponse.class);
     }
 
     /**
@@ -1586,18 +925,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePolicyGroupListResponse DescribePolicyGroupList(DescribePolicyGroupListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePolicyGroupListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePolicyGroupListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePolicyGroupList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePolicyGroupList", DescribePolicyGroupListResponse.class);
+    }
+
+    /**
+     *查询策略组在每个地域下面绑定的对象数统计
+     * @param req DescribePolicyObjectCountRequest
+     * @return DescribePolicyObjectCountResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePolicyObjectCountResponse DescribePolicyObjectCount(DescribePolicyObjectCountRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePolicyObjectCount", DescribePolicyObjectCountResponse.class);
     }
 
     /**
@@ -1607,18 +947,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeProductEventListResponse DescribeProductEventList(DescribeProductEventListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProductEventListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProductEventListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProductEventList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProductEventList", DescribeProductEventListResponse.class);
     }
 
     /**
@@ -1628,18 +958,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeProductListResponse DescribeProductList(DescribeProductListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProductListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProductListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProductList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProductList", DescribeProductListResponse.class);
     }
 
     /**
@@ -1649,18 +969,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusAgentInstancesResponse DescribePrometheusAgentInstances(DescribePrometheusAgentInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusAgentInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusAgentInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusAgentInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusAgentInstances", DescribePrometheusAgentInstancesResponse.class);
     }
 
     /**
@@ -1670,18 +980,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusAgentsResponse DescribePrometheusAgents(DescribePrometheusAgentsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusAgentsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusAgentsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusAgents");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusAgents", DescribePrometheusAgentsResponse.class);
+    }
+
+    /**
+     *查询给定prometheus下的告警分组
+     * @param req DescribePrometheusAlertGroupsRequest
+     * @return DescribePrometheusAlertGroupsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrometheusAlertGroupsResponse DescribePrometheusAlertGroups(DescribePrometheusAlertGroupsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrometheusAlertGroups", DescribePrometheusAlertGroupsResponse.class);
     }
 
     /**
@@ -1691,18 +1002,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusAlertPolicyResponse DescribePrometheusAlertPolicy(DescribePrometheusAlertPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusAlertPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusAlertPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusAlertPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusAlertPolicy", DescribePrometheusAlertPolicyResponse.class);
     }
 
     /**
@@ -1712,18 +1013,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusClusterAgentsResponse DescribePrometheusClusterAgents(DescribePrometheusClusterAgentsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusClusterAgentsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusClusterAgentsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusClusterAgents");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusClusterAgents", DescribePrometheusClusterAgentsResponse.class);
     }
 
     /**
@@ -1733,18 +1024,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusConfigResponse DescribePrometheusConfig(DescribePrometheusConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusConfig", DescribePrometheusConfigResponse.class);
     }
 
     /**
@@ -1754,18 +1035,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusGlobalConfigResponse DescribePrometheusGlobalConfig(DescribePrometheusGlobalConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusGlobalConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusGlobalConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusGlobalConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusGlobalConfig", DescribePrometheusGlobalConfigResponse.class);
     }
 
     /**
@@ -1775,18 +1046,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusGlobalNotificationResponse DescribePrometheusGlobalNotification(DescribePrometheusGlobalNotificationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusGlobalNotificationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusGlobalNotificationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusGlobalNotification");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusGlobalNotification", DescribePrometheusGlobalNotificationResponse.class);
     }
 
     /**
@@ -1796,18 +1057,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusInstanceDetailResponse DescribePrometheusInstanceDetail(DescribePrometheusInstanceDetailRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusInstanceDetailResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusInstanceDetailResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusInstanceDetail");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusInstanceDetail", DescribePrometheusInstanceDetailResponse.class);
     }
 
     /**
@@ -1817,39 +1068,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusInstanceInitStatusResponse DescribePrometheusInstanceInitStatus(DescribePrometheusInstanceInitStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusInstanceInitStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusInstanceInitStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusInstanceInitStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusInstanceInitStatus", DescribePrometheusInstanceInitStatusResponse.class);
     }
 
     /**
-     * 查询Prometheus按量实例用量
+     *查询Prometheus按量实例用量
      * @param req DescribePrometheusInstanceUsageRequest
      * @return DescribePrometheusInstanceUsageResponse
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusInstanceUsageResponse DescribePrometheusInstanceUsage(DescribePrometheusInstanceUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusInstanceUsageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusInstanceUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusInstanceUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusInstanceUsage", DescribePrometheusInstanceUsageResponse.class);
     }
 
     /**
@@ -1863,18 +1094,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusInstancesResponse DescribePrometheusInstances(DescribePrometheusInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusInstances", DescribePrometheusInstancesResponse.class);
     }
 
     /**
@@ -1884,39 +1105,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusInstancesOverviewResponse DescribePrometheusInstancesOverview(DescribePrometheusInstancesOverviewRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusInstancesOverviewResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusInstancesOverviewResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusInstancesOverview");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusInstancesOverview", DescribePrometheusInstancesOverviewResponse.class);
     }
 
     /**
-     *拉取Prometheus聚合规则yaml列表
-     * @param req DescribePrometheusRecordRuleYamlRequest
-     * @return DescribePrometheusRecordRuleYamlResponse
+     *获取prometheus集成指标
+     * @param req DescribePrometheusIntegrationMetricsRequest
+     * @return DescribePrometheusIntegrationMetricsResponse
      * @throws TencentCloudSDKException
      */
-    public DescribePrometheusRecordRuleYamlResponse DescribePrometheusRecordRuleYaml(DescribePrometheusRecordRuleYamlRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusRecordRuleYamlResponse> rsp = null;
-        String rspStr = "";
+    public DescribePrometheusIntegrationMetricsResponse DescribePrometheusIntegrationMetrics(DescribePrometheusIntegrationMetricsRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusRecordRuleYamlResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusRecordRuleYaml");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusIntegrationMetrics", DescribePrometheusIntegrationMetricsResponse.class);
     }
 
     /**
@@ -1926,18 +1127,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusRecordRulesResponse DescribePrometheusRecordRules(DescribePrometheusRecordRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusRecordRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusRecordRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusRecordRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusRecordRules", DescribePrometheusRecordRulesResponse.class);
+    }
+
+    /**
+     *列出 Prometheus 服务所有可用的地域
+     * @param req DescribePrometheusRegionsRequest
+     * @return DescribePrometheusRegionsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrometheusRegionsResponse DescribePrometheusRegions(DescribePrometheusRegionsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrometheusRegions", DescribePrometheusRegionsResponse.class);
     }
 
     /**
@@ -1947,39 +1149,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusScrapeJobsResponse DescribePrometheusScrapeJobs(DescribePrometheusScrapeJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusScrapeJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusScrapeJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusScrapeJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusScrapeJobs", DescribePrometheusScrapeJobsResponse.class);
     }
 
     /**
-     *获取targets信息
+     *获取targets信息，在过滤条件中指定job名称时返回targets详情，否则仅返回数量
      * @param req DescribePrometheusTargetsTMPRequest
      * @return DescribePrometheusTargetsTMPResponse
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusTargetsTMPResponse DescribePrometheusTargetsTMP(DescribePrometheusTargetsTMPRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusTargetsTMPResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusTargetsTMPResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusTargetsTMP");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusTargetsTMP", DescribePrometheusTargetsTMPResponse.class);
     }
 
     /**
@@ -1989,18 +1171,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusTempResponse DescribePrometheusTemp(DescribePrometheusTempRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusTempResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusTempResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusTemp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusTemp", DescribePrometheusTempResponse.class);
     }
 
     /**
@@ -2010,39 +1182,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusTempSyncResponse DescribePrometheusTempSync(DescribePrometheusTempSyncRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusTempSyncResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusTempSyncResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusTempSync");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusTempSync", DescribePrometheusTempSyncResponse.class);
     }
 
     /**
-     *列出 Prometheus 服务可用区
+     *列出 Prometheus 服务可用区。
      * @param req DescribePrometheusZonesRequest
      * @return DescribePrometheusZonesResponse
      * @throws TencentCloudSDKException
      */
     public DescribePrometheusZonesResponse DescribePrometheusZones(DescribePrometheusZonesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePrometheusZonesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePrometheusZonesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePrometheusZones");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePrometheusZones", DescribePrometheusZonesResponse.class);
     }
 
     /**
@@ -2052,18 +1204,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRecordingRulesResponse DescribeRecordingRules(DescribeRecordingRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRecordingRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRecordingRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRecordingRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRecordingRules", DescribeRecordingRulesResponse.class);
+    }
+
+    /**
+     *获取多写配置详情
+     * @param req DescribeRemoteURLsRequest
+     * @return DescribeRemoteURLsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRemoteURLsResponse DescribeRemoteURLs(DescribeRemoteURLsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeRemoteURLs", DescribeRemoteURLsResponse.class);
     }
 
     /**
@@ -2073,18 +1226,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSSOAccountResponse DescribeSSOAccount(DescribeSSOAccountRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSSOAccountResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSSOAccountResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSSOAccount");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSSOAccount", DescribeSSOAccountResponse.class);
     }
 
     /**
@@ -2096,18 +1239,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeServiceDiscoveryResponse DescribeServiceDiscovery(DescribeServiceDiscoveryRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeServiceDiscoveryResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeServiceDiscoveryResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeServiceDiscovery");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeServiceDiscovery", DescribeServiceDiscoveryResponse.class);
     }
 
     /**
@@ -2117,39 +1250,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeStatisticDataResponse DescribeStatisticData(DescribeStatisticDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeStatisticDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeStatisticDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeStatisticData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeStatisticData", DescribeStatisticDataResponse.class);
     }
 
     /**
-     *彻底删除 Prometheus 实例相关数据，给定的实例必须先被 Terminate
+     *彻底删除 Prometheus 实例相关数据，给定的实例必须先被 Terminate(该接口是异步接口，实例是否释放需要通过 DescribePrometheusInstances 接口返回的状态来判断)。
      * @param req DestroyPrometheusInstanceRequest
      * @return DestroyPrometheusInstanceResponse
      * @throws TencentCloudSDKException
      */
     public DestroyPrometheusInstanceResponse DestroyPrometheusInstance(DestroyPrometheusInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DestroyPrometheusInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DestroyPrometheusInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DestroyPrometheusInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DestroyPrometheusInstance", DestroyPrometheusInstanceResponse.class);
     }
 
     /**
@@ -2159,18 +1272,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public EnableGrafanaInternetResponse EnableGrafanaInternet(EnableGrafanaInternetRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableGrafanaInternetResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableGrafanaInternetResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableGrafanaInternet");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableGrafanaInternet", EnableGrafanaInternetResponse.class);
     }
 
     /**
@@ -2180,18 +1283,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public EnableGrafanaSSOResponse EnableGrafanaSSO(EnableGrafanaSSORequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableGrafanaSSOResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableGrafanaSSOResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableGrafanaSSO");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableGrafanaSSO", EnableGrafanaSSOResponse.class);
     }
 
     /**
@@ -2201,18 +1294,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public EnableSSOCamCheckResponse EnableSSOCamCheck(EnableSSOCamCheckRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableSSOCamCheckResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableSSOCamCheckResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableSSOCamCheck");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableSSOCamCheck", EnableSSOCamCheckResponse.class);
+    }
+
+    /**
+     *Prometheus 内部动态 api 代理，仅内部使用
+     * @param req ExportPrometheusReadOnlyDynamicAPIRequest
+     * @return ExportPrometheusReadOnlyDynamicAPIResponse
+     * @throws TencentCloudSDKException
+     */
+    public ExportPrometheusReadOnlyDynamicAPIResponse ExportPrometheusReadOnlyDynamicAPI(ExportPrometheusReadOnlyDynamicAPIRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ExportPrometheusReadOnlyDynamicAPI", ExportPrometheusReadOnlyDynamicAPIResponse.class);
     }
 
     /**
@@ -2220,26 +1314,19 @@ public class MonitorClient extends AbstractClient{
 传入产品的命名空间、对象维度描述和监控指标即可获得相应的监控数据。
 接口调用限制：单请求最多可支持批量拉取10个实例的监控数据，单请求的数据点数限制为1440个。
 若您需要调用的指标、对象较多，可能存在因限频出现拉取失败的情况，建议尽量将请求按时间维度均摊。
+参数SpecifyStatistics目前可支持返回三种统计方式（avg，max，min），分别为二进制1，2，4。
+例子：3:avg+max，5:avg+min，6:max+min，7:avg+max+min
+拉取数据的粒度和统计方式的对应关系尽量在接入平台进行配置，如果没有配置对应统计方式，请提工单反馈。
 
 >?
->- 2022年9月1日起，云监控开始对GetMonitorData接口计费。每个主账号每月可获得100万次免费请求额度，超过免费额度后如需继续调用接口需要开通 [API请求按量付费](https://buy.cloud.tencent.com/APIRequestBuy)。计费规则可查看[API计费文档](https://cloud.tencent.com/document/product/248/77914)。
+>- 2022年9月1日起，腾讯云可观测平台开始对GetMonitorData接口计费。每个主账号每月可获得100万次免费请求额度，超过免费额度后如需继续调用接口需要开通 [API请求按量付费](https://buy.cloud.tencent.com/APIRequestBuy)。计费规则可查看[API计费文档](https://cloud.tencent.com/document/product/248/77914)。
      * @param req GetMonitorDataRequest
      * @return GetMonitorDataResponse
      * @throws TencentCloudSDKException
      */
     public GetMonitorDataResponse GetMonitorData(GetMonitorDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetMonitorDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetMonitorDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetMonitorData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetMonitorData", GetMonitorDataResponse.class);
     }
 
     /**
@@ -2249,18 +1336,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetPrometheusAgentManagementCommandResponse GetPrometheusAgentManagementCommand(GetPrometheusAgentManagementCommandRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetPrometheusAgentManagementCommandResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetPrometheusAgentManagementCommandResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetPrometheusAgentManagementCommand");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetPrometheusAgentManagementCommand", GetPrometheusAgentManagementCommandResponse.class);
+    }
+
+    /**
+     *支持TopN查询，对于给定的监控指标和时间区间，按照指标大小按序返回不同维度组合及数据。
+     * @param req GetTopNMonitorDataRequest
+     * @return GetTopNMonitorDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetTopNMonitorDataResponse GetTopNMonitorData(GetTopNMonitorDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "GetTopNMonitorData", GetTopNMonitorDataResponse.class);
     }
 
     /**
@@ -2270,18 +1358,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public InstallPluginsResponse InstallPlugins(InstallPluginsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InstallPluginsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InstallPluginsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InstallPlugins");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InstallPlugins", InstallPluginsResponse.class);
     }
 
     /**
@@ -2291,18 +1369,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAlarmNoticeResponse ModifyAlarmNotice(ModifyAlarmNoticeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAlarmNoticeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAlarmNoticeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAlarmNotice");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAlarmNotice", ModifyAlarmNoticeResponse.class);
     }
 
     /**
@@ -2312,18 +1380,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAlarmPolicyConditionResponse ModifyAlarmPolicyCondition(ModifyAlarmPolicyConditionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAlarmPolicyConditionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAlarmPolicyConditionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAlarmPolicyCondition");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAlarmPolicyCondition", ModifyAlarmPolicyConditionResponse.class);
     }
 
     /**
@@ -2333,18 +1391,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAlarmPolicyInfoResponse ModifyAlarmPolicyInfo(ModifyAlarmPolicyInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAlarmPolicyInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAlarmPolicyInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAlarmPolicyInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAlarmPolicyInfo", ModifyAlarmPolicyInfoResponse.class);
     }
 
     /**
@@ -2354,18 +1402,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAlarmPolicyNoticeResponse ModifyAlarmPolicyNotice(ModifyAlarmPolicyNoticeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAlarmPolicyNoticeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAlarmPolicyNoticeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAlarmPolicyNotice");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAlarmPolicyNotice", ModifyAlarmPolicyNoticeResponse.class);
     }
 
     /**
@@ -2375,18 +1413,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAlarmPolicyStatusResponse ModifyAlarmPolicyStatus(ModifyAlarmPolicyStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAlarmPolicyStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAlarmPolicyStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAlarmPolicyStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAlarmPolicyStatus", ModifyAlarmPolicyStatusResponse.class);
     }
 
     /**
@@ -2396,18 +1424,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAlarmPolicyTasksResponse ModifyAlarmPolicyTasks(ModifyAlarmPolicyTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAlarmPolicyTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAlarmPolicyTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAlarmPolicyTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAlarmPolicyTasks", ModifyAlarmPolicyTasksResponse.class);
     }
 
     /**
@@ -2417,18 +1435,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyAlarmReceiversResponse ModifyAlarmReceivers(ModifyAlarmReceiversRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAlarmReceiversResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAlarmReceiversResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAlarmReceivers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAlarmReceivers", ModifyAlarmReceiversResponse.class);
     }
 
     /**
@@ -2438,18 +1446,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyGrafanaInstanceResponse ModifyGrafanaInstance(ModifyGrafanaInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyGrafanaInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyGrafanaInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyGrafanaInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyGrafanaInstance", ModifyGrafanaInstanceResponse.class);
     }
 
     /**
@@ -2459,18 +1457,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPolicyGroupResponse ModifyPolicyGroup(ModifyPolicyGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPolicyGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPolicyGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPolicyGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPolicyGroup", ModifyPolicyGroupResponse.class);
     }
 
     /**
@@ -2480,18 +1468,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPrometheusAgentExternalLabelsResponse ModifyPrometheusAgentExternalLabels(ModifyPrometheusAgentExternalLabelsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrometheusAgentExternalLabelsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrometheusAgentExternalLabelsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrometheusAgentExternalLabels");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrometheusAgentExternalLabels", ModifyPrometheusAgentExternalLabelsResponse.class);
     }
 
     /**
@@ -2501,39 +1479,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPrometheusAlertPolicyResponse ModifyPrometheusAlertPolicy(ModifyPrometheusAlertPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrometheusAlertPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrometheusAlertPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrometheusAlertPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrometheusAlertPolicy", ModifyPrometheusAlertPolicyResponse.class);
     }
 
     /**
-     *修改prometheus配置，如果配置项不存在，则会新增
+     *修改prometheus采集配置
      * @param req ModifyPrometheusConfigRequest
      * @return ModifyPrometheusConfigResponse
      * @throws TencentCloudSDKException
      */
     public ModifyPrometheusConfigResponse ModifyPrometheusConfig(ModifyPrometheusConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrometheusConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrometheusConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrometheusConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrometheusConfig", ModifyPrometheusConfigResponse.class);
     }
 
     /**
@@ -2543,18 +1501,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPrometheusGlobalNotificationResponse ModifyPrometheusGlobalNotification(ModifyPrometheusGlobalNotificationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrometheusGlobalNotificationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrometheusGlobalNotificationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrometheusGlobalNotification");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrometheusGlobalNotification", ModifyPrometheusGlobalNotificationResponse.class);
     }
 
     /**
@@ -2564,39 +1512,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPrometheusInstanceAttributesResponse ModifyPrometheusInstanceAttributes(ModifyPrometheusInstanceAttributesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrometheusInstanceAttributesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrometheusInstanceAttributesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrometheusInstanceAttributes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrometheusInstanceAttributes", ModifyPrometheusInstanceAttributesResponse.class);
     }
 
     /**
-     *通过yaml的方式修改Prometheus聚合实例
+     *通过yaml的方式修改Prometheus预聚合规则
      * @param req ModifyPrometheusRecordRuleYamlRequest
      * @return ModifyPrometheusRecordRuleYamlResponse
      * @throws TencentCloudSDKException
      */
     public ModifyPrometheusRecordRuleYamlResponse ModifyPrometheusRecordRuleYaml(ModifyPrometheusRecordRuleYamlRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrometheusRecordRuleYamlResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrometheusRecordRuleYamlResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrometheusRecordRuleYaml");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrometheusRecordRuleYaml", ModifyPrometheusRecordRuleYamlResponse.class);
     }
 
     /**
@@ -2606,18 +1534,19 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPrometheusTempResponse ModifyPrometheusTemp(ModifyPrometheusTempRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrometheusTempResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrometheusTempResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrometheusTemp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrometheusTemp", ModifyPrometheusTempResponse.class);
+    }
+
+    /**
+     *修改多写配置
+     * @param req ModifyRemoteURLsRequest
+     * @return ModifyRemoteURLsResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRemoteURLsResponse ModifyRemoteURLs(ModifyRemoteURLsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyRemoteURLs", ModifyRemoteURLsResponse.class);
     }
 
     /**
@@ -2627,18 +1556,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ResumeGrafanaInstanceResponse ResumeGrafanaInstance(ResumeGrafanaInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResumeGrafanaInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResumeGrafanaInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResumeGrafanaInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResumeGrafanaInstance", ResumeGrafanaInstanceResponse.class);
     }
 
     /**
@@ -2648,39 +1567,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RunPrometheusInstanceResponse RunPrometheusInstance(RunPrometheusInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RunPrometheusInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RunPrometheusInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RunPrometheusInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *发送自定义消息告警
-     * @param req SendCustomAlarmMsgRequest
-     * @return SendCustomAlarmMsgResponse
-     * @throws TencentCloudSDKException
-     */
-    public SendCustomAlarmMsgResponse SendCustomAlarmMsg(SendCustomAlarmMsgRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SendCustomAlarmMsgResponse> rsp = null;
-        String rspStr = "";
-        req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SendCustomAlarmMsgResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SendCustomAlarmMsg");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RunPrometheusInstance", RunPrometheusInstanceResponse.class);
     }
 
     /**
@@ -2691,18 +1579,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SetDefaultAlarmPolicyResponse SetDefaultAlarmPolicy(SetDefaultAlarmPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SetDefaultAlarmPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SetDefaultAlarmPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SetDefaultAlarmPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SetDefaultAlarmPolicy", SetDefaultAlarmPolicyResponse.class);
     }
 
     /**
@@ -2712,18 +1590,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SyncPrometheusTempResponse SyncPrometheusTemp(SyncPrometheusTempRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SyncPrometheusTempResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SyncPrometheusTempResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SyncPrometheusTemp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SyncPrometheusTemp", SyncPrometheusTempResponse.class);
     }
 
     /**
@@ -2733,18 +1601,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public TerminatePrometheusInstancesResponse TerminatePrometheusInstances(TerminatePrometheusInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TerminatePrometheusInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TerminatePrometheusInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TerminatePrometheusInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TerminatePrometheusInstances", TerminatePrometheusInstancesResponse.class);
     }
 
     /**
@@ -2754,18 +1612,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UnBindingAllPolicyObjectResponse UnBindingAllPolicyObject(UnBindingAllPolicyObjectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnBindingAllPolicyObjectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnBindingAllPolicyObjectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnBindingAllPolicyObject");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnBindingAllPolicyObject", UnBindingAllPolicyObjectResponse.class);
     }
 
     /**
@@ -2775,18 +1623,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UnBindingPolicyObjectResponse UnBindingPolicyObject(UnBindingPolicyObjectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnBindingPolicyObjectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnBindingPolicyObjectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnBindingPolicyObject");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnBindingPolicyObject", UnBindingPolicyObjectResponse.class);
     }
 
     /**
@@ -2796,18 +1634,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UnbindPrometheusManagedGrafanaResponse UnbindPrometheusManagedGrafana(UnbindPrometheusManagedGrafanaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnbindPrometheusManagedGrafanaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnbindPrometheusManagedGrafanaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnbindPrometheusManagedGrafana");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnbindPrometheusManagedGrafana", UnbindPrometheusManagedGrafanaResponse.class);
     }
 
     /**
@@ -2817,18 +1645,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UninstallGrafanaDashboardResponse UninstallGrafanaDashboard(UninstallGrafanaDashboardRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UninstallGrafanaDashboardResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UninstallGrafanaDashboardResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UninstallGrafanaDashboard");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UninstallGrafanaDashboard", UninstallGrafanaDashboardResponse.class);
     }
 
     /**
@@ -2838,41 +1656,21 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UninstallGrafanaPluginsResponse UninstallGrafanaPlugins(UninstallGrafanaPluginsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UninstallGrafanaPluginsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UninstallGrafanaPluginsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UninstallGrafanaPlugins");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UninstallGrafanaPlugins", UninstallGrafanaPluginsResponse.class);
     }
 
     /**
-     *更新 Prometheus 的报警规则。
+     *更新 Prometheus 的告警规则。
 
-请注意，**告警对象和告警消息是 Prometheus Rule Annotations 的特殊字段，需要通过 annotations 来传递，对应的 Key 分别为summary/description**，，请参考 [Prometheus Rule更多配置请参考](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)。
+请注意，**告警对象和告警消息是 Prometheus Rule Annotations 的特殊字段，需要通过 annotations 来传递，对应的 Key 分别为summary/description**，请参考 [Prometheus Rule更多配置请参考](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)。
      * @param req UpdateAlertRuleRequest
      * @return UpdateAlertRuleResponse
      * @throws TencentCloudSDKException
      */
     public UpdateAlertRuleResponse UpdateAlertRule(UpdateAlertRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateAlertRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateAlertRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateAlertRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateAlertRule", UpdateAlertRuleResponse.class);
     }
 
     /**
@@ -2882,18 +1680,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateAlertRuleStateResponse UpdateAlertRuleState(UpdateAlertRuleStateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateAlertRuleStateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateAlertRuleStateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateAlertRuleState");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateAlertRuleState", UpdateAlertRuleStateResponse.class);
     }
 
     /**
@@ -2903,18 +1691,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateDNSConfigResponse UpdateDNSConfig(UpdateDNSConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateDNSConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateDNSConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateDNSConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateDNSConfig", UpdateDNSConfigResponse.class);
     }
 
     /**
@@ -2924,18 +1702,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateExporterIntegrationResponse UpdateExporterIntegration(UpdateExporterIntegrationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateExporterIntegrationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateExporterIntegrationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateExporterIntegration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateExporterIntegration", UpdateExporterIntegrationResponse.class);
     }
 
     /**
@@ -2945,18 +1713,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateGrafanaConfigResponse UpdateGrafanaConfig(UpdateGrafanaConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateGrafanaConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateGrafanaConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateGrafanaConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateGrafanaConfig", UpdateGrafanaConfigResponse.class);
     }
 
     /**
@@ -2966,18 +1724,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateGrafanaEnvironmentsResponse UpdateGrafanaEnvironments(UpdateGrafanaEnvironmentsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateGrafanaEnvironmentsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateGrafanaEnvironmentsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateGrafanaEnvironments");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateGrafanaEnvironments", UpdateGrafanaEnvironmentsResponse.class);
     }
 
     /**
@@ -2987,18 +1735,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateGrafanaIntegrationResponse UpdateGrafanaIntegration(UpdateGrafanaIntegrationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateGrafanaIntegrationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateGrafanaIntegrationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateGrafanaIntegration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateGrafanaIntegration", UpdateGrafanaIntegrationResponse.class);
     }
 
     /**
@@ -3008,18 +1746,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateGrafanaNotificationChannelResponse UpdateGrafanaNotificationChannel(UpdateGrafanaNotificationChannelRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateGrafanaNotificationChannelResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateGrafanaNotificationChannelResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateGrafanaNotificationChannel");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateGrafanaNotificationChannel", UpdateGrafanaNotificationChannelResponse.class);
     }
 
     /**
@@ -3029,18 +1757,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateGrafanaWhiteListResponse UpdateGrafanaWhiteList(UpdateGrafanaWhiteListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateGrafanaWhiteListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateGrafanaWhiteListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateGrafanaWhiteList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateGrafanaWhiteList", UpdateGrafanaWhiteListResponse.class);
     }
 
     /**
@@ -3050,39 +1768,41 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdatePrometheusAgentStatusResponse UpdatePrometheusAgentStatus(UpdatePrometheusAgentStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdatePrometheusAgentStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdatePrometheusAgentStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdatePrometheusAgentStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdatePrometheusAgentStatus", UpdatePrometheusAgentStatusResponse.class);
     }
 
     /**
-     *更新 Prometheus 抓取任务
+     *更新Prometheus告警规则分组
+     * @param req UpdatePrometheusAlertGroupRequest
+     * @return UpdatePrometheusAlertGroupResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdatePrometheusAlertGroupResponse UpdatePrometheusAlertGroup(UpdatePrometheusAlertGroupRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdatePrometheusAlertGroup", UpdatePrometheusAlertGroupResponse.class);
+    }
+
+    /**
+     *批量更新告警分组状态，将分组中全部告警规则更新为目标状态
+     * @param req UpdatePrometheusAlertGroupStateRequest
+     * @return UpdatePrometheusAlertGroupStateResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdatePrometheusAlertGroupStateResponse UpdatePrometheusAlertGroupState(UpdatePrometheusAlertGroupStateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdatePrometheusAlertGroupState", UpdatePrometheusAlertGroupStateResponse.class);
+    }
+
+    /**
+     *更新 Prometheus Agent 抓取任务
      * @param req UpdatePrometheusScrapeJobRequest
      * @return UpdatePrometheusScrapeJobResponse
      * @throws TencentCloudSDKException
      */
     public UpdatePrometheusScrapeJobResponse UpdatePrometheusScrapeJob(UpdatePrometheusScrapeJobRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdatePrometheusScrapeJobResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdatePrometheusScrapeJobResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdatePrometheusScrapeJob");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdatePrometheusScrapeJob", UpdatePrometheusScrapeJobResponse.class);
     }
 
     /**
@@ -3092,18 +1812,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateRecordingRuleResponse UpdateRecordingRule(UpdateRecordingRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateRecordingRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateRecordingRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateRecordingRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateRecordingRule", UpdateRecordingRuleResponse.class);
     }
 
     /**
@@ -3113,18 +1823,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateSSOAccountResponse UpdateSSOAccount(UpdateSSOAccountRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateSSOAccountResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateSSOAccountResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateSSOAccount");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateSSOAccount", UpdateSSOAccountResponse.class);
     }
 
     /**
@@ -3136,18 +1836,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateServiceDiscoveryResponse UpdateServiceDiscovery(UpdateServiceDiscoveryRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateServiceDiscoveryResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateServiceDiscoveryResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateServiceDiscovery");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateServiceDiscovery", UpdateServiceDiscoveryResponse.class);
     }
 
     /**
@@ -3157,18 +1847,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpgradeGrafanaDashboardResponse UpgradeGrafanaDashboard(UpgradeGrafanaDashboardRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpgradeGrafanaDashboardResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpgradeGrafanaDashboardResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpgradeGrafanaDashboard");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpgradeGrafanaDashboard", UpgradeGrafanaDashboardResponse.class);
     }
 
     /**
@@ -3178,18 +1858,8 @@ public class MonitorClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpgradeGrafanaInstanceResponse UpgradeGrafanaInstance(UpgradeGrafanaInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpgradeGrafanaInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpgradeGrafanaInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpgradeGrafanaInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpgradeGrafanaInstance", UpgradeGrafanaInstanceResponse.class);
     }
 
 }

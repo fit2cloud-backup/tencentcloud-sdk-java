@@ -16,21 +16,24 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MobileNetworkTimeVerificationResponse extends AbstractModel{
+public class MobileNetworkTimeVerificationResponse extends AbstractModel {
 
     /**
     * 认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
+- 收费结果码：
+0: 成功。
+-2: 手机号不存在。
+-3: 手机号存在，但无法查询到在网时长。
+
+- 不收费结果码：
+-1: 手机号格式不正确。
+-4: 验证中心服务繁忙。
+-5：认证次数超过当日限制，请次日重试。
     */
     @SerializedName("Result")
     @Expose
@@ -45,14 +48,15 @@ public class MobileNetworkTimeVerificationResponse extends AbstractModel{
 
     /**
     * 在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
+- 格式为[a,b)，表示在网时长在a个月以上，b个月以下。
+- 若b为+时表示没有上限。
     */
     @SerializedName("Range")
     @Expose
     private String Range;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -60,21 +64,25 @@ public class MobileNetworkTimeVerificationResponse extends AbstractModel{
 
     /**
      * Get 认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙 
+- 收费结果码：
+0: 成功。
+-2: 手机号不存在。
+-3: 手机号存在，但无法查询到在网时长。
+
+- 不收费结果码：
+-1: 手机号格式不正确。
+-4: 验证中心服务繁忙。
+-5：认证次数超过当日限制，请次日重试。 
      * @return Result 认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
+- 收费结果码：
+0: 成功。
+-2: 手机号不存在。
+-3: 手机号存在，但无法查询到在网时长。
+
+- 不收费结果码：
+-1: 手机号格式不正确。
+-4: 验证中心服务繁忙。
+-5：认证次数超过当日限制，请次日重试。
      */
     public String getResult() {
         return this.Result;
@@ -82,21 +90,25 @@ public class MobileNetworkTimeVerificationResponse extends AbstractModel{
 
     /**
      * Set 认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
+- 收费结果码：
+0: 成功。
+-2: 手机号不存在。
+-3: 手机号存在，但无法查询到在网时长。
+
+- 不收费结果码：
+-1: 手机号格式不正确。
+-4: 验证中心服务繁忙。
+-5：认证次数超过当日限制，请次日重试。
      * @param Result 认证结果码，收费情况如下。
-收费结果码：
-0: 成功
--2: 手机号不存在
--3: 手机号存在，但无法查询到在网时长
-不收费结果码：
--1: 手机号格式不正确
--4: 验证中心服务繁忙
+- 收费结果码：
+0: 成功。
+-2: 手机号不存在。
+-3: 手机号存在，但无法查询到在网时长。
+
+- 不收费结果码：
+-1: 手机号格式不正确。
+-4: 验证中心服务繁忙。
+-5：认证次数超过当日限制，请次日重试。
      */
     public void setResult(String Result) {
         this.Result = Result;
@@ -120,9 +132,11 @@ public class MobileNetworkTimeVerificationResponse extends AbstractModel{
 
     /**
      * Get 在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。 
+- 格式为[a,b)，表示在网时长在a个月以上，b个月以下。
+- 若b为+时表示没有上限。 
      * @return Range 在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
+- 格式为[a,b)，表示在网时长在a个月以上，b个月以下。
+- 若b为+时表示没有上限。
      */
     public String getRange() {
         return this.Range;
@@ -130,25 +144,27 @@ public class MobileNetworkTimeVerificationResponse extends AbstractModel{
 
     /**
      * Set 在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
+- 格式为[a,b)，表示在网时长在a个月以上，b个月以下。
+- 若b为+时表示没有上限。
      * @param Range 在网时长区间。
-格式为(a,b]，表示在网时长在a个月以上，b个月以下。若b为+时表示没有上限。
+- 格式为[a,b)，表示在网时长在a个月以上，b个月以下。
+- 若b为+时表示没有上限。
      */
     public void setRange(String Range) {
         this.Range = Range;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

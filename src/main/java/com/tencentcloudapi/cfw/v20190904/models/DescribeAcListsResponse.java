@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAcListsResponse extends AbstractModel{
+public class DescribeAcListsResponse extends AbstractModel {
 
     /**
     * 总条数
@@ -45,14 +46,13 @@ public class DescribeAcListsResponse extends AbstractModel{
 
     /**
     * 访问控制规则全部启用/全部停用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Enable")
     @Expose
     private Long Enable;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -107,10 +107,8 @@ public class DescribeAcListsResponse extends AbstractModel{
     }
 
     /**
-     * Get 访问控制规则全部启用/全部停用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 访问控制规则全部启用/全部停用 
      * @return Enable 访问控制规则全部启用/全部停用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEnable() {
         return this.Enable;
@@ -118,25 +116,23 @@ public class DescribeAcListsResponse extends AbstractModel{
 
     /**
      * Set 访问控制规则全部启用/全部停用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Enable 访问控制规则全部启用/全部停用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnable(Long Enable) {
         this.Enable = Enable;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

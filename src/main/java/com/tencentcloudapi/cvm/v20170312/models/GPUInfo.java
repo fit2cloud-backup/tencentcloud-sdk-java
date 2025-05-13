@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GPUInfo extends AbstractModel{
+public class GPUInfo extends AbstractModel {
 
     /**
     * 实例GPU个数。值小于1代表VGPU类型，大于1代表GPU直通类型。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GPUCount")
     @Expose
@@ -32,7 +32,6 @@ public class GPUInfo extends AbstractModel{
 
     /**
     * 实例GPU地址。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GPUId")
     @Expose
@@ -40,17 +39,14 @@ public class GPUInfo extends AbstractModel{
 
     /**
     * 实例GPU类型。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GPUType")
     @Expose
     private String GPUType;
 
     /**
-     * Get 实例GPU个数。值小于1代表VGPU类型，大于1代表GPU直通类型。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例GPU个数。值小于1代表VGPU类型，大于1代表GPU直通类型。 
      * @return GPUCount 实例GPU个数。值小于1代表VGPU类型，大于1代表GPU直通类型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getGPUCount() {
         return this.GPUCount;
@@ -58,19 +54,15 @@ public class GPUInfo extends AbstractModel{
 
     /**
      * Set 实例GPU个数。值小于1代表VGPU类型，大于1代表GPU直通类型。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GPUCount 实例GPU个数。值小于1代表VGPU类型，大于1代表GPU直通类型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGPUCount(Float GPUCount) {
         this.GPUCount = GPUCount;
     }
 
     /**
-     * Get 实例GPU地址。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例GPU地址。 
      * @return GPUId 实例GPU地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getGPUId() {
         return this.GPUId;
@@ -78,19 +70,15 @@ public class GPUInfo extends AbstractModel{
 
     /**
      * Set 实例GPU地址。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GPUId 实例GPU地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGPUId(String [] GPUId) {
         this.GPUId = GPUId;
     }
 
     /**
-     * Get 实例GPU类型。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例GPU类型。 
      * @return GPUType 实例GPU类型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGPUType() {
         return this.GPUType;
@@ -98,9 +86,7 @@ public class GPUInfo extends AbstractModel{
 
     /**
      * Set 实例GPU类型。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GPUType 实例GPU类型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGPUType(String GPUType) {
         this.GPUType = GPUType;

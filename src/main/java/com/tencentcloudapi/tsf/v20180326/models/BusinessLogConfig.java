@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BusinessLogConfig extends AbstractModel{
+public class BusinessLogConfig extends AbstractModel {
 
     /**
     * 配置项ID
@@ -38,7 +39,6 @@ public class BusinessLogConfig extends AbstractModel{
 
     /**
     * 配置项日志路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigPath")
     @Expose
@@ -62,7 +62,6 @@ public class BusinessLogConfig extends AbstractModel{
 
     /**
     * 配置项对应的ES管道
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigPipeline")
     @Expose
@@ -86,7 +85,6 @@ public class BusinessLogConfig extends AbstractModel{
 
     /**
     * 配置项解析规则
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigSchema")
     @Expose
@@ -99,6 +97,27 @@ public class BusinessLogConfig extends AbstractModel{
     @SerializedName("ConfigAssociatedGroups")
     @Expose
     private BusinesLogConfigAssociatedGroup [] ConfigAssociatedGroups;
+
+    /**
+    * 配置项关联部署组
+    */
+    @SerializedName("ConfigAssociatedGroupList")
+    @Expose
+    private BusinessLogConfigAssociatedGroup [] ConfigAssociatedGroupList;
+
+    /**
+    * 是否开启filebeat高级配置开关
+    */
+    @SerializedName("FilebeatConfigEnable")
+    @Expose
+    private Boolean FilebeatConfigEnable;
+
+    /**
+    * close_timeout参数
+    */
+    @SerializedName("FilebeatCloseTimeout")
+    @Expose
+    private Long FilebeatCloseTimeout;
 
     /**
      * Get 配置项ID 
@@ -133,10 +152,8 @@ public class BusinessLogConfig extends AbstractModel{
     }
 
     /**
-     * Get 配置项日志路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置项日志路径 
      * @return ConfigPath 配置项日志路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConfigPath() {
         return this.ConfigPath;
@@ -144,9 +161,7 @@ public class BusinessLogConfig extends AbstractModel{
 
     /**
      * Set 配置项日志路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigPath 配置项日志路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigPath(String ConfigPath) {
         this.ConfigPath = ConfigPath;
@@ -193,10 +208,8 @@ public class BusinessLogConfig extends AbstractModel{
     }
 
     /**
-     * Get 配置项对应的ES管道
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置项对应的ES管道 
      * @return ConfigPipeline 配置项对应的ES管道
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConfigPipeline() {
         return this.ConfigPipeline;
@@ -204,9 +217,7 @@ public class BusinessLogConfig extends AbstractModel{
 
     /**
      * Set 配置项对应的ES管道
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigPipeline 配置项对应的ES管道
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigPipeline(String ConfigPipeline) {
         this.ConfigPipeline = ConfigPipeline;
@@ -253,10 +264,8 @@ public class BusinessLogConfig extends AbstractModel{
     }
 
     /**
-     * Get 配置项解析规则
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置项解析规则 
      * @return ConfigSchema 配置项解析规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BusinessLogConfigSchema getConfigSchema() {
         return this.ConfigSchema;
@@ -264,9 +273,7 @@ public class BusinessLogConfig extends AbstractModel{
 
     /**
      * Set 配置项解析规则
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigSchema 配置项解析规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigSchema(BusinessLogConfigSchema ConfigSchema) {
         this.ConfigSchema = ConfigSchema;
@@ -277,7 +284,9 @@ public class BusinessLogConfig extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ConfigAssociatedGroups 配置项关联部署组
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public BusinesLogConfigAssociatedGroup [] getConfigAssociatedGroups() {
         return this.ConfigAssociatedGroups;
     }
@@ -287,9 +296,59 @@ public class BusinessLogConfig extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigAssociatedGroups 配置项关联部署组
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setConfigAssociatedGroups(BusinesLogConfigAssociatedGroup [] ConfigAssociatedGroups) {
         this.ConfigAssociatedGroups = ConfigAssociatedGroups;
+    }
+
+    /**
+     * Get 配置项关联部署组 
+     * @return ConfigAssociatedGroupList 配置项关联部署组
+     */
+    public BusinessLogConfigAssociatedGroup [] getConfigAssociatedGroupList() {
+        return this.ConfigAssociatedGroupList;
+    }
+
+    /**
+     * Set 配置项关联部署组
+     * @param ConfigAssociatedGroupList 配置项关联部署组
+     */
+    public void setConfigAssociatedGroupList(BusinessLogConfigAssociatedGroup [] ConfigAssociatedGroupList) {
+        this.ConfigAssociatedGroupList = ConfigAssociatedGroupList;
+    }
+
+    /**
+     * Get 是否开启filebeat高级配置开关 
+     * @return FilebeatConfigEnable 是否开启filebeat高级配置开关
+     */
+    public Boolean getFilebeatConfigEnable() {
+        return this.FilebeatConfigEnable;
+    }
+
+    /**
+     * Set 是否开启filebeat高级配置开关
+     * @param FilebeatConfigEnable 是否开启filebeat高级配置开关
+     */
+    public void setFilebeatConfigEnable(Boolean FilebeatConfigEnable) {
+        this.FilebeatConfigEnable = FilebeatConfigEnable;
+    }
+
+    /**
+     * Get close_timeout参数 
+     * @return FilebeatCloseTimeout close_timeout参数
+     */
+    public Long getFilebeatCloseTimeout() {
+        return this.FilebeatCloseTimeout;
+    }
+
+    /**
+     * Set close_timeout参数
+     * @param FilebeatCloseTimeout close_timeout参数
+     */
+    public void setFilebeatCloseTimeout(Long FilebeatCloseTimeout) {
+        this.FilebeatCloseTimeout = FilebeatCloseTimeout;
     }
 
     public BusinessLogConfig() {
@@ -333,6 +392,18 @@ public class BusinessLogConfig extends AbstractModel{
                 this.ConfigAssociatedGroups[i] = new BusinesLogConfigAssociatedGroup(source.ConfigAssociatedGroups[i]);
             }
         }
+        if (source.ConfigAssociatedGroupList != null) {
+            this.ConfigAssociatedGroupList = new BusinessLogConfigAssociatedGroup[source.ConfigAssociatedGroupList.length];
+            for (int i = 0; i < source.ConfigAssociatedGroupList.length; i++) {
+                this.ConfigAssociatedGroupList[i] = new BusinessLogConfigAssociatedGroup(source.ConfigAssociatedGroupList[i]);
+            }
+        }
+        if (source.FilebeatConfigEnable != null) {
+            this.FilebeatConfigEnable = new Boolean(source.FilebeatConfigEnable);
+        }
+        if (source.FilebeatCloseTimeout != null) {
+            this.FilebeatCloseTimeout = new Long(source.FilebeatCloseTimeout);
+        }
     }
 
 
@@ -350,6 +421,9 @@ public class BusinessLogConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "ConfigUpdateTime", this.ConfigUpdateTime);
         this.setParamObj(map, prefix + "ConfigSchema.", this.ConfigSchema);
         this.setParamArrayObj(map, prefix + "ConfigAssociatedGroups.", this.ConfigAssociatedGroups);
+        this.setParamArrayObj(map, prefix + "ConfigAssociatedGroupList.", this.ConfigAssociatedGroupList);
+        this.setParamSimple(map, prefix + "FilebeatConfigEnable", this.FilebeatConfigEnable);
+        this.setParamSimple(map, prefix + "FilebeatCloseTimeout", this.FilebeatCloseTimeout);
 
     }
 }

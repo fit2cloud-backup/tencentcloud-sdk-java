@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleList extends AbstractModel{
+public class RuleList extends AbstractModel {
 
     /**
     * 规则Id
@@ -63,6 +64,13 @@ public class RuleList extends AbstractModel{
     @SerializedName("Status")
     @Expose
     private Long Status;
+
+    /**
+    * 创建时间
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
 
     /**
      * Get 规则Id 
@@ -160,6 +168,22 @@ public class RuleList extends AbstractModel{
         this.Status = Status;
     }
 
+    /**
+     * Get 创建时间 
+     * @return CreateTime 创建时间
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 创建时间
+     * @param CreateTime 创建时间
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
     public RuleList() {
     }
 
@@ -189,6 +213,9 @@ public class RuleList extends AbstractModel{
         if (source.Status != null) {
             this.Status = new Long(source.Status);
         }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
     }
 
 
@@ -202,6 +229,7 @@ public class RuleList extends AbstractModel{
         this.setParamSimple(map, prefix + "Function", this.Function);
         this.setParamSimple(map, prefix + "Time", this.Time);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
 
     }
 }

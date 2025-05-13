@@ -16,14 +16,15 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifySnapshotAttributeRequest extends AbstractModel{
+public class ModifySnapshotAttributeRequest extends AbstractModel {
 
     /**
-    * 快照 ID, 可通过 DescribeSnapshots 查询。
+    * 快照 ID, 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388">DescribeSnapshots</a> 查询。
     */
     @SerializedName("SnapshotId")
     @Expose
@@ -37,16 +38,16 @@ public class ModifySnapshotAttributeRequest extends AbstractModel{
     private String SnapshotName;
 
     /**
-     * Get 快照 ID, 可通过 DescribeSnapshots 查询。 
-     * @return SnapshotId 快照 ID, 可通过 DescribeSnapshots 查询。
+     * Get 快照 ID, 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388">DescribeSnapshots</a> 查询。 
+     * @return SnapshotId 快照 ID, 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388">DescribeSnapshots</a> 查询。
      */
     public String getSnapshotId() {
         return this.SnapshotId;
     }
 
     /**
-     * Set 快照 ID, 可通过 DescribeSnapshots 查询。
-     * @param SnapshotId 快照 ID, 可通过 DescribeSnapshots 查询。
+     * Set 快照 ID, 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388">DescribeSnapshots</a> 查询。
+     * @param SnapshotId 快照 ID, 可通过 <a href="https://cloud.tencent.com/document/product/1207/54388">DescribeSnapshots</a> 查询。
      */
     public void setSnapshotId(String SnapshotId) {
         this.SnapshotId = SnapshotId;

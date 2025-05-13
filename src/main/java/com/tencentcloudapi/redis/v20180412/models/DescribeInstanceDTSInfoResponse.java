@@ -16,15 +16,15 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceDTSInfoResponse extends AbstractModel{
+public class DescribeInstanceDTSInfoResponse extends AbstractModel {
 
     /**
     * DTS任务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("JobId")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
     * DTS任务名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("JobName")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
     * 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
     * 状态描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StatusDesc")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
     * 同步时延，单位：字节
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Offset")
     @Expose
@@ -64,7 +60,6 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
     * 断开时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CutDownTime")
     @Expose
@@ -72,7 +67,6 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
     * 源实例信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SrcInfo")
     @Expose
@@ -80,24 +74,21 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
     * 目标实例信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DstInfo")
     @Expose
     private DescribeInstanceDTSInstanceInfo DstInfo;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get DTS任务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DTS任务ID 
      * @return JobId DTS任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getJobId() {
         return this.JobId;
@@ -105,19 +96,15 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set DTS任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param JobId DTS任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setJobId(String JobId) {
         this.JobId = JobId;
     }
 
     /**
-     * Get DTS任务名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DTS任务名称 
      * @return JobName DTS任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getJobName() {
         return this.JobName;
@@ -125,19 +112,15 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set DTS任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param JobName DTS任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setJobName(String JobName) {
         this.JobName = JobName;
     }
 
     /**
-     * Get 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing） 
      * @return Status 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -145,19 +128,15 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 任务状态,取值为：1-创建中(Creating),3-校验中(Checking)4-校验通过(CheckPass),5-校验不通过（CheckNotPass）,7-任务运行(Running),8-准备完成（ReadyComplete）,9-任务成功（Success）,10-任务失败（Failed）,11-撤销中（Stopping）,12-完成中（Completing）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 状态描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态描述 
      * @return StatusDesc 状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatusDesc() {
         return this.StatusDesc;
@@ -165,19 +144,15 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set 状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StatusDesc 状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatusDesc(String StatusDesc) {
         this.StatusDesc = StatusDesc;
     }
 
     /**
-     * Get 同步时延，单位：字节
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 同步时延，单位：字节 
      * @return Offset 同步时延，单位：字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOffset() {
         return this.Offset;
@@ -185,19 +160,15 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set 同步时延，单位：字节
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Offset 同步时延，单位：字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 断开时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 断开时间 
      * @return CutDownTime 断开时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCutDownTime() {
         return this.CutDownTime;
@@ -205,19 +176,15 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set 断开时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CutDownTime 断开时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCutDownTime(String CutDownTime) {
         this.CutDownTime = CutDownTime;
     }
 
     /**
-     * Get 源实例信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 源实例信息 
      * @return SrcInfo 源实例信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DescribeInstanceDTSInstanceInfo getSrcInfo() {
         return this.SrcInfo;
@@ -225,19 +192,15 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set 源实例信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SrcInfo 源实例信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrcInfo(DescribeInstanceDTSInstanceInfo SrcInfo) {
         this.SrcInfo = SrcInfo;
     }
 
     /**
-     * Get 目标实例信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目标实例信息 
      * @return DstInfo 目标实例信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DescribeInstanceDTSInstanceInfo getDstInfo() {
         return this.DstInfo;
@@ -245,25 +208,23 @@ public class DescribeInstanceDTSInfoResponse extends AbstractModel{
 
     /**
      * Set 目标实例信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DstInfo 目标实例信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDstInfo(DescribeInstanceDTSInstanceInfo DstInfo) {
         this.DstInfo = DstInfo;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

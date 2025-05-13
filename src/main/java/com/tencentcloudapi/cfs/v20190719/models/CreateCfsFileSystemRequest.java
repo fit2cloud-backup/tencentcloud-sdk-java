@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCfsFileSystemRequest extends AbstractModel{
+public class CreateCfsFileSystemRequest extends AbstractModel {
 
     /**
     * 可用区名称，例如ap-beijing-1，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的地域与可用区列表
@@ -114,7 +115,7 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     private String CidrBlock;
 
     /**
-    * 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售40TiB，即40960 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售20TiB，即20480 GiB；扩容步长10TiB，10240 GiB。
+    * 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售20TiB，即20480 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售10TiB，即10240 GiB；扩容步长10TiB，10240 GiB。
     */
     @SerializedName("Capacity")
     @Expose
@@ -140,6 +141,15 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     @SerializedName("EnableAutoScaleUp")
     @Expose
     private Boolean EnableAutoScaleUp;
+
+    /**
+    * v1.5：创建普通版的通用文件系统；
+v3.1：创建增强版的通用文件系统
+说明：增强版的通用系统需要开通白名单才能使用，如有需要请提交工单与我们联系。
+    */
+    @SerializedName("CfsVersion")
+    @Expose
+    private String CfsVersion;
 
     /**
      * Get 可用区名称，例如ap-beijing-1，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的地域与可用区列表 
@@ -350,16 +360,16 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售40TiB，即40960 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售20TiB，即20480 GiB；扩容步长10TiB，10240 GiB。 
-     * @return Capacity 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售40TiB，即40960 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售20TiB，即20480 GiB；扩容步长10TiB，10240 GiB。
+     * Get 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售20TiB，即20480 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售10TiB，即10240 GiB；扩容步长10TiB，10240 GiB。 
+     * @return Capacity 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售20TiB，即20480 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售10TiB，即10240 GiB；扩容步长10TiB，10240 GiB。
      */
     public Long getCapacity() {
         return this.Capacity;
     }
 
     /**
-     * Set 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售40TiB，即40960 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售20TiB，即20480 GiB；扩容步长10TiB，10240 GiB。
-     * @param Capacity 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售40TiB，即40960 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售20TiB，即20480 GiB；扩容步长10TiB，10240 GiB。
+     * Set 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售20TiB，即20480 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售10TiB，即10240 GiB；扩容步长10TiB，10240 GiB。
+     * @param Capacity 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售20TiB，即20480 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售10TiB，即10240 GiB；扩容步长10TiB，10240 GiB。
      */
     public void setCapacity(Long Capacity) {
         this.Capacity = Capacity;
@@ -411,6 +421,30 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
      */
     public void setEnableAutoScaleUp(Boolean EnableAutoScaleUp) {
         this.EnableAutoScaleUp = EnableAutoScaleUp;
+    }
+
+    /**
+     * Get v1.5：创建普通版的通用文件系统；
+v3.1：创建增强版的通用文件系统
+说明：增强版的通用系统需要开通白名单才能使用，如有需要请提交工单与我们联系。 
+     * @return CfsVersion v1.5：创建普通版的通用文件系统；
+v3.1：创建增强版的通用文件系统
+说明：增强版的通用系统需要开通白名单才能使用，如有需要请提交工单与我们联系。
+     */
+    public String getCfsVersion() {
+        return this.CfsVersion;
+    }
+
+    /**
+     * Set v1.5：创建普通版的通用文件系统；
+v3.1：创建增强版的通用文件系统
+说明：增强版的通用系统需要开通白名单才能使用，如有需要请提交工单与我们联系。
+     * @param CfsVersion v1.5：创建普通版的通用文件系统；
+v3.1：创建增强版的通用文件系统
+说明：增强版的通用系统需要开通白名单才能使用，如有需要请提交工单与我们联系。
+     */
+    public void setCfsVersion(String CfsVersion) {
+        this.CfsVersion = CfsVersion;
     }
 
     public CreateCfsFileSystemRequest() {
@@ -475,6 +509,9 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
         if (source.EnableAutoScaleUp != null) {
             this.EnableAutoScaleUp = new Boolean(source.EnableAutoScaleUp);
         }
+        if (source.CfsVersion != null) {
+            this.CfsVersion = new String(source.CfsVersion);
+        }
     }
 
 
@@ -499,6 +536,7 @@ public class CreateCfsFileSystemRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SnapshotId", this.SnapshotId);
         this.setParamSimple(map, prefix + "AutoSnapshotPolicyId", this.AutoSnapshotPolicyId);
         this.setParamSimple(map, prefix + "EnableAutoScaleUp", this.EnableAutoScaleUp);
+        this.setParamSimple(map, prefix + "CfsVersion", this.CfsVersion);
 
     }
 }

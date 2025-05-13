@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResourceRefDetail extends AbstractModel{
+public class ResourceRefDetail extends AbstractModel {
 
     /**
     * 资源id
@@ -56,6 +57,13 @@ public class ResourceRefDetail extends AbstractModel{
     @SerializedName("SystemProvide")
     @Expose
     private Long SystemProvide;
+
+    /**
+    * Connector
+    */
+    @SerializedName("Connector")
+    @Expose
+    private String Connector;
 
     /**
      * Get 资源id 
@@ -137,6 +145,22 @@ public class ResourceRefDetail extends AbstractModel{
         this.SystemProvide = SystemProvide;
     }
 
+    /**
+     * Get Connector 
+     * @return Connector Connector
+     */
+    public String getConnector() {
+        return this.Connector;
+    }
+
+    /**
+     * Set Connector
+     * @param Connector Connector
+     */
+    public void setConnector(String Connector) {
+        this.Connector = Connector;
+    }
+
     public ResourceRefDetail() {
     }
 
@@ -160,6 +184,9 @@ public class ResourceRefDetail extends AbstractModel{
         if (source.SystemProvide != null) {
             this.SystemProvide = new Long(source.SystemProvide);
         }
+        if (source.Connector != null) {
+            this.Connector = new String(source.Connector);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class ResourceRefDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "SystemProvide", this.SystemProvide);
+        this.setParamSimple(map, prefix + "Connector", this.Connector);
 
     }
 }

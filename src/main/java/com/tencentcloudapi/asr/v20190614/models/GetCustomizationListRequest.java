@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetCustomizationListRequest extends AbstractModel{
+public class GetCustomizationListRequest extends AbstractModel {
 
     /**
     * 标签信息，格式为“$TagKey : $TagValue ”，中间分隔符为“空格”+“:”+“空格”
@@ -46,7 +47,9 @@ public class GetCustomizationListRequest extends AbstractModel{
     /**
      * Get 标签信息，格式为“$TagKey : $TagValue ”，中间分隔符为“空格”+“:”+“空格” 
      * @return TagInfos 标签信息，格式为“$TagKey : $TagValue ”，中间分隔符为“空格”+“:”+“空格”
+     * @deprecated
      */
+    @Deprecated
     public String [] getTagInfos() {
         return this.TagInfos;
     }
@@ -54,7 +57,9 @@ public class GetCustomizationListRequest extends AbstractModel{
     /**
      * Set 标签信息，格式为“$TagKey : $TagValue ”，中间分隔符为“空格”+“:”+“空格”
      * @param TagInfos 标签信息，格式为“$TagKey : $TagValue ”，中间分隔符为“空格”+“:”+“空格”
+     * @deprecated
      */
+    @Deprecated
     public void setTagInfos(String [] TagInfos) {
         this.TagInfos = TagInfos;
     }

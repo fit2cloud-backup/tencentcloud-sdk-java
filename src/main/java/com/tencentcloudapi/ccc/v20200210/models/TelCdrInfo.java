@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TelCdrInfo extends AbstractModel{
+public class TelCdrInfo extends AbstractModel {
 
     /**
     * 主叫号码
@@ -51,6 +52,13 @@ public class TelCdrInfo extends AbstractModel{
     private Long Direction;
 
     /**
+    * 通话类型 1 呼出 2 呼入 3 音频呼入 5 预测式外呼 6 内线呼叫
+    */
+    @SerializedName("CallType")
+    @Expose
+    private Long CallType;
+
+    /**
     * 通话时长
     */
     @SerializedName("Duration")
@@ -65,7 +73,14 @@ public class TelCdrInfo extends AbstractModel{
     private String RecordURL;
 
     /**
-    * 坐席信息
+    * 录音 ID
+    */
+    @SerializedName("RecordId")
+    @Expose
+    private String RecordId;
+
+    /**
+    * 座席信息
     */
     @SerializedName("SeatUser")
     @Expose
@@ -76,44 +91,56 @@ public class TelCdrInfo extends AbstractModel{
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
 
-电话呼出            203	    userReject	拒接挂断
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出	          204	    powerOff	关机
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出           205            numberNotExist	空号
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出	         206	           busy	通话中
+电话呼出           205            numberNotExist	被叫空号
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
     */
     @SerializedName("EndStatus")
     @Expose
@@ -135,7 +162,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * IVR 阶段耗时
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IVRDuration")
     @Expose
@@ -143,7 +169,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 振铃时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RingTimestamp")
     @Expose
@@ -151,7 +176,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 接听时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AcceptTimestamp")
     @Expose
@@ -159,7 +183,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 结束时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndedTimestamp")
     @Expose
@@ -167,15 +190,13 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * IVR 按键信息 ，e.g. ["1","2","3"]
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IVRKeyPressed")
     @Expose
     private String [] IVRKeyPressed;
 
     /**
-    * 挂机方 seat 坐席 user 用户
-注意：此字段可能返回 null，表示取不到有效值。
+    * 挂机方 seat 座席 user 用户 system 系统
     */
     @SerializedName("HungUpSide")
     @Expose
@@ -183,7 +204,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 服务参与者列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServeParticipants")
     @Expose
@@ -191,7 +211,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SkillGroupId")
     @Expose
@@ -202,46 +221,56 @@ public class TelCdrInfo extends AbstractModel{
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
-听
-电话呼出            203	    userReject	拒接挂断
 
-电话呼出	          204	    powerOff	关机
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出           205            numberNotExist	空号
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出	         206	           busy	通话中
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出           205            numberNotExist	被叫空号
+
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
-
-注意：此字段可能返回 null，表示取不到有效值。
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
     */
     @SerializedName("EndStatusString")
     @Expose
@@ -249,7 +278,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 会话开始时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTimestamp")
     @Expose
@@ -257,7 +285,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 进入排队时间，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QueuedTimestamp")
     @Expose
@@ -265,7 +292,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 后置IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PostIVRKeyPressed")
     @Expose
@@ -273,7 +299,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 排队技能组Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QueuedSkillGroupId")
     @Expose
@@ -281,7 +306,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 会话 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SessionId")
     @Expose
@@ -289,7 +313,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProtectedCaller")
     @Expose
@@ -297,7 +320,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProtectedCallee")
     @Expose
@@ -312,8 +334,14 @@ public class TelCdrInfo extends AbstractModel{
     private String Uui;
 
     /**
+    * 客户自定义数据（User-to-User Interface）
+    */
+    @SerializedName("UUI")
+    @Expose
+    private String UUI;
+
+    /**
     * IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IVRKeyPressedEx")
     @Expose
@@ -321,15 +349,25 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 获取录音ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsrUrl")
     @Expose
     private String AsrUrl;
 
     /**
+    * AsrUrl的状态：Complete
+已完成;
+Processing
+正在生成中;
+NotExists
+无记录(未开启生成离线asr或者无套餐包)
+    */
+    @SerializedName("AsrStatus")
+    @Expose
+    private String AsrStatus;
+
+    /**
     * 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomRecordURL")
     @Expose
@@ -337,7 +375,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -345,7 +382,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 排队技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QueuedSkillGroupName")
     @Expose
@@ -353,7 +389,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 通话中语音留言录音URL
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VoicemailRecordURL")
     @Expose
@@ -361,7 +396,6 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
     * 通话中语音留言ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VoicemailAsrURL")
     @Expose
@@ -432,6 +466,22 @@ public class TelCdrInfo extends AbstractModel{
     }
 
     /**
+     * Get 通话类型 1 呼出 2 呼入 3 音频呼入 5 预测式外呼 6 内线呼叫 
+     * @return CallType 通话类型 1 呼出 2 呼入 3 音频呼入 5 预测式外呼 6 内线呼叫
+     */
+    public Long getCallType() {
+        return this.CallType;
+    }
+
+    /**
+     * Set 通话类型 1 呼出 2 呼入 3 音频呼入 5 预测式外呼 6 内线呼叫
+     * @param CallType 通话类型 1 呼出 2 呼入 3 音频呼入 5 预测式外呼 6 内线呼叫
+     */
+    public void setCallType(Long CallType) {
+        this.CallType = CallType;
+    }
+
+    /**
      * Get 通话时长 
      * @return Duration 通话时长
      */
@@ -464,16 +514,32 @@ public class TelCdrInfo extends AbstractModel{
     }
 
     /**
-     * Get 坐席信息 
-     * @return SeatUser 坐席信息
+     * Get 录音 ID 
+     * @return RecordId 录音 ID
+     */
+    public String getRecordId() {
+        return this.RecordId;
+    }
+
+    /**
+     * Set 录音 ID
+     * @param RecordId 录音 ID
+     */
+    public void setRecordId(String RecordId) {
+        this.RecordId = RecordId;
+    }
+
+    /**
+     * Get 座席信息 
+     * @return SeatUser 座席信息
      */
     public SeatUserInfo getSeatUser() {
         return this.SeatUser;
     }
 
     /**
-     * Set 坐席信息
-     * @param SeatUser 坐席信息
+     * Set 座席信息
+     * @param SeatUser 座席信息
      */
     public void setSeatUser(SeatUserInfo SeatUser) {
         this.SeatUser = SeatUser;
@@ -484,86 +550,110 @@ public class TelCdrInfo extends AbstractModel{
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
 
-电话呼出            203	    userReject	拒接挂断
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出	          204	    powerOff	关机
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出           205            numberNotExist	空号
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出	         206	           busy	通话中
+电话呼出           205            numberNotExist	被叫空号
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
- 
+电话呼出	        210	           notInService	被叫不在服务区
+
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截 
      * @return EndStatus EndStatus与EndStatusString一一对应，具体枚举如下：
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
 
-电话呼出            203	    userReject	拒接挂断
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出	          204	    powerOff	关机
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出           205            numberNotExist	空号
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出	         206	           busy	通话中
+电话呼出           205            numberNotExist	被叫空号
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
      */
     public Long getEndStatus() {
         return this.EndStatus;
@@ -574,86 +664,110 @@ public class TelCdrInfo extends AbstractModel{
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
 
-电话呼出            203	    userReject	拒接挂断
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出	          204	    powerOff	关机
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出           205            numberNotExist	空号
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出	         206	           busy	通话中
+电话呼出           205            numberNotExist	被叫空号
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
      * @param EndStatus EndStatus与EndStatusString一一对应，具体枚举如下：
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
 
-电话呼出            203	    userReject	拒接挂断
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出	          204	    powerOff	关机
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出           205            numberNotExist	空号
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出	         206	           busy	通话中
+电话呼出           205            numberNotExist	被叫空号
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
      */
     public void setEndStatus(Long EndStatus) {
         this.EndStatus = EndStatus;
@@ -692,10 +806,8 @@ public class TelCdrInfo extends AbstractModel{
     }
 
     /**
-     * Get IVR 阶段耗时
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get IVR 阶段耗时 
      * @return IVRDuration IVR 阶段耗时
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIVRDuration() {
         return this.IVRDuration;
@@ -703,19 +815,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set IVR 阶段耗时
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IVRDuration IVR 阶段耗时
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIVRDuration(Long IVRDuration) {
         this.IVRDuration = IVRDuration;
     }
 
     /**
-     * Get 振铃时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 振铃时间戳，UNIX 秒级时间戳 
      * @return RingTimestamp 振铃时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRingTimestamp() {
         return this.RingTimestamp;
@@ -723,19 +831,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 振铃时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RingTimestamp 振铃时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRingTimestamp(Long RingTimestamp) {
         this.RingTimestamp = RingTimestamp;
     }
 
     /**
-     * Get 接听时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接听时间戳，UNIX 秒级时间戳 
      * @return AcceptTimestamp 接听时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAcceptTimestamp() {
         return this.AcceptTimestamp;
@@ -743,19 +847,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 接听时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AcceptTimestamp 接听时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAcceptTimestamp(Long AcceptTimestamp) {
         this.AcceptTimestamp = AcceptTimestamp;
     }
 
     /**
-     * Get 结束时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间戳，UNIX 秒级时间戳 
      * @return EndedTimestamp 结束时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEndedTimestamp() {
         return this.EndedTimestamp;
@@ -763,19 +863,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 结束时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndedTimestamp 结束时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndedTimestamp(Long EndedTimestamp) {
         this.EndedTimestamp = EndedTimestamp;
     }
 
     /**
-     * Get IVR 按键信息 ，e.g. ["1","2","3"]
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get IVR 按键信息 ，e.g. ["1","2","3"] 
      * @return IVRKeyPressed IVR 按键信息 ，e.g. ["1","2","3"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getIVRKeyPressed() {
         return this.IVRKeyPressed;
@@ -783,39 +879,31 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set IVR 按键信息 ，e.g. ["1","2","3"]
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IVRKeyPressed IVR 按键信息 ，e.g. ["1","2","3"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIVRKeyPressed(String [] IVRKeyPressed) {
         this.IVRKeyPressed = IVRKeyPressed;
     }
 
     /**
-     * Get 挂机方 seat 坐席 user 用户
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HungUpSide 挂机方 seat 坐席 user 用户
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 挂机方 seat 座席 user 用户 system 系统 
+     * @return HungUpSide 挂机方 seat 座席 user 用户 system 系统
      */
     public String getHungUpSide() {
         return this.HungUpSide;
     }
 
     /**
-     * Set 挂机方 seat 坐席 user 用户
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param HungUpSide 挂机方 seat 坐席 user 用户
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 挂机方 seat 座席 user 用户 system 系统
+     * @param HungUpSide 挂机方 seat 座席 user 用户 system 系统
      */
     public void setHungUpSide(String HungUpSide) {
         this.HungUpSide = HungUpSide;
     }
 
     /**
-     * Get 服务参与者列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务参与者列表 
      * @return ServeParticipants 服务参与者列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ServeParticipant [] getServeParticipants() {
         return this.ServeParticipants;
@@ -823,19 +911,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 服务参与者列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServeParticipants 服务参与者列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServeParticipants(ServeParticipant [] ServeParticipants) {
         this.ServeParticipants = ServeParticipants;
     }
 
     /**
-     * Get 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 技能组ID 
      * @return SkillGroupId 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSkillGroupId() {
         return this.SkillGroupId;
@@ -843,9 +927,7 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SkillGroupId 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSkillGroupId(Long SkillGroupId) {
         this.SkillGroupId = SkillGroupId;
@@ -856,90 +938,110 @@ public class TelCdrInfo extends AbstractModel{
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
-听
-电话呼出            203	    userReject	拒接挂断
 
-电话呼出	          204	    powerOff	关机
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出           205            numberNotExist	空号
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出	         206	           busy	通话中
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出           205            numberNotExist	被叫空号
+
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
-
-注意：此字段可能返回 null，表示取不到有效值。 
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截 
      * @return EndStatusString EndStatus与EndStatusString一一对应，具体枚举如下：
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
-听
-电话呼出            203	    userReject	拒接挂断
 
-电话呼出	          204	    powerOff	关机
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出           205            numberNotExist	空号
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出	         206	           busy	通话中
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出           205            numberNotExist	被叫空号
+
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
-
-注意：此字段可能返回 null，表示取不到有效值。
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
      */
     public String getEndStatusString() {
         return this.EndStatusString;
@@ -950,100 +1052,118 @@ public class TelCdrInfo extends AbstractModel{
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
-听
-电话呼出            203	    userReject	拒接挂断
 
-电话呼出	          204	    powerOff	关机
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出           205            numberNotExist	空号
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出	         206	           busy	通话中
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出           205            numberNotExist	被叫空号
+
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
-
-注意：此字段可能返回 null，表示取不到有效值。
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
      * @param EndStatusString EndStatus与EndStatusString一一对应，具体枚举如下：
 
 **场景	         EndStatus	EndStatusString	状态说明**
 
-电话呼入&呼出	1	        ok	                        正常结束
+电话呼入&呼出	1	        ok	                        正常通话
 
-电话呼入&呼出	0	        error	                系统错误
+电话呼入&呼出	0	        error	                异常结束
 
 电话呼入	             102	        ivrGiveUp	        IVR 期间用户放弃
 
-电话呼入	             103	        waitingGiveUp	       会话排队期间用户放弃
+电话呼入	             103	        waitingGiveUp	       排队时用户放弃
 
-电话呼入	             104	        ringingGiveUp	       会话振铃期间用户放弃
+电话呼入	             104	        ringingGiveUp	       振铃时用户放弃
 
-电话呼入	             105	        noSeatOnline	       无坐席在线
+电话呼入	             105	        noSeatOnline	       无座席在线
 
 电话呼入              106	       notWorkTime	       非工作时间   
 
 电话呼入	            107	       ivrEnd	               IVR 后直接结束
 
-电话呼入	            100	      CallinBlockedContact  呼入黑名单 
+电话呼入	            100	      blackList 黑名单 
 
 电话呼出               2	              unconnected	未接通
+
+电话呼出             108	        restrictedCallee	被叫因高风险受限
+
+电话呼出             109	        tooManyRequest	    外呼超频限制
+
+电话呼出             110	        restrictedArea	    外呼区域限制
+
+电话呼出             111	        restrictedTime	外呼时间限制
                          
 电话呼出             201            unknown	未知状态
-听
-电话呼出            203	    userReject	拒接挂断
 
-电话呼出	          204	    powerOff	关机
+电话呼出             202            notAnswer	 被叫未接听
 
-电话呼出           205            numberNotExist	空号
+电话呼出            203	    userReject	被叫拒接挂断
 
-电话呼出	         206	           busy	通话中
+电话呼出	          204	    powerOff	被叫关机
 
-电话呼出   	 207	           outOfCredit	欠费
+电话呼出           205            numberNotExist	被叫空号
+
+电话呼出	         206	           busy	被叫忙
+
+电话呼出   	        207	           outOfCredit	被叫欠费
 
 电话呼出	         208	           operatorError	运营商线路异常
 
 电话呼出         	209	           callerCancel	主叫取消
 
-电话呼出	        210	           notInService	不在服务区
+电话呼出	        210	           notInService	被叫不在服务区
 
-
-注意：此字段可能返回 null，表示取不到有效值。
+电话呼入&呼出	211    clientError    客户端错误
+电话呼出        212     carrierBlocked      运营商拦截
      */
     public void setEndStatusString(String EndStatusString) {
         this.EndStatusString = EndStatusString;
     }
 
     /**
-     * Get 会话开始时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 会话开始时间戳，UNIX 秒级时间戳 
      * @return StartTimestamp 会话开始时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStartTimestamp() {
         return this.StartTimestamp;
@@ -1051,19 +1171,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 会话开始时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTimestamp 会话开始时间戳，UNIX 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTimestamp(Long StartTimestamp) {
         this.StartTimestamp = StartTimestamp;
     }
 
     /**
-     * Get 进入排队时间，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进入排队时间，Unix 秒级时间戳 
      * @return QueuedTimestamp 进入排队时间，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getQueuedTimestamp() {
         return this.QueuedTimestamp;
@@ -1071,19 +1187,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 进入排队时间，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param QueuedTimestamp 进入排队时间，Unix 秒级时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQueuedTimestamp(Long QueuedTimestamp) {
         this.QueuedTimestamp = QueuedTimestamp;
     }
 
     /**
-     * Get 后置IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后置IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]） 
      * @return PostIVRKeyPressed 后置IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IVRKeyPressedElement [] getPostIVRKeyPressed() {
         return this.PostIVRKeyPressed;
@@ -1091,19 +1203,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 后置IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PostIVRKeyPressed 后置IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPostIVRKeyPressed(IVRKeyPressedElement [] PostIVRKeyPressed) {
         this.PostIVRKeyPressed = PostIVRKeyPressed;
     }
 
     /**
-     * Get 排队技能组Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 排队技能组Id 
      * @return QueuedSkillGroupId 排队技能组Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getQueuedSkillGroupId() {
         return this.QueuedSkillGroupId;
@@ -1111,19 +1219,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 排队技能组Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param QueuedSkillGroupId 排队技能组Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQueuedSkillGroupId(Long QueuedSkillGroupId) {
         this.QueuedSkillGroupId = QueuedSkillGroupId;
     }
 
     /**
-     * Get 会话 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 会话 ID 
      * @return SessionId 会话 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSessionId() {
         return this.SessionId;
@@ -1131,19 +1235,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 会话 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SessionId 会话 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
     }
 
     /**
-     * Get 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空 
      * @return ProtectedCaller 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProtectedCaller() {
         return this.ProtectedCaller;
@@ -1151,19 +1251,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProtectedCaller 主叫号码保护ID，开启号码保护映射功能时有效，且Caller字段置空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtectedCaller(String ProtectedCaller) {
         this.ProtectedCaller = ProtectedCaller;
     }
 
     /**
-     * Get 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空 
      * @return ProtectedCallee 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProtectedCallee() {
         return this.ProtectedCallee;
@@ -1171,9 +1267,7 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProtectedCallee 被叫号码保护ID，开启号码保护映射功能时有效，且Callee字段置空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtectedCallee(String ProtectedCallee) {
         this.ProtectedCallee = ProtectedCallee;
@@ -1184,7 +1278,9 @@ public class TelCdrInfo extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Uui 客户自定义数据（User-to-User Interface）
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public String getUui() {
         return this.Uui;
     }
@@ -1194,16 +1290,32 @@ public class TelCdrInfo extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Uui 客户自定义数据（User-to-User Interface）
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setUui(String Uui) {
         this.Uui = Uui;
     }
 
     /**
-     * Get IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户自定义数据（User-to-User Interface） 
+     * @return UUI 客户自定义数据（User-to-User Interface）
+     */
+    public String getUUI() {
+        return this.UUI;
+    }
+
+    /**
+     * Set 客户自定义数据（User-to-User Interface）
+     * @param UUI 客户自定义数据（User-to-User Interface）
+     */
+    public void setUUI(String UUI) {
+        this.UUI = UUI;
+    }
+
+    /**
+     * Get IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]） 
      * @return IVRKeyPressedEx IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IVRKeyPressedElement [] getIVRKeyPressedEx() {
         return this.IVRKeyPressedEx;
@@ -1211,19 +1323,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IVRKeyPressedEx IVR按键信息（e.g. [{"Key":"1","Label":"非常满意"}]）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIVRKeyPressedEx(IVRKeyPressedElement [] IVRKeyPressedEx) {
         this.IVRKeyPressedEx = IVRKeyPressedEx;
     }
 
     /**
-     * Get 获取录音ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 获取录音ASR文本信息地址 
      * @return AsrUrl 获取录音ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAsrUrl() {
         return this.AsrUrl;
@@ -1231,19 +1339,51 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 获取录音ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsrUrl 获取录音ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsrUrl(String AsrUrl) {
         this.AsrUrl = AsrUrl;
     }
 
     /**
-     * Get 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get AsrUrl的状态：Complete
+已完成;
+Processing
+正在生成中;
+NotExists
+无记录(未开启生成离线asr或者无套餐包) 
+     * @return AsrStatus AsrUrl的状态：Complete
+已完成;
+Processing
+正在生成中;
+NotExists
+无记录(未开启生成离线asr或者无套餐包)
+     */
+    public String getAsrStatus() {
+        return this.AsrStatus;
+    }
+
+    /**
+     * Set AsrUrl的状态：Complete
+已完成;
+Processing
+正在生成中;
+NotExists
+无记录(未开启生成离线asr或者无套餐包)
+     * @param AsrStatus AsrUrl的状态：Complete
+已完成;
+Processing
+正在生成中;
+NotExists
+无记录(未开启生成离线asr或者无套餐包)
+     */
+    public void setAsrStatus(String AsrStatus) {
+        this.AsrStatus = AsrStatus;
+    }
+
+    /**
+     * Get 录音转存第三方COS地址 
      * @return CustomRecordURL 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomRecordURL() {
         return this.CustomRecordURL;
@@ -1251,19 +1391,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomRecordURL 录音转存第三方COS地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomRecordURL(String CustomRecordURL) {
         this.CustomRecordURL = CustomRecordURL;
     }
 
     /**
-     * Get 备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注 
      * @return Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -1271,19 +1407,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get 排队技能组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 排队技能组名称 
      * @return QueuedSkillGroupName 排队技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getQueuedSkillGroupName() {
         return this.QueuedSkillGroupName;
@@ -1291,19 +1423,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 排队技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param QueuedSkillGroupName 排队技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQueuedSkillGroupName(String QueuedSkillGroupName) {
         this.QueuedSkillGroupName = QueuedSkillGroupName;
     }
 
     /**
-     * Get 通话中语音留言录音URL
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 通话中语音留言录音URL 
      * @return VoicemailRecordURL 通话中语音留言录音URL
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getVoicemailRecordURL() {
         return this.VoicemailRecordURL;
@@ -1311,19 +1439,15 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 通话中语音留言录音URL
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VoicemailRecordURL 通话中语音留言录音URL
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVoicemailRecordURL(String [] VoicemailRecordURL) {
         this.VoicemailRecordURL = VoicemailRecordURL;
     }
 
     /**
-     * Get 通话中语音留言ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 通话中语音留言ASR文本信息地址 
      * @return VoicemailAsrURL 通话中语音留言ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getVoicemailAsrURL() {
         return this.VoicemailAsrURL;
@@ -1331,9 +1455,7 @@ public class TelCdrInfo extends AbstractModel{
 
     /**
      * Set 通话中语音留言ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VoicemailAsrURL 通话中语音留言ASR文本信息地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVoicemailAsrURL(String [] VoicemailAsrURL) {
         this.VoicemailAsrURL = VoicemailAsrURL;
@@ -1359,11 +1481,17 @@ public class TelCdrInfo extends AbstractModel{
         if (source.Direction != null) {
             this.Direction = new Long(source.Direction);
         }
+        if (source.CallType != null) {
+            this.CallType = new Long(source.CallType);
+        }
         if (source.Duration != null) {
             this.Duration = new Long(source.Duration);
         }
         if (source.RecordURL != null) {
             this.RecordURL = new String(source.RecordURL);
+        }
+        if (source.RecordId != null) {
+            this.RecordId = new String(source.RecordId);
         }
         if (source.SeatUser != null) {
             this.SeatUser = new SeatUserInfo(source.SeatUser);
@@ -1437,6 +1565,9 @@ public class TelCdrInfo extends AbstractModel{
         if (source.Uui != null) {
             this.Uui = new String(source.Uui);
         }
+        if (source.UUI != null) {
+            this.UUI = new String(source.UUI);
+        }
         if (source.IVRKeyPressedEx != null) {
             this.IVRKeyPressedEx = new IVRKeyPressedElement[source.IVRKeyPressedEx.length];
             for (int i = 0; i < source.IVRKeyPressedEx.length; i++) {
@@ -1445,6 +1576,9 @@ public class TelCdrInfo extends AbstractModel{
         }
         if (source.AsrUrl != null) {
             this.AsrUrl = new String(source.AsrUrl);
+        }
+        if (source.AsrStatus != null) {
+            this.AsrStatus = new String(source.AsrStatus);
         }
         if (source.CustomRecordURL != null) {
             this.CustomRecordURL = new String(source.CustomRecordURL);
@@ -1478,8 +1612,10 @@ public class TelCdrInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Callee", this.Callee);
         this.setParamSimple(map, prefix + "Time", this.Time);
         this.setParamSimple(map, prefix + "Direction", this.Direction);
+        this.setParamSimple(map, prefix + "CallType", this.CallType);
         this.setParamSimple(map, prefix + "Duration", this.Duration);
         this.setParamSimple(map, prefix + "RecordURL", this.RecordURL);
+        this.setParamSimple(map, prefix + "RecordId", this.RecordId);
         this.setParamObj(map, prefix + "SeatUser.", this.SeatUser);
         this.setParamSimple(map, prefix + "EndStatus", this.EndStatus);
         this.setParamSimple(map, prefix + "SkillGroup", this.SkillGroup);
@@ -1501,8 +1637,10 @@ public class TelCdrInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ProtectedCaller", this.ProtectedCaller);
         this.setParamSimple(map, prefix + "ProtectedCallee", this.ProtectedCallee);
         this.setParamSimple(map, prefix + "Uui", this.Uui);
+        this.setParamSimple(map, prefix + "UUI", this.UUI);
         this.setParamArrayObj(map, prefix + "IVRKeyPressedEx.", this.IVRKeyPressedEx);
         this.setParamSimple(map, prefix + "AsrUrl", this.AsrUrl);
+        this.setParamSimple(map, prefix + "AsrStatus", this.AsrStatus);
         this.setParamSimple(map, prefix + "CustomRecordURL", this.CustomRecordURL);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "QueuedSkillGroupName", this.QueuedSkillGroupName);

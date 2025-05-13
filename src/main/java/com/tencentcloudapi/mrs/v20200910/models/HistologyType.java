@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HistologyType extends AbstractModel{
+public class HistologyType extends AbstractModel {
 
     /**
     * 浸润
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Infiltration")
     @Expose
@@ -32,7 +32,6 @@ public class HistologyType extends AbstractModel{
 
     /**
     * 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Index")
     @Expose
@@ -40,7 +39,6 @@ public class HistologyType extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -48,17 +46,14 @@ public class HistologyType extends AbstractModel{
 
     /**
     * 类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-     * Get 浸润
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 浸润 
      * @return Infiltration 浸润
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInfiltration() {
         return this.Infiltration;
@@ -66,19 +61,15 @@ public class HistologyType extends AbstractModel{
 
     /**
      * Set 浸润
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Infiltration 浸润
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInfiltration(String Infiltration) {
         this.Infiltration = Infiltration;
     }
 
     /**
-     * Get 原文位置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文位置 
      * @return Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getIndex() {
         return this.Index;
@@ -86,19 +77,15 @@ public class HistologyType extends AbstractModel{
 
     /**
      * Set 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndex(Long [] Index) {
         this.Index = Index;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -106,19 +93,15 @@ public class HistologyType extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get 类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 类型 
      * @return Type 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -126,9 +109,7 @@ public class HistologyType extends AbstractModel{
 
     /**
      * Set 类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;

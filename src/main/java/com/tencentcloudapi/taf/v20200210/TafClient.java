@@ -39,66 +39,14 @@ public class TafClient extends AbstractClient{
     }
 
     /**
-     *流量反欺诈-流量验准定制版
-     * @param req RecognizeCustomizedAudienceRequest
-     * @return RecognizeCustomizedAudienceResponse
+     *虚假流量识别
+     * @param req ManagePortraitRiskRequest
+     * @return ManagePortraitRiskResponse
      * @throws TencentCloudSDKException
      */
-    public RecognizeCustomizedAudienceResponse RecognizeCustomizedAudience(RecognizeCustomizedAudienceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RecognizeCustomizedAudienceResponse> rsp = null;
-        String rspStr = "";
+    public ManagePortraitRiskResponse ManagePortraitRisk(ManagePortraitRiskRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RecognizeCustomizedAudienceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RecognizeCustomizedAudience");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *流量反欺诈-流量验准高级版
-     * @param req RecognizePreciseTargetAudienceRequest
-     * @return RecognizePreciseTargetAudienceResponse
-     * @throws TencentCloudSDKException
-     */
-    public RecognizePreciseTargetAudienceResponse RecognizePreciseTargetAudience(RecognizePreciseTargetAudienceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RecognizePreciseTargetAudienceResponse> rsp = null;
-        String rspStr = "";
-        req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RecognizePreciseTargetAudienceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RecognizePreciseTargetAudience");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *流量反欺诈-流量验准
-     * @param req RecognizeTargetAudienceRequest
-     * @return RecognizeTargetAudienceResponse
-     * @throws TencentCloudSDKException
-     */
-    public RecognizeTargetAudienceResponse RecognizeTargetAudience(RecognizeTargetAudienceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RecognizeTargetAudienceResponse> rsp = null;
-        String rspStr = "";
-        req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RecognizeTargetAudienceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RecognizeTargetAudience");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ManagePortraitRisk", ManagePortraitRiskResponse.class);
     }
 
 }

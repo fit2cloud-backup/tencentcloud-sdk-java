@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TranscodeDetailInfo extends AbstractModel{
+public class TranscodeDetailInfo extends AbstractModel {
 
     /**
     * 流名称。
@@ -54,6 +55,7 @@ public class TranscodeDetailInfo extends AbstractModel{
     /**
     * 编码方式，带模块，
 示例：
+liveprocessor_ACC:  音频转码，
 liveprocessor_H264：直播转码-H264，
 liveprocessor_H265： 直播转码-H265，
 topspeed_H264：极速高清-H264，
@@ -171,12 +173,14 @@ Overseas：海外。
     /**
      * Get 编码方式，带模块，
 示例：
+liveprocessor_ACC:  音频转码，
 liveprocessor_H264：直播转码-H264，
 liveprocessor_H265： 直播转码-H265，
 topspeed_H264：极速高清-H264，
 topspeed_H265：极速高清-H265。 
      * @return ModuleCodec 编码方式，带模块，
 示例：
+liveprocessor_ACC:  音频转码，
 liveprocessor_H264：直播转码-H264，
 liveprocessor_H265： 直播转码-H265，
 topspeed_H264：极速高清-H264，
@@ -189,12 +193,14 @@ topspeed_H265：极速高清-H265。
     /**
      * Set 编码方式，带模块，
 示例：
+liveprocessor_ACC:  音频转码，
 liveprocessor_H264：直播转码-H264，
 liveprocessor_H265： 直播转码-H265，
 topspeed_H264：极速高清-H264，
 topspeed_H265：极速高清-H265。
      * @param ModuleCodec 编码方式，带模块，
 示例：
+liveprocessor_ACC:  音频转码，
 liveprocessor_H264：直播转码-H264，
 liveprocessor_H265： 直播转码-H265，
 topspeed_H264：极速高清-H264，

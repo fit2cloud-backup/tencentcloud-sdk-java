@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FreezeTasksByWorkflowIdsRequest extends AbstractModel{
+public class FreezeTasksByWorkflowIdsRequest extends AbstractModel {
 
     /**
     * 工作流id列表
@@ -35,6 +36,20 @@ public class FreezeTasksByWorkflowIdsRequest extends AbstractModel{
     @SerializedName("ProjectId")
     @Expose
     private String ProjectId;
+
+    /**
+    * 是否终止已生成的实例
+    */
+    @SerializedName("KillInstance")
+    @Expose
+    private Boolean KillInstance;
+
+    /**
+    * 是否异步模式
+    */
+    @SerializedName("AsyncMode")
+    @Expose
+    private Boolean AsyncMode;
 
     /**
      * Get 工作流id列表 
@@ -68,6 +83,38 @@ public class FreezeTasksByWorkflowIdsRequest extends AbstractModel{
         this.ProjectId = ProjectId;
     }
 
+    /**
+     * Get 是否终止已生成的实例 
+     * @return KillInstance 是否终止已生成的实例
+     */
+    public Boolean getKillInstance() {
+        return this.KillInstance;
+    }
+
+    /**
+     * Set 是否终止已生成的实例
+     * @param KillInstance 是否终止已生成的实例
+     */
+    public void setKillInstance(Boolean KillInstance) {
+        this.KillInstance = KillInstance;
+    }
+
+    /**
+     * Get 是否异步模式 
+     * @return AsyncMode 是否异步模式
+     */
+    public Boolean getAsyncMode() {
+        return this.AsyncMode;
+    }
+
+    /**
+     * Set 是否异步模式
+     * @param AsyncMode 是否异步模式
+     */
+    public void setAsyncMode(Boolean AsyncMode) {
+        this.AsyncMode = AsyncMode;
+    }
+
     public FreezeTasksByWorkflowIdsRequest() {
     }
 
@@ -85,6 +132,12 @@ public class FreezeTasksByWorkflowIdsRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
+        if (source.KillInstance != null) {
+            this.KillInstance = new Boolean(source.KillInstance);
+        }
+        if (source.AsyncMode != null) {
+            this.AsyncMode = new Boolean(source.AsyncMode);
+        }
     }
 
 
@@ -94,6 +147,8 @@ public class FreezeTasksByWorkflowIdsRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "WorkflowIds.", this.WorkflowIds);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "KillInstance", this.KillInstance);
+        this.setParamSimple(map, prefix + "AsyncMode", this.AsyncMode);
 
     }
 }

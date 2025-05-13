@@ -16,30 +16,36 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDomainRedemptionRequest extends AbstractModel{
+public class CreateDomainRedemptionRequest extends AbstractModel {
 
     /**
-    * 域名 ID
+    * 域名ID
+可通过DescribeDomainList接口获取
     */
     @SerializedName("DomainId")
     @Expose
     private String DomainId;
 
     /**
-     * Get 域名 ID 
-     * @return DomainId 域名 ID
+     * Get 域名ID
+可通过DescribeDomainList接口获取 
+     * @return DomainId 域名ID
+可通过DescribeDomainList接口获取
      */
     public String getDomainId() {
         return this.DomainId;
     }
 
     /**
-     * Set 域名 ID
-     * @param DomainId 域名 ID
+     * Set 域名ID
+可通过DescribeDomainList接口获取
+     * @param DomainId 域名ID
+可通过DescribeDomainList接口获取
      */
     public void setDomainId(String DomainId) {
         this.DomainId = DomainId;

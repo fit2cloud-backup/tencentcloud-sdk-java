@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tag.v20180813.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteResourceTagRequest extends AbstractModel{
+public class DeleteResourceTagRequest extends AbstractModel {
 
     /**
     * 标签键
@@ -30,7 +31,7 @@ public class DeleteResourceTagRequest extends AbstractModel{
     private String TagKey;
 
     /**
-    * [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+    * 资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
     */
     @SerializedName("Resource")
     @Expose
@@ -53,16 +54,16 @@ public class DeleteResourceTagRequest extends AbstractModel{
     }
 
     /**
-     * Get [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606) 
-     * @return Resource [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+     * Get 资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584 
+     * @return Resource 资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
      */
     public String getResource() {
         return this.Resource;
     }
 
     /**
-     * Set [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
-     * @param Resource [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+     * Set 资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
+     * @param Resource 资源六段式。示例：qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584
      */
     public void setResource(String Resource) {
         this.Resource = Resource;

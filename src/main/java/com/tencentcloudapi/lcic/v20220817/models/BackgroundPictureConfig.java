@@ -16,25 +16,23 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BackgroundPictureConfig extends AbstractModel{
+public class BackgroundPictureConfig extends AbstractModel {
 
     /**
     * 背景图片的url
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Url")
     @Expose
     private String Url;
 
     /**
-     * Get 背景图片的url
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 背景图片的url 
      * @return Url 背景图片的url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUrl() {
         return this.Url;
@@ -42,9 +40,7 @@ public class BackgroundPictureConfig extends AbstractModel{
 
     /**
      * Set 背景图片的url
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Url 背景图片的url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUrl(String Url) {
         this.Url = Url;

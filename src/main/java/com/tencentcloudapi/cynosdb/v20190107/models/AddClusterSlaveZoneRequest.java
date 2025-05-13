@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddClusterSlaveZoneRequest extends AbstractModel{
+public class AddClusterSlaveZoneRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -35,6 +36,13 @@ public class AddClusterSlaveZoneRequest extends AbstractModel{
     @SerializedName("SlaveZone")
     @Expose
     private String SlaveZone;
+
+    /**
+    * binlog同步方式。默认值：async。可选值：sync、semisync、async
+    */
+    @SerializedName("BinlogSyncWay")
+    @Expose
+    private String BinlogSyncWay;
 
     /**
      * Get 集群ID 
@@ -68,6 +76,22 @@ public class AddClusterSlaveZoneRequest extends AbstractModel{
         this.SlaveZone = SlaveZone;
     }
 
+    /**
+     * Get binlog同步方式。默认值：async。可选值：sync、semisync、async 
+     * @return BinlogSyncWay binlog同步方式。默认值：async。可选值：sync、semisync、async
+     */
+    public String getBinlogSyncWay() {
+        return this.BinlogSyncWay;
+    }
+
+    /**
+     * Set binlog同步方式。默认值：async。可选值：sync、semisync、async
+     * @param BinlogSyncWay binlog同步方式。默认值：async。可选值：sync、semisync、async
+     */
+    public void setBinlogSyncWay(String BinlogSyncWay) {
+        this.BinlogSyncWay = BinlogSyncWay;
+    }
+
     public AddClusterSlaveZoneRequest() {
     }
 
@@ -82,6 +106,9 @@ public class AddClusterSlaveZoneRequest extends AbstractModel{
         if (source.SlaveZone != null) {
             this.SlaveZone = new String(source.SlaveZone);
         }
+        if (source.BinlogSyncWay != null) {
+            this.BinlogSyncWay = new String(source.BinlogSyncWay);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class AddClusterSlaveZoneRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "SlaveZone", this.SlaveZone);
+        this.setParamSimple(map, prefix + "BinlogSyncWay", this.BinlogSyncWay);
 
     }
 }

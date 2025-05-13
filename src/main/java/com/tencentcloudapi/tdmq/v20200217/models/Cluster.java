@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Cluster extends AbstractModel{
+public class Cluster extends AbstractModel {
 
     /**
     * 集群Id。
@@ -227,6 +228,29 @@ public class Cluster extends AbstractModel{
     @SerializedName("PayMode")
     @Expose
     private Long PayMode;
+
+    /**
+    * 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private Long ProjectId;
+
+    /**
+    * 项目名字
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectName")
+    @Expose
+    private String ProjectName;
+
+    /**
+    * 是否支持升级专业版实例
+    */
+    @SerializedName("UpgradeProInstance")
+    @Expose
+    private Boolean UpgradeProInstance;
 
     /**
      * Get 集群Id。 
@@ -728,6 +752,62 @@ public class Cluster extends AbstractModel{
         this.PayMode = PayMode;
     }
 
+    /**
+     * Get 项目ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectId 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectId 项目ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectId(Long ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 项目名字
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectName 项目名字
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProjectName() {
+        return this.ProjectName;
+    }
+
+    /**
+     * Set 项目名字
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectName 项目名字
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectName(String ProjectName) {
+        this.ProjectName = ProjectName;
+    }
+
+    /**
+     * Get 是否支持升级专业版实例 
+     * @return UpgradeProInstance 是否支持升级专业版实例
+     */
+    public Boolean getUpgradeProInstance() {
+        return this.UpgradeProInstance;
+    }
+
+    /**
+     * Set 是否支持升级专业版实例
+     * @param UpgradeProInstance 是否支持升级专业版实例
+     */
+    public void setUpgradeProInstance(Boolean UpgradeProInstance) {
+        this.UpgradeProInstance = UpgradeProInstance;
+    }
+
     public Cluster() {
     }
 
@@ -820,6 +900,15 @@ public class Cluster extends AbstractModel{
         if (source.PayMode != null) {
             this.PayMode = new Long(source.PayMode);
         }
+        if (source.ProjectId != null) {
+            this.ProjectId = new Long(source.ProjectId);
+        }
+        if (source.ProjectName != null) {
+            this.ProjectName = new String(source.ProjectName);
+        }
+        if (source.UpgradeProInstance != null) {
+            this.UpgradeProInstance = new Boolean(source.UpgradeProInstance);
+        }
     }
 
 
@@ -854,6 +943,9 @@ public class Cluster extends AbstractModel{
         this.setParamSimple(map, prefix + "PublicAccessEnabled", this.PublicAccessEnabled);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
+        this.setParamSimple(map, prefix + "UpgradeProInstance", this.UpgradeProInstance);
 
     }
 }

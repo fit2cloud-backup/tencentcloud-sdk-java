@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FlowLogStorage extends AbstractModel{
+public class FlowLogStorage extends AbstractModel {
 
     /**
     * 存储实例Id，当流日志存储类型为ckafka时，必填。
@@ -31,7 +32,6 @@ public class FlowLogStorage extends AbstractModel{
 
     /**
     * 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StorageTopic")
     @Expose
@@ -54,10 +54,8 @@ public class FlowLogStorage extends AbstractModel{
     }
 
     /**
-     * Get 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主题Id，当流日志存储类型为ckafka时，必填。 
      * @return StorageTopic 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStorageTopic() {
         return this.StorageTopic;
@@ -65,9 +63,7 @@ public class FlowLogStorage extends AbstractModel{
 
     /**
      * Set 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StorageTopic 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStorageTopic(String StorageTopic) {
         this.StorageTopic = StorageTopic;

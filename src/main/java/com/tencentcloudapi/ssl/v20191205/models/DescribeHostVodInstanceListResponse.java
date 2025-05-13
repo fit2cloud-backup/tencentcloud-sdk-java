@@ -16,86 +16,77 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostVodInstanceListResponse extends AbstractModel{
+public class DescribeHostVodInstanceListResponse extends AbstractModel {
 
     /**
-    * Vod实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+    * Vod实例列表，如果取不到值返回空数组
     */
     @SerializedName("InstanceList")
     @Expose
     private VodInstanceDetail [] InstanceList;
 
     /**
-    * 总数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 总数,如果取不到值返回0
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get Vod实例列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceList Vod实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get Vod实例列表，如果取不到值返回空数组 
+     * @return InstanceList Vod实例列表，如果取不到值返回空数组
      */
     public VodInstanceDetail [] getInstanceList() {
         return this.InstanceList;
     }
 
     /**
-     * Set Vod实例列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceList Vod实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set Vod实例列表，如果取不到值返回空数组
+     * @param InstanceList Vod实例列表，如果取不到值返回空数组
      */
     public void setInstanceList(VodInstanceDetail [] InstanceList) {
         this.InstanceList = InstanceList;
     }
 
     /**
-     * Get 总数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 总数,如果取不到值返回0 
+     * @return TotalCount 总数,如果取不到值返回0
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 总数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 总数,如果取不到值返回0
+     * @param TotalCount 总数,如果取不到值返回0
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

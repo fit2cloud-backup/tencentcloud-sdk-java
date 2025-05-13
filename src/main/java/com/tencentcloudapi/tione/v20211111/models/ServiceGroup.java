@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceGroup extends AbstractModel{
+public class ServiceGroup extends AbstractModel {
 
     /**
     * 服务组id
@@ -160,6 +161,50 @@ UPDATING 更新中
     @SerializedName("WeightUpdateStatus")
     @Expose
     private String WeightUpdateStatus;
+
+    /**
+    * 服务组下运行的pod数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReplicasCount")
+    @Expose
+    private Long ReplicasCount;
+
+    /**
+    * 服务组下期望的pod数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AvailableReplicasCount")
+    @Expose
+    private Long AvailableReplicasCount;
+
+    /**
+    * 服务组的subuin
+    */
+    @SerializedName("SubUin")
+    @Expose
+    private String SubUin;
+
+    /**
+    * 服务组的app_id
+    */
+    @SerializedName("AppId")
+    @Expose
+    private Long AppId;
+
+    /**
+    * 是否开启鉴权
+    */
+    @SerializedName("AuthorizationEnable")
+    @Expose
+    private Boolean AuthorizationEnable;
+
+    /**
+    * 限流鉴权 token 列表
+    */
+    @SerializedName("AuthTokens")
+    @Expose
+    private AuthToken [] AuthTokens;
 
     /**
      * Get 服务组id 
@@ -525,6 +570,110 @@ UPDATING 更新中
         this.WeightUpdateStatus = WeightUpdateStatus;
     }
 
+    /**
+     * Get 服务组下运行的pod数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReplicasCount 服务组下运行的pod数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getReplicasCount() {
+        return this.ReplicasCount;
+    }
+
+    /**
+     * Set 服务组下运行的pod数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReplicasCount 服务组下运行的pod数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReplicasCount(Long ReplicasCount) {
+        this.ReplicasCount = ReplicasCount;
+    }
+
+    /**
+     * Get 服务组下期望的pod数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AvailableReplicasCount 服务组下期望的pod数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getAvailableReplicasCount() {
+        return this.AvailableReplicasCount;
+    }
+
+    /**
+     * Set 服务组下期望的pod数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AvailableReplicasCount 服务组下期望的pod数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAvailableReplicasCount(Long AvailableReplicasCount) {
+        this.AvailableReplicasCount = AvailableReplicasCount;
+    }
+
+    /**
+     * Get 服务组的subuin 
+     * @return SubUin 服务组的subuin
+     */
+    public String getSubUin() {
+        return this.SubUin;
+    }
+
+    /**
+     * Set 服务组的subuin
+     * @param SubUin 服务组的subuin
+     */
+    public void setSubUin(String SubUin) {
+        this.SubUin = SubUin;
+    }
+
+    /**
+     * Get 服务组的app_id 
+     * @return AppId 服务组的app_id
+     */
+    public Long getAppId() {
+        return this.AppId;
+    }
+
+    /**
+     * Set 服务组的app_id
+     * @param AppId 服务组的app_id
+     */
+    public void setAppId(Long AppId) {
+        this.AppId = AppId;
+    }
+
+    /**
+     * Get 是否开启鉴权 
+     * @return AuthorizationEnable 是否开启鉴权
+     */
+    public Boolean getAuthorizationEnable() {
+        return this.AuthorizationEnable;
+    }
+
+    /**
+     * Set 是否开启鉴权
+     * @param AuthorizationEnable 是否开启鉴权
+     */
+    public void setAuthorizationEnable(Boolean AuthorizationEnable) {
+        this.AuthorizationEnable = AuthorizationEnable;
+    }
+
+    /**
+     * Get 限流鉴权 token 列表 
+     * @return AuthTokens 限流鉴权 token 列表
+     */
+    public AuthToken [] getAuthTokens() {
+        return this.AuthTokens;
+    }
+
+    /**
+     * Set 限流鉴权 token 列表
+     * @param AuthTokens 限流鉴权 token 列表
+     */
+    public void setAuthTokens(AuthToken [] AuthTokens) {
+        this.AuthTokens = AuthTokens;
+    }
+
     public ServiceGroup() {
     }
 
@@ -587,6 +736,27 @@ UPDATING 更新中
         if (source.WeightUpdateStatus != null) {
             this.WeightUpdateStatus = new String(source.WeightUpdateStatus);
         }
+        if (source.ReplicasCount != null) {
+            this.ReplicasCount = new Long(source.ReplicasCount);
+        }
+        if (source.AvailableReplicasCount != null) {
+            this.AvailableReplicasCount = new Long(source.AvailableReplicasCount);
+        }
+        if (source.SubUin != null) {
+            this.SubUin = new String(source.SubUin);
+        }
+        if (source.AppId != null) {
+            this.AppId = new Long(source.AppId);
+        }
+        if (source.AuthorizationEnable != null) {
+            this.AuthorizationEnable = new Boolean(source.AuthorizationEnable);
+        }
+        if (source.AuthTokens != null) {
+            this.AuthTokens = new AuthToken[source.AuthTokens.length];
+            for (int i = 0; i < source.AuthTokens.length; i++) {
+                this.AuthTokens[i] = new AuthToken(source.AuthTokens[i]);
+            }
+        }
     }
 
 
@@ -610,6 +780,12 @@ UPDATING 更新中
         this.setParamSimple(map, prefix + "BillingInfo", this.BillingInfo);
         this.setParamSimple(map, prefix + "CreateSource", this.CreateSource);
         this.setParamSimple(map, prefix + "WeightUpdateStatus", this.WeightUpdateStatus);
+        this.setParamSimple(map, prefix + "ReplicasCount", this.ReplicasCount);
+        this.setParamSimple(map, prefix + "AvailableReplicasCount", this.AvailableReplicasCount);
+        this.setParamSimple(map, prefix + "SubUin", this.SubUin);
+        this.setParamSimple(map, prefix + "AppId", this.AppId);
+        this.setParamSimple(map, prefix + "AuthorizationEnable", this.AuthorizationEnable);
+        this.setParamArrayObj(map, prefix + "AuthTokens.", this.AuthTokens);
 
     }
 }

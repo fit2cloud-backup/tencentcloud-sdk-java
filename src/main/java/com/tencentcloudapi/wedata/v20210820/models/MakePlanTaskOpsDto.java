@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MakePlanTaskOpsDto extends AbstractModel{
+public class MakePlanTaskOpsDto extends AbstractModel {
 
     /**
     * 任务基本信息
@@ -31,7 +32,7 @@ public class MakePlanTaskOpsDto extends AbstractModel{
     private TaskOpsDto TaskBaseInfo;
 
     /**
-    * 补录计划该任务实例数
+    * 补录该任务当前已生成的实例数
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceCount")
@@ -55,6 +56,14 @@ public class MakePlanTaskOpsDto extends AbstractModel{
     private Long SuccessPercent;
 
     /**
+    * 预计生成的总实例个数，由于是异步生成，-1代表实例还未完完全生成
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceTotalCount")
+    @Expose
+    private Long InstanceTotalCount;
+
+    /**
      * Get 任务基本信息
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return TaskBaseInfo 任务基本信息
@@ -75,9 +84,9 @@ public class MakePlanTaskOpsDto extends AbstractModel{
     }
 
     /**
-     * Get 补录计划该任务实例数
+     * Get 补录该任务当前已生成的实例数
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceCount 补录计划该任务实例数
+     * @return InstanceCount 补录该任务当前已生成的实例数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceCount() {
@@ -85,9 +94,9 @@ public class MakePlanTaskOpsDto extends AbstractModel{
     }
 
     /**
-     * Set 补录计划该任务实例数
+     * Set 补录该任务当前已生成的实例数
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceCount 补录计划该任务实例数
+     * @param InstanceCount 补录该任务当前已生成的实例数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceCount(Long InstanceCount) {
@@ -134,6 +143,26 @@ public class MakePlanTaskOpsDto extends AbstractModel{
         this.SuccessPercent = SuccessPercent;
     }
 
+    /**
+     * Get 预计生成的总实例个数，由于是异步生成，-1代表实例还未完完全生成
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceTotalCount 预计生成的总实例个数，由于是异步生成，-1代表实例还未完完全生成
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getInstanceTotalCount() {
+        return this.InstanceTotalCount;
+    }
+
+    /**
+     * Set 预计生成的总实例个数，由于是异步生成，-1代表实例还未完完全生成
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceTotalCount 预计生成的总实例个数，由于是异步生成，-1代表实例还未完完全生成
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceTotalCount(Long InstanceTotalCount) {
+        this.InstanceTotalCount = InstanceTotalCount;
+    }
+
     public MakePlanTaskOpsDto() {
     }
 
@@ -154,6 +183,9 @@ public class MakePlanTaskOpsDto extends AbstractModel{
         if (source.SuccessPercent != null) {
             this.SuccessPercent = new Long(source.SuccessPercent);
         }
+        if (source.InstanceTotalCount != null) {
+            this.InstanceTotalCount = new Long(source.InstanceTotalCount);
+        }
     }
 
 
@@ -165,6 +197,7 @@ public class MakePlanTaskOpsDto extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceCount", this.InstanceCount);
         this.setParamSimple(map, prefix + "CompletePercent", this.CompletePercent);
         this.setParamSimple(map, prefix + "SuccessPercent", this.SuccessPercent);
+        this.setParamSimple(map, prefix + "InstanceTotalCount", this.InstanceTotalCount);
 
     }
 }

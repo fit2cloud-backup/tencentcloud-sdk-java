@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class JobV1 extends AbstractModel{
+public class JobV1 extends AbstractModel {
 
     /**
     * 作业ID
@@ -277,6 +278,63 @@ public class JobV1 extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private Tag [] Tags;
+
+    /**
+    * 作业异常事件信息	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EventInfo")
+    @Expose
+    private JobEventInfo EventInfo;
+
+    /**
+    * 描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
+
+    /**
+    * 0:代表没开启调优任务，1:开启智能调优，2:代表定时调优
+
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ScalingType")
+    @Expose
+    private Long ScalingType;
+
+    /**
+    * 使用CPU数目
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RunningCpu")
+    @Expose
+    private Float RunningCpu;
+
+    /**
+    * 使用内存数量
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RunningMem")
+    @Expose
+    private Float RunningMem;
+
+    /**
+    * 是否开了默认告警
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OpenJobDefaultAlarm")
+    @Expose
+    private Long OpenJobDefaultAlarm;
+
+    /**
+    * 操作中描述
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProgressDesc")
+    @Expose
+    private String ProgressDesc;
 
     /**
      * Get 作业ID
@@ -918,6 +976,150 @@ public class JobV1 extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 作业异常事件信息	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EventInfo 作业异常事件信息	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public JobEventInfo getEventInfo() {
+        return this.EventInfo;
+    }
+
+    /**
+     * Set 作业异常事件信息	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EventInfo 作业异常事件信息	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEventInfo(JobEventInfo EventInfo) {
+        this.EventInfo = EventInfo;
+    }
+
+    /**
+     * Get 描述信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Description 描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Description 描述信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    /**
+     * Get 0:代表没开启调优任务，1:开启智能调优，2:代表定时调优
+
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ScalingType 0:代表没开启调优任务，1:开启智能调优，2:代表定时调优
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getScalingType() {
+        return this.ScalingType;
+    }
+
+    /**
+     * Set 0:代表没开启调优任务，1:开启智能调优，2:代表定时调优
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ScalingType 0:代表没开启调优任务，1:开启智能调优，2:代表定时调优
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setScalingType(Long ScalingType) {
+        this.ScalingType = ScalingType;
+    }
+
+    /**
+     * Get 使用CPU数目
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RunningCpu 使用CPU数目
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getRunningCpu() {
+        return this.RunningCpu;
+    }
+
+    /**
+     * Set 使用CPU数目
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RunningCpu 使用CPU数目
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRunningCpu(Float RunningCpu) {
+        this.RunningCpu = RunningCpu;
+    }
+
+    /**
+     * Get 使用内存数量
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RunningMem 使用内存数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getRunningMem() {
+        return this.RunningMem;
+    }
+
+    /**
+     * Set 使用内存数量
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RunningMem 使用内存数量
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRunningMem(Float RunningMem) {
+        this.RunningMem = RunningMem;
+    }
+
+    /**
+     * Get 是否开了默认告警
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OpenJobDefaultAlarm 是否开了默认告警
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getOpenJobDefaultAlarm() {
+        return this.OpenJobDefaultAlarm;
+    }
+
+    /**
+     * Set 是否开了默认告警
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OpenJobDefaultAlarm 是否开了默认告警
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOpenJobDefaultAlarm(Long OpenJobDefaultAlarm) {
+        this.OpenJobDefaultAlarm = OpenJobDefaultAlarm;
+    }
+
+    /**
+     * Get 操作中描述
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProgressDesc 操作中描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProgressDesc() {
+        return this.ProgressDesc;
+    }
+
+    /**
+     * Set 操作中描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProgressDesc 操作中描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProgressDesc(String ProgressDesc) {
+        this.ProgressDesc = ProgressDesc;
+    }
+
     public JobV1() {
     }
 
@@ -1025,6 +1227,27 @@ public class JobV1 extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.EventInfo != null) {
+            this.EventInfo = new JobEventInfo(source.EventInfo);
+        }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.ScalingType != null) {
+            this.ScalingType = new Long(source.ScalingType);
+        }
+        if (source.RunningCpu != null) {
+            this.RunningCpu = new Float(source.RunningCpu);
+        }
+        if (source.RunningMem != null) {
+            this.RunningMem = new Float(source.RunningMem);
+        }
+        if (source.OpenJobDefaultAlarm != null) {
+            this.OpenJobDefaultAlarm = new Long(source.OpenJobDefaultAlarm);
+        }
+        if (source.ProgressDesc != null) {
+            this.ProgressDesc = new String(source.ProgressDesc);
+        }
     }
 
 
@@ -1064,6 +1287,13 @@ public class JobV1 extends AbstractModel{
         this.setParamSimple(map, prefix + "WorkSpaceId", this.WorkSpaceId);
         this.setParamSimple(map, prefix + "WorkSpaceName", this.WorkSpaceName);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamObj(map, prefix + "EventInfo.", this.EventInfo);
+        this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "ScalingType", this.ScalingType);
+        this.setParamSimple(map, prefix + "RunningCpu", this.RunningCpu);
+        this.setParamSimple(map, prefix + "RunningMem", this.RunningMem);
+        this.setParamSimple(map, prefix + "OpenJobDefaultAlarm", this.OpenJobDefaultAlarm);
+        this.setParamSimple(map, prefix + "ProgressDesc", this.ProgressDesc);
 
     }
 }

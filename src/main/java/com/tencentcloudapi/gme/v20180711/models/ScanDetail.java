@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScanDetail extends AbstractModel{
+public class ScanDetail extends AbstractModel {
 
     /**
     * 违规场景，参照<a href="https://cloud.tencent.com/document/product/607/37622#Label_Value">Label</a>定义
@@ -44,14 +45,14 @@ public class ScanDetail extends AbstractModel{
     private String KeyWord;
 
     /**
-    * 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒
+    * 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒，Label=moan时有效
     */
     @SerializedName("StartTime")
     @Expose
     private Long StartTime;
 
     /**
-    * 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒
+    * 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒，Label=moan时有效
     */
     @SerializedName("EndTime")
     @Expose
@@ -106,32 +107,32 @@ public class ScanDetail extends AbstractModel{
     }
 
     /**
-     * Get 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒 
-     * @return StartTime 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒
+     * Get 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒，Label=moan时有效 
+     * @return StartTime 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒，Label=moan时有效
      */
     public Long getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒
-     * @param StartTime 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒
+     * Set 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒，Label=moan时有效
+     * @param StartTime 关键字在音频的开始时间，从0开始的偏移量，单位为毫秒，Label=moan时有效
      */
     public void setStartTime(Long StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒 
-     * @return EndTime 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒
+     * Get 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒，Label=moan时有效 
+     * @return EndTime 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒，Label=moan时有效
      */
     public Long getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒
-     * @param EndTime 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒
+     * Set 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒，Label=moan时有效
+     * @param EndTime 关键字在音频的结束时间，从0开始的偏移量,，单位为毫秒，Label=moan时有效
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;

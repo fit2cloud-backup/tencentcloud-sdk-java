@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceOpsDto extends AbstractModel{
+public class InstanceOpsDto extends AbstractModel {
 
     /**
     * 任务ID
@@ -437,6 +438,102 @@ public class InstanceOpsDto extends AbstractModel{
     @SerializedName("InstanceKey")
     @Expose
     private String InstanceKey;
+
+    /**
+    * 资源组id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExecutorGroupId")
+    @Expose
+    private String ExecutorGroupId;
+
+    /**
+    * 资源组名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExecutorGroupName")
+    @Expose
+    private String ExecutorGroupName;
+
+    /**
+    * 关联实例信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RelatedInstanceList")
+    @Expose
+    private InstanceOpsDto [] RelatedInstanceList;
+
+    /**
+    * 关联实例信息数量，不和RelatedInstanceList强关联。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RelatedInstanceSize")
+    @Expose
+    private Long RelatedInstanceSize;
+
+    /**
+    * ownerId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OwnerId")
+    @Expose
+    private String OwnerId;
+
+    /**
+    * 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserId")
+    @Expose
+    private String UserId;
+
+    /**
+    * 实例生命周期
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceLifeCycleOpsDto")
+    @Expose
+    private InstanceLifeCycleOpsDto InstanceLifeCycleOpsDto;
+
+    /**
+    * 自动重试次数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RetryAttempts")
+    @Expose
+    private Long RetryAttempts;
+
+    /**
+    * 紧急去除的依赖父实例列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeletedFatherList")
+    @Expose
+    private String [] DeletedFatherList;
+
+    /**
+    * 循环依赖关联的实例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CirculateInstanceList")
+    @Expose
+    private InstanceOpsDto [] CirculateInstanceList;
+
+    /**
+    * 并发策略, 0: 等待并发, 1: kill自身
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ConcurrentStrategy")
+    @Expose
+    private Long ConcurrentStrategy;
+
+    /**
+    * 调度运行方式, 0: 周期调度, 1: 空跑调度
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ScheduleRunType")
+    @Expose
+    private Long ScheduleRunType;
 
     /**
      * Get 任务ID
@@ -1478,6 +1575,246 @@ public class InstanceOpsDto extends AbstractModel{
         this.InstanceKey = InstanceKey;
     }
 
+    /**
+     * Get 资源组id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecutorGroupId 资源组id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExecutorGroupId() {
+        return this.ExecutorGroupId;
+    }
+
+    /**
+     * Set 资源组id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecutorGroupId 资源组id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExecutorGroupId(String ExecutorGroupId) {
+        this.ExecutorGroupId = ExecutorGroupId;
+    }
+
+    /**
+     * Get 资源组名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecutorGroupName 资源组名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getExecutorGroupName() {
+        return this.ExecutorGroupName;
+    }
+
+    /**
+     * Set 资源组名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecutorGroupName 资源组名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExecutorGroupName(String ExecutorGroupName) {
+        this.ExecutorGroupName = ExecutorGroupName;
+    }
+
+    /**
+     * Get 关联实例信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RelatedInstanceList 关联实例信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public InstanceOpsDto [] getRelatedInstanceList() {
+        return this.RelatedInstanceList;
+    }
+
+    /**
+     * Set 关联实例信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RelatedInstanceList 关联实例信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRelatedInstanceList(InstanceOpsDto [] RelatedInstanceList) {
+        this.RelatedInstanceList = RelatedInstanceList;
+    }
+
+    /**
+     * Get 关联实例信息数量，不和RelatedInstanceList强关联。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RelatedInstanceSize 关联实例信息数量，不和RelatedInstanceList强关联。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRelatedInstanceSize() {
+        return this.RelatedInstanceSize;
+    }
+
+    /**
+     * Set 关联实例信息数量，不和RelatedInstanceList强关联。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RelatedInstanceSize 关联实例信息数量，不和RelatedInstanceList强关联。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRelatedInstanceSize(Long RelatedInstanceSize) {
+        this.RelatedInstanceSize = RelatedInstanceSize;
+    }
+
+    /**
+     * Get ownerId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OwnerId ownerId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOwnerId() {
+        return this.OwnerId;
+    }
+
+    /**
+     * Set ownerId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OwnerId ownerId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOwnerId(String OwnerId) {
+        this.OwnerId = OwnerId;
+    }
+
+    /**
+     * Get 用户id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserId 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUserId() {
+        return this.UserId;
+    }
+
+    /**
+     * Set 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserId 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserId(String UserId) {
+        this.UserId = UserId;
+    }
+
+    /**
+     * Get 实例生命周期
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceLifeCycleOpsDto 实例生命周期
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public InstanceLifeCycleOpsDto getInstanceLifeCycleOpsDto() {
+        return this.InstanceLifeCycleOpsDto;
+    }
+
+    /**
+     * Set 实例生命周期
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceLifeCycleOpsDto 实例生命周期
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceLifeCycleOpsDto(InstanceLifeCycleOpsDto InstanceLifeCycleOpsDto) {
+        this.InstanceLifeCycleOpsDto = InstanceLifeCycleOpsDto;
+    }
+
+    /**
+     * Get 自动重试次数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RetryAttempts 自动重试次数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRetryAttempts() {
+        return this.RetryAttempts;
+    }
+
+    /**
+     * Set 自动重试次数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RetryAttempts 自动重试次数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRetryAttempts(Long RetryAttempts) {
+        this.RetryAttempts = RetryAttempts;
+    }
+
+    /**
+     * Get 紧急去除的依赖父实例列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeletedFatherList 紧急去除的依赖父实例列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getDeletedFatherList() {
+        return this.DeletedFatherList;
+    }
+
+    /**
+     * Set 紧急去除的依赖父实例列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeletedFatherList 紧急去除的依赖父实例列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeletedFatherList(String [] DeletedFatherList) {
+        this.DeletedFatherList = DeletedFatherList;
+    }
+
+    /**
+     * Get 循环依赖关联的实例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CirculateInstanceList 循环依赖关联的实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public InstanceOpsDto [] getCirculateInstanceList() {
+        return this.CirculateInstanceList;
+    }
+
+    /**
+     * Set 循环依赖关联的实例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CirculateInstanceList 循环依赖关联的实例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCirculateInstanceList(InstanceOpsDto [] CirculateInstanceList) {
+        this.CirculateInstanceList = CirculateInstanceList;
+    }
+
+    /**
+     * Get 并发策略, 0: 等待并发, 1: kill自身
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ConcurrentStrategy 并发策略, 0: 等待并发, 1: kill自身
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getConcurrentStrategy() {
+        return this.ConcurrentStrategy;
+    }
+
+    /**
+     * Set 并发策略, 0: 等待并发, 1: kill自身
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ConcurrentStrategy 并发策略, 0: 等待并发, 1: kill自身
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setConcurrentStrategy(Long ConcurrentStrategy) {
+        this.ConcurrentStrategy = ConcurrentStrategy;
+    }
+
+    /**
+     * Get 调度运行方式, 0: 周期调度, 1: 空跑调度
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ScheduleRunType 调度运行方式, 0: 周期调度, 1: 空跑调度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getScheduleRunType() {
+        return this.ScheduleRunType;
+    }
+
+    /**
+     * Set 调度运行方式, 0: 周期调度, 1: 空跑调度
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ScheduleRunType 调度运行方式, 0: 周期调度, 1: 空跑调度
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setScheduleRunType(Long ScheduleRunType) {
+        this.ScheduleRunType = ScheduleRunType;
+    }
+
     public InstanceOpsDto() {
     }
 
@@ -1642,6 +1979,51 @@ public class InstanceOpsDto extends AbstractModel{
         if (source.InstanceKey != null) {
             this.InstanceKey = new String(source.InstanceKey);
         }
+        if (source.ExecutorGroupId != null) {
+            this.ExecutorGroupId = new String(source.ExecutorGroupId);
+        }
+        if (source.ExecutorGroupName != null) {
+            this.ExecutorGroupName = new String(source.ExecutorGroupName);
+        }
+        if (source.RelatedInstanceList != null) {
+            this.RelatedInstanceList = new InstanceOpsDto[source.RelatedInstanceList.length];
+            for (int i = 0; i < source.RelatedInstanceList.length; i++) {
+                this.RelatedInstanceList[i] = new InstanceOpsDto(source.RelatedInstanceList[i]);
+            }
+        }
+        if (source.RelatedInstanceSize != null) {
+            this.RelatedInstanceSize = new Long(source.RelatedInstanceSize);
+        }
+        if (source.OwnerId != null) {
+            this.OwnerId = new String(source.OwnerId);
+        }
+        if (source.UserId != null) {
+            this.UserId = new String(source.UserId);
+        }
+        if (source.InstanceLifeCycleOpsDto != null) {
+            this.InstanceLifeCycleOpsDto = new InstanceLifeCycleOpsDto(source.InstanceLifeCycleOpsDto);
+        }
+        if (source.RetryAttempts != null) {
+            this.RetryAttempts = new Long(source.RetryAttempts);
+        }
+        if (source.DeletedFatherList != null) {
+            this.DeletedFatherList = new String[source.DeletedFatherList.length];
+            for (int i = 0; i < source.DeletedFatherList.length; i++) {
+                this.DeletedFatherList[i] = new String(source.DeletedFatherList[i]);
+            }
+        }
+        if (source.CirculateInstanceList != null) {
+            this.CirculateInstanceList = new InstanceOpsDto[source.CirculateInstanceList.length];
+            for (int i = 0; i < source.CirculateInstanceList.length; i++) {
+                this.CirculateInstanceList[i] = new InstanceOpsDto(source.CirculateInstanceList[i]);
+            }
+        }
+        if (source.ConcurrentStrategy != null) {
+            this.ConcurrentStrategy = new Long(source.ConcurrentStrategy);
+        }
+        if (source.ScheduleRunType != null) {
+            this.ScheduleRunType = new Long(source.ScheduleRunType);
+        }
     }
 
 
@@ -1701,6 +2083,18 @@ public class InstanceOpsDto extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
         this.setParamSimple(map, prefix + "TenantId", this.TenantId);
         this.setParamSimple(map, prefix + "InstanceKey", this.InstanceKey);
+        this.setParamSimple(map, prefix + "ExecutorGroupId", this.ExecutorGroupId);
+        this.setParamSimple(map, prefix + "ExecutorGroupName", this.ExecutorGroupName);
+        this.setParamArrayObj(map, prefix + "RelatedInstanceList.", this.RelatedInstanceList);
+        this.setParamSimple(map, prefix + "RelatedInstanceSize", this.RelatedInstanceSize);
+        this.setParamSimple(map, prefix + "OwnerId", this.OwnerId);
+        this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamObj(map, prefix + "InstanceLifeCycleOpsDto.", this.InstanceLifeCycleOpsDto);
+        this.setParamSimple(map, prefix + "RetryAttempts", this.RetryAttempts);
+        this.setParamArraySimple(map, prefix + "DeletedFatherList.", this.DeletedFatherList);
+        this.setParamArrayObj(map, prefix + "CirculateInstanceList.", this.CirculateInstanceList);
+        this.setParamSimple(map, prefix + "ConcurrentStrategy", this.ConcurrentStrategy);
+        this.setParamSimple(map, prefix + "ScheduleRunType", this.ScheduleRunType);
 
     }
 }

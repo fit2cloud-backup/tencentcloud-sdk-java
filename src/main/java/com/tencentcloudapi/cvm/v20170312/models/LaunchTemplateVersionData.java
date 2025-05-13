@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LaunchTemplateVersionData extends AbstractModel{
+public class LaunchTemplateVersionData extends AbstractModel {
 
     /**
     * 实例所在的位置。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Placement")
     @Expose
@@ -32,7 +32,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例机型。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceType")
     @Expose
@@ -40,15 +39,17 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
     private String InstanceName;
 
     /**
-    * 实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 实例计费模式。取值范围：
+<li>`PREPAID`：表示预付费，即包年包月</li>
+<li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费</li>
+<li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。</li>
+<li>`SPOTPAID`：表示竞价实例付费。</li>
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -56,7 +57,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例系统盘信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SystemDisk")
     @Expose
@@ -64,7 +64,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例数据盘信息。只包含随实例购买的数据盘。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataDisks")
     @Expose
@@ -72,7 +71,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例带宽信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternetAccessible")
     @Expose
@@ -80,7 +78,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例所属虚拟私有网络信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VirtualPrivateCloud")
     @Expose
@@ -88,7 +85,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 生产实例所使用的镜像`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageId")
     @Expose
@@ -96,7 +92,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SecurityGroupIds")
     @Expose
@@ -104,7 +99,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例登录设置。目前只返回实例所关联的密钥。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoginSettings")
     @Expose
@@ -112,7 +106,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * CAM角色名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CamRoleName")
     @Expose
@@ -120,7 +113,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 高性能计算集群`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HpcClusterId")
     @Expose
@@ -128,7 +120,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 购买实例数量。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceCount")
     @Expose
@@ -136,7 +127,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 增强服务。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnhancedService")
     @Expose
@@ -144,7 +134,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserData")
     @Expose
@@ -152,7 +141,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 置放群组ID，仅支持指定一个。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DisasterRecoverGroupIds")
     @Expose
@@ -160,7 +148,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 定时任务。通过该参数可以为实例指定定时任务，目前仅支持定时销毁。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActionTimer")
     @Expose
@@ -168,7 +155,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 实例的市场相关选项，如竞价实例相关参数，若指定实例的付费模式为竞价付费则该参数必传。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceMarketOptions")
     @Expose
@@ -176,7 +162,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 云服务器的主机名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostName")
     @Expose
@@ -184,7 +169,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 用于保证请求幂等性的字符串。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientToken")
     @Expose
@@ -192,7 +176,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 预付费模式，即包年包月相关参数设置。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceChargePrepaid")
     @Expose
@@ -200,7 +183,6 @@ public class LaunchTemplateVersionData extends AbstractModel{
 
     /**
     * 标签描述列表。通过指定该参数可以同时绑定标签到相应的云服务器、云硬盘实例。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagSpecification")
     @Expose
@@ -209,21 +191,18 @@ public class LaunchTemplateVersionData extends AbstractModel{
     /**
     * 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：
 
-TRUE：表示开启实例保护，不允许通过api接口删除实例
-FALSE：表示关闭实例保护，允许通过api接口删除实例
+true：表示开启实例保护，不允许通过api接口删除实例
+false：表示关闭实例保护，允许通过api接口删除实例
 
-默认取值：FALSE。
-注意：此字段可能返回 null，表示取不到有效值。
+默认取值：false。
     */
     @SerializedName("DisableApiTermination")
     @Expose
     private Boolean DisableApiTermination;
 
     /**
-     * Get 实例所在的位置。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在的位置。 
      * @return Placement 实例所在的位置。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Placement getPlacement() {
         return this.Placement;
@@ -231,19 +210,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例所在的位置。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Placement 实例所在的位置。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPlacement(Placement Placement) {
         this.Placement = Placement;
     }
 
     /**
-     * Get 实例机型。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例机型。 
      * @return InstanceType 实例机型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceType() {
         return this.InstanceType;
@@ -251,19 +226,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例机型。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceType 实例机型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
     }
 
     /**
-     * Get 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例名称。 
      * @return InstanceName 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -271,39 +242,47 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceChargeType 实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 实例计费模式。取值范围：
+<li>`PREPAID`：表示预付费，即包年包月</li>
+<li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费</li>
+<li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。</li>
+<li>`SPOTPAID`：表示竞价实例付费。</li> 
+     * @return InstanceChargeType 实例计费模式。取值范围：
+<li>`PREPAID`：表示预付费，即包年包月</li>
+<li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费</li>
+<li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。</li>
+<li>`SPOTPAID`：表示竞价实例付费。</li>
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
     }
 
     /**
-     * Set 实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceChargeType 实例计费模式。取值范围：<br><li>`PREPAID`：表示预付费，即包年包月<br><li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费<br><li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 实例计费模式。取值范围：
+<li>`PREPAID`：表示预付费，即包年包月</li>
+<li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费</li>
+<li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。</li>
+<li>`SPOTPAID`：表示竞价实例付费。</li>
+     * @param InstanceChargeType 实例计费模式。取值范围：
+<li>`PREPAID`：表示预付费，即包年包月</li>
+<li>`POSTPAID_BY_HOUR`：表示后付费，即按量计费</li>
+<li>`CDHPAID`：`专用宿主机`付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。</li>
+<li>`SPOTPAID`：表示竞价实例付费。</li>
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
     }
 
     /**
-     * Get 实例系统盘信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例系统盘信息。 
      * @return SystemDisk 实例系统盘信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SystemDisk getSystemDisk() {
         return this.SystemDisk;
@@ -311,19 +290,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例系统盘信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SystemDisk 实例系统盘信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSystemDisk(SystemDisk SystemDisk) {
         this.SystemDisk = SystemDisk;
     }
 
     /**
-     * Get 实例数据盘信息。只包含随实例购买的数据盘。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例数据盘信息。只包含随实例购买的数据盘。 
      * @return DataDisks 实例数据盘信息。只包含随实例购买的数据盘。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DataDisk [] getDataDisks() {
         return this.DataDisks;
@@ -331,19 +306,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例数据盘信息。只包含随实例购买的数据盘。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataDisks 实例数据盘信息。只包含随实例购买的数据盘。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataDisks(DataDisk [] DataDisks) {
         this.DataDisks = DataDisks;
     }
 
     /**
-     * Get 实例带宽信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例带宽信息。 
      * @return InternetAccessible 实例带宽信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InternetAccessible getInternetAccessible() {
         return this.InternetAccessible;
@@ -351,19 +322,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例带宽信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InternetAccessible 实例带宽信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternetAccessible(InternetAccessible InternetAccessible) {
         this.InternetAccessible = InternetAccessible;
     }
 
     /**
-     * Get 实例所属虚拟私有网络信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所属虚拟私有网络信息。 
      * @return VirtualPrivateCloud 实例所属虚拟私有网络信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VirtualPrivateCloud getVirtualPrivateCloud() {
         return this.VirtualPrivateCloud;
@@ -371,19 +338,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例所属虚拟私有网络信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VirtualPrivateCloud 实例所属虚拟私有网络信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVirtualPrivateCloud(VirtualPrivateCloud VirtualPrivateCloud) {
         this.VirtualPrivateCloud = VirtualPrivateCloud;
     }
 
     /**
-     * Get 生产实例所使用的镜像`ID`。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 生产实例所使用的镜像`ID`。 
      * @return ImageId 生产实例所使用的镜像`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageId() {
         return this.ImageId;
@@ -391,19 +354,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 生产实例所使用的镜像`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageId 生产实例所使用的镜像`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
     }
 
     /**
-     * Get 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。 
      * @return SecurityGroupIds 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSecurityGroupIds() {
         return this.SecurityGroupIds;
@@ -411,19 +370,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SecurityGroupIds 实例所属安全组。该参数可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来获取。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecurityGroupIds(String [] SecurityGroupIds) {
         this.SecurityGroupIds = SecurityGroupIds;
     }
 
     /**
-     * Get 实例登录设置。目前只返回实例所关联的密钥。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例登录设置。目前只返回实例所关联的密钥。 
      * @return LoginSettings 实例登录设置。目前只返回实例所关联的密钥。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public LoginSettings getLoginSettings() {
         return this.LoginSettings;
@@ -431,19 +386,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例登录设置。目前只返回实例所关联的密钥。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LoginSettings 实例登录设置。目前只返回实例所关联的密钥。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoginSettings(LoginSettings LoginSettings) {
         this.LoginSettings = LoginSettings;
     }
 
     /**
-     * Get CAM角色名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CAM角色名。 
      * @return CamRoleName CAM角色名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCamRoleName() {
         return this.CamRoleName;
@@ -451,19 +402,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set CAM角色名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CamRoleName CAM角色名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCamRoleName(String CamRoleName) {
         this.CamRoleName = CamRoleName;
     }
 
     /**
-     * Get 高性能计算集群`ID`。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 高性能计算集群`ID`。 
      * @return HpcClusterId 高性能计算集群`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHpcClusterId() {
         return this.HpcClusterId;
@@ -471,19 +418,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 高性能计算集群`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HpcClusterId 高性能计算集群`ID`。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHpcClusterId(String HpcClusterId) {
         this.HpcClusterId = HpcClusterId;
     }
 
     /**
-     * Get 购买实例数量。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买实例数量。 
      * @return InstanceCount 购买实例数量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceCount() {
         return this.InstanceCount;
@@ -491,19 +434,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 购买实例数量。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceCount 购买实例数量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceCount(Long InstanceCount) {
         this.InstanceCount = InstanceCount;
     }
 
     /**
-     * Get 增强服务。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 增强服务。 
      * @return EnhancedService 增强服务。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EnhancedService getEnhancedService() {
         return this.EnhancedService;
@@ -511,19 +450,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 增强服务。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnhancedService 增强服务。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnhancedService(EnhancedService EnhancedService) {
         this.EnhancedService = EnhancedService;
     }
 
     /**
-     * Get 提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。 
      * @return UserData 提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserData() {
         return this.UserData;
@@ -531,19 +466,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserData 提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserData(String UserData) {
         this.UserData = UserData;
     }
 
     /**
-     * Get 置放群组ID，仅支持指定一个。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 置放群组ID，仅支持指定一个。 
      * @return DisasterRecoverGroupIds 置放群组ID，仅支持指定一个。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDisasterRecoverGroupIds() {
         return this.DisasterRecoverGroupIds;
@@ -551,19 +482,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 置放群组ID，仅支持指定一个。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DisasterRecoverGroupIds 置放群组ID，仅支持指定一个。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDisasterRecoverGroupIds(String [] DisasterRecoverGroupIds) {
         this.DisasterRecoverGroupIds = DisasterRecoverGroupIds;
     }
 
     /**
-     * Get 定时任务。通过该参数可以为实例指定定时任务，目前仅支持定时销毁。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 定时任务。通过该参数可以为实例指定定时任务，目前仅支持定时销毁。 
      * @return ActionTimer 定时任务。通过该参数可以为实例指定定时任务，目前仅支持定时销毁。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ActionTimer getActionTimer() {
         return this.ActionTimer;
@@ -571,19 +498,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 定时任务。通过该参数可以为实例指定定时任务，目前仅支持定时销毁。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ActionTimer 定时任务。通过该参数可以为实例指定定时任务，目前仅支持定时销毁。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setActionTimer(ActionTimer ActionTimer) {
         this.ActionTimer = ActionTimer;
     }
 
     /**
-     * Get 实例的市场相关选项，如竞价实例相关参数，若指定实例的付费模式为竞价付费则该参数必传。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例的市场相关选项，如竞价实例相关参数，若指定实例的付费模式为竞价付费则该参数必传。 
      * @return InstanceMarketOptions 实例的市场相关选项，如竞价实例相关参数，若指定实例的付费模式为竞价付费则该参数必传。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InstanceMarketOptionsRequest getInstanceMarketOptions() {
         return this.InstanceMarketOptions;
@@ -591,19 +514,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 实例的市场相关选项，如竞价实例相关参数，若指定实例的付费模式为竞价付费则该参数必传。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceMarketOptions 实例的市场相关选项，如竞价实例相关参数，若指定实例的付费模式为竞价付费则该参数必传。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceMarketOptions(InstanceMarketOptionsRequest InstanceMarketOptions) {
         this.InstanceMarketOptions = InstanceMarketOptions;
     }
 
     /**
-     * Get 云服务器的主机名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云服务器的主机名。 
      * @return HostName 云服务器的主机名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostName() {
         return this.HostName;
@@ -611,19 +530,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 云服务器的主机名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostName 云服务器的主机名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostName(String HostName) {
         this.HostName = HostName;
     }
 
     /**
-     * Get 用于保证请求幂等性的字符串。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用于保证请求幂等性的字符串。 
      * @return ClientToken 用于保证请求幂等性的字符串。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClientToken() {
         return this.ClientToken;
@@ -631,19 +546,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 用于保证请求幂等性的字符串。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientToken 用于保证请求幂等性的字符串。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
     }
 
     /**
-     * Get 预付费模式，即包年包月相关参数设置。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预付费模式，即包年包月相关参数设置。 
      * @return InstanceChargePrepaid 预付费模式，即包年包月相关参数设置。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InstanceChargePrepaid getInstanceChargePrepaid() {
         return this.InstanceChargePrepaid;
@@ -651,19 +562,15 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 预付费模式，即包年包月相关参数设置。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceChargePrepaid 预付费模式，即包年包月相关参数设置。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceChargePrepaid(InstanceChargePrepaid InstanceChargePrepaid) {
         this.InstanceChargePrepaid = InstanceChargePrepaid;
     }
 
     /**
-     * Get 标签描述列表。通过指定该参数可以同时绑定标签到相应的云服务器、云硬盘实例。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签描述列表。通过指定该参数可以同时绑定标签到相应的云服务器、云硬盘实例。 
      * @return TagSpecification 标签描述列表。通过指定该参数可以同时绑定标签到相应的云服务器、云硬盘实例。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagSpecification [] getTagSpecification() {
         return this.TagSpecification;
@@ -671,9 +578,7 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
 
     /**
      * Set 标签描述列表。通过指定该参数可以同时绑定标签到相应的云服务器、云硬盘实例。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagSpecification 标签描述列表。通过指定该参数可以同时绑定标签到相应的云服务器、云硬盘实例。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagSpecification(TagSpecification [] TagSpecification) {
         this.TagSpecification = TagSpecification;
@@ -682,18 +587,16 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
     /**
      * Get 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：
 
-TRUE：表示开启实例保护，不允许通过api接口删除实例
-FALSE：表示关闭实例保护，允许通过api接口删除实例
+true：表示开启实例保护，不允许通过api接口删除实例
+false：表示关闭实例保护，允许通过api接口删除实例
 
-默认取值：FALSE。
-注意：此字段可能返回 null，表示取不到有效值。 
+默认取值：false。 
      * @return DisableApiTermination 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：
 
-TRUE：表示开启实例保护，不允许通过api接口删除实例
-FALSE：表示关闭实例保护，允许通过api接口删除实例
+true：表示开启实例保护，不允许通过api接口删除实例
+false：表示关闭实例保护，允许通过api接口删除实例
 
-默认取值：FALSE。
-注意：此字段可能返回 null，表示取不到有效值。
+默认取值：false。
      */
     public Boolean getDisableApiTermination() {
         return this.DisableApiTermination;
@@ -702,18 +605,16 @@ FALSE：表示关闭实例保护，允许通过api接口删除实例
     /**
      * Set 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：
 
-TRUE：表示开启实例保护，不允许通过api接口删除实例
-FALSE：表示关闭实例保护，允许通过api接口删除实例
+true：表示开启实例保护，不允许通过api接口删除实例
+false：表示关闭实例保护，允许通过api接口删除实例
 
-默认取值：FALSE。
-注意：此字段可能返回 null，表示取不到有效值。
+默认取值：false。
      * @param DisableApiTermination 实例销毁保护标志，表示是否允许通过api接口删除实例。取值范围：
 
-TRUE：表示开启实例保护，不允许通过api接口删除实例
-FALSE：表示关闭实例保护，允许通过api接口删除实例
+true：表示开启实例保护，不允许通过api接口删除实例
+false：表示关闭实例保护，允许通过api接口删除实例
 
-默认取值：FALSE。
-注意：此字段可能返回 null，表示取不到有效值。
+默认取值：false。
      */
     public void setDisableApiTermination(Boolean DisableApiTermination) {
         this.DisableApiTermination = DisableApiTermination;

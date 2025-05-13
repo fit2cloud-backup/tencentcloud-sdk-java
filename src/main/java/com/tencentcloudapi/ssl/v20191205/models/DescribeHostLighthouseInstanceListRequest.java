@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
+public class DescribeHostLighthouseInstanceListRequest extends AbstractModel {
 
     /**
     * 待部署的证书ID
@@ -30,13 +31,6 @@ public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
     private String CertificateId;
 
     /**
-    * 部署资源类型 lighthouse
-    */
-    @SerializedName("ResourceType")
-    @Expose
-    private String ResourceType;
-
-    /**
     * 是否查询缓存，1：是； 0：否， 默认为查询缓存，缓存半小时
     */
     @SerializedName("IsCache")
@@ -44,11 +38,18 @@ public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
     private Long IsCache;
 
     /**
-    * 过滤参数列表
+    * 过滤参数列表； FilterKey：domainMatch（查询域名是否匹配的实例列表） FilterValue：1，表示查询匹配； 0，表示查询不匹配； 默认查询匹配
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
+
+    /**
+    * 部署资源类型 lighthouse
+    */
+    @SerializedName("ResourceType")
+    @Expose
+    private String ResourceType;
 
     /**
      * Get 待部署的证书ID 
@@ -64,22 +65,6 @@ public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
      */
     public void setCertificateId(String CertificateId) {
         this.CertificateId = CertificateId;
-    }
-
-    /**
-     * Get 部署资源类型 lighthouse 
-     * @return ResourceType 部署资源类型 lighthouse
-     */
-    public String getResourceType() {
-        return this.ResourceType;
-    }
-
-    /**
-     * Set 部署资源类型 lighthouse
-     * @param ResourceType 部署资源类型 lighthouse
-     */
-    public void setResourceType(String ResourceType) {
-        this.ResourceType = ResourceType;
     }
 
     /**
@@ -99,19 +84,39 @@ public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤参数列表 
-     * @return Filters 过滤参数列表
+     * Get 过滤参数列表； FilterKey：domainMatch（查询域名是否匹配的实例列表） FilterValue：1，表示查询匹配； 0，表示查询不匹配； 默认查询匹配 
+     * @return Filters 过滤参数列表； FilterKey：domainMatch（查询域名是否匹配的实例列表） FilterValue：1，表示查询匹配； 0，表示查询不匹配； 默认查询匹配
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤参数列表
-     * @param Filters 过滤参数列表
+     * Set 过滤参数列表； FilterKey：domainMatch（查询域名是否匹配的实例列表） FilterValue：1，表示查询匹配； 0，表示查询不匹配； 默认查询匹配
+     * @param Filters 过滤参数列表； FilterKey：domainMatch（查询域名是否匹配的实例列表） FilterValue：1，表示查询匹配； 0，表示查询不匹配； 默认查询匹配
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
+    }
+
+    /**
+     * Get 部署资源类型 lighthouse 
+     * @return ResourceType 部署资源类型 lighthouse
+     * @deprecated
+     */
+    @Deprecated
+    public String getResourceType() {
+        return this.ResourceType;
+    }
+
+    /**
+     * Set 部署资源类型 lighthouse
+     * @param ResourceType 部署资源类型 lighthouse
+     * @deprecated
+     */
+    @Deprecated
+    public void setResourceType(String ResourceType) {
+        this.ResourceType = ResourceType;
     }
 
     public DescribeHostLighthouseInstanceListRequest() {
@@ -125,9 +130,6 @@ public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
         if (source.CertificateId != null) {
             this.CertificateId = new String(source.CertificateId);
         }
-        if (source.ResourceType != null) {
-            this.ResourceType = new String(source.ResourceType);
-        }
         if (source.IsCache != null) {
             this.IsCache = new Long(source.IsCache);
         }
@@ -137,6 +139,9 @@ public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
                 this.Filters[i] = new Filter(source.Filters[i]);
             }
         }
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
     }
 
 
@@ -145,9 +150,9 @@ public class DescribeHostLighthouseInstanceListRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertificateId", this.CertificateId);
-        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "IsCache", this.IsCache);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
 
     }
 }

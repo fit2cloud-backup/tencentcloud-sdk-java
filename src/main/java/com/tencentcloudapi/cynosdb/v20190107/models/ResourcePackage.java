@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResourcePackage extends AbstractModel{
+public class ResourcePackage extends AbstractModel {
 
     /**
     * 资源包的唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageId")
     @Expose
@@ -33,17 +33,21 @@ public class ResourcePackage extends AbstractModel{
     /**
     * 资源包类型：CCU：计算资源包
 DISK：存储资源包
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageType")
     @Expose
     private String PackageType;
 
     /**
-     * Get 资源包的唯一ID
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 当前资源包绑定在当前实例下的抵扣优先级
+    */
+    @SerializedName("DeductionPriority")
+    @Expose
+    private Long DeductionPriority;
+
+    /**
+     * Get 资源包的唯一ID 
      * @return PackageId 资源包的唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageId() {
         return this.PackageId;
@@ -51,9 +55,7 @@ DISK：存储资源包
 
     /**
      * Set 资源包的唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageId 资源包的唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageId(String PackageId) {
         this.PackageId = PackageId;
@@ -61,11 +63,9 @@ DISK：存储资源包
 
     /**
      * Get 资源包类型：CCU：计算资源包
-DISK：存储资源包
-注意：此字段可能返回 null，表示取不到有效值。 
+DISK：存储资源包 
      * @return PackageType 资源包类型：CCU：计算资源包
 DISK：存储资源包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackageType() {
         return this.PackageType;
@@ -74,13 +74,27 @@ DISK：存储资源包
     /**
      * Set 资源包类型：CCU：计算资源包
 DISK：存储资源包
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageType 资源包类型：CCU：计算资源包
 DISK：存储资源包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageType(String PackageType) {
         this.PackageType = PackageType;
+    }
+
+    /**
+     * Get 当前资源包绑定在当前实例下的抵扣优先级 
+     * @return DeductionPriority 当前资源包绑定在当前实例下的抵扣优先级
+     */
+    public Long getDeductionPriority() {
+        return this.DeductionPriority;
+    }
+
+    /**
+     * Set 当前资源包绑定在当前实例下的抵扣优先级
+     * @param DeductionPriority 当前资源包绑定在当前实例下的抵扣优先级
+     */
+    public void setDeductionPriority(Long DeductionPriority) {
+        this.DeductionPriority = DeductionPriority;
     }
 
     public ResourcePackage() {
@@ -97,6 +111,9 @@ DISK：存储资源包
         if (source.PackageType != null) {
             this.PackageType = new String(source.PackageType);
         }
+        if (source.DeductionPriority != null) {
+            this.DeductionPriority = new Long(source.DeductionPriority);
+        }
     }
 
 
@@ -106,6 +123,7 @@ DISK：存储资源包
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "PackageId", this.PackageId);
         this.setParamSimple(map, prefix + "PackageType", this.PackageType);
+        this.setParamSimple(map, prefix + "DeductionPriority", this.DeductionPriority);
 
     }
 }

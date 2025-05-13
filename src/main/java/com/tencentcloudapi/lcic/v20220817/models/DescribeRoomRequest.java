@@ -16,33 +16,57 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRoomRequest extends AbstractModel{
+public class DescribeRoomRequest extends AbstractModel {
 
     /**
-    * 房间Id。
+    * 课堂Id。
     */
     @SerializedName("RoomId")
     @Expose
     private Long RoomId;
 
     /**
-     * Get 房间Id。 
-     * @return RoomId 房间Id。
+    * 请求RTMP推流链接，0：否，1：是，默认为0。
+    */
+    @SerializedName("RTMPStreamingURL")
+    @Expose
+    private Long RTMPStreamingURL;
+
+    /**
+     * Get 课堂Id。 
+     * @return RoomId 课堂Id。
      */
     public Long getRoomId() {
         return this.RoomId;
     }
 
     /**
-     * Set 房间Id。
-     * @param RoomId 房间Id。
+     * Set 课堂Id。
+     * @param RoomId 课堂Id。
      */
     public void setRoomId(Long RoomId) {
         this.RoomId = RoomId;
+    }
+
+    /**
+     * Get 请求RTMP推流链接，0：否，1：是，默认为0。 
+     * @return RTMPStreamingURL 请求RTMP推流链接，0：否，1：是，默认为0。
+     */
+    public Long getRTMPStreamingURL() {
+        return this.RTMPStreamingURL;
+    }
+
+    /**
+     * Set 请求RTMP推流链接，0：否，1：是，默认为0。
+     * @param RTMPStreamingURL 请求RTMP推流链接，0：否，1：是，默认为0。
+     */
+    public void setRTMPStreamingURL(Long RTMPStreamingURL) {
+        this.RTMPStreamingURL = RTMPStreamingURL;
     }
 
     public DescribeRoomRequest() {
@@ -56,6 +80,9 @@ public class DescribeRoomRequest extends AbstractModel{
         if (source.RoomId != null) {
             this.RoomId = new Long(source.RoomId);
         }
+        if (source.RTMPStreamingURL != null) {
+            this.RTMPStreamingURL = new Long(source.RTMPStreamingURL);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DescribeRoomRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "RoomId", this.RoomId);
+        this.setParamSimple(map, prefix + "RTMPStreamingURL", this.RTMPStreamingURL);
 
     }
 }

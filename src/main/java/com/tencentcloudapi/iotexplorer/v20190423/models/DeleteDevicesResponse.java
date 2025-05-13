@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteDevicesResponse extends AbstractModel{
+public class DeleteDevicesResponse extends AbstractModel {
 
     /**
     * 删除的结果代码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResultCode")
     @Expose
@@ -32,24 +32,21 @@ public class DeleteDevicesResponse extends AbstractModel{
 
     /**
     * 删除的结果信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResultMessage")
     @Expose
     private String ResultMessage;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 删除的结果代码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 删除的结果代码 
      * @return ResultCode 删除的结果代码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResultCode() {
         return this.ResultCode;
@@ -57,19 +54,15 @@ public class DeleteDevicesResponse extends AbstractModel{
 
     /**
      * Set 删除的结果代码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResultCode 删除的结果代码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResultCode(String ResultCode) {
         this.ResultCode = ResultCode;
     }
 
     /**
-     * Get 删除的结果信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 删除的结果信息 
      * @return ResultMessage 删除的结果信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResultMessage() {
         return this.ResultMessage;
@@ -77,25 +70,23 @@ public class DeleteDevicesResponse extends AbstractModel{
 
     /**
      * Set 删除的结果信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResultMessage 删除的结果信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResultMessage(String ResultMessage) {
         this.ResultMessage = ResultMessage;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

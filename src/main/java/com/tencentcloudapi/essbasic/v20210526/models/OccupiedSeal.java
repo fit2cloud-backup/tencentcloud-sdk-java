@@ -16,11 +16,12 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OccupiedSeal extends AbstractModel{
+public class OccupiedSeal extends AbstractModel {
 
     /**
     * 电子印章编号
@@ -66,7 +67,6 @@ public class OccupiedSeal extends AbstractModel{
 
     /**
     * 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailReason")
     @Expose
@@ -80,7 +80,13 @@ public class OccupiedSeal extends AbstractModel{
     private String Url;
 
     /**
-    * 印章类型，OFFICIAL-企业公章，CONTRACT-合同专用章，LEGAL_PERSON_SEAL-法人章
+    * 电子印章类型 , 可选类型如下: 
+<ul><li>**OFFICIAL**: (默认)公章</li>
+<li>**CONTRACT**: 合同专用章;</li>
+<li>**FINANCE**: 财务专用章;</li>
+<li>**PERSONNEL**: 人事专用章</li>
+<li>**INVOICE**: 发票专用章</li>
+</ul>
     */
     @SerializedName("SealType")
     @Expose
@@ -197,10 +203,8 @@ public class OccupiedSeal extends AbstractModel{
     }
 
     /**
-     * Get 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审核失败原因 
      * @return FailReason 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFailReason() {
         return this.FailReason;
@@ -208,9 +212,7 @@ public class OccupiedSeal extends AbstractModel{
 
     /**
      * Set 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailReason 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailReason(String FailReason) {
         this.FailReason = FailReason;
@@ -233,16 +235,40 @@ public class OccupiedSeal extends AbstractModel{
     }
 
     /**
-     * Get 印章类型，OFFICIAL-企业公章，CONTRACT-合同专用章，LEGAL_PERSON_SEAL-法人章 
-     * @return SealType 印章类型，OFFICIAL-企业公章，CONTRACT-合同专用章，LEGAL_PERSON_SEAL-法人章
+     * Get 电子印章类型 , 可选类型如下: 
+<ul><li>**OFFICIAL**: (默认)公章</li>
+<li>**CONTRACT**: 合同专用章;</li>
+<li>**FINANCE**: 财务专用章;</li>
+<li>**PERSONNEL**: 人事专用章</li>
+<li>**INVOICE**: 发票专用章</li>
+</ul> 
+     * @return SealType 电子印章类型 , 可选类型如下: 
+<ul><li>**OFFICIAL**: (默认)公章</li>
+<li>**CONTRACT**: 合同专用章;</li>
+<li>**FINANCE**: 财务专用章;</li>
+<li>**PERSONNEL**: 人事专用章</li>
+<li>**INVOICE**: 发票专用章</li>
+</ul>
      */
     public String getSealType() {
         return this.SealType;
     }
 
     /**
-     * Set 印章类型，OFFICIAL-企业公章，CONTRACT-合同专用章，LEGAL_PERSON_SEAL-法人章
-     * @param SealType 印章类型，OFFICIAL-企业公章，CONTRACT-合同专用章，LEGAL_PERSON_SEAL-法人章
+     * Set 电子印章类型 , 可选类型如下: 
+<ul><li>**OFFICIAL**: (默认)公章</li>
+<li>**CONTRACT**: 合同专用章;</li>
+<li>**FINANCE**: 财务专用章;</li>
+<li>**PERSONNEL**: 人事专用章</li>
+<li>**INVOICE**: 发票专用章</li>
+</ul>
+     * @param SealType 电子印章类型 , 可选类型如下: 
+<ul><li>**OFFICIAL**: (默认)公章</li>
+<li>**CONTRACT**: 合同专用章;</li>
+<li>**FINANCE**: 财务专用章;</li>
+<li>**PERSONNEL**: 人事专用章</li>
+<li>**INVOICE**: 发票专用章</li>
+</ul>
      */
     public void setSealType(String SealType) {
         this.SealType = SealType;

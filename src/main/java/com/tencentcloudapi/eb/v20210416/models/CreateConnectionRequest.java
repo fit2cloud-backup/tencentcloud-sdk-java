@@ -16,11 +16,12 @@
 package com.tencentcloudapi.eb.v20210416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateConnectionRequest extends AbstractModel{
+public class CreateConnectionRequest extends AbstractModel {
 
     /**
     * 连接器描述
@@ -58,7 +59,7 @@ public class CreateConnectionRequest extends AbstractModel{
     private Boolean Enable;
 
     /**
-    * 类型
+    * 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
     */
     @SerializedName("Type")
     @Expose
@@ -145,16 +146,16 @@ public class CreateConnectionRequest extends AbstractModel{
     }
 
     /**
-     * Get 类型 
-     * @return Type 类型
+     * Get 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq 
+     * @return Type 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 类型
-     * @param Type 类型
+     * Set 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
+     * @param Type 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
      */
     public void setType(String Type) {
         this.Type = Type;

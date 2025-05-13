@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudaudit.v20190319.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Storage extends AbstractModel{
+public class Storage extends AbstractModel {
 
     /**
     * 存储类型（目前支持 cos、cls）
@@ -49,6 +50,20 @@ public class Storage extends AbstractModel{
     @SerializedName("StoragePrefix")
     @Expose
     private String StoragePrefix;
+
+    /**
+    * 被指定存储用户ID
+    */
+    @SerializedName("StorageAccountId")
+    @Expose
+    private String StorageAccountId;
+
+    /**
+    * 被指定存储用户appid
+    */
+    @SerializedName("StorageAppId")
+    @Expose
+    private String StorageAppId;
 
     /**
      * Get 存储类型（目前支持 cos、cls） 
@@ -114,6 +129,38 @@ public class Storage extends AbstractModel{
         this.StoragePrefix = StoragePrefix;
     }
 
+    /**
+     * Get 被指定存储用户ID 
+     * @return StorageAccountId 被指定存储用户ID
+     */
+    public String getStorageAccountId() {
+        return this.StorageAccountId;
+    }
+
+    /**
+     * Set 被指定存储用户ID
+     * @param StorageAccountId 被指定存储用户ID
+     */
+    public void setStorageAccountId(String StorageAccountId) {
+        this.StorageAccountId = StorageAccountId;
+    }
+
+    /**
+     * Get 被指定存储用户appid 
+     * @return StorageAppId 被指定存储用户appid
+     */
+    public String getStorageAppId() {
+        return this.StorageAppId;
+    }
+
+    /**
+     * Set 被指定存储用户appid
+     * @param StorageAppId 被指定存储用户appid
+     */
+    public void setStorageAppId(String StorageAppId) {
+        this.StorageAppId = StorageAppId;
+    }
+
     public Storage() {
     }
 
@@ -134,6 +181,12 @@ public class Storage extends AbstractModel{
         if (source.StoragePrefix != null) {
             this.StoragePrefix = new String(source.StoragePrefix);
         }
+        if (source.StorageAccountId != null) {
+            this.StorageAccountId = new String(source.StorageAccountId);
+        }
+        if (source.StorageAppId != null) {
+            this.StorageAppId = new String(source.StorageAppId);
+        }
     }
 
 
@@ -145,6 +198,8 @@ public class Storage extends AbstractModel{
         this.setParamSimple(map, prefix + "StorageRegion", this.StorageRegion);
         this.setParamSimple(map, prefix + "StorageName", this.StorageName);
         this.setParamSimple(map, prefix + "StoragePrefix", this.StoragePrefix);
+        this.setParamSimple(map, prefix + "StorageAccountId", this.StorageAccountId);
+        this.setParamSimple(map, prefix + "StorageAppId", this.StorageAppId);
 
     }
 }

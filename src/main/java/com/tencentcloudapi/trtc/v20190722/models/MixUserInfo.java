@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MixUserInfo extends AbstractModel{
+public class MixUserInfo extends AbstractModel {
 
     /**
     * 用户ID。
@@ -37,7 +38,7 @@ public class MixUserInfo extends AbstractModel{
     private String RoomId;
 
     /**
-    * 房间号类型，0为整形房间号，1为字符串房间号。
+    * 房间号类型，0为整型房间号，1为字符串房间号。
     */
     @SerializedName("RoomIdType")
     @Expose
@@ -76,16 +77,16 @@ public class MixUserInfo extends AbstractModel{
     }
 
     /**
-     * Get 房间号类型，0为整形房间号，1为字符串房间号。 
-     * @return RoomIdType 房间号类型，0为整形房间号，1为字符串房间号。
+     * Get 房间号类型，0为整型房间号，1为字符串房间号。 
+     * @return RoomIdType 房间号类型，0为整型房间号，1为字符串房间号。
      */
     public Long getRoomIdType() {
         return this.RoomIdType;
     }
 
     /**
-     * Set 房间号类型，0为整形房间号，1为字符串房间号。
-     * @param RoomIdType 房间号类型，0为整形房间号，1为字符串房间号。
+     * Set 房间号类型，0为整型房间号，1为字符串房间号。
+     * @param RoomIdType 房间号类型，0为整型房间号，1为字符串房间号。
      */
     public void setRoomIdType(Long RoomIdType) {
         this.RoomIdType = RoomIdType;

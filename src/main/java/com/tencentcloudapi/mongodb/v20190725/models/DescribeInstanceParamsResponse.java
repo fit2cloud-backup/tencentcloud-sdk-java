@@ -16,21 +16,22 @@
 package com.tencentcloudapi.mongodb.v20190725.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceParamsResponse extends AbstractModel{
+public class DescribeInstanceParamsResponse extends AbstractModel {
 
     /**
-    * 参数值为枚举类型参数集合。
+    * 参数值为枚举类型的参数集合。
     */
     @SerializedName("InstanceEnumParam")
     @Expose
     private InstanceEnumParam [] InstanceEnumParam;
 
     /**
-    * 参数值为 Integer 类型参数集合。
+    * 参数值为 Integer 类型的参数集合。
     */
     @SerializedName("InstanceIntegerParam")
     @Expose
@@ -51,46 +52,46 @@ public class DescribeInstanceParamsResponse extends AbstractModel{
     private InstanceMultiParam [] InstanceMultiParam;
 
     /**
-    * 当前实例支持修改的参数个数统计 如0
+    * 当前实例支持修改的参数数量。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 参数值为枚举类型参数集合。 
-     * @return InstanceEnumParam 参数值为枚举类型参数集合。
+     * Get 参数值为枚举类型的参数集合。 
+     * @return InstanceEnumParam 参数值为枚举类型的参数集合。
      */
     public InstanceEnumParam [] getInstanceEnumParam() {
         return this.InstanceEnumParam;
     }
 
     /**
-     * Set 参数值为枚举类型参数集合。
-     * @param InstanceEnumParam 参数值为枚举类型参数集合。
+     * Set 参数值为枚举类型的参数集合。
+     * @param InstanceEnumParam 参数值为枚举类型的参数集合。
      */
     public void setInstanceEnumParam(InstanceEnumParam [] InstanceEnumParam) {
         this.InstanceEnumParam = InstanceEnumParam;
     }
 
     /**
-     * Get 参数值为 Integer 类型参数集合。 
-     * @return InstanceIntegerParam 参数值为 Integer 类型参数集合。
+     * Get 参数值为 Integer 类型的参数集合。 
+     * @return InstanceIntegerParam 参数值为 Integer 类型的参数集合。
      */
     public InstanceIntegerParam [] getInstanceIntegerParam() {
         return this.InstanceIntegerParam;
     }
 
     /**
-     * Set 参数值为 Integer 类型参数集合。
-     * @param InstanceIntegerParam 参数值为 Integer 类型参数集合。
+     * Set 参数值为 Integer 类型的参数集合。
+     * @param InstanceIntegerParam 参数值为 Integer 类型的参数集合。
      */
     public void setInstanceIntegerParam(InstanceIntegerParam [] InstanceIntegerParam) {
         this.InstanceIntegerParam = InstanceIntegerParam;
@@ -129,32 +130,32 @@ public class DescribeInstanceParamsResponse extends AbstractModel{
     }
 
     /**
-     * Get 当前实例支持修改的参数个数统计 如0 
-     * @return TotalCount 当前实例支持修改的参数个数统计 如0
+     * Get 当前实例支持修改的参数数量。 
+     * @return TotalCount 当前实例支持修改的参数数量。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 当前实例支持修改的参数个数统计 如0
-     * @param TotalCount 当前实例支持修改的参数个数统计 如0
+     * Set 当前实例支持修改的参数数量。
+     * @param TotalCount 当前实例支持修改的参数数量。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

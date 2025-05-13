@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MariaDBParam extends AbstractModel{
+public class MariaDBParam extends AbstractModel {
 
     /**
     * MariaDB的数据库名称，"*"为全数据库
@@ -44,7 +45,7 @@ public class MariaDBParam extends AbstractModel{
     private String Resource;
 
     /**
-    * 复制存量信息(schema_only不复制, initial全量)，默认位initial
+    * 复制存量信息(schema_only不复制, initial全量)，默认值initial
     */
     @SerializedName("SnapshotMode")
     @Expose
@@ -141,16 +142,16 @@ public class MariaDBParam extends AbstractModel{
     }
 
     /**
-     * Get 复制存量信息(schema_only不复制, initial全量)，默认位initial 
-     * @return SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认位initial
+     * Get 复制存量信息(schema_only不复制, initial全量)，默认值initial 
+     * @return SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认值initial
      */
     public String getSnapshotMode() {
         return this.SnapshotMode;
     }
 
     /**
-     * Set 复制存量信息(schema_only不复制, initial全量)，默认位initial
-     * @param SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认位initial
+     * Set 复制存量信息(schema_only不复制, initial全量)，默认值initial
+     * @param SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认值initial
      */
     public void setSnapshotMode(String SnapshotMode) {
         this.SnapshotMode = SnapshotMode;

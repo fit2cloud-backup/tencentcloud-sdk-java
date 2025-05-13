@@ -16,30 +16,31 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRealtimeScanConfigRequest extends AbstractModel{
+public class DescribeRealtimeScanConfigRequest extends AbstractModel {
 
     /**
-    * 应用ID
+    * 应用ID。
     */
     @SerializedName("BizId")
     @Expose
     private Long BizId;
 
     /**
-     * Get 应用ID 
-     * @return BizId 应用ID
+     * Get 应用ID。 
+     * @return BizId 应用ID。
      */
     public Long getBizId() {
         return this.BizId;
     }
 
     /**
-     * Set 应用ID
-     * @param BizId 应用ID
+     * Set 应用ID。
+     * @param BizId 应用ID。
      */
     public void setBizId(Long BizId) {
         this.BizId = BizId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListEntitiesForPolicyResponse extends AbstractModel{
+public class ListEntitiesForPolicyResponse extends AbstractModel {
 
     /**
     * 实体总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalNum")
     @Expose
@@ -32,24 +32,21 @@ public class ListEntitiesForPolicyResponse extends AbstractModel{
 
     /**
     * 实体列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("List")
     @Expose
     private AttachEntityOfPolicy [] List;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 实体总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实体总数 
      * @return TotalNum 实体总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalNum() {
         return this.TotalNum;
@@ -57,19 +54,15 @@ public class ListEntitiesForPolicyResponse extends AbstractModel{
 
     /**
      * Set 实体总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalNum 实体总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalNum(Long TotalNum) {
         this.TotalNum = TotalNum;
     }
 
     /**
-     * Get 实体列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实体列表 
      * @return List 实体列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AttachEntityOfPolicy [] getList() {
         return this.List;
@@ -77,25 +70,23 @@ public class ListEntitiesForPolicyResponse extends AbstractModel{
 
     /**
      * Set 实体列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param List 实体列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setList(AttachEntityOfPolicy [] List) {
         this.List = List;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

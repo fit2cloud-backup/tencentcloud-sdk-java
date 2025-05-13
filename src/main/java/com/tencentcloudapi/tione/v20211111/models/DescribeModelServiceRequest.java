@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeModelServiceRequest extends AbstractModel{
+public class DescribeModelServiceRequest extends AbstractModel {
 
     /**
     * 服务id
@@ -28,6 +29,13 @@ public class DescribeModelServiceRequest extends AbstractModel{
     @SerializedName("ServiceId")
     @Expose
     private String ServiceId;
+
+    /**
+    * 服务分类
+    */
+    @SerializedName("ServiceCategory")
+    @Expose
+    private String ServiceCategory;
 
     /**
      * Get 服务id 
@@ -45,6 +53,22 @@ public class DescribeModelServiceRequest extends AbstractModel{
         this.ServiceId = ServiceId;
     }
 
+    /**
+     * Get 服务分类 
+     * @return ServiceCategory 服务分类
+     */
+    public String getServiceCategory() {
+        return this.ServiceCategory;
+    }
+
+    /**
+     * Set 服务分类
+     * @param ServiceCategory 服务分类
+     */
+    public void setServiceCategory(String ServiceCategory) {
+        this.ServiceCategory = ServiceCategory;
+    }
+
     public DescribeModelServiceRequest() {
     }
 
@@ -56,6 +80,9 @@ public class DescribeModelServiceRequest extends AbstractModel{
         if (source.ServiceId != null) {
             this.ServiceId = new String(source.ServiceId);
         }
+        if (source.ServiceCategory != null) {
+            this.ServiceCategory = new String(source.ServiceCategory);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DescribeModelServiceRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ServiceId", this.ServiceId);
+        this.setParamSimple(map, prefix + "ServiceCategory", this.ServiceCategory);
 
     }
 }

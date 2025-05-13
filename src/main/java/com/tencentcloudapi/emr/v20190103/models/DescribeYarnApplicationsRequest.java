@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeYarnApplicationsRequest extends AbstractModel{
+public class DescribeYarnApplicationsRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -44,7 +45,7 @@ public class DescribeYarnApplicationsRequest extends AbstractModel{
     private Long EndTime;
 
     /**
-    * 分页起始偏移，从0开始
+    * 分页偏移量，Offset=0表示第一页；如果limit=100，Offset=1，则表示第二页，数据第101条开始查询，返回100条数据；如果limit=100，Offset=2，则表示第三页，数据第201条开始查询，返回100条数据。依次类推
     */
     @SerializedName("Offset")
     @Expose
@@ -106,16 +107,16 @@ public class DescribeYarnApplicationsRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页起始偏移，从0开始 
-     * @return Offset 分页起始偏移，从0开始
+     * Get 分页偏移量，Offset=0表示第一页；如果limit=100，Offset=1，则表示第二页，数据第101条开始查询，返回100条数据；如果limit=100，Offset=2，则表示第三页，数据第201条开始查询，返回100条数据。依次类推 
+     * @return Offset 分页偏移量，Offset=0表示第一页；如果limit=100，Offset=1，则表示第二页，数据第101条开始查询，返回100条数据；如果limit=100，Offset=2，则表示第三页，数据第201条开始查询，返回100条数据。依次类推
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页起始偏移，从0开始
-     * @param Offset 分页起始偏移，从0开始
+     * Set 分页偏移量，Offset=0表示第一页；如果limit=100，Offset=1，则表示第二页，数据第101条开始查询，返回100条数据；如果limit=100，Offset=2，则表示第三页，数据第201条开始查询，返回100条数据。依次类推
+     * @param Offset 分页偏移量，Offset=0表示第一页；如果limit=100，Offset=1，则表示第二页，数据第101条开始查询，返回100条数据；如果limit=100，Offset=2，则表示第三页，数据第201条开始查询，返回100条数据。依次类推
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;

@@ -16,63 +16,54 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PartitionOffset extends AbstractModel{
+public class PartitionOffset extends AbstractModel {
 
     /**
-    * Partition,例如"0"或"1"
-注意：此字段可能返回 null，表示取不到有效值。
+    * 分区
     */
     @SerializedName("Partition")
     @Expose
     private String Partition;
 
     /**
-    * Offset,例如100
-注意：此字段可能返回 null，表示取不到有效值。
+    * 位点偏移量
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-     * Get Partition,例如"0"或"1"
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Partition Partition,例如"0"或"1"
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 分区 
+     * @return Partition 分区
      */
     public String getPartition() {
         return this.Partition;
     }
 
     /**
-     * Set Partition,例如"0"或"1"
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Partition Partition,例如"0"或"1"
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 分区
+     * @param Partition 分区
      */
     public void setPartition(String Partition) {
         this.Partition = Partition;
     }
 
     /**
-     * Get Offset,例如100
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Offset Offset,例如100
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 位点偏移量 
+     * @return Offset 位点偏移量
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set Offset,例如100
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Offset Offset,例如100
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 位点偏移量
+     * @param Offset 位点偏移量
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;

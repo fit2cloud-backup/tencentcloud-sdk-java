@@ -16,23 +16,22 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IntegrationDepartment extends AbstractModel{
+public class IntegrationDepartment extends AbstractModel {
 
     /**
-    * 部门ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 部门ID。
     */
     @SerializedName("DeptId")
     @Expose
     private String DeptId;
 
     /**
-    * 部门名
-注意：此字段可能返回 null，表示取不到有效值。
+    * 部门名。
     */
     @SerializedName("DeptName")
     @Expose
@@ -40,7 +39,6 @@ public class IntegrationDepartment extends AbstractModel{
 
     /**
     * 父部门ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParentDeptId")
     @Expose
@@ -48,65 +46,53 @@ public class IntegrationDepartment extends AbstractModel{
 
     /**
     * 客户系统部门ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeptOpenId")
     @Expose
     private String DeptOpenId;
 
     /**
-    * 序列号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 序列号。
     */
     @SerializedName("OrderNo")
     @Expose
     private Long OrderNo;
 
     /**
-     * Get 部门ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DeptId 部门ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 部门ID。 
+     * @return DeptId 部门ID。
      */
     public String getDeptId() {
         return this.DeptId;
     }
 
     /**
-     * Set 部门ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DeptId 部门ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 部门ID。
+     * @param DeptId 部门ID。
      */
     public void setDeptId(String DeptId) {
         this.DeptId = DeptId;
     }
 
     /**
-     * Get 部门名
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DeptName 部门名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 部门名。 
+     * @return DeptName 部门名。
      */
     public String getDeptName() {
         return this.DeptName;
     }
 
     /**
-     * Set 部门名
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DeptName 部门名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 部门名。
+     * @param DeptName 部门名。
      */
     public void setDeptName(String DeptName) {
         this.DeptName = DeptName;
     }
 
     /**
-     * Get 父部门ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 父部门ID 
      * @return ParentDeptId 父部门ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParentDeptId() {
         return this.ParentDeptId;
@@ -114,19 +100,15 @@ public class IntegrationDepartment extends AbstractModel{
 
     /**
      * Set 父部门ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParentDeptId 父部门ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParentDeptId(String ParentDeptId) {
         this.ParentDeptId = ParentDeptId;
     }
 
     /**
-     * Get 客户系统部门ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户系统部门ID 
      * @return DeptOpenId 客户系统部门ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeptOpenId() {
         return this.DeptOpenId;
@@ -134,29 +116,23 @@ public class IntegrationDepartment extends AbstractModel{
 
     /**
      * Set 客户系统部门ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeptOpenId 客户系统部门ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeptOpenId(String DeptOpenId) {
         this.DeptOpenId = DeptOpenId;
     }
 
     /**
-     * Get 序列号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OrderNo 序列号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 序列号。 
+     * @return OrderNo 序列号。
      */
     public Long getOrderNo() {
         return this.OrderNo;
     }
 
     /**
-     * Set 序列号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OrderNo 序列号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 序列号。
+     * @param OrderNo 序列号。
      */
     public void setOrderNo(Long OrderNo) {
         this.OrderNo = OrderNo;

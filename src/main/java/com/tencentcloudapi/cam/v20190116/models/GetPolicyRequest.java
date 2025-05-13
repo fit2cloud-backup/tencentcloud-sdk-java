@@ -16,30 +16,31 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetPolicyRequest extends AbstractModel{
+public class GetPolicyRequest extends AbstractModel {
 
     /**
-    * 策略Id
+    * 策略Id。
     */
     @SerializedName("PolicyId")
     @Expose
     private Long PolicyId;
 
     /**
-     * Get 策略Id 
-     * @return PolicyId 策略Id
+     * Get 策略Id。 
+     * @return PolicyId 策略Id。
      */
     public Long getPolicyId() {
         return this.PolicyId;
     }
 
     /**
-     * Set 策略Id
-     * @param PolicyId 策略Id
+     * Set 策略Id。
+     * @param PolicyId 策略Id。
      */
     public void setPolicyId(Long PolicyId) {
         this.PolicyId = PolicyId;

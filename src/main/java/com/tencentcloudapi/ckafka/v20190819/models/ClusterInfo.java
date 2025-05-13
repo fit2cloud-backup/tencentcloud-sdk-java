@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterInfo extends AbstractModel{
+public class ClusterInfo extends AbstractModel {
 
     /**
     * 集群Id
@@ -38,7 +39,6 @@ public class ClusterInfo extends AbstractModel{
 
     /**
     * 集群最大磁盘 单位GB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxDiskSize")
     @Expose
@@ -46,7 +46,6 @@ public class ClusterInfo extends AbstractModel{
 
     /**
     * 集群最大带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxBandWidth")
     @Expose
@@ -54,7 +53,6 @@ public class ClusterInfo extends AbstractModel{
 
     /**
     * 集群当前可用磁盘  单位GB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AvailableDiskSize")
     @Expose
@@ -62,7 +60,6 @@ public class ClusterInfo extends AbstractModel{
 
     /**
     * 集群当前可用带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AvailableBandWidth")
     @Expose
@@ -70,7 +67,6 @@ public class ClusterInfo extends AbstractModel{
 
     /**
     * 集群所属可用区，表明集群归属的可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneId")
     @Expose
@@ -78,7 +74,6 @@ public class ClusterInfo extends AbstractModel{
 
     /**
     * 集群节点所在的可用区，若该集群为跨可用区集群，则包含该集群节点所在的多个可用区。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -117,10 +112,8 @@ public class ClusterInfo extends AbstractModel{
     }
 
     /**
-     * Get 集群最大磁盘 单位GB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群最大磁盘 单位GB 
      * @return MaxDiskSize 集群最大磁盘 单位GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxDiskSize() {
         return this.MaxDiskSize;
@@ -128,19 +121,15 @@ public class ClusterInfo extends AbstractModel{
 
     /**
      * Set 集群最大磁盘 单位GB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxDiskSize 集群最大磁盘 单位GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxDiskSize(Long MaxDiskSize) {
         this.MaxDiskSize = MaxDiskSize;
     }
 
     /**
-     * Get 集群最大带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群最大带宽 单位MB/s 
      * @return MaxBandWidth 集群最大带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxBandWidth() {
         return this.MaxBandWidth;
@@ -148,19 +137,15 @@ public class ClusterInfo extends AbstractModel{
 
     /**
      * Set 集群最大带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxBandWidth 集群最大带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxBandWidth(Long MaxBandWidth) {
         this.MaxBandWidth = MaxBandWidth;
     }
 
     /**
-     * Get 集群当前可用磁盘  单位GB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群当前可用磁盘  单位GB 
      * @return AvailableDiskSize 集群当前可用磁盘  单位GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAvailableDiskSize() {
         return this.AvailableDiskSize;
@@ -168,19 +153,15 @@ public class ClusterInfo extends AbstractModel{
 
     /**
      * Set 集群当前可用磁盘  单位GB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AvailableDiskSize 集群当前可用磁盘  单位GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvailableDiskSize(Long AvailableDiskSize) {
         this.AvailableDiskSize = AvailableDiskSize;
     }
 
     /**
-     * Get 集群当前可用带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群当前可用带宽 单位MB/s 
      * @return AvailableBandWidth 集群当前可用带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAvailableBandWidth() {
         return this.AvailableBandWidth;
@@ -188,19 +169,15 @@ public class ClusterInfo extends AbstractModel{
 
     /**
      * Set 集群当前可用带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AvailableBandWidth 集群当前可用带宽 单位MB/s
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvailableBandWidth(Long AvailableBandWidth) {
         this.AvailableBandWidth = AvailableBandWidth;
     }
 
     /**
-     * Get 集群所属可用区，表明集群归属的可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群所属可用区，表明集群归属的可用区 
      * @return ZoneId 集群所属可用区，表明集群归属的可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getZoneId() {
         return this.ZoneId;
@@ -208,19 +185,15 @@ public class ClusterInfo extends AbstractModel{
 
     /**
      * Set 集群所属可用区，表明集群归属的可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneId 集群所属可用区，表明集群归属的可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;
     }
 
     /**
-     * Get 集群节点所在的可用区，若该集群为跨可用区集群，则包含该集群节点所在的多个可用区。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群节点所在的可用区，若该集群为跨可用区集群，则包含该集群节点所在的多个可用区。 
      * @return ZoneIds 集群节点所在的可用区，若该集群为跨可用区集群，则包含该集群节点所在的多个可用区。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getZoneIds() {
         return this.ZoneIds;
@@ -228,9 +201,7 @@ public class ClusterInfo extends AbstractModel{
 
     /**
      * Set 集群节点所在的可用区，若该集群为跨可用区集群，则包含该集群节点所在的多个可用区。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneIds 集群节点所在的可用区，若该集群为跨可用区集群，则包含该集群节点所在的多个可用区。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneIds(Long [] ZoneIds) {
         this.ZoneIds = ZoneIds;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HKIDCardOCRResponse extends AbstractModel{
+public class HKIDCardOCRResponse extends AbstractModel {
 
     /**
     * 中文姓名
@@ -124,7 +125,21 @@ public class HKIDCardOCRResponse extends AbstractModel{
     private Long [] WarningCode;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 告警码
+-9101 证件边框不完整告警
+-9102 证件复印件告警
+-9103 证件翻拍告警
+-9104 证件PS告警
+-9107 证件反光告警
+-9108 证件模糊告警
+-9109 告警能力未开通
+    */
+    @SerializedName("WarnCardInfos")
+    @Expose
+    private Long [] WarnCardInfos;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -313,7 +328,9 @@ public class HKIDCardOCRResponse extends AbstractModel{
 1：假；
 2：真。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public Long getFakeDetectResult() {
         return this.FakeDetectResult;
     }
@@ -329,7 +346,9 @@ public class HKIDCardOCRResponse extends AbstractModel{
 1：假；
 2：真。
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setFakeDetectResult(Long FakeDetectResult) {
         this.FakeDetectResult = FakeDetectResult;
     }
@@ -361,7 +380,9 @@ public class HKIDCardOCRResponse extends AbstractModel{
      * @return WarningCode 多重告警码，当身份证是翻拍、复印件时返回对应告警码。
 -9102：证照复印件告警
 -9103：证照翻拍告警
+     * @deprecated
      */
+    @Deprecated
     public Long [] getWarningCode() {
         return this.WarningCode;
     }
@@ -373,22 +394,68 @@ public class HKIDCardOCRResponse extends AbstractModel{
      * @param WarningCode 多重告警码，当身份证是翻拍、复印件时返回对应告警码。
 -9102：证照复印件告警
 -9103：证照翻拍告警
+     * @deprecated
      */
+    @Deprecated
     public void setWarningCode(Long [] WarningCode) {
         this.WarningCode = WarningCode;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 告警码
+-9101 证件边框不完整告警
+-9102 证件复印件告警
+-9103 证件翻拍告警
+-9104 证件PS告警
+-9107 证件反光告警
+-9108 证件模糊告警
+-9109 告警能力未开通 
+     * @return WarnCardInfos 告警码
+-9101 证件边框不完整告警
+-9102 证件复印件告警
+-9103 证件翻拍告警
+-9104 证件PS告警
+-9107 证件反光告警
+-9108 证件模糊告警
+-9109 告警能力未开通
+     */
+    public Long [] getWarnCardInfos() {
+        return this.WarnCardInfos;
+    }
+
+    /**
+     * Set 告警码
+-9101 证件边框不完整告警
+-9102 证件复印件告警
+-9103 证件翻拍告警
+-9104 证件PS告警
+-9107 证件反光告警
+-9108 证件模糊告警
+-9109 告警能力未开通
+     * @param WarnCardInfos 告警码
+-9101 证件边框不完整告警
+-9102 证件复印件告警
+-9103 证件翻拍告警
+-9104 证件PS告警
+-9107 证件反光告警
+-9108 证件模糊告警
+-9109 告警能力未开通
+     */
+    public void setWarnCardInfos(Long [] WarnCardInfos) {
+        this.WarnCardInfos = WarnCardInfos;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -444,6 +511,12 @@ public class HKIDCardOCRResponse extends AbstractModel{
                 this.WarningCode[i] = new Long(source.WarningCode[i]);
             }
         }
+        if (source.WarnCardInfos != null) {
+            this.WarnCardInfos = new Long[source.WarnCardInfos.length];
+            for (int i = 0; i < source.WarnCardInfos.length; i++) {
+                this.WarnCardInfos[i] = new Long(source.WarnCardInfos[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -467,6 +540,7 @@ public class HKIDCardOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "FakeDetectResult", this.FakeDetectResult);
         this.setParamSimple(map, prefix + "HeadImage", this.HeadImage);
         this.setParamArraySimple(map, prefix + "WarningCode.", this.WarningCode);
+        this.setParamArraySimple(map, prefix + "WarnCardInfos.", this.WarnCardInfos);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,30 +16,31 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteBandwidthPackageRequest extends AbstractModel{
+public class DeleteBandwidthPackageRequest extends AbstractModel {
 
     /**
-    * 待删除带宽包唯一ID
+    * 待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
     */
     @SerializedName("BandwidthPackageId")
     @Expose
     private String BandwidthPackageId;
 
     /**
-     * Get 待删除带宽包唯一ID 
-     * @return BandwidthPackageId 待删除带宽包唯一ID
+     * Get 待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。 
+     * @return BandwidthPackageId 待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
      */
     public String getBandwidthPackageId() {
         return this.BandwidthPackageId;
     }
 
     /**
-     * Set 待删除带宽包唯一ID
-     * @param BandwidthPackageId 待删除带宽包唯一ID
+     * Set 待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
+     * @param BandwidthPackageId 待删除带宽包唯一ID，可以使用[DescribeBandwidthPackages](https://cloud.tencent.com/document/product/215/19209)接口查询BandwidthPackageId。
      */
     public void setBandwidthPackageId(String BandwidthPackageId) {
         this.BandwidthPackageId = BandwidthPackageId;

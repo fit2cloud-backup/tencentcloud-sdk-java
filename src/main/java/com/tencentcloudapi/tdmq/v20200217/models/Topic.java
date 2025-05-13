@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Topic extends AbstractModel{
+public class Topic extends AbstractModel {
 
     /**
     * 最后一次间隔内发布消息的平均byte大小。
@@ -206,6 +207,44 @@ public class Topic extends AbstractModel{
     @SerializedName("PulsarTopicType")
     @Expose
     private Long PulsarTopicType;
+
+    /**
+    * 未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MsgTTL")
+    @Expose
+    private Long MsgTTL;
+
+    /**
+    * 集群 ID
+    */
+    @SerializedName("ClusterId")
+    @Expose
+    private String ClusterId;
+
+    /**
+    * 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+    */
+    @SerializedName("Tenant")
+    @Expose
+    private String Tenant;
+
+    /**
+    * 是否开启异常消费者隔离
+    */
+    @SerializedName("IsolateConsumerEnable")
+    @Expose
+    private Boolean IsolateConsumerEnable;
+
+    /**
+    * 消费者 Ack 超时时间，单位：秒
+    */
+    @SerializedName("AckTimeOut")
+    @Expose
+    private Long AckTimeOut;
 
     /**
      * Get 最后一次间隔内发布消息的平均byte大小。
@@ -683,6 +722,98 @@ public class Topic extends AbstractModel{
         this.PulsarTopicType = PulsarTopicType;
     }
 
+    /**
+     * Get 未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MsgTTL 未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMsgTTL() {
+        return this.MsgTTL;
+    }
+
+    /**
+     * Set 未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MsgTTL 未消费消息过期时间，单位：秒
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMsgTTL(Long MsgTTL) {
+        this.MsgTTL = MsgTTL;
+    }
+
+    /**
+     * Get 集群 ID 
+     * @return ClusterId 集群 ID
+     */
+    public String getClusterId() {
+        return this.ClusterId;
+    }
+
+    /**
+     * Set 集群 ID
+     * @param ClusterId 集群 ID
+     */
+    public void setClusterId(String ClusterId) {
+        this.ClusterId = ClusterId;
+    }
+
+    /**
+     * Get 用户自定义的租户别名，如果没有，会复用专业集群 ID
+ 
+     * @return Tenant 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     */
+    public String getTenant() {
+        return this.Tenant;
+    }
+
+    /**
+     * Set 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     * @param Tenant 用户自定义的租户别名，如果没有，会复用专业集群 ID
+
+     */
+    public void setTenant(String Tenant) {
+        this.Tenant = Tenant;
+    }
+
+    /**
+     * Get 是否开启异常消费者隔离 
+     * @return IsolateConsumerEnable 是否开启异常消费者隔离
+     */
+    public Boolean getIsolateConsumerEnable() {
+        return this.IsolateConsumerEnable;
+    }
+
+    /**
+     * Set 是否开启异常消费者隔离
+     * @param IsolateConsumerEnable 是否开启异常消费者隔离
+     */
+    public void setIsolateConsumerEnable(Boolean IsolateConsumerEnable) {
+        this.IsolateConsumerEnable = IsolateConsumerEnable;
+    }
+
+    /**
+     * Get 消费者 Ack 超时时间，单位：秒 
+     * @return AckTimeOut 消费者 Ack 超时时间，单位：秒
+     */
+    public Long getAckTimeOut() {
+        return this.AckTimeOut;
+    }
+
+    /**
+     * Set 消费者 Ack 超时时间，单位：秒
+     * @param AckTimeOut 消费者 Ack 超时时间，单位：秒
+     */
+    public void setAckTimeOut(Long AckTimeOut) {
+        this.AckTimeOut = AckTimeOut;
+    }
+
     public Topic() {
     }
 
@@ -760,6 +891,21 @@ public class Topic extends AbstractModel{
         if (source.PulsarTopicType != null) {
             this.PulsarTopicType = new Long(source.PulsarTopicType);
         }
+        if (source.MsgTTL != null) {
+            this.MsgTTL = new Long(source.MsgTTL);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.Tenant != null) {
+            this.Tenant = new String(source.Tenant);
+        }
+        if (source.IsolateConsumerEnable != null) {
+            this.IsolateConsumerEnable = new Boolean(source.IsolateConsumerEnable);
+        }
+        if (source.AckTimeOut != null) {
+            this.AckTimeOut = new Long(source.AckTimeOut);
+        }
     }
 
 
@@ -789,6 +935,11 @@ public class Topic extends AbstractModel{
         this.setParamSimple(map, prefix + "ProducerLimit", this.ProducerLimit);
         this.setParamSimple(map, prefix + "ConsumerLimit", this.ConsumerLimit);
         this.setParamSimple(map, prefix + "PulsarTopicType", this.PulsarTopicType);
+        this.setParamSimple(map, prefix + "MsgTTL", this.MsgTTL);
+        this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
+        this.setParamSimple(map, prefix + "Tenant", this.Tenant);
+        this.setParamSimple(map, prefix + "IsolateConsumerEnable", this.IsolateConsumerEnable);
+        this.setParamSimple(map, prefix + "AckTimeOut", this.AckTimeOut);
 
     }
 }

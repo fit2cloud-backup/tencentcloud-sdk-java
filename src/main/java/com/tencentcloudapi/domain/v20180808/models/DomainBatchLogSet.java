@@ -16,11 +16,12 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DomainBatchLogSet extends AbstractModel{
+public class DomainBatchLogSet extends AbstractModel {
 
     /**
     * 日志ID
@@ -51,6 +52,41 @@ done 执行完成。
     @SerializedName("CreatedOn")
     @Expose
     private String CreatedOn;
+
+    /**
+    * 批量操作成功个数
+    */
+    @SerializedName("Success")
+    @Expose
+    private Long Success;
+
+    /**
+    * 批量操作处理中个数
+    */
+    @SerializedName("Doing")
+    @Expose
+    private Long Doing;
+
+    /**
+    * 批量操作失败个数
+    */
+    @SerializedName("Failed")
+    @Expose
+    private Long Failed;
+
+    /**
+    * 是否付费
+    */
+    @SerializedName("PayStatus")
+    @Expose
+    private Boolean PayStatus;
+
+    /**
+    * 大订单ID
+    */
+    @SerializedName("BigDealId")
+    @Expose
+    private String BigDealId;
 
     /**
      * Get 日志ID 
@@ -124,6 +160,86 @@ done 执行完成。
         this.CreatedOn = CreatedOn;
     }
 
+    /**
+     * Get 批量操作成功个数 
+     * @return Success 批量操作成功个数
+     */
+    public Long getSuccess() {
+        return this.Success;
+    }
+
+    /**
+     * Set 批量操作成功个数
+     * @param Success 批量操作成功个数
+     */
+    public void setSuccess(Long Success) {
+        this.Success = Success;
+    }
+
+    /**
+     * Get 批量操作处理中个数 
+     * @return Doing 批量操作处理中个数
+     */
+    public Long getDoing() {
+        return this.Doing;
+    }
+
+    /**
+     * Set 批量操作处理中个数
+     * @param Doing 批量操作处理中个数
+     */
+    public void setDoing(Long Doing) {
+        this.Doing = Doing;
+    }
+
+    /**
+     * Get 批量操作失败个数 
+     * @return Failed 批量操作失败个数
+     */
+    public Long getFailed() {
+        return this.Failed;
+    }
+
+    /**
+     * Set 批量操作失败个数
+     * @param Failed 批量操作失败个数
+     */
+    public void setFailed(Long Failed) {
+        this.Failed = Failed;
+    }
+
+    /**
+     * Get 是否付费 
+     * @return PayStatus 是否付费
+     */
+    public Boolean getPayStatus() {
+        return this.PayStatus;
+    }
+
+    /**
+     * Set 是否付费
+     * @param PayStatus 是否付费
+     */
+    public void setPayStatus(Boolean PayStatus) {
+        this.PayStatus = PayStatus;
+    }
+
+    /**
+     * Get 大订单ID 
+     * @return BigDealId 大订单ID
+     */
+    public String getBigDealId() {
+        return this.BigDealId;
+    }
+
+    /**
+     * Set 大订单ID
+     * @param BigDealId 大订单ID
+     */
+    public void setBigDealId(String BigDealId) {
+        this.BigDealId = BigDealId;
+    }
+
     public DomainBatchLogSet() {
     }
 
@@ -144,6 +260,21 @@ done 执行完成。
         if (source.CreatedOn != null) {
             this.CreatedOn = new String(source.CreatedOn);
         }
+        if (source.Success != null) {
+            this.Success = new Long(source.Success);
+        }
+        if (source.Doing != null) {
+            this.Doing = new Long(source.Doing);
+        }
+        if (source.Failed != null) {
+            this.Failed = new Long(source.Failed);
+        }
+        if (source.PayStatus != null) {
+            this.PayStatus = new Boolean(source.PayStatus);
+        }
+        if (source.BigDealId != null) {
+            this.BigDealId = new String(source.BigDealId);
+        }
     }
 
 
@@ -155,6 +286,11 @@ done 执行完成。
         this.setParamSimple(map, prefix + "Number", this.Number);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "CreatedOn", this.CreatedOn);
+        this.setParamSimple(map, prefix + "Success", this.Success);
+        this.setParamSimple(map, prefix + "Doing", this.Doing);
+        this.setParamSimple(map, prefix + "Failed", this.Failed);
+        this.setParamSimple(map, prefix + "PayStatus", this.PayStatus);
+        this.setParamSimple(map, prefix + "BigDealId", this.BigDealId);
 
     }
 }

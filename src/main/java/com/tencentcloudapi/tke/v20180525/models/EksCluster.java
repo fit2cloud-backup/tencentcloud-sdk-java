@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EksCluster extends AbstractModel{
+public class EksCluster extends AbstractModel {
 
     /**
     * 集群Id
@@ -58,7 +59,7 @@ public class EksCluster extends AbstractModel{
     private String K8SVersion;
 
     /**
-    * 集群状态(running运行中，initializing 初始化中，failed异常)
+    * 集群状态(running 运行中，initializing 初始化中，Failed 异常，Idling 空闲中，Activating 激活中，Terminating 删除中)
     */
     @SerializedName("Status")
     @Expose
@@ -195,16 +196,16 @@ public class EksCluster extends AbstractModel{
     }
 
     /**
-     * Get 集群状态(running运行中，initializing 初始化中，failed异常) 
-     * @return Status 集群状态(running运行中，initializing 初始化中，failed异常)
+     * Get 集群状态(running 运行中，initializing 初始化中，Failed 异常，Idling 空闲中，Activating 激活中，Terminating 删除中) 
+     * @return Status 集群状态(running 运行中，initializing 初始化中，Failed 异常，Idling 空闲中，Activating 激活中，Terminating 删除中)
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 集群状态(running运行中，initializing 初始化中，failed异常)
-     * @param Status 集群状态(running运行中，initializing 初始化中，failed异常)
+     * Set 集群状态(running 运行中，initializing 初始化中，Failed 异常，Idling 空闲中，Activating 激活中，Terminating 删除中)
+     * @param Status 集群状态(running 运行中，initializing 初始化中，Failed 异常，Idling 空闲中，Activating 激活中，Terminating 删除中)
      */
     public void setStatus(String Status) {
         this.Status = Status;

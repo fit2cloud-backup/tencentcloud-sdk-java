@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReverseShellEventInfo extends AbstractModel{
+public class ReverseShellEventInfo extends AbstractModel {
 
     /**
     * ID 主键
@@ -30,14 +31,14 @@ public class ReverseShellEventInfo extends AbstractModel{
     private Long Id;
 
     /**
-    * 云镜UUID
+    * 主机安全uuid
     */
     @SerializedName("Uuid")
     @Expose
     private String Uuid;
 
     /**
-    * 主机ID
+    * 主机uuid
     */
     @SerializedName("Quuid")
     @Expose
@@ -157,7 +158,6 @@ public class ReverseShellEventInfo extends AbstractModel{
 
     /**
     * 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PsTree")
     @Expose
@@ -213,6 +213,20 @@ public class ReverseShellEventInfo extends AbstractModel{
     private String ModifyTime;
 
     /**
+    * 命令详情的转义后内容，供正则加白全字符串匹配使用
+    */
+    @SerializedName("CmdLineQuote")
+    @Expose
+    private String CmdLineQuote;
+
+    /**
+    * 风险等级
+    */
+    @SerializedName("RiskLevel")
+    @Expose
+    private Long RiskLevel;
+
+    /**
      * Get ID 主键 
      * @return Id ID 主键
      */
@@ -229,32 +243,32 @@ public class ReverseShellEventInfo extends AbstractModel{
     }
 
     /**
-     * Get 云镜UUID 
-     * @return Uuid 云镜UUID
+     * Get 主机安全uuid 
+     * @return Uuid 主机安全uuid
      */
     public String getUuid() {
         return this.Uuid;
     }
 
     /**
-     * Set 云镜UUID
-     * @param Uuid 云镜UUID
+     * Set 主机安全uuid
+     * @param Uuid 主机安全uuid
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
     }
 
     /**
-     * Get 主机ID 
-     * @return Quuid 主机ID
+     * Get 主机uuid 
+     * @return Quuid 主机uuid
      */
     public String getQuuid() {
         return this.Quuid;
     }
 
     /**
-     * Set 主机ID
-     * @param Quuid 主机ID
+     * Set 主机uuid
+     * @param Quuid 主机uuid
      */
     public void setQuuid(String Quuid) {
         this.Quuid = Quuid;
@@ -517,10 +531,8 @@ public class ReverseShellEventInfo extends AbstractModel{
     }
 
     /**
-     * Get 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源 
      * @return PsTree 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPsTree() {
         return this.PsTree;
@@ -528,9 +540,7 @@ public class ReverseShellEventInfo extends AbstractModel{
 
     /**
      * Set 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PsTree 进程树 json  pid:进程id，exe:文件路径 ，account:进程所属用组和用户 ,cmdline:执行命令，ssh_service: SSH服务ip, ssh_soure:登录源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPsTree(String PsTree) {
         this.PsTree = PsTree;
@@ -648,6 +658,38 @@ public class ReverseShellEventInfo extends AbstractModel{
         this.ModifyTime = ModifyTime;
     }
 
+    /**
+     * Get 命令详情的转义后内容，供正则加白全字符串匹配使用 
+     * @return CmdLineQuote 命令详情的转义后内容，供正则加白全字符串匹配使用
+     */
+    public String getCmdLineQuote() {
+        return this.CmdLineQuote;
+    }
+
+    /**
+     * Set 命令详情的转义后内容，供正则加白全字符串匹配使用
+     * @param CmdLineQuote 命令详情的转义后内容，供正则加白全字符串匹配使用
+     */
+    public void setCmdLineQuote(String CmdLineQuote) {
+        this.CmdLineQuote = CmdLineQuote;
+    }
+
+    /**
+     * Get 风险等级 
+     * @return RiskLevel 风险等级
+     */
+    public Long getRiskLevel() {
+        return this.RiskLevel;
+    }
+
+    /**
+     * Set 风险等级
+     * @param RiskLevel 风险等级
+     */
+    public void setRiskLevel(Long RiskLevel) {
+        this.RiskLevel = RiskLevel;
+    }
+
     public ReverseShellEventInfo() {
     }
 
@@ -743,6 +785,12 @@ public class ReverseShellEventInfo extends AbstractModel{
         if (source.ModifyTime != null) {
             this.ModifyTime = new String(source.ModifyTime);
         }
+        if (source.CmdLineQuote != null) {
+            this.CmdLineQuote = new String(source.CmdLineQuote);
+        }
+        if (source.RiskLevel != null) {
+            this.RiskLevel = new Long(source.RiskLevel);
+        }
     }
 
 
@@ -777,6 +825,8 @@ public class ReverseShellEventInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "MachineWanIp", this.MachineWanIp);
         this.setParamSimple(map, prefix + "MachineStatus", this.MachineStatus);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
+        this.setParamSimple(map, prefix + "CmdLineQuote", this.CmdLineQuote);
+        this.setParamSimple(map, prefix + "RiskLevel", this.RiskLevel);
 
     }
 }

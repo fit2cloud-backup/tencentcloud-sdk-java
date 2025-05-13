@@ -16,21 +16,22 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateECMInstancesRequest extends AbstractModel{
+public class CreateECMInstancesRequest extends AbstractModel {
 
     /**
-    * 集群id
+    * 集群id，边缘集群需要先开启公网访问才能添加ecm节点
     */
     @SerializedName("ClusterID")
     @Expose
     private String ClusterID;
 
     /**
-    * 模块id
+    * 边缘模块id
     */
     @SerializedName("ModuleId")
     @Expose
@@ -107,32 +108,32 @@ public class CreateECMInstancesRequest extends AbstractModel{
     private String [] SecurityGroupIds;
 
     /**
-     * Get 集群id 
-     * @return ClusterID 集群id
+     * Get 集群id，边缘集群需要先开启公网访问才能添加ecm节点 
+     * @return ClusterID 集群id，边缘集群需要先开启公网访问才能添加ecm节点
      */
     public String getClusterID() {
         return this.ClusterID;
     }
 
     /**
-     * Set 集群id
-     * @param ClusterID 集群id
+     * Set 集群id，边缘集群需要先开启公网访问才能添加ecm节点
+     * @param ClusterID 集群id，边缘集群需要先开启公网访问才能添加ecm节点
      */
     public void setClusterID(String ClusterID) {
         this.ClusterID = ClusterID;
     }
 
     /**
-     * Get 模块id 
-     * @return ModuleId 模块id
+     * Get 边缘模块id 
+     * @return ModuleId 边缘模块id
      */
     public String getModuleId() {
         return this.ModuleId;
     }
 
     /**
-     * Set 模块id
-     * @param ModuleId 模块id
+     * Set 边缘模块id
+     * @param ModuleId 边缘模块id
      */
     public void setModuleId(String ModuleId) {
         this.ModuleId = ModuleId;

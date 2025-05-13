@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateApiGroupRequest extends AbstractModel{
+public class UpdateApiGroupRequest extends AbstractModel {
 
     /**
     * Api 分组ID
@@ -44,7 +45,7 @@ public class UpdateApiGroupRequest extends AbstractModel{
     private String Description;
 
     /**
-    * 鉴权类型
+    * 鉴权类型。 secret： 密钥鉴权； none:无鉴权
     */
     @SerializedName("AuthType")
     @Expose
@@ -134,16 +135,16 @@ public class UpdateApiGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 鉴权类型 
-     * @return AuthType 鉴权类型
+     * Get 鉴权类型。 secret： 密钥鉴权； none:无鉴权 
+     * @return AuthType 鉴权类型。 secret： 密钥鉴权； none:无鉴权
      */
     public String getAuthType() {
         return this.AuthType;
     }
 
     /**
-     * Set 鉴权类型
-     * @param AuthType 鉴权类型
+     * Set 鉴权类型。 secret： 密钥鉴权； none:无鉴权
+     * @param AuthType 鉴权类型。 secret： 密钥鉴权； none:无鉴权
      */
     public void setAuthType(String AuthType) {
         this.AuthType = AuthType;

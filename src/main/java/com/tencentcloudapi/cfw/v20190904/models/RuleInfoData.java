@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleInfoData extends AbstractModel{
+public class RuleInfoData extends AbstractModel {
 
     /**
     * 执行顺序
@@ -58,7 +59,7 @@ public class RuleInfoData extends AbstractModel{
     private String Strategy;
 
     /**
-    * 访问源类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
+    * 访问源类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
     */
     @SerializedName("SourceType")
     @Expose
@@ -79,7 +80,7 @@ public class RuleInfoData extends AbstractModel{
     private String Detail;
 
     /**
-    * 访问目的类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
+    * 访问目的类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
     */
     @SerializedName("TargetType")
     @Expose
@@ -147,6 +148,13 @@ public class RuleInfoData extends AbstractModel{
     @SerializedName("CountryName")
     @Expose
     private String CountryName;
+
+    /**
+    * 国家二位iso代码或者省份缩写代码
+    */
+    @SerializedName("RegionIso")
+    @Expose
+    private String RegionIso;
 
     /**
      * Get 执行顺序 
@@ -229,16 +237,16 @@ public class RuleInfoData extends AbstractModel{
     }
 
     /**
-     * Get 访问源类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版 
-     * @return SourceType 访问源类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
+     * Get 访问源类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板 
+     * @return SourceType 访问源类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
      */
     public Long getSourceType() {
         return this.SourceType;
     }
 
     /**
-     * Set 访问源类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
-     * @param SourceType 访问源类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
+     * Set 访问源类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
+     * @param SourceType 访问源类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
      */
     public void setSourceType(Long SourceType) {
         this.SourceType = SourceType;
@@ -277,16 +285,16 @@ public class RuleInfoData extends AbstractModel{
     }
 
     /**
-     * Get 访问目的类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版 
-     * @return TargetType 访问目的类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
+     * Get 访问目的类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板 
+     * @return TargetType 访问目的类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
      */
     public Long getTargetType() {
         return this.TargetType;
     }
 
     /**
-     * Set 访问目的类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
-     * @param TargetType 访问目的类型，1是IP，3是域名，4是IP地址模版，5是域名地址模版
+     * Set 访问目的类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
+     * @param TargetType 访问目的类型，1是IP，3是域名，4是IP地址模板，5是域名地址模板
      */
     public void setTargetType(Long TargetType) {
         this.TargetType = TargetType;
@@ -436,6 +444,22 @@ public class RuleInfoData extends AbstractModel{
         this.CountryName = CountryName;
     }
 
+    /**
+     * Get 国家二位iso代码或者省份缩写代码 
+     * @return RegionIso 国家二位iso代码或者省份缩写代码
+     */
+    public String getRegionIso() {
+        return this.RegionIso;
+    }
+
+    /**
+     * Set 国家二位iso代码或者省份缩写代码
+     * @param RegionIso 国家二位iso代码或者省份缩写代码
+     */
+    public void setRegionIso(String RegionIso) {
+        this.RegionIso = RegionIso;
+    }
+
     public RuleInfoData() {
     }
 
@@ -498,6 +522,9 @@ public class RuleInfoData extends AbstractModel{
         if (source.CountryName != null) {
             this.CountryName = new String(source.CountryName);
         }
+        if (source.RegionIso != null) {
+            this.RegionIso = new String(source.RegionIso);
+        }
     }
 
 
@@ -523,6 +550,7 @@ public class RuleInfoData extends AbstractModel{
         this.setParamSimple(map, prefix + "IsRegion", this.IsRegion);
         this.setParamSimple(map, prefix + "CityName", this.CityName);
         this.setParamSimple(map, prefix + "CountryName", this.CountryName);
+        this.setParamSimple(map, prefix + "RegionIso", this.RegionIso);
 
     }
 }

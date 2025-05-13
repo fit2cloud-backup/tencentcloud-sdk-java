@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DhcpIp extends AbstractModel{
+public class DhcpIp extends AbstractModel {
 
     /**
     * `DhcpIp`的`ID`，是`DhcpIp`的唯一标识。
@@ -93,6 +94,13 @@ public class DhcpIp extends AbstractModel{
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
+
+    /**
+    * 标签键值对。	
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get `DhcpIp`的`ID`，是`DhcpIp`的唯一标识。 
@@ -262,6 +270,22 @@ public class DhcpIp extends AbstractModel{
         this.CreatedTime = CreatedTime;
     }
 
+    /**
+     * Get 标签键值对。	 
+     * @return TagSet 标签键值对。	
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。	
+     * @param TagSet 标签键值对。	
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
+    }
+
     public DhcpIp() {
     }
 
@@ -300,6 +324,12 @@ public class DhcpIp extends AbstractModel{
         if (source.CreatedTime != null) {
             this.CreatedTime = new String(source.CreatedTime);
         }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
     }
 
 
@@ -317,6 +347,7 @@ public class DhcpIp extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

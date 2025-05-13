@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotvideoindustry.v20201201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSceneResponse extends AbstractModel{
+public class DescribeSceneResponse extends AbstractModel {
 
     /**
     * 场景ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntId")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
     * 录制时长(秒)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RecordDuration")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
     * 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SceneName")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
     * 场景触发规则
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SceneTrigger")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
     * 存储时长 (天)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StoreDuration")
     @Expose
@@ -64,7 +60,6 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -72,7 +67,6 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -86,17 +80,15 @@ public class DescribeSceneResponse extends AbstractModel{
     private String Uin;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 场景ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 场景ID 
      * @return IntId 场景ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIntId() {
         return this.IntId;
@@ -104,19 +96,15 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
      * Set 场景ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IntId 场景ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntId(Long IntId) {
         this.IntId = IntId;
     }
 
     /**
-     * Get 录制时长(秒)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 录制时长(秒) 
      * @return RecordDuration 录制时长(秒)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRecordDuration() {
         return this.RecordDuration;
@@ -124,19 +112,15 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
      * Set 录制时长(秒)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RecordDuration 录制时长(秒)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRecordDuration(Long RecordDuration) {
         this.RecordDuration = RecordDuration;
     }
 
     /**
-     * Get 场景名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 场景名称 
      * @return SceneName 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSceneName() {
         return this.SceneName;
@@ -144,19 +128,15 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
      * Set 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SceneName 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSceneName(String SceneName) {
         this.SceneName = SceneName;
     }
 
     /**
-     * Get 场景触发规则
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 场景触发规则 
      * @return SceneTrigger 场景触发规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSceneTrigger() {
         return this.SceneTrigger;
@@ -164,19 +144,15 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
      * Set 场景触发规则
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SceneTrigger 场景触发规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSceneTrigger(String SceneTrigger) {
         this.SceneTrigger = SceneTrigger;
     }
 
     /**
-     * Get 存储时长 (天)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储时长 (天) 
      * @return StoreDuration 存储时长 (天)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStoreDuration() {
         return this.StoreDuration;
@@ -184,19 +160,15 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
      * Set 存储时长 (天)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StoreDuration 存储时长 (天)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStoreDuration(Long StoreDuration) {
         this.StoreDuration = StoreDuration;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -204,19 +176,15 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -224,9 +192,7 @@ public class DescribeSceneResponse extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
@@ -249,16 +215,16 @@ public class DescribeSceneResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

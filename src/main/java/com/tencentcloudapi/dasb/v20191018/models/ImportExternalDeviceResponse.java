@@ -16,30 +16,54 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImportExternalDeviceResponse extends AbstractModel{
+public class ImportExternalDeviceResponse extends AbstractModel {
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 资产ID列表
+    */
+    @SerializedName("DeviceIdSet")
+    @Expose
+    private Long [] DeviceIdSet;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 资产ID列表 
+     * @return DeviceIdSet 资产ID列表
+     */
+    public Long [] getDeviceIdSet() {
+        return this.DeviceIdSet;
+    }
+
+    /**
+     * Set 资产ID列表
+     * @param DeviceIdSet 资产ID列表
+     */
+    public void setDeviceIdSet(Long [] DeviceIdSet) {
+        this.DeviceIdSet = DeviceIdSet;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -53,6 +77,12 @@ public class ImportExternalDeviceResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public ImportExternalDeviceResponse(ImportExternalDeviceResponse source) {
+        if (source.DeviceIdSet != null) {
+            this.DeviceIdSet = new Long[source.DeviceIdSet.length];
+            for (int i = 0; i < source.DeviceIdSet.length; i++) {
+                this.DeviceIdSet[i] = new Long(source.DeviceIdSet[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -63,6 +93,7 @@ public class ImportExternalDeviceResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArraySimple(map, prefix + "DeviceIdSet.", this.DeviceIdSet);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

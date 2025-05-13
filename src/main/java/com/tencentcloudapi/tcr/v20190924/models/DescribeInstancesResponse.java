@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstancesResponse extends AbstractModel{
+public class DescribeInstancesResponse extends AbstractModel {
 
     /**
     * 总实例个数
@@ -31,14 +32,13 @@ public class DescribeInstancesResponse extends AbstractModel{
 
     /**
     * 实例信息列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Registries")
     @Expose
     private Registry [] Registries;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,10 +61,8 @@ public class DescribeInstancesResponse extends AbstractModel{
     }
 
     /**
-     * Get 实例信息列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例信息列表 
      * @return Registries 实例信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Registry [] getRegistries() {
         return this.Registries;
@@ -72,25 +70,23 @@ public class DescribeInstancesResponse extends AbstractModel{
 
     /**
      * Set 实例信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Registries 实例信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegistries(Registry [] Registries) {
         this.Registries = Registries;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TriggerInvokePara extends AbstractModel{
+public class TriggerInvokePara extends AbstractModel {
 
     /**
     * AppId
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -32,7 +32,6 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
     * TKE集群ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -40,7 +39,6 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
     * TKE集群命名空间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Namespace")
     @Expose
@@ -48,7 +46,6 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
     * TKE集群工作负载名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceName")
     @Expose
@@ -56,7 +53,6 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
     * TKE集群工作负载中容器名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerName")
     @Expose
@@ -64,17 +60,14 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
     * TKE集群地域数字ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterRegion")
     @Expose
     private Long ClusterRegion;
 
     /**
-     * Get AppId
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get AppId 
      * @return AppId AppId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAppId() {
         return this.AppId;
@@ -82,19 +75,15 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
      * Set AppId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId AppId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(String AppId) {
         this.AppId = AppId;
     }
 
     /**
-     * Get TKE集群ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TKE集群ID 
      * @return ClusterId TKE集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -102,19 +91,15 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
      * Set TKE集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId TKE集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get TKE集群命名空间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TKE集群命名空间 
      * @return Namespace TKE集群命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespace() {
         return this.Namespace;
@@ -122,19 +107,15 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
      * Set TKE集群命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Namespace TKE集群命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
     }
 
     /**
-     * Get TKE集群工作负载名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TKE集群工作负载名称 
      * @return ServiceName TKE集群工作负载名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceName() {
         return this.ServiceName;
@@ -142,19 +123,15 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
      * Set TKE集群工作负载名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceName TKE集群工作负载名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceName(String ServiceName) {
         this.ServiceName = ServiceName;
     }
 
     /**
-     * Get TKE集群工作负载中容器名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TKE集群工作负载中容器名称 
      * @return ContainerName TKE集群工作负载中容器名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContainerName() {
         return this.ContainerName;
@@ -162,19 +139,15 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
      * Set TKE集群工作负载中容器名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerName TKE集群工作负载中容器名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerName(String ContainerName) {
         this.ContainerName = ContainerName;
     }
 
     /**
-     * Get TKE集群地域数字ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TKE集群地域数字ID 
      * @return ClusterRegion TKE集群地域数字ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getClusterRegion() {
         return this.ClusterRegion;
@@ -182,9 +155,7 @@ public class TriggerInvokePara extends AbstractModel{
 
     /**
      * Set TKE集群地域数字ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterRegion TKE集群地域数字ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterRegion(Long ClusterRegion) {
         this.ClusterRegion = ClusterRegion;

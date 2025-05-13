@@ -16,76 +16,77 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDiskDiscountRequest extends AbstractModel{
+public class DescribeDiskDiscountRequest extends AbstractModel {
 
     /**
-    * 云硬盘类型, 取值: "CLOUD_PREMIUM"。
+    * 云硬盘类型, 取值范围: CLOUD_PREMIUM: 高性能云硬盘，CLOUD_SSD: SSD云硬盘
     */
     @SerializedName("DiskType")
     @Expose
     private String DiskType;
 
     /**
-    * 云硬盘大小。
+    * 云硬盘大小, 单位: GB。
     */
     @SerializedName("DiskSize")
     @Expose
     private Long DiskSize;
 
     /**
-    * 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置1个云硬盘备份点配额。
+    * 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置[0 - 500]个云硬盘备份点配额。
     */
     @SerializedName("DiskBackupQuota")
     @Expose
     private Long DiskBackupQuota;
 
     /**
-     * Get 云硬盘类型, 取值: "CLOUD_PREMIUM"。 
-     * @return DiskType 云硬盘类型, 取值: "CLOUD_PREMIUM"。
+     * Get 云硬盘类型, 取值范围: CLOUD_PREMIUM: 高性能云硬盘，CLOUD_SSD: SSD云硬盘 
+     * @return DiskType 云硬盘类型, 取值范围: CLOUD_PREMIUM: 高性能云硬盘，CLOUD_SSD: SSD云硬盘
      */
     public String getDiskType() {
         return this.DiskType;
     }
 
     /**
-     * Set 云硬盘类型, 取值: "CLOUD_PREMIUM"。
-     * @param DiskType 云硬盘类型, 取值: "CLOUD_PREMIUM"。
+     * Set 云硬盘类型, 取值范围: CLOUD_PREMIUM: 高性能云硬盘，CLOUD_SSD: SSD云硬盘
+     * @param DiskType 云硬盘类型, 取值范围: CLOUD_PREMIUM: 高性能云硬盘，CLOUD_SSD: SSD云硬盘
      */
     public void setDiskType(String DiskType) {
         this.DiskType = DiskType;
     }
 
     /**
-     * Get 云硬盘大小。 
-     * @return DiskSize 云硬盘大小。
+     * Get 云硬盘大小, 单位: GB。 
+     * @return DiskSize 云硬盘大小, 单位: GB。
      */
     public Long getDiskSize() {
         return this.DiskSize;
     }
 
     /**
-     * Set 云硬盘大小。
-     * @param DiskSize 云硬盘大小。
+     * Set 云硬盘大小, 单位: GB。
+     * @param DiskSize 云硬盘大小, 单位: GB。
      */
     public void setDiskSize(Long DiskSize) {
         this.DiskSize = DiskSize;
     }
 
     /**
-     * Get 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置1个云硬盘备份点配额。 
-     * @return DiskBackupQuota 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置1个云硬盘备份点配额。
+     * Get 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置[0 - 500]个云硬盘备份点配额。 
+     * @return DiskBackupQuota 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置[0 - 500]个云硬盘备份点配额。
      */
     public Long getDiskBackupQuota() {
         return this.DiskBackupQuota;
     }
 
     /**
-     * Set 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置1个云硬盘备份点配额。
-     * @param DiskBackupQuota 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置1个云硬盘备份点配额。
+     * Set 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置[0 - 500]个云硬盘备份点配额。
+     * @param DiskBackupQuota 指定云硬盘备份点配额，不传时默认为不带备份点配额。目前只支持不带或设置[0 - 500]个云硬盘备份点配额。
      */
     public void setDiskBackupQuota(Long DiskBackupQuota) {
         this.DiskBackupQuota = DiskBackupQuota;

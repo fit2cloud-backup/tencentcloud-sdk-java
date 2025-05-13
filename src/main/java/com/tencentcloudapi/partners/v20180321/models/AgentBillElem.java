@@ -16,11 +16,12 @@
 package com.tencentcloudapi.partners.v20180321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AgentBillElem extends AbstractModel{
+public class AgentBillElem extends AbstractModel {
 
     /**
     * 代理商账号ID
@@ -94,7 +95,6 @@ public class AgentBillElem extends AbstractModel{
 
     /**
     * 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientType")
     @Expose
@@ -102,7 +102,6 @@ public class AgentBillElem extends AbstractModel{
 
     /**
     * 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectType")
     @Expose
@@ -110,7 +109,6 @@ public class AgentBillElem extends AbstractModel{
 
     /**
     * 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActivityId")
     @Expose
@@ -277,10 +275,8 @@ public class AgentBillElem extends AbstractModel{
     }
 
     /**
-     * Get 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空 
      * @return ClientType 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClientType() {
         return this.ClientType;
@@ -288,19 +284,15 @@ public class AgentBillElem extends AbstractModel{
 
     /**
      * Set 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientType 客户类型：可以为new(自拓)/assign(指定)/old(官网)/direct(直销)/direct_newopp(直销(新商机))/空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientType(String ClientType) {
         this.ClientType = ClientType;
     }
 
     /**
-     * Get 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空 
      * @return ProjectType 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProjectType() {
         return this.ProjectType;
@@ -308,19 +300,15 @@ public class AgentBillElem extends AbstractModel{
 
     /**
      * Set 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectType 项目类型：可以为self(自拓项目)/platform(合作项目)/repeat(复算项目  )/空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectType(String ProjectType) {
         this.ProjectType = ProjectType;
     }
 
     /**
-     * Get 活动ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 活动ID 
      * @return ActivityId 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getActivityId() {
         return this.ActivityId;
@@ -328,9 +316,7 @@ public class AgentBillElem extends AbstractModel{
 
     /**
      * Set 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ActivityId 活动ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setActivityId(String ActivityId) {
         this.ActivityId = ActivityId;

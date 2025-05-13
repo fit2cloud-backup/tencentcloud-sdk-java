@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBPriceRequest extends AbstractModel{
+public class DescribeDBPriceRequest extends AbstractModel {
 
     /**
     * 实例时长，单位：月，最小值 1，最大值为 36；查询按量计费价格时，该字段无效。
@@ -44,14 +45,14 @@ public class DescribeDBPriceRequest extends AbstractModel{
     private Long GoodsNum;
 
     /**
-    * 实例内存大小，单位：MB。InstanceId为空时该参数为必填项。
+    * 实例内存大小，单位：MB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的实例内存大小范围。
     */
     @SerializedName("Memory")
     @Expose
     private Long Memory;
 
     /**
-    * 实例硬盘大小，单位：GB。InstanceId为空时该参数为必填项。
+    * 实例硬盘大小，单位：GB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的硬盘大小范围。
     */
     @SerializedName("Volume")
     @Expose
@@ -79,7 +80,7 @@ public class DescribeDBPriceRequest extends AbstractModel{
     private Long ProtectMode;
 
     /**
-    * 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 不指定则默认为通用型实例。
+    * 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 "CLOUD_NATIVE_CLUSTER" - 集群版标准型， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。   不指定则默认为通用型实例。
     */
     @SerializedName("DeviceType")
     @Expose
@@ -112,6 +113,13 @@ public class DescribeDBPriceRequest extends AbstractModel{
     @SerializedName("Ladder")
     @Expose
     private Long Ladder;
+
+    /**
+    * 磁盘类型，查询集群版、单节点云盘版实例价格可以指定该参数。支持值包括： "CLOUD_SSD" - SSD云硬盘， "CLOUD_HSSD" - 增强型SSD云硬盘。  默认为 SSD云硬盘。
+    */
+    @SerializedName("DiskType")
+    @Expose
+    private String DiskType;
 
     /**
      * Get 实例时长，单位：月，最小值 1，最大值为 36；查询按量计费价格时，该字段无效。 
@@ -162,32 +170,32 @@ public class DescribeDBPriceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例内存大小，单位：MB。InstanceId为空时该参数为必填项。 
-     * @return Memory 实例内存大小，单位：MB。InstanceId为空时该参数为必填项。
+     * Get 实例内存大小，单位：MB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的实例内存大小范围。 
+     * @return Memory 实例内存大小，单位：MB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的实例内存大小范围。
      */
     public Long getMemory() {
         return this.Memory;
     }
 
     /**
-     * Set 实例内存大小，单位：MB。InstanceId为空时该参数为必填项。
-     * @param Memory 实例内存大小，单位：MB。InstanceId为空时该参数为必填项。
+     * Set 实例内存大小，单位：MB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的实例内存大小范围。
+     * @param Memory 实例内存大小，单位：MB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的实例内存大小范围。
      */
     public void setMemory(Long Memory) {
         this.Memory = Memory;
     }
 
     /**
-     * Get 实例硬盘大小，单位：GB。InstanceId为空时该参数为必填项。 
-     * @return Volume 实例硬盘大小，单位：GB。InstanceId为空时该参数为必填项。
+     * Get 实例硬盘大小，单位：GB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的硬盘大小范围。 
+     * @return Volume 实例硬盘大小，单位：GB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的硬盘大小范围。
      */
     public Long getVolume() {
         return this.Volume;
     }
 
     /**
-     * Set 实例硬盘大小，单位：GB。InstanceId为空时该参数为必填项。
-     * @param Volume 实例硬盘大小，单位：GB。InstanceId为空时该参数为必填项。
+     * Set 实例硬盘大小，单位：GB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的硬盘大小范围。
+     * @param Volume 实例硬盘大小，单位：GB。InstanceId 为空时该参数为必填项。为保证传入值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可售卖的硬盘大小范围。
      */
     public void setVolume(Long Volume) {
         this.Volume = Volume;
@@ -242,16 +250,16 @@ public class DescribeDBPriceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 不指定则默认为通用型实例。 
-     * @return DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 不指定则默认为通用型实例。
+     * Get 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 "CLOUD_NATIVE_CLUSTER" - 集群版标准型， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。   不指定则默认为通用型实例。 
+     * @return DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 "CLOUD_NATIVE_CLUSTER" - 集群版标准型， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。   不指定则默认为通用型实例。
      */
     public String getDeviceType() {
         return this.DeviceType;
     }
 
     /**
-     * Set 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 不指定则默认为通用型实例。
-     * @param DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 不指定则默认为通用型实例。
+     * Set 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 "CLOUD_NATIVE_CLUSTER" - 集群版标准型， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。   不指定则默认为通用型实例。
+     * @param DeviceType 实例隔离类型。支持值包括： "UNIVERSAL" - 通用型实例， "EXCLUSIVE" - 独享型实例， "BASIC_V2" - 单节点云盘版实例。 "CLOUD_NATIVE_CLUSTER" - 集群版标准型， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。   不指定则默认为通用型实例。
      */
     public void setDeviceType(String DeviceType) {
         this.DeviceType = DeviceType;
@@ -321,6 +329,22 @@ public class DescribeDBPriceRequest extends AbstractModel{
         this.Ladder = Ladder;
     }
 
+    /**
+     * Get 磁盘类型，查询集群版、单节点云盘版实例价格可以指定该参数。支持值包括： "CLOUD_SSD" - SSD云硬盘， "CLOUD_HSSD" - 增强型SSD云硬盘。  默认为 SSD云硬盘。 
+     * @return DiskType 磁盘类型，查询集群版、单节点云盘版实例价格可以指定该参数。支持值包括： "CLOUD_SSD" - SSD云硬盘， "CLOUD_HSSD" - 增强型SSD云硬盘。  默认为 SSD云硬盘。
+     */
+    public String getDiskType() {
+        return this.DiskType;
+    }
+
+    /**
+     * Set 磁盘类型，查询集群版、单节点云盘版实例价格可以指定该参数。支持值包括： "CLOUD_SSD" - SSD云硬盘， "CLOUD_HSSD" - 增强型SSD云硬盘。  默认为 SSD云硬盘。
+     * @param DiskType 磁盘类型，查询集群版、单节点云盘版实例价格可以指定该参数。支持值包括： "CLOUD_SSD" - SSD云硬盘， "CLOUD_HSSD" - 增强型SSD云硬盘。  默认为 SSD云硬盘。
+     */
+    public void setDiskType(String DiskType) {
+        this.DiskType = DiskType;
+    }
+
     public DescribeDBPriceRequest() {
     }
 
@@ -368,6 +392,9 @@ public class DescribeDBPriceRequest extends AbstractModel{
         if (source.Ladder != null) {
             this.Ladder = new Long(source.Ladder);
         }
+        if (source.DiskType != null) {
+            this.DiskType = new String(source.DiskType);
+        }
     }
 
 
@@ -388,6 +415,7 @@ public class DescribeDBPriceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "Ladder", this.Ladder);
+        this.setParamSimple(map, prefix + "DiskType", this.DiskType);
 
     }
 }

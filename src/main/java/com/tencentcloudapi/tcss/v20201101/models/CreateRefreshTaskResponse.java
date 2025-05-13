@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateRefreshTaskResponse extends AbstractModel{
+public class CreateRefreshTaskResponse extends AbstractModel {
 
     /**
     * 返回创建的集群检查任务的ID，为0表示创建失败。
@@ -37,7 +38,14 @@ public class CreateRefreshTaskResponse extends AbstractModel{
     private String CreateResult;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 返回创建的新集群检查任务ID
+    */
+    @SerializedName("NewTaskID")
+    @Expose
+    private String NewTaskID;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -76,16 +84,32 @@ public class CreateRefreshTaskResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 返回创建的新集群检查任务ID 
+     * @return NewTaskID 返回创建的新集群检查任务ID
+     */
+    public String getNewTaskID() {
+        return this.NewTaskID;
+    }
+
+    /**
+     * Set 返回创建的新集群检查任务ID
+     * @param NewTaskID 返回创建的新集群检查任务ID
+     */
+    public void setNewTaskID(String NewTaskID) {
+        this.NewTaskID = NewTaskID;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -105,6 +129,9 @@ public class CreateRefreshTaskResponse extends AbstractModel{
         if (source.CreateResult != null) {
             this.CreateResult = new String(source.CreateResult);
         }
+        if (source.NewTaskID != null) {
+            this.NewTaskID = new String(source.NewTaskID);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -117,6 +144,7 @@ public class CreateRefreshTaskResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "CreateResult", this.CreateResult);
+        this.setParamSimple(map, prefix + "NewTaskID", this.NewTaskID);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EnvInfo extends AbstractModel{
+public class EnvInfo extends AbstractModel {
 
     /**
     * 环境名称
@@ -122,7 +123,6 @@ public class EnvInfo extends AbstractModel{
 
     /**
     * 客户端内网开关
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableConfigIntranet")
     @Expose
@@ -353,10 +353,8 @@ public class EnvInfo extends AbstractModel{
     }
 
     /**
-     * Get 客户端内网开关
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端内网开关 
      * @return EnableConfigIntranet 客户端内网开关
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnableConfigIntranet() {
         return this.EnableConfigIntranet;
@@ -364,9 +362,7 @@ public class EnvInfo extends AbstractModel{
 
     /**
      * Set 客户端内网开关
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableConfigIntranet 客户端内网开关
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableConfigIntranet(Boolean EnableConfigIntranet) {
         this.EnableConfigIntranet = EnableConfigIntranet;

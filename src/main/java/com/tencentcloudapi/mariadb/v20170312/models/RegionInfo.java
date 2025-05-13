@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegionInfo extends AbstractModel{
+public class RegionInfo extends AbstractModel {
 
     /**
     * 地域英文ID
@@ -56,6 +57,13 @@ public class RegionInfo extends AbstractModel{
     @SerializedName("AvailableChoice")
     @Expose
     private ZoneChooseInfo [] AvailableChoice;
+
+    /**
+    * Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+    */
+    @SerializedName("CpuType")
+    @Expose
+    private String CpuType;
 
     /**
      * Get 地域英文ID 
@@ -137,6 +145,22 @@ public class RegionInfo extends AbstractModel{
         this.AvailableChoice = AvailableChoice;
     }
 
+    /**
+     * Get Cpu类型，如：英特尔：Intel/AMD，海光：Hygon 
+     * @return CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+     */
+    public String getCpuType() {
+        return this.CpuType;
+    }
+
+    /**
+     * Set Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+     * @param CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+     */
+    public void setCpuType(String CpuType) {
+        this.CpuType = CpuType;
+    }
+
     public RegionInfo() {
     }
 
@@ -166,6 +190,9 @@ public class RegionInfo extends AbstractModel{
                 this.AvailableChoice[i] = new ZoneChooseInfo(source.AvailableChoice[i]);
             }
         }
+        if (source.CpuType != null) {
+            this.CpuType = new String(source.CpuType);
+        }
     }
 
 
@@ -178,6 +205,7 @@ public class RegionInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "RegionName", this.RegionName);
         this.setParamArrayObj(map, prefix + "ZoneList.", this.ZoneList);
         this.setParamArrayObj(map, prefix + "AvailableChoice.", this.AvailableChoice);
+        this.setParamSimple(map, prefix + "CpuType", this.CpuType);
 
     }
 }

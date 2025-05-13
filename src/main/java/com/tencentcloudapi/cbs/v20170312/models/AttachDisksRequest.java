@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cbs.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AttachDisksRequest extends AbstractModel{
+public class AttachDisksRequest extends AbstractModel {
 
     /**
     * 云服务器实例ID。云盘将被挂载到此云服务器上，通过[DescribeInstances](/document/product/213/15728)接口查询。
@@ -44,7 +45,7 @@ public class AttachDisksRequest extends AbstractModel{
     private Boolean DeleteWithInstance;
 
     /**
-    * 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF<br><li>VF
+    * 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF</li><br><li>VF</li>
     */
     @SerializedName("AttachMode")
     @Expose
@@ -99,16 +100,16 @@ public class AttachDisksRequest extends AbstractModel{
     }
 
     /**
-     * Get 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF<br><li>VF 
-     * @return AttachMode 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF<br><li>VF
+     * Get 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF</li><br><li>VF</li> 
+     * @return AttachMode 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF</li><br><li>VF</li>
      */
     public String getAttachMode() {
         return this.AttachMode;
     }
 
     /**
-     * Set 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF<br><li>VF
-     * @param AttachMode 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF<br><li>VF
+     * Set 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF</li><br><li>VF</li>
+     * @param AttachMode 可选参数，用于控制云盘挂载时使用的挂载模式，目前仅对黑石裸金属机型有效。取值范围：<br><li>PF</li><br><li>VF</li>
      */
     public void setAttachMode(String AttachMode) {
         this.AttachMode = AttachMode;

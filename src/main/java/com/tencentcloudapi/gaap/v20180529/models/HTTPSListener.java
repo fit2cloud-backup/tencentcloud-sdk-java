@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HTTPSListener extends AbstractModel{
+public class HTTPSListener extends AbstractModel {
 
     /**
     * 监听器ID
@@ -85,7 +86,6 @@ public class HTTPSListener extends AbstractModel{
 
     /**
     * 服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CertificateAlias")
     @Expose
@@ -103,7 +103,6 @@ public class HTTPSListener extends AbstractModel{
     * 监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthType")
     @Expose
@@ -119,7 +118,6 @@ public class HTTPSListener extends AbstractModel{
 
     /**
     * 多客户端CA证书别名信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolyClientCertificateAliasInfo")
     @Expose
@@ -130,7 +128,6 @@ public class HTTPSListener extends AbstractModel{
 0，不支持Http3接入；
 1，持Http3接入。
 注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Http3Supported")
     @Expose
@@ -138,7 +135,6 @@ public class HTTPSListener extends AbstractModel{
 
     /**
     * 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyId")
     @Expose
@@ -151,6 +147,20 @@ public class HTTPSListener extends AbstractModel{
     @SerializedName("GroupId")
     @Expose
     private String GroupId;
+
+    /**
+    * 支持的TLS版本
+    */
+    @SerializedName("TLSSupportVersion")
+    @Expose
+    private String [] TLSSupportVersion;
+
+    /**
+    * 支持的TLS密码套件
+    */
+    @SerializedName("TLSCiphers")
+    @Expose
+    private String TLSCiphers;
 
     /**
      * Get 监听器ID 
@@ -301,10 +311,8 @@ public class HTTPSListener extends AbstractModel{
     }
 
     /**
-     * Get 服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务器SSL证书的别名 
      * @return CertificateAlias 服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCertificateAlias() {
         return this.CertificateAlias;
@@ -312,9 +320,7 @@ public class HTTPSListener extends AbstractModel{
 
     /**
      * Set 服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CertificateAlias 服务器SSL证书的别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCertificateAlias(String CertificateAlias) {
         this.CertificateAlias = CertificateAlias;
@@ -343,12 +349,10 @@ public class HTTPSListener extends AbstractModel{
     /**
      * Get 监听器认证方式。其中，
 0表示单向认证；
-1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。 
+1表示双向认证。 
      * @return AuthType 监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAuthType() {
         return this.AuthType;
@@ -358,11 +362,9 @@ public class HTTPSListener extends AbstractModel{
      * Set 监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthType 监听器认证方式。其中，
 0表示单向认证；
 1表示双向认证。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthType(Long AuthType) {
         this.AuthType = AuthType;
@@ -389,10 +391,8 @@ public class HTTPSListener extends AbstractModel{
     }
 
     /**
-     * Get 多客户端CA证书别名信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 多客户端CA证书别名信息 
      * @return PolyClientCertificateAliasInfo 多客户端CA证书别名信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CertificateAliasInfo [] getPolyClientCertificateAliasInfo() {
         return this.PolyClientCertificateAliasInfo;
@@ -400,9 +400,7 @@ public class HTTPSListener extends AbstractModel{
 
     /**
      * Set 多客户端CA证书别名信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolyClientCertificateAliasInfo 多客户端CA证书别名信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolyClientCertificateAliasInfo(CertificateAliasInfo [] PolyClientCertificateAliasInfo) {
         this.PolyClientCertificateAliasInfo = PolyClientCertificateAliasInfo;
@@ -412,13 +410,11 @@ public class HTTPSListener extends AbstractModel{
      * Get 是否支持Http3，其中：
 0，不支持Http3接入；
 1，持Http3接入。
-注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
-注意：此字段可能返回 null，表示取不到有效值。 
+注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。 
      * @return Http3Supported 是否支持Http3，其中：
 0，不支持Http3接入；
 1，持Http3接入。
 注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHttp3Supported() {
         return this.Http3Supported;
@@ -429,22 +425,18 @@ public class HTTPSListener extends AbstractModel{
 0，不支持Http3接入；
 1，持Http3接入。
 注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Http3Supported 是否支持Http3，其中：
 0，不支持Http3接入；
 1，持Http3接入。
 注意：如果支持了Http3的功能，那么该监听器会占用对应的UDP接入端口，不可再创建相同端口的UDP监听器。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHttp3Supported(Long Http3Supported) {
         this.Http3Supported = Http3Supported;
     }
 
     /**
-     * Get 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器的通道ID，如果监听器属于通道组，则为null 
      * @return ProxyId 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProxyId() {
         return this.ProxyId;
@@ -452,9 +444,7 @@ public class HTTPSListener extends AbstractModel{
 
     /**
      * Set 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProxyId 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyId(String ProxyId) {
         this.ProxyId = ProxyId;
@@ -478,6 +468,38 @@ public class HTTPSListener extends AbstractModel{
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
+    }
+
+    /**
+     * Get 支持的TLS版本 
+     * @return TLSSupportVersion 支持的TLS版本
+     */
+    public String [] getTLSSupportVersion() {
+        return this.TLSSupportVersion;
+    }
+
+    /**
+     * Set 支持的TLS版本
+     * @param TLSSupportVersion 支持的TLS版本
+     */
+    public void setTLSSupportVersion(String [] TLSSupportVersion) {
+        this.TLSSupportVersion = TLSSupportVersion;
+    }
+
+    /**
+     * Get 支持的TLS密码套件 
+     * @return TLSCiphers 支持的TLS密码套件
+     */
+    public String getTLSCiphers() {
+        return this.TLSCiphers;
+    }
+
+    /**
+     * Set 支持的TLS密码套件
+     * @param TLSCiphers 支持的TLS密码套件
+     */
+    public void setTLSCiphers(String TLSCiphers) {
+        this.TLSCiphers = TLSCiphers;
     }
 
     public HTTPSListener() {
@@ -539,6 +561,15 @@ public class HTTPSListener extends AbstractModel{
         if (source.GroupId != null) {
             this.GroupId = new String(source.GroupId);
         }
+        if (source.TLSSupportVersion != null) {
+            this.TLSSupportVersion = new String[source.TLSSupportVersion.length];
+            for (int i = 0; i < source.TLSSupportVersion.length; i++) {
+                this.TLSSupportVersion[i] = new String(source.TLSSupportVersion[i]);
+            }
+        }
+        if (source.TLSCiphers != null) {
+            this.TLSCiphers = new String(source.TLSCiphers);
+        }
     }
 
 
@@ -562,6 +593,8 @@ public class HTTPSListener extends AbstractModel{
         this.setParamSimple(map, prefix + "Http3Supported", this.Http3Supported);
         this.setParamSimple(map, prefix + "ProxyId", this.ProxyId);
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
+        this.setParamArraySimple(map, prefix + "TLSSupportVersion.", this.TLSSupportVersion);
+        this.setParamSimple(map, prefix + "TLSCiphers", this.TLSCiphers);
 
     }
 }

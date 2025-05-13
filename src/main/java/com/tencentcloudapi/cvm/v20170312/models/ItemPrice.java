@@ -16,23 +16,22 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ItemPrice extends AbstractModel{
+public class ItemPrice extends AbstractModel {
 
     /**
-    * 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
+    * 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
     */
     @SerializedName("UnitPrice")
     @Expose
     private Float UnitPrice;
 
     /**
-    * 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：<br><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：</li><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。</li>
     */
     @SerializedName("ChargeUnit")
     @Expose
@@ -40,7 +39,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 预支合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginalPrice")
     @Expose
@@ -48,7 +46,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 预支合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountPrice")
     @Expose
@@ -56,15 +53,13 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Discount")
     @Expose
     private Float Discount;
 
     /**
-    * 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
+    * 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
     */
     @SerializedName("UnitPriceDiscount")
     @Expose
@@ -72,7 +67,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 使用时间区间在(96, 360)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnitPriceSecondStep")
     @Expose
@@ -80,7 +74,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 使用时间区间在(96, 360)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnitPriceDiscountSecondStep")
     @Expose
@@ -88,7 +81,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 使用时间区间在(360, ∞)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnitPriceThirdStep")
     @Expose
@@ -96,7 +88,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 使用时间区间在(360, ∞)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnitPriceDiscountThirdStep")
     @Expose
@@ -104,7 +95,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 预支三年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginalPriceThreeYear")
@@ -114,7 +104,6 @@ public class ItemPrice extends AbstractModel{
     /**
     * 预支三年合计费用的折扣价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountPriceThreeYear")
     @Expose
@@ -122,7 +111,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 预支三年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountThreeYear")
@@ -132,7 +120,6 @@ public class ItemPrice extends AbstractModel{
     /**
     * 预支五年合计费用的原价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginalPriceFiveYear")
     @Expose
@@ -140,7 +127,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 预支五年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountPriceFiveYear")
@@ -150,7 +136,6 @@ public class ItemPrice extends AbstractModel{
     /**
     * 预支五年应用的折扣，如20.0代表2折。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountFiveYear")
     @Expose
@@ -158,7 +143,6 @@ public class ItemPrice extends AbstractModel{
 
     /**
     * 预支一年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginalPriceOneYear")
@@ -168,7 +152,6 @@ public class ItemPrice extends AbstractModel{
     /**
     * 预支一年合计费用的折扣价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountPriceOneYear")
     @Expose
@@ -177,57 +160,46 @@ public class ItemPrice extends AbstractModel{
     /**
     * 预支一年应用的折扣，如20.0代表2折。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountOneYear")
     @Expose
     private Float DiscountOneYear;
 
     /**
-     * Get 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UnitPrice 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li> 
+     * @return UnitPrice 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
      */
     public Float getUnitPrice() {
         return this.UnitPrice;
     }
 
     /**
-     * Set 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UnitPrice 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
+     * @param UnitPrice 后续合计费用的原价，后付费模式使用，单位：元。<br><li>如返回了其他时间区间项，如UnitPriceSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
      */
     public void setUnitPrice(Float UnitPrice) {
         this.UnitPrice = UnitPrice;
     }
 
     /**
-     * Get 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：<br><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ChargeUnit 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：<br><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：</li><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。</li> 
+     * @return ChargeUnit 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：</li><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。</li>
      */
     public String getChargeUnit() {
         return this.ChargeUnit;
     }
 
     /**
-     * Set 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：<br><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ChargeUnit 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：<br><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：</li><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。</li>
+     * @param ChargeUnit 后续计价单元，后付费模式使用，可取值范围： <br><li>HOUR：表示计价单元是按每小时来计算。当前涉及该计价单元的场景有：实例按小时后付费（POSTPAID_BY_HOUR）、带宽按小时后付费（BANDWIDTH_POSTPAID_BY_HOUR）：</li><li>GB：表示计价单元是按每GB来计算。当前涉及该计价单元的场景有：流量按小时后付费（TRAFFIC_POSTPAID_BY_HOUR）。</li>
      */
     public void setChargeUnit(String ChargeUnit) {
         this.ChargeUnit = ChargeUnit;
     }
 
     /**
-     * Get 预支合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预支合计费用的原价，预付费模式使用，单位：元。 
      * @return OriginalPrice 预支合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOriginalPrice() {
         return this.OriginalPrice;
@@ -235,19 +207,15 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Set 预支合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginalPrice 预支合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginalPrice(Float OriginalPrice) {
         this.OriginalPrice = OriginalPrice;
     }
 
     /**
-     * Get 预支合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预支合计费用的折扣价，预付费模式使用，单位：元。 
      * @return DiscountPrice 预支合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountPrice() {
         return this.DiscountPrice;
@@ -255,19 +223,15 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Set 预支合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountPrice 预支合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountPrice(Float DiscountPrice) {
         this.DiscountPrice = DiscountPrice;
     }
 
     /**
-     * Get 折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 折扣，如20.0代表2折。 
      * @return Discount 折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscount() {
         return this.Discount;
@@ -275,39 +239,31 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Set 折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Discount 折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscount(Float Discount) {
         this.Discount = Discount;
     }
 
     /**
-     * Get 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UnitPriceDiscount 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li> 
+     * @return UnitPriceDiscount 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
      */
     public Float getUnitPriceDiscount() {
         return this.UnitPriceDiscount;
     }
 
     /**
-     * Set 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UnitPriceDiscount 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
+     * @param UnitPriceDiscount 后续合计费用的折扣价，后付费模式使用，单位：元<br><li>如返回了其他时间区间项，如UnitPriceDiscountSecondStep，则本项代表时间区间在(0, 96)小时；若未返回其他时间区间项，则本项代表全时段，即(0, ∞)小时</li>
      */
     public void setUnitPriceDiscount(Float UnitPriceDiscount) {
         this.UnitPriceDiscount = UnitPriceDiscount;
     }
 
     /**
-     * Get 使用时间区间在(96, 360)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 使用时间区间在(96, 360)小时的后续合计费用的原价，后付费模式使用，单位：元。 
      * @return UnitPriceSecondStep 使用时间区间在(96, 360)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getUnitPriceSecondStep() {
         return this.UnitPriceSecondStep;
@@ -315,19 +271,15 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Set 使用时间区间在(96, 360)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnitPriceSecondStep 使用时间区间在(96, 360)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnitPriceSecondStep(Float UnitPriceSecondStep) {
         this.UnitPriceSecondStep = UnitPriceSecondStep;
     }
 
     /**
-     * Get 使用时间区间在(96, 360)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 使用时间区间在(96, 360)小时的后续合计费用的折扣价，后付费模式使用，单位：元 
      * @return UnitPriceDiscountSecondStep 使用时间区间在(96, 360)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getUnitPriceDiscountSecondStep() {
         return this.UnitPriceDiscountSecondStep;
@@ -335,19 +287,15 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Set 使用时间区间在(96, 360)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnitPriceDiscountSecondStep 使用时间区间在(96, 360)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnitPriceDiscountSecondStep(Float UnitPriceDiscountSecondStep) {
         this.UnitPriceDiscountSecondStep = UnitPriceDiscountSecondStep;
     }
 
     /**
-     * Get 使用时间区间在(360, ∞)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 使用时间区间在(360, ∞)小时的后续合计费用的原价，后付费模式使用，单位：元。 
      * @return UnitPriceThirdStep 使用时间区间在(360, ∞)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getUnitPriceThirdStep() {
         return this.UnitPriceThirdStep;
@@ -355,19 +303,15 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Set 使用时间区间在(360, ∞)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnitPriceThirdStep 使用时间区间在(360, ∞)小时的后续合计费用的原价，后付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnitPriceThirdStep(Float UnitPriceThirdStep) {
         this.UnitPriceThirdStep = UnitPriceThirdStep;
     }
 
     /**
-     * Get 使用时间区间在(360, ∞)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 使用时间区间在(360, ∞)小时的后续合计费用的折扣价，后付费模式使用，单位：元 
      * @return UnitPriceDiscountThirdStep 使用时间区间在(360, ∞)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getUnitPriceDiscountThirdStep() {
         return this.UnitPriceDiscountThirdStep;
@@ -375,9 +319,7 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Set 使用时间区间在(360, ∞)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnitPriceDiscountThirdStep 使用时间区间在(360, ∞)小时的后续合计费用的折扣价，后付费模式使用，单位：元
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnitPriceDiscountThirdStep(Float UnitPriceDiscountThirdStep) {
         this.UnitPriceDiscountThirdStep = UnitPriceDiscountThirdStep;
@@ -385,10 +327,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支三年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return OriginalPriceThreeYear 预支三年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOriginalPriceThreeYear() {
@@ -398,9 +338,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支三年合计费用的原价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginalPriceThreeYear 预支三年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginalPriceThreeYear(Float OriginalPriceThreeYear) {
@@ -409,10 +347,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支三年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiscountPriceThreeYear 预支三年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountPriceThreeYear() {
@@ -422,9 +358,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支三年合计费用的折扣价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountPriceThreeYear 预支三年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountPriceThreeYear(Float DiscountPriceThreeYear) {
@@ -433,10 +367,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支三年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiscountThreeYear 预支三年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountThreeYear() {
@@ -446,9 +378,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支三年应用的折扣，如20.0代表2折。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountThreeYear 预支三年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountThreeYear(Float DiscountThreeYear) {
@@ -457,10 +387,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支五年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return OriginalPriceFiveYear 预支五年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOriginalPriceFiveYear() {
@@ -470,9 +398,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支五年合计费用的原价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginalPriceFiveYear 预支五年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginalPriceFiveYear(Float OriginalPriceFiveYear) {
@@ -481,10 +407,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支五年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiscountPriceFiveYear 预支五年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountPriceFiveYear() {
@@ -494,9 +418,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支五年合计费用的折扣价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountPriceFiveYear 预支五年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountPriceFiveYear(Float DiscountPriceFiveYear) {
@@ -505,10 +427,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支五年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiscountFiveYear 预支五年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountFiveYear() {
@@ -518,9 +438,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支五年应用的折扣，如20.0代表2折。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountFiveYear 预支五年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountFiveYear(Float DiscountFiveYear) {
@@ -529,10 +447,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支一年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return OriginalPriceOneYear 预支一年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOriginalPriceOneYear() {
@@ -542,9 +458,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支一年合计费用的原价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginalPriceOneYear 预支一年合计费用的原价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginalPriceOneYear(Float OriginalPriceOneYear) {
@@ -553,10 +467,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支一年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiscountPriceOneYear 预支一年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountPriceOneYear() {
@@ -566,9 +478,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支一年合计费用的折扣价，预付费模式使用，单位：元。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountPriceOneYear 预支一年合计费用的折扣价，预付费模式使用，单位：元。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountPriceOneYear(Float DiscountPriceOneYear) {
@@ -577,10 +487,8 @@ public class ItemPrice extends AbstractModel{
 
     /**
      * Get 预支一年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DiscountOneYear 预支一年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountOneYear() {
@@ -590,9 +498,7 @@ public class ItemPrice extends AbstractModel{
     /**
      * Set 预支一年应用的折扣，如20.0代表2折。
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountOneYear 预支一年应用的折扣，如20.0代表2折。
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountOneYear(Float DiscountOneYear) {

@@ -16,30 +16,54 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteRouteTriggerTimeRequest extends AbstractModel{
+public class DeleteRouteTriggerTimeRequest extends AbstractModel {
 
     /**
-    * 修改时间
+    * ckafka集群实例Id
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 修改删除路由的定时时间
     */
     @SerializedName("DelayTime")
     @Expose
     private String DelayTime;
 
     /**
-     * Get 修改时间 
-     * @return DelayTime 修改时间
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 修改删除路由的定时时间 
+     * @return DelayTime 修改删除路由的定时时间
      */
     public String getDelayTime() {
         return this.DelayTime;
     }
 
     /**
-     * Set 修改时间
-     * @param DelayTime 修改时间
+     * Set 修改删除路由的定时时间
+     * @param DelayTime 修改删除路由的定时时间
      */
     public void setDelayTime(String DelayTime) {
         this.DelayTime = DelayTime;
@@ -53,6 +77,9 @@ public class DeleteRouteTriggerTimeRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DeleteRouteTriggerTimeRequest(DeleteRouteTriggerTimeRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
         if (source.DelayTime != null) {
             this.DelayTime = new String(source.DelayTime);
         }
@@ -63,6 +90,7 @@ public class DeleteRouteTriggerTimeRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "DelayTime", this.DelayTime);
 
     }

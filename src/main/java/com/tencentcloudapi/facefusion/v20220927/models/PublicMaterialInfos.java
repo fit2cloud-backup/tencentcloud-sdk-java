@@ -16,11 +16,12 @@
 package com.tencentcloudapi.facefusion.v20220927.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PublicMaterialInfos extends AbstractModel{
+public class PublicMaterialInfos extends AbstractModel {
 
     /**
     * 素材Id
@@ -31,6 +32,19 @@ public class PublicMaterialInfos extends AbstractModel{
 
     /**
     * 素材状态
+
+字段取值: 
+0   审核中
+1   人工审核通过
+2   人工审核失败
+3   申诉中
+11  申诉成功
+12  申诉失败
+21  机器审核通过
+22  机器审核失败
+31  视频素材预处理成功，素材可用
+32  视频素材预处理失败
+33  角色不在视频中
     */
     @SerializedName("MaterialStatus")
     @Expose
@@ -66,7 +80,6 @@ public class PublicMaterialInfos extends AbstractModel{
 
     /**
     * 审核原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuditResult")
     @Expose
@@ -89,8 +102,34 @@ public class PublicMaterialInfos extends AbstractModel{
     }
 
     /**
-     * Get 素材状态 
+     * Get 素材状态
+
+字段取值: 
+0   审核中
+1   人工审核通过
+2   人工审核失败
+3   申诉中
+11  申诉成功
+12  申诉失败
+21  机器审核通过
+22  机器审核失败
+31  视频素材预处理成功，素材可用
+32  视频素材预处理失败
+33  角色不在视频中 
      * @return MaterialStatus 素材状态
+
+字段取值: 
+0   审核中
+1   人工审核通过
+2   人工审核失败
+3   申诉中
+11  申诉成功
+12  申诉失败
+21  机器审核通过
+22  机器审核失败
+31  视频素材预处理成功，素材可用
+32  视频素材预处理失败
+33  角色不在视频中
      */
     public Long getMaterialStatus() {
         return this.MaterialStatus;
@@ -98,7 +137,33 @@ public class PublicMaterialInfos extends AbstractModel{
 
     /**
      * Set 素材状态
+
+字段取值: 
+0   审核中
+1   人工审核通过
+2   人工审核失败
+3   申诉中
+11  申诉成功
+12  申诉失败
+21  机器审核通过
+22  机器审核失败
+31  视频素材预处理成功，素材可用
+32  视频素材预处理失败
+33  角色不在视频中
      * @param MaterialStatus 素材状态
+
+字段取值: 
+0   审核中
+1   人工审核通过
+2   人工审核失败
+3   申诉中
+11  申诉成功
+12  申诉失败
+21  机器审核通过
+22  机器审核失败
+31  视频素材预处理成功，素材可用
+32  视频素材预处理失败
+33  角色不在视频中
      */
     public void setMaterialStatus(Long MaterialStatus) {
         this.MaterialStatus = MaterialStatus;
@@ -169,10 +234,8 @@ public class PublicMaterialInfos extends AbstractModel{
     }
 
     /**
-     * Get 审核原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审核原因 
      * @return AuditResult 审核原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAuditResult() {
         return this.AuditResult;
@@ -180,9 +243,7 @@ public class PublicMaterialInfos extends AbstractModel{
 
     /**
      * Set 审核原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuditResult 审核原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuditResult(String AuditResult) {
         this.AuditResult = AuditResult;

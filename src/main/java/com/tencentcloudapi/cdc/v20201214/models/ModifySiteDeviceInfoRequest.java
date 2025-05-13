@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifySiteDeviceInfoRequest extends AbstractModel{
+public class ModifySiteDeviceInfoRequest extends AbstractModel {
 
     /**
     * 机房ID
@@ -51,7 +52,7 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
     private String PowerConnectors;
 
     /**
-    * 从机架上方还是下方供电。
+    * 从机架上方还是下方供电。取值范围：["UP","DOWN"]
     */
     @SerializedName("PowerFeedDrop")
     @Expose
@@ -72,7 +73,7 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
     private Long PowerDrawKva;
 
     /**
-    * 网络到腾讯云Region区域的上行链路速度
+    * 网络到腾讯云Region区域的上行链路速度(Gbps)
     */
     @SerializedName("UplinkSpeedGbps")
     @Expose
@@ -91,7 +92,7 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
 2、确定的机架位置包含:
 温度范围为 41 到 104°F (5 到 40°C)。
 湿度范围为 10°F (-12°C)和 8% RH (相对湿度)到 70°F(21°C)和 80% RH。
-机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)。CFM 必须是 CDC 配置的 kVA 功耗值的 145.8 倍。
+机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)，散热功率须达到CDC运行功率值的 145.8 倍以上。
     */
     @SerializedName("ConditionRequirement")
     @Expose
@@ -108,7 +109,7 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
     private Boolean DimensionRequirement;
 
     /**
-    * 是否提供冗余的上游设备(交换机或路由器)，以便两台  网络设备都能连接到网络设备。
+    * 是否提供冗余的上游设备(交换机或路由器)，以便实现网络出口的高可用。
     */
     @SerializedName("RedundantNetworking")
     @Expose
@@ -200,16 +201,16 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get 从机架上方还是下方供电。 
-     * @return PowerFeedDrop 从机架上方还是下方供电。
+     * Get 从机架上方还是下方供电。取值范围：["UP","DOWN"] 
+     * @return PowerFeedDrop 从机架上方还是下方供电。取值范围：["UP","DOWN"]
      */
     public String getPowerFeedDrop() {
         return this.PowerFeedDrop;
     }
 
     /**
-     * Set 从机架上方还是下方供电。
-     * @param PowerFeedDrop 从机架上方还是下方供电。
+     * Set 从机架上方还是下方供电。取值范围：["UP","DOWN"]
+     * @param PowerFeedDrop 从机架上方还是下方供电。取值范围：["UP","DOWN"]
      */
     public void setPowerFeedDrop(String PowerFeedDrop) {
         this.PowerFeedDrop = PowerFeedDrop;
@@ -248,16 +249,16 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get 网络到腾讯云Region区域的上行链路速度 
-     * @return UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度
+     * Get 网络到腾讯云Region区域的上行链路速度(Gbps) 
+     * @return UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度(Gbps)
      */
     public Long getUplinkSpeedGbps() {
         return this.UplinkSpeedGbps;
     }
 
     /**
-     * Set 网络到腾讯云Region区域的上行链路速度
-     * @param UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度
+     * Set 网络到腾讯云Region区域的上行链路速度(Gbps)
+     * @param UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度(Gbps)
      */
     public void setUplinkSpeedGbps(Long UplinkSpeedGbps) {
         this.UplinkSpeedGbps = UplinkSpeedGbps;
@@ -285,13 +286,13 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
 2、确定的机架位置包含:
 温度范围为 41 到 104°F (5 到 40°C)。
 湿度范围为 10°F (-12°C)和 8% RH (相对湿度)到 70°F(21°C)和 80% RH。
-机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)。CFM 必须是 CDC 配置的 kVA 功耗值的 145.8 倍。 
+机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)，散热功率须达到CDC运行功率值的 145.8 倍以上。 
      * @return ConditionRequirement 是否满足下面环境条件：
 1、场地没有材料要求或验收标准会影响 CDC 设备配送和安装。
 2、确定的机架位置包含:
 温度范围为 41 到 104°F (5 到 40°C)。
 湿度范围为 10°F (-12°C)和 8% RH (相对湿度)到 70°F(21°C)和 80% RH。
-机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)。CFM 必须是 CDC 配置的 kVA 功耗值的 145.8 倍。
+机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)，散热功率须达到CDC运行功率值的 145.8 倍以上。
      */
     public Boolean getConditionRequirement() {
         return this.ConditionRequirement;
@@ -303,13 +304,13 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
 2、确定的机架位置包含:
 温度范围为 41 到 104°F (5 到 40°C)。
 湿度范围为 10°F (-12°C)和 8% RH (相对湿度)到 70°F(21°C)和 80% RH。
-机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)。CFM 必须是 CDC 配置的 kVA 功耗值的 145.8 倍。
+机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)，散热功率须达到CDC运行功率值的 145.8 倍以上。
      * @param ConditionRequirement 是否满足下面环境条件：
 1、场地没有材料要求或验收标准会影响 CDC 设备配送和安装。
 2、确定的机架位置包含:
 温度范围为 41 到 104°F (5 到 40°C)。
 湿度范围为 10°F (-12°C)和 8% RH (相对湿度)到 70°F(21°C)和 80% RH。
-机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)。CFM 必须是 CDC 配置的 kVA 功耗值的 145.8 倍。
+机架位置的气流方向为从前向后，且应具有足够的 CFM (每分钟立方英尺)，散热功率须达到CDC运行功率值的 145.8 倍以上。
      */
     public void setConditionRequirement(Boolean ConditionRequirement) {
         this.ConditionRequirement = ConditionRequirement;
@@ -344,16 +345,16 @@ public class ModifySiteDeviceInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否提供冗余的上游设备(交换机或路由器)，以便两台  网络设备都能连接到网络设备。 
-     * @return RedundantNetworking 是否提供冗余的上游设备(交换机或路由器)，以便两台  网络设备都能连接到网络设备。
+     * Get 是否提供冗余的上游设备(交换机或路由器)，以便实现网络出口的高可用。 
+     * @return RedundantNetworking 是否提供冗余的上游设备(交换机或路由器)，以便实现网络出口的高可用。
      */
     public Boolean getRedundantNetworking() {
         return this.RedundantNetworking;
     }
 
     /**
-     * Set 是否提供冗余的上游设备(交换机或路由器)，以便两台  网络设备都能连接到网络设备。
-     * @param RedundantNetworking 是否提供冗余的上游设备(交换机或路由器)，以便两台  网络设备都能连接到网络设备。
+     * Set 是否提供冗余的上游设备(交换机或路由器)，以便实现网络出口的高可用。
+     * @param RedundantNetworking 是否提供冗余的上游设备(交换机或路由器)，以便实现网络出口的高可用。
      */
     public void setRedundantNetworking(Boolean RedundantNetworking) {
         this.RedundantNetworking = RedundantNetworking;

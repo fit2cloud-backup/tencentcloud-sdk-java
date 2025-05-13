@@ -16,15 +16,15 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PersistentVolumeContext extends AbstractModel{
+public class PersistentVolumeContext extends AbstractModel {
 
     /**
     * 磁盘大小，单位为GB。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiskSize")
     @Expose
@@ -32,7 +32,6 @@ public class PersistentVolumeContext extends AbstractModel{
 
     /**
     * 磁盘类型。CLOUD_PREMIUM;CLOUD_SSD
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiskType")
     @Expose
@@ -40,17 +39,21 @@ public class PersistentVolumeContext extends AbstractModel{
 
     /**
     * 磁盘数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiskNum")
     @Expose
     private Long DiskNum;
 
     /**
-     * Get 磁盘大小，单位为GB。
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 云盘额外性能
+    */
+    @SerializedName("ExtraPerformance")
+    @Expose
+    private Long ExtraPerformance;
+
+    /**
+     * Get 磁盘大小，单位为GB。 
      * @return DiskSize 磁盘大小，单位为GB。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDiskSize() {
         return this.DiskSize;
@@ -58,19 +61,15 @@ public class PersistentVolumeContext extends AbstractModel{
 
     /**
      * Set 磁盘大小，单位为GB。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiskSize 磁盘大小，单位为GB。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiskSize(Long DiskSize) {
         this.DiskSize = DiskSize;
     }
 
     /**
-     * Get 磁盘类型。CLOUD_PREMIUM;CLOUD_SSD
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 磁盘类型。CLOUD_PREMIUM;CLOUD_SSD 
      * @return DiskType 磁盘类型。CLOUD_PREMIUM;CLOUD_SSD
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDiskType() {
         return this.DiskType;
@@ -78,19 +77,15 @@ public class PersistentVolumeContext extends AbstractModel{
 
     /**
      * Set 磁盘类型。CLOUD_PREMIUM;CLOUD_SSD
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiskType 磁盘类型。CLOUD_PREMIUM;CLOUD_SSD
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiskType(String DiskType) {
         this.DiskType = DiskType;
     }
 
     /**
-     * Get 磁盘数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 磁盘数量 
      * @return DiskNum 磁盘数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDiskNum() {
         return this.DiskNum;
@@ -98,12 +93,26 @@ public class PersistentVolumeContext extends AbstractModel{
 
     /**
      * Set 磁盘数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiskNum 磁盘数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiskNum(Long DiskNum) {
         this.DiskNum = DiskNum;
+    }
+
+    /**
+     * Get 云盘额外性能 
+     * @return ExtraPerformance 云盘额外性能
+     */
+    public Long getExtraPerformance() {
+        return this.ExtraPerformance;
+    }
+
+    /**
+     * Set 云盘额外性能
+     * @param ExtraPerformance 云盘额外性能
+     */
+    public void setExtraPerformance(Long ExtraPerformance) {
+        this.ExtraPerformance = ExtraPerformance;
     }
 
     public PersistentVolumeContext() {
@@ -123,6 +132,9 @@ public class PersistentVolumeContext extends AbstractModel{
         if (source.DiskNum != null) {
             this.DiskNum = new Long(source.DiskNum);
         }
+        if (source.ExtraPerformance != null) {
+            this.ExtraPerformance = new Long(source.ExtraPerformance);
+        }
     }
 
 
@@ -133,6 +145,7 @@ public class PersistentVolumeContext extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskSize", this.DiskSize);
         this.setParamSimple(map, prefix + "DiskType", this.DiskType);
         this.setParamSimple(map, prefix + "DiskNum", this.DiskNum);
+        this.setParamSimple(map, prefix + "ExtraPerformance", this.ExtraPerformance);
 
     }
 }

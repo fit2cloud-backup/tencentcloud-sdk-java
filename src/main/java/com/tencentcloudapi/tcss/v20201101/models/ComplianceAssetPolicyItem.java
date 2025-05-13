@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ComplianceAssetPolicyItem extends AbstractModel{
+public class ComplianceAssetPolicyItem extends AbstractModel {
 
     /**
     * 为客户分配的唯一的检测项的ID。
@@ -86,7 +87,6 @@ CHECK_FAILED, 检测失败
     * 检测结果
 RESULT_PASSED: 通过
 RESULT_FAILED: 未通过
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CheckResult")
     @Expose
@@ -94,7 +94,6 @@ RESULT_FAILED: 未通过
 
     /**
     * 检测项对应的白名单项的ID。如果存在且非0，表示检测项被用户忽略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WhitelistId")
     @Expose
@@ -109,7 +108,6 @@ RESULT_FAILED: 未通过
 
     /**
     * 最近检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastCheckTime")
     @Expose
@@ -117,7 +115,6 @@ RESULT_FAILED: 未通过
 
     /**
     * 验证信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VerifyInfo")
     @Expose
@@ -270,12 +267,10 @@ CHECK_FAILED, 检测失败
     /**
      * Get 检测结果
 RESULT_PASSED: 通过
-RESULT_FAILED: 未通过
-注意：此字段可能返回 null，表示取不到有效值。 
+RESULT_FAILED: 未通过 
      * @return CheckResult 检测结果
 RESULT_PASSED: 通过
 RESULT_FAILED: 未通过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCheckResult() {
         return this.CheckResult;
@@ -285,21 +280,17 @@ RESULT_FAILED: 未通过
      * Set 检测结果
 RESULT_PASSED: 通过
 RESULT_FAILED: 未通过
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CheckResult 检测结果
 RESULT_PASSED: 通过
 RESULT_FAILED: 未通过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCheckResult(String CheckResult) {
         this.CheckResult = CheckResult;
     }
 
     /**
-     * Get 检测项对应的白名单项的ID。如果存在且非0，表示检测项被用户忽略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测项对应的白名单项的ID。如果存在且非0，表示检测项被用户忽略。 
      * @return WhitelistId 检测项对应的白名单项的ID。如果存在且非0，表示检测项被用户忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWhitelistId() {
         return this.WhitelistId;
@@ -307,9 +298,7 @@ RESULT_FAILED: 未通过
 
     /**
      * Set 检测项对应的白名单项的ID。如果存在且非0，表示检测项被用户忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WhitelistId 检测项对应的白名单项的ID。如果存在且非0，表示检测项被用户忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWhitelistId(Long WhitelistId) {
         this.WhitelistId = WhitelistId;
@@ -332,10 +321,8 @@ RESULT_FAILED: 未通过
     }
 
     /**
-     * Get 最近检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近检测的时间。 
      * @return LastCheckTime 最近检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastCheckTime() {
         return this.LastCheckTime;
@@ -343,19 +330,15 @@ RESULT_FAILED: 未通过
 
     /**
      * Set 最近检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastCheckTime 最近检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastCheckTime(String LastCheckTime) {
         this.LastCheckTime = LastCheckTime;
     }
 
     /**
-     * Get 验证信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 验证信息 
      * @return VerifyInfo 验证信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVerifyInfo() {
         return this.VerifyInfo;
@@ -363,9 +346,7 @@ RESULT_FAILED: 未通过
 
     /**
      * Set 验证信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VerifyInfo 验证信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVerifyInfo(String VerifyInfo) {
         this.VerifyInfo = VerifyInfo;

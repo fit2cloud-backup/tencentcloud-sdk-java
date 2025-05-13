@@ -16,18 +16,26 @@
 package com.tencentcloudapi.cfg.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TemplateMonitor extends AbstractModel{
+public class TemplateMonitor extends AbstractModel {
 
     /**
-    * 监控指标ID
+    * pk
     */
     @SerializedName("MonitorId")
     @Expose
     private Long MonitorId;
+
+    /**
+    * 监控指标ID
+    */
+    @SerializedName("MetricId")
+    @Expose
+    private Long MetricId;
 
     /**
     * 监控指标对象类型ID
@@ -45,26 +53,41 @@ public class TemplateMonitor extends AbstractModel{
 
     /**
     * 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MetricChineseName")
     @Expose
     private String MetricChineseName;
 
     /**
-     * Get 监控指标ID 
-     * @return MonitorId 监控指标ID
+     * Get pk 
+     * @return MonitorId pk
      */
     public Long getMonitorId() {
         return this.MonitorId;
     }
 
     /**
-     * Set 监控指标ID
-     * @param MonitorId 监控指标ID
+     * Set pk
+     * @param MonitorId pk
      */
     public void setMonitorId(Long MonitorId) {
         this.MonitorId = MonitorId;
+    }
+
+    /**
+     * Get 监控指标ID 
+     * @return MetricId 监控指标ID
+     */
+    public Long getMetricId() {
+        return this.MetricId;
+    }
+
+    /**
+     * Set 监控指标ID
+     * @param MetricId 监控指标ID
+     */
+    public void setMetricId(Long MetricId) {
+        this.MetricId = MetricId;
     }
 
     /**
@@ -100,10 +123,8 @@ public class TemplateMonitor extends AbstractModel{
     }
 
     /**
-     * Get 中文指标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 中文指标 
      * @return MetricChineseName 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMetricChineseName() {
         return this.MetricChineseName;
@@ -111,9 +132,7 @@ public class TemplateMonitor extends AbstractModel{
 
     /**
      * Set 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MetricChineseName 中文指标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetricChineseName(String MetricChineseName) {
         this.MetricChineseName = MetricChineseName;
@@ -129,6 +148,9 @@ public class TemplateMonitor extends AbstractModel{
     public TemplateMonitor(TemplateMonitor source) {
         if (source.MonitorId != null) {
             this.MonitorId = new Long(source.MonitorId);
+        }
+        if (source.MetricId != null) {
+            this.MetricId = new Long(source.MetricId);
         }
         if (source.ObjectTypeId != null) {
             this.ObjectTypeId = new Long(source.ObjectTypeId);
@@ -147,6 +169,7 @@ public class TemplateMonitor extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "MonitorId", this.MonitorId);
+        this.setParamSimple(map, prefix + "MetricId", this.MetricId);
         this.setParamSimple(map, prefix + "ObjectTypeId", this.ObjectTypeId);
         this.setParamSimple(map, prefix + "MetricName", this.MetricName);
         this.setParamSimple(map, prefix + "MetricChineseName", this.MetricChineseName);

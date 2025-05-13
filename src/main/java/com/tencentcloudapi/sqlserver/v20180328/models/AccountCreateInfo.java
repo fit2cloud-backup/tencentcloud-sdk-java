@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccountCreateInfo extends AbstractModel{
+public class AccountCreateInfo extends AbstractModel {
 
     /**
     * 实例用户名
@@ -51,7 +52,7 @@ public class AccountCreateInfo extends AbstractModel{
     private String Remark;
 
     /**
-    * 是否为管理员账户，当值为true 等价于基础版AccountType=L0，高可用AccountType=L1，当值为false，等价于AccountType=L3
+    * 是否为管理员账户，当值为true 等价于单节点AccountType=L0，双节点AccountType=L1，当值为false，等价于AccountType=L3
     */
     @SerializedName("IsAdmin")
     @Expose
@@ -70,6 +71,20 @@ public class AccountCreateInfo extends AbstractModel{
     @SerializedName("AccountType")
     @Expose
     private String AccountType;
+
+    /**
+    * 是否开启CAM验证
+    */
+    @SerializedName("IsCam")
+    @Expose
+    private Boolean IsCam;
+
+    /**
+    * 加密密钥版本号，0表示不使用加密
+    */
+    @SerializedName("EncryptedVersion")
+    @Expose
+    private Long EncryptedVersion;
 
     /**
      * Get 实例用户名 
@@ -136,16 +151,16 @@ public class AccountCreateInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否为管理员账户，当值为true 等价于基础版AccountType=L0，高可用AccountType=L1，当值为false，等价于AccountType=L3 
-     * @return IsAdmin 是否为管理员账户，当值为true 等价于基础版AccountType=L0，高可用AccountType=L1，当值为false，等价于AccountType=L3
+     * Get 是否为管理员账户，当值为true 等价于单节点AccountType=L0，双节点AccountType=L1，当值为false，等价于AccountType=L3 
+     * @return IsAdmin 是否为管理员账户，当值为true 等价于单节点AccountType=L0，双节点AccountType=L1，当值为false，等价于AccountType=L3
      */
     public Boolean getIsAdmin() {
         return this.IsAdmin;
     }
 
     /**
-     * Set 是否为管理员账户，当值为true 等价于基础版AccountType=L0，高可用AccountType=L1，当值为false，等价于AccountType=L3
-     * @param IsAdmin 是否为管理员账户，当值为true 等价于基础版AccountType=L0，高可用AccountType=L1，当值为false，等价于AccountType=L3
+     * Set 是否为管理员账户，当值为true 等价于单节点AccountType=L0，双节点AccountType=L1，当值为false，等价于AccountType=L3
+     * @param IsAdmin 是否为管理员账户，当值为true 等价于单节点AccountType=L0，双节点AccountType=L1，当值为false，等价于AccountType=L3
      */
     public void setIsAdmin(Boolean IsAdmin) {
         this.IsAdmin = IsAdmin;
@@ -183,6 +198,38 @@ public class AccountCreateInfo extends AbstractModel{
         this.AccountType = AccountType;
     }
 
+    /**
+     * Get 是否开启CAM验证 
+     * @return IsCam 是否开启CAM验证
+     */
+    public Boolean getIsCam() {
+        return this.IsCam;
+    }
+
+    /**
+     * Set 是否开启CAM验证
+     * @param IsCam 是否开启CAM验证
+     */
+    public void setIsCam(Boolean IsCam) {
+        this.IsCam = IsCam;
+    }
+
+    /**
+     * Get 加密密钥版本号，0表示不使用加密 
+     * @return EncryptedVersion 加密密钥版本号，0表示不使用加密
+     */
+    public Long getEncryptedVersion() {
+        return this.EncryptedVersion;
+    }
+
+    /**
+     * Set 加密密钥版本号，0表示不使用加密
+     * @param EncryptedVersion 加密密钥版本号，0表示不使用加密
+     */
+    public void setEncryptedVersion(Long EncryptedVersion) {
+        this.EncryptedVersion = EncryptedVersion;
+    }
+
     public AccountCreateInfo() {
     }
 
@@ -215,6 +262,12 @@ public class AccountCreateInfo extends AbstractModel{
         if (source.AccountType != null) {
             this.AccountType = new String(source.AccountType);
         }
+        if (source.IsCam != null) {
+            this.IsCam = new Boolean(source.IsCam);
+        }
+        if (source.EncryptedVersion != null) {
+            this.EncryptedVersion = new Long(source.EncryptedVersion);
+        }
     }
 
 
@@ -229,6 +282,8 @@ public class AccountCreateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "IsAdmin", this.IsAdmin);
         this.setParamSimple(map, prefix + "Authentication", this.Authentication);
         this.setParamSimple(map, prefix + "AccountType", this.AccountType);
+        this.setParamSimple(map, prefix + "IsCam", this.IsCam);
+        this.setParamSimple(map, prefix + "EncryptedVersion", this.EncryptedVersion);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RunVersionPod extends AbstractModel{
+public class RunVersionPod extends AbstractModel {
 
     /**
     * shell地址
@@ -59,7 +60,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Zone")
     @Expose
@@ -67,7 +67,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 部署版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployVersion")
     @Expose
@@ -75,7 +74,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 重启次数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RestartCount")
     @Expose
@@ -83,7 +81,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * pod是否就绪
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ready")
     @Expose
@@ -91,7 +88,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 容器状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerState")
     @Expose
@@ -99,7 +95,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 实例所在节点信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeInfo")
     @Expose
@@ -107,7 +102,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -123,7 +117,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 不健康时的提示信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnhealthyWarningMsg")
     @Expose
@@ -131,7 +124,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 版本ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionId")
     @Expose
@@ -139,7 +131,6 @@ public class RunVersionPod extends AbstractModel{
 
     /**
     * 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationName")
     @Expose
@@ -226,10 +217,8 @@ public class RunVersionPod extends AbstractModel{
     }
 
     /**
-     * Get 可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区 
      * @return Zone 可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZone() {
         return this.Zone;
@@ -237,19 +226,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Zone 可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
     }
 
     /**
-     * Get 部署版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署版本 
      * @return DeployVersion 部署版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeployVersion() {
         return this.DeployVersion;
@@ -257,19 +242,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 部署版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeployVersion 部署版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployVersion(String DeployVersion) {
         this.DeployVersion = DeployVersion;
     }
 
     /**
-     * Get 重启次数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 重启次数 
      * @return RestartCount 重启次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRestartCount() {
         return this.RestartCount;
@@ -277,19 +258,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 重启次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RestartCount 重启次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRestartCount(Long RestartCount) {
         this.RestartCount = RestartCount;
     }
 
     /**
-     * Get pod是否就绪
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get pod是否就绪 
      * @return Ready pod是否就绪
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getReady() {
         return this.Ready;
@@ -297,19 +274,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set pod是否就绪
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ready pod是否就绪
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReady(Boolean Ready) {
         this.Ready = Ready;
     }
 
     /**
-     * Get 容器状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器状态 
      * @return ContainerState 容器状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContainerState() {
         return this.ContainerState;
@@ -317,19 +290,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 容器状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerState 容器状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerState(String ContainerState) {
         this.ContainerState = ContainerState;
     }
 
     /**
-     * Get 实例所在节点信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在节点信息 
      * @return NodeInfo 实例所在节点信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public NodeInfo getNodeInfo() {
         return this.NodeInfo;
@@ -337,19 +306,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 实例所在节点信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeInfo 实例所在节点信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeInfo(NodeInfo NodeInfo) {
         this.NodeInfo = NodeInfo;
     }
 
     /**
-     * Get 启动时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 启动时间 
      * @return StartTime 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -357,9 +322,7 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
@@ -386,10 +349,8 @@ public class RunVersionPod extends AbstractModel{
     }
 
     /**
-     * Get 不健康时的提示信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 不健康时的提示信息 
      * @return UnhealthyWarningMsg 不健康时的提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnhealthyWarningMsg() {
         return this.UnhealthyWarningMsg;
@@ -397,19 +358,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 不健康时的提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnhealthyWarningMsg 不健康时的提示信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnhealthyWarningMsg(String UnhealthyWarningMsg) {
         this.UnhealthyWarningMsg = UnhealthyWarningMsg;
     }
 
     /**
-     * Get 版本ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本ID 
      * @return VersionId 版本ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersionId() {
         return this.VersionId;
@@ -417,19 +374,15 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 版本ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VersionId 版本ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionId(String VersionId) {
         this.VersionId = VersionId;
     }
 
     /**
-     * Get 应用名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用名称 
      * @return ApplicationName 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationName() {
         return this.ApplicationName;
@@ -437,9 +390,7 @@ public class RunVersionPod extends AbstractModel{
 
     /**
      * Set 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationName 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationName(String ApplicationName) {
         this.ApplicationName = ApplicationName;

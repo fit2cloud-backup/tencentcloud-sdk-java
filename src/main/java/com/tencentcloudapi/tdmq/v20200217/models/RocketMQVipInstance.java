@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RocketMQVipInstance extends AbstractModel{
+public class RocketMQVipInstance extends AbstractModel {
 
     /**
     * 实例id
@@ -38,7 +39,6 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
     * 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceVersion")
     @Expose
@@ -109,7 +109,6 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
     * 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -124,7 +123,6 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
     * 最大可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxRetention")
     @Expose
@@ -132,7 +130,6 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
     * 最小可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MinRetention")
     @Expose
@@ -140,11 +137,24 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
     * 实例消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Retention")
     @Expose
     private Long Retention;
+
+    /**
+    * 是否开启ACL鉴权
+    */
+    @SerializedName("AclEnabled")
+    @Expose
+    private Boolean AclEnabled;
+
+    /**
+    * 销毁时间
+    */
+    @SerializedName("DestroyTime")
+    @Expose
+    private Long DestroyTime;
 
     /**
      * Get 实例id 
@@ -179,10 +189,8 @@ public class RocketMQVipInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例版本 
      * @return InstanceVersion 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceVersion() {
         return this.InstanceVersion;
@@ -190,9 +198,7 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
      * Set 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceVersion 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceVersion(String InstanceVersion) {
         this.InstanceVersion = InstanceVersion;
@@ -343,10 +349,8 @@ public class RocketMQVipInstance extends AbstractModel{
     }
 
     /**
-     * Get 备注信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注信息 
      * @return Remark 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -354,9 +358,7 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
      * Set 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
@@ -379,10 +381,8 @@ public class RocketMQVipInstance extends AbstractModel{
     }
 
     /**
-     * Get 最大可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大可设置消息保留时间，小时为单位 
      * @return MaxRetention 最大可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxRetention() {
         return this.MaxRetention;
@@ -390,19 +390,15 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
      * Set 最大可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxRetention 最大可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxRetention(Long MaxRetention) {
         this.MaxRetention = MaxRetention;
     }
 
     /**
-     * Get 最小可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最小可设置消息保留时间，小时为单位 
      * @return MinRetention 最小可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMinRetention() {
         return this.MinRetention;
@@ -410,19 +406,15 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
      * Set 最小可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MinRetention 最小可设置消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMinRetention(Long MinRetention) {
         this.MinRetention = MinRetention;
     }
 
     /**
-     * Get 实例消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例消息保留时间，小时为单位 
      * @return Retention 实例消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRetention() {
         return this.Retention;
@@ -430,12 +422,42 @@ public class RocketMQVipInstance extends AbstractModel{
 
     /**
      * Set 实例消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Retention 实例消息保留时间，小时为单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRetention(Long Retention) {
         this.Retention = Retention;
+    }
+
+    /**
+     * Get 是否开启ACL鉴权 
+     * @return AclEnabled 是否开启ACL鉴权
+     */
+    public Boolean getAclEnabled() {
+        return this.AclEnabled;
+    }
+
+    /**
+     * Set 是否开启ACL鉴权
+     * @param AclEnabled 是否开启ACL鉴权
+     */
+    public void setAclEnabled(Boolean AclEnabled) {
+        this.AclEnabled = AclEnabled;
+    }
+
+    /**
+     * Get 销毁时间 
+     * @return DestroyTime 销毁时间
+     */
+    public Long getDestroyTime() {
+        return this.DestroyTime;
+    }
+
+    /**
+     * Set 销毁时间
+     * @param DestroyTime 销毁时间
+     */
+    public void setDestroyTime(Long DestroyTime) {
+        this.DestroyTime = DestroyTime;
     }
 
     public RocketMQVipInstance() {
@@ -497,6 +519,12 @@ public class RocketMQVipInstance extends AbstractModel{
         if (source.Retention != null) {
             this.Retention = new Long(source.Retention);
         }
+        if (source.AclEnabled != null) {
+            this.AclEnabled = new Boolean(source.AclEnabled);
+        }
+        if (source.DestroyTime != null) {
+            this.DestroyTime = new Long(source.DestroyTime);
+        }
     }
 
 
@@ -521,6 +549,8 @@ public class RocketMQVipInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxRetention", this.MaxRetention);
         this.setParamSimple(map, prefix + "MinRetention", this.MinRetention);
         this.setParamSimple(map, prefix + "Retention", this.Retention);
+        this.setParamSimple(map, prefix + "AclEnabled", this.AclEnabled);
+        this.setParamSimple(map, prefix + "DestroyTime", this.DestroyTime);
 
     }
 }

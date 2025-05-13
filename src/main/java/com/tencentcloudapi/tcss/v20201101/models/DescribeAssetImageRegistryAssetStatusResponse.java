@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetImageRegistryAssetStatusResponse extends AbstractModel{
+public class DescribeAssetImageRegistryAssetStatusResponse extends AbstractModel {
 
     /**
     * 更新进度状态,doing更新中，success更新成功，failed失败
@@ -31,14 +32,20 @@ public class DescribeAssetImageRegistryAssetStatusResponse extends AbstractModel
 
     /**
     * 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Err")
     @Expose
     private String Err;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 最后一次同步成功时间
+    */
+    @SerializedName("LatestSyncSuccessTime")
+    @Expose
+    private String LatestSyncSuccessTime;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,10 +68,8 @@ public class DescribeAssetImageRegistryAssetStatusResponse extends AbstractModel
     }
 
     /**
-     * Get 错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误信息 
      * @return Err 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErr() {
         return this.Err;
@@ -72,25 +77,39 @@ public class DescribeAssetImageRegistryAssetStatusResponse extends AbstractModel
 
     /**
      * Set 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Err 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErr(String Err) {
         this.Err = Err;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 最后一次同步成功时间 
+     * @return LatestSyncSuccessTime 最后一次同步成功时间
+     */
+    public String getLatestSyncSuccessTime() {
+        return this.LatestSyncSuccessTime;
+    }
+
+    /**
+     * Set 最后一次同步成功时间
+     * @param LatestSyncSuccessTime 最后一次同步成功时间
+     */
+    public void setLatestSyncSuccessTime(String LatestSyncSuccessTime) {
+        this.LatestSyncSuccessTime = LatestSyncSuccessTime;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -110,6 +129,9 @@ public class DescribeAssetImageRegistryAssetStatusResponse extends AbstractModel
         if (source.Err != null) {
             this.Err = new String(source.Err);
         }
+        if (source.LatestSyncSuccessTime != null) {
+            this.LatestSyncSuccessTime = new String(source.LatestSyncSuccessTime);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -122,6 +144,7 @@ public class DescribeAssetImageRegistryAssetStatusResponse extends AbstractModel
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Err", this.Err);
+        this.setParamSimple(map, prefix + "LatestSyncSuccessTime", this.LatestSyncSuccessTime);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

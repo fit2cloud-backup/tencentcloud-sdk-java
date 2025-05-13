@@ -16,11 +16,58 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DataEngineConfigPair extends AbstractModel{
+public class DataEngineConfigPair extends AbstractModel {
+
+    /**
+    * 配置项
+    */
+    @SerializedName("ConfigItem")
+    @Expose
+    private String ConfigItem;
+
+    /**
+    * 配置值
+    */
+    @SerializedName("ConfigValue")
+    @Expose
+    private String ConfigValue;
+
+    /**
+     * Get 配置项 
+     * @return ConfigItem 配置项
+     */
+    public String getConfigItem() {
+        return this.ConfigItem;
+    }
+
+    /**
+     * Set 配置项
+     * @param ConfigItem 配置项
+     */
+    public void setConfigItem(String ConfigItem) {
+        this.ConfigItem = ConfigItem;
+    }
+
+    /**
+     * Get 配置值 
+     * @return ConfigValue 配置值
+     */
+    public String getConfigValue() {
+        return this.ConfigValue;
+    }
+
+    /**
+     * Set 配置值
+     * @param ConfigValue 配置值
+     */
+    public void setConfigValue(String ConfigValue) {
+        this.ConfigValue = ConfigValue;
+    }
 
     public DataEngineConfigPair() {
     }
@@ -30,6 +77,12 @@ public class DataEngineConfigPair extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DataEngineConfigPair(DataEngineConfigPair source) {
+        if (source.ConfigItem != null) {
+            this.ConfigItem = new String(source.ConfigItem);
+        }
+        if (source.ConfigValue != null) {
+            this.ConfigValue = new String(source.ConfigValue);
+        }
     }
 
 
@@ -37,6 +90,8 @@ public class DataEngineConfigPair extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "ConfigItem", this.ConfigItem);
+        this.setParamSimple(map, prefix + "ConfigValue", this.ConfigValue);
 
     }
 }

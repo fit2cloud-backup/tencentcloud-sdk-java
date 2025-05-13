@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tds.v20220801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFraudUltimateResponse extends AbstractModel{
+public class DescribeFraudUltimateResponse extends AbstractModel {
 
     /**
     * App版本信息
@@ -121,7 +122,14 @@ public class DescribeFraudUltimateResponse extends AbstractModel{
     private Long SuggestionLevel;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 图灵盾统一ID
+    */
+    @SerializedName("Unionid")
+    @Expose
+    private String Unionid;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -352,16 +360,32 @@ public class DescribeFraudUltimateResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 图灵盾统一ID 
+     * @return Unionid 图灵盾统一ID
+     */
+    public String getUnionid() {
+        return this.Unionid;
+    }
+
+    /**
+     * Set 图灵盾统一ID
+     * @param Unionid 图灵盾统一ID
+     */
+    public void setUnionid(String Unionid) {
+        this.Unionid = Unionid;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -426,6 +450,9 @@ public class DescribeFraudUltimateResponse extends AbstractModel{
         if (source.SuggestionLevel != null) {
             this.SuggestionLevel = new Long(source.SuggestionLevel);
         }
+        if (source.Unionid != null) {
+            this.Unionid = new String(source.Unionid);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -450,6 +477,7 @@ public class DescribeFraudUltimateResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Openid", this.Openid);
         this.setParamArrayObj(map, prefix + "SceneRiskInfos.", this.SceneRiskInfos);
         this.setParamSimple(map, prefix + "SuggestionLevel", this.SuggestionLevel);
+        this.setParamSimple(map, prefix + "Unionid", this.Unionid);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

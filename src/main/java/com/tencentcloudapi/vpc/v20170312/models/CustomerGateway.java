@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CustomerGateway extends AbstractModel{
+public class CustomerGateway extends AbstractModel {
 
     /**
     * 用户网关唯一ID
@@ -49,6 +50,13 @@ public class CustomerGateway extends AbstractModel{
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
+
+    /**
+    * BGP ASN。
+    */
+    @SerializedName("BgpAsn")
+    @Expose
+    private Long BgpAsn;
 
     /**
      * Get 用户网关唯一ID 
@@ -114,6 +122,22 @@ public class CustomerGateway extends AbstractModel{
         this.CreatedTime = CreatedTime;
     }
 
+    /**
+     * Get BGP ASN。 
+     * @return BgpAsn BGP ASN。
+     */
+    public Long getBgpAsn() {
+        return this.BgpAsn;
+    }
+
+    /**
+     * Set BGP ASN。
+     * @param BgpAsn BGP ASN。
+     */
+    public void setBgpAsn(Long BgpAsn) {
+        this.BgpAsn = BgpAsn;
+    }
+
     public CustomerGateway() {
     }
 
@@ -134,6 +158,9 @@ public class CustomerGateway extends AbstractModel{
         if (source.CreatedTime != null) {
             this.CreatedTime = new String(source.CreatedTime);
         }
+        if (source.BgpAsn != null) {
+            this.BgpAsn = new Long(source.BgpAsn);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class CustomerGateway extends AbstractModel{
         this.setParamSimple(map, prefix + "CustomerGatewayName", this.CustomerGatewayName);
         this.setParamSimple(map, prefix + "IpAddress", this.IpAddress);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamSimple(map, prefix + "BgpAsn", this.BgpAsn);
 
     }
 }

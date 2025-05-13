@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AnalyseParam extends AbstractModel{
+public class AnalyseParam extends AbstractModel {
 
     /**
     * 解析格式，JSON，DELIMITER分隔符，REGULAR正则提取，SOURCE处理上层所有结果
@@ -31,7 +32,6 @@ public class AnalyseParam extends AbstractModel{
 
     /**
     * 分隔符、正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Regex")
     @Expose
@@ -39,7 +39,6 @@ public class AnalyseParam extends AbstractModel{
 
     /**
     * 需再次处理的KEY——模式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputValueType")
     @Expose
@@ -47,7 +46,6 @@ public class AnalyseParam extends AbstractModel{
 
     /**
     * 需再次处理的KEY——KEY表达式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputValue")
     @Expose
@@ -70,10 +68,8 @@ public class AnalyseParam extends AbstractModel{
     }
 
     /**
-     * Get 分隔符、正则表达式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分隔符、正则表达式 
      * @return Regex 分隔符、正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegex() {
         return this.Regex;
@@ -81,19 +77,15 @@ public class AnalyseParam extends AbstractModel{
 
     /**
      * Set 分隔符、正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Regex 分隔符、正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegex(String Regex) {
         this.Regex = Regex;
     }
 
     /**
-     * Get 需再次处理的KEY——模式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 需再次处理的KEY——模式 
      * @return InputValueType 需再次处理的KEY——模式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputValueType() {
         return this.InputValueType;
@@ -101,19 +93,15 @@ public class AnalyseParam extends AbstractModel{
 
     /**
      * Set 需再次处理的KEY——模式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputValueType 需再次处理的KEY——模式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputValueType(String InputValueType) {
         this.InputValueType = InputValueType;
     }
 
     /**
-     * Get 需再次处理的KEY——KEY表达式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 需再次处理的KEY——KEY表达式 
      * @return InputValue 需再次处理的KEY——KEY表达式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputValue() {
         return this.InputValue;
@@ -121,9 +109,7 @@ public class AnalyseParam extends AbstractModel{
 
     /**
      * Set 需再次处理的KEY——KEY表达式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputValue 需再次处理的KEY——KEY表达式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputValue(String InputValue) {
         this.InputValue = InputValue;

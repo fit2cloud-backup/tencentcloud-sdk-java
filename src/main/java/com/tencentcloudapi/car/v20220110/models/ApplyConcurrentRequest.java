@@ -16,11 +16,12 @@
 package com.tencentcloudapi.car.v20220110.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApplyConcurrentRequest extends AbstractModel{
+public class ApplyConcurrentRequest extends AbstractModel {
 
     /**
     * 唯一用户身份标识，由业务方自定义，平台不予理解。（可根据业务需要决定使用用户的唯一身份标识或是使用时间戳随机生成；在用户重连时应保持UserId不变）
@@ -44,7 +45,7 @@ public class ApplyConcurrentRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-    * 应用版本ID
+    * 应用版本ID。如果请求应用的当前版本，可以不用填写该字段。如果请求应用的其它版本时，才需要通过该字段来指定应用的版本。
     */
     @SerializedName("ApplicationVersionId")
     @Expose
@@ -106,16 +107,16 @@ public class ApplyConcurrentRequest extends AbstractModel{
     }
 
     /**
-     * Get 应用版本ID 
-     * @return ApplicationVersionId 应用版本ID
+     * Get 应用版本ID。如果请求应用的当前版本，可以不用填写该字段。如果请求应用的其它版本时，才需要通过该字段来指定应用的版本。 
+     * @return ApplicationVersionId 应用版本ID。如果请求应用的当前版本，可以不用填写该字段。如果请求应用的其它版本时，才需要通过该字段来指定应用的版本。
      */
     public String getApplicationVersionId() {
         return this.ApplicationVersionId;
     }
 
     /**
-     * Set 应用版本ID
-     * @param ApplicationVersionId 应用版本ID
+     * Set 应用版本ID。如果请求应用的当前版本，可以不用填写该字段。如果请求应用的其它版本时，才需要通过该字段来指定应用的版本。
+     * @param ApplicationVersionId 应用版本ID。如果请求应用的当前版本，可以不用填写该字段。如果请求应用的其它版本时，才需要通过该字段来指定应用的版本。
      */
     public void setApplicationVersionId(String ApplicationVersionId) {
         this.ApplicationVersionId = ApplicationVersionId;

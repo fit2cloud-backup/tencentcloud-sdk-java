@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateTopicRequest extends AbstractModel{
+public class CreateTopicRequest extends AbstractModel {
 
     /**
     * 日志主题的名称。
@@ -44,7 +45,9 @@ public class CreateTopicRequest extends AbstractModel{
     private String TopicType;
 
     /**
-    * 日志集的保存周期，单位：天，默认30天。
+    * 存储时间，单位天，默认为 30。
+- 日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
     */
     @SerializedName("Period")
     @Expose
@@ -106,16 +109,24 @@ public class CreateTopicRequest extends AbstractModel{
     }
 
     /**
-     * Get 日志集的保存周期，单位：天，默认30天。 
-     * @return Period 日志集的保存周期，单位：天，默认30天。
+     * Get 存储时间，单位天，默认为 30。
+- 日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。 
+     * @return Period 存储时间，单位天，默认为 30。
+- 日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
      */
     public Long getPeriod() {
         return this.Period;
     }
 
     /**
-     * Set 日志集的保存周期，单位：天，默认30天。
-     * @param Period 日志集的保存周期，单位：天，默认30天。
+     * Set 存储时间，单位天，默认为 30。
+- 日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
+     * @param Period 存储时间，单位天，默认为 30。
+- 日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
      */
     public void setPeriod(Long Period) {
         this.Period = Period;

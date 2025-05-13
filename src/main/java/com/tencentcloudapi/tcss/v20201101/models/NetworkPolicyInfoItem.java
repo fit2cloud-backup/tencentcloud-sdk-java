@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetworkPolicyInfoItem extends AbstractModel{
+public class NetworkPolicyInfoItem extends AbstractModel {
 
     /**
     * 网络策略名
@@ -31,7 +32,6 @@ public class NetworkPolicyInfoItem extends AbstractModel{
 
     /**
     * 网络策略描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -92,7 +92,6 @@ cilium：Cilium
 
     /**
     * 策略发布结果
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublishResult")
     @Expose
@@ -126,7 +125,6 @@ cilium：Cilium
 
     /**
     * 作用对象
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PodSelector")
     @Expose
@@ -156,10 +154,8 @@ cilium：Cilium
     }
 
     /**
-     * Get 网络策略描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络策略描述 
      * @return Description 网络策略描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -167,9 +163,7 @@ cilium：Cilium
 
     /**
      * Set 网络策略描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 网络策略描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -328,10 +322,8 @@ cilium：Cilium
     }
 
     /**
-     * Get 策略发布结果
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略发布结果 
      * @return PublishResult 策略发布结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPublishResult() {
         return this.PublishResult;
@@ -339,9 +331,7 @@ cilium：Cilium
 
     /**
      * Set 策略发布结果
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PublishResult 策略发布结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublishResult(String PublishResult) {
         this.PublishResult = PublishResult;
@@ -428,10 +418,8 @@ cilium：Cilium
     }
 
     /**
-     * Get 作用对象
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 作用对象 
      * @return PodSelector 作用对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPodSelector() {
         return this.PodSelector;
@@ -439,9 +427,7 @@ cilium：Cilium
 
     /**
      * Set 作用对象
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PodSelector 作用对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPodSelector(String PodSelector) {
         this.PodSelector = PodSelector;

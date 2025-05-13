@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyServiceTemplateAttributeRequest extends AbstractModel{
+public class ModifyServiceTemplateAttributeRequest extends AbstractModel {
 
     /**
     * 协议端口模板实例ID，例如：ppm-529nwwj8。
@@ -37,7 +38,7 @@ public class ModifyServiceTemplateAttributeRequest extends AbstractModel{
     private String ServiceTemplateName;
 
     /**
-    * 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
+    * 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。协议后面的端口部分长度不能超过128个字符。
     */
     @SerializedName("Services")
     @Expose
@@ -83,16 +84,16 @@ public class ModifyServiceTemplateAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。 
-     * @return Services 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
+     * Get 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。协议后面的端口部分长度不能超过128个字符。 
+     * @return Services 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。协议后面的端口部分长度不能超过128个字符。
      */
     public String [] getServices() {
         return this.Services;
     }
 
     /**
-     * Set 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
-     * @param Services 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。
+     * Set 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。协议后面的端口部分长度不能超过128个字符。
+     * @param Services 支持单个端口、多个端口、连续端口及所有端口，协议支持：TCP、UDP、ICMP、GRE 协议。协议后面的端口部分长度不能超过128个字符。
      */
     public void setServices(String [] Services) {
         this.Services = Services;

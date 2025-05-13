@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20191016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MonitorMetric extends AbstractModel{
+public class MonitorMetric extends AbstractModel {
 
     /**
     * 指标名称。
@@ -38,7 +39,6 @@ public class MonitorMetric extends AbstractModel{
 
     /**
     * 指标值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Values")
     @Expose
@@ -77,10 +77,8 @@ public class MonitorMetric extends AbstractModel{
     }
 
     /**
-     * Get 指标值。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 指标值。 
      * @return Values 指标值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getValues() {
         return this.Values;
@@ -88,9 +86,7 @@ public class MonitorMetric extends AbstractModel{
 
     /**
      * Set 指标值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Values 指标值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValues(Long [] Values) {
         this.Values = Values;

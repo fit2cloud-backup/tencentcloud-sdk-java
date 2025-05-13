@@ -16,43 +16,43 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FlowDetailInfo extends AbstractModel{
+public class FlowDetailInfo extends AbstractModel {
 
     /**
-    * 合同(流程)的Id
+    * 合同流程ID，为32位字符串。
     */
     @SerializedName("FlowId")
     @Expose
     private String FlowId;
 
     /**
-    * 合同(流程)的名字
+    * 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
     */
     @SerializedName("FlowName")
     @Expose
     private String FlowName;
 
     /**
-    * 合同(流程)的类型
+    * 合同流程的类别分类（如销售合同/入职合同等）。
     */
     @SerializedName("FlowType")
     @Expose
     private String FlowType;
 
     /**
-    * 合同(流程)的状态, 状态如下
-
-INIT 合同创建
-PART 合同签署中
-REJECT 合同拒签
-ALL 合同签署完成
-DEADLINE 合同流签(合同过期)
-CANCEL 合同撤回
-RELIEVED 解除协议（已解除）
+    * 合同流程当前的签署状态, 会存在下列的状态值
+<ul><li> **INIT** :合同创建</li>
+<li> **PART** :合同签署中(至少有一个签署方已经签署)</li>
+<li> **REJECT** :合同拒签</li>
+<li> **ALL** :合同签署完成</li>
+<li> **DEADLINE** :合同流签(合同过期)</li>
+<li> **CANCEL** :合同撤回</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
  
     */
     @SerializedName("FlowStatus")
@@ -60,122 +60,123 @@ RELIEVED 解除协议（已解除）
     private String FlowStatus;
 
     /**
-    * 合同(流程)的信息
+    * 当合同流程状态为已拒签（即 FlowStatus=REJECT）或已撤销（即 FlowStatus=CANCEL ）时，此字段 FlowMessage 为拒签或撤销原因。
     */
     @SerializedName("FlowMessage")
     @Expose
     private String FlowMessage;
 
     /**
-    * 合同(流程)的创建时间戳，单位秒
+    * 合同流程的创建时间戳，格式为Unix标准时间戳（秒）。
     */
     @SerializedName("CreateOn")
     @Expose
     private Long CreateOn;
 
     /**
-    * 合同(流程)的签署截止时间戳，单位秒
+    * 签署流程的签署截止时间, 值为unix时间戳, 精确到秒。
     */
     @SerializedName("DeadLine")
     @Expose
     private Long DeadLine;
 
     /**
-    * 用户自定义数据
+    * 调用方自定义的个性化字段(可自定义此字段的值)，并以base64方式编码，支持的最大数据大小为 1000长度。
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。
     */
     @SerializedName("CustomData")
     @Expose
     private String CustomData;
 
     /**
-    * 合同(流程)的签署人数组
+    * 合同流程的签署方数组
     */
     @SerializedName("FlowApproverInfos")
     @Expose
     private FlowApproverDetail [] FlowApproverInfos;
 
     /**
-    * 合同(流程)关注方信息列表
+    * 合同流程的关注方信息数组
     */
     @SerializedName("CcInfos")
     @Expose
     private FlowApproverDetail [] CcInfos;
 
     /**
-    * 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
+    * 是否需要发起前审批
+<ul><li>当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程</li>
+<li>当NeedCreateReview为false，不需要发起前审核的合同</li></ul>
     */
     @SerializedName("NeedCreateReview")
     @Expose
     private Boolean NeedCreateReview;
 
     /**
-     * Get 合同(流程)的Id 
-     * @return FlowId 合同(流程)的Id
+     * Get 合同流程ID，为32位字符串。 
+     * @return FlowId 合同流程ID，为32位字符串。
      */
     public String getFlowId() {
         return this.FlowId;
     }
 
     /**
-     * Set 合同(流程)的Id
-     * @param FlowId 合同(流程)的Id
+     * Set 合同流程ID，为32位字符串。
+     * @param FlowId 合同流程ID，为32位字符串。
      */
     public void setFlowId(String FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 合同(流程)的名字 
-     * @return FlowName 合同(流程)的名字
+     * Get 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。 
+     * @return FlowName 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
      */
     public String getFlowName() {
         return this.FlowName;
     }
 
     /**
-     * Set 合同(流程)的名字
-     * @param FlowName 合同(流程)的名字
+     * Set 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
+     * @param FlowName 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
      */
     public void setFlowName(String FlowName) {
         this.FlowName = FlowName;
     }
 
     /**
-     * Get 合同(流程)的类型 
-     * @return FlowType 合同(流程)的类型
+     * Get 合同流程的类别分类（如销售合同/入职合同等）。 
+     * @return FlowType 合同流程的类别分类（如销售合同/入职合同等）。
      */
     public String getFlowType() {
         return this.FlowType;
     }
 
     /**
-     * Set 合同(流程)的类型
-     * @param FlowType 合同(流程)的类型
+     * Set 合同流程的类别分类（如销售合同/入职合同等）。
+     * @param FlowType 合同流程的类别分类（如销售合同/入职合同等）。
      */
     public void setFlowType(String FlowType) {
         this.FlowType = FlowType;
     }
 
     /**
-     * Get 合同(流程)的状态, 状态如下
-
-INIT 合同创建
-PART 合同签署中
-REJECT 合同拒签
-ALL 合同签署完成
-DEADLINE 合同流签(合同过期)
-CANCEL 合同撤回
-RELIEVED 解除协议（已解除）
+     * Get 合同流程当前的签署状态, 会存在下列的状态值
+<ul><li> **INIT** :合同创建</li>
+<li> **PART** :合同签署中(至少有一个签署方已经签署)</li>
+<li> **REJECT** :合同拒签</li>
+<li> **ALL** :合同签署完成</li>
+<li> **DEADLINE** :合同流签(合同过期)</li>
+<li> **CANCEL** :合同撤回</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
   
-     * @return FlowStatus 合同(流程)的状态, 状态如下
-
-INIT 合同创建
-PART 合同签署中
-REJECT 合同拒签
-ALL 合同签署完成
-DEADLINE 合同流签(合同过期)
-CANCEL 合同撤回
-RELIEVED 解除协议（已解除）
+     * @return FlowStatus 合同流程当前的签署状态, 会存在下列的状态值
+<ul><li> **INIT** :合同创建</li>
+<li> **PART** :合同签署中(至少有一个签署方已经签署)</li>
+<li> **REJECT** :合同拒签</li>
+<li> **ALL** :合同签署完成</li>
+<li> **DEADLINE** :合同流签(合同过期)</li>
+<li> **CANCEL** :合同撤回</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
  
      */
     public String getFlowStatus() {
@@ -183,25 +184,23 @@ RELIEVED 解除协议（已解除）
     }
 
     /**
-     * Set 合同(流程)的状态, 状态如下
-
-INIT 合同创建
-PART 合同签署中
-REJECT 合同拒签
-ALL 合同签署完成
-DEADLINE 合同流签(合同过期)
-CANCEL 合同撤回
-RELIEVED 解除协议（已解除）
+     * Set 合同流程当前的签署状态, 会存在下列的状态值
+<ul><li> **INIT** :合同创建</li>
+<li> **PART** :合同签署中(至少有一个签署方已经签署)</li>
+<li> **REJECT** :合同拒签</li>
+<li> **ALL** :合同签署完成</li>
+<li> **DEADLINE** :合同流签(合同过期)</li>
+<li> **CANCEL** :合同撤回</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
  
-     * @param FlowStatus 合同(流程)的状态, 状态如下
-
-INIT 合同创建
-PART 合同签署中
-REJECT 合同拒签
-ALL 合同签署完成
-DEADLINE 合同流签(合同过期)
-CANCEL 合同撤回
-RELIEVED 解除协议（已解除）
+     * @param FlowStatus 合同流程当前的签署状态, 会存在下列的状态值
+<ul><li> **INIT** :合同创建</li>
+<li> **PART** :合同签署中(至少有一个签署方已经签署)</li>
+<li> **REJECT** :合同拒签</li>
+<li> **ALL** :合同签署完成</li>
+<li> **DEADLINE** :合同流签(合同过期)</li>
+<li> **CANCEL** :合同撤回</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
  
      */
     public void setFlowStatus(String FlowStatus) {
@@ -209,112 +208,124 @@ RELIEVED 解除协议（已解除）
     }
 
     /**
-     * Get 合同(流程)的信息 
-     * @return FlowMessage 合同(流程)的信息
+     * Get 当合同流程状态为已拒签（即 FlowStatus=REJECT）或已撤销（即 FlowStatus=CANCEL ）时，此字段 FlowMessage 为拒签或撤销原因。 
+     * @return FlowMessage 当合同流程状态为已拒签（即 FlowStatus=REJECT）或已撤销（即 FlowStatus=CANCEL ）时，此字段 FlowMessage 为拒签或撤销原因。
      */
     public String getFlowMessage() {
         return this.FlowMessage;
     }
 
     /**
-     * Set 合同(流程)的信息
-     * @param FlowMessage 合同(流程)的信息
+     * Set 当合同流程状态为已拒签（即 FlowStatus=REJECT）或已撤销（即 FlowStatus=CANCEL ）时，此字段 FlowMessage 为拒签或撤销原因。
+     * @param FlowMessage 当合同流程状态为已拒签（即 FlowStatus=REJECT）或已撤销（即 FlowStatus=CANCEL ）时，此字段 FlowMessage 为拒签或撤销原因。
      */
     public void setFlowMessage(String FlowMessage) {
         this.FlowMessage = FlowMessage;
     }
 
     /**
-     * Get 合同(流程)的创建时间戳，单位秒 
-     * @return CreateOn 合同(流程)的创建时间戳，单位秒
+     * Get 合同流程的创建时间戳，格式为Unix标准时间戳（秒）。 
+     * @return CreateOn 合同流程的创建时间戳，格式为Unix标准时间戳（秒）。
      */
     public Long getCreateOn() {
         return this.CreateOn;
     }
 
     /**
-     * Set 合同(流程)的创建时间戳，单位秒
-     * @param CreateOn 合同(流程)的创建时间戳，单位秒
+     * Set 合同流程的创建时间戳，格式为Unix标准时间戳（秒）。
+     * @param CreateOn 合同流程的创建时间戳，格式为Unix标准时间戳（秒）。
      */
     public void setCreateOn(Long CreateOn) {
         this.CreateOn = CreateOn;
     }
 
     /**
-     * Get 合同(流程)的签署截止时间戳，单位秒 
-     * @return DeadLine 合同(流程)的签署截止时间戳，单位秒
+     * Get 签署流程的签署截止时间, 值为unix时间戳, 精确到秒。 
+     * @return DeadLine 签署流程的签署截止时间, 值为unix时间戳, 精确到秒。
      */
     public Long getDeadLine() {
         return this.DeadLine;
     }
 
     /**
-     * Set 合同(流程)的签署截止时间戳，单位秒
-     * @param DeadLine 合同(流程)的签署截止时间戳，单位秒
+     * Set 签署流程的签署截止时间, 值为unix时间戳, 精确到秒。
+     * @param DeadLine 签署流程的签署截止时间, 值为unix时间戳, 精确到秒。
      */
     public void setDeadLine(Long DeadLine) {
         this.DeadLine = DeadLine;
     }
 
     /**
-     * Get 用户自定义数据 
-     * @return CustomData 用户自定义数据
+     * Get 调用方自定义的个性化字段(可自定义此字段的值)，并以base64方式编码，支持的最大数据大小为 1000长度。
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。 
+     * @return CustomData 调用方自定义的个性化字段(可自定义此字段的值)，并以base64方式编码，支持的最大数据大小为 1000长度。
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。
      */
     public String getCustomData() {
         return this.CustomData;
     }
 
     /**
-     * Set 用户自定义数据
-     * @param CustomData 用户自定义数据
+     * Set 调用方自定义的个性化字段(可自定义此字段的值)，并以base64方式编码，支持的最大数据大小为 1000长度。
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。
+     * @param CustomData 调用方自定义的个性化字段(可自定义此字段的值)，并以base64方式编码，支持的最大数据大小为 1000长度。
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。
      */
     public void setCustomData(String CustomData) {
         this.CustomData = CustomData;
     }
 
     /**
-     * Get 合同(流程)的签署人数组 
-     * @return FlowApproverInfos 合同(流程)的签署人数组
+     * Get 合同流程的签署方数组 
+     * @return FlowApproverInfos 合同流程的签署方数组
      */
     public FlowApproverDetail [] getFlowApproverInfos() {
         return this.FlowApproverInfos;
     }
 
     /**
-     * Set 合同(流程)的签署人数组
-     * @param FlowApproverInfos 合同(流程)的签署人数组
+     * Set 合同流程的签署方数组
+     * @param FlowApproverInfos 合同流程的签署方数组
      */
     public void setFlowApproverInfos(FlowApproverDetail [] FlowApproverInfos) {
         this.FlowApproverInfos = FlowApproverInfos;
     }
 
     /**
-     * Get 合同(流程)关注方信息列表 
-     * @return CcInfos 合同(流程)关注方信息列表
+     * Get 合同流程的关注方信息数组 
+     * @return CcInfos 合同流程的关注方信息数组
      */
     public FlowApproverDetail [] getCcInfos() {
         return this.CcInfos;
     }
 
     /**
-     * Set 合同(流程)关注方信息列表
-     * @param CcInfos 合同(流程)关注方信息列表
+     * Set 合同流程的关注方信息数组
+     * @param CcInfos 合同流程的关注方信息数组
      */
     public void setCcInfos(FlowApproverDetail [] CcInfos) {
         this.CcInfos = CcInfos;
     }
 
     /**
-     * Get 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程 
-     * @return NeedCreateReview 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
+     * Get 是否需要发起前审批
+<ul><li>当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程</li>
+<li>当NeedCreateReview为false，不需要发起前审核的合同</li></ul> 
+     * @return NeedCreateReview 是否需要发起前审批
+<ul><li>当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程</li>
+<li>当NeedCreateReview为false，不需要发起前审核的合同</li></ul>
      */
     public Boolean getNeedCreateReview() {
         return this.NeedCreateReview;
     }
 
     /**
-     * Set 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
-     * @param NeedCreateReview 是否需要发起前审批，当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程
+     * Set 是否需要发起前审批
+<ul><li>当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程</li>
+<li>当NeedCreateReview为false，不需要发起前审核的合同</li></ul>
+     * @param NeedCreateReview 是否需要发起前审批
+<ul><li>当NeedCreateReview为true，表明当前流程是需要发起前审核的合同，可能无法进行查看，签署操作，需要等审核完成后，才可以继续后续流程</li>
+<li>当NeedCreateReview为false，不需要发起前审核的合同</li></ul>
      */
     public void setNeedCreateReview(Boolean NeedCreateReview) {
         this.NeedCreateReview = NeedCreateReview;

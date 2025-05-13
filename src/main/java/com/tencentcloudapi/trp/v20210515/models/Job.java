@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Job extends AbstractModel{
+public class Job extends AbstractModel {
 
     /**
     * 调度ID
@@ -35,6 +36,13 @@ public class Job extends AbstractModel{
     @SerializedName("Status")
     @Expose
     private String Status;
+
+    /**
+    * 任务错误信息
+    */
+    @SerializedName("ErrorMessage")
+    @Expose
+    private String ErrorMessage;
 
     /**
      * Get 调度ID 
@@ -68,6 +76,22 @@ public class Job extends AbstractModel{
         this.Status = Status;
     }
 
+    /**
+     * Get 任务错误信息 
+     * @return ErrorMessage 任务错误信息
+     */
+    public String getErrorMessage() {
+        return this.ErrorMessage;
+    }
+
+    /**
+     * Set 任务错误信息
+     * @param ErrorMessage 任务错误信息
+     */
+    public void setErrorMessage(String ErrorMessage) {
+        this.ErrorMessage = ErrorMessage;
+    }
+
     public Job() {
     }
 
@@ -82,6 +106,9 @@ public class Job extends AbstractModel{
         if (source.Status != null) {
             this.Status = new String(source.Status);
         }
+        if (source.ErrorMessage != null) {
+            this.ErrorMessage = new String(source.ErrorMessage);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class Job extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "JobId", this.JobId);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "ErrorMessage", this.ErrorMessage);
 
     }
 }

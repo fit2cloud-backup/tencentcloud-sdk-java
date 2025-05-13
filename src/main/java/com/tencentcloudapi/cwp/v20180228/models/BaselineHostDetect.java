@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BaselineHostDetect extends AbstractModel{
+public class BaselineHostDetect extends AbstractModel {
 
     /**
     * 主机Id
@@ -94,7 +95,6 @@ public class BaselineHostDetect extends AbstractModel{
 
     /**
     * 主机安全UUID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uuid")
     @Expose
@@ -102,7 +102,6 @@ public class BaselineHostDetect extends AbstractModel{
 
     /**
     * 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
@@ -269,10 +268,8 @@ public class BaselineHostDetect extends AbstractModel{
     }
 
     /**
-     * Get 主机安全UUID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机安全UUID 
      * @return Uuid 主机安全UUID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUuid() {
         return this.Uuid;
@@ -280,19 +277,15 @@ public class BaselineHostDetect extends AbstractModel{
 
     /**
      * Set 主机安全UUID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uuid 主机安全UUID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
     }
 
     /**
-     * Get 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机额外信息 
      * @return MachineExtraInfo 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -300,9 +293,7 @@ public class BaselineHostDetect extends AbstractModel{
 
     /**
      * Set 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;

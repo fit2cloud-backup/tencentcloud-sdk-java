@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Resource extends AbstractModel{
+public class Resource extends AbstractModel {
 
     /**
     * 资源 ID。
@@ -120,6 +121,14 @@ public class Resource extends AbstractModel{
     @SerializedName("ZoneNumber")
     @Expose
     private Long ZoneNumber;
+
+    /**
+    * 资源标记类型，取值有：
+<li>vodeo：vodeo资源。</li>
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
 
     /**
      * Get 资源 ID。 
@@ -373,6 +382,26 @@ public class Resource extends AbstractModel{
         this.ZoneNumber = ZoneNumber;
     }
 
+    /**
+     * Get 资源标记类型，取值有：
+<li>vodeo：vodeo资源。</li> 
+     * @return Type 资源标记类型，取值有：
+<li>vodeo：vodeo资源。</li>
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 资源标记类型，取值有：
+<li>vodeo：vodeo资源。</li>
+     * @param Type 资源标记类型，取值有：
+<li>vodeo：vodeo资源。</li>
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
     public Resource() {
     }
 
@@ -420,6 +449,9 @@ public class Resource extends AbstractModel{
         if (source.ZoneNumber != null) {
             this.ZoneNumber = new Long(source.ZoneNumber);
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
     }
 
 
@@ -439,6 +471,7 @@ public class Resource extends AbstractModel{
         this.setParamSimple(map, prefix + "Area", this.Area);
         this.setParamSimple(map, prefix + "Group", this.Group);
         this.setParamSimple(map, prefix + "ZoneNumber", this.ZoneNumber);
+        this.setParamSimple(map, prefix + "Type", this.Type);
 
     }
 }

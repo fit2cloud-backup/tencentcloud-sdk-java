@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TagSpecification extends AbstractModel{
+public class TagSpecification extends AbstractModel {
 
     /**
     * 标签绑定的资源类型，当前支持类型："cluster"
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceType")
     @Expose
@@ -39,10 +39,8 @@ public class TagSpecification extends AbstractModel{
     private Tag [] Tags;
 
     /**
-     * Get 标签绑定的资源类型，当前支持类型："cluster"
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签绑定的资源类型，当前支持类型："cluster" 
      * @return ResourceType 标签绑定的资源类型，当前支持类型："cluster"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceType() {
         return this.ResourceType;
@@ -50,9 +48,7 @@ public class TagSpecification extends AbstractModel{
 
     /**
      * Set 标签绑定的资源类型，当前支持类型："cluster"
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceType 标签绑定的资源类型，当前支持类型："cluster"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;

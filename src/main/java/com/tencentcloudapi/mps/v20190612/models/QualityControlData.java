@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QualityControlData extends AbstractModel{
+public class QualityControlData extends AbstractModel {
 
     /**
     * 为true时表示视频无音频轨。
@@ -39,7 +40,7 @@ public class QualityControlData extends AbstractModel{
     private Boolean NoVideo;
 
     /**
-    * 视频无参考质量打分，百分制。
+    * 视频无参考质量评分，百分制。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QualityEvaluationScore")
@@ -47,12 +48,28 @@ public class QualityControlData extends AbstractModel{
     private Long QualityEvaluationScore;
 
     /**
-    * 质检检出异常项。
+    * 视频无参考质量评分，MOS分数。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QualityEvaluationMeanOpinionScore")
+    @Expose
+    private Float QualityEvaluationMeanOpinionScore;
+
+    /**
+    * 内容质检检出异常项。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QualityControlResultSet")
     @Expose
     private QualityControlResult [] QualityControlResultSet;
+
+    /**
+    * 格式诊断检出异常项
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ContainerDiagnoseResultSet")
+    @Expose
+    private ContainerDiagnoseResultItem [] ContainerDiagnoseResultSet;
 
     /**
      * Get 为true时表示视频无音频轨。
@@ -95,9 +112,9 @@ public class QualityControlData extends AbstractModel{
     }
 
     /**
-     * Get 视频无参考质量打分，百分制。
+     * Get 视频无参考质量评分，百分制。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return QualityEvaluationScore 视频无参考质量打分，百分制。
+     * @return QualityEvaluationScore 视频无参考质量评分，百分制。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getQualityEvaluationScore() {
@@ -105,9 +122,9 @@ public class QualityControlData extends AbstractModel{
     }
 
     /**
-     * Set 视频无参考质量打分，百分制。
+     * Set 视频无参考质量评分，百分制。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param QualityEvaluationScore 视频无参考质量打分，百分制。
+     * @param QualityEvaluationScore 视频无参考质量评分，百分制。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQualityEvaluationScore(Long QualityEvaluationScore) {
@@ -115,9 +132,29 @@ public class QualityControlData extends AbstractModel{
     }
 
     /**
-     * Get 质检检出异常项。
+     * Get 视频无参考质量评分，MOS分数。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return QualityControlResultSet 质检检出异常项。
+     * @return QualityEvaluationMeanOpinionScore 视频无参考质量评分，MOS分数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getQualityEvaluationMeanOpinionScore() {
+        return this.QualityEvaluationMeanOpinionScore;
+    }
+
+    /**
+     * Set 视频无参考质量评分，MOS分数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QualityEvaluationMeanOpinionScore 视频无参考质量评分，MOS分数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQualityEvaluationMeanOpinionScore(Float QualityEvaluationMeanOpinionScore) {
+        this.QualityEvaluationMeanOpinionScore = QualityEvaluationMeanOpinionScore;
+    }
+
+    /**
+     * Get 内容质检检出异常项。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QualityControlResultSet 内容质检检出异常项。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public QualityControlResult [] getQualityControlResultSet() {
@@ -125,13 +162,33 @@ public class QualityControlData extends AbstractModel{
     }
 
     /**
-     * Set 质检检出异常项。
+     * Set 内容质检检出异常项。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param QualityControlResultSet 质检检出异常项。
+     * @param QualityControlResultSet 内容质检检出异常项。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQualityControlResultSet(QualityControlResult [] QualityControlResultSet) {
         this.QualityControlResultSet = QualityControlResultSet;
+    }
+
+    /**
+     * Get 格式诊断检出异常项
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ContainerDiagnoseResultSet 格式诊断检出异常项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ContainerDiagnoseResultItem [] getContainerDiagnoseResultSet() {
+        return this.ContainerDiagnoseResultSet;
+    }
+
+    /**
+     * Set 格式诊断检出异常项
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ContainerDiagnoseResultSet 格式诊断检出异常项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setContainerDiagnoseResultSet(ContainerDiagnoseResultItem [] ContainerDiagnoseResultSet) {
+        this.ContainerDiagnoseResultSet = ContainerDiagnoseResultSet;
     }
 
     public QualityControlData() {
@@ -151,10 +208,19 @@ public class QualityControlData extends AbstractModel{
         if (source.QualityEvaluationScore != null) {
             this.QualityEvaluationScore = new Long(source.QualityEvaluationScore);
         }
+        if (source.QualityEvaluationMeanOpinionScore != null) {
+            this.QualityEvaluationMeanOpinionScore = new Float(source.QualityEvaluationMeanOpinionScore);
+        }
         if (source.QualityControlResultSet != null) {
             this.QualityControlResultSet = new QualityControlResult[source.QualityControlResultSet.length];
             for (int i = 0; i < source.QualityControlResultSet.length; i++) {
                 this.QualityControlResultSet[i] = new QualityControlResult(source.QualityControlResultSet[i]);
+            }
+        }
+        if (source.ContainerDiagnoseResultSet != null) {
+            this.ContainerDiagnoseResultSet = new ContainerDiagnoseResultItem[source.ContainerDiagnoseResultSet.length];
+            for (int i = 0; i < source.ContainerDiagnoseResultSet.length; i++) {
+                this.ContainerDiagnoseResultSet[i] = new ContainerDiagnoseResultItem(source.ContainerDiagnoseResultSet[i]);
             }
         }
     }
@@ -167,7 +233,9 @@ public class QualityControlData extends AbstractModel{
         this.setParamSimple(map, prefix + "NoAudio", this.NoAudio);
         this.setParamSimple(map, prefix + "NoVideo", this.NoVideo);
         this.setParamSimple(map, prefix + "QualityEvaluationScore", this.QualityEvaluationScore);
+        this.setParamSimple(map, prefix + "QualityEvaluationMeanOpinionScore", this.QualityEvaluationMeanOpinionScore);
         this.setParamArrayObj(map, prefix + "QualityControlResultSet.", this.QualityControlResultSet);
+        this.setParamArrayObj(map, prefix + "ContainerDiagnoseResultSet.", this.ContainerDiagnoseResultSet);
 
     }
 }

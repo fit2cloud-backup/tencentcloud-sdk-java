@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSimpleClustersRequest extends AbstractModel{
+public class DescribeSimpleClustersRequest extends AbstractModel {
 
     /**
     * 需要查询的集群ID列表，不填或不传入时查询所有内容
@@ -58,7 +59,7 @@ public class DescribeSimpleClustersRequest extends AbstractModel{
     private String SearchWord;
 
     /**
-    * 无
+    * 是否关闭鉴权
     */
     @SerializedName("DisableProgramAuthCheck")
     @Expose
@@ -145,16 +146,16 @@ public class DescribeSimpleClustersRequest extends AbstractModel{
     }
 
     /**
-     * Get 无 
-     * @return DisableProgramAuthCheck 无
+     * Get 是否关闭鉴权 
+     * @return DisableProgramAuthCheck 是否关闭鉴权
      */
     public Boolean getDisableProgramAuthCheck() {
         return this.DisableProgramAuthCheck;
     }
 
     /**
-     * Set 无
-     * @param DisableProgramAuthCheck 无
+     * Set 是否关闭鉴权
+     * @param DisableProgramAuthCheck 是否关闭鉴权
      */
     public void setDisableProgramAuthCheck(Boolean DisableProgramAuthCheck) {
         this.DisableProgramAuthCheck = DisableProgramAuthCheck;

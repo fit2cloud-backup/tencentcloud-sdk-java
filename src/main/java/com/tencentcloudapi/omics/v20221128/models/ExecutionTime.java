@@ -16,15 +16,15 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExecutionTime extends AbstractModel{
+public class ExecutionTime extends AbstractModel {
 
     /**
     * 提交时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubmitTime")
     @Expose
@@ -32,7 +32,6 @@ public class ExecutionTime extends AbstractModel{
 
     /**
     * 开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -40,17 +39,14 @@ public class ExecutionTime extends AbstractModel{
 
     /**
     * 结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
 
     /**
-     * Get 提交时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 提交时间。 
      * @return SubmitTime 提交时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubmitTime() {
         return this.SubmitTime;
@@ -58,19 +54,15 @@ public class ExecutionTime extends AbstractModel{
 
     /**
      * Set 提交时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubmitTime 提交时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubmitTime(String SubmitTime) {
         this.SubmitTime = SubmitTime;
     }
 
     /**
-     * Get 开始时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始时间。 
      * @return StartTime 开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -78,19 +70,15 @@ public class ExecutionTime extends AbstractModel{
 
     /**
      * Set 开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 结束时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间。 
      * @return EndTime 结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -98,9 +86,7 @@ public class ExecutionTime extends AbstractModel{
 
     /**
      * Set 结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;

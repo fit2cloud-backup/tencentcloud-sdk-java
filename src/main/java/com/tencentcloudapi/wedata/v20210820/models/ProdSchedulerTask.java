@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProdSchedulerTask extends AbstractModel{
+public class ProdSchedulerTask extends AbstractModel {
 
     /**
     * 生产调度任务工作流ID
@@ -45,6 +46,21 @@ public class ProdSchedulerTask extends AbstractModel{
     @SerializedName("TaskName")
     @Expose
     private String TaskName;
+
+    /**
+    * 生产调度任务任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CycleType")
+    @Expose
+    private Long CycleType;
+
+    /**
+    * 生产任务类型
+    */
+    @SerializedName("TaskType")
+    @Expose
+    private String TaskType;
 
     /**
      * Get 生产调度任务工作流ID
@@ -106,6 +122,42 @@ public class ProdSchedulerTask extends AbstractModel{
         this.TaskName = TaskName;
     }
 
+    /**
+     * Get 生产调度任务任务类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CycleType 生产调度任务任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCycleType() {
+        return this.CycleType;
+    }
+
+    /**
+     * Set 生产调度任务任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CycleType 生产调度任务任务类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCycleType(Long CycleType) {
+        this.CycleType = CycleType;
+    }
+
+    /**
+     * Get 生产任务类型 
+     * @return TaskType 生产任务类型
+     */
+    public String getTaskType() {
+        return this.TaskType;
+    }
+
+    /**
+     * Set 生产任务类型
+     * @param TaskType 生产任务类型
+     */
+    public void setTaskType(String TaskType) {
+        this.TaskType = TaskType;
+    }
+
     public ProdSchedulerTask() {
     }
 
@@ -123,6 +175,12 @@ public class ProdSchedulerTask extends AbstractModel{
         if (source.TaskName != null) {
             this.TaskName = new String(source.TaskName);
         }
+        if (source.CycleType != null) {
+            this.CycleType = new Long(source.CycleType);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new String(source.TaskType);
+        }
     }
 
 
@@ -133,6 +191,8 @@ public class ProdSchedulerTask extends AbstractModel{
         this.setParamSimple(map, prefix + "WorkflowId", this.WorkflowId);
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "TaskName", this.TaskName);
+        this.setParamSimple(map, prefix + "CycleType", this.CycleType);
+        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
 
     }
 }

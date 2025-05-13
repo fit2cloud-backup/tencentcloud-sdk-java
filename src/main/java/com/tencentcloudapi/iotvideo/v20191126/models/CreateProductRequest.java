@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotvideo.v20191126.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateProductRequest extends AbstractModel{
+public class CreateProductRequest extends AbstractModel {
 
     /**
     * 产器型号(APP产品,为APP包名)
@@ -72,7 +73,6 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
     */
     @SerializedName("ProductRegion")
@@ -217,14 +217,12 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区） 
      * @return ProductRegion 地域：
 China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
      */
     public String getProductRegion() {
@@ -237,14 +235,12 @@ China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
      * @param ProductRegion 地域：
 China-Mainland（中国大陆）
 China-Hong Kong, Macao and Taiwan（港澳台地区）
 America（美国）
 Europe（欧洲）
-India（印度）
 Other-Overseas（其他境外地区）
      */
     public void setProductRegion(String ProductRegion) {

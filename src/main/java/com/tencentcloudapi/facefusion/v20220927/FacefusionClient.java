@@ -45,24 +45,13 @@ public class FacefusionClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeMaterialListResponse DescribeMaterialList(DescribeMaterialListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeMaterialListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeMaterialListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeMaterialList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeMaterialList", DescribeMaterialListResponse.class);
     }
 
     /**
      *本接口用于单脸、多脸、选脸融合，上传人脸图片，得到与素材模板融合后的人脸图片。支持为融合结果图添加标识。查看 <a href="https://cloud.tencent.com/document/product/670/38247" target="_blank">融合接入指引</a>。
 
-请求频率限制为20次/秒。
 >
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
      * @param req FuseFaceRequest
@@ -70,18 +59,19 @@ public class FacefusionClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public FuseFaceResponse FuseFace(FuseFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<FuseFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<FuseFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "FuseFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "FuseFace", FuseFaceResponse.class);
+    }
+
+    /**
+     *图片人脸融合（专业版）为同步接口，支持自定义美颜、人脸增强、牙齿增强、拉脸等参数，最高支持8K分辨率，有多个模型类型供选择。查看 <a href="https://cloud.tencent.com/document/product/670/38247" target="_blank">融合接入指引</a>。
+     * @param req FuseFaceUltraRequest
+     * @return FuseFaceUltraResponse
+     * @throws TencentCloudSDKException
+     */
+    public FuseFaceUltraResponse FuseFaceUltra(FuseFaceUltraRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "FuseFaceUltra", FuseFaceUltraResponse.class);
     }
 
 }

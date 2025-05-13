@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LaunchTemplateVersionInfo extends AbstractModel{
+public class LaunchTemplateVersionInfo extends AbstractModel {
 
     /**
     * 实例启动模板版本号。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LaunchTemplateVersion")
     @Expose
@@ -60,24 +60,21 @@ public class LaunchTemplateVersionInfo extends AbstractModel{
 
     /**
     * 实例启动模板版本描述信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LaunchTemplateVersionDescription")
     @Expose
     private String LaunchTemplateVersionDescription;
 
     /**
-    * 创建者。
+    * 创建者的AppId。
     */
     @SerializedName("CreatedBy")
     @Expose
     private String CreatedBy;
 
     /**
-     * Get 实例启动模板版本号。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例启动模板版本号。 
      * @return LaunchTemplateVersion 实例启动模板版本号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLaunchTemplateVersion() {
         return this.LaunchTemplateVersion;
@@ -85,9 +82,7 @@ public class LaunchTemplateVersionInfo extends AbstractModel{
 
     /**
      * Set 实例启动模板版本号。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LaunchTemplateVersion 实例启动模板版本号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLaunchTemplateVersion(Long LaunchTemplateVersion) {
         this.LaunchTemplateVersion = LaunchTemplateVersion;
@@ -158,10 +153,8 @@ public class LaunchTemplateVersionInfo extends AbstractModel{
     }
 
     /**
-     * Get 实例启动模板版本描述信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例启动模板版本描述信息。 
      * @return LaunchTemplateVersionDescription 实例启动模板版本描述信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLaunchTemplateVersionDescription() {
         return this.LaunchTemplateVersionDescription;
@@ -169,25 +162,23 @@ public class LaunchTemplateVersionInfo extends AbstractModel{
 
     /**
      * Set 实例启动模板版本描述信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LaunchTemplateVersionDescription 实例启动模板版本描述信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLaunchTemplateVersionDescription(String LaunchTemplateVersionDescription) {
         this.LaunchTemplateVersionDescription = LaunchTemplateVersionDescription;
     }
 
     /**
-     * Get 创建者。 
-     * @return CreatedBy 创建者。
+     * Get 创建者的AppId。 
+     * @return CreatedBy 创建者的AppId。
      */
     public String getCreatedBy() {
         return this.CreatedBy;
     }
 
     /**
-     * Set 创建者。
-     * @param CreatedBy 创建者。
+     * Set 创建者的AppId。
+     * @param CreatedBy 创建者的AppId。
      */
     public void setCreatedBy(String CreatedBy) {
         this.CreatedBy = CreatedBy;

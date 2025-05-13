@@ -16,145 +16,179 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyIntegrationDepartmentRequest extends AbstractModel{
+public class ModifyIntegrationDepartmentRequest extends AbstractModel {
 
     /**
-    * 操作人信息，UserId必填且需拥有组织架构管理权限
+    * 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 电子签部门ID,通过DescribeIntegrationDepartments接口可以获取
+    * 电子签部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
     */
     @SerializedName("DeptId")
     @Expose
     private String DeptId;
 
     /**
-    * 电子签父部门ID，通过DescribeIntegrationDepartments接口可以获取
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
+
+    /**
+    * 电子签父部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
     */
     @SerializedName("ParentDeptId")
     @Expose
     private String ParentDeptId;
 
     /**
-    * 部门名称，不超过50个字符
+    * 部门名称，最大长度为50个字符。
     */
     @SerializedName("DeptName")
     @Expose
     private String DeptName;
 
     /**
-    * 客户系统部门ID，不超过64个字符
+    * 客户系统部门ID，最大长度为64个字符。
     */
     @SerializedName("DeptOpenId")
     @Expose
     private String DeptOpenId;
 
     /**
-    * 排序号,1~30000范围内
+    * 排序号，支持设置的数值范围为1~30000。同一父部门下，排序号越大，部门顺序越靠前。
     */
     @SerializedName("OrderNo")
     @Expose
     private Long OrderNo;
 
     /**
-     * Get 操作人信息，UserId必填且需拥有组织架构管理权限 
-     * @return Operator 操作人信息，UserId必填且需拥有组织架构管理权限
+     * Get 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作人信息，UserId必填且需拥有组织架构管理权限
-     * @param Operator 操作人信息，UserId必填且需拥有组织架构管理权限
+     * Set 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得组织架构管理权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 电子签部门ID,通过DescribeIntegrationDepartments接口可以获取 
-     * @return DeptId 电子签部门ID,通过DescribeIntegrationDepartments接口可以获取
+     * Get 电子签部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。 
+     * @return DeptId 电子签部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
      */
     public String getDeptId() {
         return this.DeptId;
     }
 
     /**
-     * Set 电子签部门ID,通过DescribeIntegrationDepartments接口可以获取
-     * @param DeptId 电子签部门ID,通过DescribeIntegrationDepartments接口可以获取
+     * Set 电子签部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
+     * @param DeptId 电子签部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
      */
     public void setDeptId(String DeptId) {
         this.DeptId = DeptId;
     }
 
     /**
-     * Get 电子签父部门ID，通过DescribeIntegrationDepartments接口可以获取 
-     * @return ParentDeptId 电子签父部门ID，通过DescribeIntegrationDepartments接口可以获取
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
+    }
+
+    /**
+     * Get 电子签父部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。 
+     * @return ParentDeptId 电子签父部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
      */
     public String getParentDeptId() {
         return this.ParentDeptId;
     }
 
     /**
-     * Set 电子签父部门ID，通过DescribeIntegrationDepartments接口可以获取
-     * @param ParentDeptId 电子签父部门ID，通过DescribeIntegrationDepartments接口可以获取
+     * Set 电子签父部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
+     * @param ParentDeptId 电子签父部门ID，通过<a href="https://qian.tencent.com/developers/companyApis/organizations/DescribeIntegrationDepartments" target="_blank">DescribeIntegrationDepartments</a>接口获得。
      */
     public void setParentDeptId(String ParentDeptId) {
         this.ParentDeptId = ParentDeptId;
     }
 
     /**
-     * Get 部门名称，不超过50个字符 
-     * @return DeptName 部门名称，不超过50个字符
+     * Get 部门名称，最大长度为50个字符。 
+     * @return DeptName 部门名称，最大长度为50个字符。
      */
     public String getDeptName() {
         return this.DeptName;
     }
 
     /**
-     * Set 部门名称，不超过50个字符
-     * @param DeptName 部门名称，不超过50个字符
+     * Set 部门名称，最大长度为50个字符。
+     * @param DeptName 部门名称，最大长度为50个字符。
      */
     public void setDeptName(String DeptName) {
         this.DeptName = DeptName;
     }
 
     /**
-     * Get 客户系统部门ID，不超过64个字符 
-     * @return DeptOpenId 客户系统部门ID，不超过64个字符
+     * Get 客户系统部门ID，最大长度为64个字符。 
+     * @return DeptOpenId 客户系统部门ID，最大长度为64个字符。
      */
     public String getDeptOpenId() {
         return this.DeptOpenId;
     }
 
     /**
-     * Set 客户系统部门ID，不超过64个字符
-     * @param DeptOpenId 客户系统部门ID，不超过64个字符
+     * Set 客户系统部门ID，最大长度为64个字符。
+     * @param DeptOpenId 客户系统部门ID，最大长度为64个字符。
      */
     public void setDeptOpenId(String DeptOpenId) {
         this.DeptOpenId = DeptOpenId;
     }
 
     /**
-     * Get 排序号,1~30000范围内 
-     * @return OrderNo 排序号,1~30000范围内
+     * Get 排序号，支持设置的数值范围为1~30000。同一父部门下，排序号越大，部门顺序越靠前。 
+     * @return OrderNo 排序号，支持设置的数值范围为1~30000。同一父部门下，排序号越大，部门顺序越靠前。
      */
     public Long getOrderNo() {
         return this.OrderNo;
     }
 
     /**
-     * Set 排序号,1~30000范围内
-     * @param OrderNo 排序号,1~30000范围内
+     * Set 排序号，支持设置的数值范围为1~30000。同一父部门下，排序号越大，部门顺序越靠前。
+     * @param OrderNo 排序号，支持设置的数值范围为1~30000。同一父部门下，排序号越大，部门顺序越靠前。
      */
     public void setOrderNo(Long OrderNo) {
         this.OrderNo = OrderNo;
@@ -173,6 +207,9 @@ public class ModifyIntegrationDepartmentRequest extends AbstractModel{
         }
         if (source.DeptId != null) {
             this.DeptId = new String(source.DeptId);
+        }
+        if (source.Agent != null) {
+            this.Agent = new Agent(source.Agent);
         }
         if (source.ParentDeptId != null) {
             this.ParentDeptId = new String(source.ParentDeptId);
@@ -195,6 +232,7 @@ public class ModifyIntegrationDepartmentRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamSimple(map, prefix + "DeptId", this.DeptId);
+        this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamSimple(map, prefix + "ParentDeptId", this.ParentDeptId);
         this.setParamSimple(map, prefix + "DeptName", this.DeptName);
         this.setParamSimple(map, prefix + "DeptOpenId", this.DeptOpenId);

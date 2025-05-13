@@ -16,14 +16,15 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReviewTemplate extends AbstractModel{
+public class ReviewTemplate extends AbstractModel {
 
     /**
-    * 审核模版唯一标签。
+    * 审核模板唯一标签。
     */
     @SerializedName("Definition")
     @Expose
@@ -74,16 +75,16 @@ public class ReviewTemplate extends AbstractModel{
     private String UpdateTime;
 
     /**
-     * Get 审核模版唯一标签。 
-     * @return Definition 审核模版唯一标签。
+     * Get 审核模板唯一标签。 
+     * @return Definition 审核模板唯一标签。
      */
     public Long getDefinition() {
         return this.Definition;
     }
 
     /**
-     * Set 审核模版唯一标签。
-     * @param Definition 审核模版唯一标签。
+     * Set 审核模板唯一标签。
+     * @param Definition 审核模板唯一标签。
      */
     public void setDefinition(Long Definition) {
         this.Definition = Definition;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sms.v20210111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTemplateListStatus extends AbstractModel{
+public class DescribeTemplateListStatus extends AbstractModel {
 
     /**
     * 模板ID。
@@ -30,14 +31,14 @@ public class DescribeTemplateListStatus extends AbstractModel{
     private Long TemplateId;
 
     /**
-    * 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信。
+    * 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信，3表示该模板既支持国内短信也支持国际/港澳台短信。
     */
     @SerializedName("International")
     @Expose
     private Long International;
 
     /**
-    * 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。
+    * 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。注：只有状态值为0时该模板才能使用。
     */
     @SerializedName("StatusCode")
     @Expose
@@ -88,32 +89,32 @@ public class DescribeTemplateListStatus extends AbstractModel{
     }
 
     /**
-     * Get 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信。 
-     * @return International 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信。
+     * Get 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信，3表示该模板既支持国内短信也支持国际/港澳台短信。 
+     * @return International 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信，3表示该模板既支持国内短信也支持国际/港澳台短信。
      */
     public Long getInternational() {
         return this.International;
     }
 
     /**
-     * Set 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信。
-     * @param International 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信。
+     * Set 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信，3表示该模板既支持国内短信也支持国际/港澳台短信。
+     * @param International 是否国际/港澳台短信，其中0表示国内短信，1表示国际/港澳台短信，3表示该模板既支持国内短信也支持国际/港澳台短信。
      */
     public void setInternational(Long International) {
         this.International = International;
     }
 
     /**
-     * Get 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。 
-     * @return StatusCode 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。
+     * Get 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。注：只有状态值为0时该模板才能使用。 
+     * @return StatusCode 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。注：只有状态值为0时该模板才能使用。
      */
     public Long getStatusCode() {
         return this.StatusCode;
     }
 
     /**
-     * Set 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。
-     * @param StatusCode 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。
+     * Set 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。注：只有状态值为0时该模板才能使用。
+     * @param StatusCode 申请模板状态，其中0表示审核通过且已生效，1表示审核中，2表示审核通过待生效，-1表示审核未通过或审核失败。注：只有状态值为0时该模板才能使用。
      */
     public void setStatusCode(Long StatusCode) {
         this.StatusCode = StatusCode;

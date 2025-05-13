@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDCDBShardsResponse extends AbstractModel{
+public class DescribeDCDBShardsResponse extends AbstractModel {
 
     /**
     * 符合条件的分片数量
@@ -38,14 +39,13 @@ public class DescribeDCDBShardsResponse extends AbstractModel{
 
     /**
     * 灾备标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DcnFlag")
     @Expose
     private Long DcnFlag;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -84,10 +84,8 @@ public class DescribeDCDBShardsResponse extends AbstractModel{
     }
 
     /**
-     * Get 灾备标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 灾备标志，0-无，1-主实例，2-灾备实例 
      * @return DcnFlag 灾备标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDcnFlag() {
         return this.DcnFlag;
@@ -95,25 +93,23 @@ public class DescribeDCDBShardsResponse extends AbstractModel{
 
     /**
      * Set 灾备标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DcnFlag 灾备标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDcnFlag(Long DcnFlag) {
         this.DcnFlag = DcnFlag;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdatePublishCdnStreamRequest extends AbstractModel{
+public class UpdatePublishCdnStreamRequest extends AbstractModel {
 
     /**
     * TRTC的[SdkAppId](https://cloud.tencent.com/document/product/647/46351#sdkappid)，和转推的房间所对应的SdkAppId相同。
@@ -45,13 +46,14 @@ public class UpdatePublishCdnStreamRequest extends AbstractModel{
 
     /**
     * 是否转码，0表示无需转码，1表示需要转码。
+注：混流是必须转码，这个参数需设置为1。
     */
     @SerializedName("WithTranscoding")
     @Expose
     private Long WithTranscoding;
 
     /**
-    * 更新相关参数，只支持更新参与混音的主播列表参数。不填表示不更新此参数。
+    * 更新相关参数，只支持更新参与混音的主播列表参数，不支持更新Codec、采样率、码率和声道数。不填表示不更新此参数。
     */
     @SerializedName("AudioParams")
     @Expose
@@ -141,8 +143,10 @@ public class UpdatePublishCdnStreamRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否转码，0表示无需转码，1表示需要转码。 
+     * Get 是否转码，0表示无需转码，1表示需要转码。
+注：混流是必须转码，这个参数需设置为1。 
      * @return WithTranscoding 是否转码，0表示无需转码，1表示需要转码。
+注：混流是必须转码，这个参数需设置为1。
      */
     public Long getWithTranscoding() {
         return this.WithTranscoding;
@@ -150,23 +154,25 @@ public class UpdatePublishCdnStreamRequest extends AbstractModel{
 
     /**
      * Set 是否转码，0表示无需转码，1表示需要转码。
+注：混流是必须转码，这个参数需设置为1。
      * @param WithTranscoding 是否转码，0表示无需转码，1表示需要转码。
+注：混流是必须转码，这个参数需设置为1。
      */
     public void setWithTranscoding(Long WithTranscoding) {
         this.WithTranscoding = WithTranscoding;
     }
 
     /**
-     * Get 更新相关参数，只支持更新参与混音的主播列表参数。不填表示不更新此参数。 
-     * @return AudioParams 更新相关参数，只支持更新参与混音的主播列表参数。不填表示不更新此参数。
+     * Get 更新相关参数，只支持更新参与混音的主播列表参数，不支持更新Codec、采样率、码率和声道数。不填表示不更新此参数。 
+     * @return AudioParams 更新相关参数，只支持更新参与混音的主播列表参数，不支持更新Codec、采样率、码率和声道数。不填表示不更新此参数。
      */
     public McuAudioParams getAudioParams() {
         return this.AudioParams;
     }
 
     /**
-     * Set 更新相关参数，只支持更新参与混音的主播列表参数。不填表示不更新此参数。
-     * @param AudioParams 更新相关参数，只支持更新参与混音的主播列表参数。不填表示不更新此参数。
+     * Set 更新相关参数，只支持更新参与混音的主播列表参数，不支持更新Codec、采样率、码率和声道数。不填表示不更新此参数。
+     * @param AudioParams 更新相关参数，只支持更新参与混音的主播列表参数，不支持更新Codec、采样率、码率和声道数。不填表示不更新此参数。
      */
     public void setAudioParams(McuAudioParams AudioParams) {
         this.AudioParams = AudioParams;

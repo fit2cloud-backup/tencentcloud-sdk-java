@@ -39,27 +39,17 @@ public class TatClient extends AbstractClient{
     }
 
     /**
-     *取消一台或多台CVM实例执行的命令
+     *取消一台或多台实例执行的命令
 
-* 如果命令还未下发到agent，任务状态处于处于PENDING、DELIVERING、DELIVER_DELAYED，取消后任务状态是CANCELLED
+* 如果命令还未下发到agent，任务状态处于PENDING、DELIVERING、DELIVER_DELAYED，取消后任务状态是CANCELLED
 * 如果命令已下发到agent，任务状态处于RUNNING， 取消后任务状态是TERMINATED
      * @param req CancelInvocationRequest
      * @return CancelInvocationResponse
      * @throws TencentCloudSDKException
      */
     public CancelInvocationResponse CancelInvocation(CancelInvocationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CancelInvocationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CancelInvocationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CancelInvocation");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CancelInvocation", CancelInvocationResponse.class);
     }
 
     /**
@@ -69,18 +59,8 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateCommandResponse CreateCommand(CreateCommandRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCommandResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCommandResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCommand");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCommand", CreateCommandResponse.class);
     }
 
     /**
@@ -90,18 +70,19 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateInvokerResponse CreateInvoker(CreateInvokerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateInvokerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateInvokerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateInvoker");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateInvoker", CreateInvokerResponse.class);
+    }
+
+    /**
+     *接口用于创建注册码。
+     * @param req CreateRegisterCodeRequest
+     * @return CreateRegisterCodeResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateRegisterCodeResponse CreateRegisterCode(CreateRegisterCodeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateRegisterCode", CreateRegisterCodeResponse.class);
     }
 
     /**
@@ -112,18 +93,19 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteCommandResponse DeleteCommand(DeleteCommandRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteCommandResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteCommandResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteCommand");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteCommand", DeleteCommandResponse.class);
+    }
+
+    /**
+     *批量删除命令接口
+     * @param req DeleteCommandsRequest
+     * @return DeleteCommandsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCommandsResponse DeleteCommands(DeleteCommandsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteCommands", DeleteCommandsResponse.class);
     }
 
     /**
@@ -133,18 +115,30 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteInvokerResponse DeleteInvoker(DeleteInvokerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteInvokerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteInvokerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteInvoker");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteInvoker", DeleteInvokerResponse.class);
+    }
+
+    /**
+     *此接口用于批量删除注册码。
+     * @param req DeleteRegisterCodesRequest
+     * @return DeleteRegisterCodesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRegisterCodesResponse DeleteRegisterCodes(DeleteRegisterCodesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteRegisterCodes", DeleteRegisterCodesResponse.class);
+    }
+
+    /**
+     *接口用于删除托管实例。
+     * @param req DeleteRegisterInstanceRequest
+     * @return DeleteRegisterInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteRegisterInstanceResponse DeleteRegisterInstance(DeleteRegisterInstanceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteRegisterInstance", DeleteRegisterInstanceResponse.class);
     }
 
     /**
@@ -154,18 +148,8 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAutomationAgentStatusResponse DescribeAutomationAgentStatus(DescribeAutomationAgentStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAutomationAgentStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAutomationAgentStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAutomationAgentStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAutomationAgentStatus", DescribeAutomationAgentStatusResponse.class);
     }
 
     /**
@@ -175,18 +159,8 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCommandsResponse DescribeCommands(DescribeCommandsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCommandsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCommandsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCommands");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCommands", DescribeCommandsResponse.class);
     }
 
     /**
@@ -196,18 +170,8 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeInvocationTasksResponse DescribeInvocationTasks(DescribeInvocationTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInvocationTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInvocationTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInvocationTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInvocationTasks", DescribeInvocationTasksResponse.class);
     }
 
     /**
@@ -217,18 +181,8 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeInvocationsResponse DescribeInvocations(DescribeInvocationsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInvocationsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInvocationsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInvocations");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInvocations", DescribeInvocationsResponse.class);
     }
 
     /**
@@ -238,18 +192,8 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeInvokerRecordsResponse DescribeInvokerRecords(DescribeInvokerRecordsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInvokerRecordsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInvokerRecordsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInvokerRecords");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInvokerRecords", DescribeInvokerRecordsResponse.class);
     }
 
     /**
@@ -259,18 +203,19 @@ public class TatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeInvokersResponse DescribeInvokers(DescribeInvokersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInvokersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInvokersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInvokers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInvokers", DescribeInvokersResponse.class);
+    }
+
+    /**
+     *此接口用于获取配额信息
+     * @param req DescribeQuotasRequest
+     * @return DescribeQuotasResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeQuotasResponse DescribeQuotas(DescribeQuotasRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeQuotas", DescribeQuotasResponse.class);
     }
 
     /**
@@ -281,18 +226,41 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public DescribeRegionsResponse DescribeRegions(DescribeRegionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRegionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRegionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRegions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRegions", DescribeRegionsResponse.class);
+    }
+
+    /**
+     *接口用于查询注册码信息。
+     * @param req DescribeRegisterCodesRequest
+     * @return DescribeRegisterCodesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRegisterCodesResponse DescribeRegisterCodes(DescribeRegisterCodesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeRegisterCodes", DescribeRegisterCodesResponse.class);
+    }
+
+    /**
+     *接口用于查询被托管的实例信息。
+     * @param req DescribeRegisterInstancesRequest
+     * @return DescribeRegisterInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRegisterInstancesResponse DescribeRegisterInstances(DescribeRegisterInstancesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeRegisterInstances", DescribeRegisterInstancesResponse.class);
+    }
+
+    /**
+     *此接口用于查询场景详情。
+     * @param req DescribeScenesRequest
+     * @return DescribeScenesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeScenesResponse DescribeScenes(DescribeScenesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeScenes", DescribeScenesResponse.class);
     }
 
     /**
@@ -302,18 +270,19 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public DisableInvokerResponse DisableInvoker(DisableInvokerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableInvokerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableInvokerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableInvoker");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableInvoker", DisableInvokerResponse.class);
+    }
+
+    /**
+     *此接口用于批量禁用注册码。
+     * @param req DisableRegisterCodesRequest
+     * @return DisableRegisterCodesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DisableRegisterCodesResponse DisableRegisterCodes(DisableRegisterCodesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DisableRegisterCodes", DisableRegisterCodesResponse.class);
     }
 
     /**
@@ -323,18 +292,8 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public EnableInvokerResponse EnableInvoker(EnableInvokerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableInvokerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableInvokerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableInvoker");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableInvoker", EnableInvokerResponse.class);
     }
 
     /**
@@ -350,18 +309,8 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public InvokeCommandResponse InvokeCommand(InvokeCommandRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InvokeCommandResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InvokeCommandResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InvokeCommand");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InvokeCommand", InvokeCommandResponse.class);
     }
 
     /**
@@ -371,18 +320,8 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public ModifyCommandResponse ModifyCommand(ModifyCommandRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCommandResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCommandResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCommand");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCommand", ModifyCommandResponse.class);
     }
 
     /**
@@ -392,18 +331,19 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public ModifyInvokerResponse ModifyInvoker(ModifyInvokerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyInvokerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyInvokerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyInvoker");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyInvoker", ModifyInvokerResponse.class);
+    }
+
+    /**
+     *接口用于修改托管实例信息。
+     * @param req ModifyRegisterInstanceRequest
+     * @return ModifyRegisterInstanceResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRegisterInstanceResponse ModifyRegisterInstance(ModifyRegisterInstanceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyRegisterInstance", ModifyRegisterInstanceResponse.class);
     }
 
     /**
@@ -413,18 +353,8 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public PreviewReplacedCommandContentResponse PreviewReplacedCommandContent(PreviewReplacedCommandContentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<PreviewReplacedCommandContentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<PreviewReplacedCommandContentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "PreviewReplacedCommandContent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "PreviewReplacedCommandContent", PreviewReplacedCommandContentResponse.class);
     }
 
     /**
@@ -440,18 +370,8 @@ RegionState 为 AVAILABLE，代表该地域的 TAT 后台服务已经可用；�
      * @throws TencentCloudSDKException
      */
     public RunCommandResponse RunCommand(RunCommandRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RunCommandResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RunCommandResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RunCommand");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RunCommand", RunCommandResponse.class);
     }
 
 }

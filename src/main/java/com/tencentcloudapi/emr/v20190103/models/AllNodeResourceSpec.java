@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AllNodeResourceSpec extends AbstractModel{
+public class AllNodeResourceSpec extends AbstractModel {
 
     /**
     * 描述Master节点资源
@@ -56,7 +57,6 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
     * Master节点数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MasterCount")
     @Expose
@@ -64,7 +64,6 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
     * Corer节点数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CoreCount")
     @Expose
@@ -72,7 +71,6 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
     * Task节点数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskCount")
     @Expose
@@ -80,7 +78,6 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
     * Common节点数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CommonCount")
     @Expose
@@ -167,10 +164,8 @@ public class AllNodeResourceSpec extends AbstractModel{
     }
 
     /**
-     * Get Master节点数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Master节点数量 
      * @return MasterCount Master节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMasterCount() {
         return this.MasterCount;
@@ -178,19 +173,15 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
      * Set Master节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MasterCount Master节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMasterCount(Long MasterCount) {
         this.MasterCount = MasterCount;
     }
 
     /**
-     * Get Corer节点数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Corer节点数量 
      * @return CoreCount Corer节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCoreCount() {
         return this.CoreCount;
@@ -198,19 +189,15 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
      * Set Corer节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CoreCount Corer节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoreCount(Long CoreCount) {
         this.CoreCount = CoreCount;
     }
 
     /**
-     * Get Task节点数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Task节点数量 
      * @return TaskCount Task节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskCount() {
         return this.TaskCount;
@@ -218,19 +205,15 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
      * Set Task节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskCount Task节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskCount(Long TaskCount) {
         this.TaskCount = TaskCount;
     }
 
     /**
-     * Get Common节点数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Common节点数量 
      * @return CommonCount Common节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCommonCount() {
         return this.CommonCount;
@@ -238,9 +221,7 @@ public class AllNodeResourceSpec extends AbstractModel{
 
     /**
      * Set Common节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CommonCount Common节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCommonCount(Long CommonCount) {
         this.CommonCount = CommonCount;

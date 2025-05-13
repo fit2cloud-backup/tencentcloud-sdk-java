@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ims.v20201229.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OcrTextDetail extends AbstractModel{
+public class OcrTextDetail extends AbstractModel {
 
     /**
     * 该字段用于返回OCR识别出的文本内容。<br>备注：OCR文本识别上限在**5000字节内**。
@@ -30,21 +31,21 @@ public class OcrTextDetail extends AbstractModel{
     private String Text;
 
     /**
-    * 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+    * 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
     */
     @SerializedName("Label")
     @Expose
     private String Label;
 
     /**
-    * 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的ID，以方便自定义库管理和配置。
+    * 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
     */
     @SerializedName("LibId")
     @Expose
     private String LibId;
 
     /**
-    * 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的名称，以方便自定义库管理和配置。
+    * 该字段用于返回自定义库的名称，以方便自定义库管理和配置。
     */
     @SerializedName("LibName")
     @Expose
@@ -86,6 +87,13 @@ public class OcrTextDetail extends AbstractModel{
     private String SubLabel;
 
     /**
+    * 关键词命中位置信息
+    */
+    @SerializedName("HitInfos")
+    @Expose
+    private OcrHitInfo [] HitInfos;
+
+    /**
      * Get 该字段用于返回OCR识别出的文本内容。<br>备注：OCR文本识别上限在**5000字节内**。 
      * @return Text 该字段用于返回OCR识别出的文本内容。<br>备注：OCR文本识别上限在**5000字节内**。
      */
@@ -102,48 +110,48 @@ public class OcrTextDetail extends AbstractModel{
     }
 
     /**
-     * Get 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。 
-     * @return Label 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+     * Get 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。 
+     * @return Label 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
      */
     public String getLabel() {
         return this.Label;
     }
 
     /**
-     * Set 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
-     * @param Label 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告，**Custom**：自定义违规；以及其他令人反感、不安全或不适宜的内容类型。
+     * Set 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
+     * @param Label 该字段用于返回检测结果所对应的恶意标签。<br>返回值：**Normal**：正常，**Porn**：色情，**Abuse**：谩骂，**Ad**：广告；以及其他令人反感、不安全或不适宜的内容类型。
      */
     public void setLabel(String Label) {
         this.Label = Label;
     }
 
     /**
-     * Get 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的ID，以方便自定义库管理和配置。 
-     * @return LibId 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的ID，以方便自定义库管理和配置。
+     * Get 该字段用于返回自定义库的ID，以方便自定义库管理和配置。 
+     * @return LibId 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
      */
     public String getLibId() {
         return this.LibId;
     }
 
     /**
-     * Set 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的ID，以方便自定义库管理和配置。
-     * @param LibId 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的ID，以方便自定义库管理和配置。
+     * Set 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
+     * @param LibId 该字段用于返回自定义库的ID，以方便自定义库管理和配置。
      */
     public void setLibId(String LibId) {
         this.LibId = LibId;
     }
 
     /**
-     * Get 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的名称，以方便自定义库管理和配置。 
-     * @return LibName 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的名称，以方便自定义库管理和配置。
+     * Get 该字段用于返回自定义库的名称，以方便自定义库管理和配置。 
+     * @return LibName 该字段用于返回自定义库的名称，以方便自定义库管理和配置。
      */
     public String getLibName() {
         return this.LibName;
     }
 
     /**
-     * Set 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的名称，以方便自定义库管理和配置。
-     * @param LibName 该字段**仅当Label为Custom自定义关键词时有效**，用于返回自定义库的名称，以方便自定义库管理和配置。
+     * Set 该字段用于返回自定义库的名称，以方便自定义库管理和配置。
+     * @param LibName 该字段用于返回自定义库的名称，以方便自定义库管理和配置。
      */
     public void setLibName(String LibName) {
         this.LibName = LibName;
@@ -229,6 +237,22 @@ public class OcrTextDetail extends AbstractModel{
         this.SubLabel = SubLabel;
     }
 
+    /**
+     * Get 关键词命中位置信息 
+     * @return HitInfos 关键词命中位置信息
+     */
+    public OcrHitInfo [] getHitInfos() {
+        return this.HitInfos;
+    }
+
+    /**
+     * Set 关键词命中位置信息
+     * @param HitInfos 关键词命中位置信息
+     */
+    public void setHitInfos(OcrHitInfo [] HitInfos) {
+        this.HitInfos = HitInfos;
+    }
+
     public OcrTextDetail() {
     }
 
@@ -267,6 +291,12 @@ public class OcrTextDetail extends AbstractModel{
         if (source.SubLabel != null) {
             this.SubLabel = new String(source.SubLabel);
         }
+        if (source.HitInfos != null) {
+            this.HitInfos = new OcrHitInfo[source.HitInfos.length];
+            for (int i = 0; i < source.HitInfos.length; i++) {
+                this.HitInfos[i] = new OcrHitInfo(source.HitInfos[i]);
+            }
+        }
     }
 
 
@@ -283,6 +313,7 @@ public class OcrTextDetail extends AbstractModel{
         this.setParamObj(map, prefix + "Location.", this.Location);
         this.setParamSimple(map, prefix + "Rate", this.Rate);
         this.setParamSimple(map, prefix + "SubLabel", this.SubLabel);
+        this.setParamArrayObj(map, prefix + "HitInfos.", this.HitInfos);
 
     }
 }

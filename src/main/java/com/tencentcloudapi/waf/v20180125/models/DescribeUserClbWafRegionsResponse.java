@@ -16,32 +16,37 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUserClbWafRegionsResponse extends AbstractModel{
+public class DescribeUserClbWafRegionsResponse extends AbstractModel {
 
     /**
     * 地域（标准的ap-格式）列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private String [] Data;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 包含详细属性的地域信息
+    */
+    @SerializedName("RichDatas")
+    @Expose
+    private ClbWafRegionItem [] RichDatas;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 地域（标准的ap-格式）列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域（标准的ap-格式）列表 
      * @return Data 地域（标准的ap-格式）列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getData() {
         return this.Data;
@@ -49,25 +54,39 @@ public class DescribeUserClbWafRegionsResponse extends AbstractModel{
 
     /**
      * Set 地域（标准的ap-格式）列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 地域（标准的ap-格式）列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(String [] Data) {
         this.Data = Data;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 包含详细属性的地域信息 
+     * @return RichDatas 包含详细属性的地域信息
+     */
+    public ClbWafRegionItem [] getRichDatas() {
+        return this.RichDatas;
+    }
+
+    /**
+     * Set 包含详细属性的地域信息
+     * @param RichDatas 包含详细属性的地域信息
+     */
+    public void setRichDatas(ClbWafRegionItem [] RichDatas) {
+        this.RichDatas = RichDatas;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -87,6 +106,12 @@ public class DescribeUserClbWafRegionsResponse extends AbstractModel{
                 this.Data[i] = new String(source.Data[i]);
             }
         }
+        if (source.RichDatas != null) {
+            this.RichDatas = new ClbWafRegionItem[source.RichDatas.length];
+            for (int i = 0; i < source.RichDatas.length; i++) {
+                this.RichDatas[i] = new ClbWafRegionItem(source.RichDatas[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -98,6 +123,7 @@ public class DescribeUserClbWafRegionsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "Data.", this.Data);
+        this.setParamArrayObj(map, prefix + "RichDatas.", this.RichDatas);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,28 +16,29 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Instance extends AbstractModel{
+public class Instance extends AbstractModel {
 
     /**
-    * 实例id
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 实例名称
+    * ckafka集群实例Name
     */
     @SerializedName("InstanceName")
     @Expose
     private String InstanceName;
 
     /**
-    * 实例的状态。0：创建中，1：运行中，2：删除中 ， 5 隔离中，-1 创建失败
+    * 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
     */
     @SerializedName("Status")
     @Expose
@@ -45,65 +46,62 @@ public class Instance extends AbstractModel{
 
     /**
     * 是否开源实例。开源：true，不开源：false
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IfCommunity")
     @Expose
     private Boolean IfCommunity;
 
     /**
-     * Get 实例id 
-     * @return InstanceId 实例id
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例id
-     * @param InstanceId 实例id
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 实例名称 
-     * @return InstanceName 实例名称
+     * Get ckafka集群实例Name 
+     * @return InstanceName ckafka集群实例Name
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 实例名称
-     * @param InstanceName 实例名称
+     * Set ckafka集群实例Name
+     * @param InstanceName ckafka集群实例Name
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 实例的状态。0：创建中，1：运行中，2：删除中 ， 5 隔离中，-1 创建失败 
-     * @return Status 实例的状态。0：创建中，1：运行中，2：删除中 ， 5 隔离中，-1 创建失败
+     * Get 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败  
+     * @return Status 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例的状态。0：创建中，1：运行中，2：删除中 ， 5 隔离中，-1 创建失败
-     * @param Status 实例的状态。0：创建中，1：运行中，2：删除中 ， 5 隔离中，-1 创建失败
+     * Set 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
+     * @param Status 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 是否开源实例。开源：true，不开源：false
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开源实例。开源：true，不开源：false 
      * @return IfCommunity 是否开源实例。开源：true，不开源：false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIfCommunity() {
         return this.IfCommunity;
@@ -111,9 +109,7 @@ public class Instance extends AbstractModel{
 
     /**
      * Set 是否开源实例。开源：true，不开源：false
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IfCommunity 是否开源实例。开源：true，不开源：false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIfCommunity(Boolean IfCommunity) {
         this.IfCommunity = IfCommunity;

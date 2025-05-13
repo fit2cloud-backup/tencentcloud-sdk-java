@@ -16,33 +16,80 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDbAssetsRequest extends AbstractModel{
+public class DescribeDbAssetsRequest extends AbstractModel {
 
     /**
-    * -
+    * 集团账号的成员id
+    */
+    @SerializedName("MemberId")
+    @Expose
+    private String [] MemberId;
+
+    /**
+    * 过滤器参数
     */
     @SerializedName("Filter")
     @Expose
     private Filter Filter;
 
     /**
-     * Get - 
-     * @return Filter -
+    * 资产类型:MYSQL/MARIADB/REDIS/MONGODB/POSTGRES/CTS/ES/KAFKA/COS/CBS/CFS
+    */
+    @SerializedName("AssetTypes")
+    @Expose
+    private String [] AssetTypes;
+
+    /**
+     * Get 集团账号的成员id 
+     * @return MemberId 集团账号的成员id
+     */
+    public String [] getMemberId() {
+        return this.MemberId;
+    }
+
+    /**
+     * Set 集团账号的成员id
+     * @param MemberId 集团账号的成员id
+     */
+    public void setMemberId(String [] MemberId) {
+        this.MemberId = MemberId;
+    }
+
+    /**
+     * Get 过滤器参数 
+     * @return Filter 过滤器参数
      */
     public Filter getFilter() {
         return this.Filter;
     }
 
     /**
-     * Set -
-     * @param Filter -
+     * Set 过滤器参数
+     * @param Filter 过滤器参数
      */
     public void setFilter(Filter Filter) {
         this.Filter = Filter;
+    }
+
+    /**
+     * Get 资产类型:MYSQL/MARIADB/REDIS/MONGODB/POSTGRES/CTS/ES/KAFKA/COS/CBS/CFS 
+     * @return AssetTypes 资产类型:MYSQL/MARIADB/REDIS/MONGODB/POSTGRES/CTS/ES/KAFKA/COS/CBS/CFS
+     */
+    public String [] getAssetTypes() {
+        return this.AssetTypes;
+    }
+
+    /**
+     * Set 资产类型:MYSQL/MARIADB/REDIS/MONGODB/POSTGRES/CTS/ES/KAFKA/COS/CBS/CFS
+     * @param AssetTypes 资产类型:MYSQL/MARIADB/REDIS/MONGODB/POSTGRES/CTS/ES/KAFKA/COS/CBS/CFS
+     */
+    public void setAssetTypes(String [] AssetTypes) {
+        this.AssetTypes = AssetTypes;
     }
 
     public DescribeDbAssetsRequest() {
@@ -53,8 +100,20 @@ public class DescribeDbAssetsRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeDbAssetsRequest(DescribeDbAssetsRequest source) {
+        if (source.MemberId != null) {
+            this.MemberId = new String[source.MemberId.length];
+            for (int i = 0; i < source.MemberId.length; i++) {
+                this.MemberId[i] = new String(source.MemberId[i]);
+            }
+        }
         if (source.Filter != null) {
             this.Filter = new Filter(source.Filter);
+        }
+        if (source.AssetTypes != null) {
+            this.AssetTypes = new String[source.AssetTypes.length];
+            for (int i = 0; i < source.AssetTypes.length; i++) {
+                this.AssetTypes[i] = new String(source.AssetTypes[i]);
+            }
         }
     }
 
@@ -63,7 +122,9 @@ public class DescribeDbAssetsRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamArraySimple(map, prefix + "MemberId.", this.MemberId);
         this.setParamObj(map, prefix + "Filter.", this.Filter);
+        this.setParamArraySimple(map, prefix + "AssetTypes.", this.AssetTypes);
 
     }
 }

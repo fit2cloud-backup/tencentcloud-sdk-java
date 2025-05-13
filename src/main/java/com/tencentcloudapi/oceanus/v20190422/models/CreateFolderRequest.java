@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateFolderRequest extends AbstractModel{
+public class CreateFolderRequest extends AbstractModel {
 
     /**
     * 新建文件夹名
@@ -30,7 +31,7 @@ public class CreateFolderRequest extends AbstractModel{
     private String FolderName;
 
     /**
-    * 新建文件夹的父目录ID
+    * 新建文件夹的父目录ID（根目录为"root"）
     */
     @SerializedName("ParentId")
     @Expose
@@ -67,16 +68,16 @@ public class CreateFolderRequest extends AbstractModel{
     }
 
     /**
-     * Get 新建文件夹的父目录ID 
-     * @return ParentId 新建文件夹的父目录ID
+     * Get 新建文件夹的父目录ID（根目录为"root"） 
+     * @return ParentId 新建文件夹的父目录ID（根目录为"root"）
      */
     public String getParentId() {
         return this.ParentId;
     }
 
     /**
-     * Set 新建文件夹的父目录ID
-     * @param ParentId 新建文件夹的父目录ID
+     * Set 新建文件夹的父目录ID（根目录为"root"）
+     * @param ParentId 新建文件夹的父目录ID（根目录为"root"）
      */
     public void setParentId(String ParentId) {
         this.ParentId = ParentId;

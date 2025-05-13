@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
+public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel {
 
     /**
     * 待部署的证书ID
@@ -28,13 +29,6 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
     @SerializedName("CertificateId")
     @Expose
     private String CertificateId;
-
-    /**
-    * 部署资源类型
-    */
-    @SerializedName("ResourceType")
-    @Expose
-    private String ResourceType;
 
     /**
     * 是否查询缓存，1：是； 0：否， 默认为查询缓存，缓存半小时
@@ -51,11 +45,32 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
+    * 部署资源类型apigateway
+    */
+    @SerializedName("ResourceType")
+    @Expose
+    private String ResourceType;
+
+    /**
     * 已部署的证书ID
     */
     @SerializedName("OldCertificateId")
     @Expose
     private String OldCertificateId;
+
+    /**
+    * 每页数量，默认10，最大值为200。	
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
+
+    /**
+    * 分页偏移量，默认值为0。
+    */
+    @SerializedName("Offset")
+    @Expose
+    private String Offset;
 
     /**
      * Get 待部署的证书ID 
@@ -71,22 +86,6 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
      */
     public void setCertificateId(String CertificateId) {
         this.CertificateId = CertificateId;
-    }
-
-    /**
-     * Get 部署资源类型 
-     * @return ResourceType 部署资源类型
-     */
-    public String getResourceType() {
-        return this.ResourceType;
-    }
-
-    /**
-     * Set 部署资源类型
-     * @param ResourceType 部署资源类型
-     */
-    public void setResourceType(String ResourceType) {
-        this.ResourceType = ResourceType;
     }
 
     /**
@@ -122,6 +121,26 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
     }
 
     /**
+     * Get 部署资源类型apigateway 
+     * @return ResourceType 部署资源类型apigateway
+     * @deprecated
+     */
+    @Deprecated
+    public String getResourceType() {
+        return this.ResourceType;
+    }
+
+    /**
+     * Set 部署资源类型apigateway
+     * @param ResourceType 部署资源类型apigateway
+     * @deprecated
+     */
+    @Deprecated
+    public void setResourceType(String ResourceType) {
+        this.ResourceType = ResourceType;
+    }
+
+    /**
      * Get 已部署的证书ID 
      * @return OldCertificateId 已部署的证书ID
      */
@@ -137,6 +156,38 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
         this.OldCertificateId = OldCertificateId;
     }
 
+    /**
+     * Get 每页数量，默认10，最大值为200。	 
+     * @return Limit 每页数量，默认10，最大值为200。	
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 每页数量，默认10，最大值为200。	
+     * @param Limit 每页数量，默认10，最大值为200。	
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
+    /**
+     * Get 分页偏移量，默认值为0。 
+     * @return Offset 分页偏移量，默认值为0。
+     */
+    public String getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 分页偏移量，默认值为0。
+     * @param Offset 分页偏移量，默认值为0。
+     */
+    public void setOffset(String Offset) {
+        this.Offset = Offset;
+    }
+
     public DescribeHostApiGatewayInstanceListRequest() {
     }
 
@@ -148,9 +199,6 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
         if (source.CertificateId != null) {
             this.CertificateId = new String(source.CertificateId);
         }
-        if (source.ResourceType != null) {
-            this.ResourceType = new String(source.ResourceType);
-        }
         if (source.IsCache != null) {
             this.IsCache = new Long(source.IsCache);
         }
@@ -160,8 +208,17 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
                 this.Filters[i] = new Filter(source.Filters[i]);
             }
         }
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
         if (source.OldCertificateId != null) {
             this.OldCertificateId = new String(source.OldCertificateId);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new String(source.Offset);
         }
     }
 
@@ -171,10 +228,12 @@ public class DescribeHostApiGatewayInstanceListRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertificateId", this.CertificateId);
-        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "IsCache", this.IsCache);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "OldCertificateId", this.OldCertificateId);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
 
     }
 }

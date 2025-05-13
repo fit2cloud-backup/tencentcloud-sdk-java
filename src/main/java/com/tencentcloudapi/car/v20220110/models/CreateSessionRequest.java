@@ -16,11 +16,12 @@
 package com.tencentcloudapi.car.v20220110.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSessionRequest extends AbstractModel{
+public class CreateSessionRequest extends AbstractModel {
 
     /**
     * 唯一用户身份标识，由业务方自定义，平台不予理解。（可根据业务需要决定使用用户的唯一身份标识或是使用时间戳随机生成；在用户重连时应保持UserId不变）
@@ -57,6 +58,9 @@ RunWithoutClient：允许无客户端连接的情况下仍保持云端 App 运�
 如果请求的是多应用共享项目，此参数生效；
 如果请求的是关闭预启动的单应用独享项目，此参数生效；
 如果请求的是开启预启动的单应用独享项目，此参数失效。
+
+注意：在此参数生效的情况下，将会被追加到控制台应用或项目配置的启动参数的后面。
+例如，对于某关闭预启动的单应用独享项目，若在控制台中项目配置的启动参数为bar=0，而ApplicationParameters参数为foo=1，则实际应用启动参数为bar=0 foo=1。
     */
     @SerializedName("ApplicationParameters")
     @Expose
@@ -156,11 +160,17 @@ RunWithoutClient：允许无客户端连接的情况下仍保持云端 App 运�
      * Get 应用启动参数。
 如果请求的是多应用共享项目，此参数生效；
 如果请求的是关闭预启动的单应用独享项目，此参数生效；
-如果请求的是开启预启动的单应用独享项目，此参数失效。 
+如果请求的是开启预启动的单应用独享项目，此参数失效。
+
+注意：在此参数生效的情况下，将会被追加到控制台应用或项目配置的启动参数的后面。
+例如，对于某关闭预启动的单应用独享项目，若在控制台中项目配置的启动参数为bar=0，而ApplicationParameters参数为foo=1，则实际应用启动参数为bar=0 foo=1。 
      * @return ApplicationParameters 应用启动参数。
 如果请求的是多应用共享项目，此参数生效；
 如果请求的是关闭预启动的单应用独享项目，此参数生效；
 如果请求的是开启预启动的单应用独享项目，此参数失效。
+
+注意：在此参数生效的情况下，将会被追加到控制台应用或项目配置的启动参数的后面。
+例如，对于某关闭预启动的单应用独享项目，若在控制台中项目配置的启动参数为bar=0，而ApplicationParameters参数为foo=1，则实际应用启动参数为bar=0 foo=1。
      */
     public String getApplicationParameters() {
         return this.ApplicationParameters;
@@ -171,10 +181,16 @@ RunWithoutClient：允许无客户端连接的情况下仍保持云端 App 运�
 如果请求的是多应用共享项目，此参数生效；
 如果请求的是关闭预启动的单应用独享项目，此参数生效；
 如果请求的是开启预启动的单应用独享项目，此参数失效。
+
+注意：在此参数生效的情况下，将会被追加到控制台应用或项目配置的启动参数的后面。
+例如，对于某关闭预启动的单应用独享项目，若在控制台中项目配置的启动参数为bar=0，而ApplicationParameters参数为foo=1，则实际应用启动参数为bar=0 foo=1。
      * @param ApplicationParameters 应用启动参数。
 如果请求的是多应用共享项目，此参数生效；
 如果请求的是关闭预启动的单应用独享项目，此参数生效；
 如果请求的是开启预启动的单应用独享项目，此参数失效。
+
+注意：在此参数生效的情况下，将会被追加到控制台应用或项目配置的启动参数的后面。
+例如，对于某关闭预启动的单应用独享项目，若在控制台中项目配置的启动参数为bar=0，而ApplicationParameters参数为foo=1，则实际应用启动参数为bar=0 foo=1。
      */
     public void setApplicationParameters(String ApplicationParameters) {
         this.ApplicationParameters = ApplicationParameters;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateLiveStreamMonitorRequest extends AbstractModel{
+public class CreateLiveStreamMonitorRequest extends AbstractModel {
 
     /**
     * 监播任务的输出信息。
@@ -110,6 +111,27 @@ public class CreateLiveStreamMonitorRequest extends AbstractModel{
     @SerializedName("AiFormatDiagnose")
     @Expose
     private Long AiFormatDiagnose;
+
+    /**
+    * 是否开启内容质检。
+    */
+    @SerializedName("AiQualityControl")
+    @Expose
+    private Long AiQualityControl;
+
+    /**
+    * 导播台监播对应的导播台场次id。
+    */
+    @SerializedName("CasterId")
+    @Expose
+    private String CasterId;
+
+    /**
+    * 拉流转推监播任务对应的拉流转推场次id
+    */
+    @SerializedName("PullPushTaskId")
+    @Expose
+    private String PullPushTaskId;
 
     /**
      * Get 监播任务的输出信息。 
@@ -323,6 +345,54 @@ public class CreateLiveStreamMonitorRequest extends AbstractModel{
         this.AiFormatDiagnose = AiFormatDiagnose;
     }
 
+    /**
+     * Get 是否开启内容质检。 
+     * @return AiQualityControl 是否开启内容质检。
+     */
+    public Long getAiQualityControl() {
+        return this.AiQualityControl;
+    }
+
+    /**
+     * Set 是否开启内容质检。
+     * @param AiQualityControl 是否开启内容质检。
+     */
+    public void setAiQualityControl(Long AiQualityControl) {
+        this.AiQualityControl = AiQualityControl;
+    }
+
+    /**
+     * Get 导播台监播对应的导播台场次id。 
+     * @return CasterId 导播台监播对应的导播台场次id。
+     */
+    public String getCasterId() {
+        return this.CasterId;
+    }
+
+    /**
+     * Set 导播台监播对应的导播台场次id。
+     * @param CasterId 导播台监播对应的导播台场次id。
+     */
+    public void setCasterId(String CasterId) {
+        this.CasterId = CasterId;
+    }
+
+    /**
+     * Get 拉流转推监播任务对应的拉流转推场次id 
+     * @return PullPushTaskId 拉流转推监播任务对应的拉流转推场次id
+     */
+    public String getPullPushTaskId() {
+        return this.PullPushTaskId;
+    }
+
+    /**
+     * Set 拉流转推监播任务对应的拉流转推场次id
+     * @param PullPushTaskId 拉流转推监播任务对应的拉流转推场次id
+     */
+    public void setPullPushTaskId(String PullPushTaskId) {
+        this.PullPushTaskId = PullPushTaskId;
+    }
+
     public CreateLiveStreamMonitorRequest() {
     }
 
@@ -376,6 +446,15 @@ public class CreateLiveStreamMonitorRequest extends AbstractModel{
         if (source.AiFormatDiagnose != null) {
             this.AiFormatDiagnose = new Long(source.AiFormatDiagnose);
         }
+        if (source.AiQualityControl != null) {
+            this.AiQualityControl = new Long(source.AiQualityControl);
+        }
+        if (source.CasterId != null) {
+            this.CasterId = new String(source.CasterId);
+        }
+        if (source.PullPushTaskId != null) {
+            this.PullPushTaskId = new String(source.PullPushTaskId);
+        }
     }
 
 
@@ -395,6 +474,9 @@ public class CreateLiveStreamMonitorRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CheckStreamLowFrameRate", this.CheckStreamLowFrameRate);
         this.setParamSimple(map, prefix + "AllowMonitorReport", this.AllowMonitorReport);
         this.setParamSimple(map, prefix + "AiFormatDiagnose", this.AiFormatDiagnose);
+        this.setParamSimple(map, prefix + "AiQualityControl", this.AiQualityControl);
+        this.setParamSimple(map, prefix + "CasterId", this.CasterId);
+        this.setParamSimple(map, prefix + "PullPushTaskId", this.PullPushTaskId);
 
     }
 }

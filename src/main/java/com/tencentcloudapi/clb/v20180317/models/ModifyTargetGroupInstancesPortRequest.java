@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyTargetGroupInstancesPortRequest extends AbstractModel{
+public class ModifyTargetGroupInstancesPortRequest extends AbstractModel {
 
     /**
     * 目标组ID。
@@ -30,7 +31,7 @@ public class ModifyTargetGroupInstancesPortRequest extends AbstractModel{
     private String TargetGroupId;
 
     /**
-    * 待修改端口的服务器数组。
+    * 待修改端口的服务器数组，在这个接口 NewPort 和 Port 为必填项。
     */
     @SerializedName("TargetGroupInstances")
     @Expose
@@ -53,16 +54,16 @@ public class ModifyTargetGroupInstancesPortRequest extends AbstractModel{
     }
 
     /**
-     * Get 待修改端口的服务器数组。 
-     * @return TargetGroupInstances 待修改端口的服务器数组。
+     * Get 待修改端口的服务器数组，在这个接口 NewPort 和 Port 为必填项。 
+     * @return TargetGroupInstances 待修改端口的服务器数组，在这个接口 NewPort 和 Port 为必填项。
      */
     public TargetGroupInstance [] getTargetGroupInstances() {
         return this.TargetGroupInstances;
     }
 
     /**
-     * Set 待修改端口的服务器数组。
-     * @param TargetGroupInstances 待修改端口的服务器数组。
+     * Set 待修改端口的服务器数组，在这个接口 NewPort 和 Port 为必填项。
+     * @param TargetGroupInstances 待修改端口的服务器数组，在这个接口 NewPort 和 Port 为必填项。
      */
     public void setTargetGroupInstances(TargetGroupInstance [] TargetGroupInstances) {
         this.TargetGroupInstances = TargetGroupInstances;

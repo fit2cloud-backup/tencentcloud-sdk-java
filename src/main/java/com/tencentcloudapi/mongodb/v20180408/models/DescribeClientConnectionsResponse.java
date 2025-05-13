@@ -16,32 +16,37 @@
 package com.tencentcloudapi.mongodb.v20180408.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClientConnectionsResponse extends AbstractModel{
+public class DescribeClientConnectionsResponse extends AbstractModel {
 
     /**
     * 客户端连接信息，包括客户端IP和对应IP的连接数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Clients")
     @Expose
     private ClientConnection [] Clients;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 连接数总结
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 客户端连接信息，包括客户端IP和对应IP的连接数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端连接信息，包括客户端IP和对应IP的连接数量 
      * @return Clients 客户端连接信息，包括客户端IP和对应IP的连接数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ClientConnection [] getClients() {
         return this.Clients;
@@ -49,25 +54,39 @@ public class DescribeClientConnectionsResponse extends AbstractModel{
 
     /**
      * Set 客户端连接信息，包括客户端IP和对应IP的连接数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Clients 客户端连接信息，包括客户端IP和对应IP的连接数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClients(ClientConnection [] Clients) {
         this.Clients = Clients;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 连接数总结 
+     * @return TotalCount 连接数总结
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 连接数总结
+     * @param TotalCount 连接数总结
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -87,6 +106,9 @@ public class DescribeClientConnectionsResponse extends AbstractModel{
                 this.Clients[i] = new ClientConnection(source.Clients[i]);
             }
         }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -98,6 +120,7 @@ public class DescribeClientConnectionsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Clients.", this.Clients);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

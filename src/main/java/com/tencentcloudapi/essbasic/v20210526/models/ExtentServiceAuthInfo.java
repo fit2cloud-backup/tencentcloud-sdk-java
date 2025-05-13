@@ -16,19 +16,23 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExtentServiceAuthInfo extends AbstractModel{
+public class ExtentServiceAuthInfo extends AbstractModel {
 
     /**
     * 扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权平台企业下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
     */
     @SerializedName("Type")
     @Expose
@@ -42,25 +46,23 @@ public class ExtentServiceAuthInfo extends AbstractModel{
     private String Name;
 
     /**
-    * 服务状态 
-ENABLE 开启 
-DISABLE 关闭
+    * 扩展服务的开通状态
+**ENABLE**：开通 
+**DISABLE**：未开通	
     */
     @SerializedName("Status")
     @Expose
     private String Status;
 
     /**
-    * 最近操作人第三方应用平台的用户openid
-注意：此字段可能返回 null，表示取不到有效值。
+    * 操作扩展服务的操作人第三方应用平台的用户openid
     */
     @SerializedName("OperatorOpenId")
     @Expose
     private String OperatorOpenId;
 
     /**
-    * 最近操作时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
+    * 扩展服务的操作时间，格式为Unix标准时间戳（秒）。	
     */
     @SerializedName("OperateOn")
     @Expose
@@ -68,17 +70,23 @@ DISABLE 关闭
 
     /**
      * Get 扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权平台企业下载合同  
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul> 
      * @return Type 扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权平台企业下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
      */
     public String getType() {
         return this.Type;
@@ -86,17 +94,23 @@ DISABLE 关闭
 
     /**
      * Set 扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权平台企业下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
      * @param Type 扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权平台企业下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -119,64 +133,56 @@ DISABLE 关闭
     }
 
     /**
-     * Get 服务状态 
-ENABLE 开启 
-DISABLE 关闭 
-     * @return Status 服务状态 
-ENABLE 开启 
-DISABLE 关闭
+     * Get 扩展服务的开通状态
+**ENABLE**：开通 
+**DISABLE**：未开通	 
+     * @return Status 扩展服务的开通状态
+**ENABLE**：开通 
+**DISABLE**：未开通	
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 服务状态 
-ENABLE 开启 
-DISABLE 关闭
-     * @param Status 服务状态 
-ENABLE 开启 
-DISABLE 关闭
+     * Set 扩展服务的开通状态
+**ENABLE**：开通 
+**DISABLE**：未开通	
+     * @param Status 扩展服务的开通状态
+**ENABLE**：开通 
+**DISABLE**：未开通	
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 最近操作人第三方应用平台的用户openid
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OperatorOpenId 最近操作人第三方应用平台的用户openid
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 操作扩展服务的操作人第三方应用平台的用户openid 
+     * @return OperatorOpenId 操作扩展服务的操作人第三方应用平台的用户openid
      */
     public String getOperatorOpenId() {
         return this.OperatorOpenId;
     }
 
     /**
-     * Set 最近操作人第三方应用平台的用户openid
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OperatorOpenId 最近操作人第三方应用平台的用户openid
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 操作扩展服务的操作人第三方应用平台的用户openid
+     * @param OperatorOpenId 操作扩展服务的操作人第三方应用平台的用户openid
      */
     public void setOperatorOpenId(String OperatorOpenId) {
         this.OperatorOpenId = OperatorOpenId;
     }
 
     /**
-     * Get 最近操作时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OperateOn 最近操作时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 扩展服务的操作时间，格式为Unix标准时间戳（秒）。	 
+     * @return OperateOn 扩展服务的操作时间，格式为Unix标准时间戳（秒）。	
      */
     public Long getOperateOn() {
         return this.OperateOn;
     }
 
     /**
-     * Set 最近操作时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OperateOn 最近操作时间戳，单位秒
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 扩展服务的操作时间，格式为Unix标准时间戳（秒）。	
+     * @param OperateOn 扩展服务的操作时间，格式为Unix标准时间戳（秒）。	
      */
     public void setOperateOn(Long OperateOn) {
         this.OperateOn = OperateOn;

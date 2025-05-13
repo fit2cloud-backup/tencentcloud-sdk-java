@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PullStreamTaskInfo extends AbstractModel{
+public class PullStreamTaskInfo extends AbstractModel {
 
     /**
     * 拉流任务Id。
@@ -281,6 +282,22 @@ PullVodPushLive -点播。
     @SerializedName("RecordTemplateId")
     @Expose
     private String RecordTemplateId;
+
+    /**
+    * 新增的推流地址。用于单任务推两路场景。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BackupToUrl")
+    @Expose
+    private String BackupToUrl;
+
+    /**
+    * 直播转码模板。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TranscodeTemplateName")
+    @Expose
+    private String TranscodeTemplateName;
 
     /**
      * Get 拉流任务Id。 
@@ -986,6 +1003,46 @@ PullVodPushLive -点播。
         this.RecordTemplateId = RecordTemplateId;
     }
 
+    /**
+     * Get 新增的推流地址。用于单任务推两路场景。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BackupToUrl 新增的推流地址。用于单任务推两路场景。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBackupToUrl() {
+        return this.BackupToUrl;
+    }
+
+    /**
+     * Set 新增的推流地址。用于单任务推两路场景。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BackupToUrl 新增的推流地址。用于单任务推两路场景。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBackupToUrl(String BackupToUrl) {
+        this.BackupToUrl = BackupToUrl;
+    }
+
+    /**
+     * Get 直播转码模板。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TranscodeTemplateName 直播转码模板。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTranscodeTemplateName() {
+        return this.TranscodeTemplateName;
+    }
+
+    /**
+     * Set 直播转码模板。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TranscodeTemplateName 直播转码模板。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTranscodeTemplateName(String TranscodeTemplateName) {
+        this.TranscodeTemplateName = TranscodeTemplateName;
+    }
+
     public PullStreamTaskInfo() {
     }
 
@@ -1087,6 +1144,12 @@ PullVodPushLive -点播。
         if (source.RecordTemplateId != null) {
             this.RecordTemplateId = new String(source.RecordTemplateId);
         }
+        if (source.BackupToUrl != null) {
+            this.BackupToUrl = new String(source.BackupToUrl);
+        }
+        if (source.TranscodeTemplateName != null) {
+            this.TranscodeTemplateName = new String(source.TranscodeTemplateName);
+        }
     }
 
 
@@ -1122,6 +1185,8 @@ PullVodPushLive -点播。
         this.setParamArrayObj(map, prefix + "WatermarkList.", this.WatermarkList);
         this.setParamSimple(map, prefix + "VodLocalMode", this.VodLocalMode);
         this.setParamSimple(map, prefix + "RecordTemplateId", this.RecordTemplateId);
+        this.setParamSimple(map, prefix + "BackupToUrl", this.BackupToUrl);
+        this.setParamSimple(map, prefix + "TranscodeTemplateName", this.TranscodeTemplateName);
 
     }
 }

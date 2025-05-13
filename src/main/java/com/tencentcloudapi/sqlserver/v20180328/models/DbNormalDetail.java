@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DbNormalDetail extends AbstractModel{
+public class DbNormalDetail extends AbstractModel {
 
     /**
     * 是否已订阅 0：否 1：是
@@ -156,6 +157,13 @@ public class DbNormalDetail extends AbstractModel{
     private String CreateTime;
 
     /**
+    * 是否全文启用 0：否 1：是
+    */
+    @SerializedName("IsFullTextEnabled")
+    @Expose
+    private String IsFullTextEnabled;
+
+    /**
      * Get 是否已订阅 0：否 1：是 
      * @return IsSubscribed 是否已订阅 0：否 1：是
      */
@@ -270,7 +278,9 @@ public class DbNormalDetail extends AbstractModel{
     /**
      * Get 是否全文启用 0：否 1：是 
      * @return IsFulltextEnabled 是否全文启用 0：否 1：是
+     * @deprecated
      */
+    @Deprecated
     public String getIsFulltextEnabled() {
         return this.IsFulltextEnabled;
     }
@@ -278,7 +288,9 @@ public class DbNormalDetail extends AbstractModel{
     /**
      * Set 是否全文启用 0：否 1：是
      * @param IsFulltextEnabled 是否全文启用 0：否 1：是
+     * @deprecated
      */
+    @Deprecated
     public void setIsFulltextEnabled(String IsFulltextEnabled) {
         this.IsFulltextEnabled = IsFulltextEnabled;
     }
@@ -459,6 +471,22 @@ public class DbNormalDetail extends AbstractModel{
         this.CreateTime = CreateTime;
     }
 
+    /**
+     * Get 是否全文启用 0：否 1：是 
+     * @return IsFullTextEnabled 是否全文启用 0：否 1：是
+     */
+    public String getIsFullTextEnabled() {
+        return this.IsFullTextEnabled;
+    }
+
+    /**
+     * Set 是否全文启用 0：否 1：是
+     * @param IsFullTextEnabled 是否全文启用 0：否 1：是
+     */
+    public void setIsFullTextEnabled(String IsFullTextEnabled) {
+        this.IsFullTextEnabled = IsFullTextEnabled;
+    }
+
     public DbNormalDetail() {
     }
 
@@ -524,6 +552,9 @@ public class DbNormalDetail extends AbstractModel{
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.IsFullTextEnabled != null) {
+            this.IsFullTextEnabled = new String(source.IsFullTextEnabled);
+        }
     }
 
 
@@ -550,6 +581,7 @@ public class DbNormalDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "StateDesc", this.StateDesc);
         this.setParamSimple(map, prefix + "UserAccessDesc", this.UserAccessDesc);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "IsFullTextEnabled", this.IsFullTextEnabled);
 
     }
 }

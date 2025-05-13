@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConfigExtraInfo extends AbstractModel{
+public class ConfigExtraInfo extends AbstractModel {
 
     /**
     * 采集规则扩展配置ID
@@ -52,7 +53,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 节点文件配置信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostFile")
     @Expose
@@ -60,7 +60,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 容器文件路径信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerFile")
     @Expose
@@ -68,7 +67,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 容器标准输出信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerStdout")
     @Expose
@@ -76,7 +74,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 日志格式化方式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogFormat")
     @Expose
@@ -84,7 +81,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogType")
     @Expose
@@ -92,7 +88,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 提取规则，如果设置了ExtractRule，则必须设置LogType
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtractRule")
     @Expose
@@ -122,7 +117,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 用户自定义解析字符串
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserDefineRule")
     @Expose
@@ -137,7 +131,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 自建采集配置标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigFlag")
     @Expose
@@ -145,7 +138,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogsetId")
     @Expose
@@ -153,7 +145,6 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 日志集name
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogsetName")
     @Expose
@@ -161,11 +152,17 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
     * 日志主题name
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicName")
     @Expose
     private String TopicName;
+
+    /**
+    * 采集相关配置信息。详情见 CollectInfo复杂类型配置。
+    */
+    @SerializedName("CollectInfos")
+    @Expose
+    private CollectInfo [] CollectInfos;
 
     /**
     * 高级采集配置。 Json字符串， Key/Value定义为如下：
@@ -173,7 +170,6 @@ public class ConfigExtraInfo extends AbstractModel{
 - ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
 - ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
 样例：{"ClsAgentFileTimeout":0,"ClsAgentMaxDepth":10,"ClsAgentParseFailMerge":true}
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AdvancedConfig")
     @Expose
@@ -244,10 +240,8 @@ public class ConfigExtraInfo extends AbstractModel{
     }
 
     /**
-     * Get 节点文件配置信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点文件配置信息 
      * @return HostFile 节点文件配置信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public HostFileInfo getHostFile() {
         return this.HostFile;
@@ -255,19 +249,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 节点文件配置信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostFile 节点文件配置信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostFile(HostFileInfo HostFile) {
         this.HostFile = HostFile;
     }
 
     /**
-     * Get 容器文件路径信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器文件路径信息 
      * @return ContainerFile 容器文件路径信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ContainerFileInfo getContainerFile() {
         return this.ContainerFile;
@@ -275,19 +265,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 容器文件路径信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerFile 容器文件路径信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerFile(ContainerFileInfo ContainerFile) {
         this.ContainerFile = ContainerFile;
     }
 
     /**
-     * Get 容器标准输出信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器标准输出信息 
      * @return ContainerStdout 容器标准输出信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ContainerStdoutInfo getContainerStdout() {
         return this.ContainerStdout;
@@ -295,19 +281,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 容器标准输出信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerStdout 容器标准输出信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerStdout(ContainerStdoutInfo ContainerStdout) {
         this.ContainerStdout = ContainerStdout;
     }
 
     /**
-     * Get 日志格式化方式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志格式化方式 
      * @return LogFormat 日志格式化方式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLogFormat() {
         return this.LogFormat;
@@ -315,19 +297,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 日志格式化方式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogFormat 日志格式化方式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogFormat(String LogFormat) {
         this.LogFormat = LogFormat;
     }
 
     /**
-     * Get 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log 
      * @return LogType 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLogType() {
         return this.LogType;
@@ -335,19 +313,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogType 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogType(String LogType) {
         this.LogType = LogType;
     }
 
     /**
-     * Get 提取规则，如果设置了ExtractRule，则必须设置LogType
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 提取规则，如果设置了ExtractRule，则必须设置LogType 
      * @return ExtractRule 提取规则，如果设置了ExtractRule，则必须设置LogType
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ExtractRuleInfo getExtractRule() {
         return this.ExtractRule;
@@ -355,9 +329,7 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 提取规则，如果设置了ExtractRule，则必须设置LogType
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtractRule 提取规则，如果设置了ExtractRule，则必须设置LogType
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtractRule(ExtractRuleInfo ExtractRule) {
         this.ExtractRule = ExtractRule;
@@ -416,10 +388,8 @@ public class ConfigExtraInfo extends AbstractModel{
     }
 
     /**
-     * Get 用户自定义解析字符串
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户自定义解析字符串 
      * @return UserDefineRule 用户自定义解析字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserDefineRule() {
         return this.UserDefineRule;
@@ -427,9 +397,7 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 用户自定义解析字符串
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserDefineRule 用户自定义解析字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserDefineRule(String UserDefineRule) {
         this.UserDefineRule = UserDefineRule;
@@ -452,10 +420,8 @@ public class ConfigExtraInfo extends AbstractModel{
     }
 
     /**
-     * Get 自建采集配置标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自建采集配置标 
      * @return ConfigFlag 自建采集配置标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConfigFlag() {
         return this.ConfigFlag;
@@ -463,19 +429,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 自建采集配置标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigFlag 自建采集配置标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigFlag(String ConfigFlag) {
         this.ConfigFlag = ConfigFlag;
     }
 
     /**
-     * Get 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志集ID 
      * @return LogsetId 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLogsetId() {
         return this.LogsetId;
@@ -483,19 +445,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogsetId 日志集ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogsetId(String LogsetId) {
         this.LogsetId = LogsetId;
     }
 
     /**
-     * Get 日志集name
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志集name 
      * @return LogsetName 日志集name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLogsetName() {
         return this.LogsetName;
@@ -503,19 +461,15 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 日志集name
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogsetName 日志集name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogsetName(String LogsetName) {
         this.LogsetName = LogsetName;
     }
 
     /**
-     * Get 日志主题name
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志主题name 
      * @return TopicName 日志主题name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicName() {
         return this.TopicName;
@@ -523,12 +477,26 @@ public class ConfigExtraInfo extends AbstractModel{
 
     /**
      * Set 日志主题name
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicName 日志主题name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
+    }
+
+    /**
+     * Get 采集相关配置信息。详情见 CollectInfo复杂类型配置。 
+     * @return CollectInfos 采集相关配置信息。详情见 CollectInfo复杂类型配置。
+     */
+    public CollectInfo [] getCollectInfos() {
+        return this.CollectInfos;
+    }
+
+    /**
+     * Set 采集相关配置信息。详情见 CollectInfo复杂类型配置。
+     * @param CollectInfos 采集相关配置信息。详情见 CollectInfo复杂类型配置。
+     */
+    public void setCollectInfos(CollectInfo [] CollectInfos) {
+        this.CollectInfos = CollectInfos;
     }
 
     /**
@@ -536,14 +504,12 @@ public class ConfigExtraInfo extends AbstractModel{
 - ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
 - ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
 - ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
-样例：{"ClsAgentFileTimeout":0,"ClsAgentMaxDepth":10,"ClsAgentParseFailMerge":true}
-注意：此字段可能返回 null，表示取不到有效值。 
+样例：{"ClsAgentFileTimeout":0,"ClsAgentMaxDepth":10,"ClsAgentParseFailMerge":true} 
      * @return AdvancedConfig 高级采集配置。 Json字符串， Key/Value定义为如下：
 - ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
 - ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
 - ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
 样例：{"ClsAgentFileTimeout":0,"ClsAgentMaxDepth":10,"ClsAgentParseFailMerge":true}
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAdvancedConfig() {
         return this.AdvancedConfig;
@@ -555,13 +521,11 @@ public class ConfigExtraInfo extends AbstractModel{
 - ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
 - ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
 样例：{"ClsAgentFileTimeout":0,"ClsAgentMaxDepth":10,"ClsAgentParseFailMerge":true}
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AdvancedConfig 高级采集配置。 Json字符串， Key/Value定义为如下：
 - ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
 - ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
 - ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
 样例：{"ClsAgentFileTimeout":0,"ClsAgentMaxDepth":10,"ClsAgentParseFailMerge":true}
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdvancedConfig(String AdvancedConfig) {
         this.AdvancedConfig = AdvancedConfig;
@@ -635,6 +599,12 @@ public class ConfigExtraInfo extends AbstractModel{
         if (source.TopicName != null) {
             this.TopicName = new String(source.TopicName);
         }
+        if (source.CollectInfos != null) {
+            this.CollectInfos = new CollectInfo[source.CollectInfos.length];
+            for (int i = 0; i < source.CollectInfos.length; i++) {
+                this.CollectInfos[i] = new CollectInfo(source.CollectInfos[i]);
+            }
+        }
         if (source.AdvancedConfig != null) {
             this.AdvancedConfig = new String(source.AdvancedConfig);
         }
@@ -664,6 +634,7 @@ public class ConfigExtraInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "LogsetId", this.LogsetId);
         this.setParamSimple(map, prefix + "LogsetName", this.LogsetName);
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
+        this.setParamArrayObj(map, prefix + "CollectInfos.", this.CollectInfos);
         this.setParamSimple(map, prefix + "AdvancedConfig", this.AdvancedConfig);
 
     }

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageInfo extends AbstractModel{
+public class ImageInfo extends AbstractModel {
 
     /**
-    * 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像
+    * 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像，CUSTOM为第三方自定义镜像
     */
     @SerializedName("ImageType")
     @Expose
@@ -53,16 +54,40 @@ public class ImageInfo extends AbstractModel{
     private String RegistryId;
 
     /**
-     * Get 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像 
-     * @return ImageType 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像
+    * 是否允许导出全部内容
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AllowSaveAllContent")
+    @Expose
+    private Boolean AllowSaveAllContent;
+
+    /**
+    * 镜像名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ImageName")
+    @Expose
+    private String ImageName;
+
+    /**
+    * 是否支持数据构建
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SupportDataPipeline")
+    @Expose
+    private Boolean SupportDataPipeline;
+
+    /**
+     * Get 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像，CUSTOM为第三方自定义镜像 
+     * @return ImageType 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像，CUSTOM为第三方自定义镜像
      */
     public String getImageType() {
         return this.ImageType;
     }
 
     /**
-     * Set 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像
-     * @param ImageType 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像
+     * Set 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像，CUSTOM为第三方自定义镜像
+     * @param ImageType 镜像类型：TCR为腾讯云TCR镜像; CCR为腾讯云TCR个人版镜像，PreSet为平台预置镜像，CUSTOM为第三方自定义镜像
      */
     public void setImageType(String ImageType) {
         this.ImageType = ImageType;
@@ -124,6 +149,66 @@ public class ImageInfo extends AbstractModel{
         this.RegistryId = RegistryId;
     }
 
+    /**
+     * Get 是否允许导出全部内容
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AllowSaveAllContent 是否允许导出全部内容
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getAllowSaveAllContent() {
+        return this.AllowSaveAllContent;
+    }
+
+    /**
+     * Set 是否允许导出全部内容
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AllowSaveAllContent 是否允许导出全部内容
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAllowSaveAllContent(Boolean AllowSaveAllContent) {
+        this.AllowSaveAllContent = AllowSaveAllContent;
+    }
+
+    /**
+     * Get 镜像名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ImageName 镜像名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getImageName() {
+        return this.ImageName;
+    }
+
+    /**
+     * Set 镜像名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ImageName 镜像名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setImageName(String ImageName) {
+        this.ImageName = ImageName;
+    }
+
+    /**
+     * Get 是否支持数据构建
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SupportDataPipeline 是否支持数据构建
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getSupportDataPipeline() {
+        return this.SupportDataPipeline;
+    }
+
+    /**
+     * Set 是否支持数据构建
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SupportDataPipeline 是否支持数据构建
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSupportDataPipeline(Boolean SupportDataPipeline) {
+        this.SupportDataPipeline = SupportDataPipeline;
+    }
+
     public ImageInfo() {
     }
 
@@ -144,6 +229,15 @@ public class ImageInfo extends AbstractModel{
         if (source.RegistryId != null) {
             this.RegistryId = new String(source.RegistryId);
         }
+        if (source.AllowSaveAllContent != null) {
+            this.AllowSaveAllContent = new Boolean(source.AllowSaveAllContent);
+        }
+        if (source.ImageName != null) {
+            this.ImageName = new String(source.ImageName);
+        }
+        if (source.SupportDataPipeline != null) {
+            this.SupportDataPipeline = new Boolean(source.SupportDataPipeline);
+        }
     }
 
 
@@ -155,6 +249,9 @@ public class ImageInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
         this.setParamSimple(map, prefix + "RegistryRegion", this.RegistryRegion);
         this.setParamSimple(map, prefix + "RegistryId", this.RegistryId);
+        this.setParamSimple(map, prefix + "AllowSaveAllContent", this.AllowSaveAllContent);
+        this.setParamSimple(map, prefix + "ImageName", this.ImageName);
+        this.setParamSimple(map, prefix + "SupportDataPipeline", this.SupportDataPipeline);
 
     }
 }

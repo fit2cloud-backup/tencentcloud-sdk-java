@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAuditLogFileRequest extends AbstractModel{
+public class CreateAuditLogFileRequest extends AbstractModel {
 
     /**
     * 实例 ID，与云数据库控制台页面中显示的实例 ID 相同。
@@ -73,6 +74,13 @@ public class CreateAuditLogFileRequest extends AbstractModel{
     @SerializedName("LogFilter")
     @Expose
     private InstanceAuditLogFilters [] LogFilter;
+
+    /**
+    * 下载筛选列
+    */
+    @SerializedName("ColumnFilter")
+    @Expose
+    private String [] ColumnFilter;
 
     /**
      * Get 实例 ID，与云数据库控制台页面中显示的实例 ID 相同。 
@@ -198,6 +206,22 @@ public class CreateAuditLogFileRequest extends AbstractModel{
         this.LogFilter = LogFilter;
     }
 
+    /**
+     * Get 下载筛选列 
+     * @return ColumnFilter 下载筛选列
+     */
+    public String [] getColumnFilter() {
+        return this.ColumnFilter;
+    }
+
+    /**
+     * Set 下载筛选列
+     * @param ColumnFilter 下载筛选列
+     */
+    public void setColumnFilter(String [] ColumnFilter) {
+        this.ColumnFilter = ColumnFilter;
+    }
+
     public CreateAuditLogFileRequest() {
     }
 
@@ -230,6 +254,12 @@ public class CreateAuditLogFileRequest extends AbstractModel{
                 this.LogFilter[i] = new InstanceAuditLogFilters(source.LogFilter[i]);
             }
         }
+        if (source.ColumnFilter != null) {
+            this.ColumnFilter = new String[source.ColumnFilter.length];
+            for (int i = 0; i < source.ColumnFilter.length; i++) {
+                this.ColumnFilter[i] = new String(source.ColumnFilter[i]);
+            }
+        }
     }
 
 
@@ -244,6 +274,7 @@ public class CreateAuditLogFileRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OrderBy", this.OrderBy);
         this.setParamObj(map, prefix + "Filter.", this.Filter);
         this.setParamArrayObj(map, prefix + "LogFilter.", this.LogFilter);
+        this.setParamArraySimple(map, prefix + "ColumnFilter.", this.ColumnFilter);
 
     }
 }

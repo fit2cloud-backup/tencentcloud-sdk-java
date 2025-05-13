@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCallDetailInfoRequest extends AbstractModel{
+public class DescribeCallDetailInfoRequest extends AbstractModel {
 
     /**
     * 通话 ID（唯一标识一次通话）： SdkAppId_RoomId（房间号）_ CreateTime（房间创建时间，unix时间戳，单位为s）例：1400xxxxxx_218695_1590065777。通过 DescribeRoomInfo（查询历史房间列表）接口获取（[查询历史房间列表](https://cloud.tencent.com/document/product/647/44050)）。
@@ -39,7 +40,7 @@ public class DescribeCallDetailInfoRequest extends AbstractModel{
 
     /**
     * 查询结束时间，本地unix时间戳，单位为秒（如：1590065877）
-注意：DataType 不为null ，与StartTime间隔时间不超过1小时；DataType 为null，与StartTime间隔时间不超过4小时。
+注意：查询起止时间需小于1小时，超过则返回null，即与StartTime间隔时间不超过1小时。
     */
     @SerializedName("EndTime")
     @Expose
@@ -73,7 +74,10 @@ bigvBlock：视频卡顿时长；单位：ms
 aLoss：上/下行音频丢包率；
 bigvLoss：上/下行视频丢包率；
 bigvWidth：上/下行分辨率宽；
-bigvHeight：上/下行分辨率高
+bigvHeight：上/下行分辨率高；
+aCapEnergy：音频采集能量；
+aPlayEnergy：音频播放能量；
+rtt：SDK到云端的往返延时；单位: ms
     */
     @SerializedName("DataType")
     @Expose
@@ -135,9 +139,9 @@ DataType 为null，UserIds长度不超过100，PageSize最大不超过100。
 
     /**
      * Get 查询结束时间，本地unix时间戳，单位为秒（如：1590065877）
-注意：DataType 不为null ，与StartTime间隔时间不超过1小时；DataType 为null，与StartTime间隔时间不超过4小时。 
+注意：查询起止时间需小于1小时，超过则返回null，即与StartTime间隔时间不超过1小时。 
      * @return EndTime 查询结束时间，本地unix时间戳，单位为秒（如：1590065877）
-注意：DataType 不为null ，与StartTime间隔时间不超过1小时；DataType 为null，与StartTime间隔时间不超过4小时。
+注意：查询起止时间需小于1小时，超过则返回null，即与StartTime间隔时间不超过1小时。
      */
     public Long getEndTime() {
         return this.EndTime;
@@ -145,9 +149,9 @@ DataType 为null，UserIds长度不超过100，PageSize最大不超过100。
 
     /**
      * Set 查询结束时间，本地unix时间戳，单位为秒（如：1590065877）
-注意：DataType 不为null ，与StartTime间隔时间不超过1小时；DataType 为null，与StartTime间隔时间不超过4小时。
+注意：查询起止时间需小于1小时，超过则返回null，即与StartTime间隔时间不超过1小时。
      * @param EndTime 查询结束时间，本地unix时间戳，单位为秒（如：1590065877）
-注意：DataType 不为null ，与StartTime间隔时间不超过1小时；DataType 为null，与StartTime间隔时间不超过4小时。
+注意：查询起止时间需小于1小时，超过则返回null，即与StartTime间隔时间不超过1小时。
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;
@@ -199,7 +203,10 @@ bigvBlock：视频卡顿时长；单位：ms
 aLoss：上/下行音频丢包率；
 bigvLoss：上/下行视频丢包率；
 bigvWidth：上/下行分辨率宽；
-bigvHeight：上/下行分辨率高 
+bigvHeight：上/下行分辨率高；
+aCapEnergy：音频采集能量；
+aPlayEnergy：音频播放能量；
+rtt：SDK到云端的往返延时；单位: ms 
      * @return DataType 需查询的指标，不填则只返回用户列表，填all则返回所有指标。
 appCpu：APP CPU使用率；
 sysCpu：系统 CPU使用率；
@@ -213,7 +220,10 @@ bigvBlock：视频卡顿时长；单位：ms
 aLoss：上/下行音频丢包率；
 bigvLoss：上/下行视频丢包率；
 bigvWidth：上/下行分辨率宽；
-bigvHeight：上/下行分辨率高
+bigvHeight：上/下行分辨率高；
+aCapEnergy：音频采集能量；
+aPlayEnergy：音频播放能量；
+rtt：SDK到云端的往返延时；单位: ms
      */
     public String [] getDataType() {
         return this.DataType;
@@ -233,7 +243,10 @@ bigvBlock：视频卡顿时长；单位：ms
 aLoss：上/下行音频丢包率；
 bigvLoss：上/下行视频丢包率；
 bigvWidth：上/下行分辨率宽；
-bigvHeight：上/下行分辨率高
+bigvHeight：上/下行分辨率高；
+aCapEnergy：音频采集能量；
+aPlayEnergy：音频播放能量；
+rtt：SDK到云端的往返延时；单位: ms
      * @param DataType 需查询的指标，不填则只返回用户列表，填all则返回所有指标。
 appCpu：APP CPU使用率；
 sysCpu：系统 CPU使用率；
@@ -247,7 +260,10 @@ bigvBlock：视频卡顿时长；单位：ms
 aLoss：上/下行音频丢包率；
 bigvLoss：上/下行视频丢包率；
 bigvWidth：上/下行分辨率宽；
-bigvHeight：上/下行分辨率高
+bigvHeight：上/下行分辨率高；
+aCapEnergy：音频采集能量；
+aPlayEnergy：音频播放能量；
+rtt：SDK到云端的往返延时；单位: ms
      */
     public void setDataType(String [] DataType) {
         this.DataType = DataType;

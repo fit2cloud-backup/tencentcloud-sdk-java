@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Model extends AbstractModel{
+public class Model extends AbstractModel {
 
     /**
     * 模型名称
@@ -226,7 +227,9 @@ public class Model extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return TagInfos 标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public String [] getTagInfos() {
         return this.TagInfos;
     }
@@ -236,7 +239,9 @@ public class Model extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param TagInfos 标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setTagInfos(String [] TagInfos) {
         this.TagInfos = TagInfos;
     }

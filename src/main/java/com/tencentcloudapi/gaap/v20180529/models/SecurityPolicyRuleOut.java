@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SecurityPolicyRuleOut extends AbstractModel{
+public class SecurityPolicyRuleOut extends AbstractModel {
 
     /**
     * 策略：允许（ACCEPT）或拒绝（DROP）
@@ -45,7 +46,6 @@ public class SecurityPolicyRuleOut extends AbstractModel{
 
     /**
     * 目标端口范围
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DestPortRange")
     @Expose
@@ -60,7 +60,6 @@ public class SecurityPolicyRuleOut extends AbstractModel{
 
     /**
     * 要匹配的协议类型（TCP/UDP）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Protocol")
     @Expose
@@ -68,7 +67,6 @@ public class SecurityPolicyRuleOut extends AbstractModel{
 
     /**
     * 安全策略ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyId")
     @Expose
@@ -123,10 +121,8 @@ public class SecurityPolicyRuleOut extends AbstractModel{
     }
 
     /**
-     * Get 目标端口范围
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目标端口范围 
      * @return DestPortRange 目标端口范围
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDestPortRange() {
         return this.DestPortRange;
@@ -134,9 +130,7 @@ public class SecurityPolicyRuleOut extends AbstractModel{
 
     /**
      * Set 目标端口范围
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DestPortRange 目标端口范围
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDestPortRange(String DestPortRange) {
         this.DestPortRange = DestPortRange;
@@ -159,10 +153,8 @@ public class SecurityPolicyRuleOut extends AbstractModel{
     }
 
     /**
-     * Get 要匹配的协议类型（TCP/UDP）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 要匹配的协议类型（TCP/UDP） 
      * @return Protocol 要匹配的协议类型（TCP/UDP）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProtocol() {
         return this.Protocol;
@@ -170,19 +162,15 @@ public class SecurityPolicyRuleOut extends AbstractModel{
 
     /**
      * Set 要匹配的协议类型（TCP/UDP）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Protocol 要匹配的协议类型（TCP/UDP）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 安全策略ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 安全策略ID 
      * @return PolicyId 安全策略ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPolicyId() {
         return this.PolicyId;
@@ -190,9 +178,7 @@ public class SecurityPolicyRuleOut extends AbstractModel{
 
     /**
      * Set 安全策略ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyId 安全策略ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyId(String PolicyId) {
         this.PolicyId = PolicyId;

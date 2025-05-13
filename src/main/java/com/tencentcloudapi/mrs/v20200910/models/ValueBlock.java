@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ValueBlock extends AbstractModel{
+public class ValueBlock extends AbstractModel {
 
     /**
     * 等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Grade")
     @Expose
@@ -32,7 +32,6 @@ public class ValueBlock extends AbstractModel{
 
     /**
     * 百分比
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Percent")
     @Expose
@@ -40,17 +39,14 @@ public class ValueBlock extends AbstractModel{
 
     /**
     * 阳性阴性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Positive")
     @Expose
     private String Positive;
 
     /**
-     * Get 等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 等级 
      * @return Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGrade() {
         return this.Grade;
@@ -58,19 +54,15 @@ public class ValueBlock extends AbstractModel{
 
     /**
      * Set 等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGrade(String Grade) {
         this.Grade = Grade;
     }
 
     /**
-     * Get 百分比
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 百分比 
      * @return Percent 百分比
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float [] getPercent() {
         return this.Percent;
@@ -78,19 +70,15 @@ public class ValueBlock extends AbstractModel{
 
     /**
      * Set 百分比
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Percent 百分比
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPercent(Float [] Percent) {
         this.Percent = Percent;
     }
 
     /**
-     * Get 阳性阴性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 阳性阴性 
      * @return Positive 阳性阴性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPositive() {
         return this.Positive;
@@ -98,9 +86,7 @@ public class ValueBlock extends AbstractModel{
 
     /**
      * Set 阳性阴性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Positive 阳性阴性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPositive(String Positive) {
         this.Positive = Positive;

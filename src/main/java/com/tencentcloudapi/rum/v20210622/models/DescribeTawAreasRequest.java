@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTawAreasRequest extends AbstractModel{
+public class DescribeTawAreasRequest extends AbstractModel {
 
     /**
     * 片区Id
@@ -37,7 +38,7 @@ public class DescribeTawAreasRequest extends AbstractModel{
     private String [] AreaKeys;
 
     /**
-    * 分页Limit
+    * 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
     */
     @SerializedName("Limit")
     @Expose
@@ -51,7 +52,7 @@ public class DescribeTawAreasRequest extends AbstractModel{
     private Long [] AreaStatuses;
 
     /**
-    * 分页Offset
+    * 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
     */
     @SerializedName("Offset")
     @Expose
@@ -90,16 +91,16 @@ public class DescribeTawAreasRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页Limit 
-     * @return Limit 分页Limit
+     * Get 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。 
+     * @return Limit 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 分页Limit
-     * @param Limit 分页Limit
+     * Set 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
+     * @param Limit 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -122,16 +123,16 @@ public class DescribeTawAreasRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页Offset 
-     * @return Offset 分页Offset
+     * Get 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。 
+     * @return Offset 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页Offset
-     * @param Offset 分页Offset
+     * Set 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
+     * @param Offset 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;

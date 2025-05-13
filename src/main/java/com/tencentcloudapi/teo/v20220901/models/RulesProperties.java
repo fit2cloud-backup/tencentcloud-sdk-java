@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RulesProperties extends AbstractModel{
+public class RulesProperties extends AbstractModel {
 
     /**
     * 值为参数名称。
@@ -50,7 +51,7 @@ public class RulesProperties extends AbstractModel{
 <li> TOGGLE：参数值为开关类型，可在 ChoicesValue 中选择；</li>
 <li> OBJECT：参数值为对象类型，ChoiceProperties 为改对象类型关联的属性；</li>
 <li> CUSTOM_NUM：参数值用户自定义，整型类型；</li>
-<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://tcloud4api.woa.com/document/product/1657/79382?!preview&!document=1)
+<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://cloud.tencent.com/document/product/1552/80622#.E7.A4.BA.E4.BE.8B2-.E4.BF.AE.E6.94.B9.E6.BA.90.E7.AB.99.E4.B8.BAIP.E5.9F.9F.E5.90.8D)
     */
     @SerializedName("Type")
     @Expose
@@ -151,13 +152,13 @@ public class RulesProperties extends AbstractModel{
 <li> TOGGLE：参数值为开关类型，可在 ChoicesValue 中选择；</li>
 <li> OBJECT：参数值为对象类型，ChoiceProperties 为改对象类型关联的属性；</li>
 <li> CUSTOM_NUM：参数值用户自定义，整型类型；</li>
-<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://tcloud4api.woa.com/document/product/1657/79382?!preview&!document=1) 
+<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://cloud.tencent.com/document/product/1552/80622#.E7.A4.BA.E4.BE.8B2-.E4.BF.AE.E6.94.B9.E6.BA.90.E7.AB.99.E4.B8.BAIP.E5.9F.9F.E5.90.8D) 
      * @return Type 参数值类型。
 <li> CHOICE：参数值只能在 ChoicesValue 中选择； </li>
 <li> TOGGLE：参数值为开关类型，可在 ChoicesValue 中选择；</li>
 <li> OBJECT：参数值为对象类型，ChoiceProperties 为改对象类型关联的属性；</li>
 <li> CUSTOM_NUM：参数值用户自定义，整型类型；</li>
-<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://tcloud4api.woa.com/document/product/1657/79382?!preview&!document=1)
+<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://cloud.tencent.com/document/product/1552/80622#.E7.A4.BA.E4.BE.8B2-.E4.BF.AE.E6.94.B9.E6.BA.90.E7.AB.99.E4.B8.BAIP.E5.9F.9F.E5.90.8D)
      */
     public String getType() {
         return this.Type;
@@ -169,13 +170,13 @@ public class RulesProperties extends AbstractModel{
 <li> TOGGLE：参数值为开关类型，可在 ChoicesValue 中选择；</li>
 <li> OBJECT：参数值为对象类型，ChoiceProperties 为改对象类型关联的属性；</li>
 <li> CUSTOM_NUM：参数值用户自定义，整型类型；</li>
-<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://tcloud4api.woa.com/document/product/1657/79382?!preview&!document=1)
+<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://cloud.tencent.com/document/product/1552/80622#.E7.A4.BA.E4.BE.8B2-.E4.BF.AE.E6.94.B9.E6.BA.90.E7.AB.99.E4.B8.BAIP.E5.9F.9F.E5.90.8D)
      * @param Type 参数值类型。
 <li> CHOICE：参数值只能在 ChoicesValue 中选择； </li>
 <li> TOGGLE：参数值为开关类型，可在 ChoicesValue 中选择；</li>
 <li> OBJECT：参数值为对象类型，ChoiceProperties 为改对象类型关联的属性；</li>
 <li> CUSTOM_NUM：参数值用户自定义，整型类型；</li>
-<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://tcloud4api.woa.com/document/product/1657/79382?!preview&!document=1)
+<li> CUSTOM_STRING：参数值用户自定义，字符串类型。</li>注意：当参数类型为 OBJECT 类型时，请注意参考 [示例2 参数为 OBJECT 类型的创建](https://cloud.tencent.com/document/product/1552/80622#.E7.A4.BA.E4.BE.8B2-.E4.BF.AE.E6.94.B9.E6.BA.90.E7.AB.99.E4.B8.BAIP.E5.9F.9F.E5.90.8D)
      */
     public void setType(String Type) {
         this.Type = Type;

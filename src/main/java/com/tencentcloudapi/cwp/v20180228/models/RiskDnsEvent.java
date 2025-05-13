@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RiskDnsEvent extends AbstractModel{
+public class RiskDnsEvent extends AbstractModel {
 
     /**
     * 事件Id
@@ -192,11 +193,17 @@ public class RiskDnsEvent extends AbstractModel{
 
     /**
     * 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
     private MachineExtraInfo MachineExtraInfo;
+
+    /**
+    * [1:CentOS|2:Debian|3:Gentoo|4:Redhat|5:Ubuntu|6:Windows|7:TencentOS|8:CoreOS|9:FreeBSD|10:SUSE]
+    */
+    @SerializedName("OsType")
+    @Expose
+    private Long OsType;
 
     /**
      * Get 事件Id 
@@ -583,10 +590,8 @@ public class RiskDnsEvent extends AbstractModel{
     }
 
     /**
-     * Get 附加信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 附加信息 
      * @return MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -594,12 +599,26 @@ public class RiskDnsEvent extends AbstractModel{
 
     /**
      * Set 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
+    }
+
+    /**
+     * Get [1:CentOS|2:Debian|3:Gentoo|4:Redhat|5:Ubuntu|6:Windows|7:TencentOS|8:CoreOS|9:FreeBSD|10:SUSE] 
+     * @return OsType [1:CentOS|2:Debian|3:Gentoo|4:Redhat|5:Ubuntu|6:Windows|7:TencentOS|8:CoreOS|9:FreeBSD|10:SUSE]
+     */
+    public Long getOsType() {
+        return this.OsType;
+    }
+
+    /**
+     * Set [1:CentOS|2:Debian|3:Gentoo|4:Redhat|5:Ubuntu|6:Windows|7:TencentOS|8:CoreOS|9:FreeBSD|10:SUSE]
+     * @param OsType [1:CentOS|2:Debian|3:Gentoo|4:Redhat|5:Ubuntu|6:Windows|7:TencentOS|8:CoreOS|9:FreeBSD|10:SUSE]
+     */
+    public void setOsType(Long OsType) {
+        this.OsType = OsType;
     }
 
     public RiskDnsEvent() {
@@ -688,6 +707,9 @@ public class RiskDnsEvent extends AbstractModel{
         if (source.MachineExtraInfo != null) {
             this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
         }
+        if (source.OsType != null) {
+            this.OsType = new Long(source.OsType);
+        }
     }
 
 
@@ -720,6 +742,7 @@ public class RiskDnsEvent extends AbstractModel{
         this.setParamSimple(map, prefix + "LastTime", this.LastTime);
         this.setParamSimple(map, prefix + "HostStatus", this.HostStatus);
         this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
+        this.setParamSimple(map, prefix + "OsType", this.OsType);
 
     }
 }

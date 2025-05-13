@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyAlarmRequest extends AbstractModel{
+public class ModifyAlarmRequest extends AbstractModel {
 
     /**
     * 告警策略ID。
@@ -45,13 +46,38 @@ public class ModifyAlarmRequest extends AbstractModel{
 
     /**
     * 触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
     */
     @SerializedName("Condition")
     @Expose
     private String Condition;
 
     /**
-    * 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为10。
+    * 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+    */
+    @SerializedName("AlarmLevel")
+    @Expose
+    private Long AlarmLevel;
+
+    /**
+    * 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+    */
+    @SerializedName("MultiConditions")
+    @Expose
+    private MultiCondition [] MultiConditions;
+
+    /**
+    * 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
     */
     @SerializedName("TriggerCount")
     @Expose
@@ -86,6 +112,13 @@ public class ModifyAlarmRequest extends AbstractModel{
     private Boolean Status;
 
     /**
+    * 该参数已废弃，请使用Status参数控制是否开启告警策略。
+    */
+    @SerializedName("Enable")
+    @Expose
+    private Boolean Enable;
+
+    /**
     * 用户自定义告警内容
     */
     @SerializedName("MessageTemplate")
@@ -105,6 +138,46 @@ public class ModifyAlarmRequest extends AbstractModel{
     @SerializedName("Analysis")
     @Expose
     private AnalysisDimensional [] Analysis;
+
+    /**
+    * 分组触发状态。true：开启，false：关闭（默认）
+    */
+    @SerializedName("GroupTriggerStatus")
+    @Expose
+    private Boolean GroupTriggerStatus;
+
+    /**
+    * 分组触发条件。
+    */
+    @SerializedName("GroupTriggerCondition")
+    @Expose
+    private String [] GroupTriggerCondition;
+
+    /**
+    * 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+    */
+    @SerializedName("MonitorObjectType")
+    @Expose
+    private Long MonitorObjectType;
+
+    /**
+    * 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+    */
+    @SerializedName("Classifications")
+    @Expose
+    private AlarmClassification [] Classifications;
 
     /**
      * Get 告警策略ID。 
@@ -155,8 +228,14 @@ public class ModifyAlarmRequest extends AbstractModel{
     }
 
     /**
-     * Get 触发条件。 
+     * Get 触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。 
      * @return Condition 触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
      */
     public String getCondition() {
         return this.Condition;
@@ -164,23 +243,93 @@ public class ModifyAlarmRequest extends AbstractModel{
 
     /**
      * Set 触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
      * @param Condition 触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
      */
     public void setCondition(String Condition) {
         this.Condition = Condition;
     }
 
     /**
-     * Get 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为10。 
-     * @return TriggerCount 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为10。
+     * Get 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。 
+     * @return AlarmLevel 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+     */
+    public Long getAlarmLevel() {
+        return this.AlarmLevel;
+    }
+
+    /**
+     * Set 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+     * @param AlarmLevel 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+     */
+    public void setAlarmLevel(Long AlarmLevel) {
+        this.AlarmLevel = AlarmLevel;
+    }
+
+    /**
+     * Get 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。 
+     * @return MultiConditions 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+     */
+    public MultiCondition [] getMultiConditions() {
+        return this.MultiConditions;
+    }
+
+    /**
+     * Set 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+     * @param MultiConditions 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+     */
+    public void setMultiConditions(MultiCondition [] MultiConditions) {
+        this.MultiConditions = MultiConditions;
+    }
+
+    /**
+     * Get 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。 
+     * @return TriggerCount 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
      */
     public Long getTriggerCount() {
         return this.TriggerCount;
     }
 
     /**
-     * Set 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为10。
-     * @param TriggerCount 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为10。
+     * Set 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
+     * @param TriggerCount 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
      */
     public void setTriggerCount(Long TriggerCount) {
         this.TriggerCount = TriggerCount;
@@ -251,6 +400,22 @@ public class ModifyAlarmRequest extends AbstractModel{
     }
 
     /**
+     * Get 该参数已废弃，请使用Status参数控制是否开启告警策略。 
+     * @return Enable 该参数已废弃，请使用Status参数控制是否开启告警策略。
+     */
+    public Boolean getEnable() {
+        return this.Enable;
+    }
+
+    /**
+     * Set 该参数已废弃，请使用Status参数控制是否开启告警策略。
+     * @param Enable 该参数已废弃，请使用Status参数控制是否开启告警策略。
+     */
+    public void setEnable(Boolean Enable) {
+        this.Enable = Enable;
+    }
+
+    /**
      * Get 用户自定义告警内容 
      * @return MessageTemplate 用户自定义告警内容
      */
@@ -298,6 +463,106 @@ public class ModifyAlarmRequest extends AbstractModel{
         this.Analysis = Analysis;
     }
 
+    /**
+     * Get 分组触发状态。true：开启，false：关闭（默认） 
+     * @return GroupTriggerStatus 分组触发状态。true：开启，false：关闭（默认）
+     */
+    public Boolean getGroupTriggerStatus() {
+        return this.GroupTriggerStatus;
+    }
+
+    /**
+     * Set 分组触发状态。true：开启，false：关闭（默认）
+     * @param GroupTriggerStatus 分组触发状态。true：开启，false：关闭（默认）
+     */
+    public void setGroupTriggerStatus(Boolean GroupTriggerStatus) {
+        this.GroupTriggerStatus = GroupTriggerStatus;
+    }
+
+    /**
+     * Get 分组触发条件。 
+     * @return GroupTriggerCondition 分组触发条件。
+     */
+    public String [] getGroupTriggerCondition() {
+        return this.GroupTriggerCondition;
+    }
+
+    /**
+     * Set 分组触发条件。
+     * @param GroupTriggerCondition 分组触发条件。
+     */
+    public void setGroupTriggerCondition(String [] GroupTriggerCondition) {
+        this.GroupTriggerCondition = GroupTriggerCondition;
+    }
+
+    /**
+     * Get 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。 
+     * @return Tags 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+     * @param Tags 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+ 
+     * @return MonitorObjectType 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+     */
+    public Long getMonitorObjectType() {
+        return this.MonitorObjectType;
+    }
+
+    /**
+     * Set 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+     * @param MonitorObjectType 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+     */
+    public void setMonitorObjectType(Long MonitorObjectType) {
+        this.MonitorObjectType = MonitorObjectType;
+    }
+
+    /**
+     * Get 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。 
+     * @return Classifications 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+     */
+    public AlarmClassification [] getClassifications() {
+        return this.Classifications;
+    }
+
+    /**
+     * Set 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+     * @param Classifications 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+     */
+    public void setClassifications(AlarmClassification [] Classifications) {
+        this.Classifications = Classifications;
+    }
+
     public ModifyAlarmRequest() {
     }
 
@@ -317,6 +582,15 @@ public class ModifyAlarmRequest extends AbstractModel{
         }
         if (source.Condition != null) {
             this.Condition = new String(source.Condition);
+        }
+        if (source.AlarmLevel != null) {
+            this.AlarmLevel = new Long(source.AlarmLevel);
+        }
+        if (source.MultiConditions != null) {
+            this.MultiConditions = new MultiCondition[source.MultiConditions.length];
+            for (int i = 0; i < source.MultiConditions.length; i++) {
+                this.MultiConditions[i] = new MultiCondition(source.MultiConditions[i]);
+            }
         }
         if (source.TriggerCount != null) {
             this.TriggerCount = new Long(source.TriggerCount);
@@ -339,6 +613,9 @@ public class ModifyAlarmRequest extends AbstractModel{
         if (source.Status != null) {
             this.Status = new Boolean(source.Status);
         }
+        if (source.Enable != null) {
+            this.Enable = new Boolean(source.Enable);
+        }
         if (source.MessageTemplate != null) {
             this.MessageTemplate = new String(source.MessageTemplate);
         }
@@ -349,6 +626,30 @@ public class ModifyAlarmRequest extends AbstractModel{
             this.Analysis = new AnalysisDimensional[source.Analysis.length];
             for (int i = 0; i < source.Analysis.length; i++) {
                 this.Analysis[i] = new AnalysisDimensional(source.Analysis[i]);
+            }
+        }
+        if (source.GroupTriggerStatus != null) {
+            this.GroupTriggerStatus = new Boolean(source.GroupTriggerStatus);
+        }
+        if (source.GroupTriggerCondition != null) {
+            this.GroupTriggerCondition = new String[source.GroupTriggerCondition.length];
+            for (int i = 0; i < source.GroupTriggerCondition.length; i++) {
+                this.GroupTriggerCondition[i] = new String(source.GroupTriggerCondition[i]);
+            }
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.MonitorObjectType != null) {
+            this.MonitorObjectType = new Long(source.MonitorObjectType);
+        }
+        if (source.Classifications != null) {
+            this.Classifications = new AlarmClassification[source.Classifications.length];
+            for (int i = 0; i < source.Classifications.length; i++) {
+                this.Classifications[i] = new AlarmClassification(source.Classifications[i]);
             }
         }
     }
@@ -362,14 +663,22 @@ public class ModifyAlarmRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamObj(map, prefix + "MonitorTime.", this.MonitorTime);
         this.setParamSimple(map, prefix + "Condition", this.Condition);
+        this.setParamSimple(map, prefix + "AlarmLevel", this.AlarmLevel);
+        this.setParamArrayObj(map, prefix + "MultiConditions.", this.MultiConditions);
         this.setParamSimple(map, prefix + "TriggerCount", this.TriggerCount);
         this.setParamSimple(map, prefix + "AlarmPeriod", this.AlarmPeriod);
         this.setParamArraySimple(map, prefix + "AlarmNoticeIds.", this.AlarmNoticeIds);
         this.setParamArrayObj(map, prefix + "AlarmTargets.", this.AlarmTargets);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "Enable", this.Enable);
         this.setParamSimple(map, prefix + "MessageTemplate", this.MessageTemplate);
         this.setParamObj(map, prefix + "CallBack.", this.CallBack);
         this.setParamArrayObj(map, prefix + "Analysis.", this.Analysis);
+        this.setParamSimple(map, prefix + "GroupTriggerStatus", this.GroupTriggerStatus);
+        this.setParamArraySimple(map, prefix + "GroupTriggerCondition.", this.GroupTriggerCondition);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "MonitorObjectType", this.MonitorObjectType);
+        this.setParamArrayObj(map, prefix + "Classifications.", this.Classifications);
 
     }
 }

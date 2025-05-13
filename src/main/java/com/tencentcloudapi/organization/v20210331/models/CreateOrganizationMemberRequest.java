@@ -16,11 +16,12 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateOrganizationMemberRequest extends AbstractModel{
+public class CreateOrganizationMemberRequest extends AbstractModel {
 
     /**
     * 成员名称。最大长度为25个字符，支持英文字母、数字、汉字、符号+@、&._[]-:,
@@ -44,7 +45,7 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
     private Long [] PermissionIds;
 
     /**
-    * 成员所属部门的节点ID。可以调用DescribeOrganizationNodes获取
+    * 成员所属部门的节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
     */
     @SerializedName("NodeId")
     @Expose
@@ -91,6 +92,13 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
     @SerializedName("AuthRelationId")
     @Expose
     private Long AuthRelationId;
+
+    /**
+    * 成员标签列表。最大10个
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 成员名称。最大长度为25个字符，支持英文字母、数字、汉字、符号+@、&._[]-:, 
@@ -141,16 +149,16 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
     }
 
     /**
-     * Get 成员所属部门的节点ID。可以调用DescribeOrganizationNodes获取 
-     * @return NodeId 成员所属部门的节点ID。可以调用DescribeOrganizationNodes获取
+     * Get 成员所属部门的节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取 
+     * @return NodeId 成员所属部门的节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
      */
     public Long getNodeId() {
         return this.NodeId;
     }
 
     /**
-     * Set 成员所属部门的节点ID。可以调用DescribeOrganizationNodes获取
-     * @param NodeId 成员所属部门的节点ID。可以调用DescribeOrganizationNodes获取
+     * Set 成员所属部门的节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
+     * @param NodeId 成员所属部门的节点ID。可以通过[DescribeOrganizationNodes](https://cloud.tencent.com/document/product/850/82926)获取
      */
     public void setNodeId(Long NodeId) {
         this.NodeId = NodeId;
@@ -252,6 +260,22 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
         this.AuthRelationId = AuthRelationId;
     }
 
+    /**
+     * Get 成员标签列表。最大10个 
+     * @return Tags 成员标签列表。最大10个
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 成员标签列表。最大10个
+     * @param Tags 成员标签列表。最大10个
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateOrganizationMemberRequest() {
     }
 
@@ -296,6 +320,12 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
         if (source.AuthRelationId != null) {
             this.AuthRelationId = new Long(source.AuthRelationId);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -313,6 +343,7 @@ public class CreateOrganizationMemberRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PayUin", this.PayUin);
         this.setParamArraySimple(map, prefix + "IdentityRoleID.", this.IdentityRoleID);
         this.setParamSimple(map, prefix + "AuthRelationId", this.AuthRelationId);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

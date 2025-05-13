@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCdbProxyRequest extends AbstractModel{
+public class CreateCdbProxyRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -44,7 +45,16 @@ public class CreateCdbProxyRequest extends AbstractModel{
     private String UniqSubnetId;
 
     /**
-    * 节点规格配置
+    * 节点规格配置。
+示例中参数说明：
+NodeCount：节点个数。
+Region：节点地域。
+Zone：节点可用区。
+Cpu：单个代理节点核数（单位：核）。
+Mem：单个代理节点内存数（单位：MB）。
+备注：
+1. 数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+2. 上述参数项（如节点个数、可用区等）均为必填，在调用接口时如未填写完整，可能会创建失败。
     */
     @SerializedName("ProxyNodeCustom")
     @Expose
@@ -66,10 +76,18 @@ public class CreateCdbProxyRequest extends AbstractModel{
 
     /**
     * 连接池阈值
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
     */
     @SerializedName("ConnectionPoolLimit")
     @Expose
     private Long ConnectionPoolLimit;
+
+    /**
+    * 指定要购买的 proxy 内核版本。不填则默认发货最新版本的 proxy。
+    */
+    @SerializedName("ProxyVersion")
+    @Expose
+    private String ProxyVersion;
 
     /**
      * Get 实例ID 
@@ -120,16 +138,52 @@ public class CreateCdbProxyRequest extends AbstractModel{
     }
 
     /**
-     * Get 节点规格配置 
-     * @return ProxyNodeCustom 节点规格配置
+     * Get 节点规格配置。
+示例中参数说明：
+NodeCount：节点个数。
+Region：节点地域。
+Zone：节点可用区。
+Cpu：单个代理节点核数（单位：核）。
+Mem：单个代理节点内存数（单位：MB）。
+备注：
+1. 数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+2. 上述参数项（如节点个数、可用区等）均为必填，在调用接口时如未填写完整，可能会创建失败。 
+     * @return ProxyNodeCustom 节点规格配置。
+示例中参数说明：
+NodeCount：节点个数。
+Region：节点地域。
+Zone：节点可用区。
+Cpu：单个代理节点核数（单位：核）。
+Mem：单个代理节点内存数（单位：MB）。
+备注：
+1. 数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+2. 上述参数项（如节点个数、可用区等）均为必填，在调用接口时如未填写完整，可能会创建失败。
      */
     public ProxyNodeCustom [] getProxyNodeCustom() {
         return this.ProxyNodeCustom;
     }
 
     /**
-     * Set 节点规格配置
-     * @param ProxyNodeCustom 节点规格配置
+     * Set 节点规格配置。
+示例中参数说明：
+NodeCount：节点个数。
+Region：节点地域。
+Zone：节点可用区。
+Cpu：单个代理节点核数（单位：核）。
+Mem：单个代理节点内存数（单位：MB）。
+备注：
+1. 数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+2. 上述参数项（如节点个数、可用区等）均为必填，在调用接口时如未填写完整，可能会创建失败。
+     * @param ProxyNodeCustom 节点规格配置。
+示例中参数说明：
+NodeCount：节点个数。
+Region：节点地域。
+Zone：节点可用区。
+Cpu：单个代理节点核数（单位：核）。
+Mem：单个代理节点内存数（单位：MB）。
+备注：
+1. 数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+2. 上述参数项（如节点个数、可用区等）均为必填，在调用接口时如未填写完整，可能会创建失败。
      */
     public void setProxyNodeCustom(ProxyNodeCustom [] ProxyNodeCustom) {
         this.ProxyNodeCustom = ProxyNodeCustom;
@@ -168,8 +222,10 @@ public class CreateCdbProxyRequest extends AbstractModel{
     }
 
     /**
-     * Get 连接池阈值 
+     * Get 连接池阈值
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。 
      * @return ConnectionPoolLimit 连接池阈值
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
      */
     public Long getConnectionPoolLimit() {
         return this.ConnectionPoolLimit;
@@ -177,10 +233,28 @@ public class CreateCdbProxyRequest extends AbstractModel{
 
     /**
      * Set 连接池阈值
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
      * @param ConnectionPoolLimit 连接池阈值
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
      */
     public void setConnectionPoolLimit(Long ConnectionPoolLimit) {
         this.ConnectionPoolLimit = ConnectionPoolLimit;
+    }
+
+    /**
+     * Get 指定要购买的 proxy 内核版本。不填则默认发货最新版本的 proxy。 
+     * @return ProxyVersion 指定要购买的 proxy 内核版本。不填则默认发货最新版本的 proxy。
+     */
+    public String getProxyVersion() {
+        return this.ProxyVersion;
+    }
+
+    /**
+     * Set 指定要购买的 proxy 内核版本。不填则默认发货最新版本的 proxy。
+     * @param ProxyVersion 指定要购买的 proxy 内核版本。不填则默认发货最新版本的 proxy。
+     */
+    public void setProxyVersion(String ProxyVersion) {
+        this.ProxyVersion = ProxyVersion;
     }
 
     public CreateCdbProxyRequest() {
@@ -218,6 +292,9 @@ public class CreateCdbProxyRequest extends AbstractModel{
         if (source.ConnectionPoolLimit != null) {
             this.ConnectionPoolLimit = new Long(source.ConnectionPoolLimit);
         }
+        if (source.ProxyVersion != null) {
+            this.ProxyVersion = new String(source.ProxyVersion);
+        }
     }
 
 
@@ -232,6 +309,7 @@ public class CreateCdbProxyRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "SecurityGroup.", this.SecurityGroup);
         this.setParamSimple(map, prefix + "Desc", this.Desc);
         this.setParamSimple(map, prefix + "ConnectionPoolLimit", this.ConnectionPoolLimit);
+        this.setParamSimple(map, prefix + "ProxyVersion", this.ProxyVersion);
 
     }
 }

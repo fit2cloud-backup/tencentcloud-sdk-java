@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlotSharingGroup extends AbstractModel{
+public class SlotSharingGroup extends AbstractModel {
 
     /**
     * SlotSharingGroup的名字
@@ -45,6 +46,14 @@ public class SlotSharingGroup extends AbstractModel{
     @SerializedName("Description")
     @Expose
     private String Description;
+
+    /**
+    * SlotSharingGroup的配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Configuration")
+    @Expose
+    private Property [] Configuration;
 
     /**
      * Get SlotSharingGroup的名字
@@ -106,6 +115,26 @@ public class SlotSharingGroup extends AbstractModel{
         this.Description = Description;
     }
 
+    /**
+     * Get SlotSharingGroup的配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Configuration SlotSharingGroup的配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Property [] getConfiguration() {
+        return this.Configuration;
+    }
+
+    /**
+     * Set SlotSharingGroup的配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Configuration SlotSharingGroup的配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setConfiguration(Property [] Configuration) {
+        this.Configuration = Configuration;
+    }
+
     public SlotSharingGroup() {
     }
 
@@ -123,6 +152,12 @@ public class SlotSharingGroup extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.Configuration != null) {
+            this.Configuration = new Property[source.Configuration.length];
+            for (int i = 0; i < source.Configuration.length; i++) {
+                this.Configuration[i] = new Property(source.Configuration[i]);
+            }
+        }
     }
 
 
@@ -133,6 +168,7 @@ public class SlotSharingGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamObj(map, prefix + "Spec.", this.Spec);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamArrayObj(map, prefix + "Configuration.", this.Configuration);
 
     }
 }

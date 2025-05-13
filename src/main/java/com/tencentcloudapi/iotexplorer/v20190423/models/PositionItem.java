@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PositionItem extends AbstractModel{
+public class PositionItem extends AbstractModel {
 
     /**
     * 位置点的时间
@@ -45,7 +46,6 @@ public class PositionItem extends AbstractModel{
 
     /**
     * 位置点的定位类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LocationType")
     @Expose
@@ -53,7 +53,6 @@ public class PositionItem extends AbstractModel{
 
     /**
     * 位置点的精度预估，单位为米
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Accuracy")
     @Expose
@@ -108,10 +107,8 @@ public class PositionItem extends AbstractModel{
     }
 
     /**
-     * Get 位置点的定位类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 位置点的定位类型 
      * @return LocationType 位置点的定位类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLocationType() {
         return this.LocationType;
@@ -119,19 +116,15 @@ public class PositionItem extends AbstractModel{
 
     /**
      * Set 位置点的定位类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LocationType 位置点的定位类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocationType(String LocationType) {
         this.LocationType = LocationType;
     }
 
     /**
-     * Get 位置点的精度预估，单位为米
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 位置点的精度预估，单位为米 
      * @return Accuracy 位置点的精度预估，单位为米
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getAccuracy() {
         return this.Accuracy;
@@ -139,9 +132,7 @@ public class PositionItem extends AbstractModel{
 
     /**
      * Set 位置点的精度预估，单位为米
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Accuracy 位置点的精度预估，单位为米
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccuracy(Float Accuracy) {
         this.Accuracy = Accuracy;

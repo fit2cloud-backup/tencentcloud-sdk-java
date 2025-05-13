@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyInstancePreRequest extends AbstractModel{
+public class ModifyInstancePreRequest extends AbstractModel {
 
     /**
-    * 实例名称
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
@@ -51,16 +52,16 @@ public class ModifyInstancePreRequest extends AbstractModel{
     private Long Partition;
 
     /**
-     * Get 实例名称 
-     * @return InstanceId 实例名称
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例名称
-     * @param InstanceId 实例名称
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mmps.v20200710.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
+public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel {
 
     /**
     * 返回值, 0:成功, 其他值请查看“返回值”定义
@@ -45,7 +46,6 @@ public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
 
     /**
     * 小程序测试账号(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MiniAppTestAccount")
     @Expose
@@ -53,7 +53,6 @@ public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
 
     /**
     * 小程序测试密码(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MiniAppTestPwd")
     @Expose
@@ -61,14 +60,13 @@ public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
 
     /**
     * 诊断扫描版本 0:正式版 1:体验版
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanVersion")
     @Expose
     private Long ScanVersion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -123,10 +121,8 @@ public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
     }
 
     /**
-     * Get 小程序测试账号(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 小程序测试账号(自有账号体系需提供,其他情况不需要) 
      * @return MiniAppTestAccount 小程序测试账号(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMiniAppTestAccount() {
         return this.MiniAppTestAccount;
@@ -134,19 +130,15 @@ public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
 
     /**
      * Set 小程序测试账号(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MiniAppTestAccount 小程序测试账号(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMiniAppTestAccount(String MiniAppTestAccount) {
         this.MiniAppTestAccount = MiniAppTestAccount;
     }
 
     /**
-     * Get 小程序测试密码(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 小程序测试密码(自有账号体系需提供,其他情况不需要) 
      * @return MiniAppTestPwd 小程序测试密码(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMiniAppTestPwd() {
         return this.MiniAppTestPwd;
@@ -154,19 +146,15 @@ public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
 
     /**
      * Set 小程序测试密码(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MiniAppTestPwd 小程序测试密码(自有账号体系需提供,其他情况不需要)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMiniAppTestPwd(String MiniAppTestPwd) {
         this.MiniAppTestPwd = MiniAppTestPwd;
     }
 
     /**
-     * Get 诊断扫描版本 0:正式版 1:体验版
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断扫描版本 0:正式版 1:体验版 
      * @return ScanVersion 诊断扫描版本 0:正式版 1:体验版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanVersion() {
         return this.ScanVersion;
@@ -174,25 +162,23 @@ public class DescribeFlySecMiniAppScanTaskParamResponse extends AbstractModel{
 
     /**
      * Set 诊断扫描版本 0:正式版 1:体验版
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanVersion 诊断扫描版本 0:正式版 1:体验版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanVersion(Long ScanVersion) {
         this.ScanVersion = ScanVersion;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

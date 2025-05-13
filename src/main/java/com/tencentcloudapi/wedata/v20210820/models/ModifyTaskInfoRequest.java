@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyTaskInfoRequest extends AbstractModel{
+public class ModifyTaskInfoRequest extends AbstractModel {
 
     /**
     * 项目Id
@@ -224,6 +225,27 @@ public class ModifyTaskInfoRequest extends AbstractModel{
     @SerializedName("DependencyConfigDTOs")
     @Expose
     private DependencyConfig [] DependencyConfigDTOs;
+
+    /**
+    * 执行耗时
+    */
+    @SerializedName("ExecutionTTL")
+    @Expose
+    private Long ExecutionTTL;
+
+    /**
+    * 脚本是否改变
+    */
+    @SerializedName("ScriptChange")
+    @Expose
+    private Boolean ScriptChange;
+
+    /**
+    * 责任人id
+    */
+    @SerializedName("InChargeIds")
+    @Expose
+    private String [] InChargeIds;
 
     /**
      * Get 项目Id 
@@ -580,7 +602,9 @@ public class ModifyTaskInfoRequest extends AbstractModel{
     /**
      * Get 责任人 
      * @return InCharge 责任人
+     * @deprecated
      */
+    @Deprecated
     public String getInCharge() {
         return this.InCharge;
     }
@@ -588,7 +612,9 @@ public class ModifyTaskInfoRequest extends AbstractModel{
     /**
      * Set 责任人
      * @param InCharge 责任人
+     * @deprecated
      */
+    @Deprecated
     public void setInCharge(String InCharge) {
         this.InCharge = InCharge;
     }
@@ -687,6 +713,54 @@ public class ModifyTaskInfoRequest extends AbstractModel{
      */
     public void setDependencyConfigDTOs(DependencyConfig [] DependencyConfigDTOs) {
         this.DependencyConfigDTOs = DependencyConfigDTOs;
+    }
+
+    /**
+     * Get 执行耗时 
+     * @return ExecutionTTL 执行耗时
+     */
+    public Long getExecutionTTL() {
+        return this.ExecutionTTL;
+    }
+
+    /**
+     * Set 执行耗时
+     * @param ExecutionTTL 执行耗时
+     */
+    public void setExecutionTTL(Long ExecutionTTL) {
+        this.ExecutionTTL = ExecutionTTL;
+    }
+
+    /**
+     * Get 脚本是否改变 
+     * @return ScriptChange 脚本是否改变
+     */
+    public Boolean getScriptChange() {
+        return this.ScriptChange;
+    }
+
+    /**
+     * Set 脚本是否改变
+     * @param ScriptChange 脚本是否改变
+     */
+    public void setScriptChange(Boolean ScriptChange) {
+        this.ScriptChange = ScriptChange;
+    }
+
+    /**
+     * Get 责任人id 
+     * @return InChargeIds 责任人id
+     */
+    public String [] getInChargeIds() {
+        return this.InChargeIds;
+    }
+
+    /**
+     * Set 责任人id
+     * @param InChargeIds 责任人id
+     */
+    public void setInChargeIds(String [] InChargeIds) {
+        this.InChargeIds = InChargeIds;
     }
 
     public ModifyTaskInfoRequest() {
@@ -793,6 +867,18 @@ public class ModifyTaskInfoRequest extends AbstractModel{
                 this.DependencyConfigDTOs[i] = new DependencyConfig(source.DependencyConfigDTOs[i]);
             }
         }
+        if (source.ExecutionTTL != null) {
+            this.ExecutionTTL = new Long(source.ExecutionTTL);
+        }
+        if (source.ScriptChange != null) {
+            this.ScriptChange = new Boolean(source.ScriptChange);
+        }
+        if (source.InChargeIds != null) {
+            this.InChargeIds = new String[source.InChargeIds.length];
+            for (int i = 0; i < source.InChargeIds.length; i++) {
+                this.InChargeIds[i] = new String(source.InChargeIds[i]);
+            }
+        }
     }
 
 
@@ -829,6 +915,9 @@ public class ModifyTaskInfoRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TargetServer", this.TargetServer);
         this.setParamSimple(map, prefix + "DependencyWorkflow", this.DependencyWorkflow);
         this.setParamArrayObj(map, prefix + "DependencyConfigDTOs.", this.DependencyConfigDTOs);
+        this.setParamSimple(map, prefix + "ExecutionTTL", this.ExecutionTTL);
+        this.setParamSimple(map, prefix + "ScriptChange", this.ScriptChange);
+        this.setParamArraySimple(map, prefix + "InChargeIds.", this.InChargeIds);
 
     }
 }

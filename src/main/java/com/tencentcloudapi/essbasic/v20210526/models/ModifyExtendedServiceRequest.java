@@ -16,16 +16,23 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyExtendedServiceRequest extends AbstractModel{
+public class ModifyExtendedServiceRequest extends AbstractModel {
 
     /**
-    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+    * 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
 
-注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经过实名认证
     */
     @SerializedName("Agent")
     @Expose
@@ -33,44 +40,85 @@ public class ModifyExtendedServiceRequest extends AbstractModel{
 
     /**
     *   扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权渠道下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
     */
     @SerializedName("ServiceType")
     @Expose
     private String ServiceType;
 
     /**
-    * 操作类型 
-OPEN:开通 
-CLOSE:关闭
+    * 操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
     */
     @SerializedName("Operate")
     @Expose
     private String Operate;
 
     /**
-     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+    * 链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+<li>WEIXIN_QRCODE_URL：直接跳转至电子签小程序的二维码链接，无需通过中转页。<font color="red">您需要自行将其转换为二维码，使用微信扫码后可直接进入。请注意，直接点击链接是无效的。</font></li>
+</ul>
+    */
+    @SerializedName("Endpoint")
+    @Expose
+    private String Endpoint;
 
-注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId 
-     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+    /**
+     * Get 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
 
-注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经过实名认证 
+     * @return Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经过实名认证
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * Set 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
 
-注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
-     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经过实名认证
+     * @param Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
 
-注: 此接口 参数Agent. ProxyOperator.OpenId 需要传递超管或者法人的OpenId
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent.ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经过实名认证
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
@@ -78,17 +126,23 @@ CLOSE:关闭
 
     /**
      * Get   扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权渠道下载合同  
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul> 
      * @return ServiceType   扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权渠道下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
      */
     public String getServiceType() {
         return this.ServiceType;
@@ -96,44 +150,94 @@ CLOSE:关闭
 
     /**
      * Set   扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权渠道下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
      * @param ServiceType   扩展服务类型
-  AUTO_SIGN             企业静默签（自动签署）
-  OVERSEA_SIGN          企业与港澳台居民*签署合同
-  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份
-  PAGING_SEAL           骑缝章
-  DOWNLOAD_FLOW         授权渠道下载合同 
+<ul>
+<li>AUTO_SIGN             企业自动签（自动签署）</li>
+<li>  OVERSEA_SIGN          企业与港澳台居民签署合同</li>
+<li>  MOBILE_CHECK_APPROVER 使用手机号验证签署方身份</li>
+<li> DOWNLOAD_FLOW         授权渠道下载合同 </li>
+<li>AGE_LIMIT_EXPANSION 拓宽签署方年龄限制</li>
+<li>HIDE_OPERATOR_DISPLAY 隐藏合同经办人姓名</li>
+</ul>
      */
     public void setServiceType(String ServiceType) {
         this.ServiceType = ServiceType;
     }
 
     /**
-     * Get 操作类型 
-OPEN:开通 
-CLOSE:关闭 
-     * @return Operate 操作类型 
-OPEN:开通 
-CLOSE:关闭
+     * Get 操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul> 
+     * @return Operate 操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
      */
     public String getOperate() {
         return this.Operate;
     }
 
     /**
-     * Set 操作类型 
-OPEN:开通 
-CLOSE:关闭
-     * @param Operate 操作类型 
-OPEN:开通 
-CLOSE:关闭
+     * Set 操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
+     * @param Operate 操作类型
+<ul>
+<li>OPEN : 开通</li>
+<li>CLOSE : 关闭</li>
+</ul>
      */
     public void setOperate(String Operate) {
         this.Operate = Operate;
+    }
+
+    /**
+     * Get 链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+<li>WEIXIN_QRCODE_URL：直接跳转至电子签小程序的二维码链接，无需通过中转页。<font color="red">您需要自行将其转换为二维码，使用微信扫码后可直接进入。请注意，直接点击链接是无效的。</font></li>
+</ul> 
+     * @return Endpoint 链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+<li>WEIXIN_QRCODE_URL：直接跳转至电子签小程序的二维码链接，无需通过中转页。<font color="red">您需要自行将其转换为二维码，使用微信扫码后可直接进入。请注意，直接点击链接是无效的。</font></li>
+</ul>
+     */
+    public String getEndpoint() {
+        return this.Endpoint;
+    }
+
+    /**
+     * Set 链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+<li>WEIXIN_QRCODE_URL：直接跳转至电子签小程序的二维码链接，无需通过中转页。<font color="red">您需要自行将其转换为二维码，使用微信扫码后可直接进入。请注意，直接点击链接是无效的。</font></li>
+</ul>
+     * @param Endpoint 链接跳转类型，支持以下类型
+<ul>
+<li>WEIXINAPP : 短链直接跳转到电子签小程序  (默认值)</li>
+<li>APP : 第三方APP或小程序跳转电子签小程序</li>
+<li>WEIXIN_QRCODE_URL：直接跳转至电子签小程序的二维码链接，无需通过中转页。<font color="red">您需要自行将其转换为二维码，使用微信扫码后可直接进入。请注意，直接点击链接是无效的。</font></li>
+</ul>
+     */
+    public void setEndpoint(String Endpoint) {
+        this.Endpoint = Endpoint;
     }
 
     public ModifyExtendedServiceRequest() {
@@ -153,6 +257,9 @@ CLOSE:关闭
         if (source.Operate != null) {
             this.Operate = new String(source.Operate);
         }
+        if (source.Endpoint != null) {
+            this.Endpoint = new String(source.Endpoint);
+        }
     }
 
 
@@ -163,6 +270,7 @@ CLOSE:关闭
         this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamSimple(map, prefix + "ServiceType", this.ServiceType);
         this.setParamSimple(map, prefix + "Operate", this.Operate);
+        this.setParamSimple(map, prefix + "Endpoint", this.Endpoint);
 
     }
 }

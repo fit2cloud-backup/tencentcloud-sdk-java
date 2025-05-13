@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TmpInstance extends AbstractModel{
+public class TmpInstance extends AbstractModel {
 
     /**
     * 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -32,7 +32,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -40,7 +39,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceRemark")
     @Expose
@@ -48,7 +46,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 0:非临时实例 ,1:无效临时实例, 2:回档成功的有效临时实例
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TempType")
     @Expose
@@ -56,7 +53,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例状态,0:待初始化,1:流程处理中,2:有效状态,-1:已隔离，-2：已下线
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -64,7 +60,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -72,7 +67,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例虚IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vip")
     @Expose
@@ -80,7 +74,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例虚端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vport")
     @Expose
@@ -88,7 +81,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 有效期结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PeriodEndTime")
     @Expose
@@ -96,7 +88,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 源实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SrcInstanceId")
     @Expose
@@ -104,7 +95,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例状态描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StatusDesc")
     @Expose
@@ -112,7 +102,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -120,7 +109,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Zone")
     @Expose
@@ -128,7 +116,6 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例虚IPv6
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vipv6")
     @Expose
@@ -136,17 +123,14 @@ public class TmpInstance extends AbstractModel{
 
     /**
     * 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ipv6Flag")
     @Expose
     private Long Ipv6Flag;
 
     /**
-     * Get 应用ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用ID 
      * @return AppId 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -154,19 +138,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -174,19 +154,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 实例备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例备注 
      * @return InstanceRemark 实例备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceRemark() {
         return this.InstanceRemark;
@@ -194,19 +170,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceRemark 实例备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceRemark(String InstanceRemark) {
         this.InstanceRemark = InstanceRemark;
     }
 
     /**
-     * Get 0:非临时实例 ,1:无效临时实例, 2:回档成功的有效临时实例
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0:非临时实例 ,1:无效临时实例, 2:回档成功的有效临时实例 
      * @return TempType 0:非临时实例 ,1:无效临时实例, 2:回档成功的有效临时实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTempType() {
         return this.TempType;
@@ -214,19 +186,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 0:非临时实例 ,1:无效临时实例, 2:回档成功的有效临时实例
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TempType 0:非临时实例 ,1:无效临时实例, 2:回档成功的有效临时实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTempType(Long TempType) {
         this.TempType = TempType;
     }
 
     /**
-     * Get 实例状态,0:待初始化,1:流程处理中,2:有效状态,-1:已隔离，-2：已下线
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例状态,0:待初始化,1:流程处理中,2:有效状态,-1:已隔离，-2：已下线 
      * @return Status 实例状态,0:待初始化,1:流程处理中,2:有效状态,-1:已隔离，-2：已下线
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -234,19 +202,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例状态,0:待初始化,1:流程处理中,2:有效状态,-1:已隔离，-2：已下线
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 实例状态,0:待初始化,1:流程处理中,2:有效状态,-1:已隔离，-2：已下线
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例 ID，形如：tdsql-ow728lmc。 
      * @return InstanceId 实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -254,19 +218,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 实例虚IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例虚IP 
      * @return Vip 实例虚IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVip() {
         return this.Vip;
@@ -274,19 +234,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例虚IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vip 实例虚IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
     }
 
     /**
-     * Get 实例虚端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例虚端口 
      * @return Vport 实例虚端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVport() {
         return this.Vport;
@@ -294,19 +250,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例虚端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vport 实例虚端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVport(Long Vport) {
         this.Vport = Vport;
     }
 
     /**
-     * Get 有效期结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 有效期结束时间 
      * @return PeriodEndTime 有效期结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPeriodEndTime() {
         return this.PeriodEndTime;
@@ -314,19 +266,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 有效期结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PeriodEndTime 有效期结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPeriodEndTime(String PeriodEndTime) {
         this.PeriodEndTime = PeriodEndTime;
     }
 
     /**
-     * Get 源实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 源实例 ID，形如：tdsql-ow728lmc。 
      * @return SrcInstanceId 源实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrcInstanceId() {
         return this.SrcInstanceId;
@@ -334,19 +282,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 源实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SrcInstanceId 源实例 ID，形如：tdsql-ow728lmc。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrcInstanceId(String SrcInstanceId) {
         this.SrcInstanceId = SrcInstanceId;
     }
 
     /**
-     * Get 实例状态描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例状态描述 
      * @return StatusDesc 实例状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatusDesc() {
         return this.StatusDesc;
@@ -354,19 +298,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StatusDesc 实例状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatusDesc(String StatusDesc) {
         this.StatusDesc = StatusDesc;
     }
 
     /**
-     * Get 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在地域 
      * @return Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -374,19 +314,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在可用区 
      * @return Zone 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZone() {
         return this.Zone;
@@ -394,19 +330,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Zone 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
     }
 
     /**
-     * Get 实例虚IPv6
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例虚IPv6 
      * @return Vipv6 实例虚IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVipv6() {
         return this.Vipv6;
@@ -414,19 +346,15 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例虚IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vipv6 实例虚IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVipv6(String Vipv6) {
         this.Vipv6 = Vipv6;
     }
 
     /**
-     * Get 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例IPv6标志 
      * @return Ipv6Flag 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIpv6Flag() {
         return this.Ipv6Flag;
@@ -434,9 +362,7 @@ public class TmpInstance extends AbstractModel{
 
     /**
      * Set 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ipv6Flag 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIpv6Flag(Long Ipv6Flag) {
         this.Ipv6Flag = Ipv6Flag;

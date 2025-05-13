@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateServiceDiscoveryRequest extends AbstractModel{
+public class UpdateServiceDiscoveryRequest extends AbstractModel {
 
     /**
     * Prometheus 实例 ID
@@ -55,7 +56,7 @@ public class UpdateServiceDiscoveryRequest extends AbstractModel{
     private Long Type;
 
     /**
-    * 服务发现配置信息
+    * 服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
     */
     @SerializedName("Yaml")
     @Expose
@@ -142,16 +143,16 @@ public class UpdateServiceDiscoveryRequest extends AbstractModel{
     }
 
     /**
-     * Get 服务发现配置信息 
-     * @return Yaml 服务发现配置信息
+     * Get 服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor) 
+     * @return Yaml 服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
      */
     public String getYaml() {
         return this.Yaml;
     }
 
     /**
-     * Set 服务发现配置信息
-     * @param Yaml 服务发现配置信息
+     * Set 服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
+     * @param Yaml 服务发现配置信息，YAML 格式，[具体YAML参数内容请参考](https://cloud.tencent.com/document/product/1416/55995#service-monitor)
      */
     public void setYaml(String Yaml) {
         this.Yaml = Yaml;

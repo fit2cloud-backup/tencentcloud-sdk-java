@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyLoadBalancerSlaRequest extends AbstractModel{
+public class ModifyLoadBalancerSlaRequest extends AbstractModel {
 
     /**
     * 负载均衡实例信息。
@@ -28,6 +29,13 @@ public class ModifyLoadBalancerSlaRequest extends AbstractModel{
     @SerializedName("LoadBalancerSla")
     @Expose
     private SlaUpdateParam [] LoadBalancerSla;
+
+    /**
+    * 是否强制升级，默认否。
+    */
+    @SerializedName("Force")
+    @Expose
+    private Boolean Force;
 
     /**
      * Get 负载均衡实例信息。 
@@ -45,6 +53,22 @@ public class ModifyLoadBalancerSlaRequest extends AbstractModel{
         this.LoadBalancerSla = LoadBalancerSla;
     }
 
+    /**
+     * Get 是否强制升级，默认否。 
+     * @return Force 是否强制升级，默认否。
+     */
+    public Boolean getForce() {
+        return this.Force;
+    }
+
+    /**
+     * Set 是否强制升级，默认否。
+     * @param Force 是否强制升级，默认否。
+     */
+    public void setForce(Boolean Force) {
+        this.Force = Force;
+    }
+
     public ModifyLoadBalancerSlaRequest() {
     }
 
@@ -59,6 +83,9 @@ public class ModifyLoadBalancerSlaRequest extends AbstractModel{
                 this.LoadBalancerSla[i] = new SlaUpdateParam(source.LoadBalancerSla[i]);
             }
         }
+        if (source.Force != null) {
+            this.Force = new Boolean(source.Force);
+        }
     }
 
 
@@ -67,6 +94,7 @@ public class ModifyLoadBalancerSlaRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "LoadBalancerSla.", this.LoadBalancerSla);
+        this.setParamSimple(map, prefix + "Force", this.Force);
 
     }
 }

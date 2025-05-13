@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sms.v20210111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifySmsTemplateRequest extends AbstractModel{
+public class ModifySmsTemplateRequest extends AbstractModel {
 
     /**
     * 待修改模板的ID。
@@ -44,7 +45,8 @@ public class ModifySmsTemplateRequest extends AbstractModel{
     private String TemplateContent;
 
     /**
-    * 短信类型，0表示普通短信, 1表示营销短信。
+    * 短信类型，1表示营销短信，2表示通知短信，3表示验证码短信。
+注：为进一步提升短信发送质量、提高短信模板审核通过率，从2024年5月16日起，腾讯云短信模板类型优化为“验证码短信”、“通知短信”、“营销短信”，可参考[关于腾讯云短信模板类型优化公告](https://cloud.tencent.com/document/product/382/106171)。新开通短信服务的客户需严格参考新的短信类型申请短信模板。
     */
     @SerializedName("SmsType")
     @Expose
@@ -54,6 +56,7 @@ public class ModifySmsTemplateRequest extends AbstractModel{
     * 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改模板 International 值保持一致，该参数不能直接修改国内模板到国际模板。
     */
     @SerializedName("International")
     @Expose
@@ -115,16 +118,20 @@ public class ModifySmsTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 短信类型，0表示普通短信, 1表示营销短信。 
-     * @return SmsType 短信类型，0表示普通短信, 1表示营销短信。
+     * Get 短信类型，1表示营销短信，2表示通知短信，3表示验证码短信。
+注：为进一步提升短信发送质量、提高短信模板审核通过率，从2024年5月16日起，腾讯云短信模板类型优化为“验证码短信”、“通知短信”、“营销短信”，可参考[关于腾讯云短信模板类型优化公告](https://cloud.tencent.com/document/product/382/106171)。新开通短信服务的客户需严格参考新的短信类型申请短信模板。 
+     * @return SmsType 短信类型，1表示营销短信，2表示通知短信，3表示验证码短信。
+注：为进一步提升短信发送质量、提高短信模板审核通过率，从2024年5月16日起，腾讯云短信模板类型优化为“验证码短信”、“通知短信”、“营销短信”，可参考[关于腾讯云短信模板类型优化公告](https://cloud.tencent.com/document/product/382/106171)。新开通短信服务的客户需严格参考新的短信类型申请短信模板。
      */
     public Long getSmsType() {
         return this.SmsType;
     }
 
     /**
-     * Set 短信类型，0表示普通短信, 1表示营销短信。
-     * @param SmsType 短信类型，0表示普通短信, 1表示营销短信。
+     * Set 短信类型，1表示营销短信，2表示通知短信，3表示验证码短信。
+注：为进一步提升短信发送质量、提高短信模板审核通过率，从2024年5月16日起，腾讯云短信模板类型优化为“验证码短信”、“通知短信”、“营销短信”，可参考[关于腾讯云短信模板类型优化公告](https://cloud.tencent.com/document/product/382/106171)。新开通短信服务的客户需严格参考新的短信类型申请短信模板。
+     * @param SmsType 短信类型，1表示营销短信，2表示通知短信，3表示验证码短信。
+注：为进一步提升短信发送质量、提高短信模板审核通过率，从2024年5月16日起，腾讯云短信模板类型优化为“验证码短信”、“通知短信”、“营销短信”，可参考[关于腾讯云短信模板类型优化公告](https://cloud.tencent.com/document/product/382/106171)。新开通短信服务的客户需严格参考新的短信类型申请短信模板。
      */
     public void setSmsType(Long SmsType) {
         this.SmsType = SmsType;
@@ -133,10 +140,12 @@ public class ModifySmsTemplateRequest extends AbstractModel{
     /**
      * Get 是否国际/港澳台短信：
 0：表示国内短信。
-1：表示国际/港澳台短信。 
+1：表示国际/港澳台短信。
+注：需要和待修改模板 International 值保持一致，该参数不能直接修改国内模板到国际模板。 
      * @return International 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改模板 International 值保持一致，该参数不能直接修改国内模板到国际模板。
      */
     public Long getInternational() {
         return this.International;
@@ -146,9 +155,11 @@ public class ModifySmsTemplateRequest extends AbstractModel{
      * Set 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改模板 International 值保持一致，该参数不能直接修改国内模板到国际模板。
      * @param International 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+注：需要和待修改模板 International 值保持一致，该参数不能直接修改国内模板到国际模板。
      */
     public void setInternational(Long International) {
         this.International = International;

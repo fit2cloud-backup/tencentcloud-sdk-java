@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ecm.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVpcAttributeRequest extends AbstractModel{
+public class ModifyVpcAttributeRequest extends AbstractModel {
 
     /**
     * VPC实例ID。形如：vpc-f49l6u0z。
@@ -56,6 +57,20 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
     @SerializedName("Description")
     @Expose
     private String Description;
+
+    /**
+    * DNS地址，最多支持4个，第1个默认为主，其余为备。	
+    */
+    @SerializedName("DnsServers")
+    @Expose
+    private String [] DnsServers;
+
+    /**
+    * 域名。
+    */
+    @SerializedName("DomainName")
+    @Expose
+    private String DomainName;
 
     /**
      * Get VPC实例ID。形如：vpc-f49l6u0z。 
@@ -137,6 +152,38 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
         this.Description = Description;
     }
 
+    /**
+     * Get DNS地址，最多支持4个，第1个默认为主，其余为备。	 
+     * @return DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。	
+     */
+    public String [] getDnsServers() {
+        return this.DnsServers;
+    }
+
+    /**
+     * Set DNS地址，最多支持4个，第1个默认为主，其余为备。	
+     * @param DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。	
+     */
+    public void setDnsServers(String [] DnsServers) {
+        this.DnsServers = DnsServers;
+    }
+
+    /**
+     * Get 域名。 
+     * @return DomainName 域名。
+     */
+    public String getDomainName() {
+        return this.DomainName;
+    }
+
+    /**
+     * Set 域名。
+     * @param DomainName 域名。
+     */
+    public void setDomainName(String DomainName) {
+        this.DomainName = DomainName;
+    }
+
     public ModifyVpcAttributeRequest() {
     }
 
@@ -163,6 +210,15 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.DnsServers != null) {
+            this.DnsServers = new String[source.DnsServers.length];
+            for (int i = 0; i < source.DnsServers.length; i++) {
+                this.DnsServers[i] = new String(source.DnsServers[i]);
+            }
+        }
+        if (source.DomainName != null) {
+            this.DomainName = new String(source.DomainName);
+        }
     }
 
 
@@ -175,6 +231,8 @@ public class ModifyVpcAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcName", this.VpcName);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamArraySimple(map, prefix + "DnsServers.", this.DnsServers);
+        this.setParamSimple(map, prefix + "DomainName", this.DomainName);
 
     }
 }

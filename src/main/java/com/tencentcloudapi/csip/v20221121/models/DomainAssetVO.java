@@ -16,15 +16,15 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DomainAssetVO extends AbstractModel{
+public class DomainAssetVO extends AbstractModel {
 
     /**
     * 资产id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetId")
     @Expose
@@ -32,7 +32,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 资产名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetName")
     @Expose
@@ -40,7 +39,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 资产类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetType")
     @Expose
@@ -48,7 +46,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -56,7 +53,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * Waf状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WAFStatus")
     @Expose
@@ -64,7 +60,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 资产创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetCreateTime")
     @Expose
@@ -72,7 +67,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * Appid
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -80,7 +74,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 账号id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uin")
     @Expose
@@ -88,7 +81,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 账号名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NickName")
     @Expose
@@ -96,7 +88,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 是否核心
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsCore")
     @Expose
@@ -104,7 +95,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 是否云上资产
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsCloud")
     @Expose
@@ -112,7 +102,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 网络攻击
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Attack")
     @Expose
@@ -120,7 +109,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 网络访问
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Access")
     @Expose
@@ -128,7 +116,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 网络拦截
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Intercept")
     @Expose
@@ -136,7 +123,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 入站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InBandwidth")
     @Expose
@@ -144,7 +130,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 出站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutBandwidth")
     @Expose
@@ -152,7 +137,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 入站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InFlow")
     @Expose
@@ -160,7 +144,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 出站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutFlow")
     @Expose
@@ -168,7 +151,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastScanTime")
     @Expose
@@ -176,7 +158,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 端口风险
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PortRisk")
     @Expose
@@ -184,7 +165,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 漏洞风险
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VulnerabilityRisk")
     @Expose
@@ -192,7 +172,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 配置风险
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigurationRisk")
     @Expose
@@ -200,7 +179,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 扫描任务
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanTask")
     @Expose
@@ -208,7 +186,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubDomain")
     @Expose
@@ -216,15 +193,13 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 解析ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SeverIp")
     @Expose
     private String [] SeverIp;
 
     /**
-    * boi访问数量
-注意：此字段可能返回 null，表示取不到有效值。
+    * bot攻击数量
     */
     @SerializedName("BotCount")
     @Expose
@@ -232,7 +207,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 弱口令风险
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WeakPassword")
     @Expose
@@ -240,7 +214,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 内容风险
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WebContentRisk")
     @Expose
@@ -248,7 +221,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * tag标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
     @Expose
@@ -256,7 +228,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 关联实例类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SourceType")
     @Expose
@@ -264,7 +235,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * memberiD
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MemberId")
     @Expose
@@ -272,7 +242,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * cc攻击
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CCAttack")
     @Expose
@@ -280,7 +249,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * web攻击
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WebAttack")
     @Expose
@@ -288,7 +256,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 风险服务暴露数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceRisk")
     @Expose
@@ -296,7 +263,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsNewAsset")
     @Expose
@@ -304,7 +270,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 待确认资产的随机三级域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VerifyDomain")
     @Expose
@@ -312,7 +277,6 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 待确认资产的TXT记录内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VerifyTXTRecord")
     @Expose
@@ -320,17 +284,21 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
     * 待确认资产的认证状态，0-待认证，1-认证成功，2-认证中，3-txt认证失败，4-人工认证失败
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VerifyStatus")
     @Expose
     private Long VerifyStatus;
 
     /**
-     * Get 资产id
-注意：此字段可能返回 null，表示取不到有效值。 
+    * bot访问数量
+    */
+    @SerializedName("BotAccessCount")
+    @Expose
+    private Long BotAccessCount;
+
+    /**
+     * Get 资产id 
      * @return AssetId 资产id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAssetId() {
         return this.AssetId;
@@ -338,19 +306,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 资产id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetId 资产id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetId(String [] AssetId) {
         this.AssetId = AssetId;
     }
 
     /**
-     * Get 资产名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产名 
      * @return AssetName 资产名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAssetName() {
         return this.AssetName;
@@ -358,19 +322,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 资产名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetName 资产名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetName(String [] AssetName) {
         this.AssetName = AssetName;
     }
 
     /**
-     * Get 资产类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产类型 
      * @return AssetType 资产类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAssetType() {
         return this.AssetType;
@@ -378,19 +338,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 资产类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetType 资产类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetType(String [] AssetType) {
         this.AssetType = AssetType;
     }
 
     /**
-     * Get 地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域 
      * @return Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getRegion() {
         return this.Region;
@@ -398,19 +354,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String [] Region) {
         this.Region = Region;
     }
 
     /**
-     * Get Waf状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Waf状态 
      * @return WAFStatus Waf状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWAFStatus() {
         return this.WAFStatus;
@@ -418,19 +370,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set Waf状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WAFStatus Waf状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWAFStatus(Long WAFStatus) {
         this.WAFStatus = WAFStatus;
     }
 
     /**
-     * Get 资产创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产创建时间 
      * @return AssetCreateTime 资产创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAssetCreateTime() {
         return this.AssetCreateTime;
@@ -438,19 +386,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 资产创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetCreateTime 资产创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetCreateTime(String AssetCreateTime) {
         this.AssetCreateTime = AssetCreateTime;
     }
 
     /**
-     * Get Appid
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Appid 
      * @return AppId Appid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -458,19 +402,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set Appid
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId Appid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
     }
 
     /**
-     * Get 账号id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 账号id 
      * @return Uin 账号id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUin() {
         return this.Uin;
@@ -478,19 +418,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 账号id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uin 账号id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUin(String Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get 账号名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 账号名称 
      * @return NickName 账号名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNickName() {
         return this.NickName;
@@ -498,19 +434,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 账号名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NickName 账号名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNickName(String NickName) {
         this.NickName = NickName;
     }
 
     /**
-     * Get 是否核心
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否核心 
      * @return IsCore 是否核心
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsCore() {
         return this.IsCore;
@@ -518,19 +450,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 是否核心
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsCore 是否核心
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsCore(Long IsCore) {
         this.IsCore = IsCore;
     }
 
     /**
-     * Get 是否云上资产
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否云上资产 
      * @return IsCloud 是否云上资产
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsCloud() {
         return this.IsCloud;
@@ -538,19 +466,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 是否云上资产
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsCloud 是否云上资产
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsCloud(Long IsCloud) {
         this.IsCloud = IsCloud;
     }
 
     /**
-     * Get 网络攻击
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络攻击 
      * @return Attack 网络攻击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAttack() {
         return this.Attack;
@@ -558,19 +482,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 网络攻击
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Attack 网络攻击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttack(Long Attack) {
         this.Attack = Attack;
     }
 
     /**
-     * Get 网络访问
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络访问 
      * @return Access 网络访问
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAccess() {
         return this.Access;
@@ -578,19 +498,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 网络访问
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Access 网络访问
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccess(Long Access) {
         this.Access = Access;
     }
 
     /**
-     * Get 网络拦截
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络拦截 
      * @return Intercept 网络拦截
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIntercept() {
         return this.Intercept;
@@ -598,19 +514,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 网络拦截
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Intercept 网络拦截
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntercept(Long Intercept) {
         this.Intercept = Intercept;
     }
 
     /**
-     * Get 入站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 入站峰值带宽 
      * @return InBandwidth 入站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInBandwidth() {
         return this.InBandwidth;
@@ -618,19 +530,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 入站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InBandwidth 入站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInBandwidth(String InBandwidth) {
         this.InBandwidth = InBandwidth;
     }
 
     /**
-     * Get 出站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出站峰值带宽 
      * @return OutBandwidth 出站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOutBandwidth() {
         return this.OutBandwidth;
@@ -638,19 +546,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 出站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OutBandwidth 出站峰值带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutBandwidth(String OutBandwidth) {
         this.OutBandwidth = OutBandwidth;
     }
 
     /**
-     * Get 入站累计流量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 入站累计流量 
      * @return InFlow 入站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInFlow() {
         return this.InFlow;
@@ -658,19 +562,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 入站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InFlow 入站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInFlow(String InFlow) {
         this.InFlow = InFlow;
     }
 
     /**
-     * Get 出站累计流量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 出站累计流量 
      * @return OutFlow 出站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOutFlow() {
         return this.OutFlow;
@@ -678,19 +578,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 出站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OutFlow 出站累计流量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutFlow(String OutFlow) {
         this.OutFlow = OutFlow;
     }
 
     /**
-     * Get 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近扫描时间 
      * @return LastScanTime 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastScanTime() {
         return this.LastScanTime;
@@ -698,19 +594,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastScanTime 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastScanTime(String LastScanTime) {
         this.LastScanTime = LastScanTime;
     }
 
     /**
-     * Get 端口风险
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 端口风险 
      * @return PortRisk 端口风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPortRisk() {
         return this.PortRisk;
@@ -718,19 +610,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 端口风险
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PortRisk 端口风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPortRisk(Long PortRisk) {
         this.PortRisk = PortRisk;
     }
 
     /**
-     * Get 漏洞风险
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞风险 
      * @return VulnerabilityRisk 漏洞风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVulnerabilityRisk() {
         return this.VulnerabilityRisk;
@@ -738,19 +626,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 漏洞风险
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VulnerabilityRisk 漏洞风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVulnerabilityRisk(Long VulnerabilityRisk) {
         this.VulnerabilityRisk = VulnerabilityRisk;
     }
 
     /**
-     * Get 配置风险
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置风险 
      * @return ConfigurationRisk 配置风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getConfigurationRisk() {
         return this.ConfigurationRisk;
@@ -758,19 +642,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 配置风险
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigurationRisk 配置风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigurationRisk(Long ConfigurationRisk) {
         this.ConfigurationRisk = ConfigurationRisk;
     }
 
     /**
-     * Get 扫描任务
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描任务 
      * @return ScanTask 扫描任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanTask() {
         return this.ScanTask;
@@ -778,19 +658,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 扫描任务
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanTask 扫描任务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanTask(Long ScanTask) {
         this.ScanTask = ScanTask;
     }
 
     /**
-     * Get 域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 域名 
      * @return SubDomain 域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubDomain() {
         return this.SubDomain;
@@ -798,19 +674,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubDomain 域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubDomain(String SubDomain) {
         this.SubDomain = SubDomain;
     }
 
     /**
-     * Get 解析ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 解析ip 
      * @return SeverIp 解析ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSeverIp() {
         return this.SeverIp;
@@ -818,39 +690,31 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 解析ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SeverIp 解析ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSeverIp(String [] SeverIp) {
         this.SeverIp = SeverIp;
     }
 
     /**
-     * Get boi访问数量
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BotCount boi访问数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get bot攻击数量 
+     * @return BotCount bot攻击数量
      */
     public Long getBotCount() {
         return this.BotCount;
     }
 
     /**
-     * Set boi访问数量
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param BotCount boi访问数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set bot攻击数量
+     * @param BotCount bot攻击数量
      */
     public void setBotCount(Long BotCount) {
         this.BotCount = BotCount;
     }
 
     /**
-     * Get 弱口令风险
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 弱口令风险 
      * @return WeakPassword 弱口令风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWeakPassword() {
         return this.WeakPassword;
@@ -858,19 +722,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 弱口令风险
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WeakPassword 弱口令风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWeakPassword(Long WeakPassword) {
         this.WeakPassword = WeakPassword;
     }
 
     /**
-     * Get 内容风险
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内容风险 
      * @return WebContentRisk 内容风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWebContentRisk() {
         return this.WebContentRisk;
@@ -878,19 +738,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 内容风险
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WebContentRisk 内容风险
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWebContentRisk(Long WebContentRisk) {
         this.WebContentRisk = WebContentRisk;
     }
 
     /**
-     * Get tag标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get tag标签 
      * @return Tag tag标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTag() {
         return this.Tag;
@@ -898,19 +754,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set tag标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tag tag标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(Tag [] Tag) {
         this.Tag = Tag;
     }
 
     /**
-     * Get 关联实例类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 关联实例类型 
      * @return SourceType 关联实例类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSourceType() {
         return this.SourceType;
@@ -918,19 +770,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 关联实例类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SourceType 关联实例类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSourceType(String SourceType) {
         this.SourceType = SourceType;
     }
 
     /**
-     * Get memberiD
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get memberiD 
      * @return MemberId memberiD
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMemberId() {
         return this.MemberId;
@@ -938,19 +786,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set memberiD
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MemberId memberiD
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMemberId(String MemberId) {
         this.MemberId = MemberId;
     }
 
     /**
-     * Get cc攻击
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cc攻击 
      * @return CCAttack cc攻击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCCAttack() {
         return this.CCAttack;
@@ -958,19 +802,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set cc攻击
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CCAttack cc攻击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCCAttack(Long CCAttack) {
         this.CCAttack = CCAttack;
     }
 
     /**
-     * Get web攻击
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get web攻击 
      * @return WebAttack web攻击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWebAttack() {
         return this.WebAttack;
@@ -978,19 +818,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set web攻击
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WebAttack web攻击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWebAttack(Long WebAttack) {
         this.WebAttack = WebAttack;
     }
 
     /**
-     * Get 风险服务暴露数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 风险服务暴露数量 
      * @return ServiceRisk 风险服务暴露数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getServiceRisk() {
         return this.ServiceRisk;
@@ -998,19 +834,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 风险服务暴露数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceRisk 风险服务暴露数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceRisk(Long ServiceRisk) {
         this.ServiceRisk = ServiceRisk;
     }
 
     /**
-     * Get 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否新资产 1新 
      * @return IsNewAsset 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsNewAsset() {
         return this.IsNewAsset;
@@ -1018,19 +850,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsNewAsset 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsNewAsset(Long IsNewAsset) {
         this.IsNewAsset = IsNewAsset;
     }
 
     /**
-     * Get 待确认资产的随机三级域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 待确认资产的随机三级域名 
      * @return VerifyDomain 待确认资产的随机三级域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVerifyDomain() {
         return this.VerifyDomain;
@@ -1038,19 +866,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 待确认资产的随机三级域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VerifyDomain 待确认资产的随机三级域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVerifyDomain(String VerifyDomain) {
         this.VerifyDomain = VerifyDomain;
     }
 
     /**
-     * Get 待确认资产的TXT记录内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 待确认资产的TXT记录内容 
      * @return VerifyTXTRecord 待确认资产的TXT记录内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVerifyTXTRecord() {
         return this.VerifyTXTRecord;
@@ -1058,19 +882,15 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 待确认资产的TXT记录内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VerifyTXTRecord 待确认资产的TXT记录内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVerifyTXTRecord(String VerifyTXTRecord) {
         this.VerifyTXTRecord = VerifyTXTRecord;
     }
 
     /**
-     * Get 待确认资产的认证状态，0-待认证，1-认证成功，2-认证中，3-txt认证失败，4-人工认证失败
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 待确认资产的认证状态，0-待认证，1-认证成功，2-认证中，3-txt认证失败，4-人工认证失败 
      * @return VerifyStatus 待确认资产的认证状态，0-待认证，1-认证成功，2-认证中，3-txt认证失败，4-人工认证失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVerifyStatus() {
         return this.VerifyStatus;
@@ -1078,12 +898,26 @@ public class DomainAssetVO extends AbstractModel{
 
     /**
      * Set 待确认资产的认证状态，0-待认证，1-认证成功，2-认证中，3-txt认证失败，4-人工认证失败
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VerifyStatus 待确认资产的认证状态，0-待认证，1-认证成功，2-认证中，3-txt认证失败，4-人工认证失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVerifyStatus(Long VerifyStatus) {
         this.VerifyStatus = VerifyStatus;
+    }
+
+    /**
+     * Get bot访问数量 
+     * @return BotAccessCount bot访问数量
+     */
+    public Long getBotAccessCount() {
+        return this.BotAccessCount;
+    }
+
+    /**
+     * Set bot访问数量
+     * @param BotAccessCount bot访问数量
+     */
+    public void setBotAccessCount(Long BotAccessCount) {
+        this.BotAccessCount = BotAccessCount;
     }
 
     public DomainAssetVO() {
@@ -1226,6 +1060,9 @@ public class DomainAssetVO extends AbstractModel{
         if (source.VerifyStatus != null) {
             this.VerifyStatus = new Long(source.VerifyStatus);
         }
+        if (source.BotAccessCount != null) {
+            this.BotAccessCount = new Long(source.BotAccessCount);
+        }
     }
 
 
@@ -1271,6 +1108,7 @@ public class DomainAssetVO extends AbstractModel{
         this.setParamSimple(map, prefix + "VerifyDomain", this.VerifyDomain);
         this.setParamSimple(map, prefix + "VerifyTXTRecord", this.VerifyTXTRecord);
         this.setParamSimple(map, prefix + "VerifyStatus", this.VerifyStatus);
+        this.setParamSimple(map, prefix + "BotAccessCount", this.BotAccessCount);
 
     }
 }

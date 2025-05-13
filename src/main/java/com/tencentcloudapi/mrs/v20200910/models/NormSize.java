@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NormSize extends AbstractModel{
+public class NormSize extends AbstractModel {
 
     /**
     * 数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Number")
     @Expose
@@ -32,7 +32,6 @@ public class NormSize extends AbstractModel{
 
     /**
     * 类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -40,7 +39,6 @@ public class NormSize extends AbstractModel{
 
     /**
     * 单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Unit")
     @Expose
@@ -48,17 +46,14 @@ public class NormSize extends AbstractModel{
 
     /**
     * 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Impl")
     @Expose
     private String Impl;
 
     /**
-     * Get 数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数量 
      * @return Number 数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getNumber() {
         return this.Number;
@@ -66,19 +61,15 @@ public class NormSize extends AbstractModel{
 
     /**
      * Set 数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Number 数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNumber(String [] Number) {
         this.Number = Number;
     }
 
     /**
-     * Get 类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 类型 
      * @return Type 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -86,19 +77,15 @@ public class NormSize extends AbstractModel{
 
     /**
      * Set 类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 单位 
      * @return Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnit() {
         return this.Unit;
@@ -106,19 +93,15 @@ public class NormSize extends AbstractModel{
 
     /**
      * Set 单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnit(String Unit) {
         this.Unit = Unit;
     }
 
     /**
-     * Get 归一化值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 归一化值 
      * @return Impl 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImpl() {
         return this.Impl;
@@ -126,9 +109,7 @@ public class NormSize extends AbstractModel{
 
     /**
      * Set 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Impl 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImpl(String Impl) {
         this.Impl = Impl;

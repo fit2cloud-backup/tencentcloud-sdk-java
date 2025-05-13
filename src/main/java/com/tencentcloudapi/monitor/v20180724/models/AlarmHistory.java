@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlarmHistory extends AbstractModel{
+public class AlarmHistory extends AbstractModel {
 
     /**
     * 告警历史Id
@@ -191,6 +192,86 @@ public class AlarmHistory extends AbstractModel{
     @SerializedName("Dimensions")
     @Expose
     private String Dimensions;
+
+    /**
+    * 告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmLevel")
+    @Expose
+    private String AlarmLevel;
+
+    /**
+    * 是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ShieldFlag")
+    @Expose
+    private Long ShieldFlag;
+
+    /**
+    * 屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmShieldingType")
+    @Expose
+    private String AlarmShieldingType;
+
+    /**
+    * 屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmShieldingTime")
+    @Expose
+    private String AlarmShieldingTime;
+
+    /**
+    * 屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmShieldingShowType")
+    @Expose
+    private String AlarmShieldingShowType;
+
+    /**
+    * 屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmShieldingShowTime")
+    @Expose
+    private String AlarmShieldingShowTime;
+
+    /**
+    * 屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmShieldReason")
+    @Expose
+    private String AlarmShieldReason;
+
+    /**
+    * 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InternalDimensions")
+    @Expose
+    private String InternalDimensions;
+
+    /**
+    * 指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MetricName")
+    @Expose
+    private String MetricName;
+
+    /**
+    * 策略是否有权限
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PolicyPermissions")
+    @Expose
+    private Long PolicyPermissions;
 
     /**
      * Get 告警历史Id 
@@ -584,6 +665,206 @@ public class AlarmHistory extends AbstractModel{
         this.Dimensions = Dimensions;
     }
 
+    /**
+     * Get 告警等级
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmLevel 告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmLevel() {
+        return this.AlarmLevel;
+    }
+
+    /**
+     * Set 告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmLevel 告警等级
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmLevel(String AlarmLevel) {
+        this.AlarmLevel = AlarmLevel;
+    }
+
+    /**
+     * Get 是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ShieldFlag 是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getShieldFlag() {
+        return this.ShieldFlag;
+    }
+
+    /**
+     * Set 是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ShieldFlag 是否有配置告警屏蔽规则
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setShieldFlag(Long ShieldFlag) {
+        this.ShieldFlag = ShieldFlag;
+    }
+
+    /**
+     * Get 屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmShieldingType 屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmShieldingType() {
+        return this.AlarmShieldingType;
+    }
+
+    /**
+     * Set 屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmShieldingType 屏蔽类型（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmShieldingType(String AlarmShieldingType) {
+        this.AlarmShieldingType = AlarmShieldingType;
+    }
+
+    /**
+     * Get 屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmShieldingTime 屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmShieldingTime() {
+        return this.AlarmShieldingTime;
+    }
+
+    /**
+     * Set 屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmShieldingTime 屏蔽时间（英文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmShieldingTime(String AlarmShieldingTime) {
+        this.AlarmShieldingTime = AlarmShieldingTime;
+    }
+
+    /**
+     * Get 屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmShieldingShowType 屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmShieldingShowType() {
+        return this.AlarmShieldingShowType;
+    }
+
+    /**
+     * Set 屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmShieldingShowType 屏蔽类型（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmShieldingShowType(String AlarmShieldingShowType) {
+        this.AlarmShieldingShowType = AlarmShieldingShowType;
+    }
+
+    /**
+     * Get 屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmShieldingShowTime 屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmShieldingShowTime() {
+        return this.AlarmShieldingShowTime;
+    }
+
+    /**
+     * Set 屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmShieldingShowTime 屏蔽时间（中文）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmShieldingShowTime(String AlarmShieldingShowTime) {
+        this.AlarmShieldingShowTime = AlarmShieldingShowTime;
+    }
+
+    /**
+     * Get 屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmShieldReason 屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmShieldReason() {
+        return this.AlarmShieldReason;
+    }
+
+    /**
+     * Set 屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmShieldReason 屏蔽原因
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmShieldReason(String AlarmShieldReason) {
+        this.AlarmShieldReason = AlarmShieldReason;
+    }
+
+    /**
+     * Get 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InternalDimensions 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInternalDimensions() {
+        return this.InternalDimensions;
+    }
+
+    /**
+     * Set 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InternalDimensions 告警实例的维度信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInternalDimensions(String InternalDimensions) {
+        this.InternalDimensions = InternalDimensions;
+    }
+
+    /**
+     * Get 指标名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MetricName 指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getMetricName() {
+        return this.MetricName;
+    }
+
+    /**
+     * Set 指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MetricName 指标名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMetricName(String MetricName) {
+        this.MetricName = MetricName;
+    }
+
+    /**
+     * Get 策略是否有权限
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PolicyPermissions 策略是否有权限
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getPolicyPermissions() {
+        return this.PolicyPermissions;
+    }
+
+    /**
+     * Set 策略是否有权限
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PolicyPermissions 策略是否有权限
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPolicyPermissions(Long PolicyPermissions) {
+        this.PolicyPermissions = PolicyPermissions;
+    }
+
     public AlarmHistory() {
     }
 
@@ -679,6 +960,36 @@ public class AlarmHistory extends AbstractModel{
         if (source.Dimensions != null) {
             this.Dimensions = new String(source.Dimensions);
         }
+        if (source.AlarmLevel != null) {
+            this.AlarmLevel = new String(source.AlarmLevel);
+        }
+        if (source.ShieldFlag != null) {
+            this.ShieldFlag = new Long(source.ShieldFlag);
+        }
+        if (source.AlarmShieldingType != null) {
+            this.AlarmShieldingType = new String(source.AlarmShieldingType);
+        }
+        if (source.AlarmShieldingTime != null) {
+            this.AlarmShieldingTime = new String(source.AlarmShieldingTime);
+        }
+        if (source.AlarmShieldingShowType != null) {
+            this.AlarmShieldingShowType = new String(source.AlarmShieldingShowType);
+        }
+        if (source.AlarmShieldingShowTime != null) {
+            this.AlarmShieldingShowTime = new String(source.AlarmShieldingShowTime);
+        }
+        if (source.AlarmShieldReason != null) {
+            this.AlarmShieldReason = new String(source.AlarmShieldReason);
+        }
+        if (source.InternalDimensions != null) {
+            this.InternalDimensions = new String(source.InternalDimensions);
+        }
+        if (source.MetricName != null) {
+            this.MetricName = new String(source.MetricName);
+        }
+        if (source.PolicyPermissions != null) {
+            this.PolicyPermissions = new Long(source.PolicyPermissions);
+        }
     }
 
 
@@ -710,6 +1021,16 @@ public class AlarmHistory extends AbstractModel{
         this.setParamSimple(map, prefix + "PolicyExists", this.PolicyExists);
         this.setParamArrayObj(map, prefix + "MetricsInfo.", this.MetricsInfo);
         this.setParamSimple(map, prefix + "Dimensions", this.Dimensions);
+        this.setParamSimple(map, prefix + "AlarmLevel", this.AlarmLevel);
+        this.setParamSimple(map, prefix + "ShieldFlag", this.ShieldFlag);
+        this.setParamSimple(map, prefix + "AlarmShieldingType", this.AlarmShieldingType);
+        this.setParamSimple(map, prefix + "AlarmShieldingTime", this.AlarmShieldingTime);
+        this.setParamSimple(map, prefix + "AlarmShieldingShowType", this.AlarmShieldingShowType);
+        this.setParamSimple(map, prefix + "AlarmShieldingShowTime", this.AlarmShieldingShowTime);
+        this.setParamSimple(map, prefix + "AlarmShieldReason", this.AlarmShieldReason);
+        this.setParamSimple(map, prefix + "InternalDimensions", this.InternalDimensions);
+        this.setParamSimple(map, prefix + "MetricName", this.MetricName);
+        this.setParamSimple(map, prefix + "PolicyPermissions", this.PolicyPermissions);
 
     }
 }

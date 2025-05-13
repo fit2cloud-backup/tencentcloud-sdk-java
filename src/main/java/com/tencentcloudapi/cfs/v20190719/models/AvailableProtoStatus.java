@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AvailableProtoStatus extends AbstractModel{
+public class AvailableProtoStatus extends AbstractModel {
 
     /**
     * 售卖状态。可选值有 sale_out 售罄、saling可售、no_saling不可销售
@@ -30,7 +31,7 @@ public class AvailableProtoStatus extends AbstractModel{
     private String SaleStatus;
 
     /**
-    * 协议类型。可选值有 NFS、CIFS
+    * 协议类型。可选值有 NFS、CIFS、TURBO
     */
     @SerializedName("Protocol")
     @Expose
@@ -53,16 +54,16 @@ public class AvailableProtoStatus extends AbstractModel{
     }
 
     /**
-     * Get 协议类型。可选值有 NFS、CIFS 
-     * @return Protocol 协议类型。可选值有 NFS、CIFS
+     * Get 协议类型。可选值有 NFS、CIFS、TURBO 
+     * @return Protocol 协议类型。可选值有 NFS、CIFS、TURBO
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议类型。可选值有 NFS、CIFS
-     * @param Protocol 协议类型。可选值有 NFS、CIFS
+     * Set 协议类型。可选值有 NFS、CIFS、TURBO
+     * @param Protocol 协议类型。可选值有 NFS、CIFS、TURBO
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;

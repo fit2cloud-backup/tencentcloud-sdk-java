@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlaveZones extends AbstractModel{
+public class SlaveZones extends AbstractModel {
 
     /**
     * 备可用区地域码
@@ -35,6 +36,13 @@ public class SlaveZones extends AbstractModel{
     @SerializedName("SlaveZoneName")
     @Expose
     private String SlaveZoneName;
+
+    /**
+    * 备机资源ID
+    */
+    @SerializedName("DrInstanceId")
+    @Expose
+    private String DrInstanceId;
 
     /**
      * Get 备可用区地域码 
@@ -68,6 +76,22 @@ public class SlaveZones extends AbstractModel{
         this.SlaveZoneName = SlaveZoneName;
     }
 
+    /**
+     * Get 备机资源ID 
+     * @return DrInstanceId 备机资源ID
+     */
+    public String getDrInstanceId() {
+        return this.DrInstanceId;
+    }
+
+    /**
+     * Set 备机资源ID
+     * @param DrInstanceId 备机资源ID
+     */
+    public void setDrInstanceId(String DrInstanceId) {
+        this.DrInstanceId = DrInstanceId;
+    }
+
     public SlaveZones() {
     }
 
@@ -82,6 +106,9 @@ public class SlaveZones extends AbstractModel{
         if (source.SlaveZoneName != null) {
             this.SlaveZoneName = new String(source.SlaveZoneName);
         }
+        if (source.DrInstanceId != null) {
+            this.DrInstanceId = new String(source.DrInstanceId);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class SlaveZones extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SlaveZone", this.SlaveZone);
         this.setParamSimple(map, prefix + "SlaveZoneName", this.SlaveZoneName);
+        this.setParamSimple(map, prefix + "DrInstanceId", this.DrInstanceId);
 
     }
 }

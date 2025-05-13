@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeScoresRequest extends AbstractModel{
+public class DescribeScoresRequest extends AbstractModel {
 
     /**
     * 结束时间
@@ -101,7 +102,9 @@ public class DescribeScoresRequest extends AbstractModel{
     /**
      * Get 该参数已废弃 
      * @return IsDemo 该参数已废弃
+     * @deprecated
      */
+    @Deprecated
     public Long getIsDemo() {
         return this.IsDemo;
     }
@@ -109,7 +112,9 @@ public class DescribeScoresRequest extends AbstractModel{
     /**
      * Set 该参数已废弃
      * @param IsDemo 该参数已废弃
+     * @deprecated
      */
+    @Deprecated
     public void setIsDemo(Long IsDemo) {
         this.IsDemo = IsDemo;
     }

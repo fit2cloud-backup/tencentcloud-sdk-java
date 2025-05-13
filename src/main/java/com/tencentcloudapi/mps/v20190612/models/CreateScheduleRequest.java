@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateScheduleRequest extends AbstractModel{
+public class CreateScheduleRequest extends AbstractModel {
 
     /**
     * 编排名称，最多128字符。同一个用户该名称唯一。
@@ -64,6 +65,13 @@ public class CreateScheduleRequest extends AbstractModel{
     @SerializedName("TaskNotifyConfig")
     @Expose
     private TaskNotifyConfig TaskNotifyConfig;
+
+    /**
+    * 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+    */
+    @SerializedName("ResourceId")
+    @Expose
+    private String ResourceId;
 
     /**
      * Get 编排名称，最多128字符。同一个用户该名称唯一。 
@@ -165,6 +173,22 @@ public class CreateScheduleRequest extends AbstractModel{
         this.TaskNotifyConfig = TaskNotifyConfig;
     }
 
+    /**
+     * Get 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。 
+     * @return ResourceId 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+     */
+    public String getResourceId() {
+        return this.ResourceId;
+    }
+
+    /**
+     * Set 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+     * @param ResourceId 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+     */
+    public void setResourceId(String ResourceId) {
+        this.ResourceId = ResourceId;
+    }
+
     public CreateScheduleRequest() {
     }
 
@@ -194,6 +218,9 @@ public class CreateScheduleRequest extends AbstractModel{
         if (source.TaskNotifyConfig != null) {
             this.TaskNotifyConfig = new TaskNotifyConfig(source.TaskNotifyConfig);
         }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
     }
 
 
@@ -207,6 +234,7 @@ public class CreateScheduleRequest extends AbstractModel{
         this.setParamObj(map, prefix + "OutputStorage.", this.OutputStorage);
         this.setParamSimple(map, prefix + "OutputDir", this.OutputDir);
         this.setParamObj(map, prefix + "TaskNotifyConfig.", this.TaskNotifyConfig);
+        this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
 
     }
 }

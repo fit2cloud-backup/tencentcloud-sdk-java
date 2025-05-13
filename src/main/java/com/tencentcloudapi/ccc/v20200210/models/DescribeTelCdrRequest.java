@@ -16,21 +16,22 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTelCdrRequest extends AbstractModel{
+public class DescribeTelCdrRequest extends AbstractModel {
 
     /**
-    * 起始时间戳，Unix 秒级时间戳
+    * 起始时间戳，Unix 秒级时间戳，最大支持近180天。
     */
     @SerializedName("StartTimeStamp")
     @Expose
     private Long StartTimeStamp;
 
     /**
-    * 结束时间戳，Unix 秒级时间戳
+    * 结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。
     */
     @SerializedName("EndTimeStamp")
     @Expose
@@ -93,32 +94,32 @@ public class DescribeTelCdrRequest extends AbstractModel{
     private String [] SessionIds;
 
     /**
-     * Get 起始时间戳，Unix 秒级时间戳 
-     * @return StartTimeStamp 起始时间戳，Unix 秒级时间戳
+     * Get 起始时间戳，Unix 秒级时间戳，最大支持近180天。 
+     * @return StartTimeStamp 起始时间戳，Unix 秒级时间戳，最大支持近180天。
      */
     public Long getStartTimeStamp() {
         return this.StartTimeStamp;
     }
 
     /**
-     * Set 起始时间戳，Unix 秒级时间戳
-     * @param StartTimeStamp 起始时间戳，Unix 秒级时间戳
+     * Set 起始时间戳，Unix 秒级时间戳，最大支持近180天。
+     * @param StartTimeStamp 起始时间戳，Unix 秒级时间戳，最大支持近180天。
      */
     public void setStartTimeStamp(Long StartTimeStamp) {
         this.StartTimeStamp = StartTimeStamp;
     }
 
     /**
-     * Get 结束时间戳，Unix 秒级时间戳 
-     * @return EndTimeStamp 结束时间戳，Unix 秒级时间戳
+     * Get 结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。 
+     * @return EndTimeStamp 结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。
      */
     public Long getEndTimeStamp() {
         return this.EndTimeStamp;
     }
 
     /**
-     * Set 结束时间戳，Unix 秒级时间戳
-     * @param EndTimeStamp 结束时间戳，Unix 秒级时间戳
+     * Set 结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。
+     * @param EndTimeStamp 结束时间戳，Unix 秒级时间戳，结束时间与开始时间的区间范围小于90天。
      */
     public void setEndTimeStamp(Long EndTimeStamp) {
         this.EndTimeStamp = EndTimeStamp;
@@ -127,7 +128,9 @@ public class DescribeTelCdrRequest extends AbstractModel{
     /**
      * Get 实例 ID（废弃） 
      * @return InstanceId 实例 ID（废弃）
+     * @deprecated
      */
+    @Deprecated
     public Long getInstanceId() {
         return this.InstanceId;
     }
@@ -135,7 +138,9 @@ public class DescribeTelCdrRequest extends AbstractModel{
     /**
      * Set 实例 ID（废弃）
      * @param InstanceId 实例 ID（废弃）
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceId(Long InstanceId) {
         this.InstanceId = InstanceId;
     }

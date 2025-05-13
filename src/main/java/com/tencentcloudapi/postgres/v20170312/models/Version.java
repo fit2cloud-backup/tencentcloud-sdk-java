@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Version extends AbstractModel{
+public class Version extends AbstractModel {
 
     /**
     * 数据库引擎，支持：
@@ -63,6 +64,7 @@ TDE：支持数据加密。
     /**
     * 数据库版本状态，包括：
 AVAILABLE：可用；
+UPGRADE_ONLY：不可创建，此版本仅可升级至高版本；
 DEPRECATED：已弃用。
     */
     @SerializedName("Status")
@@ -70,7 +72,7 @@ DEPRECATED：已弃用。
     private String Status;
 
     /**
-    * 该数据库版本（DBKernelVersion）可以升级到的版本号列表。
+    * 该数据库版本（DBKernelVersion）可以升级到的版本号列表。其中包含可升级的小版本号和可升级的大版本号（完整内核版本格式示例：v15.1_v1.6）。
     */
     @SerializedName("AvailableUpgradeTarget")
     @Expose
@@ -171,9 +173,11 @@ TDE：支持数据加密。
     /**
      * Get 数据库版本状态，包括：
 AVAILABLE：可用；
+UPGRADE_ONLY：不可创建，此版本仅可升级至高版本；
 DEPRECATED：已弃用。 
      * @return Status 数据库版本状态，包括：
 AVAILABLE：可用；
+UPGRADE_ONLY：不可创建，此版本仅可升级至高版本；
 DEPRECATED：已弃用。
      */
     public String getStatus() {
@@ -183,9 +187,11 @@ DEPRECATED：已弃用。
     /**
      * Set 数据库版本状态，包括：
 AVAILABLE：可用；
+UPGRADE_ONLY：不可创建，此版本仅可升级至高版本；
 DEPRECATED：已弃用。
      * @param Status 数据库版本状态，包括：
 AVAILABLE：可用；
+UPGRADE_ONLY：不可创建，此版本仅可升级至高版本；
 DEPRECATED：已弃用。
      */
     public void setStatus(String Status) {
@@ -193,16 +199,16 @@ DEPRECATED：已弃用。
     }
 
     /**
-     * Get 该数据库版本（DBKernelVersion）可以升级到的版本号列表。 
-     * @return AvailableUpgradeTarget 该数据库版本（DBKernelVersion）可以升级到的版本号列表。
+     * Get 该数据库版本（DBKernelVersion）可以升级到的版本号列表。其中包含可升级的小版本号和可升级的大版本号（完整内核版本格式示例：v15.1_v1.6）。 
+     * @return AvailableUpgradeTarget 该数据库版本（DBKernelVersion）可以升级到的版本号列表。其中包含可升级的小版本号和可升级的大版本号（完整内核版本格式示例：v15.1_v1.6）。
      */
     public String [] getAvailableUpgradeTarget() {
         return this.AvailableUpgradeTarget;
     }
 
     /**
-     * Set 该数据库版本（DBKernelVersion）可以升级到的版本号列表。
-     * @param AvailableUpgradeTarget 该数据库版本（DBKernelVersion）可以升级到的版本号列表。
+     * Set 该数据库版本（DBKernelVersion）可以升级到的版本号列表。其中包含可升级的小版本号和可升级的大版本号（完整内核版本格式示例：v15.1_v1.6）。
+     * @param AvailableUpgradeTarget 该数据库版本（DBKernelVersion）可以升级到的版本号列表。其中包含可升级的小版本号和可升级的大版本号（完整内核版本格式示例：v15.1_v1.6）。
      */
     public void setAvailableUpgradeTarget(String [] AvailableUpgradeTarget) {
         this.AvailableUpgradeTarget = AvailableUpgradeTarget;

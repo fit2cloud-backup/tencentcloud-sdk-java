@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KeyPair extends AbstractModel{
+public class KeyPair extends AbstractModel {
 
     /**
     * 密钥对 ID ，是密钥对的唯一标识。
@@ -45,7 +46,6 @@ public class KeyPair extends AbstractModel{
 
     /**
     * 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssociatedInstanceIds")
     @Expose
@@ -116,10 +116,8 @@ public class KeyPair extends AbstractModel{
     }
 
     /**
-     * Get 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 密钥对关联的实例 ID 列表。 
      * @return AssociatedInstanceIds 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAssociatedInstanceIds() {
         return this.AssociatedInstanceIds;
@@ -127,9 +125,7 @@ public class KeyPair extends AbstractModel{
 
     /**
      * Set 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssociatedInstanceIds 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssociatedInstanceIds(String [] AssociatedInstanceIds) {
         this.AssociatedInstanceIds = AssociatedInstanceIds;

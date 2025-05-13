@@ -16,53 +16,74 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceMonitorTopNCmdTookRequest extends AbstractModel{
+public class DescribeInstanceMonitorTopNCmdTookRequest extends AbstractModel {
 
     /**
-    * 实例ID
+    * 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
+    * 查询时间范围。
+- 1：实时。
+- 2：近30分钟。
+- 3：近6小时。
+- 4：近24小时。
     */
     @SerializedName("SpanType")
     @Expose
     private Long SpanType;
 
     /**
-     * Get 实例ID 
-     * @return InstanceId 实例ID
+     * Get 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。 
+     * @return InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID
-     * @param InstanceId 实例ID
+     * Set 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+     * @param InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时 
-     * @return SpanType 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
+     * Get 查询时间范围。
+- 1：实时。
+- 2：近30分钟。
+- 3：近6小时。
+- 4：近24小时。 
+     * @return SpanType 查询时间范围。
+- 1：实时。
+- 2：近30分钟。
+- 3：近6小时。
+- 4：近24小时。
      */
     public Long getSpanType() {
         return this.SpanType;
     }
 
     /**
-     * Set 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
-     * @param SpanType 时间范围：1——实时，2——近30分钟，3——近6小时，4——近24小时
+     * Set 查询时间范围。
+- 1：实时。
+- 2：近30分钟。
+- 3：近6小时。
+- 4：近24小时。
+     * @param SpanType 查询时间范围。
+- 1：实时。
+- 2：近30分钟。
+- 3：近6小时。
+- 4：近24小时。
      */
     public void setSpanType(Long SpanType) {
         this.SpanType = SpanType;

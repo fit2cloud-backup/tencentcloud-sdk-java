@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCommandRequest extends AbstractModel{
+public class CreateCommandRequest extends AbstractModel {
 
     /**
     * 命令名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
@@ -44,7 +45,7 @@ public class CreateCommandRequest extends AbstractModel{
     private String Description;
 
     /**
-    * 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
+    * 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
     */
     @SerializedName("CommandType")
     @Expose
@@ -74,15 +75,28 @@ public class CreateCommandRequest extends AbstractModel{
     private Boolean EnableParameter;
 
     /**
-    * 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+    * 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
     */
     @SerializedName("DefaultParameters")
     @Expose
     private String DefaultParameters;
+
+    /**
+    * 自定义参数数组。
+如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
+自定义参数最多20个。
+    */
+    @SerializedName("DefaultParameterConfs")
+    @Expose
+    private DefaultParameterConf [] DefaultParameterConfs;
 
     /**
     * 为命令关联的标签，列表长度不超过10。
@@ -165,16 +179,16 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。 
-     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
+     * Get 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。 
+     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
      */
     public String getCommandType() {
         return this.CommandType;
     }
 
     /**
-     * Set 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
-     * @param CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。默认：SHELL。
+     * Set 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
+     * @param CommandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。默认：SHELL。
      */
     public void setCommandType(String CommandType) {
         this.CommandType = CommandType;
@@ -237,14 +251,18 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Get 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。 
-     * @return DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @return DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
      */
@@ -253,19 +271,55 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Set 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Set 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
-     * @param DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @param DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
      */
     public void setDefaultParameters(String DefaultParameters) {
         this.DefaultParameters = DefaultParameters;
+    }
+
+    /**
+     * Get 自定义参数数组。
+如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
+自定义参数最多20个。 
+     * @return DefaultParameterConfs 自定义参数数组。
+如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
+自定义参数最多20个。
+     */
+    public DefaultParameterConf [] getDefaultParameterConfs() {
+        return this.DefaultParameterConfs;
+    }
+
+    /**
+     * Set 自定义参数数组。
+如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
+自定义参数最多20个。
+     * @param DefaultParameterConfs 自定义参数数组。
+如果InvokeCommand时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在 EnableParameter 参数为 true 时，才允许设置此参数。
+自定义参数最多20个。
+     */
+    public void setDefaultParameterConfs(DefaultParameterConf [] DefaultParameterConfs) {
+        this.DefaultParameterConfs = DefaultParameterConfs;
     }
 
     /**
@@ -380,6 +434,12 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         if (source.DefaultParameters != null) {
             this.DefaultParameters = new String(source.DefaultParameters);
         }
+        if (source.DefaultParameterConfs != null) {
+            this.DefaultParameterConfs = new DefaultParameterConf[source.DefaultParameterConfs.length];
+            for (int i = 0; i < source.DefaultParameterConfs.length; i++) {
+                this.DefaultParameterConfs[i] = new DefaultParameterConf(source.DefaultParameterConfs[i]);
+            }
+        }
         if (source.Tags != null) {
             this.Tags = new Tag[source.Tags.length];
             for (int i = 0; i < source.Tags.length; i++) {
@@ -410,6 +470,7 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         this.setParamSimple(map, prefix + "Timeout", this.Timeout);
         this.setParamSimple(map, prefix + "EnableParameter", this.EnableParameter);
         this.setParamSimple(map, prefix + "DefaultParameters", this.DefaultParameters);
+        this.setParamArrayObj(map, prefix + "DefaultParameterConfs.", this.DefaultParameterConfs);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "Username", this.Username);
         this.setParamSimple(map, prefix + "OutputCOSBucketUrl", this.OutputCOSBucketUrl);

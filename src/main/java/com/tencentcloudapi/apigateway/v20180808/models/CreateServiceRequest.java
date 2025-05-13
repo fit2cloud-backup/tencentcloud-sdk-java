@@ -16,11 +16,12 @@
 package com.tencentcloudapi.apigateway.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateServiceRequest extends AbstractModel{
+public class CreateServiceRequest extends AbstractModel {
 
     /**
     * 用户自定义的服务名称。
@@ -51,7 +52,7 @@ public class CreateServiceRequest extends AbstractModel{
     private String [] NetTypes;
 
     /**
-    * IP版本号，支持IPv4和IPv6，默认为IPv4。
+    * IP版本号，仅支持IPv4。
     */
     @SerializedName("IpVersion")
     @Expose
@@ -86,7 +87,7 @@ public class CreateServiceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * vpc属性
+    * vpc属性，选择VPC后不可修改，为服务选择VPC后，可对接该VPC下的后端资源
     */
     @SerializedName("UniqVpcId")
     @Expose
@@ -157,16 +158,16 @@ public class CreateServiceRequest extends AbstractModel{
     }
 
     /**
-     * Get IP版本号，支持IPv4和IPv6，默认为IPv4。 
-     * @return IpVersion IP版本号，支持IPv4和IPv6，默认为IPv4。
+     * Get IP版本号，仅支持IPv4。 
+     * @return IpVersion IP版本号，仅支持IPv4。
      */
     public String getIpVersion() {
         return this.IpVersion;
     }
 
     /**
-     * Set IP版本号，支持IPv4和IPv6，默认为IPv4。
-     * @param IpVersion IP版本号，支持IPv4和IPv6，默认为IPv4。
+     * Set IP版本号，仅支持IPv4。
+     * @param IpVersion IP版本号，仅支持IPv4。
      */
     public void setIpVersion(String IpVersion) {
         this.IpVersion = IpVersion;
@@ -237,16 +238,16 @@ public class CreateServiceRequest extends AbstractModel{
     }
 
     /**
-     * Get vpc属性 
-     * @return UniqVpcId vpc属性
+     * Get vpc属性，选择VPC后不可修改，为服务选择VPC后，可对接该VPC下的后端资源 
+     * @return UniqVpcId vpc属性，选择VPC后不可修改，为服务选择VPC后，可对接该VPC下的后端资源
      */
     public String getUniqVpcId() {
         return this.UniqVpcId;
     }
 
     /**
-     * Set vpc属性
-     * @param UniqVpcId vpc属性
+     * Set vpc属性，选择VPC后不可修改，为服务选择VPC后，可对接该VPC下的后端资源
+     * @param UniqVpcId vpc属性，选择VPC后不可修改，为服务选择VPC后，可对接该VPC下的后端资源
      */
     public void setUniqVpcId(String UniqVpcId) {
         this.UniqVpcId = UniqVpcId;

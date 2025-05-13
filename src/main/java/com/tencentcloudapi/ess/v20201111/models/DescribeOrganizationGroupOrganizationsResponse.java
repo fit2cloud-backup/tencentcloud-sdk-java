@@ -16,23 +16,22 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOrganizationGroupOrganizationsResponse extends AbstractModel{
+public class DescribeOrganizationGroupOrganizationsResponse extends AbstractModel {
 
     /**
-    * 查询到的符合条件的成员企业总数量
-注意：此字段可能返回 null，表示取不到有效值。
+    * 符合查询条件的资源实例总数量。
     */
     @SerializedName("Total")
     @Expose
     private Long Total;
 
     /**
-    * 已授权待激活的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
+    * 已授权待激活的子企业总数量
     */
     @SerializedName("JoinedTotal")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeOrganizationGroupOrganizationsResponse extends AbstractMode
 
     /**
     * 已加入的企业数量(废弃,请使用ActivatedTotal)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActivedTotal")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeOrganizationGroupOrganizationsResponse extends AbstractMode
 
     /**
     * 如果入参Export为 true 时使用，表示导出Excel的url
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExportUrl")
     @Expose
@@ -56,72 +53,60 @@ public class DescribeOrganizationGroupOrganizationsResponse extends AbstractMode
 
     /**
     * 成员企业信息列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("List")
     @Expose
     private GroupOrganization [] List;
 
     /**
-    * 已加入的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
+    * 已加入的子企业总数量
     */
     @SerializedName("ActivatedTotal")
     @Expose
     private Long ActivatedTotal;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 查询到的符合条件的成员企业总数量
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Total 查询到的符合条件的成员企业总数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 符合查询条件的资源实例总数量。 
+     * @return Total 符合查询条件的资源实例总数量。
      */
     public Long getTotal() {
         return this.Total;
     }
 
     /**
-     * Set 查询到的符合条件的成员企业总数量
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Total 查询到的符合条件的成员企业总数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 符合查询条件的资源实例总数量。
+     * @param Total 符合查询条件的资源实例总数量。
      */
     public void setTotal(Long Total) {
         this.Total = Total;
     }
 
     /**
-     * Get 已授权待激活的企业数量
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return JoinedTotal 已授权待激活的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 已授权待激活的子企业总数量 
+     * @return JoinedTotal 已授权待激活的子企业总数量
      */
     public Long getJoinedTotal() {
         return this.JoinedTotal;
     }
 
     /**
-     * Set 已授权待激活的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param JoinedTotal 已授权待激活的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 已授权待激活的子企业总数量
+     * @param JoinedTotal 已授权待激活的子企业总数量
      */
     public void setJoinedTotal(Long JoinedTotal) {
         this.JoinedTotal = JoinedTotal;
     }
 
     /**
-     * Get 已加入的企业数量(废弃,请使用ActivatedTotal)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已加入的企业数量(废弃,请使用ActivatedTotal) 
      * @return ActivedTotal 已加入的企业数量(废弃,请使用ActivatedTotal)
-注意：此字段可能返回 null，表示取不到有效值。
      * @deprecated
      */
     @Deprecated
@@ -131,9 +116,7 @@ public class DescribeOrganizationGroupOrganizationsResponse extends AbstractMode
 
     /**
      * Set 已加入的企业数量(废弃,请使用ActivatedTotal)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ActivedTotal 已加入的企业数量(废弃,请使用ActivatedTotal)
-注意：此字段可能返回 null，表示取不到有效值。
      * @deprecated
      */
     @Deprecated
@@ -142,10 +125,8 @@ public class DescribeOrganizationGroupOrganizationsResponse extends AbstractMode
     }
 
     /**
-     * Get 如果入参Export为 true 时使用，表示导出Excel的url
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 如果入参Export为 true 时使用，表示导出Excel的url 
      * @return ExportUrl 如果入参Export为 true 时使用，表示导出Excel的url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExportUrl() {
         return this.ExportUrl;
@@ -153,19 +134,15 @@ public class DescribeOrganizationGroupOrganizationsResponse extends AbstractMode
 
     /**
      * Set 如果入参Export为 true 时使用，表示导出Excel的url
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExportUrl 如果入参Export为 true 时使用，表示导出Excel的url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExportUrl(String ExportUrl) {
         this.ExportUrl = ExportUrl;
     }
 
     /**
-     * Get 成员企业信息列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 成员企业信息列表 
      * @return List 成员企业信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public GroupOrganization [] getList() {
         return this.List;
@@ -173,45 +150,39 @@ public class DescribeOrganizationGroupOrganizationsResponse extends AbstractMode
 
     /**
      * Set 成员企业信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param List 成员企业信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setList(GroupOrganization [] List) {
         this.List = List;
     }
 
     /**
-     * Get 已加入的企业数量
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ActivatedTotal 已加入的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 已加入的子企业总数量 
+     * @return ActivatedTotal 已加入的子企业总数量
      */
     public Long getActivatedTotal() {
         return this.ActivatedTotal;
     }
 
     /**
-     * Set 已加入的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ActivatedTotal 已加入的企业数量
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 已加入的子企业总数量
+     * @param ActivatedTotal 已加入的子企业总数量
      */
     public void setActivatedTotal(Long ActivatedTotal) {
         this.ActivatedTotal = ActivatedTotal;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PackSpec extends AbstractModel{
+public class PackSpec extends AbstractModel {
 
     /**
     * 层级
@@ -45,7 +46,6 @@ public class PackSpec extends AbstractModel{
 
     /**
     * 码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomId")
     @Expose
@@ -53,11 +53,24 @@ public class PackSpec extends AbstractModel{
 
     /**
     * 码段配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CodeParts")
     @Expose
     private CodePart [] CodeParts;
+
+    /**
+    * 包装单位
+    */
+    @SerializedName("Unit")
+    @Expose
+    private String Unit;
+
+    /**
+    * 场景值
+    */
+    @SerializedName("SceneCode")
+    @Expose
+    private Long SceneCode;
 
     /**
      * Get 层级 
@@ -108,10 +121,8 @@ public class PackSpec extends AbstractModel{
     }
 
     /**
-     * Get 码规则ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码规则ID 
      * @return CustomId 码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomId() {
         return this.CustomId;
@@ -119,19 +130,15 @@ public class PackSpec extends AbstractModel{
 
     /**
      * Set 码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomId 码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomId(String CustomId) {
         this.CustomId = CustomId;
     }
 
     /**
-     * Get 码段配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码段配置 
      * @return CodeParts 码段配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CodePart [] getCodeParts() {
         return this.CodeParts;
@@ -139,12 +146,42 @@ public class PackSpec extends AbstractModel{
 
     /**
      * Set 码段配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CodeParts 码段配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCodeParts(CodePart [] CodeParts) {
         this.CodeParts = CodeParts;
+    }
+
+    /**
+     * Get 包装单位 
+     * @return Unit 包装单位
+     */
+    public String getUnit() {
+        return this.Unit;
+    }
+
+    /**
+     * Set 包装单位
+     * @param Unit 包装单位
+     */
+    public void setUnit(String Unit) {
+        this.Unit = Unit;
+    }
+
+    /**
+     * Get 场景值 
+     * @return SceneCode 场景值
+     */
+    public Long getSceneCode() {
+        return this.SceneCode;
+    }
+
+    /**
+     * Set 场景值
+     * @param SceneCode 场景值
+     */
+    public void setSceneCode(Long SceneCode) {
+        this.SceneCode = SceneCode;
     }
 
     public PackSpec() {
@@ -173,6 +210,12 @@ public class PackSpec extends AbstractModel{
                 this.CodeParts[i] = new CodePart(source.CodeParts[i]);
             }
         }
+        if (source.Unit != null) {
+            this.Unit = new String(source.Unit);
+        }
+        if (source.SceneCode != null) {
+            this.SceneCode = new Long(source.SceneCode);
+        }
     }
 
 
@@ -185,6 +228,8 @@ public class PackSpec extends AbstractModel{
         this.setParamSimple(map, prefix + "Amount", this.Amount);
         this.setParamSimple(map, prefix + "CustomId", this.CustomId);
         this.setParamArrayObj(map, prefix + "CodeParts.", this.CodeParts);
+        this.setParamSimple(map, prefix + "Unit", this.Unit);
+        this.setParamSimple(map, prefix + "SceneCode", this.SceneCode);
 
     }
 }

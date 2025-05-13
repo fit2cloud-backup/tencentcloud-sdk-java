@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VatElectronicInfo extends AbstractModel{
+public class VatElectronicInfo extends AbstractModel {
 
     /**
     * 发票名称
@@ -133,6 +134,48 @@ public class VatElectronicInfo extends AbstractModel{
     @SerializedName("VatElectronicItems")
     @Expose
     private VatElectronicItemInfo [] VatElectronicItems;
+
+    /**
+    * 业务类型标志
+    */
+    @SerializedName("ServiceTypeLabel")
+    @Expose
+    private String ServiceTypeLabel;
+
+    /**
+    * 价税合计(大写)前符号
+    */
+    @SerializedName("TotalCnMark")
+    @Expose
+    private String TotalCnMark;
+
+    /**
+    * 价税合计(小写)前字样
+    */
+    @SerializedName("TotalMark")
+    @Expose
+    private String TotalMark;
+
+    /**
+    * 合计金额前字样
+    */
+    @SerializedName("PretaxAmountMark")
+    @Expose
+    private String PretaxAmountMark;
+
+    /**
+    * 合计税额前字样
+    */
+    @SerializedName("TaxMark")
+    @Expose
+    private String TaxMark;
+
+    /**
+    * 是否有公司印章（0：没有，1：有）
+    */
+    @SerializedName("CompanySealMark")
+    @Expose
+    private Long CompanySealMark;
 
     /**
      * Get 发票名称 
@@ -390,6 +433,102 @@ public class VatElectronicInfo extends AbstractModel{
         this.VatElectronicItems = VatElectronicItems;
     }
 
+    /**
+     * Get 业务类型标志 
+     * @return ServiceTypeLabel 业务类型标志
+     */
+    public String getServiceTypeLabel() {
+        return this.ServiceTypeLabel;
+    }
+
+    /**
+     * Set 业务类型标志
+     * @param ServiceTypeLabel 业务类型标志
+     */
+    public void setServiceTypeLabel(String ServiceTypeLabel) {
+        this.ServiceTypeLabel = ServiceTypeLabel;
+    }
+
+    /**
+     * Get 价税合计(大写)前符号 
+     * @return TotalCnMark 价税合计(大写)前符号
+     */
+    public String getTotalCnMark() {
+        return this.TotalCnMark;
+    }
+
+    /**
+     * Set 价税合计(大写)前符号
+     * @param TotalCnMark 价税合计(大写)前符号
+     */
+    public void setTotalCnMark(String TotalCnMark) {
+        this.TotalCnMark = TotalCnMark;
+    }
+
+    /**
+     * Get 价税合计(小写)前字样 
+     * @return TotalMark 价税合计(小写)前字样
+     */
+    public String getTotalMark() {
+        return this.TotalMark;
+    }
+
+    /**
+     * Set 价税合计(小写)前字样
+     * @param TotalMark 价税合计(小写)前字样
+     */
+    public void setTotalMark(String TotalMark) {
+        this.TotalMark = TotalMark;
+    }
+
+    /**
+     * Get 合计金额前字样 
+     * @return PretaxAmountMark 合计金额前字样
+     */
+    public String getPretaxAmountMark() {
+        return this.PretaxAmountMark;
+    }
+
+    /**
+     * Set 合计金额前字样
+     * @param PretaxAmountMark 合计金额前字样
+     */
+    public void setPretaxAmountMark(String PretaxAmountMark) {
+        this.PretaxAmountMark = PretaxAmountMark;
+    }
+
+    /**
+     * Get 合计税额前字样 
+     * @return TaxMark 合计税额前字样
+     */
+    public String getTaxMark() {
+        return this.TaxMark;
+    }
+
+    /**
+     * Set 合计税额前字样
+     * @param TaxMark 合计税额前字样
+     */
+    public void setTaxMark(String TaxMark) {
+        this.TaxMark = TaxMark;
+    }
+
+    /**
+     * Get 是否有公司印章（0：没有，1：有） 
+     * @return CompanySealMark 是否有公司印章（0：没有，1：有）
+     */
+    public Long getCompanySealMark() {
+        return this.CompanySealMark;
+    }
+
+    /**
+     * Set 是否有公司印章（0：没有，1：有）
+     * @param CompanySealMark 是否有公司印章（0：没有，1：有）
+     */
+    public void setCompanySealMark(Long CompanySealMark) {
+        this.CompanySealMark = CompanySealMark;
+    }
+
     public VatElectronicInfo() {
     }
 
@@ -449,6 +588,24 @@ public class VatElectronicInfo extends AbstractModel{
                 this.VatElectronicItems[i] = new VatElectronicItemInfo(source.VatElectronicItems[i]);
             }
         }
+        if (source.ServiceTypeLabel != null) {
+            this.ServiceTypeLabel = new String(source.ServiceTypeLabel);
+        }
+        if (source.TotalCnMark != null) {
+            this.TotalCnMark = new String(source.TotalCnMark);
+        }
+        if (source.TotalMark != null) {
+            this.TotalMark = new String(source.TotalMark);
+        }
+        if (source.PretaxAmountMark != null) {
+            this.PretaxAmountMark = new String(source.PretaxAmountMark);
+        }
+        if (source.TaxMark != null) {
+            this.TaxMark = new String(source.TaxMark);
+        }
+        if (source.CompanySealMark != null) {
+            this.CompanySealMark = new Long(source.CompanySealMark);
+        }
     }
 
 
@@ -472,6 +629,12 @@ public class VatElectronicInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "SubTotal", this.SubTotal);
         this.setParamSimple(map, prefix + "SubTax", this.SubTax);
         this.setParamArrayObj(map, prefix + "VatElectronicItems.", this.VatElectronicItems);
+        this.setParamSimple(map, prefix + "ServiceTypeLabel", this.ServiceTypeLabel);
+        this.setParamSimple(map, prefix + "TotalCnMark", this.TotalCnMark);
+        this.setParamSimple(map, prefix + "TotalMark", this.TotalMark);
+        this.setParamSimple(map, prefix + "PretaxAmountMark", this.PretaxAmountMark);
+        this.setParamSimple(map, prefix + "TaxMark", this.TaxMark);
+        this.setParamSimple(map, prefix + "CompanySealMark", this.CompanySealMark);
 
     }
 }

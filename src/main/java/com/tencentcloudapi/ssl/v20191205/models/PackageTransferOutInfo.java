@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PackageTransferOutInfo extends AbstractModel{
+public class PackageTransferOutInfo extends AbstractModel {
 
     /**
     * 权益包ID。
@@ -45,7 +46,6 @@ public class PackageTransferOutInfo extends AbstractModel{
 
     /**
     * 转入的PackageID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReceivePackageId")
     @Expose
@@ -81,7 +81,6 @@ public class PackageTransferOutInfo extends AbstractModel{
 
     /**
     * 接收者uin。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReceiverUin")
     @Expose
@@ -89,7 +88,6 @@ public class PackageTransferOutInfo extends AbstractModel{
 
     /**
     * 接收时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReceiveTime")
     @Expose
@@ -144,10 +142,8 @@ public class PackageTransferOutInfo extends AbstractModel{
     }
 
     /**
-     * Get 转入的PackageID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转入的PackageID。 
      * @return ReceivePackageId 转入的PackageID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReceivePackageId() {
         return this.ReceivePackageId;
@@ -155,9 +151,7 @@ public class PackageTransferOutInfo extends AbstractModel{
 
     /**
      * Set 转入的PackageID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReceivePackageId 转入的PackageID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReceivePackageId(String ReceivePackageId) {
         this.ReceivePackageId = ReceivePackageId;
@@ -228,10 +222,8 @@ public class PackageTransferOutInfo extends AbstractModel{
     }
 
     /**
-     * Get 接收者uin。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接收者uin。 
      * @return ReceiverUin 接收者uin。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReceiverUin() {
         return this.ReceiverUin;
@@ -239,19 +231,15 @@ public class PackageTransferOutInfo extends AbstractModel{
 
     /**
      * Set 接收者uin。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReceiverUin 接收者uin。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReceiverUin(Long ReceiverUin) {
         this.ReceiverUin = ReceiverUin;
     }
 
     /**
-     * Get 接收时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接收时间。 
      * @return ReceiveTime 接收时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReceiveTime() {
         return this.ReceiveTime;
@@ -259,9 +247,7 @@ public class PackageTransferOutInfo extends AbstractModel{
 
     /**
      * Set 接收时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReceiveTime 接收时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReceiveTime(String ReceiveTime) {
         this.ReceiveTime = ReceiveTime;

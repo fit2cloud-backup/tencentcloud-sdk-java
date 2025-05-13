@@ -16,142 +16,123 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNatFwInfoCountResponse extends AbstractModel{
+public class DescribeNatFwInfoCountResponse extends AbstractModel {
 
     /**
-    * 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 返回参数 success 成功 failed 失败
     */
     @SerializedName("ReturnMsg")
     @Expose
     private String ReturnMsg;
 
     /**
-    * 当前租户的nat实例个数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前租户的nat防火墙实例个数
     */
     @SerializedName("NatFwInsCount")
     @Expose
     private Long NatFwInsCount;
 
     /**
-    * 当前租户接入子网个数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前租户接入防火墙的子网个数
     */
     @SerializedName("SubnetCount")
     @Expose
     private Long SubnetCount;
 
     /**
-    * 打开开关个数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 打开NAT防火墙开关个数
     */
     @SerializedName("OpenSwitchCount")
     @Expose
     private Long OpenSwitchCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 返回参数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReturnMsg 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 返回参数 success 成功 failed 失败 
+     * @return ReturnMsg 返回参数 success 成功 failed 失败
      */
     public String getReturnMsg() {
         return this.ReturnMsg;
     }
 
     /**
-     * Set 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReturnMsg 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 返回参数 success 成功 failed 失败
+     * @param ReturnMsg 返回参数 success 成功 failed 失败
      */
     public void setReturnMsg(String ReturnMsg) {
         this.ReturnMsg = ReturnMsg;
     }
 
     /**
-     * Get 当前租户的nat实例个数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NatFwInsCount 当前租户的nat实例个数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前租户的nat防火墙实例个数 
+     * @return NatFwInsCount 当前租户的nat防火墙实例个数
      */
     public Long getNatFwInsCount() {
         return this.NatFwInsCount;
     }
 
     /**
-     * Set 当前租户的nat实例个数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param NatFwInsCount 当前租户的nat实例个数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前租户的nat防火墙实例个数
+     * @param NatFwInsCount 当前租户的nat防火墙实例个数
      */
     public void setNatFwInsCount(Long NatFwInsCount) {
         this.NatFwInsCount = NatFwInsCount;
     }
 
     /**
-     * Get 当前租户接入子网个数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SubnetCount 当前租户接入子网个数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前租户接入防火墙的子网个数 
+     * @return SubnetCount 当前租户接入防火墙的子网个数
      */
     public Long getSubnetCount() {
         return this.SubnetCount;
     }
 
     /**
-     * Set 当前租户接入子网个数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SubnetCount 当前租户接入子网个数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前租户接入防火墙的子网个数
+     * @param SubnetCount 当前租户接入防火墙的子网个数
      */
     public void setSubnetCount(Long SubnetCount) {
         this.SubnetCount = SubnetCount;
     }
 
     /**
-     * Get 打开开关个数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OpenSwitchCount 打开开关个数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 打开NAT防火墙开关个数 
+     * @return OpenSwitchCount 打开NAT防火墙开关个数
      */
     public Long getOpenSwitchCount() {
         return this.OpenSwitchCount;
     }
 
     /**
-     * Set 打开开关个数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OpenSwitchCount 打开开关个数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 打开NAT防火墙开关个数
+     * @param OpenSwitchCount 打开NAT防火墙开关个数
      */
     public void setOpenSwitchCount(Long OpenSwitchCount) {
         this.OpenSwitchCount = OpenSwitchCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,25 +16,23 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Coord extends AbstractModel{
+public class Coord extends AbstractModel {
 
     /**
     * 坐标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Points")
     @Expose
     private Point [] Points;
 
     /**
-     * Get 坐标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 坐标 
      * @return Points 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Point [] getPoints() {
         return this.Points;
@@ -42,9 +40,7 @@ public class Coord extends AbstractModel{
 
     /**
      * Set 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Points 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPoints(Point [] Points) {
         this.Points = Points;

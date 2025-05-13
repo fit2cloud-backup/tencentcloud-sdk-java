@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dnspod.v20210323.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KeyValue extends AbstractModel{
+public class KeyValue extends AbstractModel {
 
     /**
     * 键
@@ -31,7 +32,6 @@ public class KeyValue extends AbstractModel{
 
     /**
     * 值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -54,10 +54,8 @@ public class KeyValue extends AbstractModel{
     }
 
     /**
-     * Get 值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 值 
      * @return Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -65,9 +63,7 @@ public class KeyValue extends AbstractModel{
 
     /**
      * Set 值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

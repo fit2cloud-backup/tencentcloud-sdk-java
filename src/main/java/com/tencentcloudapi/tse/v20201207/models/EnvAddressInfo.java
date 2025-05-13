@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EnvAddressInfo extends AbstractModel{
+public class EnvAddressInfo extends AbstractModel {
 
     /**
     * 环境名
@@ -45,7 +46,6 @@ public class EnvAddressInfo extends AbstractModel{
 
     /**
     * config内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConfigIntranetAddress")
     @Expose
@@ -53,7 +53,6 @@ public class EnvAddressInfo extends AbstractModel{
 
     /**
     * 是否开启config内网clb
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableConfigIntranet")
     @Expose
@@ -61,11 +60,17 @@ public class EnvAddressInfo extends AbstractModel{
 
     /**
     * 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternetBandWidth")
     @Expose
     private Long InternetBandWidth;
+
+    /**
+    * 客户端公网CLB多可用区信息
+    */
+    @SerializedName("CLBMultiRegion")
+    @Expose
+    private CLBMultiRegion CLBMultiRegion;
 
     /**
      * Get 环境名 
@@ -116,10 +121,8 @@ public class EnvAddressInfo extends AbstractModel{
     }
 
     /**
-     * Get config内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get config内网访问地址 
      * @return ConfigIntranetAddress config内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConfigIntranetAddress() {
         return this.ConfigIntranetAddress;
@@ -127,19 +130,15 @@ public class EnvAddressInfo extends AbstractModel{
 
     /**
      * Set config内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConfigIntranetAddress config内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfigIntranetAddress(String ConfigIntranetAddress) {
         this.ConfigIntranetAddress = ConfigIntranetAddress;
     }
 
     /**
-     * Get 是否开启config内网clb
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启config内网clb 
      * @return EnableConfigIntranet 是否开启config内网clb
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnableConfigIntranet() {
         return this.EnableConfigIntranet;
@@ -147,19 +146,15 @@ public class EnvAddressInfo extends AbstractModel{
 
     /**
      * Set 是否开启config内网clb
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableConfigIntranet 是否开启config内网clb
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableConfigIntranet(Boolean EnableConfigIntranet) {
         this.EnableConfigIntranet = EnableConfigIntranet;
     }
 
     /**
-     * Get 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端公网带宽 
      * @return InternetBandWidth 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInternetBandWidth() {
         return this.InternetBandWidth;
@@ -167,12 +162,26 @@ public class EnvAddressInfo extends AbstractModel{
 
     /**
      * Set 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InternetBandWidth 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternetBandWidth(Long InternetBandWidth) {
         this.InternetBandWidth = InternetBandWidth;
+    }
+
+    /**
+     * Get 客户端公网CLB多可用区信息 
+     * @return CLBMultiRegion 客户端公网CLB多可用区信息
+     */
+    public CLBMultiRegion getCLBMultiRegion() {
+        return this.CLBMultiRegion;
+    }
+
+    /**
+     * Set 客户端公网CLB多可用区信息
+     * @param CLBMultiRegion 客户端公网CLB多可用区信息
+     */
+    public void setCLBMultiRegion(CLBMultiRegion CLBMultiRegion) {
+        this.CLBMultiRegion = CLBMultiRegion;
     }
 
     public EnvAddressInfo() {
@@ -201,6 +210,9 @@ public class EnvAddressInfo extends AbstractModel{
         if (source.InternetBandWidth != null) {
             this.InternetBandWidth = new Long(source.InternetBandWidth);
         }
+        if (source.CLBMultiRegion != null) {
+            this.CLBMultiRegion = new CLBMultiRegion(source.CLBMultiRegion);
+        }
     }
 
 
@@ -214,6 +226,7 @@ public class EnvAddressInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ConfigIntranetAddress", this.ConfigIntranetAddress);
         this.setParamSimple(map, prefix + "EnableConfigIntranet", this.EnableConfigIntranet);
         this.setParamSimple(map, prefix + "InternetBandWidth", this.InternetBandWidth);
+        this.setParamObj(map, prefix + "CLBMultiRegion.", this.CLBMultiRegion);
 
     }
 }

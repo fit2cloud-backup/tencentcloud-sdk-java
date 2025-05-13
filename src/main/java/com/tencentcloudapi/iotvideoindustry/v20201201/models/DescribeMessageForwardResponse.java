@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotvideoindustry.v20201201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeMessageForwardResponse extends AbstractModel{
+public class DescribeMessageForwardResponse extends AbstractModel {
 
     /**
     * 区域ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionId")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * 区域名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionName")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Instance")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * 配置ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IntId")
     @Expose
@@ -64,7 +60,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * json数组， 转发类型 1: 告警 2:GPS
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MessageType")
     @Expose
@@ -72,7 +67,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * kafka topic id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicId")
     @Expose
@@ -80,7 +74,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * 配置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -88,7 +81,6 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * 用户Uin信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uin")
     @Expose
@@ -96,24 +88,28 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
     * kafka topic 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicName")
     @Expose
     private String TopicName;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 更新时间
+    */
+    @SerializedName("UpdateTime")
+    @Expose
+    private String UpdateTime;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 区域ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区域ID 
      * @return RegionId 区域ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionId() {
         return this.RegionId;
@@ -121,19 +117,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set 区域ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionId 区域ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionId(String RegionId) {
         this.RegionId = RegionId;
     }
 
     /**
-     * Get 区域名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区域名称 
      * @return RegionName 区域名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionName() {
         return this.RegionName;
@@ -141,19 +133,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set 区域名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionName 区域名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionName(String RegionName) {
         this.RegionName = RegionName;
     }
 
     /**
-     * Get 实例ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例ID 
      * @return Instance 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstance() {
         return this.Instance;
@@ -161,19 +149,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Instance 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstance(String Instance) {
         this.Instance = Instance;
     }
 
     /**
-     * Get 实例名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例名称 
      * @return InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -181,19 +165,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 配置ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置ID 
      * @return IntId 配置ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIntId() {
         return this.IntId;
@@ -201,19 +181,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set 配置ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IntId 配置ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIntId(Long IntId) {
         this.IntId = IntId;
     }
 
     /**
-     * Get json数组， 转发类型 1: 告警 2:GPS
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get json数组， 转发类型 1: 告警 2:GPS 
      * @return MessageType json数组， 转发类型 1: 告警 2:GPS
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessageType() {
         return this.MessageType;
@@ -221,19 +197,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set json数组， 转发类型 1: 告警 2:GPS
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MessageType json数组， 转发类型 1: 告警 2:GPS
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessageType(String MessageType) {
         this.MessageType = MessageType;
     }
 
     /**
-     * Get kafka topic id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get kafka topic id 
      * @return TopicId kafka topic id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicId() {
         return this.TopicId;
@@ -241,19 +213,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set kafka topic id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicId kafka topic id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicId(String TopicId) {
         this.TopicId = TopicId;
     }
 
     /**
-     * Get 配置创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置创建时间 
      * @return CreateTime 配置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -261,19 +229,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set 配置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 配置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 用户Uin信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户Uin信息 
      * @return Uin 用户Uin信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUin() {
         return this.Uin;
@@ -281,19 +245,15 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set 用户Uin信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uin 用户Uin信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUin(String Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get kafka topic 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get kafka topic 名称 
      * @return TopicName kafka topic 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicName() {
         return this.TopicName;
@@ -301,25 +261,39 @@ public class DescribeMessageForwardResponse extends AbstractModel{
 
     /**
      * Set kafka topic 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicName kafka topic 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 更新时间 
+     * @return UpdateTime 更新时间
+     */
+    public String getUpdateTime() {
+        return this.UpdateTime;
+    }
+
+    /**
+     * Set 更新时间
+     * @param UpdateTime 更新时间
+     */
+    public void setUpdateTime(String UpdateTime) {
+        this.UpdateTime = UpdateTime;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -363,6 +337,9 @@ public class DescribeMessageForwardResponse extends AbstractModel{
         if (source.TopicName != null) {
             this.TopicName = new String(source.TopicName);
         }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -383,6 +360,7 @@ public class DescribeMessageForwardResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "Uin", this.Uin);
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
+        this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

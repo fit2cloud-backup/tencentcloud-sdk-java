@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DiagHistoryEventItem extends AbstractModel{
+public class DiagHistoryEventItem extends AbstractModel {
 
     /**
     * 诊断类型。
@@ -80,7 +81,6 @@ public class DiagHistoryEventItem extends AbstractModel{
 
     /**
     * 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Metric")
     @Expose
@@ -222,10 +222,8 @@ public class DiagHistoryEventItem extends AbstractModel{
     }
 
     /**
-     * Get 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 保留字段。 
      * @return Metric 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMetric() {
         return this.Metric;
@@ -233,9 +231,7 @@ public class DiagHistoryEventItem extends AbstractModel{
 
     /**
      * Set 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Metric 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetric(String Metric) {
         this.Metric = Metric;

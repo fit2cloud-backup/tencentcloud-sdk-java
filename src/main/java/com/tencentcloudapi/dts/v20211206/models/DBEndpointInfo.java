@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DBEndpointInfo extends AbstractModel{
+public class DBEndpointInfo extends AbstractModel {
 
     /**
     * 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -32,7 +32,6 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
     * 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AccessType")
     @Expose
@@ -40,23 +39,22 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
     * 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatabaseType")
     @Expose
     private String DatabaseType;
 
     /**
-    * 节点类型，为空或者"simple":表示普通节点，"cluster": 集群节点
-注意：此字段可能返回 null，表示取不到有效值。
+    * 节点类型，simple表示普通节点、cluster表示集群节点；
+对于mongo业务，取值为replicaset(mongodb副本集)、standalone(mongodb单节点)、cluster(mongodb集群)；
+对于redis实例，simple(单节点)、cluster-cache(直连集群)、cluster-proxy(代理集群)；
     */
     @SerializedName("NodeType")
     @Expose
     private String NodeType;
 
     /**
-    * 数据库信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 实例具体的连接信息，如ip、port、接入方式等
     */
     @SerializedName("Info")
     @Expose
@@ -64,7 +62,6 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
     * 实例服务提供商，如:"aliyun","others"
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Supplier")
     @Expose
@@ -73,7 +70,6 @@ public class DBEndpointInfo extends AbstractModel{
     /**
     * MongoDB可定义如下的参数: 	['AuthDatabase':'admin', 
 'AuthFlag': "1",	'AuthMechanism':"SCRAM-SHA-1"]
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtraAttr")
     @Expose
@@ -81,17 +77,21 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
     * 数据库所属网络环境，AccessType为云联网(ccn)时必填， UserIDC表示用户IDC、TencentVPC表示腾讯云VPC；
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatabaseNetEnv")
     @Expose
     private String DatabaseNetEnv;
 
     /**
-     * Get 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。 
+    * tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，Info中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，Info中需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。对于mongodb链路，srv表示SRV连接串，为空或不传表示普通连接串，srv仅限于FetchMethod为change_stream的拉取模式
+    */
+    @SerializedName("ConnectType")
+    @Expose
+    private String ConnectType;
+
+    /**
+     * Get 实例所在地域 
      * @return Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -99,19 +99,15 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
      * Set 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路 
      * @return AccessType 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAccessType() {
         return this.AccessType;
@@ -119,19 +115,15 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
      * Set 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AccessType 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccessType(String AccessType) {
         this.AccessType = AccessType;
     }
 
     /**
-     * Get 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等 
      * @return DatabaseType 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabaseType() {
         return this.DatabaseType;
@@ -139,59 +131,55 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
      * Set 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatabaseType 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabaseType(String DatabaseType) {
         this.DatabaseType = DatabaseType;
     }
 
     /**
-     * Get 节点类型，为空或者"simple":表示普通节点，"cluster": 集群节点
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NodeType 节点类型，为空或者"simple":表示普通节点，"cluster": 集群节点
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 节点类型，simple表示普通节点、cluster表示集群节点；
+对于mongo业务，取值为replicaset(mongodb副本集)、standalone(mongodb单节点)、cluster(mongodb集群)；
+对于redis实例，simple(单节点)、cluster-cache(直连集群)、cluster-proxy(代理集群)； 
+     * @return NodeType 节点类型，simple表示普通节点、cluster表示集群节点；
+对于mongo业务，取值为replicaset(mongodb副本集)、standalone(mongodb单节点)、cluster(mongodb集群)；
+对于redis实例，simple(单节点)、cluster-cache(直连集群)、cluster-proxy(代理集群)；
      */
     public String getNodeType() {
         return this.NodeType;
     }
 
     /**
-     * Set 节点类型，为空或者"simple":表示普通节点，"cluster": 集群节点
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param NodeType 节点类型，为空或者"simple":表示普通节点，"cluster": 集群节点
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 节点类型，simple表示普通节点、cluster表示集群节点；
+对于mongo业务，取值为replicaset(mongodb副本集)、standalone(mongodb单节点)、cluster(mongodb集群)；
+对于redis实例，simple(单节点)、cluster-cache(直连集群)、cluster-proxy(代理集群)；
+     * @param NodeType 节点类型，simple表示普通节点、cluster表示集群节点；
+对于mongo业务，取值为replicaset(mongodb副本集)、standalone(mongodb单节点)、cluster(mongodb集群)；
+对于redis实例，simple(单节点)、cluster-cache(直连集群)、cluster-proxy(代理集群)；
      */
     public void setNodeType(String NodeType) {
         this.NodeType = NodeType;
     }
 
     /**
-     * Get 数据库信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Info 数据库信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 实例具体的连接信息，如ip、port、接入方式等 
+     * @return Info 实例具体的连接信息，如ip、port、接入方式等
      */
     public DBInfo [] getInfo() {
         return this.Info;
     }
 
     /**
-     * Set 数据库信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Info 数据库信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 实例具体的连接信息，如ip、port、接入方式等
+     * @param Info 实例具体的连接信息，如ip、port、接入方式等
      */
     public void setInfo(DBInfo [] Info) {
         this.Info = Info;
     }
 
     /**
-     * Get 实例服务提供商，如:"aliyun","others"
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例服务提供商，如:"aliyun","others" 
      * @return Supplier 实例服务提供商，如:"aliyun","others"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSupplier() {
         return this.Supplier;
@@ -199,9 +187,7 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
      * Set 实例服务提供商，如:"aliyun","others"
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Supplier 实例服务提供商，如:"aliyun","others"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupplier(String Supplier) {
         this.Supplier = Supplier;
@@ -209,11 +195,9 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
      * Get MongoDB可定义如下的参数: 	['AuthDatabase':'admin', 
-'AuthFlag': "1",	'AuthMechanism':"SCRAM-SHA-1"]
-注意：此字段可能返回 null，表示取不到有效值。 
+'AuthFlag': "1",	'AuthMechanism':"SCRAM-SHA-1"] 
      * @return ExtraAttr MongoDB可定义如下的参数: 	['AuthDatabase':'admin', 
 'AuthFlag': "1",	'AuthMechanism':"SCRAM-SHA-1"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public KeyValuePairOption [] getExtraAttr() {
         return this.ExtraAttr;
@@ -222,20 +206,16 @@ public class DBEndpointInfo extends AbstractModel{
     /**
      * Set MongoDB可定义如下的参数: 	['AuthDatabase':'admin', 
 'AuthFlag': "1",	'AuthMechanism':"SCRAM-SHA-1"]
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtraAttr MongoDB可定义如下的参数: 	['AuthDatabase':'admin', 
 'AuthFlag': "1",	'AuthMechanism':"SCRAM-SHA-1"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtraAttr(KeyValuePairOption [] ExtraAttr) {
         this.ExtraAttr = ExtraAttr;
     }
 
     /**
-     * Get 数据库所属网络环境，AccessType为云联网(ccn)时必填， UserIDC表示用户IDC、TencentVPC表示腾讯云VPC；
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库所属网络环境，AccessType为云联网(ccn)时必填， UserIDC表示用户IDC、TencentVPC表示腾讯云VPC； 
      * @return DatabaseNetEnv 数据库所属网络环境，AccessType为云联网(ccn)时必填， UserIDC表示用户IDC、TencentVPC表示腾讯云VPC；
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabaseNetEnv() {
         return this.DatabaseNetEnv;
@@ -243,12 +223,26 @@ public class DBEndpointInfo extends AbstractModel{
 
     /**
      * Set 数据库所属网络环境，AccessType为云联网(ccn)时必填， UserIDC表示用户IDC、TencentVPC表示腾讯云VPC；
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatabaseNetEnv 数据库所属网络环境，AccessType为云联网(ccn)时必填， UserIDC表示用户IDC、TencentVPC表示腾讯云VPC；
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabaseNetEnv(String DatabaseNetEnv) {
         this.DatabaseNetEnv = DatabaseNetEnv;
+    }
+
+    /**
+     * Get tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，Info中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，Info中需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。对于mongodb链路，srv表示SRV连接串，为空或不传表示普通连接串，srv仅限于FetchMethod为change_stream的拉取模式 
+     * @return ConnectType tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，Info中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，Info中需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。对于mongodb链路，srv表示SRV连接串，为空或不传表示普通连接串，srv仅限于FetchMethod为change_stream的拉取模式
+     */
+    public String getConnectType() {
+        return this.ConnectType;
+    }
+
+    /**
+     * Set tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，Info中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，Info中需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。对于mongodb链路，srv表示SRV连接串，为空或不传表示普通连接串，srv仅限于FetchMethod为change_stream的拉取模式
+     * @param ConnectType tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，Info中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，Info中需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。对于mongodb链路，srv表示SRV连接串，为空或不传表示普通连接串，srv仅限于FetchMethod为change_stream的拉取模式
+     */
+    public void setConnectType(String ConnectType) {
+        this.ConnectType = ConnectType;
     }
 
     public DBEndpointInfo() {
@@ -289,6 +283,9 @@ public class DBEndpointInfo extends AbstractModel{
         if (source.DatabaseNetEnv != null) {
             this.DatabaseNetEnv = new String(source.DatabaseNetEnv);
         }
+        if (source.ConnectType != null) {
+            this.ConnectType = new String(source.ConnectType);
+        }
     }
 
 
@@ -304,6 +301,7 @@ public class DBEndpointInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Supplier", this.Supplier);
         this.setParamArrayObj(map, prefix + "ExtraAttr.", this.ExtraAttr);
         this.setParamSimple(map, prefix + "DatabaseNetEnv", this.DatabaseNetEnv);
+        this.setParamSimple(map, prefix + "ConnectType", this.ConnectType);
 
     }
 }

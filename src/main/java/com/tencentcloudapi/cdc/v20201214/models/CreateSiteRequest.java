@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSiteRequest extends AbstractModel{
+public class CreateSiteRequest extends AbstractModel {
 
     /**
     * 站点名称
@@ -72,7 +73,7 @@ public class CreateSiteRequest extends AbstractModel{
     private String Note;
 
     /**
-    * 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。
+    * 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。取值范围："MM","SM"
     */
     @SerializedName("FiberType")
     @Expose
@@ -93,7 +94,7 @@ public class CreateSiteRequest extends AbstractModel{
     private String PowerConnectors;
 
     /**
-    * 从机架上方还是下方供电。
+    * 从机架上方还是下方供电。取值范围：["UP","DOWN"]
     */
     @SerializedName("PowerFeedDrop")
     @Expose
@@ -114,7 +115,7 @@ public class CreateSiteRequest extends AbstractModel{
     private Long PowerDrawKva;
 
     /**
-    * 网络到腾讯云Region区域的上行链路速度
+    * 网络到腾讯云Region区域的上行链路速度(Gbps)
     */
     @SerializedName("UplinkSpeedGbps")
     @Expose
@@ -304,16 +305,16 @@ public class CreateSiteRequest extends AbstractModel{
     }
 
     /**
-     * Get 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。 
-     * @return FiberType 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。
+     * Get 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。取值范围："MM","SM" 
+     * @return FiberType 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。取值范围："MM","SM"
      */
     public String getFiberType() {
         return this.FiberType;
     }
 
     /**
-     * Set 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。
-     * @param FiberType 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。
+     * Set 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。取值范围："MM","SM"
+     * @param FiberType 您将使用光纤类型将CDC设备连接到网络。有单模和多模两种选项。取值范围："MM","SM"
      */
     public void setFiberType(String FiberType) {
         this.FiberType = FiberType;
@@ -352,16 +353,16 @@ public class CreateSiteRequest extends AbstractModel{
     }
 
     /**
-     * Get 从机架上方还是下方供电。 
-     * @return PowerFeedDrop 从机架上方还是下方供电。
+     * Get 从机架上方还是下方供电。取值范围：["UP","DOWN"] 
+     * @return PowerFeedDrop 从机架上方还是下方供电。取值范围：["UP","DOWN"]
      */
     public String getPowerFeedDrop() {
         return this.PowerFeedDrop;
     }
 
     /**
-     * Set 从机架上方还是下方供电。
-     * @param PowerFeedDrop 从机架上方还是下方供电。
+     * Set 从机架上方还是下方供电。取值范围：["UP","DOWN"]
+     * @param PowerFeedDrop 从机架上方还是下方供电。取值范围：["UP","DOWN"]
      */
     public void setPowerFeedDrop(String PowerFeedDrop) {
         this.PowerFeedDrop = PowerFeedDrop;
@@ -400,16 +401,16 @@ public class CreateSiteRequest extends AbstractModel{
     }
 
     /**
-     * Get 网络到腾讯云Region区域的上行链路速度 
-     * @return UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度
+     * Get 网络到腾讯云Region区域的上行链路速度(Gbps) 
+     * @return UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度(Gbps)
      */
     public Long getUplinkSpeedGbps() {
         return this.UplinkSpeedGbps;
     }
 
     /**
-     * Set 网络到腾讯云Region区域的上行链路速度
-     * @param UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度
+     * Set 网络到腾讯云Region区域的上行链路速度(Gbps)
+     * @param UplinkSpeedGbps 网络到腾讯云Region区域的上行链路速度(Gbps)
      */
     public void setUplinkSpeedGbps(Long UplinkSpeedGbps) {
         this.UplinkSpeedGbps = UplinkSpeedGbps;

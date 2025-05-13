@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mmps.v20200710.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeScanTaskReportUrlResponse extends AbstractModel{
+public class DescribeScanTaskReportUrlResponse extends AbstractModel {
 
     /**
     * 返回值, 0:成功, 其他值请查看“返回值”定义
@@ -38,7 +39,6 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
 
     /**
     * 诊断报告/堆栈名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReportTitle")
     @Expose
@@ -46,14 +46,13 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
 
     /**
     * 诊断json结果内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReportResult")
     @Expose
     private String ReportResult;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -92,10 +91,8 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
     }
 
     /**
-     * Get 诊断报告/堆栈名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断报告/堆栈名称 
      * @return ReportTitle 诊断报告/堆栈名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReportTitle() {
         return this.ReportTitle;
@@ -103,19 +100,15 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
 
     /**
      * Set 诊断报告/堆栈名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReportTitle 诊断报告/堆栈名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReportTitle(String ReportTitle) {
         this.ReportTitle = ReportTitle;
     }
 
     /**
-     * Get 诊断json结果内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断json结果内容 
      * @return ReportResult 诊断json结果内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReportResult() {
         return this.ReportResult;
@@ -123,25 +116,23 @@ public class DescribeScanTaskReportUrlResponse extends AbstractModel{
 
     /**
      * Set 诊断json结果内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReportResult 诊断json结果内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReportResult(String ReportResult) {
         this.ReportResult = ReportResult;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

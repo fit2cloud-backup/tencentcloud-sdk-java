@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
+public class CheckInstancesUpgradeAbleResponse extends AbstractModel {
 
     /**
     * 集群master当前小版本
@@ -38,7 +39,6 @@ public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
 
     /**
     * 可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpgradeAbleInstances")
     @Expose
@@ -46,7 +46,6 @@ public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
 
     /**
     * 总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Total")
     @Expose
@@ -61,7 +60,7 @@ public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
     private UnavailableReason [] UnavailableVersionReason;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -100,10 +99,8 @@ public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
     }
 
     /**
-     * Get 可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可升级节点列表 
      * @return UpgradeAbleInstances 可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public UpgradeAbleInstancesItem [] getUpgradeAbleInstances() {
         return this.UpgradeAbleInstances;
@@ -111,19 +108,15 @@ public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
 
     /**
      * Set 可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpgradeAbleInstances 可升级节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpgradeAbleInstances(UpgradeAbleInstancesItem [] UpgradeAbleInstances) {
         this.UpgradeAbleInstances = UpgradeAbleInstances;
     }
 
     /**
-     * Get 总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总数 
      * @return Total 总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotal() {
         return this.Total;
@@ -131,9 +124,7 @@ public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
 
     /**
      * Set 总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Total 总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotal(Long Total) {
         this.Total = Total;
@@ -160,16 +151,16 @@ public class CheckInstancesUpgradeAbleResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

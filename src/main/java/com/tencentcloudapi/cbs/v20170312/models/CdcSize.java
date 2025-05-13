@@ -16,18 +16,12 @@
 package com.tencentcloudapi.cbs.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CdcSize extends AbstractModel{
-
-    /**
-    * 独享集群的可用容量大小，单位GiB
-    */
-    @SerializedName("DiskAavilable")
-    @Expose
-    private Long DiskAavilable;
+public class CdcSize extends AbstractModel {
 
     /**
     * 独享集群的总容量大小，单位GiB
@@ -37,20 +31,11 @@ public class CdcSize extends AbstractModel{
     private Long DiskTotal;
 
     /**
-     * Get 独享集群的可用容量大小，单位GiB 
-     * @return DiskAavilable 独享集群的可用容量大小，单位GiB
-     */
-    public Long getDiskAavilable() {
-        return this.DiskAavilable;
-    }
-
-    /**
-     * Set 独享集群的可用容量大小，单位GiB
-     * @param DiskAavilable 独享集群的可用容量大小，单位GiB
-     */
-    public void setDiskAavilable(Long DiskAavilable) {
-        this.DiskAavilable = DiskAavilable;
-    }
+    * 独享集群的可用容量大小，单位GiB
+    */
+    @SerializedName("DiskAvailable")
+    @Expose
+    private Long DiskAvailable;
 
     /**
      * Get 独享集群的总容量大小，单位GiB 
@@ -68,6 +53,22 @@ public class CdcSize extends AbstractModel{
         this.DiskTotal = DiskTotal;
     }
 
+    /**
+     * Get 独享集群的可用容量大小，单位GiB 
+     * @return DiskAvailable 独享集群的可用容量大小，单位GiB
+     */
+    public Long getDiskAvailable() {
+        return this.DiskAvailable;
+    }
+
+    /**
+     * Set 独享集群的可用容量大小，单位GiB
+     * @param DiskAvailable 独享集群的可用容量大小，单位GiB
+     */
+    public void setDiskAvailable(Long DiskAvailable) {
+        this.DiskAvailable = DiskAvailable;
+    }
+
     public CdcSize() {
     }
 
@@ -76,11 +77,11 @@ public class CdcSize extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CdcSize(CdcSize source) {
-        if (source.DiskAavilable != null) {
-            this.DiskAavilable = new Long(source.DiskAavilable);
-        }
         if (source.DiskTotal != null) {
             this.DiskTotal = new Long(source.DiskTotal);
+        }
+        if (source.DiskAvailable != null) {
+            this.DiskAvailable = new Long(source.DiskAvailable);
         }
     }
 
@@ -89,8 +90,8 @@ public class CdcSize extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "DiskAavilable", this.DiskAavilable);
         this.setParamSimple(map, prefix + "DiskTotal", this.DiskTotal);
+        this.setParamSimple(map, prefix + "DiskAvailable", this.DiskAvailable);
 
     }
 }

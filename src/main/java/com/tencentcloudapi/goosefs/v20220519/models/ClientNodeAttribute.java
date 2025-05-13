@@ -16,11 +16,12 @@
 package com.tencentcloudapi.goosefs.v20220519.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClientNodeAttribute extends AbstractModel{
+public class ClientNodeAttribute extends AbstractModel {
 
     /**
     * 客户端节点IP
@@ -42,6 +43,34 @@ public class ClientNodeAttribute extends AbstractModel{
     @SerializedName("ClientType")
     @Expose
     private String ClientType;
+
+    /**
+    * 节点所属vpcid	
+    */
+    @SerializedName("VpcId")
+    @Expose
+    private String VpcId;
+
+    /**
+    * 节点所属子网id
+    */
+    @SerializedName("SubnetId")
+    @Expose
+    private String SubnetId;
+
+    /**
+    * cvmId
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 自定义挂载点
+    */
+    @SerializedName("MountPoint")
+    @Expose
+    private String MountPoint;
 
     /**
      * Get 客户端节点IP 
@@ -91,6 +120,70 @@ public class ClientNodeAttribute extends AbstractModel{
         this.ClientType = ClientType;
     }
 
+    /**
+     * Get 节点所属vpcid	 
+     * @return VpcId 节点所属vpcid	
+     */
+    public String getVpcId() {
+        return this.VpcId;
+    }
+
+    /**
+     * Set 节点所属vpcid	
+     * @param VpcId 节点所属vpcid	
+     */
+    public void setVpcId(String VpcId) {
+        this.VpcId = VpcId;
+    }
+
+    /**
+     * Get 节点所属子网id 
+     * @return SubnetId 节点所属子网id
+     */
+    public String getSubnetId() {
+        return this.SubnetId;
+    }
+
+    /**
+     * Set 节点所属子网id
+     * @param SubnetId 节点所属子网id
+     */
+    public void setSubnetId(String SubnetId) {
+        this.SubnetId = SubnetId;
+    }
+
+    /**
+     * Get cvmId 
+     * @return InstanceId cvmId
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set cvmId
+     * @param InstanceId cvmId
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 自定义挂载点 
+     * @return MountPoint 自定义挂载点
+     */
+    public String getMountPoint() {
+        return this.MountPoint;
+    }
+
+    /**
+     * Set 自定义挂载点
+     * @param MountPoint 自定义挂载点
+     */
+    public void setMountPoint(String MountPoint) {
+        this.MountPoint = MountPoint;
+    }
+
     public ClientNodeAttribute() {
     }
 
@@ -108,6 +201,18 @@ public class ClientNodeAttribute extends AbstractModel{
         if (source.ClientType != null) {
             this.ClientType = new String(source.ClientType);
         }
+        if (source.VpcId != null) {
+            this.VpcId = new String(source.VpcId);
+        }
+        if (source.SubnetId != null) {
+            this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.MountPoint != null) {
+            this.MountPoint = new String(source.MountPoint);
+        }
     }
 
 
@@ -118,6 +223,10 @@ public class ClientNodeAttribute extends AbstractModel{
         this.setParamSimple(map, prefix + "ClientNodeIp", this.ClientNodeIp);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "ClientType", this.ClientType);
+        this.setParamSimple(map, prefix + "VpcId", this.VpcId);
+        this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "MountPoint", this.MountPoint);
 
     }
 }

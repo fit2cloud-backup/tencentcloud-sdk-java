@@ -16,16 +16,15 @@
 package com.tencentcloudapi.ses.v20201002.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SendEmailRequest extends AbstractModel{
+public class SendEmailRequest extends AbstractModel {
 
     /**
-    * 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
-如需填写发件人说明，请按照如下方式： 
-别名 <邮箱地址>
+    * 发件人邮箱地址。不使用别名时请直接填写发件人邮箱地址，例如：noreply@mail.qcloud.com如需填写发件人别名时，请按照如下方式（注意别名与邮箱地址之间必须使用一个空格隔开）：别名+一个空格+<邮箱地址>，别名中不能带有冒号(:)。
     */
     @SerializedName("FromEmailAddress")
     @Expose
@@ -60,14 +59,15 @@ public class SendEmailRequest extends AbstractModel{
     private String [] Cc;
 
     /**
-    * 密送人邮箱地址，最多支持抄送20人。
+    * 密送人邮箱地址，最多支持抄送20人,Bcc和Destination不能重复。
     */
     @SerializedName("Bcc")
     @Expose
     private String [] Bcc;
 
     /**
-    * 使用模板发送时，填写的模板相关参数。因 Simple 已经废除使用，Template 为必填项
+    * 使用模板发送时，填写模板相关参数。
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
     */
     @SerializedName("Template")
     @Expose
@@ -75,6 +75,7 @@ public class SendEmailRequest extends AbstractModel{
 
     /**
     * 已废弃
+<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
     */
     @SerializedName("Simple")
     @Expose
@@ -102,24 +103,37 @@ public class SendEmailRequest extends AbstractModel{
     private Long TriggerType;
 
     /**
-     * Get 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
-如需填写发件人说明，请按照如下方式： 
-别名 <邮箱地址> 
-     * @return FromEmailAddress 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
-如需填写发件人说明，请按照如下方式： 
-别名 <邮箱地址>
+    * smtp头中的Message-Id字段
+    */
+    @SerializedName("SmtpMessageId")
+    @Expose
+    private String SmtpMessageId;
+
+    /**
+    * smtp头中可以设置的其它字段
+    */
+    @SerializedName("SmtpHeaders")
+    @Expose
+    private String SmtpHeaders;
+
+    /**
+    * smtp头中的from字段，建议域名与FromEmailAddress保持一致
+    */
+    @SerializedName("HeaderFrom")
+    @Expose
+    private String HeaderFrom;
+
+    /**
+     * Get 发件人邮箱地址。不使用别名时请直接填写发件人邮箱地址，例如：noreply@mail.qcloud.com如需填写发件人别名时，请按照如下方式（注意别名与邮箱地址之间必须使用一个空格隔开）：别名+一个空格+<邮箱地址>，别名中不能带有冒号(:)。 
+     * @return FromEmailAddress 发件人邮箱地址。不使用别名时请直接填写发件人邮箱地址，例如：noreply@mail.qcloud.com如需填写发件人别名时，请按照如下方式（注意别名与邮箱地址之间必须使用一个空格隔开）：别名+一个空格+<邮箱地址>，别名中不能带有冒号(:)。
      */
     public String getFromEmailAddress() {
         return this.FromEmailAddress;
     }
 
     /**
-     * Set 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
-如需填写发件人说明，请按照如下方式： 
-别名 <邮箱地址>
-     * @param FromEmailAddress 发信邮件地址。请填写发件人邮箱地址，例如：noreply@mail.qcloud.com
-如需填写发件人说明，请按照如下方式： 
-别名 <邮箱地址>
+     * Set 发件人邮箱地址。不使用别名时请直接填写发件人邮箱地址，例如：noreply@mail.qcloud.com如需填写发件人别名时，请按照如下方式（注意别名与邮箱地址之间必须使用一个空格隔开）：别名+一个空格+<邮箱地址>，别名中不能带有冒号(:)。
+     * @param FromEmailAddress 发件人邮箱地址。不使用别名时请直接填写发件人邮箱地址，例如：noreply@mail.qcloud.com如需填写发件人别名时，请按照如下方式（注意别名与邮箱地址之间必须使用一个空格隔开）：别名+一个空格+<邮箱地址>，别名中不能带有冒号(:)。
      */
     public void setFromEmailAddress(String FromEmailAddress) {
         this.FromEmailAddress = FromEmailAddress;
@@ -190,40 +204,46 @@ public class SendEmailRequest extends AbstractModel{
     }
 
     /**
-     * Get 密送人邮箱地址，最多支持抄送20人。 
-     * @return Bcc 密送人邮箱地址，最多支持抄送20人。
+     * Get 密送人邮箱地址，最多支持抄送20人,Bcc和Destination不能重复。 
+     * @return Bcc 密送人邮箱地址，最多支持抄送20人,Bcc和Destination不能重复。
      */
     public String [] getBcc() {
         return this.Bcc;
     }
 
     /**
-     * Set 密送人邮箱地址，最多支持抄送20人。
-     * @param Bcc 密送人邮箱地址，最多支持抄送20人。
+     * Set 密送人邮箱地址，最多支持抄送20人,Bcc和Destination不能重复。
+     * @param Bcc 密送人邮箱地址，最多支持抄送20人,Bcc和Destination不能重复。
      */
     public void setBcc(String [] Bcc) {
         this.Bcc = Bcc;
     }
 
     /**
-     * Get 使用模板发送时，填写的模板相关参数。因 Simple 已经废除使用，Template 为必填项 
-     * @return Template 使用模板发送时，填写的模板相关参数。因 Simple 已经废除使用，Template 为必填项
+     * Get 使用模板发送时，填写模板相关参数。
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert> 
+     * @return Template 使用模板发送时，填写模板相关参数。
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
      */
     public Template getTemplate() {
         return this.Template;
     }
 
     /**
-     * Set 使用模板发送时，填写的模板相关参数。因 Simple 已经废除使用，Template 为必填项
-     * @param Template 使用模板发送时，填写的模板相关参数。因 Simple 已经废除使用，Template 为必填项
+     * Set 使用模板发送时，填写模板相关参数。
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
+     * @param Template 使用模板发送时，填写模板相关参数。
+<dx-alert infotype="notice" title="注意"> 如您未申请过特殊配置，则该字段为必填 </dx-alert>
      */
     public void setTemplate(Template Template) {
         this.Template = Template;
     }
 
     /**
-     * Get 已废弃 
+     * Get 已废弃
+<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert> 
      * @return Simple 已废弃
+<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
      */
     public Simple getSimple() {
         return this.Simple;
@@ -231,7 +251,9 @@ public class SendEmailRequest extends AbstractModel{
 
     /**
      * Set 已废弃
+<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
      * @param Simple 已废弃
+<dx-alert infotype="notice" title="说明"> 仅部分历史上申请了特殊配置的客户需要使用。如您未申请过特殊配置，则不存在该字段。</dx-alert>
      */
     public void setSimple(Simple Simple) {
         this.Simple = Simple;
@@ -283,6 +305,54 @@ public class SendEmailRequest extends AbstractModel{
      */
     public void setTriggerType(Long TriggerType) {
         this.TriggerType = TriggerType;
+    }
+
+    /**
+     * Get smtp头中的Message-Id字段 
+     * @return SmtpMessageId smtp头中的Message-Id字段
+     */
+    public String getSmtpMessageId() {
+        return this.SmtpMessageId;
+    }
+
+    /**
+     * Set smtp头中的Message-Id字段
+     * @param SmtpMessageId smtp头中的Message-Id字段
+     */
+    public void setSmtpMessageId(String SmtpMessageId) {
+        this.SmtpMessageId = SmtpMessageId;
+    }
+
+    /**
+     * Get smtp头中可以设置的其它字段 
+     * @return SmtpHeaders smtp头中可以设置的其它字段
+     */
+    public String getSmtpHeaders() {
+        return this.SmtpHeaders;
+    }
+
+    /**
+     * Set smtp头中可以设置的其它字段
+     * @param SmtpHeaders smtp头中可以设置的其它字段
+     */
+    public void setSmtpHeaders(String SmtpHeaders) {
+        this.SmtpHeaders = SmtpHeaders;
+    }
+
+    /**
+     * Get smtp头中的from字段，建议域名与FromEmailAddress保持一致 
+     * @return HeaderFrom smtp头中的from字段，建议域名与FromEmailAddress保持一致
+     */
+    public String getHeaderFrom() {
+        return this.HeaderFrom;
+    }
+
+    /**
+     * Set smtp头中的from字段，建议域名与FromEmailAddress保持一致
+     * @param HeaderFrom smtp头中的from字段，建议域名与FromEmailAddress保持一致
+     */
+    public void setHeaderFrom(String HeaderFrom) {
+        this.HeaderFrom = HeaderFrom;
     }
 
     public SendEmailRequest() {
@@ -338,6 +408,15 @@ public class SendEmailRequest extends AbstractModel{
         if (source.TriggerType != null) {
             this.TriggerType = new Long(source.TriggerType);
         }
+        if (source.SmtpMessageId != null) {
+            this.SmtpMessageId = new String(source.SmtpMessageId);
+        }
+        if (source.SmtpHeaders != null) {
+            this.SmtpHeaders = new String(source.SmtpHeaders);
+        }
+        if (source.HeaderFrom != null) {
+            this.HeaderFrom = new String(source.HeaderFrom);
+        }
     }
 
 
@@ -356,6 +435,9 @@ public class SendEmailRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Attachments.", this.Attachments);
         this.setParamSimple(map, prefix + "Unsubscribe", this.Unsubscribe);
         this.setParamSimple(map, prefix + "TriggerType", this.TriggerType);
+        this.setParamSimple(map, prefix + "SmtpMessageId", this.SmtpMessageId);
+        this.setParamSimple(map, prefix + "SmtpHeaders", this.SmtpHeaders);
+        this.setParamSimple(map, prefix + "HeaderFrom", this.HeaderFrom);
 
     }
 }

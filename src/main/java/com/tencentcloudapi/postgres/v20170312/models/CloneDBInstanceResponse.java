@@ -16,15 +16,15 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloneDBInstanceResponse extends AbstractModel{
+public class CloneDBInstanceResponse extends AbstractModel {
 
     /**
     * 订单号。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DealName")
     @Expose
@@ -32,7 +32,6 @@ public class CloneDBInstanceResponse extends AbstractModel{
 
     /**
     * 订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BillId")
     @Expose
@@ -40,24 +39,21 @@ public class CloneDBInstanceResponse extends AbstractModel{
 
     /**
     * 克隆出的新实例ID，当前只支持后付费返回该值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DBInstanceId")
     @Expose
     private String DBInstanceId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 订单号。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订单号。 
      * @return DealName 订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDealName() {
         return this.DealName;
@@ -65,19 +61,15 @@ public class CloneDBInstanceResponse extends AbstractModel{
 
     /**
      * Set 订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DealName 订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDealName(String DealName) {
         this.DealName = DealName;
     }
 
     /**
-     * Get 订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订单流水号。 
      * @return BillId 订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBillId() {
         return this.BillId;
@@ -85,19 +77,15 @@ public class CloneDBInstanceResponse extends AbstractModel{
 
     /**
      * Set 订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BillId 订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBillId(String BillId) {
         this.BillId = BillId;
     }
 
     /**
-     * Get 克隆出的新实例ID，当前只支持后付费返回该值。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 克隆出的新实例ID，当前只支持后付费返回该值。 
      * @return DBInstanceId 克隆出的新实例ID，当前只支持后付费返回该值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDBInstanceId() {
         return this.DBInstanceId;
@@ -105,25 +93,23 @@ public class CloneDBInstanceResponse extends AbstractModel{
 
     /**
      * Set 克隆出的新实例ID，当前只支持后付费返回该值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DBInstanceId 克隆出的新实例ID，当前只支持后付费返回该值。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDBInstanceId(String DBInstanceId) {
         this.DBInstanceId = DBInstanceId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,30 +16,31 @@
 package com.tencentcloudapi.iai.v20200303.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteGroupRequest extends AbstractModel{
+public class DeleteGroupRequest extends AbstractModel {
 
     /**
-    * 人员库ID，取值为创建人员库接口中的GroupId
+    * 人员库ID，取值为创建人员库接口中的GroupId。
     */
     @SerializedName("GroupId")
     @Expose
     private String GroupId;
 
     /**
-     * Get 人员库ID，取值为创建人员库接口中的GroupId 
-     * @return GroupId 人员库ID，取值为创建人员库接口中的GroupId
+     * Get 人员库ID，取值为创建人员库接口中的GroupId。 
+     * @return GroupId 人员库ID，取值为创建人员库接口中的GroupId。
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 人员库ID，取值为创建人员库接口中的GroupId
-     * @param GroupId 人员库ID，取值为创建人员库接口中的GroupId
+     * Set 人员库ID，取值为创建人员库接口中的GroupId。
+     * @param GroupId 人员库ID，取值为创建人员库接口中的GroupId。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;

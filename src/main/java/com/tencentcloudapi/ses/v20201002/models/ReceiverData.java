@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ses.v20201002.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReceiverData extends AbstractModel{
+public class ReceiverData extends AbstractModel {
 
     /**
     * 收件人列表ID
@@ -45,7 +46,6 @@ public class ReceiverData extends AbstractModel{
 
     /**
     * 收件人列表描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Desc")
     @Expose
@@ -53,7 +53,6 @@ public class ReceiverData extends AbstractModel{
 
     /**
     * 列表状态(1 待上传 2 上传中 3 上传完成)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReceiversStatus")
     @Expose
@@ -65,6 +64,13 @@ public class ReceiverData extends AbstractModel{
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
+
+    /**
+    * 无效收件人数量
+    */
+    @SerializedName("InvalidCount")
+    @Expose
+    private Long InvalidCount;
 
     /**
      * Get 收件人列表ID 
@@ -115,10 +121,8 @@ public class ReceiverData extends AbstractModel{
     }
 
     /**
-     * Get 收件人列表描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 收件人列表描述 
      * @return Desc 收件人列表描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDesc() {
         return this.Desc;
@@ -126,19 +130,15 @@ public class ReceiverData extends AbstractModel{
 
     /**
      * Set 收件人列表描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Desc 收件人列表描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDesc(String Desc) {
         this.Desc = Desc;
     }
 
     /**
-     * Get 列表状态(1 待上传 2 上传中 3 上传完成)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 列表状态(1 待上传 2 上传中 3 上传完成) 
      * @return ReceiversStatus 列表状态(1 待上传 2 上传中 3 上传完成)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReceiversStatus() {
         return this.ReceiversStatus;
@@ -146,9 +146,7 @@ public class ReceiverData extends AbstractModel{
 
     /**
      * Set 列表状态(1 待上传 2 上传中 3 上传完成)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReceiversStatus 列表状态(1 待上传 2 上传中 3 上传完成)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReceiversStatus(Long ReceiversStatus) {
         this.ReceiversStatus = ReceiversStatus;
@@ -168,6 +166,22 @@ public class ReceiverData extends AbstractModel{
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 无效收件人数量 
+     * @return InvalidCount 无效收件人数量
+     */
+    public Long getInvalidCount() {
+        return this.InvalidCount;
+    }
+
+    /**
+     * Set 无效收件人数量
+     * @param InvalidCount 无效收件人数量
+     */
+    public void setInvalidCount(Long InvalidCount) {
+        this.InvalidCount = InvalidCount;
     }
 
     public ReceiverData() {
@@ -196,6 +210,9 @@ public class ReceiverData extends AbstractModel{
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.InvalidCount != null) {
+            this.InvalidCount = new Long(source.InvalidCount);
+        }
     }
 
 
@@ -209,6 +226,7 @@ public class ReceiverData extends AbstractModel{
         this.setParamSimple(map, prefix + "Desc", this.Desc);
         this.setParamSimple(map, prefix + "ReceiversStatus", this.ReceiversStatus);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "InvalidCount", this.InvalidCount);
 
     }
 }

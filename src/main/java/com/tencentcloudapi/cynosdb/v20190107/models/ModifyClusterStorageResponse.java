@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyClusterStorageResponse extends AbstractModel{
+public class ModifyClusterStorageResponse extends AbstractModel {
 
     /**
     * 冻结流水ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TranId")
     @Expose
@@ -32,7 +32,6 @@ public class ModifyClusterStorageResponse extends AbstractModel{
 
     /**
     * 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BigDealIds")
     @Expose
@@ -40,24 +39,21 @@ public class ModifyClusterStorageResponse extends AbstractModel{
 
     /**
     * 订单号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DealNames")
     @Expose
     private String [] DealNames;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 冻结流水ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 冻结流水ID 
      * @return TranId 冻结流水ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTranId() {
         return this.TranId;
@@ -65,19 +61,15 @@ public class ModifyClusterStorageResponse extends AbstractModel{
 
     /**
      * Set 冻结流水ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TranId 冻结流水ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTranId(String TranId) {
         this.TranId = TranId;
     }
 
     /**
-     * Get 大订单号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 大订单号 
      * @return BigDealIds 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getBigDealIds() {
         return this.BigDealIds;
@@ -85,19 +77,15 @@ public class ModifyClusterStorageResponse extends AbstractModel{
 
     /**
      * Set 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BigDealIds 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBigDealIds(String [] BigDealIds) {
         this.BigDealIds = BigDealIds;
     }
 
     /**
-     * Get 订单号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订单号 
      * @return DealNames 订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDealNames() {
         return this.DealNames;
@@ -105,25 +93,23 @@ public class ModifyClusterStorageResponse extends AbstractModel{
 
     /**
      * Set 订单号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DealNames 订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDealNames(String [] DealNames) {
         this.DealNames = DealNames;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

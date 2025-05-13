@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeEventConsumeTasksRequest extends AbstractModel{
+public class DescribeEventConsumeTasksRequest extends AbstractModel {
 
     /**
     * 事件实例ID
@@ -42,6 +43,13 @@ public class DescribeEventConsumeTasksRequest extends AbstractModel{
     @SerializedName("PageSize")
     @Expose
     private Long PageSize;
+
+    /**
+    * 项目ID
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
 
     /**
      * Get 事件实例ID 
@@ -91,6 +99,22 @@ public class DescribeEventConsumeTasksRequest extends AbstractModel{
         this.PageSize = PageSize;
     }
 
+    /**
+     * Get 项目ID 
+     * @return ProjectId 项目ID
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目ID
+     * @param ProjectId 项目ID
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
     public DescribeEventConsumeTasksRequest() {
     }
 
@@ -108,6 +132,9 @@ public class DescribeEventConsumeTasksRequest extends AbstractModel{
         if (source.PageSize != null) {
             this.PageSize = new Long(source.PageSize);
         }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class DescribeEventConsumeTasksRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EventCaseId", this.EventCaseId);
         this.setParamSimple(map, prefix + "PageNumber", this.PageNumber);
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

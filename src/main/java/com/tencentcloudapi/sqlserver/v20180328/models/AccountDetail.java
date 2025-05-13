@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccountDetail extends AbstractModel{
+public class AccountDetail extends AbstractModel {
 
     /**
     * 账户名
@@ -84,6 +85,13 @@ public class AccountDetail extends AbstractModel{
     @SerializedName("IsAdmin")
     @Expose
     private Boolean IsAdmin;
+
+    /**
+    * 是否为cam托管账户
+    */
+    @SerializedName("IsCam")
+    @Expose
+    private Boolean IsCam;
 
     /**
     * win-windows鉴权,sql-sqlserver鉴权
@@ -251,6 +259,22 @@ public class AccountDetail extends AbstractModel{
     }
 
     /**
+     * Get 是否为cam托管账户 
+     * @return IsCam 是否为cam托管账户
+     */
+    public Boolean getIsCam() {
+        return this.IsCam;
+    }
+
+    /**
+     * Set 是否为cam托管账户
+     * @param IsCam 是否为cam托管账户
+     */
+    public void setIsCam(Boolean IsCam) {
+        this.IsCam = IsCam;
+    }
+
+    /**
      * Get win-windows鉴权,sql-sqlserver鉴权 
      * @return Authentication win-windows鉴权,sql-sqlserver鉴权
      */
@@ -336,6 +360,9 @@ public class AccountDetail extends AbstractModel{
         if (source.IsAdmin != null) {
             this.IsAdmin = new Boolean(source.IsAdmin);
         }
+        if (source.IsCam != null) {
+            this.IsCam = new Boolean(source.IsCam);
+        }
         if (source.Authentication != null) {
             this.Authentication = new String(source.Authentication);
         }
@@ -361,6 +388,7 @@ public class AccountDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "InternalStatus", this.InternalStatus);
         this.setParamArrayObj(map, prefix + "Dbs.", this.Dbs);
         this.setParamSimple(map, prefix + "IsAdmin", this.IsAdmin);
+        this.setParamSimple(map, prefix + "IsCam", this.IsCam);
         this.setParamSimple(map, prefix + "Authentication", this.Authentication);
         this.setParamSimple(map, prefix + "Host", this.Host);
         this.setParamSimple(map, prefix + "AccountType", this.AccountType);

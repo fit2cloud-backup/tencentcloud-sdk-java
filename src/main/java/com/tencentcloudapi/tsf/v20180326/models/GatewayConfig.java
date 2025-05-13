@@ -16,11 +16,35 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GatewayConfig extends AbstractModel{
+public class GatewayConfig extends AbstractModel {
+
+    /**
+    * 服务名称
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
+
+    /**
+     * Get 服务名称 
+     * @return Name 服务名称
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 服务名称
+     * @param Name 服务名称
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
 
     public GatewayConfig() {
     }
@@ -30,6 +54,9 @@ public class GatewayConfig extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public GatewayConfig(GatewayConfig source) {
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
     }
 
 
@@ -37,6 +64,7 @@ public class GatewayConfig extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

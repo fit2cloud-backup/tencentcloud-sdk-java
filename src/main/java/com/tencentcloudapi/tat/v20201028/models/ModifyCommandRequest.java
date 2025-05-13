@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyCommandRequest extends AbstractModel{
+public class ModifyCommandRequest extends AbstractModel {
 
     /**
-    * 命令ID。
+    * 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
     */
     @SerializedName("CommandId")
     @Expose
@@ -51,7 +52,7 @@ public class ModifyCommandRequest extends AbstractModel{
     private String Content;
 
     /**
-    * 命令类型，目前支持取值：SHELL、POWERSHELL。
+    * 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
     */
     @SerializedName("CommandType")
     @Expose
@@ -72,9 +73,10 @@ public class ModifyCommandRequest extends AbstractModel{
     private Long Timeout;
 
     /**
-    * 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+    * 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 采取整体全覆盖式修改，即修改时必须提供所有新默认值。
-必须 Command 的 EnableParameter 为 true 时，才允许修改这个值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
@@ -82,6 +84,16 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     @SerializedName("DefaultParameters")
     @Expose
     private String DefaultParameters;
+
+    /**
+    * 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
+    */
+    @SerializedName("DefaultParameterConfs")
+    @Expose
+    private DefaultParameterConf [] DefaultParameterConfs;
 
     /**
     * 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
@@ -109,16 +121,16 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     private String OutputCOSKeyPrefix;
 
     /**
-     * Get 命令ID。 
-     * @return CommandId 命令ID。
+     * Get 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。 
+     * @return CommandId 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
      */
     public String getCommandId() {
         return this.CommandId;
     }
 
     /**
-     * Set 命令ID。
-     * @param CommandId 命令ID。
+     * Set 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+     * @param CommandId 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
      */
     public void setCommandId(String CommandId) {
         this.CommandId = CommandId;
@@ -173,16 +185,16 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get 命令类型，目前支持取值：SHELL、POWERSHELL。 
-     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。
+     * Get 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。 
+     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
      */
     public String getCommandType() {
         return this.CommandType;
     }
 
     /**
-     * Set 命令类型，目前支持取值：SHELL、POWERSHELL。
-     * @param CommandType 命令类型，目前支持取值：SHELL、POWERSHELL。
+     * Set 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
+     * @param CommandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
      */
     public void setCommandType(String CommandType) {
         this.CommandType = CommandType;
@@ -221,15 +233,17 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Get 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Get 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 采取整体全覆盖式修改，即修改时必须提供所有新默认值。
-必须 Command 的 EnableParameter 为 true 时，才允许修改这个值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。 
-     * @return DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @return DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 采取整体全覆盖式修改，即修改时必须提供所有新默认值。
-必须 Command 的 EnableParameter 为 true 时，才允许修改这个值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
@@ -239,21 +253,51 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
     }
 
     /**
-     * Set 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * Set 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 采取整体全覆盖式修改，即修改时必须提供所有新默认值。
-必须 Command 的 EnableParameter 为 true 时，才允许修改这个值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
-     * @param DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{\"varA\": \"222\"}。
+     * @param DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
 采取整体全覆盖式修改，即修改时必须提供所有新默认值。
-必须 Command 的 EnableParameter 为 true 时，才允许修改这个值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
 key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
 自定义参数最多20个。
 自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
      */
     public void setDefaultParameters(String DefaultParameters) {
         this.DefaultParameters = DefaultParameters;
+    }
+
+    /**
+     * Get 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。 
+     * @return DefaultParameterConfs 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
+     */
+    public DefaultParameterConf [] getDefaultParameterConfs() {
+        return this.DefaultParameterConfs;
+    }
+
+    /**
+     * Set 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
+     * @param DefaultParameterConfs 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
+     */
+    public void setDefaultParameterConfs(DefaultParameterConf [] DefaultParameterConfs) {
+        this.DefaultParameterConfs = DefaultParameterConfs;
     }
 
     /**
@@ -352,6 +396,12 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         if (source.DefaultParameters != null) {
             this.DefaultParameters = new String(source.DefaultParameters);
         }
+        if (source.DefaultParameterConfs != null) {
+            this.DefaultParameterConfs = new DefaultParameterConf[source.DefaultParameterConfs.length];
+            for (int i = 0; i < source.DefaultParameterConfs.length; i++) {
+                this.DefaultParameterConfs[i] = new DefaultParameterConf(source.DefaultParameterConfs[i]);
+            }
+        }
         if (source.Username != null) {
             this.Username = new String(source.Username);
         }
@@ -376,6 +426,7 @@ key为自定义参数名称，value为该参数的默认取值。kv均为字符�
         this.setParamSimple(map, prefix + "WorkingDirectory", this.WorkingDirectory);
         this.setParamSimple(map, prefix + "Timeout", this.Timeout);
         this.setParamSimple(map, prefix + "DefaultParameters", this.DefaultParameters);
+        this.setParamArrayObj(map, prefix + "DefaultParameterConfs.", this.DefaultParameterConfs);
         this.setParamSimple(map, prefix + "Username", this.Username);
         this.setParamSimple(map, prefix + "OutputCOSBucketUrl", this.OutputCOSBucketUrl);
         this.setParamSimple(map, prefix + "OutputCOSKeyPrefix", this.OutputCOSKeyPrefix);

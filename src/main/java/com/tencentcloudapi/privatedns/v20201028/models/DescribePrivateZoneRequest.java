@@ -16,30 +16,31 @@
 package com.tencentcloudapi.privatedns.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePrivateZoneRequest extends AbstractModel{
+public class DescribePrivateZoneRequest extends AbstractModel {
 
     /**
-    * 域名，格式必须是标准的TLD
+    * 私有域id
     */
     @SerializedName("ZoneId")
     @Expose
     private String ZoneId;
 
     /**
-     * Get 域名，格式必须是标准的TLD 
-     * @return ZoneId 域名，格式必须是标准的TLD
+     * Get 私有域id 
+     * @return ZoneId 私有域id
      */
     public String getZoneId() {
         return this.ZoneId;
     }
 
     /**
-     * Set 域名，格式必须是标准的TLD
-     * @param ZoneId 域名，格式必须是标准的TLD
+     * Set 私有域id
+     * @param ZoneId 私有域id
      */
     public void setZoneId(String ZoneId) {
         this.ZoneId = ZoneId;

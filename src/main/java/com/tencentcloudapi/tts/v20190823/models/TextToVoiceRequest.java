@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tts.v20190823.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TextToVoiceRequest extends AbstractModel{
+public class TextToVoiceRequest extends AbstractModel {
 
     /**
     * 合成语音的源文本，按UTF-8编码统一计算。
@@ -38,14 +39,14 @@ public class TextToVoiceRequest extends AbstractModel{
     private String SessionId;
 
     /**
-    * 音量大小，范围[0，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
+    * 音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
     */
     @SerializedName("Volume")
     @Expose
     private Float Volume;
 
     /**
-    * 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5 1.1 1.8等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
+    * 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
     */
     @SerializedName("Speed")
     @Expose
@@ -67,10 +68,18 @@ public class TextToVoiceRequest extends AbstractModel{
 
     /**
     * 音色 ID，包括标准音色与精品音色，精品音色拟真度更高，价格不同于标准音色，请参见[购买指南](https://cloud.tencent.com/document/product/1073/34112)。完整的音色 ID 列表请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)。
+若使用一句话版声音复刻，请填入固定值“200000000”
     */
     @SerializedName("VoiceType")
     @Expose
     private Long VoiceType;
+
+    /**
+    * 一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。【已废弃】
+    */
+    @SerializedName("FastVoiceType")
+    @Expose
+    private String FastVoiceType;
 
     /**
     * 主语言类型：<li>1-中文（默认）</li><li>2-英文</li><li>3-日文</li>
@@ -111,7 +120,8 @@ public class TextToVoiceRequest extends AbstractModel{
     private Long SegmentRate;
 
     /**
-    * 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、撒娇(sajiao)、厌恶(disgusted)、震惊(amaze)、平静(peaceful)、兴奋(exciting)、傲娇(aojiao)、解说(jieshuo)
+    * 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)
+示例值：neutral
     */
     @SerializedName("EmotionCategory")
     @Expose
@@ -161,32 +171,32 @@ public class TextToVoiceRequest extends AbstractModel{
     }
 
     /**
-     * Get 音量大小，范围[0，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。 
-     * @return Volume 音量大小，范围[0，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
+     * Get 音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。 
+     * @return Volume 音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
      */
     public Float getVolume() {
         return this.Volume;
     }
 
     /**
-     * Set 音量大小，范围[0，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
-     * @param Volume 音量大小，范围[0，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
+     * Set 音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
+     * @param Volume 音量大小，范围[-10，10]，对应音量大小。默认为0，代表正常音量，值越大音量越高。
      */
     public void setVolume(Float Volume) {
         this.Volume = Volume;
     }
 
     /**
-     * Get 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5 1.1 1.8等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz) 
-     * @return Speed 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5 1.1 1.8等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
+     * Get 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz) 
+     * @return Speed 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
      */
     public Float getSpeed() {
         return this.Speed;
     }
 
     /**
-     * Set 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5 1.1 1.8等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
-     * @param Speed 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5 1.1 1.8等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
+     * Set 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
+     * @param Speed 语速，范围：[-2，6]，分别对应不同语速：<li>-2代表0.6倍</li><li>-1代表0.8倍</li><li>0代表1.0倍（默认）</li><li>1代表1.2倍</li><li>2代表1.5倍</li><li>6代表2.5倍</li>如果需要更细化的语速，可以保留小数点后 2 位，例如0.5/1.25/2.81等。<br>参数值与实际语速转换，可参考[代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz)
      */
     public void setSpeed(Float Speed) {
         this.Speed = Speed;
@@ -225,8 +235,10 @@ public class TextToVoiceRequest extends AbstractModel{
     }
 
     /**
-     * Get 音色 ID，包括标准音色与精品音色，精品音色拟真度更高，价格不同于标准音色，请参见[购买指南](https://cloud.tencent.com/document/product/1073/34112)。完整的音色 ID 列表请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)。 
+     * Get 音色 ID，包括标准音色与精品音色，精品音色拟真度更高，价格不同于标准音色，请参见[购买指南](https://cloud.tencent.com/document/product/1073/34112)。完整的音色 ID 列表请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)。
+若使用一句话版声音复刻，请填入固定值“200000000” 
      * @return VoiceType 音色 ID，包括标准音色与精品音色，精品音色拟真度更高，价格不同于标准音色，请参见[购买指南](https://cloud.tencent.com/document/product/1073/34112)。完整的音色 ID 列表请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)。
+若使用一句话版声音复刻，请填入固定值“200000000”
      */
     public Long getVoiceType() {
         return this.VoiceType;
@@ -234,10 +246,28 @@ public class TextToVoiceRequest extends AbstractModel{
 
     /**
      * Set 音色 ID，包括标准音色与精品音色，精品音色拟真度更高，价格不同于标准音色，请参见[购买指南](https://cloud.tencent.com/document/product/1073/34112)。完整的音色 ID 列表请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)。
+若使用一句话版声音复刻，请填入固定值“200000000”
      * @param VoiceType 音色 ID，包括标准音色与精品音色，精品音色拟真度更高，价格不同于标准音色，请参见[购买指南](https://cloud.tencent.com/document/product/1073/34112)。完整的音色 ID 列表请参见[音色列表](https://cloud.tencent.com/document/product/1073/92668)。
+若使用一句话版声音复刻，请填入固定值“200000000”
      */
     public void setVoiceType(Long VoiceType) {
         this.VoiceType = VoiceType;
+    }
+
+    /**
+     * Get 一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。【已废弃】 
+     * @return FastVoiceType 一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。【已废弃】
+     */
+    public String getFastVoiceType() {
+        return this.FastVoiceType;
+    }
+
+    /**
+     * Set 一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。【已废弃】
+     * @param FastVoiceType 一句话版声音复刻音色ID，使用一句话版声音复刻音色时需填写。【已废弃】
+     */
+    public void setFastVoiceType(String FastVoiceType) {
+        this.FastVoiceType = FastVoiceType;
     }
 
     /**
@@ -333,16 +363,20 @@ public class TextToVoiceRequest extends AbstractModel{
     }
 
     /**
-     * Get 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、撒娇(sajiao)、厌恶(disgusted)、震惊(amaze)、平静(peaceful)、兴奋(exciting)、傲娇(aojiao)、解说(jieshuo) 
-     * @return EmotionCategory 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、撒娇(sajiao)、厌恶(disgusted)、震惊(amaze)、平静(peaceful)、兴奋(exciting)、傲娇(aojiao)、解说(jieshuo)
+     * Get 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)
+示例值：neutral 
+     * @return EmotionCategory 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)
+示例值：neutral
      */
     public String getEmotionCategory() {
         return this.EmotionCategory;
     }
 
     /**
-     * Set 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、撒娇(sajiao)、厌恶(disgusted)、震惊(amaze)、平静(peaceful)、兴奋(exciting)、傲娇(aojiao)、解说(jieshuo)
-     * @param EmotionCategory 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、撒娇(sajiao)、厌恶(disgusted)、震惊(amaze)、平静(peaceful)、兴奋(exciting)、傲娇(aojiao)、解说(jieshuo)
+     * Set 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)
+示例值：neutral
+     * @param EmotionCategory 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、sajiao(撒娇)、disgusted(厌恶)、amaze(震惊)、peaceful(平静)、exciting(兴奋)、aojiao(傲娇)、jieshuo(解说)
+示例值：neutral
      */
     public void setEmotionCategory(String EmotionCategory) {
         this.EmotionCategory = EmotionCategory;
@@ -393,6 +427,9 @@ public class TextToVoiceRequest extends AbstractModel{
         if (source.VoiceType != null) {
             this.VoiceType = new Long(source.VoiceType);
         }
+        if (source.FastVoiceType != null) {
+            this.FastVoiceType = new String(source.FastVoiceType);
+        }
         if (source.PrimaryLanguage != null) {
             this.PrimaryLanguage = new Long(source.PrimaryLanguage);
         }
@@ -428,6 +465,7 @@ public class TextToVoiceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "ModelType", this.ModelType);
         this.setParamSimple(map, prefix + "VoiceType", this.VoiceType);
+        this.setParamSimple(map, prefix + "FastVoiceType", this.FastVoiceType);
         this.setParamSimple(map, prefix + "PrimaryLanguage", this.PrimaryLanguage);
         this.setParamSimple(map, prefix + "SampleRate", this.SampleRate);
         this.setParamSimple(map, prefix + "Codec", this.Codec);

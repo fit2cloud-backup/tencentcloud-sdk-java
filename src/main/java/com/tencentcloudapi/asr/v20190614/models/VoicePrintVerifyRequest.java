@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VoicePrintVerifyRequest extends AbstractModel{
+public class VoicePrintVerifyRequest extends AbstractModel {
 
     /**
     * 音频格式 0: pcm, 1: wav
@@ -37,18 +38,18 @@ public class VoicePrintVerifyRequest extends AbstractModel{
     private Long SampleRate;
 
     /**
-    * 说话人id, 说话人唯一标识
-    */
-    @SerializedName("VoicePrintId")
-    @Expose
-    private String VoicePrintId;
-
-    /**
     * 音频数据, base64 编码, 音频时长不能超过30s，数据大小不超过2M	
     */
     @SerializedName("Data")
     @Expose
     private String Data;
+
+    /**
+    * 说话人id, 说话人唯一标识
+    */
+    @SerializedName("VoicePrintId")
+    @Expose
+    private String VoicePrintId;
 
     /**
      * Get 音频格式 0: pcm, 1: wav 
@@ -83,22 +84,6 @@ public class VoicePrintVerifyRequest extends AbstractModel{
     }
 
     /**
-     * Get 说话人id, 说话人唯一标识 
-     * @return VoicePrintId 说话人id, 说话人唯一标识
-     */
-    public String getVoicePrintId() {
-        return this.VoicePrintId;
-    }
-
-    /**
-     * Set 说话人id, 说话人唯一标识
-     * @param VoicePrintId 说话人id, 说话人唯一标识
-     */
-    public void setVoicePrintId(String VoicePrintId) {
-        this.VoicePrintId = VoicePrintId;
-    }
-
-    /**
      * Get 音频数据, base64 编码, 音频时长不能超过30s，数据大小不超过2M	 
      * @return Data 音频数据, base64 编码, 音频时长不能超过30s，数据大小不超过2M	
      */
@@ -112,6 +97,22 @@ public class VoicePrintVerifyRequest extends AbstractModel{
      */
     public void setData(String Data) {
         this.Data = Data;
+    }
+
+    /**
+     * Get 说话人id, 说话人唯一标识 
+     * @return VoicePrintId 说话人id, 说话人唯一标识
+     */
+    public String getVoicePrintId() {
+        return this.VoicePrintId;
+    }
+
+    /**
+     * Set 说话人id, 说话人唯一标识
+     * @param VoicePrintId 说话人id, 说话人唯一标识
+     */
+    public void setVoicePrintId(String VoicePrintId) {
+        this.VoicePrintId = VoicePrintId;
     }
 
     public VoicePrintVerifyRequest() {
@@ -128,11 +129,11 @@ public class VoicePrintVerifyRequest extends AbstractModel{
         if (source.SampleRate != null) {
             this.SampleRate = new Long(source.SampleRate);
         }
-        if (source.VoicePrintId != null) {
-            this.VoicePrintId = new String(source.VoicePrintId);
-        }
         if (source.Data != null) {
             this.Data = new String(source.Data);
+        }
+        if (source.VoicePrintId != null) {
+            this.VoicePrintId = new String(source.VoicePrintId);
         }
     }
 
@@ -143,8 +144,8 @@ public class VoicePrintVerifyRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "VoiceFormat", this.VoiceFormat);
         this.setParamSimple(map, prefix + "SampleRate", this.SampleRate);
-        this.setParamSimple(map, prefix + "VoicePrintId", this.VoicePrintId);
         this.setParamSimple(map, prefix + "Data", this.Data);
+        this.setParamSimple(map, prefix + "VoicePrintId", this.VoicePrintId);
 
     }
 }

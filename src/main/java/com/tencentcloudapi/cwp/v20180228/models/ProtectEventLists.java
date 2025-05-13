@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProtectEventLists extends AbstractModel{
+public class ProtectEventLists extends AbstractModel {
 
     /**
     * 服务器名称
@@ -87,7 +88,6 @@ public class ProtectEventLists extends AbstractModel{
 
     /**
     * 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
@@ -95,7 +95,6 @@ public class ProtectEventLists extends AbstractModel{
 
     /**
     * 机器实例uuid
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Quuid")
     @Expose
@@ -246,10 +245,8 @@ public class ProtectEventLists extends AbstractModel{
     }
 
     /**
-     * Get 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机额外信息 
      * @return MachineExtraInfo 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -257,19 +254,15 @@ public class ProtectEventLists extends AbstractModel{
 
     /**
      * Set 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
     }
 
     /**
-     * Get 机器实例uuid
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 机器实例uuid 
      * @return Quuid 机器实例uuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getQuuid() {
         return this.Quuid;
@@ -277,9 +270,7 @@ public class ProtectEventLists extends AbstractModel{
 
     /**
      * Set 机器实例uuid
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Quuid 机器实例uuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQuuid(String Quuid) {
         this.Quuid = Quuid;

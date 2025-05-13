@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudaudit.v20190319.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LookUpEventsRequest extends AbstractModel{
+public class LookUpEventsRequest extends AbstractModel {
 
     /**
     * 开始时间
@@ -58,7 +59,7 @@ public class LookUpEventsRequest extends AbstractModel{
     private Long MaxResults;
 
     /**
-    * 云审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
+    * 操作审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
     */
     @SerializedName("Mode")
     @Expose
@@ -145,16 +146,16 @@ public class LookUpEventsRequest extends AbstractModel{
     }
 
     /**
-     * Get 云审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式 
-     * @return Mode 云审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
+     * Get 操作审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式 
+     * @return Mode 操作审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
      */
     public String getMode() {
         return this.Mode;
     }
 
     /**
-     * Set 云审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
-     * @param Mode 云审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
+     * Set 操作审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
+     * @param Mode 操作审计模式，有效值：standard | quick，其中standard是标准模式，quick是极速模式。默认为标准模式
      */
     public void setMode(String Mode) {
         this.Mode = Mode;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyInput extends AbstractModel{
+public class ModifyInput extends AbstractModel {
 
     /**
     * 输入Id。
@@ -65,10 +66,7 @@ public class ModifyInput extends AbstractModel{
     private CreateInputRTPSettings RTPSettings;
 
     /**
-    * 输入的协议，可选[SRT|RTP|RTMP]。
-当输出包含RTP时，输入只能是RTP。
-当输出包含RTMP时，输入可以是SRT/RTMP。
-当输出包含SRT时，输入只能是SRT。
+    * 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。	-
     */
     @SerializedName("Protocol")
     @Expose
@@ -108,6 +106,34 @@ public class ModifyInput extends AbstractModel{
     @SerializedName("ResilientStream")
     @Expose
     private ResilientStreamConf ResilientStream;
+
+    /**
+    * 绑定的输入安全组 ID。 仅支持关联一组安全组。
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
+
+    /**
+    * 可用区，非必填，最多支持输入两个可用区，对于需改接口，只要第二个可用区会参与到资源分配。如果input开启容灾或者涉及RTSP_PULL协议切换时有效(会重新分配地址)。	
+    */
+    @SerializedName("Zones")
+    @Expose
+    private String [] Zones;
+
+    /**
+    * RIST的配置信息。
+    */
+    @SerializedName("RISTSettings")
+    @Expose
+    private CreateInputRISTSettings RISTSettings;
+
+    /**
+    * 输入节点的地区
+    */
+    @SerializedName("InputRegion")
+    @Expose
+    private String InputRegion;
 
     /**
      * Get 输入Id。 
@@ -206,28 +232,16 @@ public class ModifyInput extends AbstractModel{
     }
 
     /**
-     * Get 输入的协议，可选[SRT|RTP|RTMP]。
-当输出包含RTP时，输入只能是RTP。
-当输出包含RTMP时，输入可以是SRT/RTMP。
-当输出包含SRT时，输入只能是SRT。 
-     * @return Protocol 输入的协议，可选[SRT|RTP|RTMP]。
-当输出包含RTP时，输入只能是RTP。
-当输出包含RTMP时，输入可以是SRT/RTMP。
-当输出包含SRT时，输入只能是SRT。
+     * Get 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。	- 
+     * @return Protocol 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。	-
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 输入的协议，可选[SRT|RTP|RTMP]。
-当输出包含RTP时，输入只能是RTP。
-当输出包含RTMP时，输入可以是SRT/RTMP。
-当输出包含SRT时，输入只能是SRT。
-     * @param Protocol 输入的协议，可选[SRT|RTP|RTMP]。
-当输出包含RTP时，输入只能是RTP。
-当输出包含RTMP时，输入可以是SRT/RTMP。
-当输出包含SRT时，输入只能是SRT。
+     * Set 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。	-
+     * @param Protocol 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。	-
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -313,6 +327,70 @@ public class ModifyInput extends AbstractModel{
         this.ResilientStream = ResilientStream;
     }
 
+    /**
+     * Get 绑定的输入安全组 ID。 仅支持关联一组安全组。 
+     * @return SecurityGroupIds 绑定的输入安全组 ID。 仅支持关联一组安全组。
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set 绑定的输入安全组 ID。 仅支持关联一组安全组。
+     * @param SecurityGroupIds 绑定的输入安全组 ID。 仅支持关联一组安全组。
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    /**
+     * Get 可用区，非必填，最多支持输入两个可用区，对于需改接口，只要第二个可用区会参与到资源分配。如果input开启容灾或者涉及RTSP_PULL协议切换时有效(会重新分配地址)。	 
+     * @return Zones 可用区，非必填，最多支持输入两个可用区，对于需改接口，只要第二个可用区会参与到资源分配。如果input开启容灾或者涉及RTSP_PULL协议切换时有效(会重新分配地址)。	
+     */
+    public String [] getZones() {
+        return this.Zones;
+    }
+
+    /**
+     * Set 可用区，非必填，最多支持输入两个可用区，对于需改接口，只要第二个可用区会参与到资源分配。如果input开启容灾或者涉及RTSP_PULL协议切换时有效(会重新分配地址)。	
+     * @param Zones 可用区，非必填，最多支持输入两个可用区，对于需改接口，只要第二个可用区会参与到资源分配。如果input开启容灾或者涉及RTSP_PULL协议切换时有效(会重新分配地址)。	
+     */
+    public void setZones(String [] Zones) {
+        this.Zones = Zones;
+    }
+
+    /**
+     * Get RIST的配置信息。 
+     * @return RISTSettings RIST的配置信息。
+     */
+    public CreateInputRISTSettings getRISTSettings() {
+        return this.RISTSettings;
+    }
+
+    /**
+     * Set RIST的配置信息。
+     * @param RISTSettings RIST的配置信息。
+     */
+    public void setRISTSettings(CreateInputRISTSettings RISTSettings) {
+        this.RISTSettings = RISTSettings;
+    }
+
+    /**
+     * Get 输入节点的地区 
+     * @return InputRegion 输入节点的地区
+     */
+    public String getInputRegion() {
+        return this.InputRegion;
+    }
+
+    /**
+     * Set 输入节点的地区
+     * @param InputRegion 输入节点的地区
+     */
+    public void setInputRegion(String InputRegion) {
+        this.InputRegion = InputRegion;
+    }
+
     public ModifyInput() {
     }
 
@@ -360,6 +438,24 @@ public class ModifyInput extends AbstractModel{
         if (source.ResilientStream != null) {
             this.ResilientStream = new ResilientStreamConf(source.ResilientStream);
         }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.RISTSettings != null) {
+            this.RISTSettings = new CreateInputRISTSettings(source.RISTSettings);
+        }
+        if (source.InputRegion != null) {
+            this.InputRegion = new String(source.InputRegion);
+        }
     }
 
 
@@ -379,6 +475,10 @@ public class ModifyInput extends AbstractModel{
         this.setParamObj(map, prefix + "RTSPPullSettings.", this.RTSPPullSettings);
         this.setParamObj(map, prefix + "HLSPullSettings.", this.HLSPullSettings);
         this.setParamObj(map, prefix + "ResilientStream.", this.ResilientStream);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
+        this.setParamObj(map, prefix + "RISTSettings.", this.RISTSettings);
+        this.setParamSimple(map, prefix + "InputRegion", this.InputRegion);
 
     }
 }

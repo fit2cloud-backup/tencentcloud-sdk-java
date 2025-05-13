@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Service extends AbstractModel{
+public class Service extends AbstractModel {
 
     /**
     * 服务组id
@@ -180,7 +181,7 @@ public class Service extends AbstractModel{
     private String BusinessStatus;
 
     /**
-    * 已废弃
+    * 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceLimit")
@@ -188,7 +189,7 @@ public class Service extends AbstractModel{
     private ServiceLimit ServiceLimit;
 
     /**
-    * 已废弃
+    * 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScheduledAction")
@@ -260,6 +261,38 @@ DEFAULT: 其他来源
     @SerializedName("LatestVersion")
     @Expose
     private String LatestVersion;
+
+    /**
+    * 资源组类别 托管 NORMAL，纳管 SW
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceGroupSWType")
+    @Expose
+    private String ResourceGroupSWType;
+
+    /**
+    * 服务的归档状态  Waiting 等待归档中，Archived 已归档
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ArchiveStatus")
+    @Expose
+    private String ArchiveStatus;
+
+    /**
+    * 服务的部署类型 [STANDARD 标准部署，DIST 分布式多机部署] 默认STANDARD
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeployType")
+    @Expose
+    private String DeployType;
+
+    /**
+    * 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstancePerReplicas")
+    @Expose
+    private String InstancePerReplicas;
 
     /**
      * Get 服务组id 
@@ -650,41 +683,49 @@ DEFAULT: 其他来源
     }
 
     /**
-     * Get 已废弃
+     * Get 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ServiceLimit 已废弃
+     * @return ServiceLimit 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public ServiceLimit getServiceLimit() {
         return this.ServiceLimit;
     }
 
     /**
-     * Set 已废弃
+     * Set 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ServiceLimit 已废弃
+     * @param ServiceLimit 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setServiceLimit(ServiceLimit ServiceLimit) {
         this.ServiceLimit = ServiceLimit;
     }
 
     /**
-     * Get 已废弃
+     * Get 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ScheduledAction 已废弃
+     * @return ScheduledAction 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public ScheduledAction getScheduledAction() {
         return this.ScheduledAction;
     }
 
     /**
-     * Set 已废弃
+     * Set 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ScheduledAction 已废弃
+     * @param ScheduledAction 已废弃,以ServiceInfo中的对应为准
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setScheduledAction(ScheduledAction ScheduledAction) {
         this.ScheduledAction = ScheduledAction;
     }
@@ -869,6 +910,86 @@ DEFAULT: 其他来源
         this.LatestVersion = LatestVersion;
     }
 
+    /**
+     * Get 资源组类别 托管 NORMAL，纳管 SW
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceGroupSWType 资源组类别 托管 NORMAL，纳管 SW
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getResourceGroupSWType() {
+        return this.ResourceGroupSWType;
+    }
+
+    /**
+     * Set 资源组类别 托管 NORMAL，纳管 SW
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceGroupSWType 资源组类别 托管 NORMAL，纳管 SW
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceGroupSWType(String ResourceGroupSWType) {
+        this.ResourceGroupSWType = ResourceGroupSWType;
+    }
+
+    /**
+     * Get 服务的归档状态  Waiting 等待归档中，Archived 已归档
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ArchiveStatus 服务的归档状态  Waiting 等待归档中，Archived 已归档
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getArchiveStatus() {
+        return this.ArchiveStatus;
+    }
+
+    /**
+     * Set 服务的归档状态  Waiting 等待归档中，Archived 已归档
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ArchiveStatus 服务的归档状态  Waiting 等待归档中，Archived 已归档
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setArchiveStatus(String ArchiveStatus) {
+        this.ArchiveStatus = ArchiveStatus;
+    }
+
+    /**
+     * Get 服务的部署类型 [STANDARD 标准部署，DIST 分布式多机部署] 默认STANDARD
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeployType 服务的部署类型 [STANDARD 标准部署，DIST 分布式多机部署] 默认STANDARD
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeployType() {
+        return this.DeployType;
+    }
+
+    /**
+     * Set 服务的部署类型 [STANDARD 标准部署，DIST 分布式多机部署] 默认STANDARD
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeployType 服务的部署类型 [STANDARD 标准部署，DIST 分布式多机部署] 默认STANDARD
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeployType(String DeployType) {
+        this.DeployType = DeployType;
+    }
+
+    /**
+     * Get 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstancePerReplicas 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInstancePerReplicas() {
+        return this.InstancePerReplicas;
+    }
+
+    /**
+     * Set 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstancePerReplicas 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstancePerReplicas(String InstancePerReplicas) {
+        this.InstancePerReplicas = InstancePerReplicas;
+    }
+
     public Service() {
     }
 
@@ -967,6 +1088,18 @@ DEFAULT: 其他来源
         if (source.LatestVersion != null) {
             this.LatestVersion = new String(source.LatestVersion);
         }
+        if (source.ResourceGroupSWType != null) {
+            this.ResourceGroupSWType = new String(source.ResourceGroupSWType);
+        }
+        if (source.ArchiveStatus != null) {
+            this.ArchiveStatus = new String(source.ArchiveStatus);
+        }
+        if (source.DeployType != null) {
+            this.DeployType = new String(source.DeployType);
+        }
+        if (source.InstancePerReplicas != null) {
+            this.InstancePerReplicas = new String(source.InstancePerReplicas);
+        }
     }
 
 
@@ -1003,6 +1136,10 @@ DEFAULT: 其他来源
         this.setParamSimple(map, prefix + "CreateSource", this.CreateSource);
         this.setParamSimple(map, prefix + "Version", this.Version);
         this.setParamSimple(map, prefix + "LatestVersion", this.LatestVersion);
+        this.setParamSimple(map, prefix + "ResourceGroupSWType", this.ResourceGroupSWType);
+        this.setParamSimple(map, prefix + "ArchiveStatus", this.ArchiveStatus);
+        this.setParamSimple(map, prefix + "DeployType", this.DeployType);
+        this.setParamSimple(map, prefix + "InstancePerReplicas", this.InstancePerReplicas);
 
     }
 }

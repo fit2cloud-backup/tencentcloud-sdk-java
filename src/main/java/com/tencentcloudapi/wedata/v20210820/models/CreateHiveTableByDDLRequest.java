@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateHiveTableByDDLRequest extends AbstractModel{
+public class CreateHiveTableByDDLRequest extends AbstractModel {
 
     /**
     * 数据源ID
@@ -37,7 +38,7 @@ public class CreateHiveTableByDDLRequest extends AbstractModel{
     private String Database;
 
     /**
-    * 建hive表ddl
+    * 建hive表ddl的base64编码
     */
     @SerializedName("DDLSql")
     @Expose
@@ -72,6 +73,48 @@ public class CreateHiveTableByDDLRequest extends AbstractModel{
     private String Incharge;
 
     /**
+    * schema名称
+    */
+    @SerializedName("SchemaName")
+    @Expose
+    private String SchemaName;
+
+    /**
+    * 是否异步建表
+    */
+    @SerializedName("Async")
+    @Expose
+    private Boolean Async;
+
+    /**
+    * 数据优化使用的资源
+    */
+    @SerializedName("DataOptimizationResource")
+    @Expose
+    private String DataOptimizationResource;
+
+    /**
+    * 是否开启数据优化
+    */
+    @SerializedName("SmartOptimizerWritten")
+    @Expose
+    private String SmartOptimizerWritten;
+
+    /**
+    * 数据优化表名
+    */
+    @SerializedName("TableName")
+    @Expose
+    private String TableName;
+
+    /**
+    * 数据优化资源组
+    */
+    @SerializedName("ResourceGroupName")
+    @Expose
+    private String ResourceGroupName;
+
+    /**
      * Get 数据源ID 
      * @return DatasourceId 数据源ID
      */
@@ -104,16 +147,16 @@ public class CreateHiveTableByDDLRequest extends AbstractModel{
     }
 
     /**
-     * Get 建hive表ddl 
-     * @return DDLSql 建hive表ddl
+     * Get 建hive表ddl的base64编码 
+     * @return DDLSql 建hive表ddl的base64编码
      */
     public String getDDLSql() {
         return this.DDLSql;
     }
 
     /**
-     * Set 建hive表ddl
-     * @param DDLSql 建hive表ddl
+     * Set 建hive表ddl的base64编码
+     * @param DDLSql 建hive表ddl的base64编码
      */
     public void setDDLSql(String DDLSql) {
         this.DDLSql = DDLSql;
@@ -183,6 +226,102 @@ public class CreateHiveTableByDDLRequest extends AbstractModel{
         this.Incharge = Incharge;
     }
 
+    /**
+     * Get schema名称 
+     * @return SchemaName schema名称
+     */
+    public String getSchemaName() {
+        return this.SchemaName;
+    }
+
+    /**
+     * Set schema名称
+     * @param SchemaName schema名称
+     */
+    public void setSchemaName(String SchemaName) {
+        this.SchemaName = SchemaName;
+    }
+
+    /**
+     * Get 是否异步建表 
+     * @return Async 是否异步建表
+     */
+    public Boolean getAsync() {
+        return this.Async;
+    }
+
+    /**
+     * Set 是否异步建表
+     * @param Async 是否异步建表
+     */
+    public void setAsync(Boolean Async) {
+        this.Async = Async;
+    }
+
+    /**
+     * Get 数据优化使用的资源 
+     * @return DataOptimizationResource 数据优化使用的资源
+     */
+    public String getDataOptimizationResource() {
+        return this.DataOptimizationResource;
+    }
+
+    /**
+     * Set 数据优化使用的资源
+     * @param DataOptimizationResource 数据优化使用的资源
+     */
+    public void setDataOptimizationResource(String DataOptimizationResource) {
+        this.DataOptimizationResource = DataOptimizationResource;
+    }
+
+    /**
+     * Get 是否开启数据优化 
+     * @return SmartOptimizerWritten 是否开启数据优化
+     */
+    public String getSmartOptimizerWritten() {
+        return this.SmartOptimizerWritten;
+    }
+
+    /**
+     * Set 是否开启数据优化
+     * @param SmartOptimizerWritten 是否开启数据优化
+     */
+    public void setSmartOptimizerWritten(String SmartOptimizerWritten) {
+        this.SmartOptimizerWritten = SmartOptimizerWritten;
+    }
+
+    /**
+     * Get 数据优化表名 
+     * @return TableName 数据优化表名
+     */
+    public String getTableName() {
+        return this.TableName;
+    }
+
+    /**
+     * Set 数据优化表名
+     * @param TableName 数据优化表名
+     */
+    public void setTableName(String TableName) {
+        this.TableName = TableName;
+    }
+
+    /**
+     * Get 数据优化资源组 
+     * @return ResourceGroupName 数据优化资源组
+     */
+    public String getResourceGroupName() {
+        return this.ResourceGroupName;
+    }
+
+    /**
+     * Set 数据优化资源组
+     * @param ResourceGroupName 数据优化资源组
+     */
+    public void setResourceGroupName(String ResourceGroupName) {
+        this.ResourceGroupName = ResourceGroupName;
+    }
+
     public CreateHiveTableByDDLRequest() {
     }
 
@@ -212,6 +351,24 @@ public class CreateHiveTableByDDLRequest extends AbstractModel{
         if (source.Incharge != null) {
             this.Incharge = new String(source.Incharge);
         }
+        if (source.SchemaName != null) {
+            this.SchemaName = new String(source.SchemaName);
+        }
+        if (source.Async != null) {
+            this.Async = new Boolean(source.Async);
+        }
+        if (source.DataOptimizationResource != null) {
+            this.DataOptimizationResource = new String(source.DataOptimizationResource);
+        }
+        if (source.SmartOptimizerWritten != null) {
+            this.SmartOptimizerWritten = new String(source.SmartOptimizerWritten);
+        }
+        if (source.TableName != null) {
+            this.TableName = new String(source.TableName);
+        }
+        if (source.ResourceGroupName != null) {
+            this.ResourceGroupName = new String(source.ResourceGroupName);
+        }
     }
 
 
@@ -226,6 +383,12 @@ public class CreateHiveTableByDDLRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "Incharge", this.Incharge);
+        this.setParamSimple(map, prefix + "SchemaName", this.SchemaName);
+        this.setParamSimple(map, prefix + "Async", this.Async);
+        this.setParamSimple(map, prefix + "DataOptimizationResource", this.DataOptimizationResource);
+        this.setParamSimple(map, prefix + "SmartOptimizerWritten", this.SmartOptimizerWritten);
+        this.setParamSimple(map, prefix + "TableName", this.TableName);
+        this.setParamSimple(map, prefix + "ResourceGroupName", this.ResourceGroupName);
 
     }
 }

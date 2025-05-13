@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PushQualityData extends AbstractModel{
+public class PushQualityData extends AbstractModel {
 
     /**
     * 数据时间，使用UTC格式时间，
@@ -180,7 +181,6 @@ public class PushQualityData extends AbstractModel{
 
     /**
     * 推流服务端 IP。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServerIp")
     @Expose
@@ -547,10 +547,8 @@ public class PushQualityData extends AbstractModel{
     }
 
     /**
-     * Get 推流服务端 IP。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 推流服务端 IP。 
      * @return ServerIp 推流服务端 IP。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServerIp() {
         return this.ServerIp;
@@ -558,9 +556,7 @@ public class PushQualityData extends AbstractModel{
 
     /**
      * Set 推流服务端 IP。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServerIp 推流服务端 IP。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServerIp(String ServerIp) {
         this.ServerIp = ServerIp;

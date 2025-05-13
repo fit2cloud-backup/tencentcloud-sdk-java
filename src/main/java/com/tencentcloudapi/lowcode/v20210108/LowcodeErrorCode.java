@@ -1,18 +1,24 @@
 package com.tencentcloudapi.lowcode.v20210108;
 public enum LowcodeErrorCode {
-    // 操作失败。
+     /* CAM签名/鉴权错误。 */
+     AUTHFAILURE("AuthFailure"),
+     
+     /* 操作失败。 */
      FAILEDOPERATION("FailedOperation"),
      
-    // 内部错误。
+     /* 低码用户不存在。 */
+     FAILEDOPERATION_LOWCODEUSERNOTEXIST("FailedOperation.LowcodeUserNotExist"),
+     
+     /* 内部错误。 */
      INTERNALERROR("InternalError"),
      
-    // 参数错误。
+     /* 参数错误。 */
      INVALIDPARAMETER("InvalidParameter"),
      
-    // 参数取值错误。
+     /* 参数取值错误。 */
      INVALIDPARAMETERVALUE("InvalidParameterValue"),
      
-    // 资源不存在。
+     /* 资源不存在。 */
      RESOURCENOTFOUND("ResourceNotFound");
      
     private String value;

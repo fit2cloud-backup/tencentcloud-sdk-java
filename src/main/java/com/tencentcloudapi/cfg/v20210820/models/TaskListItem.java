@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfg.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskListItem extends AbstractModel{
+public class TaskListItem extends AbstractModel {
 
     /**
     * 任务ID
@@ -45,7 +46,6 @@ public class TaskListItem extends AbstractModel{
 
     /**
     * 任务标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskTag")
     @Expose
@@ -74,7 +74,6 @@ public class TaskListItem extends AbstractModel{
 
     /**
     * 0--未开始，1--进行中，2--已完成
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskPreCheckStatus")
     @Expose
@@ -82,7 +81,6 @@ public class TaskListItem extends AbstractModel{
 
     /**
     * 环境检查是否通过
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskPreCheckSuccess")
     @Expose
@@ -90,11 +88,52 @@ public class TaskListItem extends AbstractModel{
 
     /**
     * 演练是否符合预期 1-符合预期 2-不符合预期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskExpect")
     @Expose
     private Long TaskExpect;
+
+    /**
+    * 关联应用ID
+    */
+    @SerializedName("ApplicationId")
+    @Expose
+    private String ApplicationId;
+
+    /**
+    * 关联应用名称
+    */
+    @SerializedName("ApplicationName")
+    @Expose
+    private String ApplicationName;
+
+    /**
+    * 验证项ID
+    */
+    @SerializedName("VerifyId")
+    @Expose
+    private Long VerifyId;
+
+    /**
+    * 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
+    */
+    @SerializedName("TaskStatusType")
+    @Expose
+    private Long TaskStatusType;
+
+    /**
+    * 架构ID
+    */
+    @SerializedName("ArchId")
+    @Expose
+    private String ArchId;
+
+    /**
+    * 架构名称
+    */
+    @SerializedName("ArchName")
+    @Expose
+    private String ArchName;
 
     /**
      * Get 任务ID 
@@ -145,10 +184,8 @@ public class TaskListItem extends AbstractModel{
     }
 
     /**
-     * Get 任务标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务标签 
      * @return TaskTag 任务标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskTag() {
         return this.TaskTag;
@@ -156,9 +193,7 @@ public class TaskListItem extends AbstractModel{
 
     /**
      * Set 任务标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskTag 任务标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskTag(String TaskTag) {
         this.TaskTag = TaskTag;
@@ -213,10 +248,8 @@ public class TaskListItem extends AbstractModel{
     }
 
     /**
-     * Get 0--未开始，1--进行中，2--已完成
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0--未开始，1--进行中，2--已完成 
      * @return TaskPreCheckStatus 0--未开始，1--进行中，2--已完成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskPreCheckStatus() {
         return this.TaskPreCheckStatus;
@@ -224,19 +257,15 @@ public class TaskListItem extends AbstractModel{
 
     /**
      * Set 0--未开始，1--进行中，2--已完成
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskPreCheckStatus 0--未开始，1--进行中，2--已完成
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskPreCheckStatus(Long TaskPreCheckStatus) {
         this.TaskPreCheckStatus = TaskPreCheckStatus;
     }
 
     /**
-     * Get 环境检查是否通过
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境检查是否通过 
      * @return TaskPreCheckSuccess 环境检查是否通过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getTaskPreCheckSuccess() {
         return this.TaskPreCheckSuccess;
@@ -244,19 +273,15 @@ public class TaskListItem extends AbstractModel{
 
     /**
      * Set 环境检查是否通过
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskPreCheckSuccess 环境检查是否通过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskPreCheckSuccess(Boolean TaskPreCheckSuccess) {
         this.TaskPreCheckSuccess = TaskPreCheckSuccess;
     }
 
     /**
-     * Get 演练是否符合预期 1-符合预期 2-不符合预期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 演练是否符合预期 1-符合预期 2-不符合预期 
      * @return TaskExpect 演练是否符合预期 1-符合预期 2-不符合预期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskExpect() {
         return this.TaskExpect;
@@ -264,12 +289,106 @@ public class TaskListItem extends AbstractModel{
 
     /**
      * Set 演练是否符合预期 1-符合预期 2-不符合预期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskExpect 演练是否符合预期 1-符合预期 2-不符合预期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskExpect(Long TaskExpect) {
         this.TaskExpect = TaskExpect;
+    }
+
+    /**
+     * Get 关联应用ID 
+     * @return ApplicationId 关联应用ID
+     */
+    public String getApplicationId() {
+        return this.ApplicationId;
+    }
+
+    /**
+     * Set 关联应用ID
+     * @param ApplicationId 关联应用ID
+     */
+    public void setApplicationId(String ApplicationId) {
+        this.ApplicationId = ApplicationId;
+    }
+
+    /**
+     * Get 关联应用名称 
+     * @return ApplicationName 关联应用名称
+     */
+    public String getApplicationName() {
+        return this.ApplicationName;
+    }
+
+    /**
+     * Set 关联应用名称
+     * @param ApplicationName 关联应用名称
+     */
+    public void setApplicationName(String ApplicationName) {
+        this.ApplicationName = ApplicationName;
+    }
+
+    /**
+     * Get 验证项ID 
+     * @return VerifyId 验证项ID
+     */
+    public Long getVerifyId() {
+        return this.VerifyId;
+    }
+
+    /**
+     * Set 验证项ID
+     * @param VerifyId 验证项ID
+     */
+    public void setVerifyId(Long VerifyId) {
+        this.VerifyId = VerifyId;
+    }
+
+    /**
+     * Get 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止 
+     * @return TaskStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
+     */
+    public Long getTaskStatusType() {
+        return this.TaskStatusType;
+    }
+
+    /**
+     * Set 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
+     * @param TaskStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
+     */
+    public void setTaskStatusType(Long TaskStatusType) {
+        this.TaskStatusType = TaskStatusType;
+    }
+
+    /**
+     * Get 架构ID 
+     * @return ArchId 架构ID
+     */
+    public String getArchId() {
+        return this.ArchId;
+    }
+
+    /**
+     * Set 架构ID
+     * @param ArchId 架构ID
+     */
+    public void setArchId(String ArchId) {
+        this.ArchId = ArchId;
+    }
+
+    /**
+     * Get 架构名称 
+     * @return ArchName 架构名称
+     */
+    public String getArchName() {
+        return this.ArchName;
+    }
+
+    /**
+     * Set 架构名称
+     * @param ArchName 架构名称
+     */
+    public void setArchName(String ArchName) {
+        this.ArchName = ArchName;
     }
 
     public TaskListItem() {
@@ -310,6 +429,24 @@ public class TaskListItem extends AbstractModel{
         if (source.TaskExpect != null) {
             this.TaskExpect = new Long(source.TaskExpect);
         }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.VerifyId != null) {
+            this.VerifyId = new Long(source.VerifyId);
+        }
+        if (source.TaskStatusType != null) {
+            this.TaskStatusType = new Long(source.TaskStatusType);
+        }
+        if (source.ArchId != null) {
+            this.ArchId = new String(source.ArchId);
+        }
+        if (source.ArchName != null) {
+            this.ArchName = new String(source.ArchName);
+        }
     }
 
 
@@ -327,6 +464,12 @@ public class TaskListItem extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskPreCheckStatus", this.TaskPreCheckStatus);
         this.setParamSimple(map, prefix + "TaskPreCheckSuccess", this.TaskPreCheckSuccess);
         this.setParamSimple(map, prefix + "TaskExpect", this.TaskExpect);
+        this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
+        this.setParamSimple(map, prefix + "ApplicationName", this.ApplicationName);
+        this.setParamSimple(map, prefix + "VerifyId", this.VerifyId);
+        this.setParamSimple(map, prefix + "TaskStatusType", this.TaskStatusType);
+        this.setParamSimple(map, prefix + "ArchId", this.ArchId);
+        this.setParamSimple(map, prefix + "ArchName", this.ArchName);
 
     }
 }

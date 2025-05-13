@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vm.v20210922.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskLabel extends AbstractModel{
+public class TaskLabel extends AbstractModel {
 
     /**
     * 命中的标签
@@ -55,6 +56,14 @@ Block 确认违规
     @SerializedName("Score")
     @Expose
     private Long Score;
+
+    /**
+    * 命中的二级标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubLabel")
+    @Expose
+    private String SubLabel;
 
     /**
      * Get 命中的标签
@@ -156,6 +165,26 @@ Block 确认违规
         this.Score = Score;
     }
 
+    /**
+     * Get 命中的二级标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubLabel 命中的二级标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubLabel() {
+        return this.SubLabel;
+    }
+
+    /**
+     * Set 命中的二级标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubLabel 命中的二级标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubLabel(String SubLabel) {
+        this.SubLabel = SubLabel;
+    }
+
     public TaskLabel() {
     }
 
@@ -173,6 +202,9 @@ Block 确认违规
         if (source.Score != null) {
             this.Score = new Long(source.Score);
         }
+        if (source.SubLabel != null) {
+            this.SubLabel = new String(source.SubLabel);
+        }
     }
 
 
@@ -183,6 +215,7 @@ Block 确认违规
         this.setParamSimple(map, prefix + "Label", this.Label);
         this.setParamSimple(map, prefix + "Suggestion", this.Suggestion);
         this.setParamSimple(map, prefix + "Score", this.Score);
+        this.setParamSimple(map, prefix + "SubLabel", this.SubLabel);
 
     }
 }

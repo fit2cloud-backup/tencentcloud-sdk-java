@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePrometheusConfigRequest extends AbstractModel{
+public class CreatePrometheusConfigRequest extends AbstractModel {
 
     /**
     * 实例id
@@ -63,6 +64,13 @@ public class CreatePrometheusConfigRequest extends AbstractModel{
     @SerializedName("RawJobs")
     @Expose
     private PrometheusConfigItem [] RawJobs;
+
+    /**
+    * Probe 配置
+    */
+    @SerializedName("Probes")
+    @Expose
+    private PrometheusConfigItem [] Probes;
 
     /**
      * Get 实例id 
@@ -160,6 +168,22 @@ public class CreatePrometheusConfigRequest extends AbstractModel{
         this.RawJobs = RawJobs;
     }
 
+    /**
+     * Get Probe 配置 
+     * @return Probes Probe 配置
+     */
+    public PrometheusConfigItem [] getProbes() {
+        return this.Probes;
+    }
+
+    /**
+     * Set Probe 配置
+     * @param Probes Probe 配置
+     */
+    public void setProbes(PrometheusConfigItem [] Probes) {
+        this.Probes = Probes;
+    }
+
     public CreatePrometheusConfigRequest() {
     }
 
@@ -195,6 +219,12 @@ public class CreatePrometheusConfigRequest extends AbstractModel{
                 this.RawJobs[i] = new PrometheusConfigItem(source.RawJobs[i]);
             }
         }
+        if (source.Probes != null) {
+            this.Probes = new PrometheusConfigItem[source.Probes.length];
+            for (int i = 0; i < source.Probes.length; i++) {
+                this.Probes[i] = new PrometheusConfigItem(source.Probes[i]);
+            }
+        }
     }
 
 
@@ -208,6 +238,7 @@ public class CreatePrometheusConfigRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ServiceMonitors.", this.ServiceMonitors);
         this.setParamArrayObj(map, prefix + "PodMonitors.", this.PodMonitors);
         this.setParamArrayObj(map, prefix + "RawJobs.", this.RawJobs);
+        this.setParamArrayObj(map, prefix + "Probes.", this.Probes);
 
     }
 }

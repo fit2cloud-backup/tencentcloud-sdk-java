@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModfiyInstancePasswordRequest extends AbstractModel{
+public class ModfiyInstancePasswordRequest extends AbstractModel {
 
     /**
     * 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
@@ -38,7 +39,7 @@ public class ModfiyInstancePasswordRequest extends AbstractModel{
 
     /**
     * 实例新密码。密码复杂度要求如下：
-- 长度8 - 30位, 推荐使用12位以上的密码。
+- 长度8 - 64位, 推荐使用12位以上的密码。
 - 不能以"/"开头。
 - 至少包含小写字母a - z、大写字母A - Z、数字0 - 9、特殊字符 ()~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
     */
@@ -80,11 +81,11 @@ public class ModfiyInstancePasswordRequest extends AbstractModel{
 
     /**
      * Get 实例新密码。密码复杂度要求如下：
-- 长度8 - 30位, 推荐使用12位以上的密码。
+- 长度8 - 64位, 推荐使用12位以上的密码。
 - 不能以"/"开头。
 - 至少包含小写字母a - z、大写字母A - Z、数字0 - 9、特殊字符 ()~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。 
      * @return Password 实例新密码。密码复杂度要求如下：
-- 长度8 - 30位, 推荐使用12位以上的密码。
+- 长度8 - 64位, 推荐使用12位以上的密码。
 - 不能以"/"开头。
 - 至少包含小写字母a - z、大写字母A - Z、数字0 - 9、特殊字符 ()~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
      */
@@ -94,11 +95,11 @@ public class ModfiyInstancePasswordRequest extends AbstractModel{
 
     /**
      * Set 实例新密码。密码复杂度要求如下：
-- 长度8 - 30位, 推荐使用12位以上的密码。
+- 长度8 - 64位, 推荐使用12位以上的密码。
 - 不能以"/"开头。
 - 至少包含小写字母a - z、大写字母A - Z、数字0 - 9、特殊字符 ()~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
      * @param Password 实例新密码。密码复杂度要求如下：
-- 长度8 - 30位, 推荐使用12位以上的密码。
+- 长度8 - 64位, 推荐使用12位以上的密码。
 - 不能以"/"开头。
 - 至少包含小写字母a - z、大写字母A - Z、数字0 - 9、特殊字符 ()~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
      */

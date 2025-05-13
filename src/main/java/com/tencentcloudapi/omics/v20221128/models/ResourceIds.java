@@ -16,15 +16,15 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResourceIds extends AbstractModel{
+public class ResourceIds extends AbstractModel {
 
     /**
     * 私有网络ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VPCId")
     @Expose
@@ -32,7 +32,6 @@ public class ResourceIds extends AbstractModel{
 
     /**
     * 子网ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetId")
     @Expose
@@ -40,7 +39,6 @@ public class ResourceIds extends AbstractModel{
 
     /**
     * 安全组ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SecurityGroupId")
     @Expose
@@ -48,7 +46,6 @@ public class ResourceIds extends AbstractModel{
 
     /**
     * TDSQL-C Mysql版数据库ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TDSQLCId")
     @Expose
@@ -56,7 +53,6 @@ public class ResourceIds extends AbstractModel{
 
     /**
     * 文件存储ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CFSId")
     @Expose
@@ -68,7 +64,6 @@ public class ResourceIds extends AbstractModel{
 - HP：通用性能型
 - TB：turbo标准型
 - TP：turbo性能型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CFSStorageType")
     @Expose
@@ -76,7 +71,6 @@ public class ResourceIds extends AbstractModel{
 
     /**
     * 云服务器ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CVMId")
     @Expose
@@ -84,17 +78,14 @@ public class ResourceIds extends AbstractModel{
 
     /**
     * 弹性容器集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EKSId")
     @Expose
     private String EKSId;
 
     /**
-     * Get 私有网络ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 私有网络ID。 
      * @return VPCId 私有网络ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVPCId() {
         return this.VPCId;
@@ -102,19 +93,15 @@ public class ResourceIds extends AbstractModel{
 
     /**
      * Set 私有网络ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VPCId 私有网络ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVPCId(String VPCId) {
         this.VPCId = VPCId;
     }
 
     /**
-     * Get 子网ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网ID。 
      * @return SubnetId 子网ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetId() {
         return this.SubnetId;
@@ -122,19 +109,15 @@ public class ResourceIds extends AbstractModel{
 
     /**
      * Set 子网ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetId 子网ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
     }
 
     /**
-     * Get 安全组ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 安全组ID。 
      * @return SecurityGroupId 安全组ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSecurityGroupId() {
         return this.SecurityGroupId;
@@ -142,19 +125,15 @@ public class ResourceIds extends AbstractModel{
 
     /**
      * Set 安全组ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SecurityGroupId 安全组ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecurityGroupId(String SecurityGroupId) {
         this.SecurityGroupId = SecurityGroupId;
     }
 
     /**
-     * Get TDSQL-C Mysql版数据库ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TDSQL-C Mysql版数据库ID。 
      * @return TDSQLCId TDSQL-C Mysql版数据库ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTDSQLCId() {
         return this.TDSQLCId;
@@ -162,19 +141,15 @@ public class ResourceIds extends AbstractModel{
 
     /**
      * Set TDSQL-C Mysql版数据库ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TDSQLCId TDSQL-C Mysql版数据库ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTDSQLCId(String TDSQLCId) {
         this.TDSQLCId = TDSQLCId;
     }
 
     /**
-     * Get 文件存储ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件存储ID。 
      * @return CFSId 文件存储ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCFSId() {
         return this.CFSId;
@@ -182,9 +157,7 @@ public class ResourceIds extends AbstractModel{
 
     /**
      * Set 文件存储ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CFSId 文件存储ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCFSId(String CFSId) {
         this.CFSId = CFSId;
@@ -195,14 +168,12 @@ public class ResourceIds extends AbstractModel{
 - SD：通用标准型
 - HP：通用性能型
 - TB：turbo标准型
-- TP：turbo性能型
-注意：此字段可能返回 null，表示取不到有效值。 
+- TP：turbo性能型 
      * @return CFSStorageType 文件存储类型：取值范围：
 - SD：通用标准型
 - HP：通用性能型
 - TB：turbo标准型
 - TP：turbo性能型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCFSStorageType() {
         return this.CFSStorageType;
@@ -214,23 +185,19 @@ public class ResourceIds extends AbstractModel{
 - HP：通用性能型
 - TB：turbo标准型
 - TP：turbo性能型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CFSStorageType 文件存储类型：取值范围：
 - SD：通用标准型
 - HP：通用性能型
 - TB：turbo标准型
 - TP：turbo性能型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCFSStorageType(String CFSStorageType) {
         this.CFSStorageType = CFSStorageType;
     }
 
     /**
-     * Get 云服务器ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云服务器ID。 
      * @return CVMId 云服务器ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCVMId() {
         return this.CVMId;
@@ -238,19 +205,15 @@ public class ResourceIds extends AbstractModel{
 
     /**
      * Set 云服务器ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CVMId 云服务器ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCVMId(String CVMId) {
         this.CVMId = CVMId;
     }
 
     /**
-     * Get 弹性容器集群ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 弹性容器集群ID。 
      * @return EKSId 弹性容器集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEKSId() {
         return this.EKSId;
@@ -258,9 +221,7 @@ public class ResourceIds extends AbstractModel{
 
     /**
      * Set 弹性容器集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EKSId 弹性容器集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEKSId(String EKSId) {
         this.EKSId = EKSId;

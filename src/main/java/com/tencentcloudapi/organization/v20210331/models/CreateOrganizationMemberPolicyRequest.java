@@ -16,11 +16,12 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateOrganizationMemberPolicyRequest extends AbstractModel{
+public class CreateOrganizationMemberPolicyRequest extends AbstractModel {
 
     /**
     * 成员Uin。
@@ -37,7 +38,7 @@ public class CreateOrganizationMemberPolicyRequest extends AbstractModel{
     private String PolicyName;
 
     /**
-    * 成员访问身份ID。可以调用DescribeOrganizationMemberAuthIdentities获取
+    * 成员访问身份ID。可以调用[DescribeOrganizationMemberAuthIdentities](https://cloud.tencent.com/document/product/850/82936)获取
     */
     @SerializedName("IdentityId")
     @Expose
@@ -83,16 +84,16 @@ public class CreateOrganizationMemberPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 成员访问身份ID。可以调用DescribeOrganizationMemberAuthIdentities获取 
-     * @return IdentityId 成员访问身份ID。可以调用DescribeOrganizationMemberAuthIdentities获取
+     * Get 成员访问身份ID。可以调用[DescribeOrganizationMemberAuthIdentities](https://cloud.tencent.com/document/product/850/82936)获取 
+     * @return IdentityId 成员访问身份ID。可以调用[DescribeOrganizationMemberAuthIdentities](https://cloud.tencent.com/document/product/850/82936)获取
      */
     public Long getIdentityId() {
         return this.IdentityId;
     }
 
     /**
-     * Set 成员访问身份ID。可以调用DescribeOrganizationMemberAuthIdentities获取
-     * @param IdentityId 成员访问身份ID。可以调用DescribeOrganizationMemberAuthIdentities获取
+     * Set 成员访问身份ID。可以调用[DescribeOrganizationMemberAuthIdentities](https://cloud.tencent.com/document/product/850/82936)获取
+     * @param IdentityId 成员访问身份ID。可以调用[DescribeOrganizationMemberAuthIdentities](https://cloud.tencent.com/document/product/850/82936)获取
      */
     public void setIdentityId(Long IdentityId) {
         this.IdentityId = IdentityId;

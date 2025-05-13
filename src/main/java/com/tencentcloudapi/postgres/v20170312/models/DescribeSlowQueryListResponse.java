@@ -16,109 +16,100 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSlowQueryListResponse extends AbstractModel{
+public class DescribeSlowQueryListResponse extends AbstractModel {
 
     /**
-    * 选定时间范围内慢SQL总条数。
+    * 查询到的慢日志数量，最大值为10000条。	
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 指定时间范围内，慢SQL耗时分段分析。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 查询到的慢日志耗时分段分析结果。
     */
     @SerializedName("DurationAnalysis")
     @Expose
     private DurationAnalysis [] DurationAnalysis;
 
     /**
-    * 指定时间范围内 慢SQL流水。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 查询到的慢日志详细信息集合。
     */
     @SerializedName("RawSlowQueryList")
     @Expose
     private RawSlowQuery [] RawSlowQueryList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 选定时间范围内慢SQL总条数。 
-     * @return TotalCount 选定时间范围内慢SQL总条数。
+     * Get 查询到的慢日志数量，最大值为10000条。	 
+     * @return TotalCount 查询到的慢日志数量，最大值为10000条。	
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 选定时间范围内慢SQL总条数。
-     * @param TotalCount 选定时间范围内慢SQL总条数。
+     * Set 查询到的慢日志数量，最大值为10000条。	
+     * @param TotalCount 查询到的慢日志数量，最大值为10000条。	
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 指定时间范围内，慢SQL耗时分段分析。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DurationAnalysis 指定时间范围内，慢SQL耗时分段分析。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 查询到的慢日志耗时分段分析结果。 
+     * @return DurationAnalysis 查询到的慢日志耗时分段分析结果。
      */
     public DurationAnalysis [] getDurationAnalysis() {
         return this.DurationAnalysis;
     }
 
     /**
-     * Set 指定时间范围内，慢SQL耗时分段分析。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DurationAnalysis 指定时间范围内，慢SQL耗时分段分析。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 查询到的慢日志耗时分段分析结果。
+     * @param DurationAnalysis 查询到的慢日志耗时分段分析结果。
      */
     public void setDurationAnalysis(DurationAnalysis [] DurationAnalysis) {
         this.DurationAnalysis = DurationAnalysis;
     }
 
     /**
-     * Get 指定时间范围内 慢SQL流水。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RawSlowQueryList 指定时间范围内 慢SQL流水。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 查询到的慢日志详细信息集合。 
+     * @return RawSlowQueryList 查询到的慢日志详细信息集合。
      */
     public RawSlowQuery [] getRawSlowQueryList() {
         return this.RawSlowQueryList;
     }
 
     /**
-     * Set 指定时间范围内 慢SQL流水。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RawSlowQueryList 指定时间范围内 慢SQL流水。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 查询到的慢日志详细信息集合。
+     * @param RawSlowQueryList 查询到的慢日志详细信息集合。
      */
     public void setRawSlowQueryList(RawSlowQuery [] RawSlowQueryList) {
         this.RawSlowQueryList = RawSlowQueryList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

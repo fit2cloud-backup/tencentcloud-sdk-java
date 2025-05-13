@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20230321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QueueConfig extends AbstractModel{
+public class QueueConfig extends AbstractModel {
 
     /**
     * 队列名称。
@@ -100,6 +101,13 @@ public class QueueConfig extends AbstractModel{
     private Long DesiredIdleNodeCapacity;
 
     /**
+    * 队列中期望的总节点数。
+    */
+    @SerializedName("DesiredNodeCount")
+    @Expose
+    private Long DesiredNodeCount;
+
+    /**
     * 扩容比例。默认值：100。取值范围：1～100。
 如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。
     */
@@ -122,6 +130,24 @@ public class QueueConfig extends AbstractModel{
     @SerializedName("MaxNodesPerCycle")
     @Expose
     private Long MaxNodesPerCycle;
+
+    /**
+    * 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+    */
+    @SerializedName("ScaleUpMemRatio")
+    @Expose
+    private Long ScaleUpMemRatio;
+
+    /**
+    * 增强服务。通过该参数可以指定是否开启云安全、腾讯云可观测平台等服务。若不指定该参数，则默认开启腾讯云可观测平台、云安全服务、自动化助手服务。
+    */
+    @SerializedName("EnhancedService")
+    @Expose
+    private EnhancedService EnhancedService;
 
     /**
      * Get 队列名称。 
@@ -300,6 +326,22 @@ public class QueueConfig extends AbstractModel{
     }
 
     /**
+     * Get 队列中期望的总节点数。 
+     * @return DesiredNodeCount 队列中期望的总节点数。
+     */
+    public Long getDesiredNodeCount() {
+        return this.DesiredNodeCount;
+    }
+
+    /**
+     * Set 队列中期望的总节点数。
+     * @param DesiredNodeCount 队列中期望的总节点数。
+     */
+    public void setDesiredNodeCount(Long DesiredNodeCount) {
+        this.DesiredNodeCount = DesiredNodeCount;
+    }
+
+    /**
      * Get 扩容比例。默认值：100。取值范围：1～100。
 如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。 
      * @return ScaleOutRatio 扩容比例。默认值：100。取值范围：1～100。
@@ -359,6 +401,54 @@ public class QueueConfig extends AbstractModel{
         this.MaxNodesPerCycle = MaxNodesPerCycle;
     }
 
+    /**
+     * Get 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。 
+     * @return ScaleUpMemRatio 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+     */
+    public Long getScaleUpMemRatio() {
+        return this.ScaleUpMemRatio;
+    }
+
+    /**
+     * Set 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+     * @param ScaleUpMemRatio 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+     */
+    public void setScaleUpMemRatio(Long ScaleUpMemRatio) {
+        this.ScaleUpMemRatio = ScaleUpMemRatio;
+    }
+
+    /**
+     * Get 增强服务。通过该参数可以指定是否开启云安全、腾讯云可观测平台等服务。若不指定该参数，则默认开启腾讯云可观测平台、云安全服务、自动化助手服务。 
+     * @return EnhancedService 增强服务。通过该参数可以指定是否开启云安全、腾讯云可观测平台等服务。若不指定该参数，则默认开启腾讯云可观测平台、云安全服务、自动化助手服务。
+     */
+    public EnhancedService getEnhancedService() {
+        return this.EnhancedService;
+    }
+
+    /**
+     * Set 增强服务。通过该参数可以指定是否开启云安全、腾讯云可观测平台等服务。若不指定该参数，则默认开启腾讯云可观测平台、云安全服务、自动化助手服务。
+     * @param EnhancedService 增强服务。通过该参数可以指定是否开启云安全、腾讯云可观测平台等服务。若不指定该参数，则默认开启腾讯云可观测平台、云安全服务、自动化助手服务。
+     */
+    public void setEnhancedService(EnhancedService EnhancedService) {
+        this.EnhancedService = EnhancedService;
+    }
+
     public QueueConfig() {
     }
 
@@ -406,6 +496,9 @@ public class QueueConfig extends AbstractModel{
         if (source.DesiredIdleNodeCapacity != null) {
             this.DesiredIdleNodeCapacity = new Long(source.DesiredIdleNodeCapacity);
         }
+        if (source.DesiredNodeCount != null) {
+            this.DesiredNodeCount = new Long(source.DesiredNodeCount);
+        }
         if (source.ScaleOutRatio != null) {
             this.ScaleOutRatio = new Long(source.ScaleOutRatio);
         }
@@ -414,6 +507,12 @@ public class QueueConfig extends AbstractModel{
         }
         if (source.MaxNodesPerCycle != null) {
             this.MaxNodesPerCycle = new Long(source.MaxNodesPerCycle);
+        }
+        if (source.ScaleUpMemRatio != null) {
+            this.ScaleUpMemRatio = new Long(source.ScaleUpMemRatio);
+        }
+        if (source.EnhancedService != null) {
+            this.EnhancedService = new EnhancedService(source.EnhancedService);
         }
     }
 
@@ -433,9 +532,12 @@ public class QueueConfig extends AbstractModel{
         this.setParamObj(map, prefix + "InternetAccessible.", this.InternetAccessible);
         this.setParamArrayObj(map, prefix + "ExpansionNodeConfigs.", this.ExpansionNodeConfigs);
         this.setParamSimple(map, prefix + "DesiredIdleNodeCapacity", this.DesiredIdleNodeCapacity);
+        this.setParamSimple(map, prefix + "DesiredNodeCount", this.DesiredNodeCount);
         this.setParamSimple(map, prefix + "ScaleOutRatio", this.ScaleOutRatio);
         this.setParamSimple(map, prefix + "ScaleOutNodeThreshold", this.ScaleOutNodeThreshold);
         this.setParamSimple(map, prefix + "MaxNodesPerCycle", this.MaxNodesPerCycle);
+        this.setParamSimple(map, prefix + "ScaleUpMemRatio", this.ScaleUpMemRatio);
+        this.setParamObj(map, prefix + "EnhancedService.", this.EnhancedService);
 
     }
 }

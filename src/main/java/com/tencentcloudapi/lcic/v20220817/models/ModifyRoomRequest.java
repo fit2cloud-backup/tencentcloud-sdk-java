@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyRoomRequest extends AbstractModel{
+public class ModifyRoomRequest extends AbstractModel {
 
     /**
     * 房间ID。
@@ -76,8 +77,7 @@ public class ModifyRoomRequest extends AbstractModel{
     private Long Resolution;
 
     /**
-    * 最大连麦人数（不包括老师）。取值范围[0, 17)
-直播开始后不允许修改。
+    * 设置房间/课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
     */
     @SerializedName("MaxMicNumber")
     @Expose
@@ -168,11 +168,75 @@ video 纯视频
     private Long IsGradingRequiredPostClass;
 
     /**
-    * 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
+    * 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 （预留参数、暂未开放)
+注：大班课的布局(layout)只有三分屏
     */
     @SerializedName("RoomType")
     @Expose
     private Long RoomType;
+
+    /**
+    * 录制模板。仅可修改还未开始的房间。录制模板枚举值参考：https://cloud.tencent.com/document/product/1639/89744
+    */
+    @SerializedName("RecordLayout")
+    @Expose
+    private Long RecordLayout;
+
+    /**
+    * 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+    */
+    @SerializedName("EndDelayTime")
+    @Expose
+    private Long EndDelayTime;
+
+    /**
+    * 直播方式：0 常规模式（默认）1 回放直播模式（伪直播）。 目前支持从回放直播模式（伪直播）改为常规模式，不支持从常规模式改为回放直播模式（伪直播）
+    */
+    @SerializedName("LiveType")
+    @Expose
+    private Long LiveType;
+
+    /**
+    * 伪直播链接
+    */
+    @SerializedName("RecordLiveUrl")
+    @Expose
+    private String RecordLiveUrl;
+
+    /**
+    * 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效
+    */
+    @SerializedName("EnableAutoStart")
+    @Expose
+    private Long EnableAutoStart;
+
+    /**
+    * 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+    */
+    @SerializedName("RecordScene")
+    @Expose
+    private String RecordScene;
+
+    /**
+    * 录制自定义语言，仅recordlayout=9的时候此参数有效
+    */
+    @SerializedName("RecordLang")
+    @Expose
+    private String RecordLang;
+
+    /**
+    * 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+    */
+    @SerializedName("WhiteBoardSnapshotMode")
+    @Expose
+    private Long WhiteBoardSnapshotMode;
+
+    /**
+    * 字幕转写功能开关：0关闭，1开启，默认关闭
+    */
+    @SerializedName("SubtitlesTranscription")
+    @Expose
+    private Long SubtitlesTranscription;
 
     /**
      * Get 房间ID。 
@@ -303,20 +367,16 @@ video 纯视频
     }
 
     /**
-     * Get 最大连麦人数（不包括老师）。取值范围[0, 17)
-直播开始后不允许修改。 
-     * @return MaxMicNumber 最大连麦人数（不包括老师）。取值范围[0, 17)
-直播开始后不允许修改。
+     * Get 设置房间/课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。 
+     * @return MaxMicNumber 设置房间/课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
      */
     public Long getMaxMicNumber() {
         return this.MaxMicNumber;
     }
 
     /**
-     * Set 最大连麦人数（不包括老师）。取值范围[0, 17)
-直播开始后不允许修改。
-     * @param MaxMicNumber 最大连麦人数（不包括老师）。取值范围[0, 17)
-直播开始后不允许修改。
+     * Set 设置房间/课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
+     * @param MaxMicNumber 设置房间/课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
      */
     public void setMaxMicNumber(Long MaxMicNumber) {
         this.MaxMicNumber = MaxMicNumber;
@@ -539,19 +599,171 @@ video 纯视频
     }
 
     /**
-     * Get 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展) 
-     * @return RoomType 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
+     * Get 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 （预留参数、暂未开放)
+注：大班课的布局(layout)只有三分屏 
+     * @return RoomType 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 （预留参数、暂未开放)
+注：大班课的布局(layout)只有三分屏
      */
     public Long getRoomType() {
         return this.RoomType;
     }
 
     /**
-     * Set 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
-     * @param RoomType 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 (后续扩展)
+     * Set 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 （预留参数、暂未开放)
+注：大班课的布局(layout)只有三分屏
+     * @param RoomType 房间类型: 0 小班课（默认值）; 1 大班课; 2 1V1 （预留参数、暂未开放)
+注：大班课的布局(layout)只有三分屏
      */
     public void setRoomType(Long RoomType) {
         this.RoomType = RoomType;
+    }
+
+    /**
+     * Get 录制模板。仅可修改还未开始的房间。录制模板枚举值参考：https://cloud.tencent.com/document/product/1639/89744 
+     * @return RecordLayout 录制模板。仅可修改还未开始的房间。录制模板枚举值参考：https://cloud.tencent.com/document/product/1639/89744
+     */
+    public Long getRecordLayout() {
+        return this.RecordLayout;
+    }
+
+    /**
+     * Set 录制模板。仅可修改还未开始的房间。录制模板枚举值参考：https://cloud.tencent.com/document/product/1639/89744
+     * @param RecordLayout 录制模板。仅可修改还未开始的房间。录制模板枚举值参考：https://cloud.tencent.com/document/product/1639/89744
+     */
+    public void setRecordLayout(Long RecordLayout) {
+        this.RecordLayout = RecordLayout;
+    }
+
+    /**
+     * Get 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟 
+     * @return EndDelayTime 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+     */
+    public Long getEndDelayTime() {
+        return this.EndDelayTime;
+    }
+
+    /**
+     * Set 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+     * @param EndDelayTime 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+     */
+    public void setEndDelayTime(Long EndDelayTime) {
+        this.EndDelayTime = EndDelayTime;
+    }
+
+    /**
+     * Get 直播方式：0 常规模式（默认）1 回放直播模式（伪直播）。 目前支持从回放直播模式（伪直播）改为常规模式，不支持从常规模式改为回放直播模式（伪直播） 
+     * @return LiveType 直播方式：0 常规模式（默认）1 回放直播模式（伪直播）。 目前支持从回放直播模式（伪直播）改为常规模式，不支持从常规模式改为回放直播模式（伪直播）
+     */
+    public Long getLiveType() {
+        return this.LiveType;
+    }
+
+    /**
+     * Set 直播方式：0 常规模式（默认）1 回放直播模式（伪直播）。 目前支持从回放直播模式（伪直播）改为常规模式，不支持从常规模式改为回放直播模式（伪直播）
+     * @param LiveType 直播方式：0 常规模式（默认）1 回放直播模式（伪直播）。 目前支持从回放直播模式（伪直播）改为常规模式，不支持从常规模式改为回放直播模式（伪直播）
+     */
+    public void setLiveType(Long LiveType) {
+        this.LiveType = LiveType;
+    }
+
+    /**
+     * Get 伪直播链接 
+     * @return RecordLiveUrl 伪直播链接
+     */
+    public String getRecordLiveUrl() {
+        return this.RecordLiveUrl;
+    }
+
+    /**
+     * Set 伪直播链接
+     * @param RecordLiveUrl 伪直播链接
+     */
+    public void setRecordLiveUrl(String RecordLiveUrl) {
+        this.RecordLiveUrl = RecordLiveUrl;
+    }
+
+    /**
+     * Get 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效 
+     * @return EnableAutoStart 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效
+     */
+    public Long getEnableAutoStart() {
+        return this.EnableAutoStart;
+    }
+
+    /**
+     * Set 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效
+     * @param EnableAutoStart 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效
+     */
+    public void setEnableAutoStart(Long EnableAutoStart) {
+        this.EnableAutoStart = EnableAutoStart;
+    }
+
+    /**
+     * Get 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。 
+     * @return RecordScene 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+     */
+    public String getRecordScene() {
+        return this.RecordScene;
+    }
+
+    /**
+     * Set 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+     * @param RecordScene 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+     */
+    public void setRecordScene(String RecordScene) {
+        this.RecordScene = RecordScene;
+    }
+
+    /**
+     * Get 录制自定义语言，仅recordlayout=9的时候此参数有效 
+     * @return RecordLang 录制自定义语言，仅recordlayout=9的时候此参数有效
+     * @deprecated
+     */
+    @Deprecated
+    public String getRecordLang() {
+        return this.RecordLang;
+    }
+
+    /**
+     * Set 录制自定义语言，仅recordlayout=9的时候此参数有效
+     * @param RecordLang 录制自定义语言，仅recordlayout=9的时候此参数有效
+     * @deprecated
+     */
+    @Deprecated
+    public void setRecordLang(String RecordLang) {
+        this.RecordLang = RecordLang;
+    }
+
+    /**
+     * Get 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式 
+     * @return WhiteBoardSnapshotMode 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+     */
+    public Long getWhiteBoardSnapshotMode() {
+        return this.WhiteBoardSnapshotMode;
+    }
+
+    /**
+     * Set 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+     * @param WhiteBoardSnapshotMode 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+     */
+    public void setWhiteBoardSnapshotMode(Long WhiteBoardSnapshotMode) {
+        this.WhiteBoardSnapshotMode = WhiteBoardSnapshotMode;
+    }
+
+    /**
+     * Get 字幕转写功能开关：0关闭，1开启，默认关闭 
+     * @return SubtitlesTranscription 字幕转写功能开关：0关闭，1开启，默认关闭
+     */
+    public Long getSubtitlesTranscription() {
+        return this.SubtitlesTranscription;
+    }
+
+    /**
+     * Set 字幕转写功能开关：0关闭，1开启，默认关闭
+     * @param SubtitlesTranscription 字幕转写功能开关：0关闭，1开启，默认关闭
+     */
+    public void setSubtitlesTranscription(Long SubtitlesTranscription) {
+        this.SubtitlesTranscription = SubtitlesTranscription;
     }
 
     public ModifyRoomRequest() {
@@ -622,6 +834,33 @@ video 纯视频
         if (source.RoomType != null) {
             this.RoomType = new Long(source.RoomType);
         }
+        if (source.RecordLayout != null) {
+            this.RecordLayout = new Long(source.RecordLayout);
+        }
+        if (source.EndDelayTime != null) {
+            this.EndDelayTime = new Long(source.EndDelayTime);
+        }
+        if (source.LiveType != null) {
+            this.LiveType = new Long(source.LiveType);
+        }
+        if (source.RecordLiveUrl != null) {
+            this.RecordLiveUrl = new String(source.RecordLiveUrl);
+        }
+        if (source.EnableAutoStart != null) {
+            this.EnableAutoStart = new Long(source.EnableAutoStart);
+        }
+        if (source.RecordScene != null) {
+            this.RecordScene = new String(source.RecordScene);
+        }
+        if (source.RecordLang != null) {
+            this.RecordLang = new String(source.RecordLang);
+        }
+        if (source.WhiteBoardSnapshotMode != null) {
+            this.WhiteBoardSnapshotMode = new Long(source.WhiteBoardSnapshotMode);
+        }
+        if (source.SubtitlesTranscription != null) {
+            this.SubtitlesTranscription = new Long(source.SubtitlesTranscription);
+        }
     }
 
 
@@ -648,6 +887,15 @@ video 纯视频
         this.setParamSimple(map, prefix + "VideoOrientation", this.VideoOrientation);
         this.setParamSimple(map, prefix + "IsGradingRequiredPostClass", this.IsGradingRequiredPostClass);
         this.setParamSimple(map, prefix + "RoomType", this.RoomType);
+        this.setParamSimple(map, prefix + "RecordLayout", this.RecordLayout);
+        this.setParamSimple(map, prefix + "EndDelayTime", this.EndDelayTime);
+        this.setParamSimple(map, prefix + "LiveType", this.LiveType);
+        this.setParamSimple(map, prefix + "RecordLiveUrl", this.RecordLiveUrl);
+        this.setParamSimple(map, prefix + "EnableAutoStart", this.EnableAutoStart);
+        this.setParamSimple(map, prefix + "RecordScene", this.RecordScene);
+        this.setParamSimple(map, prefix + "RecordLang", this.RecordLang);
+        this.setParamSimple(map, prefix + "WhiteBoardSnapshotMode", this.WhiteBoardSnapshotMode);
+        this.setParamSimple(map, prefix + "SubtitlesTranscription", this.SubtitlesTranscription);
 
     }
 }

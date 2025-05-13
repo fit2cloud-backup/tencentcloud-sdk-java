@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Invoker extends AbstractModel{
+public class Invoker extends AbstractModel {
 
     /**
     * 执行器ID。
@@ -37,7 +38,7 @@ public class Invoker extends AbstractModel{
     private String Name;
 
     /**
-    * 执行器类型。
+    * 执行器类型。目前仅支持 SCHEDULE 一种。
     */
     @SerializedName("Type")
     @Expose
@@ -80,21 +81,20 @@ public class Invoker extends AbstractModel{
 
     /**
     * 执行器周期计划。周期执行器会返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScheduleSettings")
     @Expose
     private ScheduleSettings ScheduleSettings;
 
     /**
-    * 创建时间。
+    * 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
     */
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
 
     /**
-    * 修改时间。
+    * 修改时间。格式为：YYYY-MM-DDThh:mm:ssZ
     */
     @SerializedName("UpdatedTime")
     @Expose
@@ -133,16 +133,16 @@ public class Invoker extends AbstractModel{
     }
 
     /**
-     * Get 执行器类型。 
-     * @return Type 执行器类型。
+     * Get 执行器类型。目前仅支持 SCHEDULE 一种。 
+     * @return Type 执行器类型。目前仅支持 SCHEDULE 一种。
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 执行器类型。
-     * @param Type 执行器类型。
+     * Set 执行器类型。目前仅支持 SCHEDULE 一种。
+     * @param Type 执行器类型。目前仅支持 SCHEDULE 一种。
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -229,10 +229,8 @@ public class Invoker extends AbstractModel{
     }
 
     /**
-     * Get 执行器周期计划。周期执行器会返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 执行器周期计划。周期执行器会返回此字段。 
      * @return ScheduleSettings 执行器周期计划。周期执行器会返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ScheduleSettings getScheduleSettings() {
         return this.ScheduleSettings;
@@ -240,41 +238,39 @@ public class Invoker extends AbstractModel{
 
     /**
      * Set 执行器周期计划。周期执行器会返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScheduleSettings 执行器周期计划。周期执行器会返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScheduleSettings(ScheduleSettings ScheduleSettings) {
         this.ScheduleSettings = ScheduleSettings;
     }
 
     /**
-     * Get 创建时间。 
-     * @return CreatedTime 创建时间。
+     * Get 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ 
+     * @return CreatedTime 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public String getCreatedTime() {
         return this.CreatedTime;
     }
 
     /**
-     * Set 创建时间。
-     * @param CreatedTime 创建时间。
+     * Set 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
+     * @param CreatedTime 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
     }
 
     /**
-     * Get 修改时间。 
-     * @return UpdatedTime 修改时间。
+     * Get 修改时间。格式为：YYYY-MM-DDThh:mm:ssZ 
+     * @return UpdatedTime 修改时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public String getUpdatedTime() {
         return this.UpdatedTime;
     }
 
     /**
-     * Set 修改时间。
-     * @param UpdatedTime 修改时间。
+     * Set 修改时间。格式为：YYYY-MM-DDThh:mm:ssZ
+     * @param UpdatedTime 修改时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public void setUpdatedTime(String UpdatedTime) {
         this.UpdatedTime = UpdatedTime;

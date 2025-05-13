@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateOpsMakePlanRequest extends AbstractModel{
+public class CreateOpsMakePlanRequest extends AbstractModel {
 
     /**
     * 项目id
@@ -159,32 +160,53 @@ public class CreateOpsMakePlanRequest extends AbstractModel{
     private String SourceTaskCycle;
 
     /**
-    * 重新指定的调度资源组ID
+    * 补录指定的调度资源组（ID） 为空则表示使用任务原有调度执行资源组
     */
     @SerializedName("SchedulerResourceGroup")
     @Expose
     private String SchedulerResourceGroup;
 
     /**
-    * 重新指定的集成资源组ID
+    * 补录指定的集成资源组（ID） 为空则表示使用任务原有集成执行资源组
     */
     @SerializedName("IntegrationResourceGroup")
     @Expose
     private String IntegrationResourceGroup;
 
     /**
-    * 重新指定的调度资源组名称
+    * 补录指定的调度资源组名称 为空则表示使用任务原有调度执行资源组
     */
     @SerializedName("SchedulerResourceGroupName")
     @Expose
     private String SchedulerResourceGroupName;
 
     /**
-    * 重新指定的集成资源组名称
+    * 补录指定的集成资源组名称 为空则表示使用任务原有集成执行资源组
     */
     @SerializedName("IntegrationResourceGroupName")
     @Expose
     private String IntegrationResourceGroupName;
+
+    /**
+    * 补录扩展属性
+    */
+    @SerializedName("MakeExtList")
+    @Expose
+    private StrToStrMap [] MakeExtList;
+
+    /**
+    * 补录扩展属性
+    */
+    @SerializedName("SameSelfWorkflowDependType")
+    @Expose
+    private Boolean SameSelfWorkflowDependType;
+
+    /**
+    * 补录扩展属性
+    */
+    @SerializedName("SelfWorkflowDependency")
+    @Expose
+    private String SelfWorkflowDependency;
 
     /**
      * Get 项目id 
@@ -503,67 +525,115 @@ public class CreateOpsMakePlanRequest extends AbstractModel{
     }
 
     /**
-     * Get 重新指定的调度资源组ID 
-     * @return SchedulerResourceGroup 重新指定的调度资源组ID
+     * Get 补录指定的调度资源组（ID） 为空则表示使用任务原有调度执行资源组 
+     * @return SchedulerResourceGroup 补录指定的调度资源组（ID） 为空则表示使用任务原有调度执行资源组
      */
     public String getSchedulerResourceGroup() {
         return this.SchedulerResourceGroup;
     }
 
     /**
-     * Set 重新指定的调度资源组ID
-     * @param SchedulerResourceGroup 重新指定的调度资源组ID
+     * Set 补录指定的调度资源组（ID） 为空则表示使用任务原有调度执行资源组
+     * @param SchedulerResourceGroup 补录指定的调度资源组（ID） 为空则表示使用任务原有调度执行资源组
      */
     public void setSchedulerResourceGroup(String SchedulerResourceGroup) {
         this.SchedulerResourceGroup = SchedulerResourceGroup;
     }
 
     /**
-     * Get 重新指定的集成资源组ID 
-     * @return IntegrationResourceGroup 重新指定的集成资源组ID
+     * Get 补录指定的集成资源组（ID） 为空则表示使用任务原有集成执行资源组 
+     * @return IntegrationResourceGroup 补录指定的集成资源组（ID） 为空则表示使用任务原有集成执行资源组
      */
     public String getIntegrationResourceGroup() {
         return this.IntegrationResourceGroup;
     }
 
     /**
-     * Set 重新指定的集成资源组ID
-     * @param IntegrationResourceGroup 重新指定的集成资源组ID
+     * Set 补录指定的集成资源组（ID） 为空则表示使用任务原有集成执行资源组
+     * @param IntegrationResourceGroup 补录指定的集成资源组（ID） 为空则表示使用任务原有集成执行资源组
      */
     public void setIntegrationResourceGroup(String IntegrationResourceGroup) {
         this.IntegrationResourceGroup = IntegrationResourceGroup;
     }
 
     /**
-     * Get 重新指定的调度资源组名称 
-     * @return SchedulerResourceGroupName 重新指定的调度资源组名称
+     * Get 补录指定的调度资源组名称 为空则表示使用任务原有调度执行资源组 
+     * @return SchedulerResourceGroupName 补录指定的调度资源组名称 为空则表示使用任务原有调度执行资源组
      */
     public String getSchedulerResourceGroupName() {
         return this.SchedulerResourceGroupName;
     }
 
     /**
-     * Set 重新指定的调度资源组名称
-     * @param SchedulerResourceGroupName 重新指定的调度资源组名称
+     * Set 补录指定的调度资源组名称 为空则表示使用任务原有调度执行资源组
+     * @param SchedulerResourceGroupName 补录指定的调度资源组名称 为空则表示使用任务原有调度执行资源组
      */
     public void setSchedulerResourceGroupName(String SchedulerResourceGroupName) {
         this.SchedulerResourceGroupName = SchedulerResourceGroupName;
     }
 
     /**
-     * Get 重新指定的集成资源组名称 
-     * @return IntegrationResourceGroupName 重新指定的集成资源组名称
+     * Get 补录指定的集成资源组名称 为空则表示使用任务原有集成执行资源组 
+     * @return IntegrationResourceGroupName 补录指定的集成资源组名称 为空则表示使用任务原有集成执行资源组
      */
     public String getIntegrationResourceGroupName() {
         return this.IntegrationResourceGroupName;
     }
 
     /**
-     * Set 重新指定的集成资源组名称
-     * @param IntegrationResourceGroupName 重新指定的集成资源组名称
+     * Set 补录指定的集成资源组名称 为空则表示使用任务原有集成执行资源组
+     * @param IntegrationResourceGroupName 补录指定的集成资源组名称 为空则表示使用任务原有集成执行资源组
      */
     public void setIntegrationResourceGroupName(String IntegrationResourceGroupName) {
         this.IntegrationResourceGroupName = IntegrationResourceGroupName;
+    }
+
+    /**
+     * Get 补录扩展属性 
+     * @return MakeExtList 补录扩展属性
+     */
+    public StrToStrMap [] getMakeExtList() {
+        return this.MakeExtList;
+    }
+
+    /**
+     * Set 补录扩展属性
+     * @param MakeExtList 补录扩展属性
+     */
+    public void setMakeExtList(StrToStrMap [] MakeExtList) {
+        this.MakeExtList = MakeExtList;
+    }
+
+    /**
+     * Get 补录扩展属性 
+     * @return SameSelfWorkflowDependType 补录扩展属性
+     */
+    public Boolean getSameSelfWorkflowDependType() {
+        return this.SameSelfWorkflowDependType;
+    }
+
+    /**
+     * Set 补录扩展属性
+     * @param SameSelfWorkflowDependType 补录扩展属性
+     */
+    public void setSameSelfWorkflowDependType(Boolean SameSelfWorkflowDependType) {
+        this.SameSelfWorkflowDependType = SameSelfWorkflowDependType;
+    }
+
+    /**
+     * Get 补录扩展属性 
+     * @return SelfWorkflowDependency 补录扩展属性
+     */
+    public String getSelfWorkflowDependency() {
+        return this.SelfWorkflowDependency;
+    }
+
+    /**
+     * Set 补录扩展属性
+     * @param SelfWorkflowDependency 补录扩展属性
+     */
+    public void setSelfWorkflowDependency(String SelfWorkflowDependency) {
+        this.SelfWorkflowDependency = SelfWorkflowDependency;
     }
 
     public CreateOpsMakePlanRequest() {
@@ -652,6 +722,18 @@ public class CreateOpsMakePlanRequest extends AbstractModel{
         if (source.IntegrationResourceGroupName != null) {
             this.IntegrationResourceGroupName = new String(source.IntegrationResourceGroupName);
         }
+        if (source.MakeExtList != null) {
+            this.MakeExtList = new StrToStrMap[source.MakeExtList.length];
+            for (int i = 0; i < source.MakeExtList.length; i++) {
+                this.MakeExtList[i] = new StrToStrMap(source.MakeExtList[i]);
+            }
+        }
+        if (source.SameSelfWorkflowDependType != null) {
+            this.SameSelfWorkflowDependType = new Boolean(source.SameSelfWorkflowDependType);
+        }
+        if (source.SelfWorkflowDependency != null) {
+            this.SelfWorkflowDependency = new String(source.SelfWorkflowDependency);
+        }
     }
 
 
@@ -682,6 +764,9 @@ public class CreateOpsMakePlanRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IntegrationResourceGroup", this.IntegrationResourceGroup);
         this.setParamSimple(map, prefix + "SchedulerResourceGroupName", this.SchedulerResourceGroupName);
         this.setParamSimple(map, prefix + "IntegrationResourceGroupName", this.IntegrationResourceGroupName);
+        this.setParamArrayObj(map, prefix + "MakeExtList.", this.MakeExtList);
+        this.setParamSimple(map, prefix + "SameSelfWorkflowDependType", this.SameSelfWorkflowDependType);
+        this.setParamSimple(map, prefix + "SelfWorkflowDependency", this.SelfWorkflowDependency);
 
     }
 }

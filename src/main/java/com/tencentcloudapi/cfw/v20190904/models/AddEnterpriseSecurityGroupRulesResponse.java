@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddEnterpriseSecurityGroupRulesResponse extends AbstractModel{
+public class AddEnterpriseSecurityGroupRulesResponse extends AbstractModel {
 
     /**
     * 状态值，0：添加成功，非0：添加失败
@@ -30,15 +31,14 @@ public class AddEnterpriseSecurityGroupRulesResponse extends AbstractModel{
     private Long Status;
 
     /**
-    * 规则uuid
-注意：此字段可能返回 null，表示取不到有效值。
+    * 添加成功的规则详情
     */
     @SerializedName("Rules")
     @Expose
     private SecurityGroupSimplifyRule [] Rules;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,36 +61,32 @@ public class AddEnterpriseSecurityGroupRulesResponse extends AbstractModel{
     }
 
     /**
-     * Get 规则uuid
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Rules 规则uuid
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 添加成功的规则详情 
+     * @return Rules 添加成功的规则详情
      */
     public SecurityGroupSimplifyRule [] getRules() {
         return this.Rules;
     }
 
     /**
-     * Set 规则uuid
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Rules 规则uuid
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 添加成功的规则详情
+     * @param Rules 添加成功的规则详情
      */
     public void setRules(SecurityGroupSimplifyRule [] Rules) {
         this.Rules = Rules;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

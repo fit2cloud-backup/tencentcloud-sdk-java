@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterNodesRequest extends AbstractModel{
+public class DescribeClusterNodesRequest extends AbstractModel {
 
     /**
     * 集群实例ID,实例ID形如: emr-xxxxxxxx
@@ -47,6 +48,13 @@ public class DescribeClusterNodesRequest extends AbstractModel{
     private String NodeFlag;
 
     /**
+    * 导出全部节点信息csv时是否携带cdb信息
+    */
+    @SerializedName("ExportDb")
+    @Expose
+    private Boolean ExportDb;
+
+    /**
     * 页编号，默认值为0，表示第一页。
     */
     @SerializedName("Offset")
@@ -55,6 +63,7 @@ public class DescribeClusterNodesRequest extends AbstractModel{
 
     /**
     * 每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
     */
     @SerializedName("Limit")
     @Expose
@@ -75,14 +84,14 @@ public class DescribeClusterNodesRequest extends AbstractModel{
     private SearchItem [] SearchFields;
 
     /**
-    * 无
+    * 排序字段
     */
     @SerializedName("OrderField")
     @Expose
     private String OrderField;
 
     /**
-    * 无
+    * 是否升序，1:升序，0:降序
     */
     @SerializedName("Asc")
     @Expose
@@ -161,6 +170,22 @@ public class DescribeClusterNodesRequest extends AbstractModel{
     }
 
     /**
+     * Get 导出全部节点信息csv时是否携带cdb信息 
+     * @return ExportDb 导出全部节点信息csv时是否携带cdb信息
+     */
+    public Boolean getExportDb() {
+        return this.ExportDb;
+    }
+
+    /**
+     * Set 导出全部节点信息csv时是否携带cdb信息
+     * @param ExportDb 导出全部节点信息csv时是否携带cdb信息
+     */
+    public void setExportDb(Boolean ExportDb) {
+        this.ExportDb = ExportDb;
+    }
+
+    /**
      * Get 页编号，默认值为0，表示第一页。 
      * @return Offset 页编号，默认值为0，表示第一页。
      */
@@ -177,8 +202,10 @@ public class DescribeClusterNodesRequest extends AbstractModel{
     }
 
     /**
-     * Get 每页返回数量，默认值为100，最大值为100。 
+     * Get 每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据 
      * @return Limit 每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
      */
     public Long getLimit() {
         return this.Limit;
@@ -186,7 +213,9 @@ public class DescribeClusterNodesRequest extends AbstractModel{
 
     /**
      * Set 每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
      * @param Limit 每页返回数量，默认值为100，最大值为100。
+如果offset和limit都不填，或者都填0，则返回全部数据
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -225,32 +254,32 @@ public class DescribeClusterNodesRequest extends AbstractModel{
     }
 
     /**
-     * Get 无 
-     * @return OrderField 无
+     * Get 排序字段 
+     * @return OrderField 排序字段
      */
     public String getOrderField() {
         return this.OrderField;
     }
 
     /**
-     * Set 无
-     * @param OrderField 无
+     * Set 排序字段
+     * @param OrderField 排序字段
      */
     public void setOrderField(String OrderField) {
         this.OrderField = OrderField;
     }
 
     /**
-     * Get 无 
-     * @return Asc 无
+     * Get 是否升序，1:升序，0:降序 
+     * @return Asc 是否升序，1:升序，0:降序
      */
     public Long getAsc() {
         return this.Asc;
     }
 
     /**
-     * Set 无
-     * @param Asc 无
+     * Set 是否升序，1:升序，0:降序
+     * @param Asc 是否升序，1:升序，0:降序
      */
     public void setAsc(Long Asc) {
         this.Asc = Asc;
@@ -269,6 +298,9 @@ public class DescribeClusterNodesRequest extends AbstractModel{
         }
         if (source.NodeFlag != null) {
             this.NodeFlag = new String(source.NodeFlag);
+        }
+        if (source.ExportDb != null) {
+            this.ExportDb = new Boolean(source.ExportDb);
         }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
@@ -300,6 +332,7 @@ public class DescribeClusterNodesRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "NodeFlag", this.NodeFlag);
+        this.setParamSimple(map, prefix + "ExportDb", this.ExportDb);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "HardwareResourceType", this.HardwareResourceType);

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetRoomsRequest extends AbstractModel{
+public class GetRoomsRequest extends AbstractModel {
 
     /**
     * 低代码平台的SdkAppId。
@@ -52,7 +53,7 @@ public class GetRoomsRequest extends AbstractModel{
     private Long Page;
 
     /**
-    * 默认是10条
+    * 默认10条，最大上限为100条
     */
     @SerializedName("Limit")
     @Expose
@@ -134,16 +135,16 @@ public class GetRoomsRequest extends AbstractModel{
     }
 
     /**
-     * Get 默认是10条 
-     * @return Limit 默认是10条
+     * Get 默认10条，最大上限为100条 
+     * @return Limit 默认10条，最大上限为100条
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 默认是10条
-     * @param Limit 默认是10条
+     * Set 默认10条，最大上限为100条
+     * @param Limit 默认10条，最大上限为100条
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

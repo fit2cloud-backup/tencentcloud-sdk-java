@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cme.v20191029.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
+public class ExportVideoByEditorTrackDataRequest extends AbstractModel {
 
     /**
     * 平台 Id，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
@@ -84,6 +85,13 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
     @SerializedName("VODExportInfo")
     @Expose
     private VODExportInfo VODExportInfo;
+
+    /**
+    * 视频导出扩展参数。可以覆盖导出模板中的参数，灵活的指定导出规格及参数。
+    */
+    @SerializedName("ExportExtensionArgs")
+    @Expose
+    private VideoExportExtensionArgs ExportExtensionArgs;
 
     /**
     * 操作者。如不填，默认为 `cmeid_system`，表示平台管理员操作，无权限限制。如果指定操作者，轨道数据中使用的媒资该操作者需要拥有使用权限。
@@ -249,6 +257,22 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
     }
 
     /**
+     * Get 视频导出扩展参数。可以覆盖导出模板中的参数，灵活的指定导出规格及参数。 
+     * @return ExportExtensionArgs 视频导出扩展参数。可以覆盖导出模板中的参数，灵活的指定导出规格及参数。
+     */
+    public VideoExportExtensionArgs getExportExtensionArgs() {
+        return this.ExportExtensionArgs;
+    }
+
+    /**
+     * Set 视频导出扩展参数。可以覆盖导出模板中的参数，灵活的指定导出规格及参数。
+     * @param ExportExtensionArgs 视频导出扩展参数。可以覆盖导出模板中的参数，灵活的指定导出规格及参数。
+     */
+    public void setExportExtensionArgs(VideoExportExtensionArgs ExportExtensionArgs) {
+        this.ExportExtensionArgs = ExportExtensionArgs;
+    }
+
+    /**
      * Get 操作者。如不填，默认为 `cmeid_system`，表示平台管理员操作，无权限限制。如果指定操作者，轨道数据中使用的媒资该操作者需要拥有使用权限。 
      * @return Operator 操作者。如不填，默认为 `cmeid_system`，表示平台管理员操作，无权限限制。如果指定操作者，轨道数据中使用的媒资该操作者需要拥有使用权限。
      */
@@ -296,6 +320,9 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
         if (source.VODExportInfo != null) {
             this.VODExportInfo = new VODExportInfo(source.VODExportInfo);
         }
+        if (source.ExportExtensionArgs != null) {
+            this.ExportExtensionArgs = new VideoExportExtensionArgs(source.ExportExtensionArgs);
+        }
         if (source.Operator != null) {
             this.Operator = new String(source.Operator);
         }
@@ -314,6 +341,7 @@ public class ExportVideoByEditorTrackDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CoverData", this.CoverData);
         this.setParamObj(map, prefix + "CMEExportInfo.", this.CMEExportInfo);
         this.setParamObj(map, prefix + "VODExportInfo.", this.VODExportInfo);
+        this.setParamObj(map, prefix + "ExportExtensionArgs.", this.ExportExtensionArgs);
         this.setParamSimple(map, prefix + "Operator", this.Operator);
 
     }

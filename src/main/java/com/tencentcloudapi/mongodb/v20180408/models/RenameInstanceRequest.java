@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mongodb.v20180408.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RenameInstanceRequest extends AbstractModel{
+public class RenameInstanceRequest extends AbstractModel {
 
     /**
     * 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
@@ -30,7 +31,7 @@ public class RenameInstanceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 实例名称
+    * 实例自定义名称
     */
     @SerializedName("NewName")
     @Expose
@@ -53,16 +54,16 @@ public class RenameInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例名称 
-     * @return NewName 实例名称
+     * Get 实例自定义名称 
+     * @return NewName 实例自定义名称
      */
     public String getNewName() {
         return this.NewName;
     }
 
     /**
-     * Set 实例名称
-     * @param NewName 实例名称
+     * Set 实例自定义名称
+     * @param NewName 实例自定义名称
      */
     public void setNewName(String NewName) {
         this.NewName = NewName;

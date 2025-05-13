@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20220401.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NodeActivity extends AbstractModel{
+public class NodeActivity extends AbstractModel {
 
     /**
     * 节点活动所在的实例ID。
@@ -31,7 +32,7 @@ public class NodeActivity extends AbstractModel{
     private String NodeInstanceId;
 
     /**
-    * 节点活动状态。取值范围：<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>FAILED：活动失败
+    * 节点活动状态。取值范围：<br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>FAILED：活动失败</li>	
     */
     @SerializedName("NodeActivityStatus")
     @Expose
@@ -74,16 +75,16 @@ public class NodeActivity extends AbstractModel{
     }
 
     /**
-     * Get 节点活动状态。取值范围：<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>FAILED：活动失败 
-     * @return NodeActivityStatus 节点活动状态。取值范围：<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>FAILED：活动失败
+     * Get 节点活动状态。取值范围：<br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>FAILED：活动失败</li>	 
+     * @return NodeActivityStatus 节点活动状态。取值范围：<br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>FAILED：活动失败</li>	
      */
     public String getNodeActivityStatus() {
         return this.NodeActivityStatus;
     }
 
     /**
-     * Set 节点活动状态。取值范围：<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>FAILED：活动失败
-     * @param NodeActivityStatus 节点活动状态。取值范围：<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>FAILED：活动失败
+     * Set 节点活动状态。取值范围：<br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>FAILED：活动失败</li>	
+     * @param NodeActivityStatus 节点活动状态。取值范围：<br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>FAILED：活动失败</li>	
      */
     public void setNodeActivityStatus(String NodeActivityStatus) {
         this.NodeActivityStatus = NodeActivityStatus;

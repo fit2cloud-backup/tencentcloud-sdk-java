@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateEnvironmentRequest extends AbstractModel{
+public class CreateEnvironmentRequest extends AbstractModel {
 
     /**
     * 环境名称。
@@ -42,6 +43,13 @@ public class CreateEnvironmentRequest extends AbstractModel{
     @SerializedName("Description")
     @Expose
     private String Description;
+
+    /**
+    * 是否为默认环境。
+    */
+    @SerializedName("IsDefault")
+    @Expose
+    private Boolean IsDefault;
 
     /**
      * Get 环境名称。 
@@ -91,6 +99,22 @@ public class CreateEnvironmentRequest extends AbstractModel{
         this.Description = Description;
     }
 
+    /**
+     * Get 是否为默认环境。 
+     * @return IsDefault 是否为默认环境。
+     */
+    public Boolean getIsDefault() {
+        return this.IsDefault;
+    }
+
+    /**
+     * Set 是否为默认环境。
+     * @param IsDefault 是否为默认环境。
+     */
+    public void setIsDefault(Boolean IsDefault) {
+        this.IsDefault = IsDefault;
+    }
+
     public CreateEnvironmentRequest() {
     }
 
@@ -108,6 +132,9 @@ public class CreateEnvironmentRequest extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.IsDefault != null) {
+            this.IsDefault = new Boolean(source.IsDefault);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class CreateEnvironmentRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamObj(map, prefix + "Config.", this.Config);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "IsDefault", this.IsDefault);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeJobSavepointRequest extends AbstractModel{
+public class DescribeJobSavepointRequest extends AbstractModel {
 
     /**
     * 作业 SerialId
@@ -49,6 +50,15 @@ public class DescribeJobSavepointRequest extends AbstractModel{
     @SerializedName("WorkSpaceId")
     @Expose
     private String WorkSpaceId;
+
+    /**
+    * 2 是checkpoint
+1 是触发savepoint
+3 停止触发的savepoint
+    */
+    @SerializedName("RecordTypes")
+    @Expose
+    private Long [] RecordTypes;
 
     /**
      * Get 作业 SerialId 
@@ -114,6 +124,30 @@ public class DescribeJobSavepointRequest extends AbstractModel{
         this.WorkSpaceId = WorkSpaceId;
     }
 
+    /**
+     * Get 2 是checkpoint
+1 是触发savepoint
+3 停止触发的savepoint 
+     * @return RecordTypes 2 是checkpoint
+1 是触发savepoint
+3 停止触发的savepoint
+     */
+    public Long [] getRecordTypes() {
+        return this.RecordTypes;
+    }
+
+    /**
+     * Set 2 是checkpoint
+1 是触发savepoint
+3 停止触发的savepoint
+     * @param RecordTypes 2 是checkpoint
+1 是触发savepoint
+3 停止触发的savepoint
+     */
+    public void setRecordTypes(Long [] RecordTypes) {
+        this.RecordTypes = RecordTypes;
+    }
+
     public DescribeJobSavepointRequest() {
     }
 
@@ -134,6 +168,12 @@ public class DescribeJobSavepointRequest extends AbstractModel{
         if (source.WorkSpaceId != null) {
             this.WorkSpaceId = new String(source.WorkSpaceId);
         }
+        if (source.RecordTypes != null) {
+            this.RecordTypes = new Long[source.RecordTypes.length];
+            for (int i = 0; i < source.RecordTypes.length; i++) {
+                this.RecordTypes[i] = new Long(source.RecordTypes[i]);
+            }
+        }
     }
 
 
@@ -145,6 +185,7 @@ public class DescribeJobSavepointRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "WorkSpaceId", this.WorkSpaceId);
+        this.setParamArraySimple(map, prefix + "RecordTypes.", this.RecordTypes);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AttachEntityOfPolicy extends AbstractModel{
+public class AttachEntityOfPolicy extends AbstractModel {
 
     /**
     * 实体ID
@@ -31,7 +32,6 @@ public class AttachEntityOfPolicy extends AbstractModel{
 
     /**
     * 实体名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -39,14 +39,13 @@ public class AttachEntityOfPolicy extends AbstractModel{
 
     /**
     * 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uin")
     @Expose
     private Long Uin;
 
     /**
-    * 关联类型。1 用户关联 ； 2 用户组关联
+    * 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
     */
     @SerializedName("RelatedType")
     @Expose
@@ -54,7 +53,6 @@ public class AttachEntityOfPolicy extends AbstractModel{
 
     /**
     * 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AttachmentTime")
     @Expose
@@ -77,10 +75,8 @@ public class AttachEntityOfPolicy extends AbstractModel{
     }
 
     /**
-     * Get 实体名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实体名称 
      * @return Name 实体名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -88,19 +84,15 @@ public class AttachEntityOfPolicy extends AbstractModel{
 
     /**
      * Set 实体名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 实体名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实体Uin 
      * @return Uin 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUin() {
         return this.Uin;
@@ -108,35 +100,31 @@ public class AttachEntityOfPolicy extends AbstractModel{
 
     /**
      * Set 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uin 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUin(Long Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get 关联类型。1 用户关联 ； 2 用户组关联 
-     * @return RelatedType 关联类型。1 用户关联 ； 2 用户组关联
+     * Get 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联 
+     * @return RelatedType 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
      */
     public Long getRelatedType() {
         return this.RelatedType;
     }
 
     /**
-     * Set 关联类型。1 用户关联 ； 2 用户组关联
-     * @param RelatedType 关联类型。1 用户关联 ； 2 用户组关联
+     * Set 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
+     * @param RelatedType 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
      */
     public void setRelatedType(Long RelatedType) {
         this.RelatedType = RelatedType;
     }
 
     /**
-     * Get 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略关联时间 
      * @return AttachmentTime 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAttachmentTime() {
         return this.AttachmentTime;
@@ -144,9 +132,7 @@ public class AttachEntityOfPolicy extends AbstractModel{
 
     /**
      * Set 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AttachmentTime 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttachmentTime(String AttachmentTime) {
         this.AttachmentTime = AttachmentTime;

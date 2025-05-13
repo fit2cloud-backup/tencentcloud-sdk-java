@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCmqQueueRequest extends AbstractModel{
+public class CreateCmqQueueRequest extends AbstractModel {
 
     /**
     * 队列名字，在单个地域同一账号下唯一。队列名称是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)。
@@ -51,7 +52,7 @@ public class CreateCmqQueueRequest extends AbstractModel{
     private Long VisibilityTimeout;
 
     /**
-    * 消息最大长度。取值范围 1024-65536 Byte（即1-64K），默认值 65536。
+    * 消息最大长度。取值范围 1024-1048576 Byte（即1-1024K），默认值 1048576。
     */
     @SerializedName("MaxMsgSize")
     @Expose
@@ -206,16 +207,16 @@ public class CreateCmqQueueRequest extends AbstractModel{
     }
 
     /**
-     * Get 消息最大长度。取值范围 1024-65536 Byte（即1-64K），默认值 65536。 
-     * @return MaxMsgSize 消息最大长度。取值范围 1024-65536 Byte（即1-64K），默认值 65536。
+     * Get 消息最大长度。取值范围 1024-1048576 Byte（即1-1024K），默认值 1048576。 
+     * @return MaxMsgSize 消息最大长度。取值范围 1024-1048576 Byte（即1-1024K），默认值 1048576。
      */
     public Long getMaxMsgSize() {
         return this.MaxMsgSize;
     }
 
     /**
-     * Set 消息最大长度。取值范围 1024-65536 Byte（即1-64K），默认值 65536。
-     * @param MaxMsgSize 消息最大长度。取值范围 1024-65536 Byte（即1-64K），默认值 65536。
+     * Set 消息最大长度。取值范围 1024-1048576 Byte（即1-1024K），默认值 1048576。
+     * @param MaxMsgSize 消息最大长度。取值范围 1024-1048576 Byte（即1-1024K），默认值 1048576。
      */
     public void setMaxMsgSize(Long MaxMsgSize) {
         this.MaxMsgSize = MaxMsgSize;

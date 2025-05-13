@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateClusterRouteRequest extends AbstractModel{
+public class CreateClusterRouteRequest extends AbstractModel {
 
     /**
     * 路由表名称。
@@ -30,14 +31,14 @@ public class CreateClusterRouteRequest extends AbstractModel{
     private String RouteTableName;
 
     /**
-    * 目的端CIDR。
+    * 目的节点的 PodCIDR
     */
     @SerializedName("DestinationCidrBlock")
     @Expose
     private String DestinationCidrBlock;
 
     /**
-    * 下一跳地址。
+    * 下一跳地址，即目的节点的内网 IP 地址
     */
     @SerializedName("GatewayIp")
     @Expose
@@ -60,32 +61,32 @@ public class CreateClusterRouteRequest extends AbstractModel{
     }
 
     /**
-     * Get 目的端CIDR。 
-     * @return DestinationCidrBlock 目的端CIDR。
+     * Get 目的节点的 PodCIDR 
+     * @return DestinationCidrBlock 目的节点的 PodCIDR
      */
     public String getDestinationCidrBlock() {
         return this.DestinationCidrBlock;
     }
 
     /**
-     * Set 目的端CIDR。
-     * @param DestinationCidrBlock 目的端CIDR。
+     * Set 目的节点的 PodCIDR
+     * @param DestinationCidrBlock 目的节点的 PodCIDR
      */
     public void setDestinationCidrBlock(String DestinationCidrBlock) {
         this.DestinationCidrBlock = DestinationCidrBlock;
     }
 
     /**
-     * Get 下一跳地址。 
-     * @return GatewayIp 下一跳地址。
+     * Get 下一跳地址，即目的节点的内网 IP 地址 
+     * @return GatewayIp 下一跳地址，即目的节点的内网 IP 地址
      */
     public String getGatewayIp() {
         return this.GatewayIp;
     }
 
     /**
-     * Set 下一跳地址。
-     * @param GatewayIp 下一跳地址。
+     * Set 下一跳地址，即目的节点的内网 IP 地址
+     * @param GatewayIp 下一跳地址，即目的节点的内网 IP 地址
      */
     public void setGatewayIp(String GatewayIp) {
         this.GatewayIp = GatewayIp;

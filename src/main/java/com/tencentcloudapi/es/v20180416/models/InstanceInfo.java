@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceInfo extends AbstractModel{
+public class InstanceInfo extends AbstractModel {
 
     /**
     * 实例ID
@@ -79,7 +80,7 @@ public class InstanceInfo extends AbstractModel{
     private String SubnetUid;
 
     /**
-    * 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
+    * 实例状态，0:处理中,1:正常,-1:停止,-2:销毁中,-3:已销毁, -4:隔离中,2:创建集群时初始化中
     */
     @SerializedName("Status")
     @Expose
@@ -353,7 +354,7 @@ RENEW_FLAG_DEFAULT：不自动续费
     private ZoneDetail [] MultiZoneInfo;
 
     /**
-    * 部署模式<li>0：单可用区</li><li>1：多可用区</li>
+    * 部署模式<li>0：单可用区</li><li>1：多可用区，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployMode")
@@ -361,7 +362,7 @@ RENEW_FLAG_DEFAULT：不自动续费
     private Long DeployMode;
 
     /**
-    * ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+    * ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicAccess")
@@ -384,7 +385,7 @@ RENEW_FLAG_DEFAULT：不自动续费
     private String KibanaPrivateUrl;
 
     /**
-    * Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+    * Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KibanaPublicAccess")
@@ -392,7 +393,7 @@ RENEW_FLAG_DEFAULT：不自动续费
     private String KibanaPublicAccess;
 
     /**
-    * Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+    * Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KibanaPrivateAccess")
@@ -632,12 +633,116 @@ RENEW_FLAG_DEFAULT：不自动续费
     private Float ProcessPercent;
 
     /**
-    * Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+    * Kibana的alerting外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KibanaAlteringPublicAccess")
     @Expose
     private String KibanaAlteringPublicAccess;
+
+    /**
+    * 本月是否有内核可以更新：false-无，true-有
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HasKernelUpgrade")
+    @Expose
+    private Boolean HasKernelUpgrade;
+
+    /**
+    * cdcId，使用cdc子网时传递
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
+
+    /**
+    * kibana内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KibanaPrivateVip")
+    @Expose
+    private String KibanaPrivateVip;
+
+    /**
+    * 自定义kibana内网url
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CustomKibanaPrivateUrl")
+    @Expose
+    private String CustomKibanaPrivateUrl;
+
+    /**
+    * 节点出站访问详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OutboundPublicAcls")
+    @Expose
+    private OutboundPublicAcl [] OutboundPublicAcls;
+
+    /**
+    * 网络连接方案
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NetConnectScheme")
+    @Expose
+    private String NetConnectScheme;
+
+    /**
+    * 置放群组相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DisasterRecoverGroupAffinity")
+    @Expose
+    private Long DisasterRecoverGroupAffinity;
+
+    /**
+    * 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubProductCode")
+    @Expose
+    private String SubProductCode;
+
+    /**
+    * 存算分离cos用量，单位M
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CosBucketStorageSize")
+    @Expose
+    private Long CosBucketStorageSize;
+
+    /**
+    * 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ReadWriteMode")
+    @Expose
+    private Long ReadWriteMode;
+
+    /**
+    * 是否有置放群组异步调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnableScheduleRecoverGroup")
+    @Expose
+    private Boolean EnableScheduleRecoverGroup;
+
+    /**
+    * 异步调度任务的时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnableScheduleOperationDuration")
+    @Expose
+    private EnableScheduleOperationDuration EnableScheduleOperationDuration;
+
+    /**
+    * 开启集群保护：OPEN-开启，CLOSE-关闭
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnableDestroyProtection")
+    @Expose
+    private String EnableDestroyProtection;
 
     /**
      * Get 实例ID 
@@ -768,16 +873,16 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Get 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中 
-     * @return Status 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
+     * Get 实例状态，0:处理中,1:正常,-1:停止,-2:销毁中,-3:已销毁, -4:隔离中,2:创建集群时初始化中 
+     * @return Status 实例状态，0:处理中,1:正常,-1:停止,-2:销毁中,-3:已销毁, -4:隔离中,2:创建集群时初始化中
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
-     * @param Status 实例状态，0:处理中,1:正常,-1停止,-2:销毁中,-3:已销毁, 2:创建集群时初始化中
+     * Set 实例状态，0:处理中,1:正常,-1:停止,-2:销毁中,-3:已销毁, -4:隔离中,2:创建集群时初始化中
+     * @param Status 实例状态，0:处理中,1:正常,-1:停止,-2:销毁中,-3:已销毁, -4:隔离中,2:创建集群时初始化中
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -1420,9 +1525,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Get 部署模式<li>0：单可用区</li><li>1：多可用区</li>
+     * Get 部署模式<li>0：单可用区</li><li>1：多可用区，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DeployMode 部署模式<li>0：单可用区</li><li>1：多可用区</li>
+     * @return DeployMode 部署模式<li>0：单可用区</li><li>1：多可用区，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDeployMode() {
@@ -1430,9 +1535,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Set 部署模式<li>0：单可用区</li><li>1：多可用区</li>
+     * Set 部署模式<li>0：单可用区</li><li>1：多可用区，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param DeployMode 部署模式<li>0：单可用区</li><li>1：多可用区</li>
+     * @param DeployMode 部署模式<li>0：单可用区</li><li>1：多可用区，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployMode(Long DeployMode) {
@@ -1440,9 +1545,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Get ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * Get ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PublicAccess ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * @return PublicAccess ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPublicAccess() {
@@ -1450,9 +1555,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Set ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * Set ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PublicAccess ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * @param PublicAccess ES公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicAccess(String PublicAccess) {
@@ -1496,9 +1601,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Get Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * Get Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return KibanaPublicAccess Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * @return KibanaPublicAccess Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKibanaPublicAccess() {
@@ -1506,9 +1611,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Set Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * Set Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param KibanaPublicAccess Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * @param KibanaPublicAccess Kibana公网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKibanaPublicAccess(String KibanaPublicAccess) {
@@ -1516,9 +1621,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Get Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * Get Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return KibanaPrivateAccess Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * @return KibanaPrivateAccess Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKibanaPrivateAccess() {
@@ -1526,9 +1631,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Set Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * Set Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param KibanaPrivateAccess Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭
+     * @param KibanaPrivateAccess Kibana内网访问状态<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKibanaPrivateAccess(String KibanaPrivateAccess) {
@@ -2116,9 +2221,9 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Get Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+     * Get Kibana的alerting外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return KibanaAlteringPublicAccess Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+     * @return KibanaAlteringPublicAccess Kibana的alerting外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKibanaAlteringPublicAccess() {
@@ -2126,13 +2231,273 @@ RENEW_FLAG_DEFAULT：不自动续费
     }
 
     /**
-     * Set Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+     * Set Kibana的alerting外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param KibanaAlteringPublicAccess Kibana的altering外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭
+     * @param KibanaAlteringPublicAccess Kibana的alerting外网告警策略<li>OPEN：开启</li><li>CLOSE：关闭</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKibanaAlteringPublicAccess(String KibanaAlteringPublicAccess) {
         this.KibanaAlteringPublicAccess = KibanaAlteringPublicAccess;
+    }
+
+    /**
+     * Get 本月是否有内核可以更新：false-无，true-有
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HasKernelUpgrade 本月是否有内核可以更新：false-无，true-有
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getHasKernelUpgrade() {
+        return this.HasKernelUpgrade;
+    }
+
+    /**
+     * Set 本月是否有内核可以更新：false-无，true-有
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HasKernelUpgrade 本月是否有内核可以更新：false-无，true-有
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHasKernelUpgrade(Boolean HasKernelUpgrade) {
+        this.HasKernelUpgrade = HasKernelUpgrade;
+    }
+
+    /**
+     * Get cdcId，使用cdc子网时传递
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CdcId cdcId，使用cdc子网时传递
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set cdcId，使用cdc子网时传递
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CdcId cdcId，使用cdc子网时传递
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
+    /**
+     * Get kibana内网vip
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KibanaPrivateVip kibana内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getKibanaPrivateVip() {
+        return this.KibanaPrivateVip;
+    }
+
+    /**
+     * Set kibana内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KibanaPrivateVip kibana内网vip
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKibanaPrivateVip(String KibanaPrivateVip) {
+        this.KibanaPrivateVip = KibanaPrivateVip;
+    }
+
+    /**
+     * Get 自定义kibana内网url
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CustomKibanaPrivateUrl 自定义kibana内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCustomKibanaPrivateUrl() {
+        return this.CustomKibanaPrivateUrl;
+    }
+
+    /**
+     * Set 自定义kibana内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CustomKibanaPrivateUrl 自定义kibana内网url
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCustomKibanaPrivateUrl(String CustomKibanaPrivateUrl) {
+        this.CustomKibanaPrivateUrl = CustomKibanaPrivateUrl;
+    }
+
+    /**
+     * Get 节点出站访问详细信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OutboundPublicAcls 节点出站访问详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public OutboundPublicAcl [] getOutboundPublicAcls() {
+        return this.OutboundPublicAcls;
+    }
+
+    /**
+     * Set 节点出站访问详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OutboundPublicAcls 节点出站访问详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOutboundPublicAcls(OutboundPublicAcl [] OutboundPublicAcls) {
+        this.OutboundPublicAcls = OutboundPublicAcls;
+    }
+
+    /**
+     * Get 网络连接方案
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NetConnectScheme 网络连接方案
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNetConnectScheme() {
+        return this.NetConnectScheme;
+    }
+
+    /**
+     * Set 网络连接方案
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NetConnectScheme 网络连接方案
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNetConnectScheme(String NetConnectScheme) {
+        this.NetConnectScheme = NetConnectScheme;
+    }
+
+    /**
+     * Get 置放群组相关参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DisasterRecoverGroupAffinity 置放群组相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDisasterRecoverGroupAffinity() {
+        return this.DisasterRecoverGroupAffinity;
+    }
+
+    /**
+     * Set 置放群组相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DisasterRecoverGroupAffinity 置放群组相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDisasterRecoverGroupAffinity(Long DisasterRecoverGroupAffinity) {
+        this.DisasterRecoverGroupAffinity = DisasterRecoverGroupAffinity;
+    }
+
+    /**
+     * Get 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubProductCode 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubProductCode() {
+        return this.SubProductCode;
+    }
+
+    /**
+     * Set 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubProductCode 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubProductCode(String SubProductCode) {
+        this.SubProductCode = SubProductCode;
+    }
+
+    /**
+     * Get 存算分离cos用量，单位M
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CosBucketStorageSize 存算分离cos用量，单位M
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCosBucketStorageSize() {
+        return this.CosBucketStorageSize;
+    }
+
+    /**
+     * Set 存算分离cos用量，单位M
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CosBucketStorageSize 存算分离cos用量，单位M
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCosBucketStorageSize(Long CosBucketStorageSize) {
+        this.CosBucketStorageSize = CosBucketStorageSize;
+    }
+
+    /**
+     * Get 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ReadWriteMode 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getReadWriteMode() {
+        return this.ReadWriteMode;
+    }
+
+    /**
+     * Set 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ReadWriteMode 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setReadWriteMode(Long ReadWriteMode) {
+        this.ReadWriteMode = ReadWriteMode;
+    }
+
+    /**
+     * Get 是否有置放群组异步调度任务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnableScheduleRecoverGroup 是否有置放群组异步调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getEnableScheduleRecoverGroup() {
+        return this.EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Set 是否有置放群组异步调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnableScheduleRecoverGroup 是否有置放群组异步调度任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnableScheduleRecoverGroup(Boolean EnableScheduleRecoverGroup) {
+        this.EnableScheduleRecoverGroup = EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Get 异步调度任务的时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnableScheduleOperationDuration 异步调度任务的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public EnableScheduleOperationDuration getEnableScheduleOperationDuration() {
+        return this.EnableScheduleOperationDuration;
+    }
+
+    /**
+     * Set 异步调度任务的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnableScheduleOperationDuration 异步调度任务的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnableScheduleOperationDuration(EnableScheduleOperationDuration EnableScheduleOperationDuration) {
+        this.EnableScheduleOperationDuration = EnableScheduleOperationDuration;
+    }
+
+    /**
+     * Get 开启集群保护：OPEN-开启，CLOSE-关闭
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnableDestroyProtection 开启集群保护：OPEN-开启，CLOSE-关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEnableDestroyProtection() {
+        return this.EnableDestroyProtection;
+    }
+
+    /**
+     * Set 开启集群保护：OPEN-开启，CLOSE-关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnableDestroyProtection 开启集群保护：OPEN-开启，CLOSE-关闭
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnableDestroyProtection(String EnableDestroyProtection) {
+        this.EnableDestroyProtection = EnableDestroyProtection;
     }
 
     public InstanceInfo() {
@@ -2404,6 +2769,48 @@ RENEW_FLAG_DEFAULT：不自动续费
         if (source.KibanaAlteringPublicAccess != null) {
             this.KibanaAlteringPublicAccess = new String(source.KibanaAlteringPublicAccess);
         }
+        if (source.HasKernelUpgrade != null) {
+            this.HasKernelUpgrade = new Boolean(source.HasKernelUpgrade);
+        }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
+        if (source.KibanaPrivateVip != null) {
+            this.KibanaPrivateVip = new String(source.KibanaPrivateVip);
+        }
+        if (source.CustomKibanaPrivateUrl != null) {
+            this.CustomKibanaPrivateUrl = new String(source.CustomKibanaPrivateUrl);
+        }
+        if (source.OutboundPublicAcls != null) {
+            this.OutboundPublicAcls = new OutboundPublicAcl[source.OutboundPublicAcls.length];
+            for (int i = 0; i < source.OutboundPublicAcls.length; i++) {
+                this.OutboundPublicAcls[i] = new OutboundPublicAcl(source.OutboundPublicAcls[i]);
+            }
+        }
+        if (source.NetConnectScheme != null) {
+            this.NetConnectScheme = new String(source.NetConnectScheme);
+        }
+        if (source.DisasterRecoverGroupAffinity != null) {
+            this.DisasterRecoverGroupAffinity = new Long(source.DisasterRecoverGroupAffinity);
+        }
+        if (source.SubProductCode != null) {
+            this.SubProductCode = new String(source.SubProductCode);
+        }
+        if (source.CosBucketStorageSize != null) {
+            this.CosBucketStorageSize = new Long(source.CosBucketStorageSize);
+        }
+        if (source.ReadWriteMode != null) {
+            this.ReadWriteMode = new Long(source.ReadWriteMode);
+        }
+        if (source.EnableScheduleRecoverGroup != null) {
+            this.EnableScheduleRecoverGroup = new Boolean(source.EnableScheduleRecoverGroup);
+        }
+        if (source.EnableScheduleOperationDuration != null) {
+            this.EnableScheduleOperationDuration = new EnableScheduleOperationDuration(source.EnableScheduleOperationDuration);
+        }
+        if (source.EnableDestroyProtection != null) {
+            this.EnableDestroyProtection = new String(source.EnableDestroyProtection);
+        }
     }
 
 
@@ -2492,6 +2899,19 @@ RENEW_FLAG_DEFAULT：不自动续费
         this.setParamSimple(map, prefix + "EnableHybridStorage", this.EnableHybridStorage);
         this.setParamSimple(map, prefix + "ProcessPercent", this.ProcessPercent);
         this.setParamSimple(map, prefix + "KibanaAlteringPublicAccess", this.KibanaAlteringPublicAccess);
+        this.setParamSimple(map, prefix + "HasKernelUpgrade", this.HasKernelUpgrade);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamSimple(map, prefix + "KibanaPrivateVip", this.KibanaPrivateVip);
+        this.setParamSimple(map, prefix + "CustomKibanaPrivateUrl", this.CustomKibanaPrivateUrl);
+        this.setParamArrayObj(map, prefix + "OutboundPublicAcls.", this.OutboundPublicAcls);
+        this.setParamSimple(map, prefix + "NetConnectScheme", this.NetConnectScheme);
+        this.setParamSimple(map, prefix + "DisasterRecoverGroupAffinity", this.DisasterRecoverGroupAffinity);
+        this.setParamSimple(map, prefix + "SubProductCode", this.SubProductCode);
+        this.setParamSimple(map, prefix + "CosBucketStorageSize", this.CosBucketStorageSize);
+        this.setParamSimple(map, prefix + "ReadWriteMode", this.ReadWriteMode);
+        this.setParamSimple(map, prefix + "EnableScheduleRecoverGroup", this.EnableScheduleRecoverGroup);
+        this.setParamObj(map, prefix + "EnableScheduleOperationDuration.", this.EnableScheduleOperationDuration);
+        this.setParamSimple(map, prefix + "EnableDestroyProtection", this.EnableDestroyProtection);
 
     }
 }

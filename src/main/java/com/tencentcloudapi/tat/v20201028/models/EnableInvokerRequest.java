@@ -16,22 +16,29 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EnableInvokerRequest extends AbstractModel{
+public class EnableInvokerRequest extends AbstractModel {
 
     /**
     * 待启用的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
     */
     @SerializedName("InvokerId")
     @Expose
     private String InvokerId;
 
     /**
-     * Get 待启用的执行器ID。 
+     * Get 待启用的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。 
      * @return InvokerId 待启用的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      */
     public String getInvokerId() {
         return this.InvokerId;
@@ -39,7 +46,11 @@ public class EnableInvokerRequest extends AbstractModel{
 
     /**
      * Set 待启用的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      * @param InvokerId 待启用的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      */
     public void setInvokerId(String InvokerId) {
         this.InvokerId = InvokerId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSSOAccountRequest extends AbstractModel{
+public class CreateSSOAccountRequest extends AbstractModel {
 
     /**
     * Grafana 实例 ID，例如：grafana-abcdefgh
@@ -37,7 +38,7 @@ public class CreateSSOAccountRequest extends AbstractModel{
     private String UserId;
 
     /**
-    * 权限
+    * 权限(只取数组中的第一个，其中 Organization 暂未使用，可不填)
     */
     @SerializedName("Role")
     @Expose
@@ -83,16 +84,16 @@ public class CreateSSOAccountRequest extends AbstractModel{
     }
 
     /**
-     * Get 权限 
-     * @return Role 权限
+     * Get 权限(只取数组中的第一个，其中 Organization 暂未使用，可不填) 
+     * @return Role 权限(只取数组中的第一个，其中 Organization 暂未使用，可不填)
      */
     public GrafanaAccountRole [] getRole() {
         return this.Role;
     }
 
     /**
-     * Set 权限
-     * @param Role 权限
+     * Set 权限(只取数组中的第一个，其中 Organization 暂未使用，可不填)
+     * @param Role 权限(只取数组中的第一个，其中 Organization 暂未使用，可不填)
      */
     public void setRole(GrafanaAccountRole [] Role) {
         this.Role = Role;

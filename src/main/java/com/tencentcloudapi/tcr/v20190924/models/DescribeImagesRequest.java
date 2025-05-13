@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeImagesRequest extends AbstractModel{
+public class DescribeImagesRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -59,6 +60,8 @@ public class DescribeImagesRequest extends AbstractModel{
 
     /**
     * 页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
     */
     @SerializedName("Offset")
     @Expose
@@ -159,8 +162,12 @@ public class DescribeImagesRequest extends AbstractModel{
     }
 
     /**
-     * Get 页数，默认值为1 
+     * Get 页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。 
      * @return Offset 页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
      */
     public Long getOffset() {
         return this.Offset;
@@ -168,7 +175,11 @@ public class DescribeImagesRequest extends AbstractModel{
 
     /**
      * Set 页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
      * @param Offset 页数，默认值为1
+补充说明：limit指的是每页的大小，offset指的是具体第几页。
+举例：limit 20 offset 1指的是1-20；limit 20 offset 2 指的是21-40；limit 30 offset 4 是指 90-120。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Certificate extends AbstractModel{
+public class Certificate extends AbstractModel {
 
     /**
     * 证书ID
@@ -45,7 +46,6 @@ public class Certificate extends AbstractModel{
 
     /**
     * 证书名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CertificateAlias")
     @Expose
@@ -60,7 +60,6 @@ public class Certificate extends AbstractModel{
 
     /**
     * 证书生效起始时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BeginTime")
     @Expose
@@ -68,7 +67,6 @@ public class Certificate extends AbstractModel{
 
     /**
     * 证书过期时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -76,7 +74,6 @@ public class Certificate extends AbstractModel{
 
     /**
     * 证书签发者通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IssuerCN")
     @Expose
@@ -84,7 +81,6 @@ public class Certificate extends AbstractModel{
 
     /**
     * 证书主题通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubjectCN")
     @Expose
@@ -139,10 +135,8 @@ public class Certificate extends AbstractModel{
     }
 
     /**
-     * Get 证书名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书名称。 
      * @return CertificateAlias 证书名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCertificateAlias() {
         return this.CertificateAlias;
@@ -150,9 +144,7 @@ public class Certificate extends AbstractModel{
 
     /**
      * Set 证书名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CertificateAlias 证书名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCertificateAlias(String CertificateAlias) {
         this.CertificateAlias = CertificateAlias;
@@ -175,10 +167,8 @@ public class Certificate extends AbstractModel{
     }
 
     /**
-     * Get 证书生效起始时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书生效起始时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。 
      * @return BeginTime 证书生效起始时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBeginTime() {
         return this.BeginTime;
@@ -186,19 +176,15 @@ public class Certificate extends AbstractModel{
 
     /**
      * Set 证书生效起始时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BeginTime 证书生效起始时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBeginTime(Long BeginTime) {
         this.BeginTime = BeginTime;
     }
 
     /**
-     * Get 证书过期时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书过期时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。 
      * @return EndTime 证书过期时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEndTime() {
         return this.EndTime;
@@ -206,19 +192,15 @@ public class Certificate extends AbstractModel{
 
     /**
      * Set 证书过期时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 证书过期时间，采用Unix时间戳的方式，表示从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 证书签发者通用名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书签发者通用名称。 
      * @return IssuerCN 证书签发者通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIssuerCN() {
         return this.IssuerCN;
@@ -226,19 +208,15 @@ public class Certificate extends AbstractModel{
 
     /**
      * Set 证书签发者通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IssuerCN 证书签发者通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIssuerCN(String IssuerCN) {
         this.IssuerCN = IssuerCN;
     }
 
     /**
-     * Get 证书主题通用名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书主题通用名称。 
      * @return SubjectCN 证书主题通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubjectCN() {
         return this.SubjectCN;
@@ -246,9 +224,7 @@ public class Certificate extends AbstractModel{
 
     /**
      * Set 证书主题通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubjectCN 证书主题通用名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubjectCN(String SubjectCN) {
         this.SubjectCN = SubjectCN;

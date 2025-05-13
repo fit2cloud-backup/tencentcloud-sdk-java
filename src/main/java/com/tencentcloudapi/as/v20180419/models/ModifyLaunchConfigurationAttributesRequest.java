@@ -16,11 +16,12 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyLaunchConfigurationAttributesRequest extends AbstractModel{
+public class ModifyLaunchConfigurationAttributesRequest extends AbstractModel {
 
     /**
     * 启动配置ID
@@ -46,9 +47,8 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
     * 实例类型校验策略，在实际修改 InstanceTypes 时发挥作用，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
-
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li> 
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li> 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
     */
@@ -88,9 +88,10 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
     * 实例计费类型。具体取值范围如下：
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -118,8 +119,8 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
     * 云盘类型选择策略，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型。
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型。
+<li>ORIGINAL：使用设置的云盘类型。</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型。</li>
     */
     @SerializedName("DiskTypePolicy")
     @Expose
@@ -196,6 +197,42 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
     private String [] DisasterRecoverGroupIds;
 
     /**
+    * 实例登录设置，包括密码、密钥或保持镜像的原始登录设置。<br>请注意，指定新的登录设置会覆盖原有登录设置。例如，如果您之前使用密码登录，使用该参数将登录设置修改为密钥，则原有密码被清除。
+    */
+    @SerializedName("LoginSettings")
+    @Expose
+    private LoginSettings LoginSettings;
+
+    /**
+    * 实例标签列表。通过指定该参数，可以为扩容的实例绑定标签。最多支持指定10个标签。
+该参数会覆盖原有的实例标签列表，如需新增标签，需将新标签和原有标签一并传入。
+    */
+    @SerializedName("InstanceTags")
+    @Expose
+    private InstanceTag [] InstanceTags;
+
+    /**
+    * 镜像族名称。
+    */
+    @SerializedName("ImageFamily")
+    @Expose
+    private String ImageFamily;
+
+    /**
+    * 本地专用集群ID。
+    */
+    @SerializedName("DedicatedClusterId")
+    @Expose
+    private String DedicatedClusterId;
+
+    /**
+    * 自定义metadata。
+    */
+    @SerializedName("Metadata")
+    @Expose
+    private Metadata Metadata;
+
+    /**
      * Get 启动配置ID 
      * @return LaunchConfigurationId 启动配置ID
      */
@@ -249,15 +286,13 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
      * Get 实例类型校验策略，在实际修改 InstanceTypes 时发挥作用，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
-
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li> 
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li> 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。 
      * @return InstanceTypesCheckPolicy 实例类型校验策略，在实际修改 InstanceTypes 时发挥作用，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
-
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li> 
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li> 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
      */
@@ -267,15 +302,13 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
      * Set 实例类型校验策略，在实际修改 InstanceTypes 时发挥作用，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
-
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li> 
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li> 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
      * @param InstanceTypesCheckPolicy 实例类型校验策略，在实际修改 InstanceTypes 时发挥作用，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
-
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li> 
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li> 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
      */
@@ -357,13 +390,15 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
      * Get 实例计费类型。具体取值范围如下：
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月 
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li> 
      * @return InstanceChargeType 实例计费类型。具体取值范围如下：
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
@@ -371,13 +406,15 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
      * Set 实例计费类型。具体取值范围如下：
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
      * @param InstanceChargeType 实例计费类型。具体取值范围如下：
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
@@ -441,11 +478,11 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
      * Get 云盘类型选择策略，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型。
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型。 
+<li>ORIGINAL：使用设置的云盘类型。</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型。</li> 
      * @return DiskTypePolicy 云盘类型选择策略，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型。
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型。
+<li>ORIGINAL：使用设置的云盘类型。</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型。</li>
      */
     public String getDiskTypePolicy() {
         return this.DiskTypePolicy;
@@ -453,11 +490,11 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
 
     /**
      * Set 云盘类型选择策略，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型。
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型。
+<li>ORIGINAL：使用设置的云盘类型。</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型。</li>
      * @param DiskTypePolicy 云盘类型选择策略，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型。
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型。
+<li>ORIGINAL：使用设置的云盘类型。</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型。</li>
      */
     public void setDiskTypePolicy(String DiskTypePolicy) {
         this.DiskTypePolicy = DiskTypePolicy;
@@ -635,6 +672,90 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
         this.DisasterRecoverGroupIds = DisasterRecoverGroupIds;
     }
 
+    /**
+     * Get 实例登录设置，包括密码、密钥或保持镜像的原始登录设置。<br>请注意，指定新的登录设置会覆盖原有登录设置。例如，如果您之前使用密码登录，使用该参数将登录设置修改为密钥，则原有密码被清除。 
+     * @return LoginSettings 实例登录设置，包括密码、密钥或保持镜像的原始登录设置。<br>请注意，指定新的登录设置会覆盖原有登录设置。例如，如果您之前使用密码登录，使用该参数将登录设置修改为密钥，则原有密码被清除。
+     */
+    public LoginSettings getLoginSettings() {
+        return this.LoginSettings;
+    }
+
+    /**
+     * Set 实例登录设置，包括密码、密钥或保持镜像的原始登录设置。<br>请注意，指定新的登录设置会覆盖原有登录设置。例如，如果您之前使用密码登录，使用该参数将登录设置修改为密钥，则原有密码被清除。
+     * @param LoginSettings 实例登录设置，包括密码、密钥或保持镜像的原始登录设置。<br>请注意，指定新的登录设置会覆盖原有登录设置。例如，如果您之前使用密码登录，使用该参数将登录设置修改为密钥，则原有密码被清除。
+     */
+    public void setLoginSettings(LoginSettings LoginSettings) {
+        this.LoginSettings = LoginSettings;
+    }
+
+    /**
+     * Get 实例标签列表。通过指定该参数，可以为扩容的实例绑定标签。最多支持指定10个标签。
+该参数会覆盖原有的实例标签列表，如需新增标签，需将新标签和原有标签一并传入。 
+     * @return InstanceTags 实例标签列表。通过指定该参数，可以为扩容的实例绑定标签。最多支持指定10个标签。
+该参数会覆盖原有的实例标签列表，如需新增标签，需将新标签和原有标签一并传入。
+     */
+    public InstanceTag [] getInstanceTags() {
+        return this.InstanceTags;
+    }
+
+    /**
+     * Set 实例标签列表。通过指定该参数，可以为扩容的实例绑定标签。最多支持指定10个标签。
+该参数会覆盖原有的实例标签列表，如需新增标签，需将新标签和原有标签一并传入。
+     * @param InstanceTags 实例标签列表。通过指定该参数，可以为扩容的实例绑定标签。最多支持指定10个标签。
+该参数会覆盖原有的实例标签列表，如需新增标签，需将新标签和原有标签一并传入。
+     */
+    public void setInstanceTags(InstanceTag [] InstanceTags) {
+        this.InstanceTags = InstanceTags;
+    }
+
+    /**
+     * Get 镜像族名称。 
+     * @return ImageFamily 镜像族名称。
+     */
+    public String getImageFamily() {
+        return this.ImageFamily;
+    }
+
+    /**
+     * Set 镜像族名称。
+     * @param ImageFamily 镜像族名称。
+     */
+    public void setImageFamily(String ImageFamily) {
+        this.ImageFamily = ImageFamily;
+    }
+
+    /**
+     * Get 本地专用集群ID。 
+     * @return DedicatedClusterId 本地专用集群ID。
+     */
+    public String getDedicatedClusterId() {
+        return this.DedicatedClusterId;
+    }
+
+    /**
+     * Set 本地专用集群ID。
+     * @param DedicatedClusterId 本地专用集群ID。
+     */
+    public void setDedicatedClusterId(String DedicatedClusterId) {
+        this.DedicatedClusterId = DedicatedClusterId;
+    }
+
+    /**
+     * Get 自定义metadata。 
+     * @return Metadata 自定义metadata。
+     */
+    public Metadata getMetadata() {
+        return this.Metadata;
+    }
+
+    /**
+     * Set 自定义metadata。
+     * @param Metadata 自定义metadata。
+     */
+    public void setMetadata(Metadata Metadata) {
+        this.Metadata = Metadata;
+    }
+
     public ModifyLaunchConfigurationAttributesRequest() {
     }
 
@@ -718,6 +839,24 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
                 this.DisasterRecoverGroupIds[i] = new String(source.DisasterRecoverGroupIds[i]);
             }
         }
+        if (source.LoginSettings != null) {
+            this.LoginSettings = new LoginSettings(source.LoginSettings);
+        }
+        if (source.InstanceTags != null) {
+            this.InstanceTags = new InstanceTag[source.InstanceTags.length];
+            for (int i = 0; i < source.InstanceTags.length; i++) {
+                this.InstanceTags[i] = new InstanceTag(source.InstanceTags[i]);
+            }
+        }
+        if (source.ImageFamily != null) {
+            this.ImageFamily = new String(source.ImageFamily);
+        }
+        if (source.DedicatedClusterId != null) {
+            this.DedicatedClusterId = new String(source.DedicatedClusterId);
+        }
+        if (source.Metadata != null) {
+            this.Metadata = new Metadata(source.Metadata);
+        }
     }
 
 
@@ -746,6 +885,11 @@ InstanceType 指定单一实例类型，通过设置 InstanceTypes可以指定�
         this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
         this.setParamObj(map, prefix + "IPv6InternetAccessible.", this.IPv6InternetAccessible);
         this.setParamArraySimple(map, prefix + "DisasterRecoverGroupIds.", this.DisasterRecoverGroupIds);
+        this.setParamObj(map, prefix + "LoginSettings.", this.LoginSettings);
+        this.setParamArrayObj(map, prefix + "InstanceTags.", this.InstanceTags);
+        this.setParamSimple(map, prefix + "ImageFamily", this.ImageFamily);
+        this.setParamSimple(map, prefix + "DedicatedClusterId", this.DedicatedClusterId);
+        this.setParamObj(map, prefix + "Metadata.", this.Metadata);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trro.v20220325.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SessionDeviceDetail extends AbstractModel{
+public class SessionDeviceDetail extends AbstractModel {
 
     /**
     * 设备类型：field或remote
@@ -122,7 +123,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * sdk版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ver")
     @Expose
@@ -130,7 +130,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 模式(p2p/server)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SdkMode")
     @Expose
@@ -138,14 +137,13 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 解码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DecodeCost")
     @Expose
     private Long [] DecodeCost;
 
     /**
-    * 渲染耗时，单位：ms
+    * 【已废弃，使用RenderCost】
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RenderConst")
@@ -154,7 +152,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 卡顿k100
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("K100")
     @Expose
@@ -162,7 +159,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 卡顿k150
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("K150")
     @Expose
@@ -170,7 +166,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * nack请求数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NACK")
     @Expose
@@ -178,7 +173,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 服务端调控码率,单位：kbps
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BitRateEstimate")
     @Expose
@@ -186,7 +180,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 宽度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Width")
     @Expose
@@ -194,7 +187,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 高度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Height")
     @Expose
@@ -202,7 +194,6 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 编码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EncodeCost")
     @Expose
@@ -210,11 +201,80 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
     * 采集耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CaptureCost")
     @Expose
     private Long [] CaptureCost;
+
+    /**
+    * 渲染耗时，单位：ms
+    */
+    @SerializedName("RenderCost")
+    @Expose
+    private Long [] RenderCost;
+
+    /**
+    * 配置宽度
+    */
+    @SerializedName("ConfigWidth")
+    @Expose
+    private Long ConfigWidth;
+
+    /**
+    * 配置高度
+    */
+    @SerializedName("ConfigHeight")
+    @Expose
+    private Long ConfigHeight;
+
+    /**
+    * 平均帧间隔
+    */
+    @SerializedName("FrameDelta")
+    @Expose
+    private Long [] FrameDelta;
+
+    /**
+    * 最大帧间隔
+    */
+    @SerializedName("MaxFrameDelta")
+    @Expose
+    private Long [] MaxFrameDelta;
+
+    /**
+    * 总码率评估,单位：kbps
+    */
+    @SerializedName("TotalBitrateEstimate")
+    @Expose
+    private Long [] TotalBitrateEstimate;
+
+    /**
+    * 帧间隔大于100ms的卡顿时长
+    */
+    @SerializedName("Lag100Duration")
+    @Expose
+    private Long [] Lag100Duration;
+
+    /**
+    * 帧间隔大于150ms的卡顿时长
+    */
+    @SerializedName("Lag150Duration")
+    @Expose
+    private Long [] Lag150Duration;
+
+    /**
+    * 是否开启多网：0 单网，1 多网
+    */
+    @SerializedName("MultiMode")
+    @Expose
+    private Long MultiMode;
+
+    /**
+    * 多网卡信息
+    */
+    @SerializedName("MultiNet")
+    @Expose
+    private MultiNet [] MultiNet;
 
     /**
      * Get 设备类型：field或remote 
@@ -441,10 +501,8 @@ public class SessionDeviceDetail extends AbstractModel{
     }
 
     /**
-     * Get sdk版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get sdk版本 
      * @return Ver sdk版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVer() {
         return this.Ver;
@@ -452,19 +510,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set sdk版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ver sdk版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVer(String Ver) {
         this.Ver = Ver;
     }
 
     /**
-     * Get 模式(p2p/server)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 模式(p2p/server) 
      * @return SdkMode 模式(p2p/server)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSdkMode() {
         return this.SdkMode;
@@ -472,19 +526,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 模式(p2p/server)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SdkMode 模式(p2p/server)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSdkMode(String SdkMode) {
         this.SdkMode = SdkMode;
     }
 
     /**
-     * Get 解码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 解码耗时，单位：ms 
      * @return DecodeCost 解码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getDecodeCost() {
         return this.DecodeCost;
@@ -492,39 +542,39 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 解码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DecodeCost 解码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDecodeCost(Long [] DecodeCost) {
         this.DecodeCost = DecodeCost;
     }
 
     /**
-     * Get 渲染耗时，单位：ms
+     * Get 【已废弃，使用RenderCost】
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RenderConst 渲染耗时，单位：ms
+     * @return RenderConst 【已废弃，使用RenderCost】
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public Long [] getRenderConst() {
         return this.RenderConst;
     }
 
     /**
-     * Set 渲染耗时，单位：ms
+     * Set 【已废弃，使用RenderCost】
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param RenderConst 渲染耗时，单位：ms
+     * @param RenderConst 【已废弃，使用RenderCost】
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setRenderConst(Long [] RenderConst) {
         this.RenderConst = RenderConst;
     }
 
     /**
-     * Get 卡顿k100
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 卡顿k100 
      * @return K100 卡顿k100
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float [] getK100() {
         return this.K100;
@@ -532,19 +582,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 卡顿k100
-注意：此字段可能返回 null，表示取不到有效值。
      * @param K100 卡顿k100
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setK100(Float [] K100) {
         this.K100 = K100;
     }
 
     /**
-     * Get 卡顿k150
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 卡顿k150 
      * @return K150 卡顿k150
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float [] getK150() {
         return this.K150;
@@ -552,19 +598,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 卡顿k150
-注意：此字段可能返回 null，表示取不到有效值。
      * @param K150 卡顿k150
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setK150(Float [] K150) {
         this.K150 = K150;
     }
 
     /**
-     * Get nack请求数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get nack请求数 
      * @return NACK nack请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getNACK() {
         return this.NACK;
@@ -572,19 +614,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set nack请求数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NACK nack请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNACK(Long [] NACK) {
         this.NACK = NACK;
     }
 
     /**
-     * Get 服务端调控码率,单位：kbps
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务端调控码率,单位：kbps 
      * @return BitRateEstimate 服务端调控码率,单位：kbps
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getBitRateEstimate() {
         return this.BitRateEstimate;
@@ -592,19 +630,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 服务端调控码率,单位：kbps
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BitRateEstimate 服务端调控码率,单位：kbps
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBitRateEstimate(Long [] BitRateEstimate) {
         this.BitRateEstimate = BitRateEstimate;
     }
 
     /**
-     * Get 宽度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 宽度 
      * @return Width 宽度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWidth() {
         return this.Width;
@@ -612,19 +646,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 宽度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Width 宽度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWidth(Long Width) {
         this.Width = Width;
     }
 
     /**
-     * Get 高度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 高度 
      * @return Height 高度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHeight() {
         return this.Height;
@@ -632,19 +662,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 高度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Height 高度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeight(Long Height) {
         this.Height = Height;
     }
 
     /**
-     * Get 编码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 编码耗时，单位：ms 
      * @return EncodeCost 编码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getEncodeCost() {
         return this.EncodeCost;
@@ -652,19 +678,15 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 编码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EncodeCost 编码耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEncodeCost(Long [] EncodeCost) {
         this.EncodeCost = EncodeCost;
     }
 
     /**
-     * Get 采集耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 采集耗时，单位：ms 
      * @return CaptureCost 采集耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getCaptureCost() {
         return this.CaptureCost;
@@ -672,12 +694,170 @@ public class SessionDeviceDetail extends AbstractModel{
 
     /**
      * Set 采集耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CaptureCost 采集耗时，单位：ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCaptureCost(Long [] CaptureCost) {
         this.CaptureCost = CaptureCost;
+    }
+
+    /**
+     * Get 渲染耗时，单位：ms 
+     * @return RenderCost 渲染耗时，单位：ms
+     */
+    public Long [] getRenderCost() {
+        return this.RenderCost;
+    }
+
+    /**
+     * Set 渲染耗时，单位：ms
+     * @param RenderCost 渲染耗时，单位：ms
+     */
+    public void setRenderCost(Long [] RenderCost) {
+        this.RenderCost = RenderCost;
+    }
+
+    /**
+     * Get 配置宽度 
+     * @return ConfigWidth 配置宽度
+     */
+    public Long getConfigWidth() {
+        return this.ConfigWidth;
+    }
+
+    /**
+     * Set 配置宽度
+     * @param ConfigWidth 配置宽度
+     */
+    public void setConfigWidth(Long ConfigWidth) {
+        this.ConfigWidth = ConfigWidth;
+    }
+
+    /**
+     * Get 配置高度 
+     * @return ConfigHeight 配置高度
+     */
+    public Long getConfigHeight() {
+        return this.ConfigHeight;
+    }
+
+    /**
+     * Set 配置高度
+     * @param ConfigHeight 配置高度
+     */
+    public void setConfigHeight(Long ConfigHeight) {
+        this.ConfigHeight = ConfigHeight;
+    }
+
+    /**
+     * Get 平均帧间隔 
+     * @return FrameDelta 平均帧间隔
+     */
+    public Long [] getFrameDelta() {
+        return this.FrameDelta;
+    }
+
+    /**
+     * Set 平均帧间隔
+     * @param FrameDelta 平均帧间隔
+     */
+    public void setFrameDelta(Long [] FrameDelta) {
+        this.FrameDelta = FrameDelta;
+    }
+
+    /**
+     * Get 最大帧间隔 
+     * @return MaxFrameDelta 最大帧间隔
+     */
+    public Long [] getMaxFrameDelta() {
+        return this.MaxFrameDelta;
+    }
+
+    /**
+     * Set 最大帧间隔
+     * @param MaxFrameDelta 最大帧间隔
+     */
+    public void setMaxFrameDelta(Long [] MaxFrameDelta) {
+        this.MaxFrameDelta = MaxFrameDelta;
+    }
+
+    /**
+     * Get 总码率评估,单位：kbps 
+     * @return TotalBitrateEstimate 总码率评估,单位：kbps
+     */
+    public Long [] getTotalBitrateEstimate() {
+        return this.TotalBitrateEstimate;
+    }
+
+    /**
+     * Set 总码率评估,单位：kbps
+     * @param TotalBitrateEstimate 总码率评估,单位：kbps
+     */
+    public void setTotalBitrateEstimate(Long [] TotalBitrateEstimate) {
+        this.TotalBitrateEstimate = TotalBitrateEstimate;
+    }
+
+    /**
+     * Get 帧间隔大于100ms的卡顿时长 
+     * @return Lag100Duration 帧间隔大于100ms的卡顿时长
+     */
+    public Long [] getLag100Duration() {
+        return this.Lag100Duration;
+    }
+
+    /**
+     * Set 帧间隔大于100ms的卡顿时长
+     * @param Lag100Duration 帧间隔大于100ms的卡顿时长
+     */
+    public void setLag100Duration(Long [] Lag100Duration) {
+        this.Lag100Duration = Lag100Duration;
+    }
+
+    /**
+     * Get 帧间隔大于150ms的卡顿时长 
+     * @return Lag150Duration 帧间隔大于150ms的卡顿时长
+     */
+    public Long [] getLag150Duration() {
+        return this.Lag150Duration;
+    }
+
+    /**
+     * Set 帧间隔大于150ms的卡顿时长
+     * @param Lag150Duration 帧间隔大于150ms的卡顿时长
+     */
+    public void setLag150Duration(Long [] Lag150Duration) {
+        this.Lag150Duration = Lag150Duration;
+    }
+
+    /**
+     * Get 是否开启多网：0 单网，1 多网 
+     * @return MultiMode 是否开启多网：0 单网，1 多网
+     */
+    public Long getMultiMode() {
+        return this.MultiMode;
+    }
+
+    /**
+     * Set 是否开启多网：0 单网，1 多网
+     * @param MultiMode 是否开启多网：0 单网，1 多网
+     */
+    public void setMultiMode(Long MultiMode) {
+        this.MultiMode = MultiMode;
+    }
+
+    /**
+     * Get 多网卡信息 
+     * @return MultiNet 多网卡信息
+     */
+    public MultiNet [] getMultiNet() {
+        return this.MultiNet;
+    }
+
+    /**
+     * Set 多网卡信息
+     * @param MultiNet 多网卡信息
+     */
+    public void setMultiNet(MultiNet [] MultiNet) {
+        this.MultiNet = MultiNet;
     }
 
     public SessionDeviceDetail() {
@@ -814,6 +994,57 @@ public class SessionDeviceDetail extends AbstractModel{
                 this.CaptureCost[i] = new Long(source.CaptureCost[i]);
             }
         }
+        if (source.RenderCost != null) {
+            this.RenderCost = new Long[source.RenderCost.length];
+            for (int i = 0; i < source.RenderCost.length; i++) {
+                this.RenderCost[i] = new Long(source.RenderCost[i]);
+            }
+        }
+        if (source.ConfigWidth != null) {
+            this.ConfigWidth = new Long(source.ConfigWidth);
+        }
+        if (source.ConfigHeight != null) {
+            this.ConfigHeight = new Long(source.ConfigHeight);
+        }
+        if (source.FrameDelta != null) {
+            this.FrameDelta = new Long[source.FrameDelta.length];
+            for (int i = 0; i < source.FrameDelta.length; i++) {
+                this.FrameDelta[i] = new Long(source.FrameDelta[i]);
+            }
+        }
+        if (source.MaxFrameDelta != null) {
+            this.MaxFrameDelta = new Long[source.MaxFrameDelta.length];
+            for (int i = 0; i < source.MaxFrameDelta.length; i++) {
+                this.MaxFrameDelta[i] = new Long(source.MaxFrameDelta[i]);
+            }
+        }
+        if (source.TotalBitrateEstimate != null) {
+            this.TotalBitrateEstimate = new Long[source.TotalBitrateEstimate.length];
+            for (int i = 0; i < source.TotalBitrateEstimate.length; i++) {
+                this.TotalBitrateEstimate[i] = new Long(source.TotalBitrateEstimate[i]);
+            }
+        }
+        if (source.Lag100Duration != null) {
+            this.Lag100Duration = new Long[source.Lag100Duration.length];
+            for (int i = 0; i < source.Lag100Duration.length; i++) {
+                this.Lag100Duration[i] = new Long(source.Lag100Duration[i]);
+            }
+        }
+        if (source.Lag150Duration != null) {
+            this.Lag150Duration = new Long[source.Lag150Duration.length];
+            for (int i = 0; i < source.Lag150Duration.length; i++) {
+                this.Lag150Duration[i] = new Long(source.Lag150Duration[i]);
+            }
+        }
+        if (source.MultiMode != null) {
+            this.MultiMode = new Long(source.MultiMode);
+        }
+        if (source.MultiNet != null) {
+            this.MultiNet = new MultiNet[source.MultiNet.length];
+            for (int i = 0; i < source.MultiNet.length; i++) {
+                this.MultiNet[i] = new MultiNet(source.MultiNet[i]);
+            }
+        }
     }
 
 
@@ -847,6 +1078,16 @@ public class SessionDeviceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Height", this.Height);
         this.setParamArraySimple(map, prefix + "EncodeCost.", this.EncodeCost);
         this.setParamArraySimple(map, prefix + "CaptureCost.", this.CaptureCost);
+        this.setParamArraySimple(map, prefix + "RenderCost.", this.RenderCost);
+        this.setParamSimple(map, prefix + "ConfigWidth", this.ConfigWidth);
+        this.setParamSimple(map, prefix + "ConfigHeight", this.ConfigHeight);
+        this.setParamArraySimple(map, prefix + "FrameDelta.", this.FrameDelta);
+        this.setParamArraySimple(map, prefix + "MaxFrameDelta.", this.MaxFrameDelta);
+        this.setParamArraySimple(map, prefix + "TotalBitrateEstimate.", this.TotalBitrateEstimate);
+        this.setParamArraySimple(map, prefix + "Lag100Duration.", this.Lag100Duration);
+        this.setParamArraySimple(map, prefix + "Lag150Duration.", this.Lag150Duration);
+        this.setParamSimple(map, prefix + "MultiMode", this.MultiMode);
+        this.setParamArrayObj(map, prefix + "MultiNet.", this.MultiNet);
 
     }
 }

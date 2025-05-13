@@ -16,36 +16,46 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetEidTokenRequest extends AbstractModel{
+public class GetEidTokenRequest extends AbstractModel {
 
     /**
-    * EID商户id，字段长度最长50位。
+    * EID商户ID。
+- 商户ID通过人脸核身控制台[自助接入](https://console.cloud.tencent.com/faceid/access)申请。
+- 商户ID与您通过腾讯云人脸核身控制台完成自助接入时所使用的腾讯云账号绑定。
+- 必须使用申请该商户ID时登录的腾讯云账号所对应的腾讯云API密钥调用该接口。
     */
     @SerializedName("MerchantId")
     @Expose
     private String MerchantId;
 
     /**
-    * 身份标识（未使用OCR服务时，必须传入）。
-规则：a-zA-Z0-9组合。最长长度32位。
+    * 身份标识。
+- 未使用OCR服务时，必须传入。
+- 规则：a-z，A-Z，0-9组合。
+- 最长长度32位。
     */
     @SerializedName("IdCard")
     @Expose
     private String IdCard;
 
     /**
-    * 姓名。（未使用OCR服务时，必须传入）最长长度32位。中文请使用UTF-8编码。
+    * 姓名。
+- 未使用OCR服务时，必须传入。
+- 最长长度32位。
+- 中文请使用UTF-8编码。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 透传字段，在获取验证结果时返回。最长长度1024位。
+    * 透传字段，在获取验证结果时返回。
+- 最长长度1024位。
     */
     @SerializedName("Extra")
     @Expose
@@ -59,82 +69,121 @@ public class GetEidTokenRequest extends AbstractModel{
     private GetEidTokenConfig Config;
 
     /**
-    * 最长长度1024位。用户从Url中进入核身认证结束后重定向的回调链接地址。EidToken会在该链接的query参数中。
+    * 用户从Url中进入核身认证结束后重定向的回调链接地址。
+- 最长长度1024位。
+- EidToken会在该链接的query参数中。
     */
     @SerializedName("RedirectUrl")
     @Expose
     private String RedirectUrl;
 
     /**
-    * 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+    * 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
     */
     @SerializedName("Encryption")
     @Expose
     private Encryption Encryption;
 
     /**
-     * Get EID商户id，字段长度最长50位。 
-     * @return MerchantId EID商户id，字段长度最长50位。
+     * Get EID商户ID。
+- 商户ID通过人脸核身控制台[自助接入](https://console.cloud.tencent.com/faceid/access)申请。
+- 商户ID与您通过腾讯云人脸核身控制台完成自助接入时所使用的腾讯云账号绑定。
+- 必须使用申请该商户ID时登录的腾讯云账号所对应的腾讯云API密钥调用该接口。 
+     * @return MerchantId EID商户ID。
+- 商户ID通过人脸核身控制台[自助接入](https://console.cloud.tencent.com/faceid/access)申请。
+- 商户ID与您通过腾讯云人脸核身控制台完成自助接入时所使用的腾讯云账号绑定。
+- 必须使用申请该商户ID时登录的腾讯云账号所对应的腾讯云API密钥调用该接口。
      */
     public String getMerchantId() {
         return this.MerchantId;
     }
 
     /**
-     * Set EID商户id，字段长度最长50位。
-     * @param MerchantId EID商户id，字段长度最长50位。
+     * Set EID商户ID。
+- 商户ID通过人脸核身控制台[自助接入](https://console.cloud.tencent.com/faceid/access)申请。
+- 商户ID与您通过腾讯云人脸核身控制台完成自助接入时所使用的腾讯云账号绑定。
+- 必须使用申请该商户ID时登录的腾讯云账号所对应的腾讯云API密钥调用该接口。
+     * @param MerchantId EID商户ID。
+- 商户ID通过人脸核身控制台[自助接入](https://console.cloud.tencent.com/faceid/access)申请。
+- 商户ID与您通过腾讯云人脸核身控制台完成自助接入时所使用的腾讯云账号绑定。
+- 必须使用申请该商户ID时登录的腾讯云账号所对应的腾讯云API密钥调用该接口。
      */
     public void setMerchantId(String MerchantId) {
         this.MerchantId = MerchantId;
     }
 
     /**
-     * Get 身份标识（未使用OCR服务时，必须传入）。
-规则：a-zA-Z0-9组合。最长长度32位。 
-     * @return IdCard 身份标识（未使用OCR服务时，必须传入）。
-规则：a-zA-Z0-9组合。最长长度32位。
+     * Get 身份标识。
+- 未使用OCR服务时，必须传入。
+- 规则：a-z，A-Z，0-9组合。
+- 最长长度32位。 
+     * @return IdCard 身份标识。
+- 未使用OCR服务时，必须传入。
+- 规则：a-z，A-Z，0-9组合。
+- 最长长度32位。
      */
     public String getIdCard() {
         return this.IdCard;
     }
 
     /**
-     * Set 身份标识（未使用OCR服务时，必须传入）。
-规则：a-zA-Z0-9组合。最长长度32位。
-     * @param IdCard 身份标识（未使用OCR服务时，必须传入）。
-规则：a-zA-Z0-9组合。最长长度32位。
+     * Set 身份标识。
+- 未使用OCR服务时，必须传入。
+- 规则：a-z，A-Z，0-9组合。
+- 最长长度32位。
+     * @param IdCard 身份标识。
+- 未使用OCR服务时，必须传入。
+- 规则：a-z，A-Z，0-9组合。
+- 最长长度32位。
      */
     public void setIdCard(String IdCard) {
         this.IdCard = IdCard;
     }
 
     /**
-     * Get 姓名。（未使用OCR服务时，必须传入）最长长度32位。中文请使用UTF-8编码。 
-     * @return Name 姓名。（未使用OCR服务时，必须传入）最长长度32位。中文请使用UTF-8编码。
+     * Get 姓名。
+- 未使用OCR服务时，必须传入。
+- 最长长度32位。
+- 中文请使用UTF-8编码。 
+     * @return Name 姓名。
+- 未使用OCR服务时，必须传入。
+- 最长长度32位。
+- 中文请使用UTF-8编码。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 姓名。（未使用OCR服务时，必须传入）最长长度32位。中文请使用UTF-8编码。
-     * @param Name 姓名。（未使用OCR服务时，必须传入）最长长度32位。中文请使用UTF-8编码。
+     * Set 姓名。
+- 未使用OCR服务时，必须传入。
+- 最长长度32位。
+- 中文请使用UTF-8编码。
+     * @param Name 姓名。
+- 未使用OCR服务时，必须传入。
+- 最长长度32位。
+- 中文请使用UTF-8编码。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 透传字段，在获取验证结果时返回。最长长度1024位。 
-     * @return Extra 透传字段，在获取验证结果时返回。最长长度1024位。
+     * Get 透传字段，在获取验证结果时返回。
+- 最长长度1024位。 
+     * @return Extra 透传字段，在获取验证结果时返回。
+- 最长长度1024位。
      */
     public String getExtra() {
         return this.Extra;
     }
 
     /**
-     * Set 透传字段，在获取验证结果时返回。最长长度1024位。
-     * @param Extra 透传字段，在获取验证结果时返回。最长长度1024位。
+     * Set 透传字段，在获取验证结果时返回。
+- 最长长度1024位。
+     * @param Extra 透传字段，在获取验证结果时返回。
+- 最长长度1024位。
      */
     public void setExtra(String Extra) {
         this.Extra = Extra;
@@ -157,32 +206,44 @@ public class GetEidTokenRequest extends AbstractModel{
     }
 
     /**
-     * Get 最长长度1024位。用户从Url中进入核身认证结束后重定向的回调链接地址。EidToken会在该链接的query参数中。 
-     * @return RedirectUrl 最长长度1024位。用户从Url中进入核身认证结束后重定向的回调链接地址。EidToken会在该链接的query参数中。
+     * Get 用户从Url中进入核身认证结束后重定向的回调链接地址。
+- 最长长度1024位。
+- EidToken会在该链接的query参数中。 
+     * @return RedirectUrl 用户从Url中进入核身认证结束后重定向的回调链接地址。
+- 最长长度1024位。
+- EidToken会在该链接的query参数中。
      */
     public String getRedirectUrl() {
         return this.RedirectUrl;
     }
 
     /**
-     * Set 最长长度1024位。用户从Url中进入核身认证结束后重定向的回调链接地址。EidToken会在该链接的query参数中。
-     * @param RedirectUrl 最长长度1024位。用户从Url中进入核身认证结束后重定向的回调链接地址。EidToken会在该链接的query参数中。
+     * Set 用户从Url中进入核身认证结束后重定向的回调链接地址。
+- 最长长度1024位。
+- EidToken会在该链接的query参数中。
+     * @param RedirectUrl 用户从Url中进入核身认证结束后重定向的回调链接地址。
+- 最长长度1024位。
+- EidToken会在该链接的query参数中。
      */
     public void setRedirectUrl(String RedirectUrl) {
         this.RedirectUrl = RedirectUrl;
     }
 
     /**
-     * Get 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。 
-     * @return Encryption 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * Get 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。 
+     * @return Encryption 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
      */
     public Encryption getEncryption() {
         return this.Encryption;
     }
 
     /**
-     * Set 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
-     * @param Encryption 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * Set 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+     * @param Encryption 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
      */
     public void setEncryption(Encryption Encryption) {
         this.Encryption = Encryption;

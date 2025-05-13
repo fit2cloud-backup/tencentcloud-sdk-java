@@ -16,14 +16,15 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleIdConfig extends AbstractModel{
+public class RuleIdConfig extends AbstractModel {
 
     /**
-    * 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认不开启。
+    * 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认开启。
     */
     @SerializedName("IntentionRecognition")
     @Expose
@@ -39,16 +40,34 @@ public class RuleIdConfig extends AbstractModel{
     private Long IntentionType;
 
     /**
-     * Get 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认不开启。 
-     * @return IntentionRecognition 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认不开启。
+    * 用户语音回答过程中是否开启张嘴识别检测，默认不开启，仅在意愿核身问答模式中使用。
+    */
+    @SerializedName("MouthOpenRecognition")
+    @Expose
+    private Boolean MouthOpenRecognition;
+
+    /**
+    * 意愿核身语音播报速度，配置后问答模式和点头模式的语音播报环节都会生效，默认值为0：
+0：智能语速（根据播报文案的长度自动调整语音播报速度）
+1：固定1倍速
+2：固定1.2倍速
+3：固定1.5倍速
+    */
+    @SerializedName("Speed")
+    @Expose
+    private Long Speed;
+
+    /**
+     * Get 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认开启。 
+     * @return IntentionRecognition 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认开启。
      */
     public Boolean getIntentionRecognition() {
         return this.IntentionRecognition;
     }
 
     /**
-     * Set 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认不开启。
-     * @param IntentionRecognition 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认不开启。
+     * Set 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认开启。
+     * @param IntentionRecognition 意愿核身过程中识别用户的回答意图，开启后除了IntentionQuestions的Answers列表中的标准回答会通过，近似意图的回答也会通过，默认开启。
      */
     public void setIntentionRecognition(Boolean IntentionRecognition) {
         this.IntentionRecognition = IntentionRecognition;
@@ -78,6 +97,54 @@ public class RuleIdConfig extends AbstractModel{
         this.IntentionType = IntentionType;
     }
 
+    /**
+     * Get 用户语音回答过程中是否开启张嘴识别检测，默认不开启，仅在意愿核身问答模式中使用。 
+     * @return MouthOpenRecognition 用户语音回答过程中是否开启张嘴识别检测，默认不开启，仅在意愿核身问答模式中使用。
+     */
+    public Boolean getMouthOpenRecognition() {
+        return this.MouthOpenRecognition;
+    }
+
+    /**
+     * Set 用户语音回答过程中是否开启张嘴识别检测，默认不开启，仅在意愿核身问答模式中使用。
+     * @param MouthOpenRecognition 用户语音回答过程中是否开启张嘴识别检测，默认不开启，仅在意愿核身问答模式中使用。
+     */
+    public void setMouthOpenRecognition(Boolean MouthOpenRecognition) {
+        this.MouthOpenRecognition = MouthOpenRecognition;
+    }
+
+    /**
+     * Get 意愿核身语音播报速度，配置后问答模式和点头模式的语音播报环节都会生效，默认值为0：
+0：智能语速（根据播报文案的长度自动调整语音播报速度）
+1：固定1倍速
+2：固定1.2倍速
+3：固定1.5倍速 
+     * @return Speed 意愿核身语音播报速度，配置后问答模式和点头模式的语音播报环节都会生效，默认值为0：
+0：智能语速（根据播报文案的长度自动调整语音播报速度）
+1：固定1倍速
+2：固定1.2倍速
+3：固定1.5倍速
+     */
+    public Long getSpeed() {
+        return this.Speed;
+    }
+
+    /**
+     * Set 意愿核身语音播报速度，配置后问答模式和点头模式的语音播报环节都会生效，默认值为0：
+0：智能语速（根据播报文案的长度自动调整语音播报速度）
+1：固定1倍速
+2：固定1.2倍速
+3：固定1.5倍速
+     * @param Speed 意愿核身语音播报速度，配置后问答模式和点头模式的语音播报环节都会生效，默认值为0：
+0：智能语速（根据播报文案的长度自动调整语音播报速度）
+1：固定1倍速
+2：固定1.2倍速
+3：固定1.5倍速
+     */
+    public void setSpeed(Long Speed) {
+        this.Speed = Speed;
+    }
+
     public RuleIdConfig() {
     }
 
@@ -92,6 +159,12 @@ public class RuleIdConfig extends AbstractModel{
         if (source.IntentionType != null) {
             this.IntentionType = new Long(source.IntentionType);
         }
+        if (source.MouthOpenRecognition != null) {
+            this.MouthOpenRecognition = new Boolean(source.MouthOpenRecognition);
+        }
+        if (source.Speed != null) {
+            this.Speed = new Long(source.Speed);
+        }
     }
 
 
@@ -101,6 +174,8 @@ public class RuleIdConfig extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "IntentionRecognition", this.IntentionRecognition);
         this.setParamSimple(map, prefix + "IntentionType", this.IntentionType);
+        this.setParamSimple(map, prefix + "MouthOpenRecognition", this.MouthOpenRecognition);
+        this.setParamSimple(map, prefix + "Speed", this.Speed);
 
     }
 }

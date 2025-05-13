@@ -16,16 +16,19 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MonitorTime extends AbstractModel{
+public class MonitorTime extends AbstractModel {
 
     /**
-    * 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
+    * 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
     */
     @SerializedName("Type")
     @Expose
@@ -33,38 +36,57 @@ public class MonitorTime extends AbstractModel{
 
     /**
     * 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
     */
     @SerializedName("Time")
     @Expose
     private Long Time;
 
     /**
-     * Get 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行 
-     * @return Type 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
+    * 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field, Hours field,Day of month field,Month field,Day of week field， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+    */
+    @SerializedName("CronExpression")
+    @Expose
+    private String CronExpression;
+
+    /**
+     * Get 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式 
+     * @return Type 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
-     * @param Type 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
+     * Set 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
+     * @param Type 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。 
+     * Get 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。 
      * @return Time 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
      */
     public Long getTime() {
         return this.Time;
@@ -72,10 +94,32 @@ public class MonitorTime extends AbstractModel{
 
     /**
      * Set 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
      * @param Time 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
      */
     public void setTime(Long Time) {
         this.Time = Time;
+    }
+
+    /**
+     * Get 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field, Hours field,Day of month field,Month field,Day of week field， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。 
+     * @return CronExpression 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field, Hours field,Day of month field,Month field,Day of week field， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+     */
+    public String getCronExpression() {
+        return this.CronExpression;
+    }
+
+    /**
+     * Set 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field, Hours field,Day of month field,Month field,Day of week field， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+     * @param CronExpression 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field, Hours field,Day of month field,Month field,Day of week field， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+     */
+    public void setCronExpression(String CronExpression) {
+        this.CronExpression = CronExpression;
     }
 
     public MonitorTime() {
@@ -92,6 +136,9 @@ public class MonitorTime extends AbstractModel{
         if (source.Time != null) {
             this.Time = new Long(source.Time);
         }
+        if (source.CronExpression != null) {
+            this.CronExpression = new String(source.CronExpression);
+        }
     }
 
 
@@ -101,6 +148,7 @@ public class MonitorTime extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "Time", this.Time);
+        this.setParamSimple(map, prefix + "CronExpression", this.CronExpression);
 
     }
 }

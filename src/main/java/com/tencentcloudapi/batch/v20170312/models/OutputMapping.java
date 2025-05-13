@@ -16,11 +16,12 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OutputMapping extends AbstractModel{
+public class OutputMapping extends AbstractModel {
 
     /**
     * 源端路径
@@ -38,7 +39,6 @@ public class OutputMapping extends AbstractModel{
 
     /**
     * 输出映射选项
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutputMappingOption")
     @Expose
@@ -77,10 +77,8 @@ public class OutputMapping extends AbstractModel{
     }
 
     /**
-     * Get 输出映射选项
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出映射选项 
      * @return OutputMappingOption 输出映射选项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OutputMappingOption getOutputMappingOption() {
         return this.OutputMappingOption;
@@ -88,9 +86,7 @@ public class OutputMapping extends AbstractModel{
 
     /**
      * Set 输出映射选项
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OutputMappingOption 输出映射选项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutputMappingOption(OutputMappingOption OutputMappingOption) {
         this.OutputMappingOption = OutputMappingOption;

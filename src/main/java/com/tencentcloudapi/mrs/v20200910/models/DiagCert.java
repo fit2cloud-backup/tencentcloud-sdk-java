@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DiagCert extends AbstractModel{
+public class DiagCert extends AbstractModel {
 
     /**
     * 建议
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Advice")
     @Expose
@@ -32,17 +32,21 @@ public class DiagCert extends AbstractModel{
 
     /**
     * 诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Diagnosis")
     @Expose
     private DiagCertItem [] Diagnosis;
 
     /**
-     * Get 建议
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 建议 
      * @return Advice 建议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Advice getAdvice() {
         return this.Advice;
@@ -50,19 +54,15 @@ public class DiagCert extends AbstractModel{
 
     /**
      * Set 建议
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Advice 建议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdvice(Advice Advice) {
         this.Advice = Advice;
     }
 
     /**
-     * Get 诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断 
      * @return Diagnosis 诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DiagCertItem [] getDiagnosis() {
         return this.Diagnosis;
@@ -70,12 +70,26 @@ public class DiagCert extends AbstractModel{
 
     /**
      * Set 诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Diagnosis 诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiagnosis(DiagCertItem [] Diagnosis) {
         this.Diagnosis = Diagnosis;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public DiagCert() {
@@ -95,6 +109,9 @@ public class DiagCert extends AbstractModel{
                 this.Diagnosis[i] = new DiagCertItem(source.Diagnosis[i]);
             }
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -104,6 +121,7 @@ public class DiagCert extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Advice.", this.Advice);
         this.setParamArrayObj(map, prefix + "Diagnosis.", this.Diagnosis);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

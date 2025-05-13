@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cat.v20180409.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDetailedSingleProbeDataResponse extends AbstractModel{
+public class DescribeDetailedSingleProbeDataResponse extends AbstractModel {
 
     /**
     * 单次详情数据
@@ -37,7 +38,14 @@ public class DescribeDetailedSingleProbeDataResponse extends AbstractModel{
     private Long TotalNumber;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * es scroll查询的id
+    */
+    @SerializedName("ScrollID")
+    @Expose
+    private String ScrollID;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -76,16 +84,32 @@ public class DescribeDetailedSingleProbeDataResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get es scroll查询的id 
+     * @return ScrollID es scroll查询的id
+     */
+    public String getScrollID() {
+        return this.ScrollID;
+    }
+
+    /**
+     * Set es scroll查询的id
+     * @param ScrollID es scroll查询的id
+     */
+    public void setScrollID(String ScrollID) {
+        this.ScrollID = ScrollID;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -108,6 +132,9 @@ public class DescribeDetailedSingleProbeDataResponse extends AbstractModel{
         if (source.TotalNumber != null) {
             this.TotalNumber = new Long(source.TotalNumber);
         }
+        if (source.ScrollID != null) {
+            this.ScrollID = new String(source.ScrollID);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +147,7 @@ public class DescribeDetailedSingleProbeDataResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "DataSet.", this.DataSet);
         this.setParamSimple(map, prefix + "TotalNumber", this.TotalNumber);
+        this.setParamSimple(map, prefix + "ScrollID", this.ScrollID);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

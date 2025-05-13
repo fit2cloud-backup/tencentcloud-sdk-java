@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCodePacksRequest extends AbstractModel{
+public class DescribeCodePacksRequest extends AbstractModel {
 
     /**
     * 每页数量
@@ -70,6 +71,20 @@ public class DescribeCodePacksRequest extends AbstractModel{
     @SerializedName("ResId")
     @Expose
     private String ResId;
+
+    /**
+    * 应用场景
+    */
+    @SerializedName("SceneCode")
+    @Expose
+    private Long SceneCode;
+
+    /**
+    * 码包状态
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
 
     /**
      * Get 每页数量 
@@ -183,6 +198,38 @@ public class DescribeCodePacksRequest extends AbstractModel{
         this.ResId = ResId;
     }
 
+    /**
+     * Get 应用场景 
+     * @return SceneCode 应用场景
+     */
+    public Long getSceneCode() {
+        return this.SceneCode;
+    }
+
+    /**
+     * Set 应用场景
+     * @param SceneCode 应用场景
+     */
+    public void setSceneCode(Long SceneCode) {
+        this.SceneCode = SceneCode;
+    }
+
+    /**
+     * Get 码包状态 
+     * @return Status 码包状态
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 码包状态
+     * @param Status 码包状态
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
     public DescribeCodePacksRequest() {
     }
 
@@ -212,6 +259,12 @@ public class DescribeCodePacksRequest extends AbstractModel{
         if (source.ResId != null) {
             this.ResId = new String(source.ResId);
         }
+        if (source.SceneCode != null) {
+            this.SceneCode = new Long(source.SceneCode);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
     }
 
 
@@ -226,6 +279,8 @@ public class DescribeCodePacksRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SerialType", this.SerialType);
         this.setParamSimple(map, prefix + "ResType", this.ResType);
         this.setParamSimple(map, prefix + "ResId", this.ResId);
+        this.setParamSimple(map, prefix + "SceneCode", this.SceneCode);
+        this.setParamSimple(map, prefix + "Status", this.Status);
 
     }
 }

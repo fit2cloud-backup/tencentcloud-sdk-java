@@ -16,22 +16,26 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTemplateRequest extends AbstractModel{
+public class DescribeTemplateRequest extends AbstractModel {
 
     /**
     * 模板ID
+通过DescribeTemplateList接口获取:https://cloud.tencent.com/document/api/242/48940
     */
     @SerializedName("TemplateId")
     @Expose
     private String TemplateId;
 
     /**
-     * Get 模板ID 
+     * Get 模板ID
+通过DescribeTemplateList接口获取:https://cloud.tencent.com/document/api/242/48940 
      * @return TemplateId 模板ID
+通过DescribeTemplateList接口获取:https://cloud.tencent.com/document/api/242/48940
      */
     public String getTemplateId() {
         return this.TemplateId;
@@ -39,7 +43,9 @@ public class DescribeTemplateRequest extends AbstractModel{
 
     /**
      * Set 模板ID
+通过DescribeTemplateList接口获取:https://cloud.tencent.com/document/api/242/48940
      * @param TemplateId 模板ID
+通过DescribeTemplateList接口获取:https://cloud.tencent.com/document/api/242/48940
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SchedulesInfo extends AbstractModel{
+public class SchedulesInfo extends AbstractModel {
 
     /**
     * 编排唯一标识。
@@ -36,6 +37,16 @@ public class SchedulesInfo extends AbstractModel{
     @SerializedName("ScheduleName")
     @Expose
     private String ScheduleName;
+
+    /**
+    * 编排类型，可选值：
+ <li>Preset：系统预置编排；</li>
+<li>Custom：用户自定义编排。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
 
     /**
     * 编排状态，取值范围：
@@ -104,6 +115,14 @@ Disabled：已禁用。
     private String UpdateTime;
 
     /**
+    * 资源ID，对于没有关联资源ID的，用账号主资源ID填充。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceId")
+    @Expose
+    private String ResourceId;
+
+    /**
      * Get 编排唯一标识。 
      * @return ScheduleId 编排唯一标识。
      */
@@ -137,6 +156,34 @@ Disabled：已禁用。
      */
     public void setScheduleName(String ScheduleName) {
         this.ScheduleName = ScheduleName;
+    }
+
+    /**
+     * Get 编排类型，可选值：
+ <li>Preset：系统预置编排；</li>
+<li>Custom：用户自定义编排。</li>
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Type 编排类型，可选值：
+ <li>Preset：系统预置编排；</li>
+<li>Custom：用户自定义编排。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 编排类型，可选值：
+ <li>Preset：系统预置编排；</li>
+<li>Custom：用户自定义编排。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Type 编排类型，可选值：
+ <li>Preset：系统预置编排；</li>
+<li>Custom：用户自定义编排。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setType(String Type) {
+        this.Type = Type;
     }
 
     /**
@@ -307,6 +354,26 @@ Disabled：已禁用。
         this.UpdateTime = UpdateTime;
     }
 
+    /**
+     * Get 资源ID，对于没有关联资源ID的，用账号主资源ID填充。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceId 资源ID，对于没有关联资源ID的，用账号主资源ID填充。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getResourceId() {
+        return this.ResourceId;
+    }
+
+    /**
+     * Set 资源ID，对于没有关联资源ID的，用账号主资源ID填充。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceId 资源ID，对于没有关联资源ID的，用账号主资源ID填充。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceId(String ResourceId) {
+        this.ResourceId = ResourceId;
+    }
+
     public SchedulesInfo() {
     }
 
@@ -320,6 +387,9 @@ Disabled：已禁用。
         }
         if (source.ScheduleName != null) {
             this.ScheduleName = new String(source.ScheduleName);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
         }
         if (source.Status != null) {
             this.Status = new String(source.Status);
@@ -348,6 +418,9 @@ Disabled：已禁用。
         if (source.UpdateTime != null) {
             this.UpdateTime = new String(source.UpdateTime);
         }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
     }
 
 
@@ -357,6 +430,7 @@ Disabled：已禁用。
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ScheduleId", this.ScheduleId);
         this.setParamSimple(map, prefix + "ScheduleName", this.ScheduleName);
+        this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamObj(map, prefix + "Trigger.", this.Trigger);
         this.setParamArrayObj(map, prefix + "Activities.", this.Activities);
@@ -365,6 +439,7 @@ Disabled：已禁用。
         this.setParamObj(map, prefix + "TaskNotifyConfig.", this.TaskNotifyConfig);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
 
     }
 }

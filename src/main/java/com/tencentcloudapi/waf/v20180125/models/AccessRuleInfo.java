@@ -16,15 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccessRuleInfo extends AbstractModel{
+public class AccessRuleInfo extends AbstractModel {
 
     /**
     * 全文索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FullText")
@@ -34,7 +34,6 @@ public class AccessRuleInfo extends AbstractModel{
     /**
     * 键值索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeyValue")
     @Expose
@@ -43,7 +42,6 @@ public class AccessRuleInfo extends AbstractModel{
     /**
     * 元字段索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
     @Expose
@@ -51,10 +49,8 @@ public class AccessRuleInfo extends AbstractModel{
 
     /**
      * Get 全文索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return FullText 全文索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AccessFullTextInfo getFullText() {
@@ -64,9 +60,7 @@ public class AccessRuleInfo extends AbstractModel{
     /**
      * Set 全文索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FullText 全文索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFullText(AccessFullTextInfo FullText) {
@@ -75,10 +69,8 @@ public class AccessRuleInfo extends AbstractModel{
 
     /**
      * Get 键值索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return KeyValue 键值索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AccessRuleKeyValueInfo getKeyValue() {
@@ -88,9 +80,7 @@ public class AccessRuleInfo extends AbstractModel{
     /**
      * Set 键值索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KeyValue 键值索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeyValue(AccessRuleKeyValueInfo KeyValue) {
@@ -99,10 +89,8 @@ public class AccessRuleInfo extends AbstractModel{
 
     /**
      * Get 元字段索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Tag 元字段索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AccessRuleTagInfo getTag() {
@@ -112,9 +100,7 @@ public class AccessRuleInfo extends AbstractModel{
     /**
      * Set 元字段索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tag 元字段索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(AccessRuleTagInfo Tag) {

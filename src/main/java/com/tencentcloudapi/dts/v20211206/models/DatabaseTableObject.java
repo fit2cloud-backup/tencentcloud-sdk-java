@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DatabaseTableObject extends AbstractModel{
+public class DatabaseTableObject extends AbstractModel {
 
     /**
     * 迁移对象类型 all(全实例)，partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ObjectMode")
     @Expose
@@ -32,14 +32,13 @@ public class DatabaseTableObject extends AbstractModel{
 
     /**
     * 迁移对象，当 ObjectMode 为 partial 时，不为空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Databases")
     @Expose
     private DBItem [] Databases;
 
     /**
-    * 高级对象类型，如trigger、function、procedure、event
+    * 高级对象类型，如trigger、function、procedure、event。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AdvancedObjects")
@@ -47,10 +46,8 @@ public class DatabaseTableObject extends AbstractModel{
     private String [] AdvancedObjects;
 
     /**
-     * Get 迁移对象类型 all(全实例)，partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 迁移对象类型 all(全实例)，partial(部分对象) 
      * @return ObjectMode 迁移对象类型 all(全实例)，partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getObjectMode() {
         return this.ObjectMode;
@@ -58,19 +55,15 @@ public class DatabaseTableObject extends AbstractModel{
 
     /**
      * Set 迁移对象类型 all(全实例)，partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ObjectMode 迁移对象类型 all(全实例)，partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setObjectMode(String ObjectMode) {
         this.ObjectMode = ObjectMode;
     }
 
     /**
-     * Get 迁移对象，当 ObjectMode 为 partial 时，不为空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 迁移对象，当 ObjectMode 为 partial 时，不为空 
      * @return Databases 迁移对象，当 ObjectMode 为 partial 时，不为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DBItem [] getDatabases() {
         return this.Databases;
@@ -78,18 +71,16 @@ public class DatabaseTableObject extends AbstractModel{
 
     /**
      * Set 迁移对象，当 ObjectMode 为 partial 时，不为空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Databases 迁移对象，当 ObjectMode 为 partial 时，不为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabases(DBItem [] Databases) {
         this.Databases = Databases;
     }
 
     /**
-     * Get 高级对象类型，如trigger、function、procedure、event
+     * Get 高级对象类型，如trigger、function、procedure、event。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AdvancedObjects 高级对象类型，如trigger、function、procedure、event
+     * @return AdvancedObjects 高级对象类型，如trigger、function、procedure、event。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAdvancedObjects() {
@@ -97,9 +88,9 @@ public class DatabaseTableObject extends AbstractModel{
     }
 
     /**
-     * Set 高级对象类型，如trigger、function、procedure、event
+     * Set 高级对象类型，如trigger、function、procedure、event。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AdvancedObjects 高级对象类型，如trigger、function、procedure、event
+     * @param AdvancedObjects 高级对象类型，如trigger、function、procedure、event。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAdvancedObjects(String [] AdvancedObjects) {

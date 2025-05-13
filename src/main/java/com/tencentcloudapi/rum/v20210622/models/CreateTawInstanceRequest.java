@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateTawInstanceRequest extends AbstractModel{
+public class CreateTawInstanceRequest extends AbstractModel {
 
     /**
     * 片区Id，(至少大于0)
@@ -65,7 +66,7 @@ public class CreateTawInstanceRequest extends AbstractModel{
     private String InstanceDesc;
 
     /**
-    * 每天数据上报量
+    * 每天数据上报量，（不作量级限制）
     */
     @SerializedName("CountNum")
     @Expose
@@ -203,16 +204,16 @@ public class CreateTawInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 每天数据上报量 
-     * @return CountNum 每天数据上报量
+     * Get 每天数据上报量，（不作量级限制） 
+     * @return CountNum 每天数据上报量，（不作量级限制）
      */
     public String getCountNum() {
         return this.CountNum;
     }
 
     /**
-     * Set 每天数据上报量
-     * @param CountNum 每天数据上报量
+     * Set 每天数据上报量，（不作量级限制）
+     * @param CountNum 每天数据上报量，（不作量级限制）
      */
     public void setCountNum(String CountNum) {
         this.CountNum = CountNum;

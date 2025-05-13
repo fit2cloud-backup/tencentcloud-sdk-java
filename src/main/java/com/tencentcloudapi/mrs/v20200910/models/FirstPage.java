@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FirstPage extends AbstractModel{
+public class FirstPage extends AbstractModel {
 
     /**
     * 出入院诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DischargeDiagnosis")
     @Expose
@@ -32,7 +32,6 @@ public class FirstPage extends AbstractModel{
 
     /**
     * 病理诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PathologicalDiagnosis")
     @Expose
@@ -40,7 +39,6 @@ public class FirstPage extends AbstractModel{
 
     /**
     * 临床诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClinicalDiagnosis")
     @Expose
@@ -48,7 +46,6 @@ public class FirstPage extends AbstractModel{
 
     /**
     * 受伤中毒的外部原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DamagePoi")
     @Expose
@@ -56,17 +53,21 @@ public class FirstPage extends AbstractModel{
 
     /**
     * 病案首页第二页
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Fp2NdItems")
     @Expose
     private Fp2NdItem [] Fp2NdItems;
 
     /**
-     * Get 出入院诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 出入院诊断 
      * @return DischargeDiagnosis 出入院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DischargeDiagnosis [] getDischargeDiagnosis() {
         return this.DischargeDiagnosis;
@@ -74,19 +75,15 @@ public class FirstPage extends AbstractModel{
 
     /**
      * Set 出入院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DischargeDiagnosis 出入院诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDischargeDiagnosis(DischargeDiagnosis [] DischargeDiagnosis) {
         this.DischargeDiagnosis = DischargeDiagnosis;
     }
 
     /**
-     * Get 病理诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 病理诊断 
      * @return PathologicalDiagnosis 病理诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BlockInfo getPathologicalDiagnosis() {
         return this.PathologicalDiagnosis;
@@ -94,19 +91,15 @@ public class FirstPage extends AbstractModel{
 
     /**
      * Set 病理诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PathologicalDiagnosis 病理诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPathologicalDiagnosis(BlockInfo PathologicalDiagnosis) {
         this.PathologicalDiagnosis = PathologicalDiagnosis;
     }
 
     /**
-     * Get 临床诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 临床诊断 
      * @return ClinicalDiagnosis 临床诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BlockInfo getClinicalDiagnosis() {
         return this.ClinicalDiagnosis;
@@ -114,19 +107,15 @@ public class FirstPage extends AbstractModel{
 
     /**
      * Set 临床诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClinicalDiagnosis 临床诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClinicalDiagnosis(BlockInfo ClinicalDiagnosis) {
         this.ClinicalDiagnosis = ClinicalDiagnosis;
     }
 
     /**
-     * Get 受伤中毒的外部原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 受伤中毒的外部原因 
      * @return DamagePoi 受伤中毒的外部原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BlockInfoV2 getDamagePoi() {
         return this.DamagePoi;
@@ -134,19 +123,15 @@ public class FirstPage extends AbstractModel{
 
     /**
      * Set 受伤中毒的外部原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DamagePoi 受伤中毒的外部原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDamagePoi(BlockInfoV2 DamagePoi) {
         this.DamagePoi = DamagePoi;
     }
 
     /**
-     * Get 病案首页第二页
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 病案首页第二页 
      * @return Fp2NdItems 病案首页第二页
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Fp2NdItem [] getFp2NdItems() {
         return this.Fp2NdItems;
@@ -154,12 +139,26 @@ public class FirstPage extends AbstractModel{
 
     /**
      * Set 病案首页第二页
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Fp2NdItems 病案首页第二页
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFp2NdItems(Fp2NdItem [] Fp2NdItems) {
         this.Fp2NdItems = Fp2NdItems;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public FirstPage() {
@@ -191,6 +190,9 @@ public class FirstPage extends AbstractModel{
                 this.Fp2NdItems[i] = new Fp2NdItem(source.Fp2NdItems[i]);
             }
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -203,6 +205,7 @@ public class FirstPage extends AbstractModel{
         this.setParamObj(map, prefix + "ClinicalDiagnosis.", this.ClinicalDiagnosis);
         this.setParamObj(map, prefix + "DamagePoi.", this.DamagePoi);
         this.setParamArrayObj(map, prefix + "Fp2NdItems.", this.Fp2NdItems);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

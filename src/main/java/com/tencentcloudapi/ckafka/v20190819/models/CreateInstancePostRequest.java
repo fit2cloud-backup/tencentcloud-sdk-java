@@ -16,28 +16,22 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInstancePostRequest extends AbstractModel{
+public class CreateInstancePostRequest extends AbstractModel {
 
     /**
-    * 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+    * ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
     */
     @SerializedName("InstanceName")
     @Expose
     private String InstanceName;
 
     /**
-    * 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
-    */
-    @SerializedName("BandWidth")
-    @Expose
-    private Long BandWidth;
-
-    /**
-    * 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+    * 私有网络Id 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
     */
     @SerializedName("VpcId")
     @Expose
@@ -49,6 +43,13 @@ public class CreateInstancePostRequest extends AbstractModel{
     @SerializedName("SubnetId")
     @Expose
     private String SubnetId;
+
+    /**
+    * 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
+    */
+    @SerializedName("BandWidth")
+    @Expose
+    private Long BandWidth;
 
     /**
     * 国际站标准版实例规格。目前只有国际站标准版使用当前字段区分规格，国内站标准版使用峰值带宽区分规格。除了国际站标准版外的所有实例填写 1 即可。国际站标准版实例：入门型(general)]填写1；[标准型(standard)]填写2；[进阶型(advanced)]填写3；[容量型(capacity)]填写4；[高阶型1(specialized-1)]填写5；[高阶型2(specialized-2)]填写6；[高阶型3(specialized-3)]填写7；[高阶型4(specialized-4)]填写8。
@@ -149,48 +150,46 @@ public class CreateInstancePostRequest extends AbstractModel{
     private Long PublicNetworkMonthly;
 
     /**
-     * Get 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-) 
-     * @return InstanceName 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+    * 标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 弹性带宽开关 0不开启  1开启（0默认）
+    */
+    @SerializedName("ElasticBandwidthSwitch")
+    @Expose
+    private Long ElasticBandwidthSwitch;
+
+    /**
+     * Get ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-) 
+     * @return InstanceName ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
-     * @param InstanceName 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+     * Set ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+     * @param InstanceName ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。 
-     * @return BandWidth 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
-     */
-    public Long getBandWidth() {
-        return this.BandWidth;
-    }
-
-    /**
-     * Set 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
-     * @param BandWidth 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
-     */
-    public void setBandWidth(Long BandWidth) {
-        this.BandWidth = BandWidth;
-    }
-
-    /**
-     * Get 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填 
-     * @return VpcId 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+     * Get 私有网络Id 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填 
+     * @return VpcId 私有网络Id 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
-     * @param VpcId 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+     * Set 私有网络Id 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
+     * @param VpcId 私有网络Id 创建的实例默认接入点所在的 vpc 对应 vpcId。目前不支持创建基础网络实例，因此该参数必填
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -210,6 +209,22 @@ public class CreateInstancePostRequest extends AbstractModel{
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
+    }
+
+    /**
+     * Get 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。 
+     * @return BandWidth 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
+     */
+    public Long getBandWidth() {
+        return this.BandWidth;
+    }
+
+    /**
+     * Set 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
+     * @param BandWidth 实例内网峰值带宽。单位 MB/s。标准版需传入当前实例规格所对应的峰值带宽。注意如果创建的实例为专业版实例，峰值带宽，分区数等参数配置需要满足专业版的计费规格。
+     */
+    public void setBandWidth(Long BandWidth) {
+        this.BandWidth = BandWidth;
     }
 
     /**
@@ -436,6 +451,38 @@ public class CreateInstancePostRequest extends AbstractModel{
         this.PublicNetworkMonthly = PublicNetworkMonthly;
     }
 
+    /**
+     * Get 标签 
+     * @return Tags 标签
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+     * @param Tags 标签
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 弹性带宽开关 0不开启  1开启（0默认） 
+     * @return ElasticBandwidthSwitch 弹性带宽开关 0不开启  1开启（0默认）
+     */
+    public Long getElasticBandwidthSwitch() {
+        return this.ElasticBandwidthSwitch;
+    }
+
+    /**
+     * Set 弹性带宽开关 0不开启  1开启（0默认）
+     * @param ElasticBandwidthSwitch 弹性带宽开关 0不开启  1开启（0默认）
+     */
+    public void setElasticBandwidthSwitch(Long ElasticBandwidthSwitch) {
+        this.ElasticBandwidthSwitch = ElasticBandwidthSwitch;
+    }
+
     public CreateInstancePostRequest() {
     }
 
@@ -447,14 +494,14 @@ public class CreateInstancePostRequest extends AbstractModel{
         if (source.InstanceName != null) {
             this.InstanceName = new String(source.InstanceName);
         }
-        if (source.BandWidth != null) {
-            this.BandWidth = new Long(source.BandWidth);
-        }
         if (source.VpcId != null) {
             this.VpcId = new String(source.VpcId);
         }
         if (source.SubnetId != null) {
             this.SubnetId = new String(source.SubnetId);
+        }
+        if (source.BandWidth != null) {
+            this.BandWidth = new Long(source.BandWidth);
         }
         if (source.InstanceType != null) {
             this.InstanceType = new Long(source.InstanceType);
@@ -501,6 +548,15 @@ public class CreateInstancePostRequest extends AbstractModel{
         if (source.PublicNetworkMonthly != null) {
             this.PublicNetworkMonthly = new Long(source.PublicNetworkMonthly);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.ElasticBandwidthSwitch != null) {
+            this.ElasticBandwidthSwitch = new Long(source.ElasticBandwidthSwitch);
+        }
     }
 
 
@@ -509,9 +565,9 @@ public class CreateInstancePostRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
-        this.setParamSimple(map, prefix + "BandWidth", this.BandWidth);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamSimple(map, prefix + "BandWidth", this.BandWidth);
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
         this.setParamSimple(map, prefix + "MsgRetentionTime", this.MsgRetentionTime);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
@@ -526,6 +582,8 @@ public class CreateInstancePostRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamSimple(map, prefix + "InstanceNum", this.InstanceNum);
         this.setParamSimple(map, prefix + "PublicNetworkMonthly", this.PublicNetworkMonthly);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "ElasticBandwidthSwitch", this.ElasticBandwidthSwitch);
 
     }
 }

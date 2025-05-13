@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20230321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClustersRequest extends AbstractModel{
+public class DescribeClustersRequest extends AbstractModel {
 
     /**
     * 集群ID列表。通过该参数可以指定需要查询信息的集群列表。<br>如果您不指定该参数，则返回Limit数量以内的集群信息。
@@ -42,6 +43,20 @@ public class DescribeClustersRequest extends AbstractModel{
     @SerializedName("Limit")
     @Expose
     private Long Limit;
+
+    /**
+    * <ul>
+    <li><strong>cluster-type</strong>
+        <p style="padding-left: 30px;">按照【<strong>集群类型</strong>】进行过滤</p>
+        <p style="padding-left: 30px;">类型：String</p>
+        <p style="padding-left: 30px;">必选：否</p>
+    </li>
+</ul>
+<p style="padding-left: 30px;">每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。</p>
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
 
     /**
      * Get 集群ID列表。通过该参数可以指定需要查询信息的集群列表。<br>如果您不指定该参数，则返回Limit数量以内的集群信息。 
@@ -91,6 +106,50 @@ public class DescribeClustersRequest extends AbstractModel{
         this.Limit = Limit;
     }
 
+    /**
+     * Get <ul>
+    <li><strong>cluster-type</strong>
+        <p style="padding-left: 30px;">按照【<strong>集群类型</strong>】进行过滤</p>
+        <p style="padding-left: 30px;">类型：String</p>
+        <p style="padding-left: 30px;">必选：否</p>
+    </li>
+</ul>
+<p style="padding-left: 30px;">每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。</p> 
+     * @return Filters <ul>
+    <li><strong>cluster-type</strong>
+        <p style="padding-left: 30px;">按照【<strong>集群类型</strong>】进行过滤</p>
+        <p style="padding-left: 30px;">类型：String</p>
+        <p style="padding-left: 30px;">必选：否</p>
+    </li>
+</ul>
+<p style="padding-left: 30px;">每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。</p>
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set <ul>
+    <li><strong>cluster-type</strong>
+        <p style="padding-left: 30px;">按照【<strong>集群类型</strong>】进行过滤</p>
+        <p style="padding-left: 30px;">类型：String</p>
+        <p style="padding-left: 30px;">必选：否</p>
+    </li>
+</ul>
+<p style="padding-left: 30px;">每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。</p>
+     * @param Filters <ul>
+    <li><strong>cluster-type</strong>
+        <p style="padding-left: 30px;">按照【<strong>集群类型</strong>】进行过滤</p>
+        <p style="padding-left: 30px;">类型：String</p>
+        <p style="padding-left: 30px;">必选：否</p>
+    </li>
+</ul>
+<p style="padding-left: 30px;">每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。</p>
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
     public DescribeClustersRequest() {
     }
 
@@ -111,6 +170,12 @@ public class DescribeClustersRequest extends AbstractModel{
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
     }
 
 
@@ -121,6 +186,7 @@ public class DescribeClustersRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ClusterIds.", this.ClusterIds);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
 
     }
 }

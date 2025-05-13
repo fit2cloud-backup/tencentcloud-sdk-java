@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterParamsRequest extends AbstractModel{
+public class DescribeClusterParamsRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -35,6 +36,13 @@ public class DescribeClusterParamsRequest extends AbstractModel{
     @SerializedName("ParamName")
     @Expose
     private String ParamName;
+
+    /**
+    * 是否为全局参数
+    */
+    @SerializedName("IsGlobal")
+    @Expose
+    private String IsGlobal;
 
     /**
      * Get 集群ID 
@@ -68,6 +76,22 @@ public class DescribeClusterParamsRequest extends AbstractModel{
         this.ParamName = ParamName;
     }
 
+    /**
+     * Get 是否为全局参数 
+     * @return IsGlobal 是否为全局参数
+     */
+    public String getIsGlobal() {
+        return this.IsGlobal;
+    }
+
+    /**
+     * Set 是否为全局参数
+     * @param IsGlobal 是否为全局参数
+     */
+    public void setIsGlobal(String IsGlobal) {
+        this.IsGlobal = IsGlobal;
+    }
+
     public DescribeClusterParamsRequest() {
     }
 
@@ -82,6 +106,9 @@ public class DescribeClusterParamsRequest extends AbstractModel{
         if (source.ParamName != null) {
             this.ParamName = new String(source.ParamName);
         }
+        if (source.IsGlobal != null) {
+            this.IsGlobal = new String(source.IsGlobal);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class DescribeClusterParamsRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "ParamName", this.ParamName);
+        this.setParamSimple(map, prefix + "IsGlobal", this.IsGlobal);
 
     }
 }

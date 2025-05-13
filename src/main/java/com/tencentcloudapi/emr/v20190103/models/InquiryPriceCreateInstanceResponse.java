@@ -16,15 +16,15 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquiryPriceCreateInstanceResponse extends AbstractModel{
+public class InquiryPriceCreateInstanceResponse extends AbstractModel {
 
     /**
     * 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginalCost")
     @Expose
@@ -32,7 +32,6 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
 
     /**
     * 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountCost")
     @Expose
@@ -42,7 +41,6 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
     * 购买实例的时间单位。取值范围：
 <li>s：表示秒。</li>
 <li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeUnit")
     @Expose
@@ -50,7 +48,6 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
 
     /**
     * 购买实例的时长。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -65,17 +62,15 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
     private ZoneDetailPriceResult [] PriceList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原价，单位为元。 
      * @return OriginalCost 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOriginalCost() {
         return this.OriginalCost;
@@ -83,19 +78,15 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
 
     /**
      * Set 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginalCost 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginalCost(Float OriginalCost) {
         this.OriginalCost = OriginalCost;
     }
 
     /**
-     * Get 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 折扣价，单位为元。 
      * @return DiscountCost 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountCost() {
         return this.DiscountCost;
@@ -103,9 +94,7 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
 
     /**
      * Set 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountCost 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountCost(Float DiscountCost) {
         this.DiscountCost = DiscountCost;
@@ -114,12 +103,10 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
     /**
      * Get 购买实例的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>m：表示月份。</li> 
      * @return TimeUnit 购买实例的时间单位。取值范围：
 <li>s：表示秒。</li>
 <li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimeUnit() {
         return this.TimeUnit;
@@ -129,21 +116,17 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
      * Set 购买实例的时间单位。取值范围：
 <li>s：表示秒。</li>
 <li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeUnit 购买实例的时间单位。取值范围：
 <li>s：表示秒。</li>
 <li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;
     }
 
     /**
-     * Get 购买实例的时长。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买实例的时长。 
      * @return TimeSpan 购买实例的时长。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
@@ -151,9 +134,7 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
 
     /**
      * Set 购买实例的时长。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeSpan 购买实例的时长。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
@@ -180,16 +161,16 @@ public class InquiryPriceCreateInstanceResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

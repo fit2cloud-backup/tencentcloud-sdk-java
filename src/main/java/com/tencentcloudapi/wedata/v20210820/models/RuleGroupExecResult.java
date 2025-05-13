@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleGroupExecResult extends AbstractModel{
+public class RuleGroupExecResult extends AbstractModel {
 
     /**
     * 规则组执行ID
@@ -141,6 +142,110 @@ public class RuleGroupExecResult extends AbstractModel{
     @SerializedName("EngineType")
     @Expose
     private String EngineType;
+
+    /**
+    * 规则执行结果
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleExecResultVOList")
+    @Expose
+    private RuleExecResult [] RuleExecResultVOList;
+
+    /**
+    * 数据库名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatabaseName")
+    @Expose
+    private String DatabaseName;
+
+    /**
+    * 本地规则表id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleGroupTableId")
+    @Expose
+    private String RuleGroupTableId;
+
+    /**
+    * 集群部署类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClusterDeployType")
+    @Expose
+    private String ClusterDeployType;
+
+    /**
+    * 实例id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 数据库所属环境，0.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DsEnvType")
+    @Expose
+    private String DsEnvType;
+
+    /**
+    * 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
+    * 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectName")
+    @Expose
+    private String ProjectName;
+
+    /**
+    * 实例状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InstanceStatus")
+    @Expose
+    private String InstanceStatus;
+
+    /**
+    * 实例运行的开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private String StartTime;
+
+    /**
+    * 实例运行的结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FinishTime")
+    @Expose
+    private String FinishTime;
+
+    /**
+    * 监控名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleGroupName")
+    @Expose
+    private String RuleGroupName;
+
+    /**
+    * 判断是否屏蔽监控 0.屏蔽 1.不屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleGroupExist")
+    @Expose
+    private String RuleGroupExist;
 
     /**
      * Get 规则组执行ID
@@ -442,6 +547,266 @@ public class RuleGroupExecResult extends AbstractModel{
         this.EngineType = EngineType;
     }
 
+    /**
+     * Get 规则执行结果
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleExecResultVOList 规则执行结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RuleExecResult [] getRuleExecResultVOList() {
+        return this.RuleExecResultVOList;
+    }
+
+    /**
+     * Set 规则执行结果
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleExecResultVOList 规则执行结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleExecResultVOList(RuleExecResult [] RuleExecResultVOList) {
+        this.RuleExecResultVOList = RuleExecResultVOList;
+    }
+
+    /**
+     * Get 数据库名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatabaseName 数据库名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDatabaseName() {
+        return this.DatabaseName;
+    }
+
+    /**
+     * Set 数据库名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatabaseName 数据库名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatabaseName(String DatabaseName) {
+        this.DatabaseName = DatabaseName;
+    }
+
+    /**
+     * Get 本地规则表id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleGroupTableId 本地规则表id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRuleGroupTableId() {
+        return this.RuleGroupTableId;
+    }
+
+    /**
+     * Set 本地规则表id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleGroupTableId 本地规则表id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleGroupTableId(String RuleGroupTableId) {
+        this.RuleGroupTableId = RuleGroupTableId;
+    }
+
+    /**
+     * Get 集群部署类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClusterDeployType 集群部署类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getClusterDeployType() {
+        return this.ClusterDeployType;
+    }
+
+    /**
+     * Set 集群部署类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClusterDeployType 集群部署类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClusterDeployType(String ClusterDeployType) {
+        this.ClusterDeployType = ClusterDeployType;
+    }
+
+    /**
+     * Get 实例id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceId 实例id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceId 实例id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 数据库所属环境，0.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DsEnvType 数据库所属环境，0.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDsEnvType() {
+        return this.DsEnvType;
+    }
+
+    /**
+     * Set 数据库所属环境，0.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DsEnvType 数据库所属环境，0.未定义，1.生产 2.开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDsEnvType(String DsEnvType) {
+        this.DsEnvType = DsEnvType;
+    }
+
+    /**
+     * Get 项目id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectId 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectId 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 项目名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectName 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProjectName() {
+        return this.ProjectName;
+    }
+
+    /**
+     * Set 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectName 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectName(String ProjectName) {
+        this.ProjectName = ProjectName;
+    }
+
+    /**
+     * Get 实例状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InstanceStatus 实例状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getInstanceStatus() {
+        return this.InstanceStatus;
+    }
+
+    /**
+     * Set 实例状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InstanceStatus 实例状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInstanceStatus(String InstanceStatus) {
+        this.InstanceStatus = InstanceStatus;
+    }
+
+    /**
+     * Get 实例运行的开始时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StartTime 实例运行的开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 实例运行的开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StartTime 实例运行的开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStartTime(String StartTime) {
+        this.StartTime = StartTime;
+    }
+
+    /**
+     * Get 实例运行的结束时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FinishTime 实例运行的结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFinishTime() {
+        return this.FinishTime;
+    }
+
+    /**
+     * Set 实例运行的结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FinishTime 实例运行的结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFinishTime(String FinishTime) {
+        this.FinishTime = FinishTime;
+    }
+
+    /**
+     * Get 监控名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleGroupName 监控名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRuleGroupName() {
+        return this.RuleGroupName;
+    }
+
+    /**
+     * Set 监控名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleGroupName 监控名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleGroupName(String RuleGroupName) {
+        this.RuleGroupName = RuleGroupName;
+    }
+
+    /**
+     * Get 判断是否屏蔽监控 0.屏蔽 1.不屏蔽
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleGroupExist 判断是否屏蔽监控 0.屏蔽 1.不屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRuleGroupExist() {
+        return this.RuleGroupExist;
+    }
+
+    /**
+     * Set 判断是否屏蔽监控 0.屏蔽 1.不屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleGroupExist 判断是否屏蔽监控 0.屏蔽 1.不屏蔽
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleGroupExist(String RuleGroupExist) {
+        this.RuleGroupExist = RuleGroupExist;
+    }
+
     public RuleGroupExecResult() {
     }
 
@@ -495,6 +860,48 @@ public class RuleGroupExecResult extends AbstractModel{
         if (source.EngineType != null) {
             this.EngineType = new String(source.EngineType);
         }
+        if (source.RuleExecResultVOList != null) {
+            this.RuleExecResultVOList = new RuleExecResult[source.RuleExecResultVOList.length];
+            for (int i = 0; i < source.RuleExecResultVOList.length; i++) {
+                this.RuleExecResultVOList[i] = new RuleExecResult(source.RuleExecResultVOList[i]);
+            }
+        }
+        if (source.DatabaseName != null) {
+            this.DatabaseName = new String(source.DatabaseName);
+        }
+        if (source.RuleGroupTableId != null) {
+            this.RuleGroupTableId = new String(source.RuleGroupTableId);
+        }
+        if (source.ClusterDeployType != null) {
+            this.ClusterDeployType = new String(source.ClusterDeployType);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.DsEnvType != null) {
+            this.DsEnvType = new String(source.DsEnvType);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ProjectName != null) {
+            this.ProjectName = new String(source.ProjectName);
+        }
+        if (source.InstanceStatus != null) {
+            this.InstanceStatus = new String(source.InstanceStatus);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.FinishTime != null) {
+            this.FinishTime = new String(source.FinishTime);
+        }
+        if (source.RuleGroupName != null) {
+            this.RuleGroupName = new String(source.RuleGroupName);
+        }
+        if (source.RuleGroupExist != null) {
+            this.RuleGroupExist = new String(source.RuleGroupExist);
+        }
     }
 
 
@@ -517,6 +924,19 @@ public class RuleGroupExecResult extends AbstractModel{
         this.setParamSimple(map, prefix + "Permission", this.Permission);
         this.setParamSimple(map, prefix + "ExecDetail", this.ExecDetail);
         this.setParamSimple(map, prefix + "EngineType", this.EngineType);
+        this.setParamArrayObj(map, prefix + "RuleExecResultVOList.", this.RuleExecResultVOList);
+        this.setParamSimple(map, prefix + "DatabaseName", this.DatabaseName);
+        this.setParamSimple(map, prefix + "RuleGroupTableId", this.RuleGroupTableId);
+        this.setParamSimple(map, prefix + "ClusterDeployType", this.ClusterDeployType);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "DsEnvType", this.DsEnvType);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
+        this.setParamSimple(map, prefix + "InstanceStatus", this.InstanceStatus);
+        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
+        this.setParamSimple(map, prefix + "FinishTime", this.FinishTime);
+        this.setParamSimple(map, prefix + "RuleGroupName", this.RuleGroupName);
+        this.setParamSimple(map, prefix + "RuleGroupExist", this.RuleGroupExist);
 
     }
 }

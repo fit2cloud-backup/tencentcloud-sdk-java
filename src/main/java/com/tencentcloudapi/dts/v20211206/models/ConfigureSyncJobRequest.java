@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConfigureSyncJobRequest extends AbstractModel{
+public class ConfigureSyncJobRequest extends AbstractModel {
 
     /**
     * 同步实例id（即标识一个同步作业），形如sync-werwfs23
@@ -79,14 +80,21 @@ public class ConfigureSyncJobRequest extends AbstractModel{
     private String ExpectRunTime;
 
     /**
-    * 源端信息，单节点数据库使用，且SrcNodeType传single
+    * 源端tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，SrcInfos中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。
+    */
+    @SerializedName("SrcConnectType")
+    @Expose
+    private String SrcConnectType;
+
+    /**
+    * 源端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
     */
     @SerializedName("SrcInfo")
     @Expose
     private Endpoint SrcInfo;
 
     /**
-    * 源端信息，多节点数据库使用，且SrcNodeType传cluster
+    * 源端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
     */
     @SerializedName("SrcInfos")
     @Expose
@@ -100,14 +108,14 @@ public class ConfigureSyncJobRequest extends AbstractModel{
     private String SrcNodeType;
 
     /**
-    * 目标端信息，单节点数据库使用
+    * 目标端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
     */
     @SerializedName("DstInfo")
     @Expose
     private Endpoint DstInfo;
 
     /**
-    * 目标端信息，多节点数据库使用，且DstNodeType传cluster
+    * 目标端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
     */
     @SerializedName("DstInfos")
     @Expose
@@ -263,32 +271,48 @@ public class ConfigureSyncJobRequest extends AbstractModel{
     }
 
     /**
-     * Get 源端信息，单节点数据库使用，且SrcNodeType传single 
-     * @return SrcInfo 源端信息，单节点数据库使用，且SrcNodeType传single
+     * Get 源端tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，SrcInfos中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。 
+     * @return SrcConnectType 源端tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，SrcInfos中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。
+     */
+    public String getSrcConnectType() {
+        return this.SrcConnectType;
+    }
+
+    /**
+     * Set 源端tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，SrcInfos中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。
+     * @param SrcConnectType 源端tdsql连接方式：proxy-通过tdsql proxy主机访问各个set节点，注意只有在自研上云的网络环境下才能通过这种方式连接，SrcInfos中只需要提供proxy主机信息。set-直连set节点，如选择直连set方式，需要正确填写proxy主机信息及所有set节点信息。源端是tdsqlmysql类型必填。
+     */
+    public void setSrcConnectType(String SrcConnectType) {
+        this.SrcConnectType = SrcConnectType;
+    }
+
+    /**
+     * Get 源端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。 
+     * @return SrcInfo 源端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
      */
     public Endpoint getSrcInfo() {
         return this.SrcInfo;
     }
 
     /**
-     * Set 源端信息，单节点数据库使用，且SrcNodeType传single
-     * @param SrcInfo 源端信息，单节点数据库使用，且SrcNodeType传single
+     * Set 源端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
+     * @param SrcInfo 源端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
      */
     public void setSrcInfo(Endpoint SrcInfo) {
         this.SrcInfo = SrcInfo;
     }
 
     /**
-     * Get 源端信息，多节点数据库使用，且SrcNodeType传cluster 
-     * @return SrcInfos 源端信息，多节点数据库使用，且SrcNodeType传cluster
+     * Get 源端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。 
+     * @return SrcInfos 源端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
      */
     public SyncDBEndpointInfos getSrcInfos() {
         return this.SrcInfos;
     }
 
     /**
-     * Set 源端信息，多节点数据库使用，且SrcNodeType传cluster
-     * @param SrcInfos 源端信息，多节点数据库使用，且SrcNodeType传cluster
+     * Set 源端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
+     * @param SrcInfos 源端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
      */
     public void setSrcInfos(SyncDBEndpointInfos SrcInfos) {
         this.SrcInfos = SrcInfos;
@@ -311,32 +335,32 @@ public class ConfigureSyncJobRequest extends AbstractModel{
     }
 
     /**
-     * Get 目标端信息，单节点数据库使用 
-     * @return DstInfo 目标端信息，单节点数据库使用
+     * Get 目标端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。 
+     * @return DstInfo 目标端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
      */
     public Endpoint getDstInfo() {
         return this.DstInfo;
     }
 
     /**
-     * Set 目标端信息，单节点数据库使用
-     * @param DstInfo 目标端信息，单节点数据库使用
+     * Set 目标端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
+     * @param DstInfo 目标端信息，单机版类型数据库配置使用，且SrcNodeType传single。例如mysql、percona、mariadb等。
      */
     public void setDstInfo(Endpoint DstInfo) {
         this.DstInfo = DstInfo;
     }
 
     /**
-     * Get 目标端信息，多节点数据库使用，且DstNodeType传cluster 
-     * @return DstInfos 目标端信息，多节点数据库使用，且DstNodeType传cluster
+     * Get 目标端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。 
+     * @return DstInfos 目标端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
      */
     public SyncDBEndpointInfos getDstInfos() {
         return this.DstInfos;
     }
 
     /**
-     * Set 目标端信息，多节点数据库使用，且DstNodeType传cluster
-     * @param DstInfos 目标端信息，多节点数据库使用，且DstNodeType传cluster
+     * Set 目标端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
+     * @param DstInfos 目标端信息，分布式类型数据库配置使用，且SrcNodeType传cluster。例如分布式数据库tdsqlmysql等。
      */
     public void setDstInfos(SyncDBEndpointInfos DstInfos) {
         this.DstInfos = DstInfos;
@@ -422,6 +446,9 @@ public class ConfigureSyncJobRequest extends AbstractModel{
         if (source.ExpectRunTime != null) {
             this.ExpectRunTime = new String(source.ExpectRunTime);
         }
+        if (source.SrcConnectType != null) {
+            this.SrcConnectType = new String(source.SrcConnectType);
+        }
         if (source.SrcInfo != null) {
             this.SrcInfo = new Endpoint(source.SrcInfo);
         }
@@ -461,6 +488,7 @@ public class ConfigureSyncJobRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "JobMode", this.JobMode);
         this.setParamSimple(map, prefix + "RunMode", this.RunMode);
         this.setParamSimple(map, prefix + "ExpectRunTime", this.ExpectRunTime);
+        this.setParamSimple(map, prefix + "SrcConnectType", this.SrcConnectType);
         this.setParamObj(map, prefix + "SrcInfo.", this.SrcInfo);
         this.setParamObj(map, prefix + "SrcInfos.", this.SrcInfos);
         this.setParamSimple(map, prefix + "SrcNodeType", this.SrcNodeType);

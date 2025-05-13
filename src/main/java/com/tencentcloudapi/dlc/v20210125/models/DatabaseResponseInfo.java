@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DatabaseResponseInfo extends AbstractModel{
+public class DatabaseResponseInfo extends AbstractModel {
 
     /**
     * 数据库名称。
@@ -31,7 +32,6 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
     * 数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Comment")
     @Expose
@@ -63,7 +63,6 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
     * cos存储路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Location")
     @Expose
@@ -71,7 +70,6 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
     * 建库用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserAlias")
     @Expose
@@ -79,7 +77,6 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
     * 建库用户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserSubUin")
     @Expose
@@ -95,7 +92,6 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
     * 数据库ID（无效字段）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatabaseId")
     @Expose
@@ -118,10 +114,8 @@ public class DatabaseResponseInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库描述信息，长度 0~256。 
      * @return Comment 数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getComment() {
         return this.Comment;
@@ -129,9 +123,7 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
      * Set 数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Comment 数据库描述信息，长度 0~256。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setComment(String Comment) {
         this.Comment = Comment;
@@ -198,10 +190,8 @@ public class DatabaseResponseInfo extends AbstractModel{
     }
 
     /**
-     * Get cos存储路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cos存储路径 
      * @return Location cos存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLocation() {
         return this.Location;
@@ -209,19 +199,15 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
      * Set cos存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Location cos存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocation(String Location) {
         this.Location = Location;
     }
 
     /**
-     * Get 建库用户昵称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 建库用户昵称 
      * @return UserAlias 建库用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserAlias() {
         return this.UserAlias;
@@ -229,19 +215,15 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
      * Set 建库用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserAlias 建库用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserAlias(String UserAlias) {
         this.UserAlias = UserAlias;
     }
 
     /**
-     * Get 建库用户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 建库用户ID 
      * @return UserSubUin 建库用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserSubUin() {
         return this.UserSubUin;
@@ -249,9 +231,7 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
      * Set 建库用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserSubUin 建库用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserSubUin(String UserSubUin) {
         this.UserSubUin = UserSubUin;
@@ -278,10 +258,8 @@ public class DatabaseResponseInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据库ID（无效字段）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库ID（无效字段） 
      * @return DatabaseId 数据库ID（无效字段）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabaseId() {
         return this.DatabaseId;
@@ -289,9 +267,7 @@ public class DatabaseResponseInfo extends AbstractModel{
 
     /**
      * Set 数据库ID（无效字段）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatabaseId 数据库ID（无效字段）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabaseId(String DatabaseId) {
         this.DatabaseId = DatabaseId;

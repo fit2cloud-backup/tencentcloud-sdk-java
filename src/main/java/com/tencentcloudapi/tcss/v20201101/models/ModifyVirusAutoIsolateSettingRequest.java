@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVirusAutoIsolateSettingRequest extends AbstractModel{
+public class ModifyVirusAutoIsolateSettingRequest extends AbstractModel {
 
     /**
     * 自动隔离开关(true:开 false:关)
@@ -35,6 +36,13 @@ public class ModifyVirusAutoIsolateSettingRequest extends AbstractModel{
     @SerializedName("IsKillProgress")
     @Expose
     private Boolean IsKillProgress;
+
+    /**
+    * 用户用户自定义开关
+    */
+    @SerializedName("UserAutoIsolateKillSwitch")
+    @Expose
+    private Boolean UserAutoIsolateKillSwitch;
 
     /**
      * Get 自动隔离开关(true:开 false:关) 
@@ -68,6 +76,22 @@ public class ModifyVirusAutoIsolateSettingRequest extends AbstractModel{
         this.IsKillProgress = IsKillProgress;
     }
 
+    /**
+     * Get 用户用户自定义开关 
+     * @return UserAutoIsolateKillSwitch 用户用户自定义开关
+     */
+    public Boolean getUserAutoIsolateKillSwitch() {
+        return this.UserAutoIsolateKillSwitch;
+    }
+
+    /**
+     * Set 用户用户自定义开关
+     * @param UserAutoIsolateKillSwitch 用户用户自定义开关
+     */
+    public void setUserAutoIsolateKillSwitch(Boolean UserAutoIsolateKillSwitch) {
+        this.UserAutoIsolateKillSwitch = UserAutoIsolateKillSwitch;
+    }
+
     public ModifyVirusAutoIsolateSettingRequest() {
     }
 
@@ -82,6 +106,9 @@ public class ModifyVirusAutoIsolateSettingRequest extends AbstractModel{
         if (source.IsKillProgress != null) {
             this.IsKillProgress = new Boolean(source.IsKillProgress);
         }
+        if (source.UserAutoIsolateKillSwitch != null) {
+            this.UserAutoIsolateKillSwitch = new Boolean(source.UserAutoIsolateKillSwitch);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class ModifyVirusAutoIsolateSettingRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "AutoIsolateSwitch", this.AutoIsolateSwitch);
         this.setParamSimple(map, prefix + "IsKillProgress", this.IsKillProgress);
+        this.setParamSimple(map, prefix + "UserAutoIsolateKillSwitch", this.UserAutoIsolateKillSwitch);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotvideo.v20211125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PackageInfo extends AbstractModel{
+public class PackageInfo extends AbstractModel {
 
     /**
     * 云存开启状态，0为未开启，2为正在生效，1为已过期
@@ -82,6 +83,21 @@ public class PackageInfo extends AbstractModel{
     @SerializedName("OrderId")
     @Expose
     private String OrderId;
+
+    /**
+    * 通道id
+    */
+    @SerializedName("ChannelId")
+    @Expose
+    private Long ChannelId;
+
+    /**
+    * 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CSUserId")
+    @Expose
+    private String CSUserId;
 
     /**
      * Get 云存开启状态，0为未开启，2为正在生效，1为已过期
@@ -231,6 +247,42 @@ public class PackageInfo extends AbstractModel{
         this.OrderId = OrderId;
     }
 
+    /**
+     * Get 通道id 
+     * @return ChannelId 通道id
+     */
+    public Long getChannelId() {
+        return this.ChannelId;
+    }
+
+    /**
+     * Set 通道id
+     * @param ChannelId 通道id
+     */
+    public void setChannelId(Long ChannelId) {
+        this.ChannelId = ChannelId;
+    }
+
+    /**
+     * Get 用户id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CSUserId 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCSUserId() {
+        return this.CSUserId;
+    }
+
+    /**
+     * Set 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CSUserId 用户id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCSUserId(String CSUserId) {
+        this.CSUserId = CSUserId;
+    }
+
     public PackageInfo() {
     }
 
@@ -263,6 +315,12 @@ public class PackageInfo extends AbstractModel{
         if (source.OrderId != null) {
             this.OrderId = new String(source.OrderId);
         }
+        if (source.ChannelId != null) {
+            this.ChannelId = new Long(source.ChannelId);
+        }
+        if (source.CSUserId != null) {
+            this.CSUserId = new String(source.CSUserId);
+        }
     }
 
 
@@ -278,6 +336,8 @@ public class PackageInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdatedAt", this.UpdatedAt);
         this.setParamSimple(map, prefix + "PackageId", this.PackageId);
         this.setParamSimple(map, prefix + "OrderId", this.OrderId);
+        this.setParamSimple(map, prefix + "ChannelId", this.ChannelId);
+        this.setParamSimple(map, prefix + "CSUserId", this.CSUserId);
 
     }
 }

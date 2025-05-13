@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends AbstractModel{
+public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends AbstractModel {
 
     /**
     * 镜像个数
@@ -38,7 +39,6 @@ public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends Abstract
 
     /**
     * 扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageStatus")
     @Expose
@@ -74,14 +74,13 @@ public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends Abstract
 
     /**
     * 扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanRemainTime")
     @Expose
     private Long ScanRemainTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -120,10 +119,8 @@ public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends Abstract
     }
 
     /**
-     * Get 扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描进度列表 
      * @return ImageStatus 扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ImageProgress [] getImageStatus() {
         return this.ImageStatus;
@@ -131,9 +128,7 @@ public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends Abstract
 
     /**
      * Set 扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageStatus 扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageStatus(ImageProgress [] ImageStatus) {
         this.ImageStatus = ImageStatus;
@@ -204,10 +199,8 @@ public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends Abstract
     }
 
     /**
-     * Get 扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描剩余时间 
      * @return ScanRemainTime 扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanRemainTime() {
         return this.ScanRemainTime;
@@ -215,25 +208,23 @@ public class DescribeAssetImageRegistryScanStatusOneKeyResponse extends Abstract
 
     /**
      * Set 扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanRemainTime 扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanRemainTime(Long ScanRemainTime) {
         this.ScanRemainTime = ScanRemainTime;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

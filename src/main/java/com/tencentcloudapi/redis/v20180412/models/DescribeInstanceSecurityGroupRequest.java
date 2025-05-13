@@ -16,30 +16,31 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceSecurityGroupRequest extends AbstractModel{
+public class DescribeInstanceSecurityGroupRequest extends AbstractModel {
 
     /**
-    * 实例 ID 列表。例如;["crs-f2ho5rsz\n"]
+    * 实例 ID 列表，数组长度限制[0,100]。例如：["crs-f2ho5rsz\n"]
     */
     @SerializedName("InstanceIds")
     @Expose
     private String [] InstanceIds;
 
     /**
-     * Get 实例 ID 列表。例如;["crs-f2ho5rsz\n"] 
-     * @return InstanceIds 实例 ID 列表。例如;["crs-f2ho5rsz\n"]
+     * Get 实例 ID 列表，数组长度限制[0,100]。例如：["crs-f2ho5rsz\n"] 
+     * @return InstanceIds 实例 ID 列表，数组长度限制[0,100]。例如：["crs-f2ho5rsz\n"]
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
     }
 
     /**
-     * Set 实例 ID 列表。例如;["crs-f2ho5rsz\n"]
-     * @param InstanceIds 实例 ID 列表。例如;["crs-f2ho5rsz\n"]
+     * Set 实例 ID 列表，数组长度限制[0,100]。例如：["crs-f2ho5rsz\n"]
+     * @param InstanceIds 实例 ID 列表，数组长度限制[0,100]。例如：["crs-f2ho5rsz\n"]
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;

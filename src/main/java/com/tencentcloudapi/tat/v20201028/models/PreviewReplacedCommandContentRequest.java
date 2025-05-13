@@ -16,14 +16,18 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PreviewReplacedCommandContentRequest extends AbstractModel{
+public class PreviewReplacedCommandContentRequest extends AbstractModel {
 
     /**
-    * 本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+    * 本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
@@ -34,7 +38,8 @@ key 为自定义参数名称，value 为该参数的取值。kv 均为字符串�
     private String Parameters;
 
     /**
-    * 要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+    * 要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
     */
     @SerializedName("CommandId")
@@ -50,12 +55,18 @@ CommandId 与 Content，必须且只能提供一个。
     private String Content;
 
     /**
-     * Get 本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+     * Get 本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
 如果将预览的 CommandId 设置过 DefaultParameters，本参数可以为空。 
-     * @return Parameters 本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+     * @return Parameters 本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
@@ -66,12 +77,18 @@ key 为自定义参数名称，value 为该参数的取值。kv 均为字符串�
     }
 
     /**
-     * Set 本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+     * Set 本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
 如果将预览的 CommandId 设置过 DefaultParameters，本参数可以为空。
-     * @param Parameters 本次预览采用的自定义参数。字段类型为 json encoded string，如：{\"varA\": \"222\"}。
+     * @param Parameters 本次预览采用的自定义参数。字段类型为 json encoded string，如：{"varA": "222"}。
+仅在命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+如果有设置过 DefaultParameters 或 DefaultParameterConfs，会与 Parameters 进行叠加，优先使用 Parameters 的值。
+
 key 为自定义参数名称，value 为该参数的取值。kv 均为字符串型。
 自定义参数最多 20 个。
 自定义参数名称需符合以下规范：字符数目上限 64，可选范围【a-zA-Z0-9-_】。
@@ -82,9 +99,11 @@ key 为自定义参数名称，value 为该参数的取值。kv 均为字符串�
     }
 
     /**
-     * Get 要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+     * Get 要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。 
-     * @return CommandId 要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+     * @return CommandId 要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
      */
     public String getCommandId() {
@@ -92,9 +111,11 @@ CommandId 与 Content，必须且只能提供一个。
     }
 
     /**
-     * Set 要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+     * Set 要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
-     * @param CommandId 要进行替换预览的命令，如果有设置过 DefaultParameters，会与 Parameters 进行叠加，后者覆盖前者。
+     * @param CommandId 要进行替换预览的命令。
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
 CommandId 与 Content，必须且只能提供一个。
      */
     public void setCommandId(String CommandId) {

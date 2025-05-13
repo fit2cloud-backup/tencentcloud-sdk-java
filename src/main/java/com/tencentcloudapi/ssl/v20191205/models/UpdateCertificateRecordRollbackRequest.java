@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateCertificateRecordRollbackRequest extends AbstractModel{
+public class UpdateCertificateRecordRollbackRequest extends AbstractModel {
 
     /**
-    * 待重试部署记录ID
+    * 更新证书待回滚的记录ID, 通过UpdateCertificateInstance获得
     */
     @SerializedName("DeployRecordId")
     @Expose
     private Long DeployRecordId;
 
     /**
-     * Get 待重试部署记录ID 
-     * @return DeployRecordId 待重试部署记录ID
+     * Get 更新证书待回滚的记录ID, 通过UpdateCertificateInstance获得 
+     * @return DeployRecordId 更新证书待回滚的记录ID, 通过UpdateCertificateInstance获得
      */
     public Long getDeployRecordId() {
         return this.DeployRecordId;
     }
 
     /**
-     * Set 待重试部署记录ID
-     * @param DeployRecordId 待重试部署记录ID
+     * Set 更新证书待回滚的记录ID, 通过UpdateCertificateInstance获得
+     * @param DeployRecordId 更新证书待回滚的记录ID, 通过UpdateCertificateInstance获得
      */
     public void setDeployRecordId(Long DeployRecordId) {
         this.DeployRecordId = DeployRecordId;

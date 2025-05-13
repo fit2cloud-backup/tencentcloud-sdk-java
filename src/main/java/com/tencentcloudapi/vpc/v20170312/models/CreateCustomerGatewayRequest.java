@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCustomerGatewayRequest extends AbstractModel{
+public class CreateCustomerGatewayRequest extends AbstractModel {
 
     /**
     * 对端网关名称，可任意命名，但不得超过60个字符。
@@ -42,6 +43,13 @@ public class CreateCustomerGatewayRequest extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private Tag [] Tags;
+
+    /**
+    * BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+    */
+    @SerializedName("BgpAsn")
+    @Expose
+    private Long BgpAsn;
 
     /**
      * Get 对端网关名称，可任意命名，但不得超过60个字符。 
@@ -91,6 +99,22 @@ public class CreateCustomerGatewayRequest extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。 
+     * @return BgpAsn BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+     */
+    public Long getBgpAsn() {
+        return this.BgpAsn;
+    }
+
+    /**
+     * Set BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+     * @param BgpAsn BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+     */
+    public void setBgpAsn(Long BgpAsn) {
+        this.BgpAsn = BgpAsn;
+    }
+
     public CreateCustomerGatewayRequest() {
     }
 
@@ -111,6 +135,9 @@ public class CreateCustomerGatewayRequest extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.BgpAsn != null) {
+            this.BgpAsn = new Long(source.BgpAsn);
+        }
     }
 
 
@@ -121,6 +148,7 @@ public class CreateCustomerGatewayRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CustomerGatewayName", this.CustomerGatewayName);
         this.setParamSimple(map, prefix + "IpAddress", this.IpAddress);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "BgpAsn", this.BgpAsn);
 
     }
 }

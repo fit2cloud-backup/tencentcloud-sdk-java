@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteRuleTemplateRequest extends AbstractModel{
+public class DeleteRuleTemplateRequest extends AbstractModel {
 
     /**
     * 项目Id
@@ -30,7 +31,7 @@ public class DeleteRuleTemplateRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-    * 模版Id列表
+    * 模板Id列表
     */
     @SerializedName("Ids")
     @Expose
@@ -53,16 +54,16 @@ public class DeleteRuleTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 模版Id列表 
-     * @return Ids 模版Id列表
+     * Get 模板Id列表 
+     * @return Ids 模板Id列表
      */
     public Long [] getIds() {
         return this.Ids;
     }
 
     /**
-     * Set 模版Id列表
-     * @param Ids 模版Id列表
+     * Set 模板Id列表
+     * @param Ids 模板Id列表
      */
     public void setIds(Long [] Ids) {
         this.Ids = Ids;

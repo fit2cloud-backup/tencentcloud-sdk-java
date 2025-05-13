@@ -16,58 +16,65 @@
 package com.tencentcloudapi.rce.v20201103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InputManageMarketingRisk extends AbstractModel{
+public class InputManageMarketingRisk extends AbstractModel {
 
     /**
-    * 账号信息。
+    * 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
     */
     @SerializedName("Account")
     @Expose
     private AccountInfo Account;
 
     /**
-    * 场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
+    * 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
     */
     @SerializedName("SceneCode")
     @Expose
     private String SceneCode;
 
     /**
-    * 登录来源的外网IP
+    * 用户外网ip（传入用户非外网ip会影响判断结果）。
     */
     @SerializedName("UserIp")
     @Expose
     private String UserIp;
 
     /**
-    * 时间戳
+    * 用户操作时间戳，精确到秒。
     */
     @SerializedName("PostTime")
     @Expose
     private Long PostTime;
 
     /**
-    * 用户唯一标识。
+    * 业务平台用户唯一标识，支持自定义。
     */
     @SerializedName("UserId")
     @Expose
     private String UserId;
 
     /**
-    * 设备指纹token。
+    * 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
     */
     @SerializedName("DeviceToken")
     @Expose
     private String DeviceToken;
 
     /**
-    * 设备指纹BusinessId
+    * 设备指纹 BusinessId。
     */
     @SerializedName("DeviceBusinessId")
     @Expose
@@ -88,7 +95,7 @@ public class InputManageMarketingRisk extends AbstractModel{
     private String Nickname;
 
     /**
-    * 用户邮箱地址（非系统自动生成）。
+    * 用户邮箱地址。
     */
     @SerializedName("EmailAddress")
     @Expose
@@ -146,157 +153,189 @@ public class InputManageMarketingRisk extends AbstractModel{
     private String VendorId;
 
     /**
-    * 设备类型：
-1：Android
-2：IOS
+    * 设备类型(已不推荐使用)。
     */
     @SerializedName("DeviceType")
     @Expose
     private Long DeviceType;
 
     /**
-    * 详细信息
+    * 扩展字段。
     */
     @SerializedName("Details")
     @Expose
     private InputDetails [] Details;
 
     /**
-    * 可选填写。详情请跳转至SponsorInfo查看。
+    * 邀请助力场景相关信息。
     */
     @SerializedName("Sponsor")
     @Expose
     private SponsorInfo Sponsor;
 
     /**
-    * 可选填写。详情请跳转至OnlineScamInfo查看。
+    * 详情请跳转至OnlineScamInfo查看。
     */
     @SerializedName("OnlineScam")
     @Expose
     private OnlineScamInfo OnlineScam;
 
     /**
-    * 平台: 1android
+    * 1：Android
+2：iOS
+3：H5
+4：小程序
     */
     @SerializedName("Platform")
     @Expose
     private String Platform;
 
     /**
-     * Get 账号信息。 
-     * @return Account 账号信息。
+    * 数据授权信息。
+    */
+    @SerializedName("DataAuthorization")
+    @Expose
+    private DataAuthorizationInfo DataAuthorization;
+
+    /**
+     * Get 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值 
+     * @return Account 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
      */
     public AccountInfo getAccount() {
         return this.Account;
     }
 
     /**
-     * Set 账号信息。
-     * @param Account 账号信息。
+     * Set 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
+     * @param Account 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
      */
     public void setAccount(AccountInfo Account) {
         this.Account = Account;
     }
 
     /**
-     * Get 场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot； 
-     * @return SceneCode 场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
+     * Get 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection 
+     * @return SceneCode 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
      */
     public String getSceneCode() {
         return this.SceneCode;
     }
 
     /**
-     * Set 场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
-     * @param SceneCode 场景类型：场景SceneCode, 控制台上新建对应的场景并获取对应的值；
-例如：e_register_protection_1521184361
-控制台链接：https://console.cloud.tencent.com/rce/risk/sceneroot；
+     * Set 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
+     * @param SceneCode 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
      */
     public void setSceneCode(String SceneCode) {
         this.SceneCode = SceneCode;
     }
 
     /**
-     * Get 登录来源的外网IP 
-     * @return UserIp 登录来源的外网IP
+     * Get 用户外网ip（传入用户非外网ip会影响判断结果）。 
+     * @return UserIp 用户外网ip（传入用户非外网ip会影响判断结果）。
      */
     public String getUserIp() {
         return this.UserIp;
     }
 
     /**
-     * Set 登录来源的外网IP
-     * @param UserIp 登录来源的外网IP
+     * Set 用户外网ip（传入用户非外网ip会影响判断结果）。
+     * @param UserIp 用户外网ip（传入用户非外网ip会影响判断结果）。
      */
     public void setUserIp(String UserIp) {
         this.UserIp = UserIp;
     }
 
     /**
-     * Get 时间戳 
-     * @return PostTime 时间戳
+     * Get 用户操作时间戳，精确到秒。 
+     * @return PostTime 用户操作时间戳，精确到秒。
      */
     public Long getPostTime() {
         return this.PostTime;
     }
 
     /**
-     * Set 时间戳
-     * @param PostTime 时间戳
+     * Set 用户操作时间戳，精确到秒。
+     * @param PostTime 用户操作时间戳，精确到秒。
      */
     public void setPostTime(Long PostTime) {
         this.PostTime = PostTime;
     }
 
     /**
-     * Get 用户唯一标识。 
-     * @return UserId 用户唯一标识。
+     * Get 业务平台用户唯一标识，支持自定义。 
+     * @return UserId 业务平台用户唯一标识，支持自定义。
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 用户唯一标识。
-     * @param UserId 用户唯一标识。
+     * Set 业务平台用户唯一标识，支持自定义。
+     * @param UserId 业务平台用户唯一标识，支持自定义。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
 
     /**
-     * Get 设备指纹token。 
-     * @return DeviceToken 设备指纹token。
+     * Get 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。 
+     * @return DeviceToken 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
      */
     public String getDeviceToken() {
         return this.DeviceToken;
     }
 
     /**
-     * Set 设备指纹token。
-     * @param DeviceToken 设备指纹token。
+     * Set 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
+     * @param DeviceToken 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
      */
     public void setDeviceToken(String DeviceToken) {
         this.DeviceToken = DeviceToken;
     }
 
     /**
-     * Get 设备指纹BusinessId 
-     * @return DeviceBusinessId 设备指纹BusinessId
+     * Get 设备指纹 BusinessId。 
+     * @return DeviceBusinessId 设备指纹 BusinessId。
      */
     public Long getDeviceBusinessId() {
         return this.DeviceBusinessId;
     }
 
     /**
-     * Set 设备指纹BusinessId
-     * @param DeviceBusinessId 设备指纹BusinessId
+     * Set 设备指纹 BusinessId。
+     * @param DeviceBusinessId 设备指纹 BusinessId。
      */
     public void setDeviceBusinessId(Long DeviceBusinessId) {
         this.DeviceBusinessId = DeviceBusinessId;
@@ -335,16 +374,16 @@ public class InputManageMarketingRisk extends AbstractModel{
     }
 
     /**
-     * Get 用户邮箱地址（非系统自动生成）。 
-     * @return EmailAddress 用户邮箱地址（非系统自动生成）。
+     * Get 用户邮箱地址。 
+     * @return EmailAddress 用户邮箱地址。
      */
     public String getEmailAddress() {
         return this.EmailAddress;
     }
 
     /**
-     * Set 用户邮箱地址（非系统自动生成）。
-     * @param EmailAddress 用户邮箱地址（非系统自动生成）。
+     * Set 用户邮箱地址。
+     * @param EmailAddress 用户邮箱地址。
      */
     public void setEmailAddress(String EmailAddress) {
         this.EmailAddress = EmailAddress;
@@ -471,91 +510,111 @@ public class InputManageMarketingRisk extends AbstractModel{
     }
 
     /**
-     * Get 设备类型：
-1：Android
-2：IOS 
-     * @return DeviceType 设备类型：
-1：Android
-2：IOS
+     * Get 设备类型(已不推荐使用)。 
+     * @return DeviceType 设备类型(已不推荐使用)。
      */
     public Long getDeviceType() {
         return this.DeviceType;
     }
 
     /**
-     * Set 设备类型：
-1：Android
-2：IOS
-     * @param DeviceType 设备类型：
-1：Android
-2：IOS
+     * Set 设备类型(已不推荐使用)。
+     * @param DeviceType 设备类型(已不推荐使用)。
      */
     public void setDeviceType(Long DeviceType) {
         this.DeviceType = DeviceType;
     }
 
     /**
-     * Get 详细信息 
-     * @return Details 详细信息
+     * Get 扩展字段。 
+     * @return Details 扩展字段。
      */
     public InputDetails [] getDetails() {
         return this.Details;
     }
 
     /**
-     * Set 详细信息
-     * @param Details 详细信息
+     * Set 扩展字段。
+     * @param Details 扩展字段。
      */
     public void setDetails(InputDetails [] Details) {
         this.Details = Details;
     }
 
     /**
-     * Get 可选填写。详情请跳转至SponsorInfo查看。 
-     * @return Sponsor 可选填写。详情请跳转至SponsorInfo查看。
+     * Get 邀请助力场景相关信息。 
+     * @return Sponsor 邀请助力场景相关信息。
      */
     public SponsorInfo getSponsor() {
         return this.Sponsor;
     }
 
     /**
-     * Set 可选填写。详情请跳转至SponsorInfo查看。
-     * @param Sponsor 可选填写。详情请跳转至SponsorInfo查看。
+     * Set 邀请助力场景相关信息。
+     * @param Sponsor 邀请助力场景相关信息。
      */
     public void setSponsor(SponsorInfo Sponsor) {
         this.Sponsor = Sponsor;
     }
 
     /**
-     * Get 可选填写。详情请跳转至OnlineScamInfo查看。 
-     * @return OnlineScam 可选填写。详情请跳转至OnlineScamInfo查看。
+     * Get 详情请跳转至OnlineScamInfo查看。 
+     * @return OnlineScam 详情请跳转至OnlineScamInfo查看。
      */
     public OnlineScamInfo getOnlineScam() {
         return this.OnlineScam;
     }
 
     /**
-     * Set 可选填写。详情请跳转至OnlineScamInfo查看。
-     * @param OnlineScam 可选填写。详情请跳转至OnlineScamInfo查看。
+     * Set 详情请跳转至OnlineScamInfo查看。
+     * @param OnlineScam 详情请跳转至OnlineScamInfo查看。
      */
     public void setOnlineScam(OnlineScamInfo OnlineScam) {
         this.OnlineScam = OnlineScam;
     }
 
     /**
-     * Get 平台: 1android 
-     * @return Platform 平台: 1android
+     * Get 1：Android
+2：iOS
+3：H5
+4：小程序 
+     * @return Platform 1：Android
+2：iOS
+3：H5
+4：小程序
      */
     public String getPlatform() {
         return this.Platform;
     }
 
     /**
-     * Set 平台: 1android
-     * @param Platform 平台: 1android
+     * Set 1：Android
+2：iOS
+3：H5
+4：小程序
+     * @param Platform 1：Android
+2：iOS
+3：H5
+4：小程序
      */
     public void setPlatform(String Platform) {
         this.Platform = Platform;
+    }
+
+    /**
+     * Get 数据授权信息。 
+     * @return DataAuthorization 数据授权信息。
+     */
+    public DataAuthorizationInfo getDataAuthorization() {
+        return this.DataAuthorization;
+    }
+
+    /**
+     * Set 数据授权信息。
+     * @param DataAuthorization 数据授权信息。
+     */
+    public void setDataAuthorization(DataAuthorizationInfo DataAuthorization) {
+        this.DataAuthorization = DataAuthorization;
     }
 
     public InputManageMarketingRisk() {
@@ -635,6 +694,9 @@ public class InputManageMarketingRisk extends AbstractModel{
         if (source.Platform != null) {
             this.Platform = new String(source.Platform);
         }
+        if (source.DataAuthorization != null) {
+            this.DataAuthorization = new DataAuthorizationInfo(source.DataAuthorization);
+        }
     }
 
 
@@ -664,6 +726,7 @@ public class InputManageMarketingRisk extends AbstractModel{
         this.setParamObj(map, prefix + "Sponsor.", this.Sponsor);
         this.setParamObj(map, prefix + "OnlineScam.", this.OnlineScam);
         this.setParamSimple(map, prefix + "Platform", this.Platform);
+        this.setParamObj(map, prefix + "DataAuthorization.", this.DataAuthorization);
 
     }
 }

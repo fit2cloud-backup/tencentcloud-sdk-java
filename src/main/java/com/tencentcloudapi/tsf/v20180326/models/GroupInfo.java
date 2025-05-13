@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GroupInfo extends AbstractModel{
+public class GroupInfo extends AbstractModel {
 
     /**
     * 部署组id
@@ -45,7 +46,6 @@ public class GroupInfo extends AbstractModel{
 
     /**
     * 集群id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -53,7 +53,6 @@ public class GroupInfo extends AbstractModel{
 
     /**
     * 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterName")
     @Expose
@@ -61,7 +60,6 @@ public class GroupInfo extends AbstractModel{
 
     /**
     * 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NamespaceName")
     @Expose
@@ -69,7 +67,6 @@ public class GroupInfo extends AbstractModel{
 
     /**
     * 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssociateTime")
     @Expose
@@ -124,10 +121,8 @@ public class GroupInfo extends AbstractModel{
     }
 
     /**
-     * Get 集群id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群id 
      * @return ClusterId 集群id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -135,19 +130,15 @@ public class GroupInfo extends AbstractModel{
 
     /**
      * Set 集群id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 集群id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get 集群名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群名称 
      * @return ClusterName 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterName() {
         return this.ClusterName;
@@ -155,19 +146,15 @@ public class GroupInfo extends AbstractModel{
 
     /**
      * Set 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterName 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;
     }
 
     /**
-     * Get 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命名空间名称 
      * @return NamespaceName 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespaceName() {
         return this.NamespaceName;
@@ -175,19 +162,15 @@ public class GroupInfo extends AbstractModel{
 
     /**
      * Set 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NamespaceName 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespaceName(String NamespaceName) {
         this.NamespaceName = NamespaceName;
     }
 
     /**
-     * Get 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定时间 
      * @return AssociateTime 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAssociateTime() {
         return this.AssociateTime;
@@ -195,9 +178,7 @@ public class GroupInfo extends AbstractModel{
 
     /**
      * Set 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssociateTime 绑定时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssociateTime(String AssociateTime) {
         this.AssociateTime = AssociateTime;

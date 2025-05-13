@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssignIpv6CidrBlockRequest extends AbstractModel{
+public class AssignIpv6CidrBlockRequest extends AbstractModel {
 
     /**
     * `VPC`实例`ID`，形如：`vpc-f49l6u0z`。
@@ -28,6 +29,13 @@ public class AssignIpv6CidrBlockRequest extends AbstractModel{
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
+
+    /**
+    * 申请IPv6 Cidr 的类型，`GUA`(全球单播地址), `ULA`(唯一本地地址)。
+    */
+    @SerializedName("AddressType")
+    @Expose
+    private String AddressType;
 
     /**
      * Get `VPC`实例`ID`，形如：`vpc-f49l6u0z`。 
@@ -45,6 +53,22 @@ public class AssignIpv6CidrBlockRequest extends AbstractModel{
         this.VpcId = VpcId;
     }
 
+    /**
+     * Get 申请IPv6 Cidr 的类型，`GUA`(全球单播地址), `ULA`(唯一本地地址)。 
+     * @return AddressType 申请IPv6 Cidr 的类型，`GUA`(全球单播地址), `ULA`(唯一本地地址)。
+     */
+    public String getAddressType() {
+        return this.AddressType;
+    }
+
+    /**
+     * Set 申请IPv6 Cidr 的类型，`GUA`(全球单播地址), `ULA`(唯一本地地址)。
+     * @param AddressType 申请IPv6 Cidr 的类型，`GUA`(全球单播地址), `ULA`(唯一本地地址)。
+     */
+    public void setAddressType(String AddressType) {
+        this.AddressType = AddressType;
+    }
+
     public AssignIpv6CidrBlockRequest() {
     }
 
@@ -56,6 +80,9 @@ public class AssignIpv6CidrBlockRequest extends AbstractModel{
         if (source.VpcId != null) {
             this.VpcId = new String(source.VpcId);
         }
+        if (source.AddressType != null) {
+            this.AddressType = new String(source.AddressType);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class AssignIpv6CidrBlockRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
+        this.setParamSimple(map, prefix + "AddressType", this.AddressType);
 
     }
 }

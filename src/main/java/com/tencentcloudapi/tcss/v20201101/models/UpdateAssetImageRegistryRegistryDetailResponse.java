@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateAssetImageRegistryRegistryDetailResponse extends AbstractModel{
+public class UpdateAssetImageRegistryRegistryDetailResponse extends AbstractModel {
 
     /**
     * 连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HealthCheckErr")
     @Expose
@@ -32,7 +32,6 @@ public class UpdateAssetImageRegistryRegistryDetailResponse extends AbstractMode
 
     /**
     * 名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NameRepeatErr")
     @Expose
@@ -40,24 +39,21 @@ public class UpdateAssetImageRegistryRegistryDetailResponse extends AbstractMode
 
     /**
     * 仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegistryId")
     @Expose
     private Long RegistryId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接错误信息 
      * @return HealthCheckErr 连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHealthCheckErr() {
         return this.HealthCheckErr;
@@ -65,19 +61,15 @@ public class UpdateAssetImageRegistryRegistryDetailResponse extends AbstractMode
 
     /**
      * Set 连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HealthCheckErr 连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHealthCheckErr(String HealthCheckErr) {
         this.HealthCheckErr = HealthCheckErr;
     }
 
     /**
-     * Get 名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称错误信息 
      * @return NameRepeatErr 名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNameRepeatErr() {
         return this.NameRepeatErr;
@@ -85,19 +77,15 @@ public class UpdateAssetImageRegistryRegistryDetailResponse extends AbstractMode
 
     /**
      * Set 名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NameRepeatErr 名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNameRepeatErr(String NameRepeatErr) {
         this.NameRepeatErr = NameRepeatErr;
     }
 
     /**
-     * Get 仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库唯一id 
      * @return RegistryId 仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRegistryId() {
         return this.RegistryId;
@@ -105,25 +93,23 @@ public class UpdateAssetImageRegistryRegistryDetailResponse extends AbstractMode
 
     /**
      * Set 仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegistryId 仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegistryId(Long RegistryId) {
         this.RegistryId = RegistryId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

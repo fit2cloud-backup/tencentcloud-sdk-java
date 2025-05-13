@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcbr.v20220217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCloudRunServerDetailResponse extends AbstractModel{
+public class DescribeCloudRunServerDetailResponse extends AbstractModel {
 
     /**
     * 服务基本信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BaseInfo")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeCloudRunServerDetailResponse extends AbstractModel{
 
     /**
     * 服务配置信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServerConfig")
     @Expose
@@ -40,24 +39,21 @@ public class DescribeCloudRunServerDetailResponse extends AbstractModel{
 
     /**
     * 在线版本信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OnlineVersionInfos")
     @Expose
     private OnlineVersionInfo [] OnlineVersionInfos;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 服务基本信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务基本信息 
      * @return BaseInfo 服务基本信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ServerBaseInfo getBaseInfo() {
         return this.BaseInfo;
@@ -65,19 +61,15 @@ public class DescribeCloudRunServerDetailResponse extends AbstractModel{
 
     /**
      * Set 服务基本信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BaseInfo 服务基本信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBaseInfo(ServerBaseInfo BaseInfo) {
         this.BaseInfo = BaseInfo;
     }
 
     /**
-     * Get 服务配置信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务配置信息 
      * @return ServerConfig 服务配置信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ServerBaseConfig getServerConfig() {
         return this.ServerConfig;
@@ -85,19 +77,15 @@ public class DescribeCloudRunServerDetailResponse extends AbstractModel{
 
     /**
      * Set 服务配置信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServerConfig 服务配置信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServerConfig(ServerBaseConfig ServerConfig) {
         this.ServerConfig = ServerConfig;
     }
 
     /**
-     * Get 在线版本信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 在线版本信息 
      * @return OnlineVersionInfos 在线版本信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OnlineVersionInfo [] getOnlineVersionInfos() {
         return this.OnlineVersionInfos;
@@ -105,25 +93,23 @@ public class DescribeCloudRunServerDetailResponse extends AbstractModel{
 
     /**
      * Set 在线版本信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OnlineVersionInfos 在线版本信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOnlineVersionInfos(OnlineVersionInfo [] OnlineVersionInfos) {
         this.OnlineVersionInfos = OnlineVersionInfos;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

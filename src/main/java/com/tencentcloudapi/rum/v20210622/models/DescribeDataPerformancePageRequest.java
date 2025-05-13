@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataPerformancePageRequest extends AbstractModel{
+public class DescribeDataPerformancePageRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -44,7 +45,7 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
     private Long EndTime;
 
     /**
-    * pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+    * pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
     */
     @SerializedName("Type")
     @Expose
@@ -121,7 +122,7 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
     private String ExtThird;
 
     /**
-    * 是否海外
+    * 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
     */
     @SerializedName("IsAbroad")
     @Expose
@@ -232,16 +233,16 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
     }
 
     /**
-     * Get pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等 
-     * @return Type pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+     * Get pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等 
+     * @return Type pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
-     * @param Type pagepv：性能视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+     * Set pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
+     * @param Type pagepv：pv视图，allcount：性能视图，falls：页面加载瀑布图，samp：首屏时间，day：14天数据，nettype：网络/平台视图，performance：页面性能TOP视图，version/platform/isp/region/device/browser/ext1/ext2/ext3/ret/status/from/url/env/：ISP视图/地区视图/浏览器视图等
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -408,16 +409,16 @@ public class DescribeDataPerformancePageRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否海外 
-     * @return IsAbroad 是否海外
+     * Get 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。 
+     * @return IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public String getIsAbroad() {
         return this.IsAbroad;
     }
 
     /**
-     * Set 是否海外
-     * @param IsAbroad 是否海外
+     * Set 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public void setIsAbroad(String IsAbroad) {
         this.IsAbroad = IsAbroad;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EncryptedPhoneVerificationRequest extends AbstractModel{
+public class EncryptedPhoneVerificationRequest extends AbstractModel {
 
     /**
     * 身份证号，加密方式以EncryptionMode为准
@@ -47,8 +48,9 @@ public class EncryptedPhoneVerificationRequest extends AbstractModel{
     * 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
-1:   使用MD5加密
-2:   使用SHA256
+1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密
     */
     @SerializedName("EncryptionMode")
     @Expose
@@ -106,13 +108,15 @@ public class EncryptedPhoneVerificationRequest extends AbstractModel{
      * Get 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
-1:   使用MD5加密
-2:   使用SHA256 
+1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密 
      * @return EncryptionMode 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
-1:   使用MD5加密
-2:   使用SHA256
+1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密
      */
     public String getEncryptionMode() {
         return this.EncryptionMode;
@@ -122,13 +126,15 @@ public class EncryptedPhoneVerificationRequest extends AbstractModel{
      * Set 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
-1:   使用MD5加密
-2:   使用SHA256
+1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密
      * @param EncryptionMode 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
-1:   使用MD5加密
-2:   使用SHA256
+1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密
      */
     public void setEncryptionMode(String EncryptionMode) {
         this.EncryptionMode = EncryptionMode;

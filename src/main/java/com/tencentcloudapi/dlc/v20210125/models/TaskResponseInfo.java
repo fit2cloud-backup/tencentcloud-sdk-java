@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskResponseInfo extends AbstractModel{
+public class TaskResponseInfo extends AbstractModel {
 
     /**
     * 任务所属Database的名称。
@@ -101,7 +102,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 任务结果数据表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataSet")
     @Expose
@@ -137,7 +137,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 任务进度明细
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProgressDetail")
     @Expose
@@ -145,7 +144,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 任务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -153,7 +151,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 计算资源id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataEngineId")
     @Expose
@@ -161,7 +158,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 执行sql的子uin
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OperateUin")
     @Expose
@@ -169,7 +165,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 计算资源名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataEngineName")
     @Expose
@@ -177,7 +172,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 导入类型是本地导入还是cos
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputType")
     @Expose
@@ -185,7 +179,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 导入配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputConf")
     @Expose
@@ -193,7 +186,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 数据条数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataNumber")
     @Expose
@@ -201,7 +193,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 查询数据能不能下载
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CanDownload")
     @Expose
@@ -209,7 +200,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 用户别名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserAlias")
     @Expose
@@ -217,7 +207,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * spark应用作业名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SparkJobName")
     @Expose
@@ -225,7 +214,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * spark应用作业Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SparkJobId")
     @Expose
@@ -233,7 +221,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * spark应用入口jar文件
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SparkJobFile")
     @Expose
@@ -241,7 +228,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * spark ui url
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UiUrl")
     @Expose
@@ -249,7 +235,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 任务耗时，单位： ms
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalTime")
     @Expose
@@ -257,7 +242,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * spark app job执行task的程序入口参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CmdArgs")
     @Expose
@@ -265,7 +249,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 集群镜像大版本名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageVersion")
     @Expose
@@ -273,7 +256,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * driver规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DriverSize")
     @Expose
@@ -281,7 +263,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * executor规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExecutorSize")
     @Expose
@@ -289,7 +270,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 指定executor数量，最小值为1，最大值小于集群规格
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExecutorNums")
     @Expose
@@ -297,7 +277,6 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
     * 指定executor max数量（动态配置场景下），最小值为1，最大值小于集群规格（当ExecutorMaxNumbers小于ExecutorNums时，改值设定为ExecutorNums）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExecutorMaxNumbers")
     @Expose
@@ -326,6 +305,27 @@ public class TaskResponseInfo extends AbstractModel{
     @SerializedName("PrestoMonitorMetrics")
     @Expose
     private PrestoMonitorMetrics PrestoMonitorMetrics;
+
+    /**
+    * 结果文件格式：默认为csv
+    */
+    @SerializedName("ResultFormat")
+    @Expose
+    private String ResultFormat;
+
+    /**
+    * 引擎类型，SparkSQL：SparkSQL 引擎；SparkBatch：Spark作业引擎；PrestoSQL：Presto引擎
+    */
+    @SerializedName("EngineTypeDetail")
+    @Expose
+    private String EngineTypeDetail;
+
+    /**
+    * spark引擎资源组名称
+    */
+    @SerializedName("ResourceGroupName")
+    @Expose
+    private String ResourceGroupName;
 
     /**
      * Get 任务所属Database的名称。 
@@ -504,10 +504,8 @@ public class TaskResponseInfo extends AbstractModel{
     }
 
     /**
-     * Get 任务结果数据表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务结果数据表。 
      * @return DataSet 任务结果数据表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDataSet() {
         return this.DataSet;
@@ -515,9 +513,7 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 任务结果数据表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataSet 任务结果数据表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataSet(String DataSet) {
         this.DataSet = DataSet;
@@ -588,10 +584,8 @@ public class TaskResponseInfo extends AbstractModel{
     }
 
     /**
-     * Get 任务进度明细
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务进度明细 
      * @return ProgressDetail 任务进度明细
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProgressDetail() {
         return this.ProgressDetail;
@@ -599,19 +593,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 任务进度明细
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProgressDetail 任务进度明细
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProgressDetail(String ProgressDetail) {
         this.ProgressDetail = ProgressDetail;
     }
 
     /**
-     * Get 任务结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务结束时间 
      * @return UpdateTime 任务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -619,19 +609,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 任务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 任务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 计算资源id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 计算资源id 
      * @return DataEngineId 计算资源id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDataEngineId() {
         return this.DataEngineId;
@@ -639,19 +625,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 计算资源id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataEngineId 计算资源id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataEngineId(String DataEngineId) {
         this.DataEngineId = DataEngineId;
     }
 
     /**
-     * Get 执行sql的子uin
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 执行sql的子uin 
      * @return OperateUin 执行sql的子uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperateUin() {
         return this.OperateUin;
@@ -659,19 +641,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 执行sql的子uin
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OperateUin 执行sql的子uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperateUin(String OperateUin) {
         this.OperateUin = OperateUin;
     }
 
     /**
-     * Get 计算资源名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 计算资源名字 
      * @return DataEngineName 计算资源名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDataEngineName() {
         return this.DataEngineName;
@@ -679,19 +657,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 计算资源名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataEngineName 计算资源名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataEngineName(String DataEngineName) {
         this.DataEngineName = DataEngineName;
     }
 
     /**
-     * Get 导入类型是本地导入还是cos
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 导入类型是本地导入还是cos 
      * @return InputType 导入类型是本地导入还是cos
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputType() {
         return this.InputType;
@@ -699,19 +673,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 导入类型是本地导入还是cos
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputType 导入类型是本地导入还是cos
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputType(String InputType) {
         this.InputType = InputType;
     }
 
     /**
-     * Get 导入配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 导入配置 
      * @return InputConf 导入配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputConf() {
         return this.InputConf;
@@ -719,19 +689,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 导入配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputConf 导入配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputConf(String InputConf) {
         this.InputConf = InputConf;
     }
 
     /**
-     * Get 数据条数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据条数 
      * @return DataNumber 数据条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDataNumber() {
         return this.DataNumber;
@@ -739,19 +705,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 数据条数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataNumber 数据条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataNumber(Long DataNumber) {
         this.DataNumber = DataNumber;
     }
 
     /**
-     * Get 查询数据能不能下载
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 查询数据能不能下载 
      * @return CanDownload 查询数据能不能下载
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getCanDownload() {
         return this.CanDownload;
@@ -759,19 +721,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 查询数据能不能下载
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CanDownload 查询数据能不能下载
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCanDownload(Boolean CanDownload) {
         this.CanDownload = CanDownload;
     }
 
     /**
-     * Get 用户别名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户别名 
      * @return UserAlias 用户别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserAlias() {
         return this.UserAlias;
@@ -779,19 +737,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 用户别名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserAlias 用户别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserAlias(String UserAlias) {
         this.UserAlias = UserAlias;
     }
 
     /**
-     * Get spark应用作业名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get spark应用作业名 
      * @return SparkJobName spark应用作业名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSparkJobName() {
         return this.SparkJobName;
@@ -799,19 +753,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set spark应用作业名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SparkJobName spark应用作业名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSparkJobName(String SparkJobName) {
         this.SparkJobName = SparkJobName;
     }
 
     /**
-     * Get spark应用作业Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get spark应用作业Id 
      * @return SparkJobId spark应用作业Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSparkJobId() {
         return this.SparkJobId;
@@ -819,19 +769,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set spark应用作业Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SparkJobId spark应用作业Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSparkJobId(String SparkJobId) {
         this.SparkJobId = SparkJobId;
     }
 
     /**
-     * Get spark应用入口jar文件
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get spark应用入口jar文件 
      * @return SparkJobFile spark应用入口jar文件
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSparkJobFile() {
         return this.SparkJobFile;
@@ -839,19 +785,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set spark应用入口jar文件
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SparkJobFile spark应用入口jar文件
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSparkJobFile(String SparkJobFile) {
         this.SparkJobFile = SparkJobFile;
     }
 
     /**
-     * Get spark ui url
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get spark ui url 
      * @return UiUrl spark ui url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUiUrl() {
         return this.UiUrl;
@@ -859,19 +801,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set spark ui url
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UiUrl spark ui url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUiUrl(String UiUrl) {
         this.UiUrl = UiUrl;
     }
 
     /**
-     * Get 任务耗时，单位： ms
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务耗时，单位： ms 
      * @return TotalTime 任务耗时，单位： ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalTime() {
         return this.TotalTime;
@@ -879,19 +817,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 任务耗时，单位： ms
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalTime 任务耗时，单位： ms
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalTime(Long TotalTime) {
         this.TotalTime = TotalTime;
     }
 
     /**
-     * Get spark app job执行task的程序入口参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get spark app job执行task的程序入口参数 
      * @return CmdArgs spark app job执行task的程序入口参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCmdArgs() {
         return this.CmdArgs;
@@ -899,19 +833,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set spark app job执行task的程序入口参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CmdArgs spark app job执行task的程序入口参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCmdArgs(String CmdArgs) {
         this.CmdArgs = CmdArgs;
     }
 
     /**
-     * Get 集群镜像大版本名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群镜像大版本名称 
      * @return ImageVersion 集群镜像大版本名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageVersion() {
         return this.ImageVersion;
@@ -919,19 +849,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 集群镜像大版本名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageVersion 集群镜像大版本名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageVersion(String ImageVersion) {
         this.ImageVersion = ImageVersion;
     }
 
     /**
-     * Get driver规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get driver规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge 
      * @return DriverSize driver规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDriverSize() {
         return this.DriverSize;
@@ -939,19 +865,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set driver规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DriverSize driver规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDriverSize(String DriverSize) {
         this.DriverSize = DriverSize;
     }
 
     /**
-     * Get executor规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get executor规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge 
      * @return ExecutorSize executor规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExecutorSize() {
         return this.ExecutorSize;
@@ -959,19 +881,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set executor规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExecutorSize executor规格：small,medium,large,xlarge；内存型(引擎类型)：m.small,m.medium,m.large,m.xlarge
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExecutorSize(String ExecutorSize) {
         this.ExecutorSize = ExecutorSize;
     }
 
     /**
-     * Get 指定executor数量，最小值为1，最大值小于集群规格
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 指定executor数量，最小值为1，最大值小于集群规格 
      * @return ExecutorNums 指定executor数量，最小值为1，最大值小于集群规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getExecutorNums() {
         return this.ExecutorNums;
@@ -979,19 +897,15 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 指定executor数量，最小值为1，最大值小于集群规格
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExecutorNums 指定executor数量，最小值为1，最大值小于集群规格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExecutorNums(Long ExecutorNums) {
         this.ExecutorNums = ExecutorNums;
     }
 
     /**
-     * Get 指定executor max数量（动态配置场景下），最小值为1，最大值小于集群规格（当ExecutorMaxNumbers小于ExecutorNums时，改值设定为ExecutorNums）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 指定executor max数量（动态配置场景下），最小值为1，最大值小于集群规格（当ExecutorMaxNumbers小于ExecutorNums时，改值设定为ExecutorNums） 
      * @return ExecutorMaxNumbers 指定executor max数量（动态配置场景下），最小值为1，最大值小于集群规格（当ExecutorMaxNumbers小于ExecutorNums时，改值设定为ExecutorNums）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getExecutorMaxNumbers() {
         return this.ExecutorMaxNumbers;
@@ -999,9 +913,7 @@ public class TaskResponseInfo extends AbstractModel{
 
     /**
      * Set 指定executor max数量（动态配置场景下），最小值为1，最大值小于集群规格（当ExecutorMaxNumbers小于ExecutorNums时，改值设定为ExecutorNums）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExecutorMaxNumbers 指定executor max数量（动态配置场景下），最小值为1，最大值小于集群规格（当ExecutorMaxNumbers小于ExecutorNums时，改值设定为ExecutorNums）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExecutorMaxNumbers(Long ExecutorMaxNumbers) {
         this.ExecutorMaxNumbers = ExecutorMaxNumbers;
@@ -1065,6 +977,54 @@ public class TaskResponseInfo extends AbstractModel{
      */
     public void setPrestoMonitorMetrics(PrestoMonitorMetrics PrestoMonitorMetrics) {
         this.PrestoMonitorMetrics = PrestoMonitorMetrics;
+    }
+
+    /**
+     * Get 结果文件格式：默认为csv 
+     * @return ResultFormat 结果文件格式：默认为csv
+     */
+    public String getResultFormat() {
+        return this.ResultFormat;
+    }
+
+    /**
+     * Set 结果文件格式：默认为csv
+     * @param ResultFormat 结果文件格式：默认为csv
+     */
+    public void setResultFormat(String ResultFormat) {
+        this.ResultFormat = ResultFormat;
+    }
+
+    /**
+     * Get 引擎类型，SparkSQL：SparkSQL 引擎；SparkBatch：Spark作业引擎；PrestoSQL：Presto引擎 
+     * @return EngineTypeDetail 引擎类型，SparkSQL：SparkSQL 引擎；SparkBatch：Spark作业引擎；PrestoSQL：Presto引擎
+     */
+    public String getEngineTypeDetail() {
+        return this.EngineTypeDetail;
+    }
+
+    /**
+     * Set 引擎类型，SparkSQL：SparkSQL 引擎；SparkBatch：Spark作业引擎；PrestoSQL：Presto引擎
+     * @param EngineTypeDetail 引擎类型，SparkSQL：SparkSQL 引擎；SparkBatch：Spark作业引擎；PrestoSQL：Presto引擎
+     */
+    public void setEngineTypeDetail(String EngineTypeDetail) {
+        this.EngineTypeDetail = EngineTypeDetail;
+    }
+
+    /**
+     * Get spark引擎资源组名称 
+     * @return ResourceGroupName spark引擎资源组名称
+     */
+    public String getResourceGroupName() {
+        return this.ResourceGroupName;
+    }
+
+    /**
+     * Set spark引擎资源组名称
+     * @param ResourceGroupName spark引擎资源组名称
+     */
+    public void setResourceGroupName(String ResourceGroupName) {
+        this.ResourceGroupName = ResourceGroupName;
     }
 
     public TaskResponseInfo() {
@@ -1195,6 +1155,15 @@ public class TaskResponseInfo extends AbstractModel{
         if (source.PrestoMonitorMetrics != null) {
             this.PrestoMonitorMetrics = new PrestoMonitorMetrics(source.PrestoMonitorMetrics);
         }
+        if (source.ResultFormat != null) {
+            this.ResultFormat = new String(source.ResultFormat);
+        }
+        if (source.EngineTypeDetail != null) {
+            this.EngineTypeDetail = new String(source.EngineTypeDetail);
+        }
+        if (source.ResourceGroupName != null) {
+            this.ResourceGroupName = new String(source.ResourceGroupName);
+        }
     }
 
 
@@ -1242,6 +1211,9 @@ public class TaskResponseInfo extends AbstractModel{
         this.setParamObj(map, prefix + "CommonMetrics.", this.CommonMetrics);
         this.setParamObj(map, prefix + "SparkMonitorMetrics.", this.SparkMonitorMetrics);
         this.setParamObj(map, prefix + "PrestoMonitorMetrics.", this.PrestoMonitorMetrics);
+        this.setParamSimple(map, prefix + "ResultFormat", this.ResultFormat);
+        this.setParamSimple(map, prefix + "EngineTypeDetail", this.EngineTypeDetail);
+        this.setParamSimple(map, prefix + "ResourceGroupName", this.ResourceGroupName);
 
     }
 }

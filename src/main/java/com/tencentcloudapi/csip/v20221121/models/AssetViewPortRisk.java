@@ -16,11 +16,12 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssetViewPortRisk extends AbstractModel{
+public class AssetViewPortRisk extends AbstractModel {
 
     /**
     * 端口
@@ -37,7 +38,7 @@ public class AssetViewPortRisk extends AbstractModel{
     private String AffectAsset;
 
     /**
-    * 风险等级
+    * 风险等级，low-低危，high-高危，middle-中危，info-提示，extreme-严重。
     */
     @SerializedName("Level")
     @Expose
@@ -93,14 +94,14 @@ public class AssetViewPortRisk extends AbstractModel{
     private Long Suggestion;
 
     /**
-    * 状态，0未处理、1已处置、2已忽略
+    * 状态，0未处理、1已处置、2已忽略、3云防已防护
     */
     @SerializedName("Status")
     @Expose
     private Long Status;
 
     /**
-    * 资产唯一id
+    * 风险ID
     */
     @SerializedName("Id")
     @Expose
@@ -136,7 +137,6 @@ public class AssetViewPortRisk extends AbstractModel{
 
     /**
     * 用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Nick")
     @Expose
@@ -144,18 +144,31 @@ public class AssetViewPortRisk extends AbstractModel{
 
     /**
     * 用户uin
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uin")
     @Expose
     private String Uin;
 
     /**
-    * 来源
+    * 识别来源，详细看枚举返回。
     */
     @SerializedName("From")
     @Expose
     private String From;
+
+    /**
+    * 服务判定,high_risk_service 高危服务 web_service web服务 other_service 其他服务
+    */
+    @SerializedName("ServiceJudge")
+    @Expose
+    private String ServiceJudge;
+
+    /**
+    * 状态，0未处理、1已处置、2已忽略、3云防已防护、4无需处理
+    */
+    @SerializedName("XspmStatus")
+    @Expose
+    private Long XspmStatus;
 
     /**
      * Get 端口 
@@ -190,16 +203,16 @@ public class AssetViewPortRisk extends AbstractModel{
     }
 
     /**
-     * Get 风险等级 
-     * @return Level 风险等级
+     * Get 风险等级，low-低危，high-高危，middle-中危，info-提示，extreme-严重。 
+     * @return Level 风险等级，low-低危，high-高危，middle-中危，info-提示，extreme-严重。
      */
     public String getLevel() {
         return this.Level;
     }
 
     /**
-     * Set 风险等级
-     * @param Level 风险等级
+     * Set 风险等级，low-低危，high-高危，middle-中危，info-提示，extreme-严重。
+     * @param Level 风险等级，low-低危，high-高危，middle-中危，info-提示，extreme-严重。
      */
     public void setLevel(String Level) {
         this.Level = Level;
@@ -318,32 +331,32 @@ public class AssetViewPortRisk extends AbstractModel{
     }
 
     /**
-     * Get 状态，0未处理、1已处置、2已忽略 
-     * @return Status 状态，0未处理、1已处置、2已忽略
+     * Get 状态，0未处理、1已处置、2已忽略、3云防已防护 
+     * @return Status 状态，0未处理、1已处置、2已忽略、3云防已防护
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态，0未处理、1已处置、2已忽略
-     * @param Status 状态，0未处理、1已处置、2已忽略
+     * Set 状态，0未处理、1已处置、2已忽略、3云防已防护
+     * @param Status 状态，0未处理、1已处置、2已忽略、3云防已防护
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 资产唯一id 
-     * @return Id 资产唯一id
+     * Get 风险ID 
+     * @return Id 风险ID
      */
     public String getId() {
         return this.Id;
     }
 
     /**
-     * Set 资产唯一id
-     * @param Id 资产唯一id
+     * Set 风险ID
+     * @param Id 风险ID
      */
     public void setId(String Id) {
         this.Id = Id;
@@ -414,10 +427,8 @@ public class AssetViewPortRisk extends AbstractModel{
     }
 
     /**
-     * Get 用户昵称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户昵称 
      * @return Nick 用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNick() {
         return this.Nick;
@@ -425,19 +436,15 @@ public class AssetViewPortRisk extends AbstractModel{
 
     /**
      * Set 用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Nick 用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNick(String Nick) {
         this.Nick = Nick;
     }
 
     /**
-     * Get 用户uin
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户uin 
      * @return Uin 用户uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUin() {
         return this.Uin;
@@ -445,28 +452,58 @@ public class AssetViewPortRisk extends AbstractModel{
 
     /**
      * Set 用户uin
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uin 用户uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUin(String Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get 来源 
-     * @return From 来源
+     * Get 识别来源，详细看枚举返回。 
+     * @return From 识别来源，详细看枚举返回。
      */
     public String getFrom() {
         return this.From;
     }
 
     /**
-     * Set 来源
-     * @param From 来源
+     * Set 识别来源，详细看枚举返回。
+     * @param From 识别来源，详细看枚举返回。
      */
     public void setFrom(String From) {
         this.From = From;
+    }
+
+    /**
+     * Get 服务判定,high_risk_service 高危服务 web_service web服务 other_service 其他服务 
+     * @return ServiceJudge 服务判定,high_risk_service 高危服务 web_service web服务 other_service 其他服务
+     */
+    public String getServiceJudge() {
+        return this.ServiceJudge;
+    }
+
+    /**
+     * Set 服务判定,high_risk_service 高危服务 web_service web服务 other_service 其他服务
+     * @param ServiceJudge 服务判定,high_risk_service 高危服务 web_service web服务 other_service 其他服务
+     */
+    public void setServiceJudge(String ServiceJudge) {
+        this.ServiceJudge = ServiceJudge;
+    }
+
+    /**
+     * Get 状态，0未处理、1已处置、2已忽略、3云防已防护、4无需处理 
+     * @return XspmStatus 状态，0未处理、1已处置、2已忽略、3云防已防护、4无需处理
+     */
+    public Long getXspmStatus() {
+        return this.XspmStatus;
+    }
+
+    /**
+     * Set 状态，0未处理、1已处置、2已忽略、3云防已防护、4无需处理
+     * @param XspmStatus 状态，0未处理、1已处置、2已忽略、3云防已防护、4无需处理
+     */
+    public void setXspmStatus(Long XspmStatus) {
+        this.XspmStatus = XspmStatus;
     }
 
     public AssetViewPortRisk() {
@@ -534,6 +571,12 @@ public class AssetViewPortRisk extends AbstractModel{
         if (source.From != null) {
             this.From = new String(source.From);
         }
+        if (source.ServiceJudge != null) {
+            this.ServiceJudge = new String(source.ServiceJudge);
+        }
+        if (source.XspmStatus != null) {
+            this.XspmStatus = new Long(source.XspmStatus);
+        }
     }
 
 
@@ -560,6 +603,8 @@ public class AssetViewPortRisk extends AbstractModel{
         this.setParamSimple(map, prefix + "Nick", this.Nick);
         this.setParamSimple(map, prefix + "Uin", this.Uin);
         this.setParamSimple(map, prefix + "From", this.From);
+        this.setParamSimple(map, prefix + "ServiceJudge", this.ServiceJudge);
+        this.setParamSimple(map, prefix + "XspmStatus", this.XspmStatus);
 
     }
 }

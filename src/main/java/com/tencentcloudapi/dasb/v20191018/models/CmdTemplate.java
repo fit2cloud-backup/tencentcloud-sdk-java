@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CmdTemplate extends AbstractModel{
+public class CmdTemplate extends AbstractModel {
 
     /**
     * 高危命令模板ID
@@ -42,6 +43,13 @@ public class CmdTemplate extends AbstractModel{
     @SerializedName("CmdList")
     @Expose
     private String CmdList;
+
+    /**
+    * 命令模板类型 1-内置 2-自定义	
+    */
+    @SerializedName("Type")
+    @Expose
+    private Long Type;
 
     /**
      * Get 高危命令模板ID 
@@ -91,6 +99,22 @@ public class CmdTemplate extends AbstractModel{
         this.CmdList = CmdList;
     }
 
+    /**
+     * Get 命令模板类型 1-内置 2-自定义	 
+     * @return Type 命令模板类型 1-内置 2-自定义	
+     */
+    public Long getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 命令模板类型 1-内置 2-自定义	
+     * @param Type 命令模板类型 1-内置 2-自定义	
+     */
+    public void setType(Long Type) {
+        this.Type = Type;
+    }
+
     public CmdTemplate() {
     }
 
@@ -108,6 +132,9 @@ public class CmdTemplate extends AbstractModel{
         if (source.CmdList != null) {
             this.CmdList = new String(source.CmdList);
         }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class CmdTemplate extends AbstractModel{
         this.setParamSimple(map, prefix + "Id", this.Id);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "CmdList", this.CmdList);
+        this.setParamSimple(map, prefix + "Type", this.Type);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskAlarmInfo extends AbstractModel{
+public class TaskAlarmInfo extends AbstractModel {
 
     /**
     * 任务ID
@@ -65,7 +66,7 @@ public class TaskAlarmInfo extends AbstractModel{
     private Long TaskType;
 
     /**
-    * 主键ID
+    * ID
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Id")
@@ -183,6 +184,14 @@ public class TaskAlarmInfo extends AbstractModel{
     private Long AlarmRecipientType;
 
     /**
+    * 免打扰时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QuietPeriods")
+    @Expose
+    private QuietPeriod [] QuietPeriods;
+
+    /**
     * 企业微信群Hook地址，多个hook地址使用,隔开
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -253,6 +262,38 @@ public class TaskAlarmInfo extends AbstractModel{
     @SerializedName("Description")
     @Expose
     private String Description;
+
+    /**
+    * 飞书群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LarkWebHooks")
+    @Expose
+    private String LarkWebHooks;
+
+    /**
+    * 钉钉群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DingDingWebHooks")
+    @Expose
+    private String DingDingWebHooks;
+
+    /**
+    * 业务类型, 0-非默认, 1-默认
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BusinessType")
+    @Expose
+    private Long BusinessType;
+
+    /**
+    * alarm message rule
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmMessageRule")
+    @Expose
+    private String AlarmMessageRule;
 
     /**
      * Get 任务ID 
@@ -351,9 +392,9 @@ public class TaskAlarmInfo extends AbstractModel{
     }
 
     /**
-     * Get 主键ID
+     * Get ID
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Id 主键ID
+     * @return Id ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getId() {
@@ -361,9 +402,9 @@ public class TaskAlarmInfo extends AbstractModel{
     }
 
     /**
-     * Set 主键ID
+     * Set ID
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Id 主键ID
+     * @param Id ID
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setId(String Id) {
@@ -643,6 +684,26 @@ public class TaskAlarmInfo extends AbstractModel{
     }
 
     /**
+     * Get 免打扰时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QuietPeriods 免打扰时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public QuietPeriod [] getQuietPeriods() {
+        return this.QuietPeriods;
+    }
+
+    /**
+     * Set 免打扰时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QuietPeriods 免打扰时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQuietPeriods(QuietPeriod [] QuietPeriods) {
+        this.QuietPeriods = QuietPeriods;
+    }
+
+    /**
      * Get 企业微信群Hook地址，多个hook地址使用,隔开
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return WeComHook 企业微信群Hook地址，多个hook地址使用,隔开
@@ -822,6 +883,86 @@ public class TaskAlarmInfo extends AbstractModel{
         this.Description = Description;
     }
 
+    /**
+     * Get 飞书群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LarkWebHooks 飞书群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLarkWebHooks() {
+        return this.LarkWebHooks;
+    }
+
+    /**
+     * Set 飞书群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LarkWebHooks 飞书群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLarkWebHooks(String LarkWebHooks) {
+        this.LarkWebHooks = LarkWebHooks;
+    }
+
+    /**
+     * Get 钉钉群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DingDingWebHooks 钉钉群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDingDingWebHooks() {
+        return this.DingDingWebHooks;
+    }
+
+    /**
+     * Set 钉钉群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DingDingWebHooks 钉钉群Hook地址，多个hook地址使用,隔开
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDingDingWebHooks(String DingDingWebHooks) {
+        this.DingDingWebHooks = DingDingWebHooks;
+    }
+
+    /**
+     * Get 业务类型, 0-非默认, 1-默认
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BusinessType 业务类型, 0-非默认, 1-默认
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getBusinessType() {
+        return this.BusinessType;
+    }
+
+    /**
+     * Set 业务类型, 0-非默认, 1-默认
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BusinessType 业务类型, 0-非默认, 1-默认
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBusinessType(Long BusinessType) {
+        this.BusinessType = BusinessType;
+    }
+
+    /**
+     * Get alarm message rule
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmMessageRule alarm message rule
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmMessageRule() {
+        return this.AlarmMessageRule;
+    }
+
+    /**
+     * Set alarm message rule
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmMessageRule alarm message rule
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmMessageRule(String AlarmMessageRule) {
+        this.AlarmMessageRule = AlarmMessageRule;
+    }
+
     public TaskAlarmInfo() {
     }
 
@@ -896,6 +1037,12 @@ public class TaskAlarmInfo extends AbstractModel{
         if (source.AlarmRecipientType != null) {
             this.AlarmRecipientType = new Long(source.AlarmRecipientType);
         }
+        if (source.QuietPeriods != null) {
+            this.QuietPeriods = new QuietPeriod[source.QuietPeriods.length];
+            for (int i = 0; i < source.QuietPeriods.length; i++) {
+                this.QuietPeriods[i] = new QuietPeriod(source.QuietPeriods[i]);
+            }
+        }
         if (source.WeComHook != null) {
             this.WeComHook = new String(source.WeComHook);
         }
@@ -926,6 +1073,18 @@ public class TaskAlarmInfo extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.LarkWebHooks != null) {
+            this.LarkWebHooks = new String(source.LarkWebHooks);
+        }
+        if (source.DingDingWebHooks != null) {
+            this.DingDingWebHooks = new String(source.DingDingWebHooks);
+        }
+        if (source.BusinessType != null) {
+            this.BusinessType = new Long(source.BusinessType);
+        }
+        if (source.AlarmMessageRule != null) {
+            this.AlarmMessageRule = new String(source.AlarmMessageRule);
+        }
     }
 
 
@@ -954,6 +1113,7 @@ public class TaskAlarmInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "NodeName", this.NodeName);
         this.setParamArrayObj(map, prefix + "AlarmIndicatorInfos.", this.AlarmIndicatorInfos);
         this.setParamSimple(map, prefix + "AlarmRecipientType", this.AlarmRecipientType);
+        this.setParamArrayObj(map, prefix + "QuietPeriods.", this.QuietPeriods);
         this.setParamSimple(map, prefix + "WeComHook", this.WeComHook);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamSimple(map, prefix + "OperatorUin", this.OperatorUin);
@@ -963,6 +1123,10 @@ public class TaskAlarmInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "LatestAlarmInstanceId", this.LatestAlarmInstanceId);
         this.setParamSimple(map, prefix + "LatestAlarmTime", this.LatestAlarmTime);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "LarkWebHooks", this.LarkWebHooks);
+        this.setParamSimple(map, prefix + "DingDingWebHooks", this.DingDingWebHooks);
+        this.setParamSimple(map, prefix + "BusinessType", this.BusinessType);
+        this.setParamSimple(map, prefix + "AlarmMessageRule", this.AlarmMessageRule);
 
     }
 }

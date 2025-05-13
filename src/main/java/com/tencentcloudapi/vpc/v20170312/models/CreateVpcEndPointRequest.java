@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateVpcEndPointRequest extends AbstractModel{
+public class CreateVpcEndPointRequest extends AbstractModel {
 
     /**
     * VPC实例ID。
@@ -63,6 +64,20 @@ public class CreateVpcEndPointRequest extends AbstractModel{
     @SerializedName("SecurityGroupId")
     @Expose
     private String SecurityGroupId;
+
+    /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 协议类型，支持 Ipv4，Ipv6，默认 Ipv4
+    */
+    @SerializedName("IpAddressType")
+    @Expose
+    private String IpAddressType;
 
     /**
      * Get VPC实例ID。 
@@ -160,6 +175,38 @@ public class CreateVpcEndPointRequest extends AbstractModel{
         this.SecurityGroupId = SecurityGroupId;
     }
 
+    /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 协议类型，支持 Ipv4，Ipv6，默认 Ipv4 
+     * @return IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4
+     */
+    public String getIpAddressType() {
+        return this.IpAddressType;
+    }
+
+    /**
+     * Set 协议类型，支持 Ipv4，Ipv6，默认 Ipv4
+     * @param IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4
+     */
+    public void setIpAddressType(String IpAddressType) {
+        this.IpAddressType = IpAddressType;
+    }
+
     public CreateVpcEndPointRequest() {
     }
 
@@ -186,6 +233,15 @@ public class CreateVpcEndPointRequest extends AbstractModel{
         if (source.SecurityGroupId != null) {
             this.SecurityGroupId = new String(source.SecurityGroupId);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.IpAddressType != null) {
+            this.IpAddressType = new String(source.IpAddressType);
+        }
     }
 
 
@@ -199,6 +255,8 @@ public class CreateVpcEndPointRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndPointServiceId", this.EndPointServiceId);
         this.setParamSimple(map, prefix + "EndPointVip", this.EndPointVip);
         this.setParamSimple(map, prefix + "SecurityGroupId", this.SecurityGroupId);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "IpAddressType", this.IpAddressType);
 
     }
 }

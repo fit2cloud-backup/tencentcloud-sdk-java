@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EdgeClusterExtraArgs extends AbstractModel{
+public class EdgeClusterExtraArgs extends AbstractModel {
 
     /**
     * kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KubeAPIServer")
     @Expose
@@ -32,7 +32,6 @@ public class EdgeClusterExtraArgs extends AbstractModel{
 
     /**
     * kube-controller-manager自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KubeControllerManager")
     @Expose
@@ -40,17 +39,14 @@ public class EdgeClusterExtraArgs extends AbstractModel{
 
     /**
     * kube-scheduler自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KubeScheduler")
     @Expose
     private String [] KubeScheduler;
 
     /**
-     * Get kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"] 
      * @return KubeAPIServer kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKubeAPIServer() {
         return this.KubeAPIServer;
@@ -58,19 +54,15 @@ public class EdgeClusterExtraArgs extends AbstractModel{
 
     /**
      * Set kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KubeAPIServer kube-apiserver自定义参数，参数格式为["k1=v1", "k1=v2"]， 例如["max-requests-inflight=500","feature-gates=PodShareProcessNamespace=true,DynamicKubeletConfig=true"]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKubeAPIServer(String [] KubeAPIServer) {
         this.KubeAPIServer = KubeAPIServer;
     }
 
     /**
-     * Get kube-controller-manager自定义参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get kube-controller-manager自定义参数 
      * @return KubeControllerManager kube-controller-manager自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKubeControllerManager() {
         return this.KubeControllerManager;
@@ -78,19 +70,15 @@ public class EdgeClusterExtraArgs extends AbstractModel{
 
     /**
      * Set kube-controller-manager自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KubeControllerManager kube-controller-manager自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKubeControllerManager(String [] KubeControllerManager) {
         this.KubeControllerManager = KubeControllerManager;
     }
 
     /**
-     * Get kube-scheduler自定义参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get kube-scheduler自定义参数 
      * @return KubeScheduler kube-scheduler自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKubeScheduler() {
         return this.KubeScheduler;
@@ -98,9 +86,7 @@ public class EdgeClusterExtraArgs extends AbstractModel{
 
     /**
      * Set kube-scheduler自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KubeScheduler kube-scheduler自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKubeScheduler(String [] KubeScheduler) {
         this.KubeScheduler = KubeScheduler;

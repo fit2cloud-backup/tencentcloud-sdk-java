@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tiw.v20190919.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateVideoGenerationTaskRequest extends AbstractModel{
+public class CreateVideoGenerationTaskRequest extends AbstractModel {
 
     /**
-    * 录制任务的TaskId
+    * 实时录制任务的TaskId
     */
     @SerializedName("OnlineRecordTaskId")
     @Expose
@@ -80,16 +81,16 @@ public class CreateVideoGenerationTaskRequest extends AbstractModel{
     private String ExtraData;
 
     /**
-     * Get 录制任务的TaskId 
-     * @return OnlineRecordTaskId 录制任务的TaskId
+     * Get 实时录制任务的TaskId 
+     * @return OnlineRecordTaskId 实时录制任务的TaskId
      */
     public String getOnlineRecordTaskId() {
         return this.OnlineRecordTaskId;
     }
 
     /**
-     * Set 录制任务的TaskId
-     * @param OnlineRecordTaskId 录制任务的TaskId
+     * Set 实时录制任务的TaskId
+     * @param OnlineRecordTaskId 实时录制任务的TaskId
      */
     public void setOnlineRecordTaskId(String OnlineRecordTaskId) {
         this.OnlineRecordTaskId = OnlineRecordTaskId;

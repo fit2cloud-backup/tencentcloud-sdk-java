@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PkgList extends AbstractModel{
+public class PkgList extends AbstractModel {
 
     /**
     * 程序包总量
@@ -31,7 +32,6 @@ public class PkgList extends AbstractModel{
 
     /**
     * 程序包信息列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
@@ -39,7 +39,6 @@ public class PkgList extends AbstractModel{
 
     /**
     * 程序包仓库id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepositoryId")
     @Expose
@@ -47,7 +46,6 @@ public class PkgList extends AbstractModel{
 
     /**
     * 程序包仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepositoryType")
     @Expose
@@ -55,7 +53,6 @@ public class PkgList extends AbstractModel{
 
     /**
     * 程序包仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepositoryName")
     @Expose
@@ -78,10 +75,8 @@ public class PkgList extends AbstractModel{
     }
 
     /**
-     * Get 程序包信息列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 程序包信息列表 
      * @return Content 程序包信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PkgInfo [] getContent() {
         return this.Content;
@@ -89,19 +84,15 @@ public class PkgList extends AbstractModel{
 
     /**
      * Set 程序包信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 程序包信息列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(PkgInfo [] Content) {
         this.Content = Content;
     }
 
     /**
-     * Get 程序包仓库id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 程序包仓库id 
      * @return RepositoryId 程序包仓库id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepositoryId() {
         return this.RepositoryId;
@@ -109,19 +100,15 @@ public class PkgList extends AbstractModel{
 
     /**
      * Set 程序包仓库id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepositoryId 程序包仓库id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepositoryId(String RepositoryId) {
         this.RepositoryId = RepositoryId;
     }
 
     /**
-     * Get 程序包仓库类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 程序包仓库类型 
      * @return RepositoryType 程序包仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepositoryType() {
         return this.RepositoryType;
@@ -129,19 +116,15 @@ public class PkgList extends AbstractModel{
 
     /**
      * Set 程序包仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepositoryType 程序包仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepositoryType(String RepositoryType) {
         this.RepositoryType = RepositoryType;
     }
 
     /**
-     * Get 程序包仓库名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 程序包仓库名称 
      * @return RepositoryName 程序包仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepositoryName() {
         return this.RepositoryName;
@@ -149,9 +132,7 @@ public class PkgList extends AbstractModel{
 
     /**
      * Set 程序包仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepositoryName 程序包仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepositoryName(String RepositoryName) {
         this.RepositoryName = RepositoryName;

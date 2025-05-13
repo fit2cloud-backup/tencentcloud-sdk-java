@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VulAffectedImageComponentInfo extends AbstractModel{
+public class VulAffectedImageComponentInfo extends AbstractModel {
 
     /**
     * 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class VulAffectedImageComponentInfo extends AbstractModel{
 
     /**
     * 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
@@ -40,7 +39,6 @@ public class VulAffectedImageComponentInfo extends AbstractModel{
 
     /**
     * 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FixedVersion")
     @Expose
@@ -48,17 +46,14 @@ public class VulAffectedImageComponentInfo extends AbstractModel{
 
     /**
     * 组件路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Path")
     @Expose
     private String Path;
 
     /**
-     * Get 组件名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组件名称 
      * @return Name 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -66,19 +61,15 @@ public class VulAffectedImageComponentInfo extends AbstractModel{
 
     /**
      * Set 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 组件版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组件版本 
      * @return Version 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersion() {
         return this.Version;
@@ -86,19 +77,15 @@ public class VulAffectedImageComponentInfo extends AbstractModel{
 
     /**
      * Set 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(String Version) {
         this.Version = Version;
     }
 
     /**
-     * Get 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组件修复版本 
      * @return FixedVersion 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFixedVersion() {
         return this.FixedVersion;
@@ -106,19 +93,15 @@ public class VulAffectedImageComponentInfo extends AbstractModel{
 
     /**
      * Set 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FixedVersion 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFixedVersion(String FixedVersion) {
         this.FixedVersion = FixedVersion;
     }
 
     /**
-     * Get 组件路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组件路径 
      * @return Path 组件路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPath() {
         return this.Path;
@@ -126,9 +109,7 @@ public class VulAffectedImageComponentInfo extends AbstractModel{
 
     /**
      * Set 组件路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Path 组件路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPath(String Path) {
         this.Path = Path;

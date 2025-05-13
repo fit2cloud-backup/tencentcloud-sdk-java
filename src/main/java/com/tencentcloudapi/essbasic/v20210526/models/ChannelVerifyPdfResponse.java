@@ -16,76 +16,153 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelVerifyPdfResponse extends AbstractModel{
+public class ChannelVerifyPdfResponse extends AbstractModel {
 
     /**
-    * 验签结果，1-文件未被篡改，全部签名在腾讯电子签完成； 2-文件未被篡改，部分签名在腾讯电子签完成；3-文件被篡改；4-异常：文件内没有签名域；5-异常：文件签名格式错误
+    * 验签结果代码，代码的含义如下：
+
+<ul><li>**1**：文件未被篡改，全部签名在腾讯电子签完成。</li>
+<li>**2**：文件未被篡改，部分签名在腾讯电子签完成。</li>
+<li>**3**：文件被篡改。</li>
+<li>**4**：异常：文件内没有签名域。(如果合同还没有签署也会返回此代码)</li>
+<li>**5**：异常：文件签名格式错误。</li></ul>
     */
     @SerializedName("VerifyResult")
     @Expose
     private Long VerifyResult;
 
     /**
-    * 验签结果详情,内部状态1-验签成功，在电子签签署；2-验签成功，在其他平台签署；3-验签失败；4-pdf文件没有签名域；5-文件签名格式错误
+    * 验签结果详情，所有签署区(包括签名区, 印章区, 日期签署区,骑缝章等)的签署验签结果
     */
     @SerializedName("PdfVerifyResults")
     @Expose
     private PdfVerifyResult [] PdfVerifyResults;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 验签序列号, 为11为数组组成的字符串
+    */
+    @SerializedName("VerifySerialNo")
+    @Expose
+    private String VerifySerialNo;
+
+    /**
+    * 合同文件MD5哈希值
+    */
+    @SerializedName("PdfResourceMd5")
+    @Expose
+    private String PdfResourceMd5;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 验签结果，1-文件未被篡改，全部签名在腾讯电子签完成； 2-文件未被篡改，部分签名在腾讯电子签完成；3-文件被篡改；4-异常：文件内没有签名域；5-异常：文件签名格式错误 
-     * @return VerifyResult 验签结果，1-文件未被篡改，全部签名在腾讯电子签完成； 2-文件未被篡改，部分签名在腾讯电子签完成；3-文件被篡改；4-异常：文件内没有签名域；5-异常：文件签名格式错误
+     * Get 验签结果代码，代码的含义如下：
+
+<ul><li>**1**：文件未被篡改，全部签名在腾讯电子签完成。</li>
+<li>**2**：文件未被篡改，部分签名在腾讯电子签完成。</li>
+<li>**3**：文件被篡改。</li>
+<li>**4**：异常：文件内没有签名域。(如果合同还没有签署也会返回此代码)</li>
+<li>**5**：异常：文件签名格式错误。</li></ul> 
+     * @return VerifyResult 验签结果代码，代码的含义如下：
+
+<ul><li>**1**：文件未被篡改，全部签名在腾讯电子签完成。</li>
+<li>**2**：文件未被篡改，部分签名在腾讯电子签完成。</li>
+<li>**3**：文件被篡改。</li>
+<li>**4**：异常：文件内没有签名域。(如果合同还没有签署也会返回此代码)</li>
+<li>**5**：异常：文件签名格式错误。</li></ul>
      */
     public Long getVerifyResult() {
         return this.VerifyResult;
     }
 
     /**
-     * Set 验签结果，1-文件未被篡改，全部签名在腾讯电子签完成； 2-文件未被篡改，部分签名在腾讯电子签完成；3-文件被篡改；4-异常：文件内没有签名域；5-异常：文件签名格式错误
-     * @param VerifyResult 验签结果，1-文件未被篡改，全部签名在腾讯电子签完成； 2-文件未被篡改，部分签名在腾讯电子签完成；3-文件被篡改；4-异常：文件内没有签名域；5-异常：文件签名格式错误
+     * Set 验签结果代码，代码的含义如下：
+
+<ul><li>**1**：文件未被篡改，全部签名在腾讯电子签完成。</li>
+<li>**2**：文件未被篡改，部分签名在腾讯电子签完成。</li>
+<li>**3**：文件被篡改。</li>
+<li>**4**：异常：文件内没有签名域。(如果合同还没有签署也会返回此代码)</li>
+<li>**5**：异常：文件签名格式错误。</li></ul>
+     * @param VerifyResult 验签结果代码，代码的含义如下：
+
+<ul><li>**1**：文件未被篡改，全部签名在腾讯电子签完成。</li>
+<li>**2**：文件未被篡改，部分签名在腾讯电子签完成。</li>
+<li>**3**：文件被篡改。</li>
+<li>**4**：异常：文件内没有签名域。(如果合同还没有签署也会返回此代码)</li>
+<li>**5**：异常：文件签名格式错误。</li></ul>
      */
     public void setVerifyResult(Long VerifyResult) {
         this.VerifyResult = VerifyResult;
     }
 
     /**
-     * Get 验签结果详情,内部状态1-验签成功，在电子签签署；2-验签成功，在其他平台签署；3-验签失败；4-pdf文件没有签名域；5-文件签名格式错误 
-     * @return PdfVerifyResults 验签结果详情,内部状态1-验签成功，在电子签签署；2-验签成功，在其他平台签署；3-验签失败；4-pdf文件没有签名域；5-文件签名格式错误
+     * Get 验签结果详情，所有签署区(包括签名区, 印章区, 日期签署区,骑缝章等)的签署验签结果 
+     * @return PdfVerifyResults 验签结果详情，所有签署区(包括签名区, 印章区, 日期签署区,骑缝章等)的签署验签结果
      */
     public PdfVerifyResult [] getPdfVerifyResults() {
         return this.PdfVerifyResults;
     }
 
     /**
-     * Set 验签结果详情,内部状态1-验签成功，在电子签签署；2-验签成功，在其他平台签署；3-验签失败；4-pdf文件没有签名域；5-文件签名格式错误
-     * @param PdfVerifyResults 验签结果详情,内部状态1-验签成功，在电子签签署；2-验签成功，在其他平台签署；3-验签失败；4-pdf文件没有签名域；5-文件签名格式错误
+     * Set 验签结果详情，所有签署区(包括签名区, 印章区, 日期签署区,骑缝章等)的签署验签结果
+     * @param PdfVerifyResults 验签结果详情，所有签署区(包括签名区, 印章区, 日期签署区,骑缝章等)的签署验签结果
      */
     public void setPdfVerifyResults(PdfVerifyResult [] PdfVerifyResults) {
         this.PdfVerifyResults = PdfVerifyResults;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 验签序列号, 为11为数组组成的字符串 
+     * @return VerifySerialNo 验签序列号, 为11为数组组成的字符串
+     */
+    public String getVerifySerialNo() {
+        return this.VerifySerialNo;
+    }
+
+    /**
+     * Set 验签序列号, 为11为数组组成的字符串
+     * @param VerifySerialNo 验签序列号, 为11为数组组成的字符串
+     */
+    public void setVerifySerialNo(String VerifySerialNo) {
+        this.VerifySerialNo = VerifySerialNo;
+    }
+
+    /**
+     * Get 合同文件MD5哈希值 
+     * @return PdfResourceMd5 合同文件MD5哈希值
+     */
+    public String getPdfResourceMd5() {
+        return this.PdfResourceMd5;
+    }
+
+    /**
+     * Set 合同文件MD5哈希值
+     * @param PdfResourceMd5 合同文件MD5哈希值
+     */
+    public void setPdfResourceMd5(String PdfResourceMd5) {
+        this.PdfResourceMd5 = PdfResourceMd5;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -108,6 +185,12 @@ public class ChannelVerifyPdfResponse extends AbstractModel{
                 this.PdfVerifyResults[i] = new PdfVerifyResult(source.PdfVerifyResults[i]);
             }
         }
+        if (source.VerifySerialNo != null) {
+            this.VerifySerialNo = new String(source.VerifySerialNo);
+        }
+        if (source.PdfResourceMd5 != null) {
+            this.PdfResourceMd5 = new String(source.PdfResourceMd5);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +203,8 @@ public class ChannelVerifyPdfResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "VerifyResult", this.VerifyResult);
         this.setParamArrayObj(map, prefix + "PdfVerifyResults.", this.PdfVerifyResults);
+        this.setParamSimple(map, prefix + "VerifySerialNo", this.VerifySerialNo);
+        this.setParamSimple(map, prefix + "PdfResourceMd5", this.PdfResourceMd5);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

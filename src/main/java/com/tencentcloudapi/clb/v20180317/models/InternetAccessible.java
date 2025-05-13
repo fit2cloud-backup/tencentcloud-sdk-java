@@ -16,16 +16,15 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InternetAccessible extends AbstractModel{
+public class InternetAccessible extends AbstractModel {
 
     /**
-    * TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费;
-注意：此字段可能返回 null，表示取不到有效值。
+    * TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费，国际站用户不支持该计费模式; BANDWIDTH_PACKAGE 按带宽包计费;BANDWIDTH_PREPAID按带宽预付费。
     */
     @SerializedName("InternetChargeType")
     @Expose
@@ -34,17 +33,22 @@ BANDWIDTH_PACKAGE 按带宽包计费;
     /**
     * 最大出带宽，单位Mbps，仅对公网属性的共享型、性能容量型和独占型 CLB 实例、以及内网属性的性能容量型 CLB 实例生效。
 - 对于公网属性的共享型和独占型 CLB 实例，最大出带宽的范围为1Mbps-2048Mbps。
-- 对于公网属性和内网属性的性能容量型 CLB实例
-  - 默认为普通规格的性能容量型实例，SLA对应超强型1规格，最大出带宽的范围为1Mbps-10240Mbps。
-  - 当您开通了超大型规格的性能容量型时，最大出带宽的范围为1Mbps-61440Mbps。超大型规格的性能容量型正在内测中，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-注意：此字段可能返回 null，表示取不到有效值。
+- 对于公网属性和内网属性的性能容量型 CLB实例，最大出带宽的范围为1Mbps-61440Mbps。
+（调用CreateLoadBalancer创建LB时不指定此参数则设置为默认值10Mbps。此上限可调整）
     */
     @SerializedName("InternetMaxBandwidthOut")
     @Expose
     private Long InternetMaxBandwidthOut;
 
     /**
-    * 带宽包的类型，如SINGLEISP
+    * 带宽包的类型，如 BGP（多线）。
+类型如下：
+SINGLEISP: 单线
+BGP: 多线
+HIGH_QUALITY_BGP: 精品BGP共享带宽包
+SINGLEISP_CMCC: 中国移动共享带宽包
+SINGLEISP_CTCC: 中国电信共享带宽包
+SINGLEISP_CUCC: 中国联通共享带宽包
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BandwidthpkgSubType")
@@ -52,24 +56,16 @@ BANDWIDTH_PACKAGE 按带宽包计费;
     private String BandwidthpkgSubType;
 
     /**
-     * Get TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费;
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InternetChargeType TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费;
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费，国际站用户不支持该计费模式; BANDWIDTH_PACKAGE 按带宽包计费;BANDWIDTH_PREPAID按带宽预付费。 
+     * @return InternetChargeType TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费，国际站用户不支持该计费模式; BANDWIDTH_PACKAGE 按带宽包计费;BANDWIDTH_PREPAID按带宽预付费。
      */
     public String getInternetChargeType() {
         return this.InternetChargeType;
     }
 
     /**
-     * Set TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费;
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InternetChargeType TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费;
-BANDWIDTH_PACKAGE 按带宽包计费;
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费，国际站用户不支持该计费模式; BANDWIDTH_PACKAGE 按带宽包计费;BANDWIDTH_PREPAID按带宽预付费。
+     * @param InternetChargeType TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费 ; BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费，国际站用户不支持该计费模式; BANDWIDTH_PACKAGE 按带宽包计费;BANDWIDTH_PREPAID按带宽预付费。
      */
     public void setInternetChargeType(String InternetChargeType) {
         this.InternetChargeType = InternetChargeType;
@@ -78,16 +74,12 @@ BANDWIDTH_PACKAGE 按带宽包计费;
     /**
      * Get 最大出带宽，单位Mbps，仅对公网属性的共享型、性能容量型和独占型 CLB 实例、以及内网属性的性能容量型 CLB 实例生效。
 - 对于公网属性的共享型和独占型 CLB 实例，最大出带宽的范围为1Mbps-2048Mbps。
-- 对于公网属性和内网属性的性能容量型 CLB实例
-  - 默认为普通规格的性能容量型实例，SLA对应超强型1规格，最大出带宽的范围为1Mbps-10240Mbps。
-  - 当您开通了超大型规格的性能容量型时，最大出带宽的范围为1Mbps-61440Mbps。超大型规格的性能容量型正在内测中，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-注意：此字段可能返回 null，表示取不到有效值。 
+- 对于公网属性和内网属性的性能容量型 CLB实例，最大出带宽的范围为1Mbps-61440Mbps。
+（调用CreateLoadBalancer创建LB时不指定此参数则设置为默认值10Mbps。此上限可调整） 
      * @return InternetMaxBandwidthOut 最大出带宽，单位Mbps，仅对公网属性的共享型、性能容量型和独占型 CLB 实例、以及内网属性的性能容量型 CLB 实例生效。
 - 对于公网属性的共享型和独占型 CLB 实例，最大出带宽的范围为1Mbps-2048Mbps。
-- 对于公网属性和内网属性的性能容量型 CLB实例
-  - 默认为普通规格的性能容量型实例，SLA对应超强型1规格，最大出带宽的范围为1Mbps-10240Mbps。
-  - 当您开通了超大型规格的性能容量型时，最大出带宽的范围为1Mbps-61440Mbps。超大型规格的性能容量型正在内测中，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-注意：此字段可能返回 null，表示取不到有效值。
+- 对于公网属性和内网属性的性能容量型 CLB实例，最大出带宽的范围为1Mbps-61440Mbps。
+（调用CreateLoadBalancer创建LB时不指定此参数则设置为默认值10Mbps。此上限可调整）
      */
     public Long getInternetMaxBandwidthOut() {
         return this.InternetMaxBandwidthOut;
@@ -96,25 +88,35 @@ BANDWIDTH_PACKAGE 按带宽包计费;
     /**
      * Set 最大出带宽，单位Mbps，仅对公网属性的共享型、性能容量型和独占型 CLB 实例、以及内网属性的性能容量型 CLB 实例生效。
 - 对于公网属性的共享型和独占型 CLB 实例，最大出带宽的范围为1Mbps-2048Mbps。
-- 对于公网属性和内网属性的性能容量型 CLB实例
-  - 默认为普通规格的性能容量型实例，SLA对应超强型1规格，最大出带宽的范围为1Mbps-10240Mbps。
-  - 当您开通了超大型规格的性能容量型时，最大出带宽的范围为1Mbps-61440Mbps。超大型规格的性能容量型正在内测中，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-注意：此字段可能返回 null，表示取不到有效值。
+- 对于公网属性和内网属性的性能容量型 CLB实例，最大出带宽的范围为1Mbps-61440Mbps。
+（调用CreateLoadBalancer创建LB时不指定此参数则设置为默认值10Mbps。此上限可调整）
      * @param InternetMaxBandwidthOut 最大出带宽，单位Mbps，仅对公网属性的共享型、性能容量型和独占型 CLB 实例、以及内网属性的性能容量型 CLB 实例生效。
 - 对于公网属性的共享型和独占型 CLB 实例，最大出带宽的范围为1Mbps-2048Mbps。
-- 对于公网属性和内网属性的性能容量型 CLB实例
-  - 默认为普通规格的性能容量型实例，SLA对应超强型1规格，最大出带宽的范围为1Mbps-10240Mbps。
-  - 当您开通了超大型规格的性能容量型时，最大出带宽的范围为1Mbps-61440Mbps。超大型规格的性能容量型正在内测中，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-注意：此字段可能返回 null，表示取不到有效值。
+- 对于公网属性和内网属性的性能容量型 CLB实例，最大出带宽的范围为1Mbps-61440Mbps。
+（调用CreateLoadBalancer创建LB时不指定此参数则设置为默认值10Mbps。此上限可调整）
      */
     public void setInternetMaxBandwidthOut(Long InternetMaxBandwidthOut) {
         this.InternetMaxBandwidthOut = InternetMaxBandwidthOut;
     }
 
     /**
-     * Get 带宽包的类型，如SINGLEISP
+     * Get 带宽包的类型，如 BGP（多线）。
+类型如下：
+SINGLEISP: 单线
+BGP: 多线
+HIGH_QUALITY_BGP: 精品BGP共享带宽包
+SINGLEISP_CMCC: 中国移动共享带宽包
+SINGLEISP_CTCC: 中国电信共享带宽包
+SINGLEISP_CUCC: 中国联通共享带宽包
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BandwidthpkgSubType 带宽包的类型，如SINGLEISP
+     * @return BandwidthpkgSubType 带宽包的类型，如 BGP（多线）。
+类型如下：
+SINGLEISP: 单线
+BGP: 多线
+HIGH_QUALITY_BGP: 精品BGP共享带宽包
+SINGLEISP_CMCC: 中国移动共享带宽包
+SINGLEISP_CTCC: 中国电信共享带宽包
+SINGLEISP_CUCC: 中国联通共享带宽包
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBandwidthpkgSubType() {
@@ -122,9 +124,23 @@ BANDWIDTH_PACKAGE 按带宽包计费;
     }
 
     /**
-     * Set 带宽包的类型，如SINGLEISP
+     * Set 带宽包的类型，如 BGP（多线）。
+类型如下：
+SINGLEISP: 单线
+BGP: 多线
+HIGH_QUALITY_BGP: 精品BGP共享带宽包
+SINGLEISP_CMCC: 中国移动共享带宽包
+SINGLEISP_CTCC: 中国电信共享带宽包
+SINGLEISP_CUCC: 中国联通共享带宽包
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param BandwidthpkgSubType 带宽包的类型，如SINGLEISP
+     * @param BandwidthpkgSubType 带宽包的类型，如 BGP（多线）。
+类型如下：
+SINGLEISP: 单线
+BGP: 多线
+HIGH_QUALITY_BGP: 精品BGP共享带宽包
+SINGLEISP_CMCC: 中国移动共享带宽包
+SINGLEISP_CTCC: 中国电信共享带宽包
+SINGLEISP_CUCC: 中国联通共享带宽包
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBandwidthpkgSubType(String BandwidthpkgSubType) {

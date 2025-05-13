@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssetKeyVal extends AbstractModel{
+public class AssetKeyVal extends AbstractModel {
 
     /**
     * 标签
@@ -38,7 +39,6 @@ public class AssetKeyVal extends AbstractModel{
 
     /**
     * 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Desc")
     @Expose
@@ -46,7 +46,6 @@ public class AssetKeyVal extends AbstractModel{
 
     /**
     * 今日新增数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NewCount")
     @Expose
@@ -85,10 +84,8 @@ public class AssetKeyVal extends AbstractModel{
     }
 
     /**
-     * Get 描述信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 描述信息 
      * @return Desc 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDesc() {
         return this.Desc;
@@ -96,19 +93,15 @@ public class AssetKeyVal extends AbstractModel{
 
     /**
      * Set 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Desc 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDesc(String Desc) {
         this.Desc = Desc;
     }
 
     /**
-     * Get 今日新增数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 今日新增数量 
      * @return NewCount 今日新增数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNewCount() {
         return this.NewCount;
@@ -116,9 +109,7 @@ public class AssetKeyVal extends AbstractModel{
 
     /**
      * Set 今日新增数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NewCount 今日新增数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNewCount(Long NewCount) {
         this.NewCount = NewCount;

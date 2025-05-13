@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScanComplianceScanFailedAssetsRequest extends AbstractModel{
+public class ScanComplianceScanFailedAssetsRequest extends AbstractModel {
 
     /**
     * 要重新扫描的客户资产项ID的列表。
@@ -28,6 +29,13 @@ public class ScanComplianceScanFailedAssetsRequest extends AbstractModel{
     @SerializedName("CustomerAssetIdSet")
     @Expose
     private Long [] CustomerAssetIdSet;
+
+    /**
+    * 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+    */
+    @SerializedName("AssetType")
+    @Expose
+    private String AssetType;
 
     /**
      * Get 要重新扫描的客户资产项ID的列表。 
@@ -45,6 +53,22 @@ public class ScanComplianceScanFailedAssetsRequest extends AbstractModel{
         this.CustomerAssetIdSet = CustomerAssetIdSet;
     }
 
+    /**
+     * Get 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li> 
+     * @return AssetType 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+     */
+    public String getAssetType() {
+        return this.AssetType;
+    }
+
+    /**
+     * Set 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+     * @param AssetType 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+     */
+    public void setAssetType(String AssetType) {
+        this.AssetType = AssetType;
+    }
+
     public ScanComplianceScanFailedAssetsRequest() {
     }
 
@@ -59,6 +83,9 @@ public class ScanComplianceScanFailedAssetsRequest extends AbstractModel{
                 this.CustomerAssetIdSet[i] = new Long(source.CustomerAssetIdSet[i]);
             }
         }
+        if (source.AssetType != null) {
+            this.AssetType = new String(source.AssetType);
+        }
     }
 
 
@@ -67,6 +94,7 @@ public class ScanComplianceScanFailedAssetsRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "CustomerAssetIdSet.", this.CustomerAssetIdSet);
+        this.setParamSimple(map, prefix + "AssetType", this.AssetType);
 
     }
 }

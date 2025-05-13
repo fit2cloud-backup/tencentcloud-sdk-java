@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddCustomWhiteRuleRequest extends AbstractModel{
+public class AddCustomWhiteRuleRequest extends AbstractModel {
 
     /**
     * 规则名称
@@ -37,13 +38,6 @@ public class AddCustomWhiteRuleRequest extends AbstractModel{
     private String SortId;
 
     /**
-    * 过期时间
-    */
-    @SerializedName("ExpireTime")
-    @Expose
-    private String ExpireTime;
-
-    /**
     * 策略详情
     */
     @SerializedName("Strategies")
@@ -58,11 +52,32 @@ public class AddCustomWhiteRuleRequest extends AbstractModel{
     private String Domain;
 
     /**
-    * 放行的详情
+    * 放行的模块，多个模块之间用逗号连接。支持的模块：acl（自定义规则）、owasp（规则引擎）、webshell（恶意文件检测）、geoip（地域封禁）、bwip（IP黑白名单）、cc、botrpc（BOT防护）、antileakage（信息防泄露）、api（API安全）、ai（AI引擎）、ip_auto_deny（IP封禁）、applet（小程序流量风控）
     */
     @SerializedName("Bypass")
     @Expose
     private String Bypass;
+
+    /**
+    * 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
+    */
+    @SerializedName("ExpireTime")
+    @Expose
+    private String ExpireTime;
+
+    /**
+    * 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+    */
+    @SerializedName("JobType")
+    @Expose
+    private String JobType;
+
+    /**
+    * 定时任务配置
+    */
+    @SerializedName("JobDateTime")
+    @Expose
+    private JobDateTime JobDateTime;
 
     /**
      * Get 规则名称 
@@ -94,22 +109,6 @@ public class AddCustomWhiteRuleRequest extends AbstractModel{
      */
     public void setSortId(String SortId) {
         this.SortId = SortId;
-    }
-
-    /**
-     * Get 过期时间 
-     * @return ExpireTime 过期时间
-     */
-    public String getExpireTime() {
-        return this.ExpireTime;
-    }
-
-    /**
-     * Set 过期时间
-     * @param ExpireTime 过期时间
-     */
-    public void setExpireTime(String ExpireTime) {
-        this.ExpireTime = ExpireTime;
     }
 
     /**
@@ -145,19 +144,67 @@ public class AddCustomWhiteRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 放行的详情 
-     * @return Bypass 放行的详情
+     * Get 放行的模块，多个模块之间用逗号连接。支持的模块：acl（自定义规则）、owasp（规则引擎）、webshell（恶意文件检测）、geoip（地域封禁）、bwip（IP黑白名单）、cc、botrpc（BOT防护）、antileakage（信息防泄露）、api（API安全）、ai（AI引擎）、ip_auto_deny（IP封禁）、applet（小程序流量风控） 
+     * @return Bypass 放行的模块，多个模块之间用逗号连接。支持的模块：acl（自定义规则）、owasp（规则引擎）、webshell（恶意文件检测）、geoip（地域封禁）、bwip（IP黑白名单）、cc、botrpc（BOT防护）、antileakage（信息防泄露）、api（API安全）、ai（AI引擎）、ip_auto_deny（IP封禁）、applet（小程序流量风控）
      */
     public String getBypass() {
         return this.Bypass;
     }
 
     /**
-     * Set 放行的详情
-     * @param Bypass 放行的详情
+     * Set 放行的模块，多个模块之间用逗号连接。支持的模块：acl（自定义规则）、owasp（规则引擎）、webshell（恶意文件检测）、geoip（地域封禁）、bwip（IP黑白名单）、cc、botrpc（BOT防护）、antileakage（信息防泄露）、api（API安全）、ai（AI引擎）、ip_auto_deny（IP封禁）、applet（小程序流量风控）
+     * @param Bypass 放行的模块，多个模块之间用逗号连接。支持的模块：acl（自定义规则）、owasp（规则引擎）、webshell（恶意文件检测）、geoip（地域封禁）、bwip（IP黑白名单）、cc、botrpc（BOT防护）、antileakage（信息防泄露）、api（API安全）、ai（AI引擎）、ip_auto_deny（IP封禁）、applet（小程序流量风控）
      */
     public void setBypass(String Bypass) {
         this.Bypass = Bypass;
+    }
+
+    /**
+     * Get 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒） 
+     * @return ExpireTime 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
+     */
+    public String getExpireTime() {
+        return this.ExpireTime;
+    }
+
+    /**
+     * Set 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
+     * @param ExpireTime 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
+     */
+    public void setExpireTime(String ExpireTime) {
+        this.ExpireTime = ExpireTime;
+    }
+
+    /**
+     * Get 规则执行的方式，TimedJob为定时执行，CronJob为周期执行 
+     * @return JobType 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+     */
+    public String getJobType() {
+        return this.JobType;
+    }
+
+    /**
+     * Set 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+     * @param JobType 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+     */
+    public void setJobType(String JobType) {
+        this.JobType = JobType;
+    }
+
+    /**
+     * Get 定时任务配置 
+     * @return JobDateTime 定时任务配置
+     */
+    public JobDateTime getJobDateTime() {
+        return this.JobDateTime;
+    }
+
+    /**
+     * Set 定时任务配置
+     * @param JobDateTime 定时任务配置
+     */
+    public void setJobDateTime(JobDateTime JobDateTime) {
+        this.JobDateTime = JobDateTime;
     }
 
     public AddCustomWhiteRuleRequest() {
@@ -174,9 +221,6 @@ public class AddCustomWhiteRuleRequest extends AbstractModel{
         if (source.SortId != null) {
             this.SortId = new String(source.SortId);
         }
-        if (source.ExpireTime != null) {
-            this.ExpireTime = new String(source.ExpireTime);
-        }
         if (source.Strategies != null) {
             this.Strategies = new Strategy[source.Strategies.length];
             for (int i = 0; i < source.Strategies.length; i++) {
@@ -189,6 +233,15 @@ public class AddCustomWhiteRuleRequest extends AbstractModel{
         if (source.Bypass != null) {
             this.Bypass = new String(source.Bypass);
         }
+        if (source.ExpireTime != null) {
+            this.ExpireTime = new String(source.ExpireTime);
+        }
+        if (source.JobType != null) {
+            this.JobType = new String(source.JobType);
+        }
+        if (source.JobDateTime != null) {
+            this.JobDateTime = new JobDateTime(source.JobDateTime);
+        }
     }
 
 
@@ -198,10 +251,12 @@ public class AddCustomWhiteRuleRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "SortId", this.SortId);
-        this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamArrayObj(map, prefix + "Strategies.", this.Strategies);
         this.setParamSimple(map, prefix + "Domain", this.Domain);
         this.setParamSimple(map, prefix + "Bypass", this.Bypass);
+        this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
+        this.setParamSimple(map, prefix + "JobType", this.JobType);
+        this.setParamObj(map, prefix + "JobDateTime.", this.JobDateTime);
 
     }
 }

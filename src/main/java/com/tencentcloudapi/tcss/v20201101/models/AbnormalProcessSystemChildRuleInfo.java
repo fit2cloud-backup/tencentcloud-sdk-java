@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AbnormalProcessSystemChildRuleInfo extends AbstractModel{
+public class AbnormalProcessSystemChildRuleInfo extends AbstractModel {
 
     /**
     * 子策略Id
@@ -61,7 +62,6 @@ ABNORMAL_CHILD_PROC: 敏感服务异常子进程启动
 
     /**
     * 威胁等级，HIGH:高，MIDDLE:中，LOW:低
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleLevel")
     @Expose
@@ -168,10 +168,8 @@ ABNORMAL_CHILD_PROC: 敏感服务异常子进程启动
     }
 
     /**
-     * Get 威胁等级，HIGH:高，MIDDLE:中，LOW:低
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 威胁等级，HIGH:高，MIDDLE:中，LOW:低 
      * @return RuleLevel 威胁等级，HIGH:高，MIDDLE:中，LOW:低
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuleLevel() {
         return this.RuleLevel;
@@ -179,9 +177,7 @@ ABNORMAL_CHILD_PROC: 敏感服务异常子进程启动
 
     /**
      * Set 威胁等级，HIGH:高，MIDDLE:中，LOW:低
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleLevel 威胁等级，HIGH:高，MIDDLE:中，LOW:低
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleLevel(String RuleLevel) {
         this.RuleLevel = RuleLevel;

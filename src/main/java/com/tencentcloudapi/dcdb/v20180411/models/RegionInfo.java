@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegionInfo extends AbstractModel{
+public class RegionInfo extends AbstractModel {
 
     /**
     * 地域英文ID
@@ -56,6 +57,20 @@ public class RegionInfo extends AbstractModel{
     @SerializedName("AvailableChoice")
     @Expose
     private ShardZoneChooseInfo [] AvailableChoice;
+
+    /**
+    * 主机类型，如：物理机：Machine，容器：Container。
+    */
+    @SerializedName("HostType")
+    @Expose
+    private String HostType;
+
+    /**
+    * Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+    */
+    @SerializedName("CpuType")
+    @Expose
+    private String CpuType;
 
     /**
      * Get 地域英文ID 
@@ -137,6 +152,38 @@ public class RegionInfo extends AbstractModel{
         this.AvailableChoice = AvailableChoice;
     }
 
+    /**
+     * Get 主机类型，如：物理机：Machine，容器：Container。 
+     * @return HostType 主机类型，如：物理机：Machine，容器：Container。
+     */
+    public String getHostType() {
+        return this.HostType;
+    }
+
+    /**
+     * Set 主机类型，如：物理机：Machine，容器：Container。
+     * @param HostType 主机类型，如：物理机：Machine，容器：Container。
+     */
+    public void setHostType(String HostType) {
+        this.HostType = HostType;
+    }
+
+    /**
+     * Get Cpu类型，如：英特尔：Intel/AMD，海光：Hygon 
+     * @return CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+     */
+    public String getCpuType() {
+        return this.CpuType;
+    }
+
+    /**
+     * Set Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+     * @param CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon
+     */
+    public void setCpuType(String CpuType) {
+        this.CpuType = CpuType;
+    }
+
     public RegionInfo() {
     }
 
@@ -166,6 +213,12 @@ public class RegionInfo extends AbstractModel{
                 this.AvailableChoice[i] = new ShardZoneChooseInfo(source.AvailableChoice[i]);
             }
         }
+        if (source.HostType != null) {
+            this.HostType = new String(source.HostType);
+        }
+        if (source.CpuType != null) {
+            this.CpuType = new String(source.CpuType);
+        }
     }
 
 
@@ -178,6 +231,8 @@ public class RegionInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "RegionName", this.RegionName);
         this.setParamArrayObj(map, prefix + "ZoneList.", this.ZoneList);
         this.setParamArrayObj(map, prefix + "AvailableChoice.", this.AvailableChoice);
+        this.setParamSimple(map, prefix + "HostType", this.HostType);
+        this.setParamSimple(map, prefix + "CpuType", this.CpuType);
 
     }
 }

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CommonIdOpsDto extends AbstractModel{
+public class CommonIdOpsDto extends AbstractModel {
 
     /**
-    * 返回命令id
+    * 返回补录计划id
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Id")
@@ -31,9 +32,9 @@ public class CommonIdOpsDto extends AbstractModel{
     private String Id;
 
     /**
-     * Get 返回命令id
+     * Get 返回补录计划id
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Id 返回命令id
+     * @return Id 返回补录计划id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getId() {
@@ -41,9 +42,9 @@ public class CommonIdOpsDto extends AbstractModel{
     }
 
     /**
-     * Set 返回命令id
+     * Set 返回补录计划id
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Id 返回命令id
+     * @param Id 返回补录计划id
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setId(String Id) {

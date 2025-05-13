@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AutoSnapshotPolicyInfo extends AbstractModel{
+public class AutoSnapshotPolicyInfo extends AbstractModel {
 
     /**
     * 快照策略ID
@@ -86,7 +87,7 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     private String Status;
 
     /**
-    * 帐号ID
+    * 账号ID
     */
     @SerializedName("AppId")
     @Expose
@@ -281,16 +282,16 @@ public class AutoSnapshotPolicyInfo extends AbstractModel{
     }
 
     /**
-     * Get 帐号ID 
-     * @return AppId 帐号ID
+     * Get 账号ID 
+     * @return AppId 账号ID
      */
     public Long getAppId() {
         return this.AppId;
     }
 
     /**
-     * Set 帐号ID
-     * @param AppId 帐号ID
+     * Set 账号ID
+     * @param AppId 账号ID
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;

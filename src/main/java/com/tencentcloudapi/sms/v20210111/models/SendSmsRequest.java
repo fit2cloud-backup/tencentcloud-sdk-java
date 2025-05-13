@@ -16,15 +16,16 @@
 package com.tencentcloudapi.sms.v20210111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SendSmsRequest extends AbstractModel{
+public class SendSmsRequest extends AbstractModel {
 
     /**
     * 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
 注：发送国内短信格式还支持0086、86或无任何国家或地区码的11位手机号码，前缀默认为+86。
     */
     @SerializedName("PhoneNumberSet")
@@ -47,7 +48,8 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
     * 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
+<dx-alert infotype="notice" title="注意"><ul><li>发送国内短信该参数必填，且需填写签名内容而非签名ID。
+</li><li>发送国际/港澳台短信该参数非必填。</li></ul></dx-alert>
     */
     @SerializedName("SignName")
     @Expose
@@ -85,10 +87,10 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
      * Get 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
 注：发送国内短信格式还支持0086、86或无任何国家或地区码的11位手机号码，前缀默认为+86。 
      * @return PhoneNumberSet 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
 注：发送国内短信格式还支持0086、86或无任何国家或地区码的11位手机号码，前缀默认为+86。
      */
     public String [] getPhoneNumberSet() {
@@ -97,10 +99,10 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
      * Set 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
 注：发送国内短信格式还支持0086、86或无任何国家或地区码的11位手机号码，前缀默认为+86。
      * @param PhoneNumberSet 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
 注：发送国内短信格式还支持0086、86或无任何国家或地区码的11位手机号码，前缀默认为+86。
      */
     public void setPhoneNumberSet(String [] PhoneNumberSet) {
@@ -141,9 +143,11 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
      * Get 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert> 
+<dx-alert infotype="notice" title="注意"><ul><li>发送国内短信该参数必填，且需填写签名内容而非签名ID。
+</li><li>发送国际/港澳台短信该参数非必填。</li></ul></dx-alert> 
      * @return SignName 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
+<dx-alert infotype="notice" title="注意"><ul><li>发送国内短信该参数必填，且需填写签名内容而非签名ID。
+</li><li>发送国际/港澳台短信该参数非必填。</li></ul></dx-alert>
      */
     public String getSignName() {
         return this.SignName;
@@ -151,9 +155,11 @@ public class SendSmsRequest extends AbstractModel{
 
     /**
      * Set 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
+<dx-alert infotype="notice" title="注意"><ul><li>发送国内短信该参数必填，且需填写签名内容而非签名ID。
+</li><li>发送国际/港澳台短信该参数非必填。</li></ul></dx-alert>
      * @param SignName 短信签名内容，使用 UTF-8 编码，必须填写已审核通过的签名，例如：腾讯云，签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看。
-<dx-alert infotype="notice" title="注意">发送国内短信该参数必填，且需填写签名内容而非签名ID。</dx-alert>
+<dx-alert infotype="notice" title="注意"><ul><li>发送国内短信该参数必填，且需填写签名内容而非签名ID。
+</li><li>发送国际/港澳台短信该参数非必填。</li></ul></dx-alert>
      */
     public void setSignName(String SignName) {
         this.SignName = SignName;

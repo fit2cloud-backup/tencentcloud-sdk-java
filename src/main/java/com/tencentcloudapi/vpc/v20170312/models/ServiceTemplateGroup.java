@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceTemplateGroup extends AbstractModel{
+public class ServiceTemplateGroup extends AbstractModel {
 
     /**
     * 协议端口模板集合实例ID，例如：ppmg-2klmrefu。
@@ -51,11 +52,25 @@ public class ServiceTemplateGroup extends AbstractModel{
     private String CreatedTime;
 
     /**
+    * 最后更新时间。
+    */
+    @SerializedName("UpdatedTime")
+    @Expose
+    private String UpdatedTime;
+
+    /**
     * 协议端口模板实例信息。
     */
     @SerializedName("ServiceTemplateSet")
     @Expose
     private ServiceTemplate [] ServiceTemplateSet;
+
+    /**
+    * 标签键值对。	
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get 协议端口模板集合实例ID，例如：ppmg-2klmrefu。 
@@ -122,6 +137,22 @@ public class ServiceTemplateGroup extends AbstractModel{
     }
 
     /**
+     * Get 最后更新时间。 
+     * @return UpdatedTime 最后更新时间。
+     */
+    public String getUpdatedTime() {
+        return this.UpdatedTime;
+    }
+
+    /**
+     * Set 最后更新时间。
+     * @param UpdatedTime 最后更新时间。
+     */
+    public void setUpdatedTime(String UpdatedTime) {
+        this.UpdatedTime = UpdatedTime;
+    }
+
+    /**
      * Get 协议端口模板实例信息。 
      * @return ServiceTemplateSet 协议端口模板实例信息。
      */
@@ -135,6 +166,22 @@ public class ServiceTemplateGroup extends AbstractModel{
      */
     public void setServiceTemplateSet(ServiceTemplate [] ServiceTemplateSet) {
         this.ServiceTemplateSet = ServiceTemplateSet;
+    }
+
+    /**
+     * Get 标签键值对。	 
+     * @return TagSet 标签键值对。	
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。	
+     * @param TagSet 标签键值对。	
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
     }
 
     public ServiceTemplateGroup() {
@@ -160,10 +207,19 @@ public class ServiceTemplateGroup extends AbstractModel{
         if (source.CreatedTime != null) {
             this.CreatedTime = new String(source.CreatedTime);
         }
+        if (source.UpdatedTime != null) {
+            this.UpdatedTime = new String(source.UpdatedTime);
+        }
         if (source.ServiceTemplateSet != null) {
             this.ServiceTemplateSet = new ServiceTemplate[source.ServiceTemplateSet.length];
             for (int i = 0; i < source.ServiceTemplateSet.length; i++) {
                 this.ServiceTemplateSet[i] = new ServiceTemplate(source.ServiceTemplateSet[i]);
+            }
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
             }
         }
     }
@@ -177,7 +233,9 @@ public class ServiceTemplateGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "ServiceTemplateGroupName", this.ServiceTemplateGroupName);
         this.setParamArraySimple(map, prefix + "ServiceTemplateIdSet.", this.ServiceTemplateIdSet);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamSimple(map, prefix + "UpdatedTime", this.UpdatedTime);
         this.setParamArrayObj(map, prefix + "ServiceTemplateSet.", this.ServiceTemplateSet);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

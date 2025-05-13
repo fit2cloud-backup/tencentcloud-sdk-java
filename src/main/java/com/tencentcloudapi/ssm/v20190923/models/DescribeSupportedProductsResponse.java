@@ -16,14 +16,20 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSupportedProductsResponse extends AbstractModel{
+public class DescribeSupportedProductsResponse extends AbstractModel {
 
     /**
-    * 支持的产品列表。
+    * 支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。
     */
     @SerializedName("Products")
     @Expose
@@ -37,23 +43,43 @@ public class DescribeSupportedProductsResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 支持的产品列表。 
-     * @return Products 支持的产品列表。
+     * Get 支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。 
+     * @return Products 支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。
      */
     public String [] getProducts() {
         return this.Products;
     }
 
     /**
-     * Set 支持的产品列表。
-     * @param Products 支持的产品列表。
+     * Set 支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。
+     * @param Products 支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。
      */
     public void setProducts(String [] Products) {
         this.Products = Products;
@@ -76,16 +102,16 @@ public class DescribeSupportedProductsResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

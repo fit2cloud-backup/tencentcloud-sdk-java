@@ -16,15 +16,17 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HlsSpecialParam extends AbstractModel{
+public class HlsSpecialParam extends AbstractModel {
 
     /**
     * HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowContinueDuration")
     @Expose
@@ -32,9 +34,11 @@ public class HlsSpecialParam extends AbstractModel{
 
     /**
      * Get HLS续流超时时间。
-取值范围[0，1800]。 
+取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return FlowContinueDuration HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFlowContinueDuration() {
         return this.FlowContinueDuration;
@@ -43,8 +47,10 @@ public class HlsSpecialParam extends AbstractModel{
     /**
      * Set HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowContinueDuration HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowContinueDuration(Long FlowContinueDuration) {
         this.FlowContinueDuration = FlowContinueDuration;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TargetGroupBackend extends AbstractModel{
+public class TargetGroupBackend extends AbstractModel {
 
     /**
     * 目标组ID
@@ -44,7 +45,7 @@ public class TargetGroupBackend extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 后端服务的监听端口
+    * 后端服务的监听端口，全端口段监听器此字段返回0，代表无效端口，即不支持设置。
     */
     @SerializedName("Port")
     @Expose
@@ -59,7 +60,6 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
     * 后端服务的外网 IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicIpAddresses")
     @Expose
@@ -67,7 +67,6 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
     * 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PrivateIpAddresses")
     @Expose
@@ -75,7 +74,6 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
     * 后端服务的实例名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -91,7 +89,6 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
     * 弹性网卡唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EniId")
     @Expose
@@ -99,7 +96,6 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
     * 后端服务的可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneId")
     @Expose
@@ -154,16 +150,16 @@ public class TargetGroupBackend extends AbstractModel{
     }
 
     /**
-     * Get 后端服务的监听端口 
-     * @return Port 后端服务的监听端口
+     * Get 后端服务的监听端口，全端口段监听器此字段返回0，代表无效端口，即不支持设置。 
+     * @return Port 后端服务的监听端口，全端口段监听器此字段返回0，代表无效端口，即不支持设置。
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 后端服务的监听端口
-     * @param Port 后端服务的监听端口
+     * Set 后端服务的监听端口，全端口段监听器此字段返回0，代表无效端口，即不支持设置。
+     * @param Port 后端服务的监听端口，全端口段监听器此字段返回0，代表无效端口，即不支持设置。
      */
     public void setPort(Long Port) {
         this.Port = Port;
@@ -186,10 +182,8 @@ public class TargetGroupBackend extends AbstractModel{
     }
 
     /**
-     * Get 后端服务的外网 IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端服务的外网 IP 
      * @return PublicIpAddresses 后端服务的外网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getPublicIpAddresses() {
         return this.PublicIpAddresses;
@@ -197,19 +191,15 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
      * Set 后端服务的外网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PublicIpAddresses 后端服务的外网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicIpAddresses(String [] PublicIpAddresses) {
         this.PublicIpAddresses = PublicIpAddresses;
     }
 
     /**
-     * Get 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端服务的内网 IP 
      * @return PrivateIpAddresses 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getPrivateIpAddresses() {
         return this.PrivateIpAddresses;
@@ -217,19 +207,15 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
      * Set 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PrivateIpAddresses 后端服务的内网 IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrivateIpAddresses(String [] PrivateIpAddresses) {
         this.PrivateIpAddresses = PrivateIpAddresses;
     }
 
     /**
-     * Get 后端服务的实例名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端服务的实例名称 
      * @return InstanceName 后端服务的实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -237,9 +223,7 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
      * Set 后端服务的实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 后端服务的实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
@@ -266,10 +250,8 @@ public class TargetGroupBackend extends AbstractModel{
     }
 
     /**
-     * Get 弹性网卡唯一ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 弹性网卡唯一ID 
      * @return EniId 弹性网卡唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEniId() {
         return this.EniId;
@@ -277,19 +259,15 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
      * Set 弹性网卡唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EniId 弹性网卡唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEniId(String EniId) {
         this.EniId = EniId;
     }
 
     /**
-     * Get 后端服务的可用区ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端服务的可用区ID 
      * @return ZoneId 后端服务的可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getZoneId() {
         return this.ZoneId;
@@ -297,9 +275,7 @@ public class TargetGroupBackend extends AbstractModel{
 
     /**
      * Set 后端服务的可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneId 后端服务的可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;

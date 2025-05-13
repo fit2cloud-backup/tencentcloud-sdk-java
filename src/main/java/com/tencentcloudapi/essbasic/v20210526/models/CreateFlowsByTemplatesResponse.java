@@ -16,14 +16,18 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateFlowsByTemplatesResponse extends AbstractModel{
+public class CreateFlowsByTemplatesResponse extends AbstractModel {
 
     /**
-    * 多个合同ID
+    * 生成的合同流程ID数组，合同流程ID为32位字符串。
+建议开发者妥善保存此流程ID数组，以便于顺利进行后续操作。
+
+[点击产看FlowId在控制台上的位置](https://qcloudimg.tencent-cloud.cn/raw/05af26573d5106763b4cfbb9f7c64b41.png)
     */
     @SerializedName("FlowIds")
     @Expose
@@ -45,7 +49,11 @@ public class CreateFlowsByTemplatesResponse extends AbstractModel{
     private String [] ErrorMessages;
 
     /**
-    * 预览模式下返回的预览文件url数组
+    * 合同预览链接URL数组。
+
+注：如果是预览模式(即NeedPreview设置为true)时, 才会有此预览链接URL
+如果预览的文件中指定了动态表格控件，此时此接口返回的是合成前的文档预览链接，合成完成后的文档预览链接需要通过[合同文档合成完成回调](https://qian.tencent.com/developers/partner/callback_types_contracts_sign#%E5%8D%81%E4%B8%80-%E5%90%88%E5%90%8C%E6%96%87%E6%A1%A3%E5%90%88%E6%88%90%E5%AE%8C%E6%88%90%E5%9B%9E%E8%B0%83)获取或使用返回的TaskInfo中的TaskId通过[查询转换任务状态
+](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi)接口查询得到
     */
     @SerializedName("PreviewUrls")
     @Expose
@@ -60,23 +68,42 @@ public class CreateFlowsByTemplatesResponse extends AbstractModel{
     private TaskInfo [] TaskInfos;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 签署方信息，如角色ID、角色名称等
+    */
+    @SerializedName("FlowApprovers")
+    @Expose
+    private FlowApproverItem [] FlowApprovers;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 多个合同ID 
-     * @return FlowIds 多个合同ID
+     * Get 生成的合同流程ID数组，合同流程ID为32位字符串。
+建议开发者妥善保存此流程ID数组，以便于顺利进行后续操作。
+
+[点击产看FlowId在控制台上的位置](https://qcloudimg.tencent-cloud.cn/raw/05af26573d5106763b4cfbb9f7c64b41.png) 
+     * @return FlowIds 生成的合同流程ID数组，合同流程ID为32位字符串。
+建议开发者妥善保存此流程ID数组，以便于顺利进行后续操作。
+
+[点击产看FlowId在控制台上的位置](https://qcloudimg.tencent-cloud.cn/raw/05af26573d5106763b4cfbb9f7c64b41.png)
      */
     public String [] getFlowIds() {
         return this.FlowIds;
     }
 
     /**
-     * Set 多个合同ID
-     * @param FlowIds 多个合同ID
+     * Set 生成的合同流程ID数组，合同流程ID为32位字符串。
+建议开发者妥善保存此流程ID数组，以便于顺利进行后续操作。
+
+[点击产看FlowId在控制台上的位置](https://qcloudimg.tencent-cloud.cn/raw/05af26573d5106763b4cfbb9f7c64b41.png)
+     * @param FlowIds 生成的合同流程ID数组，合同流程ID为32位字符串。
+建议开发者妥善保存此流程ID数组，以便于顺利进行后续操作。
+
+[点击产看FlowId在控制台上的位置](https://qcloudimg.tencent-cloud.cn/raw/05af26573d5106763b4cfbb9f7c64b41.png)
      */
     public void setFlowIds(String [] FlowIds) {
         this.FlowIds = FlowIds;
@@ -119,16 +146,32 @@ public class CreateFlowsByTemplatesResponse extends AbstractModel{
     }
 
     /**
-     * Get 预览模式下返回的预览文件url数组 
-     * @return PreviewUrls 预览模式下返回的预览文件url数组
+     * Get 合同预览链接URL数组。
+
+注：如果是预览模式(即NeedPreview设置为true)时, 才会有此预览链接URL
+如果预览的文件中指定了动态表格控件，此时此接口返回的是合成前的文档预览链接，合成完成后的文档预览链接需要通过[合同文档合成完成回调](https://qian.tencent.com/developers/partner/callback_types_contracts_sign#%E5%8D%81%E4%B8%80-%E5%90%88%E5%90%8C%E6%96%87%E6%A1%A3%E5%90%88%E6%88%90%E5%AE%8C%E6%88%90%E5%9B%9E%E8%B0%83)获取或使用返回的TaskInfo中的TaskId通过[查询转换任务状态
+](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi)接口查询得到 
+     * @return PreviewUrls 合同预览链接URL数组。
+
+注：如果是预览模式(即NeedPreview设置为true)时, 才会有此预览链接URL
+如果预览的文件中指定了动态表格控件，此时此接口返回的是合成前的文档预览链接，合成完成后的文档预览链接需要通过[合同文档合成完成回调](https://qian.tencent.com/developers/partner/callback_types_contracts_sign#%E5%8D%81%E4%B8%80-%E5%90%88%E5%90%8C%E6%96%87%E6%A1%A3%E5%90%88%E6%88%90%E5%AE%8C%E6%88%90%E5%9B%9E%E8%B0%83)获取或使用返回的TaskInfo中的TaskId通过[查询转换任务状态
+](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi)接口查询得到
      */
     public String [] getPreviewUrls() {
         return this.PreviewUrls;
     }
 
     /**
-     * Set 预览模式下返回的预览文件url数组
-     * @param PreviewUrls 预览模式下返回的预览文件url数组
+     * Set 合同预览链接URL数组。
+
+注：如果是预览模式(即NeedPreview设置为true)时, 才会有此预览链接URL
+如果预览的文件中指定了动态表格控件，此时此接口返回的是合成前的文档预览链接，合成完成后的文档预览链接需要通过[合同文档合成完成回调](https://qian.tencent.com/developers/partner/callback_types_contracts_sign#%E5%8D%81%E4%B8%80-%E5%90%88%E5%90%8C%E6%96%87%E6%A1%A3%E5%90%88%E6%88%90%E5%AE%8C%E6%88%90%E5%9B%9E%E8%B0%83)获取或使用返回的TaskInfo中的TaskId通过[查询转换任务状态
+](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi)接口查询得到
+     * @param PreviewUrls 合同预览链接URL数组。
+
+注：如果是预览模式(即NeedPreview设置为true)时, 才会有此预览链接URL
+如果预览的文件中指定了动态表格控件，此时此接口返回的是合成前的文档预览链接，合成完成后的文档预览链接需要通过[合同文档合成完成回调](https://qian.tencent.com/developers/partner/callback_types_contracts_sign#%E5%8D%81%E4%B8%80-%E5%90%88%E5%90%8C%E6%96%87%E6%A1%A3%E5%90%88%E6%88%90%E5%AE%8C%E6%88%90%E5%9B%9E%E8%B0%83)获取或使用返回的TaskInfo中的TaskId通过[查询转换任务状态
+](https://qian.tencent.com/developers/partnerApis/files/ChannelGetTaskResultApi)接口查询得到
      */
     public void setPreviewUrls(String [] PreviewUrls) {
         this.PreviewUrls = PreviewUrls;
@@ -155,16 +198,32 @@ public class CreateFlowsByTemplatesResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 签署方信息，如角色ID、角色名称等 
+     * @return FlowApprovers 签署方信息，如角色ID、角色名称等
+     */
+    public FlowApproverItem [] getFlowApprovers() {
+        return this.FlowApprovers;
+    }
+
+    /**
+     * Set 签署方信息，如角色ID、角色名称等
+     * @param FlowApprovers 签署方信息，如角色ID、角色名称等
+     */
+    public void setFlowApprovers(FlowApproverItem [] FlowApprovers) {
+        this.FlowApprovers = FlowApprovers;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -208,6 +267,12 @@ public class CreateFlowsByTemplatesResponse extends AbstractModel{
                 this.TaskInfos[i] = new TaskInfo(source.TaskInfos[i]);
             }
         }
+        if (source.FlowApprovers != null) {
+            this.FlowApprovers = new FlowApproverItem[source.FlowApprovers.length];
+            for (int i = 0; i < source.FlowApprovers.length; i++) {
+                this.FlowApprovers[i] = new FlowApproverItem(source.FlowApprovers[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -223,6 +288,7 @@ public class CreateFlowsByTemplatesResponse extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ErrorMessages.", this.ErrorMessages);
         this.setParamArraySimple(map, prefix + "PreviewUrls.", this.PreviewUrls);
         this.setParamArrayObj(map, prefix + "TaskInfos.", this.TaskInfos);
+        this.setParamArrayObj(map, prefix + "FlowApprovers.", this.FlowApprovers);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

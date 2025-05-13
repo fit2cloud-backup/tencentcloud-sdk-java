@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddLiveWatermarkRequest extends AbstractModel{
+public class AddLiveWatermarkRequest extends AbstractModel {
 
     /**
     * 水印图片 URL。
@@ -33,7 +34,7 @@ URL中禁止包含的字符：
 
     /**
     * 水印名称。
-最长16字节。
+最长30字节。
     */
     @SerializedName("WatermarkName")
     @Expose
@@ -107,9 +108,9 @@ URL中禁止包含的字符：
 
     /**
      * Get 水印名称。
-最长16字节。 
+最长30字节。 
      * @return WatermarkName 水印名称。
-最长16字节。
+最长30字节。
      */
     public String getWatermarkName() {
         return this.WatermarkName;
@@ -117,9 +118,9 @@ URL中禁止包含的字符：
 
     /**
      * Set 水印名称。
-最长16字节。
+最长30字节。
      * @param WatermarkName 水印名称。
-最长16字节。
+最长30字节。
      */
     public void setWatermarkName(String WatermarkName) {
         this.WatermarkName = WatermarkName;

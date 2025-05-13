@@ -16,14 +16,23 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRiskDnsEventListRequest extends AbstractModel{
+public class DescribeRiskDnsEventListRequest extends AbstractModel {
 
     /**
-    * <li>IpOrName - String - 是否必填：否 - 主机Ip或别名筛选</li>
+    * <li>MachineName  主机名称
+
+
+
+InstanceID  实例ID  
+
+ 
+
+IP   内网IP或公网IP- 是否必填：否 - 主机Ip或别名筛选</li>
 <li>HostId - String - 是否必填：否 - 主机Id</li>
 <li>AgentId - String - 是否必填：否 - 客户端Id</li>
 <li>PolicyType - String - 是否必填：否 - 策略类型,0:系统策略1:用户自定义策略</li>
@@ -65,7 +74,15 @@ public class DescribeRiskDnsEventListRequest extends AbstractModel{
     private String By;
 
     /**
-     * Get <li>IpOrName - String - 是否必填：否 - 主机Ip或别名筛选</li>
+     * Get <li>MachineName  主机名称
+
+
+
+InstanceID  实例ID  
+
+ 
+
+IP   内网IP或公网IP- 是否必填：否 - 主机Ip或别名筛选</li>
 <li>HostId - String - 是否必填：否 - 主机Id</li>
 <li>AgentId - String - 是否必填：否 - 客户端Id</li>
 <li>PolicyType - String - 是否必填：否 - 策略类型,0:系统策略1:用户自定义策略</li>
@@ -73,7 +90,15 @@ public class DescribeRiskDnsEventListRequest extends AbstractModel{
 <li>HandleStatus - String - 是否必填：否 - 状态筛选0:待处理；2:信任；3:不信任</li>
 <li>BeginTime - String - 是否必填：否 - 最近访问开始时间</li>
 <li>EndTime - String - 是否必填：否 - 最近访问结束时间</li> 
-     * @return Filters <li>IpOrName - String - 是否必填：否 - 主机Ip或别名筛选</li>
+     * @return Filters <li>MachineName  主机名称
+
+
+
+InstanceID  实例ID  
+
+ 
+
+IP   内网IP或公网IP- 是否必填：否 - 主机Ip或别名筛选</li>
 <li>HostId - String - 是否必填：否 - 主机Id</li>
 <li>AgentId - String - 是否必填：否 - 客户端Id</li>
 <li>PolicyType - String - 是否必填：否 - 策略类型,0:系统策略1:用户自定义策略</li>
@@ -87,7 +112,15 @@ public class DescribeRiskDnsEventListRequest extends AbstractModel{
     }
 
     /**
-     * Set <li>IpOrName - String - 是否必填：否 - 主机Ip或别名筛选</li>
+     * Set <li>MachineName  主机名称
+
+
+
+InstanceID  实例ID  
+
+ 
+
+IP   内网IP或公网IP- 是否必填：否 - 主机Ip或别名筛选</li>
 <li>HostId - String - 是否必填：否 - 主机Id</li>
 <li>AgentId - String - 是否必填：否 - 客户端Id</li>
 <li>PolicyType - String - 是否必填：否 - 策略类型,0:系统策略1:用户自定义策略</li>
@@ -95,7 +128,15 @@ public class DescribeRiskDnsEventListRequest extends AbstractModel{
 <li>HandleStatus - String - 是否必填：否 - 状态筛选0:待处理；2:信任；3:不信任</li>
 <li>BeginTime - String - 是否必填：否 - 最近访问开始时间</li>
 <li>EndTime - String - 是否必填：否 - 最近访问结束时间</li>
-     * @param Filters <li>IpOrName - String - 是否必填：否 - 主机Ip或别名筛选</li>
+     * @param Filters <li>MachineName  主机名称
+
+
+
+InstanceID  实例ID  
+
+ 
+
+IP   内网IP或公网IP- 是否必填：否 - 主机Ip或别名筛选</li>
 <li>HostId - String - 是否必填：否 - 主机Id</li>
 <li>AgentId - String - 是否必填：否 - 客户端Id</li>
 <li>PolicyType - String - 是否必填：否 - 策略类型,0:系统策略1:用户自定义策略</li>

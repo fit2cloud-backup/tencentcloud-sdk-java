@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskDetail extends AbstractModel{
+public class TaskDetail extends AbstractModel {
 
     /**
     * 错误码。
@@ -101,7 +102,6 @@ public class TaskDetail extends AbstractModel{
 
     /**
     * 任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceIds")
     @Expose
@@ -113,6 +113,13 @@ public class TaskDetail extends AbstractModel{
     @SerializedName("AsyncRequestId")
     @Expose
     private String AsyncRequestId;
+
+    /**
+    * 任务的附加信息。
+    */
+    @SerializedName("TaskAttachInfo")
+    @Expose
+    private TaskAttachInfo [] TaskAttachInfo;
 
     /**
      * Get 错误码。 
@@ -327,10 +334,8 @@ public class TaskDetail extends AbstractModel{
     }
 
     /**
-     * Get 任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务关联的实例 ID。 
      * @return InstanceIds 任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
@@ -338,9 +343,7 @@ public class TaskDetail extends AbstractModel{
 
     /**
      * Set 任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceIds 任务关联的实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;
@@ -360,6 +363,22 @@ public class TaskDetail extends AbstractModel{
      */
     public void setAsyncRequestId(String AsyncRequestId) {
         this.AsyncRequestId = AsyncRequestId;
+    }
+
+    /**
+     * Get 任务的附加信息。 
+     * @return TaskAttachInfo 任务的附加信息。
+     */
+    public TaskAttachInfo [] getTaskAttachInfo() {
+        return this.TaskAttachInfo;
+    }
+
+    /**
+     * Set 任务的附加信息。
+     * @param TaskAttachInfo 任务的附加信息。
+     */
+    public void setTaskAttachInfo(TaskAttachInfo [] TaskAttachInfo) {
+        this.TaskAttachInfo = TaskAttachInfo;
     }
 
     public TaskDetail() {
@@ -403,6 +422,12 @@ public class TaskDetail extends AbstractModel{
         if (source.AsyncRequestId != null) {
             this.AsyncRequestId = new String(source.AsyncRequestId);
         }
+        if (source.TaskAttachInfo != null) {
+            this.TaskAttachInfo = new TaskAttachInfo[source.TaskAttachInfo.length];
+            for (int i = 0; i < source.TaskAttachInfo.length; i++) {
+                this.TaskAttachInfo[i] = new TaskAttachInfo(source.TaskAttachInfo[i]);
+            }
+        }
     }
 
 
@@ -420,6 +445,7 @@ public class TaskDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamArraySimple(map, prefix + "InstanceIds.", this.InstanceIds);
         this.setParamSimple(map, prefix + "AsyncRequestId", this.AsyncRequestId);
+        this.setParamArrayObj(map, prefix + "TaskAttachInfo.", this.TaskAttachInfo);
 
     }
 }

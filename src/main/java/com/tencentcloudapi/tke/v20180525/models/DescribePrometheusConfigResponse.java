@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePrometheusConfigResponse extends AbstractModel{
+public class DescribePrometheusConfigResponse extends AbstractModel {
 
     /**
     * 全局配置
@@ -51,7 +52,14 @@ public class DescribePrometheusConfigResponse extends AbstractModel{
     private PrometheusConfigItem [] RawJobs;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * Probe配置
+    */
+    @SerializedName("Probes")
+    @Expose
+    private PrometheusConfigItem [] Probes;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -122,16 +130,32 @@ public class DescribePrometheusConfigResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get Probe配置 
+     * @return Probes Probe配置
+     */
+    public PrometheusConfigItem [] getProbes() {
+        return this.Probes;
+    }
+
+    /**
+     * Set Probe配置
+     * @param Probes Probe配置
+     */
+    public void setProbes(PrometheusConfigItem [] Probes) {
+        this.Probes = Probes;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -166,6 +190,12 @@ public class DescribePrometheusConfigResponse extends AbstractModel{
                 this.RawJobs[i] = new PrometheusConfigItem(source.RawJobs[i]);
             }
         }
+        if (source.Probes != null) {
+            this.Probes = new PrometheusConfigItem[source.Probes.length];
+            for (int i = 0; i < source.Probes.length; i++) {
+                this.Probes[i] = new PrometheusConfigItem(source.Probes[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -180,6 +210,7 @@ public class DescribePrometheusConfigResponse extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ServiceMonitors.", this.ServiceMonitors);
         this.setParamArrayObj(map, prefix + "PodMonitors.", this.PodMonitors);
         this.setParamArrayObj(map, prefix + "RawJobs.", this.RawJobs);
+        this.setParamArrayObj(map, prefix + "Probes.", this.Probes);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
+public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel {
 
     /**
     * 某资产的详情。
@@ -31,7 +32,6 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
     * 当资产为容器时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerDetailInfo")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
     * 当资产为镜像时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageDetailInfo")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
     * 当资产为主机时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostDetailInfo")
     @Expose
@@ -55,14 +53,13 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
     * 当资产为K8S时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("K8SDetailInfo")
     @Expose
     private ComplianceK8SDetailInfo K8SDetailInfo;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -85,10 +82,8 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 当资产为容器时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当资产为容器时，返回此字段。 
      * @return ContainerDetailInfo 当资产为容器时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ComplianceContainerDetailInfo getContainerDetailInfo() {
         return this.ContainerDetailInfo;
@@ -96,19 +91,15 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
      * Set 当资产为容器时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerDetailInfo 当资产为容器时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerDetailInfo(ComplianceContainerDetailInfo ContainerDetailInfo) {
         this.ContainerDetailInfo = ContainerDetailInfo;
     }
 
     /**
-     * Get 当资产为镜像时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当资产为镜像时，返回此字段。 
      * @return ImageDetailInfo 当资产为镜像时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ComplianceImageDetailInfo getImageDetailInfo() {
         return this.ImageDetailInfo;
@@ -116,19 +107,15 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
      * Set 当资产为镜像时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageDetailInfo 当资产为镜像时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageDetailInfo(ComplianceImageDetailInfo ImageDetailInfo) {
         this.ImageDetailInfo = ImageDetailInfo;
     }
 
     /**
-     * Get 当资产为主机时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当资产为主机时，返回此字段。 
      * @return HostDetailInfo 当资产为主机时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ComplianceHostDetailInfo getHostDetailInfo() {
         return this.HostDetailInfo;
@@ -136,19 +123,15 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
      * Set 当资产为主机时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostDetailInfo 当资产为主机时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostDetailInfo(ComplianceHostDetailInfo HostDetailInfo) {
         this.HostDetailInfo = HostDetailInfo;
     }
 
     /**
-     * Get 当资产为K8S时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当资产为K8S时，返回此字段。 
      * @return K8SDetailInfo 当资产为K8S时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ComplianceK8SDetailInfo getK8SDetailInfo() {
         return this.K8SDetailInfo;
@@ -156,25 +139,23 @@ public class DescribeComplianceAssetDetailInfoResponse extends AbstractModel{
 
     /**
      * Set 当资产为K8S时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param K8SDetailInfo 当资产为K8S时，返回此字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setK8SDetailInfo(ComplianceK8SDetailInfo K8SDetailInfo) {
         this.K8SDetailInfo = K8SDetailInfo;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

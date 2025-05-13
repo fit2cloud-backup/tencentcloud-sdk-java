@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleBaseInfo extends AbstractModel{
+public class RuleBaseInfo extends AbstractModel {
 
     /**
     * true: 默认策略，false:自定义策略
@@ -45,7 +46,6 @@ public class RuleBaseInfo extends AbstractModel{
 
     /**
     * 策略更新时间, 存在为空的情况
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -121,10 +121,8 @@ public class RuleBaseInfo extends AbstractModel{
     }
 
     /**
-     * Get 策略更新时间, 存在为空的情况
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略更新时间, 存在为空的情况 
      * @return UpdateTime 策略更新时间, 存在为空的情况
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -132,9 +130,7 @@ public class RuleBaseInfo extends AbstractModel{
 
     /**
      * Set 策略更新时间, 存在为空的情况
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 策略更新时间, 存在为空的情况
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;

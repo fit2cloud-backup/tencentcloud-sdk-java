@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Cluster extends AbstractModel{
+public class Cluster extends AbstractModel {
 
     /**
     * 集群唯一ID
@@ -44,7 +45,7 @@ public class Cluster extends AbstractModel{
     private String ClusterType;
 
     /**
-    * 集群标签，只有STGW集群有标签
+    * 集群标签，只有TGW/STGW集群有标签
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterTag")
@@ -66,7 +67,7 @@ public class Cluster extends AbstractModel{
     private String Network;
 
     /**
-    * 最大连接数
+    * 最大连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxConn")
@@ -74,7 +75,7 @@ public class Cluster extends AbstractModel{
     private Long MaxConn;
 
     /**
-    * 最大入带宽
+    * 最大入带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxInFlow")
@@ -82,7 +83,7 @@ public class Cluster extends AbstractModel{
     private Long MaxInFlow;
 
     /**
-    * 最大入包量
+    * 最大入包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxInPkg")
@@ -90,7 +91,7 @@ public class Cluster extends AbstractModel{
     private Long MaxInPkg;
 
     /**
-    * 最大出带宽
+    * 最大出带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxOutFlow")
@@ -98,7 +99,7 @@ public class Cluster extends AbstractModel{
     private Long MaxOutFlow;
 
     /**
-    * 最大出包量
+    * 最大出包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxOutPkg")
@@ -106,7 +107,7 @@ public class Cluster extends AbstractModel{
     private Long MaxOutPkg;
 
     /**
-    * 最大新建连接数
+    * 最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxNewConn")
@@ -114,7 +115,7 @@ public class Cluster extends AbstractModel{
     private Long MaxNewConn;
 
     /**
-    * http最大新建连接数
+    * http最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HTTPMaxNewConn")
@@ -122,7 +123,7 @@ public class Cluster extends AbstractModel{
     private Long HTTPMaxNewConn;
 
     /**
-    * https最大新建连接数
+    * https最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HTTPSMaxNewConn")
@@ -194,11 +195,31 @@ public class Cluster extends AbstractModel{
 
     /**
     * 集群容灾类型，如SINGLE-ZONE，DISASTER-RECOVERY，MUTUAL-DISASTER-RECOVERY
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DisasterRecoveryType")
     @Expose
     private String DisasterRecoveryType;
+
+    /**
+    * 网络出口
+    */
+    @SerializedName("Egress")
+    @Expose
+    private String Egress;
+
+    /**
+    * IP版本
+    */
+    @SerializedName("IPVersion")
+    @Expose
+    private String IPVersion;
+
+    /**
+    * 标签信息
+    */
+    @SerializedName("Tag")
+    @Expose
+    private TagInfo [] Tag;
 
     /**
      * Get 集群唯一ID 
@@ -249,9 +270,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 集群标签，只有STGW集群有标签
+     * Get 集群标签，只有TGW/STGW集群有标签
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ClusterTag 集群标签，只有STGW集群有标签
+     * @return ClusterTag 集群标签，只有TGW/STGW集群有标签
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterTag() {
@@ -259,9 +280,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set 集群标签，只有STGW集群有标签
+     * Set 集群标签，只有TGW/STGW集群有标签
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ClusterTag 集群标签，只有STGW集群有标签
+     * @param ClusterTag 集群标签，只有TGW/STGW集群有标签
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterTag(String ClusterTag) {
@@ -301,9 +322,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 最大连接数
+     * Get 最大连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxConn 最大连接数
+     * @return MaxConn 最大连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxConn() {
@@ -311,9 +332,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set 最大连接数
+     * Set 最大连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxConn 最大连接数
+     * @param MaxConn 最大连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxConn(Long MaxConn) {
@@ -321,9 +342,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 最大入带宽
+     * Get 最大入带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxInFlow 最大入带宽
+     * @return MaxInFlow 最大入带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxInFlow() {
@@ -331,9 +352,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set 最大入带宽
+     * Set 最大入带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxInFlow 最大入带宽
+     * @param MaxInFlow 最大入带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxInFlow(Long MaxInFlow) {
@@ -341,9 +362,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 最大入包量
+     * Get 最大入包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxInPkg 最大入包量
+     * @return MaxInPkg 最大入包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxInPkg() {
@@ -351,9 +372,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set 最大入包量
+     * Set 最大入包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxInPkg 最大入包量
+     * @param MaxInPkg 最大入包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxInPkg(Long MaxInPkg) {
@@ -361,9 +382,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 最大出带宽
+     * Get 最大出带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxOutFlow 最大出带宽
+     * @return MaxOutFlow 最大出带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxOutFlow() {
@@ -371,9 +392,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set 最大出带宽
+     * Set 最大出带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxOutFlow 最大出带宽
+     * @param MaxOutFlow 最大出带宽Mbps
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxOutFlow(Long MaxOutFlow) {
@@ -381,9 +402,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 最大出包量
+     * Get 最大出包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxOutPkg 最大出包量
+     * @return MaxOutPkg 最大出包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxOutPkg() {
@@ -391,9 +412,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set 最大出包量
+     * Set 最大出包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxOutPkg 最大出包量
+     * @param MaxOutPkg 最大出包量（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxOutPkg(Long MaxOutPkg) {
@@ -401,9 +422,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 最大新建连接数
+     * Get 最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxNewConn 最大新建连接数
+     * @return MaxNewConn 最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxNewConn() {
@@ -411,9 +432,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set 最大新建连接数
+     * Set 最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxNewConn 最大新建连接数
+     * @param MaxNewConn 最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxNewConn(Long MaxNewConn) {
@@ -421,9 +442,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get http最大新建连接数
+     * Get http最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HTTPMaxNewConn http最大新建连接数
+     * @return HTTPMaxNewConn http最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHTTPMaxNewConn() {
@@ -431,9 +452,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set http最大新建连接数
+     * Set http最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param HTTPMaxNewConn http最大新建连接数
+     * @param HTTPMaxNewConn http最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHTTPMaxNewConn(Long HTTPMaxNewConn) {
@@ -441,9 +462,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get https最大新建连接数
+     * Get https最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HTTPSMaxNewConn https最大新建连接数
+     * @return HTTPSMaxNewConn https最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHTTPSMaxNewConn() {
@@ -451,9 +472,9 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Set https最大新建连接数
+     * Set https最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param HTTPSMaxNewConn https最大新建连接数
+     * @param HTTPSMaxNewConn https最大新建连接数（个/秒）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHTTPSMaxNewConn(Long HTTPSMaxNewConn) {
@@ -617,10 +638,8 @@ public class Cluster extends AbstractModel{
     }
 
     /**
-     * Get 集群容灾类型，如SINGLE-ZONE，DISASTER-RECOVERY，MUTUAL-DISASTER-RECOVERY
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群容灾类型，如SINGLE-ZONE，DISASTER-RECOVERY，MUTUAL-DISASTER-RECOVERY 
      * @return DisasterRecoveryType 集群容灾类型，如SINGLE-ZONE，DISASTER-RECOVERY，MUTUAL-DISASTER-RECOVERY
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDisasterRecoveryType() {
         return this.DisasterRecoveryType;
@@ -628,12 +647,58 @@ public class Cluster extends AbstractModel{
 
     /**
      * Set 集群容灾类型，如SINGLE-ZONE，DISASTER-RECOVERY，MUTUAL-DISASTER-RECOVERY
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DisasterRecoveryType 集群容灾类型，如SINGLE-ZONE，DISASTER-RECOVERY，MUTUAL-DISASTER-RECOVERY
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDisasterRecoveryType(String DisasterRecoveryType) {
         this.DisasterRecoveryType = DisasterRecoveryType;
+    }
+
+    /**
+     * Get 网络出口 
+     * @return Egress 网络出口
+     */
+    public String getEgress() {
+        return this.Egress;
+    }
+
+    /**
+     * Set 网络出口
+     * @param Egress 网络出口
+     */
+    public void setEgress(String Egress) {
+        this.Egress = Egress;
+    }
+
+    /**
+     * Get IP版本 
+     * @return IPVersion IP版本
+     */
+    public String getIPVersion() {
+        return this.IPVersion;
+    }
+
+    /**
+     * Set IP版本
+     * @param IPVersion IP版本
+     */
+    public void setIPVersion(String IPVersion) {
+        this.IPVersion = IPVersion;
+    }
+
+    /**
+     * Get 标签信息 
+     * @return Tag 标签信息
+     */
+    public TagInfo [] getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 标签信息
+     * @param Tag 标签信息
+     */
+    public void setTag(TagInfo [] Tag) {
+        this.Tag = Tag;
     }
 
     public Cluster() {
@@ -713,6 +778,18 @@ public class Cluster extends AbstractModel{
         if (source.DisasterRecoveryType != null) {
             this.DisasterRecoveryType = new String(source.DisasterRecoveryType);
         }
+        if (source.Egress != null) {
+            this.Egress = new String(source.Egress);
+        }
+        if (source.IPVersion != null) {
+            this.IPVersion = new String(source.IPVersion);
+        }
+        if (source.Tag != null) {
+            this.Tag = new TagInfo[source.Tag.length];
+            for (int i = 0; i < source.Tag.length; i++) {
+                this.Tag[i] = new TagInfo(source.Tag[i]);
+            }
+        }
     }
 
 
@@ -743,6 +820,9 @@ public class Cluster extends AbstractModel{
         this.setParamObj(map, prefix + "ClustersZone.", this.ClustersZone);
         this.setParamSimple(map, prefix + "ClustersVersion", this.ClustersVersion);
         this.setParamSimple(map, prefix + "DisasterRecoveryType", this.DisasterRecoveryType);
+        this.setParamSimple(map, prefix + "Egress", this.Egress);
+        this.setParamSimple(map, prefix + "IPVersion", this.IPVersion);
+        this.setParamArrayObj(map, prefix + "Tag.", this.Tag);
 
     }
 }

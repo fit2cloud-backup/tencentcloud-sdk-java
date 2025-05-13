@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CdnInstanceDetail extends AbstractModel{
+public class CdnInstanceDetail extends AbstractModel {
 
     /**
     * 域名
@@ -37,11 +38,18 @@ public class CdnInstanceDetail extends AbstractModel{
     private String CertId;
 
     /**
-    * 域名状态
+    * 域名状态 rejected：域名审核未通过，域名备案过期/被注销导致，processing：部署中，online：已启动，offline：已关闭
     */
     @SerializedName("Status")
     @Expose
     private String Status;
+
+    /**
+    * 域名计费状态，on表示开启，off表示关闭。
+    */
+    @SerializedName("HttpsBillingSwitch")
+    @Expose
+    private String HttpsBillingSwitch;
 
     /**
      * Get 域名 
@@ -76,19 +84,35 @@ public class CdnInstanceDetail extends AbstractModel{
     }
 
     /**
-     * Get 域名状态 
-     * @return Status 域名状态
+     * Get 域名状态 rejected：域名审核未通过，域名备案过期/被注销导致，processing：部署中，online：已启动，offline：已关闭 
+     * @return Status 域名状态 rejected：域名审核未通过，域名备案过期/被注销导致，processing：部署中，online：已启动，offline：已关闭
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 域名状态
-     * @param Status 域名状态
+     * Set 域名状态 rejected：域名审核未通过，域名备案过期/被注销导致，processing：部署中，online：已启动，offline：已关闭
+     * @param Status 域名状态 rejected：域名审核未通过，域名备案过期/被注销导致，processing：部署中，online：已启动，offline：已关闭
      */
     public void setStatus(String Status) {
         this.Status = Status;
+    }
+
+    /**
+     * Get 域名计费状态，on表示开启，off表示关闭。 
+     * @return HttpsBillingSwitch 域名计费状态，on表示开启，off表示关闭。
+     */
+    public String getHttpsBillingSwitch() {
+        return this.HttpsBillingSwitch;
+    }
+
+    /**
+     * Set 域名计费状态，on表示开启，off表示关闭。
+     * @param HttpsBillingSwitch 域名计费状态，on表示开启，off表示关闭。
+     */
+    public void setHttpsBillingSwitch(String HttpsBillingSwitch) {
+        this.HttpsBillingSwitch = HttpsBillingSwitch;
     }
 
     public CdnInstanceDetail() {
@@ -108,6 +132,9 @@ public class CdnInstanceDetail extends AbstractModel{
         if (source.Status != null) {
             this.Status = new String(source.Status);
         }
+        if (source.HttpsBillingSwitch != null) {
+            this.HttpsBillingSwitch = new String(source.HttpsBillingSwitch);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class CdnInstanceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Domain", this.Domain);
         this.setParamSimple(map, prefix + "CertId", this.CertId);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "HttpsBillingSwitch", this.HttpsBillingSwitch);
 
     }
 }

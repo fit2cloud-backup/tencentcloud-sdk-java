@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Registry extends AbstractModel{
+public class Registry extends AbstractModel {
 
     /**
     * 实例ID
@@ -44,7 +45,18 @@ public class Registry extends AbstractModel{
     private String RegistryType;
 
     /**
-    * 实例状态
+    * 实例状态。有以下状态：
+Pending, 初始化中
+Deploying, 创建中
+Running, 运行中
+Unhealthy, 状态异常
+FailedCreated, 创建失败
+FailedUpdated, 更新失败
+Bucket-Error, 存储桶异常
+Isolate, 待回收
+Deleting, 删除中
+DeleteBucketFailed, 实例删除存储桶失败
+DeleteFailed, 实例删除失败
     */
     @SerializedName("Status")
     @Expose
@@ -101,7 +113,6 @@ public class Registry extends AbstractModel{
 
     /**
     * 实例云标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagSpecification")
     @Expose
@@ -109,7 +120,6 @@ public class Registry extends AbstractModel{
 
     /**
     * 实例过期时间（预付费）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExpiredAt")
     @Expose
@@ -117,7 +127,6 @@ public class Registry extends AbstractModel{
 
     /**
     * 实例付费类型，0表示后付费，1表示预付费
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PayMod")
     @Expose
@@ -125,11 +134,17 @@ public class Registry extends AbstractModel{
 
     /**
     * 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RenewFlag")
     @Expose
     private Long RenewFlag;
+
+    /**
+    * 是否开启实例删除保护，false表示不开启
+    */
+    @SerializedName("DeletionProtection")
+    @Expose
+    private Boolean DeletionProtection;
 
     /**
      * Get 实例ID 
@@ -180,16 +195,60 @@ public class Registry extends AbstractModel{
     }
 
     /**
-     * Get 实例状态 
-     * @return Status 实例状态
+     * Get 实例状态。有以下状态：
+Pending, 初始化中
+Deploying, 创建中
+Running, 运行中
+Unhealthy, 状态异常
+FailedCreated, 创建失败
+FailedUpdated, 更新失败
+Bucket-Error, 存储桶异常
+Isolate, 待回收
+Deleting, 删除中
+DeleteBucketFailed, 实例删除存储桶失败
+DeleteFailed, 实例删除失败 
+     * @return Status 实例状态。有以下状态：
+Pending, 初始化中
+Deploying, 创建中
+Running, 运行中
+Unhealthy, 状态异常
+FailedCreated, 创建失败
+FailedUpdated, 更新失败
+Bucket-Error, 存储桶异常
+Isolate, 待回收
+Deleting, 删除中
+DeleteBucketFailed, 实例删除存储桶失败
+DeleteFailed, 实例删除失败
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例状态
-     * @param Status 实例状态
+     * Set 实例状态。有以下状态：
+Pending, 初始化中
+Deploying, 创建中
+Running, 运行中
+Unhealthy, 状态异常
+FailedCreated, 创建失败
+FailedUpdated, 更新失败
+Bucket-Error, 存储桶异常
+Isolate, 待回收
+Deleting, 删除中
+DeleteBucketFailed, 实例删除存储桶失败
+DeleteFailed, 实例删除失败
+     * @param Status 实例状态。有以下状态：
+Pending, 初始化中
+Deploying, 创建中
+Running, 运行中
+Unhealthy, 状态异常
+FailedCreated, 创建失败
+FailedUpdated, 更新失败
+Bucket-Error, 存储桶异常
+Isolate, 待回收
+Deleting, 删除中
+DeleteBucketFailed, 实例删除存储桶失败
+DeleteFailed, 实例删除失败
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -308,10 +367,8 @@ public class Registry extends AbstractModel{
     }
 
     /**
-     * Get 实例云标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例云标签 
      * @return TagSpecification 实例云标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagSpecification getTagSpecification() {
         return this.TagSpecification;
@@ -319,19 +376,15 @@ public class Registry extends AbstractModel{
 
     /**
      * Set 实例云标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagSpecification 实例云标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagSpecification(TagSpecification TagSpecification) {
         this.TagSpecification = TagSpecification;
     }
 
     /**
-     * Get 实例过期时间（预付费）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例过期时间（预付费） 
      * @return ExpiredAt 实例过期时间（预付费）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExpiredAt() {
         return this.ExpiredAt;
@@ -339,19 +392,15 @@ public class Registry extends AbstractModel{
 
     /**
      * Set 实例过期时间（预付费）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExpiredAt 实例过期时间（预付费）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExpiredAt(String ExpiredAt) {
         this.ExpiredAt = ExpiredAt;
     }
 
     /**
-     * Get 实例付费类型，0表示后付费，1表示预付费
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例付费类型，0表示后付费，1表示预付费 
      * @return PayMod 实例付费类型，0表示后付费，1表示预付费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPayMod() {
         return this.PayMod;
@@ -359,19 +408,15 @@ public class Registry extends AbstractModel{
 
     /**
      * Set 实例付费类型，0表示后付费，1表示预付费
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PayMod 实例付费类型，0表示后付费，1表示预付费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPayMod(Long PayMod) {
         this.PayMod = PayMod;
     }
 
     /**
-     * Get 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知 
      * @return RenewFlag 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRenewFlag() {
         return this.RenewFlag;
@@ -379,12 +424,26 @@ public class Registry extends AbstractModel{
 
     /**
      * Set 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RenewFlag 预付费续费标识，0表示手动续费，1表示自动续费，2不续费并且不通知
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRenewFlag(Long RenewFlag) {
         this.RenewFlag = RenewFlag;
+    }
+
+    /**
+     * Get 是否开启实例删除保护，false表示不开启 
+     * @return DeletionProtection 是否开启实例删除保护，false表示不开启
+     */
+    public Boolean getDeletionProtection() {
+        return this.DeletionProtection;
+    }
+
+    /**
+     * Set 是否开启实例删除保护，false表示不开启
+     * @param DeletionProtection 是否开启实例删除保护，false表示不开启
+     */
+    public void setDeletionProtection(Boolean DeletionProtection) {
+        this.DeletionProtection = DeletionProtection;
     }
 
     public Registry() {
@@ -440,6 +499,9 @@ public class Registry extends AbstractModel{
         if (source.RenewFlag != null) {
             this.RenewFlag = new Long(source.RenewFlag);
         }
+        if (source.DeletionProtection != null) {
+            this.DeletionProtection = new Boolean(source.DeletionProtection);
+        }
     }
 
 
@@ -462,6 +524,7 @@ public class Registry extends AbstractModel{
         this.setParamSimple(map, prefix + "ExpiredAt", this.ExpiredAt);
         this.setParamSimple(map, prefix + "PayMod", this.PayMod);
         this.setParamSimple(map, prefix + "RenewFlag", this.RenewFlag);
+        this.setParamSimple(map, prefix + "DeletionProtection", this.DeletionProtection);
 
     }
 }

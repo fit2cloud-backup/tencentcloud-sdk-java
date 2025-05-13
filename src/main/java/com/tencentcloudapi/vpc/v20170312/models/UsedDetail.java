@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UsedDetail extends AbstractModel{
+public class UsedDetail extends AbstractModel {
 
     /**
     * 流量包唯一ID
@@ -31,7 +32,6 @@ public class UsedDetail extends AbstractModel{
 
     /**
     * 流量包名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TrafficPackageName")
     @Expose
@@ -66,7 +66,8 @@ public class UsedDetail extends AbstractModel{
     private String Time;
 
     /**
-    * 资源类型。可能的值: CVM, LB, NAT, HAVIP, EIP
+    * 资源类型。可选值: EIP, BWP, LB
+
     */
     @SerializedName("ResourceType")
     @Expose
@@ -110,10 +111,8 @@ public class UsedDetail extends AbstractModel{
     }
 
     /**
-     * Get 流量包名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 流量包名称 
      * @return TrafficPackageName 流量包名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTrafficPackageName() {
         return this.TrafficPackageName;
@@ -121,9 +120,7 @@ public class UsedDetail extends AbstractModel{
 
     /**
      * Set 流量包名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TrafficPackageName 流量包名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTrafficPackageName(String TrafficPackageName) {
         this.TrafficPackageName = TrafficPackageName;
@@ -194,16 +191,20 @@ public class UsedDetail extends AbstractModel{
     }
 
     /**
-     * Get 资源类型。可能的值: CVM, LB, NAT, HAVIP, EIP 
-     * @return ResourceType 资源类型。可能的值: CVM, LB, NAT, HAVIP, EIP
+     * Get 资源类型。可选值: EIP, BWP, LB
+ 
+     * @return ResourceType 资源类型。可选值: EIP, BWP, LB
+
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 资源类型。可能的值: CVM, LB, NAT, HAVIP, EIP
-     * @param ResourceType 资源类型。可能的值: CVM, LB, NAT, HAVIP, EIP
+     * Set 资源类型。可选值: EIP, BWP, LB
+
+     * @param ResourceType 资源类型。可选值: EIP, BWP, LB
+
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;

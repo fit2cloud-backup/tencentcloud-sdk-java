@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDownloadFileResponse extends AbstractModel{
+public class DescribeDownloadFileResponse extends AbstractModel {
 
     /**
     * 文件路径，该字段已废弃
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FilePath")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeDownloadFileResponse extends AbstractModel{
 
     /**
     * 加密key，用于计算下载加密文件的header。参考SSE-C https://cloud.tencent.com/document/product/436/7728#sse-c
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomKey")
     @Expose
@@ -40,24 +39,21 @@ public class DescribeDownloadFileResponse extends AbstractModel{
 
     /**
     * 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DownloadUrl")
     @Expose
     private String DownloadUrl;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 文件路径，该字段已废弃
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件路径，该字段已废弃 
      * @return FilePath 文件路径，该字段已废弃
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFilePath() {
         return this.FilePath;
@@ -65,19 +61,15 @@ public class DescribeDownloadFileResponse extends AbstractModel{
 
     /**
      * Set 文件路径，该字段已废弃
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FilePath 文件路径，该字段已废弃
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFilePath(String FilePath) {
         this.FilePath = FilePath;
     }
 
     /**
-     * Get 加密key，用于计算下载加密文件的header。参考SSE-C https://cloud.tencent.com/document/product/436/7728#sse-c
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 加密key，用于计算下载加密文件的header。参考SSE-C https://cloud.tencent.com/document/product/436/7728#sse-c 
      * @return CustomKey 加密key，用于计算下载加密文件的header。参考SSE-C https://cloud.tencent.com/document/product/436/7728#sse-c
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomKey() {
         return this.CustomKey;
@@ -85,19 +77,15 @@ public class DescribeDownloadFileResponse extends AbstractModel{
 
     /**
      * Set 加密key，用于计算下载加密文件的header。参考SSE-C https://cloud.tencent.com/document/product/436/7728#sse-c
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomKey 加密key，用于计算下载加密文件的header。参考SSE-C https://cloud.tencent.com/document/product/436/7728#sse-c
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomKey(String CustomKey) {
         this.CustomKey = CustomKey;
     }
 
     /**
-     * Get 下载链接
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下载链接 
      * @return DownloadUrl 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDownloadUrl() {
         return this.DownloadUrl;
@@ -105,25 +93,23 @@ public class DescribeDownloadFileResponse extends AbstractModel{
 
     /**
      * Set 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DownloadUrl 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDownloadUrl(String DownloadUrl) {
         this.DownloadUrl = DownloadUrl;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

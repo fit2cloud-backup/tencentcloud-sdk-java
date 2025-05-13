@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CallBackTemplateInfo extends AbstractModel{
+public class CallBackTemplateInfo extends AbstractModel {
 
     /**
     * 模板 ID。
@@ -65,7 +66,7 @@ public class CallBackTemplateInfo extends AbstractModel{
     private String StreamEndNotifyUrl;
 
     /**
-    * 录制回调 URL。
+    * 录制文件回调 URL。
     */
     @SerializedName("RecordNotifyUrl")
     @Expose
@@ -107,6 +108,20 @@ public class CallBackTemplateInfo extends AbstractModel{
     @SerializedName("AudioAuditNotifyUrl")
     @Expose
     private String AudioAuditNotifyUrl;
+
+    /**
+    * 录制异常回调 URL。
+    */
+    @SerializedName("RecordExceptionNotifyUrl")
+    @Expose
+    private String RecordExceptionNotifyUrl;
+
+    /**
+    * 录制异常回调级别，可选择：error: 错误。alarm: 告警。
+    */
+    @SerializedName("RecordExceptionLevels")
+    @Expose
+    private String [] RecordExceptionLevels;
 
     /**
      * Get 模板 ID。 
@@ -205,16 +220,16 @@ public class CallBackTemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 录制回调 URL。 
-     * @return RecordNotifyUrl 录制回调 URL。
+     * Get 录制文件回调 URL。 
+     * @return RecordNotifyUrl 录制文件回调 URL。
      */
     public String getRecordNotifyUrl() {
         return this.RecordNotifyUrl;
     }
 
     /**
-     * Set 录制回调 URL。
-     * @param RecordNotifyUrl 录制回调 URL。
+     * Set 录制文件回调 URL。
+     * @param RecordNotifyUrl 录制文件回调 URL。
      */
     public void setRecordNotifyUrl(String RecordNotifyUrl) {
         this.RecordNotifyUrl = RecordNotifyUrl;
@@ -308,6 +323,38 @@ public class CallBackTemplateInfo extends AbstractModel{
         this.AudioAuditNotifyUrl = AudioAuditNotifyUrl;
     }
 
+    /**
+     * Get 录制异常回调 URL。 
+     * @return RecordExceptionNotifyUrl 录制异常回调 URL。
+     */
+    public String getRecordExceptionNotifyUrl() {
+        return this.RecordExceptionNotifyUrl;
+    }
+
+    /**
+     * Set 录制异常回调 URL。
+     * @param RecordExceptionNotifyUrl 录制异常回调 URL。
+     */
+    public void setRecordExceptionNotifyUrl(String RecordExceptionNotifyUrl) {
+        this.RecordExceptionNotifyUrl = RecordExceptionNotifyUrl;
+    }
+
+    /**
+     * Get 录制异常回调级别，可选择：error: 错误。alarm: 告警。 
+     * @return RecordExceptionLevels 录制异常回调级别，可选择：error: 错误。alarm: 告警。
+     */
+    public String [] getRecordExceptionLevels() {
+        return this.RecordExceptionLevels;
+    }
+
+    /**
+     * Set 录制异常回调级别，可选择：error: 错误。alarm: 告警。
+     * @param RecordExceptionLevels 录制异常回调级别，可选择：error: 错误。alarm: 告警。
+     */
+    public void setRecordExceptionLevels(String [] RecordExceptionLevels) {
+        this.RecordExceptionLevels = RecordExceptionLevels;
+    }
+
     public CallBackTemplateInfo() {
     }
 
@@ -352,6 +399,15 @@ public class CallBackTemplateInfo extends AbstractModel{
         if (source.AudioAuditNotifyUrl != null) {
             this.AudioAuditNotifyUrl = new String(source.AudioAuditNotifyUrl);
         }
+        if (source.RecordExceptionNotifyUrl != null) {
+            this.RecordExceptionNotifyUrl = new String(source.RecordExceptionNotifyUrl);
+        }
+        if (source.RecordExceptionLevels != null) {
+            this.RecordExceptionLevels = new String[source.RecordExceptionLevels.length];
+            for (int i = 0; i < source.RecordExceptionLevels.length; i++) {
+                this.RecordExceptionLevels[i] = new String(source.RecordExceptionLevels[i]);
+            }
+        }
     }
 
 
@@ -371,6 +427,8 @@ public class CallBackTemplateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CallbackKey", this.CallbackKey);
         this.setParamSimple(map, prefix + "PushExceptionNotifyUrl", this.PushExceptionNotifyUrl);
         this.setParamSimple(map, prefix + "AudioAuditNotifyUrl", this.AudioAuditNotifyUrl);
+        this.setParamSimple(map, prefix + "RecordExceptionNotifyUrl", this.RecordExceptionNotifyUrl);
+        this.setParamArraySimple(map, prefix + "RecordExceptionLevels.", this.RecordExceptionLevels);
 
     }
 }

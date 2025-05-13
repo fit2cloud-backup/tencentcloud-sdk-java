@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyInstanceEncryptAttributesRequest extends AbstractModel{
+public class ModifyInstanceEncryptAttributesRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -30,7 +31,7 @@ public class ModifyInstanceEncryptAttributesRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，默认取值self。
+    * 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，kms-表示使用kms的CMK证书，默认取值self。
     */
     @SerializedName("CertificateAttribution")
     @Expose
@@ -42,6 +43,20 @@ public class ModifyInstanceEncryptAttributesRequest extends AbstractModel{
     @SerializedName("QuoteUin")
     @Expose
     private String QuoteUin;
+
+    /**
+    * CertificateAttribution为kms时必填
+    */
+    @SerializedName("KeyId")
+    @Expose
+    private String KeyId;
+
+    /**
+    * CertificateAttribution为kms时必填
+    */
+    @SerializedName("KeyRegion")
+    @Expose
+    private String KeyRegion;
 
     /**
      * Get 实例ID 
@@ -60,16 +75,16 @@ public class ModifyInstanceEncryptAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，默认取值self。 
-     * @return CertificateAttribution 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，默认取值self。
+     * Get 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，kms-表示使用kms的CMK证书，默认取值self。 
+     * @return CertificateAttribution 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，kms-表示使用kms的CMK证书，默认取值self。
      */
     public String getCertificateAttribution() {
         return this.CertificateAttribution;
     }
 
     /**
-     * Set 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，默认取值self。
-     * @param CertificateAttribution 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，默认取值self。
+     * Set 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，kms-表示使用kms的CMK证书，默认取值self。
+     * @param CertificateAttribution 证书归属。self-表示使用该账号自身的证书，others-表示引用其他账号的证书，kms-表示使用kms的CMK证书，默认取值self。
      */
     public void setCertificateAttribution(String CertificateAttribution) {
         this.CertificateAttribution = CertificateAttribution;
@@ -91,6 +106,38 @@ public class ModifyInstanceEncryptAttributesRequest extends AbstractModel{
         this.QuoteUin = QuoteUin;
     }
 
+    /**
+     * Get CertificateAttribution为kms时必填 
+     * @return KeyId CertificateAttribution为kms时必填
+     */
+    public String getKeyId() {
+        return this.KeyId;
+    }
+
+    /**
+     * Set CertificateAttribution为kms时必填
+     * @param KeyId CertificateAttribution为kms时必填
+     */
+    public void setKeyId(String KeyId) {
+        this.KeyId = KeyId;
+    }
+
+    /**
+     * Get CertificateAttribution为kms时必填 
+     * @return KeyRegion CertificateAttribution为kms时必填
+     */
+    public String getKeyRegion() {
+        return this.KeyRegion;
+    }
+
+    /**
+     * Set CertificateAttribution为kms时必填
+     * @param KeyRegion CertificateAttribution为kms时必填
+     */
+    public void setKeyRegion(String KeyRegion) {
+        this.KeyRegion = KeyRegion;
+    }
+
     public ModifyInstanceEncryptAttributesRequest() {
     }
 
@@ -108,6 +155,12 @@ public class ModifyInstanceEncryptAttributesRequest extends AbstractModel{
         if (source.QuoteUin != null) {
             this.QuoteUin = new String(source.QuoteUin);
         }
+        if (source.KeyId != null) {
+            this.KeyId = new String(source.KeyId);
+        }
+        if (source.KeyRegion != null) {
+            this.KeyRegion = new String(source.KeyRegion);
+        }
     }
 
 
@@ -118,6 +171,8 @@ public class ModifyInstanceEncryptAttributesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "CertificateAttribution", this.CertificateAttribution);
         this.setParamSimple(map, prefix + "QuoteUin", this.QuoteUin);
+        this.setParamSimple(map, prefix + "KeyId", this.KeyId);
+        this.setParamSimple(map, prefix + "KeyRegion", this.KeyRegion);
 
     }
 }

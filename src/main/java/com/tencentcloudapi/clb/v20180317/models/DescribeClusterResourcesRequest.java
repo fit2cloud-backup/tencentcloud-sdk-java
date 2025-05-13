@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterResourcesRequest extends AbstractModel{
+public class DescribeClusterResourcesRequest extends AbstractModel {
 
     /**
     * 返回集群中资源列表数目，默认为20，最大值为100。
@@ -40,7 +41,7 @@ public class DescribeClusterResourcesRequest extends AbstractModel{
     * 查询集群中资源列表条件，详细的过滤条件如下：
 <li> cluster-id - String - 是否必填：否 - （过滤条件）按照 集群 的唯一ID过滤，如 ："tgw-12345678","stgw-12345678","vpcgw-12345678"。</li>
 <li> vip - String - 是否必填：否 - （过滤条件）按照vip过滤。</li>
-<li> loadblancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
+<li> loadbalancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
 <li> idle - String 是否必填：否 - （过滤条件）按照是否闲置过滤，如"True","False"。</li>
     */
     @SerializedName("Filters")
@@ -83,12 +84,12 @@ public class DescribeClusterResourcesRequest extends AbstractModel{
      * Get 查询集群中资源列表条件，详细的过滤条件如下：
 <li> cluster-id - String - 是否必填：否 - （过滤条件）按照 集群 的唯一ID过滤，如 ："tgw-12345678","stgw-12345678","vpcgw-12345678"。</li>
 <li> vip - String - 是否必填：否 - （过滤条件）按照vip过滤。</li>
-<li> loadblancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
+<li> loadbalancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
 <li> idle - String 是否必填：否 - （过滤条件）按照是否闲置过滤，如"True","False"。</li> 
      * @return Filters 查询集群中资源列表条件，详细的过滤条件如下：
 <li> cluster-id - String - 是否必填：否 - （过滤条件）按照 集群 的唯一ID过滤，如 ："tgw-12345678","stgw-12345678","vpcgw-12345678"。</li>
 <li> vip - String - 是否必填：否 - （过滤条件）按照vip过滤。</li>
-<li> loadblancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
+<li> loadbalancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
 <li> idle - String 是否必填：否 - （过滤条件）按照是否闲置过滤，如"True","False"。</li>
      */
     public Filter [] getFilters() {
@@ -99,12 +100,12 @@ public class DescribeClusterResourcesRequest extends AbstractModel{
      * Set 查询集群中资源列表条件，详细的过滤条件如下：
 <li> cluster-id - String - 是否必填：否 - （过滤条件）按照 集群 的唯一ID过滤，如 ："tgw-12345678","stgw-12345678","vpcgw-12345678"。</li>
 <li> vip - String - 是否必填：否 - （过滤条件）按照vip过滤。</li>
-<li> loadblancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
+<li> loadbalancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
 <li> idle - String 是否必填：否 - （过滤条件）按照是否闲置过滤，如"True","False"。</li>
      * @param Filters 查询集群中资源列表条件，详细的过滤条件如下：
 <li> cluster-id - String - 是否必填：否 - （过滤条件）按照 集群 的唯一ID过滤，如 ："tgw-12345678","stgw-12345678","vpcgw-12345678"。</li>
 <li> vip - String - 是否必填：否 - （过滤条件）按照vip过滤。</li>
-<li> loadblancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
+<li> loadbalancer-id - String - 是否必填：否 - （过滤条件）按照负载均衡唯一ID过滤。</li>
 <li> idle - String 是否必填：否 - （过滤条件）按照是否闲置过滤，如"True","False"。</li>
      */
     public void setFilters(Filter [] Filters) {

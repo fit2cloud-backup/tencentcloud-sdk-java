@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateLivePullStreamTaskRequest extends AbstractModel{
+public class CreateLivePullStreamTaskRequest extends AbstractModel {
 
     /**
     * 拉流源的类型：
@@ -39,7 +40,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 当前支持的文件格式：flv，mp4，hls。
 当前支持的拉流协议：http，https，rtmp，rtmps，rtsp，srt。
 注意：
-1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿，可通过点播转码进行重新交织后再轮播。
+1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿以及因为频繁拉取导致源产生大量源出口带宽成本，可通过点播转码进行重新交织后再轮播，或提前创建任务并开启本地模式。
 2. 拒绝内网域名等攻击性拉流地址，如有使用，则做账号封禁处理。
 3. 源文件请保持时间戳正常交织递增，避免因源文件异常影响推流及播放。
 4. 视频编码格式仅支持: H264, H265。
@@ -87,13 +88,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     private String StartTime;
 
     /**
-    * 结束时间，注意：
-1. 结束时间必须大于开始时间；
-2. 结束时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
-使用 UTC 格式时间，
-例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时。
+    * 结束时间，注意：1. 结束时间必须大于开始时间；2. 结束时间必须大于当前时间；3. 结束时间 和 开始时间 间隔必须小于30天。使用 UTC 格式时间，例如：2019-01-08T10:00:00Z。注意：北京时间值为 UTC 时间值 + 8 小时。
     */
     @SerializedName("EndTime")
     @Expose
@@ -160,6 +155,9 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
     /**
     * 自定义回调地址。
 拉流转推任务相关事件会回调到该地址。
+回调事件使用方法请查看：
+https://cloud.tencent.com/document/product/267/32744
+https://cloud.tencent.com/document/product/267/56208
     */
     @SerializedName("CallbackUrl")
     @Expose
@@ -172,6 +170,16 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
     @SerializedName("ExtraCmd")
     @Expose
     private String ExtraCmd;
+
+    /**
+    * 自定义任务 ID。
+注：
+1. 该自定义 ID 为可选参数，如果传入，请确保该账号下传入的 ID 唯一。
+2. 该自定义 ID 用于防止重复发起请求时产生重复任务。后面也可以用 SpecifyTaskId 来修改或删除任务。
+    */
+    @SerializedName("SpecifyTaskId")
+    @Expose
+    private String SpecifyTaskId;
 
     /**
     * 任务描述，限制 512 字节。
@@ -192,6 +200,25 @@ rtmp、rtmps、rtsp、rtp、srt。
     @SerializedName("ToUrl")
     @Expose
     private String ToUrl;
+
+    /**
+    * 指定播放文件索引。
+注意： 1. 从1开始，不大于SourceUrls中文件个数。
+2. 该偏移仅在首次轮播时有效。
+3. 提前创建的任务指定的偏移最长有效期为24小时，24小时后未开始的任务偏移失效。
+    */
+    @SerializedName("FileIndex")
+    @Expose
+    private Long FileIndex;
+
+    /**
+    * 指定播放文件偏移。
+注意：
+1. 单位：秒，配合FileIndex使用。
+    */
+    @SerializedName("OffsetTime")
+    @Expose
+    private Long OffsetTime;
 
     /**
     * 备源的类型：
@@ -243,6 +270,20 @@ PullVodPushLive -点播。
     private String RecordTemplateId;
 
     /**
+    * 新的目标地址，用于任务同时推两路场景。
+    */
+    @SerializedName("BackupToUrl")
+    @Expose
+    private String BackupToUrl;
+
+    /**
+    * 直播转码模板，使用云直播的转码功能进行转码后再转推出去。转码模板需在云直播控制台创建。
+    */
+    @SerializedName("TranscodeTemplateName")
+    @Expose
+    private String TranscodeTemplateName;
+
+    /**
      * Get 拉流源的类型：
 PullLivePushLive -直播，
 PullVodPushLive -点播，
@@ -277,7 +318,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 当前支持的文件格式：flv，mp4，hls。
 当前支持的拉流协议：http，https，rtmp，rtmps，rtsp，srt。
 注意：
-1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿，可通过点播转码进行重新交织后再轮播。
+1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿以及因为频繁拉取导致源产生大量源出口带宽成本，可通过点播转码进行重新交织后再轮播，或提前创建任务并开启本地模式。
 2. 拒绝内网域名等攻击性拉流地址，如有使用，则做账号封禁处理。
 3. 源文件请保持时间戳正常交织递增，避免因源文件异常影响推流及播放。
 4. 视频编码格式仅支持: H264, H265。
@@ -290,7 +331,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 当前支持的文件格式：flv，mp4，hls。
 当前支持的拉流协议：http，https，rtmp，rtmps，rtsp，srt。
 注意：
-1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿，可通过点播转码进行重新交织后再轮播。
+1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿以及因为频繁拉取导致源产生大量源出口带宽成本，可通过点播转码进行重新交织后再轮播，或提前创建任务并开启本地模式。
 2. 拒绝内网域名等攻击性拉流地址，如有使用，则做账号封禁处理。
 3. 源文件请保持时间戳正常交织递增，避免因源文件异常影响推流及播放。
 4. 视频编码格式仅支持: H264, H265。
@@ -309,7 +350,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 当前支持的文件格式：flv，mp4，hls。
 当前支持的拉流协议：http，https，rtmp，rtmps，rtsp，srt。
 注意：
-1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿，可通过点播转码进行重新交织后再轮播。
+1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿以及因为频繁拉取导致源产生大量源出口带宽成本，可通过点播转码进行重新交织后再轮播，或提前创建任务并开启本地模式。
 2. 拒绝内网域名等攻击性拉流地址，如有使用，则做账号封禁处理。
 3. 源文件请保持时间戳正常交织递增，避免因源文件异常影响推流及播放。
 4. 视频编码格式仅支持: H264, H265。
@@ -322,7 +363,7 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
 当前支持的文件格式：flv，mp4，hls。
 当前支持的拉流协议：http，https，rtmp，rtmps，rtsp，srt。
 注意：
-1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿，可通过点播转码进行重新交织后再轮播。
+1. 建议优先使用 flv 文件，对于 mp4 未交织好的文件轮播推流易产生卡顿以及因为频繁拉取导致源产生大量源出口带宽成本，可通过点播转码进行重新交织后再轮播，或提前创建任务并开启本地模式。
 2. 拒绝内网域名等攻击性拉流地址，如有使用，则做账号封禁处理。
 3. 源文件请保持时间戳正常交织递增，避免因源文件异常影响推流及播放。
 4. 视频编码格式仅支持: H264, H265。
@@ -427,40 +468,16 @@ SourceType 为点播（PullVodPushLive）可以填多个，上限30个。
     }
 
     /**
-     * Get 结束时间，注意：
-1. 结束时间必须大于开始时间；
-2. 结束时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
-使用 UTC 格式时间，
-例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时。 
-     * @return EndTime 结束时间，注意：
-1. 结束时间必须大于开始时间；
-2. 结束时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
-使用 UTC 格式时间，
-例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时。
+     * Get 结束时间，注意：1. 结束时间必须大于开始时间；2. 结束时间必须大于当前时间；3. 结束时间 和 开始时间 间隔必须小于30天。使用 UTC 格式时间，例如：2019-01-08T10:00:00Z。注意：北京时间值为 UTC 时间值 + 8 小时。 
+     * @return EndTime 结束时间，注意：1. 结束时间必须大于开始时间；2. 结束时间必须大于当前时间；3. 结束时间 和 开始时间 间隔必须小于30天。使用 UTC 格式时间，例如：2019-01-08T10:00:00Z。注意：北京时间值为 UTC 时间值 + 8 小时。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间，注意：
-1. 结束时间必须大于开始时间；
-2. 结束时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
-使用 UTC 格式时间，
-例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时。
-     * @param EndTime 结束时间，注意：
-1. 结束时间必须大于开始时间；
-2. 结束时间必须大于当前时间；
-3. 结束时间 和 开始时间 间隔必须小于七天。
-使用 UTC 格式时间，
-例如：2019-01-08T10:00:00Z。
-注意：北京时间值为 UTC 时间值 + 8 小时。
+     * Set 结束时间，注意：1. 结束时间必须大于开始时间；2. 结束时间必须大于当前时间；3. 结束时间 和 开始时间 间隔必须小于30天。使用 UTC 格式时间，例如：2019-01-08T10:00:00Z。注意：北京时间值为 UTC 时间值 + 8 小时。
+     * @param EndTime 结束时间，注意：1. 结束时间必须大于开始时间；2. 结束时间必须大于当前时间；3. 结束时间 和 开始时间 间隔必须小于30天。使用 UTC 格式时间，例如：2019-01-08T10:00:00Z。注意：北京时间值为 UTC 时间值 + 8 小时。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -640,9 +657,15 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
 
     /**
      * Get 自定义回调地址。
-拉流转推任务相关事件会回调到该地址。 
+拉流转推任务相关事件会回调到该地址。
+回调事件使用方法请查看：
+https://cloud.tencent.com/document/product/267/32744
+https://cloud.tencent.com/document/product/267/56208 
      * @return CallbackUrl 自定义回调地址。
 拉流转推任务相关事件会回调到该地址。
+回调事件使用方法请查看：
+https://cloud.tencent.com/document/product/267/32744
+https://cloud.tencent.com/document/product/267/56208
      */
     public String getCallbackUrl() {
         return this.CallbackUrl;
@@ -651,8 +674,14 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
     /**
      * Set 自定义回调地址。
 拉流转推任务相关事件会回调到该地址。
+回调事件使用方法请查看：
+https://cloud.tencent.com/document/product/267/32744
+https://cloud.tencent.com/document/product/267/56208
      * @param CallbackUrl 自定义回调地址。
 拉流转推任务相关事件会回调到该地址。
+回调事件使用方法请查看：
+https://cloud.tencent.com/document/product/267/32744
+https://cloud.tencent.com/document/product/267/56208
      */
     public void setCallbackUrl(String CallbackUrl) {
         this.CallbackUrl = CallbackUrl;
@@ -676,6 +705,34 @@ ContinueBreakPoint：播放完当前正在播放的点播 url 后再使用新的
      */
     public void setExtraCmd(String ExtraCmd) {
         this.ExtraCmd = ExtraCmd;
+    }
+
+    /**
+     * Get 自定义任务 ID。
+注：
+1. 该自定义 ID 为可选参数，如果传入，请确保该账号下传入的 ID 唯一。
+2. 该自定义 ID 用于防止重复发起请求时产生重复任务。后面也可以用 SpecifyTaskId 来修改或删除任务。 
+     * @return SpecifyTaskId 自定义任务 ID。
+注：
+1. 该自定义 ID 为可选参数，如果传入，请确保该账号下传入的 ID 唯一。
+2. 该自定义 ID 用于防止重复发起请求时产生重复任务。后面也可以用 SpecifyTaskId 来修改或删除任务。
+     */
+    public String getSpecifyTaskId() {
+        return this.SpecifyTaskId;
+    }
+
+    /**
+     * Set 自定义任务 ID。
+注：
+1. 该自定义 ID 为可选参数，如果传入，请确保该账号下传入的 ID 唯一。
+2. 该自定义 ID 用于防止重复发起请求时产生重复任务。后面也可以用 SpecifyTaskId 来修改或删除任务。
+     * @param SpecifyTaskId 自定义任务 ID。
+注：
+1. 该自定义 ID 为可选参数，如果传入，请确保该账号下传入的 ID 唯一。
+2. 该自定义 ID 用于防止重复发起请求时产生重复任务。后面也可以用 SpecifyTaskId 来修改或删除任务。
+     */
+    public void setSpecifyTaskId(String SpecifyTaskId) {
+        this.SpecifyTaskId = SpecifyTaskId;
     }
 
     /**
@@ -732,6 +789,58 @@ rtmp、rtmps、rtsp、rtp、srt。
      */
     public void setToUrl(String ToUrl) {
         this.ToUrl = ToUrl;
+    }
+
+    /**
+     * Get 指定播放文件索引。
+注意： 1. 从1开始，不大于SourceUrls中文件个数。
+2. 该偏移仅在首次轮播时有效。
+3. 提前创建的任务指定的偏移最长有效期为24小时，24小时后未开始的任务偏移失效。 
+     * @return FileIndex 指定播放文件索引。
+注意： 1. 从1开始，不大于SourceUrls中文件个数。
+2. 该偏移仅在首次轮播时有效。
+3. 提前创建的任务指定的偏移最长有效期为24小时，24小时后未开始的任务偏移失效。
+     */
+    public Long getFileIndex() {
+        return this.FileIndex;
+    }
+
+    /**
+     * Set 指定播放文件索引。
+注意： 1. 从1开始，不大于SourceUrls中文件个数。
+2. 该偏移仅在首次轮播时有效。
+3. 提前创建的任务指定的偏移最长有效期为24小时，24小时后未开始的任务偏移失效。
+     * @param FileIndex 指定播放文件索引。
+注意： 1. 从1开始，不大于SourceUrls中文件个数。
+2. 该偏移仅在首次轮播时有效。
+3. 提前创建的任务指定的偏移最长有效期为24小时，24小时后未开始的任务偏移失效。
+     */
+    public void setFileIndex(Long FileIndex) {
+        this.FileIndex = FileIndex;
+    }
+
+    /**
+     * Get 指定播放文件偏移。
+注意：
+1. 单位：秒，配合FileIndex使用。 
+     * @return OffsetTime 指定播放文件偏移。
+注意：
+1. 单位：秒，配合FileIndex使用。
+     */
+    public Long getOffsetTime() {
+        return this.OffsetTime;
+    }
+
+    /**
+     * Set 指定播放文件偏移。
+注意：
+1. 单位：秒，配合FileIndex使用。
+     * @param OffsetTime 指定播放文件偏移。
+注意：
+1. 单位：秒，配合FileIndex使用。
+     */
+    public void setOffsetTime(Long OffsetTime) {
+        this.OffsetTime = OffsetTime;
     }
 
     /**
@@ -870,6 +979,38 @@ PullVodPushLive -点播。
         this.RecordTemplateId = RecordTemplateId;
     }
 
+    /**
+     * Get 新的目标地址，用于任务同时推两路场景。 
+     * @return BackupToUrl 新的目标地址，用于任务同时推两路场景。
+     */
+    public String getBackupToUrl() {
+        return this.BackupToUrl;
+    }
+
+    /**
+     * Set 新的目标地址，用于任务同时推两路场景。
+     * @param BackupToUrl 新的目标地址，用于任务同时推两路场景。
+     */
+    public void setBackupToUrl(String BackupToUrl) {
+        this.BackupToUrl = BackupToUrl;
+    }
+
+    /**
+     * Get 直播转码模板，使用云直播的转码功能进行转码后再转推出去。转码模板需在云直播控制台创建。 
+     * @return TranscodeTemplateName 直播转码模板，使用云直播的转码功能进行转码后再转推出去。转码模板需在云直播控制台创建。
+     */
+    public String getTranscodeTemplateName() {
+        return this.TranscodeTemplateName;
+    }
+
+    /**
+     * Set 直播转码模板，使用云直播的转码功能进行转码后再转推出去。转码模板需在云直播控制台创建。
+     * @param TranscodeTemplateName 直播转码模板，使用云直播的转码功能进行转码后再转推出去。转码模板需在云直播控制台创建。
+     */
+    public void setTranscodeTemplateName(String TranscodeTemplateName) {
+        this.TranscodeTemplateName = TranscodeTemplateName;
+    }
+
     public CreateLivePullStreamTaskRequest() {
     }
 
@@ -926,11 +1067,20 @@ PullVodPushLive -点播。
         if (source.ExtraCmd != null) {
             this.ExtraCmd = new String(source.ExtraCmd);
         }
+        if (source.SpecifyTaskId != null) {
+            this.SpecifyTaskId = new String(source.SpecifyTaskId);
+        }
         if (source.Comment != null) {
             this.Comment = new String(source.Comment);
         }
         if (source.ToUrl != null) {
             this.ToUrl = new String(source.ToUrl);
+        }
+        if (source.FileIndex != null) {
+            this.FileIndex = new Long(source.FileIndex);
+        }
+        if (source.OffsetTime != null) {
+            this.OffsetTime = new Long(source.OffsetTime);
         }
         if (source.BackupSourceType != null) {
             this.BackupSourceType = new String(source.BackupSourceType);
@@ -949,6 +1099,12 @@ PullVodPushLive -点播。
         }
         if (source.RecordTemplateId != null) {
             this.RecordTemplateId = new String(source.RecordTemplateId);
+        }
+        if (source.BackupToUrl != null) {
+            this.BackupToUrl = new String(source.BackupToUrl);
+        }
+        if (source.TranscodeTemplateName != null) {
+            this.TranscodeTemplateName = new String(source.TranscodeTemplateName);
         }
     }
 
@@ -971,13 +1127,18 @@ PullVodPushLive -点播。
         this.setParamSimple(map, prefix + "VodRefreshType", this.VodRefreshType);
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamSimple(map, prefix + "ExtraCmd", this.ExtraCmd);
+        this.setParamSimple(map, prefix + "SpecifyTaskId", this.SpecifyTaskId);
         this.setParamSimple(map, prefix + "Comment", this.Comment);
         this.setParamSimple(map, prefix + "ToUrl", this.ToUrl);
+        this.setParamSimple(map, prefix + "FileIndex", this.FileIndex);
+        this.setParamSimple(map, prefix + "OffsetTime", this.OffsetTime);
         this.setParamSimple(map, prefix + "BackupSourceType", this.BackupSourceType);
         this.setParamSimple(map, prefix + "BackupSourceUrl", this.BackupSourceUrl);
         this.setParamArrayObj(map, prefix + "WatermarkList.", this.WatermarkList);
         this.setParamSimple(map, prefix + "VodLocalMode", this.VodLocalMode);
         this.setParamSimple(map, prefix + "RecordTemplateId", this.RecordTemplateId);
+        this.setParamSimple(map, prefix + "BackupToUrl", this.BackupToUrl);
+        this.setParamSimple(map, prefix + "TranscodeTemplateName", this.TranscodeTemplateName);
 
     }
 }

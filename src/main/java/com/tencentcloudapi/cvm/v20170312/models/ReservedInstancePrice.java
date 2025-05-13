@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReservedInstancePrice extends AbstractModel{
+public class ReservedInstancePrice extends AbstractModel {
 
     /**
     * 预支合计费用的原价，单位：元。
@@ -49,6 +50,20 @@ public class ReservedInstancePrice extends AbstractModel{
     @SerializedName("DiscountUsagePrice")
     @Expose
     private Float DiscountUsagePrice;
+
+    /**
+    * 预支费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FixedPriceDiscount")
+    @Expose
+    private Float FixedPriceDiscount;
+
+    /**
+    * 后续费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UsagePriceDiscount")
+    @Expose
+    private Float UsagePriceDiscount;
 
     /**
      * Get 预支合计费用的原价，单位：元。 
@@ -114,6 +129,38 @@ public class ReservedInstancePrice extends AbstractModel{
         this.DiscountUsagePrice = DiscountUsagePrice;
     }
 
+    /**
+     * Get 预支费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FixedPriceDiscount 预支费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getFixedPriceDiscount() {
+        return this.FixedPriceDiscount;
+    }
+
+    /**
+     * Set 预支费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+     * @param FixedPriceDiscount 预支费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFixedPriceDiscount(Float FixedPriceDiscount) {
+        this.FixedPriceDiscount = FixedPriceDiscount;
+    }
+
+    /**
+     * Get 后续费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UsagePriceDiscount 后续费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getUsagePriceDiscount() {
+        return this.UsagePriceDiscount;
+    }
+
+    /**
+     * Set 后续费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+     * @param UsagePriceDiscount 后续费用的折扣，如20.0代表2折。 注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUsagePriceDiscount(Float UsagePriceDiscount) {
+        this.UsagePriceDiscount = UsagePriceDiscount;
+    }
+
     public ReservedInstancePrice() {
     }
 
@@ -134,6 +181,12 @@ public class ReservedInstancePrice extends AbstractModel{
         if (source.DiscountUsagePrice != null) {
             this.DiscountUsagePrice = new Float(source.DiscountUsagePrice);
         }
+        if (source.FixedPriceDiscount != null) {
+            this.FixedPriceDiscount = new Float(source.FixedPriceDiscount);
+        }
+        if (source.UsagePriceDiscount != null) {
+            this.UsagePriceDiscount = new Float(source.UsagePriceDiscount);
+        }
     }
 
 
@@ -145,6 +198,8 @@ public class ReservedInstancePrice extends AbstractModel{
         this.setParamSimple(map, prefix + "DiscountFixedPrice", this.DiscountFixedPrice);
         this.setParamSimple(map, prefix + "OriginalUsagePrice", this.OriginalUsagePrice);
         this.setParamSimple(map, prefix + "DiscountUsagePrice", this.DiscountUsagePrice);
+        this.setParamSimple(map, prefix + "FixedPriceDiscount", this.FixedPriceDiscount);
+        this.setParamSimple(map, prefix + "UsagePriceDiscount", this.UsagePriceDiscount);
 
     }
 }

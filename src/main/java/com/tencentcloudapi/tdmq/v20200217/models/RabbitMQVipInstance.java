@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RabbitMQVipInstance extends AbstractModel{
+public class RabbitMQVipInstance extends AbstractModel {
 
     /**
     * 实例id
@@ -38,7 +39,6 @@ public class RabbitMQVipInstance extends AbstractModel{
 
     /**
     * 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceVersion")
     @Expose
@@ -109,7 +109,6 @@ public class RabbitMQVipInstance extends AbstractModel{
 
     /**
     * 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -137,6 +136,42 @@ public class RabbitMQVipInstance extends AbstractModel{
     @SerializedName("ClusterStatus")
     @Expose
     private Long ClusterStatus;
+
+    /**
+    * 公网接入点
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PublicAccessEndpoint")
+    @Expose
+    private String PublicAccessEndpoint;
+
+    /**
+    * VPC 接入点列表
+    */
+    @SerializedName("Vpcs")
+    @Expose
+    private VpcEndpointInfo [] Vpcs;
+
+    /**
+    * 创建时间，毫秒为单位
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private Long CreateTime;
+
+    /**
+    * 实例类型，0 专享版、1 Serverless 版
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private Long InstanceType;
+
+    /**
+    * 隔离时间，毫秒为单位
+    */
+    @SerializedName("IsolatedTime")
+    @Expose
+    private Long IsolatedTime;
 
     /**
      * Get 实例id 
@@ -171,10 +206,8 @@ public class RabbitMQVipInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例版本 
      * @return InstanceVersion 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceVersion() {
         return this.InstanceVersion;
@@ -182,9 +215,7 @@ public class RabbitMQVipInstance extends AbstractModel{
 
     /**
      * Set 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceVersion 实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceVersion(String InstanceVersion) {
         this.InstanceVersion = InstanceVersion;
@@ -335,10 +366,8 @@ public class RabbitMQVipInstance extends AbstractModel{
     }
 
     /**
-     * Get 备注信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注信息 
      * @return Remark 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -346,9 +375,7 @@ public class RabbitMQVipInstance extends AbstractModel{
 
     /**
      * Set 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
@@ -410,6 +437,90 @@ public class RabbitMQVipInstance extends AbstractModel{
         this.ClusterStatus = ClusterStatus;
     }
 
+    /**
+     * Get 公网接入点
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PublicAccessEndpoint 公网接入点
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPublicAccessEndpoint() {
+        return this.PublicAccessEndpoint;
+    }
+
+    /**
+     * Set 公网接入点
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PublicAccessEndpoint 公网接入点
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPublicAccessEndpoint(String PublicAccessEndpoint) {
+        this.PublicAccessEndpoint = PublicAccessEndpoint;
+    }
+
+    /**
+     * Get VPC 接入点列表 
+     * @return Vpcs VPC 接入点列表
+     */
+    public VpcEndpointInfo [] getVpcs() {
+        return this.Vpcs;
+    }
+
+    /**
+     * Set VPC 接入点列表
+     * @param Vpcs VPC 接入点列表
+     */
+    public void setVpcs(VpcEndpointInfo [] Vpcs) {
+        this.Vpcs = Vpcs;
+    }
+
+    /**
+     * Get 创建时间，毫秒为单位 
+     * @return CreateTime 创建时间，毫秒为单位
+     */
+    public Long getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 创建时间，毫秒为单位
+     * @param CreateTime 创建时间，毫秒为单位
+     */
+    public void setCreateTime(Long CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 实例类型，0 专享版、1 Serverless 版 
+     * @return InstanceType 实例类型，0 专享版、1 Serverless 版
+     */
+    public Long getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set 实例类型，0 专享版、1 Serverless 版
+     * @param InstanceType 实例类型，0 专享版、1 Serverless 版
+     */
+    public void setInstanceType(Long InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
+    /**
+     * Get 隔离时间，毫秒为单位 
+     * @return IsolatedTime 隔离时间，毫秒为单位
+     */
+    public Long getIsolatedTime() {
+        return this.IsolatedTime;
+    }
+
+    /**
+     * Set 隔离时间，毫秒为单位
+     * @param IsolatedTime 隔离时间，毫秒为单位
+     */
+    public void setIsolatedTime(Long IsolatedTime) {
+        this.IsolatedTime = IsolatedTime;
+    }
+
     public RabbitMQVipInstance() {
     }
 
@@ -466,6 +577,24 @@ public class RabbitMQVipInstance extends AbstractModel{
         if (source.ClusterStatus != null) {
             this.ClusterStatus = new Long(source.ClusterStatus);
         }
+        if (source.PublicAccessEndpoint != null) {
+            this.PublicAccessEndpoint = new String(source.PublicAccessEndpoint);
+        }
+        if (source.Vpcs != null) {
+            this.Vpcs = new VpcEndpointInfo[source.Vpcs.length];
+            for (int i = 0; i < source.Vpcs.length; i++) {
+                this.Vpcs[i] = new VpcEndpointInfo(source.Vpcs[i]);
+            }
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new Long(source.CreateTime);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new Long(source.InstanceType);
+        }
+        if (source.IsolatedTime != null) {
+            this.IsolatedTime = new Long(source.IsolatedTime);
+        }
     }
 
 
@@ -489,6 +618,11 @@ public class RabbitMQVipInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "SpecName", this.SpecName);
         this.setParamSimple(map, prefix + "ExceptionInformation", this.ExceptionInformation);
         this.setParamSimple(map, prefix + "ClusterStatus", this.ClusterStatus);
+        this.setParamSimple(map, prefix + "PublicAccessEndpoint", this.PublicAccessEndpoint);
+        this.setParamArrayObj(map, prefix + "Vpcs.", this.Vpcs);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "IsolatedTime", this.IsolatedTime);
 
     }
 }

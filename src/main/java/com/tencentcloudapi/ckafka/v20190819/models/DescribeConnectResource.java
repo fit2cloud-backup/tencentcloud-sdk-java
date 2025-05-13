@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeConnectResource extends AbstractModel{
+public class DescribeConnectResource extends AbstractModel {
 
     /**
     * 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceId")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 连接源名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceName")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 连接源描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 连接源类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 连接源的状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -64,7 +60,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 连接源的创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -72,7 +67,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 连接源的异常信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorMessage")
     @Expose
@@ -80,7 +74,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 该连接源关联的Datahub任务数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatahubTaskCount")
     @Expose
@@ -88,7 +81,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 连接源的当前所处步骤
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CurrentStep")
     @Expose
@@ -96,7 +88,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 创建进度百分比
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskProgress")
     @Expose
@@ -104,7 +95,6 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
     * 步骤列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StepList")
     @Expose
@@ -199,10 +189,16 @@ public class DescribeConnectResource extends AbstractModel{
     private KafkaConnectParam KafkaConnectParam;
 
     /**
-     * Get 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ResourceId 连接源的Id
+    * MQTT配置，Type 为 MQTT 时返回
 注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MqttConnectParam")
+    @Expose
+    private MqttConnectParam MqttConnectParam;
+
+    /**
+     * Get 连接源的Id 
+     * @return ResourceId 连接源的Id
      */
     public String getResourceId() {
         return this.ResourceId;
@@ -210,19 +206,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceId 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
     }
 
     /**
-     * Get 连接源名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源名称 
      * @return ResourceName 连接源名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceName() {
         return this.ResourceName;
@@ -230,19 +222,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceName 连接源名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceName(String ResourceName) {
         this.ResourceName = ResourceName;
     }
 
     /**
-     * Get 连接源描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源描述 
      * @return Description 连接源描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -250,19 +238,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 连接源描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 连接源类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源类型 
      * @return Type 连接源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -270,19 +254,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 连接源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 连接源的状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源的状态 
      * @return Status 连接源的状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -290,19 +270,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源的状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 连接源的状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 连接源的创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源的创建时间 
      * @return CreateTime 连接源的创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -310,19 +286,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源的创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 连接源的创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 连接源的异常信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源的异常信息 
      * @return ErrorMessage 连接源的异常信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorMessage() {
         return this.ErrorMessage;
@@ -330,19 +302,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源的异常信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorMessage 连接源的异常信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorMessage(String ErrorMessage) {
         this.ErrorMessage = ErrorMessage;
     }
 
     /**
-     * Get 该连接源关联的Datahub任务数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该连接源关联的Datahub任务数 
      * @return DatahubTaskCount 该连接源关联的Datahub任务数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDatahubTaskCount() {
         return this.DatahubTaskCount;
@@ -350,19 +318,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 该连接源关联的Datahub任务数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatahubTaskCount 该连接源关联的Datahub任务数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatahubTaskCount(Long DatahubTaskCount) {
         this.DatahubTaskCount = DatahubTaskCount;
     }
 
     /**
-     * Get 连接源的当前所处步骤
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源的当前所处步骤 
      * @return CurrentStep 连接源的当前所处步骤
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCurrentStep() {
         return this.CurrentStep;
@@ -370,19 +334,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 连接源的当前所处步骤
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CurrentStep 连接源的当前所处步骤
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCurrentStep(String CurrentStep) {
         this.CurrentStep = CurrentStep;
     }
 
     /**
-     * Get 创建进度百分比
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建进度百分比 
      * @return TaskProgress 创建进度百分比
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getTaskProgress() {
         return this.TaskProgress;
@@ -390,19 +350,15 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 创建进度百分比
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskProgress 创建进度百分比
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskProgress(Float TaskProgress) {
         this.TaskProgress = TaskProgress;
     }
 
     /**
-     * Get 步骤列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 步骤列表 
      * @return StepList 步骤列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getStepList() {
         return this.StepList;
@@ -410,9 +366,7 @@ public class DescribeConnectResource extends AbstractModel{
 
     /**
      * Set 步骤列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StepList 步骤列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStepList(String [] StepList) {
         this.StepList = StepList;
@@ -638,6 +592,26 @@ public class DescribeConnectResource extends AbstractModel{
         this.KafkaConnectParam = KafkaConnectParam;
     }
 
+    /**
+     * Get MQTT配置，Type 为 MQTT 时返回
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MqttConnectParam MQTT配置，Type 为 MQTT 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MqttConnectParam getMqttConnectParam() {
+        return this.MqttConnectParam;
+    }
+
+    /**
+     * Set MQTT配置，Type 为 MQTT 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MqttConnectParam MQTT配置，Type 为 MQTT 时返回
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMqttConnectParam(MqttConnectParam MqttConnectParam) {
+        this.MqttConnectParam = MqttConnectParam;
+    }
+
     public DescribeConnectResource() {
     }
 
@@ -715,6 +689,9 @@ public class DescribeConnectResource extends AbstractModel{
         if (source.KafkaConnectParam != null) {
             this.KafkaConnectParam = new KafkaConnectParam(source.KafkaConnectParam);
         }
+        if (source.MqttConnectParam != null) {
+            this.MqttConnectParam = new MqttConnectParam(source.MqttConnectParam);
+        }
     }
 
 
@@ -744,6 +721,7 @@ public class DescribeConnectResource extends AbstractModel{
         this.setParamObj(map, prefix + "CtsdbConnectParam.", this.CtsdbConnectParam);
         this.setParamObj(map, prefix + "DorisConnectParam.", this.DorisConnectParam);
         this.setParamObj(map, prefix + "KafkaConnectParam.", this.KafkaConnectParam);
+        this.setParamObj(map, prefix + "MqttConnectParam.", this.MqttConnectParam);
 
     }
 }

@@ -16,315 +16,261 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RateLimitOption extends AbstractModel{
+public class RateLimitOption extends AbstractModel {
 
     /**
-    * 当前生效的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前生效的全量导出线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
     */
     @SerializedName("CurrentDumpThread")
     @Expose
     private Long CurrentDumpThread;
 
     /**
-    * 默认的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 默认的全量导出线程数，该字段仅在出参有意义
     */
     @SerializedName("DefaultDumpThread")
     @Expose
     private Long DefaultDumpThread;
 
     /**
-    * 当前生效的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前生效的全量导出Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000
     */
     @SerializedName("CurrentDumpRps")
     @Expose
     private Long CurrentDumpRps;
 
     /**
-    * 默认的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+    * 默认的全量导出Rps，该字段仅在出参有意义
     */
     @SerializedName("DefaultDumpRps")
     @Expose
     private Long DefaultDumpRps;
 
     /**
-    * 当前生效的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前生效的全量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
     */
     @SerializedName("CurrentLoadThread")
     @Expose
     private Long CurrentLoadThread;
 
     /**
-    * 默认的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 默认的全量导入线程数，该字段仅在出参有意义
     */
     @SerializedName("DefaultLoadThread")
     @Expose
     private Long DefaultLoadThread;
 
     /**
-    * 当前生效的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前生效的全量导入Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000	
     */
     @SerializedName("CurrentLoadRps")
     @Expose
     private Long CurrentLoadRps;
 
     /**
-    * 默认的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+    * 默认的全量导入Rps，该字段仅在出参有意义	
     */
     @SerializedName("DefaultLoadRps")
     @Expose
     private Long DefaultLoadRps;
 
     /**
-    * 当前生效的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前生效的增量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为128
     */
     @SerializedName("CurrentSinkerThread")
     @Expose
     private Long CurrentSinkerThread;
 
     /**
-    * 默认的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 默认的增量导入线程数，该字段仅在出参有意义
     */
     @SerializedName("DefaultSinkerThread")
     @Expose
     private Long DefaultSinkerThread;
 
     /**
-    * enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速
-注意：此字段可能返回 null，表示取不到有效值。
+    * enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速，该字段仅在出参有意义
     */
     @SerializedName("HasUserSetRateLimit")
     @Expose
     private String HasUserSetRateLimit;
 
     /**
-     * Get 当前生效的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CurrentDumpThread 当前生效的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前生效的全量导出线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16 
+     * @return CurrentDumpThread 当前生效的全量导出线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
      */
     public Long getCurrentDumpThread() {
         return this.CurrentDumpThread;
     }
 
     /**
-     * Set 当前生效的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CurrentDumpThread 当前生效的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前生效的全量导出线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
+     * @param CurrentDumpThread 当前生效的全量导出线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
      */
     public void setCurrentDumpThread(Long CurrentDumpThread) {
         this.CurrentDumpThread = CurrentDumpThread;
     }
 
     /**
-     * Get 默认的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultDumpThread 默认的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 默认的全量导出线程数，该字段仅在出参有意义 
+     * @return DefaultDumpThread 默认的全量导出线程数，该字段仅在出参有意义
      */
     public Long getDefaultDumpThread() {
         return this.DefaultDumpThread;
     }
 
     /**
-     * Set 默认的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultDumpThread 默认的全量导出线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 默认的全量导出线程数，该字段仅在出参有意义
+     * @param DefaultDumpThread 默认的全量导出线程数，该字段仅在出参有意义
      */
     public void setDefaultDumpThread(Long DefaultDumpThread) {
         this.DefaultDumpThread = DefaultDumpThread;
     }
 
     /**
-     * Get 当前生效的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CurrentDumpRps 当前生效的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前生效的全量导出Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000 
+     * @return CurrentDumpRps 当前生效的全量导出Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000
      */
     public Long getCurrentDumpRps() {
         return this.CurrentDumpRps;
     }
 
     /**
-     * Set 当前生效的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CurrentDumpRps 当前生效的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前生效的全量导出Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000
+     * @param CurrentDumpRps 当前生效的全量导出Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000
      */
     public void setCurrentDumpRps(Long CurrentDumpRps) {
         this.CurrentDumpRps = CurrentDumpRps;
     }
 
     /**
-     * Get 默认的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultDumpRps 默认的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 默认的全量导出Rps，该字段仅在出参有意义 
+     * @return DefaultDumpRps 默认的全量导出Rps，该字段仅在出参有意义
      */
     public Long getDefaultDumpRps() {
         return this.DefaultDumpRps;
     }
 
     /**
-     * Set 默认的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultDumpRps 默认的全量导出Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 默认的全量导出Rps，该字段仅在出参有意义
+     * @param DefaultDumpRps 默认的全量导出Rps，该字段仅在出参有意义
      */
     public void setDefaultDumpRps(Long DefaultDumpRps) {
         this.DefaultDumpRps = DefaultDumpRps;
     }
 
     /**
-     * Get 当前生效的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CurrentLoadThread 当前生效的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前生效的全量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16 
+     * @return CurrentLoadThread 当前生效的全量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
      */
     public Long getCurrentLoadThread() {
         return this.CurrentLoadThread;
     }
 
     /**
-     * Set 当前生效的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CurrentLoadThread 当前生效的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前生效的全量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
+     * @param CurrentLoadThread 当前生效的全量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为16
      */
     public void setCurrentLoadThread(Long CurrentLoadThread) {
         this.CurrentLoadThread = CurrentLoadThread;
     }
 
     /**
-     * Get 默认的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultLoadThread 默认的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 默认的全量导入线程数，该字段仅在出参有意义 
+     * @return DefaultLoadThread 默认的全量导入线程数，该字段仅在出参有意义
      */
     public Long getDefaultLoadThread() {
         return this.DefaultLoadThread;
     }
 
     /**
-     * Set 默认的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultLoadThread 默认的全量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 默认的全量导入线程数，该字段仅在出参有意义
+     * @param DefaultLoadThread 默认的全量导入线程数，该字段仅在出参有意义
      */
     public void setDefaultLoadThread(Long DefaultLoadThread) {
         this.DefaultLoadThread = DefaultLoadThread;
     }
 
     /**
-     * Get 当前生效的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CurrentLoadRps 当前生效的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前生效的全量导入Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000	 
+     * @return CurrentLoadRps 当前生效的全量导入Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000	
      */
     public Long getCurrentLoadRps() {
         return this.CurrentLoadRps;
     }
 
     /**
-     * Set 当前生效的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CurrentLoadRps 当前生效的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前生效的全量导入Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000	
+     * @param CurrentLoadRps 当前生效的全量导入Rps，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为50000000	
      */
     public void setCurrentLoadRps(Long CurrentLoadRps) {
         this.CurrentLoadRps = CurrentLoadRps;
     }
 
     /**
-     * Get 默认的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultLoadRps 默认的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 默认的全量导入Rps，该字段仅在出参有意义	 
+     * @return DefaultLoadRps 默认的全量导入Rps，该字段仅在出参有意义	
      */
     public Long getDefaultLoadRps() {
         return this.DefaultLoadRps;
     }
 
     /**
-     * Set 默认的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultLoadRps 默认的全量导入Rps	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 默认的全量导入Rps，该字段仅在出参有意义	
+     * @param DefaultLoadRps 默认的全量导入Rps，该字段仅在出参有意义	
      */
     public void setDefaultLoadRps(Long DefaultLoadRps) {
         this.DefaultLoadRps = DefaultLoadRps;
     }
 
     /**
-     * Get 当前生效的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CurrentSinkerThread 当前生效的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前生效的增量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为128 
+     * @return CurrentSinkerThread 当前生效的增量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为128
      */
     public Long getCurrentSinkerThread() {
         return this.CurrentSinkerThread;
     }
 
     /**
-     * Set 当前生效的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CurrentSinkerThread 当前生效的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前生效的增量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为128
+     * @param CurrentSinkerThread 当前生效的增量导入线程数，配置任务时可调整该字段值，注意：如果不设置或设置为0则表示保持当前值，最大值为128
      */
     public void setCurrentSinkerThread(Long CurrentSinkerThread) {
         this.CurrentSinkerThread = CurrentSinkerThread;
     }
 
     /**
-     * Get 默认的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultSinkerThread 默认的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 默认的增量导入线程数，该字段仅在出参有意义 
+     * @return DefaultSinkerThread 默认的增量导入线程数，该字段仅在出参有意义
      */
     public Long getDefaultSinkerThread() {
         return this.DefaultSinkerThread;
     }
 
     /**
-     * Set 默认的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultSinkerThread 默认的增量导入线程数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 默认的增量导入线程数，该字段仅在出参有意义
+     * @param DefaultSinkerThread 默认的增量导入线程数，该字段仅在出参有意义
      */
     public void setDefaultSinkerThread(Long DefaultSinkerThread) {
         this.DefaultSinkerThread = DefaultSinkerThread;
     }
 
     /**
-     * Get enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HasUserSetRateLimit enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速，该字段仅在出参有意义 
+     * @return HasUserSetRateLimit enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速，该字段仅在出参有意义
      */
     public String getHasUserSetRateLimit() {
         return this.HasUserSetRateLimit;
     }
 
     /**
-     * Set enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param HasUserSetRateLimit enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速，该字段仅在出参有意义
+     * @param HasUserSetRateLimit enum:"no"/"yes"、no表示用户未设置过限速、yes表示设置过限速，该字段仅在出参有意义
      */
     public void setHasUserSetRateLimit(String HasUserSetRateLimit) {
         this.HasUserSetRateLimit = HasUserSetRateLimit;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRuleLimitRequest extends AbstractModel{
+public class DescribeRuleLimitRequest extends AbstractModel {
 
     /**
     * 域名
@@ -28,6 +29,13 @@ public class DescribeRuleLimitRequest extends AbstractModel{
     @SerializedName("Domain")
     @Expose
     private String Domain;
+
+    /**
+    * 实例Id
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
 
     /**
      * Get 域名 
@@ -45,6 +53,22 @@ public class DescribeRuleLimitRequest extends AbstractModel{
         this.Domain = Domain;
     }
 
+    /**
+     * Get 实例Id 
+     * @return InstanceId 实例Id
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例Id
+     * @param InstanceId 实例Id
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
     public DescribeRuleLimitRequest() {
     }
 
@@ -56,6 +80,9 @@ public class DescribeRuleLimitRequest extends AbstractModel{
         if (source.Domain != null) {
             this.Domain = new String(source.Domain);
         }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DescribeRuleLimitRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Domain", this.Domain);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
 
     }
 }

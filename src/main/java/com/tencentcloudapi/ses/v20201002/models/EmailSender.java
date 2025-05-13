@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ses.v20201002.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EmailSender extends AbstractModel{
+public class EmailSender extends AbstractModel {
 
     /**
     * 发信地址
@@ -31,7 +32,6 @@ public class EmailSender extends AbstractModel{
 
     /**
     * 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EmailSenderName")
     @Expose
@@ -39,11 +39,17 @@ public class EmailSender extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatedTimestamp")
     @Expose
     private Long CreatedTimestamp;
+
+    /**
+    * smtp密码类型,0=没有设置密码,1=已经设置了密码
+    */
+    @SerializedName("SmtpPwdType")
+    @Expose
+    private Long SmtpPwdType;
 
     /**
      * Get 发信地址 
@@ -62,10 +68,8 @@ public class EmailSender extends AbstractModel{
     }
 
     /**
-     * Get 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 发信人别名 
      * @return EmailSenderName 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEmailSenderName() {
         return this.EmailSenderName;
@@ -73,19 +77,15 @@ public class EmailSender extends AbstractModel{
 
     /**
      * Set 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EmailSenderName 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEmailSenderName(String EmailSenderName) {
         this.EmailSenderName = EmailSenderName;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreatedTimestamp 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCreatedTimestamp() {
         return this.CreatedTimestamp;
@@ -93,12 +93,26 @@ public class EmailSender extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreatedTimestamp 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatedTimestamp(Long CreatedTimestamp) {
         this.CreatedTimestamp = CreatedTimestamp;
+    }
+
+    /**
+     * Get smtp密码类型,0=没有设置密码,1=已经设置了密码 
+     * @return SmtpPwdType smtp密码类型,0=没有设置密码,1=已经设置了密码
+     */
+    public Long getSmtpPwdType() {
+        return this.SmtpPwdType;
+    }
+
+    /**
+     * Set smtp密码类型,0=没有设置密码,1=已经设置了密码
+     * @param SmtpPwdType smtp密码类型,0=没有设置密码,1=已经设置了密码
+     */
+    public void setSmtpPwdType(Long SmtpPwdType) {
+        this.SmtpPwdType = SmtpPwdType;
     }
 
     public EmailSender() {
@@ -118,6 +132,9 @@ public class EmailSender extends AbstractModel{
         if (source.CreatedTimestamp != null) {
             this.CreatedTimestamp = new Long(source.CreatedTimestamp);
         }
+        if (source.SmtpPwdType != null) {
+            this.SmtpPwdType = new Long(source.SmtpPwdType);
+        }
     }
 
 
@@ -128,6 +145,7 @@ public class EmailSender extends AbstractModel{
         this.setParamSimple(map, prefix + "EmailAddress", this.EmailAddress);
         this.setParamSimple(map, prefix + "EmailSenderName", this.EmailSenderName);
         this.setParamSimple(map, prefix + "CreatedTimestamp", this.CreatedTimestamp);
+        this.setParamSimple(map, prefix + "SmtpPwdType", this.SmtpPwdType);
 
     }
 }

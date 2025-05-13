@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBackupDecryptionKeyRequest extends AbstractModel{
+public class DescribeBackupDecryptionKeyRequest extends AbstractModel {
 
     /**
     * 实例ID，格式如：cdb-XXXX。与云数据库控制台页面中显示的实例 ID 相同。
@@ -35,6 +36,13 @@ public class DescribeBackupDecryptionKeyRequest extends AbstractModel{
     @SerializedName("BackupId")
     @Expose
     private Long BackupId;
+
+    /**
+    * 备份类型 data: 数据备份 binlog:日志备份，默认为data
+    */
+    @SerializedName("BackupType")
+    @Expose
+    private String BackupType;
 
     /**
      * Get 实例ID，格式如：cdb-XXXX。与云数据库控制台页面中显示的实例 ID 相同。 
@@ -68,6 +76,22 @@ public class DescribeBackupDecryptionKeyRequest extends AbstractModel{
         this.BackupId = BackupId;
     }
 
+    /**
+     * Get 备份类型 data: 数据备份 binlog:日志备份，默认为data 
+     * @return BackupType 备份类型 data: 数据备份 binlog:日志备份，默认为data
+     */
+    public String getBackupType() {
+        return this.BackupType;
+    }
+
+    /**
+     * Set 备份类型 data: 数据备份 binlog:日志备份，默认为data
+     * @param BackupType 备份类型 data: 数据备份 binlog:日志备份，默认为data
+     */
+    public void setBackupType(String BackupType) {
+        this.BackupType = BackupType;
+    }
+
     public DescribeBackupDecryptionKeyRequest() {
     }
 
@@ -82,6 +106,9 @@ public class DescribeBackupDecryptionKeyRequest extends AbstractModel{
         if (source.BackupId != null) {
             this.BackupId = new Long(source.BackupId);
         }
+        if (source.BackupType != null) {
+            this.BackupType = new String(source.BackupType);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class DescribeBackupDecryptionKeyRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "BackupId", this.BackupId);
+        this.setParamSimple(map, prefix + "BackupType", this.BackupType);
 
     }
 }

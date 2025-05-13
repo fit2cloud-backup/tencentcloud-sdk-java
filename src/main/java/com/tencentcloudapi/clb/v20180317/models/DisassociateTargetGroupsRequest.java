@@ -16,30 +16,31 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DisassociateTargetGroupsRequest extends AbstractModel{
+public class DisassociateTargetGroupsRequest extends AbstractModel {
 
     /**
-    * 待解绑的规则关系数组。
+    * 待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
     */
     @SerializedName("Associations")
     @Expose
     private TargetGroupAssociation [] Associations;
 
     /**
-     * Get 待解绑的规则关系数组。 
-     * @return Associations 待解绑的规则关系数组。
+     * Get 待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。 
+     * @return Associations 待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
      */
     public TargetGroupAssociation [] getAssociations() {
         return this.Associations;
     }
 
     /**
-     * Set 待解绑的规则关系数组。
-     * @param Associations 待解绑的规则关系数组。
+     * Set 待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
+     * @param Associations 待解绑的规则关系数组，支持批量解绑多个监听器，单次批量解除最多20个。
      */
     public void setAssociations(TargetGroupAssociation [] Associations) {
         this.Associations = Associations;

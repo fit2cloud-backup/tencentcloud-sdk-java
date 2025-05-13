@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAgentInstallCommandResponse extends AbstractModel{
+public class DescribeAgentInstallCommandResponse extends AbstractModel {
 
     /**
     * linux系统安装命令
@@ -58,7 +59,14 @@ public class DescribeAgentInstallCommandResponse extends AbstractModel{
     private String WindowsDownloadUrl;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * arm架构系统安装命令
+    */
+    @SerializedName("ARMCommand")
+    @Expose
+    private String ARMCommand;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -145,16 +153,32 @@ public class DescribeAgentInstallCommandResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get arm架构系统安装命令 
+     * @return ARMCommand arm架构系统安装命令
+     */
+    public String getARMCommand() {
+        return this.ARMCommand;
+    }
+
+    /**
+     * Set arm架构系统安装命令
+     * @param ARMCommand arm架构系统安装命令
+     */
+    public void setARMCommand(String ARMCommand) {
+        this.ARMCommand = ARMCommand;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -183,6 +207,9 @@ public class DescribeAgentInstallCommandResponse extends AbstractModel{
         if (source.WindowsDownloadUrl != null) {
             this.WindowsDownloadUrl = new String(source.WindowsDownloadUrl);
         }
+        if (source.ARMCommand != null) {
+            this.ARMCommand = new String(source.ARMCommand);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -198,6 +225,7 @@ public class DescribeAgentInstallCommandResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "WindowsStepOne", this.WindowsStepOne);
         this.setParamSimple(map, prefix + "WindowsStepTwo", this.WindowsStepTwo);
         this.setParamSimple(map, prefix + "WindowsDownloadUrl", this.WindowsDownloadUrl);
+        this.setParamSimple(map, prefix + "ARMCommand", this.ARMCommand);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

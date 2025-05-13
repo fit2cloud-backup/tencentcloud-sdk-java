@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBillResourceSummaryRequest extends AbstractModel{
+public class DescribeBillResourceSummaryRequest extends AbstractModel {
 
     /**
     * 分页偏移量，Offset=0表示第一页，如果Limit=100，则Offset=100表示第二页，Offset=200表示第三页，依次类推
@@ -123,6 +124,21 @@ public class DescribeBillResourceSummaryRequest extends AbstractModel{
     private String PayerUin;
 
     /**
+    * 分账标签键，用户自定义（支持2021-01以后账单查询）
+    */
+    @SerializedName("TagKey")
+    @Expose
+    private String TagKey;
+
+    /**
+    * 分账标签值，该参数为空表示该标签键下未设置标签值的记录
+（支持2021-01以后账单查询）
+    */
+    @SerializedName("TagValue")
+    @Expose
+    private String TagValue;
+
+    /**
      * Get 分页偏移量，Offset=0表示第一页，如果Limit=100，则Offset=100表示第二页，Offset=200表示第三页，依次类推 
      * @return Offset 分页偏移量，Offset=0表示第一页，如果Limit=100，则Offset=100表示第二页，Offset=200表示第三页，依次类推
      */
@@ -173,7 +189,9 @@ public class DescribeBillResourceSummaryRequest extends AbstractModel{
     /**
      * Get 周期类型，byUsedTime按计费周期/byPayTime按扣费周期。需要与费用中心该月份账单的周期保持一致。您可前往[账单概览](https://console.cloud.tencent.com/expense/bill/overview)页面顶部查看确认您的账单统计周期类型。 
      * @return PeriodType 周期类型，byUsedTime按计费周期/byPayTime按扣费周期。需要与费用中心该月份账单的周期保持一致。您可前往[账单概览](https://console.cloud.tencent.com/expense/bill/overview)页面顶部查看确认您的账单统计周期类型。
+     * @deprecated
      */
+    @Deprecated
     public String getPeriodType() {
         return this.PeriodType;
     }
@@ -181,7 +199,9 @@ public class DescribeBillResourceSummaryRequest extends AbstractModel{
     /**
      * Set 周期类型，byUsedTime按计费周期/byPayTime按扣费周期。需要与费用中心该月份账单的周期保持一致。您可前往[账单概览](https://console.cloud.tencent.com/expense/bill/overview)页面顶部查看确认您的账单统计周期类型。
      * @param PeriodType 周期类型，byUsedTime按计费周期/byPayTime按扣费周期。需要与费用中心该月份账单的周期保持一致。您可前往[账单概览](https://console.cloud.tencent.com/expense/bill/overview)页面顶部查看确认您的账单统计周期类型。
+     * @deprecated
      */
+    @Deprecated
     public void setPeriodType(String PeriodType) {
         this.PeriodType = PeriodType;
     }
@@ -402,6 +422,42 @@ public class DescribeBillResourceSummaryRequest extends AbstractModel{
         this.PayerUin = PayerUin;
     }
 
+    /**
+     * Get 分账标签键，用户自定义（支持2021-01以后账单查询） 
+     * @return TagKey 分账标签键，用户自定义（支持2021-01以后账单查询）
+     */
+    public String getTagKey() {
+        return this.TagKey;
+    }
+
+    /**
+     * Set 分账标签键，用户自定义（支持2021-01以后账单查询）
+     * @param TagKey 分账标签键，用户自定义（支持2021-01以后账单查询）
+     */
+    public void setTagKey(String TagKey) {
+        this.TagKey = TagKey;
+    }
+
+    /**
+     * Get 分账标签值，该参数为空表示该标签键下未设置标签值的记录
+（支持2021-01以后账单查询） 
+     * @return TagValue 分账标签值，该参数为空表示该标签键下未设置标签值的记录
+（支持2021-01以后账单查询）
+     */
+    public String getTagValue() {
+        return this.TagValue;
+    }
+
+    /**
+     * Set 分账标签值，该参数为空表示该标签键下未设置标签值的记录
+（支持2021-01以后账单查询）
+     * @param TagValue 分账标签值，该参数为空表示该标签键下未设置标签值的记录
+（支持2021-01以后账单查询）
+     */
+    public void setTagValue(String TagValue) {
+        this.TagValue = TagValue;
+    }
+
     public DescribeBillResourceSummaryRequest() {
     }
 
@@ -440,6 +496,12 @@ public class DescribeBillResourceSummaryRequest extends AbstractModel{
         if (source.PayerUin != null) {
             this.PayerUin = new String(source.PayerUin);
         }
+        if (source.TagKey != null) {
+            this.TagKey = new String(source.TagKey);
+        }
+        if (source.TagValue != null) {
+            this.TagValue = new String(source.TagValue);
+        }
     }
 
 
@@ -457,6 +519,8 @@ public class DescribeBillResourceSummaryRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "BusinessCode", this.BusinessCode);
         this.setParamSimple(map, prefix + "PayerUin", this.PayerUin);
+        this.setParamSimple(map, prefix + "TagKey", this.TagKey);
+        this.setParamSimple(map, prefix + "TagValue", this.TagValue);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleChangeItem extends AbstractModel{
+public class RuleChangeItem extends AbstractModel {
 
     /**
     * 原始sequence 值
@@ -35,6 +36,13 @@ public class RuleChangeItem extends AbstractModel{
     @SerializedName("NewOrderIndex")
     @Expose
     private Long NewOrderIndex;
+
+    /**
+    * Ip版本，0：IPv4，1：IPv6，默认为IPv4
+    */
+    @SerializedName("IpVersion")
+    @Expose
+    private Long IpVersion;
 
     /**
      * Get 原始sequence 值 
@@ -68,6 +76,22 @@ public class RuleChangeItem extends AbstractModel{
         this.NewOrderIndex = NewOrderIndex;
     }
 
+    /**
+     * Get Ip版本，0：IPv4，1：IPv6，默认为IPv4 
+     * @return IpVersion Ip版本，0：IPv4，1：IPv6，默认为IPv4
+     */
+    public Long getIpVersion() {
+        return this.IpVersion;
+    }
+
+    /**
+     * Set Ip版本，0：IPv4，1：IPv6，默认为IPv4
+     * @param IpVersion Ip版本，0：IPv4，1：IPv6，默认为IPv4
+     */
+    public void setIpVersion(Long IpVersion) {
+        this.IpVersion = IpVersion;
+    }
+
     public RuleChangeItem() {
     }
 
@@ -82,6 +106,9 @@ public class RuleChangeItem extends AbstractModel{
         if (source.NewOrderIndex != null) {
             this.NewOrderIndex = new Long(source.NewOrderIndex);
         }
+        if (source.IpVersion != null) {
+            this.IpVersion = new Long(source.IpVersion);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class RuleChangeItem extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "OrderIndex", this.OrderIndex);
         this.setParamSimple(map, prefix + "NewOrderIndex", this.NewOrderIndex);
+        this.setParamSimple(map, prefix + "IpVersion", this.IpVersion);
 
     }
 }

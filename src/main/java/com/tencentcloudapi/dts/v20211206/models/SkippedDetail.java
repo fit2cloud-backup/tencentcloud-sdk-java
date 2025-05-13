@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SkippedDetail extends AbstractModel{
+public class SkippedDetail extends AbstractModel {
 
     /**
     * 跳过的表数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -32,17 +32,14 @@ public class SkippedDetail extends AbstractModel{
 
     /**
     * 跳过校验的表详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Items")
     @Expose
     private SkippedItem [] Items;
 
     /**
-     * Get 跳过的表数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 跳过的表数量 
      * @return TotalCount 跳过的表数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -50,19 +47,15 @@ public class SkippedDetail extends AbstractModel{
 
     /**
      * Set 跳过的表数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 跳过的表数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 跳过校验的表详情
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 跳过校验的表详情 
      * @return Items 跳过校验的表详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SkippedItem [] getItems() {
         return this.Items;
@@ -70,9 +63,7 @@ public class SkippedDetail extends AbstractModel{
 
     /**
      * Set 跳过校验的表详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Items 跳过校验的表详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItems(SkippedItem [] Items) {
         this.Items = Items;

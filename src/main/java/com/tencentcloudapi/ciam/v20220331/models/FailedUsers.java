@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ciam.v20220331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FailedUsers extends AbstractModel{
+public class FailedUsers extends AbstractModel {
 
     /**
     * 失败用户标识
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedUserIdentification")
     @Expose
@@ -32,17 +32,14 @@ public class FailedUsers extends AbstractModel{
 
     /**
     * 导入的用户失败原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedReason")
     @Expose
     private String FailedReason;
 
     /**
-     * Get 失败用户标识
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 失败用户标识 
      * @return FailedUserIdentification 失败用户标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFailedUserIdentification() {
         return this.FailedUserIdentification;
@@ -50,19 +47,15 @@ public class FailedUsers extends AbstractModel{
 
     /**
      * Set 失败用户标识
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedUserIdentification 失败用户标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedUserIdentification(String FailedUserIdentification) {
         this.FailedUserIdentification = FailedUserIdentification;
     }
 
     /**
-     * Get 导入的用户失败原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 导入的用户失败原因 
      * @return FailedReason 导入的用户失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFailedReason() {
         return this.FailedReason;
@@ -70,9 +63,7 @@ public class FailedUsers extends AbstractModel{
 
     /**
      * Set 导入的用户失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedReason 导入的用户失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedReason(String FailedReason) {
         this.FailedReason = FailedReason;

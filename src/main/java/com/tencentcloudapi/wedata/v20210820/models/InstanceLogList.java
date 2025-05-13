@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceLogList extends AbstractModel{
+public class InstanceLogList extends AbstractModel {
 
     /**
     * 任务ID
@@ -47,7 +48,7 @@ public class InstanceLogList extends AbstractModel{
     private String Tries;
 
     /**
-    * 最后更新事件
+    * 最后更新时间
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastUpdate")
@@ -171,9 +172,9 @@ public class InstanceLogList extends AbstractModel{
     }
 
     /**
-     * Get 最后更新事件
+     * Get 最后更新时间
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LastUpdate 最后更新事件
+     * @return LastUpdate 最后更新时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastUpdate() {
@@ -181,9 +182,9 @@ public class InstanceLogList extends AbstractModel{
     }
 
     /**
-     * Set 最后更新事件
+     * Set 最后更新时间
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LastUpdate 最后更新事件
+     * @param LastUpdate 最后更新时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastUpdate(String LastUpdate) {

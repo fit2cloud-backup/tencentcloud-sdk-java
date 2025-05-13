@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcbr.v20220217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServerBaseConfig extends AbstractModel{
+public class ServerBaseConfig extends AbstractModel {
 
     /**
     * 环境 Id
@@ -161,6 +162,43 @@ public class ServerBaseConfig extends AbstractModel{
     @SerializedName("LogParseType")
     @Expose
     private String LogParseType;
+
+    /**
+    * 服务标签, function: 函数托管
+    */
+    @SerializedName("Tag")
+    @Expose
+    private String Tag;
+
+    /**
+    * 内网访问开关 close | open
+    */
+    @SerializedName("InternalAccess")
+    @Expose
+    private String InternalAccess;
+
+    /**
+    * 内网域名
+    */
+    @SerializedName("InternalDomain")
+    @Expose
+    private String InternalDomain;
+
+    /**
+    * 运行模式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OperationMode")
+    @Expose
+    private String OperationMode;
+
+    /**
+    * 定时扩缩容配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TimerScale")
+    @Expose
+    private TimerScale [] TimerScale;
 
     /**
      * Get 环境 Id 
@@ -482,6 +520,94 @@ public class ServerBaseConfig extends AbstractModel{
         this.LogParseType = LogParseType;
     }
 
+    /**
+     * Get 服务标签, function: 函数托管 
+     * @return Tag 服务标签, function: 函数托管
+     */
+    public String getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 服务标签, function: 函数托管
+     * @param Tag 服务标签, function: 函数托管
+     */
+    public void setTag(String Tag) {
+        this.Tag = Tag;
+    }
+
+    /**
+     * Get 内网访问开关 close | open 
+     * @return InternalAccess 内网访问开关 close | open
+     */
+    public String getInternalAccess() {
+        return this.InternalAccess;
+    }
+
+    /**
+     * Set 内网访问开关 close | open
+     * @param InternalAccess 内网访问开关 close | open
+     */
+    public void setInternalAccess(String InternalAccess) {
+        this.InternalAccess = InternalAccess;
+    }
+
+    /**
+     * Get 内网域名 
+     * @return InternalDomain 内网域名
+     */
+    public String getInternalDomain() {
+        return this.InternalDomain;
+    }
+
+    /**
+     * Set 内网域名
+     * @param InternalDomain 内网域名
+     */
+    public void setInternalDomain(String InternalDomain) {
+        this.InternalDomain = InternalDomain;
+    }
+
+    /**
+     * Get 运行模式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OperationMode 运行模式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOperationMode() {
+        return this.OperationMode;
+    }
+
+    /**
+     * Set 运行模式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OperationMode 运行模式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOperationMode(String OperationMode) {
+        this.OperationMode = OperationMode;
+    }
+
+    /**
+     * Get 定时扩缩容配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TimerScale 定时扩缩容配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TimerScale [] getTimerScale() {
+        return this.TimerScale;
+    }
+
+    /**
+     * Set 定时扩缩容配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TimerScale 定时扩缩容配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTimerScale(TimerScale [] TimerScale) {
+        this.TimerScale = TimerScale;
+    }
+
     public ServerBaseConfig() {
     }
 
@@ -556,6 +682,24 @@ public class ServerBaseConfig extends AbstractModel{
         if (source.LogParseType != null) {
             this.LogParseType = new String(source.LogParseType);
         }
+        if (source.Tag != null) {
+            this.Tag = new String(source.Tag);
+        }
+        if (source.InternalAccess != null) {
+            this.InternalAccess = new String(source.InternalAccess);
+        }
+        if (source.InternalDomain != null) {
+            this.InternalDomain = new String(source.InternalDomain);
+        }
+        if (source.OperationMode != null) {
+            this.OperationMode = new String(source.OperationMode);
+        }
+        if (source.TimerScale != null) {
+            this.TimerScale = new TimerScale[source.TimerScale.length];
+            for (int i = 0; i < source.TimerScale.length; i++) {
+                this.TimerScale[i] = new TimerScale(source.TimerScale[i]);
+            }
+        }
     }
 
 
@@ -583,6 +727,11 @@ public class ServerBaseConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "LogSetId", this.LogSetId);
         this.setParamSimple(map, prefix + "LogTopicId", this.LogTopicId);
         this.setParamSimple(map, prefix + "LogParseType", this.LogParseType);
+        this.setParamSimple(map, prefix + "Tag", this.Tag);
+        this.setParamSimple(map, prefix + "InternalAccess", this.InternalAccess);
+        this.setParamSimple(map, prefix + "InternalDomain", this.InternalDomain);
+        this.setParamSimple(map, prefix + "OperationMode", this.OperationMode);
+        this.setParamArrayObj(map, prefix + "TimerScale.", this.TimerScale);
 
     }
 }

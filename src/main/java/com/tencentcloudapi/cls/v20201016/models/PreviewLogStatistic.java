@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PreviewLogStatistic extends AbstractModel{
+public class PreviewLogStatistic extends AbstractModel {
 
     /**
     * 日志内容
@@ -30,7 +31,7 @@ public class PreviewLogStatistic extends AbstractModel{
     private String LogContent;
 
     /**
-    * 行号
+    * 行号。从0开始
     */
     @SerializedName("LineNum")
     @Expose
@@ -44,14 +45,17 @@ public class PreviewLogStatistic extends AbstractModel{
     private String DstTopicId;
 
     /**
-    * 失败错误码， 空字符串""表示正常
+    * 失败错误信息， 空字符串""表示正常
     */
     @SerializedName("FailReason")
     @Expose
     private String FailReason;
 
     /**
-    * 日志时间戳
+    * 日志时间，格式：`2024-05-07 17:13:17.105`
+
+- 入参时无效
+- 出参时有效，为日志中的时间格式
     */
     @SerializedName("Time")
     @Expose
@@ -82,16 +86,16 @@ public class PreviewLogStatistic extends AbstractModel{
     }
 
     /**
-     * Get 行号 
-     * @return LineNum 行号
+     * Get 行号。从0开始 
+     * @return LineNum 行号。从0开始
      */
     public Long getLineNum() {
         return this.LineNum;
     }
 
     /**
-     * Set 行号
-     * @param LineNum 行号
+     * Set 行号。从0开始
+     * @param LineNum 行号。从0开始
      */
     public void setLineNum(Long LineNum) {
         this.LineNum = LineNum;
@@ -114,32 +118,44 @@ public class PreviewLogStatistic extends AbstractModel{
     }
 
     /**
-     * Get 失败错误码， 空字符串""表示正常 
-     * @return FailReason 失败错误码， 空字符串""表示正常
+     * Get 失败错误信息， 空字符串""表示正常 
+     * @return FailReason 失败错误信息， 空字符串""表示正常
      */
     public String getFailReason() {
         return this.FailReason;
     }
 
     /**
-     * Set 失败错误码， 空字符串""表示正常
-     * @param FailReason 失败错误码， 空字符串""表示正常
+     * Set 失败错误信息， 空字符串""表示正常
+     * @param FailReason 失败错误信息， 空字符串""表示正常
      */
     public void setFailReason(String FailReason) {
         this.FailReason = FailReason;
     }
 
     /**
-     * Get 日志时间戳 
-     * @return Time 日志时间戳
+     * Get 日志时间，格式：`2024-05-07 17:13:17.105`
+
+- 入参时无效
+- 出参时有效，为日志中的时间格式 
+     * @return Time 日志时间，格式：`2024-05-07 17:13:17.105`
+
+- 入参时无效
+- 出参时有效，为日志中的时间格式
      */
     public String getTime() {
         return this.Time;
     }
 
     /**
-     * Set 日志时间戳
-     * @param Time 日志时间戳
+     * Set 日志时间，格式：`2024-05-07 17:13:17.105`
+
+- 入参时无效
+- 出参时有效，为日志中的时间格式
+     * @param Time 日志时间，格式：`2024-05-07 17:13:17.105`
+
+- 入参时无效
+- 出参时有效，为日志中的时间格式
      */
     public void setTime(String Time) {
         this.Time = Time;
@@ -150,7 +166,9 @@ public class PreviewLogStatistic extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DstTopicName 目标topic-name
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public String getDstTopicName() {
         return this.DstTopicName;
     }
@@ -160,7 +178,9 @@ public class PreviewLogStatistic extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param DstTopicName 目标topic-name
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setDstTopicName(String DstTopicName) {
         this.DstTopicName = DstTopicName;
     }

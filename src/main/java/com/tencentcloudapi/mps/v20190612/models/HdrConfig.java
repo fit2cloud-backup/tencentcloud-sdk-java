@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HdrConfig extends AbstractModel{
+public class HdrConfig extends AbstractModel {
 
     /**
     * 能力配置开关，可选值：
@@ -37,7 +38,7 @@ public class HdrConfig extends AbstractModel{
 <li>HDR10</li>
 <li>HLG</li>
 默认值：HDR10。
-注意：video的编码方式需要为libx265；
+注意：video的编码方式需要为h265；
 注意：视频编码位深为10。
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -78,14 +79,14 @@ public class HdrConfig extends AbstractModel{
 <li>HDR10</li>
 <li>HLG</li>
 默认值：HDR10。
-注意：video的编码方式需要为libx265；
+注意：video的编码方式需要为h265；
 注意：视频编码位深为10。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Type 类型，可选值：
 <li>HDR10</li>
 <li>HLG</li>
 默认值：HDR10。
-注意：video的编码方式需要为libx265；
+注意：video的编码方式需要为h265；
 注意：视频编码位深为10。
 注意：此字段可能返回 null，表示取不到有效值。
      */
@@ -98,14 +99,14 @@ public class HdrConfig extends AbstractModel{
 <li>HDR10</li>
 <li>HLG</li>
 默认值：HDR10。
-注意：video的编码方式需要为libx265；
+注意：video的编码方式需要为h265；
 注意：视频编码位深为10。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 类型，可选值：
 <li>HDR10</li>
 <li>HLG</li>
 默认值：HDR10。
-注意：video的编码方式需要为libx265；
+注意：video的编码方式需要为h265；
 注意：视频编码位深为10。
 注意：此字段可能返回 null，表示取不到有效值。
      */

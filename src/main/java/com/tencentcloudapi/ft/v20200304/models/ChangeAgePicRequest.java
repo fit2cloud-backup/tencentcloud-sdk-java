@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ft.v20200304.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChangeAgePicRequest extends AbstractModel{
+public class ChangeAgePicRequest extends AbstractModel {
 
     /**
     * 人脸变老变年轻信息。 
@@ -50,7 +51,7 @@ public class ChangeAgePicRequest extends AbstractModel{
     private String Url;
 
     /**
-    * 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+    * 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
     */
     @SerializedName("RspImgType")
     @Expose
@@ -129,16 +130,16 @@ public class ChangeAgePicRequest extends AbstractModel{
     }
 
     /**
-     * Get 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。 
-     * @return RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * Get 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。 
+     * @return RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
      */
     public String getRspImgType() {
         return this.RspImgType;
     }
 
     /**
-     * Set 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
-     * @param RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * Set 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
+     * @param RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
      */
     public void setRspImgType(String RspImgType) {
         this.RspImgType = RspImgType;

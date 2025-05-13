@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeEmrApplicationStaticsRequest extends AbstractModel{
+public class DescribeEmrApplicationStaticsRequest extends AbstractModel {
 
     /**
     * 集群id
@@ -93,7 +94,7 @@ public class DescribeEmrApplicationStaticsRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 页容量
+    * 页容量，范围为[10,100]
     */
     @SerializedName("Limit")
     @Expose
@@ -260,16 +261,16 @@ public class DescribeEmrApplicationStaticsRequest extends AbstractModel{
     }
 
     /**
-     * Get 页容量 
-     * @return Limit 页容量
+     * Get 页容量，范围为[10,100] 
+     * @return Limit 页容量，范围为[10,100]
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 页容量
-     * @param Limit 页容量
+     * Set 页容量，范围为[10,100]
+     * @param Limit 页容量，范围为[10,100]
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

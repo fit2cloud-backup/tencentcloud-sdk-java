@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDeployedResourcesRequest extends AbstractModel{
+public class DescribeDeployedResourcesRequest extends AbstractModel {
 
     /**
     * 证书ID
@@ -30,7 +31,7 @@ public class DescribeDeployedResourcesRequest extends AbstractModel{
     private String [] CertificateIds;
 
     /**
-    * 资源类型:clb,cdn,live,waf,antiddos
+    * 资源类型:clb,cdn,live,waf,antiddos,teo
     */
     @SerializedName("ResourceType")
     @Expose
@@ -53,16 +54,16 @@ public class DescribeDeployedResourcesRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源类型:clb,cdn,live,waf,antiddos 
-     * @return ResourceType 资源类型:clb,cdn,live,waf,antiddos
+     * Get 资源类型:clb,cdn,live,waf,antiddos,teo 
+     * @return ResourceType 资源类型:clb,cdn,live,waf,antiddos,teo
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 资源类型:clb,cdn,live,waf,antiddos
-     * @param ResourceType 资源类型:clb,cdn,live,waf,antiddos
+     * Set 资源类型:clb,cdn,live,waf,antiddos,teo
+     * @param ResourceType 资源类型:clb,cdn,live,waf,antiddos,teo
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;

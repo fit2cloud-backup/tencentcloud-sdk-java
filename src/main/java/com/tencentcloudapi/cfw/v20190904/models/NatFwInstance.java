@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NatFwInstance extends AbstractModel{
+public class NatFwInstance extends AbstractModel {
 
     /**
     * nat实例id
@@ -38,7 +39,6 @@ public class NatFwInstance extends AbstractModel{
 
     /**
     * 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -46,7 +46,6 @@ public class NatFwInstance extends AbstractModel{
 
     /**
     * 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FwMode")
     @Expose
@@ -54,7 +53,6 @@ public class NatFwInstance extends AbstractModel{
 
     /**
     * 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -62,7 +60,6 @@ public class NatFwInstance extends AbstractModel{
 
     /**
     * nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NatIp")
     @Expose
@@ -101,10 +98,8 @@ public class NatFwInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在地域 
      * @return Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -112,19 +107,15 @@ public class NatFwInstance extends AbstractModel{
 
     /**
      * Set 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0:新增模式，1:接入模式 
      * @return FwMode 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFwMode() {
         return this.FwMode;
@@ -132,19 +123,15 @@ public class NatFwInstance extends AbstractModel{
 
     /**
      * Set 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FwMode 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFwMode(Long FwMode) {
         this.FwMode = FwMode;
     }
 
     /**
-     * Get 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0:正常状态， 1: 正在创建 
      * @return Status 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -152,19 +139,15 @@ public class NatFwInstance extends AbstractModel{
 
     /**
      * Set 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get nat公网ip 
      * @return NatIp nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNatIp() {
         return this.NatIp;
@@ -172,9 +155,7 @@ public class NatFwInstance extends AbstractModel{
 
     /**
      * Set nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NatIp nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNatIp(String NatIp) {
         this.NatIp = NatIp;

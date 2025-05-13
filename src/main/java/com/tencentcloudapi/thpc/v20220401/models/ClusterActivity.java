@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20220401.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterActivity extends AbstractModel{
+public class ClusterActivity extends AbstractModel {
 
     /**
     * 集群ID。
@@ -37,15 +38,14 @@ public class ClusterActivity extends AbstractModel{
     private String ActivityId;
 
     /**
-    * 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群<br><li>RemoveNodesFromCluster：从集群移除实例<br><li>TerminateNodes：销毁实例<br><li>MountStorageOption：增加挂载选项并进行挂载<br><li>UmountStorageOption：删除集群挂载存储选项并解挂载
-
+    * 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群</li><br><li>RemoveNodesFromCluster：从集群移除实例</li><br><li>TerminateNodes：销毁实例</li><br><li>MountStorageOption：增加挂载选项并进行挂载</li><br><li>UmountStorageOption：删除集群挂载存储选项并解挂载</li>	
     */
     @SerializedName("ActivityType")
     @Expose
     private String ActivityType;
 
     /**
-    * 集群活动状态。取值范围：<br><li>PENDING：等待运行<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>PARTIALLY_SUCCESSFUL：活动部分成功<br><li>FAILED：活动失败
+    * 集群活动状态。取值范围：<br><li>PENDING：等待运行</li><br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>PARTIALLY_SUCCESSFUL：活动部分成功</li><br><li>FAILED：活动失败</li>	
     */
     @SerializedName("ActivityStatus")
     @Expose
@@ -53,7 +53,6 @@ public class ClusterActivity extends AbstractModel{
 
     /**
     * 集群活动状态码。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActivityStatusCode")
     @Expose
@@ -90,7 +89,6 @@ public class ClusterActivity extends AbstractModel{
 
     /**
     * 集群活动开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -98,7 +96,6 @@ public class ClusterActivity extends AbstractModel{
 
     /**
     * 集群活动结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -137,46 +134,40 @@ public class ClusterActivity extends AbstractModel{
     }
 
     /**
-     * Get 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群<br><li>RemoveNodesFromCluster：从集群移除实例<br><li>TerminateNodes：销毁实例<br><li>MountStorageOption：增加挂载选项并进行挂载<br><li>UmountStorageOption：删除集群挂载存储选项并解挂载
- 
-     * @return ActivityType 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群<br><li>RemoveNodesFromCluster：从集群移除实例<br><li>TerminateNodes：销毁实例<br><li>MountStorageOption：增加挂载选项并进行挂载<br><li>UmountStorageOption：删除集群挂载存储选项并解挂载
-
+     * Get 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群</li><br><li>RemoveNodesFromCluster：从集群移除实例</li><br><li>TerminateNodes：销毁实例</li><br><li>MountStorageOption：增加挂载选项并进行挂载</li><br><li>UmountStorageOption：删除集群挂载存储选项并解挂载</li>	 
+     * @return ActivityType 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群</li><br><li>RemoveNodesFromCluster：从集群移除实例</li><br><li>TerminateNodes：销毁实例</li><br><li>MountStorageOption：增加挂载选项并进行挂载</li><br><li>UmountStorageOption：删除集群挂载存储选项并解挂载</li>	
      */
     public String getActivityType() {
         return this.ActivityType;
     }
 
     /**
-     * Set 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群<br><li>RemoveNodesFromCluster：从集群移除实例<br><li>TerminateNodes：销毁实例<br><li>MountStorageOption：增加挂载选项并进行挂载<br><li>UmountStorageOption：删除集群挂载存储选项并解挂载
-
-     * @param ActivityType 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群<br><li>RemoveNodesFromCluster：从集群移除实例<br><li>TerminateNodes：销毁实例<br><li>MountStorageOption：增加挂载选项并进行挂载<br><li>UmountStorageOption：删除集群挂载存储选项并解挂载
-
+     * Set 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群</li><br><li>RemoveNodesFromCluster：从集群移除实例</li><br><li>TerminateNodes：销毁实例</li><br><li>MountStorageOption：增加挂载选项并进行挂载</li><br><li>UmountStorageOption：删除集群挂载存储选项并解挂载</li>	
+     * @param ActivityType 集群活动类型。取值范围：<br><li>CreateAndAddNodes：创建实例并添加进集群</li><br><li>RemoveNodesFromCluster：从集群移除实例</li><br><li>TerminateNodes：销毁实例</li><br><li>MountStorageOption：增加挂载选项并进行挂载</li><br><li>UmountStorageOption：删除集群挂载存储选项并解挂载</li>	
      */
     public void setActivityType(String ActivityType) {
         this.ActivityType = ActivityType;
     }
 
     /**
-     * Get 集群活动状态。取值范围：<br><li>PENDING：等待运行<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>PARTIALLY_SUCCESSFUL：活动部分成功<br><li>FAILED：活动失败 
-     * @return ActivityStatus 集群活动状态。取值范围：<br><li>PENDING：等待运行<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>PARTIALLY_SUCCESSFUL：活动部分成功<br><li>FAILED：活动失败
+     * Get 集群活动状态。取值范围：<br><li>PENDING：等待运行</li><br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>PARTIALLY_SUCCESSFUL：活动部分成功</li><br><li>FAILED：活动失败</li>	 
+     * @return ActivityStatus 集群活动状态。取值范围：<br><li>PENDING：等待运行</li><br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>PARTIALLY_SUCCESSFUL：活动部分成功</li><br><li>FAILED：活动失败</li>	
      */
     public String getActivityStatus() {
         return this.ActivityStatus;
     }
 
     /**
-     * Set 集群活动状态。取值范围：<br><li>PENDING：等待运行<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>PARTIALLY_SUCCESSFUL：活动部分成功<br><li>FAILED：活动失败
-     * @param ActivityStatus 集群活动状态。取值范围：<br><li>PENDING：等待运行<br><li>RUNNING：运行中<br><li>SUCCESSFUL：活动成功<br><li>PARTIALLY_SUCCESSFUL：活动部分成功<br><li>FAILED：活动失败
+     * Set 集群活动状态。取值范围：<br><li>PENDING：等待运行</li><br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>PARTIALLY_SUCCESSFUL：活动部分成功</li><br><li>FAILED：活动失败</li>	
+     * @param ActivityStatus 集群活动状态。取值范围：<br><li>PENDING：等待运行</li><br><li>RUNNING：运行中</li><br><li>SUCCESSFUL：活动成功</li><br><li>PARTIALLY_SUCCESSFUL：活动部分成功</li><br><li>FAILED：活动失败</li>	
      */
     public void setActivityStatus(String ActivityStatus) {
         this.ActivityStatus = ActivityStatus;
     }
 
     /**
-     * Get 集群活动状态码。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群活动状态码。 
      * @return ActivityStatusCode 集群活动状态码。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getActivityStatusCode() {
         return this.ActivityStatusCode;
@@ -184,9 +175,7 @@ public class ClusterActivity extends AbstractModel{
 
     /**
      * Set 集群活动状态码。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ActivityStatusCode 集群活动状态码。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setActivityStatusCode(String ActivityStatusCode) {
         this.ActivityStatusCode = ActivityStatusCode;
@@ -261,10 +250,8 @@ public class ClusterActivity extends AbstractModel{
     }
 
     /**
-     * Get 集群活动开始时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群活动开始时间。 
      * @return StartTime 集群活动开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -272,19 +259,15 @@ public class ClusterActivity extends AbstractModel{
 
     /**
      * Set 集群活动开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 集群活动开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 集群活动结束时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群活动结束时间。 
      * @return EndTime 集群活动结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -292,9 +275,7 @@ public class ClusterActivity extends AbstractModel{
 
     /**
      * Set 集群活动结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 集群活动结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;

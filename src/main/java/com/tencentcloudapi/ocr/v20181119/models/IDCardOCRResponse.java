@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IDCardOCRResponse extends AbstractModel{
+public class IDCardOCRResponse extends AbstractModel {
 
     /**
     * 姓名（人像面）
@@ -87,21 +88,30 @@ Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：
 BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
 
 WarnInfos，告警信息，Code 告警码列表和释义：
--9100	身份证有效日期不合法告警，
--9101	身份证边框不完整告警，
--9102	身份证复印件告警，
--9103	身份证翻拍告警，
--9105	身份证框内遮挡告警，
--9104	临时身份证告警，
--9106	身份证疑似存在PS痕迹告警，
--9107       身份证反光告警。
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。
     */
     @SerializedName("AdvancedInfo")
     @Expose
     private String AdvancedInfo;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 反光点覆盖区域详情结果，具体内容请点击左侧链接
+    */
+    @SerializedName("ReflectDetailInfos")
+    @Expose
+    private ReflectDetailInfo [] ReflectDetailInfos;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -244,14 +254,16 @@ Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：
 BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
 
 WarnInfos，告警信息，Code 告警码列表和释义：
--9100	身份证有效日期不合法告警，
--9101	身份证边框不完整告警，
--9102	身份证复印件告警，
--9103	身份证翻拍告警，
--9105	身份证框内遮挡告警，
--9104	临时身份证告警，
--9106	身份证疑似存在PS痕迹告警，
--9107       身份证反光告警。 
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。 
      * @return AdvancedInfo 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
 IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
 Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
@@ -260,14 +272,16 @@ Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：
 BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
 
 WarnInfos，告警信息，Code 告警码列表和释义：
--9100	身份证有效日期不合法告警，
--9101	身份证边框不完整告警，
--9102	身份证复印件告警，
--9103	身份证翻拍告警，
--9105	身份证框内遮挡告警，
--9104	临时身份证告警，
--9106	身份证疑似存在PS痕迹告警，
--9107       身份证反光告警。
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。
      */
     public String getAdvancedInfo() {
         return this.AdvancedInfo;
@@ -282,14 +296,16 @@ Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：
 BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
 
 WarnInfos，告警信息，Code 告警码列表和释义：
--9100	身份证有效日期不合法告警，
--9101	身份证边框不完整告警，
--9102	身份证复印件告警，
--9103	身份证翻拍告警，
--9105	身份证框内遮挡告警，
--9104	临时身份证告警，
--9106	身份证疑似存在PS痕迹告警，
--9107       身份证反光告警。
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。
      * @param AdvancedInfo 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
 IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
 Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
@@ -298,30 +314,48 @@ Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：
 BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
 
 WarnInfos，告警信息，Code 告警码列表和释义：
--9100	身份证有效日期不合法告警，
--9101	身份证边框不完整告警，
--9102	身份证复印件告警，
--9103	身份证翻拍告警，
--9105	身份证框内遮挡告警，
--9104	临时身份证告警，
--9106	身份证疑似存在PS痕迹告警，
--9107       身份证反光告警。
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。
      */
     public void setAdvancedInfo(String AdvancedInfo) {
         this.AdvancedInfo = AdvancedInfo;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 反光点覆盖区域详情结果，具体内容请点击左侧链接 
+     * @return ReflectDetailInfos 反光点覆盖区域详情结果，具体内容请点击左侧链接
+     */
+    public ReflectDetailInfo [] getReflectDetailInfos() {
+        return this.ReflectDetailInfos;
+    }
+
+    /**
+     * Set 反光点覆盖区域详情结果，具体内容请点击左侧链接
+     * @param ReflectDetailInfos 反光点覆盖区域详情结果，具体内容请点击左侧链接
+     */
+    public void setReflectDetailInfos(ReflectDetailInfo [] ReflectDetailInfos) {
+        this.ReflectDetailInfos = ReflectDetailInfos;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -362,6 +396,12 @@ WarnInfos，告警信息，Code 告警码列表和释义：
         if (source.AdvancedInfo != null) {
             this.AdvancedInfo = new String(source.AdvancedInfo);
         }
+        if (source.ReflectDetailInfos != null) {
+            this.ReflectDetailInfos = new ReflectDetailInfo[source.ReflectDetailInfos.length];
+            for (int i = 0; i < source.ReflectDetailInfos.length; i++) {
+                this.ReflectDetailInfos[i] = new ReflectDetailInfo(source.ReflectDetailInfos[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -381,6 +421,7 @@ WarnInfos，告警信息，Code 告警码列表和释义：
         this.setParamSimple(map, prefix + "Authority", this.Authority);
         this.setParamSimple(map, prefix + "ValidDate", this.ValidDate);
         this.setParamSimple(map, prefix + "AdvancedInfo", this.AdvancedInfo);
+        this.setParamArrayObj(map, prefix + "ReflectDetailInfos.", this.ReflectDetailInfos);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

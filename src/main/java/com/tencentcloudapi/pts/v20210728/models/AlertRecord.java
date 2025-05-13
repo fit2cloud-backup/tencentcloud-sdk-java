@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlertRecord extends AbstractModel{
+public class AlertRecord extends AbstractModel {
 
     /**
     * 告警历史记录项 ID
@@ -32,7 +33,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -40,7 +40,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 场景 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScenarioId")
     @Expose
@@ -48,7 +47,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -56,7 +54,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatedAt")
     @Expose
@@ -64,7 +61,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdatedAt")
     @Expose
@@ -72,7 +68,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 任务 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("JobId")
     @Expose
@@ -80,7 +75,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * App ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -88,7 +82,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 主账号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uin")
     @Expose
@@ -96,7 +89,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 子账号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubAccountUin")
     @Expose
@@ -104,7 +96,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScenarioName")
     @Expose
@@ -112,7 +103,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 告警对象
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Target")
     @Expose
@@ -120,7 +110,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 告警规则 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("JobSLAId")
     @Expose
@@ -128,7 +117,6 @@ public class AlertRecord extends AbstractModel{
 
     /**
     * 告警规则描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("JobSLADescription")
     @Expose
@@ -155,10 +143,8 @@ public class AlertRecord extends AbstractModel{
     }
 
     /**
-     * Get 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 项目 ID 
      * @return ProjectId 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProjectId() {
         return this.ProjectId;
@@ -166,19 +152,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectId 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
     }
 
     /**
-     * Get 场景 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 场景 ID 
      * @return ScenarioId 场景 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScenarioId() {
         return this.ScenarioId;
@@ -186,19 +168,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 场景 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScenarioId 场景 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScenarioId(String ScenarioId) {
         this.ScenarioId = ScenarioId;
     }
 
     /**
-     * Get 状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态 
      * @return Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AlertRecordStatus getStatus() {
         return this.Status;
@@ -206,19 +184,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(AlertRecordStatus Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreatedAt 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreatedAt() {
         return this.CreatedAt;
@@ -226,19 +200,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreatedAt 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatedAt(String CreatedAt) {
         this.CreatedAt = CreatedAt;
     }
 
     /**
-     * Get 修改时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修改时间 
      * @return UpdatedAt 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdatedAt() {
         return this.UpdatedAt;
@@ -246,19 +216,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdatedAt 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdatedAt(String UpdatedAt) {
         this.UpdatedAt = UpdatedAt;
     }
 
     /**
-     * Get 任务 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务 ID 
      * @return JobId 任务 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getJobId() {
         return this.JobId;
@@ -266,19 +232,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 任务 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param JobId 任务 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setJobId(String JobId) {
         this.JobId = JobId;
     }
 
     /**
-     * Get App ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get App ID 
      * @return AppId App ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -286,19 +248,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set App ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId App ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
     }
 
     /**
-     * Get 主账号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主账号 
      * @return Uin 主账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUin() {
         return this.Uin;
@@ -306,19 +264,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 主账号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uin 主账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUin(String Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get 子账号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子账号 
      * @return SubAccountUin 子账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubAccountUin() {
         return this.SubAccountUin;
@@ -326,19 +280,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 子账号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubAccountUin 子账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubAccountUin(String SubAccountUin) {
         this.SubAccountUin = SubAccountUin;
     }
 
     /**
-     * Get 场景名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 场景名称 
      * @return ScenarioName 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScenarioName() {
         return this.ScenarioName;
@@ -346,19 +296,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScenarioName 场景名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScenarioName(String ScenarioName) {
         this.ScenarioName = ScenarioName;
     }
 
     /**
-     * Get 告警对象
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 告警对象 
      * @return Target 告警对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTarget() {
         return this.Target;
@@ -366,19 +312,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 告警对象
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Target 告警对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTarget(String Target) {
         this.Target = Target;
     }
 
     /**
-     * Get 告警规则 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 告警规则 ID 
      * @return JobSLAId 告警规则 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getJobSLAId() {
         return this.JobSLAId;
@@ -386,19 +328,15 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 告警规则 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param JobSLAId 告警规则 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setJobSLAId(String JobSLAId) {
         this.JobSLAId = JobSLAId;
     }
 
     /**
-     * Get 告警规则描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 告警规则描述 
      * @return JobSLADescription 告警规则描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getJobSLADescription() {
         return this.JobSLADescription;
@@ -406,9 +344,7 @@ public class AlertRecord extends AbstractModel{
 
     /**
      * Set 告警规则描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param JobSLADescription 告警规则描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setJobSLADescription(String JobSLADescription) {
         this.JobSLADescription = JobSLADescription;

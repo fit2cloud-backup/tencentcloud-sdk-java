@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RabbitMQPrivateNode extends AbstractModel{
+public class RabbitMQPrivateNode extends AbstractModel {
 
     /**
     * 节点名字
@@ -31,7 +32,7 @@ public class RabbitMQPrivateNode extends AbstractModel{
     private String NodeName;
 
     /**
-    * 节点状态
+    * 节点状态，running 运行中，down 异常
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeStatus")
@@ -91,9 +92,9 @@ public class RabbitMQPrivateNode extends AbstractModel{
     }
 
     /**
-     * Get 节点状态
+     * Get 节点状态，running 运行中，down 异常
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NodeStatus 节点状态
+     * @return NodeStatus 节点状态，running 运行中，down 异常
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNodeStatus() {
@@ -101,9 +102,9 @@ public class RabbitMQPrivateNode extends AbstractModel{
     }
 
     /**
-     * Set 节点状态
+     * Set 节点状态，running 运行中，down 异常
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param NodeStatus 节点状态
+     * @param NodeStatus 节点状态，running 运行中，down 异常
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeStatus(String NodeStatus) {

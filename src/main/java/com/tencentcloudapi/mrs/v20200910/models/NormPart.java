@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NormPart extends AbstractModel{
+public class NormPart extends AbstractModel {
 
     /**
     * 部位值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Part")
     @Expose
@@ -32,7 +32,6 @@ public class NormPart extends AbstractModel{
 
     /**
     * 部位方向
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PartDirection")
     @Expose
@@ -40,7 +39,6 @@ public class NormPart extends AbstractModel{
 
     /**
     * 组织值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tissue")
     @Expose
@@ -48,7 +46,6 @@ public class NormPart extends AbstractModel{
 
     /**
     * 组织方向
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TissueDirection")
     @Expose
@@ -56,7 +53,6 @@ public class NormPart extends AbstractModel{
 
     /**
     * 上级部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Upper")
     @Expose
@@ -71,10 +67,15 @@ public class NormPart extends AbstractModel{
     private PartDesc PartDetail;
 
     /**
-     * Get 部位值
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 部位详情
+    */
+    @SerializedName("PartDetailList")
+    @Expose
+    private PartDesc [] PartDetailList;
+
+    /**
+     * Get 部位值 
      * @return Part 部位值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPart() {
         return this.Part;
@@ -82,19 +83,15 @@ public class NormPart extends AbstractModel{
 
     /**
      * Set 部位值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Part 部位值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPart(String Part) {
         this.Part = Part;
     }
 
     /**
-     * Get 部位方向
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部位方向 
      * @return PartDirection 部位方向
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPartDirection() {
         return this.PartDirection;
@@ -102,19 +99,15 @@ public class NormPart extends AbstractModel{
 
     /**
      * Set 部位方向
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PartDirection 部位方向
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPartDirection(String PartDirection) {
         this.PartDirection = PartDirection;
     }
 
     /**
-     * Get 组织值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组织值 
      * @return Tissue 组织值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTissue() {
         return this.Tissue;
@@ -122,19 +115,15 @@ public class NormPart extends AbstractModel{
 
     /**
      * Set 组织值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tissue 组织值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTissue(String Tissue) {
         this.Tissue = Tissue;
     }
 
     /**
-     * Get 组织方向
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组织方向 
      * @return TissueDirection 组织方向
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTissueDirection() {
         return this.TissueDirection;
@@ -142,19 +131,15 @@ public class NormPart extends AbstractModel{
 
     /**
      * Set 组织方向
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TissueDirection 组织方向
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTissueDirection(String TissueDirection) {
         this.TissueDirection = TissueDirection;
     }
 
     /**
-     * Get 上级部位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上级部位 
      * @return Upper 上级部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpper() {
         return this.Upper;
@@ -162,9 +147,7 @@ public class NormPart extends AbstractModel{
 
     /**
      * Set 上级部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Upper 上级部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpper(String Upper) {
         this.Upper = Upper;
@@ -175,7 +158,9 @@ public class NormPart extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return PartDetail 部位详情
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public PartDesc getPartDetail() {
         return this.PartDetail;
     }
@@ -185,9 +170,27 @@ public class NormPart extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param PartDetail 部位详情
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setPartDetail(PartDesc PartDetail) {
         this.PartDetail = PartDetail;
+    }
+
+    /**
+     * Get 部位详情 
+     * @return PartDetailList 部位详情
+     */
+    public PartDesc [] getPartDetailList() {
+        return this.PartDetailList;
+    }
+
+    /**
+     * Set 部位详情
+     * @param PartDetailList 部位详情
+     */
+    public void setPartDetailList(PartDesc [] PartDetailList) {
+        this.PartDetailList = PartDetailList;
     }
 
     public NormPart() {
@@ -216,6 +219,12 @@ public class NormPart extends AbstractModel{
         if (source.PartDetail != null) {
             this.PartDetail = new PartDesc(source.PartDetail);
         }
+        if (source.PartDetailList != null) {
+            this.PartDetailList = new PartDesc[source.PartDetailList.length];
+            for (int i = 0; i < source.PartDetailList.length; i++) {
+                this.PartDetailList[i] = new PartDesc(source.PartDetailList[i]);
+            }
+        }
     }
 
 
@@ -229,6 +238,7 @@ public class NormPart extends AbstractModel{
         this.setParamSimple(map, prefix + "TissueDirection", this.TissueDirection);
         this.setParamSimple(map, prefix + "Upper", this.Upper);
         this.setParamObj(map, prefix + "PartDetail.", this.PartDetail);
+        this.setParamArrayObj(map, prefix + "PartDetailList.", this.PartDetailList);
 
     }
 }

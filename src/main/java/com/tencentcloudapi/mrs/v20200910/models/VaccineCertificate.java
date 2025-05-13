@@ -16,25 +16,30 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VaccineCertificate extends AbstractModel{
+public class VaccineCertificate extends AbstractModel {
 
     /**
     * 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VaccineList")
     @Expose
     private Vaccination [] VaccineList;
 
     /**
-     * Get 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 免疫接种列表 
      * @return VaccineList 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Vaccination [] getVaccineList() {
         return this.VaccineList;
@@ -42,12 +47,26 @@ public class VaccineCertificate extends AbstractModel{
 
     /**
      * Set 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VaccineList 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVaccineList(Vaccination [] VaccineList) {
         this.VaccineList = VaccineList;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public VaccineCertificate() {
@@ -64,6 +83,9 @@ public class VaccineCertificate extends AbstractModel{
                 this.VaccineList[i] = new Vaccination(source.VaccineList[i]);
             }
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -72,6 +94,7 @@ public class VaccineCertificate extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "VaccineList.", this.VaccineList);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

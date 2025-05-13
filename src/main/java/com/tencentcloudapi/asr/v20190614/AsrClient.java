@@ -45,44 +45,40 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CloseAsyncRecognitionTaskResponse CloseAsyncRecognitionTask(CloseAsyncRecognitionTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CloseAsyncRecognitionTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CloseAsyncRecognitionTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CloseAsyncRecognitionTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CloseAsyncRecognitionTask", CloseAsyncRecognitionTaskResponse.class);
+    }
+
+    /**
+     *用户通过本接口进行关键字词表的创建。
+<br>•   默认每个用户最多可创建30个关键字词表。
+<br>•   每个关键词词表最多可添加100个词，每个词最多5个汉字或15个字符。
+<br>•   词表通过本地文件形式上传。
+<br>•   本地文件必须为UTF-8编码格式，每行仅添加一个词且不能包含标点和特殊字符。
+     * @param req CreateAsrKeyWordLibRequest
+     * @return CreateAsrKeyWordLibResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateAsrKeyWordLibResponse CreateAsrKeyWordLib(CreateAsrKeyWordLibRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateAsrKeyWordLib", CreateAsrKeyWordLibResponse.class);
     }
 
     /**
      *用户通过本接口进行热词表的创建。
 <br>•   默认最多可创建30个热词表。
-<br>•   每个热词表最多可添加128个词，每个词最长10个汉字或30个英文字符，不能超出限制。
+<br>•   每个热词表最多可添加1000个词，每个词最长10个汉字或30个英文字符，不能超出限制。
 <br>•   热词表可以通过数组或者本地文件形式上传。
 <br>•   本地文件必须为UTF-8编码格式，每行仅添加一个热词且不能包含标点和特殊字符。
-<br>•   热词权重取值范围为[1,10]之间的整数，权重越大代表该词被识别出来的概率越大。
+<br>•   热词权重取值范围为[1,11]之间的整数或者100，权重越大代表该词被识别出来的概率越大。
+<br>• 注意:  热词权重设置为11时，当前热词将升级为超级热词，建议仅将重要且必须生效的热词设置到11，设置过多权重为11的热词将影响整体字准率。
      * @param req CreateAsrVocabRequest
      * @return CreateAsrVocabResponse
      * @throws TencentCloudSDKException
      */
     public CreateAsrVocabResponse CreateAsrVocab(CreateAsrVocabRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAsrVocabResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAsrVocabResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAsrVocab");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAsrVocab", CreateAsrVocabResponse.class);
     }
 
     /**
@@ -97,18 +93,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAsyncRecognitionTaskResponse CreateAsyncRecognitionTask(CreateAsyncRecognitionTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAsyncRecognitionTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAsyncRecognitionTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAsyncRecognitionTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAsyncRecognitionTask", CreateAsyncRecognitionTaskResponse.class);
     }
 
     /**
@@ -120,47 +106,39 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateCustomizationResponse CreateCustomization(CreateCustomizationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCustomizationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCustomizationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCustomization");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCustomization", CreateCustomizationResponse.class);
     }
 
     /**
-     *本接口服务对时长5小时以内的录音文件进行识别，异步返回识别全部结果。
-• 支持中文普通话、英语、粤语、日语、越南语、马来语、印度尼西亚语、菲律宾语、葡萄牙语、土耳其语、阿拉伯语、西班牙语、上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话。
-• 支持wav、mp3、m4a、flv、mp4、wma、3gp、amr、aac、ogg-opus、flac格式。
-• 支持语音 URL 和本地语音文件两种请求方式。语音 URL 的音频时长不能长于5小时，文件大小不超过1GB。本地语音文件调用不能大于5MB。推荐使用 [ 腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储&生成URL提交任务，无外网&流量下行费用，节约成本、提升任务速度。(COS桶权限需要设置公有读私有写，或URL设置外部可访问)
-• 提交录音文件识别请求后，在3小时内完成识别（大多数情况下1小时音频约3分钟以内完成识别，半小时内发送超过1000小时录音或者2万条识别任务的除外），识别结果在服务端可保存7天。
-• 支持回调或轮询的方式获取结果，结果获取请参考[ 录音文件识别结果查询](https://cloud.tencent.com/document/product/1093/37822)。
-•   生成字幕场景可设置参数ResTextFormat为3，解析ResultDetail结构生成字幕，可参考 [生成字幕最佳实践](https://cloud.tencent.com/document/product/1093/84291)。
-•   签名方法参考 [公共参数](https://cloud.tencent.com/document/api/1093/35640) 中签名方法v3。
-• 默认接口请求频率限制：20次/秒。
+     *本接口可对较长的录音文件进行识别。如希望直接使用带界面的语音识别产品，请访问[产品体验中心](https://console.cloud.tencent.com/asr/demonstrate)。产品计费标准请查阅 [计费概述（在线版）](https://cloud.tencent.com/document/product/1093/35686)
+• 接口默认限频：20次/秒。此处仅限制任务提交频次，与识别结果返回时效无关
+• 返回时效：异步回调，非实时返回。最长3小时返回识别结果，**大多数情况下，1小时的音频1-3分钟即可完成识别**。请注意：上述返回时长不含音频下载时延，且30分钟内发送超过1000小时录音或2万条任务的情况除外
+• 音频格式：wav、mp3、m4a、flv、mp4、wma、3gp、amr、aac、ogg-opus、flac
+• 支持语言：在本页面上搜索 **EngineModelType**，或前往 [产品功能](https://cloud.tencent.com/document/product/1093/35682) 查看
+• 音频提交方式：本接口支持**音频 URL 、本地音频文件**两种请求方式。推荐使用 [腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储、生成URL并提交任务，此种方式将不产生外网和流量下行费用，可节约成本、提升任务速度（可参考COS预签名指南：[使用预签名 URL 访问 COS](https://cloud.tencent.com/document/product/436/68284) ，获取COS预签名url）
+• 音频限制：音频 URL 时长不能大于5小时，文件大小不超过1GB；本地音频文件不能大于5MB
+• 如何获取识别结果：支持**回调或轮询**的方式获取结果，具体请参考 [录音文件识别结果查询](https://cloud.tencent.com/document/product/1093/37822)
+• 识别结果有效时间：识别结果在服务端保存24小时
+• 签名方法参考 [公共参数](https://cloud.tencent.com/document/api/1093/35640) 中签名方法 v3
      * @param req CreateRecTaskRequest
      * @return CreateRecTaskResponse
      * @throws TencentCloudSDKException
      */
     public CreateRecTaskResponse CreateRecTask(CreateRecTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateRecTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateRecTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateRecTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateRecTask", CreateRecTaskResponse.class);
+    }
+
+    /**
+     *用户通过本接口进行关键词表的删除。
+     * @param req DeleteAsrKeyWordLibRequest
+     * @return DeleteAsrKeyWordLibResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteAsrKeyWordLibResponse DeleteAsrKeyWordLib(DeleteAsrKeyWordLibRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteAsrKeyWordLib", DeleteAsrKeyWordLibResponse.class);
     }
 
     /**
@@ -170,18 +148,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAsrVocabResponse DeleteAsrVocab(DeleteAsrVocabRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAsrVocabResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAsrVocabResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAsrVocab");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAsrVocab", DeleteAsrVocabResponse.class);
     }
 
     /**
@@ -191,18 +159,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteCustomizationResponse DeleteCustomization(DeleteCustomizationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteCustomizationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteCustomizationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteCustomization");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteCustomization", DeleteCustomizationResponse.class);
     }
 
     /**
@@ -213,44 +171,25 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAsyncRecognitionTasksResponse DescribeAsyncRecognitionTasks(DescribeAsyncRecognitionTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAsyncRecognitionTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAsyncRecognitionTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAsyncRecognitionTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAsyncRecognitionTasks", DescribeAsyncRecognitionTasksResponse.class);
     }
 
     /**
-     *在调用录音文件识别请求接口后，有回调和轮询两种方式获取识别结果。
-<br>• 当采用回调方式时，识别完成后会将结果通过 POST 请求的形式通知到用户在请求时填写的回调 URL，具体请参见[ 录音识别结果回调 ](https://cloud.tencent.com/document/product/1093/52632)。
-<br>• 当采用轮询方式时，需要主动提交任务ID来轮询识别结果，共有任务成功、等待、执行中和失败四种结果，具体信息请参见下文说明。
-<br>•   请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"
-<br>•   签名方法参考 [公共参数](https://cloud.tencent.com/document/api/1093/35640) 中签名方法v3。
-<br>•   默认接口请求频率限制：50次/秒，如您有提高请求频率限制的需求，请提[工单](https://console.cloud.tencent.com/workorder/category)进行咨询。
+     *调用录音文件识别请求接口后，有回调和轮询两种方式获取识别结果。
+• **注意任务有效期为24小时，超过24小时的任务请不要再查询，且不要依赖TaskId作为业务唯一ID，不同日期可能出现重复TaskId。**
+• 当采用回调方式时，识别完成后会将结果通过 POST 请求的形式通知到用户在请求时填写的回调 URL，具体请参见[ 录音识别结果回调 ](https://cloud.tencent.com/document/product/1093/52632)。
+• 当采用轮询方式时，需要主动提交任务ID来轮询识别结果，共有任务成功、等待、执行中和失败四种结果，具体信息请参见下文说明。
+•   请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"
+•   签名方法参考 [公共参数](https://cloud.tencent.com/document/api/1093/35640) 中签名方法v3。
+•   默认接口请求频率限制：50次/秒，如您有提高请求频率限制的需求，请提[工单](https://console.cloud.tencent.com/workorder/category)进行咨询。
      * @param req DescribeTaskStatusRequest
      * @return DescribeTaskStatusResponse
      * @throws TencentCloudSDKException
      */
     public DescribeTaskStatusResponse DescribeTaskStatus(DescribeTaskStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTaskStatusResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTaskStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTaskStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTaskStatus", DescribeTaskStatusResponse.class);
     }
 
     /**
@@ -260,18 +199,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DownloadAsrVocabResponse DownloadAsrVocab(DownloadAsrVocabRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DownloadAsrVocabResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DownloadAsrVocabResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DownloadAsrVocab");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DownloadAsrVocab", DownloadAsrVocabResponse.class);
     }
 
     /**
@@ -281,18 +210,19 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DownloadCustomizationResponse DownloadCustomization(DownloadCustomizationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DownloadCustomizationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DownloadCustomizationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DownloadCustomization");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DownloadCustomization", DownloadCustomizationResponse.class);
+    }
+
+    /**
+     *用户通过该接口，可获得所有的关键词表及其信息。
+     * @param req GetAsrKeyWordLibListRequest
+     * @return GetAsrKeyWordLibListResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetAsrKeyWordLibListResponse GetAsrKeyWordLibList(GetAsrKeyWordLibListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "GetAsrKeyWordLibList", GetAsrKeyWordLibListResponse.class);
     }
 
     /**
@@ -302,18 +232,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetAsrVocabResponse GetAsrVocab(GetAsrVocabRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetAsrVocabResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetAsrVocabResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetAsrVocab");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetAsrVocab", GetAsrVocabResponse.class);
     }
 
     /**
@@ -323,18 +243,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetAsrVocabListResponse GetAsrVocabList(GetAsrVocabListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetAsrVocabListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetAsrVocabListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetAsrVocabList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetAsrVocabList", GetAsrVocabListResponse.class);
     }
 
     /**
@@ -344,18 +254,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetCustomizationListResponse GetCustomizationList(GetCustomizationListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetCustomizationListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetCustomizationListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetCustomizationList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetCustomizationList", GetCustomizationListResponse.class);
     }
 
     /**
@@ -365,18 +265,19 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetModelInfoResponse GetModelInfo(GetModelInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetModelInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetModelInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetModelInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetModelInfo", GetModelInfoResponse.class);
+    }
+
+    /**
+     *查询用户用量
+     * @param req GetUsageByDateRequest
+     * @return GetUsageByDateResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetUsageByDateResponse GetUsageByDate(GetUsageByDateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "GetUsageByDate", GetUsageByDateResponse.class);
     }
 
     /**
@@ -386,18 +287,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyCustomizationResponse ModifyCustomization(ModifyCustomizationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCustomizationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCustomizationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCustomization");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCustomization", ModifyCustomizationResponse.class);
     }
 
     /**
@@ -407,39 +298,25 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyCustomizationStateResponse ModifyCustomizationState(ModifyCustomizationStateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCustomizationStateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCustomizationStateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCustomizationState");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCustomizationState", ModifyCustomizationStateResponse.class);
     }
 
     /**
-     *本接口用于对60秒之内的短音频文件进行识别。<br>•   支持中文普通话、英语、粤语、日语、越南语、马来语、印度尼西亚语、菲律宾语、泰语、葡萄牙语、土耳其语、阿拉伯语、上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话。<br>•   支持本地语音文件上传和语音URL上传两种请求方式，音频时长不能超过60s，音频文件大小不能超过3MB。<br>•   音频格式支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac。<br>•   请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"<br>•   签名方法参考 [公共参数](https://cloud.tencent.com/document/api/1093/35640) 中签名方法v3。<br>•   默认接口请求频率限制：30次/秒，如您有提高请求频率限制的需求，请[前往购买](https://buy.cloud.tencent.com/asr)。
+     *本接口用于对60秒之内的短音频文件进行识别。
+•   支持中文普通话、英语、粤语、日语、越南语、马来语、印度尼西亚语、菲律宾语、泰语、葡萄牙语、土耳其语、阿拉伯语、印地语、法语、德语、上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话。
+•   支持本地语音文件上传和语音URL上传两种请求方式，音频时长不能超过60s，音频文件大小不能超过3MB。推荐使用 [腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储音频、生成URL并提交请求，此种方式会走内网下载音频，极大降低整体请求时延；并且不会产生外网和流量下行费用，可节约成本（可参考COS预签名指南：[使用预签名 URL 访问 COS](https://cloud.tencent.com/document/product/436/68284) ，获取COS预签名url）
+•   音频格式支持wav、pcm、ogg-opus、speex、silk、mp3、m4a、aac、 amr。
+•   请求方法为 HTTP POST , Content-Type为"application/json; charset=utf-8"
+•   签名方法参考 [公共参数](https://cloud.tencent.com/document/api/1093/35640) 中签名方法v3。
+•   默认接口请求频率限制：30次/秒，如您有提高请求频率限制的需求，请[前往购买](https://buy.cloud.tencent.com/asr)。
      * @param req SentenceRecognitionRequest
      * @return SentenceRecognitionResponse
      * @throws TencentCloudSDKException
      */
     public SentenceRecognitionResponse SentenceRecognition(SentenceRecognitionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SentenceRecognitionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SentenceRecognitionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SentenceRecognition");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SentenceRecognition", SentenceRecognitionResponse.class);
     }
 
     /**
@@ -449,18 +326,19 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SetVocabStateResponse SetVocabState(SetVocabStateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SetVocabStateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SetVocabStateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SetVocabState");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SetVocabState", SetVocabStateResponse.class);
+    }
+
+    /**
+     *用户通过本接口进行对应的关键词表信息更新。
+     * @param req UpdateAsrKeyWordLibRequest
+     * @return UpdateAsrKeyWordLibResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateAsrKeyWordLibResponse UpdateAsrKeyWordLib(UpdateAsrKeyWordLibRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdateAsrKeyWordLib", UpdateAsrKeyWordLibResponse.class);
     }
 
     /**
@@ -470,18 +348,19 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateAsrVocabResponse UpdateAsrVocab(UpdateAsrVocabRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateAsrVocabResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateAsrVocabResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateAsrVocab");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateAsrVocab", UpdateAsrVocabResponse.class);
+    }
+
+    /**
+     *通过比对两段音频内说话人的声纹，得到一个打分，可通过打分判断两段音频声纹相似度,  打分区间[0 - 100]。 音频要求：16k采样率， 16bit位深，pcm或者wav格式， 单声道，总时长不超过30秒的音频，base64编码数据大小不超过2M，音频内容只有一个说话人声音，并且尽可能清晰，这样结果更加准确。
+     * @param req VoicePrintCompareRequest
+     * @return VoicePrintCompareResponse
+     * @throws TencentCloudSDKException
+     */
+    public VoicePrintCompareResponse VoicePrintCompare(VoicePrintCompareRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "VoicePrintCompare", VoicePrintCompareResponse.class);
     }
 
     /**
@@ -491,18 +370,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public VoicePrintCountResponse VoicePrintCount(VoicePrintCountRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VoicePrintCountResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VoicePrintCountResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VoicePrintCount");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "VoicePrintCount", VoicePrintCountResponse.class);
     }
 
     /**
@@ -512,18 +381,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public VoicePrintDeleteResponse VoicePrintDelete(VoicePrintDeleteRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VoicePrintDeleteResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VoicePrintDeleteResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VoicePrintDelete");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "VoicePrintDelete", VoicePrintDeleteResponse.class);
     }
 
     /**
@@ -539,18 +398,19 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public VoicePrintEnrollResponse VoicePrintEnroll(VoicePrintEnrollRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VoicePrintEnrollResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VoicePrintEnrollResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VoicePrintEnroll");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "VoicePrintEnroll", VoicePrintEnrollResponse.class);
+    }
+
+    /**
+     *说话人验证1:N接口，可以通过传入一段说话人音频，并且指定已存在的groupId, 和返回topN,  接口返回groupId内所有声纹和传入音频声纹比对打分TopN的结果。
+     * @param req VoicePrintGroupVerifyRequest
+     * @return VoicePrintGroupVerifyResponse
+     * @throws TencentCloudSDKException
+     */
+    public VoicePrintGroupVerifyResponse VoicePrintGroupVerify(VoicePrintGroupVerifyRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "VoicePrintGroupVerify", VoicePrintGroupVerifyResponse.class);
     }
 
     /**
@@ -560,18 +420,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public VoicePrintUpdateResponse VoicePrintUpdate(VoicePrintUpdateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VoicePrintUpdateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VoicePrintUpdateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VoicePrintUpdate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "VoicePrintUpdate", VoicePrintUpdateResponse.class);
     }
 
     /**
@@ -581,18 +431,8 @@ public class AsrClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public VoicePrintVerifyResponse VoicePrintVerify(VoicePrintVerifyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VoicePrintVerifyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VoicePrintVerifyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VoicePrintVerify");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "VoicePrintVerify", VoicePrintVerifyResponse.class);
     }
 
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteCertificateResponse extends AbstractModel{
+public class DeleteCertificateResponse extends AbstractModel {
 
     /**
     * 删除结果（true：删除成功，false：删除失败）
@@ -30,7 +31,15 @@ public class DeleteCertificateResponse extends AbstractModel{
     private Boolean DeleteResult;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskId")
+    @Expose
+    private String TaskId;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +62,36 @@ public class DeleteCertificateResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskId 异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTaskId() {
+        return this.TaskId;
+    }
+
+    /**
+     * Set 异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskId 异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskId(String TaskId) {
+        this.TaskId = TaskId;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -79,6 +108,9 @@ public class DeleteCertificateResponse extends AbstractModel{
         if (source.DeleteResult != null) {
             this.DeleteResult = new Boolean(source.DeleteResult);
         }
+        if (source.TaskId != null) {
+            this.TaskId = new String(source.TaskId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +122,7 @@ public class DeleteCertificateResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DeleteResult", this.DeleteResult);
+        this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

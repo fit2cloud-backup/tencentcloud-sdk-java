@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyLiveStreamMonitorRequest extends AbstractModel{
+public class ModifyLiveStreamMonitorRequest extends AbstractModel {
 
     /**
     * 监播任务ID。
@@ -114,6 +115,13 @@ public class ModifyLiveStreamMonitorRequest extends AbstractModel{
     @SerializedName("AiFormatDiagnose")
     @Expose
     private Long AiFormatDiagnose;
+
+    /**
+    * 是否开启内容质检。
+    */
+    @SerializedName("AiQualityControl")
+    @Expose
+    private Long AiQualityControl;
 
     /**
      * Get 监播任务ID。 
@@ -331,6 +339,22 @@ public class ModifyLiveStreamMonitorRequest extends AbstractModel{
         this.AiFormatDiagnose = AiFormatDiagnose;
     }
 
+    /**
+     * Get 是否开启内容质检。 
+     * @return AiQualityControl 是否开启内容质检。
+     */
+    public Long getAiQualityControl() {
+        return this.AiQualityControl;
+    }
+
+    /**
+     * Set 是否开启内容质检。
+     * @param AiQualityControl 是否开启内容质检。
+     */
+    public void setAiQualityControl(Long AiQualityControl) {
+        this.AiQualityControl = AiQualityControl;
+    }
+
     public ModifyLiveStreamMonitorRequest() {
     }
 
@@ -387,6 +411,9 @@ public class ModifyLiveStreamMonitorRequest extends AbstractModel{
         if (source.AiFormatDiagnose != null) {
             this.AiFormatDiagnose = new Long(source.AiFormatDiagnose);
         }
+        if (source.AiQualityControl != null) {
+            this.AiQualityControl = new Long(source.AiQualityControl);
+        }
     }
 
 
@@ -407,6 +434,7 @@ public class ModifyLiveStreamMonitorRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CheckStreamLowFrameRate", this.CheckStreamLowFrameRate);
         this.setParamSimple(map, prefix + "AllowMonitorReport", this.AllowMonitorReport);
         this.setParamSimple(map, prefix + "AiFormatDiagnose", this.AiFormatDiagnose);
+        this.setParamSimple(map, prefix + "AiQualityControl", this.AiQualityControl);
 
     }
 }

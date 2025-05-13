@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FileDeleteResultItem extends AbstractModel{
+public class FileDeleteResultItem extends AbstractModel {
 
     /**
     * 删除的文件 ID 。
@@ -31,7 +32,6 @@ public class FileDeleteResultItem extends AbstractModel{
 
     /**
     * 本次删除的文件部分。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeleteParts")
     @Expose
@@ -54,10 +54,8 @@ public class FileDeleteResultItem extends AbstractModel{
     }
 
     /**
-     * Get 本次删除的文件部分。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 本次删除的文件部分。 
      * @return DeleteParts 本次删除的文件部分。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaDeleteItem [] getDeleteParts() {
         return this.DeleteParts;
@@ -65,9 +63,7 @@ public class FileDeleteResultItem extends AbstractModel{
 
     /**
      * Set 本次删除的文件部分。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeleteParts 本次删除的文件部分。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeleteParts(MediaDeleteItem [] DeleteParts) {
         this.DeleteParts = DeleteParts;

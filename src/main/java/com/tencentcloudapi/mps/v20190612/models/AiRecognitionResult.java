@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionResult extends AbstractModel{
+public class AiRecognitionResult extends AbstractModel {
 
     /**
     * 任务的类型，取值范围：
@@ -89,6 +90,16 @@ TransTextRecognition 时有效。
     @SerializedName("TransTextTask")
     @Expose
     private AiRecognitionTaskTransTextResult TransTextTask;
+
+    /**
+    * 物体识别结果，当Type 为
+
+ObjectRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ObjectTask")
+    @Expose
+    private AiRecognitionTaskObjectResult ObjectTask;
 
     /**
      * Get 任务的类型，取值范围：
@@ -278,6 +289,34 @@ TransTextRecognition 时有效。
         this.TransTextTask = TransTextTask;
     }
 
+    /**
+     * Get 物体识别结果，当Type 为
+
+ObjectRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ObjectTask 物体识别结果，当Type 为
+
+ObjectRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AiRecognitionTaskObjectResult getObjectTask() {
+        return this.ObjectTask;
+    }
+
+    /**
+     * Set 物体识别结果，当Type 为
+
+ObjectRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ObjectTask 物体识别结果，当Type 为
+
+ObjectRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setObjectTask(AiRecognitionTaskObjectResult ObjectTask) {
+        this.ObjectTask = ObjectTask;
+    }
+
     public AiRecognitionResult() {
     }
 
@@ -307,6 +346,9 @@ TransTextRecognition 时有效。
         if (source.TransTextTask != null) {
             this.TransTextTask = new AiRecognitionTaskTransTextResult(source.TransTextTask);
         }
+        if (source.ObjectTask != null) {
+            this.ObjectTask = new AiRecognitionTaskObjectResult(source.ObjectTask);
+        }
     }
 
 
@@ -321,6 +363,7 @@ TransTextRecognition 时有效。
         this.setParamObj(map, prefix + "OcrWordsTask.", this.OcrWordsTask);
         this.setParamObj(map, prefix + "OcrFullTextTask.", this.OcrFullTextTask);
         this.setParamObj(map, prefix + "TransTextTask.", this.TransTextTask);
+        this.setParamObj(map, prefix + "ObjectTask.", this.ObjectTask);
 
     }
 }

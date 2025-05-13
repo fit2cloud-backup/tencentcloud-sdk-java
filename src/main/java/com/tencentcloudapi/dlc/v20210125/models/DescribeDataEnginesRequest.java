@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataEnginesRequest extends AbstractModel{
+public class DescribeDataEnginesRequest extends AbstractModel {
 
     /**
     * 偏移量，默认为0。
@@ -30,7 +31,7 @@ public class DescribeDataEnginesRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH）
+    * 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu/kyuubi_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH），engine-network-id - String（引擎网络Id）
     */
     @SerializedName("Filters")
     @Expose
@@ -86,7 +87,7 @@ public class DescribeDataEnginesRequest extends AbstractModel{
     private String EngineExecType;
 
     /**
-    * 引擎类型，有效值：spark/presto
+    * 引擎类型，有效值：spark/presto/kyuubi，为空时默认获取非kyuubi引擎（网关引擎）
     */
     @SerializedName("EngineType")
     @Expose
@@ -98,6 +99,20 @@ public class DescribeDataEnginesRequest extends AbstractModel{
     @SerializedName("DatasourceConnectionNameSet")
     @Expose
     private String [] DatasourceConnectionNameSet;
+
+    /**
+    * 引擎版本，有效值：Native/SuperSQL，为空时默认获取SuperSQL引擎
+    */
+    @SerializedName("EngineGeneration")
+    @Expose
+    private String EngineGeneration;
+
+    /**
+    * 引擎类型，支持：SparkSQL、SparkBatch、PrestoSQL、Kyuubi
+    */
+    @SerializedName("EngineTypeDetail")
+    @Expose
+    private String EngineTypeDetail;
 
     /**
      * Get 偏移量，默认为0。 
@@ -116,16 +131,16 @@ public class DescribeDataEnginesRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH） 
-     * @return Filters 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH）
+     * Get 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu/kyuubi_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH），engine-network-id - String（引擎网络Id） 
+     * @return Filters 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu/kyuubi_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH），engine-network-id - String（引擎网络Id）
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH）
-     * @param Filters 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH）
+     * Set 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu/kyuubi_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH），engine-network-id - String（引擎网络Id）
+     * @param Filters 过滤类型，支持如下的过滤类型，传参Name应为以下其中一个, data-engine-name - String（数据引擎名称）：engine-type - String（引擎类型：spark：spark 引擎，presto：presto引擎），state - String (数据引擎状态 -2已删除 -1失败 0初始化中 1挂起 2运行中 3准备删除 4删除中) ， mode - String（计费模式 0共享模式 1按量计费 2包年包月） ， create-time - String（创建时间，10位时间戳） message - String （描述信息），cluster-type - String (集群资源类型 spark_private/presto_private/presto_cu/spark_cu/kyuubi_cu)，engine-id - String（数据引擎ID），key-word - String（数据引擎名称或集群资源类型或描述信息模糊搜索），engine-exec-type - String（引擎执行任务类型，SQL/BATCH），engine-network-id - String（引擎网络Id）
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -244,16 +259,16 @@ public class DescribeDataEnginesRequest extends AbstractModel{
     }
 
     /**
-     * Get 引擎类型，有效值：spark/presto 
-     * @return EngineType 引擎类型，有效值：spark/presto
+     * Get 引擎类型，有效值：spark/presto/kyuubi，为空时默认获取非kyuubi引擎（网关引擎） 
+     * @return EngineType 引擎类型，有效值：spark/presto/kyuubi，为空时默认获取非kyuubi引擎（网关引擎）
      */
     public String getEngineType() {
         return this.EngineType;
     }
 
     /**
-     * Set 引擎类型，有效值：spark/presto
-     * @param EngineType 引擎类型，有效值：spark/presto
+     * Set 引擎类型，有效值：spark/presto/kyuubi，为空时默认获取非kyuubi引擎（网关引擎）
+     * @param EngineType 引擎类型，有效值：spark/presto/kyuubi，为空时默认获取非kyuubi引擎（网关引擎）
      */
     public void setEngineType(String EngineType) {
         this.EngineType = EngineType;
@@ -273,6 +288,38 @@ public class DescribeDataEnginesRequest extends AbstractModel{
      */
     public void setDatasourceConnectionNameSet(String [] DatasourceConnectionNameSet) {
         this.DatasourceConnectionNameSet = DatasourceConnectionNameSet;
+    }
+
+    /**
+     * Get 引擎版本，有效值：Native/SuperSQL，为空时默认获取SuperSQL引擎 
+     * @return EngineGeneration 引擎版本，有效值：Native/SuperSQL，为空时默认获取SuperSQL引擎
+     */
+    public String getEngineGeneration() {
+        return this.EngineGeneration;
+    }
+
+    /**
+     * Set 引擎版本，有效值：Native/SuperSQL，为空时默认获取SuperSQL引擎
+     * @param EngineGeneration 引擎版本，有效值：Native/SuperSQL，为空时默认获取SuperSQL引擎
+     */
+    public void setEngineGeneration(String EngineGeneration) {
+        this.EngineGeneration = EngineGeneration;
+    }
+
+    /**
+     * Get 引擎类型，支持：SparkSQL、SparkBatch、PrestoSQL、Kyuubi 
+     * @return EngineTypeDetail 引擎类型，支持：SparkSQL、SparkBatch、PrestoSQL、Kyuubi
+     */
+    public String getEngineTypeDetail() {
+        return this.EngineTypeDetail;
+    }
+
+    /**
+     * Set 引擎类型，支持：SparkSQL、SparkBatch、PrestoSQL、Kyuubi
+     * @param EngineTypeDetail 引擎类型，支持：SparkSQL、SparkBatch、PrestoSQL、Kyuubi
+     */
+    public void setEngineTypeDetail(String EngineTypeDetail) {
+        this.EngineTypeDetail = EngineTypeDetail;
     }
 
     public DescribeDataEnginesRequest() {
@@ -325,6 +372,12 @@ public class DescribeDataEnginesRequest extends AbstractModel{
                 this.DatasourceConnectionNameSet[i] = new String(source.DatasourceConnectionNameSet[i]);
             }
         }
+        if (source.EngineGeneration != null) {
+            this.EngineGeneration = new String(source.EngineGeneration);
+        }
+        if (source.EngineTypeDetail != null) {
+            this.EngineTypeDetail = new String(source.EngineTypeDetail);
+        }
     }
 
 
@@ -343,6 +396,8 @@ public class DescribeDataEnginesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EngineExecType", this.EngineExecType);
         this.setParamSimple(map, prefix + "EngineType", this.EngineType);
         this.setParamArraySimple(map, prefix + "DatasourceConnectionNameSet.", this.DatasourceConnectionNameSet);
+        this.setParamSimple(map, prefix + "EngineGeneration", this.EngineGeneration);
+        this.setParamSimple(map, prefix + "EngineTypeDetail", this.EngineTypeDetail);
 
     }
 }

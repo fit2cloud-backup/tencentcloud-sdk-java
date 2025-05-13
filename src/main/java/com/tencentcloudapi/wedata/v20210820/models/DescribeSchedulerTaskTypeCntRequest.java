@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSchedulerTaskTypeCntRequest extends AbstractModel{
+public class DescribeSchedulerTaskTypeCntRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -30,7 +31,7 @@ public class DescribeSchedulerTaskTypeCntRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-    * 1
+    * 责任人
     */
     @SerializedName("InCharge")
     @Expose
@@ -53,16 +54,16 @@ public class DescribeSchedulerTaskTypeCntRequest extends AbstractModel{
     }
 
     /**
-     * Get 1 
-     * @return InCharge 1
+     * Get 责任人 
+     * @return InCharge 责任人
      */
     public String getInCharge() {
         return this.InCharge;
     }
 
     /**
-     * Set 1
-     * @param InCharge 1
+     * Set 责任人
+     * @param InCharge 责任人
      */
     public void setInCharge(String InCharge) {
         this.InCharge = InCharge;

@@ -16,79 +16,118 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SignQrCode extends AbstractModel{
+public class SignQrCode extends AbstractModel {
 
     /**
-    * 二维码id
+    * 二维码ID，为32位字符串。	
+
+注: 需要保留此二维码ID, 用于后序通过<a href="https://qian.tencent.com/developers/partnerApis/templates/ChannelCancelMultiFlowSignQRCode" target="_blank">取消一码多扫二维码</a>关闭这个二维码的签署功能。	
     */
     @SerializedName("QrCodeId")
     @Expose
     private String QrCodeId;
 
     /**
-    * 二维码url
+    * 二维码URL，可通过转换二维码的工具或代码组件将此URL转化为二维码，以便用户扫描进行流程签署。	
     */
     @SerializedName("QrCodeUrl")
     @Expose
     private String QrCodeUrl;
 
     /**
-    * 二维码过期时间
+    * 二维码的有截止时间，格式为Unix标准时间戳（秒），可以通过入参的QrEffectiveDay来设置有效期，默认为7天有效期。 
+一旦超过二维码的有效期限，该二维码将自动失效。	
     */
     @SerializedName("ExpiredTime")
     @Expose
     private Long ExpiredTime;
 
     /**
-     * Get 二维码id 
-     * @return QrCodeId 二维码id
+    * 微信小程序二维码
+    */
+    @SerializedName("WeixinQrCodeUrl")
+    @Expose
+    private String WeixinQrCodeUrl;
+
+    /**
+     * Get 二维码ID，为32位字符串。	
+
+注: 需要保留此二维码ID, 用于后序通过<a href="https://qian.tencent.com/developers/partnerApis/templates/ChannelCancelMultiFlowSignQRCode" target="_blank">取消一码多扫二维码</a>关闭这个二维码的签署功能。	 
+     * @return QrCodeId 二维码ID，为32位字符串。	
+
+注: 需要保留此二维码ID, 用于后序通过<a href="https://qian.tencent.com/developers/partnerApis/templates/ChannelCancelMultiFlowSignQRCode" target="_blank">取消一码多扫二维码</a>关闭这个二维码的签署功能。	
      */
     public String getQrCodeId() {
         return this.QrCodeId;
     }
 
     /**
-     * Set 二维码id
-     * @param QrCodeId 二维码id
+     * Set 二维码ID，为32位字符串。	
+
+注: 需要保留此二维码ID, 用于后序通过<a href="https://qian.tencent.com/developers/partnerApis/templates/ChannelCancelMultiFlowSignQRCode" target="_blank">取消一码多扫二维码</a>关闭这个二维码的签署功能。	
+     * @param QrCodeId 二维码ID，为32位字符串。	
+
+注: 需要保留此二维码ID, 用于后序通过<a href="https://qian.tencent.com/developers/partnerApis/templates/ChannelCancelMultiFlowSignQRCode" target="_blank">取消一码多扫二维码</a>关闭这个二维码的签署功能。	
      */
     public void setQrCodeId(String QrCodeId) {
         this.QrCodeId = QrCodeId;
     }
 
     /**
-     * Get 二维码url 
-     * @return QrCodeUrl 二维码url
+     * Get 二维码URL，可通过转换二维码的工具或代码组件将此URL转化为二维码，以便用户扫描进行流程签署。	 
+     * @return QrCodeUrl 二维码URL，可通过转换二维码的工具或代码组件将此URL转化为二维码，以便用户扫描进行流程签署。	
      */
     public String getQrCodeUrl() {
         return this.QrCodeUrl;
     }
 
     /**
-     * Set 二维码url
-     * @param QrCodeUrl 二维码url
+     * Set 二维码URL，可通过转换二维码的工具或代码组件将此URL转化为二维码，以便用户扫描进行流程签署。	
+     * @param QrCodeUrl 二维码URL，可通过转换二维码的工具或代码组件将此URL转化为二维码，以便用户扫描进行流程签署。	
      */
     public void setQrCodeUrl(String QrCodeUrl) {
         this.QrCodeUrl = QrCodeUrl;
     }
 
     /**
-     * Get 二维码过期时间 
-     * @return ExpiredTime 二维码过期时间
+     * Get 二维码的有截止时间，格式为Unix标准时间戳（秒），可以通过入参的QrEffectiveDay来设置有效期，默认为7天有效期。 
+一旦超过二维码的有效期限，该二维码将自动失效。	 
+     * @return ExpiredTime 二维码的有截止时间，格式为Unix标准时间戳（秒），可以通过入参的QrEffectiveDay来设置有效期，默认为7天有效期。 
+一旦超过二维码的有效期限，该二维码将自动失效。	
      */
     public Long getExpiredTime() {
         return this.ExpiredTime;
     }
 
     /**
-     * Set 二维码过期时间
-     * @param ExpiredTime 二维码过期时间
+     * Set 二维码的有截止时间，格式为Unix标准时间戳（秒），可以通过入参的QrEffectiveDay来设置有效期，默认为7天有效期。 
+一旦超过二维码的有效期限，该二维码将自动失效。	
+     * @param ExpiredTime 二维码的有截止时间，格式为Unix标准时间戳（秒），可以通过入参的QrEffectiveDay来设置有效期，默认为7天有效期。 
+一旦超过二维码的有效期限，该二维码将自动失效。	
      */
     public void setExpiredTime(Long ExpiredTime) {
         this.ExpiredTime = ExpiredTime;
+    }
+
+    /**
+     * Get 微信小程序二维码 
+     * @return WeixinQrCodeUrl 微信小程序二维码
+     */
+    public String getWeixinQrCodeUrl() {
+        return this.WeixinQrCodeUrl;
+    }
+
+    /**
+     * Set 微信小程序二维码
+     * @param WeixinQrCodeUrl 微信小程序二维码
+     */
+    public void setWeixinQrCodeUrl(String WeixinQrCodeUrl) {
+        this.WeixinQrCodeUrl = WeixinQrCodeUrl;
     }
 
     public SignQrCode() {
@@ -108,6 +147,9 @@ public class SignQrCode extends AbstractModel{
         if (source.ExpiredTime != null) {
             this.ExpiredTime = new Long(source.ExpiredTime);
         }
+        if (source.WeixinQrCodeUrl != null) {
+            this.WeixinQrCodeUrl = new String(source.WeixinQrCodeUrl);
+        }
     }
 
 
@@ -118,6 +160,7 @@ public class SignQrCode extends AbstractModel{
         this.setParamSimple(map, prefix + "QrCodeId", this.QrCodeId);
         this.setParamSimple(map, prefix + "QrCodeUrl", this.QrCodeUrl);
         this.setParamSimple(map, prefix + "ExpiredTime", this.ExpiredTime);
+        this.setParamSimple(map, prefix + "WeixinQrCodeUrl", this.WeixinQrCodeUrl);
 
     }
 }

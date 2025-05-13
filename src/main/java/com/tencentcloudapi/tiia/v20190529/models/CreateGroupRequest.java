@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tiia.v20190529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateGroupRequest extends AbstractModel{
+public class CreateGroupRequest extends AbstractModel {
 
     /**
     * 图库ID，不可重复，仅支持字母、数字和下划线。图库数量单个用户上限为30。
@@ -64,7 +65,8 @@ public class CreateGroupRequest extends AbstractModel{
 GroupType不支持修改，若不确定适用的服务类型，建议先对不同类型分别小规模测试后再开始正式使用。
 参数取值：
 4：通用图像搜索1.0版。
-7：商品图像搜索2.0升级版。
+8：商品图像搜索3.0升级版。
+7：商品图像搜索2.0版。
 5：商品图像搜索1.0版。
 6：图案花纹搜索1.0版。
 1 - 3：通用图像搜索旧版，不推荐使用。
@@ -166,7 +168,8 @@ GroupType不支持修改，若不确定适用的服务类型，建议先对不�
 GroupType不支持修改，若不确定适用的服务类型，建议先对不同类型分别小规模测试后再开始正式使用。
 参数取值：
 4：通用图像搜索1.0版。
-7：商品图像搜索2.0升级版。
+8：商品图像搜索3.0升级版。
+7：商品图像搜索2.0版。
 5：商品图像搜索1.0版。
 6：图案花纹搜索1.0版。
 1 - 3：通用图像搜索旧版，不推荐使用。 
@@ -174,7 +177,8 @@ GroupType不支持修改，若不确定适用的服务类型，建议先对不�
 GroupType不支持修改，若不确定适用的服务类型，建议先对不同类型分别小规模测试后再开始正式使用。
 参数取值：
 4：通用图像搜索1.0版。
-7：商品图像搜索2.0升级版。
+8：商品图像搜索3.0升级版。
+7：商品图像搜索2.0版。
 5：商品图像搜索1.0版。
 6：图案花纹搜索1.0版。
 1 - 3：通用图像搜索旧版，不推荐使用。
@@ -188,7 +192,8 @@ GroupType不支持修改，若不确定适用的服务类型，建议先对不�
 GroupType不支持修改，若不确定适用的服务类型，建议先对不同类型分别小规模测试后再开始正式使用。
 参数取值：
 4：通用图像搜索1.0版。
-7：商品图像搜索2.0升级版。
+8：商品图像搜索3.0升级版。
+7：商品图像搜索2.0版。
 5：商品图像搜索1.0版。
 6：图案花纹搜索1.0版。
 1 - 3：通用图像搜索旧版，不推荐使用。
@@ -196,7 +201,8 @@ GroupType不支持修改，若不确定适用的服务类型，建议先对不�
 GroupType不支持修改，若不确定适用的服务类型，建议先对不同类型分别小规模测试后再开始正式使用。
 参数取值：
 4：通用图像搜索1.0版。
-7：商品图像搜索2.0升级版。
+8：商品图像搜索3.0升级版。
+7：商品图像搜索2.0版。
 5：商品图像搜索1.0版。
 6：图案花纹搜索1.0版。
 1 - 3：通用图像搜索旧版，不推荐使用。

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PartDesc extends AbstractModel{
+public class PartDesc extends AbstractModel {
 
     /**
     * 主要部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MainDir")
     @Expose
@@ -32,7 +32,6 @@ public class PartDesc extends AbstractModel{
 
     /**
     * 部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Part")
     @Expose
@@ -40,7 +39,6 @@ public class PartDesc extends AbstractModel{
 
     /**
     * 次要部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SecondaryDir")
     @Expose
@@ -48,17 +46,14 @@ public class PartDesc extends AbstractModel{
 
     /**
     * 类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
     private String Type;
 
     /**
-     * Get 主要部位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主要部位 
      * @return MainDir 主要部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMainDir() {
         return this.MainDir;
@@ -66,19 +61,15 @@ public class PartDesc extends AbstractModel{
 
     /**
      * Set 主要部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MainDir 主要部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMainDir(String MainDir) {
         this.MainDir = MainDir;
     }
 
     /**
-     * Get 部位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部位 
      * @return Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPart() {
         return this.Part;
@@ -86,19 +77,15 @@ public class PartDesc extends AbstractModel{
 
     /**
      * Set 部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPart(String Part) {
         this.Part = Part;
     }
 
     /**
-     * Get 次要部位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 次要部位 
      * @return SecondaryDir 次要部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSecondaryDir() {
         return this.SecondaryDir;
@@ -106,19 +93,15 @@ public class PartDesc extends AbstractModel{
 
     /**
      * Set 次要部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SecondaryDir 次要部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecondaryDir(String SecondaryDir) {
         this.SecondaryDir = SecondaryDir;
     }
 
     /**
-     * Get 类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 类型 
      * @return Type 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -126,9 +109,7 @@ public class PartDesc extends AbstractModel{
 
     /**
      * Set 类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;

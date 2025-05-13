@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SummaryInfo extends AbstractModel{
+public class SummaryInfo extends AbstractModel {
 
     /**
     * 诊断结论文本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Text")
     @Expose
@@ -32,17 +32,14 @@ public class SummaryInfo extends AbstractModel{
 
     /**
     * 诊断结论详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Infos")
     @Expose
     private DetailInformation [] Infos;
 
     /**
-     * Get 诊断结论文本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断结论文本 
      * @return Text 诊断结论文本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getText() {
         return this.Text;
@@ -50,19 +47,15 @@ public class SummaryInfo extends AbstractModel{
 
     /**
      * Set 诊断结论文本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Text 诊断结论文本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setText(BaseInfo Text) {
         this.Text = Text;
     }
 
     /**
-     * Get 诊断结论详情
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断结论详情 
      * @return Infos 诊断结论详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DetailInformation [] getInfos() {
         return this.Infos;
@@ -70,9 +63,7 @@ public class SummaryInfo extends AbstractModel{
 
     /**
      * Set 诊断结论详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Infos 诊断结论详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInfos(DetailInformation [] Infos) {
         this.Infos = Infos;

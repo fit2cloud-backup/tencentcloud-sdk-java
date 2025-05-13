@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AutomationAgentInfo extends AbstractModel{
+public class AutomationAgentInfo extends AbstractModel {
 
     /**
     * 实例ID。
@@ -45,17 +46,15 @@ public class AutomationAgentInfo extends AbstractModel{
 
     /**
     * Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
+Online：在线，Offline：离线
+
     */
     @SerializedName("AgentStatus")
     @Expose
     private String AgentStatus;
 
     /**
-    * Agent运行环境，取值范围：
-<li> Linux：Linux实例
-<li> Windows：Windows实例
+    * Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
     */
     @SerializedName("Environment")
     @Expose
@@ -118,11 +117,11 @@ public class AutomationAgentInfo extends AbstractModel{
 
     /**
      * Get Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线 
+Online：在线，Offline：离线
+ 
      * @return AgentStatus Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
+Online：在线，Offline：离线
+
      */
     public String getAgentStatus() {
         return this.AgentStatus;
@@ -130,35 +129,27 @@ public class AutomationAgentInfo extends AbstractModel{
 
     /**
      * Set Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
+Online：在线，Offline：离线
+
      * @param AgentStatus Agent状态，取值范围：
-<li> Online：在线
-<li> Offline：离线
+Online：在线，Offline：离线
+
      */
     public void setAgentStatus(String AgentStatus) {
         this.AgentStatus = AgentStatus;
     }
 
     /**
-     * Get Agent运行环境，取值范围：
-<li> Linux：Linux实例
-<li> Windows：Windows实例 
-     * @return Environment Agent运行环境，取值范围：
-<li> Linux：Linux实例
-<li> Windows：Windows实例
+     * Get Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例 
+     * @return Environment Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
      */
     public String getEnvironment() {
         return this.Environment;
     }
 
     /**
-     * Set Agent运行环境，取值范围：
-<li> Linux：Linux实例
-<li> Windows：Windows实例
-     * @param Environment Agent运行环境，取值范围：
-<li> Linux：Linux实例
-<li> Windows：Windows实例
+     * Set Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
+     * @param Environment Agent运行环境，取值范围：Linux：Linux实例Windows：Windows实例
      */
     public void setEnvironment(String Environment) {
         this.Environment = Environment;

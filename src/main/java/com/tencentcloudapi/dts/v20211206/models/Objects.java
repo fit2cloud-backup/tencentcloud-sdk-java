@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Objects extends AbstractModel{
+public class Objects extends AbstractModel {
 
     /**
     * 同步对象类型 Partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Mode")
     @Expose
@@ -39,8 +39,7 @@ public class Objects extends AbstractModel{
     private Database [] Databases;
 
     /**
-    * 高级对象类型，如function、procedure，当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
-注意：此字段可能返回 null，表示取不到有效值。
+    * 高级对象类型，如function、procedure。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型。当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
     */
     @SerializedName("AdvancedObjects")
     @Expose
@@ -48,17 +47,14 @@ public class Objects extends AbstractModel{
 
     /**
     * OnlineDDL类型，冗余字段不做配置用途
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OnlineDDL")
     @Expose
     private OnlineDDL OnlineDDL;
 
     /**
-     * Get 同步对象类型 Partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 同步对象类型 Partial(部分对象) 
      * @return Mode 同步对象类型 Partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMode() {
         return this.Mode;
@@ -66,9 +62,7 @@ public class Objects extends AbstractModel{
 
     /**
      * Set 同步对象类型 Partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Mode 同步对象类型 Partial(部分对象)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMode(String Mode) {
         this.Mode = Mode;
@@ -95,30 +89,24 @@ public class Objects extends AbstractModel{
     }
 
     /**
-     * Get 高级对象类型，如function、procedure，当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AdvancedObjects 高级对象类型，如function、procedure，当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 高级对象类型，如function、procedure。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型。当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full 
+     * @return AdvancedObjects 高级对象类型，如function、procedure。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型。当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
      */
     public String [] getAdvancedObjects() {
         return this.AdvancedObjects;
     }
 
     /**
-     * Set 高级对象类型，如function、procedure，当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AdvancedObjects 高级对象类型，如function、procedure，当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 高级对象类型，如function、procedure。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型。当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
+     * @param AdvancedObjects 高级对象类型，如function、procedure。注意：如果要迁移同步高级对象，此配置中应该包含对应的高级对象类型。当需要同步高级对象时，初始化类型必须包含结构初始化类型，即任务的Options.InitType字段值为Structure或Full
      */
     public void setAdvancedObjects(String [] AdvancedObjects) {
         this.AdvancedObjects = AdvancedObjects;
     }
 
     /**
-     * Get OnlineDDL类型，冗余字段不做配置用途
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get OnlineDDL类型，冗余字段不做配置用途 
      * @return OnlineDDL OnlineDDL类型，冗余字段不做配置用途
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OnlineDDL getOnlineDDL() {
         return this.OnlineDDL;
@@ -126,9 +114,7 @@ public class Objects extends AbstractModel{
 
     /**
      * Set OnlineDDL类型，冗余字段不做配置用途
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OnlineDDL OnlineDDL类型，冗余字段不做配置用途
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOnlineDDL(OnlineDDL OnlineDDL) {
         this.OnlineDDL = OnlineDDL;

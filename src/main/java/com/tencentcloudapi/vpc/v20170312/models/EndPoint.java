@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EndPoint extends AbstractModel{
+public class EndPoint extends AbstractModel {
 
     /**
     * 终端节点ID。
@@ -30,7 +31,7 @@ public class EndPoint extends AbstractModel{
     private String EndPointId;
 
     /**
-    * VPCID。
+    * VPC唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
     */
     @SerializedName("VpcId")
     @Expose
@@ -93,7 +94,7 @@ public class EndPoint extends AbstractModel{
     private String State;
 
     /**
-    * 创建时间。
+    * 创建时间。格式：YYYY-MM-DD HH:MM:SS。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -108,11 +109,24 @@ public class EndPoint extends AbstractModel{
 
     /**
     * 终端节点服务名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceName")
     @Expose
     private String ServiceName;
+
+    /**
+    * CDC 集群唯一 ID
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
+
+    /**
+    * 标签键值对。	
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get 终端节点ID。 
@@ -131,16 +145,16 @@ public class EndPoint extends AbstractModel{
     }
 
     /**
-     * Get VPCID。 
-     * @return VpcId VPCID。
+     * Get VPC唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。 
+     * @return VpcId VPC唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set VPCID。
-     * @param VpcId VPCID。
+     * Set VPC唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
+     * @param VpcId VPC唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -275,16 +289,16 @@ public class EndPoint extends AbstractModel{
     }
 
     /**
-     * Get 创建时间。 
-     * @return CreateTime 创建时间。
+     * Get 创建时间。格式：YYYY-MM-DD HH:MM:SS。 
+     * @return CreateTime 创建时间。格式：YYYY-MM-DD HH:MM:SS。
      */
     public String getCreateTime() {
         return this.CreateTime;
     }
 
     /**
-     * Set 创建时间。
-     * @param CreateTime 创建时间。
+     * Set 创建时间。格式：YYYY-MM-DD HH:MM:SS。
+     * @param CreateTime 创建时间。格式：YYYY-MM-DD HH:MM:SS。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
@@ -307,10 +321,8 @@ public class EndPoint extends AbstractModel{
     }
 
     /**
-     * Get 终端节点服务名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 终端节点服务名称。 
      * @return ServiceName 终端节点服务名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceName() {
         return this.ServiceName;
@@ -318,12 +330,42 @@ public class EndPoint extends AbstractModel{
 
     /**
      * Set 终端节点服务名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceName 终端节点服务名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceName(String ServiceName) {
         this.ServiceName = ServiceName;
+    }
+
+    /**
+     * Get CDC 集群唯一 ID 
+     * @return CdcId CDC 集群唯一 ID
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set CDC 集群唯一 ID
+     * @param CdcId CDC 集群唯一 ID
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
+    /**
+     * Get 标签键值对。	 
+     * @return TagSet 标签键值对。	
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。	
+     * @param TagSet 标签键值对。	
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
     }
 
     public EndPoint() {
@@ -376,6 +418,15 @@ public class EndPoint extends AbstractModel{
         if (source.ServiceName != null) {
             this.ServiceName = new String(source.ServiceName);
         }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
     }
 
 
@@ -396,6 +447,8 @@ public class EndPoint extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamArraySimple(map, prefix + "GroupSet.", this.GroupSet);
         this.setParamSimple(map, prefix + "ServiceName", this.ServiceName);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

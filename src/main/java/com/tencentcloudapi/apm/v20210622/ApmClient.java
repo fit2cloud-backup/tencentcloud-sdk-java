@@ -39,66 +39,47 @@ public class ApmClient extends AbstractClient{
     }
 
     /**
-     *业务购买APM实例，调用该接口创建
+     *业务购买 APM 业务系统，调用该接口创建
      * @param req CreateApmInstanceRequest
      * @return CreateApmInstanceResponse
      * @throws TencentCloudSDKException
      */
     public CreateApmInstanceResponse CreateApmInstance(CreateApmInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateApmInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateApmInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateApmInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateApmInstance", CreateApmInstanceResponse.class);
     }
 
     /**
-     *获取Apm Agent信息
+     *获取 APM 接入点
      * @param req DescribeApmAgentRequest
      * @return DescribeApmAgentResponse
      * @throws TencentCloudSDKException
      */
     public DescribeApmAgentResponse DescribeApmAgent(DescribeApmAgentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeApmAgentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeApmAgentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeApmAgent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeApmAgent", DescribeApmAgentResponse.class);
     }
 
     /**
-     *APM实例列表拉取
+     *获取 APM 业务系统列表
      * @param req DescribeApmInstancesRequest
      * @return DescribeApmInstancesResponse
      * @throws TencentCloudSDKException
      */
     public DescribeApmInstancesResponse DescribeApmInstances(DescribeApmInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeApmInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeApmInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeApmInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeApmInstances", DescribeApmInstancesResponse.class);
+    }
+
+    /**
+     *查询应用配置信息
+     * @param req DescribeGeneralApmApplicationConfigRequest
+     * @return DescribeGeneralApmApplicationConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeGeneralApmApplicationConfigResponse DescribeGeneralApmApplicationConfig(DescribeGeneralApmApplicationConfigRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeGeneralApmApplicationConfig", DescribeGeneralApmApplicationConfigResponse.class);
     }
 
     /**
@@ -109,102 +90,96 @@ public class ApmClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGeneralMetricDataResponse DescribeGeneralMetricData(DescribeGeneralMetricDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGeneralMetricDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGeneralMetricDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGeneralMetricData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGeneralMetricData", DescribeGeneralMetricDataResponse.class);
     }
 
     /**
-     *拉取通用指标列表
+     *通用查询 OpenTelemetry 调用链列表
+     * @param req DescribeGeneralOTSpanListRequest
+     * @return DescribeGeneralOTSpanListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeGeneralOTSpanListResponse DescribeGeneralOTSpanList(DescribeGeneralOTSpanListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeGeneralOTSpanList", DescribeGeneralOTSpanListResponse.class);
+    }
+
+    /**
+     *通用查询调用链列表
+     * @param req DescribeGeneralSpanListRequest
+     * @return DescribeGeneralSpanListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeGeneralSpanListResponse DescribeGeneralSpanList(DescribeGeneralSpanListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeGeneralSpanList", DescribeGeneralSpanListResponse.class);
+    }
+
+    /**
+     *查询指标列表接口，查询指标更推荐使用DescribeGeneralMetricData接口
      * @param req DescribeMetricRecordsRequest
      * @return DescribeMetricRecordsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeMetricRecordsResponse DescribeMetricRecords(DescribeMetricRecordsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeMetricRecordsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeMetricRecordsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeMetricRecords");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeMetricRecords", DescribeMetricRecordsResponse.class);
     }
 
     /**
-     *服务概览数据拉取
+     *应用概览数据拉取
      * @param req DescribeServiceOverviewRequest
      * @return DescribeServiceOverviewResponse
      * @throws TencentCloudSDKException
      */
     public DescribeServiceOverviewResponse DescribeServiceOverview(DescribeServiceOverviewRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeServiceOverviewResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeServiceOverviewResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeServiceOverview");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeServiceOverview", DescribeServiceOverviewResponse.class);
     }
 
     /**
-     *修改Apm实例接口
+     *根据维度名和过滤条件，查询维度数据.
+     * @param req DescribeTagValuesRequest
+     * @return DescribeTagValuesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTagValuesResponse DescribeTagValues(DescribeTagValuesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTagValues", DescribeTagValuesResponse.class);
+    }
+
+    /**
+     *修改APM业务系统接口
      * @param req ModifyApmInstanceRequest
      * @return ModifyApmInstanceResponse
      * @throws TencentCloudSDKException
      */
     public ModifyApmInstanceResponse ModifyApmInstance(ModifyApmInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyApmInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyApmInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyApmInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyApmInstance", ModifyApmInstanceResponse.class);
     }
 
     /**
-     *apm销毁实例
+     *对外开放的openApi，客户可以灵活的指定需要修改的字段，再加入需要修改的服务列表.
+     * @param req ModifyGeneralApmApplicationConfigRequest
+     * @return ModifyGeneralApmApplicationConfigResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyGeneralApmApplicationConfigResponse ModifyGeneralApmApplicationConfig(ModifyGeneralApmApplicationConfigRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyGeneralApmApplicationConfig", ModifyGeneralApmApplicationConfigResponse.class);
+    }
+
+    /**
+     *销毁 APM 业务系统
      * @param req TerminateApmInstanceRequest
      * @return TerminateApmInstanceResponse
      * @throws TencentCloudSDKException
      */
     public TerminateApmInstanceResponse TerminateApmInstance(TerminateApmInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TerminateApmInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TerminateApmInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TerminateApmInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TerminateApmInstance", TerminateApmInstanceResponse.class);
     }
 
 }

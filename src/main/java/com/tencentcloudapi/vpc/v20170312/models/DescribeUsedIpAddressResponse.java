@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUsedIpAddressResponse extends AbstractModel{
+public class DescribeUsedIpAddressResponse extends AbstractModel {
 
     /**
     * 占用ip地址的资源信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IpAddressStates")
     @Expose
@@ -32,24 +32,21 @@ public class DescribeUsedIpAddressResponse extends AbstractModel{
 
     /**
     * 返回占用资源的个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 占用ip地址的资源信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 占用ip地址的资源信息 
      * @return IpAddressStates 占用ip地址的资源信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IpAddressStates [] getIpAddressStates() {
         return this.IpAddressStates;
@@ -57,19 +54,15 @@ public class DescribeUsedIpAddressResponse extends AbstractModel{
 
     /**
      * Set 占用ip地址的资源信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IpAddressStates 占用ip地址的资源信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIpAddressStates(IpAddressStates [] IpAddressStates) {
         this.IpAddressStates = IpAddressStates;
     }
 
     /**
-     * Get 返回占用资源的个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 返回占用资源的个数 
      * @return TotalCount 返回占用资源的个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -77,25 +70,23 @@ public class DescribeUsedIpAddressResponse extends AbstractModel{
 
     /**
      * Set 返回占用资源的个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 返回占用资源的个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

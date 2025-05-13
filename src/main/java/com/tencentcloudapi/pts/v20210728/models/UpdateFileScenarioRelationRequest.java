@@ -16,14 +16,15 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateFileScenarioRelationRequest extends AbstractModel{
+public class UpdateFileScenarioRelationRequest extends AbstractModel {
 
     /**
-    * 文件 ID
+    * 文件 ID。其值应为前序步骤上传该文件到 cos 桶后，文件在 cos 桶中的相应目录
     */
     @SerializedName("FileId")
     @Expose
@@ -44,16 +45,16 @@ public class UpdateFileScenarioRelationRequest extends AbstractModel{
     private String [] ScenarioIds;
 
     /**
-     * Get 文件 ID 
-     * @return FileId 文件 ID
+     * Get 文件 ID。其值应为前序步骤上传该文件到 cos 桶后，文件在 cos 桶中的相应目录 
+     * @return FileId 文件 ID。其值应为前序步骤上传该文件到 cos 桶后，文件在 cos 桶中的相应目录
      */
     public String getFileId() {
         return this.FileId;
     }
 
     /**
-     * Set 文件 ID
-     * @param FileId 文件 ID
+     * Set 文件 ID。其值应为前序步骤上传该文件到 cos 桶后，文件在 cos 桶中的相应目录
+     * @param FileId 文件 ID。其值应为前序步骤上传该文件到 cos 桶后，文件在 cos 桶中的相应目录
      */
     public void setFileId(String FileId) {
         this.FileId = FileId;

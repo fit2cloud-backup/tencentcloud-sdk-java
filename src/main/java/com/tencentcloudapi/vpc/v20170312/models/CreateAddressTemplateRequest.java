@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAddressTemplateRequest extends AbstractModel{
+public class CreateAddressTemplateRequest extends AbstractModel {
 
     /**
     * IP地址模板名称。
@@ -42,6 +43,13 @@ public class CreateAddressTemplateRequest extends AbstractModel{
     @SerializedName("AddressesExtra")
     @Expose
     private AddressInfo [] AddressesExtra;
+
+    /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get IP地址模板名称。 
@@ -91,6 +99,22 @@ public class CreateAddressTemplateRequest extends AbstractModel{
         this.AddressesExtra = AddressesExtra;
     }
 
+    /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateAddressTemplateRequest() {
     }
 
@@ -114,6 +138,12 @@ public class CreateAddressTemplateRequest extends AbstractModel{
                 this.AddressesExtra[i] = new AddressInfo(source.AddressesExtra[i]);
             }
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -124,6 +154,7 @@ public class CreateAddressTemplateRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "AddressTemplateName", this.AddressTemplateName);
         this.setParamArraySimple(map, prefix + "Addresses.", this.Addresses);
         this.setParamArrayObj(map, prefix + "AddressesExtra.", this.AddressesExtra);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

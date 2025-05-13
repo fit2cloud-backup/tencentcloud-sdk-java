@@ -16,21 +16,22 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFlowLogsRequest extends AbstractModel{
+public class DescribeFlowLogsRequest extends AbstractModel {
 
     /**
-    * 私用网络ID或者统一ID，建议使用统一ID。
+    * 私用网络唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
     */
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
 
     /**
-    * 流日志唯一ID。
+    * 流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建。
     */
     @SerializedName("FlowLogId")
     @Expose
@@ -44,7 +45,8 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     private String FlowLogName;
 
     /**
-    * 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE。
+    * 流日志所属资源类型：VPC(私有网络)，SUBNET（子网），NETWORKINTERFACE（网卡），CCN（云联网），NAT（网络地址转化），DCG（专线网关）。
+
     */
     @SerializedName("ResourceType")
     @Expose
@@ -58,7 +60,7 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     private String ResourceId;
 
     /**
-    * 流日志采集类型，ACCEPT|REJECT|ALL。
+    * 流日志采集类型，ACCEPT（允许），REJECT（拒绝），ALL（全部）。
     */
     @SerializedName("TrafficType")
     @Expose
@@ -72,7 +74,7 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     private String CloudLogId;
 
     /**
-    * 流日志存储ID状态。
+    * 流日志存储ID状态。SUCCESS（成功），DELETED（删除）
     */
     @SerializedName("CloudLogState")
     @Expose
@@ -86,7 +88,7 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     private String OrderField;
 
     /**
-    * 升序（asc）还是降序（desc）,默认：desc。
+    * 升序（ASC）还是降序（DESC）,默认：DESC。
     */
     @SerializedName("OrderDirection")
     @Expose
@@ -100,7 +102,7 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 每页行数，默认为10。
+    * 每页行数，默认为10。范围1-100。
     */
     @SerializedName("Limit")
     @Expose
@@ -123,32 +125,32 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     private String CloudLogRegion;
 
     /**
-     * Get 私用网络ID或者统一ID，建议使用统一ID。 
-     * @return VpcId 私用网络ID或者统一ID，建议使用统一ID。
+     * Get 私用网络唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。 
+     * @return VpcId 私用网络唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set 私用网络ID或者统一ID，建议使用统一ID。
-     * @param VpcId 私用网络ID或者统一ID，建议使用统一ID。
+     * Set 私用网络唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
+     * @param VpcId 私用网络唯一ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 流日志唯一ID。 
-     * @return FlowLogId 流日志唯一ID。
+     * Get 流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建。 
+     * @return FlowLogId 流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建。
      */
     public String getFlowLogId() {
         return this.FlowLogId;
     }
 
     /**
-     * Set 流日志唯一ID。
-     * @param FlowLogId 流日志唯一ID。
+     * Set 流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建。
+     * @param FlowLogId 流日志唯一ID。可通过[CreateFlowLog](https://cloud.tencent.com/document/product/215/35015)接口创建。
      */
     public void setFlowLogId(String FlowLogId) {
         this.FlowLogId = FlowLogId;
@@ -171,16 +173,20 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE。 
-     * @return ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE。
+     * Get 流日志所属资源类型：VPC(私有网络)，SUBNET（子网），NETWORKINTERFACE（网卡），CCN（云联网），NAT（网络地址转化），DCG（专线网关）。
+ 
+     * @return ResourceType 流日志所属资源类型：VPC(私有网络)，SUBNET（子网），NETWORKINTERFACE（网卡），CCN（云联网），NAT（网络地址转化），DCG（专线网关）。
+
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE。
-     * @param ResourceType 流日志所属资源类型，VPC|SUBNET|NETWORKINTERFACE。
+     * Set 流日志所属资源类型：VPC(私有网络)，SUBNET（子网），NETWORKINTERFACE（网卡），CCN（云联网），NAT（网络地址转化），DCG（专线网关）。
+
+     * @param ResourceType 流日志所属资源类型：VPC(私有网络)，SUBNET（子网），NETWORKINTERFACE（网卡），CCN（云联网），NAT（网络地址转化），DCG（专线网关）。
+
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
@@ -203,16 +209,16 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 流日志采集类型，ACCEPT|REJECT|ALL。 
-     * @return TrafficType 流日志采集类型，ACCEPT|REJECT|ALL。
+     * Get 流日志采集类型，ACCEPT（允许），REJECT（拒绝），ALL（全部）。 
+     * @return TrafficType 流日志采集类型，ACCEPT（允许），REJECT（拒绝），ALL（全部）。
      */
     public String getTrafficType() {
         return this.TrafficType;
     }
 
     /**
-     * Set 流日志采集类型，ACCEPT|REJECT|ALL。
-     * @param TrafficType 流日志采集类型，ACCEPT|REJECT|ALL。
+     * Set 流日志采集类型，ACCEPT（允许），REJECT（拒绝），ALL（全部）。
+     * @param TrafficType 流日志采集类型，ACCEPT（允许），REJECT（拒绝），ALL（全部）。
      */
     public void setTrafficType(String TrafficType) {
         this.TrafficType = TrafficType;
@@ -235,16 +241,16 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 流日志存储ID状态。 
-     * @return CloudLogState 流日志存储ID状态。
+     * Get 流日志存储ID状态。SUCCESS（成功），DELETED（删除） 
+     * @return CloudLogState 流日志存储ID状态。SUCCESS（成功），DELETED（删除）
      */
     public String getCloudLogState() {
         return this.CloudLogState;
     }
 
     /**
-     * Set 流日志存储ID状态。
-     * @param CloudLogState 流日志存储ID状态。
+     * Set 流日志存储ID状态。SUCCESS（成功），DELETED（删除）
+     * @param CloudLogState 流日志存储ID状态。SUCCESS（成功），DELETED（删除）
      */
     public void setCloudLogState(String CloudLogState) {
         this.CloudLogState = CloudLogState;
@@ -267,16 +273,16 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 升序（asc）还是降序（desc）,默认：desc。 
-     * @return OrderDirection 升序（asc）还是降序（desc）,默认：desc。
+     * Get 升序（ASC）还是降序（DESC）,默认：DESC。 
+     * @return OrderDirection 升序（ASC）还是降序（DESC）,默认：DESC。
      */
     public String getOrderDirection() {
         return this.OrderDirection;
     }
 
     /**
-     * Set 升序（asc）还是降序（desc）,默认：desc。
-     * @param OrderDirection 升序（asc）还是降序（desc）,默认：desc。
+     * Set 升序（ASC）还是降序（DESC）,默认：DESC。
+     * @param OrderDirection 升序（ASC）还是降序（DESC）,默认：DESC。
      */
     public void setOrderDirection(String OrderDirection) {
         this.OrderDirection = OrderDirection;
@@ -299,16 +305,16 @@ public class DescribeFlowLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 每页行数，默认为10。 
-     * @return Limit 每页行数，默认为10。
+     * Get 每页行数，默认为10。范围1-100。 
+     * @return Limit 每页行数，默认为10。范围1-100。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页行数，默认为10。
-     * @param Limit 每页行数，默认为10。
+     * Set 每页行数，默认为10。范围1-100。
+     * @param Limit 每页行数，默认为10。范围1-100。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

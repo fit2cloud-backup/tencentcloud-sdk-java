@@ -16,53 +16,54 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRoGroupsResponse extends AbstractModel{
+public class DescribeRoGroupsResponse extends AbstractModel {
 
     /**
-    * RO组信息数组，一个实例可关联多个RO组。
+    * RO 组信息数组，一个实例可关联多个 RO 组。
     */
     @SerializedName("RoGroups")
     @Expose
     private RoGroup [] RoGroups;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get RO组信息数组，一个实例可关联多个RO组。 
-     * @return RoGroups RO组信息数组，一个实例可关联多个RO组。
+     * Get RO 组信息数组，一个实例可关联多个 RO 组。 
+     * @return RoGroups RO 组信息数组，一个实例可关联多个 RO 组。
      */
     public RoGroup [] getRoGroups() {
         return this.RoGroups;
     }
 
     /**
-     * Set RO组信息数组，一个实例可关联多个RO组。
-     * @param RoGroups RO组信息数组，一个实例可关联多个RO组。
+     * Set RO 组信息数组，一个实例可关联多个 RO 组。
+     * @param RoGroups RO 组信息数组，一个实例可关联多个 RO 组。
      */
     public void setRoGroups(RoGroup [] RoGroups) {
         this.RoGroups = RoGroups;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

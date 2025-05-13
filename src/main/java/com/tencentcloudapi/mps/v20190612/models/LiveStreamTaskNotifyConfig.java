@@ -16,11 +16,30 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LiveStreamTaskNotifyConfig extends AbstractModel{
+public class LiveStreamTaskNotifyConfig extends AbstractModel {
+
+    /**
+    * 通知类型：
+"CMQ"：回调消息写入cmq队列； 
+"URL"： 指定URL时HTTP回调推送到 NotifyUrl 指定的地址，回调协议http+json，包体内容同[解析直播事件通知接口](https://cloud.tencent.com/document/product/862/39229) 的输出参数
+
+<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
+    */
+    @SerializedName("NotifyType")
+    @Expose
+    private String NotifyType;
+
+    /**
+    * HTTP回调地址，NotifyType为URL时必填。
+    */
+    @SerializedName("NotifyUrl")
+    @Expose
+    private String NotifyUrl;
 
     /**
     * CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。
@@ -51,20 +70,60 @@ public class LiveStreamTaskNotifyConfig extends AbstractModel{
     private String TopicName;
 
     /**
-    * 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
-
-<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
+    * 用于生成回调签名的 Key。
+注意：此字段可能返回 null，表示取不到有效值。
     */
-    @SerializedName("NotifyType")
+    @SerializedName("NotifyKey")
     @Expose
-    private String NotifyType;
+    private String NotifyKey;
 
     /**
-    * HTTP回调地址，NotifyType为URL时必填。
-    */
-    @SerializedName("NotifyUrl")
-    @Expose
-    private String NotifyUrl;
+     * Get 通知类型：
+"CMQ"：回调消息写入cmq队列； 
+"URL"： 指定URL时HTTP回调推送到 NotifyUrl 指定的地址，回调协议http+json，包体内容同[解析直播事件通知接口](https://cloud.tencent.com/document/product/862/39229) 的输出参数
+
+<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font> 
+     * @return NotifyType 通知类型：
+"CMQ"：回调消息写入cmq队列； 
+"URL"： 指定URL时HTTP回调推送到 NotifyUrl 指定的地址，回调协议http+json，包体内容同[解析直播事件通知接口](https://cloud.tencent.com/document/product/862/39229) 的输出参数
+
+<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
+     */
+    public String getNotifyType() {
+        return this.NotifyType;
+    }
+
+    /**
+     * Set 通知类型：
+"CMQ"：回调消息写入cmq队列； 
+"URL"： 指定URL时HTTP回调推送到 NotifyUrl 指定的地址，回调协议http+json，包体内容同[解析直播事件通知接口](https://cloud.tencent.com/document/product/862/39229) 的输出参数
+
+<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
+     * @param NotifyType 通知类型：
+"CMQ"：回调消息写入cmq队列； 
+"URL"： 指定URL时HTTP回调推送到 NotifyUrl 指定的地址，回调协议http+json，包体内容同[解析直播事件通知接口](https://cloud.tencent.com/document/product/862/39229) 的输出参数
+
+<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
+     */
+    public void setNotifyType(String NotifyType) {
+        this.NotifyType = NotifyType;
+    }
+
+    /**
+     * Get HTTP回调地址，NotifyType为URL时必填。 
+     * @return NotifyUrl HTTP回调地址，NotifyType为URL时必填。
+     */
+    public String getNotifyUrl() {
+        return this.NotifyUrl;
+    }
+
+    /**
+     * Set HTTP回调地址，NotifyType为URL时必填。
+     * @param NotifyUrl HTTP回调地址，NotifyType为URL时必填。
+     */
+    public void setNotifyUrl(String NotifyUrl) {
+        this.NotifyUrl = NotifyUrl;
+    }
 
     /**
      * Get CMQ 的模型，有 Queue 和 Topic 两种，目前仅支持 Queue。 
@@ -131,43 +190,23 @@ public class LiveStreamTaskNotifyConfig extends AbstractModel{
     }
 
     /**
-     * Get 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
-
-<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font> 
-     * @return NotifyType 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
-
-<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
+     * Get 用于生成回调签名的 Key。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NotifyKey 用于生成回调签名的 Key。
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public String getNotifyType() {
-        return this.NotifyType;
+    public String getNotifyKey() {
+        return this.NotifyKey;
     }
 
     /**
-     * Set 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
-
-<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
-     * @param NotifyType 通知类型，默认CMQ，指定URL时HTTP回调推送到 NotifyUrl 指定的地址。
-
-<font color="red"> 注：不填或为空时默认 CMQ，如需采用其他类型需填写对应类型值。 </font>
+     * Set 用于生成回调签名的 Key。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NotifyKey 用于生成回调签名的 Key。
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setNotifyType(String NotifyType) {
-        this.NotifyType = NotifyType;
-    }
-
-    /**
-     * Get HTTP回调地址，NotifyType为URL时必填。 
-     * @return NotifyUrl HTTP回调地址，NotifyType为URL时必填。
-     */
-    public String getNotifyUrl() {
-        return this.NotifyUrl;
-    }
-
-    /**
-     * Set HTTP回调地址，NotifyType为URL时必填。
-     * @param NotifyUrl HTTP回调地址，NotifyType为URL时必填。
-     */
-    public void setNotifyUrl(String NotifyUrl) {
-        this.NotifyUrl = NotifyUrl;
+    public void setNotifyKey(String NotifyKey) {
+        this.NotifyKey = NotifyKey;
     }
 
     public LiveStreamTaskNotifyConfig() {
@@ -178,6 +217,12 @@ public class LiveStreamTaskNotifyConfig extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public LiveStreamTaskNotifyConfig(LiveStreamTaskNotifyConfig source) {
+        if (source.NotifyType != null) {
+            this.NotifyType = new String(source.NotifyType);
+        }
+        if (source.NotifyUrl != null) {
+            this.NotifyUrl = new String(source.NotifyUrl);
+        }
         if (source.CmqModel != null) {
             this.CmqModel = new String(source.CmqModel);
         }
@@ -190,11 +235,8 @@ public class LiveStreamTaskNotifyConfig extends AbstractModel{
         if (source.TopicName != null) {
             this.TopicName = new String(source.TopicName);
         }
-        if (source.NotifyType != null) {
-            this.NotifyType = new String(source.NotifyType);
-        }
-        if (source.NotifyUrl != null) {
-            this.NotifyUrl = new String(source.NotifyUrl);
+        if (source.NotifyKey != null) {
+            this.NotifyKey = new String(source.NotifyKey);
         }
     }
 
@@ -203,12 +245,13 @@ public class LiveStreamTaskNotifyConfig extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
+        this.setParamSimple(map, prefix + "NotifyUrl", this.NotifyUrl);
         this.setParamSimple(map, prefix + "CmqModel", this.CmqModel);
         this.setParamSimple(map, prefix + "CmqRegion", this.CmqRegion);
         this.setParamSimple(map, prefix + "QueueName", this.QueueName);
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
-        this.setParamSimple(map, prefix + "NotifyType", this.NotifyType);
-        this.setParamSimple(map, prefix + "NotifyUrl", this.NotifyUrl);
+        this.setParamSimple(map, prefix + "NotifyKey", this.NotifyKey);
 
     }
 }

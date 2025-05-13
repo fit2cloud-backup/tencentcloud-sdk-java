@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteDataSourcesRequest extends AbstractModel{
+public class DeleteDataSourcesRequest extends AbstractModel {
 
     /**
     * id列表
@@ -28,6 +29,13 @@ public class DeleteDataSourcesRequest extends AbstractModel{
     @SerializedName("Ids")
     @Expose
     private Long [] Ids;
+
+    /**
+    * 项目id
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
 
     /**
      * Get id列表 
@@ -45,6 +53,22 @@ public class DeleteDataSourcesRequest extends AbstractModel{
         this.Ids = Ids;
     }
 
+    /**
+     * Get 项目id 
+     * @return ProjectId 项目id
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目id
+     * @param ProjectId 项目id
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
     public DeleteDataSourcesRequest() {
     }
 
@@ -59,6 +83,9 @@ public class DeleteDataSourcesRequest extends AbstractModel{
                 this.Ids[i] = new Long(source.Ids[i]);
             }
         }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
     }
 
 
@@ -67,6 +94,7 @@ public class DeleteDataSourcesRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "Ids.", this.Ids);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

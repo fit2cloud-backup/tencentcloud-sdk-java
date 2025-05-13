@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateRocketMQVipInstanceRequest extends AbstractModel{
+public class CreateRocketMQVipInstanceRequest extends AbstractModel {
 
     /**
     * 实例名称
@@ -30,11 +31,7 @@ public class CreateRocketMQVipInstanceRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 实例规格：
-基础型，rocket-vip-basic-1
-标准型，rocket-vip-basic-2
-高阶Ⅰ型，rocket-vip-basic-3
-高阶Ⅱ型，rocket-vip-basic-4
+    * 集群规格，支持规格有 1.通用型:rocket-vip-basic-0; 2.基础型:rocket-vip-basic-1; 3.标准型:rocket-vip-basic-2; 4.高阶Ⅰ型:rocket-vip-basic-3; 5.高阶Ⅱ型:rocket-vip-basic-4
     */
     @SerializedName("Spec")
     @Expose
@@ -76,6 +73,41 @@ public class CreateRocketMQVipInstanceRequest extends AbstractModel{
     private Long TimeSpan;
 
     /**
+    * 是否用于迁移上云，默认为false
+    */
+    @SerializedName("SupportsMigrateToCloud")
+    @Expose
+    private Boolean SupportsMigrateToCloud;
+
+    /**
+    * 是否开启公网
+    */
+    @SerializedName("EnablePublic")
+    @Expose
+    private Boolean EnablePublic;
+
+    /**
+    * 公网带宽，在开启公网情况下为必传字段
+    */
+    @SerializedName("Bandwidth")
+    @Expose
+    private Long Bandwidth;
+
+    /**
+    * 公网白名单
+    */
+    @SerializedName("IpRules")
+    @Expose
+    private PublicAccessRule [] IpRules;
+
+    /**
+    * 标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
      * Get 实例名称 
      * @return Name 实例名称
      */
@@ -92,32 +124,16 @@ public class CreateRocketMQVipInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例规格：
-基础型，rocket-vip-basic-1
-标准型，rocket-vip-basic-2
-高阶Ⅰ型，rocket-vip-basic-3
-高阶Ⅱ型，rocket-vip-basic-4 
-     * @return Spec 实例规格：
-基础型，rocket-vip-basic-1
-标准型，rocket-vip-basic-2
-高阶Ⅰ型，rocket-vip-basic-3
-高阶Ⅱ型，rocket-vip-basic-4
+     * Get 集群规格，支持规格有 1.通用型:rocket-vip-basic-0; 2.基础型:rocket-vip-basic-1; 3.标准型:rocket-vip-basic-2; 4.高阶Ⅰ型:rocket-vip-basic-3; 5.高阶Ⅱ型:rocket-vip-basic-4 
+     * @return Spec 集群规格，支持规格有 1.通用型:rocket-vip-basic-0; 2.基础型:rocket-vip-basic-1; 3.标准型:rocket-vip-basic-2; 4.高阶Ⅰ型:rocket-vip-basic-3; 5.高阶Ⅱ型:rocket-vip-basic-4
      */
     public String getSpec() {
         return this.Spec;
     }
 
     /**
-     * Set 实例规格：
-基础型，rocket-vip-basic-1
-标准型，rocket-vip-basic-2
-高阶Ⅰ型，rocket-vip-basic-3
-高阶Ⅱ型，rocket-vip-basic-4
-     * @param Spec 实例规格：
-基础型，rocket-vip-basic-1
-标准型，rocket-vip-basic-2
-高阶Ⅰ型，rocket-vip-basic-3
-高阶Ⅱ型，rocket-vip-basic-4
+     * Set 集群规格，支持规格有 1.通用型:rocket-vip-basic-0; 2.基础型:rocket-vip-basic-1; 3.标准型:rocket-vip-basic-2; 4.高阶Ⅰ型:rocket-vip-basic-3; 5.高阶Ⅱ型:rocket-vip-basic-4
+     * @param Spec 集群规格，支持规格有 1.通用型:rocket-vip-basic-0; 2.基础型:rocket-vip-basic-1; 3.标准型:rocket-vip-basic-2; 4.高阶Ⅰ型:rocket-vip-basic-3; 5.高阶Ⅱ型:rocket-vip-basic-4
      */
     public void setSpec(String Spec) {
         this.Spec = Spec;
@@ -203,6 +219,86 @@ public class CreateRocketMQVipInstanceRequest extends AbstractModel{
         this.TimeSpan = TimeSpan;
     }
 
+    /**
+     * Get 是否用于迁移上云，默认为false 
+     * @return SupportsMigrateToCloud 是否用于迁移上云，默认为false
+     */
+    public Boolean getSupportsMigrateToCloud() {
+        return this.SupportsMigrateToCloud;
+    }
+
+    /**
+     * Set 是否用于迁移上云，默认为false
+     * @param SupportsMigrateToCloud 是否用于迁移上云，默认为false
+     */
+    public void setSupportsMigrateToCloud(Boolean SupportsMigrateToCloud) {
+        this.SupportsMigrateToCloud = SupportsMigrateToCloud;
+    }
+
+    /**
+     * Get 是否开启公网 
+     * @return EnablePublic 是否开启公网
+     */
+    public Boolean getEnablePublic() {
+        return this.EnablePublic;
+    }
+
+    /**
+     * Set 是否开启公网
+     * @param EnablePublic 是否开启公网
+     */
+    public void setEnablePublic(Boolean EnablePublic) {
+        this.EnablePublic = EnablePublic;
+    }
+
+    /**
+     * Get 公网带宽，在开启公网情况下为必传字段 
+     * @return Bandwidth 公网带宽，在开启公网情况下为必传字段
+     */
+    public Long getBandwidth() {
+        return this.Bandwidth;
+    }
+
+    /**
+     * Set 公网带宽，在开启公网情况下为必传字段
+     * @param Bandwidth 公网带宽，在开启公网情况下为必传字段
+     */
+    public void setBandwidth(Long Bandwidth) {
+        this.Bandwidth = Bandwidth;
+    }
+
+    /**
+     * Get 公网白名单 
+     * @return IpRules 公网白名单
+     */
+    public PublicAccessRule [] getIpRules() {
+        return this.IpRules;
+    }
+
+    /**
+     * Set 公网白名单
+     * @param IpRules 公网白名单
+     */
+    public void setIpRules(PublicAccessRule [] IpRules) {
+        this.IpRules = IpRules;
+    }
+
+    /**
+     * Get 标签 
+     * @return Tags 标签
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+     * @param Tags 标签
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateRocketMQVipInstanceRequest() {
     }
 
@@ -235,6 +331,27 @@ public class CreateRocketMQVipInstanceRequest extends AbstractModel{
         if (source.TimeSpan != null) {
             this.TimeSpan = new Long(source.TimeSpan);
         }
+        if (source.SupportsMigrateToCloud != null) {
+            this.SupportsMigrateToCloud = new Boolean(source.SupportsMigrateToCloud);
+        }
+        if (source.EnablePublic != null) {
+            this.EnablePublic = new Boolean(source.EnablePublic);
+        }
+        if (source.Bandwidth != null) {
+            this.Bandwidth = new Long(source.Bandwidth);
+        }
+        if (source.IpRules != null) {
+            this.IpRules = new PublicAccessRule[source.IpRules.length];
+            for (int i = 0; i < source.IpRules.length; i++) {
+                this.IpRules[i] = new PublicAccessRule(source.IpRules[i]);
+            }
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -249,6 +366,11 @@ public class CreateRocketMQVipInstanceRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamObj(map, prefix + "VpcInfo.", this.VpcInfo);
         this.setParamSimple(map, prefix + "TimeSpan", this.TimeSpan);
+        this.setParamSimple(map, prefix + "SupportsMigrateToCloud", this.SupportsMigrateToCloud);
+        this.setParamSimple(map, prefix + "EnablePublic", this.EnablePublic);
+        this.setParamSimple(map, prefix + "Bandwidth", this.Bandwidth);
+        this.setParamArrayObj(map, prefix + "IpRules.", this.IpRules);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

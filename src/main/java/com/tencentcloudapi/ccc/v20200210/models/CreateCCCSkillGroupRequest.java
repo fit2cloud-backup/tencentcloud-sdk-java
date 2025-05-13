@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCCCSkillGroupRequest extends AbstractModel{
+public class CreateCCCSkillGroupRequest extends AbstractModel {
 
     /**
-    * 应用 ID（必填）
+    * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
     */
     @SerializedName("SdkAppId")
     @Expose
@@ -52,16 +53,16 @@ public class CreateCCCSkillGroupRequest extends AbstractModel{
     private Long MaxConcurrency;
 
     /**
-     * Get 应用 ID（必填） 
-     * @return SdkAppId 应用 ID（必填）
+     * Get 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc 
+     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
      */
     public Long getSdkAppId() {
         return this.SdkAppId;
     }
 
     /**
-     * Set 应用 ID（必填）
-     * @param SdkAppId 应用 ID（必填）
+     * Set 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+     * @param SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
      */
     public void setSdkAppId(Long SdkAppId) {
         this.SdkAppId = SdkAppId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterInternalLB extends AbstractModel{
+public class ClusterInternalLB extends AbstractModel {
 
     /**
     * 是否开启内网访问LB
@@ -31,6 +32,7 @@ public class ClusterInternalLB extends AbstractModel{
 
     /**
     * 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetId")
     @Expose
@@ -53,8 +55,10 @@ public class ClusterInternalLB extends AbstractModel{
     }
 
     /**
-     * Get 内网访问LB关联的子网Id 
+     * Get 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return SubnetId 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetId() {
         return this.SubnetId;
@@ -62,7 +66,9 @@ public class ClusterInternalLB extends AbstractModel{
 
     /**
      * Set 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetId 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;

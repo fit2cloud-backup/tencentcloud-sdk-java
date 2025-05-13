@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OperationInfo extends AbstractModel{
+public class OperationInfo extends AbstractModel {
 
     /**
     * 初始化按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Init")
     @Expose
@@ -32,7 +32,6 @@ public class OperationInfo extends AbstractModel{
 
     /**
     * 添加实例按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AddInstance")
     @Expose
@@ -40,17 +39,14 @@ public class OperationInfo extends AbstractModel{
 
     /**
     * 销毁机器的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Destroy")
     @Expose
     private OperationInfoDetail Destroy;
 
     /**
-     * Get 初始化按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 初始化按钮的控制信息 
      * @return Init 初始化按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OperationInfoDetail getInit() {
         return this.Init;
@@ -58,19 +54,15 @@ public class OperationInfo extends AbstractModel{
 
     /**
      * Set 初始化按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Init 初始化按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInit(OperationInfoDetail Init) {
         this.Init = Init;
     }
 
     /**
-     * Get 添加实例按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 添加实例按钮的控制信息 
      * @return AddInstance 添加实例按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OperationInfoDetail getAddInstance() {
         return this.AddInstance;
@@ -78,19 +70,15 @@ public class OperationInfo extends AbstractModel{
 
     /**
      * Set 添加实例按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AddInstance 添加实例按钮的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddInstance(OperationInfoDetail AddInstance) {
         this.AddInstance = AddInstance;
     }
 
     /**
-     * Get 销毁机器的控制信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 销毁机器的控制信息 
      * @return Destroy 销毁机器的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OperationInfoDetail getDestroy() {
         return this.Destroy;
@@ -98,9 +86,7 @@ public class OperationInfo extends AbstractModel{
 
     /**
      * Set 销毁机器的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Destroy 销毁机器的控制信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDestroy(OperationInfoDetail Destroy) {
         this.Destroy = Destroy;

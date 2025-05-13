@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSparkSessionBatchSQLResponse extends AbstractModel{
+public class CreateSparkSessionBatchSQLResponse extends AbstractModel {
 
     /**
     * 批任务唯一标识
@@ -30,7 +31,15 @@ public class CreateSparkSessionBatchSQLResponse extends AbstractModel{
     private String BatchId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * Statement任务列表信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Statements")
+    @Expose
+    private StatementInformation [] Statements;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +62,36 @@ public class CreateSparkSessionBatchSQLResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get Statement任务列表信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Statements Statement任务列表信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public StatementInformation [] getStatements() {
+        return this.Statements;
+    }
+
+    /**
+     * Set Statement任务列表信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Statements Statement任务列表信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setStatements(StatementInformation [] Statements) {
+        this.Statements = Statements;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -79,6 +108,12 @@ public class CreateSparkSessionBatchSQLResponse extends AbstractModel{
         if (source.BatchId != null) {
             this.BatchId = new String(source.BatchId);
         }
+        if (source.Statements != null) {
+            this.Statements = new StatementInformation[source.Statements.length];
+            for (int i = 0; i < source.Statements.length; i++) {
+                this.Statements[i] = new StatementInformation(source.Statements[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +125,7 @@ public class CreateSparkSessionBatchSQLResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "BatchId", this.BatchId);
+        this.setParamArrayObj(map, prefix + "Statements.", this.Statements);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,53 +16,54 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNetworkAccountTypeResponse extends AbstractModel{
+public class DescribeNetworkAccountTypeResponse extends AbstractModel {
 
     /**
-    * 用户账号的网络类型，STANDARD为标准用户，LEGACY为传统用户
+    * 用户账号的网络类型，STANDARD为标准账户类型，LEGACY为传统账户类型
     */
     @SerializedName("NetworkAccountType")
     @Expose
     private String NetworkAccountType;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 用户账号的网络类型，STANDARD为标准用户，LEGACY为传统用户 
-     * @return NetworkAccountType 用户账号的网络类型，STANDARD为标准用户，LEGACY为传统用户
+     * Get 用户账号的网络类型，STANDARD为标准账户类型，LEGACY为传统账户类型 
+     * @return NetworkAccountType 用户账号的网络类型，STANDARD为标准账户类型，LEGACY为传统账户类型
      */
     public String getNetworkAccountType() {
         return this.NetworkAccountType;
     }
 
     /**
-     * Set 用户账号的网络类型，STANDARD为标准用户，LEGACY为传统用户
-     * @param NetworkAccountType 用户账号的网络类型，STANDARD为标准用户，LEGACY为传统用户
+     * Set 用户账号的网络类型，STANDARD为标准账户类型，LEGACY为传统账户类型
+     * @param NetworkAccountType 用户账号的网络类型，STANDARD为标准账户类型，LEGACY为传统账户类型
      */
     public void setNetworkAccountType(String NetworkAccountType) {
         this.NetworkAccountType = NetworkAccountType;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

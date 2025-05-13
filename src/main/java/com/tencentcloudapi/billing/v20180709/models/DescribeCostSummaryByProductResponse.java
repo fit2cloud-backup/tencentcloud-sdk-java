@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCostSummaryByProductResponse extends AbstractModel{
+public class DescribeCostSummaryByProductResponse extends AbstractModel {
 
     /**
     * 数据是否准备好，0未准备好，1准备好
@@ -38,22 +39,20 @@ public class DescribeCostSummaryByProductResponse extends AbstractModel{
 
     /**
     * 消耗按产品汇总详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private ConsumptionBusinessSummaryDataItem [] Data;
 
     /**
-    * 记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。
+    * 记录数量，NeedRecordNum为0时返回null
     */
     @SerializedName("RecordNum")
     @Expose
     private Long RecordNum;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -92,10 +91,8 @@ public class DescribeCostSummaryByProductResponse extends AbstractModel{
     }
 
     /**
-     * Get 消耗按产品汇总详情
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 消耗按产品汇总详情 
      * @return Data 消耗按产品汇总详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ConsumptionBusinessSummaryDataItem [] getData() {
         return this.Data;
@@ -103,45 +100,39 @@ public class DescribeCostSummaryByProductResponse extends AbstractModel{
 
     /**
      * Set 消耗按产品汇总详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 消耗按产品汇总详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(ConsumptionBusinessSummaryDataItem [] Data) {
         this.Data = Data;
     }
 
     /**
-     * Get 记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RecordNum 记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 记录数量，NeedRecordNum为0时返回null 
+     * @return RecordNum 记录数量，NeedRecordNum为0时返回null
      */
     public Long getRecordNum() {
         return this.RecordNum;
     }
 
     /**
-     * Set 记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RecordNum 记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 记录数量，NeedRecordNum为0时返回null
+     * @param RecordNum 记录数量，NeedRecordNum为0时返回null
      */
     public void setRecordNum(Long RecordNum) {
         this.RecordNum = RecordNum;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

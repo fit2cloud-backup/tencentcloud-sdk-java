@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterDetailResponse extends AbstractModel{
+public class DescribeClusterDetailResponse extends AbstractModel {
 
     /**
     * 集群id
@@ -70,6 +71,13 @@ public class DescribeClusterDetailResponse extends AbstractModel{
     @SerializedName("ClusterStatus")
     @Expose
     private String ClusterStatus;
+
+    /**
+    * 集群运行子状态
+    */
+    @SerializedName("ClusterSubStatus")
+    @Expose
+    private String ClusterSubStatus;
 
     /**
     * 集群类型：为托管集群MANAGED_CLUSTER、独立集群INDEPENDENT_CLUSTER
@@ -198,7 +206,7 @@ public class DescribeClusterDetailResponse extends AbstractModel{
     private String MasterIps;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -314,6 +322,22 @@ public class DescribeClusterDetailResponse extends AbstractModel{
      */
     public void setClusterStatus(String ClusterStatus) {
         this.ClusterStatus = ClusterStatus;
+    }
+
+    /**
+     * Get 集群运行子状态 
+     * @return ClusterSubStatus 集群运行子状态
+     */
+    public String getClusterSubStatus() {
+        return this.ClusterSubStatus;
+    }
+
+    /**
+     * Set 集群运行子状态
+     * @param ClusterSubStatus 集群运行子状态
+     */
+    public void setClusterSubStatus(String ClusterSubStatus) {
+        this.ClusterSubStatus = ClusterSubStatus;
     }
 
     /**
@@ -605,16 +629,16 @@ public class DescribeClusterDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -648,6 +672,9 @@ public class DescribeClusterDetailResponse extends AbstractModel{
         }
         if (source.ClusterStatus != null) {
             this.ClusterStatus = new String(source.ClusterStatus);
+        }
+        if (source.ClusterSubStatus != null) {
+            this.ClusterSubStatus = new String(source.ClusterSubStatus);
         }
         if (source.ClusterType != null) {
             this.ClusterType = new String(source.ClusterType);
@@ -720,6 +747,7 @@ public class DescribeClusterDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ContainerRuntime", this.ContainerRuntime);
         this.setParamSimple(map, prefix + "ClusterNodeNum", this.ClusterNodeNum);
         this.setParamSimple(map, prefix + "ClusterStatus", this.ClusterStatus);
+        this.setParamSimple(map, prefix + "ClusterSubStatus", this.ClusterSubStatus);
         this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "SeriousRiskCount", this.SeriousRiskCount);

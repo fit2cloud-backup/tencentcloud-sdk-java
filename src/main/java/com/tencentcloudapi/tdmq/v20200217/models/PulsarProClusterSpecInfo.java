@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PulsarProClusterSpecInfo extends AbstractModel{
+public class PulsarProClusterSpecInfo extends AbstractModel {
 
     /**
     * 集群规格名称
@@ -64,6 +65,22 @@ public class PulsarProClusterSpecInfo extends AbstractModel{
     @SerializedName("ScalableTps")
     @Expose
     private Long ScalableTps;
+
+    /**
+    * 32或者128
+当前集群topic的最大分区数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MaxPartitions")
+    @Expose
+    private Long MaxPartitions;
+
+    /**
+    * 商品最大延迟消息数量。0代表没有限制	
+    */
+    @SerializedName("MaxDelayedMessages")
+    @Expose
+    private Long MaxDelayedMessages;
 
     /**
      * Get 集群规格名称 
@@ -165,6 +182,46 @@ public class PulsarProClusterSpecInfo extends AbstractModel{
         this.ScalableTps = ScalableTps;
     }
 
+    /**
+     * Get 32或者128
+当前集群topic的最大分区数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MaxPartitions 32或者128
+当前集群topic的最大分区数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMaxPartitions() {
+        return this.MaxPartitions;
+    }
+
+    /**
+     * Set 32或者128
+当前集群topic的最大分区数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MaxPartitions 32或者128
+当前集群topic的最大分区数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMaxPartitions(Long MaxPartitions) {
+        this.MaxPartitions = MaxPartitions;
+    }
+
+    /**
+     * Get 商品最大延迟消息数量。0代表没有限制	 
+     * @return MaxDelayedMessages 商品最大延迟消息数量。0代表没有限制	
+     */
+    public Long getMaxDelayedMessages() {
+        return this.MaxDelayedMessages;
+    }
+
+    /**
+     * Set 商品最大延迟消息数量。0代表没有限制	
+     * @param MaxDelayedMessages 商品最大延迟消息数量。0代表没有限制	
+     */
+    public void setMaxDelayedMessages(Long MaxDelayedMessages) {
+        this.MaxDelayedMessages = MaxDelayedMessages;
+    }
+
     public PulsarProClusterSpecInfo() {
     }
 
@@ -191,6 +248,12 @@ public class PulsarProClusterSpecInfo extends AbstractModel{
         if (source.ScalableTps != null) {
             this.ScalableTps = new Long(source.ScalableTps);
         }
+        if (source.MaxPartitions != null) {
+            this.MaxPartitions = new Long(source.MaxPartitions);
+        }
+        if (source.MaxDelayedMessages != null) {
+            this.MaxDelayedMessages = new Long(source.MaxDelayedMessages);
+        }
     }
 
 
@@ -204,6 +267,8 @@ public class PulsarProClusterSpecInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxNamespaces", this.MaxNamespaces);
         this.setParamSimple(map, prefix + "MaxTopics", this.MaxTopics);
         this.setParamSimple(map, prefix + "ScalableTps", this.ScalableTps);
+        this.setParamSimple(map, prefix + "MaxPartitions", this.MaxPartitions);
+        this.setParamSimple(map, prefix + "MaxDelayedMessages", this.MaxDelayedMessages);
 
     }
 }

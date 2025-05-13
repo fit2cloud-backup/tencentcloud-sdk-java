@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeLogsResponse extends AbstractModel{
+public class DescribeLogsResponse extends AbstractModel {
 
     /**
     * 日志列表
@@ -51,7 +52,14 @@ public class DescribeLogsResponse extends AbstractModel{
     private String ReturnMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 七层协议，NTA日志有效
+    */
+    @SerializedName("AppProtocolList")
+    @Expose
+    private String [] AppProtocolList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -122,16 +130,32 @@ public class DescribeLogsResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 七层协议，NTA日志有效 
+     * @return AppProtocolList 七层协议，NTA日志有效
+     */
+    public String [] getAppProtocolList() {
+        return this.AppProtocolList;
+    }
+
+    /**
+     * Set 七层协议，NTA日志有效
+     * @param AppProtocolList 七层协议，NTA日志有效
+     */
+    public void setAppProtocolList(String [] AppProtocolList) {
+        this.AppProtocolList = AppProtocolList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -157,6 +181,12 @@ public class DescribeLogsResponse extends AbstractModel{
         if (source.ReturnMsg != null) {
             this.ReturnMsg = new String(source.ReturnMsg);
         }
+        if (source.AppProtocolList != null) {
+            this.AppProtocolList = new String[source.AppProtocolList.length];
+            for (int i = 0; i < source.AppProtocolList.length; i++) {
+                this.AppProtocolList[i] = new String(source.AppProtocolList[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -171,6 +201,7 @@ public class DescribeLogsResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Total", this.Total);
         this.setParamSimple(map, prefix + "ReturnCode", this.ReturnCode);
         this.setParamSimple(map, prefix + "ReturnMsg", this.ReturnMsg);
+        this.setParamArraySimple(map, prefix + "AppProtocolList.", this.AppProtocolList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClbListenerRule extends AbstractModel{
+public class ClbListenerRule extends AbstractModel {
 
     /**
     * 规则ID
@@ -45,7 +46,6 @@ public class ClbListenerRule extends AbstractModel{
 
     /**
     * 规则已绑定的证书数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Certificate")
     @Expose
@@ -53,11 +53,17 @@ public class ClbListenerRule extends AbstractModel{
 
     /**
     * 不匹配域名列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NoMatchDomains")
     @Expose
     private String [] NoMatchDomains;
+
+    /**
+    * 规则绑定的路径
+    */
+    @SerializedName("Url")
+    @Expose
+    private String Url;
 
     /**
      * Get 规则ID 
@@ -108,10 +114,8 @@ public class ClbListenerRule extends AbstractModel{
     }
 
     /**
-     * Get 规则已绑定的证书数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则已绑定的证书数据 
      * @return Certificate 规则已绑定的证书数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Certificate getCertificate() {
         return this.Certificate;
@@ -119,19 +123,15 @@ public class ClbListenerRule extends AbstractModel{
 
     /**
      * Set 规则已绑定的证书数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Certificate 规则已绑定的证书数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCertificate(Certificate Certificate) {
         this.Certificate = Certificate;
     }
 
     /**
-     * Get 不匹配域名列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 不匹配域名列表 
      * @return NoMatchDomains 不匹配域名列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getNoMatchDomains() {
         return this.NoMatchDomains;
@@ -139,12 +139,26 @@ public class ClbListenerRule extends AbstractModel{
 
     /**
      * Set 不匹配域名列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NoMatchDomains 不匹配域名列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNoMatchDomains(String [] NoMatchDomains) {
         this.NoMatchDomains = NoMatchDomains;
+    }
+
+    /**
+     * Get 规则绑定的路径 
+     * @return Url 规则绑定的路径
+     */
+    public String getUrl() {
+        return this.Url;
+    }
+
+    /**
+     * Set 规则绑定的路径
+     * @param Url 规则绑定的路径
+     */
+    public void setUrl(String Url) {
+        this.Url = Url;
     }
 
     public ClbListenerRule() {
@@ -173,6 +187,9 @@ public class ClbListenerRule extends AbstractModel{
                 this.NoMatchDomains[i] = new String(source.NoMatchDomains[i]);
             }
         }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
     }
 
 
@@ -185,6 +202,7 @@ public class ClbListenerRule extends AbstractModel{
         this.setParamSimple(map, prefix + "IsMatch", this.IsMatch);
         this.setParamObj(map, prefix + "Certificate.", this.Certificate);
         this.setParamArraySimple(map, prefix + "NoMatchDomains.", this.NoMatchDomains);
+        this.setParamSimple(map, prefix + "Url", this.Url);
 
     }
 }

@@ -16,53 +16,92 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSealByImageResponse extends AbstractModel{
+public class CreateSealByImageResponse extends AbstractModel {
 
     /**
-    * 印章id
+    * 电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。
     */
     @SerializedName("SealId")
     @Expose
     private String SealId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址`
+    */
+    @SerializedName("ImageUrl")
+    @Expose
+    private String ImageUrl;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 印章id 
-     * @return SealId 印章id
+     * Get 电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。 
+     * @return SealId 电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。
      */
     public String getSealId() {
         return this.SealId;
     }
 
     /**
-     * Set 印章id
-     * @param SealId 印章id
+     * Set 电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。
+     * @param SealId 电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。
      */
     public void setSealId(String SealId) {
         this.SealId = SealId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址` 
+     * @return ImageUrl 电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址`
+     */
+    public String getImageUrl() {
+        return this.ImageUrl;
+    }
+
+    /**
+     * Set 电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址`
+     * @param ImageUrl 电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址`
+     */
+    public void setImageUrl(String ImageUrl) {
+        this.ImageUrl = ImageUrl;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -79,6 +118,9 @@ public class CreateSealByImageResponse extends AbstractModel{
         if (source.SealId != null) {
             this.SealId = new String(source.SealId);
         }
+        if (source.ImageUrl != null) {
+            this.ImageUrl = new String(source.ImageUrl);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +132,7 @@ public class CreateSealByImageResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SealId", this.SealId);
+        this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

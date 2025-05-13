@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateVerifyRecordResponse extends AbstractModel{
+public class CreateVerifyRecordResponse extends AbstractModel {
 
     /**
     * 子解析
@@ -45,7 +46,6 @@ public class CreateVerifyRecordResponse extends AbstractModel{
 
     /**
     * 文件验证 URL 指引
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileVerifyUrl")
     @Expose
@@ -53,7 +53,6 @@ public class CreateVerifyRecordResponse extends AbstractModel{
 
     /**
     * 文件校验域名列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileVerifyDomains")
     @Expose
@@ -61,14 +60,13 @@ public class CreateVerifyRecordResponse extends AbstractModel{
 
     /**
     * 文件校验文件名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileVerifyName")
     @Expose
     private String FileVerifyName;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -123,10 +121,8 @@ public class CreateVerifyRecordResponse extends AbstractModel{
     }
 
     /**
-     * Get 文件验证 URL 指引
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件验证 URL 指引 
      * @return FileVerifyUrl 文件验证 URL 指引
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFileVerifyUrl() {
         return this.FileVerifyUrl;
@@ -134,19 +130,15 @@ public class CreateVerifyRecordResponse extends AbstractModel{
 
     /**
      * Set 文件验证 URL 指引
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FileVerifyUrl 文件验证 URL 指引
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileVerifyUrl(String FileVerifyUrl) {
         this.FileVerifyUrl = FileVerifyUrl;
     }
 
     /**
-     * Get 文件校验域名列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件校验域名列表 
      * @return FileVerifyDomains 文件校验域名列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFileVerifyDomains() {
         return this.FileVerifyDomains;
@@ -154,19 +146,15 @@ public class CreateVerifyRecordResponse extends AbstractModel{
 
     /**
      * Set 文件校验域名列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FileVerifyDomains 文件校验域名列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileVerifyDomains(String [] FileVerifyDomains) {
         this.FileVerifyDomains = FileVerifyDomains;
     }
 
     /**
-     * Get 文件校验文件名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件校验文件名 
      * @return FileVerifyName 文件校验文件名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFileVerifyName() {
         return this.FileVerifyName;
@@ -174,25 +162,23 @@ public class CreateVerifyRecordResponse extends AbstractModel{
 
     /**
      * Set 文件校验文件名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FileVerifyName 文件校验文件名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileVerifyName(String FileVerifyName) {
         this.FileVerifyName = FileVerifyName;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

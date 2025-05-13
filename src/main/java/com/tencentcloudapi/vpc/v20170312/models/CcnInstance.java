@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CcnInstance extends AbstractModel{
+public class CcnInstance extends AbstractModel {
 
     /**
     * 关联实例ID。
@@ -56,11 +57,17 @@ public class CcnInstance extends AbstractModel{
 
     /**
     * 实例关联的路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RouteTableId")
     @Expose
     private String RouteTableId;
+
+    /**
+    * 实例付费方式
+    */
+    @SerializedName("OrderType")
+    @Expose
+    private String OrderType;
 
     /**
      * Get 关联实例ID。 
@@ -143,10 +150,8 @@ public class CcnInstance extends AbstractModel{
     }
 
     /**
-     * Get 实例关联的路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例关联的路由表ID。 
      * @return RouteTableId 实例关联的路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRouteTableId() {
         return this.RouteTableId;
@@ -154,12 +159,26 @@ public class CcnInstance extends AbstractModel{
 
     /**
      * Set 实例关联的路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RouteTableId 实例关联的路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRouteTableId(String RouteTableId) {
         this.RouteTableId = RouteTableId;
+    }
+
+    /**
+     * Get 实例付费方式 
+     * @return OrderType 实例付费方式
+     */
+    public String getOrderType() {
+        return this.OrderType;
+    }
+
+    /**
+     * Set 实例付费方式
+     * @param OrderType 实例付费方式
+     */
+    public void setOrderType(String OrderType) {
+        this.OrderType = OrderType;
     }
 
     public CcnInstance() {
@@ -185,6 +204,9 @@ public class CcnInstance extends AbstractModel{
         if (source.RouteTableId != null) {
             this.RouteTableId = new String(source.RouteTableId);
         }
+        if (source.OrderType != null) {
+            this.OrderType = new String(source.OrderType);
+        }
     }
 
 
@@ -197,6 +219,7 @@ public class CcnInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "RouteTableId", this.RouteTableId);
+        this.setParamSimple(map, prefix + "OrderType", this.OrderType);
 
     }
 }

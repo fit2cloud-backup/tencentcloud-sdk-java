@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeImageConfigResponse extends AbstractModel{
+public class DescribeImageConfigResponse extends AbstractModel {
 
     /**
     * WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WebpAdapter")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeImageConfigResponse extends AbstractModel{
 
     /**
     * TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TpgAdapter")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeImageConfigResponse extends AbstractModel{
 
     /**
     * GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GuetzliAdapter")
     @Expose
@@ -48,24 +46,21 @@ public class DescribeImageConfigResponse extends AbstractModel{
 
     /**
     * AvifAdapter配置项
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AvifAdapter")
     @Expose
     private AvifAdapter AvifAdapter;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get WebpAdapter配置 
      * @return WebpAdapter WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public WebpAdapter getWebpAdapter() {
         return this.WebpAdapter;
@@ -73,19 +68,15 @@ public class DescribeImageConfigResponse extends AbstractModel{
 
     /**
      * Set WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WebpAdapter WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWebpAdapter(WebpAdapter WebpAdapter) {
         this.WebpAdapter = WebpAdapter;
     }
 
     /**
-     * Get TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TpgAdapter配置 
      * @return TpgAdapter TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TpgAdapter getTpgAdapter() {
         return this.TpgAdapter;
@@ -93,19 +84,15 @@ public class DescribeImageConfigResponse extends AbstractModel{
 
     /**
      * Set TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TpgAdapter TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTpgAdapter(TpgAdapter TpgAdapter) {
         this.TpgAdapter = TpgAdapter;
     }
 
     /**
-     * Get GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get GuetzliAdapter配置 
      * @return GuetzliAdapter GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public GuetzliAdapter getGuetzliAdapter() {
         return this.GuetzliAdapter;
@@ -113,19 +100,15 @@ public class DescribeImageConfigResponse extends AbstractModel{
 
     /**
      * Set GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GuetzliAdapter GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGuetzliAdapter(GuetzliAdapter GuetzliAdapter) {
         this.GuetzliAdapter = GuetzliAdapter;
     }
 
     /**
-     * Get AvifAdapter配置项
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get AvifAdapter配置项 
      * @return AvifAdapter AvifAdapter配置项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AvifAdapter getAvifAdapter() {
         return this.AvifAdapter;
@@ -133,25 +116,23 @@ public class DescribeImageConfigResponse extends AbstractModel{
 
     /**
      * Set AvifAdapter配置项
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AvifAdapter AvifAdapter配置项
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvifAdapter(AvifAdapter AvifAdapter) {
         this.AvifAdapter = AvifAdapter;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

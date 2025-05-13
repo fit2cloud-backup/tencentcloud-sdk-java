@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DepartmentManagerUser extends AbstractModel{
+public class DepartmentManagerUser extends AbstractModel {
 
     /**
     * 管理员Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ManagerId")
     @Expose
@@ -32,17 +32,14 @@ public class DepartmentManagerUser extends AbstractModel{
 
     /**
     * 管理员姓名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ManagerName")
     @Expose
     private String ManagerName;
 
     /**
-     * Get 管理员Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 管理员Id 
      * @return ManagerId 管理员Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getManagerId() {
         return this.ManagerId;
@@ -50,19 +47,15 @@ public class DepartmentManagerUser extends AbstractModel{
 
     /**
      * Set 管理员Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ManagerId 管理员Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setManagerId(String ManagerId) {
         this.ManagerId = ManagerId;
     }
 
     /**
-     * Get 管理员姓名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 管理员姓名 
      * @return ManagerName 管理员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getManagerName() {
         return this.ManagerName;
@@ -70,9 +63,7 @@ public class DepartmentManagerUser extends AbstractModel{
 
     /**
      * Set 管理员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ManagerName 管理员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setManagerName(String ManagerName) {
         this.ManagerName = ManagerName;

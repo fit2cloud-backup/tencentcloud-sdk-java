@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListenerHealth extends AbstractModel{
+public class ListenerHealth extends AbstractModel {
 
     /**
     * 监听器ID
@@ -31,7 +32,6 @@ public class ListenerHealth extends AbstractModel{
 
     /**
     * 监听器名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ListenerName")
     @Expose
@@ -53,7 +53,6 @@ public class ListenerHealth extends AbstractModel{
 
     /**
     * 监听器的转发规则列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Rules")
     @Expose
@@ -76,10 +75,8 @@ public class ListenerHealth extends AbstractModel{
     }
 
     /**
-     * Get 监听器名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器名称 
      * @return ListenerName 监听器名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getListenerName() {
         return this.ListenerName;
@@ -87,9 +84,7 @@ public class ListenerHealth extends AbstractModel{
 
     /**
      * Set 监听器名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ListenerName 监听器名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListenerName(String ListenerName) {
         this.ListenerName = ListenerName;
@@ -128,10 +123,8 @@ public class ListenerHealth extends AbstractModel{
     }
 
     /**
-     * Get 监听器的转发规则列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器的转发规则列表 
      * @return Rules 监听器的转发规则列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RuleHealth [] getRules() {
         return this.Rules;
@@ -139,9 +132,7 @@ public class ListenerHealth extends AbstractModel{
 
     /**
      * Set 监听器的转发规则列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Rules 监听器的转发规则列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRules(RuleHealth [] Rules) {
         this.Rules = Rules;

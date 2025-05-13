@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Identification extends AbstractModel{
+public class Identification extends AbstractModel {
 
     /**
     * 站点名称。
@@ -31,7 +32,6 @@ public class Identification extends AbstractModel{
 
     /**
     * 验证子域名。验证站点时，该值为空。验证子域名是为具体子域名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domain")
     @Expose
@@ -55,7 +55,6 @@ public class Identification extends AbstractModel{
 
     /**
     * 域名当前的 NS 记录。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginalNameServers")
     @Expose
@@ -85,10 +84,8 @@ public class Identification extends AbstractModel{
     }
 
     /**
-     * Get 验证子域名。验证站点时，该值为空。验证子域名是为具体子域名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 验证子域名。验证站点时，该值为空。验证子域名是为具体子域名。 
      * @return Domain 验证子域名。验证站点时，该值为空。验证子域名是为具体子域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDomain() {
         return this.Domain;
@@ -96,9 +93,7 @@ public class Identification extends AbstractModel{
 
     /**
      * Set 验证子域名。验证站点时，该值为空。验证子域名是为具体子域名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domain 验证子域名。验证站点时，该值为空。验证子域名是为具体子域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
@@ -145,10 +140,8 @@ public class Identification extends AbstractModel{
     }
 
     /**
-     * Get 域名当前的 NS 记录。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 域名当前的 NS 记录。 
      * @return OriginalNameServers 域名当前的 NS 记录。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getOriginalNameServers() {
         return this.OriginalNameServers;
@@ -156,9 +149,7 @@ public class Identification extends AbstractModel{
 
     /**
      * Set 域名当前的 NS 记录。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginalNameServers 域名当前的 NS 记录。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginalNameServers(String [] OriginalNameServers) {
         this.OriginalNameServers = OriginalNameServers;

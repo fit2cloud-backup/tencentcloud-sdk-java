@@ -16,11 +16,12 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FunctionLog extends AbstractModel{
+public class FunctionLog extends AbstractModel {
 
     /**
     * 函数的名称
@@ -51,7 +52,7 @@ public class FunctionLog extends AbstractModel{
     private String StartTime;
 
     /**
-    * 函数执行结果，如果是 0 表示执行成功，其他值表示失败
+    * 函数执行结果，如果是 0 表示执行成功，2表示函数运行中，3表示函数执行中断，其他值表示失败
     */
     @SerializedName("RetCode")
     @Expose
@@ -178,16 +179,16 @@ public class FunctionLog extends AbstractModel{
     }
 
     /**
-     * Get 函数执行结果，如果是 0 表示执行成功，其他值表示失败 
-     * @return RetCode 函数执行结果，如果是 0 表示执行成功，其他值表示失败
+     * Get 函数执行结果，如果是 0 表示执行成功，2表示函数运行中，3表示函数执行中断，其他值表示失败 
+     * @return RetCode 函数执行结果，如果是 0 表示执行成功，2表示函数运行中，3表示函数执行中断，其他值表示失败
      */
     public Long getRetCode() {
         return this.RetCode;
     }
 
     /**
-     * Set 函数执行结果，如果是 0 表示执行成功，其他值表示失败
-     * @param RetCode 函数执行结果，如果是 0 表示执行成功，其他值表示失败
+     * Set 函数执行结果，如果是 0 表示执行成功，2表示函数运行中，3表示函数执行中断，其他值表示失败
+     * @param RetCode 函数执行结果，如果是 0 表示执行成功，2表示函数运行中，3表示函数执行中断，其他值表示失败
      */
     public void setRetCode(Long RetCode) {
         this.RetCode = RetCode;
@@ -276,7 +277,9 @@ public class FunctionLog extends AbstractModel{
     /**
      * Get 日志等级 
      * @return Level 日志等级
+     * @deprecated
      */
+    @Deprecated
     public String getLevel() {
         return this.Level;
     }
@@ -284,7 +287,9 @@ public class FunctionLog extends AbstractModel{
     /**
      * Set 日志等级
      * @param Level 日志等级
+     * @deprecated
      */
+    @Deprecated
     public void setLevel(String Level) {
         this.Level = Level;
     }
@@ -292,7 +297,9 @@ public class FunctionLog extends AbstractModel{
     /**
      * Get 日志来源 
      * @return Source 日志来源
+     * @deprecated
      */
+    @Deprecated
     public String getSource() {
         return this.Source;
     }
@@ -300,7 +307,9 @@ public class FunctionLog extends AbstractModel{
     /**
      * Set 日志来源
      * @param Source 日志来源
+     * @deprecated
      */
+    @Deprecated
     public void setSource(String Source) {
         this.Source = Source;
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListDeviceInfo extends AbstractModel{
+public class ListDeviceInfo extends AbstractModel {
 
     /**
     * 设备 ID
@@ -30,7 +31,7 @@ public class ListDeviceInfo extends AbstractModel{
     private String DeviceId;
 
     /**
-    * 设备国标编码
+    * 设备编码
     */
     @SerializedName("Code")
     @Expose
@@ -130,16 +131,16 @@ public class ListDeviceInfo extends AbstractModel{
     }
 
     /**
-     * Get 设备国标编码 
-     * @return Code 设备国标编码
+     * Get 设备编码 
+     * @return Code 设备编码
      */
     public String getCode() {
         return this.Code;
     }
 
     /**
-     * Set 设备国标编码
-     * @param Code 设备国标编码
+     * Set 设备编码
+     * @param Code 设备编码
      */
     public void setCode(String Code) {
         this.Code = Code;

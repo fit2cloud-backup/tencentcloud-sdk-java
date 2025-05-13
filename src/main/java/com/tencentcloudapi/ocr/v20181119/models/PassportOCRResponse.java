@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PassportOCRResponse extends AbstractModel{
+public class PassportOCRResponse extends AbstractModel {
 
     /**
     * 国家码
@@ -128,7 +129,14 @@ public class PassportOCRResponse extends AbstractModel{
     private String FirstName;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 头像和坐标信息
+    */
+    @SerializedName("PortraitImageInfo")
+    @Expose
+    private PortraitImageInfo PortraitImageInfo;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -375,16 +383,32 @@ public class PassportOCRResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 头像和坐标信息 
+     * @return PortraitImageInfo 头像和坐标信息
+     */
+    public PortraitImageInfo getPortraitImageInfo() {
+        return this.PortraitImageInfo;
+    }
+
+    /**
+     * Set 头像和坐标信息
+     * @param PortraitImageInfo 头像和坐标信息
+     */
+    public void setPortraitImageInfo(PortraitImageInfo PortraitImageInfo) {
+        this.PortraitImageInfo = PortraitImageInfo;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -443,6 +467,9 @@ public class PassportOCRResponse extends AbstractModel{
         if (source.FirstName != null) {
             this.FirstName = new String(source.FirstName);
         }
+        if (source.PortraitImageInfo != null) {
+            this.PortraitImageInfo = new PortraitImageInfo(source.PortraitImageInfo);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -468,6 +495,7 @@ public class PassportOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "FamilyName", this.FamilyName);
         this.setParamSimple(map, prefix + "FirstName", this.FirstName);
+        this.setParamObj(map, prefix + "PortraitImageInfo.", this.PortraitImageInfo);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WorkGroupInfo extends AbstractModel{
+public class WorkGroupInfo extends AbstractModel {
 
     /**
     * 查询到的工作组唯一Id
@@ -38,7 +39,6 @@ public class WorkGroupInfo extends AbstractModel{
 
     /**
     * 工作组描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WorkGroupDescription")
     @Expose
@@ -114,10 +114,8 @@ public class WorkGroupInfo extends AbstractModel{
     }
 
     /**
-     * Get 工作组描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 工作组描述 
      * @return WorkGroupDescription 工作组描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getWorkGroupDescription() {
         return this.WorkGroupDescription;
@@ -125,9 +123,7 @@ public class WorkGroupInfo extends AbstractModel{
 
     /**
      * Set 工作组描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WorkGroupDescription 工作组描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWorkGroupDescription(String WorkGroupDescription) {
         this.WorkGroupDescription = WorkGroupDescription;

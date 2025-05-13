@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccessControlRuleInfo extends AbstractModel{
+public class AccessControlRuleInfo extends AbstractModel {
 
     /**
     * 开关,true:开启，false:禁用
@@ -52,7 +53,6 @@ public class AccessControlRuleInfo extends AbstractModel{
 
     /**
     * 策略id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleId")
     @Expose
@@ -137,10 +137,8 @@ public class AccessControlRuleInfo extends AbstractModel{
     }
 
     /**
-     * Get 策略id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略id 
      * @return RuleId 策略id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuleId() {
         return this.RuleId;
@@ -148,9 +146,7 @@ public class AccessControlRuleInfo extends AbstractModel{
 
     /**
      * Set 策略id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleId 策略id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleId(String RuleId) {
         this.RuleId = RuleId;

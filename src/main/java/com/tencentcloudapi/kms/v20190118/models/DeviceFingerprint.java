@@ -16,11 +16,12 @@
 package com.tencentcloudapi.kms.v20190118.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeviceFingerprint extends AbstractModel{
+public class DeviceFingerprint extends AbstractModel {
 
     /**
     * 指纹信息，由设备指纹采集工具采集获得，格式满足正则表达式：^[0-9a-f]{8}[\-][0-9a-f]{14}[\-][0-9a-f]{14}[\-][0-9a-f]{14}[\-][0-9a-f]{16}$
@@ -31,7 +32,6 @@ public class DeviceFingerprint extends AbstractModel{
 
     /**
     * 描述信息，如：IP，设备名称等，最大1024字节
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -54,10 +54,8 @@ public class DeviceFingerprint extends AbstractModel{
     }
 
     /**
-     * Get 描述信息，如：IP，设备名称等，最大1024字节
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 描述信息，如：IP，设备名称等，最大1024字节 
      * @return Description 描述信息，如：IP，设备名称等，最大1024字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -65,9 +63,7 @@ public class DeviceFingerprint extends AbstractModel{
 
     /**
      * Set 描述信息，如：IP，设备名称等，最大1024字节
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 描述信息，如：IP，设备名称等，最大1024字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;

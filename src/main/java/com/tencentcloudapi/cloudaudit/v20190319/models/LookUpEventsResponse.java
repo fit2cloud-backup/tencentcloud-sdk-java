@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cloudaudit.v20190319.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LookUpEventsResponse extends AbstractModel{
+public class LookUpEventsResponse extends AbstractModel {
 
     /**
     * 查看更多日志的凭证
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NextToken")
     @Expose
@@ -32,7 +32,6 @@ public class LookUpEventsResponse extends AbstractModel{
 
     /**
     * 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Events")
     @Expose
@@ -40,24 +39,28 @@ public class LookUpEventsResponse extends AbstractModel{
 
     /**
     * 日志集合是否结束
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ListOver")
     @Expose
     private Boolean ListOver;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 数量
+    */
+    @SerializedName("TotalCount")
+    @Expose
+    private Long TotalCount;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 查看更多日志的凭证
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 查看更多日志的凭证 
      * @return NextToken 查看更多日志的凭证
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNextToken() {
         return this.NextToken;
@@ -65,19 +68,15 @@ public class LookUpEventsResponse extends AbstractModel{
 
     /**
      * Set 查看更多日志的凭证
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NextToken 查看更多日志的凭证
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNextToken(String NextToken) {
         this.NextToken = NextToken;
     }
 
     /**
-     * Get 日志集合
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志集合 
      * @return Events 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Event [] getEvents() {
         return this.Events;
@@ -85,19 +84,15 @@ public class LookUpEventsResponse extends AbstractModel{
 
     /**
      * Set 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Events 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEvents(Event [] Events) {
         this.Events = Events;
     }
 
     /**
-     * Get 日志集合是否结束
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志集合是否结束 
      * @return ListOver 日志集合是否结束
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getListOver() {
         return this.ListOver;
@@ -105,25 +100,39 @@ public class LookUpEventsResponse extends AbstractModel{
 
     /**
      * Set 日志集合是否结束
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ListOver 日志集合是否结束
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListOver(Boolean ListOver) {
         this.ListOver = ListOver;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 数量 
+     * @return TotalCount 数量
+     */
+    public Long getTotalCount() {
+        return this.TotalCount;
+    }
+
+    /**
+     * Set 数量
+     * @param TotalCount 数量
+     */
+    public void setTotalCount(Long TotalCount) {
+        this.TotalCount = TotalCount;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -149,6 +158,9 @@ public class LookUpEventsResponse extends AbstractModel{
         if (source.ListOver != null) {
             this.ListOver = new Boolean(source.ListOver);
         }
+        if (source.TotalCount != null) {
+            this.TotalCount = new Long(source.TotalCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -162,6 +174,7 @@ public class LookUpEventsResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "NextToken", this.NextToken);
         this.setParamArrayObj(map, prefix + "Events.", this.Events);
         this.setParamSimple(map, prefix + "ListOver", this.ListOver);
+        this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

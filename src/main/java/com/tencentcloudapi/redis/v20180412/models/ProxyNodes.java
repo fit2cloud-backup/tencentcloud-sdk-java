@@ -16,15 +16,15 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProxyNodes extends AbstractModel{
+public class ProxyNodes extends AbstractModel {
 
     /**
     * 节点 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeId")
     @Expose
@@ -32,17 +32,14 @@ public class ProxyNodes extends AbstractModel{
 
     /**
     * 可用区 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneId")
     @Expose
     private Long ZoneId;
 
     /**
-     * Get 节点 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点 ID。 
      * @return NodeId 节点 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNodeId() {
         return this.NodeId;
@@ -50,19 +47,15 @@ public class ProxyNodes extends AbstractModel{
 
     /**
      * Set 节点 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeId 节点 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeId(String NodeId) {
         this.NodeId = NodeId;
     }
 
     /**
-     * Get 可用区 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区 ID。 
      * @return ZoneId 可用区 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getZoneId() {
         return this.ZoneId;
@@ -70,9 +63,7 @@ public class ProxyNodes extends AbstractModel{
 
     /**
      * Set 可用区 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneId 可用区 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;

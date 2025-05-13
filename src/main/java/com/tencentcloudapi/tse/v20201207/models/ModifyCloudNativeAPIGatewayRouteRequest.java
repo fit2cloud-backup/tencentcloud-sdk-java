@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyCloudNativeAPIGatewayRouteRequest extends AbstractModel{
+public class ModifyCloudNativeAPIGatewayRouteRequest extends AbstractModel {
 
     /**
     * 网关ID
@@ -137,6 +138,27 @@ public class ModifyCloudNativeAPIGatewayRouteRequest extends AbstractModel{
     @SerializedName("Headers")
     @Expose
     private KVMapping [] Headers;
+
+    /**
+    * 是否缓存请求body，默认true
+    */
+    @SerializedName("RequestBuffering")
+    @Expose
+    private Boolean RequestBuffering;
+
+    /**
+    * 是否缓存响应body，默认true
+    */
+    @SerializedName("ResponseBuffering")
+    @Expose
+    private Boolean ResponseBuffering;
+
+    /**
+    * 增加优先级
+    */
+    @SerializedName("RegexPriority")
+    @Expose
+    private Long RegexPriority;
 
     /**
      * Get 网关ID 
@@ -438,6 +460,54 @@ public class ModifyCloudNativeAPIGatewayRouteRequest extends AbstractModel{
         this.Headers = Headers;
     }
 
+    /**
+     * Get 是否缓存请求body，默认true 
+     * @return RequestBuffering 是否缓存请求body，默认true
+     */
+    public Boolean getRequestBuffering() {
+        return this.RequestBuffering;
+    }
+
+    /**
+     * Set 是否缓存请求body，默认true
+     * @param RequestBuffering 是否缓存请求body，默认true
+     */
+    public void setRequestBuffering(Boolean RequestBuffering) {
+        this.RequestBuffering = RequestBuffering;
+    }
+
+    /**
+     * Get 是否缓存响应body，默认true 
+     * @return ResponseBuffering 是否缓存响应body，默认true
+     */
+    public Boolean getResponseBuffering() {
+        return this.ResponseBuffering;
+    }
+
+    /**
+     * Set 是否缓存响应body，默认true
+     * @param ResponseBuffering 是否缓存响应body，默认true
+     */
+    public void setResponseBuffering(Boolean ResponseBuffering) {
+        this.ResponseBuffering = ResponseBuffering;
+    }
+
+    /**
+     * Get 增加优先级 
+     * @return RegexPriority 增加优先级
+     */
+    public Long getRegexPriority() {
+        return this.RegexPriority;
+    }
+
+    /**
+     * Set 增加优先级
+     * @param RegexPriority 增加优先级
+     */
+    public void setRegexPriority(Long RegexPriority) {
+        this.RegexPriority = RegexPriority;
+    }
+
     public ModifyCloudNativeAPIGatewayRouteRequest() {
     }
 
@@ -506,6 +576,15 @@ public class ModifyCloudNativeAPIGatewayRouteRequest extends AbstractModel{
                 this.Headers[i] = new KVMapping(source.Headers[i]);
             }
         }
+        if (source.RequestBuffering != null) {
+            this.RequestBuffering = new Boolean(source.RequestBuffering);
+        }
+        if (source.ResponseBuffering != null) {
+            this.ResponseBuffering = new Boolean(source.ResponseBuffering);
+        }
+        if (source.RegexPriority != null) {
+            this.RegexPriority = new Long(source.RegexPriority);
+        }
     }
 
 
@@ -527,6 +606,9 @@ public class ModifyCloudNativeAPIGatewayRouteRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ForceHttps", this.ForceHttps);
         this.setParamArraySimple(map, prefix + "DestinationPorts.", this.DestinationPorts);
         this.setParamArrayObj(map, prefix + "Headers.", this.Headers);
+        this.setParamSimple(map, prefix + "RequestBuffering", this.RequestBuffering);
+        this.setParamSimple(map, prefix + "ResponseBuffering", this.ResponseBuffering);
+        this.setParamSimple(map, prefix + "RegexPriority", this.RegexPriority);
 
     }
 }

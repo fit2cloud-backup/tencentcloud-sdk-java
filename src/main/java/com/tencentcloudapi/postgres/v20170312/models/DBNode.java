@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DBNode extends AbstractModel{
+public class DBNode extends AbstractModel {
 
     /**
     * 节点类型，值可以为：
@@ -37,6 +38,13 @@ Standby，代表备节点。
     @SerializedName("Zone")
     @Expose
     private String Zone;
+
+    /**
+    * 专属集群ID
+    */
+    @SerializedName("DedicatedClusterId")
+    @Expose
+    private String DedicatedClusterId;
 
     /**
      * Get 节点类型，值可以为：
@@ -78,6 +86,22 @@ Standby，代表备节点。
         this.Zone = Zone;
     }
 
+    /**
+     * Get 专属集群ID 
+     * @return DedicatedClusterId 专属集群ID
+     */
+    public String getDedicatedClusterId() {
+        return this.DedicatedClusterId;
+    }
+
+    /**
+     * Set 专属集群ID
+     * @param DedicatedClusterId 专属集群ID
+     */
+    public void setDedicatedClusterId(String DedicatedClusterId) {
+        this.DedicatedClusterId = DedicatedClusterId;
+    }
+
     public DBNode() {
     }
 
@@ -92,6 +116,9 @@ Standby，代表备节点。
         if (source.Zone != null) {
             this.Zone = new String(source.Zone);
         }
+        if (source.DedicatedClusterId != null) {
+            this.DedicatedClusterId = new String(source.DedicatedClusterId);
+        }
     }
 
 
@@ -101,6 +128,7 @@ Standby，代表备节点。
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Role", this.Role);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamSimple(map, prefix + "DedicatedClusterId", this.DedicatedClusterId);
 
     }
 }

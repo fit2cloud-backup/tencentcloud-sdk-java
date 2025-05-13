@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeStatisticInstanceStatusTrendOpsRequest extends AbstractModel{
+public class DescribeStatisticInstanceStatusTrendOpsRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -112,6 +113,27 @@ public class DescribeStatisticInstanceStatusTrendOpsRequest extends AbstractMode
     @SerializedName("AverageWindowSize")
     @Expose
     private Long AverageWindowSize;
+
+    /**
+    * 工作流ID
+    */
+    @SerializedName("WorkflowId")
+    @Expose
+    private String WorkflowId;
+
+    /**
+    * 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+    */
+    @SerializedName("ProjectIds")
+    @Expose
+    private String [] ProjectIds;
+
+    /**
+    * 指定时间点，当统计时常为整天的时候使用，必须小于 24
+    */
+    @SerializedName("TimePoint")
+    @Expose
+    private Long TimePoint;
 
     /**
      * Get 项目ID 
@@ -321,6 +343,54 @@ public class DescribeStatisticInstanceStatusTrendOpsRequest extends AbstractMode
         this.AverageWindowSize = AverageWindowSize;
     }
 
+    /**
+     * Get 工作流ID 
+     * @return WorkflowId 工作流ID
+     */
+    public String getWorkflowId() {
+        return this.WorkflowId;
+    }
+
+    /**
+     * Set 工作流ID
+     * @param WorkflowId 工作流ID
+     */
+    public void setWorkflowId(String WorkflowId) {
+        this.WorkflowId = WorkflowId;
+    }
+
+    /**
+     * Get 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选 
+     * @return ProjectIds 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+     */
+    public String [] getProjectIds() {
+        return this.ProjectIds;
+    }
+
+    /**
+     * Set 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+     * @param ProjectIds 项目ID列表，用于多项目实例趋势筛选，当指定了 ProjectIds 的时候，ProjectId 将只用来鉴权，不做筛选
+     */
+    public void setProjectIds(String [] ProjectIds) {
+        this.ProjectIds = ProjectIds;
+    }
+
+    /**
+     * Get 指定时间点，当统计时常为整天的时候使用，必须小于 24 
+     * @return TimePoint 指定时间点，当统计时常为整天的时候使用，必须小于 24
+     */
+    public Long getTimePoint() {
+        return this.TimePoint;
+    }
+
+    /**
+     * Set 指定时间点，当统计时常为整天的时候使用，必须小于 24
+     * @param TimePoint 指定时间点，当统计时常为整天的时候使用，必须小于 24
+     */
+    public void setTimePoint(Long TimePoint) {
+        this.TimePoint = TimePoint;
+    }
+
     public DescribeStatisticInstanceStatusTrendOpsRequest() {
     }
 
@@ -371,6 +441,18 @@ public class DescribeStatisticInstanceStatusTrendOpsRequest extends AbstractMode
         if (source.AverageWindowSize != null) {
             this.AverageWindowSize = new Long(source.AverageWindowSize);
         }
+        if (source.WorkflowId != null) {
+            this.WorkflowId = new String(source.WorkflowId);
+        }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new String[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new String(source.ProjectIds[i]);
+            }
+        }
+        if (source.TimePoint != null) {
+            this.TimePoint = new Long(source.TimePoint);
+        }
     }
 
 
@@ -391,6 +473,9 @@ public class DescribeStatisticInstanceStatusTrendOpsRequest extends AbstractMode
         this.setParamArraySimple(map, prefix + "StateList.", this.StateList);
         this.setParamSimple(map, prefix + "AggregationUnit", this.AggregationUnit);
         this.setParamSimple(map, prefix + "AverageWindowSize", this.AverageWindowSize);
+        this.setParamSimple(map, prefix + "WorkflowId", this.WorkflowId);
+        this.setParamArraySimple(map, prefix + "ProjectIds.", this.ProjectIds);
+        this.setParamSimple(map, prefix + "TimePoint", this.TimePoint);
 
     }
 }

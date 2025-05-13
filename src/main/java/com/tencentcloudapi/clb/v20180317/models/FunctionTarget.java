@@ -16,15 +16,15 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FunctionTarget extends AbstractModel{
+public class FunctionTarget extends AbstractModel {
 
     /**
     * 云函数相关信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Function")
     @Expose
@@ -38,10 +38,8 @@ public class FunctionTarget extends AbstractModel{
     private Long Weight;
 
     /**
-     * Get 云函数相关信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云函数相关信息 
      * @return Function 云函数相关信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FunctionInfo getFunction() {
         return this.Function;
@@ -49,9 +47,7 @@ public class FunctionTarget extends AbstractModel{
 
     /**
      * Set 云函数相关信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Function 云函数相关信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFunction(FunctionInfo Function) {
         this.Function = Function;

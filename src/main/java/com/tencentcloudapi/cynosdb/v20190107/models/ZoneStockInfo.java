@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZoneStockInfo extends AbstractModel{
+public class ZoneStockInfo extends AbstractModel {
 
     /**
     * 可用区
@@ -42,6 +43,13 @@ public class ZoneStockInfo extends AbstractModel{
     @SerializedName("StockCount")
     @Expose
     private Long StockCount;
+
+    /**
+    * 备可用区库存信息
+    */
+    @SerializedName("SlaveZoneStockInfos")
+    @Expose
+    private SlaveZoneStockInfo [] SlaveZoneStockInfos;
 
     /**
      * Get 可用区 
@@ -91,6 +99,22 @@ public class ZoneStockInfo extends AbstractModel{
         this.StockCount = StockCount;
     }
 
+    /**
+     * Get 备可用区库存信息 
+     * @return SlaveZoneStockInfos 备可用区库存信息
+     */
+    public SlaveZoneStockInfo [] getSlaveZoneStockInfos() {
+        return this.SlaveZoneStockInfos;
+    }
+
+    /**
+     * Set 备可用区库存信息
+     * @param SlaveZoneStockInfos 备可用区库存信息
+     */
+    public void setSlaveZoneStockInfos(SlaveZoneStockInfo [] SlaveZoneStockInfos) {
+        this.SlaveZoneStockInfos = SlaveZoneStockInfos;
+    }
+
     public ZoneStockInfo() {
     }
 
@@ -108,6 +132,12 @@ public class ZoneStockInfo extends AbstractModel{
         if (source.StockCount != null) {
             this.StockCount = new Long(source.StockCount);
         }
+        if (source.SlaveZoneStockInfos != null) {
+            this.SlaveZoneStockInfos = new SlaveZoneStockInfo[source.SlaveZoneStockInfos.length];
+            for (int i = 0; i < source.SlaveZoneStockInfos.length; i++) {
+                this.SlaveZoneStockInfos[i] = new SlaveZoneStockInfo(source.SlaveZoneStockInfos[i]);
+            }
+        }
     }
 
 
@@ -118,6 +148,7 @@ public class ZoneStockInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "HasStock", this.HasStock);
         this.setParamSimple(map, prefix + "StockCount", this.StockCount);
+        this.setParamArrayObj(map, prefix + "SlaveZoneStockInfos.", this.SlaveZoneStockInfos);
 
     }
 }

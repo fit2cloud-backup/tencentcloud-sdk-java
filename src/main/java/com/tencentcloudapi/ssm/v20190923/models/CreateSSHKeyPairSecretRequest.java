@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSSHKeyPairSecretRequest extends AbstractModel{
+public class CreateSSHKeyPairSecretRequest extends AbstractModel {
 
     /**
     * 凭据名称，同一region内不可重复，最长128字节，使用字母、数字或者 - _ 的组合，第一个字符必须为字母或者数字。
@@ -65,6 +66,13 @@ public class CreateSSHKeyPairSecretRequest extends AbstractModel{
     @SerializedName("SSHKeyName")
     @Expose
     private String SSHKeyName;
+
+    /**
+    * KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+    */
+    @SerializedName("KmsHsmClusterId")
+    @Expose
+    private String KmsHsmClusterId;
 
     /**
      * Get 凭据名称，同一region内不可重复，最长128字节，使用字母、数字或者 - _ 的组合，第一个字符必须为字母或者数字。 
@@ -170,6 +178,22 @@ public class CreateSSHKeyPairSecretRequest extends AbstractModel{
         this.SSHKeyName = SSHKeyName;
     }
 
+    /**
+     * Get KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。 
+     * @return KmsHsmClusterId KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     */
+    public String getKmsHsmClusterId() {
+        return this.KmsHsmClusterId;
+    }
+
+    /**
+     * Set KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     * @param KmsHsmClusterId KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     */
+    public void setKmsHsmClusterId(String KmsHsmClusterId) {
+        this.KmsHsmClusterId = KmsHsmClusterId;
+    }
+
     public CreateSSHKeyPairSecretRequest() {
     }
 
@@ -199,6 +223,9 @@ public class CreateSSHKeyPairSecretRequest extends AbstractModel{
         if (source.SSHKeyName != null) {
             this.SSHKeyName = new String(source.SSHKeyName);
         }
+        if (source.KmsHsmClusterId != null) {
+            this.KmsHsmClusterId = new String(source.KmsHsmClusterId);
+        }
     }
 
 
@@ -212,6 +239,7 @@ public class CreateSSHKeyPairSecretRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "KmsKeyId", this.KmsKeyId);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "SSHKeyName", this.SSHKeyName);
+        this.setParamSimple(map, prefix + "KmsHsmClusterId", this.KmsHsmClusterId);
 
     }
 }

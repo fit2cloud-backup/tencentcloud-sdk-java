@@ -16,11 +16,12 @@
 package com.tencentcloudapi.chdfs.v20201112.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccessGroup extends AbstractModel{
+public class AccessGroup extends AbstractModel {
 
     /**
     * 权限组ID
@@ -51,7 +52,7 @@ public class AccessGroup extends AbstractModel{
     private String CreateTime;
 
     /**
-    * VPC网络类型（1：CVM；2：黑石1.0）
+    * VPC网络类型（1：CVM）
     */
     @SerializedName("VpcType")
     @Expose
@@ -129,16 +130,16 @@ public class AccessGroup extends AbstractModel{
     }
 
     /**
-     * Get VPC网络类型（1：CVM；2：黑石1.0） 
-     * @return VpcType VPC网络类型（1：CVM；2：黑石1.0）
+     * Get VPC网络类型（1：CVM） 
+     * @return VpcType VPC网络类型（1：CVM）
      */
     public Long getVpcType() {
         return this.VpcType;
     }
 
     /**
-     * Set VPC网络类型（1：CVM；2：黑石1.0）
-     * @param VpcType VPC网络类型（1：CVM；2：黑石1.0）
+     * Set VPC网络类型（1：CVM）
+     * @param VpcType VPC网络类型（1：CVM）
      */
     public void setVpcType(Long VpcType) {
         this.VpcType = VpcType;

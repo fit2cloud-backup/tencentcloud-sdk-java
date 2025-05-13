@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DedicatedClusterType extends AbstractModel{
+public class DedicatedClusterType extends AbstractModel {
 
     /**
     * 配置id
@@ -31,7 +32,6 @@ public class DedicatedClusterType extends AbstractModel{
 
     /**
     * 配置描述，对应描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -87,7 +87,7 @@ public class DedicatedClusterType extends AbstractModel{
     private Float PowerDrawKva;
 
     /**
-    * 显示计算资源规格详情，存储等资源不显示；对应规格
+    * 显示计算资源规格详情，存储等资源不显示
     */
     @SerializedName("ComputeFormatDesc")
     @Expose
@@ -110,10 +110,8 @@ public class DedicatedClusterType extends AbstractModel{
     }
 
     /**
-     * Get 配置描述，对应描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配置描述，对应描述 
      * @return Description 配置描述，对应描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -121,9 +119,7 @@ public class DedicatedClusterType extends AbstractModel{
 
     /**
      * Set 配置描述，对应描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 配置描述，对应描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -242,16 +238,16 @@ public class DedicatedClusterType extends AbstractModel{
     }
 
     /**
-     * Get 显示计算资源规格详情，存储等资源不显示；对应规格 
-     * @return ComputeFormatDesc 显示计算资源规格详情，存储等资源不显示；对应规格
+     * Get 显示计算资源规格详情，存储等资源不显示 
+     * @return ComputeFormatDesc 显示计算资源规格详情，存储等资源不显示
      */
     public String getComputeFormatDesc() {
         return this.ComputeFormatDesc;
     }
 
     /**
-     * Set 显示计算资源规格详情，存储等资源不显示；对应规格
-     * @param ComputeFormatDesc 显示计算资源规格详情，存储等资源不显示；对应规格
+     * Set 显示计算资源规格详情，存储等资源不显示
+     * @param ComputeFormatDesc 显示计算资源规格详情，存储等资源不显示
      */
     public void setComputeFormatDesc(String ComputeFormatDesc) {
         this.ComputeFormatDesc = ComputeFormatDesc;

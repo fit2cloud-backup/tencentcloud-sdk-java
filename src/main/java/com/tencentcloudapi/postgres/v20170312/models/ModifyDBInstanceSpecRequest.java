@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyDBInstanceSpecRequest extends AbstractModel{
+public class ModifyDBInstanceSpecRequest extends AbstractModel {
 
     /**
     * 实例ID，形如：postgres-6bwgamo3。
@@ -45,8 +46,8 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
 
     /**
     * 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
     */
     @SerializedName("AutoVoucher")
@@ -69,9 +70,9 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
 
     /**
     * 指定实例配置完成变更后的切换时间。
-<li>0：立即切换 
-<li>1：指定时间切换
-<li>2：维护时间窗口内切换
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内</li>切换
 默认值：0 
     */
     @SerializedName("SwitchTag")
@@ -91,6 +92,13 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
     @SerializedName("SwitchEndTime")
     @Expose
     private String SwitchEndTime;
+
+    /**
+    * 修改后的实例CPU大小，单位Core。
+    */
+    @SerializedName("Cpu")
+    @Expose
+    private Long Cpu;
 
     /**
      * Get 实例ID，形如：postgres-6bwgamo3。 
@@ -142,12 +150,12 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
 
     /**
      * Get 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0 
      * @return AutoVoucher 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public Long getAutoVoucher() {
@@ -156,12 +164,12 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
 
     /**
      * Set 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      * @param AutoVoucher 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public void setAutoVoucher(Long AutoVoucher) {
@@ -202,14 +210,14 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
 
     /**
      * Get 指定实例配置完成变更后的切换时间。
-<li>0：立即切换 
-<li>1：指定时间切换
-<li>2：维护时间窗口内切换
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内</li>切换
 默认值：0  
      * @return SwitchTag 指定实例配置完成变更后的切换时间。
-<li>0：立即切换 
-<li>1：指定时间切换
-<li>2：维护时间窗口内切换
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内</li>切换
 默认值：0 
      */
     public Long getSwitchTag() {
@@ -218,14 +226,14 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
 
     /**
      * Set 指定实例配置完成变更后的切换时间。
-<li>0：立即切换 
-<li>1：指定时间切换
-<li>2：维护时间窗口内切换
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内</li>切换
 默认值：0 
      * @param SwitchTag 指定实例配置完成变更后的切换时间。
-<li>0：立即切换 
-<li>1：指定时间切换
-<li>2：维护时间窗口内切换
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内</li>切换
 默认值：0 
      */
     public void setSwitchTag(Long SwitchTag) {
@@ -262,6 +270,22 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
      */
     public void setSwitchEndTime(String SwitchEndTime) {
         this.SwitchEndTime = SwitchEndTime;
+    }
+
+    /**
+     * Get 修改后的实例CPU大小，单位Core。 
+     * @return Cpu 修改后的实例CPU大小，单位Core。
+     */
+    public Long getCpu() {
+        return this.Cpu;
+    }
+
+    /**
+     * Set 修改后的实例CPU大小，单位Core。
+     * @param Cpu 修改后的实例CPU大小，单位Core。
+     */
+    public void setCpu(Long Cpu) {
+        this.Cpu = Cpu;
     }
 
     public ModifyDBInstanceSpecRequest() {
@@ -302,6 +326,9 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
         if (source.SwitchEndTime != null) {
             this.SwitchEndTime = new String(source.SwitchEndTime);
         }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
     }
 
 
@@ -318,6 +345,7 @@ public class ModifyDBInstanceSpecRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SwitchTag", this.SwitchTag);
         this.setParamSimple(map, prefix + "SwitchStartTime", this.SwitchStartTime);
         this.setParamSimple(map, prefix + "SwitchEndTime", this.SwitchEndTime);
+        this.setParamSimple(map, prefix + "Cpu", this.Cpu);
 
     }
 }

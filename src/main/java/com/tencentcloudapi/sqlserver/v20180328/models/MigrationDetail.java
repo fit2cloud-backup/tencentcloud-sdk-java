@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MigrationDetail extends AbstractModel{
+public class MigrationDetail extends AbstractModel {
 
     /**
     * 总步骤数
@@ -45,7 +46,6 @@ public class MigrationDetail extends AbstractModel{
 
     /**
     * 步骤信息，null表示还未开始迁移
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StepInfo")
     @Expose
@@ -100,10 +100,8 @@ public class MigrationDetail extends AbstractModel{
     }
 
     /**
-     * Get 步骤信息，null表示还未开始迁移
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 步骤信息，null表示还未开始迁移 
      * @return StepInfo 步骤信息，null表示还未开始迁移
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MigrationStep [] getStepInfo() {
         return this.StepInfo;
@@ -111,9 +109,7 @@ public class MigrationDetail extends AbstractModel{
 
     /**
      * Set 步骤信息，null表示还未开始迁移
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StepInfo 步骤信息，null表示还未开始迁移
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStepInfo(MigrationStep [] StepInfo) {
         this.StepInfo = StepInfo;

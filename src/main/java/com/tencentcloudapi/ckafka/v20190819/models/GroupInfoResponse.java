@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GroupInfoResponse extends AbstractModel{
+public class GroupInfoResponse extends AbstractModel {
 
     /**
     * 错误码，正常为0
@@ -63,7 +64,7 @@ Stable：消费分组中各个消费者已经加入，处于稳定状态
     private GroupInfoMember [] Members;
 
     /**
-    * Kafka 消费分组
+    * 消费分组名称
     */
     @SerializedName("Group")
     @Expose
@@ -170,16 +171,16 @@ Stable：消费分组中各个消费者已经加入，处于稳定状态
     }
 
     /**
-     * Get Kafka 消费分组 
-     * @return Group Kafka 消费分组
+     * Get 消费分组名称 
+     * @return Group 消费分组名称
      */
     public String getGroup() {
         return this.Group;
     }
 
     /**
-     * Set Kafka 消费分组
-     * @param Group Kafka 消费分组
+     * Set 消费分组名称
+     * @param Group 消费分组名称
      */
     public void setGroup(String Group) {
         this.Group = Group;

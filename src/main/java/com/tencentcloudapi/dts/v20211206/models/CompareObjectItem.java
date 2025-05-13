@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CompareObjectItem extends AbstractModel{
+public class CompareObjectItem extends AbstractModel {
 
     /**
     * 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DbName")
     @Expose
@@ -32,7 +32,6 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
     * 数据库选择模式: all 为当前对象下的所有对象,partial 为部分对象
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DbMode")
     @Expose
@@ -40,7 +39,6 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
     * schema名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SchemaName")
     @Expose
@@ -48,7 +46,6 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
     * 表选择模式: all 为当前对象下的所有表对象,partial 为部分表对象
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TableMode")
     @Expose
@@ -56,22 +53,20 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
     * 用于一致性校验的表配置，当 TableMode 为 partial 时，需要填写
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tables")
     @Expose
     private CompareTableItem [] Tables;
 
     /**
-    * 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象
-注意：此字段可能返回 null，表示取不到有效值。
+    * 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象(一致性校验不校验视图，当前参数未启作用)
     */
     @SerializedName("ViewMode")
     @Expose
     private String ViewMode;
 
     /**
-    * 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写
+    * 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写(一致性校验不校验视图，当前参数未启作用)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Views")
@@ -79,10 +74,8 @@ public class CompareObjectItem extends AbstractModel{
     private CompareViewItem [] Views;
 
     /**
-     * Get 数据库名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库名 
      * @return DbName 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDbName() {
         return this.DbName;
@@ -90,19 +83,15 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
      * Set 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DbName 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDbName(String DbName) {
         this.DbName = DbName;
     }
 
     /**
-     * Get 数据库选择模式: all 为当前对象下的所有对象,partial 为部分对象
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库选择模式: all 为当前对象下的所有对象,partial 为部分对象 
      * @return DbMode 数据库选择模式: all 为当前对象下的所有对象,partial 为部分对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDbMode() {
         return this.DbMode;
@@ -110,19 +99,15 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
      * Set 数据库选择模式: all 为当前对象下的所有对象,partial 为部分对象
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DbMode 数据库选择模式: all 为当前对象下的所有对象,partial 为部分对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDbMode(String DbMode) {
         this.DbMode = DbMode;
     }
 
     /**
-     * Get schema名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get schema名称 
      * @return SchemaName schema名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSchemaName() {
         return this.SchemaName;
@@ -130,19 +115,15 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
      * Set schema名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SchemaName schema名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSchemaName(String SchemaName) {
         this.SchemaName = SchemaName;
     }
 
     /**
-     * Get 表选择模式: all 为当前对象下的所有表对象,partial 为部分表对象
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表选择模式: all 为当前对象下的所有表对象,partial 为部分表对象 
      * @return TableMode 表选择模式: all 为当前对象下的所有表对象,partial 为部分表对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTableMode() {
         return this.TableMode;
@@ -150,19 +131,15 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
      * Set 表选择模式: all 为当前对象下的所有表对象,partial 为部分表对象
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TableMode 表选择模式: all 为当前对象下的所有表对象,partial 为部分表对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTableMode(String TableMode) {
         this.TableMode = TableMode;
     }
 
     /**
-     * Get 用于一致性校验的表配置，当 TableMode 为 partial 时，需要填写
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用于一致性校验的表配置，当 TableMode 为 partial 时，需要填写 
      * @return Tables 用于一致性校验的表配置，当 TableMode 为 partial 时，需要填写
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CompareTableItem [] getTables() {
         return this.Tables;
@@ -170,38 +147,32 @@ public class CompareObjectItem extends AbstractModel{
 
     /**
      * Set 用于一致性校验的表配置，当 TableMode 为 partial 时，需要填写
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tables 用于一致性校验的表配置，当 TableMode 为 partial 时，需要填写
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTables(CompareTableItem [] Tables) {
         this.Tables = Tables;
     }
 
     /**
-     * Get 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ViewMode 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象(一致性校验不校验视图，当前参数未启作用) 
+     * @return ViewMode 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象(一致性校验不校验视图，当前参数未启作用)
      */
     public String getViewMode() {
         return this.ViewMode;
     }
 
     /**
-     * Set 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ViewMode 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象(一致性校验不校验视图，当前参数未启作用)
+     * @param ViewMode 视图选择模式: all 为当前对象下的所有视图对象,partial 为部分视图对象(一致性校验不校验视图，当前参数未启作用)
      */
     public void setViewMode(String ViewMode) {
         this.ViewMode = ViewMode;
     }
 
     /**
-     * Get 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写
+     * Get 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写(一致性校验不校验视图，当前参数未启作用)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Views 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写
+     * @return Views 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写(一致性校验不校验视图，当前参数未启作用)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public CompareViewItem [] getViews() {
@@ -209,9 +180,9 @@ public class CompareObjectItem extends AbstractModel{
     }
 
     /**
-     * Set 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写
+     * Set 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写(一致性校验不校验视图，当前参数未启作用)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Views 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写
+     * @param Views 用于一致性校验的视图配置，当 ViewMode 为 partial 时， 需要填写(一致性校验不校验视图，当前参数未启作用)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setViews(CompareViewItem [] Views) {

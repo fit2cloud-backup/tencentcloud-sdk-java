@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WorkflowExtOpsDto extends AbstractModel{
+public class WorkflowExtOpsDto extends AbstractModel {
 
     /**
     * 任务数量count
@@ -133,6 +134,14 @@ public class WorkflowExtOpsDto extends AbstractModel{
     @SerializedName("ModifyTime")
     @Expose
     private String ModifyTime;
+
+    /**
+    * 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WorkflowType")
+    @Expose
+    private String WorkflowType;
 
     /**
      * Get 任务数量count
@@ -414,6 +423,26 @@ public class WorkflowExtOpsDto extends AbstractModel{
         this.ModifyTime = ModifyTime;
     }
 
+    /**
+     * Get 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WorkflowType 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWorkflowType() {
+        return this.WorkflowType;
+    }
+
+    /**
+     * Set 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WorkflowType 工作流类型，周期cycle，手动manual
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWorkflowType(String WorkflowType) {
+        this.WorkflowType = WorkflowType;
+    }
+
     public WorkflowExtOpsDto() {
     }
 
@@ -464,6 +493,9 @@ public class WorkflowExtOpsDto extends AbstractModel{
         if (source.ModifyTime != null) {
             this.ModifyTime = new String(source.ModifyTime);
         }
+        if (source.WorkflowType != null) {
+            this.WorkflowType = new String(source.WorkflowType);
+        }
     }
 
 
@@ -485,6 +517,7 @@ public class WorkflowExtOpsDto extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
+        this.setParamSimple(map, prefix + "WorkflowType", this.WorkflowType);
 
     }
 }

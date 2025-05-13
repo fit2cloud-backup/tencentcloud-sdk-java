@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VpcEndpointInfo extends AbstractModel{
+public class VpcEndpointInfo extends AbstractModel {
 
     /**
     * vpc的id
@@ -44,9 +45,7 @@ public class VpcEndpointInfo extends AbstractModel{
     private String VpcEndpoint;
 
     /**
-    * vpc接入点状态
-OFF/ON/CREATING/DELETING
-注意：此字段可能返回 null，表示取不到有效值。
+    * vpc接入点状态 OFF/ON/CREATING/DELETING
     */
     @SerializedName("VpcDataStreamEndpointStatus")
     @Expose
@@ -101,24 +100,16 @@ OFF/ON/CREATING/DELETING
     }
 
     /**
-     * Get vpc接入点状态
-OFF/ON/CREATING/DELETING
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return VpcDataStreamEndpointStatus vpc接入点状态
-OFF/ON/CREATING/DELETING
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get vpc接入点状态 OFF/ON/CREATING/DELETING 
+     * @return VpcDataStreamEndpointStatus vpc接入点状态 OFF/ON/CREATING/DELETING
      */
     public String getVpcDataStreamEndpointStatus() {
         return this.VpcDataStreamEndpointStatus;
     }
 
     /**
-     * Set vpc接入点状态
-OFF/ON/CREATING/DELETING
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param VpcDataStreamEndpointStatus vpc接入点状态
-OFF/ON/CREATING/DELETING
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set vpc接入点状态 OFF/ON/CREATING/DELETING
+     * @param VpcDataStreamEndpointStatus vpc接入点状态 OFF/ON/CREATING/DELETING
      */
     public void setVpcDataStreamEndpointStatus(String VpcDataStreamEndpointStatus) {
         this.VpcDataStreamEndpointStatus = VpcDataStreamEndpointStatus;

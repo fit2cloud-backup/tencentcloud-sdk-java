@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AdaptiveDynamicStreamingTaskInput extends AbstractModel{
+public class AdaptiveDynamicStreamingTaskInput extends AbstractModel {
 
     /**
     * 转自适应码流模板 ID。
@@ -45,7 +46,14 @@ public class AdaptiveDynamicStreamingTaskInput extends AbstractModel{
     private TaskOutputStorage OutputStorage;
 
     /**
-    * 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}.{format}`。
+    * 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：{inputName}_adaptiveDynamicStreaming_{definition}.{format}。
     */
     @SerializedName("OutputObjectPath")
     @Expose
@@ -72,6 +80,24 @@ public class AdaptiveDynamicStreamingTaskInput extends AbstractModel{
     @SerializedName("AddOnSubtitles")
     @Expose
     private AddOnSubtitle [] AddOnSubtitles;
+
+    /**
+    * Drm信息。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DrmInfo")
+    @Expose
+    private DrmInfo DrmInfo;
+
+    /**
+    * 自适应转码模板类型：
+Common：音视频类型
+PureAudio：纯音频类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DefinitionType")
+    @Expose
+    private String DefinitionType;
 
     /**
      * Get 转自适应码流模板 ID。 
@@ -126,16 +152,44 @@ public class AdaptiveDynamicStreamingTaskInput extends AbstractModel{
     }
 
     /**
-     * Get 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}.{format}`。 
-     * @return OutputObjectPath 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}.{format}`。
+     * Get 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：{inputName}_adaptiveDynamicStreaming_{definition}.{format}。 
+     * @return OutputObjectPath 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：{inputName}_adaptiveDynamicStreaming_{definition}.{format}。
      */
     public String getOutputObjectPath() {
         return this.OutputObjectPath;
     }
 
     /**
-     * Set 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}.{format}`。
-     * @param OutputObjectPath 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。如果不填，则默认为相对路径：`{inputName}_adaptiveDynamicStreaming_{definition}.{format}`。
+     * Set 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：{inputName}_adaptiveDynamicStreaming_{definition}.{format}。
+     * @param OutputObjectPath 转自适应码流后，manifest 文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：{inputName}_adaptiveDynamicStreaming_{definition}.{format}。
      */
     public void setOutputObjectPath(String OutputObjectPath) {
         this.OutputObjectPath = OutputObjectPath;
@@ -193,6 +247,54 @@ public class AdaptiveDynamicStreamingTaskInput extends AbstractModel{
         this.AddOnSubtitles = AddOnSubtitles;
     }
 
+    /**
+     * Get Drm信息。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DrmInfo Drm信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DrmInfo getDrmInfo() {
+        return this.DrmInfo;
+    }
+
+    /**
+     * Set Drm信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DrmInfo Drm信息。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDrmInfo(DrmInfo DrmInfo) {
+        this.DrmInfo = DrmInfo;
+    }
+
+    /**
+     * Get 自适应转码模板类型：
+Common：音视频类型
+PureAudio：纯音频类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DefinitionType 自适应转码模板类型：
+Common：音视频类型
+PureAudio：纯音频类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDefinitionType() {
+        return this.DefinitionType;
+    }
+
+    /**
+     * Set 自适应转码模板类型：
+Common：音视频类型
+PureAudio：纯音频类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DefinitionType 自适应转码模板类型：
+Common：音视频类型
+PureAudio：纯音频类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDefinitionType(String DefinitionType) {
+        this.DefinitionType = DefinitionType;
+    }
+
     public AdaptiveDynamicStreamingTaskInput() {
     }
 
@@ -228,6 +330,12 @@ public class AdaptiveDynamicStreamingTaskInput extends AbstractModel{
                 this.AddOnSubtitles[i] = new AddOnSubtitle(source.AddOnSubtitles[i]);
             }
         }
+        if (source.DrmInfo != null) {
+            this.DrmInfo = new DrmInfo(source.DrmInfo);
+        }
+        if (source.DefinitionType != null) {
+            this.DefinitionType = new String(source.DefinitionType);
+        }
     }
 
 
@@ -242,6 +350,8 @@ public class AdaptiveDynamicStreamingTaskInput extends AbstractModel{
         this.setParamSimple(map, prefix + "SubStreamObjectName", this.SubStreamObjectName);
         this.setParamSimple(map, prefix + "SegmentObjectName", this.SegmentObjectName);
         this.setParamArrayObj(map, prefix + "AddOnSubtitles.", this.AddOnSubtitles);
+        this.setParamObj(map, prefix + "DrmInfo.", this.DrmInfo);
+        this.setParamSimple(map, prefix + "DefinitionType", this.DefinitionType);
 
     }
 }

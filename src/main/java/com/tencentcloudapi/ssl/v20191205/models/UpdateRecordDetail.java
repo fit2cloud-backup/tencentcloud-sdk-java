@@ -16,28 +16,29 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateRecordDetail extends AbstractModel{
+public class UpdateRecordDetail extends AbstractModel {
 
     /**
-    * 详情记录id
+    * 更新详情记录id
     */
     @SerializedName("Id")
     @Expose
     private Long Id;
 
     /**
-    * 新证书ID
+    * 新旧证书更新 - 新证书ID
     */
     @SerializedName("CertId")
     @Expose
     private String CertId;
 
     /**
-    * 旧证书ID
+    * 新旧证书更新 - 旧证书ID
     */
     @SerializedName("OldCertId")
     @Expose
@@ -52,7 +53,19 @@ public class UpdateRecordDetail extends AbstractModel{
     private String [] Domains;
 
     /**
-    * 部署资源类型
+    * 新旧证书更新云资源的云资源类型：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
     */
     @SerializedName("ResourceType")
     @Expose
@@ -67,7 +80,14 @@ public class UpdateRecordDetail extends AbstractModel{
     private String Region;
 
     /**
-    * 部署状态
+    * 部署状态， 取值范围：
+0：待部署
+1：部署成功
+2：部署失败
+3：部署中
+4：回滚成功
+5：回滚失败
+6：无资源，无需部署
     */
     @SerializedName("Status")
     @Expose
@@ -177,7 +197,6 @@ public class UpdateRecordDetail extends AbstractModel{
 
     /**
     * 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvId")
     @Expose
@@ -185,55 +204,61 @@ public class UpdateRecordDetail extends AbstractModel{
 
     /**
     * TCB部署类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TCBType")
     @Expose
     private String TCBType;
 
     /**
-     * Get 详情记录id 
-     * @return Id 详情记录id
+    * 监听器Url(clb专属)
+    */
+    @SerializedName("Url")
+    @Expose
+    private String Url;
+
+    /**
+     * Get 更新详情记录id 
+     * @return Id 更新详情记录id
      */
     public Long getId() {
         return this.Id;
     }
 
     /**
-     * Set 详情记录id
-     * @param Id 详情记录id
+     * Set 更新详情记录id
+     * @param Id 更新详情记录id
      */
     public void setId(Long Id) {
         this.Id = Id;
     }
 
     /**
-     * Get 新证书ID 
-     * @return CertId 新证书ID
+     * Get 新旧证书更新 - 新证书ID 
+     * @return CertId 新旧证书更新 - 新证书ID
      */
     public String getCertId() {
         return this.CertId;
     }
 
     /**
-     * Set 新证书ID
-     * @param CertId 新证书ID
+     * Set 新旧证书更新 - 新证书ID
+     * @param CertId 新旧证书更新 - 新证书ID
      */
     public void setCertId(String CertId) {
         this.CertId = CertId;
     }
 
     /**
-     * Get 旧证书ID 
-     * @return OldCertId 旧证书ID
+     * Get 新旧证书更新 - 旧证书ID 
+     * @return OldCertId 新旧证书更新 - 旧证书ID
      */
     public String getOldCertId() {
         return this.OldCertId;
     }
 
     /**
-     * Set 旧证书ID
-     * @param OldCertId 旧证书ID
+     * Set 新旧证书更新 - 旧证书ID
+     * @param OldCertId 新旧证书更新 - 旧证书ID
      */
     public void setOldCertId(String OldCertId) {
         this.OldCertId = OldCertId;
@@ -260,16 +285,64 @@ public class UpdateRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get 部署资源类型 
-     * @return ResourceType 部署资源类型
+     * Get 新旧证书更新云资源的云资源类型：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb 
+     * @return ResourceType 新旧证书更新云资源的云资源类型：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 部署资源类型
-     * @param ResourceType 部署资源类型
+     * Set 新旧证书更新云资源的云资源类型：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
+     * @param ResourceType 新旧证书更新云资源的云资源类型：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
@@ -296,16 +369,44 @@ public class UpdateRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get 部署状态 
-     * @return Status 部署状态
+     * Get 部署状态， 取值范围：
+0：待部署
+1：部署成功
+2：部署失败
+3：部署中
+4：回滚成功
+5：回滚失败
+6：无资源，无需部署 
+     * @return Status 部署状态， 取值范围：
+0：待部署
+1：部署成功
+2：部署失败
+3：部署中
+4：回滚成功
+5：回滚失败
+6：无资源，无需部署
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 部署状态
-     * @param Status 部署状态
+     * Set 部署状态， 取值范围：
+0：待部署
+1：部署成功
+2：部署失败
+3：部署中
+4：回滚成功
+5：回滚失败
+6：无资源，无需部署
+     * @param Status 部署状态， 取值范围：
+0：待部署
+1：部署成功
+2：部署失败
+3：部署中
+4：回滚成功
+5：回滚失败
+6：无资源，无需部署
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -564,10 +665,8 @@ public class UpdateRecordDetail extends AbstractModel{
     }
 
     /**
-     * Get 环境ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境ID 
      * @return EnvId 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvId() {
         return this.EnvId;
@@ -575,19 +674,15 @@ public class UpdateRecordDetail extends AbstractModel{
 
     /**
      * Set 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvId 环境ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvId(String EnvId) {
         this.EnvId = EnvId;
     }
 
     /**
-     * Get TCB部署类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TCB部署类型 
      * @return TCBType TCB部署类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTCBType() {
         return this.TCBType;
@@ -595,12 +690,26 @@ public class UpdateRecordDetail extends AbstractModel{
 
     /**
      * Set TCB部署类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TCBType TCB部署类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTCBType(String TCBType) {
         this.TCBType = TCBType;
+    }
+
+    /**
+     * Get 监听器Url(clb专属) 
+     * @return Url 监听器Url(clb专属)
+     */
+    public String getUrl() {
+        return this.Url;
+    }
+
+    /**
+     * Set 监听器Url(clb专属)
+     * @param Url 监听器Url(clb专属)
+     */
+    public void setUrl(String Url) {
+        this.Url = Url;
     }
 
     public UpdateRecordDetail() {
@@ -680,6 +789,9 @@ public class UpdateRecordDetail extends AbstractModel{
         if (source.TCBType != null) {
             this.TCBType = new String(source.TCBType);
         }
+        if (source.Url != null) {
+            this.Url = new String(source.Url);
+        }
     }
 
 
@@ -709,6 +821,7 @@ public class UpdateRecordDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "SecretName", this.SecretName);
         this.setParamSimple(map, prefix + "EnvId", this.EnvId);
         this.setParamSimple(map, prefix + "TCBType", this.TCBType);
+        this.setParamSimple(map, prefix + "Url", this.Url);
 
     }
 }

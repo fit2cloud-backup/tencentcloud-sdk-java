@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BirthCert extends AbstractModel{
+public class BirthCert extends AbstractModel {
 
     /**
     * 新生儿信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NeonatalInfo")
     @Expose
@@ -32,7 +32,6 @@ public class BirthCert extends AbstractModel{
 
     /**
     * 母亲信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MotherInfo")
     @Expose
@@ -40,7 +39,6 @@ public class BirthCert extends AbstractModel{
 
     /**
     * 父亲信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FatherInfo")
     @Expose
@@ -48,17 +46,21 @@ public class BirthCert extends AbstractModel{
 
     /**
     * 签发信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IssueInfo")
     @Expose
     private IssueInfo IssueInfo;
 
     /**
-     * Get 新生儿信息
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 新生儿信息 
      * @return NeonatalInfo 新生儿信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public NeonatalInfo getNeonatalInfo() {
         return this.NeonatalInfo;
@@ -66,19 +68,15 @@ public class BirthCert extends AbstractModel{
 
     /**
      * Set 新生儿信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NeonatalInfo 新生儿信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNeonatalInfo(NeonatalInfo NeonatalInfo) {
         this.NeonatalInfo = NeonatalInfo;
     }
 
     /**
-     * Get 母亲信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 母亲信息 
      * @return MotherInfo 母亲信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParentInfo getMotherInfo() {
         return this.MotherInfo;
@@ -86,19 +84,15 @@ public class BirthCert extends AbstractModel{
 
     /**
      * Set 母亲信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MotherInfo 母亲信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMotherInfo(ParentInfo MotherInfo) {
         this.MotherInfo = MotherInfo;
     }
 
     /**
-     * Get 父亲信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 父亲信息 
      * @return FatherInfo 父亲信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParentInfo getFatherInfo() {
         return this.FatherInfo;
@@ -106,19 +100,15 @@ public class BirthCert extends AbstractModel{
 
     /**
      * Set 父亲信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FatherInfo 父亲信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFatherInfo(ParentInfo FatherInfo) {
         this.FatherInfo = FatherInfo;
     }
 
     /**
-     * Get 签发信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签发信息 
      * @return IssueInfo 签发信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IssueInfo getIssueInfo() {
         return this.IssueInfo;
@@ -126,12 +116,26 @@ public class BirthCert extends AbstractModel{
 
     /**
      * Set 签发信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IssueInfo 签发信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIssueInfo(IssueInfo IssueInfo) {
         this.IssueInfo = IssueInfo;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public BirthCert() {
@@ -154,6 +158,9 @@ public class BirthCert extends AbstractModel{
         if (source.IssueInfo != null) {
             this.IssueInfo = new IssueInfo(source.IssueInfo);
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -165,6 +172,7 @@ public class BirthCert extends AbstractModel{
         this.setParamObj(map, prefix + "MotherInfo.", this.MotherInfo);
         this.setParamObj(map, prefix + "FatherInfo.", this.FatherInfo);
         this.setParamObj(map, prefix + "IssueInfo.", this.IssueInfo);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

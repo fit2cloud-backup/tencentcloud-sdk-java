@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyApplicationProxyRequest extends AbstractModel{
+public class ModifyApplicationProxyRequest extends AbstractModel {
 
     /**
     * 站点 ID。
@@ -54,8 +55,7 @@ public class ModifyApplicationProxyRequest extends AbstractModel{
 
     /**
     * 四层代理模式，取值有：
-<li>hostname：表示子域名模式；</li>
-<li>instance：表示实例模式。</li>不填写保持原有配置。
+<li>instance：表示实例模式。</li>不填写使用默认值instance。
     */
     @SerializedName("ProxyType")
     @Expose
@@ -149,11 +149,9 @@ public class ModifyApplicationProxyRequest extends AbstractModel{
 
     /**
      * Get 四层代理模式，取值有：
-<li>hostname：表示子域名模式；</li>
-<li>instance：表示实例模式。</li>不填写保持原有配置。 
+<li>instance：表示实例模式。</li>不填写使用默认值instance。 
      * @return ProxyType 四层代理模式，取值有：
-<li>hostname：表示子域名模式；</li>
-<li>instance：表示实例模式。</li>不填写保持原有配置。
+<li>instance：表示实例模式。</li>不填写使用默认值instance。
      */
     public String getProxyType() {
         return this.ProxyType;
@@ -161,11 +159,9 @@ public class ModifyApplicationProxyRequest extends AbstractModel{
 
     /**
      * Set 四层代理模式，取值有：
-<li>hostname：表示子域名模式；</li>
-<li>instance：表示实例模式。</li>不填写保持原有配置。
+<li>instance：表示实例模式。</li>不填写使用默认值instance。
      * @param ProxyType 四层代理模式，取值有：
-<li>hostname：表示子域名模式；</li>
-<li>instance：表示实例模式。</li>不填写保持原有配置。
+<li>instance：表示实例模式。</li>不填写使用默认值instance。
      */
     public void setProxyType(String ProxyType) {
         this.ProxyType = ProxyType;

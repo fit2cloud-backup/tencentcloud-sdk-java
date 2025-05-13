@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel{
+public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel {
 
     /**
     * 网络协议，可选值：`TCP`、`UDP`。
@@ -30,7 +31,7 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
     private String IpProtocol;
 
     /**
-    * 弹性IP。
+    * 弹性公网IP。
     */
     @SerializedName("PublicIpAddress")
     @Expose
@@ -66,7 +67,6 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
 
     /**
     * NAT网关的ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NatGatewayId")
     @Expose
@@ -74,7 +74,6 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
 
     /**
     * 私有网络VPC的ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -82,7 +81,6 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
 
     /**
     * NAT网关转发规则创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatedTime")
     @Expose
@@ -105,16 +103,16 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
     }
 
     /**
-     * Get 弹性IP。 
-     * @return PublicIpAddress 弹性IP。
+     * Get 弹性公网IP。 
+     * @return PublicIpAddress 弹性公网IP。
      */
     public String getPublicIpAddress() {
         return this.PublicIpAddress;
     }
 
     /**
-     * Set 弹性IP。
-     * @param PublicIpAddress 弹性IP。
+     * Set 弹性公网IP。
+     * @param PublicIpAddress 弹性公网IP。
      */
     public void setPublicIpAddress(String PublicIpAddress) {
         this.PublicIpAddress = PublicIpAddress;
@@ -185,10 +183,8 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
     }
 
     /**
-     * Get NAT网关的ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get NAT网关的ID。 
      * @return NatGatewayId NAT网关的ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNatGatewayId() {
         return this.NatGatewayId;
@@ -196,19 +192,15 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
 
     /**
      * Set NAT网关的ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NatGatewayId NAT网关的ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNatGatewayId(String NatGatewayId) {
         this.NatGatewayId = NatGatewayId;
     }
 
     /**
-     * Get 私有网络VPC的ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 私有网络VPC的ID。 
      * @return VpcId 私有网络VPC的ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -216,19 +208,15 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
 
     /**
      * Set 私有网络VPC的ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId 私有网络VPC的ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get NAT网关转发规则创建时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get NAT网关转发规则创建时间。 
      * @return CreatedTime NAT网关转发规则创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreatedTime() {
         return this.CreatedTime;
@@ -236,9 +224,7 @@ public class NatGatewayDestinationIpPortTranslationNatRule extends AbstractModel
 
     /**
      * Set NAT网关转发规则创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreatedTime NAT网关转发规则创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;

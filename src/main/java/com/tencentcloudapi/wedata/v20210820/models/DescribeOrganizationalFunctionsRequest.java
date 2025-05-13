@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOrganizationalFunctionsRequest extends AbstractModel{
+public class DescribeOrganizationalFunctionsRequest extends AbstractModel {
 
     /**
     * 场景类型：开发、使用
@@ -49,6 +50,30 @@ public class DescribeOrganizationalFunctionsRequest extends AbstractModel{
     @SerializedName("DisplayName")
     @Expose
     private String DisplayName;
+
+    /**
+    * 标准模式开发环境：DEV
+标准模式生产环境：PROD
+简单模式：ALL
+
+    */
+    @SerializedName("EnvType")
+    @Expose
+    private String EnvType;
+
+    /**
+    * 过滤条件
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
+
+    /**
+    * 排序条件
+    */
+    @SerializedName("OrderFields")
+    @Expose
+    private OrderField [] OrderFields;
 
     /**
      * Get 场景类型：开发、使用 
@@ -114,6 +139,66 @@ public class DescribeOrganizationalFunctionsRequest extends AbstractModel{
         this.DisplayName = DisplayName;
     }
 
+    /**
+     * Get 标准模式开发环境：DEV
+标准模式生产环境：PROD
+简单模式：ALL
+ 
+     * @return EnvType 标准模式开发环境：DEV
+标准模式生产环境：PROD
+简单模式：ALL
+
+     */
+    public String getEnvType() {
+        return this.EnvType;
+    }
+
+    /**
+     * Set 标准模式开发环境：DEV
+标准模式生产环境：PROD
+简单模式：ALL
+
+     * @param EnvType 标准模式开发环境：DEV
+标准模式生产环境：PROD
+简单模式：ALL
+
+     */
+    public void setEnvType(String EnvType) {
+        this.EnvType = EnvType;
+    }
+
+    /**
+     * Get 过滤条件 
+     * @return Filters 过滤条件
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 过滤条件
+     * @param Filters 过滤条件
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
+     * Get 排序条件 
+     * @return OrderFields 排序条件
+     */
+    public OrderField [] getOrderFields() {
+        return this.OrderFields;
+    }
+
+    /**
+     * Set 排序条件
+     * @param OrderFields 排序条件
+     */
+    public void setOrderFields(OrderField [] OrderFields) {
+        this.OrderFields = OrderFields;
+    }
+
     public DescribeOrganizationalFunctionsRequest() {
     }
 
@@ -134,6 +219,21 @@ public class DescribeOrganizationalFunctionsRequest extends AbstractModel{
         if (source.DisplayName != null) {
             this.DisplayName = new String(source.DisplayName);
         }
+        if (source.EnvType != null) {
+            this.EnvType = new String(source.EnvType);
+        }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
+        if (source.OrderFields != null) {
+            this.OrderFields = new OrderField[source.OrderFields.length];
+            for (int i = 0; i < source.OrderFields.length; i++) {
+                this.OrderFields[i] = new OrderField(source.OrderFields[i]);
+            }
+        }
     }
 
 
@@ -145,6 +245,9 @@ public class DescribeOrganizationalFunctionsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "DisplayName", this.DisplayName);
+        this.setParamSimple(map, prefix + "EnvType", this.EnvType);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamArrayObj(map, prefix + "OrderFields.", this.OrderFields);
 
     }
 }

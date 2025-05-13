@@ -16,21 +16,22 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOverviewInvocationRequest extends AbstractModel{
+public class DescribeOverviewInvocationRequest extends AbstractModel {
 
     /**
-    * 命名空间ID
+    * 命名空间ID， 此参数必填
     */
     @SerializedName("NamespaceId")
     @Expose
     private String NamespaceId;
 
     /**
-    * 监控统计类型，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
+    * 监控统计类型，必填，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
     */
     @SerializedName("Type")
     @Expose
@@ -58,32 +59,32 @@ public class DescribeOverviewInvocationRequest extends AbstractModel{
     private String EndTime;
 
     /**
-     * Get 命名空间ID 
-     * @return NamespaceId 命名空间ID
+     * Get 命名空间ID， 此参数必填 
+     * @return NamespaceId 命名空间ID， 此参数必填
      */
     public String getNamespaceId() {
         return this.NamespaceId;
     }
 
     /**
-     * Set 命名空间ID
-     * @param NamespaceId 命名空间ID
+     * Set 命名空间ID， 此参数必填
+     * @param NamespaceId 命名空间ID， 此参数必填
      */
     public void setNamespaceId(String NamespaceId) {
         this.NamespaceId = NamespaceId;
     }
 
     /**
-     * Get 监控统计类型，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时 
-     * @return Type 监控统计类型，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
+     * Get 监控统计类型，必填，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时 
+     * @return Type 监控统计类型，必填，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 监控统计类型，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
-     * @param Type 监控统计类型，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
+     * Set 监控统计类型，必填，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
+     * @param Type 监控统计类型，必填，可选值：SumReqAmount、AvgFailureRate、AvgTimeCost，分别对应请求量、请求错误率、平均响应耗时
      */
     public void setType(String Type) {
         this.Type = Type;

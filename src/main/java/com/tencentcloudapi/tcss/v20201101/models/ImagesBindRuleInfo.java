@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImagesBindRuleInfo extends AbstractModel{
+public class ImagesBindRuleInfo extends AbstractModel {
 
     /**
     * 镜像id
@@ -45,7 +46,6 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
     * 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleId")
     @Expose
@@ -53,7 +53,6 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
     * 规则名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleName")
     @Expose
@@ -61,7 +60,6 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
     * 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageSize")
     @Expose
@@ -69,7 +67,6 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
     * 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanTime")
     @Expose
@@ -124,10 +121,8 @@ public class ImagesBindRuleInfo extends AbstractModel{
     }
 
     /**
-     * Get 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定规则id 
      * @return RuleId 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuleId() {
         return this.RuleId;
@@ -135,19 +130,15 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
      * Set 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleId 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleId(String RuleId) {
         this.RuleId = RuleId;
     }
 
     /**
-     * Get 规则名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则名字 
      * @return RuleName 规则名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuleName() {
         return this.RuleName;
@@ -155,19 +146,15 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
      * Set 规则名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleName 规则名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleName(String RuleName) {
         this.RuleName = RuleName;
     }
 
     /**
-     * Get 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像大小 
      * @return ImageSize 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getImageSize() {
         return this.ImageSize;
@@ -175,19 +162,15 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
      * Set 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageSize 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageSize(Long ImageSize) {
         this.ImageSize = ImageSize;
     }
 
     /**
-     * Get 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近扫描时间 
      * @return ScanTime 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanTime() {
         return this.ScanTime;
@@ -195,9 +178,7 @@ public class ImagesBindRuleInfo extends AbstractModel{
 
     /**
      * Set 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanTime 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanTime(String ScanTime) {
         this.ScanTime = ScanTime;

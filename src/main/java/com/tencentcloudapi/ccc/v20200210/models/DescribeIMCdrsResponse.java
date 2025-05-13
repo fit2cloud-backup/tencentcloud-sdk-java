@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIMCdrsResponse extends AbstractModel{
+public class DescribeIMCdrsResponse extends AbstractModel {
 
     /**
     * 总记录数
@@ -37,7 +38,15 @@ public class DescribeIMCdrsResponse extends AbstractModel{
     private IMCdrInfo [] IMCdrs;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IMCdrList")
+    @Expose
+    private IMCdrInfo [] IMCdrList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -62,7 +71,9 @@ public class DescribeIMCdrsResponse extends AbstractModel{
     /**
      * Get 服务记录列表 
      * @return IMCdrs 服务记录列表
+     * @deprecated
      */
+    @Deprecated
     public IMCdrInfo [] getIMCdrs() {
         return this.IMCdrs;
     }
@@ -70,22 +81,44 @@ public class DescribeIMCdrsResponse extends AbstractModel{
     /**
      * Set 服务记录列表
      * @param IMCdrs 服务记录列表
+     * @deprecated
      */
+    @Deprecated
     public void setIMCdrs(IMCdrInfo [] IMCdrs) {
         this.IMCdrs = IMCdrs;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IMCdrList 服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public IMCdrInfo [] getIMCdrList() {
+        return this.IMCdrList;
+    }
+
+    /**
+     * Set 服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IMCdrList 服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIMCdrList(IMCdrInfo [] IMCdrList) {
+        this.IMCdrList = IMCdrList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -108,6 +141,12 @@ public class DescribeIMCdrsResponse extends AbstractModel{
                 this.IMCdrs[i] = new IMCdrInfo(source.IMCdrs[i]);
             }
         }
+        if (source.IMCdrList != null) {
+            this.IMCdrList = new IMCdrInfo[source.IMCdrList.length];
+            for (int i = 0; i < source.IMCdrList.length; i++) {
+                this.IMCdrList[i] = new IMCdrInfo(source.IMCdrList[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +159,7 @@ public class DescribeIMCdrsResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "IMCdrs.", this.IMCdrs);
+        this.setParamArrayObj(map, prefix + "IMCdrList.", this.IMCdrList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TableInfo extends AbstractModel{
+public class TableInfo extends AbstractModel {
 
     /**
     * 单元格内容
@@ -31,8 +32,9 @@ public class TableInfo extends AbstractModel{
     private TableCellInfo [] Cells;
 
     /**
-    * 图像中的文本块类型，0 为非表格文本，
-1 为有线表格，2 为无线表格
+    * 图像中的文本块类型：0为非表格文本、1为有线表格、2为无线表格，
+有线表格：在表格内部，有横线/竖线纵跨整个表格的宽/高；
+无线表格：在表格内部，无横线/竖线纵跨整个表格的宽/高。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
@@ -69,11 +71,13 @@ public class TableInfo extends AbstractModel{
     }
 
     /**
-     * Get 图像中的文本块类型，0 为非表格文本，
-1 为有线表格，2 为无线表格
+     * Get 图像中的文本块类型：0为非表格文本、1为有线表格、2为无线表格，
+有线表格：在表格内部，有横线/竖线纵跨整个表格的宽/高；
+无线表格：在表格内部，无横线/竖线纵跨整个表格的宽/高。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Type 图像中的文本块类型，0 为非表格文本，
-1 为有线表格，2 为无线表格
+     * @return Type 图像中的文本块类型：0为非表格文本、1为有线表格、2为无线表格，
+有线表格：在表格内部，有横线/竖线纵跨整个表格的宽/高；
+无线表格：在表格内部，无横线/竖线纵跨整个表格的宽/高。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getType() {
@@ -81,11 +85,13 @@ public class TableInfo extends AbstractModel{
     }
 
     /**
-     * Set 图像中的文本块类型，0 为非表格文本，
-1 为有线表格，2 为无线表格
+     * Set 图像中的文本块类型：0为非表格文本、1为有线表格、2为无线表格，
+有线表格：在表格内部，有横线/竖线纵跨整个表格的宽/高；
+无线表格：在表格内部，无横线/竖线纵跨整个表格的宽/高。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Type 图像中的文本块类型，0 为非表格文本，
-1 为有线表格，2 为无线表格
+     * @param Type 图像中的文本块类型：0为非表格文本、1为有线表格、2为无线表格，
+有线表格：在表格内部，有横线/竖线纵跨整个表格的宽/高；
+无线表格：在表格内部，无横线/竖线纵跨整个表格的宽/高。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(Long Type) {

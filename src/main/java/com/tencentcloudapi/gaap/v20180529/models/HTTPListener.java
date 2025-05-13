@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HTTPListener extends AbstractModel{
+public class HTTPListener extends AbstractModel {
 
     /**
     * 监听器ID
@@ -71,7 +72,6 @@ public class HTTPListener extends AbstractModel{
 
     /**
     * 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyId")
     @Expose
@@ -202,10 +202,8 @@ public class HTTPListener extends AbstractModel{
     }
 
     /**
-     * Get 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器的通道ID，如果监听器属于通道组，则为null 
      * @return ProxyId 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProxyId() {
         return this.ProxyId;
@@ -213,9 +211,7 @@ public class HTTPListener extends AbstractModel{
 
     /**
      * Set 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProxyId 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyId(String ProxyId) {
         this.ProxyId = ProxyId;

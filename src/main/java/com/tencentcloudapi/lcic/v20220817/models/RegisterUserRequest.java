@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegisterUserRequest extends AbstractModel{
+public class RegisterUserRequest extends AbstractModel {
 
     /**
     * 低代码互动课堂的SdkAppId。
@@ -30,14 +31,14 @@ public class RegisterUserRequest extends AbstractModel{
     private Long SdkAppId;
 
     /**
-    * 用户名称。
+    * 对应用户昵称。对应修改用户信息下“nickname“字段，在修改用户信息时，可以对该字段进行调整，从而更改用户的昵称。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 用户在客户系统的Id，需要在同一应用下唯一。
+    * 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId。
     */
     @SerializedName("OriginId")
     @Expose
@@ -67,32 +68,32 @@ public class RegisterUserRequest extends AbstractModel{
     }
 
     /**
-     * Get 用户名称。 
-     * @return Name 用户名称。
+     * Get 对应用户昵称。对应修改用户信息下“nickname“字段，在修改用户信息时，可以对该字段进行调整，从而更改用户的昵称。 
+     * @return Name 对应用户昵称。对应修改用户信息下“nickname“字段，在修改用户信息时，可以对该字段进行调整，从而更改用户的昵称。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 用户名称。
-     * @param Name 用户名称。
+     * Set 对应用户昵称。对应修改用户信息下“nickname“字段，在修改用户信息时，可以对该字段进行调整，从而更改用户的昵称。
+     * @param Name 对应用户昵称。对应修改用户信息下“nickname“字段，在修改用户信息时，可以对该字段进行调整，从而更改用户的昵称。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 用户在客户系统的Id，需要在同一应用下唯一。 
-     * @return OriginId 用户在客户系统的Id，需要在同一应用下唯一。
+     * Get 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId。 
+     * @return OriginId 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId。
      */
     public String getOriginId() {
         return this.OriginId;
     }
 
     /**
-     * Set 用户在客户系统的Id，需要在同一应用下唯一。
-     * @param OriginId 用户在客户系统的Id，需要在同一应用下唯一。
+     * Set 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId。
+     * @param OriginId 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId。
      */
     public void setOriginId(String OriginId) {
         this.OriginId = OriginId;

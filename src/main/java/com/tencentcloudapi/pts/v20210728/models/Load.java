@@ -16,15 +16,15 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Load extends AbstractModel{
+public class Load extends AbstractModel {
 
     /**
     * 施压配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadSpec")
     @Expose
@@ -39,7 +39,7 @@ public class Load extends AbstractModel{
     private VpcLoadDistribution VpcLoadDistribution;
 
     /**
-    * 压力分布
+    * 多地域压力分布
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GeoRegionsLoadDistribution")
@@ -47,10 +47,8 @@ public class Load extends AbstractModel{
     private GeoRegionsLoadItem [] GeoRegionsLoadDistribution;
 
     /**
-     * Get 施压配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 施压配置 
      * @return LoadSpec 施压配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public LoadSpec getLoadSpec() {
         return this.LoadSpec;
@@ -58,9 +56,7 @@ public class Load extends AbstractModel{
 
     /**
      * Set 施压配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadSpec 施压配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadSpec(LoadSpec LoadSpec) {
         this.LoadSpec = LoadSpec;
@@ -87,9 +83,9 @@ public class Load extends AbstractModel{
     }
 
     /**
-     * Get 压力分布
+     * Get 多地域压力分布
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return GeoRegionsLoadDistribution 压力分布
+     * @return GeoRegionsLoadDistribution 多地域压力分布
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public GeoRegionsLoadItem [] getGeoRegionsLoadDistribution() {
@@ -97,9 +93,9 @@ public class Load extends AbstractModel{
     }
 
     /**
-     * Set 压力分布
+     * Set 多地域压力分布
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param GeoRegionsLoadDistribution 压力分布
+     * @param GeoRegionsLoadDistribution 多地域压力分布
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGeoRegionsLoadDistribution(GeoRegionsLoadItem [] GeoRegionsLoadDistribution) {

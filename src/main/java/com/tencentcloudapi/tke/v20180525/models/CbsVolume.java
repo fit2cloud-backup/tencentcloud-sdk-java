@@ -16,18 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CbsVolume extends AbstractModel{
-
-    /**
-    * cbs volume 数据卷名称
-    */
-    @SerializedName("Name")
-    @Expose
-    private String Name;
+public class CbsVolume extends AbstractModel {
 
     /**
     * 腾讯云cbs盘Id
@@ -37,20 +31,11 @@ public class CbsVolume extends AbstractModel{
     private String CbsDiskId;
 
     /**
-     * Get cbs volume 数据卷名称 
-     * @return Name cbs volume 数据卷名称
-     */
-    public String getName() {
-        return this.Name;
-    }
-
-    /**
-     * Set cbs volume 数据卷名称
-     * @param Name cbs volume 数据卷名称
-     */
-    public void setName(String Name) {
-        this.Name = Name;
-    }
+    * cbs volume 数据卷名称
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get 腾讯云cbs盘Id 
@@ -68,6 +53,22 @@ public class CbsVolume extends AbstractModel{
         this.CbsDiskId = CbsDiskId;
     }
 
+    /**
+     * Get cbs volume 数据卷名称 
+     * @return Name cbs volume 数据卷名称
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set cbs volume 数据卷名称
+     * @param Name cbs volume 数据卷名称
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
     public CbsVolume() {
     }
 
@@ -76,11 +77,11 @@ public class CbsVolume extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CbsVolume(CbsVolume source) {
-        if (source.Name != null) {
-            this.Name = new String(source.Name);
-        }
         if (source.CbsDiskId != null) {
             this.CbsDiskId = new String(source.CbsDiskId);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
         }
     }
 
@@ -89,8 +90,8 @@ public class CbsVolume extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "CbsDiskId", this.CbsDiskId);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

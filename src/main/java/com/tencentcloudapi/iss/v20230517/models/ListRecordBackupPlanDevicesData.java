@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListRecordBackupPlanDevicesData extends AbstractModel{
+public class ListRecordBackupPlanDevicesData extends AbstractModel {
 
     /**
     * 第几页
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PageNumber")
     @Expose
@@ -32,7 +32,6 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
 
     /**
     * 当前页的设备数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PageSize")
     @Expose
@@ -40,7 +39,6 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
 
     /**
     * 本次查询的设备通道总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -52,13 +50,11 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
     */
     @SerializedName("List")
     @Expose
-    private RecordPlanChannelInfo List;
+    private RecordPlanChannelInfo [] List;
 
     /**
-     * Get 第几页
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 第几页 
      * @return PageNumber 第几页
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPageNumber() {
         return this.PageNumber;
@@ -66,19 +62,15 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
 
     /**
      * Set 第几页
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PageNumber 第几页
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPageNumber(Long PageNumber) {
         this.PageNumber = PageNumber;
     }
 
     /**
-     * Get 当前页的设备数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前页的设备数量 
      * @return PageSize 当前页的设备数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPageSize() {
         return this.PageSize;
@@ -86,19 +78,15 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
 
     /**
      * Set 当前页的设备数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PageSize 当前页的设备数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPageSize(Long PageSize) {
         this.PageSize = PageSize;
     }
 
     /**
-     * Get 本次查询的设备通道总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 本次查询的设备通道总数 
      * @return TotalCount 本次查询的设备通道总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -106,9 +94,7 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
 
     /**
      * Set 本次查询的设备通道总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 本次查询的设备通道总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
@@ -120,7 +106,7 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
      * @return List 设备通道信息列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public RecordPlanChannelInfo getList() {
+    public RecordPlanChannelInfo [] getList() {
         return this.List;
     }
 
@@ -130,7 +116,7 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
      * @param List 设备通道信息列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setList(RecordPlanChannelInfo List) {
+    public void setList(RecordPlanChannelInfo [] List) {
         this.List = List;
     }
 
@@ -152,7 +138,10 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
             this.TotalCount = new Long(source.TotalCount);
         }
         if (source.List != null) {
-            this.List = new RecordPlanChannelInfo(source.List);
+            this.List = new RecordPlanChannelInfo[source.List.length];
+            for (int i = 0; i < source.List.length; i++) {
+                this.List[i] = new RecordPlanChannelInfo(source.List[i]);
+            }
         }
     }
 
@@ -164,7 +153,7 @@ public class ListRecordBackupPlanDevicesData extends AbstractModel{
         this.setParamSimple(map, prefix + "PageNumber", this.PageNumber);
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
-        this.setParamObj(map, prefix + "List.", this.List);
+        this.setParamArrayObj(map, prefix + "List.", this.List);
 
     }
 }

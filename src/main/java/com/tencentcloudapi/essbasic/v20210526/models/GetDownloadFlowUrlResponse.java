@@ -16,53 +16,59 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetDownloadFlowUrlResponse extends AbstractModel{
+public class GetDownloadFlowUrlResponse extends AbstractModel {
 
     /**
-    * 合同（流程）下载地址
+    * 跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+
     */
     @SerializedName("DownLoadUrl")
     @Expose
     private String DownLoadUrl;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 合同（流程）下载地址 
-     * @return DownLoadUrl 合同（流程）下载地址
+     * Get 跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+ 
+     * @return DownLoadUrl 跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+
      */
     public String getDownLoadUrl() {
         return this.DownLoadUrl;
     }
 
     /**
-     * Set 合同（流程）下载地址
-     * @param DownLoadUrl 合同（流程）下载地址
+     * Set 跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+
+     * @param DownLoadUrl 跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+
      */
     public void setDownLoadUrl(String DownLoadUrl) {
         this.DownLoadUrl = DownLoadUrl;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

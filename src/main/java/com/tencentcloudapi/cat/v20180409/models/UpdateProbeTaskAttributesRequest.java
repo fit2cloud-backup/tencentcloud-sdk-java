@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cat.v20180409.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateProbeTaskAttributesRequest extends AbstractModel{
+public class UpdateProbeTaskAttributesRequest extends AbstractModel {
 
     /**
     * 任务 ID
@@ -30,7 +31,7 @@ public class UpdateProbeTaskAttributesRequest extends AbstractModel{
     private String TaskId;
 
     /**
-    * 任务名
+    * 任务名，该参数为空时不作任何修改。
     */
     @SerializedName("Name")
     @Expose
@@ -53,16 +54,16 @@ public class UpdateProbeTaskAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 任务名 
-     * @return Name 任务名
+     * Get 任务名，该参数为空时不作任何修改。 
+     * @return Name 任务名，该参数为空时不作任何修改。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 任务名
-     * @param Name 任务名
+     * Set 任务名，该参数为空时不作任何修改。
+     * @param Name 任务名，该参数为空时不作任何修改。
      */
     public void setName(String Name) {
         this.Name = Name;

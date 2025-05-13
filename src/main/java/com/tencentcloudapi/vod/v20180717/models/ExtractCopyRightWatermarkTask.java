@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExtractCopyRightWatermarkTask extends AbstractModel{
+public class ExtractCopyRightWatermarkTask extends AbstractModel {
 
     /**
     * 任务 ID。
@@ -64,7 +65,6 @@ public class ExtractCopyRightWatermarkTask extends AbstractModel{
 
     /**
     * 提取版权水印任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Input")
     @Expose
@@ -72,7 +72,6 @@ public class ExtractCopyRightWatermarkTask extends AbstractModel{
 
     /**
     * 提取版权水印任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
     @Expose
@@ -193,10 +192,8 @@ public class ExtractCopyRightWatermarkTask extends AbstractModel{
     }
 
     /**
-     * Get 提取版权水印任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 提取版权水印任务输入信息。 
      * @return Input 提取版权水印任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ExtractCopyRightWatermarkTaskInput getInput() {
         return this.Input;
@@ -204,19 +201,15 @@ public class ExtractCopyRightWatermarkTask extends AbstractModel{
 
     /**
      * Set 提取版权水印任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Input 提取版权水印任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInput(ExtractCopyRightWatermarkTaskInput Input) {
         this.Input = Input;
     }
 
     /**
-     * Get 提取版权水印任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 提取版权水印任务输出信息。 
      * @return Output 提取版权水印任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ExtractCopyRightWatermarkTaskOutput getOutput() {
         return this.Output;
@@ -224,9 +217,7 @@ public class ExtractCopyRightWatermarkTask extends AbstractModel{
 
     /**
      * Set 提取版权水印任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Output 提取版权水印任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(ExtractCopyRightWatermarkTaskOutput Output) {
         this.Output = Output;

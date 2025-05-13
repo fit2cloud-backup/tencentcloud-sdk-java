@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GooseFS extends AbstractModel{
+public class GooseFS extends AbstractModel {
 
     /**
     * goosefs实例id
@@ -29,6 +30,30 @@ public class GooseFS extends AbstractModel{
     @SerializedName("Id")
     @Expose
     private String Id;
+
+    /**
+    * GooseFS类型，包括GooseFS和GooseFSx
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * GooseFSx实例需要挂载的路径
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Path")
+    @Expose
+    private String Path;
+
+    /**
+    * GooseFS命名空间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("NameSpace")
+    @Expose
+    private String NameSpace;
 
     /**
      * Get goosefs实例id
@@ -50,6 +75,66 @@ public class GooseFS extends AbstractModel{
         this.Id = Id;
     }
 
+    /**
+     * Get GooseFS类型，包括GooseFS和GooseFSx
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Type GooseFS类型，包括GooseFS和GooseFSx
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set GooseFS类型，包括GooseFS和GooseFSx
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Type GooseFS类型，包括GooseFS和GooseFSx
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get GooseFSx实例需要挂载的路径
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Path GooseFSx实例需要挂载的路径
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPath() {
+        return this.Path;
+    }
+
+    /**
+     * Set GooseFSx实例需要挂载的路径
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Path GooseFSx实例需要挂载的路径
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPath(String Path) {
+        this.Path = Path;
+    }
+
+    /**
+     * Get GooseFS命名空间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return NameSpace GooseFS命名空间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getNameSpace() {
+        return this.NameSpace;
+    }
+
+    /**
+     * Set GooseFS命名空间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param NameSpace GooseFS命名空间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setNameSpace(String NameSpace) {
+        this.NameSpace = NameSpace;
+    }
+
     public GooseFS() {
     }
 
@@ -61,6 +146,15 @@ public class GooseFS extends AbstractModel{
         if (source.Id != null) {
             this.Id = new String(source.Id);
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Path != null) {
+            this.Path = new String(source.Path);
+        }
+        if (source.NameSpace != null) {
+            this.NameSpace = new String(source.NameSpace);
+        }
     }
 
 
@@ -69,6 +163,9 @@ public class GooseFS extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Id", this.Id);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Path", this.Path);
+        this.setParamSimple(map, prefix + "NameSpace", this.NameSpace);
 
     }
 }

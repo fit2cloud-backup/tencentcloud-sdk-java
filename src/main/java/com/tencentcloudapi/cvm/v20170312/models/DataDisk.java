@@ -16,28 +16,29 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DataDisk extends AbstractModel{
+public class DataDisk extends AbstractModel {
 
     /**
-    * 数据盘大小，单位：GB。最小调整步长为10G，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
+    * 数据盘大小，单位：GiB。最小调整步长为10GiB，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
     */
     @SerializedName("DiskSize")
     @Expose
     private Long DiskSize;
 
     /**
-    * 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_HSSD：增强型SSD云硬盘<br><li>CLOUD_TSSD：极速型SSD云硬盘<br><li>CLOUD_BSSD：通用型SSD云硬盘<br><br>默认取值：LOCAL_BASIC。<br><br>该参数对`ResizeInstanceDisk`接口无效。
+    * 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br /><li>LOCAL_BASIC：本地硬盘<br /> <li>LOCAL_SSD：本地SSD硬盘<br /><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br /><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br /><li>CLOUD_BASIC：普通云硬盘<br /><li> CLOUD_PREMIUM：高性能云硬盘<br /><li>CLOUD_SSD：SSD云硬盘<br /><li> CLOUD_HSSD：增强型SSD云硬盘<br /> <li>CLOUD_TSSD：极速型SSD云硬盘<br /><li>CLOUD_BSSD：通用型SSD云硬盘<br /><br />默认取值：LOCAL_BASIC。<br /><br />该参数对`ResizeInstanceDisk`接口无效。</li></li></li> </li> </li></li></li></li></li></li>
     */
     @SerializedName("DiskType")
     @Expose
     private String DiskType;
 
     /**
-    * 数据盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID，暂时不支持该参数。
+    * 数据盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
     */
     @SerializedName("DiskId")
@@ -45,12 +46,7 @@ public class DataDisk extends AbstractModel{
     private String DiskId;
 
     /**
-    * 数据盘是否随子机销毁。取值范围：
-<li>TRUE：子机销毁时，销毁数据盘，只支持按小时后付费云盘
-<li>FALSE：子机销毁时，保留数据盘<br>
-默认取值：TRUE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 数据盘是否随子机销毁。取值范围：<li>true：子机销毁时，销毁数据盘，只支持按小时后付费云盘</li><li>false：子机销毁时，保留数据盘</li><br/>默认取值：true <br/>该参数目前仅用于 `RunInstances` 接口。
     */
     @SerializedName("DeleteWithInstance")
     @Expose
@@ -58,19 +54,13 @@ public class DataDisk extends AbstractModel{
 
     /**
     * 数据盘快照ID。选择的数据盘快照大小需小于数据盘大小。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SnapshotId")
     @Expose
     private String SnapshotId;
 
     /**
-    * 数据盘是加密。取值范围：
-<li>TRUE：加密
-<li>FALSE：不加密<br>
-默认取值：FALSE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 数据盘是否加密。取值范围：<li>true：加密</li><li>false：不加密</li><br/>默认取值：false<br/>该参数目前仅用于 `RunInstances` 接口。
     */
     @SerializedName("Encrypt")
     @Expose
@@ -80,15 +70,14 @@ public class DataDisk extends AbstractModel{
     * 自定义CMK对应的ID，取值为UUID或者类似kms-abcd1234。用于加密云盘。
 
 该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KmsKeyId")
     @Expose
     private String KmsKeyId;
 
     /**
-    * 云硬盘性能，单位：MB/s
-注意：此字段可能返回 null，表示取不到有效值。
+    * 云硬盘性能，单位：MiB/s。使用此参数可给云硬盘购买额外的性能。
+当前仅支持极速型云盘（CLOUD_TSSD）和增强型SSD云硬盘（CLOUD_HSSD）
     */
     @SerializedName("ThroughputPerformance")
     @Expose
@@ -96,48 +85,63 @@ public class DataDisk extends AbstractModel{
 
     /**
     * 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CdcId")
     @Expose
     private String CdcId;
 
     /**
-     * Get 数据盘大小，单位：GB。最小调整步长为10G，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。 
-     * @return DiskSize 数据盘大小，单位：GB。最小调整步长为10G，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
+    * 突发性能
+
+ <b>注：内测中。</b>
+    */
+    @SerializedName("BurstPerformance")
+    @Expose
+    private Boolean BurstPerformance;
+
+    /**
+    * 磁盘名称，长度不超过128 个字符。
+    */
+    @SerializedName("DiskName")
+    @Expose
+    private String DiskName;
+
+    /**
+     * Get 数据盘大小，单位：GiB。最小调整步长为10GiB，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。 
+     * @return DiskSize 数据盘大小，单位：GiB。最小调整步长为10GiB，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
      */
     public Long getDiskSize() {
         return this.DiskSize;
     }
 
     /**
-     * Set 数据盘大小，单位：GB。最小调整步长为10G，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
-     * @param DiskSize 数据盘大小，单位：GB。最小调整步长为10G，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
+     * Set 数据盘大小，单位：GiB。最小调整步长为10GiB，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
+     * @param DiskSize 数据盘大小，单位：GiB。最小调整步长为10GiB，不同数据盘类型取值范围不同，具体限制详见：[存储概述](https://cloud.tencent.com/document/product/213/4952)。默认值为0，表示不购买数据盘。更多限制详见产品文档。
      */
     public void setDiskSize(Long DiskSize) {
         this.DiskSize = DiskSize;
     }
 
     /**
-     * Get 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_HSSD：增强型SSD云硬盘<br><li>CLOUD_TSSD：极速型SSD云硬盘<br><li>CLOUD_BSSD：通用型SSD云硬盘<br><br>默认取值：LOCAL_BASIC。<br><br>该参数对`ResizeInstanceDisk`接口无效。 
-     * @return DiskType 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_HSSD：增强型SSD云硬盘<br><li>CLOUD_TSSD：极速型SSD云硬盘<br><li>CLOUD_BSSD：通用型SSD云硬盘<br><br>默认取值：LOCAL_BASIC。<br><br>该参数对`ResizeInstanceDisk`接口无效。
+     * Get 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br /><li>LOCAL_BASIC：本地硬盘<br /> <li>LOCAL_SSD：本地SSD硬盘<br /><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br /><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br /><li>CLOUD_BASIC：普通云硬盘<br /><li> CLOUD_PREMIUM：高性能云硬盘<br /><li>CLOUD_SSD：SSD云硬盘<br /><li> CLOUD_HSSD：增强型SSD云硬盘<br /> <li>CLOUD_TSSD：极速型SSD云硬盘<br /><li>CLOUD_BSSD：通用型SSD云硬盘<br /><br />默认取值：LOCAL_BASIC。<br /><br />该参数对`ResizeInstanceDisk`接口无效。</li></li></li> </li> </li></li></li></li></li></li> 
+     * @return DiskType 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br /><li>LOCAL_BASIC：本地硬盘<br /> <li>LOCAL_SSD：本地SSD硬盘<br /><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br /><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br /><li>CLOUD_BASIC：普通云硬盘<br /><li> CLOUD_PREMIUM：高性能云硬盘<br /><li>CLOUD_SSD：SSD云硬盘<br /><li> CLOUD_HSSD：增强型SSD云硬盘<br /> <li>CLOUD_TSSD：极速型SSD云硬盘<br /><li>CLOUD_BSSD：通用型SSD云硬盘<br /><br />默认取值：LOCAL_BASIC。<br /><br />该参数对`ResizeInstanceDisk`接口无效。</li></li></li> </li> </li></li></li></li></li></li>
      */
     public String getDiskType() {
         return this.DiskType;
     }
 
     /**
-     * Set 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_HSSD：增强型SSD云硬盘<br><li>CLOUD_TSSD：极速型SSD云硬盘<br><li>CLOUD_BSSD：通用型SSD云硬盘<br><br>默认取值：LOCAL_BASIC。<br><br>该参数对`ResizeInstanceDisk`接口无效。
-     * @param DiskType 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_HSSD：增强型SSD云硬盘<br><li>CLOUD_TSSD：极速型SSD云硬盘<br><li>CLOUD_BSSD：通用型SSD云硬盘<br><br>默认取值：LOCAL_BASIC。<br><br>该参数对`ResizeInstanceDisk`接口无效。
+     * Set 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br /><li>LOCAL_BASIC：本地硬盘<br /> <li>LOCAL_SSD：本地SSD硬盘<br /><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br /><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br /><li>CLOUD_BASIC：普通云硬盘<br /><li> CLOUD_PREMIUM：高性能云硬盘<br /><li>CLOUD_SSD：SSD云硬盘<br /><li> CLOUD_HSSD：增强型SSD云硬盘<br /> <li>CLOUD_TSSD：极速型SSD云硬盘<br /><li>CLOUD_BSSD：通用型SSD云硬盘<br /><br />默认取值：LOCAL_BASIC。<br /><br />该参数对`ResizeInstanceDisk`接口无效。</li></li></li> </li> </li></li></li></li></li></li>
+     * @param DiskType 数据盘类型。数据盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br /><li>LOCAL_BASIC：本地硬盘<br /> <li>LOCAL_SSD：本地SSD硬盘<br /><li>LOCAL_NVME：本地NVME硬盘，与InstanceType强相关，不支持指定<br /><li>LOCAL_PRO：本地HDD硬盘，与InstanceType强相关，不支持指定<br /><li>CLOUD_BASIC：普通云硬盘<br /><li> CLOUD_PREMIUM：高性能云硬盘<br /><li>CLOUD_SSD：SSD云硬盘<br /><li> CLOUD_HSSD：增强型SSD云硬盘<br /> <li>CLOUD_TSSD：极速型SSD云硬盘<br /><li>CLOUD_BSSD：通用型SSD云硬盘<br /><br />默认取值：LOCAL_BASIC。<br /><br />该参数对`ResizeInstanceDisk`接口无效。</li></li></li> </li> </li></li></li></li></li></li>
      */
     public void setDiskType(String DiskType) {
         this.DiskType = DiskType;
     }
 
     /**
-     * Get 数据盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID，暂时不支持该参数。
+     * Get 数据盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。 
-     * @return DiskId 数据盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID，暂时不支持该参数。
+     * @return DiskId 数据盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
      */
     public String getDiskId() {
@@ -145,9 +149,9 @@ public class DataDisk extends AbstractModel{
     }
 
     /**
-     * Set 数据盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID，暂时不支持该参数。
+     * Set 数据盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
-     * @param DiskId 数据盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID，暂时不支持该参数。
+     * @param DiskId 数据盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
      */
     public void setDiskId(String DiskId) {
@@ -155,46 +159,24 @@ public class DataDisk extends AbstractModel{
     }
 
     /**
-     * Get 数据盘是否随子机销毁。取值范围：
-<li>TRUE：子机销毁时，销毁数据盘，只支持按小时后付费云盘
-<li>FALSE：子机销毁时，保留数据盘<br>
-默认取值：TRUE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DeleteWithInstance 数据盘是否随子机销毁。取值范围：
-<li>TRUE：子机销毁时，销毁数据盘，只支持按小时后付费云盘
-<li>FALSE：子机销毁时，保留数据盘<br>
-默认取值：TRUE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 数据盘是否随子机销毁。取值范围：<li>true：子机销毁时，销毁数据盘，只支持按小时后付费云盘</li><li>false：子机销毁时，保留数据盘</li><br/>默认取值：true <br/>该参数目前仅用于 `RunInstances` 接口。 
+     * @return DeleteWithInstance 数据盘是否随子机销毁。取值范围：<li>true：子机销毁时，销毁数据盘，只支持按小时后付费云盘</li><li>false：子机销毁时，保留数据盘</li><br/>默认取值：true <br/>该参数目前仅用于 `RunInstances` 接口。
      */
     public Boolean getDeleteWithInstance() {
         return this.DeleteWithInstance;
     }
 
     /**
-     * Set 数据盘是否随子机销毁。取值范围：
-<li>TRUE：子机销毁时，销毁数据盘，只支持按小时后付费云盘
-<li>FALSE：子机销毁时，保留数据盘<br>
-默认取值：TRUE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DeleteWithInstance 数据盘是否随子机销毁。取值范围：
-<li>TRUE：子机销毁时，销毁数据盘，只支持按小时后付费云盘
-<li>FALSE：子机销毁时，保留数据盘<br>
-默认取值：TRUE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 数据盘是否随子机销毁。取值范围：<li>true：子机销毁时，销毁数据盘，只支持按小时后付费云盘</li><li>false：子机销毁时，保留数据盘</li><br/>默认取值：true <br/>该参数目前仅用于 `RunInstances` 接口。
+     * @param DeleteWithInstance 数据盘是否随子机销毁。取值范围：<li>true：子机销毁时，销毁数据盘，只支持按小时后付费云盘</li><li>false：子机销毁时，保留数据盘</li><br/>默认取值：true <br/>该参数目前仅用于 `RunInstances` 接口。
      */
     public void setDeleteWithInstance(Boolean DeleteWithInstance) {
         this.DeleteWithInstance = DeleteWithInstance;
     }
 
     /**
-     * Get 数据盘快照ID。选择的数据盘快照大小需小于数据盘大小。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据盘快照ID。选择的数据盘快照大小需小于数据盘大小。 
      * @return SnapshotId 数据盘快照ID。选择的数据盘快照大小需小于数据盘大小。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSnapshotId() {
         return this.SnapshotId;
@@ -202,45 +184,23 @@ public class DataDisk extends AbstractModel{
 
     /**
      * Set 数据盘快照ID。选择的数据盘快照大小需小于数据盘大小。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SnapshotId 数据盘快照ID。选择的数据盘快照大小需小于数据盘大小。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSnapshotId(String SnapshotId) {
         this.SnapshotId = SnapshotId;
     }
 
     /**
-     * Get 数据盘是加密。取值范围：
-<li>TRUE：加密
-<li>FALSE：不加密<br>
-默认取值：FALSE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Encrypt 数据盘是加密。取值范围：
-<li>TRUE：加密
-<li>FALSE：不加密<br>
-默认取值：FALSE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 数据盘是否加密。取值范围：<li>true：加密</li><li>false：不加密</li><br/>默认取值：false<br/>该参数目前仅用于 `RunInstances` 接口。 
+     * @return Encrypt 数据盘是否加密。取值范围：<li>true：加密</li><li>false：不加密</li><br/>默认取值：false<br/>该参数目前仅用于 `RunInstances` 接口。
      */
     public Boolean getEncrypt() {
         return this.Encrypt;
     }
 
     /**
-     * Set 数据盘是加密。取值范围：
-<li>TRUE：加密
-<li>FALSE：不加密<br>
-默认取值：FALSE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Encrypt 数据盘是加密。取值范围：
-<li>TRUE：加密
-<li>FALSE：不加密<br>
-默认取值：FALSE<br>
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 数据盘是否加密。取值范围：<li>true：加密</li><li>false：不加密</li><br/>默认取值：false<br/>该参数目前仅用于 `RunInstances` 接口。
+     * @param Encrypt 数据盘是否加密。取值范围：<li>true：加密</li><li>false：不加密</li><br/>默认取值：false<br/>该参数目前仅用于 `RunInstances` 接口。
      */
     public void setEncrypt(Boolean Encrypt) {
         this.Encrypt = Encrypt;
@@ -249,12 +209,10 @@ public class DataDisk extends AbstractModel{
     /**
      * Get 自定义CMK对应的ID，取值为UUID或者类似kms-abcd1234。用于加密云盘。
 
-该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。 
+该参数目前仅用于 `RunInstances` 接口。 
      * @return KmsKeyId 自定义CMK对应的ID，取值为UUID或者类似kms-abcd1234。用于加密云盘。
 
 该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKmsKeyId() {
         return this.KmsKeyId;
@@ -264,41 +222,37 @@ public class DataDisk extends AbstractModel{
      * Set 自定义CMK对应的ID，取值为UUID或者类似kms-abcd1234。用于加密云盘。
 
 该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KmsKeyId 自定义CMK对应的ID，取值为UUID或者类似kms-abcd1234。用于加密云盘。
 
 该参数目前仅用于 `RunInstances` 接口。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKmsKeyId(String KmsKeyId) {
         this.KmsKeyId = KmsKeyId;
     }
 
     /**
-     * Get 云硬盘性能，单位：MB/s
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ThroughputPerformance 云硬盘性能，单位：MB/s
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 云硬盘性能，单位：MiB/s。使用此参数可给云硬盘购买额外的性能。
+当前仅支持极速型云盘（CLOUD_TSSD）和增强型SSD云硬盘（CLOUD_HSSD） 
+     * @return ThroughputPerformance 云硬盘性能，单位：MiB/s。使用此参数可给云硬盘购买额外的性能。
+当前仅支持极速型云盘（CLOUD_TSSD）和增强型SSD云硬盘（CLOUD_HSSD）
      */
     public Long getThroughputPerformance() {
         return this.ThroughputPerformance;
     }
 
     /**
-     * Set 云硬盘性能，单位：MB/s
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ThroughputPerformance 云硬盘性能，单位：MB/s
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 云硬盘性能，单位：MiB/s。使用此参数可给云硬盘购买额外的性能。
+当前仅支持极速型云盘（CLOUD_TSSD）和增强型SSD云硬盘（CLOUD_HSSD）
+     * @param ThroughputPerformance 云硬盘性能，单位：MiB/s。使用此参数可给云硬盘购买额外的性能。
+当前仅支持极速型云盘（CLOUD_TSSD）和增强型SSD云硬盘（CLOUD_HSSD）
      */
     public void setThroughputPerformance(Long ThroughputPerformance) {
         this.ThroughputPerformance = ThroughputPerformance;
     }
 
     /**
-     * Get 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属的独享集群ID。 
      * @return CdcId 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCdcId() {
         return this.CdcId;
@@ -306,12 +260,50 @@ public class DataDisk extends AbstractModel{
 
     /**
      * Set 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CdcId 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCdcId(String CdcId) {
         this.CdcId = CdcId;
+    }
+
+    /**
+     * Get 突发性能
+
+ <b>注：内测中。</b> 
+     * @return BurstPerformance 突发性能
+
+ <b>注：内测中。</b>
+     */
+    public Boolean getBurstPerformance() {
+        return this.BurstPerformance;
+    }
+
+    /**
+     * Set 突发性能
+
+ <b>注：内测中。</b>
+     * @param BurstPerformance 突发性能
+
+ <b>注：内测中。</b>
+     */
+    public void setBurstPerformance(Boolean BurstPerformance) {
+        this.BurstPerformance = BurstPerformance;
+    }
+
+    /**
+     * Get 磁盘名称，长度不超过128 个字符。 
+     * @return DiskName 磁盘名称，长度不超过128 个字符。
+     */
+    public String getDiskName() {
+        return this.DiskName;
+    }
+
+    /**
+     * Set 磁盘名称，长度不超过128 个字符。
+     * @param DiskName 磁盘名称，长度不超过128 个字符。
+     */
+    public void setDiskName(String DiskName) {
+        this.DiskName = DiskName;
     }
 
     public DataDisk() {
@@ -349,6 +341,12 @@ public class DataDisk extends AbstractModel{
         if (source.CdcId != null) {
             this.CdcId = new String(source.CdcId);
         }
+        if (source.BurstPerformance != null) {
+            this.BurstPerformance = new Boolean(source.BurstPerformance);
+        }
+        if (source.DiskName != null) {
+            this.DiskName = new String(source.DiskName);
+        }
     }
 
 
@@ -365,6 +363,8 @@ public class DataDisk extends AbstractModel{
         this.setParamSimple(map, prefix + "KmsKeyId", this.KmsKeyId);
         this.setParamSimple(map, prefix + "ThroughputPerformance", this.ThroughputPerformance);
         this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamSimple(map, prefix + "BurstPerformance", this.BurstPerformance);
+        this.setParamSimple(map, prefix + "DiskName", this.DiskName);
 
     }
 }

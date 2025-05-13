@@ -16,181 +16,342 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSchemeUrlRequest extends AbstractModel{
+public class CreateSchemeUrlRequest extends AbstractModel {
 
     /**
-    * 调用方用户信息，userId 必填
+    * 执行本接口操作的员工信息, userId 必填。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 企业名称
+    * 合同流程签署方的组织机构名称。如果名称中包含英文括号()，请使用中文括号（）代替。注: `获取B端动态签署人领取链接时,可指定此字段来预先设定签署人的企业,预设后只能以该企业身份去领取合同并完成签署`
     */
     @SerializedName("OrganizationName")
     @Expose
     private String OrganizationName;
 
     /**
-    * 姓名,最大长度50个字符
+    * 合同流程里边签署方经办人的姓名。
+
+`注：在动态签署人补充链接场景中，可以通过传入这个值，对补充的个人参与方信息进行限制。仅匹配传入姓名的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 手机号，大陆手机号11位
+    * 合同流程里边签署方经办人手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入手机号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
     */
     @SerializedName("Mobile")
     @Expose
     private String Mobile;
 
     /**
+    * 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件类型的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方，且需要和证件号参数一同传递，不能单独进行限制。`
+    */
+    @SerializedName("IdCardType")
+    @Expose
+    private String IdCardType;
+
+    /**
+    * 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成(如存在X，请大写)。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+    */
+    @SerializedName("IdCardNumber")
+    @Expose
+    private String IdCardNumber;
+
+    /**
     * 要跳转的链接类型
 
-- HTTP：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  (默认)
-- APP： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型
-
+<ul><li> **HTTP**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  ，此时返回长链 (默认类型)</li>
+<li>**HTTP_SHORT_URL**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型，此时返回短链</li>
+<li>**APP**： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型</li></ul>
     */
     @SerializedName("EndPoint")
     @Expose
     private String EndPoint;
 
     /**
-    * 签署流程编号 (PathType=1时必传)
+    * 合同流程ID 
+注: `如果准备跳转到合同流程签署的详情页面(即PathType=1时)必传,   跳转其他页面可不传`
     */
     @SerializedName("FlowId")
     @Expose
     private String FlowId;
 
     /**
-    * 合同组ID 
+    * 合同流程组的组ID, 在合同流程组场景下，生成合同流程组的签署链接时需要赋值
     */
     @SerializedName("FlowGroupId")
     @Expose
     private String FlowGroupId;
 
     /**
-    * 要跳转到的页面类型 
-
-- 0: 不传, 主页 (默认)
-- 1: 小程序合同详情 
-- 2: 小程序合同列表页 
-
+    * 要跳转到的页面类型 <ul><li> **0** : 腾讯电子签小程序个人首页 (默认) <a href="https://qcloudimg.tencent-cloud.cn/raw/a2667ea84ec993cc060321afe3191d65.jpg" target="_blank" >点击查看示例页面</a></li><li> **1** : 腾讯电子签小程序流程合同的详情页,即合同签署页面(注:`仅生成短链或者小程序Path时支持跳转合同详情页,即EndPoint传HTTP_SHORT_URL或者APP`)<a href="https://qcloudimg.tencent-cloud.cn/raw/446a679f09b1b7f40eb84e67face8acc.jpg" target="_blank" >点击查看示例页面</a></li><li> **2** : 腾讯电子签小程序合同列表页 <a href="https://qcloudimg.tencent-cloud.cn/raw/c7b80e44c1d68ae3270a6fc4939c7214.jpg" target="_blank" >点击查看示例页面</a> </li><li> **3** : 腾讯电子签小程序合同封面页  （注：`生成动态签署人补充链接时，必须指定为封面页`）<a href="https://qcloudimg.tencent-cloud.cn/raw/0d22cc587be4bf084877c151350c3bf7.jpg" target="_blank" >点击查看示例页面</a></li></ul>
     */
     @SerializedName("PathType")
     @Expose
     private Long PathType;
 
     /**
-    * 是否自动回跳
-true：是，
-false：否。
-该参数只针对"APP" 类型的签署链接有效
+    * 签署完成后是否自动回跳
+<ul><li>**false**：否, 签署完成不会自动跳转回来(默认)</li><li>**true**：是, 签署完成会自动跳转回来</li></ul>
+
+注: 
+1. 该参数<font color="red">只针对APP类型（电子签小程序跳转贵方小程序）场景</font> 的签署链接有效
+2. <font color="red">手机应用APP 或 微信小程序需要监控界面的返回走后序逻辑</font>, 微信小程序的文档可以参考[这个](https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onShow-Object-object)
+3. <font color="red">电子签小程序跳转贵方APP，不支持自动跳转，必需用户手动点击完成按钮（微信的限制）</font> 
     */
     @SerializedName("AutoJumpBack")
     @Expose
     private Boolean AutoJumpBack;
 
     /**
-    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+    * 生成的签署链接在签署页面隐藏的按钮列表，可设置如下：
 
-- 0:合同签署页面更多操作按钮
-- 1:合同签署页面更多操作的拒绝签署按钮
-- 2:合同签署页面更多操作的转他人处理按钮
-- 3:签署成功页的查看详情按钮
+<ul><li> **0** :合同签署页面更多操作按钮</li>
+<li> **1** :合同签署页面更多操作的拒绝签署按钮</li>
+<li> **2** :合同签署页面更多操作的转他人处理按钮</li>
+<li> **3** :签署成功页的查看详情按钮</li></ul>
+
+注:  `字段为数组, 可以传值隐藏多个按钮`
     */
     @SerializedName("Hides")
     @Expose
     private Long [] Hides;
 
     /**
-     * Get 调用方用户信息，userId 必填 
-     * @return Operator 调用方用户信息，userId 必填
+    * 签署节点ID，用于生成动态签署人链接完成领取。
+
+注：`生成动态签署人补充链接时必传。`
+    */
+    @SerializedName("RecipientId")
+    @Expose
+    private String RecipientId;
+
+    /**
+    * 合同组相关信息，指定合同组子合同和签署方的信息，用于补充动态签署人。
+    */
+    @SerializedName("FlowGroupUrlInfo")
+    @Expose
+    private FlowGroupUrlInfo FlowGroupUrlInfo;
+
+    /**
+    * <font color="red">仅公众号 H5 跳转电子签小程序时</font>，如需签署完成的“返回应用”功能，在获取签署链接接口的 UrlUseEnv 参数需设置为 **WeChatOfficialAccounts**，小程序签署成功的结果页面中才会出现“返回应用”按钮。在用户点击“返回应用”按钮之后，会返回到公众号 H5。 
+
+参考 [公众号 H5 跳转电子签小程序](https://qian.tencent.com/developers/company/openwxminiprogram/#23-%E5%85%AC%E4%BC%97%E5%8F%B7-h5-%E4%B8%AD%E8%B7%B3%E8%BD%AC)。
+    */
+    @SerializedName("UrlUseEnv")
+    @Expose
+    private String UrlUseEnv;
+
+    /**
+    * 在动态签署人场景预设了“企业名称”时，可通过该参数控制“已认证身份才可领取”，即在加入了预设的企业后才可领取。默认值：false，无须先加入企业。
+    */
+    @SerializedName("PickUpAfterJoined")
+    @Expose
+    private Boolean PickUpAfterJoined;
+
+    /**
+     * Get 执行本接口操作的员工信息, userId 必填。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息, userId 必填。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方用户信息，userId 必填
-     * @param Operator 调用方用户信息，userId 必填
+     * Set 执行本接口操作的员工信息, userId 必填。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息, userId 必填。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 企业名称 
-     * @return OrganizationName 企业名称
+     * Get 合同流程签署方的组织机构名称。如果名称中包含英文括号()，请使用中文括号（）代替。注: `获取B端动态签署人领取链接时,可指定此字段来预先设定签署人的企业,预设后只能以该企业身份去领取合同并完成签署` 
+     * @return OrganizationName 合同流程签署方的组织机构名称。如果名称中包含英文括号()，请使用中文括号（）代替。注: `获取B端动态签署人领取链接时,可指定此字段来预先设定签署人的企业,预设后只能以该企业身份去领取合同并完成签署`
      */
     public String getOrganizationName() {
         return this.OrganizationName;
     }
 
     /**
-     * Set 企业名称
-     * @param OrganizationName 企业名称
+     * Set 合同流程签署方的组织机构名称。如果名称中包含英文括号()，请使用中文括号（）代替。注: `获取B端动态签署人领取链接时,可指定此字段来预先设定签署人的企业,预设后只能以该企业身份去领取合同并完成签署`
+     * @param OrganizationName 合同流程签署方的组织机构名称。如果名称中包含英文括号()，请使用中文括号（）代替。注: `获取B端动态签署人领取链接时,可指定此字段来预先设定签署人的企业,预设后只能以该企业身份去领取合同并完成签署`
      */
     public void setOrganizationName(String OrganizationName) {
         this.OrganizationName = OrganizationName;
     }
 
     /**
-     * Get 姓名,最大长度50个字符 
-     * @return Name 姓名,最大长度50个字符
+     * Get 合同流程里边签署方经办人的姓名。
+
+`注：在动态签署人补充链接场景中，可以通过传入这个值，对补充的个人参与方信息进行限制。仅匹配传入姓名的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+ 
+     * @return Name 合同流程里边签署方经办人的姓名。
+
+`注：在动态签署人补充链接场景中，可以通过传入这个值，对补充的个人参与方信息进行限制。仅匹配传入姓名的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 姓名,最大长度50个字符
-     * @param Name 姓名,最大长度50个字符
+     * Set 合同流程里边签署方经办人的姓名。
+
+`注：在动态签署人补充链接场景中，可以通过传入这个值，对补充的个人参与方信息进行限制。仅匹配传入姓名的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+
+     * @param Name 合同流程里边签署方经办人的姓名。
+
+`注：在动态签署人补充链接场景中，可以通过传入这个值，对补充的个人参与方信息进行限制。仅匹配传入姓名的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 手机号，大陆手机号11位 
-     * @return Mobile 手机号，大陆手机号11位
+     * Get 合同流程里边签署方经办人手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入手机号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。` 
+     * @return Mobile 合同流程里边签署方经办人手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入手机号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
      */
     public String getMobile() {
         return this.Mobile;
     }
 
     /**
-     * Set 手机号，大陆手机号11位
-     * @param Mobile 手机号，大陆手机号11位
+     * Set 合同流程里边签署方经办人手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入手机号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+     * @param Mobile 合同流程里边签署方经办人手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入手机号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;
     }
 
     /**
+     * Get 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件类型的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方，且需要和证件号参数一同传递，不能单独进行限制。` 
+     * @return IdCardType 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件类型的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方，且需要和证件号参数一同传递，不能单独进行限制。`
+     */
+    public String getIdCardType() {
+        return this.IdCardType;
+    }
+
+    /**
+     * Set 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件类型的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方，且需要和证件号参数一同传递，不能单独进行限制。`
+     * @param IdCardType 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同中国大陆居民身份证)</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件类型的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方，且需要和证件号参数一同传递，不能单独进行限制。`
+     */
+    public void setIdCardType(String IdCardType) {
+        this.IdCardType = IdCardType;
+    }
+
+    /**
+     * Get 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成(如存在X，请大写)。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。` 
+     * @return IdCardNumber 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成(如存在X，请大写)。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+     */
+    public String getIdCardNumber() {
+        return this.IdCardNumber;
+    }
+
+    /**
+     * Set 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成(如存在X，请大写)。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+     * @param IdCardNumber 证件号码，应符合以下规则
+<ul><li>中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成(如存在X，请大写)。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+
+`注：在动态签署人补充链接场景中，可以通过传入此值，对补充的个人参与方信息进行限制。仅匹配传入证件号的参与方才能补充合同。此参数预设信息功能暂时仅支持个人动态参与方。`
+     */
+    public void setIdCardNumber(String IdCardNumber) {
+        this.IdCardNumber = IdCardNumber;
+    }
+
+    /**
      * Get 要跳转的链接类型
 
-- HTTP：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  (默认)
-- APP： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型
- 
+<ul><li> **HTTP**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  ，此时返回长链 (默认类型)</li>
+<li>**HTTP_SHORT_URL**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型，此时返回短链</li>
+<li>**APP**： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型</li></ul> 
      * @return EndPoint 要跳转的链接类型
 
-- HTTP：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  (默认)
-- APP： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型
-
+<ul><li> **HTTP**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  ，此时返回长链 (默认类型)</li>
+<li>**HTTP_SHORT_URL**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型，此时返回短链</li>
+<li>**APP**： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型</li></ul>
      */
     public String getEndPoint() {
         return this.EndPoint;
@@ -199,165 +360,253 @@ false：否。
     /**
      * Set 要跳转的链接类型
 
-- HTTP：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  (默认)
-- APP： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型
-
+<ul><li> **HTTP**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  ，此时返回长链 (默认类型)</li>
+<li>**HTTP_SHORT_URL**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型，此时返回短链</li>
+<li>**APP**： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型</li></ul>
      * @param EndPoint 要跳转的链接类型
 
-- HTTP：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  (默认)
-- APP： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型
-
+<ul><li> **HTTP**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型  ，此时返回长链 (默认类型)</li>
+<li>**HTTP_SHORT_URL**：跳转电子签小程序的http_url, 短信通知或者H5跳转适合此类型，此时返回短链</li>
+<li>**APP**： 第三方APP或小程序跳转电子签小程序的path,  APP或者小程序跳转适合此类型</li></ul>
      */
     public void setEndPoint(String EndPoint) {
         this.EndPoint = EndPoint;
     }
 
     /**
-     * Get 签署流程编号 (PathType=1时必传) 
-     * @return FlowId 签署流程编号 (PathType=1时必传)
+     * Get 合同流程ID 
+注: `如果准备跳转到合同流程签署的详情页面(即PathType=1时)必传,   跳转其他页面可不传` 
+     * @return FlowId 合同流程ID 
+注: `如果准备跳转到合同流程签署的详情页面(即PathType=1时)必传,   跳转其他页面可不传`
      */
     public String getFlowId() {
         return this.FlowId;
     }
 
     /**
-     * Set 签署流程编号 (PathType=1时必传)
-     * @param FlowId 签署流程编号 (PathType=1时必传)
+     * Set 合同流程ID 
+注: `如果准备跳转到合同流程签署的详情页面(即PathType=1时)必传,   跳转其他页面可不传`
+     * @param FlowId 合同流程ID 
+注: `如果准备跳转到合同流程签署的详情页面(即PathType=1时)必传,   跳转其他页面可不传`
      */
     public void setFlowId(String FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 合同组ID  
-     * @return FlowGroupId 合同组ID 
+     * Get 合同流程组的组ID, 在合同流程组场景下，生成合同流程组的签署链接时需要赋值 
+     * @return FlowGroupId 合同流程组的组ID, 在合同流程组场景下，生成合同流程组的签署链接时需要赋值
      */
     public String getFlowGroupId() {
         return this.FlowGroupId;
     }
 
     /**
-     * Set 合同组ID 
-     * @param FlowGroupId 合同组ID 
+     * Set 合同流程组的组ID, 在合同流程组场景下，生成合同流程组的签署链接时需要赋值
+     * @param FlowGroupId 合同流程组的组ID, 在合同流程组场景下，生成合同流程组的签署链接时需要赋值
      */
     public void setFlowGroupId(String FlowGroupId) {
         this.FlowGroupId = FlowGroupId;
     }
 
     /**
-     * Get 要跳转到的页面类型 
-
-- 0: 不传, 主页 (默认)
-- 1: 小程序合同详情 
-- 2: 小程序合同列表页 
- 
-     * @return PathType 要跳转到的页面类型 
-
-- 0: 不传, 主页 (默认)
-- 1: 小程序合同详情 
-- 2: 小程序合同列表页 
-
+     * Get 要跳转到的页面类型 <ul><li> **0** : 腾讯电子签小程序个人首页 (默认) <a href="https://qcloudimg.tencent-cloud.cn/raw/a2667ea84ec993cc060321afe3191d65.jpg" target="_blank" >点击查看示例页面</a></li><li> **1** : 腾讯电子签小程序流程合同的详情页,即合同签署页面(注:`仅生成短链或者小程序Path时支持跳转合同详情页,即EndPoint传HTTP_SHORT_URL或者APP`)<a href="https://qcloudimg.tencent-cloud.cn/raw/446a679f09b1b7f40eb84e67face8acc.jpg" target="_blank" >点击查看示例页面</a></li><li> **2** : 腾讯电子签小程序合同列表页 <a href="https://qcloudimg.tencent-cloud.cn/raw/c7b80e44c1d68ae3270a6fc4939c7214.jpg" target="_blank" >点击查看示例页面</a> </li><li> **3** : 腾讯电子签小程序合同封面页  （注：`生成动态签署人补充链接时，必须指定为封面页`）<a href="https://qcloudimg.tencent-cloud.cn/raw/0d22cc587be4bf084877c151350c3bf7.jpg" target="_blank" >点击查看示例页面</a></li></ul> 
+     * @return PathType 要跳转到的页面类型 <ul><li> **0** : 腾讯电子签小程序个人首页 (默认) <a href="https://qcloudimg.tencent-cloud.cn/raw/a2667ea84ec993cc060321afe3191d65.jpg" target="_blank" >点击查看示例页面</a></li><li> **1** : 腾讯电子签小程序流程合同的详情页,即合同签署页面(注:`仅生成短链或者小程序Path时支持跳转合同详情页,即EndPoint传HTTP_SHORT_URL或者APP`)<a href="https://qcloudimg.tencent-cloud.cn/raw/446a679f09b1b7f40eb84e67face8acc.jpg" target="_blank" >点击查看示例页面</a></li><li> **2** : 腾讯电子签小程序合同列表页 <a href="https://qcloudimg.tencent-cloud.cn/raw/c7b80e44c1d68ae3270a6fc4939c7214.jpg" target="_blank" >点击查看示例页面</a> </li><li> **3** : 腾讯电子签小程序合同封面页  （注：`生成动态签署人补充链接时，必须指定为封面页`）<a href="https://qcloudimg.tencent-cloud.cn/raw/0d22cc587be4bf084877c151350c3bf7.jpg" target="_blank" >点击查看示例页面</a></li></ul>
      */
     public Long getPathType() {
         return this.PathType;
     }
 
     /**
-     * Set 要跳转到的页面类型 
-
-- 0: 不传, 主页 (默认)
-- 1: 小程序合同详情 
-- 2: 小程序合同列表页 
-
-     * @param PathType 要跳转到的页面类型 
-
-- 0: 不传, 主页 (默认)
-- 1: 小程序合同详情 
-- 2: 小程序合同列表页 
-
+     * Set 要跳转到的页面类型 <ul><li> **0** : 腾讯电子签小程序个人首页 (默认) <a href="https://qcloudimg.tencent-cloud.cn/raw/a2667ea84ec993cc060321afe3191d65.jpg" target="_blank" >点击查看示例页面</a></li><li> **1** : 腾讯电子签小程序流程合同的详情页,即合同签署页面(注:`仅生成短链或者小程序Path时支持跳转合同详情页,即EndPoint传HTTP_SHORT_URL或者APP`)<a href="https://qcloudimg.tencent-cloud.cn/raw/446a679f09b1b7f40eb84e67face8acc.jpg" target="_blank" >点击查看示例页面</a></li><li> **2** : 腾讯电子签小程序合同列表页 <a href="https://qcloudimg.tencent-cloud.cn/raw/c7b80e44c1d68ae3270a6fc4939c7214.jpg" target="_blank" >点击查看示例页面</a> </li><li> **3** : 腾讯电子签小程序合同封面页  （注：`生成动态签署人补充链接时，必须指定为封面页`）<a href="https://qcloudimg.tencent-cloud.cn/raw/0d22cc587be4bf084877c151350c3bf7.jpg" target="_blank" >点击查看示例页面</a></li></ul>
+     * @param PathType 要跳转到的页面类型 <ul><li> **0** : 腾讯电子签小程序个人首页 (默认) <a href="https://qcloudimg.tencent-cloud.cn/raw/a2667ea84ec993cc060321afe3191d65.jpg" target="_blank" >点击查看示例页面</a></li><li> **1** : 腾讯电子签小程序流程合同的详情页,即合同签署页面(注:`仅生成短链或者小程序Path时支持跳转合同详情页,即EndPoint传HTTP_SHORT_URL或者APP`)<a href="https://qcloudimg.tencent-cloud.cn/raw/446a679f09b1b7f40eb84e67face8acc.jpg" target="_blank" >点击查看示例页面</a></li><li> **2** : 腾讯电子签小程序合同列表页 <a href="https://qcloudimg.tencent-cloud.cn/raw/c7b80e44c1d68ae3270a6fc4939c7214.jpg" target="_blank" >点击查看示例页面</a> </li><li> **3** : 腾讯电子签小程序合同封面页  （注：`生成动态签署人补充链接时，必须指定为封面页`）<a href="https://qcloudimg.tencent-cloud.cn/raw/0d22cc587be4bf084877c151350c3bf7.jpg" target="_blank" >点击查看示例页面</a></li></ul>
      */
     public void setPathType(Long PathType) {
         this.PathType = PathType;
     }
 
     /**
-     * Get 是否自动回跳
-true：是，
-false：否。
-该参数只针对"APP" 类型的签署链接有效 
-     * @return AutoJumpBack 是否自动回跳
-true：是，
-false：否。
-该参数只针对"APP" 类型的签署链接有效
+     * Get 签署完成后是否自动回跳
+<ul><li>**false**：否, 签署完成不会自动跳转回来(默认)</li><li>**true**：是, 签署完成会自动跳转回来</li></ul>
+
+注: 
+1. 该参数<font color="red">只针对APP类型（电子签小程序跳转贵方小程序）场景</font> 的签署链接有效
+2. <font color="red">手机应用APP 或 微信小程序需要监控界面的返回走后序逻辑</font>, 微信小程序的文档可以参考[这个](https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onShow-Object-object)
+3. <font color="red">电子签小程序跳转贵方APP，不支持自动跳转，必需用户手动点击完成按钮（微信的限制）</font>  
+     * @return AutoJumpBack 签署完成后是否自动回跳
+<ul><li>**false**：否, 签署完成不会自动跳转回来(默认)</li><li>**true**：是, 签署完成会自动跳转回来</li></ul>
+
+注: 
+1. 该参数<font color="red">只针对APP类型（电子签小程序跳转贵方小程序）场景</font> 的签署链接有效
+2. <font color="red">手机应用APP 或 微信小程序需要监控界面的返回走后序逻辑</font>, 微信小程序的文档可以参考[这个](https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onShow-Object-object)
+3. <font color="red">电子签小程序跳转贵方APP，不支持自动跳转，必需用户手动点击完成按钮（微信的限制）</font> 
      */
     public Boolean getAutoJumpBack() {
         return this.AutoJumpBack;
     }
 
     /**
-     * Set 是否自动回跳
-true：是，
-false：否。
-该参数只针对"APP" 类型的签署链接有效
-     * @param AutoJumpBack 是否自动回跳
-true：是，
-false：否。
-该参数只针对"APP" 类型的签署链接有效
+     * Set 签署完成后是否自动回跳
+<ul><li>**false**：否, 签署完成不会自动跳转回来(默认)</li><li>**true**：是, 签署完成会自动跳转回来</li></ul>
+
+注: 
+1. 该参数<font color="red">只针对APP类型（电子签小程序跳转贵方小程序）场景</font> 的签署链接有效
+2. <font color="red">手机应用APP 或 微信小程序需要监控界面的返回走后序逻辑</font>, 微信小程序的文档可以参考[这个](https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onShow-Object-object)
+3. <font color="red">电子签小程序跳转贵方APP，不支持自动跳转，必需用户手动点击完成按钮（微信的限制）</font> 
+     * @param AutoJumpBack 签署完成后是否自动回跳
+<ul><li>**false**：否, 签署完成不会自动跳转回来(默认)</li><li>**true**：是, 签署完成会自动跳转回来</li></ul>
+
+注: 
+1. 该参数<font color="red">只针对APP类型（电子签小程序跳转贵方小程序）场景</font> 的签署链接有效
+2. <font color="red">手机应用APP 或 微信小程序需要监控界面的返回走后序逻辑</font>, 微信小程序的文档可以参考[这个](https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onShow-Object-object)
+3. <font color="red">电子签小程序跳转贵方APP，不支持自动跳转，必需用户手动点击完成按钮（微信的限制）</font> 
      */
     public void setAutoJumpBack(Boolean AutoJumpBack) {
         this.AutoJumpBack = AutoJumpBack;
     }
 
     /**
-     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
-     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+     * Get 生成的签署链接在签署页面隐藏的按钮列表，可设置如下：
 
-- 0:合同签署页面更多操作按钮
-- 1:合同签署页面更多操作的拒绝签署按钮
-- 2:合同签署页面更多操作的转他人处理按钮
-- 3:签署成功页的查看详情按钮 
-     * @return Hides 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+<ul><li> **0** :合同签署页面更多操作按钮</li>
+<li> **1** :合同签署页面更多操作的拒绝签署按钮</li>
+<li> **2** :合同签署页面更多操作的转他人处理按钮</li>
+<li> **3** :签署成功页的查看详情按钮</li></ul>
 
-- 0:合同签署页面更多操作按钮
-- 1:合同签署页面更多操作的拒绝签署按钮
-- 2:合同签署页面更多操作的转他人处理按钮
-- 3:签署成功页的查看详情按钮
+注:  `字段为数组, 可以传值隐藏多个按钮` 
+     * @return Hides 生成的签署链接在签署页面隐藏的按钮列表，可设置如下：
+
+<ul><li> **0** :合同签署页面更多操作按钮</li>
+<li> **1** :合同签署页面更多操作的拒绝签署按钮</li>
+<li> **2** :合同签署页面更多操作的转他人处理按钮</li>
+<li> **3** :签署成功页的查看详情按钮</li></ul>
+
+注:  `字段为数组, 可以传值隐藏多个按钮`
      */
     public Long [] getHides() {
         return this.Hides;
     }
 
     /**
-     * Set 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+     * Set 生成的签署链接在签署页面隐藏的按钮列表，可设置如下：
 
-- 0:合同签署页面更多操作按钮
-- 1:合同签署页面更多操作的拒绝签署按钮
-- 2:合同签署页面更多操作的转他人处理按钮
-- 3:签署成功页的查看详情按钮
-     * @param Hides 生成的签署链接在签署过程隐藏的按钮列表, 可以设置隐藏的按钮列表如下
+<ul><li> **0** :合同签署页面更多操作按钮</li>
+<li> **1** :合同签署页面更多操作的拒绝签署按钮</li>
+<li> **2** :合同签署页面更多操作的转他人处理按钮</li>
+<li> **3** :签署成功页的查看详情按钮</li></ul>
 
-- 0:合同签署页面更多操作按钮
-- 1:合同签署页面更多操作的拒绝签署按钮
-- 2:合同签署页面更多操作的转他人处理按钮
-- 3:签署成功页的查看详情按钮
+注:  `字段为数组, 可以传值隐藏多个按钮`
+     * @param Hides 生成的签署链接在签署页面隐藏的按钮列表，可设置如下：
+
+<ul><li> **0** :合同签署页面更多操作按钮</li>
+<li> **1** :合同签署页面更多操作的拒绝签署按钮</li>
+<li> **2** :合同签署页面更多操作的转他人处理按钮</li>
+<li> **3** :签署成功页的查看详情按钮</li></ul>
+
+注:  `字段为数组, 可以传值隐藏多个按钮`
      */
     public void setHides(Long [] Hides) {
         this.Hides = Hides;
+    }
+
+    /**
+     * Get 签署节点ID，用于生成动态签署人链接完成领取。
+
+注：`生成动态签署人补充链接时必传。` 
+     * @return RecipientId 签署节点ID，用于生成动态签署人链接完成领取。
+
+注：`生成动态签署人补充链接时必传。`
+     */
+    public String getRecipientId() {
+        return this.RecipientId;
+    }
+
+    /**
+     * Set 签署节点ID，用于生成动态签署人链接完成领取。
+
+注：`生成动态签署人补充链接时必传。`
+     * @param RecipientId 签署节点ID，用于生成动态签署人链接完成领取。
+
+注：`生成动态签署人补充链接时必传。`
+     */
+    public void setRecipientId(String RecipientId) {
+        this.RecipientId = RecipientId;
+    }
+
+    /**
+     * Get 合同组相关信息，指定合同组子合同和签署方的信息，用于补充动态签署人。 
+     * @return FlowGroupUrlInfo 合同组相关信息，指定合同组子合同和签署方的信息，用于补充动态签署人。
+     */
+    public FlowGroupUrlInfo getFlowGroupUrlInfo() {
+        return this.FlowGroupUrlInfo;
+    }
+
+    /**
+     * Set 合同组相关信息，指定合同组子合同和签署方的信息，用于补充动态签署人。
+     * @param FlowGroupUrlInfo 合同组相关信息，指定合同组子合同和签署方的信息，用于补充动态签署人。
+     */
+    public void setFlowGroupUrlInfo(FlowGroupUrlInfo FlowGroupUrlInfo) {
+        this.FlowGroupUrlInfo = FlowGroupUrlInfo;
+    }
+
+    /**
+     * Get <font color="red">仅公众号 H5 跳转电子签小程序时</font>，如需签署完成的“返回应用”功能，在获取签署链接接口的 UrlUseEnv 参数需设置为 **WeChatOfficialAccounts**，小程序签署成功的结果页面中才会出现“返回应用”按钮。在用户点击“返回应用”按钮之后，会返回到公众号 H5。 
+
+参考 [公众号 H5 跳转电子签小程序](https://qian.tencent.com/developers/company/openwxminiprogram/#23-%E5%85%AC%E4%BC%97%E5%8F%B7-h5-%E4%B8%AD%E8%B7%B3%E8%BD%AC)。 
+     * @return UrlUseEnv <font color="red">仅公众号 H5 跳转电子签小程序时</font>，如需签署完成的“返回应用”功能，在获取签署链接接口的 UrlUseEnv 参数需设置为 **WeChatOfficialAccounts**，小程序签署成功的结果页面中才会出现“返回应用”按钮。在用户点击“返回应用”按钮之后，会返回到公众号 H5。 
+
+参考 [公众号 H5 跳转电子签小程序](https://qian.tencent.com/developers/company/openwxminiprogram/#23-%E5%85%AC%E4%BC%97%E5%8F%B7-h5-%E4%B8%AD%E8%B7%B3%E8%BD%AC)。
+     */
+    public String getUrlUseEnv() {
+        return this.UrlUseEnv;
+    }
+
+    /**
+     * Set <font color="red">仅公众号 H5 跳转电子签小程序时</font>，如需签署完成的“返回应用”功能，在获取签署链接接口的 UrlUseEnv 参数需设置为 **WeChatOfficialAccounts**，小程序签署成功的结果页面中才会出现“返回应用”按钮。在用户点击“返回应用”按钮之后，会返回到公众号 H5。 
+
+参考 [公众号 H5 跳转电子签小程序](https://qian.tencent.com/developers/company/openwxminiprogram/#23-%E5%85%AC%E4%BC%97%E5%8F%B7-h5-%E4%B8%AD%E8%B7%B3%E8%BD%AC)。
+     * @param UrlUseEnv <font color="red">仅公众号 H5 跳转电子签小程序时</font>，如需签署完成的“返回应用”功能，在获取签署链接接口的 UrlUseEnv 参数需设置为 **WeChatOfficialAccounts**，小程序签署成功的结果页面中才会出现“返回应用”按钮。在用户点击“返回应用”按钮之后，会返回到公众号 H5。 
+
+参考 [公众号 H5 跳转电子签小程序](https://qian.tencent.com/developers/company/openwxminiprogram/#23-%E5%85%AC%E4%BC%97%E5%8F%B7-h5-%E4%B8%AD%E8%B7%B3%E8%BD%AC)。
+     */
+    public void setUrlUseEnv(String UrlUseEnv) {
+        this.UrlUseEnv = UrlUseEnv;
+    }
+
+    /**
+     * Get 在动态签署人场景预设了“企业名称”时，可通过该参数控制“已认证身份才可领取”，即在加入了预设的企业后才可领取。默认值：false，无须先加入企业。 
+     * @return PickUpAfterJoined 在动态签署人场景预设了“企业名称”时，可通过该参数控制“已认证身份才可领取”，即在加入了预设的企业后才可领取。默认值：false，无须先加入企业。
+     */
+    public Boolean getPickUpAfterJoined() {
+        return this.PickUpAfterJoined;
+    }
+
+    /**
+     * Set 在动态签署人场景预设了“企业名称”时，可通过该参数控制“已认证身份才可领取”，即在加入了预设的企业后才可领取。默认值：false，无须先加入企业。
+     * @param PickUpAfterJoined 在动态签署人场景预设了“企业名称”时，可通过该参数控制“已认证身份才可领取”，即在加入了预设的企业后才可领取。默认值：false，无须先加入企业。
+     */
+    public void setPickUpAfterJoined(Boolean PickUpAfterJoined) {
+        this.PickUpAfterJoined = PickUpAfterJoined;
     }
 
     public CreateSchemeUrlRequest() {
@@ -379,6 +628,12 @@ false：否。
         }
         if (source.Mobile != null) {
             this.Mobile = new String(source.Mobile);
+        }
+        if (source.IdCardType != null) {
+            this.IdCardType = new String(source.IdCardType);
+        }
+        if (source.IdCardNumber != null) {
+            this.IdCardNumber = new String(source.IdCardNumber);
         }
         if (source.EndPoint != null) {
             this.EndPoint = new String(source.EndPoint);
@@ -404,6 +659,18 @@ false：否。
                 this.Hides[i] = new Long(source.Hides[i]);
             }
         }
+        if (source.RecipientId != null) {
+            this.RecipientId = new String(source.RecipientId);
+        }
+        if (source.FlowGroupUrlInfo != null) {
+            this.FlowGroupUrlInfo = new FlowGroupUrlInfo(source.FlowGroupUrlInfo);
+        }
+        if (source.UrlUseEnv != null) {
+            this.UrlUseEnv = new String(source.UrlUseEnv);
+        }
+        if (source.PickUpAfterJoined != null) {
+            this.PickUpAfterJoined = new Boolean(source.PickUpAfterJoined);
+        }
     }
 
 
@@ -415,6 +682,8 @@ false：否。
         this.setParamSimple(map, prefix + "OrganizationName", this.OrganizationName);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Mobile", this.Mobile);
+        this.setParamSimple(map, prefix + "IdCardType", this.IdCardType);
+        this.setParamSimple(map, prefix + "IdCardNumber", this.IdCardNumber);
         this.setParamSimple(map, prefix + "EndPoint", this.EndPoint);
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
         this.setParamSimple(map, prefix + "FlowGroupId", this.FlowGroupId);
@@ -422,6 +691,10 @@ false：否。
         this.setParamSimple(map, prefix + "AutoJumpBack", this.AutoJumpBack);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamArraySimple(map, prefix + "Hides.", this.Hides);
+        this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
+        this.setParamObj(map, prefix + "FlowGroupUrlInfo.", this.FlowGroupUrlInfo);
+        this.setParamSimple(map, prefix + "UrlUseEnv", this.UrlUseEnv);
+        this.setParamSimple(map, prefix + "PickUpAfterJoined", this.PickUpAfterJoined);
 
     }
 }

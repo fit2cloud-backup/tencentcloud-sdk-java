@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MediaBasicInfo extends AbstractModel{
+public class MediaBasicInfo extends AbstractModel {
 
     /**
     * 媒体文件名称。
@@ -140,8 +141,6 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
     * 文件状态：Normal：正常，Forbidden：封禁。
-
-*注意：此字段暂不支持。	
     */
     @SerializedName("Status")
     @Expose
@@ -431,12 +430,8 @@ public class MediaBasicInfo extends AbstractModel{
     }
 
     /**
-     * Get 文件状态：Normal：正常，Forbidden：封禁。
-
-*注意：此字段暂不支持。	 
+     * Get 文件状态：Normal：正常，Forbidden：封禁。 
      * @return Status 文件状态：Normal：正常，Forbidden：封禁。
-
-*注意：此字段暂不支持。	
      */
     public String getStatus() {
         return this.Status;
@@ -444,11 +439,7 @@ public class MediaBasicInfo extends AbstractModel{
 
     /**
      * Set 文件状态：Normal：正常，Forbidden：封禁。
-
-*注意：此字段暂不支持。	
      * @param Status 文件状态：Normal：正常，Forbidden：封禁。
-
-*注意：此字段暂不支持。	
      */
     public void setStatus(String Status) {
         this.Status = Status;

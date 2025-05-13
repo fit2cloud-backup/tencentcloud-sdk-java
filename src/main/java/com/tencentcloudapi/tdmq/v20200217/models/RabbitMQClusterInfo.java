@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RabbitMQClusterInfo extends AbstractModel{
+public class RabbitMQClusterInfo extends AbstractModel {
 
     /**
     * 集群ID
@@ -52,7 +53,6 @@ public class RabbitMQClusterInfo extends AbstractModel{
 
     /**
     * 集群说明信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -67,7 +67,6 @@ public class RabbitMQClusterInfo extends AbstractModel{
 
     /**
     * 可用区信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -137,7 +136,7 @@ public class RabbitMQClusterInfo extends AbstractModel{
     private Long ExchangeNumber;
 
     /**
-    * 集群异常。
+    * 集群异常信息
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExceptionInformation")
@@ -150,6 +149,62 @@ public class RabbitMQClusterInfo extends AbstractModel{
     @SerializedName("ClusterStatus")
     @Expose
     private Long ClusterStatus;
+
+    /**
+    * 自动续费标记，0表示默认状态(用户未设置，即初始状态即手动续费)， 1表示自动续费，2表示明确不自动续费(用户设置)
+    */
+    @SerializedName("AutoRenewFlag")
+    @Expose
+    private Long AutoRenewFlag;
+
+    /**
+    * 是否开启镜像队列策略。1表示开启，0表示没开启。
+    */
+    @SerializedName("MirrorQueuePolicyFlag")
+    @Expose
+    private Long MirrorQueuePolicyFlag;
+
+    /**
+    * 每秒消费消息数 单位：条/秒
+    */
+    @SerializedName("MessageConsumeRate")
+    @Expose
+    private Float MessageConsumeRate;
+
+    /**
+    * 集群版本信息
+    */
+    @SerializedName("ClusterVersion")
+    @Expose
+    private String ClusterVersion;
+
+    /**
+    * 计费模式，0-后付费，1-预付费
+    */
+    @SerializedName("PayMode")
+    @Expose
+    private Long PayMode;
+
+    /**
+    * 实例类型，0 专享版、1 Serverless 版
+    */
+    @SerializedName("InstanceType")
+    @Expose
+    private Long InstanceType;
+
+    /**
+    * 开始隔离时间
+    */
+    @SerializedName("IsolatedTime")
+    @Expose
+    private Long IsolatedTime;
+
+    /**
+    * 是否为容器实例，默认 true
+    */
+    @SerializedName("Container")
+    @Expose
+    private Boolean Container;
 
     /**
      * Get 集群ID 
@@ -216,10 +271,8 @@ public class RabbitMQClusterInfo extends AbstractModel{
     }
 
     /**
-     * Get 集群说明信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群说明信息 
      * @return Remark 集群说明信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -227,9 +280,7 @@ public class RabbitMQClusterInfo extends AbstractModel{
 
     /**
      * Set 集群说明信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 集群说明信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
@@ -252,10 +303,8 @@ public class RabbitMQClusterInfo extends AbstractModel{
     }
 
     /**
-     * Get 可用区信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区信息 
      * @return ZoneIds 可用区信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getZoneIds() {
         return this.ZoneIds;
@@ -263,9 +312,7 @@ public class RabbitMQClusterInfo extends AbstractModel{
 
     /**
      * Set 可用区信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneIds 可用区信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneIds(Long [] ZoneIds) {
         this.ZoneIds = ZoneIds;
@@ -416,9 +463,9 @@ public class RabbitMQClusterInfo extends AbstractModel{
     }
 
     /**
-     * Get 集群异常。
+     * Get 集群异常信息
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ExceptionInformation 集群异常。
+     * @return ExceptionInformation 集群异常信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExceptionInformation() {
@@ -426,9 +473,9 @@ public class RabbitMQClusterInfo extends AbstractModel{
     }
 
     /**
-     * Set 集群异常。
+     * Set 集群异常信息
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ExceptionInformation 集群异常。
+     * @param ExceptionInformation 集群异常信息
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExceptionInformation(String ExceptionInformation) {
@@ -449,6 +496,134 @@ public class RabbitMQClusterInfo extends AbstractModel{
      */
     public void setClusterStatus(Long ClusterStatus) {
         this.ClusterStatus = ClusterStatus;
+    }
+
+    /**
+     * Get 自动续费标记，0表示默认状态(用户未设置，即初始状态即手动续费)， 1表示自动续费，2表示明确不自动续费(用户设置) 
+     * @return AutoRenewFlag 自动续费标记，0表示默认状态(用户未设置，即初始状态即手动续费)， 1表示自动续费，2表示明确不自动续费(用户设置)
+     */
+    public Long getAutoRenewFlag() {
+        return this.AutoRenewFlag;
+    }
+
+    /**
+     * Set 自动续费标记，0表示默认状态(用户未设置，即初始状态即手动续费)， 1表示自动续费，2表示明确不自动续费(用户设置)
+     * @param AutoRenewFlag 自动续费标记，0表示默认状态(用户未设置，即初始状态即手动续费)， 1表示自动续费，2表示明确不自动续费(用户设置)
+     */
+    public void setAutoRenewFlag(Long AutoRenewFlag) {
+        this.AutoRenewFlag = AutoRenewFlag;
+    }
+
+    /**
+     * Get 是否开启镜像队列策略。1表示开启，0表示没开启。 
+     * @return MirrorQueuePolicyFlag 是否开启镜像队列策略。1表示开启，0表示没开启。
+     */
+    public Long getMirrorQueuePolicyFlag() {
+        return this.MirrorQueuePolicyFlag;
+    }
+
+    /**
+     * Set 是否开启镜像队列策略。1表示开启，0表示没开启。
+     * @param MirrorQueuePolicyFlag 是否开启镜像队列策略。1表示开启，0表示没开启。
+     */
+    public void setMirrorQueuePolicyFlag(Long MirrorQueuePolicyFlag) {
+        this.MirrorQueuePolicyFlag = MirrorQueuePolicyFlag;
+    }
+
+    /**
+     * Get 每秒消费消息数 单位：条/秒 
+     * @return MessageConsumeRate 每秒消费消息数 单位：条/秒
+     */
+    public Float getMessageConsumeRate() {
+        return this.MessageConsumeRate;
+    }
+
+    /**
+     * Set 每秒消费消息数 单位：条/秒
+     * @param MessageConsumeRate 每秒消费消息数 单位：条/秒
+     */
+    public void setMessageConsumeRate(Float MessageConsumeRate) {
+        this.MessageConsumeRate = MessageConsumeRate;
+    }
+
+    /**
+     * Get 集群版本信息 
+     * @return ClusterVersion 集群版本信息
+     */
+    public String getClusterVersion() {
+        return this.ClusterVersion;
+    }
+
+    /**
+     * Set 集群版本信息
+     * @param ClusterVersion 集群版本信息
+     */
+    public void setClusterVersion(String ClusterVersion) {
+        this.ClusterVersion = ClusterVersion;
+    }
+
+    /**
+     * Get 计费模式，0-后付费，1-预付费 
+     * @return PayMode 计费模式，0-后付费，1-预付费
+     */
+    public Long getPayMode() {
+        return this.PayMode;
+    }
+
+    /**
+     * Set 计费模式，0-后付费，1-预付费
+     * @param PayMode 计费模式，0-后付费，1-预付费
+     */
+    public void setPayMode(Long PayMode) {
+        this.PayMode = PayMode;
+    }
+
+    /**
+     * Get 实例类型，0 专享版、1 Serverless 版 
+     * @return InstanceType 实例类型，0 专享版、1 Serverless 版
+     */
+    public Long getInstanceType() {
+        return this.InstanceType;
+    }
+
+    /**
+     * Set 实例类型，0 专享版、1 Serverless 版
+     * @param InstanceType 实例类型，0 专享版、1 Serverless 版
+     */
+    public void setInstanceType(Long InstanceType) {
+        this.InstanceType = InstanceType;
+    }
+
+    /**
+     * Get 开始隔离时间 
+     * @return IsolatedTime 开始隔离时间
+     */
+    public Long getIsolatedTime() {
+        return this.IsolatedTime;
+    }
+
+    /**
+     * Set 开始隔离时间
+     * @param IsolatedTime 开始隔离时间
+     */
+    public void setIsolatedTime(Long IsolatedTime) {
+        this.IsolatedTime = IsolatedTime;
+    }
+
+    /**
+     * Get 是否为容器实例，默认 true 
+     * @return Container 是否为容器实例，默认 true
+     */
+    public Boolean getContainer() {
+        return this.Container;
+    }
+
+    /**
+     * Set 是否为容器实例，默认 true
+     * @param Container 是否为容器实例，默认 true
+     */
+    public void setContainer(Boolean Container) {
+        this.Container = Container;
     }
 
     public RabbitMQClusterInfo() {
@@ -519,6 +694,30 @@ public class RabbitMQClusterInfo extends AbstractModel{
         if (source.ClusterStatus != null) {
             this.ClusterStatus = new Long(source.ClusterStatus);
         }
+        if (source.AutoRenewFlag != null) {
+            this.AutoRenewFlag = new Long(source.AutoRenewFlag);
+        }
+        if (source.MirrorQueuePolicyFlag != null) {
+            this.MirrorQueuePolicyFlag = new Long(source.MirrorQueuePolicyFlag);
+        }
+        if (source.MessageConsumeRate != null) {
+            this.MessageConsumeRate = new Float(source.MessageConsumeRate);
+        }
+        if (source.ClusterVersion != null) {
+            this.ClusterVersion = new String(source.ClusterVersion);
+        }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.InstanceType != null) {
+            this.InstanceType = new Long(source.InstanceType);
+        }
+        if (source.IsolatedTime != null) {
+            this.IsolatedTime = new Long(source.IsolatedTime);
+        }
+        if (source.Container != null) {
+            this.Container = new Boolean(source.Container);
+        }
     }
 
 
@@ -544,6 +743,14 @@ public class RabbitMQClusterInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ExchangeNumber", this.ExchangeNumber);
         this.setParamSimple(map, prefix + "ExceptionInformation", this.ExceptionInformation);
         this.setParamSimple(map, prefix + "ClusterStatus", this.ClusterStatus);
+        this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
+        this.setParamSimple(map, prefix + "MirrorQueuePolicyFlag", this.MirrorQueuePolicyFlag);
+        this.setParamSimple(map, prefix + "MessageConsumeRate", this.MessageConsumeRate);
+        this.setParamSimple(map, prefix + "ClusterVersion", this.ClusterVersion);
+        this.setParamSimple(map, prefix + "PayMode", this.PayMode);
+        this.setParamSimple(map, prefix + "InstanceType", this.InstanceType);
+        this.setParamSimple(map, prefix + "IsolatedTime", this.IsolatedTime);
+        this.setParamSimple(map, prefix + "Container", this.Container);
 
     }
 }

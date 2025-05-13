@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeLicenseGeneralResponse extends AbstractModel{
+public class DescribeLicenseGeneralResponse extends AbstractModel {
 
     /**
     * 总授权数 (包含隔离,过期等不可用状态)
@@ -114,7 +115,7 @@ public class DescribeLicenseGeneralResponse extends AbstractModel{
     private Long ProVersionLicenseCnt;
 
     /**
-    * 普惠版总授权数(有效订单的授权数)
+    * 轻量版总授权数(有效订单的授权数)
     */
     @SerializedName("CwpVersionLicenseCnt")
     @Expose
@@ -149,7 +150,14 @@ public class DescribeLicenseGeneralResponse extends AbstractModel{
     private Long DestroyOrderNum;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 自动加购是否自动续费开关,true 开启,false 关闭
+    */
+    @SerializedName("RepurchaseRenewSwitch")
+    @Expose
+    private Boolean RepurchaseRenewSwitch;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -364,16 +372,16 @@ public class DescribeLicenseGeneralResponse extends AbstractModel{
     }
 
     /**
-     * Get 普惠版总授权数(有效订单的授权数) 
-     * @return CwpVersionLicenseCnt 普惠版总授权数(有效订单的授权数)
+     * Get 轻量版总授权数(有效订单的授权数) 
+     * @return CwpVersionLicenseCnt 轻量版总授权数(有效订单的授权数)
      */
     public Long getCwpVersionLicenseCnt() {
         return this.CwpVersionLicenseCnt;
     }
 
     /**
-     * Set 普惠版总授权数(有效订单的授权数)
-     * @param CwpVersionLicenseCnt 普惠版总授权数(有效订单的授权数)
+     * Set 轻量版总授权数(有效订单的授权数)
+     * @param CwpVersionLicenseCnt 轻量版总授权数(有效订单的授权数)
      */
     public void setCwpVersionLicenseCnt(Long CwpVersionLicenseCnt) {
         this.CwpVersionLicenseCnt = CwpVersionLicenseCnt;
@@ -444,16 +452,32 @@ public class DescribeLicenseGeneralResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 自动加购是否自动续费开关,true 开启,false 关闭 
+     * @return RepurchaseRenewSwitch 自动加购是否自动续费开关,true 开启,false 关闭
+     */
+    public Boolean getRepurchaseRenewSwitch() {
+        return this.RepurchaseRenewSwitch;
+    }
+
+    /**
+     * Set 自动加购是否自动续费开关,true 开启,false 关闭
+     * @param RepurchaseRenewSwitch 自动加购是否自动续费开关,true 开启,false 关闭
+     */
+    public void setRepurchaseRenewSwitch(Boolean RepurchaseRenewSwitch) {
+        this.RepurchaseRenewSwitch = RepurchaseRenewSwitch;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -521,6 +545,9 @@ public class DescribeLicenseGeneralResponse extends AbstractModel{
         if (source.DestroyOrderNum != null) {
             this.DestroyOrderNum = new Long(source.DestroyOrderNum);
         }
+        if (source.RepurchaseRenewSwitch != null) {
+            this.RepurchaseRenewSwitch = new Boolean(source.RepurchaseRenewSwitch);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -549,6 +576,7 @@ public class DescribeLicenseGeneralResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "AutoRepurchaseSwitch", this.AutoRepurchaseSwitch);
         this.setParamSimple(map, prefix + "AutoRepurchaseRenewSwitch", this.AutoRepurchaseRenewSwitch);
         this.setParamSimple(map, prefix + "DestroyOrderNum", this.DestroyOrderNum);
+        this.setParamSimple(map, prefix + "RepurchaseRenewSwitch", this.RepurchaseRenewSwitch);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

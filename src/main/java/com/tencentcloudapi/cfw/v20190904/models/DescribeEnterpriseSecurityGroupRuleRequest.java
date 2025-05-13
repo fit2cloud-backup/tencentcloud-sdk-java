@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeEnterpriseSecurityGroupRuleRequest extends AbstractModel{
+public class DescribeEnterpriseSecurityGroupRuleRequest extends AbstractModel {
 
     /**
     * 分页查询时，显示的当前页的页码。
@@ -109,7 +110,7 @@ true为启用，false为不启用
     private String Protocol;
 
     /**
-    * 端口协议类型参数模板id；协议端口模板id；与Protocol,Port互斥
+    * 端口协议类型参数模板id；协议端口模板id
     */
     @SerializedName("ServiceTemplateId")
     @Expose
@@ -359,16 +360,16 @@ true为启用，false为不启用
     }
 
     /**
-     * Get 端口协议类型参数模板id；协议端口模板id；与Protocol,Port互斥 
-     * @return ServiceTemplateId 端口协议类型参数模板id；协议端口模板id；与Protocol,Port互斥
+     * Get 端口协议类型参数模板id；协议端口模板id 
+     * @return ServiceTemplateId 端口协议类型参数模板id；协议端口模板id
      */
     public String getServiceTemplateId() {
         return this.ServiceTemplateId;
     }
 
     /**
-     * Set 端口协议类型参数模板id；协议端口模板id；与Protocol,Port互斥
-     * @param ServiceTemplateId 端口协议类型参数模板id；协议端口模板id；与Protocol,Port互斥
+     * Set 端口协议类型参数模板id；协议端口模板id
+     * @param ServiceTemplateId 端口协议类型参数模板id；协议端口模板id
      */
     public void setServiceTemplateId(String ServiceTemplateId) {
         this.ServiceTemplateId = ServiceTemplateId;

@@ -16,25 +16,30 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TimelineInformation extends AbstractModel{
+public class TimelineInformation extends AbstractModel {
 
     /**
     * 时间轴
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Timeline")
     @Expose
     private TimelineEvent [] Timeline;
 
     /**
-     * Get 时间轴
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 时间轴 
      * @return Timeline 时间轴
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TimelineEvent [] getTimeline() {
         return this.Timeline;
@@ -42,12 +47,26 @@ public class TimelineInformation extends AbstractModel{
 
     /**
      * Set 时间轴
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Timeline 时间轴
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeline(TimelineEvent [] Timeline) {
         this.Timeline = Timeline;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public TimelineInformation() {
@@ -64,6 +83,9 @@ public class TimelineInformation extends AbstractModel{
                 this.Timeline[i] = new TimelineEvent(source.Timeline[i]);
             }
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -72,6 +94,7 @@ public class TimelineInformation extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Timeline.", this.Timeline);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

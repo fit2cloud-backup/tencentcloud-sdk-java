@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InternetAddressDetail extends AbstractModel{
+public class InternetAddressDetail extends AbstractModel {
 
     /**
     * 互联网地址ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -32,7 +32,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 互联网网络地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Subnet")
     @Expose
@@ -40,7 +39,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 网络地址掩码长度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaskLen")
     @Expose
@@ -51,7 +49,6 @@ public class InternetAddressDetail extends AbstractModel{
 1:电信
 2:移动
 3:联通
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AddrType")
     @Expose
@@ -68,7 +65,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplyTime")
     @Expose
@@ -76,7 +72,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 停用时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StopTime")
     @Expose
@@ -84,7 +79,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 退还时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReleaseTime")
     @Expose
@@ -92,7 +86,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -100,7 +93,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -108,7 +100,6 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 0:IPv4 1:IPv6
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AddrProto")
     @Expose
@@ -116,17 +107,14 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
     * 释放状态的IP地址保留的天数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReserveTime")
     @Expose
     private Long ReserveTime;
 
     /**
-     * Get 互联网地址ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 互联网地址ID 
      * @return InstanceId 互联网地址ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -134,19 +122,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 互联网地址ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 互联网地址ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 互联网网络地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 互联网网络地址 
      * @return Subnet 互联网网络地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnet() {
         return this.Subnet;
@@ -154,19 +138,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 互联网网络地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Subnet 互联网网络地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnet(String Subnet) {
         this.Subnet = Subnet;
     }
 
     /**
-     * Get 网络地址掩码长度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络地址掩码长度 
      * @return MaskLen 网络地址掩码长度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaskLen() {
         return this.MaskLen;
@@ -174,9 +154,7 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 网络地址掩码长度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaskLen 网络地址掩码长度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaskLen(Long MaskLen) {
         this.MaskLen = MaskLen;
@@ -186,13 +164,11 @@ public class InternetAddressDetail extends AbstractModel{
      * Get 0:BGP
 1:电信
 2:移动
-3:联通
-注意：此字段可能返回 null，表示取不到有效值。 
+3:联通 
      * @return AddrType 0:BGP
 1:电信
 2:移动
 3:联通
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAddrType() {
         return this.AddrType;
@@ -203,12 +179,10 @@ public class InternetAddressDetail extends AbstractModel{
 1:电信
 2:移动
 3:联通
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AddrType 0:BGP
 1:电信
 2:移动
 3:联通
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddrType(Long AddrType) {
         this.AddrType = AddrType;
@@ -239,10 +213,8 @@ public class InternetAddressDetail extends AbstractModel{
     }
 
     /**
-     * Get 申请时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 申请时间 
      * @return ApplyTime 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplyTime() {
         return this.ApplyTime;
@@ -250,19 +222,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplyTime 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplyTime(String ApplyTime) {
         this.ApplyTime = ApplyTime;
     }
 
     /**
-     * Get 停用时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 停用时间 
      * @return StopTime 停用时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStopTime() {
         return this.StopTime;
@@ -270,19 +238,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 停用时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StopTime 停用时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStopTime(String StopTime) {
         this.StopTime = StopTime;
     }
 
     /**
-     * Get 退还时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 退还时间 
      * @return ReleaseTime 退还时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReleaseTime() {
         return this.ReleaseTime;
@@ -290,19 +254,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 退还时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReleaseTime 退还时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReleaseTime(String ReleaseTime) {
         this.ReleaseTime = ReleaseTime;
     }
 
     /**
-     * Get 地域信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域信息 
      * @return Region 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -310,19 +270,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 用户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户ID 
      * @return AppId 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -330,19 +286,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
     }
 
     /**
-     * Get 0:IPv4 1:IPv6
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0:IPv4 1:IPv6 
      * @return AddrProto 0:IPv4 1:IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAddrProto() {
         return this.AddrProto;
@@ -350,19 +302,15 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 0:IPv4 1:IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AddrProto 0:IPv4 1:IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddrProto(Long AddrProto) {
         this.AddrProto = AddrProto;
     }
 
     /**
-     * Get 释放状态的IP地址保留的天数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 释放状态的IP地址保留的天数 
      * @return ReserveTime 释放状态的IP地址保留的天数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReserveTime() {
         return this.ReserveTime;
@@ -370,9 +318,7 @@ public class InternetAddressDetail extends AbstractModel{
 
     /**
      * Set 释放状态的IP地址保留的天数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReserveTime 释放状态的IP地址保留的天数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReserveTime(Long ReserveTime) {
         this.ReserveTime = ReserveTime;

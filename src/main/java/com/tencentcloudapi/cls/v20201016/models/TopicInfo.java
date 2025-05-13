@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TopicInfo extends AbstractModel{
+public class TopicInfo extends AbstractModel {
 
     /**
     * 日志集ID
@@ -30,14 +31,14 @@ public class TopicInfo extends AbstractModel{
     private String LogsetId;
 
     /**
-    * 日志主题ID
+    * 主题ID
     */
     @SerializedName("TopicId")
     @Expose
     private String TopicId;
 
     /**
-    * 日志主题名称
+    * 主题名称
     */
     @SerializedName("TopicName")
     @Expose
@@ -51,15 +52,14 @@ public class TopicInfo extends AbstractModel{
     private Long PartitionCount;
 
     /**
-    * 是否开启索引
+    * 主题是否开启索引（主题类型需为日志主题）
     */
     @SerializedName("Index")
     @Expose
     private Boolean Index;
 
     /**
-    * 云产品标识，日志主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
+    * 云产品标识，主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
     */
     @SerializedName("AssumerName")
     @Expose
@@ -73,15 +73,16 @@ public class TopicInfo extends AbstractModel{
     private String CreateTime;
 
     /**
-    * 日主主题是否开启采集
+    * 主题是否开启采集，true：开启采集；false：关闭采集。
+创建日志主题时默认开启，可通过SDK调用ModifyTopic修改此字段。
+控制台目前不支持修改此参数。
     */
     @SerializedName("Status")
     @Expose
     private Boolean Status;
 
     /**
-    * 日志主题绑定的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 主题绑定的标签信息
     */
     @SerializedName("Tags")
     @Expose
@@ -89,7 +90,6 @@ public class TopicInfo extends AbstractModel{
 
     /**
     * 该主题是否开启自动分裂
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoSplit")
     @Expose
@@ -97,15 +97,16 @@ public class TopicInfo extends AbstractModel{
 
     /**
     * 若开启自动分裂的话，该主题能够允许的最大分区数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxSplitPartitions")
     @Expose
     private Long MaxSplitPartitions;
 
     /**
-    * 日主题的存储类型
-注意：此字段可能返回 null，表示取不到有效值。
+    * 主题的存储类型
+
+- hot: 标准存储
+- cold: 低频存储
     */
     @SerializedName("StorageType")
     @Expose
@@ -113,7 +114,6 @@ public class TopicInfo extends AbstractModel{
 
     /**
     * 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Period")
     @Expose
@@ -121,28 +121,71 @@ public class TopicInfo extends AbstractModel{
 
     /**
     * 云产品二级标识，日志主题由其它云产品创建时，该字段会显示云产品名称及其日志类型的二级分类，例如TKE-Audit、TKE-Event。部分云产品仅有云产品标识(AssumerName)，无该字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubAssumerName")
     @Expose
     private String SubAssumerName;
 
     /**
-    * 日志主题描述
-注意：此字段可能返回 null，表示取不到有效值。
+    * 主题描述
     */
     @SerializedName("Describes")
     @Expose
     private String Describes;
 
     /**
-    * 开启日志沉降，热存储的生命周期， hotPeriod < Period。
-热存储为 hotPeriod, 冷存储则为 Period-hotPeriod。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 开启日志沉降，标准存储的生命周期， hotPeriod < Period。
+标准存储为 hotPeriod, 低频存储则为 Period-hotPeriod。（主题类型需为日志主题）
+HotPeriod=0为没有开启日志沉降。
     */
     @SerializedName("HotPeriod")
     @Expose
     private Long HotPeriod;
+
+    /**
+    * 主题类型。
+- 0: 日志主题 
+- 1: 指标主题
+    */
+    @SerializedName("BizType")
+    @Expose
+    private Long BizType;
+
+    /**
+    * 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
+    */
+    @SerializedName("IsWebTracking")
+    @Expose
+    private Boolean IsWebTracking;
+
+    /**
+    * 日志主题扩展信息
+    */
+    @SerializedName("Extends")
+    @Expose
+    private TopicExtendInfo Extends;
+
+    /**
+    * 异步迁移任务ID
+    */
+    @SerializedName("TopicAsyncTaskID")
+    @Expose
+    private String TopicAsyncTaskID;
+
+    /**
+    * 异步迁移状态
+    */
+    @SerializedName("MigrationStatus")
+    @Expose
+    private Long MigrationStatus;
+
+    /**
+    * 异步迁移完成后，预计生效日期
+    */
+    @SerializedName("EffectiveDate")
+    @Expose
+    private String EffectiveDate;
 
     /**
      * Get 日志集ID 
@@ -161,32 +204,32 @@ public class TopicInfo extends AbstractModel{
     }
 
     /**
-     * Get 日志主题ID 
-     * @return TopicId 日志主题ID
+     * Get 主题ID 
+     * @return TopicId 主题ID
      */
     public String getTopicId() {
         return this.TopicId;
     }
 
     /**
-     * Set 日志主题ID
-     * @param TopicId 日志主题ID
+     * Set 主题ID
+     * @param TopicId 主题ID
      */
     public void setTopicId(String TopicId) {
         this.TopicId = TopicId;
     }
 
     /**
-     * Get 日志主题名称 
-     * @return TopicName 日志主题名称
+     * Get 主题名称 
+     * @return TopicName 主题名称
      */
     public String getTopicName() {
         return this.TopicName;
     }
 
     /**
-     * Set 日志主题名称
-     * @param TopicName 日志主题名称
+     * Set 主题名称
+     * @param TopicName 主题名称
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
@@ -209,36 +252,32 @@ public class TopicInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否开启索引 
-     * @return Index 是否开启索引
+     * Get 主题是否开启索引（主题类型需为日志主题） 
+     * @return Index 主题是否开启索引（主题类型需为日志主题）
      */
     public Boolean getIndex() {
         return this.Index;
     }
 
     /**
-     * Set 是否开启索引
-     * @param Index 是否开启索引
+     * Set 主题是否开启索引（主题类型需为日志主题）
+     * @param Index 主题是否开启索引（主题类型需为日志主题）
      */
     public void setIndex(Boolean Index) {
         this.Index = Index;
     }
 
     /**
-     * Get 云产品标识，日志主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AssumerName 云产品标识，日志主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 云产品标识，主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE 
+     * @return AssumerName 云产品标识，主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
      */
     public String getAssumerName() {
         return this.AssumerName;
     }
 
     /**
-     * Set 云产品标识，日志主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AssumerName 云产品标识，日志主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 云产品标识，主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
+     * @param AssumerName 云产品标识，主题由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
      */
     public void setAssumerName(String AssumerName) {
         this.AssumerName = AssumerName;
@@ -261,46 +300,48 @@ public class TopicInfo extends AbstractModel{
     }
 
     /**
-     * Get 日主主题是否开启采集 
-     * @return Status 日主主题是否开启采集
+     * Get 主题是否开启采集，true：开启采集；false：关闭采集。
+创建日志主题时默认开启，可通过SDK调用ModifyTopic修改此字段。
+控制台目前不支持修改此参数。 
+     * @return Status 主题是否开启采集，true：开启采集；false：关闭采集。
+创建日志主题时默认开启，可通过SDK调用ModifyTopic修改此字段。
+控制台目前不支持修改此参数。
      */
     public Boolean getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 日主主题是否开启采集
-     * @param Status 日主主题是否开启采集
+     * Set 主题是否开启采集，true：开启采集；false：关闭采集。
+创建日志主题时默认开启，可通过SDK调用ModifyTopic修改此字段。
+控制台目前不支持修改此参数。
+     * @param Status 主题是否开启采集，true：开启采集；false：关闭采集。
+创建日志主题时默认开启，可通过SDK调用ModifyTopic修改此字段。
+控制台目前不支持修改此参数。
      */
     public void setStatus(Boolean Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 日志主题绑定的标签信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Tags 日志主题绑定的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 主题绑定的标签信息 
+     * @return Tags 主题绑定的标签信息
      */
     public Tag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 日志主题绑定的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Tags 日志主题绑定的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 主题绑定的标签信息
+     * @param Tags 主题绑定的标签信息
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 该主题是否开启自动分裂
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该主题是否开启自动分裂 
      * @return AutoSplit 该主题是否开启自动分裂
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAutoSplit() {
         return this.AutoSplit;
@@ -308,19 +349,15 @@ public class TopicInfo extends AbstractModel{
 
     /**
      * Set 该主题是否开启自动分裂
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoSplit 该主题是否开启自动分裂
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoSplit(Boolean AutoSplit) {
         this.AutoSplit = AutoSplit;
     }
 
     /**
-     * Get 若开启自动分裂的话，该主题能够允许的最大分区数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 若开启自动分裂的话，该主题能够允许的最大分区数 
      * @return MaxSplitPartitions 若开启自动分裂的话，该主题能够允许的最大分区数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxSplitPartitions() {
         return this.MaxSplitPartitions;
@@ -328,39 +365,43 @@ public class TopicInfo extends AbstractModel{
 
     /**
      * Set 若开启自动分裂的话，该主题能够允许的最大分区数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxSplitPartitions 若开启自动分裂的话，该主题能够允许的最大分区数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxSplitPartitions(Long MaxSplitPartitions) {
         this.MaxSplitPartitions = MaxSplitPartitions;
     }
 
     /**
-     * Get 日主题的存储类型
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StorageType 日主题的存储类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 主题的存储类型
+
+- hot: 标准存储
+- cold: 低频存储 
+     * @return StorageType 主题的存储类型
+
+- hot: 标准存储
+- cold: 低频存储
      */
     public String getStorageType() {
         return this.StorageType;
     }
 
     /**
-     * Set 日主题的存储类型
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StorageType 日主题的存储类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 主题的存储类型
+
+- hot: 标准存储
+- cold: 低频存储
+     * @param StorageType 主题的存储类型
+
+- hot: 标准存储
+- cold: 低频存储
      */
     public void setStorageType(String StorageType) {
         this.StorageType = StorageType;
     }
 
     /**
-     * Get 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存 
      * @return Period 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPeriod() {
         return this.Period;
@@ -368,19 +409,15 @@ public class TopicInfo extends AbstractModel{
 
     /**
      * Set 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Period 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPeriod(Long Period) {
         this.Period = Period;
     }
 
     /**
-     * Get 云产品二级标识，日志主题由其它云产品创建时，该字段会显示云产品名称及其日志类型的二级分类，例如TKE-Audit、TKE-Event。部分云产品仅有云产品标识(AssumerName)，无该字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云产品二级标识，日志主题由其它云产品创建时，该字段会显示云产品名称及其日志类型的二级分类，例如TKE-Audit、TKE-Event。部分云产品仅有云产品标识(AssumerName)，无该字段。 
      * @return SubAssumerName 云产品二级标识，日志主题由其它云产品创建时，该字段会显示云产品名称及其日志类型的二级分类，例如TKE-Audit、TKE-Event。部分云产品仅有云产品标识(AssumerName)，无该字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubAssumerName() {
         return this.SubAssumerName;
@@ -388,56 +425,158 @@ public class TopicInfo extends AbstractModel{
 
     /**
      * Set 云产品二级标识，日志主题由其它云产品创建时，该字段会显示云产品名称及其日志类型的二级分类，例如TKE-Audit、TKE-Event。部分云产品仅有云产品标识(AssumerName)，无该字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubAssumerName 云产品二级标识，日志主题由其它云产品创建时，该字段会显示云产品名称及其日志类型的二级分类，例如TKE-Audit、TKE-Event。部分云产品仅有云产品标识(AssumerName)，无该字段。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubAssumerName(String SubAssumerName) {
         this.SubAssumerName = SubAssumerName;
     }
 
     /**
-     * Get 日志主题描述
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Describes 日志主题描述
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 主题描述 
+     * @return Describes 主题描述
      */
     public String getDescribes() {
         return this.Describes;
     }
 
     /**
-     * Set 日志主题描述
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Describes 日志主题描述
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 主题描述
+     * @param Describes 主题描述
      */
     public void setDescribes(String Describes) {
         this.Describes = Describes;
     }
 
     /**
-     * Get 开启日志沉降，热存储的生命周期， hotPeriod < Period。
-热存储为 hotPeriod, 冷存储则为 Period-hotPeriod。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HotPeriod 开启日志沉降，热存储的生命周期， hotPeriod < Period。
-热存储为 hotPeriod, 冷存储则为 Period-hotPeriod。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 开启日志沉降，标准存储的生命周期， hotPeriod < Period。
+标准存储为 hotPeriod, 低频存储则为 Period-hotPeriod。（主题类型需为日志主题）
+HotPeriod=0为没有开启日志沉降。 
+     * @return HotPeriod 开启日志沉降，标准存储的生命周期， hotPeriod < Period。
+标准存储为 hotPeriod, 低频存储则为 Period-hotPeriod。（主题类型需为日志主题）
+HotPeriod=0为没有开启日志沉降。
      */
     public Long getHotPeriod() {
         return this.HotPeriod;
     }
 
     /**
-     * Set 开启日志沉降，热存储的生命周期， hotPeriod < Period。
-热存储为 hotPeriod, 冷存储则为 Period-hotPeriod。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param HotPeriod 开启日志沉降，热存储的生命周期， hotPeriod < Period。
-热存储为 hotPeriod, 冷存储则为 Period-hotPeriod。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 开启日志沉降，标准存储的生命周期， hotPeriod < Period。
+标准存储为 hotPeriod, 低频存储则为 Period-hotPeriod。（主题类型需为日志主题）
+HotPeriod=0为没有开启日志沉降。
+     * @param HotPeriod 开启日志沉降，标准存储的生命周期， hotPeriod < Period。
+标准存储为 hotPeriod, 低频存储则为 Period-hotPeriod。（主题类型需为日志主题）
+HotPeriod=0为没有开启日志沉降。
      */
     public void setHotPeriod(Long HotPeriod) {
         this.HotPeriod = HotPeriod;
+    }
+
+    /**
+     * Get 主题类型。
+- 0: 日志主题 
+- 1: 指标主题 
+     * @return BizType 主题类型。
+- 0: 日志主题 
+- 1: 指标主题
+     */
+    public Long getBizType() {
+        return this.BizType;
+    }
+
+    /**
+     * Set 主题类型。
+- 0: 日志主题 
+- 1: 指标主题
+     * @param BizType 主题类型。
+- 0: 日志主题 
+- 1: 指标主题
+     */
+    public void setBizType(Long BizType) {
+        this.BizType = BizType;
+    }
+
+    /**
+     * Get 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。 
+     * @return IsWebTracking 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
+     */
+    public Boolean getIsWebTracking() {
+        return this.IsWebTracking;
+    }
+
+    /**
+     * Set 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
+     * @param IsWebTracking 免鉴权开关。 false：关闭； true：开启。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。
+     */
+    public void setIsWebTracking(Boolean IsWebTracking) {
+        this.IsWebTracking = IsWebTracking;
+    }
+
+    /**
+     * Get 日志主题扩展信息 
+     * @return Extends 日志主题扩展信息
+     */
+    public TopicExtendInfo getExtends() {
+        return this.Extends;
+    }
+
+    /**
+     * Set 日志主题扩展信息
+     * @param Extends 日志主题扩展信息
+     */
+    public void setExtends(TopicExtendInfo Extends) {
+        this.Extends = Extends;
+    }
+
+    /**
+     * Get 异步迁移任务ID 
+     * @return TopicAsyncTaskID 异步迁移任务ID
+     */
+    public String getTopicAsyncTaskID() {
+        return this.TopicAsyncTaskID;
+    }
+
+    /**
+     * Set 异步迁移任务ID
+     * @param TopicAsyncTaskID 异步迁移任务ID
+     */
+    public void setTopicAsyncTaskID(String TopicAsyncTaskID) {
+        this.TopicAsyncTaskID = TopicAsyncTaskID;
+    }
+
+    /**
+     * Get 异步迁移状态 
+     * @return MigrationStatus 异步迁移状态
+     */
+    public Long getMigrationStatus() {
+        return this.MigrationStatus;
+    }
+
+    /**
+     * Set 异步迁移状态
+     * @param MigrationStatus 异步迁移状态
+     */
+    public void setMigrationStatus(Long MigrationStatus) {
+        this.MigrationStatus = MigrationStatus;
+    }
+
+    /**
+     * Get 异步迁移完成后，预计生效日期 
+     * @return EffectiveDate 异步迁移完成后，预计生效日期
+     */
+    public String getEffectiveDate() {
+        return this.EffectiveDate;
+    }
+
+    /**
+     * Set 异步迁移完成后，预计生效日期
+     * @param EffectiveDate 异步迁移完成后，预计生效日期
+     */
+    public void setEffectiveDate(String EffectiveDate) {
+        this.EffectiveDate = EffectiveDate;
     }
 
     public TopicInfo() {
@@ -499,6 +638,24 @@ public class TopicInfo extends AbstractModel{
         if (source.HotPeriod != null) {
             this.HotPeriod = new Long(source.HotPeriod);
         }
+        if (source.BizType != null) {
+            this.BizType = new Long(source.BizType);
+        }
+        if (source.IsWebTracking != null) {
+            this.IsWebTracking = new Boolean(source.IsWebTracking);
+        }
+        if (source.Extends != null) {
+            this.Extends = new TopicExtendInfo(source.Extends);
+        }
+        if (source.TopicAsyncTaskID != null) {
+            this.TopicAsyncTaskID = new String(source.TopicAsyncTaskID);
+        }
+        if (source.MigrationStatus != null) {
+            this.MigrationStatus = new Long(source.MigrationStatus);
+        }
+        if (source.EffectiveDate != null) {
+            this.EffectiveDate = new String(source.EffectiveDate);
+        }
     }
 
 
@@ -522,6 +679,12 @@ public class TopicInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "SubAssumerName", this.SubAssumerName);
         this.setParamSimple(map, prefix + "Describes", this.Describes);
         this.setParamSimple(map, prefix + "HotPeriod", this.HotPeriod);
+        this.setParamSimple(map, prefix + "BizType", this.BizType);
+        this.setParamSimple(map, prefix + "IsWebTracking", this.IsWebTracking);
+        this.setParamObj(map, prefix + "Extends.", this.Extends);
+        this.setParamSimple(map, prefix + "TopicAsyncTaskID", this.TopicAsyncTaskID);
+        this.setParamSimple(map, prefix + "MigrationStatus", this.MigrationStatus);
+        this.setParamSimple(map, prefix + "EffectiveDate", this.EffectiveDate);
 
     }
 }

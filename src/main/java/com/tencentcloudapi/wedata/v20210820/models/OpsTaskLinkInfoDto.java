@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OpsTaskLinkInfoDto extends AbstractModel{
+public class OpsTaskLinkInfoDto extends AbstractModel {
 
     /**
     * 下游任务id
@@ -49,6 +50,14 @@ public class OpsTaskLinkInfoDto extends AbstractModel{
     @SerializedName("LinkId")
     @Expose
     private String LinkId;
+
+    /**
+    * 为了区分新增的循环依赖新增的类型。默认是normal，循环依赖则是circulate
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LinkStyle")
+    @Expose
+    private String LinkStyle;
 
     /**
      * Get 下游任务id 
@@ -114,6 +123,26 @@ public class OpsTaskLinkInfoDto extends AbstractModel{
         this.LinkId = LinkId;
     }
 
+    /**
+     * Get 为了区分新增的循环依赖新增的类型。默认是normal，循环依赖则是circulate
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LinkStyle 为了区分新增的循环依赖新增的类型。默认是normal，循环依赖则是circulate
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLinkStyle() {
+        return this.LinkStyle;
+    }
+
+    /**
+     * Set 为了区分新增的循环依赖新增的类型。默认是normal，循环依赖则是circulate
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LinkStyle 为了区分新增的循环依赖新增的类型。默认是normal，循环依赖则是circulate
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLinkStyle(String LinkStyle) {
+        this.LinkStyle = LinkStyle;
+    }
+
     public OpsTaskLinkInfoDto() {
     }
 
@@ -134,6 +163,9 @@ public class OpsTaskLinkInfoDto extends AbstractModel{
         if (source.LinkId != null) {
             this.LinkId = new String(source.LinkId);
         }
+        if (source.LinkStyle != null) {
+            this.LinkStyle = new String(source.LinkStyle);
+        }
     }
 
 
@@ -145,6 +177,7 @@ public class OpsTaskLinkInfoDto extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskFrom", this.TaskFrom);
         this.setParamSimple(map, prefix + "LinkType", this.LinkType);
         this.setParamSimple(map, prefix + "LinkId", this.LinkId);
+        this.setParamSimple(map, prefix + "LinkStyle", this.LinkStyle);
 
     }
 }

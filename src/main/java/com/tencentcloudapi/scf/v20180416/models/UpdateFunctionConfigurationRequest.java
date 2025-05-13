@@ -16,11 +16,12 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateFunctionConfigurationRequest extends AbstractModel{
+public class UpdateFunctionConfigurationRequest extends AbstractModel {
 
     /**
     * 要修改的函数名称
@@ -51,7 +52,7 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     private Long Timeout;
 
     /**
-    * 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
+    * 函数运行环境，创建时指定，目前不支持修改。
     */
     @SerializedName("Runtime")
     @Expose
@@ -171,6 +172,27 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     private InstanceConcurrencyConfig InstanceConcurrencyConfig;
 
     /**
+    * 是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+    */
+    @SerializedName("DnsCache")
+    @Expose
+    private String DnsCache;
+
+    /**
+    * 内网访问配置
+    */
+    @SerializedName("IntranetConfig")
+    @Expose
+    private IntranetConfigIn IntranetConfig;
+
+    /**
+    * 忽略系统日志上报
+    */
+    @SerializedName("IgnoreSysLog")
+    @Expose
+    private Boolean IgnoreSysLog;
+
+    /**
      * Get 要修改的函数名称 
      * @return FunctionName 要修改的函数名称
      */
@@ -235,16 +257,16 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime 
-     * @return Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
+     * Get 函数运行环境，创建时指定，目前不支持修改。 
+     * @return Runtime 函数运行环境，创建时指定，目前不支持修改。
      */
     public String getRuntime() {
         return this.Runtime;
     }
 
     /**
-     * Set 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
-     * @param Runtime 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16， PHP5， PHP7，Go1 ， Java8和CustomRuntime
+     * Set 函数运行环境，创建时指定，目前不支持修改。
+     * @param Runtime 函数运行环境，创建时指定，目前不支持修改。
      */
     public void setRuntime(String Runtime) {
         this.Runtime = Runtime;
@@ -510,6 +532,54 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
         this.InstanceConcurrencyConfig = InstanceConcurrencyConfig;
     }
 
+    /**
+     * Get 是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭 
+     * @return DnsCache 是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+     */
+    public String getDnsCache() {
+        return this.DnsCache;
+    }
+
+    /**
+     * Set 是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+     * @param DnsCache 是否开启Dns缓存能力。只支持EVENT函数。默认为FALSE，TRUE 为开启，FALSE为关闭
+     */
+    public void setDnsCache(String DnsCache) {
+        this.DnsCache = DnsCache;
+    }
+
+    /**
+     * Get 内网访问配置 
+     * @return IntranetConfig 内网访问配置
+     */
+    public IntranetConfigIn getIntranetConfig() {
+        return this.IntranetConfig;
+    }
+
+    /**
+     * Set 内网访问配置
+     * @param IntranetConfig 内网访问配置
+     */
+    public void setIntranetConfig(IntranetConfigIn IntranetConfig) {
+        this.IntranetConfig = IntranetConfig;
+    }
+
+    /**
+     * Get 忽略系统日志上报 
+     * @return IgnoreSysLog 忽略系统日志上报
+     */
+    public Boolean getIgnoreSysLog() {
+        return this.IgnoreSysLog;
+    }
+
+    /**
+     * Set 忽略系统日志上报
+     * @param IgnoreSysLog 忽略系统日志上报
+     */
+    public void setIgnoreSysLog(Boolean IgnoreSysLog) {
+        this.IgnoreSysLog = IgnoreSysLog;
+    }
+
     public UpdateFunctionConfigurationRequest() {
     }
 
@@ -584,6 +654,15 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
         if (source.InstanceConcurrencyConfig != null) {
             this.InstanceConcurrencyConfig = new InstanceConcurrencyConfig(source.InstanceConcurrencyConfig);
         }
+        if (source.DnsCache != null) {
+            this.DnsCache = new String(source.DnsCache);
+        }
+        if (source.IntranetConfig != null) {
+            this.IntranetConfig = new IntranetConfigIn(source.IntranetConfig);
+        }
+        if (source.IgnoreSysLog != null) {
+            this.IgnoreSysLog = new Boolean(source.IgnoreSysLog);
+        }
     }
 
 
@@ -612,6 +691,9 @@ public class UpdateFunctionConfigurationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "InitTimeout", this.InitTimeout);
         this.setParamObj(map, prefix + "ProtocolParams.", this.ProtocolParams);
         this.setParamObj(map, prefix + "InstanceConcurrencyConfig.", this.InstanceConcurrencyConfig);
+        this.setParamSimple(map, prefix + "DnsCache", this.DnsCache);
+        this.setParamObj(map, prefix + "IntranetConfig.", this.IntranetConfig);
+        this.setParamSimple(map, prefix + "IgnoreSysLog", this.IgnoreSysLog);
 
     }
 }

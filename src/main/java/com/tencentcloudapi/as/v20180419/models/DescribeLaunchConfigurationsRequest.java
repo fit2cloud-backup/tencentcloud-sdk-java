@@ -16,11 +16,12 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeLaunchConfigurationsRequest extends AbstractModel{
+public class DescribeLaunchConfigurationsRequest extends AbstractModel {
 
     /**
     * 按照一个或者多个启动配置ID查询。启动配置ID形如：`asc-ouy1ax38`。每次请求的上限为100。参数不支持同时指定`LaunchConfigurationIds`和`Filters`
@@ -36,8 +37,7 @@ public class DescribeLaunchConfigurationsRequest extends AbstractModel{
 <li> vague-launch-configuration-name - String - 是否必填：否 -（过滤条件）按照启动配置名称模糊搜索。</li>
 <li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
-<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3
-</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3</li>
 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`LaunchConfigurationIds`和`Filters`。
     */
     @SerializedName("Filters")
@@ -81,8 +81,7 @@ public class DescribeLaunchConfigurationsRequest extends AbstractModel{
 <li> vague-launch-configuration-name - String - 是否必填：否 -（过滤条件）按照启动配置名称模糊搜索。</li>
 <li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
-<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3
-</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3</li>
 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`LaunchConfigurationIds`和`Filters`。 
      * @return Filters 过滤条件。
 <li> launch-configuration-id - String - 是否必填：否 -（过滤条件）按照启动配置ID过滤。</li>
@@ -90,8 +89,7 @@ public class DescribeLaunchConfigurationsRequest extends AbstractModel{
 <li> vague-launch-configuration-name - String - 是否必填：否 -（过滤条件）按照启动配置名称模糊搜索。</li>
 <li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
-<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3
-</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3</li>
 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`LaunchConfigurationIds`和`Filters`。
      */
     public Filter [] getFilters() {
@@ -105,8 +103,7 @@ public class DescribeLaunchConfigurationsRequest extends AbstractModel{
 <li> vague-launch-configuration-name - String - 是否必填：否 -（过滤条件）按照启动配置名称模糊搜索。</li>
 <li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
-<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3
-</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3</li>
 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`LaunchConfigurationIds`和`Filters`。
      * @param Filters 过滤条件。
 <li> launch-configuration-id - String - 是否必填：否 -（过滤条件）按照启动配置ID过滤。</li>
@@ -114,8 +111,7 @@ public class DescribeLaunchConfigurationsRequest extends AbstractModel{
 <li> vague-launch-configuration-name - String - 是否必填：否 -（过滤条件）按照启动配置名称模糊搜索。</li>
 <li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
-<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3
-</li>
+<li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。使用请参考示例3</li>
 每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`LaunchConfigurationIds`和`Filters`。
      */
     public void setFilters(Filter [] Filters) {

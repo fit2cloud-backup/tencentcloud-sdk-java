@@ -45,18 +45,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AnalyzeDenseLandmarksResponse AnalyzeDenseLandmarks(AnalyzeDenseLandmarksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AnalyzeDenseLandmarksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AnalyzeDenseLandmarksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AnalyzeDenseLandmarks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AnalyzeDenseLandmarks", AnalyzeDenseLandmarksResponse.class);
     }
 
     /**
@@ -69,18 +59,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AnalyzeFaceResponse AnalyzeFace(AnalyzeFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AnalyzeFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AnalyzeFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AnalyzeFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AnalyzeFace", AnalyzeFaceResponse.class);
     }
 
     /**
@@ -95,18 +75,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CompareFaceResponse CompareFace(CompareFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CompareFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CompareFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CompareFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CompareFace", CompareFaceResponse.class);
     }
 
     /**
@@ -120,18 +90,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CompareMaskFaceResponse CompareMaskFace(CompareMaskFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CompareMaskFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CompareMaskFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CompareMaskFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CompareMaskFace", CompareMaskFaceResponse.class);
     }
 
     /**
@@ -143,18 +103,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CopyPersonResponse CopyPerson(CopyPersonRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CopyPersonResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CopyPersonResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CopyPerson");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CopyPerson", CopyPersonResponse.class);
     }
 
     /**
@@ -167,18 +117,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateFaceResponse CreateFace(CreateFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateFace", CreateFaceResponse.class);
     }
 
     /**
@@ -193,18 +133,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateGroupResponse CreateGroup(CreateGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateGroup", CreateGroupResponse.class);
     }
 
     /**
@@ -217,18 +147,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePersonResponse CreatePerson(CreatePersonRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePersonResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePersonResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePerson");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePerson", CreatePersonResponse.class);
     }
 
     /**
@@ -238,40 +158,19 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteFaceResponse DeleteFace(DeleteFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteFace", DeleteFaceResponse.class);
     }
 
     /**
      *删除该人员库及包含的所有的人员。同时，人员对应的所有人脸信息将被删除。若某人员同时存在多个人员库中，该人员不会被删除，但属于该人员库中的自定义描述字段信息会被删除，属于其他人员库的自定义描述字段信息不受影响。
-
      * @param req DeleteGroupRequest
      * @return DeleteGroupResponse
      * @throws TencentCloudSDKException
      */
     public DeleteGroupResponse DeleteGroup(DeleteGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteGroup", DeleteGroupResponse.class);
     }
 
     /**
@@ -281,18 +180,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePersonResponse DeletePerson(DeletePersonRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePersonResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePersonResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePerson");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePerson", DeletePersonResponse.class);
     }
 
     /**
@@ -302,18 +191,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePersonFromGroupResponse DeletePersonFromGroup(DeletePersonFromGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePersonFromGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePersonFromGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePersonFromGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePersonFromGroup", DeletePersonFromGroupResponse.class);
     }
 
     /**
@@ -337,22 +216,12 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DetectFaceResponse DetectFace(DetectFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetectFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetectFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetectFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetectFace", DetectFaceResponse.class);
     }
 
     /**
-     *检测给定图片中的人脸（Face）的位置、相应的面部属性和人脸质量信息，位置包括 (x，y，w，h)，面部属性包括性别（gender）、年龄（age）、表情（expression）、魅力（beauty）、眼镜（glass）、发型（hair）、口罩（mask）和姿态 (pitch，roll，yaw)，人脸质量信息包括整体质量分（score）、模糊分（sharpness）、光照分（brightness）和五官遮挡分（completeness）。
+     *检测给定图片中的人脸（Face）的位置、相应的面部属性和人脸质量信息，位置包括 (x，y，w，h)，面部属性包括性别（gender）、年龄（age）、表情（expression）、魅力（beauty）、眼镜（glass）、发型（hair）、口罩（mask）和姿态 (pitch，roll，yaw)。
 
  
 其中，人脸质量信息主要用于评价输入的人脸图片的质量。在使用人脸识别服务时，建议您对输入的人脸图片进行质量检测，提升后续业务处理的效果。该功能的应用场景包括：
@@ -378,18 +247,24 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DetectFaceAttributesResponse DetectFaceAttributes(DetectFaceAttributesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetectFaceAttributesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetectFaceAttributesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetectFaceAttributes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetectFaceAttributes", DetectFaceAttributesResponse.class);
+    }
+
+    /**
+     *对两张图片中的人脸进行相似度比对，返回人脸相似度分数。
+
+若您需要判断 “此人是否是某人”，即验证某张图片中的人是否是已知身份的某人，如常见的人脸登录场景，建议使用[人脸验证](https://www.tencentcloud.com/document/product/1059/36972)或[人员验证](https://www.tencentcloud.com/document/product/1059/36971)接口。
+
+>     
+- 公共参数中的签名方式请使用V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
+     * @param req DetectFaceSimilarityRequest
+     * @return DetectFaceSimilarityResponse
+     * @throws TencentCloudSDKException
+     */
+    public DetectFaceSimilarityResponse DetectFaceSimilarity(DetectFaceSimilarityRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DetectFaceSimilarity", DetectFaceSimilarityResponse.class);
     }
 
     /**
@@ -410,18 +285,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DetectLiveFaceResponse DetectLiveFace(DetectLiveFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetectLiveFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetectLiveFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetectLiveFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetectLiveFace", DetectLiveFaceResponse.class);
     }
 
     /**
@@ -435,18 +300,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DetectLiveFaceAccurateResponse DetectLiveFaceAccurate(DetectLiveFaceAccurateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetectLiveFaceAccurateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetectLiveFaceAccurateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetectLiveFaceAccurate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetectLiveFaceAccurate", DetectLiveFaceAccurateResponse.class);
     }
 
     /**
@@ -456,18 +311,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetGroupInfoResponse GetGroupInfo(GetGroupInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetGroupInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetGroupInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetGroupInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetGroupInfo", GetGroupInfoResponse.class);
     }
 
     /**
@@ -477,18 +322,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetGroupListResponse GetGroupList(GetGroupListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetGroupListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetGroupListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetGroupList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetGroupList", GetGroupListResponse.class);
     }
 
     /**
@@ -498,18 +333,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetPersonBaseInfoResponse GetPersonBaseInfo(GetPersonBaseInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetPersonBaseInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetPersonBaseInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetPersonBaseInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetPersonBaseInfo", GetPersonBaseInfoResponse.class);
     }
 
     /**
@@ -519,18 +344,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetPersonGroupInfoResponse GetPersonGroupInfo(GetPersonGroupInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetPersonGroupInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetPersonGroupInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetPersonGroupInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetPersonGroupInfo", GetPersonGroupInfoResponse.class);
     }
 
     /**
@@ -540,18 +355,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetPersonListResponse GetPersonList(GetPersonListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetPersonListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetPersonListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetPersonList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetPersonList", GetPersonListResponse.class);
     }
 
     /**
@@ -561,18 +366,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetPersonListNumResponse GetPersonListNum(GetPersonListNumRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetPersonListNumResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetPersonListNumResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetPersonListNum");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetPersonListNum", GetPersonListNumResponse.class);
     }
 
     /**
@@ -585,18 +380,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetUpgradeGroupFaceModelVersionJobListResponse GetUpgradeGroupFaceModelVersionJobList(GetUpgradeGroupFaceModelVersionJobListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetUpgradeGroupFaceModelVersionJobListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetUpgradeGroupFaceModelVersionJobListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetUpgradeGroupFaceModelVersionJobList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetUpgradeGroupFaceModelVersionJobList", GetUpgradeGroupFaceModelVersionJobListResponse.class);
     }
 
     /**
@@ -608,18 +393,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public GetUpgradeGroupFaceModelVersionResultResponse GetUpgradeGroupFaceModelVersionResult(GetUpgradeGroupFaceModelVersionResultRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetUpgradeGroupFaceModelVersionResultResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetUpgradeGroupFaceModelVersionResultResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetUpgradeGroupFaceModelVersionResult");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetUpgradeGroupFaceModelVersionResult", GetUpgradeGroupFaceModelVersionResultResponse.class);
     }
 
     /**
@@ -629,18 +404,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyGroupResponse ModifyGroup(ModifyGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyGroup", ModifyGroupResponse.class);
     }
 
     /**
@@ -650,18 +415,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPersonBaseInfoResponse ModifyPersonBaseInfo(ModifyPersonBaseInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPersonBaseInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPersonBaseInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPersonBaseInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPersonBaseInfo", ModifyPersonBaseInfoResponse.class);
     }
 
     /**
@@ -671,18 +426,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ModifyPersonGroupInfoResponse ModifyPersonGroupInfo(ModifyPersonGroupInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPersonGroupInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPersonGroupInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPersonGroupInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPersonGroupInfo", ModifyPersonGroupInfoResponse.class);
     }
 
     /**
@@ -696,18 +441,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RevertGroupFaceModelVersionResponse RevertGroupFaceModelVersion(RevertGroupFaceModelVersionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RevertGroupFaceModelVersionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RevertGroupFaceModelVersionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RevertGroupFaceModelVersion");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RevertGroupFaceModelVersion", RevertGroupFaceModelVersionResponse.class);
     }
 
     /**
@@ -732,18 +467,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SearchFacesResponse SearchFaces(SearchFacesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SearchFacesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SearchFacesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SearchFaces");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SearchFaces", SearchFacesResponse.class);
     }
 
     /**
@@ -762,24 +487,13 @@ public class IaiClient extends AbstractClient{
 
 >     
 - 不可同时搜索不同算法模型版本（FaceModelVersion）的人员库。
-
      * @param req SearchFacesReturnsByGroupRequest
      * @return SearchFacesReturnsByGroupResponse
      * @throws TencentCloudSDKException
      */
     public SearchFacesReturnsByGroupResponse SearchFacesReturnsByGroup(SearchFacesReturnsByGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SearchFacesReturnsByGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SearchFacesReturnsByGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SearchFacesReturnsByGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SearchFacesReturnsByGroup", SearchFacesReturnsByGroupResponse.class);
     }
 
     /**
@@ -799,18 +513,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SearchPersonsResponse SearchPersons(SearchPersonsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SearchPersonsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SearchPersonsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SearchPersons");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SearchPersons", SearchPersonsResponse.class);
     }
 
     /**
@@ -829,18 +533,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public SearchPersonsReturnsByGroupResponse SearchPersonsReturnsByGroup(SearchPersonsReturnsByGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SearchPersonsReturnsByGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SearchPersonsReturnsByGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SearchPersonsReturnsByGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SearchPersonsReturnsByGroup", SearchPersonsReturnsByGroupResponse.class);
     }
 
     /**
@@ -857,18 +551,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpgradeGroupFaceModelVersionResponse UpgradeGroupFaceModelVersion(UpgradeGroupFaceModelVersionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpgradeGroupFaceModelVersionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpgradeGroupFaceModelVersionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpgradeGroupFaceModelVersion");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpgradeGroupFaceModelVersion", UpgradeGroupFaceModelVersionResponse.class);
     }
 
     /**
@@ -885,18 +569,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public VerifyFaceResponse VerifyFace(VerifyFaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VerifyFaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VerifyFaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VerifyFace");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "VerifyFace", VerifyFaceResponse.class);
     }
 
     /**
@@ -914,18 +588,8 @@ public class IaiClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public VerifyPersonResponse VerifyPerson(VerifyPersonRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VerifyPersonResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VerifyPersonResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VerifyPerson");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "VerifyPerson", VerifyPersonResponse.class);
     }
 
 }

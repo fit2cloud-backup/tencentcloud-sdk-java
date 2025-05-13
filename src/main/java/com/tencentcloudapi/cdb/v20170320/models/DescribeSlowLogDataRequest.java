@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSlowLogDataRequest extends AbstractModel{
+public class DescribeSlowLogDataRequest extends AbstractModel {
 
     /**
     * 实例 ID。
@@ -30,14 +31,16 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 开始时间戳。例如 1585142640 。
+    * 开始时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
     */
     @SerializedName("StartTime")
     @Expose
     private Long StartTime;
 
     /**
-    * 结束时间戳。例如 1585142640 。
+    * 结束时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
     */
     @SerializedName("EndTime")
     @Expose
@@ -79,7 +82,7 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
     private String OrderBy;
 
     /**
-    * 偏移量，默认为0。
+    * 偏移量，默认为0，最大为9999。
     */
     @SerializedName("Offset")
     @Expose
@@ -100,6 +103,13 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
     private String InstType;
 
     /**
+    * 节点ID
+    */
+    @SerializedName("OpResourceId")
+    @Expose
+    private String OpResourceId;
+
+    /**
      * Get 实例 ID。 
      * @return InstanceId 实例 ID。
      */
@@ -116,32 +126,40 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 开始时间戳。例如 1585142640 。 
-     * @return StartTime 开始时间戳。例如 1585142640 。
+     * Get 开始时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。 
+     * @return StartTime 开始时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
      */
     public Long getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 开始时间戳。例如 1585142640 。
-     * @param StartTime 开始时间戳。例如 1585142640 。
+     * Set 开始时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
+     * @param StartTime 开始时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
      */
     public void setStartTime(Long StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 结束时间戳。例如 1585142640 。 
-     * @return EndTime 结束时间戳。例如 1585142640 。
+     * Get 结束时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。 
+     * @return EndTime 结束时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
      */
     public Long getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间戳。例如 1585142640 。
-     * @param EndTime 结束时间戳。例如 1585142640 。
+     * Set 结束时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
+     * @param EndTime 结束时间戳。例如 1585142640。
+说明：此参数单位为秒的时间戳。
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;
@@ -228,16 +246,16 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 偏移量，默认为0。 
-     * @return Offset 偏移量，默认为0。
+     * Get 偏移量，默认为0，最大为9999。 
+     * @return Offset 偏移量，默认为0，最大为9999。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量，默认为0。
-     * @param Offset 偏移量，默认为0。
+     * Set 偏移量，默认为0，最大为9999。
+     * @param Offset 偏移量，默认为0，最大为9999。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
@@ -273,6 +291,22 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
      */
     public void setInstType(String InstType) {
         this.InstType = InstType;
+    }
+
+    /**
+     * Get 节点ID 
+     * @return OpResourceId 节点ID
+     */
+    public String getOpResourceId() {
+        return this.OpResourceId;
+    }
+
+    /**
+     * Set 节点ID
+     * @param OpResourceId 节点ID
+     */
+    public void setOpResourceId(String OpResourceId) {
+        this.OpResourceId = OpResourceId;
     }
 
     public DescribeSlowLogDataRequest() {
@@ -325,6 +359,9 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
         if (source.InstType != null) {
             this.InstType = new String(source.InstType);
         }
+        if (source.OpResourceId != null) {
+            this.OpResourceId = new String(source.OpResourceId);
+        }
     }
 
 
@@ -343,6 +380,7 @@ public class DescribeSlowLogDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "InstType", this.InstType);
+        this.setParamSimple(map, prefix + "OpResourceId", this.OpResourceId);
 
     }
 }

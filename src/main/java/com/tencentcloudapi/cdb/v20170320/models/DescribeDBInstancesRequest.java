@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBInstancesRequest extends AbstractModel{
+public class DescribeDBInstancesRequest extends AbstractModel {
 
     /**
     * 项目 ID。
@@ -86,7 +87,7 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     private String [] InstanceNames;
 
     /**
-    * 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
+    * 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行<br>34 - 原地升级待执行
     */
     @SerializedName("TaskStatus")
     @Expose
@@ -241,6 +242,7 @@ public class DescribeDBInstancesRequest extends AbstractModel{
 
     /**
     * 标签键值
+请注意，创建中的实例无法查询到标签。
     */
     @SerializedName("Tags")
     @Expose
@@ -266,6 +268,13 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     @SerializedName("EngineTypes")
     @Expose
     private String [] EngineTypes;
+
+    /**
+    * 是否获取集群版实例节点信息，可填：true或false
+    */
+    @SerializedName("QueryClusterInfo")
+    @Expose
+    private Boolean QueryClusterInfo;
 
     /**
      * Get 项目 ID。 
@@ -412,16 +421,16 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行 
-     * @return TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
+     * Get 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行<br>34 - 原地升级待执行 
+     * @return TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行<br>34 - 原地升级待执行
      */
     public Long [] getTaskStatus() {
         return this.TaskStatus;
     }
 
     /**
-     * Set 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
-     * @param TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行
+     * Set 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行<br>34 - 原地升级待执行
+     * @param TaskStatus 实例任务状态，可能取值：<br>0 - 没有任务<br>1 - 升级中<br>2 - 数据导入中<br>3 - 开放Slave中<br>4 - 外网访问开通中<br>5 - 批量操作执行中<br>6 - 回档中<br>7 - 外网访问关闭中<br>8 - 密码修改中<br>9 - 实例名修改中<br>10 - 重启中<br>12 - 自建迁移中<br>13 - 删除库表中<br>14 - 灾备实例创建同步中<br>15 - 升级待切换<br>16 - 升级切换中<br>17 - 升级切换完成<br>19 - 参数设置待执行<br>34 - 原地升级待执行
      */
     public void setTaskStatus(Long [] TaskStatus) {
         this.TaskStatus = TaskStatus;
@@ -764,8 +773,10 @@ public class DescribeDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 标签键值 
+     * Get 标签键值
+请注意，创建中的实例无法查询到标签。 
      * @return Tags 标签键值
+请注意，创建中的实例无法查询到标签。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -773,7 +784,9 @@ public class DescribeDBInstancesRequest extends AbstractModel{
 
     /**
      * Set 标签键值
+请注意，创建中的实例无法查询到标签。
      * @param Tags 标签键值
+请注意，创建中的实例无法查询到标签。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
@@ -825,6 +838,22 @@ public class DescribeDBInstancesRequest extends AbstractModel{
      */
     public void setEngineTypes(String [] EngineTypes) {
         this.EngineTypes = EngineTypes;
+    }
+
+    /**
+     * Get 是否获取集群版实例节点信息，可填：true或false 
+     * @return QueryClusterInfo 是否获取集群版实例节点信息，可填：true或false
+     */
+    public Boolean getQueryClusterInfo() {
+        return this.QueryClusterInfo;
+    }
+
+    /**
+     * Set 是否获取集群版实例节点信息，可填：true或false
+     * @param QueryClusterInfo 是否获取集群版实例节点信息，可填：true或false
+     */
+    public void setQueryClusterInfo(Boolean QueryClusterInfo) {
+        this.QueryClusterInfo = QueryClusterInfo;
     }
 
     public DescribeDBInstancesRequest() {
@@ -1006,6 +1035,9 @@ public class DescribeDBInstancesRequest extends AbstractModel{
                 this.EngineTypes[i] = new String(source.EngineTypes[i]);
             }
         }
+        if (source.QueryClusterInfo != null) {
+            this.QueryClusterInfo = new Boolean(source.QueryClusterInfo);
+        }
     }
 
 
@@ -1048,6 +1080,7 @@ public class DescribeDBInstancesRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ProxyVips.", this.ProxyVips);
         this.setParamArraySimple(map, prefix + "ProxyIds.", this.ProxyIds);
         this.setParamArraySimple(map, prefix + "EngineTypes.", this.EngineTypes);
+        this.setParamSimple(map, prefix + "QueryClusterInfo", this.QueryClusterInfo);
 
     }
 }

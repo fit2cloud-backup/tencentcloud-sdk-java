@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Item extends AbstractModel{
+public class Item extends AbstractModel {
 
     /**
     * Id
@@ -35,6 +36,20 @@ public class Item extends AbstractModel{
     @SerializedName("ItemName")
     @Expose
     private String ItemName;
+
+    /**
+    * 自定义阈值
+    */
+    @SerializedName("CustomItemValues")
+    @Expose
+    private Long [] CustomItemValues;
+
+    /**
+    * 检测项所属分类
+    */
+    @SerializedName("CategoryId")
+    @Expose
+    private Long CategoryId;
 
     /**
      * Get Id 
@@ -68,6 +83,38 @@ public class Item extends AbstractModel{
         this.ItemName = ItemName;
     }
 
+    /**
+     * Get 自定义阈值 
+     * @return CustomItemValues 自定义阈值
+     */
+    public Long [] getCustomItemValues() {
+        return this.CustomItemValues;
+    }
+
+    /**
+     * Set 自定义阈值
+     * @param CustomItemValues 自定义阈值
+     */
+    public void setCustomItemValues(Long [] CustomItemValues) {
+        this.CustomItemValues = CustomItemValues;
+    }
+
+    /**
+     * Get 检测项所属分类 
+     * @return CategoryId 检测项所属分类
+     */
+    public Long getCategoryId() {
+        return this.CategoryId;
+    }
+
+    /**
+     * Set 检测项所属分类
+     * @param CategoryId 检测项所属分类
+     */
+    public void setCategoryId(Long CategoryId) {
+        this.CategoryId = CategoryId;
+    }
+
     public Item() {
     }
 
@@ -82,6 +129,15 @@ public class Item extends AbstractModel{
         if (source.ItemName != null) {
             this.ItemName = new String(source.ItemName);
         }
+        if (source.CustomItemValues != null) {
+            this.CustomItemValues = new Long[source.CustomItemValues.length];
+            for (int i = 0; i < source.CustomItemValues.length; i++) {
+                this.CustomItemValues[i] = new Long(source.CustomItemValues[i]);
+            }
+        }
+        if (source.CategoryId != null) {
+            this.CategoryId = new Long(source.CategoryId);
+        }
     }
 
 
@@ -91,6 +147,8 @@ public class Item extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ItemId", this.ItemId);
         this.setParamSimple(map, prefix + "ItemName", this.ItemName);
+        this.setParamArraySimple(map, prefix + "CustomItemValues.", this.CustomItemValues);
+        this.setParamSimple(map, prefix + "CategoryId", this.CategoryId);
 
     }
 }

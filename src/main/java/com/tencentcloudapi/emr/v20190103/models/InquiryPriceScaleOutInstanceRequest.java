@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
+public class InquiryPriceScaleOutInstanceRequest extends AbstractModel {
 
     /**
     * 扩容的时间单位。取值范围：
@@ -98,6 +99,27 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
     @SerializedName("MasterCount")
     @Expose
     private Long MasterCount;
+
+    /**
+    * 类型为ComputeResource和EMR以及默认，默认为EMR
+    */
+    @SerializedName("ResourceBaseType")
+    @Expose
+    private String ResourceBaseType;
+
+    /**
+    * 计算资源id
+    */
+    @SerializedName("ComputeResourceId")
+    @Expose
+    private String ComputeResourceId;
+
+    /**
+    * 扩容资源类型
+    */
+    @SerializedName("HardwareResourceType")
+    @Expose
+    private String HardwareResourceType;
 
     /**
      * Get 扩容的时间单位。取值范围：
@@ -287,6 +309,54 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
         this.MasterCount = MasterCount;
     }
 
+    /**
+     * Get 类型为ComputeResource和EMR以及默认，默认为EMR 
+     * @return ResourceBaseType 类型为ComputeResource和EMR以及默认，默认为EMR
+     */
+    public String getResourceBaseType() {
+        return this.ResourceBaseType;
+    }
+
+    /**
+     * Set 类型为ComputeResource和EMR以及默认，默认为EMR
+     * @param ResourceBaseType 类型为ComputeResource和EMR以及默认，默认为EMR
+     */
+    public void setResourceBaseType(String ResourceBaseType) {
+        this.ResourceBaseType = ResourceBaseType;
+    }
+
+    /**
+     * Get 计算资源id 
+     * @return ComputeResourceId 计算资源id
+     */
+    public String getComputeResourceId() {
+        return this.ComputeResourceId;
+    }
+
+    /**
+     * Set 计算资源id
+     * @param ComputeResourceId 计算资源id
+     */
+    public void setComputeResourceId(String ComputeResourceId) {
+        this.ComputeResourceId = ComputeResourceId;
+    }
+
+    /**
+     * Get 扩容资源类型 
+     * @return HardwareResourceType 扩容资源类型
+     */
+    public String getHardwareResourceType() {
+        return this.HardwareResourceType;
+    }
+
+    /**
+     * Set 扩容资源类型
+     * @param HardwareResourceType 扩容资源类型
+     */
+    public void setHardwareResourceType(String HardwareResourceType) {
+        this.HardwareResourceType = HardwareResourceType;
+    }
+
     public InquiryPriceScaleOutInstanceRequest() {
     }
 
@@ -325,6 +395,15 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
         if (source.MasterCount != null) {
             this.MasterCount = new Long(source.MasterCount);
         }
+        if (source.ResourceBaseType != null) {
+            this.ResourceBaseType = new String(source.ResourceBaseType);
+        }
+        if (source.ComputeResourceId != null) {
+            this.ComputeResourceId = new String(source.ComputeResourceId);
+        }
+        if (source.HardwareResourceType != null) {
+            this.HardwareResourceType = new String(source.HardwareResourceType);
+        }
     }
 
 
@@ -342,6 +421,9 @@ public class InquiryPriceScaleOutInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Currency", this.Currency);
         this.setParamSimple(map, prefix + "RouterCount", this.RouterCount);
         this.setParamSimple(map, prefix + "MasterCount", this.MasterCount);
+        this.setParamSimple(map, prefix + "ResourceBaseType", this.ResourceBaseType);
+        this.setParamSimple(map, prefix + "ComputeResourceId", this.ComputeResourceId);
+        this.setParamSimple(map, prefix + "HardwareResourceType", this.HardwareResourceType);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TDEConfigAttribute extends AbstractModel{
+public class TDEConfigAttribute extends AbstractModel {
 
     /**
     * 是否已开通TDE加密，enable-已开通，disable-未开通
@@ -38,11 +39,24 @@ public class TDEConfigAttribute extends AbstractModel{
 
     /**
     * 开通TDE加密时引用的其他主账号ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QuoteUin")
     @Expose
     private String QuoteUin;
+
+    /**
+    * KMS中购买的用户主密钥ID（CMK）
+    */
+    @SerializedName("CMKId")
+    @Expose
+    private String CMKId;
+
+    /**
+    * CMK所属的地域，不同地域的CMK不互通
+    */
+    @SerializedName("CMKRegion")
+    @Expose
+    private String CMKRegion;
 
     /**
      * Get 是否已开通TDE加密，enable-已开通，disable-未开通 
@@ -77,10 +91,8 @@ public class TDEConfigAttribute extends AbstractModel{
     }
 
     /**
-     * Get 开通TDE加密时引用的其他主账号ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开通TDE加密时引用的其他主账号ID 
      * @return QuoteUin 开通TDE加密时引用的其他主账号ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getQuoteUin() {
         return this.QuoteUin;
@@ -88,12 +100,42 @@ public class TDEConfigAttribute extends AbstractModel{
 
     /**
      * Set 开通TDE加密时引用的其他主账号ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param QuoteUin 开通TDE加密时引用的其他主账号ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQuoteUin(String QuoteUin) {
         this.QuoteUin = QuoteUin;
+    }
+
+    /**
+     * Get KMS中购买的用户主密钥ID（CMK） 
+     * @return CMKId KMS中购买的用户主密钥ID（CMK）
+     */
+    public String getCMKId() {
+        return this.CMKId;
+    }
+
+    /**
+     * Set KMS中购买的用户主密钥ID（CMK）
+     * @param CMKId KMS中购买的用户主密钥ID（CMK）
+     */
+    public void setCMKId(String CMKId) {
+        this.CMKId = CMKId;
+    }
+
+    /**
+     * Get CMK所属的地域，不同地域的CMK不互通 
+     * @return CMKRegion CMK所属的地域，不同地域的CMK不互通
+     */
+    public String getCMKRegion() {
+        return this.CMKRegion;
+    }
+
+    /**
+     * Set CMK所属的地域，不同地域的CMK不互通
+     * @param CMKRegion CMK所属的地域，不同地域的CMK不互通
+     */
+    public void setCMKRegion(String CMKRegion) {
+        this.CMKRegion = CMKRegion;
     }
 
     public TDEConfigAttribute() {
@@ -113,6 +155,12 @@ public class TDEConfigAttribute extends AbstractModel{
         if (source.QuoteUin != null) {
             this.QuoteUin = new String(source.QuoteUin);
         }
+        if (source.CMKId != null) {
+            this.CMKId = new String(source.CMKId);
+        }
+        if (source.CMKRegion != null) {
+            this.CMKRegion = new String(source.CMKRegion);
+        }
     }
 
 
@@ -123,6 +171,8 @@ public class TDEConfigAttribute extends AbstractModel{
         this.setParamSimple(map, prefix + "Encryption", this.Encryption);
         this.setParamSimple(map, prefix + "CertificateAttribution", this.CertificateAttribution);
         this.setParamSimple(map, prefix + "QuoteUin", this.QuoteUin);
+        this.setParamSimple(map, prefix + "CMKId", this.CMKId);
+        this.setParamSimple(map, prefix + "CMKRegion", this.CMKRegion);
 
     }
 }

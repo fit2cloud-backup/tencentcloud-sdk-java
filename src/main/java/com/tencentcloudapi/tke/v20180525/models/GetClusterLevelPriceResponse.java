@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetClusterLevelPriceResponse extends AbstractModel{
+public class GetClusterLevelPriceResponse extends AbstractModel {
 
     /**
     * 询价结果，单位：分，打折后
@@ -37,7 +38,14 @@ public class GetClusterLevelPriceResponse extends AbstractModel{
     private Long TotalCost;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 总的折扣，100表示100%不打折
+    */
+    @SerializedName("Policy")
+    @Expose
+    private Float Policy;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -76,16 +84,32 @@ public class GetClusterLevelPriceResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 总的折扣，100表示100%不打折 
+     * @return Policy 总的折扣，100表示100%不打折
+     */
+    public Float getPolicy() {
+        return this.Policy;
+    }
+
+    /**
+     * Set 总的折扣，100表示100%不打折
+     * @param Policy 总的折扣，100表示100%不打折
+     */
+    public void setPolicy(Float Policy) {
+        this.Policy = Policy;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -105,6 +129,9 @@ public class GetClusterLevelPriceResponse extends AbstractModel{
         if (source.TotalCost != null) {
             this.TotalCost = new Long(source.TotalCost);
         }
+        if (source.Policy != null) {
+            this.Policy = new Float(source.Policy);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -117,6 +144,7 @@ public class GetClusterLevelPriceResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Cost", this.Cost);
         this.setParamSimple(map, prefix + "TotalCost", this.TotalCost);
+        this.setParamSimple(map, prefix + "Policy", this.Policy);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

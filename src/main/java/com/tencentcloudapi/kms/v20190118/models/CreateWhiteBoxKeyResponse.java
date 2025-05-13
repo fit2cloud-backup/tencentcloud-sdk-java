@@ -16,11 +16,12 @@
 package com.tencentcloudapi.kms.v20190118.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateWhiteBoxKeyResponse extends AbstractModel{
+public class CreateWhiteBoxKeyResponse extends AbstractModel {
 
     /**
     * 用于加密的密钥，base64编码
@@ -45,7 +46,6 @@ public class CreateWhiteBoxKeyResponse extends AbstractModel{
 
     /**
     * 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagCode")
     @Expose
@@ -53,14 +53,13 @@ public class CreateWhiteBoxKeyResponse extends AbstractModel{
 
     /**
     * 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagMsg")
     @Expose
     private String TagMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -115,10 +114,8 @@ public class CreateWhiteBoxKeyResponse extends AbstractModel{
     }
 
     /**
-     * Get 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误 
      * @return TagCode 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTagCode() {
         return this.TagCode;
@@ -126,19 +123,15 @@ public class CreateWhiteBoxKeyResponse extends AbstractModel{
 
     /**
      * Set 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagCode 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagCode(Long TagCode) {
         this.TagCode = TagCode;
     }
 
     /**
-     * Get 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签操作的返回信息 
      * @return TagMsg 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTagMsg() {
         return this.TagMsg;
@@ -146,25 +139,23 @@ public class CreateWhiteBoxKeyResponse extends AbstractModel{
 
     /**
      * Set 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagMsg 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagMsg(String TagMsg) {
         this.TagMsg = TagMsg;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

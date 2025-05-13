@@ -16,14 +16,15 @@
 package com.tencentcloudapi.captcha.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCaptchaMiniResultRequest extends AbstractModel{
+public class DescribeCaptchaMiniResultRequest extends AbstractModel {
 
     /**
-    * 固定填值：9（滑块验证码）
+    * 固定填值：9
     */
     @SerializedName("CaptchaType")
     @Expose
@@ -86,16 +87,16 @@ public class DescribeCaptchaMiniResultRequest extends AbstractModel{
     private String Imei;
 
     /**
-     * Get 固定填值：9（滑块验证码） 
-     * @return CaptchaType 固定填值：9（滑块验证码）
+     * Get 固定填值：9 
+     * @return CaptchaType 固定填值：9
      */
     public Long getCaptchaType() {
         return this.CaptchaType;
     }
 
     /**
-     * Set 固定填值：9（滑块验证码）
-     * @param CaptchaType 固定填值：9（滑块验证码）
+     * Set 固定填值：9
+     * @param CaptchaType 固定填值：9
      */
     public void setCaptchaType(Long CaptchaType) {
         this.CaptchaType = CaptchaType;

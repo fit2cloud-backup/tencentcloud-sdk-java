@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetImageScanTaskResponse extends AbstractModel{
+public class DescribeAssetImageScanTaskResponse extends AbstractModel {
 
     /**
     * 任务id
@@ -30,7 +31,28 @@ public class DescribeAssetImageScanTaskResponse extends AbstractModel{
     private String TaskID;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 最近扫描时间
+    */
+    @SerializedName("LastScanTime")
+    @Expose
+    private String LastScanTime;
+
+    /**
+    * 扫描状态(READY:准备 SCANNING:扫描中 END:完成)
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
+
+    /**
+    * 扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误)
+    */
+    @SerializedName("SubStatus")
+    @Expose
+    private String SubStatus;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +75,64 @@ public class DescribeAssetImageScanTaskResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 最近扫描时间 
+     * @return LastScanTime 最近扫描时间
+     */
+    public String getLastScanTime() {
+        return this.LastScanTime;
+    }
+
+    /**
+     * Set 最近扫描时间
+     * @param LastScanTime 最近扫描时间
+     */
+    public void setLastScanTime(String LastScanTime) {
+        this.LastScanTime = LastScanTime;
+    }
+
+    /**
+     * Get 扫描状态(READY:准备 SCANNING:扫描中 END:完成) 
+     * @return Status 扫描状态(READY:准备 SCANNING:扫描中 END:完成)
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 扫描状态(READY:准备 SCANNING:扫描中 END:完成)
+     * @param Status 扫描状态(READY:准备 SCANNING:扫描中 END:完成)
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误) 
+     * @return SubStatus 扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误)
+     */
+    public String getSubStatus() {
+        return this.SubStatus;
+    }
+
+    /**
+     * Set 扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误)
+     * @param SubStatus 扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误)
+     */
+    public void setSubStatus(String SubStatus) {
+        this.SubStatus = SubStatus;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -79,6 +149,15 @@ public class DescribeAssetImageScanTaskResponse extends AbstractModel{
         if (source.TaskID != null) {
             this.TaskID = new String(source.TaskID);
         }
+        if (source.LastScanTime != null) {
+            this.LastScanTime = new String(source.LastScanTime);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.SubStatus != null) {
+            this.SubStatus = new String(source.SubStatus);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +169,9 @@ public class DescribeAssetImageScanTaskResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskID", this.TaskID);
+        this.setParamSimple(map, prefix + "LastScanTime", this.LastScanTime);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "SubStatus", this.SubStatus);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

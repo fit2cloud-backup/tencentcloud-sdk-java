@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteListenersRequest extends AbstractModel{
+public class DeleteListenersRequest extends AbstractModel {
 
     /**
     * 待删除的监听器ID列表
@@ -37,7 +38,7 @@ public class DeleteListenersRequest extends AbstractModel{
     private Long Force;
 
     /**
-    * 通道组ID，该参数和GroupId必须设置一个，但不能同时设置。
+    * 通道组ID，该参数和ProxyId必须设置一个，但不能同时设置。
     */
     @SerializedName("GroupId")
     @Expose
@@ -83,16 +84,16 @@ public class DeleteListenersRequest extends AbstractModel{
     }
 
     /**
-     * Get 通道组ID，该参数和GroupId必须设置一个，但不能同时设置。 
-     * @return GroupId 通道组ID，该参数和GroupId必须设置一个，但不能同时设置。
+     * Get 通道组ID，该参数和ProxyId必须设置一个，但不能同时设置。 
+     * @return GroupId 通道组ID，该参数和ProxyId必须设置一个，但不能同时设置。
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 通道组ID，该参数和GroupId必须设置一个，但不能同时设置。
-     * @param GroupId 通道组ID，该参数和GroupId必须设置一个，但不能同时设置。
+     * Set 通道组ID，该参数和ProxyId必须设置一个，但不能同时设置。
+     * @param GroupId 通道组ID，该参数和ProxyId必须设置一个，但不能同时设置。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;

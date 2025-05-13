@@ -16,11 +16,12 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Tag extends AbstractModel{
+public class Tag extends AbstractModel {
 
     /**
     * 标签键
@@ -37,8 +38,7 @@ public class Tag extends AbstractModel{
     private String Value;
 
     /**
-    * 标签绑定的资源类型，当前支持类型："auto-scaling-group
-注意：此字段可能返回 null，表示取不到有效值。
+    * 标签绑定的资源类型，当前支持类型："auto-scaling-group", "launch-configuration"
     */
     @SerializedName("ResourceType")
     @Expose
@@ -77,20 +77,16 @@ public class Tag extends AbstractModel{
     }
 
     /**
-     * Get 标签绑定的资源类型，当前支持类型："auto-scaling-group
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ResourceType 标签绑定的资源类型，当前支持类型："auto-scaling-group
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 标签绑定的资源类型，当前支持类型："auto-scaling-group", "launch-configuration" 
+     * @return ResourceType 标签绑定的资源类型，当前支持类型："auto-scaling-group", "launch-configuration"
      */
     public String getResourceType() {
         return this.ResourceType;
     }
 
     /**
-     * Set 标签绑定的资源类型，当前支持类型："auto-scaling-group
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ResourceType 标签绑定的资源类型，当前支持类型："auto-scaling-group
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 标签绑定的资源类型，当前支持类型："auto-scaling-group", "launch-configuration"
+     * @param ResourceType 标签绑定的资源类型，当前支持类型："auto-scaling-group", "launch-configuration"
      */
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;

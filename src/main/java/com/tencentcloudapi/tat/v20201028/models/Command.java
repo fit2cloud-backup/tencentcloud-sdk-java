@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Command extends AbstractModel{
+public class Command extends AbstractModel {
 
     /**
     * 命令ID。
@@ -51,7 +52,7 @@ public class Command extends AbstractModel{
     private String Content;
 
     /**
-    * 命令类型。
+    * 命令类型。取值为 SHELL、POWERSHELL、BAT 之一。
     */
     @SerializedName("CommandType")
     @Expose
@@ -72,14 +73,14 @@ public class Command extends AbstractModel{
     private Long Timeout;
 
     /**
-    * 命令创建时间。
+    * 命令创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
     */
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
 
     /**
-    * 命令更新时间。
+    * 命令更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
     */
     @SerializedName("UpdatedTime")
     @Expose
@@ -98,6 +99,20 @@ public class Command extends AbstractModel{
     @SerializedName("DefaultParameters")
     @Expose
     private String DefaultParameters;
+
+    /**
+    * 自定义参数的默认取值。
+    */
+    @SerializedName("DefaultParameterConfs")
+    @Expose
+    private DefaultParameterConf [] DefaultParameterConfs;
+
+    /**
+    * 命令关联的场景
+    */
+    @SerializedName("Scenes")
+    @Expose
+    private String [] Scenes;
 
     /**
     * 命令的结构化描述。公共命令有值，用户命令为空字符串。
@@ -206,16 +221,16 @@ public class Command extends AbstractModel{
     }
 
     /**
-     * Get 命令类型。 
-     * @return CommandType 命令类型。
+     * Get 命令类型。取值为 SHELL、POWERSHELL、BAT 之一。 
+     * @return CommandType 命令类型。取值为 SHELL、POWERSHELL、BAT 之一。
      */
     public String getCommandType() {
         return this.CommandType;
     }
 
     /**
-     * Set 命令类型。
-     * @param CommandType 命令类型。
+     * Set 命令类型。取值为 SHELL、POWERSHELL、BAT 之一。
+     * @param CommandType 命令类型。取值为 SHELL、POWERSHELL、BAT 之一。
      */
     public void setCommandType(String CommandType) {
         this.CommandType = CommandType;
@@ -254,32 +269,32 @@ public class Command extends AbstractModel{
     }
 
     /**
-     * Get 命令创建时间。 
-     * @return CreatedTime 命令创建时间。
+     * Get 命令创建时间。格式为：YYYY-MM-DDThh:mm:ssZ 
+     * @return CreatedTime 命令创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public String getCreatedTime() {
         return this.CreatedTime;
     }
 
     /**
-     * Set 命令创建时间。
-     * @param CreatedTime 命令创建时间。
+     * Set 命令创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
+     * @param CreatedTime 命令创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
     }
 
     /**
-     * Get 命令更新时间。 
-     * @return UpdatedTime 命令更新时间。
+     * Get 命令更新时间。格式为：YYYY-MM-DDThh:mm:ssZ 
+     * @return UpdatedTime 命令更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public String getUpdatedTime() {
         return this.UpdatedTime;
     }
 
     /**
-     * Set 命令更新时间。
-     * @param UpdatedTime 命令更新时间。
+     * Set 命令更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
+     * @param UpdatedTime 命令更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public void setUpdatedTime(String UpdatedTime) {
         this.UpdatedTime = UpdatedTime;
@@ -315,6 +330,38 @@ public class Command extends AbstractModel{
      */
     public void setDefaultParameters(String DefaultParameters) {
         this.DefaultParameters = DefaultParameters;
+    }
+
+    /**
+     * Get 自定义参数的默认取值。 
+     * @return DefaultParameterConfs 自定义参数的默认取值。
+     */
+    public DefaultParameterConf [] getDefaultParameterConfs() {
+        return this.DefaultParameterConfs;
+    }
+
+    /**
+     * Set 自定义参数的默认取值。
+     * @param DefaultParameterConfs 自定义参数的默认取值。
+     */
+    public void setDefaultParameterConfs(DefaultParameterConf [] DefaultParameterConfs) {
+        this.DefaultParameterConfs = DefaultParameterConfs;
+    }
+
+    /**
+     * Get 命令关联的场景 
+     * @return Scenes 命令关联的场景
+     */
+    public String [] getScenes() {
+        return this.Scenes;
+    }
+
+    /**
+     * Set 命令关联的场景
+     * @param Scenes 命令关联的场景
+     */
+    public void setScenes(String [] Scenes) {
+        this.Scenes = Scenes;
     }
 
     /**
@@ -454,6 +501,18 @@ public class Command extends AbstractModel{
         if (source.DefaultParameters != null) {
             this.DefaultParameters = new String(source.DefaultParameters);
         }
+        if (source.DefaultParameterConfs != null) {
+            this.DefaultParameterConfs = new DefaultParameterConf[source.DefaultParameterConfs.length];
+            for (int i = 0; i < source.DefaultParameterConfs.length; i++) {
+                this.DefaultParameterConfs[i] = new DefaultParameterConf(source.DefaultParameterConfs[i]);
+            }
+        }
+        if (source.Scenes != null) {
+            this.Scenes = new String[source.Scenes.length];
+            for (int i = 0; i < source.Scenes.length; i++) {
+                this.Scenes[i] = new String(source.Scenes[i]);
+            }
+        }
         if (source.FormattedDescription != null) {
             this.FormattedDescription = new String(source.FormattedDescription);
         }
@@ -493,6 +552,8 @@ public class Command extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdatedTime", this.UpdatedTime);
         this.setParamSimple(map, prefix + "EnableParameter", this.EnableParameter);
         this.setParamSimple(map, prefix + "DefaultParameters", this.DefaultParameters);
+        this.setParamArrayObj(map, prefix + "DefaultParameterConfs.", this.DefaultParameterConfs);
+        this.setParamArraySimple(map, prefix + "Scenes.", this.Scenes);
         this.setParamSimple(map, prefix + "FormattedDescription", this.FormattedDescription);
         this.setParamSimple(map, prefix + "CreatedBy", this.CreatedBy);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);

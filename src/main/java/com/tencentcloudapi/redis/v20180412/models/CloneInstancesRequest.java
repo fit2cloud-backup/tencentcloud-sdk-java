@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloneInstancesRequest extends AbstractModel{
+public class CloneInstancesRequest extends AbstractModel {
 
     /**
     * 指定待克隆的源实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
@@ -158,6 +159,15 @@ public class CloneInstancesRequest extends AbstractModel{
     @SerializedName("AlarmPolicyList")
     @Expose
     private String [] AlarmPolicyList;
+
+    /**
+    * 克隆指定恢复数据的时间。
+仅支持已开通秒级备份的实例
+
+    */
+    @SerializedName("CloneTime")
+    @Expose
+    private String CloneTime;
 
     /**
      * Get 指定待克隆的源实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。 
@@ -479,6 +489,30 @@ public class CloneInstancesRequest extends AbstractModel{
         this.AlarmPolicyList = AlarmPolicyList;
     }
 
+    /**
+     * Get 克隆指定恢复数据的时间。
+仅支持已开通秒级备份的实例
+ 
+     * @return CloneTime 克隆指定恢复数据的时间。
+仅支持已开通秒级备份的实例
+
+     */
+    public String getCloneTime() {
+        return this.CloneTime;
+    }
+
+    /**
+     * Set 克隆指定恢复数据的时间。
+仅支持已开通秒级备份的实例
+
+     * @param CloneTime 克隆指定恢复数据的时间。
+仅支持已开通秒级备份的实例
+
+     */
+    public void setCloneTime(String CloneTime) {
+        this.CloneTime = CloneTime;
+    }
+
     public CloneInstancesRequest() {
     }
 
@@ -556,6 +590,9 @@ public class CloneInstancesRequest extends AbstractModel{
                 this.AlarmPolicyList[i] = new String(source.AlarmPolicyList[i]);
             }
         }
+        if (source.CloneTime != null) {
+            this.CloneTime = new String(source.CloneTime);
+        }
     }
 
 
@@ -582,6 +619,7 @@ public class CloneInstancesRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
         this.setParamSimple(map, prefix + "TemplateId", this.TemplateId);
         this.setParamArraySimple(map, prefix + "AlarmPolicyList.", this.AlarmPolicyList);
+        this.setParamSimple(map, prefix + "CloneTime", this.CloneTime);
 
     }
 }

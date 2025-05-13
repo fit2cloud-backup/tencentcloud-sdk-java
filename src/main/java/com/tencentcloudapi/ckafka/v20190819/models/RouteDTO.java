@@ -16,35 +16,31 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RouteDTO extends AbstractModel{
+public class RouteDTO extends AbstractModel {
 
     /**
-    * RouteId11
-注意：此字段可能返回 null，表示取不到有效值。
+    * 路由Id
     */
     @SerializedName("RouteId")
     @Expose
     private Long RouteId;
 
     /**
-     * Get RouteId11
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RouteId RouteId11
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 路由Id 
+     * @return RouteId 路由Id
      */
     public Long getRouteId() {
         return this.RouteId;
     }
 
     /**
-     * Set RouteId11
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RouteId RouteId11
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 路由Id
+     * @param RouteId 路由Id
      */
     public void setRouteId(Long RouteId) {
         this.RouteId = RouteId;

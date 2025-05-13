@@ -16,11 +16,12 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskInstanceView extends AbstractModel{
+public class TaskInstanceView extends AbstractModel {
 
     /**
     * 任务实例索引
@@ -38,7 +39,6 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
     * 应用程序执行结束的exit code
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExitCode")
     @Expose
@@ -53,7 +53,6 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
     * 任务实例运行时所在计算节点（例如CVM）的InstanceId。任务实例未运行或者完结时，本字段为空。任务实例重试时，本字段会随之变化
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ComputeNodeInstanceId")
     @Expose
@@ -68,7 +67,6 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
     * 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LaunchTime")
     @Expose
@@ -76,7 +74,6 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
     * 开始运行时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RunningTime")
     @Expose
@@ -84,7 +81,6 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
     * 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -137,10 +133,8 @@ public class TaskInstanceView extends AbstractModel{
     }
 
     /**
-     * Get 应用程序执行结束的exit code
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用程序执行结束的exit code 
      * @return ExitCode 应用程序执行结束的exit code
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getExitCode() {
         return this.ExitCode;
@@ -148,9 +142,7 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
      * Set 应用程序执行结束的exit code
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExitCode 应用程序执行结束的exit code
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExitCode(Long ExitCode) {
         this.ExitCode = ExitCode;
@@ -173,10 +165,8 @@ public class TaskInstanceView extends AbstractModel{
     }
 
     /**
-     * Get 任务实例运行时所在计算节点（例如CVM）的InstanceId。任务实例未运行或者完结时，本字段为空。任务实例重试时，本字段会随之变化
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务实例运行时所在计算节点（例如CVM）的InstanceId。任务实例未运行或者完结时，本字段为空。任务实例重试时，本字段会随之变化 
      * @return ComputeNodeInstanceId 任务实例运行时所在计算节点（例如CVM）的InstanceId。任务实例未运行或者完结时，本字段为空。任务实例重试时，本字段会随之变化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getComputeNodeInstanceId() {
         return this.ComputeNodeInstanceId;
@@ -184,9 +174,7 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
      * Set 任务实例运行时所在计算节点（例如CVM）的InstanceId。任务实例未运行或者完结时，本字段为空。任务实例重试时，本字段会随之变化
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ComputeNodeInstanceId 任务实例运行时所在计算节点（例如CVM）的InstanceId。任务实例未运行或者完结时，本字段为空。任务实例重试时，本字段会随之变化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setComputeNodeInstanceId(String ComputeNodeInstanceId) {
         this.ComputeNodeInstanceId = ComputeNodeInstanceId;
@@ -209,10 +197,8 @@ public class TaskInstanceView extends AbstractModel{
     }
 
     /**
-     * Get 启动时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 启动时间 
      * @return LaunchTime 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLaunchTime() {
         return this.LaunchTime;
@@ -220,19 +206,15 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
      * Set 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LaunchTime 启动时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLaunchTime(String LaunchTime) {
         this.LaunchTime = LaunchTime;
     }
 
     /**
-     * Get 开始运行时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始运行时间 
      * @return RunningTime 开始运行时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRunningTime() {
         return this.RunningTime;
@@ -240,19 +222,15 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
      * Set 开始运行时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RunningTime 开始运行时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRunningTime(String RunningTime) {
         this.RunningTime = RunningTime;
     }
 
     /**
-     * Get 结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间 
      * @return EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -260,9 +238,7 @@ public class TaskInstanceView extends AbstractModel{
 
     /**
      * Set 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;

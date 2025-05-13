@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Acl extends AbstractModel{
+public class Acl extends AbstractModel {
 
     /**
     * Acl资源类型，（0:UNKNOWN，1:ANY，2:TOPIC，3:GROUP，4:CLUSTER，5:TRANSACTIONAL_ID）当前只有TOPIC，
@@ -38,7 +39,6 @@ public class Acl extends AbstractModel{
 
     /**
     * 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Principal")
     @Expose
@@ -46,7 +46,6 @@ public class Acl extends AbstractModel{
 
     /**
     * 默认\*,表示任何host都可以访问，当前ckafka不支持host为\*，但是后面开源kafka的产品化会直接支持
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Host")
     @Expose
@@ -99,10 +98,8 @@ public class Acl extends AbstractModel{
     }
 
     /**
-     * Get 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户 
      * @return Principal 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPrincipal() {
         return this.Principal;
@@ -110,19 +107,15 @@ public class Acl extends AbstractModel{
 
     /**
      * Set 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Principal 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrincipal(String Principal) {
         this.Principal = Principal;
     }
 
     /**
-     * Get 默认\*,表示任何host都可以访问，当前ckafka不支持host为\*，但是后面开源kafka的产品化会直接支持
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 默认\*,表示任何host都可以访问，当前ckafka不支持host为\*，但是后面开源kafka的产品化会直接支持 
      * @return Host 默认\*,表示任何host都可以访问，当前ckafka不支持host为\*，但是后面开源kafka的产品化会直接支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHost() {
         return this.Host;
@@ -130,9 +123,7 @@ public class Acl extends AbstractModel{
 
     /**
      * Set 默认\*,表示任何host都可以访问，当前ckafka不支持host为\*，但是后面开源kafka的产品化会直接支持
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Host 默认\*,表示任何host都可以访问，当前ckafka不支持host为\*，但是后面开源kafka的产品化会直接支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHost(String Host) {
         this.Host = Host;

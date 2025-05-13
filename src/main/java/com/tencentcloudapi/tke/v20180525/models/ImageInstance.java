@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageInstance extends AbstractModel{
+public class ImageInstance extends AbstractModel {
 
     /**
     * 镜像别名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Alias")
     @Expose
@@ -32,7 +32,6 @@ public class ImageInstance extends AbstractModel{
 
     /**
     * 操作系统名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OsName")
     @Expose
@@ -40,7 +39,6 @@ public class ImageInstance extends AbstractModel{
 
     /**
     * 镜像ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageId")
     @Expose
@@ -48,17 +46,14 @@ public class ImageInstance extends AbstractModel{
 
     /**
     * 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OsCustomizeType")
     @Expose
     private String OsCustomizeType;
 
     /**
-     * Get 镜像别名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像别名 
      * @return Alias 镜像别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAlias() {
         return this.Alias;
@@ -66,19 +61,15 @@ public class ImageInstance extends AbstractModel{
 
     /**
      * Set 镜像别名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Alias 镜像别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAlias(String Alias) {
         this.Alias = Alias;
     }
 
     /**
-     * Get 操作系统名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作系统名称 
      * @return OsName 操作系统名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOsName() {
         return this.OsName;
@@ -86,19 +77,15 @@ public class ImageInstance extends AbstractModel{
 
     /**
      * Set 操作系统名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OsName 操作系统名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOsName(String OsName) {
         this.OsName = OsName;
     }
 
     /**
-     * Get 镜像ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像ID 
      * @return ImageId 镜像ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageId() {
         return this.ImageId;
@@ -106,19 +93,15 @@ public class ImageInstance extends AbstractModel{
 
     /**
      * Set 镜像ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageId 镜像ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
     }
 
     /**
-     * Get 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值) 
      * @return OsCustomizeType 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOsCustomizeType() {
         return this.OsCustomizeType;
@@ -126,9 +109,7 @@ public class ImageInstance extends AbstractModel{
 
     /**
      * Set 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OsCustomizeType 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOsCustomizeType(String OsCustomizeType) {
         this.OsCustomizeType = OsCustomizeType;

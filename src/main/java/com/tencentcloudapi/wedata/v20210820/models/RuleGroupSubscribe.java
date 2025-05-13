@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleGroupSubscribe extends AbstractModel{
+public class RuleGroupSubscribe extends AbstractModel {
 
     /**
     * 规则组Id
@@ -53,6 +54,30 @@ public class RuleGroupSubscribe extends AbstractModel{
     @SerializedName("WebHooks")
     @Expose
     private SubscribeWebHook [] WebHooks;
+
+    /**
+    * 规则Id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleId")
+    @Expose
+    private Long RuleId;
+
+    /**
+    * 规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleName")
+    @Expose
+    private String RuleName;
+
+    /**
+    * 发送对象
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AlarmMessageRule")
+    @Expose
+    private String AlarmMessageRule;
 
     /**
      * Get 规则组Id
@@ -134,6 +159,66 @@ public class RuleGroupSubscribe extends AbstractModel{
         this.WebHooks = WebHooks;
     }
 
+    /**
+     * Get 规则Id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleId 规则Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getRuleId() {
+        return this.RuleId;
+    }
+
+    /**
+     * Set 规则Id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleId 规则Id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleId(Long RuleId) {
+        this.RuleId = RuleId;
+    }
+
+    /**
+     * Get 规则名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleName 规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRuleName() {
+        return this.RuleName;
+    }
+
+    /**
+     * Set 规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleName 规则名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleName(String RuleName) {
+        this.RuleName = RuleName;
+    }
+
+    /**
+     * Get 发送对象
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AlarmMessageRule 发送对象
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAlarmMessageRule() {
+        return this.AlarmMessageRule;
+    }
+
+    /**
+     * Set 发送对象
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AlarmMessageRule 发送对象
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAlarmMessageRule(String AlarmMessageRule) {
+        this.AlarmMessageRule = AlarmMessageRule;
+    }
+
     public RuleGroupSubscribe() {
     }
 
@@ -163,6 +248,15 @@ public class RuleGroupSubscribe extends AbstractModel{
                 this.WebHooks[i] = new SubscribeWebHook(source.WebHooks[i]);
             }
         }
+        if (source.RuleId != null) {
+            this.RuleId = new Long(source.RuleId);
+        }
+        if (source.RuleName != null) {
+            this.RuleName = new String(source.RuleName);
+        }
+        if (source.AlarmMessageRule != null) {
+            this.AlarmMessageRule = new String(source.AlarmMessageRule);
+        }
     }
 
 
@@ -174,6 +268,9 @@ public class RuleGroupSubscribe extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Receivers.", this.Receivers);
         this.setParamArraySimple(map, prefix + "SubscribeType.", this.SubscribeType);
         this.setParamArrayObj(map, prefix + "WebHooks.", this.WebHooks);
+        this.setParamSimple(map, prefix + "RuleId", this.RuleId);
+        this.setParamSimple(map, prefix + "RuleName", this.RuleName);
+        this.setParamSimple(map, prefix + "AlarmMessageRule", this.AlarmMessageRule);
 
     }
 }

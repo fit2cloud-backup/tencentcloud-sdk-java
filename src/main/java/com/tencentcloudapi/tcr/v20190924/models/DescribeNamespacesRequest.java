@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNamespacesRequest extends AbstractModel{
+public class DescribeNamespacesRequest extends AbstractModel {
 
     /**
     * 实例Id
@@ -59,6 +60,10 @@ public class DescribeNamespacesRequest extends AbstractModel{
 
     /**
     * 过滤条件
+- 按照【标签】过滤
+   Name: Tags
+   Value:   tagKey:tagVal
+
     */
     @SerializedName("Filters")
     @Expose
@@ -152,8 +157,16 @@ public class DescribeNamespacesRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤条件 
+     * Get 过滤条件
+- 按照【标签】过滤
+   Name: Tags
+   Value:   tagKey:tagVal
+ 
      * @return Filters 过滤条件
+- 按照【标签】过滤
+   Name: Tags
+   Value:   tagKey:tagVal
+
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -161,7 +174,15 @@ public class DescribeNamespacesRequest extends AbstractModel{
 
     /**
      * Set 过滤条件
+- 按照【标签】过滤
+   Name: Tags
+   Value:   tagKey:tagVal
+
      * @param Filters 过滤条件
+- 按照【标签】过滤
+   Name: Tags
+   Value:   tagKey:tagVal
+
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

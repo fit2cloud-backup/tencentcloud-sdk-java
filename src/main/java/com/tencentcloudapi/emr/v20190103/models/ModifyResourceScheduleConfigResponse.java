@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyResourceScheduleConfigResponse extends AbstractModel{
+public class ModifyResourceScheduleConfigResponse extends AbstractModel {
 
     /**
     * true为草稿，表示还没有刷新资源池
@@ -31,7 +32,6 @@ public class ModifyResourceScheduleConfigResponse extends AbstractModel{
 
     /**
     * 校验错误信息，如果不为空，则说明校验失败，配置没有成功
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorMsg")
     @Expose
@@ -39,14 +39,13 @@ public class ModifyResourceScheduleConfigResponse extends AbstractModel{
 
     /**
     * 返回数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private String Data;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -69,10 +68,8 @@ public class ModifyResourceScheduleConfigResponse extends AbstractModel{
     }
 
     /**
-     * Get 校验错误信息，如果不为空，则说明校验失败，配置没有成功
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 校验错误信息，如果不为空，则说明校验失败，配置没有成功 
      * @return ErrorMsg 校验错误信息，如果不为空，则说明校验失败，配置没有成功
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorMsg() {
         return this.ErrorMsg;
@@ -80,19 +77,15 @@ public class ModifyResourceScheduleConfigResponse extends AbstractModel{
 
     /**
      * Set 校验错误信息，如果不为空，则说明校验失败，配置没有成功
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorMsg 校验错误信息，如果不为空，则说明校验失败，配置没有成功
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorMsg(String ErrorMsg) {
         this.ErrorMsg = ErrorMsg;
     }
 
     /**
-     * Get 返回数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 返回数据 
      * @return Data 返回数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getData() {
         return this.Data;
@@ -100,25 +93,23 @@ public class ModifyResourceScheduleConfigResponse extends AbstractModel{
 
     /**
      * Set 返回数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 返回数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(String Data) {
         this.Data = Data;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

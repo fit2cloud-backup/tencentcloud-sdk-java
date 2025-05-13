@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDatahubTaskRes extends AbstractModel{
+public class DescribeDatahubTaskRes extends AbstractModel {
 
     /**
     * 任务ID
@@ -52,7 +53,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 数据源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SourceResource")
     @Expose
@@ -60,7 +60,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 数据目标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetResource")
     @Expose
@@ -68,7 +67,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * Connection列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Connections")
     @Expose
@@ -76,7 +74,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 任务创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -92,7 +89,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 数据接入ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatahubId")
     @Expose
@@ -100,7 +96,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 绑定的SchemaId
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SchemaId")
     @Expose
@@ -108,7 +103,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 绑定的Schema名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SchemaName")
     @Expose
@@ -124,7 +118,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 异常信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorMessage")
     @Expose
@@ -132,7 +125,6 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
     * 任务标签列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -203,10 +195,8 @@ public class DescribeDatahubTaskRes extends AbstractModel{
     }
 
     /**
-     * Get 数据源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据源 
      * @return SourceResource 数据源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DatahubResource getSourceResource() {
         return this.SourceResource;
@@ -214,19 +204,15 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 数据源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SourceResource 数据源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSourceResource(DatahubResource SourceResource) {
         this.SourceResource = SourceResource;
     }
 
     /**
-     * Get 数据目标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据目标 
      * @return TargetResource 数据目标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DatahubResource getTargetResource() {
         return this.TargetResource;
@@ -234,19 +220,15 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 数据目标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetResource 数据目标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetResource(DatahubResource TargetResource) {
         this.TargetResource = TargetResource;
     }
 
     /**
-     * Get Connection列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Connection列表 
      * @return Connections Connection列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Connection [] getConnections() {
         return this.Connections;
@@ -254,19 +236,15 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set Connection列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Connections Connection列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConnections(Connection [] Connections) {
         this.Connections = Connections;
     }
 
     /**
-     * Get 任务创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务创建时间 
      * @return CreateTime 任务创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -274,9 +252,7 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 任务创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 任务创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
@@ -303,10 +279,8 @@ public class DescribeDatahubTaskRes extends AbstractModel{
     }
 
     /**
-     * Get 数据接入ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据接入ID 
      * @return DatahubId 数据接入ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatahubId() {
         return this.DatahubId;
@@ -314,19 +288,15 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 数据接入ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatahubId 数据接入ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatahubId(String DatahubId) {
         this.DatahubId = DatahubId;
     }
 
     /**
-     * Get 绑定的SchemaId
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定的SchemaId 
      * @return SchemaId 绑定的SchemaId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSchemaId() {
         return this.SchemaId;
@@ -334,19 +304,15 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 绑定的SchemaId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SchemaId 绑定的SchemaId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSchemaId(String SchemaId) {
         this.SchemaId = SchemaId;
     }
 
     /**
-     * Get 绑定的Schema名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定的Schema名称 
      * @return SchemaName 绑定的Schema名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSchemaName() {
         return this.SchemaName;
@@ -354,9 +320,7 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 绑定的Schema名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SchemaName 绑定的Schema名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSchemaName(String SchemaName) {
         this.SchemaName = SchemaName;
@@ -383,10 +347,8 @@ public class DescribeDatahubTaskRes extends AbstractModel{
     }
 
     /**
-     * Get 异常信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 异常信息 
      * @return ErrorMessage 异常信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorMessage() {
         return this.ErrorMessage;
@@ -394,19 +356,15 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 异常信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorMessage 异常信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorMessage(String ErrorMessage) {
         this.ErrorMessage = ErrorMessage;
     }
 
     /**
-     * Get 任务标签列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务标签列表 
      * @return Tags 任务标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -414,9 +372,7 @@ public class DescribeDatahubTaskRes extends AbstractModel{
 
     /**
      * Set 任务标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 任务标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;

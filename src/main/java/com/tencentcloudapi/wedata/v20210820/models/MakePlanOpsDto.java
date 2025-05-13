@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MakePlanOpsDto extends AbstractModel{
+public class MakePlanOpsDto extends AbstractModel {
 
     /**
     * 补录计划ID
@@ -224,6 +225,54 @@ public class MakePlanOpsDto extends AbstractModel{
     @SerializedName("CheckParentType")
     @Expose
     private String CheckParentType;
+
+    /**
+    * 是否和原任务保持相同工作流自依赖属性
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SameSelfWorkflowDependType")
+    @Expose
+    private Boolean SameSelfWorkflowDependType;
+
+    /**
+    * 工作流自依赖类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SelfWorkflowDependency")
+    @Expose
+    private String SelfWorkflowDependency;
+
+    /**
+    * 补录时间顺序
+NORMAL： 正常
+ORDER ： 按照实例时间顺序执行
+REVERSE： 实例数据时间逆序
+    */
+    @SerializedName("MakeDataTimeOrder")
+    @Expose
+    private String MakeDataTimeOrder;
+
+    /**
+    * 补录时间范围的时区
+    */
+    @SerializedName("ScheduleTimeZone")
+    @Expose
+    private String ScheduleTimeZone;
+
+    /**
+    * 执行应用参数
+    */
+    @SerializedName("AppParam")
+    @Expose
+    private String AppParam;
+
+    /**
+    * 补录计划时间范围的类型： 
+DATA_TIME：实例数据时间；SCHEDULE_TIME 计划调度时间
+    */
+    @SerializedName("TimeType")
+    @Expose
+    private String TimeType;
 
     /**
      * Get 补录计划ID
@@ -737,6 +786,126 @@ public class MakePlanOpsDto extends AbstractModel{
         this.CheckParentType = CheckParentType;
     }
 
+    /**
+     * Get 是否和原任务保持相同工作流自依赖属性
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SameSelfWorkflowDependType 是否和原任务保持相同工作流自依赖属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getSameSelfWorkflowDependType() {
+        return this.SameSelfWorkflowDependType;
+    }
+
+    /**
+     * Set 是否和原任务保持相同工作流自依赖属性
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SameSelfWorkflowDependType 是否和原任务保持相同工作流自依赖属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSameSelfWorkflowDependType(Boolean SameSelfWorkflowDependType) {
+        this.SameSelfWorkflowDependType = SameSelfWorkflowDependType;
+    }
+
+    /**
+     * Get 工作流自依赖类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SelfWorkflowDependency 工作流自依赖类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSelfWorkflowDependency() {
+        return this.SelfWorkflowDependency;
+    }
+
+    /**
+     * Set 工作流自依赖类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SelfWorkflowDependency 工作流自依赖类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSelfWorkflowDependency(String SelfWorkflowDependency) {
+        this.SelfWorkflowDependency = SelfWorkflowDependency;
+    }
+
+    /**
+     * Get 补录时间顺序
+NORMAL： 正常
+ORDER ： 按照实例时间顺序执行
+REVERSE： 实例数据时间逆序 
+     * @return MakeDataTimeOrder 补录时间顺序
+NORMAL： 正常
+ORDER ： 按照实例时间顺序执行
+REVERSE： 实例数据时间逆序
+     */
+    public String getMakeDataTimeOrder() {
+        return this.MakeDataTimeOrder;
+    }
+
+    /**
+     * Set 补录时间顺序
+NORMAL： 正常
+ORDER ： 按照实例时间顺序执行
+REVERSE： 实例数据时间逆序
+     * @param MakeDataTimeOrder 补录时间顺序
+NORMAL： 正常
+ORDER ： 按照实例时间顺序执行
+REVERSE： 实例数据时间逆序
+     */
+    public void setMakeDataTimeOrder(String MakeDataTimeOrder) {
+        this.MakeDataTimeOrder = MakeDataTimeOrder;
+    }
+
+    /**
+     * Get 补录时间范围的时区 
+     * @return ScheduleTimeZone 补录时间范围的时区
+     */
+    public String getScheduleTimeZone() {
+        return this.ScheduleTimeZone;
+    }
+
+    /**
+     * Set 补录时间范围的时区
+     * @param ScheduleTimeZone 补录时间范围的时区
+     */
+    public void setScheduleTimeZone(String ScheduleTimeZone) {
+        this.ScheduleTimeZone = ScheduleTimeZone;
+    }
+
+    /**
+     * Get 执行应用参数 
+     * @return AppParam 执行应用参数
+     */
+    public String getAppParam() {
+        return this.AppParam;
+    }
+
+    /**
+     * Set 执行应用参数
+     * @param AppParam 执行应用参数
+     */
+    public void setAppParam(String AppParam) {
+        this.AppParam = AppParam;
+    }
+
+    /**
+     * Get 补录计划时间范围的类型： 
+DATA_TIME：实例数据时间；SCHEDULE_TIME 计划调度时间 
+     * @return TimeType 补录计划时间范围的类型： 
+DATA_TIME：实例数据时间；SCHEDULE_TIME 计划调度时间
+     */
+    public String getTimeType() {
+        return this.TimeType;
+    }
+
+    /**
+     * Set 补录计划时间范围的类型： 
+DATA_TIME：实例数据时间；SCHEDULE_TIME 计划调度时间
+     * @param TimeType 补录计划时间范围的类型： 
+DATA_TIME：实例数据时间；SCHEDULE_TIME 计划调度时间
+     */
+    public void setTimeType(String TimeType) {
+        this.TimeType = TimeType;
+    }
+
     public MakePlanOpsDto() {
     }
 
@@ -829,6 +998,24 @@ public class MakePlanOpsDto extends AbstractModel{
         if (source.CheckParentType != null) {
             this.CheckParentType = new String(source.CheckParentType);
         }
+        if (source.SameSelfWorkflowDependType != null) {
+            this.SameSelfWorkflowDependType = new Boolean(source.SameSelfWorkflowDependType);
+        }
+        if (source.SelfWorkflowDependency != null) {
+            this.SelfWorkflowDependency = new String(source.SelfWorkflowDependency);
+        }
+        if (source.MakeDataTimeOrder != null) {
+            this.MakeDataTimeOrder = new String(source.MakeDataTimeOrder);
+        }
+        if (source.ScheduleTimeZone != null) {
+            this.ScheduleTimeZone = new String(source.ScheduleTimeZone);
+        }
+        if (source.AppParam != null) {
+            this.AppParam = new String(source.AppParam);
+        }
+        if (source.TimeType != null) {
+            this.TimeType = new String(source.TimeType);
+        }
     }
 
 
@@ -861,6 +1048,12 @@ public class MakePlanOpsDto extends AbstractModel{
         this.setParamSimple(map, prefix + "CompletePercent", this.CompletePercent);
         this.setParamSimple(map, prefix + "SuccessPercent", this.SuccessPercent);
         this.setParamSimple(map, prefix + "CheckParentType", this.CheckParentType);
+        this.setParamSimple(map, prefix + "SameSelfWorkflowDependType", this.SameSelfWorkflowDependType);
+        this.setParamSimple(map, prefix + "SelfWorkflowDependency", this.SelfWorkflowDependency);
+        this.setParamSimple(map, prefix + "MakeDataTimeOrder", this.MakeDataTimeOrder);
+        this.setParamSimple(map, prefix + "ScheduleTimeZone", this.ScheduleTimeZone);
+        this.setParamSimple(map, prefix + "AppParam", this.AppParam);
+        this.setParamSimple(map, prefix + "TimeType", this.TimeType);
 
     }
 }

@@ -16,18 +16,19 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DomainFilter extends AbstractModel{
+public class DomainFilter extends AbstractModel {
 
     /**
     * 过滤字段名，支持的列表如下：
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
 - domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
@@ -41,7 +42,7 @@ public class DomainFilter extends AbstractModel{
     private String Name;
 
     /**
-    * 过滤字段值。
+    * 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
     */
     @SerializedName("Value")
     @Expose
@@ -60,7 +61,7 @@ public class DomainFilter extends AbstractModel{
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
 - domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
@@ -72,7 +73,7 @@ public class DomainFilter extends AbstractModel{
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
 - domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
@@ -90,7 +91,7 @@ public class DomainFilter extends AbstractModel{
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
 - domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
@@ -102,7 +103,7 @@ public class DomainFilter extends AbstractModel{
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
 - domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
@@ -116,16 +117,16 @@ public class DomainFilter extends AbstractModel{
     }
 
     /**
-     * Get 过滤字段值。 
-     * @return Value 过滤字段值。
+     * Get 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。 
+     * @return Value 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
      */
     public String [] getValue() {
         return this.Value;
     }
 
     /**
-     * Set 过滤字段值。
-     * @param Value 过滤字段值。
+     * Set 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
+     * @param Value 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
      */
     public void setValue(String [] Value) {
         this.Value = Value;

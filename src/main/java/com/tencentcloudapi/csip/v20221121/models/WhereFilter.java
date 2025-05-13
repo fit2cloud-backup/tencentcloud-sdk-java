@@ -16,11 +16,12 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WhereFilter extends AbstractModel{
+public class WhereFilter extends AbstractModel {
 
     /**
     * 过滤的项
@@ -39,7 +40,7 @@ public class WhereFilter extends AbstractModel{
     /**
     * 中台定义：
 1等于 2大于 3小于 4大于等于 5小于等于 6不等于 9模糊匹配 13非模糊匹配 14按位与
-精确匹配填 7 模糊匹配填9 兼容 中台定的结构
+精确匹配填 7 模糊匹配填9 
 
     */
     @SerializedName("OperatorType")
@@ -81,11 +82,11 @@ public class WhereFilter extends AbstractModel{
     /**
      * Get 中台定义：
 1等于 2大于 3小于 4大于等于 5小于等于 6不等于 9模糊匹配 13非模糊匹配 14按位与
-精确匹配填 7 模糊匹配填9 兼容 中台定的结构
+精确匹配填 7 模糊匹配填9 
  
      * @return OperatorType 中台定义：
 1等于 2大于 3小于 4大于等于 5小于等于 6不等于 9模糊匹配 13非模糊匹配 14按位与
-精确匹配填 7 模糊匹配填9 兼容 中台定的结构
+精确匹配填 7 模糊匹配填9 
 
      */
     public Long getOperatorType() {
@@ -95,11 +96,11 @@ public class WhereFilter extends AbstractModel{
     /**
      * Set 中台定义：
 1等于 2大于 3小于 4大于等于 5小于等于 6不等于 9模糊匹配 13非模糊匹配 14按位与
-精确匹配填 7 模糊匹配填9 兼容 中台定的结构
+精确匹配填 7 模糊匹配填9 
 
      * @param OperatorType 中台定义：
 1等于 2大于 3小于 4大于等于 5小于等于 6不等于 9模糊匹配 13非模糊匹配 14按位与
-精确匹配填 7 模糊匹配填9 兼容 中台定的结构
+精确匹配填 7 模糊匹配填9 
 
      */
     public void setOperatorType(Long OperatorType) {

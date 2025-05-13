@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListenerItem extends AbstractModel{
+public class ListenerItem extends AbstractModel {
 
     /**
     * 监听器ID
@@ -61,7 +62,6 @@ public class ListenerItem extends AbstractModel{
 
     /**
     * 端口段监听器的结束端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndPort")
     @Expose
@@ -156,10 +156,8 @@ public class ListenerItem extends AbstractModel{
     }
 
     /**
-     * Get 端口段监听器的结束端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 端口段监听器的结束端口 
      * @return EndPort 端口段监听器的结束端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEndPort() {
         return this.EndPort;
@@ -167,9 +165,7 @@ public class ListenerItem extends AbstractModel{
 
     /**
      * Set 端口段监听器的结束端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndPort 端口段监听器的结束端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndPort(Long EndPort) {
         this.EndPort = EndPort;

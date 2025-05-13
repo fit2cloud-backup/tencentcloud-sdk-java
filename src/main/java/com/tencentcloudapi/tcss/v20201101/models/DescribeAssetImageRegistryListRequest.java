@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetImageRegistryListRequest extends AbstractModel{
+public class DescribeAssetImageRegistryListRequest extends AbstractModel {
 
     /**
     * 需要返回的数量，默认为10，最大值为100
@@ -64,6 +65,13 @@ IsAuthorized是否授权，取值全部all，未授权0，已授权1
     @SerializedName("OnlyShowLatest")
     @Expose
     private Boolean OnlyShowLatest;
+
+    /**
+    * 是否仅展示运行中容器镜像
+    */
+    @SerializedName("IsRunning")
+    @Expose
+    private Boolean IsRunning;
 
     /**
      * Get 需要返回的数量，默认为10，最大值为100 
@@ -165,6 +173,22 @@ IsAuthorized是否授权，取值全部all，未授权0，已授权1
         this.OnlyShowLatest = OnlyShowLatest;
     }
 
+    /**
+     * Get 是否仅展示运行中容器镜像 
+     * @return IsRunning 是否仅展示运行中容器镜像
+     */
+    public Boolean getIsRunning() {
+        return this.IsRunning;
+    }
+
+    /**
+     * Set 是否仅展示运行中容器镜像
+     * @param IsRunning 是否仅展示运行中容器镜像
+     */
+    public void setIsRunning(Boolean IsRunning) {
+        this.IsRunning = IsRunning;
+    }
+
     public DescribeAssetImageRegistryListRequest() {
     }
 
@@ -194,6 +218,9 @@ IsAuthorized是否授权，取值全部all，未授权0，已授权1
         if (source.OnlyShowLatest != null) {
             this.OnlyShowLatest = new Boolean(source.OnlyShowLatest);
         }
+        if (source.IsRunning != null) {
+            this.IsRunning = new Boolean(source.IsRunning);
+        }
     }
 
 
@@ -207,6 +234,7 @@ IsAuthorized是否授权，取值全部all，未授权0，已授权1
         this.setParamSimple(map, prefix + "By", this.By);
         this.setParamSimple(map, prefix + "Order", this.Order);
         this.setParamSimple(map, prefix + "OnlyShowLatest", this.OnlyShowLatest);
+        this.setParamSimple(map, prefix + "IsRunning", this.IsRunning);
 
     }
 }

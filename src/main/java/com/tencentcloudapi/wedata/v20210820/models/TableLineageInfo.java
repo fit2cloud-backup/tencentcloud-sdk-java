@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TableLineageInfo extends AbstractModel{
+public class TableLineageInfo extends AbstractModel {
 
     /**
     * 元数据类型
@@ -29,14 +30,6 @@ public class TableLineageInfo extends AbstractModel{
     @SerializedName("MetastoreType")
     @Expose
     private String MetastoreType;
-
-    /**
-    * 由中心节点到该节点的路径
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("PrefixPath")
-    @Expose
-    private String PrefixPath;
 
     /**
     * 空间id
@@ -151,6 +144,14 @@ public class TableLineageInfo extends AbstractModel{
     private String Description;
 
     /**
+    * 由中心节点到该节点的路径
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PrefixPath")
+    @Expose
+    private String PrefixPath;
+
+    /**
     * 血缘创建时间
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -175,6 +176,78 @@ public class TableLineageInfo extends AbstractModel{
     private String [] Tasks;
 
     /**
+    * 模块/应用类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ChannelType")
+    @Expose
+    private String ChannelType;
+
+    /**
+    * 展示类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DisplayType")
+    @Expose
+    private String DisplayType;
+
+    /**
+    * 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EngineType")
+    @Expose
+    private String EngineType;
+
+    /**
+    * 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TableType")
+    @Expose
+    private String TableType;
+
+    /**
+    * datasourceName
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatasourceName")
+    @Expose
+    private String DatasourceName;
+
+    /**
+    * DatabaseName
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatabaseName")
+    @Expose
+    private String DatabaseName;
+
+    /**
+    * DatabaseId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatabaseId")
+    @Expose
+    private String DatabaseId;
+
+    /**
+    * 数据来源
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DataFromType")
+    @Expose
+    private String DataFromType;
+
+    /**
+    * 采集id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CollectJobId")
+    @Expose
+    private String CollectJobId;
+
+    /**
      * Get 元数据类型
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return MetastoreType 元数据类型
@@ -192,26 +265,6 @@ public class TableLineageInfo extends AbstractModel{
      */
     public void setMetastoreType(String MetastoreType) {
         this.MetastoreType = MetastoreType;
-    }
-
-    /**
-     * Get 由中心节点到该节点的路径
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PrefixPath 由中心节点到该节点的路径
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public String getPrefixPath() {
-        return this.PrefixPath;
-    }
-
-    /**
-     * Set 由中心节点到该节点的路径
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PrefixPath 由中心节点到该节点的路径
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setPrefixPath(String PrefixPath) {
-        this.PrefixPath = PrefixPath;
     }
 
     /**
@@ -495,6 +548,26 @@ public class TableLineageInfo extends AbstractModel{
     }
 
     /**
+     * Get 由中心节点到该节点的路径
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PrefixPath 由中心节点到该节点的路径
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPrefixPath() {
+        return this.PrefixPath;
+    }
+
+    /**
+     * Set 由中心节点到该节点的路径
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PrefixPath 由中心节点到该节点的路径
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPrefixPath(String PrefixPath) {
+        this.PrefixPath = PrefixPath;
+    }
+
+    /**
      * Get 血缘创建时间
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return CreateTime 血缘创建时间
@@ -554,6 +627,186 @@ public class TableLineageInfo extends AbstractModel{
         this.Tasks = Tasks;
     }
 
+    /**
+     * Get 模块/应用类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ChannelType 模块/应用类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getChannelType() {
+        return this.ChannelType;
+    }
+
+    /**
+     * Set 模块/应用类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ChannelType 模块/应用类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setChannelType(String ChannelType) {
+        this.ChannelType = ChannelType;
+    }
+
+    /**
+     * Get 展示类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DisplayType 展示类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDisplayType() {
+        return this.DisplayType;
+    }
+
+    /**
+     * Set 展示类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DisplayType 展示类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDisplayType(String DisplayType) {
+        this.DisplayType = DisplayType;
+    }
+
+    /**
+     * Get 表类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EngineType 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEngineType() {
+        return this.EngineType;
+    }
+
+    /**
+     * Set 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EngineType 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEngineType(String EngineType) {
+        this.EngineType = EngineType;
+    }
+
+    /**
+     * Get 表类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TableType 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTableType() {
+        return this.TableType;
+    }
+
+    /**
+     * Set 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TableType 表类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTableType(String TableType) {
+        this.TableType = TableType;
+    }
+
+    /**
+     * Get datasourceName
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatasourceName datasourceName
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDatasourceName() {
+        return this.DatasourceName;
+    }
+
+    /**
+     * Set datasourceName
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatasourceName datasourceName
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatasourceName(String DatasourceName) {
+        this.DatasourceName = DatasourceName;
+    }
+
+    /**
+     * Get DatabaseName
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatabaseName DatabaseName
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDatabaseName() {
+        return this.DatabaseName;
+    }
+
+    /**
+     * Set DatabaseName
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatabaseName DatabaseName
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatabaseName(String DatabaseName) {
+        this.DatabaseName = DatabaseName;
+    }
+
+    /**
+     * Get DatabaseId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatabaseId DatabaseId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDatabaseId() {
+        return this.DatabaseId;
+    }
+
+    /**
+     * Set DatabaseId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatabaseId DatabaseId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatabaseId(String DatabaseId) {
+        this.DatabaseId = DatabaseId;
+    }
+
+    /**
+     * Get 数据来源
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DataFromType 数据来源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDataFromType() {
+        return this.DataFromType;
+    }
+
+    /**
+     * Set 数据来源
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DataFromType 数据来源
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDataFromType(String DataFromType) {
+        this.DataFromType = DataFromType;
+    }
+
+    /**
+     * Get 采集id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CollectJobId 采集id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCollectJobId() {
+        return this.CollectJobId;
+    }
+
+    /**
+     * Set 采集id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CollectJobId 采集id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCollectJobId(String CollectJobId) {
+        this.CollectJobId = CollectJobId;
+    }
+
     public TableLineageInfo() {
     }
 
@@ -564,9 +817,6 @@ public class TableLineageInfo extends AbstractModel{
     public TableLineageInfo(TableLineageInfo source) {
         if (source.MetastoreType != null) {
             this.MetastoreType = new String(source.MetastoreType);
-        }
-        if (source.PrefixPath != null) {
-            this.PrefixPath = new String(source.PrefixPath);
         }
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
@@ -616,6 +866,9 @@ public class TableLineageInfo extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.PrefixPath != null) {
+            this.PrefixPath = new String(source.PrefixPath);
+        }
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
@@ -628,6 +881,33 @@ public class TableLineageInfo extends AbstractModel{
                 this.Tasks[i] = new String(source.Tasks[i]);
             }
         }
+        if (source.ChannelType != null) {
+            this.ChannelType = new String(source.ChannelType);
+        }
+        if (source.DisplayType != null) {
+            this.DisplayType = new String(source.DisplayType);
+        }
+        if (source.EngineType != null) {
+            this.EngineType = new String(source.EngineType);
+        }
+        if (source.TableType != null) {
+            this.TableType = new String(source.TableType);
+        }
+        if (source.DatasourceName != null) {
+            this.DatasourceName = new String(source.DatasourceName);
+        }
+        if (source.DatabaseName != null) {
+            this.DatabaseName = new String(source.DatabaseName);
+        }
+        if (source.DatabaseId != null) {
+            this.DatabaseId = new String(source.DatabaseId);
+        }
+        if (source.DataFromType != null) {
+            this.DataFromType = new String(source.DataFromType);
+        }
+        if (source.CollectJobId != null) {
+            this.CollectJobId = new String(source.CollectJobId);
+        }
     }
 
 
@@ -636,7 +916,6 @@ public class TableLineageInfo extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "MetastoreType", this.MetastoreType);
-        this.setParamSimple(map, prefix + "PrefixPath", this.PrefixPath);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "DatasourceId", this.DatasourceId);
         this.setParamSimple(map, prefix + "TableId", this.TableId);
@@ -651,9 +930,19 @@ public class TableLineageInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "DownStreamCount", this.DownStreamCount);
         this.setParamSimple(map, prefix + "UpStreamCount", this.UpStreamCount);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "PrefixPath", this.PrefixPath);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamArraySimple(map, prefix + "Tasks.", this.Tasks);
+        this.setParamSimple(map, prefix + "ChannelType", this.ChannelType);
+        this.setParamSimple(map, prefix + "DisplayType", this.DisplayType);
+        this.setParamSimple(map, prefix + "EngineType", this.EngineType);
+        this.setParamSimple(map, prefix + "TableType", this.TableType);
+        this.setParamSimple(map, prefix + "DatasourceName", this.DatasourceName);
+        this.setParamSimple(map, prefix + "DatabaseName", this.DatabaseName);
+        this.setParamSimple(map, prefix + "DatabaseId", this.DatabaseId);
+        this.setParamSimple(map, prefix + "DataFromType", this.DataFromType);
+        this.setParamSimple(map, prefix + "CollectJobId", this.CollectJobId);
 
     }
 }

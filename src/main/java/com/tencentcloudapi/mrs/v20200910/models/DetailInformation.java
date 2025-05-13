@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DetailInformation extends AbstractModel{
+public class DetailInformation extends AbstractModel {
 
     /**
     * 部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Part")
     @Expose
@@ -32,7 +32,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 组织大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TissueSizes")
     @Expose
@@ -40,7 +39,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 结节大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TuberSizes")
     @Expose
@@ -48,7 +46,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 肿瘤大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CancerSizes")
     @Expose
@@ -56,7 +53,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 组织学等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HistologyLevel")
     @Expose
@@ -64,7 +60,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 组织学类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HistologyType")
     @Expose
@@ -72,7 +67,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 侵犯
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Invasive")
     @Expose
@@ -80,7 +74,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * pTNM
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PTNM")
     @Expose
@@ -88,7 +81,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 浸润深度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InfiltrationDepth")
     @Expose
@@ -96,7 +88,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 结节数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TuberNum")
     @Expose
@@ -104,7 +95,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 钙化
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Calcification")
     @Expose
@@ -112,7 +102,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 坏死
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Necrosis")
     @Expose
@@ -120,7 +109,6 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 异形
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Abnormity")
     @Expose
@@ -128,17 +116,14 @@ public class DetailInformation extends AbstractModel{
 
     /**
     * 断链
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Breaked")
     @Expose
     private BaseInfo Breaked;
 
     /**
-     * Get 部位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部位 
      * @return Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Part getPart() {
         return this.Part;
@@ -146,19 +131,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPart(Part Part) {
         this.Part = Part;
     }
 
     /**
-     * Get 组织大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组织大小 
      * @return TissueSizes 组织大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Size [] getTissueSizes() {
         return this.TissueSizes;
@@ -166,19 +147,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 组织大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TissueSizes 组织大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTissueSizes(Size [] TissueSizes) {
         this.TissueSizes = TissueSizes;
     }
 
     /**
-     * Get 结节大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结节大小 
      * @return TuberSizes 结节大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Size [] getTuberSizes() {
         return this.TuberSizes;
@@ -186,19 +163,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 结节大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TuberSizes 结节大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTuberSizes(Size [] TuberSizes) {
         this.TuberSizes = TuberSizes;
     }
 
     /**
-     * Get 肿瘤大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 肿瘤大小 
      * @return CancerSizes 肿瘤大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Size [] getCancerSizes() {
         return this.CancerSizes;
@@ -206,19 +179,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 肿瘤大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CancerSizes 肿瘤大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCancerSizes(Size [] CancerSizes) {
         this.CancerSizes = CancerSizes;
     }
 
     /**
-     * Get 组织学等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组织学等级 
      * @return HistologyLevel 组织学等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getHistologyLevel() {
         return this.HistologyLevel;
@@ -226,19 +195,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 组织学等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HistologyLevel 组织学等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHistologyLevel(BaseInfo HistologyLevel) {
         this.HistologyLevel = HistologyLevel;
     }
 
     /**
-     * Get 组织学类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组织学类型 
      * @return HistologyType 组织学类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public HistologyTypeV2 getHistologyType() {
         return this.HistologyType;
@@ -246,19 +211,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 组织学类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HistologyType 组织学类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHistologyType(HistologyTypeV2 HistologyType) {
         this.HistologyType = HistologyType;
     }
 
     /**
-     * Get 侵犯
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 侵犯 
      * @return Invasive 侵犯
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InvasiveV2 [] getInvasive() {
         return this.Invasive;
@@ -266,19 +227,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 侵犯
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Invasive 侵犯
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInvasive(InvasiveV2 [] Invasive) {
         this.Invasive = Invasive;
     }
 
     /**
-     * Get pTNM
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get pTNM 
      * @return PTNM pTNM
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PTNM getPTNM() {
         return this.PTNM;
@@ -286,19 +243,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set pTNM
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PTNM pTNM
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPTNM(PTNM PTNM) {
         this.PTNM = PTNM;
     }
 
     /**
-     * Get 浸润深度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 浸润深度 
      * @return InfiltrationDepth 浸润深度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getInfiltrationDepth() {
         return this.InfiltrationDepth;
@@ -306,19 +259,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 浸润深度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InfiltrationDepth 浸润深度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInfiltrationDepth(BaseInfo InfiltrationDepth) {
         this.InfiltrationDepth = InfiltrationDepth;
     }
 
     /**
-     * Get 结节数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结节数量 
      * @return TuberNum 结节数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getTuberNum() {
         return this.TuberNum;
@@ -326,19 +275,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 结节数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TuberNum 结节数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTuberNum(BaseInfo TuberNum) {
         this.TuberNum = TuberNum;
     }
 
     /**
-     * Get 钙化
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 钙化 
      * @return Calcification 钙化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getCalcification() {
         return this.Calcification;
@@ -346,19 +291,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 钙化
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Calcification 钙化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCalcification(BaseInfo Calcification) {
         this.Calcification = Calcification;
     }
 
     /**
-     * Get 坏死
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 坏死 
      * @return Necrosis 坏死
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getNecrosis() {
         return this.Necrosis;
@@ -366,19 +307,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 坏死
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Necrosis 坏死
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNecrosis(BaseInfo Necrosis) {
         this.Necrosis = Necrosis;
     }
 
     /**
-     * Get 异形
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 异形 
      * @return Abnormity 异形
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getAbnormity() {
         return this.Abnormity;
@@ -386,19 +323,15 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 异形
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Abnormity 异形
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAbnormity(BaseInfo Abnormity) {
         this.Abnormity = Abnormity;
     }
 
     /**
-     * Get 断链
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 断链 
      * @return Breaked 断链
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaseInfo getBreaked() {
         return this.Breaked;
@@ -406,9 +339,7 @@ public class DetailInformation extends AbstractModel{
 
     /**
      * Set 断链
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Breaked 断链
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBreaked(BaseInfo Breaked) {
         this.Breaked = Breaked;

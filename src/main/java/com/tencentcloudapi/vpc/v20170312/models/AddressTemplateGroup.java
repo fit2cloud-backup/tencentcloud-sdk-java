@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddressTemplateGroup extends AbstractModel{
+public class AddressTemplateGroup extends AbstractModel {
 
     /**
     * IP地址模板集合名称。
@@ -51,11 +52,25 @@ public class AddressTemplateGroup extends AbstractModel{
     private String CreatedTime;
 
     /**
+    * 最后更新时间。
+    */
+    @SerializedName("UpdatedTime")
+    @Expose
+    private String UpdatedTime;
+
+    /**
     * IP地址模板实例。
     */
     @SerializedName("AddressTemplateSet")
     @Expose
     private AddressTemplateItem [] AddressTemplateSet;
+
+    /**
+    * 标签键值对。	
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get IP地址模板集合名称。 
@@ -122,6 +137,22 @@ public class AddressTemplateGroup extends AbstractModel{
     }
 
     /**
+     * Get 最后更新时间。 
+     * @return UpdatedTime 最后更新时间。
+     */
+    public String getUpdatedTime() {
+        return this.UpdatedTime;
+    }
+
+    /**
+     * Set 最后更新时间。
+     * @param UpdatedTime 最后更新时间。
+     */
+    public void setUpdatedTime(String UpdatedTime) {
+        this.UpdatedTime = UpdatedTime;
+    }
+
+    /**
      * Get IP地址模板实例。 
      * @return AddressTemplateSet IP地址模板实例。
      */
@@ -135,6 +166,22 @@ public class AddressTemplateGroup extends AbstractModel{
      */
     public void setAddressTemplateSet(AddressTemplateItem [] AddressTemplateSet) {
         this.AddressTemplateSet = AddressTemplateSet;
+    }
+
+    /**
+     * Get 标签键值对。	 
+     * @return TagSet 标签键值对。	
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。	
+     * @param TagSet 标签键值对。	
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
     }
 
     public AddressTemplateGroup() {
@@ -160,10 +207,19 @@ public class AddressTemplateGroup extends AbstractModel{
         if (source.CreatedTime != null) {
             this.CreatedTime = new String(source.CreatedTime);
         }
+        if (source.UpdatedTime != null) {
+            this.UpdatedTime = new String(source.UpdatedTime);
+        }
         if (source.AddressTemplateSet != null) {
             this.AddressTemplateSet = new AddressTemplateItem[source.AddressTemplateSet.length];
             for (int i = 0; i < source.AddressTemplateSet.length; i++) {
                 this.AddressTemplateSet[i] = new AddressTemplateItem(source.AddressTemplateSet[i]);
+            }
+        }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
             }
         }
     }
@@ -177,7 +233,9 @@ public class AddressTemplateGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "AddressTemplateGroupId", this.AddressTemplateGroupId);
         this.setParamArraySimple(map, prefix + "AddressTemplateIdSet.", this.AddressTemplateIdSet);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamSimple(map, prefix + "UpdatedTime", this.UpdatedTime);
         this.setParamArrayObj(map, prefix + "AddressTemplateSet.", this.AddressTemplateSet);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

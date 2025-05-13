@@ -16,11 +16,12 @@
 package com.tencentcloudapi.partners.v20180321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AgentClientElem extends AbstractModel{
+public class AgentClientElem extends AbstractModel {
 
     /**
     * 代理商账号ID
@@ -44,7 +45,7 @@ public class AgentClientElem extends AbstractModel{
     private Long ApplyTime;
 
     /**
-    * 代客类型，可能值为a/b/c
+    * 代客类型，可能值为a/b/c/other
     */
     @SerializedName("ClientFlag")
     @Expose
@@ -80,7 +81,6 @@ public class AgentClientElem extends AbstractModel{
 
     /**
     * 业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SalesUin")
     @Expose
@@ -88,7 +88,6 @@ public class AgentClientElem extends AbstractModel{
 
     /**
     * 业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SalesName")
     @Expose
@@ -96,11 +95,17 @@ public class AgentClientElem extends AbstractModel{
 
     /**
     * 客户名称，此字段和控制台返回一致。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientName")
     @Expose
     private String ClientName;
+
+    /**
+    * 增量目标金额(分)
+    */
+    @SerializedName("IncreaseGoal")
+    @Expose
+    private String IncreaseGoal;
 
     /**
      * Get 代理商账号ID 
@@ -151,16 +156,16 @@ public class AgentClientElem extends AbstractModel{
     }
 
     /**
-     * Get 代客类型，可能值为a/b/c 
-     * @return ClientFlag 代客类型，可能值为a/b/c
+     * Get 代客类型，可能值为a/b/c/other 
+     * @return ClientFlag 代客类型，可能值为a/b/c/other
      */
     public String getClientFlag() {
         return this.ClientFlag;
     }
 
     /**
-     * Set 代客类型，可能值为a/b/c
-     * @param ClientFlag 代客类型，可能值为a/b/c
+     * Set 代客类型，可能值为a/b/c/other
+     * @param ClientFlag 代客类型，可能值为a/b/c/other
      */
     public void setClientFlag(String ClientFlag) {
         this.ClientFlag = ClientFlag;
@@ -231,10 +236,8 @@ public class AgentClientElem extends AbstractModel{
     }
 
     /**
-     * Get 业务员ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 业务员ID 
      * @return SalesUin 业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSalesUin() {
         return this.SalesUin;
@@ -242,19 +245,15 @@ public class AgentClientElem extends AbstractModel{
 
     /**
      * Set 业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SalesUin 业务员ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSalesUin(String SalesUin) {
         this.SalesUin = SalesUin;
     }
 
     /**
-     * Get 业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 业务员姓名 
      * @return SalesName 业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSalesName() {
         return this.SalesName;
@@ -262,19 +261,15 @@ public class AgentClientElem extends AbstractModel{
 
     /**
      * Set 业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SalesName 业务员姓名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSalesName(String SalesName) {
         this.SalesName = SalesName;
     }
 
     /**
-     * Get 客户名称，此字段和控制台返回一致。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户名称，此字段和控制台返回一致。 
      * @return ClientName 客户名称，此字段和控制台返回一致。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClientName() {
         return this.ClientName;
@@ -282,12 +277,26 @@ public class AgentClientElem extends AbstractModel{
 
     /**
      * Set 客户名称，此字段和控制台返回一致。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientName 客户名称，此字段和控制台返回一致。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientName(String ClientName) {
         this.ClientName = ClientName;
+    }
+
+    /**
+     * Get 增量目标金额(分) 
+     * @return IncreaseGoal 增量目标金额(分)
+     */
+    public String getIncreaseGoal() {
+        return this.IncreaseGoal;
+    }
+
+    /**
+     * Set 增量目标金额(分)
+     * @param IncreaseGoal 增量目标金额(分)
+     */
+    public void setIncreaseGoal(String IncreaseGoal) {
+        this.IncreaseGoal = IncreaseGoal;
     }
 
     public AgentClientElem() {
@@ -331,6 +340,9 @@ public class AgentClientElem extends AbstractModel{
         if (source.ClientName != null) {
             this.ClientName = new String(source.ClientName);
         }
+        if (source.IncreaseGoal != null) {
+            this.IncreaseGoal = new String(source.IncreaseGoal);
+        }
     }
 
 
@@ -349,6 +361,7 @@ public class AgentClientElem extends AbstractModel{
         this.setParamSimple(map, prefix + "SalesUin", this.SalesUin);
         this.setParamSimple(map, prefix + "SalesName", this.SalesName);
         this.setParamSimple(map, prefix + "ClientName", this.ClientName);
+        this.setParamSimple(map, prefix + "IncreaseGoal", this.IncreaseGoal);
 
     }
 }

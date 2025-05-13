@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeGrafanaInstanceRequest extends AbstractModel{
+public class UpgradeGrafanaInstanceRequest extends AbstractModel {
 
     /**
     * Grafana 实例 ID，例如：grafana-12345678
@@ -30,7 +31,7 @@ public class UpgradeGrafanaInstanceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 版本别名，例如：v7.4.2
+    * 版本别名，目前固定为 v9.1.5
     */
     @SerializedName("Alias")
     @Expose
@@ -53,16 +54,16 @@ public class UpgradeGrafanaInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 版本别名，例如：v7.4.2 
-     * @return Alias 版本别名，例如：v7.4.2
+     * Get 版本别名，目前固定为 v9.1.5 
+     * @return Alias 版本别名，目前固定为 v9.1.5
      */
     public String getAlias() {
         return this.Alias;
     }
 
     /**
-     * Set 版本别名，例如：v7.4.2
-     * @param Alias 版本别名，例如：v7.4.2
+     * Set 版本别名，目前固定为 v9.1.5
+     * @param Alias 版本别名，目前固定为 v9.1.5
      */
     public void setAlias(String Alias) {
         this.Alias = Alias;

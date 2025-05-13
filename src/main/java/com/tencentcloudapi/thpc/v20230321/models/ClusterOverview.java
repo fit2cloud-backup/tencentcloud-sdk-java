@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20230321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterOverview extends AbstractModel{
+public class ClusterOverview extends AbstractModel {
 
     /**
     * 集群ID。
@@ -30,7 +31,7 @@ public class ClusterOverview extends AbstractModel{
     private String ClusterId;
 
     /**
-    * 集群状态。取值范围：<br><li>PENDING：创建中<br><li>INITING：初始化中<br><li>INIT_FAILED：初始化失败<br><li>RUNNING：运行中<br><li>TERMINATING：销毁中
+    * 集群状态。取值范围：<li>PENDING：创建中</li><li>INITING：初始化中</li><li>INIT_FAILED：初始化失败</li><li>RUNNING：运行中</li><li>TERMINATING：销毁中</li>
     */
     @SerializedName("ClusterStatus")
     @Expose
@@ -63,6 +64,13 @@ public class ClusterOverview extends AbstractModel{
     @SerializedName("SchedulerType")
     @Expose
     private String SchedulerType;
+
+    /**
+    * 集群调度器版本。
+    */
+    @SerializedName("SchedulerVersion")
+    @Expose
+    private String SchedulerVersion;
 
     /**
     * 计算节点数量。
@@ -107,7 +115,7 @@ public class ClusterOverview extends AbstractModel{
     private Long LoginNodeCount;
 
     /**
-    * 弹性伸缩类型。<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
+    * 弹性伸缩类型。
     */
     @SerializedName("AutoScalingType")
     @Expose
@@ -119,6 +127,13 @@ public class ClusterOverview extends AbstractModel{
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
+
+    /**
+    * 集群类型
+    */
+    @SerializedName("ClusterType")
+    @Expose
+    private String ClusterType;
 
     /**
      * Get 集群ID。 
@@ -137,16 +152,16 @@ public class ClusterOverview extends AbstractModel{
     }
 
     /**
-     * Get 集群状态。取值范围：<br><li>PENDING：创建中<br><li>INITING：初始化中<br><li>INIT_FAILED：初始化失败<br><li>RUNNING：运行中<br><li>TERMINATING：销毁中 
-     * @return ClusterStatus 集群状态。取值范围：<br><li>PENDING：创建中<br><li>INITING：初始化中<br><li>INIT_FAILED：初始化失败<br><li>RUNNING：运行中<br><li>TERMINATING：销毁中
+     * Get 集群状态。取值范围：<li>PENDING：创建中</li><li>INITING：初始化中</li><li>INIT_FAILED：初始化失败</li><li>RUNNING：运行中</li><li>TERMINATING：销毁中</li> 
+     * @return ClusterStatus 集群状态。取值范围：<li>PENDING：创建中</li><li>INITING：初始化中</li><li>INIT_FAILED：初始化失败</li><li>RUNNING：运行中</li><li>TERMINATING：销毁中</li>
      */
     public String getClusterStatus() {
         return this.ClusterStatus;
     }
 
     /**
-     * Set 集群状态。取值范围：<br><li>PENDING：创建中<br><li>INITING：初始化中<br><li>INIT_FAILED：初始化失败<br><li>RUNNING：运行中<br><li>TERMINATING：销毁中
-     * @param ClusterStatus 集群状态。取值范围：<br><li>PENDING：创建中<br><li>INITING：初始化中<br><li>INIT_FAILED：初始化失败<br><li>RUNNING：运行中<br><li>TERMINATING：销毁中
+     * Set 集群状态。取值范围：<li>PENDING：创建中</li><li>INITING：初始化中</li><li>INIT_FAILED：初始化失败</li><li>RUNNING：运行中</li><li>TERMINATING：销毁中</li>
+     * @param ClusterStatus 集群状态。取值范围：<li>PENDING：创建中</li><li>INITING：初始化中</li><li>INIT_FAILED：初始化失败</li><li>RUNNING：运行中</li><li>TERMINATING：销毁中</li>
      */
     public void setClusterStatus(String ClusterStatus) {
         this.ClusterStatus = ClusterStatus;
@@ -214,6 +229,22 @@ public class ClusterOverview extends AbstractModel{
      */
     public void setSchedulerType(String SchedulerType) {
         this.SchedulerType = SchedulerType;
+    }
+
+    /**
+     * Get 集群调度器版本。 
+     * @return SchedulerVersion 集群调度器版本。
+     */
+    public String getSchedulerVersion() {
+        return this.SchedulerVersion;
+    }
+
+    /**
+     * Set 集群调度器版本。
+     * @param SchedulerVersion 集群调度器版本。
+     */
+    public void setSchedulerVersion(String SchedulerVersion) {
+        this.SchedulerVersion = SchedulerVersion;
     }
 
     /**
@@ -313,16 +344,16 @@ public class ClusterOverview extends AbstractModel{
     }
 
     /**
-     * Get 弹性伸缩类型。<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。 
-     * @return AutoScalingType 弹性伸缩类型。<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
+     * Get 弹性伸缩类型。 
+     * @return AutoScalingType 弹性伸缩类型。
      */
     public String getAutoScalingType() {
         return this.AutoScalingType;
     }
 
     /**
-     * Set 弹性伸缩类型。<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
-     * @param AutoScalingType 弹性伸缩类型。<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
+     * Set 弹性伸缩类型。
+     * @param AutoScalingType 弹性伸缩类型。
      */
     public void setAutoScalingType(String AutoScalingType) {
         this.AutoScalingType = AutoScalingType;
@@ -342,6 +373,22 @@ public class ClusterOverview extends AbstractModel{
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
+    }
+
+    /**
+     * Get 集群类型 
+     * @return ClusterType 集群类型
+     */
+    public String getClusterType() {
+        return this.ClusterType;
+    }
+
+    /**
+     * Set 集群类型
+     * @param ClusterType 集群类型
+     */
+    public void setClusterType(String ClusterType) {
+        this.ClusterType = ClusterType;
     }
 
     public ClusterOverview() {
@@ -369,6 +416,9 @@ public class ClusterOverview extends AbstractModel{
         }
         if (source.SchedulerType != null) {
             this.SchedulerType = new String(source.SchedulerType);
+        }
+        if (source.SchedulerVersion != null) {
+            this.SchedulerVersion = new String(source.SchedulerVersion);
         }
         if (source.ComputeNodeCount != null) {
             this.ComputeNodeCount = new Long(source.ComputeNodeCount);
@@ -403,6 +453,9 @@ public class ClusterOverview extends AbstractModel{
         if (source.VpcId != null) {
             this.VpcId = new String(source.VpcId);
         }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
     }
 
 
@@ -416,6 +469,7 @@ public class ClusterOverview extends AbstractModel{
         this.setParamObj(map, prefix + "Placement.", this.Placement);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "SchedulerType", this.SchedulerType);
+        this.setParamSimple(map, prefix + "SchedulerVersion", this.SchedulerVersion);
         this.setParamSimple(map, prefix + "ComputeNodeCount", this.ComputeNodeCount);
         this.setParamArrayObj(map, prefix + "ComputeNodeSet.", this.ComputeNodeSet);
         this.setParamSimple(map, prefix + "ManagerNodeCount", this.ManagerNodeCount);
@@ -424,6 +478,7 @@ public class ClusterOverview extends AbstractModel{
         this.setParamSimple(map, prefix + "LoginNodeCount", this.LoginNodeCount);
         this.setParamSimple(map, prefix + "AutoScalingType", this.AutoScalingType);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
+        this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tmt.v20180321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetFileTranslateData extends AbstractModel{
+public class GetFileTranslateData extends AbstractModel {
 
     /**
     * 任务ID
@@ -30,14 +31,19 @@ public class GetFileTranslateData extends AbstractModel{
     private String TaskId;
 
     /**
-    * 状态
+    * 任务状态
+
+- init：任务已初始化
+- wait：任务等待执行
+- success：任务执行成功
+- fail：任务执行失败
     */
     @SerializedName("Status")
     @Expose
     private String Status;
 
     /**
-    * 文件数据
+    * 文件数据，目标文件必须小于50M，否则请通过回调方式请求文件翻译接口
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileData")
@@ -53,12 +59,18 @@ public class GetFileTranslateData extends AbstractModel{
     private String Message;
 
     /**
-    * 翻译进度
-注意：此字段可能返回 null，表示取不到有效值。
+    * 任务进度
     */
     @SerializedName("Progress")
     @Expose
     private Long Progress;
+
+    /**
+    * 本次翻译消耗的字符数	
+    */
+    @SerializedName("UsedAmount")
+    @Expose
+    private Long UsedAmount;
 
     /**
      * Get 任务ID 
@@ -77,25 +89,45 @@ public class GetFileTranslateData extends AbstractModel{
     }
 
     /**
-     * Get 状态 
-     * @return Status 状态
+     * Get 任务状态
+
+- init：任务已初始化
+- wait：任务等待执行
+- success：任务执行成功
+- fail：任务执行失败 
+     * @return Status 任务状态
+
+- init：任务已初始化
+- wait：任务等待执行
+- success：任务执行成功
+- fail：任务执行失败
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态
-     * @param Status 状态
+     * Set 任务状态
+
+- init：任务已初始化
+- wait：任务等待执行
+- success：任务执行成功
+- fail：任务执行失败
+     * @param Status 任务状态
+
+- init：任务已初始化
+- wait：任务等待执行
+- success：任务执行成功
+- fail：任务执行失败
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 文件数据
+     * Get 文件数据，目标文件必须小于50M，否则请通过回调方式请求文件翻译接口
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FileData 文件数据
+     * @return FileData 文件数据，目标文件必须小于50M，否则请通过回调方式请求文件翻译接口
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFileData() {
@@ -103,9 +135,9 @@ public class GetFileTranslateData extends AbstractModel{
     }
 
     /**
-     * Set 文件数据
+     * Set 文件数据，目标文件必须小于50M，否则请通过回调方式请求文件翻译接口
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param FileData 文件数据
+     * @param FileData 文件数据，目标文件必须小于50M，否则请通过回调方式请求文件翻译接口
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileData(String FileData) {
@@ -133,23 +165,35 @@ public class GetFileTranslateData extends AbstractModel{
     }
 
     /**
-     * Get 翻译进度
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Progress 翻译进度
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 任务进度 
+     * @return Progress 任务进度
      */
     public Long getProgress() {
         return this.Progress;
     }
 
     /**
-     * Set 翻译进度
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Progress 翻译进度
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 任务进度
+     * @param Progress 任务进度
      */
     public void setProgress(Long Progress) {
         this.Progress = Progress;
+    }
+
+    /**
+     * Get 本次翻译消耗的字符数	 
+     * @return UsedAmount 本次翻译消耗的字符数	
+     */
+    public Long getUsedAmount() {
+        return this.UsedAmount;
+    }
+
+    /**
+     * Set 本次翻译消耗的字符数	
+     * @param UsedAmount 本次翻译消耗的字符数	
+     */
+    public void setUsedAmount(Long UsedAmount) {
+        this.UsedAmount = UsedAmount;
     }
 
     public GetFileTranslateData() {
@@ -175,6 +219,9 @@ public class GetFileTranslateData extends AbstractModel{
         if (source.Progress != null) {
             this.Progress = new Long(source.Progress);
         }
+        if (source.UsedAmount != null) {
+            this.UsedAmount = new Long(source.UsedAmount);
+        }
     }
 
 
@@ -187,6 +234,7 @@ public class GetFileTranslateData extends AbstractModel{
         this.setParamSimple(map, prefix + "FileData", this.FileData);
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamSimple(map, prefix + "Progress", this.Progress);
+        this.setParamSimple(map, prefix + "UsedAmount", this.UsedAmount);
 
     }
 }

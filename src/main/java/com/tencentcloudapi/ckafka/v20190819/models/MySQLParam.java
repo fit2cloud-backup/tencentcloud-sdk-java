@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MySQLParam extends AbstractModel{
+public class MySQLParam extends AbstractModel {
 
     /**
     * MySQL的数据库名称，"*"为全数据库
@@ -44,7 +45,7 @@ public class MySQLParam extends AbstractModel{
     private String Resource;
 
     /**
-    * 复制存量信息(schema_only不复制, initial全量)，默认位initial
+    * 复制存量信息(schema_only不复制, initial全量)，默认值initial
     */
     @SerializedName("SnapshotMode")
     @Expose
@@ -198,6 +199,28 @@ public class MySQLParam extends AbstractModel{
     private Boolean IsTableRegular;
 
     /**
+    * 信号表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SignalTable")
+    @Expose
+    private String SignalTable;
+
+    /**
+    * datetime 类型字段转换为时间戳的时区
+    */
+    @SerializedName("DateTimeZone")
+    @Expose
+    private String DateTimeZone;
+
+    /**
+    * 自建
+    */
+    @SerializedName("SelfBuilt")
+    @Expose
+    private Boolean SelfBuilt;
+
+    /**
      * Get MySQL的数据库名称，"*"为全数据库 
      * @return Database MySQL的数据库名称，"*"为全数据库
      */
@@ -246,16 +269,16 @@ public class MySQLParam extends AbstractModel{
     }
 
     /**
-     * Get 复制存量信息(schema_only不复制, initial全量)，默认位initial 
-     * @return SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认位initial
+     * Get 复制存量信息(schema_only不复制, initial全量)，默认值initial 
+     * @return SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认值initial
      */
     public String getSnapshotMode() {
         return this.SnapshotMode;
     }
 
     /**
-     * Set 复制存量信息(schema_only不复制, initial全量)，默认位initial
-     * @param SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认位initial
+     * Set 复制存量信息(schema_only不复制, initial全量)，默认值initial
+     * @param SnapshotMode 复制存量信息(schema_only不复制, initial全量)，默认值initial
      */
     public void setSnapshotMode(String SnapshotMode) {
         this.SnapshotMode = SnapshotMode;
@@ -597,6 +620,58 @@ public class MySQLParam extends AbstractModel{
         this.IsTableRegular = IsTableRegular;
     }
 
+    /**
+     * Get 信号表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SignalTable 信号表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSignalTable() {
+        return this.SignalTable;
+    }
+
+    /**
+     * Set 信号表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SignalTable 信号表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSignalTable(String SignalTable) {
+        this.SignalTable = SignalTable;
+    }
+
+    /**
+     * Get datetime 类型字段转换为时间戳的时区 
+     * @return DateTimeZone datetime 类型字段转换为时间戳的时区
+     */
+    public String getDateTimeZone() {
+        return this.DateTimeZone;
+    }
+
+    /**
+     * Set datetime 类型字段转换为时间戳的时区
+     * @param DateTimeZone datetime 类型字段转换为时间戳的时区
+     */
+    public void setDateTimeZone(String DateTimeZone) {
+        this.DateTimeZone = DateTimeZone;
+    }
+
+    /**
+     * Get 自建 
+     * @return SelfBuilt 自建
+     */
+    public Boolean getSelfBuilt() {
+        return this.SelfBuilt;
+    }
+
+    /**
+     * Set 自建
+     * @param SelfBuilt 自建
+     */
+    public void setSelfBuilt(Boolean SelfBuilt) {
+        this.SelfBuilt = SelfBuilt;
+    }
+
     public MySQLParam() {
     }
 
@@ -683,6 +758,15 @@ public class MySQLParam extends AbstractModel{
         if (source.IsTableRegular != null) {
             this.IsTableRegular = new Boolean(source.IsTableRegular);
         }
+        if (source.SignalTable != null) {
+            this.SignalTable = new String(source.SignalTable);
+        }
+        if (source.DateTimeZone != null) {
+            this.DateTimeZone = new String(source.DateTimeZone);
+        }
+        if (source.SelfBuilt != null) {
+            this.SelfBuilt = new Boolean(source.SelfBuilt);
+        }
     }
 
 
@@ -715,6 +799,9 @@ public class MySQLParam extends AbstractModel{
         this.setParamSimple(map, prefix + "RecordWithSchema", this.RecordWithSchema);
         this.setParamSimple(map, prefix + "SignalDatabase", this.SignalDatabase);
         this.setParamSimple(map, prefix + "IsTableRegular", this.IsTableRegular);
+        this.setParamSimple(map, prefix + "SignalTable", this.SignalTable);
+        this.setParamSimple(map, prefix + "DateTimeZone", this.DateTimeZone);
+        this.setParamSimple(map, prefix + "SelfBuilt", this.SelfBuilt);
 
     }
 }

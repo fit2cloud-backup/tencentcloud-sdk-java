@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceBackupFileItem extends AbstractModel{
+public class InstanceBackupFileItem extends AbstractModel {
 
     /**
     * 实例ID
@@ -45,7 +46,6 @@ public class InstanceBackupFileItem extends AbstractModel{
 
     /**
     * 分片ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ShardId")
     @Expose
@@ -101,6 +101,13 @@ public class InstanceBackupFileItem extends AbstractModel{
     private String EndTime;
 
     /**
+    * 对象的存储类型，枚举值：STANDARD（标准存储）、ARCHIVE（归档存储）。
+    */
+    @SerializedName("StorageClass")
+    @Expose
+    private String StorageClass;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -149,10 +156,8 @@ public class InstanceBackupFileItem extends AbstractModel{
     }
 
     /**
-     * Get 分片ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分片ID 
      * @return ShardId 分片ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getShardId() {
         return this.ShardId;
@@ -160,9 +165,7 @@ public class InstanceBackupFileItem extends AbstractModel{
 
     /**
      * Set 分片ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ShardId 分片ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setShardId(String ShardId) {
         this.ShardId = ShardId;
@@ -280,6 +283,22 @@ public class InstanceBackupFileItem extends AbstractModel{
         this.EndTime = EndTime;
     }
 
+    /**
+     * Get 对象的存储类型，枚举值：STANDARD（标准存储）、ARCHIVE（归档存储）。 
+     * @return StorageClass 对象的存储类型，枚举值：STANDARD（标准存储）、ARCHIVE（归档存储）。
+     */
+    public String getStorageClass() {
+        return this.StorageClass;
+    }
+
+    /**
+     * Set 对象的存储类型，枚举值：STANDARD（标准存储）、ARCHIVE（归档存储）。
+     * @param StorageClass 对象的存储类型，枚举值：STANDARD（标准存储）、ARCHIVE（归档存储）。
+     */
+    public void setStorageClass(String StorageClass) {
+        this.StorageClass = StorageClass;
+    }
+
     public InstanceBackupFileItem() {
     }
 
@@ -321,6 +340,9 @@ public class InstanceBackupFileItem extends AbstractModel{
         if (source.EndTime != null) {
             this.EndTime = new String(source.EndTime);
         }
+        if (source.StorageClass != null) {
+            this.StorageClass = new String(source.StorageClass);
+        }
     }
 
 
@@ -339,6 +361,7 @@ public class InstanceBackupFileItem extends AbstractModel{
         this.setParamSimple(map, prefix + "ManualBackup", this.ManualBackup);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "StorageClass", this.StorageClass);
 
     }
 }

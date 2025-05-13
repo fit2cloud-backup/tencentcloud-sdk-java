@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyCustomWhiteRuleRequest extends AbstractModel{
+public class ModifyCustomWhiteRuleRequest extends AbstractModel {
 
     /**
     * 编辑的域名
@@ -44,7 +45,7 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
     private String RuleName;
 
     /**
-    * 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果多个勾选那么以,串接。
+    * 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果勾选多个，则以“，”串接。
     */
     @SerializedName("Bypass")
     @Expose
@@ -58,7 +59,7 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
     private Long SortId;
 
     /**
-    * 规则生效截止时间，0：永久生效，其它值为对应时间的时间戳。
+    * 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
     */
     @SerializedName("ExpireTime")
     @Expose
@@ -70,6 +71,20 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
     @SerializedName("Strategies")
     @Expose
     private Strategy [] Strategies;
+
+    /**
+    * 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+    */
+    @SerializedName("JobType")
+    @Expose
+    private String JobType;
+
+    /**
+    * 定时任务配置
+    */
+    @SerializedName("JobDateTime")
+    @Expose
+    private JobDateTime JobDateTime;
 
     /**
      * Get 编辑的域名 
@@ -120,16 +135,16 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果多个勾选那么以,串接。 
-     * @return Bypass 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果多个勾选那么以,串接。
+     * Get 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果勾选多个，则以“，”串接。 
+     * @return Bypass 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果勾选多个，则以“，”串接。
      */
     public String getBypass() {
         return this.Bypass;
     }
 
     /**
-     * Set 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果多个勾选那么以,串接。
-     * @param Bypass 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果多个勾选那么以,串接。
+     * Set 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果勾选多个，则以“，”串接。
+     * @param Bypass 放行时是否继续执行其它检查逻辑，继续执行地域封禁防护：geoip、继续执行CC策略防护：cc、继续执行WEB应用防护：owasp、继续执行AI引擎防护：ai、继续执行信息防泄漏防护：antileakage。如果勾选多个，则以“，”串接。
      */
     public void setBypass(String Bypass) {
         this.Bypass = Bypass;
@@ -152,16 +167,16 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 规则生效截止时间，0：永久生效，其它值为对应时间的时间戳。 
-     * @return ExpireTime 规则生效截止时间，0：永久生效，其它值为对应时间的时间戳。
+     * Get 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒） 
+     * @return ExpireTime 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
      */
     public Long getExpireTime() {
         return this.ExpireTime;
     }
 
     /**
-     * Set 规则生效截止时间，0：永久生效，其它值为对应时间的时间戳。
-     * @param ExpireTime 规则生效截止时间，0：永久生效，其它值为对应时间的时间戳。
+     * Set 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
+     * @param ExpireTime 如果没有设置JobDateTime字段则用此字段，0表示永久生效，其它表示定时生效的截止时间（单位为秒）
      */
     public void setExpireTime(Long ExpireTime) {
         this.ExpireTime = ExpireTime;
@@ -181,6 +196,38 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
      */
     public void setStrategies(Strategy [] Strategies) {
         this.Strategies = Strategies;
+    }
+
+    /**
+     * Get 规则执行的方式，TimedJob为定时执行，CronJob为周期执行 
+     * @return JobType 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+     */
+    public String getJobType() {
+        return this.JobType;
+    }
+
+    /**
+     * Set 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+     * @param JobType 规则执行的方式，TimedJob为定时执行，CronJob为周期执行
+     */
+    public void setJobType(String JobType) {
+        this.JobType = JobType;
+    }
+
+    /**
+     * Get 定时任务配置 
+     * @return JobDateTime 定时任务配置
+     */
+    public JobDateTime getJobDateTime() {
+        return this.JobDateTime;
+    }
+
+    /**
+     * Set 定时任务配置
+     * @param JobDateTime 定时任务配置
+     */
+    public void setJobDateTime(JobDateTime JobDateTime) {
+        this.JobDateTime = JobDateTime;
     }
 
     public ModifyCustomWhiteRuleRequest() {
@@ -215,6 +262,12 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
                 this.Strategies[i] = new Strategy(source.Strategies[i]);
             }
         }
+        if (source.JobType != null) {
+            this.JobType = new String(source.JobType);
+        }
+        if (source.JobDateTime != null) {
+            this.JobDateTime = new JobDateTime(source.JobDateTime);
+        }
     }
 
 
@@ -229,6 +282,8 @@ public class ModifyCustomWhiteRuleRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SortId", this.SortId);
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamArrayObj(map, prefix + "Strategies.", this.Strategies);
+        this.setParamSimple(map, prefix + "JobType", this.JobType);
+        this.setParamObj(map, prefix + "JobDateTime.", this.JobDateTime);
 
     }
 }

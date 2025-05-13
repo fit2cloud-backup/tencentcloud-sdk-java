@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IngressRule extends AbstractModel{
+public class IngressRule extends AbstractModel {
 
     /**
     * ingress rule value
@@ -31,7 +32,6 @@ public class IngressRule extends AbstractModel{
 
     /**
     * host 地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Host")
     @Expose
@@ -61,10 +61,8 @@ public class IngressRule extends AbstractModel{
     }
 
     /**
-     * Get host 地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get host 地址 
      * @return Host host 地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHost() {
         return this.Host;
@@ -72,9 +70,7 @@ public class IngressRule extends AbstractModel{
 
     /**
      * Set host 地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Host host 地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHost(String Host) {
         this.Host = Host;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RewriteTarget extends AbstractModel{
+public class RewriteTarget extends AbstractModel {
 
     /**
-    * 重定向目标的监听器ID
-注意：此字段可能返回 null，表示无重定向。
+    * 重定向目标的监听器ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetListenerId")
@@ -32,8 +32,7 @@ public class RewriteTarget extends AbstractModel{
     private String TargetListenerId;
 
     /**
-    * 重定向目标的转发规则ID
-注意：此字段可能返回 null，表示无重定向。
+    * 重定向目标的转发规则ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetLocationId")
@@ -42,7 +41,6 @@ public class RewriteTarget extends AbstractModel{
 
     /**
     * 重定向状态码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RewriteCode")
     @Expose
@@ -50,7 +48,6 @@ public class RewriteTarget extends AbstractModel{
 
     /**
     * 重定向是否携带匹配的url
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TakeUrl")
     @Expose
@@ -58,18 +55,15 @@ public class RewriteTarget extends AbstractModel{
 
     /**
     * 重定向类型，Manual: 手动重定向，Auto:  自动重定向
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RewriteType")
     @Expose
     private String RewriteType;
 
     /**
-     * Get 重定向目标的监听器ID
-注意：此字段可能返回 null，表示无重定向。
+     * Get 重定向目标的监听器ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TargetListenerId 重定向目标的监听器ID
-注意：此字段可能返回 null，表示无重定向。
+     * @return TargetListenerId 重定向目标的监听器ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTargetListenerId() {
@@ -77,11 +71,9 @@ public class RewriteTarget extends AbstractModel{
     }
 
     /**
-     * Set 重定向目标的监听器ID
-注意：此字段可能返回 null，表示无重定向。
+     * Set 重定向目标的监听器ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param TargetListenerId 重定向目标的监听器ID
-注意：此字段可能返回 null，表示无重定向。
+     * @param TargetListenerId 重定向目标的监听器ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetListenerId(String TargetListenerId) {
@@ -89,11 +81,9 @@ public class RewriteTarget extends AbstractModel{
     }
 
     /**
-     * Get 重定向目标的转发规则ID
-注意：此字段可能返回 null，表示无重定向。
+     * Get 重定向目标的转发规则ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TargetLocationId 重定向目标的转发规则ID
-注意：此字段可能返回 null，表示无重定向。
+     * @return TargetLocationId 重定向目标的转发规则ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTargetLocationId() {
@@ -101,11 +91,9 @@ public class RewriteTarget extends AbstractModel{
     }
 
     /**
-     * Set 重定向目标的转发规则ID
-注意：此字段可能返回 null，表示无重定向。
+     * Set 重定向目标的转发规则ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param TargetLocationId 重定向目标的转发规则ID
-注意：此字段可能返回 null，表示无重定向。
+     * @param TargetLocationId 重定向目标的转发规则ID，该字段仅配置了重定向时有效。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetLocationId(String TargetLocationId) {
@@ -113,10 +101,8 @@ public class RewriteTarget extends AbstractModel{
     }
 
     /**
-     * Get 重定向状态码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 重定向状态码 
      * @return RewriteCode 重定向状态码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRewriteCode() {
         return this.RewriteCode;
@@ -124,19 +110,15 @@ public class RewriteTarget extends AbstractModel{
 
     /**
      * Set 重定向状态码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RewriteCode 重定向状态码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRewriteCode(Long RewriteCode) {
         this.RewriteCode = RewriteCode;
     }
 
     /**
-     * Get 重定向是否携带匹配的url
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 重定向是否携带匹配的url 
      * @return TakeUrl 重定向是否携带匹配的url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getTakeUrl() {
         return this.TakeUrl;
@@ -144,19 +126,15 @@ public class RewriteTarget extends AbstractModel{
 
     /**
      * Set 重定向是否携带匹配的url
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TakeUrl 重定向是否携带匹配的url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTakeUrl(Boolean TakeUrl) {
         this.TakeUrl = TakeUrl;
     }
 
     /**
-     * Get 重定向类型，Manual: 手动重定向，Auto:  自动重定向
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 重定向类型，Manual: 手动重定向，Auto:  自动重定向 
      * @return RewriteType 重定向类型，Manual: 手动重定向，Auto:  自动重定向
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRewriteType() {
         return this.RewriteType;
@@ -164,9 +142,7 @@ public class RewriteTarget extends AbstractModel{
 
     /**
      * Set 重定向类型，Manual: 手动重定向，Auto:  自动重定向
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RewriteType 重定向类型，Manual: 手动重定向，Auto:  自动重定向
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRewriteType(String RewriteType) {
         this.RewriteType = RewriteType;

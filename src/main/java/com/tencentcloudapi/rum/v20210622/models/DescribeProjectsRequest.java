@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeProjectsRequest extends AbstractModel{
+public class DescribeProjectsRequest extends AbstractModel {
 
     /**
     * 分页每页数目，整型
@@ -101,7 +102,9 @@ public class DescribeProjectsRequest extends AbstractModel{
     /**
      * Get 该参数已废弃，demo模式请在Filters内注明 
      * @return IsDemo 该参数已废弃，demo模式请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public Long getIsDemo() {
         return this.IsDemo;
     }
@@ -109,7 +112,9 @@ public class DescribeProjectsRequest extends AbstractModel{
     /**
      * Set 该参数已废弃，demo模式请在Filters内注明
      * @param IsDemo 该参数已废弃，demo模式请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public void setIsDemo(Long IsDemo) {
         this.IsDemo = IsDemo;
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeServiceAccountsRequest extends AbstractModel{
+public class DescribeServiceAccountsRequest extends AbstractModel {
 
     /**
     * 实例Id
@@ -37,14 +38,14 @@ public class DescribeServiceAccountsRequest extends AbstractModel{
     private Boolean All;
 
     /**
-    * 是否填充策略
+    * 是否填充权限信息
     */
     @SerializedName("EmbedPermission")
     @Expose
     private Boolean EmbedPermission;
 
     /**
-    * 过滤条件
+    * 过滤条件，key 目前只支持ServiceAccountName
     */
     @SerializedName("Filters")
     @Expose
@@ -97,32 +98,32 @@ public class DescribeServiceAccountsRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否填充策略 
-     * @return EmbedPermission 是否填充策略
+     * Get 是否填充权限信息 
+     * @return EmbedPermission 是否填充权限信息
      */
     public Boolean getEmbedPermission() {
         return this.EmbedPermission;
     }
 
     /**
-     * Set 是否填充策略
-     * @param EmbedPermission 是否填充策略
+     * Set 是否填充权限信息
+     * @param EmbedPermission 是否填充权限信息
      */
     public void setEmbedPermission(Boolean EmbedPermission) {
         this.EmbedPermission = EmbedPermission;
     }
 
     /**
-     * Get 过滤条件 
-     * @return Filters 过滤条件
+     * Get 过滤条件，key 目前只支持ServiceAccountName 
+     * @return Filters 过滤条件，key 目前只支持ServiceAccountName
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤条件
-     * @param Filters 过滤条件
+     * Set 过滤条件，key 目前只支持ServiceAccountName
+     * @param Filters 过滤条件，key 目前只支持ServiceAccountName
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

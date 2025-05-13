@@ -16,14 +16,15 @@
 package com.tencentcloudapi.mna.v20210119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetDetails extends AbstractModel{
+public class NetDetails extends AbstractModel {
 
     /**
-    * 流量值（bit）
+    * 流量值（byte）
     */
     @SerializedName("Current")
     @Expose
@@ -37,16 +38,16 @@ public class NetDetails extends AbstractModel{
     private String Time;
 
     /**
-     * Get 流量值（bit） 
-     * @return Current 流量值（bit）
+     * Get 流量值（byte） 
+     * @return Current 流量值（byte）
      */
     public Float getCurrent() {
         return this.Current;
     }
 
     /**
-     * Set 流量值（bit）
-     * @param Current 流量值（bit）
+     * Set 流量值（byte）
+     * @param Current 流量值（byte）
      */
     public void setCurrent(Float Current) {
         this.Current = Current;

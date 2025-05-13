@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProxyGroupRwInfo extends AbstractModel{
+public class ProxyGroupRwInfo extends AbstractModel {
 
     /**
     * 一致性类型 eventual-最终一致性,global-全局一致性,session-会话一致性
@@ -66,7 +67,6 @@ public class ProxyGroupRwInfo extends AbstractModel{
 
     /**
     * 是否开通读写节点，yse-是，no-否
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OpenRw")
     @Expose
@@ -190,10 +190,8 @@ public class ProxyGroupRwInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否开通读写节点，yse-是，no-否
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开通读写节点，yse-是，no-否 
      * @return OpenRw 是否开通读写节点，yse-是，no-否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOpenRw() {
         return this.OpenRw;
@@ -201,9 +199,7 @@ public class ProxyGroupRwInfo extends AbstractModel{
 
     /**
      * Set 是否开通读写节点，yse-是，no-否
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OpenRw 是否开通读写节点，yse-是，no-否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOpenRw(String OpenRw) {
         this.OpenRw = OpenRw;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
+public class DescribeCloudBaseBuildServiceResponse extends AbstractModel {
 
     /**
     * 上传url
@@ -30,7 +31,7 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
     private String UploadUrl;
 
     /**
-    * 上传heder
+    * 上传header
     */
     @SerializedName("UploadHeaders")
     @Expose
@@ -52,7 +53,6 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
 
     /**
     * 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DownloadUrl")
     @Expose
@@ -60,7 +60,6 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
 
     /**
     * 下载Httpheader
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DownloadHeaders")
     @Expose
@@ -68,14 +67,13 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
 
     /**
     * 下载链接是否过期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutDate")
     @Expose
     private Boolean OutDate;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -98,16 +96,16 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
     }
 
     /**
-     * Get 上传heder 
-     * @return UploadHeaders 上传heder
+     * Get 上传header 
+     * @return UploadHeaders 上传header
      */
     public KVPair [] getUploadHeaders() {
         return this.UploadHeaders;
     }
 
     /**
-     * Set 上传heder
-     * @param UploadHeaders 上传heder
+     * Set 上传header
+     * @param UploadHeaders 上传header
      */
     public void setUploadHeaders(KVPair [] UploadHeaders) {
         this.UploadHeaders = UploadHeaders;
@@ -146,10 +144,8 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
     }
 
     /**
-     * Get 下载链接
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下载链接 
      * @return DownloadUrl 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDownloadUrl() {
         return this.DownloadUrl;
@@ -157,19 +153,15 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
 
     /**
      * Set 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DownloadUrl 下载链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDownloadUrl(String DownloadUrl) {
         this.DownloadUrl = DownloadUrl;
     }
 
     /**
-     * Get 下载Httpheader
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下载Httpheader 
      * @return DownloadHeaders 下载Httpheader
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public KVPair [] getDownloadHeaders() {
         return this.DownloadHeaders;
@@ -177,19 +169,15 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
 
     /**
      * Set 下载Httpheader
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DownloadHeaders 下载Httpheader
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDownloadHeaders(KVPair [] DownloadHeaders) {
         this.DownloadHeaders = DownloadHeaders;
     }
 
     /**
-     * Get 下载链接是否过期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下载链接是否过期 
      * @return OutDate 下载链接是否过期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getOutDate() {
         return this.OutDate;
@@ -197,25 +185,23 @@ public class DescribeCloudBaseBuildServiceResponse extends AbstractModel{
 
     /**
      * Set 下载链接是否过期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OutDate 下载链接是否过期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutDate(Boolean OutDate) {
         this.OutDate = OutDate;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

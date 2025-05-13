@@ -16,11 +16,12 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Alias extends AbstractModel{
+public class Alias extends AbstractModel {
 
     /**
     * 别名指向的主版本
@@ -38,7 +39,6 @@ public class Alias extends AbstractModel{
 
     /**
     * 别名的路由信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RoutingConfig")
     @Expose
@@ -46,7 +46,6 @@ public class Alias extends AbstractModel{
 
     /**
     * 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -54,7 +53,6 @@ public class Alias extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AddTime")
     @Expose
@@ -62,7 +60,6 @@ public class Alias extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModTime")
     @Expose
@@ -101,10 +98,8 @@ public class Alias extends AbstractModel{
     }
 
     /**
-     * Get 别名的路由信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 别名的路由信息 
      * @return RoutingConfig 别名的路由信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RoutingConfig getRoutingConfig() {
         return this.RoutingConfig;
@@ -112,19 +107,15 @@ public class Alias extends AbstractModel{
 
     /**
      * Set 别名的路由信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RoutingConfig 别名的路由信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRoutingConfig(RoutingConfig RoutingConfig) {
         this.RoutingConfig = RoutingConfig;
     }
 
     /**
-     * Get 描述信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 描述信息 
      * @return Description 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -132,19 +123,15 @@ public class Alias extends AbstractModel{
 
     /**
      * Set 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return AddTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAddTime() {
         return this.AddTime;
@@ -152,19 +139,15 @@ public class Alias extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AddTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddTime(String AddTime) {
         this.AddTime = AddTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return ModTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModTime() {
         return this.ModTime;
@@ -172,9 +155,7 @@ public class Alias extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModTime(String ModTime) {
         this.ModTime = ModTime;

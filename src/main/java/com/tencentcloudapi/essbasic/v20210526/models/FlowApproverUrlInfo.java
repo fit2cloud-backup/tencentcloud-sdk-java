@@ -16,127 +16,178 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FlowApproverUrlInfo extends AbstractModel{
+public class FlowApproverUrlInfo extends AbstractModel {
 
     /**
-    * 签署短链接，不支持小程序嵌入，只支持移动端浏览器打开。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
+    * 签署短链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
     */
     @SerializedName("SignUrl")
     @Expose
     private String SignUrl;
 
     /**
-    * 签署人类型 PERSON-个人
+    * 签署人类型。
+- **PERSON**: 个人
     */
     @SerializedName("ApproverType")
     @Expose
     private String ApproverType;
 
     /**
-    * 签署人姓名
+    * 签署人姓名。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 签署人手机号
+    * 签署人手机号。
     */
     @SerializedName("Mobile")
     @Expose
     private String Mobile;
 
     /**
-    * 签署长链接，支持小程序嵌入。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 签署长链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
     */
     @SerializedName("LongUrl")
     @Expose
     private String LongUrl;
 
     /**
-     * Get 签署短链接，不支持小程序嵌入，只支持移动端浏览器打开。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。 
-     * @return SignUrl 签署短链接，不支持小程序嵌入，只支持移动端浏览器打开。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
+     * Get 签署短链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误） 
+     * @return SignUrl 签署短链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
      */
     public String getSignUrl() {
         return this.SignUrl;
     }
 
     /**
-     * Set 签署短链接，不支持小程序嵌入，只支持移动端浏览器打开。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
-     * @param SignUrl 签署短链接，不支持小程序嵌入，只支持移动端浏览器打开。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
+     * Set 签署短链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
+     * @param SignUrl 签署短链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
      */
     public void setSignUrl(String SignUrl) {
         this.SignUrl = SignUrl;
     }
 
     /**
-     * Get 签署人类型 PERSON-个人 
-     * @return ApproverType 签署人类型 PERSON-个人
+     * Get 签署人类型。
+- **PERSON**: 个人 
+     * @return ApproverType 签署人类型。
+- **PERSON**: 个人
      */
     public String getApproverType() {
         return this.ApproverType;
     }
 
     /**
-     * Set 签署人类型 PERSON-个人
-     * @param ApproverType 签署人类型 PERSON-个人
+     * Set 签署人类型。
+- **PERSON**: 个人
+     * @param ApproverType 签署人类型。
+- **PERSON**: 个人
      */
     public void setApproverType(String ApproverType) {
         this.ApproverType = ApproverType;
     }
 
     /**
-     * Get 签署人姓名 
-     * @return Name 签署人姓名
+     * Get 签署人姓名。 
+     * @return Name 签署人姓名。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 签署人姓名
-     * @param Name 签署人姓名
+     * Set 签署人姓名。
+     * @param Name 签署人姓名。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 签署人手机号 
-     * @return Mobile 签署人手机号
+     * Get 签署人手机号。 
+     * @return Mobile 签署人手机号。
      */
     public String getMobile() {
         return this.Mobile;
     }
 
     /**
-     * Set 签署人手机号
-     * @param Mobile 签署人手机号
+     * Set 签署人手机号。
+     * @param Mobile 签署人手机号。
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;
     }
 
     /**
-     * Get 签署长链接，支持小程序嵌入。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LongUrl 签署长链接，支持小程序嵌入。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 签署长链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误） 
+     * @return LongUrl 签署长链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
      */
     public String getLongUrl() {
         return this.LongUrl;
     }
 
     /**
-     * Set 签署长链接，支持小程序嵌入。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param LongUrl 签署长链接，支持小程序嵌入。注意该链接有效期为30分钟，同时需要注意保密，不要外泄给无关用户。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 签署长链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
+     * @param LongUrl 签署长链接。
+
+注意:
+1. 该链接有效期为**30分钟**，同时需要注意保密，不要外泄给无关用户。
+2. 该链接不支持小程序嵌入，仅支持**移动端浏览器**打开。
+3. <font color="red">生成的链路后面不能再增加参数</font>（会出现覆盖链接中已有参数导致错误）
      */
     public void setLongUrl(String LongUrl) {
         this.LongUrl = LongUrl;

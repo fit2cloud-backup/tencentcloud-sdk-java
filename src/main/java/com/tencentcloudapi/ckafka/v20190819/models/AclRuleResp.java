@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AclRuleResp extends AbstractModel{
+public class AclRuleResp extends AbstractModel {
 
     /**
     * 总数据条数
@@ -31,7 +32,6 @@ public class AclRuleResp extends AbstractModel{
 
     /**
     * AclRule列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AclRuleList")
     @Expose
@@ -54,10 +54,8 @@ public class AclRuleResp extends AbstractModel{
     }
 
     /**
-     * Get AclRule列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get AclRule列表 
      * @return AclRuleList AclRule列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AclRule [] getAclRuleList() {
         return this.AclRuleList;
@@ -65,9 +63,7 @@ public class AclRuleResp extends AbstractModel{
 
     /**
      * Set AclRule列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AclRuleList AclRule列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAclRuleList(AclRule [] AclRuleList) {
         this.AclRuleList = AclRuleList;

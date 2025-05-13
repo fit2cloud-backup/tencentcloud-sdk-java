@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceSlowQueriesRequest extends AbstractModel{
+public class DescribeInstanceSlowQueriesRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -91,6 +92,13 @@ public class DescribeInstanceSlowQueriesRequest extends AbstractModel{
     @SerializedName("OrderByType")
     @Expose
     private String OrderByType;
+
+    /**
+    * sql语句
+    */
+    @SerializedName("SqlText")
+    @Expose
+    private String SqlText;
 
     /**
      * Get 实例ID 
@@ -252,6 +260,22 @@ public class DescribeInstanceSlowQueriesRequest extends AbstractModel{
         this.OrderByType = OrderByType;
     }
 
+    /**
+     * Get sql语句 
+     * @return SqlText sql语句
+     */
+    public String getSqlText() {
+        return this.SqlText;
+    }
+
+    /**
+     * Set sql语句
+     * @param SqlText sql语句
+     */
+    public void setSqlText(String SqlText) {
+        this.SqlText = SqlText;
+    }
+
     public DescribeInstanceSlowQueriesRequest() {
     }
 
@@ -290,6 +314,9 @@ public class DescribeInstanceSlowQueriesRequest extends AbstractModel{
         if (source.OrderByType != null) {
             this.OrderByType = new String(source.OrderByType);
         }
+        if (source.SqlText != null) {
+            this.SqlText = new String(source.SqlText);
+        }
     }
 
 
@@ -307,6 +334,7 @@ public class DescribeInstanceSlowQueriesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Database", this.Database);
         this.setParamSimple(map, prefix + "OrderBy", this.OrderBy);
         this.setParamSimple(map, prefix + "OrderByType", this.OrderByType);
+        this.setParamSimple(map, prefix + "SqlText", this.SqlText);
 
     }
 }

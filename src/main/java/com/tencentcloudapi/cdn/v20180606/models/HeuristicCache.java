@@ -16,16 +16,18 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HeuristicCache extends AbstractModel{
+public class HeuristicCache extends AbstractModel {
 
     /**
     * 启发式缓存配置开关，取值有：
 on：开启
-off：关闭
+off：关闭（默认）
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Switch")
     @Expose
@@ -33,6 +35,7 @@ off：关闭
 
     /**
     * 自定义启发式缓存时间配置
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CacheConfig")
     @Expose
@@ -41,10 +44,12 @@ off：关闭
     /**
      * Get 启发式缓存配置开关，取值有：
 on：开启
-off：关闭 
+off：关闭（默认）
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Switch 启发式缓存配置开关，取值有：
 on：开启
-off：关闭
+off：关闭（默认）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSwitch() {
         return this.Switch;
@@ -53,18 +58,22 @@ off：关闭
     /**
      * Set 启发式缓存配置开关，取值有：
 on：开启
-off：关闭
+off：关闭（默认）
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Switch 启发式缓存配置开关，取值有：
 on：开启
-off：关闭
+off：关闭（默认）
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSwitch(String Switch) {
         this.Switch = Switch;
     }
 
     /**
-     * Get 自定义启发式缓存时间配置 
+     * Get 自定义启发式缓存时间配置
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return CacheConfig 自定义启发式缓存时间配置
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public CacheConfig getCacheConfig() {
         return this.CacheConfig;
@@ -72,7 +81,9 @@ off：关闭
 
     /**
      * Set 自定义启发式缓存时间配置
+注意：此字段可能返回 null，表示取不到有效值。
      * @param CacheConfig 自定义启发式缓存时间配置
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCacheConfig(CacheConfig CacheConfig) {
         this.CacheConfig = CacheConfig;

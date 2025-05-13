@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FamilyMedicalHistory extends AbstractModel{
+public class FamilyMedicalHistory extends AbstractModel {
 
     /**
     * 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RelativeHistory")
     @Expose
@@ -32,7 +32,6 @@ public class FamilyMedicalHistory extends AbstractModel{
 
     /**
     * 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RelativeCancerHistory")
     @Expose
@@ -40,17 +39,14 @@ public class FamilyMedicalHistory extends AbstractModel{
 
     /**
     * 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GeneticHistory")
     @Expose
     private String GeneticHistory;
 
     /**
-     * Get 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 家族成员史 
      * @return RelativeHistory 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRelativeHistory() {
         return this.RelativeHistory;
@@ -58,19 +54,15 @@ public class FamilyMedicalHistory extends AbstractModel{
 
     /**
      * Set 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RelativeHistory 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRelativeHistory(String RelativeHistory) {
         this.RelativeHistory = RelativeHistory;
     }
 
     /**
-     * Get 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 家族肿瘤史 
      * @return RelativeCancerHistory 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRelativeCancerHistory() {
         return this.RelativeCancerHistory;
@@ -78,19 +70,15 @@ public class FamilyMedicalHistory extends AbstractModel{
 
     /**
      * Set 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RelativeCancerHistory 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRelativeCancerHistory(String RelativeCancerHistory) {
         this.RelativeCancerHistory = RelativeCancerHistory;
     }
 
     /**
-     * Get 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 家族遗传史 
      * @return GeneticHistory 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGeneticHistory() {
         return this.GeneticHistory;
@@ -98,9 +86,7 @@ public class FamilyMedicalHistory extends AbstractModel{
 
     /**
      * Set 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GeneticHistory 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGeneticHistory(String GeneticHistory) {
         this.GeneticHistory = GeneticHistory;

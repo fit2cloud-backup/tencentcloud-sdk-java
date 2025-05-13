@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LoginWhiteLists extends AbstractModel{
+public class LoginWhiteLists extends AbstractModel {
 
     /**
     * 记录ID
@@ -30,7 +31,7 @@ public class LoginWhiteLists extends AbstractModel{
     private Long Id;
 
     /**
-    * 云镜客户端ID
+    * 主机安全uuid
     */
     @SerializedName("Uuid")
     @Expose
@@ -123,16 +124,16 @@ public class LoginWhiteLists extends AbstractModel{
     }
 
     /**
-     * Get 云镜客户端ID 
-     * @return Uuid 云镜客户端ID
+     * Get 主机安全uuid 
+     * @return Uuid 主机安全uuid
      */
     public String getUuid() {
         return this.Uuid;
     }
 
     /**
-     * Set 云镜客户端ID
-     * @param Uuid 云镜客户端ID
+     * Set 主机安全uuid
+     * @param Uuid 主机安全uuid
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
+public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel {
 
     /**
     * 发票类型
@@ -28,6 +29,8 @@ public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
 028:增值税电子专用发票
 010:电子发票（普通发票）
 020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
     */
     @SerializedName("Type")
     @Expose
@@ -146,7 +149,28 @@ public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
     private VatInvoiceGoodsInfo [] GoodsInfos;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 航空运输电子客票行程单信息
+    */
+    @SerializedName("AirTicketInfo")
+    @Expose
+    private AirTicketInfo AirTicketInfo;
+
+    /**
+    * 铁路电子客票
+    */
+    @SerializedName("RailwayTicketInfo")
+    @Expose
+    private RailwayTicketInfo RailwayTicketInfo;
+
+    /**
+    * 发票标题
+    */
+    @SerializedName("InvoiceTitle")
+    @Expose
+    private String InvoiceTitle;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -157,12 +181,16 @@ public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
 026:增值税电子普通发票
 028:增值税电子专用发票
 010:电子发票（普通发票）
-020:电子发票（增值税专用发票） 
+020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单） 
      * @return Type 发票类型
 026:增值税电子普通发票
 028:增值税电子专用发票
 010:电子发票（普通发票）
 020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
      */
     public String getType() {
         return this.Type;
@@ -174,11 +202,15 @@ public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
 028:增值税电子专用发票
 010:电子发票（普通发票）
 020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
      * @param Type 发票类型
 026:增值税电子普通发票
 028:增值税电子专用发票
 010:电子发票（普通发票）
 020:电子发票（增值税专用发票）
+030:电子发票（铁路电子客票）
+040:电子发票（航空运输电子客票行程单）
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -441,16 +473,64 @@ public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 航空运输电子客票行程单信息 
+     * @return AirTicketInfo 航空运输电子客票行程单信息
+     */
+    public AirTicketInfo getAirTicketInfo() {
+        return this.AirTicketInfo;
+    }
+
+    /**
+     * Set 航空运输电子客票行程单信息
+     * @param AirTicketInfo 航空运输电子客票行程单信息
+     */
+    public void setAirTicketInfo(AirTicketInfo AirTicketInfo) {
+        this.AirTicketInfo = AirTicketInfo;
+    }
+
+    /**
+     * Get 铁路电子客票 
+     * @return RailwayTicketInfo 铁路电子客票
+     */
+    public RailwayTicketInfo getRailwayTicketInfo() {
+        return this.RailwayTicketInfo;
+    }
+
+    /**
+     * Set 铁路电子客票
+     * @param RailwayTicketInfo 铁路电子客票
+     */
+    public void setRailwayTicketInfo(RailwayTicketInfo RailwayTicketInfo) {
+        this.RailwayTicketInfo = RailwayTicketInfo;
+    }
+
+    /**
+     * Get 发票标题 
+     * @return InvoiceTitle 发票标题
+     */
+    public String getInvoiceTitle() {
+        return this.InvoiceTitle;
+    }
+
+    /**
+     * Set 发票标题
+     * @param InvoiceTitle 发票标题
+     */
+    public void setInvoiceTitle(String InvoiceTitle) {
+        this.InvoiceTitle = InvoiceTitle;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -518,6 +598,15 @@ public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
                 this.GoodsInfos[i] = new VatInvoiceGoodsInfo(source.GoodsInfos[i]);
             }
         }
+        if (source.AirTicketInfo != null) {
+            this.AirTicketInfo = new AirTicketInfo(source.AirTicketInfo);
+        }
+        if (source.RailwayTicketInfo != null) {
+            this.RailwayTicketInfo = new RailwayTicketInfo(source.RailwayTicketInfo);
+        }
+        if (source.InvoiceTitle != null) {
+            this.InvoiceTitle = new String(source.InvoiceTitle);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -545,6 +634,9 @@ public class VerifyOfdVatInvoiceOCRResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "TaxExclusiveTotalAmount", this.TaxExclusiveTotalAmount);
         this.setParamSimple(map, prefix + "Note", this.Note);
         this.setParamArrayObj(map, prefix + "GoodsInfos.", this.GoodsInfos);
+        this.setParamObj(map, prefix + "AirTicketInfo.", this.AirTicketInfo);
+        this.setParamObj(map, prefix + "RailwayTicketInfo.", this.RailwayTicketInfo);
+        this.setParamSimple(map, prefix + "InvoiceTitle", this.InvoiceTitle);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

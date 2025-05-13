@@ -16,14 +16,15 @@
 package com.tencentcloudapi.thpc.v20230321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ComputeNode extends AbstractModel{
+public class ComputeNode extends AbstractModel {
 
     /**
-    * 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<br><li>PREPAID：预付费，即包年包月<br><li>POSTPAID_BY_HOUR：按小时后付费<br><li>SPOTPAID：竞价付费<br>默认值：POSTPAID_BY_HOUR。
+    * 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<li>PREPAID：预付费，即包年包月</li><li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>默认值：POSTPAID_BY_HOUR。
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -37,8 +38,7 @@ public class ComputeNode extends AbstractModel{
     private InstanceChargePrepaid InstanceChargePrepaid;
 
     /**
-    * 节点机型。不同实例机型指定了不同的资源规格。
-<br><li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。
+    * 节点机型。不同实例机型指定了不同的资源规格。<li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。</li>
     */
     @SerializedName("InstanceType")
     @Expose
@@ -66,9 +66,8 @@ public class ComputeNode extends AbstractModel{
     private InternetAccessible InternetAccessible;
 
     /**
-    * 节点显示名称。<br><li>
-不指定节点显示名称则默认显示‘未命名’。
-最多支持60个字符。
+    * 节点显示名称。<li>不指定节点显示名称则默认显示‘未命名’。
+最多支持60个字符。</li>
     */
     @SerializedName("InstanceName")
     @Expose
@@ -82,16 +81,23 @@ public class ComputeNode extends AbstractModel{
     private Long ProjectId;
 
     /**
-     * Get 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<br><li>PREPAID：预付费，即包年包月<br><li>POSTPAID_BY_HOUR：按小时后付费<br><li>SPOTPAID：竞价付费<br>默认值：POSTPAID_BY_HOUR。 
-     * @return InstanceChargeType 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<br><li>PREPAID：预付费，即包年包月<br><li>POSTPAID_BY_HOUR：按小时后付费<br><li>SPOTPAID：竞价付费<br>默认值：POSTPAID_BY_HOUR。
+    * 实例资源类型，默认是CVM资源
+    */
+    @SerializedName("ResourceType")
+    @Expose
+    private String ResourceType;
+
+    /**
+     * Get 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<li>PREPAID：预付费，即包年包月</li><li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>默认值：POSTPAID_BY_HOUR。 
+     * @return InstanceChargeType 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<li>PREPAID：预付费，即包年包月</li><li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>默认值：POSTPAID_BY_HOUR。
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
     }
 
     /**
-     * Set 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<br><li>PREPAID：预付费，即包年包月<br><li>POSTPAID_BY_HOUR：按小时后付费<br><li>SPOTPAID：竞价付费<br>默认值：POSTPAID_BY_HOUR。
-     * @param InstanceChargeType 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<br><li>PREPAID：预付费，即包年包月<br><li>POSTPAID_BY_HOUR：按小时后付费<br><li>SPOTPAID：竞价付费<br>默认值：POSTPAID_BY_HOUR。
+     * Set 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<li>PREPAID：预付费，即包年包月</li><li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>默认值：POSTPAID_BY_HOUR。
+     * @param InstanceChargeType 节点[计费类型](https://cloud.tencent.com/document/product/213/2180)。<li>PREPAID：预付费，即包年包月</li><li>POSTPAID_BY_HOUR：按小时后付费</li><li>SPOTPAID：竞价付费</li>默认值：POSTPAID_BY_HOUR。
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
@@ -114,20 +120,16 @@ public class ComputeNode extends AbstractModel{
     }
 
     /**
-     * Get 节点机型。不同实例机型指定了不同的资源规格。
-<br><li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。 
-     * @return InstanceType 节点机型。不同实例机型指定了不同的资源规格。
-<br><li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。
+     * Get 节点机型。不同实例机型指定了不同的资源规格。<li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。</li> 
+     * @return InstanceType 节点机型。不同实例机型指定了不同的资源规格。<li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。</li>
      */
     public String getInstanceType() {
         return this.InstanceType;
     }
 
     /**
-     * Set 节点机型。不同实例机型指定了不同的资源规格。
-<br><li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。
-     * @param InstanceType 节点机型。不同实例机型指定了不同的资源规格。
-<br><li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。
+     * Set 节点机型。不同实例机型指定了不同的资源规格。<li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。</li>
+     * @param InstanceType 节点机型。不同实例机型指定了不同的资源规格。<li>具体取值可通过调用接口[DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/api/213/15749)来获得最新的规格表或参见[实例规格](https://cloud.tencent.com/document/product/213/11518)描述。</li>
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
@@ -182,24 +184,20 @@ public class ComputeNode extends AbstractModel{
     }
 
     /**
-     * Get 节点显示名称。<br><li>
-不指定节点显示名称则默认显示‘未命名’。
-最多支持60个字符。 
-     * @return InstanceName 节点显示名称。<br><li>
-不指定节点显示名称则默认显示‘未命名’。
-最多支持60个字符。
+     * Get 节点显示名称。<li>不指定节点显示名称则默认显示‘未命名’。
+最多支持60个字符。</li> 
+     * @return InstanceName 节点显示名称。<li>不指定节点显示名称则默认显示‘未命名’。
+最多支持60个字符。</li>
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 节点显示名称。<br><li>
-不指定节点显示名称则默认显示‘未命名’。
-最多支持60个字符。
-     * @param InstanceName 节点显示名称。<br><li>
-不指定节点显示名称则默认显示‘未命名’。
-最多支持60个字符。
+     * Set 节点显示名称。<li>不指定节点显示名称则默认显示‘未命名’。
+最多支持60个字符。</li>
+     * @param InstanceName 节点显示名称。<li>不指定节点显示名称则默认显示‘未命名’。
+最多支持60个字符。</li>
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
@@ -219,6 +217,22 @@ public class ComputeNode extends AbstractModel{
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 实例资源类型，默认是CVM资源 
+     * @return ResourceType 实例资源类型，默认是CVM资源
+     */
+    public String getResourceType() {
+        return this.ResourceType;
+    }
+
+    /**
+     * Set 实例资源类型，默认是CVM资源
+     * @param ResourceType 实例资源类型，默认是CVM资源
+     */
+    public void setResourceType(String ResourceType) {
+        this.ResourceType = ResourceType;
     }
 
     public ComputeNode() {
@@ -256,6 +270,9 @@ public class ComputeNode extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new Long(source.ProjectId);
         }
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
+        }
     }
 
 
@@ -271,6 +288,7 @@ public class ComputeNode extends AbstractModel{
         this.setParamObj(map, prefix + "InternetAccessible.", this.InternetAccessible);
         this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
 
     }
 }

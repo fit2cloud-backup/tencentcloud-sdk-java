@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AuditLogAggregationResult extends AbstractModel{
+public class AuditLogAggregationResult extends AbstractModel {
 
     /**
     * 聚合维度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AggregationField")
     @Expose
@@ -32,17 +32,14 @@ public class AuditLogAggregationResult extends AbstractModel{
 
     /**
     * 聚合桶的结果集
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Buckets")
     @Expose
     private Bucket [] Buckets;
 
     /**
-     * Get 聚合维度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 聚合维度 
      * @return AggregationField 聚合维度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAggregationField() {
         return this.AggregationField;
@@ -50,19 +47,15 @@ public class AuditLogAggregationResult extends AbstractModel{
 
     /**
      * Set 聚合维度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AggregationField 聚合维度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAggregationField(String AggregationField) {
         this.AggregationField = AggregationField;
     }
 
     /**
-     * Get 聚合桶的结果集
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 聚合桶的结果集 
      * @return Buckets 聚合桶的结果集
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Bucket [] getBuckets() {
         return this.Buckets;
@@ -70,9 +63,7 @@ public class AuditLogAggregationResult extends AbstractModel{
 
     /**
      * Set 聚合桶的结果集
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Buckets 聚合桶的结果集
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBuckets(Bucket [] Buckets) {
         this.Buckets = Buckets;

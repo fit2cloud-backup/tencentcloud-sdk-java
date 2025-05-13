@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCloudRecordingRequest extends AbstractModel{
+public class CreateCloudRecordingRequest extends AbstractModel {
 
     /**
     * TRTC的[SdkAppId](https://cloud.tencent.com/document/product/647/46351#sdkappid)，和录制的房间所对应的SdkAppId相同。
@@ -31,20 +32,23 @@ public class CreateCloudRecordingRequest extends AbstractModel{
 
     /**
     * TRTC的[RoomId](https://cloud.tencent.com/document/product/647/46351#roomid)，录制的TRTC房间所对应的RoomId。
+注：房间号类型默认为整型，若房间号类型为字符串，请通过RoomIdType指定。
+
     */
     @SerializedName("RoomId")
     @Expose
     private String RoomId;
 
     /**
-    * 录制机器人用于进入TRTC房间拉流的[UserId](https://cloud.tencent.com/document/product/647/46351#userid)，注意这个UserId不能与其他TRTC房间内的主播或者其他录制任务等已经使用的UserId重复，建议可以把房间ID作为userId的标识的一部分，即录制机器人进入房间的userid应保证独立且唯一。
+    * 录制机器人的UserId，用于进房发起录制任务。
+【*注意】这个UserId不能与当前房间内的主播观众[UserId](https://cloud.tencent.com/document/product/647/46351#userid)重复。如果一个房间发起多个录制任务时，机器人的userid也不能相互重复，否则会中断前一个录制任务。建议可以把房间ID作为UserId的标识的一部分，即录制机器人UserId在房间内唯一。
     */
     @SerializedName("UserId")
     @Expose
     private String UserId;
 
     /**
-    * 录制机器人用于进入TRTC房间拉流的用户签名，当前 UserId 对应的验证签名，相当于登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
+    * 录制机器人UserId对应的校验签名，即UserId和UserSig相当于录制机器人进房的登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
     */
     @SerializedName("UserSig")
     @Expose
@@ -58,14 +62,15 @@ public class CreateCloudRecordingRequest extends AbstractModel{
     private RecordParams RecordParams;
 
     /**
-    * 云端录制文件上传到云存储的参数(目前支持云点播VOD和对象存储COS)。点播和对象存储的参数必填其中之一，不支持同时设置点播和对象存储。
+    * 云端录制文件上传到云存储的参数（不支持同时设置云点播VOD和对象存储COS）
     */
     @SerializedName("StorageParams")
     @Expose
     private StorageParams StorageParams;
 
     /**
-    * TRTC房间号的类型，必须和录制的房间所对应的RoomId类型相同:
+    * TRTC房间号的类型。
+【*注意】必须和录制的房间所对应的RoomId类型相同:
 0: 字符串类型的RoomId
 1: 32位整型的RoomId（默认）
     */
@@ -74,14 +79,14 @@ public class CreateCloudRecordingRequest extends AbstractModel{
     private Long RoomIdType;
 
     /**
-    * 混流的转码参数，录制模式为混流的时候可以设置。
+    * 合流的转码参数，录制模式为合流的时候可以设置。
     */
     @SerializedName("MixTranscodeParams")
     @Expose
     private MixTranscodeParams MixTranscodeParams;
 
     /**
-    * 混流的布局参数，录制模式为混流的时候可以设置。
+    * 合流的布局参数，录制模式为合流的时候可以设置。
     */
     @SerializedName("MixLayoutParams")
     @Expose
@@ -118,8 +123,12 @@ public class CreateCloudRecordingRequest extends AbstractModel{
     }
 
     /**
-     * Get TRTC的[RoomId](https://cloud.tencent.com/document/product/647/46351#roomid)，录制的TRTC房间所对应的RoomId。 
+     * Get TRTC的[RoomId](https://cloud.tencent.com/document/product/647/46351#roomid)，录制的TRTC房间所对应的RoomId。
+注：房间号类型默认为整型，若房间号类型为字符串，请通过RoomIdType指定。
+ 
      * @return RoomId TRTC的[RoomId](https://cloud.tencent.com/document/product/647/46351#roomid)，录制的TRTC房间所对应的RoomId。
+注：房间号类型默认为整型，若房间号类型为字符串，请通过RoomIdType指定。
+
      */
     public String getRoomId() {
         return this.RoomId;
@@ -127,39 +136,47 @@ public class CreateCloudRecordingRequest extends AbstractModel{
 
     /**
      * Set TRTC的[RoomId](https://cloud.tencent.com/document/product/647/46351#roomid)，录制的TRTC房间所对应的RoomId。
+注：房间号类型默认为整型，若房间号类型为字符串，请通过RoomIdType指定。
+
      * @param RoomId TRTC的[RoomId](https://cloud.tencent.com/document/product/647/46351#roomid)，录制的TRTC房间所对应的RoomId。
+注：房间号类型默认为整型，若房间号类型为字符串，请通过RoomIdType指定。
+
      */
     public void setRoomId(String RoomId) {
         this.RoomId = RoomId;
     }
 
     /**
-     * Get 录制机器人用于进入TRTC房间拉流的[UserId](https://cloud.tencent.com/document/product/647/46351#userid)，注意这个UserId不能与其他TRTC房间内的主播或者其他录制任务等已经使用的UserId重复，建议可以把房间ID作为userId的标识的一部分，即录制机器人进入房间的userid应保证独立且唯一。 
-     * @return UserId 录制机器人用于进入TRTC房间拉流的[UserId](https://cloud.tencent.com/document/product/647/46351#userid)，注意这个UserId不能与其他TRTC房间内的主播或者其他录制任务等已经使用的UserId重复，建议可以把房间ID作为userId的标识的一部分，即录制机器人进入房间的userid应保证独立且唯一。
+     * Get 录制机器人的UserId，用于进房发起录制任务。
+【*注意】这个UserId不能与当前房间内的主播观众[UserId](https://cloud.tencent.com/document/product/647/46351#userid)重复。如果一个房间发起多个录制任务时，机器人的userid也不能相互重复，否则会中断前一个录制任务。建议可以把房间ID作为UserId的标识的一部分，即录制机器人UserId在房间内唯一。 
+     * @return UserId 录制机器人的UserId，用于进房发起录制任务。
+【*注意】这个UserId不能与当前房间内的主播观众[UserId](https://cloud.tencent.com/document/product/647/46351#userid)重复。如果一个房间发起多个录制任务时，机器人的userid也不能相互重复，否则会中断前一个录制任务。建议可以把房间ID作为UserId的标识的一部分，即录制机器人UserId在房间内唯一。
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 录制机器人用于进入TRTC房间拉流的[UserId](https://cloud.tencent.com/document/product/647/46351#userid)，注意这个UserId不能与其他TRTC房间内的主播或者其他录制任务等已经使用的UserId重复，建议可以把房间ID作为userId的标识的一部分，即录制机器人进入房间的userid应保证独立且唯一。
-     * @param UserId 录制机器人用于进入TRTC房间拉流的[UserId](https://cloud.tencent.com/document/product/647/46351#userid)，注意这个UserId不能与其他TRTC房间内的主播或者其他录制任务等已经使用的UserId重复，建议可以把房间ID作为userId的标识的一部分，即录制机器人进入房间的userid应保证独立且唯一。
+     * Set 录制机器人的UserId，用于进房发起录制任务。
+【*注意】这个UserId不能与当前房间内的主播观众[UserId](https://cloud.tencent.com/document/product/647/46351#userid)重复。如果一个房间发起多个录制任务时，机器人的userid也不能相互重复，否则会中断前一个录制任务。建议可以把房间ID作为UserId的标识的一部分，即录制机器人UserId在房间内唯一。
+     * @param UserId 录制机器人的UserId，用于进房发起录制任务。
+【*注意】这个UserId不能与当前房间内的主播观众[UserId](https://cloud.tencent.com/document/product/647/46351#userid)重复。如果一个房间发起多个录制任务时，机器人的userid也不能相互重复，否则会中断前一个录制任务。建议可以把房间ID作为UserId的标识的一部分，即录制机器人UserId在房间内唯一。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
 
     /**
-     * Get 录制机器人用于进入TRTC房间拉流的用户签名，当前 UserId 对应的验证签名，相当于登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。 
-     * @return UserSig 录制机器人用于进入TRTC房间拉流的用户签名，当前 UserId 对应的验证签名，相当于登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
+     * Get 录制机器人UserId对应的校验签名，即UserId和UserSig相当于录制机器人进房的登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。 
+     * @return UserSig 录制机器人UserId对应的校验签名，即UserId和UserSig相当于录制机器人进房的登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
      */
     public String getUserSig() {
         return this.UserSig;
     }
 
     /**
-     * Set 录制机器人用于进入TRTC房间拉流的用户签名，当前 UserId 对应的验证签名，相当于登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
-     * @param UserSig 录制机器人用于进入TRTC房间拉流的用户签名，当前 UserId 对应的验证签名，相当于登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
+     * Set 录制机器人UserId对应的校验签名，即UserId和UserSig相当于录制机器人进房的登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
+     * @param UserSig 录制机器人UserId对应的校验签名，即UserId和UserSig相当于录制机器人进房的登录密码，具体计算方法请参考TRTC计算[UserSig](https://cloud.tencent.com/document/product/647/45910#UserSig)的方案。
      */
     public void setUserSig(String UserSig) {
         this.UserSig = UserSig;
@@ -182,26 +199,28 @@ public class CreateCloudRecordingRequest extends AbstractModel{
     }
 
     /**
-     * Get 云端录制文件上传到云存储的参数(目前支持云点播VOD和对象存储COS)。点播和对象存储的参数必填其中之一，不支持同时设置点播和对象存储。 
-     * @return StorageParams 云端录制文件上传到云存储的参数(目前支持云点播VOD和对象存储COS)。点播和对象存储的参数必填其中之一，不支持同时设置点播和对象存储。
+     * Get 云端录制文件上传到云存储的参数（不支持同时设置云点播VOD和对象存储COS） 
+     * @return StorageParams 云端录制文件上传到云存储的参数（不支持同时设置云点播VOD和对象存储COS）
      */
     public StorageParams getStorageParams() {
         return this.StorageParams;
     }
 
     /**
-     * Set 云端录制文件上传到云存储的参数(目前支持云点播VOD和对象存储COS)。点播和对象存储的参数必填其中之一，不支持同时设置点播和对象存储。
-     * @param StorageParams 云端录制文件上传到云存储的参数(目前支持云点播VOD和对象存储COS)。点播和对象存储的参数必填其中之一，不支持同时设置点播和对象存储。
+     * Set 云端录制文件上传到云存储的参数（不支持同时设置云点播VOD和对象存储COS）
+     * @param StorageParams 云端录制文件上传到云存储的参数（不支持同时设置云点播VOD和对象存储COS）
      */
     public void setStorageParams(StorageParams StorageParams) {
         this.StorageParams = StorageParams;
     }
 
     /**
-     * Get TRTC房间号的类型，必须和录制的房间所对应的RoomId类型相同:
+     * Get TRTC房间号的类型。
+【*注意】必须和录制的房间所对应的RoomId类型相同:
 0: 字符串类型的RoomId
 1: 32位整型的RoomId（默认） 
-     * @return RoomIdType TRTC房间号的类型，必须和录制的房间所对应的RoomId类型相同:
+     * @return RoomIdType TRTC房间号的类型。
+【*注意】必须和录制的房间所对应的RoomId类型相同:
 0: 字符串类型的RoomId
 1: 32位整型的RoomId（默认）
      */
@@ -210,10 +229,12 @@ public class CreateCloudRecordingRequest extends AbstractModel{
     }
 
     /**
-     * Set TRTC房间号的类型，必须和录制的房间所对应的RoomId类型相同:
+     * Set TRTC房间号的类型。
+【*注意】必须和录制的房间所对应的RoomId类型相同:
 0: 字符串类型的RoomId
 1: 32位整型的RoomId（默认）
-     * @param RoomIdType TRTC房间号的类型，必须和录制的房间所对应的RoomId类型相同:
+     * @param RoomIdType TRTC房间号的类型。
+【*注意】必须和录制的房间所对应的RoomId类型相同:
 0: 字符串类型的RoomId
 1: 32位整型的RoomId（默认）
      */
@@ -222,32 +243,32 @@ public class CreateCloudRecordingRequest extends AbstractModel{
     }
 
     /**
-     * Get 混流的转码参数，录制模式为混流的时候可以设置。 
-     * @return MixTranscodeParams 混流的转码参数，录制模式为混流的时候可以设置。
+     * Get 合流的转码参数，录制模式为合流的时候可以设置。 
+     * @return MixTranscodeParams 合流的转码参数，录制模式为合流的时候可以设置。
      */
     public MixTranscodeParams getMixTranscodeParams() {
         return this.MixTranscodeParams;
     }
 
     /**
-     * Set 混流的转码参数，录制模式为混流的时候可以设置。
-     * @param MixTranscodeParams 混流的转码参数，录制模式为混流的时候可以设置。
+     * Set 合流的转码参数，录制模式为合流的时候可以设置。
+     * @param MixTranscodeParams 合流的转码参数，录制模式为合流的时候可以设置。
      */
     public void setMixTranscodeParams(MixTranscodeParams MixTranscodeParams) {
         this.MixTranscodeParams = MixTranscodeParams;
     }
 
     /**
-     * Get 混流的布局参数，录制模式为混流的时候可以设置。 
-     * @return MixLayoutParams 混流的布局参数，录制模式为混流的时候可以设置。
+     * Get 合流的布局参数，录制模式为合流的时候可以设置。 
+     * @return MixLayoutParams 合流的布局参数，录制模式为合流的时候可以设置。
      */
     public MixLayoutParams getMixLayoutParams() {
         return this.MixLayoutParams;
     }
 
     /**
-     * Set 混流的布局参数，录制模式为混流的时候可以设置。
-     * @param MixLayoutParams 混流的布局参数，录制模式为混流的时候可以设置。
+     * Set 合流的布局参数，录制模式为合流的时候可以设置。
+     * @param MixLayoutParams 合流的布局参数，录制模式为合流的时候可以设置。
      */
     public void setMixLayoutParams(MixLayoutParams MixLayoutParams) {
         this.MixLayoutParams = MixLayoutParams;

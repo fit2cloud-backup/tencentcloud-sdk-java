@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HmtResidentPermitOCRRequest extends AbstractModel{
+public class HmtResidentPermitOCRRequest extends AbstractModel {
 
     /**
     * 图片的 Base64 值。
@@ -51,6 +52,13 @@ BACK：无照片的一面（国徽面），
     @SerializedName("CardSide")
     @Expose
     private String CardSide;
+
+    /**
+    * 是否返回头像和位置坐标
+    */
+    @SerializedName("CropPortrait")
+    @Expose
+    private Boolean CropPortrait;
 
     /**
      * Get 图片的 Base64 值。
@@ -136,6 +144,22 @@ BACK：无照片的一面（国徽面），
         this.CardSide = CardSide;
     }
 
+    /**
+     * Get 是否返回头像和位置坐标 
+     * @return CropPortrait 是否返回头像和位置坐标
+     */
+    public Boolean getCropPortrait() {
+        return this.CropPortrait;
+    }
+
+    /**
+     * Set 是否返回头像和位置坐标
+     * @param CropPortrait 是否返回头像和位置坐标
+     */
+    public void setCropPortrait(Boolean CropPortrait) {
+        this.CropPortrait = CropPortrait;
+    }
+
     public HmtResidentPermitOCRRequest() {
     }
 
@@ -153,6 +177,9 @@ BACK：无照片的一面（国徽面），
         if (source.CardSide != null) {
             this.CardSide = new String(source.CardSide);
         }
+        if (source.CropPortrait != null) {
+            this.CropPortrait = new Boolean(source.CropPortrait);
+        }
     }
 
 
@@ -163,6 +190,7 @@ BACK：无照片的一面（国徽面），
         this.setParamSimple(map, prefix + "ImageBase64", this.ImageBase64);
         this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
         this.setParamSimple(map, prefix + "CardSide", this.CardSide);
+        this.setParamSimple(map, prefix + "CropPortrait", this.CropPortrait);
 
     }
 }

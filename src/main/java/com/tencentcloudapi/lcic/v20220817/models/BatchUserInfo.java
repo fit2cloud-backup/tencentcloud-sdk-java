@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchUserInfo extends AbstractModel{
+public class BatchUserInfo extends AbstractModel {
 
     /**
     * 低代码互动课堂的SdkAppId。
@@ -32,7 +33,6 @@ public class BatchUserInfo extends AbstractModel{
 
     /**
     * 用户ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserId")
     @Expose
@@ -40,7 +40,6 @@ public class BatchUserInfo extends AbstractModel{
 
     /**
     * 用户在客户系统的Id。 若用户注册时该字段为空，则默认为 UserId 值一致。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginId")
     @Expose
@@ -67,10 +66,8 @@ public class BatchUserInfo extends AbstractModel{
     }
 
     /**
-     * Get 用户ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户ID。 
      * @return UserId 用户ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserId() {
         return this.UserId;
@@ -78,19 +75,15 @@ public class BatchUserInfo extends AbstractModel{
 
     /**
      * Set 用户ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserId 用户ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
 
     /**
-     * Get 用户在客户系统的Id。 若用户注册时该字段为空，则默认为 UserId 值一致。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户在客户系统的Id。 若用户注册时该字段为空，则默认为 UserId 值一致。 
      * @return OriginId 用户在客户系统的Id。 若用户注册时该字段为空，则默认为 UserId 值一致。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOriginId() {
         return this.OriginId;
@@ -98,9 +91,7 @@ public class BatchUserInfo extends AbstractModel{
 
     /**
      * Set 用户在客户系统的Id。 若用户注册时该字段为空，则默认为 UserId 值一致。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginId 用户在客户系统的Id。 若用户注册时该字段为空，则默认为 UserId 值一致。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginId(String OriginId) {
         this.OriginId = OriginId;

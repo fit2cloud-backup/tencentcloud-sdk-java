@@ -16,11 +16,12 @@
 package com.tencentcloudapi.privatedns.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRequestDataRequest extends AbstractModel{
+public class DescribeRequestDataRequest extends AbstractModel {
 
     /**
     * 请求量统计起始时间，格式：2020-11-22 00:00:00
@@ -42,6 +43,13 @@ public class DescribeRequestDataRequest extends AbstractModel{
     @SerializedName("TimeRangeEnd")
     @Expose
     private String TimeRangeEnd;
+
+    /**
+    * 是否导出：true导出，false不导出
+    */
+    @SerializedName("Export")
+    @Expose
+    private Boolean Export;
 
     /**
      * Get 请求量统计起始时间，格式：2020-11-22 00:00:00 
@@ -91,6 +99,22 @@ public class DescribeRequestDataRequest extends AbstractModel{
         this.TimeRangeEnd = TimeRangeEnd;
     }
 
+    /**
+     * Get 是否导出：true导出，false不导出 
+     * @return Export 是否导出：true导出，false不导出
+     */
+    public Boolean getExport() {
+        return this.Export;
+    }
+
+    /**
+     * Set 是否导出：true导出，false不导出
+     * @param Export 是否导出：true导出，false不导出
+     */
+    public void setExport(Boolean Export) {
+        this.Export = Export;
+    }
+
     public DescribeRequestDataRequest() {
     }
 
@@ -111,6 +135,9 @@ public class DescribeRequestDataRequest extends AbstractModel{
         if (source.TimeRangeEnd != null) {
             this.TimeRangeEnd = new String(source.TimeRangeEnd);
         }
+        if (source.Export != null) {
+            this.Export = new Boolean(source.Export);
+        }
     }
 
 
@@ -121,6 +148,7 @@ public class DescribeRequestDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TimeRangeBegin", this.TimeRangeBegin);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "TimeRangeEnd", this.TimeRangeEnd);
+        this.setParamSimple(map, prefix + "Export", this.Export);
 
     }
 }

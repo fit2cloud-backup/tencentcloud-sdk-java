@@ -16,11 +16,12 @@
 package com.tencentcloudapi.fmu.v20191213.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StyleImageRequest extends AbstractModel{
+public class StyleImageRequest extends AbstractModel {
 
     /**
     * 滤镜类型，取值如下： 
@@ -33,6 +34,7 @@ public class StyleImageRequest extends AbstractModel{
     /**
     * 图片 base64 数据，base64 编码后大小不可超过5M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
     */
     @SerializedName("Image")
     @Expose
@@ -44,6 +46,7 @@ public class StyleImageRequest extends AbstractModel{
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。  
 支持PNG、JPG、JPEG、BMP 等图片格式，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
     */
     @SerializedName("Url")
     @Expose
@@ -57,7 +60,7 @@ public class StyleImageRequest extends AbstractModel{
     private Long FilterDegree;
 
     /**
-    * 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+    * 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
     */
     @SerializedName("RspImgType")
     @Expose
@@ -85,9 +88,11 @@ public class StyleImageRequest extends AbstractModel{
 
     /**
      * Get 图片 base64 数据，base64 编码后大小不可超过5M。 
-支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。 
      * @return Image 图片 base64 数据，base64 编码后大小不可超过5M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public String getImage() {
         return this.Image;
@@ -96,8 +101,10 @@ public class StyleImageRequest extends AbstractModel{
     /**
      * Set 图片 base64 数据，base64 编码后大小不可超过5M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      * @param Image 图片 base64 数据，base64 编码后大小不可超过5M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public void setImage(String Image) {
         this.Image = Image;
@@ -108,12 +115,14 @@ public class StyleImageRequest extends AbstractModel{
 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。  
-支持PNG、JPG、JPEG、BMP 等图片格式，不支持 GIF 图片。 
+支持PNG、JPG、JPEG、BMP 等图片格式，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。 
      * @return Url 图片的 Url ，对应图片 base64 编码后大小不可超过5M。 
 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。  
 支持PNG、JPG、JPEG、BMP 等图片格式，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public String getUrl() {
         return this.Url;
@@ -125,11 +134,13 @@ public class StyleImageRequest extends AbstractModel{
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。  
 支持PNG、JPG、JPEG、BMP 等图片格式，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      * @param Url 图片的 Url ，对应图片 base64 编码后大小不可超过5M。 
 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。  
 支持PNG、JPG、JPEG、BMP 等图片格式，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public void setUrl(String Url) {
         this.Url = Url;
@@ -152,16 +163,16 @@ public class StyleImageRequest extends AbstractModel{
     }
 
     /**
-     * Get 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。 
-     * @return RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * Get 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。 
+     * @return RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
      */
     public String getRspImgType() {
         return this.RspImgType;
     }
 
     /**
-     * Set 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
-     * @param RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+     * Set 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
+     * @param RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。默认值为base64。
      */
     public void setRspImgType(String RspImgType) {
         this.RspImgType = RspImgType;

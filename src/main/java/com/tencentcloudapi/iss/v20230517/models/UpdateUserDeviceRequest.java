@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateUserDeviceRequest extends AbstractModel{
+public class UpdateUserDeviceRequest extends AbstractModel {
 
     /**
     * 设备ID（从获取设备列表接口ListDevices中获取）
@@ -30,7 +31,7 @@ public class UpdateUserDeviceRequest extends AbstractModel{
     private String DeviceId;
 
     /**
-    * 设备名称（仅支持中文、英文、数字、_、-，长度不超过32个字符）
+    * 设备名称（仅支持中文、英文、数字、空格、中英文括号、_、-, 长度不超过128位）
     */
     @SerializedName("Name")
     @Expose
@@ -44,14 +45,14 @@ public class UpdateUserDeviceRequest extends AbstractModel{
     private Long TransportProtocol;
 
     /**
-    * 设备密码（仅国标，网关设备支持）
+    * 设备密码（仅国标，网关设备支持，长度不超过 64 位）
     */
     @SerializedName("Password")
     @Expose
     private String Password;
 
     /**
-    * 设备描述（仅支持中文、英文、数字、_、-，长度不超过128位）
+    * 设备描述（长度不超过128位）
     */
     @SerializedName("Description")
     @Expose
@@ -79,6 +80,34 @@ public class UpdateUserDeviceRequest extends AbstractModel{
     private String Username;
 
     /**
+    * 网关设备接入协议（仅网关接入支持）
+    */
+    @SerializedName("ProtocolType")
+    @Expose
+    private Long ProtocolType;
+
+    /**
+    * 音频关开（0：关闭；1：开启）默认开启，关闭时丢弃音频
+    */
+    @SerializedName("AudioSwitch")
+    @Expose
+    private Long AudioSwitch;
+
+    /**
+    * 订阅开关（0：关闭；1：开启）默认开启，开启状态下会订阅设备通道变化，仅国标NVR设备有效
+    */
+    @SerializedName("SubscribeSwitch")
+    @Expose
+    private Long SubscribeSwitch;
+
+    /**
+    * 是否开启静音帧（0：关闭；1 开启）
+    */
+    @SerializedName("SilentFrameSwitch")
+    @Expose
+    private Long SilentFrameSwitch;
+
+    /**
      * Get 设备ID（从获取设备列表接口ListDevices中获取） 
      * @return DeviceId 设备ID（从获取设备列表接口ListDevices中获取）
      */
@@ -95,16 +124,16 @@ public class UpdateUserDeviceRequest extends AbstractModel{
     }
 
     /**
-     * Get 设备名称（仅支持中文、英文、数字、_、-，长度不超过32个字符） 
-     * @return Name 设备名称（仅支持中文、英文、数字、_、-，长度不超过32个字符）
+     * Get 设备名称（仅支持中文、英文、数字、空格、中英文括号、_、-, 长度不超过128位） 
+     * @return Name 设备名称（仅支持中文、英文、数字、空格、中英文括号、_、-, 长度不超过128位）
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 设备名称（仅支持中文、英文、数字、_、-，长度不超过32个字符）
-     * @param Name 设备名称（仅支持中文、英文、数字、_、-，长度不超过32个字符）
+     * Set 设备名称（仅支持中文、英文、数字、空格、中英文括号、_、-, 长度不超过128位）
+     * @param Name 设备名称（仅支持中文、英文、数字、空格、中英文括号、_、-, 长度不超过128位）
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -127,32 +156,32 @@ public class UpdateUserDeviceRequest extends AbstractModel{
     }
 
     /**
-     * Get 设备密码（仅国标，网关设备支持） 
-     * @return Password 设备密码（仅国标，网关设备支持）
+     * Get 设备密码（仅国标，网关设备支持，长度不超过 64 位） 
+     * @return Password 设备密码（仅国标，网关设备支持，长度不超过 64 位）
      */
     public String getPassword() {
         return this.Password;
     }
 
     /**
-     * Set 设备密码（仅国标，网关设备支持）
-     * @param Password 设备密码（仅国标，网关设备支持）
+     * Set 设备密码（仅国标，网关设备支持，长度不超过 64 位）
+     * @param Password 设备密码（仅国标，网关设备支持，长度不超过 64 位）
      */
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
     /**
-     * Get 设备描述（仅支持中文、英文、数字、_、-，长度不超过128位） 
-     * @return Description 设备描述（仅支持中文、英文、数字、_、-，长度不超过128位）
+     * Get 设备描述（长度不超过128位） 
+     * @return Description 设备描述（长度不超过128位）
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 设备描述（仅支持中文、英文、数字、_、-，长度不超过128位）
-     * @param Description 设备描述（仅支持中文、英文、数字、_、-，长度不超过128位）
+     * Set 设备描述（长度不超过128位）
+     * @param Description 设备描述（长度不超过128位）
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -206,6 +235,70 @@ public class UpdateUserDeviceRequest extends AbstractModel{
         this.Username = Username;
     }
 
+    /**
+     * Get 网关设备接入协议（仅网关接入支持） 
+     * @return ProtocolType 网关设备接入协议（仅网关接入支持）
+     */
+    public Long getProtocolType() {
+        return this.ProtocolType;
+    }
+
+    /**
+     * Set 网关设备接入协议（仅网关接入支持）
+     * @param ProtocolType 网关设备接入协议（仅网关接入支持）
+     */
+    public void setProtocolType(Long ProtocolType) {
+        this.ProtocolType = ProtocolType;
+    }
+
+    /**
+     * Get 音频关开（0：关闭；1：开启）默认开启，关闭时丢弃音频 
+     * @return AudioSwitch 音频关开（0：关闭；1：开启）默认开启，关闭时丢弃音频
+     */
+    public Long getAudioSwitch() {
+        return this.AudioSwitch;
+    }
+
+    /**
+     * Set 音频关开（0：关闭；1：开启）默认开启，关闭时丢弃音频
+     * @param AudioSwitch 音频关开（0：关闭；1：开启）默认开启，关闭时丢弃音频
+     */
+    public void setAudioSwitch(Long AudioSwitch) {
+        this.AudioSwitch = AudioSwitch;
+    }
+
+    /**
+     * Get 订阅开关（0：关闭；1：开启）默认开启，开启状态下会订阅设备通道变化，仅国标NVR设备有效 
+     * @return SubscribeSwitch 订阅开关（0：关闭；1：开启）默认开启，开启状态下会订阅设备通道变化，仅国标NVR设备有效
+     */
+    public Long getSubscribeSwitch() {
+        return this.SubscribeSwitch;
+    }
+
+    /**
+     * Set 订阅开关（0：关闭；1：开启）默认开启，开启状态下会订阅设备通道变化，仅国标NVR设备有效
+     * @param SubscribeSwitch 订阅开关（0：关闭；1：开启）默认开启，开启状态下会订阅设备通道变化，仅国标NVR设备有效
+     */
+    public void setSubscribeSwitch(Long SubscribeSwitch) {
+        this.SubscribeSwitch = SubscribeSwitch;
+    }
+
+    /**
+     * Get 是否开启静音帧（0：关闭；1 开启） 
+     * @return SilentFrameSwitch 是否开启静音帧（0：关闭；1 开启）
+     */
+    public Long getSilentFrameSwitch() {
+        return this.SilentFrameSwitch;
+    }
+
+    /**
+     * Set 是否开启静音帧（0：关闭；1 开启）
+     * @param SilentFrameSwitch 是否开启静音帧（0：关闭；1 开启）
+     */
+    public void setSilentFrameSwitch(Long SilentFrameSwitch) {
+        this.SilentFrameSwitch = SilentFrameSwitch;
+    }
+
     public UpdateUserDeviceRequest() {
     }
 
@@ -238,6 +331,18 @@ public class UpdateUserDeviceRequest extends AbstractModel{
         if (source.Username != null) {
             this.Username = new String(source.Username);
         }
+        if (source.ProtocolType != null) {
+            this.ProtocolType = new Long(source.ProtocolType);
+        }
+        if (source.AudioSwitch != null) {
+            this.AudioSwitch = new Long(source.AudioSwitch);
+        }
+        if (source.SubscribeSwitch != null) {
+            this.SubscribeSwitch = new Long(source.SubscribeSwitch);
+        }
+        if (source.SilentFrameSwitch != null) {
+            this.SilentFrameSwitch = new Long(source.SilentFrameSwitch);
+        }
     }
 
 
@@ -253,6 +358,10 @@ public class UpdateUserDeviceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Ip", this.Ip);
         this.setParamSimple(map, prefix + "Port", this.Port);
         this.setParamSimple(map, prefix + "Username", this.Username);
+        this.setParamSimple(map, prefix + "ProtocolType", this.ProtocolType);
+        this.setParamSimple(map, prefix + "AudioSwitch", this.AudioSwitch);
+        this.setParamSimple(map, prefix + "SubscribeSwitch", this.SubscribeSwitch);
+        this.setParamSimple(map, prefix + "SilentFrameSwitch", this.SilentFrameSwitch);
 
     }
 }

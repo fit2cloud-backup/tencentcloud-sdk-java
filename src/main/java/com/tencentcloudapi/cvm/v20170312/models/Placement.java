@@ -16,14 +16,15 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Placement extends AbstractModel{
+public class Placement extends AbstractModel {
 
     /**
-    * 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+    * 实例所属的可用区名称。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
     */
     @SerializedName("Zone")
     @Expose
@@ -44,13 +45,6 @@ public class Placement extends AbstractModel{
     private String [] HostIds;
 
     /**
-    * 指定母机IP生产子机
-    */
-    @SerializedName("HostIps")
-    @Expose
-    private String [] HostIps;
-
-    /**
     * 实例所属的专用宿主机ID，仅用于出参。
     */
     @SerializedName("HostId")
@@ -58,16 +52,16 @@ public class Placement extends AbstractModel{
     private String HostId;
 
     /**
-     * Get 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。 
-     * @return Zone 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+     * Get 实例所属的可用区名称。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。 
+     * @return Zone 实例所属的可用区名称。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
      */
     public String getZone() {
         return this.Zone;
     }
 
     /**
-     * Set 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
-     * @param Zone 实例所属的可用区ID。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+     * Set 实例所属的可用区名称。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+     * @param Zone 实例所属的可用区名称。该参数可以通过调用  [DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
@@ -106,22 +100,6 @@ public class Placement extends AbstractModel{
     }
 
     /**
-     * Get 指定母机IP生产子机 
-     * @return HostIps 指定母机IP生产子机
-     */
-    public String [] getHostIps() {
-        return this.HostIps;
-    }
-
-    /**
-     * Set 指定母机IP生产子机
-     * @param HostIps 指定母机IP生产子机
-     */
-    public void setHostIps(String [] HostIps) {
-        this.HostIps = HostIps;
-    }
-
-    /**
      * Get 实例所属的专用宿主机ID，仅用于出参。 
      * @return HostId 实例所属的专用宿主机ID，仅用于出参。
      */
@@ -157,12 +135,6 @@ public class Placement extends AbstractModel{
                 this.HostIds[i] = new String(source.HostIds[i]);
             }
         }
-        if (source.HostIps != null) {
-            this.HostIps = new String[source.HostIps.length];
-            for (int i = 0; i < source.HostIps.length; i++) {
-                this.HostIps[i] = new String(source.HostIps[i]);
-            }
-        }
         if (source.HostId != null) {
             this.HostId = new String(source.HostId);
         }
@@ -176,7 +148,6 @@ public class Placement extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamArraySimple(map, prefix + "HostIds.", this.HostIds);
-        this.setParamArraySimple(map, prefix + "HostIps.", this.HostIps);
         this.setParamSimple(map, prefix + "HostId", this.HostId);
 
     }

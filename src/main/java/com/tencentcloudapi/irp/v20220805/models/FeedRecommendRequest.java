@@ -16,11 +16,12 @@
 package com.tencentcloudapi.irp.v20220805.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FeedRecommendRequest extends AbstractModel{
+public class FeedRecommendRequest extends AbstractModel {
 
     /**
     * 实例ID，在控制台获取
@@ -63,6 +64,13 @@ public class FeedRecommendRequest extends AbstractModel{
     @SerializedName("CurrentItemId")
     @Expose
     private String CurrentItemId;
+
+    /**
+    * 扩展字段，json字符串，需要base64加密
+    */
+    @SerializedName("Extension")
+    @Expose
+    private String Extension;
 
     /**
      * Get 实例ID，在控制台获取 
@@ -160,6 +168,22 @@ public class FeedRecommendRequest extends AbstractModel{
         this.CurrentItemId = CurrentItemId;
     }
 
+    /**
+     * Get 扩展字段，json字符串，需要base64加密 
+     * @return Extension 扩展字段，json字符串，需要base64加密
+     */
+    public String getExtension() {
+        return this.Extension;
+    }
+
+    /**
+     * Set 扩展字段，json字符串，需要base64加密
+     * @param Extension 扩展字段，json字符串，需要base64加密
+     */
+    public void setExtension(String Extension) {
+        this.Extension = Extension;
+    }
+
     public FeedRecommendRequest() {
     }
 
@@ -189,6 +213,9 @@ public class FeedRecommendRequest extends AbstractModel{
         if (source.CurrentItemId != null) {
             this.CurrentItemId = new String(source.CurrentItemId);
         }
+        if (source.Extension != null) {
+            this.Extension = new String(source.Extension);
+        }
     }
 
 
@@ -202,6 +229,7 @@ public class FeedRecommendRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "UserIdList.", this.UserIdList);
         this.setParamSimple(map, prefix + "ItemCnt", this.ItemCnt);
         this.setParamSimple(map, prefix + "CurrentItemId", this.CurrentItemId);
+        this.setParamSimple(map, prefix + "Extension", this.Extension);
 
     }
 }

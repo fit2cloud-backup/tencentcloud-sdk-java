@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchDeregisterTargetsResponse extends AbstractModel{
+public class BatchDeregisterTargetsResponse extends AbstractModel {
 
     /**
     * 解绑失败的监听器ID。
@@ -30,7 +31,14 @@ public class BatchDeregisterTargetsResponse extends AbstractModel{
     private String [] FailListenerIdSet;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 解绑失败错误原因信息。
+    */
+    @SerializedName("Message")
+    @Expose
+    private String Message;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +61,32 @@ public class BatchDeregisterTargetsResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 解绑失败错误原因信息。 
+     * @return Message 解绑失败错误原因信息。
+     */
+    public String getMessage() {
+        return this.Message;
+    }
+
+    /**
+     * Set 解绑失败错误原因信息。
+     * @param Message 解绑失败错误原因信息。
+     */
+    public void setMessage(String Message) {
+        this.Message = Message;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -82,6 +106,9 @@ public class BatchDeregisterTargetsResponse extends AbstractModel{
                 this.FailListenerIdSet[i] = new String(source.FailListenerIdSet[i]);
             }
         }
+        if (source.Message != null) {
+            this.Message = new String(source.Message);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +120,7 @@ public class BatchDeregisterTargetsResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "FailListenerIdSet.", this.FailListenerIdSet);
+        this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

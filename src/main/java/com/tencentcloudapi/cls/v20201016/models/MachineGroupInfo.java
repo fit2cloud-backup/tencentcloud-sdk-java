@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MachineGroupInfo extends AbstractModel{
+public class MachineGroupInfo extends AbstractModel {
 
     /**
     * 机器组ID
@@ -52,7 +53,6 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
     * 机器组绑定的标签列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -60,7 +60,6 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
     * 是否开启机器组自动更新
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoUpdate")
     @Expose
@@ -68,7 +67,6 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
     * 升级开始时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateStartTime")
     @Expose
@@ -76,7 +74,6 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
     * 升级结束时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateEndTime")
     @Expose
@@ -84,11 +81,17 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
     * 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceLogging")
     @Expose
     private Boolean ServiceLogging;
+
+    /**
+    * 机器组中机器离线定期清理时间
+    */
+    @SerializedName("DelayCleanupTime")
+    @Expose
+    private Long DelayCleanupTime;
 
     /**
     * 机器组元数据信息列表
@@ -169,10 +172,8 @@ public class MachineGroupInfo extends AbstractModel{
     }
 
     /**
-     * Get 机器组绑定的标签列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 机器组绑定的标签列表 
      * @return Tags 机器组绑定的标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -180,19 +181,15 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
      * Set 机器组绑定的标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 机器组绑定的标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 是否开启机器组自动更新
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启机器组自动更新 
      * @return AutoUpdate 是否开启机器组自动更新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAutoUpdate() {
         return this.AutoUpdate;
@@ -200,19 +197,15 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
      * Set 是否开启机器组自动更新
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoUpdate 是否开启机器组自动更新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoUpdate(String AutoUpdate) {
         this.AutoUpdate = AutoUpdate;
     }
 
     /**
-     * Get 升级开始时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 升级开始时间，建议业务低峰期升级LogListener 
      * @return UpdateStartTime 升级开始时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateStartTime() {
         return this.UpdateStartTime;
@@ -220,19 +213,15 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
      * Set 升级开始时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateStartTime 升级开始时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateStartTime(String UpdateStartTime) {
         this.UpdateStartTime = UpdateStartTime;
     }
 
     /**
-     * Get 升级结束时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 升级结束时间，建议业务低峰期升级LogListener 
      * @return UpdateEndTime 升级结束时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateEndTime() {
         return this.UpdateEndTime;
@@ -240,19 +229,15 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
      * Set 升级结束时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateEndTime 升级结束时间，建议业务低峰期升级LogListener
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateEndTime(String UpdateEndTime) {
         this.UpdateEndTime = UpdateEndTime;
     }
 
     /**
-     * Get 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费 
      * @return ServiceLogging 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getServiceLogging() {
         return this.ServiceLogging;
@@ -260,12 +245,26 @@ public class MachineGroupInfo extends AbstractModel{
 
     /**
      * Set 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceLogging 是否开启服务日志，用于记录因Loglistener 服务自身产生的log，开启后，会创建内部日志集cls_service_logging和日志主题loglistener_status,loglistener_alarm,loglistener_business，不产生计费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceLogging(Boolean ServiceLogging) {
         this.ServiceLogging = ServiceLogging;
+    }
+
+    /**
+     * Get 机器组中机器离线定期清理时间 
+     * @return DelayCleanupTime 机器组中机器离线定期清理时间
+     */
+    public Long getDelayCleanupTime() {
+        return this.DelayCleanupTime;
+    }
+
+    /**
+     * Set 机器组中机器离线定期清理时间
+     * @param DelayCleanupTime 机器组中机器离线定期清理时间
+     */
+    public void setDelayCleanupTime(Long DelayCleanupTime) {
+        this.DelayCleanupTime = DelayCleanupTime;
     }
 
     /**
@@ -338,6 +337,9 @@ public class MachineGroupInfo extends AbstractModel{
         if (source.ServiceLogging != null) {
             this.ServiceLogging = new Boolean(source.ServiceLogging);
         }
+        if (source.DelayCleanupTime != null) {
+            this.DelayCleanupTime = new Long(source.DelayCleanupTime);
+        }
         if (source.MetaTags != null) {
             this.MetaTags = new MetaTagInfo[source.MetaTags.length];
             for (int i = 0; i < source.MetaTags.length; i++) {
@@ -363,6 +365,7 @@ public class MachineGroupInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateStartTime", this.UpdateStartTime);
         this.setParamSimple(map, prefix + "UpdateEndTime", this.UpdateEndTime);
         this.setParamSimple(map, prefix + "ServiceLogging", this.ServiceLogging);
+        this.setParamSimple(map, prefix + "DelayCleanupTime", this.DelayCleanupTime);
         this.setParamArrayObj(map, prefix + "MetaTags.", this.MetaTags);
         this.setParamSimple(map, prefix + "OSType", this.OSType);
 

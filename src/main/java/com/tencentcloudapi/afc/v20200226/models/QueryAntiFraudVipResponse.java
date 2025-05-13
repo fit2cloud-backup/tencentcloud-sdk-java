@@ -16,11 +16,12 @@
 package com.tencentcloudapi.afc.v20200226.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QueryAntiFraudVipResponse extends AbstractModel{
+public class QueryAntiFraudVipResponse extends AbstractModel {
 
     /**
     * 表示该条记录能否查到：1为能查到，-1为查不到
@@ -37,7 +38,7 @@ public class QueryAntiFraudVipResponse extends AbstractModel{
     private Long IdFound;
 
     /**
-    * 0~100;值越高 欺诈可能性越大
+    * 0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型）
     */
     @SerializedName("RiskScore")
     @Expose
@@ -60,7 +61,7 @@ public class QueryAntiFraudVipResponse extends AbstractModel{
     private String CodeDesc;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -99,16 +100,16 @@ public class QueryAntiFraudVipResponse extends AbstractModel{
     }
 
     /**
-     * Get 0~100;值越高 欺诈可能性越大 
-     * @return RiskScore 0~100;值越高 欺诈可能性越大
+     * Get 0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型） 
+     * @return RiskScore 0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型）
      */
     public Long getRiskScore() {
         return this.RiskScore;
     }
 
     /**
-     * Set 0~100;值越高 欺诈可能性越大
-     * @param RiskScore 0~100;值越高 欺诈可能性越大
+     * Set 0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型）
+     * @param RiskScore 0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型）
      */
     public void setRiskScore(Long RiskScore) {
         this.RiskScore = RiskScore;
@@ -155,16 +156,16 @@ public class QueryAntiFraudVipResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

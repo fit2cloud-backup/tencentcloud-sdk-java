@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20230321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QueueConfigOverview extends AbstractModel{
+public class QueueConfigOverview extends AbstractModel {
 
     /**
     * 队列名称。
@@ -66,16 +67,21 @@ public class QueueConfigOverview extends AbstractModel{
 
     /**
     * 队列中期望的空闲节点数量（包含弹性节点和静态节点）。默认值：0。队列中，处于空闲状态的节点小于此值，集群会扩容弹性节点；处于空闲状态的节点大于此值，集群会缩容弹性节点。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DesiredIdleNodeCapacity")
     @Expose
     private Long DesiredIdleNodeCapacity;
 
     /**
+    * 队列中期望的总节点数。
+    */
+    @SerializedName("DesiredNodeCount")
+    @Expose
+    private Long DesiredNodeCount;
+
+    /**
     * 扩容比例。默认值：100。取值范围：1～100。
 如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScaleOutRatio")
     @Expose
@@ -85,7 +91,6 @@ public class QueueConfigOverview extends AbstractModel{
     * 比例扩容阈值。默认值：0。取值范围：0～200。
 当作业负载需要扩容节点数量大于此值，当前扩容轮次按照ScaleOutRatio配置的的比例进行扩容。当作业负载需要扩容节点数量小于此值，当前扩容轮次扩容当前作业负载所需数量的节点。
 此参数配合ScaleOutRatio参数进行使用，用于比例扩容场景下，在作业负载所需节点数量较小时，加快收敛速度。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScaleOutNodeThreshold")
     @Expose
@@ -93,11 +98,21 @@ public class QueueConfigOverview extends AbstractModel{
 
     /**
     * 每轮扩容最大节点个数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxNodesPerCycle")
     @Expose
     private Long MaxNodesPerCycle;
+
+    /**
+    * 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+    */
+    @SerializedName("ScaleUpMemRatio")
+    @Expose
+    private Long ScaleUpMemRatio;
 
     /**
      * Get 队列名称。 
@@ -196,10 +211,8 @@ public class QueueConfigOverview extends AbstractModel{
     }
 
     /**
-     * Get 队列中期望的空闲节点数量（包含弹性节点和静态节点）。默认值：0。队列中，处于空闲状态的节点小于此值，集群会扩容弹性节点；处于空闲状态的节点大于此值，集群会缩容弹性节点。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 队列中期望的空闲节点数量（包含弹性节点和静态节点）。默认值：0。队列中，处于空闲状态的节点小于此值，集群会扩容弹性节点；处于空闲状态的节点大于此值，集群会缩容弹性节点。 
      * @return DesiredIdleNodeCapacity 队列中期望的空闲节点数量（包含弹性节点和静态节点）。默认值：0。队列中，处于空闲状态的节点小于此值，集群会扩容弹性节点；处于空闲状态的节点大于此值，集群会缩容弹性节点。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDesiredIdleNodeCapacity() {
         return this.DesiredIdleNodeCapacity;
@@ -207,21 +220,33 @@ public class QueueConfigOverview extends AbstractModel{
 
     /**
      * Set 队列中期望的空闲节点数量（包含弹性节点和静态节点）。默认值：0。队列中，处于空闲状态的节点小于此值，集群会扩容弹性节点；处于空闲状态的节点大于此值，集群会缩容弹性节点。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DesiredIdleNodeCapacity 队列中期望的空闲节点数量（包含弹性节点和静态节点）。默认值：0。队列中，处于空闲状态的节点小于此值，集群会扩容弹性节点；处于空闲状态的节点大于此值，集群会缩容弹性节点。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDesiredIdleNodeCapacity(Long DesiredIdleNodeCapacity) {
         this.DesiredIdleNodeCapacity = DesiredIdleNodeCapacity;
     }
 
     /**
+     * Get 队列中期望的总节点数。 
+     * @return DesiredNodeCount 队列中期望的总节点数。
+     */
+    public Long getDesiredNodeCount() {
+        return this.DesiredNodeCount;
+    }
+
+    /**
+     * Set 队列中期望的总节点数。
+     * @param DesiredNodeCount 队列中期望的总节点数。
+     */
+    public void setDesiredNodeCount(Long DesiredNodeCount) {
+        this.DesiredNodeCount = DesiredNodeCount;
+    }
+
+    /**
      * Get 扩容比例。默认值：100。取值范围：1～100。
-如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。
-注意：此字段可能返回 null，表示取不到有效值。 
+如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。 
      * @return ScaleOutRatio 扩容比例。默认值：100。取值范围：1～100。
 如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScaleOutRatio() {
         return this.ScaleOutRatio;
@@ -230,10 +255,8 @@ public class QueueConfigOverview extends AbstractModel{
     /**
      * Set 扩容比例。默认值：100。取值范围：1～100。
 如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScaleOutRatio 扩容比例。默认值：100。取值范围：1～100。
 如果扩容比例为50，那么每轮只会扩容当前作业负载所需的50%数量的节点。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScaleOutRatio(Long ScaleOutRatio) {
         this.ScaleOutRatio = ScaleOutRatio;
@@ -242,12 +265,10 @@ public class QueueConfigOverview extends AbstractModel{
     /**
      * Get 比例扩容阈值。默认值：0。取值范围：0～200。
 当作业负载需要扩容节点数量大于此值，当前扩容轮次按照ScaleOutRatio配置的的比例进行扩容。当作业负载需要扩容节点数量小于此值，当前扩容轮次扩容当前作业负载所需数量的节点。
-此参数配合ScaleOutRatio参数进行使用，用于比例扩容场景下，在作业负载所需节点数量较小时，加快收敛速度。
-注意：此字段可能返回 null，表示取不到有效值。 
+此参数配合ScaleOutRatio参数进行使用，用于比例扩容场景下，在作业负载所需节点数量较小时，加快收敛速度。 
      * @return ScaleOutNodeThreshold 比例扩容阈值。默认值：0。取值范围：0～200。
 当作业负载需要扩容节点数量大于此值，当前扩容轮次按照ScaleOutRatio配置的的比例进行扩容。当作业负载需要扩容节点数量小于此值，当前扩容轮次扩容当前作业负载所需数量的节点。
 此参数配合ScaleOutRatio参数进行使用，用于比例扩容场景下，在作业负载所需节点数量较小时，加快收敛速度。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScaleOutNodeThreshold() {
         return this.ScaleOutNodeThreshold;
@@ -257,21 +278,17 @@ public class QueueConfigOverview extends AbstractModel{
      * Set 比例扩容阈值。默认值：0。取值范围：0～200。
 当作业负载需要扩容节点数量大于此值，当前扩容轮次按照ScaleOutRatio配置的的比例进行扩容。当作业负载需要扩容节点数量小于此值，当前扩容轮次扩容当前作业负载所需数量的节点。
 此参数配合ScaleOutRatio参数进行使用，用于比例扩容场景下，在作业负载所需节点数量较小时，加快收敛速度。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScaleOutNodeThreshold 比例扩容阈值。默认值：0。取值范围：0～200。
 当作业负载需要扩容节点数量大于此值，当前扩容轮次按照ScaleOutRatio配置的的比例进行扩容。当作业负载需要扩容节点数量小于此值，当前扩容轮次扩容当前作业负载所需数量的节点。
 此参数配合ScaleOutRatio参数进行使用，用于比例扩容场景下，在作业负载所需节点数量较小时，加快收敛速度。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScaleOutNodeThreshold(Long ScaleOutNodeThreshold) {
         this.ScaleOutNodeThreshold = ScaleOutNodeThreshold;
     }
 
     /**
-     * Get 每轮扩容最大节点个数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 每轮扩容最大节点个数。 
      * @return MaxNodesPerCycle 每轮扩容最大节点个数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxNodesPerCycle() {
         return this.MaxNodesPerCycle;
@@ -279,12 +296,42 @@ public class QueueConfigOverview extends AbstractModel{
 
     /**
      * Set 每轮扩容最大节点个数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxNodesPerCycle 每轮扩容最大节点个数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxNodesPerCycle(Long MaxNodesPerCycle) {
         this.MaxNodesPerCycle = MaxNodesPerCycle;
+    }
+
+    /**
+     * Get 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。 
+     * @return ScaleUpMemRatio 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+     */
+    public Long getScaleUpMemRatio() {
+        return this.ScaleUpMemRatio;
+    }
+
+    /**
+     * Set 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+     * @param ScaleUpMemRatio 扩容过程中，作业的内存在匹配实例机型时增大比例（不会影响作业提交的内存大小，只影响匹配计算过程）。<br/>
+针对场景：由于实例机型的总内存会大于实例内部的可用内存，16GB内存规格的实例，实例操作系统内的可用内存只有约14.9GB内存。假设此时提交一个需要15GB内存的作业，
+
+- 当ScaleUpMemRatio=0时，会匹配到16GB内存规格的实例,但是由于操作系统内的可用内存为14.9GB小于作业所需的15GB，扩容出来的实例作业无法运行起来。
+- 当ScaleUpMemRatio=10时，匹配实例规格会按照15*(1+10%)=16.5GB来进行实例规格匹配，则不会匹配到16GB的实例，而是更大内存规格的实例来保证作业能够被运行起来。
+     */
+    public void setScaleUpMemRatio(Long ScaleUpMemRatio) {
+        this.ScaleUpMemRatio = ScaleUpMemRatio;
     }
 
     public QueueConfigOverview() {
@@ -319,6 +366,9 @@ public class QueueConfigOverview extends AbstractModel{
         if (source.DesiredIdleNodeCapacity != null) {
             this.DesiredIdleNodeCapacity = new Long(source.DesiredIdleNodeCapacity);
         }
+        if (source.DesiredNodeCount != null) {
+            this.DesiredNodeCount = new Long(source.DesiredNodeCount);
+        }
         if (source.ScaleOutRatio != null) {
             this.ScaleOutRatio = new Long(source.ScaleOutRatio);
         }
@@ -327,6 +377,9 @@ public class QueueConfigOverview extends AbstractModel{
         }
         if (source.MaxNodesPerCycle != null) {
             this.MaxNodesPerCycle = new Long(source.MaxNodesPerCycle);
+        }
+        if (source.ScaleUpMemRatio != null) {
+            this.ScaleUpMemRatio = new Long(source.ScaleUpMemRatio);
         }
     }
 
@@ -342,9 +395,11 @@ public class QueueConfigOverview extends AbstractModel{
         this.setParamSimple(map, prefix + "EnableAutoShrink", this.EnableAutoShrink);
         this.setParamArrayObj(map, prefix + "ExpansionNodeConfigs.", this.ExpansionNodeConfigs);
         this.setParamSimple(map, prefix + "DesiredIdleNodeCapacity", this.DesiredIdleNodeCapacity);
+        this.setParamSimple(map, prefix + "DesiredNodeCount", this.DesiredNodeCount);
         this.setParamSimple(map, prefix + "ScaleOutRatio", this.ScaleOutRatio);
         this.setParamSimple(map, prefix + "ScaleOutNodeThreshold", this.ScaleOutNodeThreshold);
         this.setParamSimple(map, prefix + "MaxNodesPerCycle", this.MaxNodesPerCycle);
+        this.setParamSimple(map, prefix + "ScaleUpMemRatio", this.ScaleUpMemRatio);
 
     }
 }

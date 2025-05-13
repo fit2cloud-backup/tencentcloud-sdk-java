@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AdvertiseOCRResponse extends AbstractModel{
+public class AdvertiseOCRResponse extends AbstractModel {
 
     /**
     * 检测到的文本信息，包括文本行内容、置信度、文本行坐标以及文本行旋转纠正后的坐标，具体内容请点击左侧链接。
@@ -30,7 +31,14 @@ public class AdvertiseOCRResponse extends AbstractModel{
     private AdvertiseTextDetection [] TextDetections;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 图片分辨率信息，单位 px
+    */
+    @SerializedName("ImageSize")
+    @Expose
+    private ImageSize ImageSize;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +61,32 @@ public class AdvertiseOCRResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 图片分辨率信息，单位 px 
+     * @return ImageSize 图片分辨率信息，单位 px
+     */
+    public ImageSize getImageSize() {
+        return this.ImageSize;
+    }
+
+    /**
+     * Set 图片分辨率信息，单位 px
+     * @param ImageSize 图片分辨率信息，单位 px
+     */
+    public void setImageSize(ImageSize ImageSize) {
+        this.ImageSize = ImageSize;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -82,6 +106,9 @@ public class AdvertiseOCRResponse extends AbstractModel{
                 this.TextDetections[i] = new AdvertiseTextDetection(source.TextDetections[i]);
             }
         }
+        if (source.ImageSize != null) {
+            this.ImageSize = new ImageSize(source.ImageSize);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +120,7 @@ public class AdvertiseOCRResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "TextDetections.", this.TextDetections);
+        this.setParamObj(map, prefix + "ImageSize.", this.ImageSize);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

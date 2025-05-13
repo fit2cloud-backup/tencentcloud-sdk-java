@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribePrometheusInstanceInitStatusResponse extends AbstractModel{
+public class DescribePrometheusInstanceInitStatusResponse extends AbstractModel {
 
     /**
     * 实例初始化状态，取值：
@@ -50,7 +51,15 @@ running 初始化完成，运行中
     private String EksClusterId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * eks集群内pod的安全组
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SecurityGroupId")
+    @Expose
+    private String SecurityGroupId;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -129,16 +138,36 @@ running 初始化完成，运行中
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get eks集群内pod的安全组
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SecurityGroupId eks集群内pod的安全组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSecurityGroupId() {
+        return this.SecurityGroupId;
+    }
+
+    /**
+     * Set eks集群内pod的安全组
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SecurityGroupId eks集群内pod的安全组
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSecurityGroupId(String SecurityGroupId) {
+        this.SecurityGroupId = SecurityGroupId;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -164,6 +193,9 @@ running 初始化完成，运行中
         if (source.EksClusterId != null) {
             this.EksClusterId = new String(source.EksClusterId);
         }
+        if (source.SecurityGroupId != null) {
+            this.SecurityGroupId = new String(source.SecurityGroupId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -177,6 +209,7 @@ running 初始化完成，运行中
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamArrayObj(map, prefix + "Steps.", this.Steps);
         this.setParamSimple(map, prefix + "EksClusterId", this.EksClusterId);
+        this.setParamSimple(map, prefix + "SecurityGroupId", this.SecurityGroupId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

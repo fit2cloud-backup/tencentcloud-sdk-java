@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Acl extends AbstractModel{
+public class Acl extends AbstractModel {
 
     /**
     * 访问权限ID
@@ -208,7 +209,6 @@ public class Acl extends AbstractModel{
 
     /**
     * 所属部门的信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Department")
     @Expose
@@ -216,7 +216,6 @@ public class Acl extends AbstractModel{
 
     /**
     * 是否允许使用访问串，默认允许
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AllowAccessCredential")
     @Expose
@@ -224,11 +223,24 @@ public class Acl extends AbstractModel{
 
     /**
     * 关联的数据库高危命令列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ACTemplateSet")
     @Expose
     private ACTemplate [] ACTemplateSet;
+
+    /**
+    * 关联的白命令命令
+    */
+    @SerializedName("WhiteCmds")
+    @Expose
+    private String [] WhiteCmds;
+
+    /**
+    * 是否允许记录键盘
+    */
+    @SerializedName("AllowKeyboardLogger")
+    @Expose
+    private Boolean AllowKeyboardLogger;
 
     /**
      * Get 访问权限ID 
@@ -655,10 +667,8 @@ public class Acl extends AbstractModel{
     }
 
     /**
-     * Get 所属部门的信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属部门的信息 
      * @return Department 所属部门的信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Department getDepartment() {
         return this.Department;
@@ -666,19 +676,15 @@ public class Acl extends AbstractModel{
 
     /**
      * Set 所属部门的信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Department 所属部门的信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDepartment(Department Department) {
         this.Department = Department;
     }
 
     /**
-     * Get 是否允许使用访问串，默认允许
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否允许使用访问串，默认允许 
      * @return AllowAccessCredential 是否允许使用访问串，默认允许
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAllowAccessCredential() {
         return this.AllowAccessCredential;
@@ -686,19 +692,15 @@ public class Acl extends AbstractModel{
 
     /**
      * Set 是否允许使用访问串，默认允许
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AllowAccessCredential 是否允许使用访问串，默认允许
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAllowAccessCredential(Boolean AllowAccessCredential) {
         this.AllowAccessCredential = AllowAccessCredential;
     }
 
     /**
-     * Get 关联的数据库高危命令列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 关联的数据库高危命令列表 
      * @return ACTemplateSet 关联的数据库高危命令列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ACTemplate [] getACTemplateSet() {
         return this.ACTemplateSet;
@@ -706,12 +708,42 @@ public class Acl extends AbstractModel{
 
     /**
      * Set 关联的数据库高危命令列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ACTemplateSet 关联的数据库高危命令列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setACTemplateSet(ACTemplate [] ACTemplateSet) {
         this.ACTemplateSet = ACTemplateSet;
+    }
+
+    /**
+     * Get 关联的白命令命令 
+     * @return WhiteCmds 关联的白命令命令
+     */
+    public String [] getWhiteCmds() {
+        return this.WhiteCmds;
+    }
+
+    /**
+     * Set 关联的白命令命令
+     * @param WhiteCmds 关联的白命令命令
+     */
+    public void setWhiteCmds(String [] WhiteCmds) {
+        this.WhiteCmds = WhiteCmds;
+    }
+
+    /**
+     * Get 是否允许记录键盘 
+     * @return AllowKeyboardLogger 是否允许记录键盘
+     */
+    public Boolean getAllowKeyboardLogger() {
+        return this.AllowKeyboardLogger;
+    }
+
+    /**
+     * Set 是否允许记录键盘
+     * @param AllowKeyboardLogger 是否允许记录键盘
+     */
+    public void setAllowKeyboardLogger(Boolean AllowKeyboardLogger) {
+        this.AllowKeyboardLogger = AllowKeyboardLogger;
     }
 
     public Acl() {
@@ -830,6 +862,15 @@ public class Acl extends AbstractModel{
                 this.ACTemplateSet[i] = new ACTemplate(source.ACTemplateSet[i]);
             }
         }
+        if (source.WhiteCmds != null) {
+            this.WhiteCmds = new String[source.WhiteCmds.length];
+            for (int i = 0; i < source.WhiteCmds.length; i++) {
+                this.WhiteCmds[i] = new String(source.WhiteCmds[i]);
+            }
+        }
+        if (source.AllowKeyboardLogger != null) {
+            this.AllowKeyboardLogger = new Boolean(source.AllowKeyboardLogger);
+        }
     }
 
 
@@ -866,6 +907,8 @@ public class Acl extends AbstractModel{
         this.setParamObj(map, prefix + "Department.", this.Department);
         this.setParamSimple(map, prefix + "AllowAccessCredential", this.AllowAccessCredential);
         this.setParamArrayObj(map, prefix + "ACTemplateSet.", this.ACTemplateSet);
+        this.setParamArraySimple(map, prefix + "WhiteCmds.", this.WhiteCmds);
+        this.setParamSimple(map, prefix + "AllowKeyboardLogger", this.AllowKeyboardLogger);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TopicFlowRankingResult extends AbstractModel{
+public class TopicFlowRankingResult extends AbstractModel {
 
     /**
     * Topic 流量数组
@@ -38,7 +39,6 @@ public class TopicFlowRankingResult extends AbstractModel{
 
     /**
     * Topic 消息堆积/占用磁盘排行
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicMessageHeap")
     @Expose
@@ -46,7 +46,6 @@ public class TopicFlowRankingResult extends AbstractModel{
 
     /**
     * Broker Ip 列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BrokerIp")
     @Expose
@@ -54,11 +53,17 @@ public class TopicFlowRankingResult extends AbstractModel{
 
     /**
     * 单个broker 节点 Topic占用的数据大小
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BrokerTopicData")
     @Expose
     private BrokerTopicData [] BrokerTopicData;
+
+    /**
+    * 单个Broker 节点Topic 流量的大小(单位MB)
+    */
+    @SerializedName("BrokerTopicFlowData")
+    @Expose
+    private BrokerTopicFlowData [] BrokerTopicFlowData;
 
     /**
      * Get Topic 流量数组 
@@ -93,10 +98,8 @@ public class TopicFlowRankingResult extends AbstractModel{
     }
 
     /**
-     * Get Topic 消息堆积/占用磁盘排行
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Topic 消息堆积/占用磁盘排行 
      * @return TopicMessageHeap Topic 消息堆积/占用磁盘排行
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TopicMessageHeapRanking [] getTopicMessageHeap() {
         return this.TopicMessageHeap;
@@ -104,19 +107,15 @@ public class TopicFlowRankingResult extends AbstractModel{
 
     /**
      * Set Topic 消息堆积/占用磁盘排行
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicMessageHeap Topic 消息堆积/占用磁盘排行
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicMessageHeap(TopicMessageHeapRanking [] TopicMessageHeap) {
         this.TopicMessageHeap = TopicMessageHeap;
     }
 
     /**
-     * Get Broker Ip 列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Broker Ip 列表 
      * @return BrokerIp Broker Ip 列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getBrokerIp() {
         return this.BrokerIp;
@@ -124,19 +123,15 @@ public class TopicFlowRankingResult extends AbstractModel{
 
     /**
      * Set Broker Ip 列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BrokerIp Broker Ip 列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBrokerIp(String [] BrokerIp) {
         this.BrokerIp = BrokerIp;
     }
 
     /**
-     * Get 单个broker 节点 Topic占用的数据大小
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 单个broker 节点 Topic占用的数据大小 
      * @return BrokerTopicData 单个broker 节点 Topic占用的数据大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BrokerTopicData [] getBrokerTopicData() {
         return this.BrokerTopicData;
@@ -144,12 +139,26 @@ public class TopicFlowRankingResult extends AbstractModel{
 
     /**
      * Set 单个broker 节点 Topic占用的数据大小
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BrokerTopicData 单个broker 节点 Topic占用的数据大小
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBrokerTopicData(BrokerTopicData [] BrokerTopicData) {
         this.BrokerTopicData = BrokerTopicData;
+    }
+
+    /**
+     * Get 单个Broker 节点Topic 流量的大小(单位MB) 
+     * @return BrokerTopicFlowData 单个Broker 节点Topic 流量的大小(单位MB)
+     */
+    public BrokerTopicFlowData [] getBrokerTopicFlowData() {
+        return this.BrokerTopicFlowData;
+    }
+
+    /**
+     * Set 单个Broker 节点Topic 流量的大小(单位MB)
+     * @param BrokerTopicFlowData 单个Broker 节点Topic 流量的大小(单位MB)
+     */
+    public void setBrokerTopicFlowData(BrokerTopicFlowData [] BrokerTopicFlowData) {
+        this.BrokerTopicFlowData = BrokerTopicFlowData;
     }
 
     public TopicFlowRankingResult() {
@@ -190,6 +199,12 @@ public class TopicFlowRankingResult extends AbstractModel{
                 this.BrokerTopicData[i] = new BrokerTopicData(source.BrokerTopicData[i]);
             }
         }
+        if (source.BrokerTopicFlowData != null) {
+            this.BrokerTopicFlowData = new BrokerTopicFlowData[source.BrokerTopicFlowData.length];
+            for (int i = 0; i < source.BrokerTopicFlowData.length; i++) {
+                this.BrokerTopicFlowData[i] = new BrokerTopicFlowData(source.BrokerTopicFlowData[i]);
+            }
+        }
     }
 
 
@@ -202,6 +217,7 @@ public class TopicFlowRankingResult extends AbstractModel{
         this.setParamArrayObj(map, prefix + "TopicMessageHeap.", this.TopicMessageHeap);
         this.setParamArraySimple(map, prefix + "BrokerIp.", this.BrokerIp);
         this.setParamArrayObj(map, prefix + "BrokerTopicData.", this.BrokerTopicData);
+        this.setParamArrayObj(map, prefix + "BrokerTopicFlowData.", this.BrokerTopicFlowData);
 
     }
 }

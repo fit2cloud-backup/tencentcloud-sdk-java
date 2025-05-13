@@ -16,62 +16,57 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetPolicyResponse extends AbstractModel{
+public class GetPolicyResponse extends AbstractModel {
 
     /**
-    * 策略名
-注意：此字段可能返回 null，表示取不到有效值。
+    * 策略名。
     */
     @SerializedName("PolicyName")
     @Expose
     private String PolicyName;
 
     /**
-    * 策略描述
-注意：此字段可能返回 null，表示取不到有效值。
+    * 策略描述。
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-    * 1 表示自定义策略，2 表示预设策略
-注意：此字段可能返回 null，表示取不到有效值。
+    * 1 表示自定义策略，2 表示预设策略。
     */
     @SerializedName("Type")
     @Expose
     private Long Type;
 
     /**
-    * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+    * 策略创建时间。
     */
     @SerializedName("AddTime")
     @Expose
     private String AddTime;
 
     /**
-    * 最近更新时间
-注意：此字段可能返回 null，表示取不到有效值。
+    * 策略最近更新时间。
     */
     @SerializedName("UpdateTime")
     @Expose
     private String UpdateTime;
 
     /**
-    * 策略文档
-注意：此字段可能返回 null，表示取不到有效值。
+    * 策略文档。
     */
     @SerializedName("PolicyDocument")
     @Expose
     private String PolicyDocument;
 
     /**
-    * 备注
+    * 备注。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PresetAlias")
@@ -79,144 +74,119 @@ public class GetPolicyResponse extends AbstractModel{
     private String PresetAlias;
 
     /**
-    * 是否服务相关策略
-注意：此字段可能返回 null，表示取不到有效值。
+    * 是否是服务相关策略，0代表不是服务相关策略，1代表是服务相关策略。
     */
     @SerializedName("IsServiceLinkedRolePolicy")
     @Expose
     private Long IsServiceLinkedRolePolicy;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 策略名
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PolicyName 策略名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 策略名。 
+     * @return PolicyName 策略名。
      */
     public String getPolicyName() {
         return this.PolicyName;
     }
 
     /**
-     * Set 策略名
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PolicyName 策略名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 策略名。
+     * @param PolicyName 策略名。
      */
     public void setPolicyName(String PolicyName) {
         this.PolicyName = PolicyName;
     }
 
     /**
-     * Get 策略描述
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Description 策略描述
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 策略描述。 
+     * @return Description 策略描述。
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 策略描述
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Description 策略描述
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 策略描述。
+     * @param Description 策略描述。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 1 表示自定义策略，2 表示预设策略
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Type 1 表示自定义策略，2 表示预设策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 1 表示自定义策略，2 表示预设策略。 
+     * @return Type 1 表示自定义策略，2 表示预设策略。
      */
     public Long getType() {
         return this.Type;
     }
 
     /**
-     * Set 1 表示自定义策略，2 表示预设策略
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Type 1 表示自定义策略，2 表示预设策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 1 表示自定义策略，2 表示预设策略。
+     * @param Type 1 表示自定义策略，2 表示预设策略。
      */
     public void setType(Long Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AddTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 策略创建时间。 
+     * @return AddTime 策略创建时间。
      */
     public String getAddTime() {
         return this.AddTime;
     }
 
     /**
-     * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AddTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 策略创建时间。
+     * @param AddTime 策略创建时间。
      */
     public void setAddTime(String AddTime) {
         this.AddTime = AddTime;
     }
 
     /**
-     * Get 最近更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UpdateTime 最近更新时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 策略最近更新时间。 
+     * @return UpdateTime 策略最近更新时间。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
     }
 
     /**
-     * Set 最近更新时间
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UpdateTime 最近更新时间
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 策略最近更新时间。
+     * @param UpdateTime 策略最近更新时间。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 策略文档
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PolicyDocument 策略文档
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 策略文档。 
+     * @return PolicyDocument 策略文档。
      */
     public String getPolicyDocument() {
         return this.PolicyDocument;
     }
 
     /**
-     * Set 策略文档
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PolicyDocument 策略文档
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 策略文档。
+     * @param PolicyDocument 策略文档。
      */
     public void setPolicyDocument(String PolicyDocument) {
         this.PolicyDocument = PolicyDocument;
     }
 
     /**
-     * Get 备注
+     * Get 备注。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PresetAlias 备注
+     * @return PresetAlias 备注。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPresetAlias() {
@@ -224,9 +194,9 @@ public class GetPolicyResponse extends AbstractModel{
     }
 
     /**
-     * Set 备注
+     * Set 备注。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param PresetAlias 备注
+     * @param PresetAlias 备注。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPresetAlias(String PresetAlias) {
@@ -234,36 +204,32 @@ public class GetPolicyResponse extends AbstractModel{
     }
 
     /**
-     * Get 是否服务相关策略
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IsServiceLinkedRolePolicy 是否服务相关策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 是否是服务相关策略，0代表不是服务相关策略，1代表是服务相关策略。 
+     * @return IsServiceLinkedRolePolicy 是否是服务相关策略，0代表不是服务相关策略，1代表是服务相关策略。
      */
     public Long getIsServiceLinkedRolePolicy() {
         return this.IsServiceLinkedRolePolicy;
     }
 
     /**
-     * Set 是否服务相关策略
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param IsServiceLinkedRolePolicy 是否服务相关策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 是否是服务相关策略，0代表不是服务相关策略，1代表是服务相关策略。
+     * @param IsServiceLinkedRolePolicy 是否是服务相关策略，0代表不是服务相关策略，1代表是服务相关策略。
      */
     public void setIsServiceLinkedRolePolicy(Long IsServiceLinkedRolePolicy) {
         this.IsServiceLinkedRolePolicy = IsServiceLinkedRolePolicy;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

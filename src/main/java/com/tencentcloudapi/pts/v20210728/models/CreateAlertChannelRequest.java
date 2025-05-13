@@ -16,14 +16,15 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAlertChannelRequest extends AbstractModel{
+public class CreateAlertChannelRequest extends AbstractModel {
 
     /**
-    * Notice ID
+    * monitor 服务的告警通知模板的 NoticeId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 Id 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
     */
     @SerializedName("NoticeId")
     @Expose
@@ -37,23 +38,23 @@ public class CreateAlertChannelRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-    * AMP Consumer ID
+    * monitor 服务的告警通知模板的 AMPConsumerId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 AMPConsumerId 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
     */
     @SerializedName("AMPConsumerId")
     @Expose
     private String AMPConsumerId;
 
     /**
-     * Get Notice ID 
-     * @return NoticeId Notice ID
+     * Get monitor 服务的告警通知模板的 NoticeId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 Id 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可） 
+     * @return NoticeId monitor 服务的告警通知模板的 NoticeId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 Id 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
      */
     public String getNoticeId() {
         return this.NoticeId;
     }
 
     /**
-     * Set Notice ID
-     * @param NoticeId Notice ID
+     * Set monitor 服务的告警通知模板的 NoticeId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 Id 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
+     * @param NoticeId monitor 服务的告警通知模板的 NoticeId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 Id 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
      */
     public void setNoticeId(String NoticeId) {
         this.NoticeId = NoticeId;
@@ -76,16 +77,16 @@ public class CreateAlertChannelRequest extends AbstractModel{
     }
 
     /**
-     * Get AMP Consumer ID 
-     * @return AMPConsumerId AMP Consumer ID
+     * Get monitor 服务的告警通知模板的 AMPConsumerId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 AMPConsumerId 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可） 
+     * @return AMPConsumerId monitor 服务的告警通知模板的 AMPConsumerId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 AMPConsumerId 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
      */
     public String getAMPConsumerId() {
         return this.AMPConsumerId;
     }
 
     /**
-     * Set AMP Consumer ID
-     * @param AMPConsumerId AMP Consumer ID
+     * Set monitor 服务的告警通知模板的 AMPConsumerId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 AMPConsumerId 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
+     * @param AMPConsumerId monitor 服务的告警通知模板的 AMPConsumerId，可从 monitor 服务的云 API 的 DescribeAlarmNotices 接口响应里的 AMPConsumerId 字段获取。（CreateAlertChannel 接口的入参里用于标识一个告警通知模板的 AMPConsumerId 与 NoticeId 二选一即可）
      */
     public void setAMPConsumerId(String AMPConsumerId) {
         this.AMPConsumerId = AMPConsumerId;

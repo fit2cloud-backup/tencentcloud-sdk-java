@@ -16,11 +16,19 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProcessMediaByUrlRequest extends AbstractModel{
+public class ProcessMediaByUrlRequest extends AbstractModel {
+
+    /**
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
 
     /**
     * API 已经<font color='red'>不再维护</font>。推荐使用的替代 API 请参考接口描述。
@@ -86,11 +94,20 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
     private String SessionId;
 
     /**
-    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-    */
-    @SerializedName("SubAppId")
-    @Expose
-    private Long SubAppId;
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
+    }
 
     /**
      * Get API 已经<font color='red'>不再维护</font>。推荐使用的替代 API 请参考接口描述。 
@@ -236,22 +253,6 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
         this.SessionId = SessionId;
     }
 
-    /**
-     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
-     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public Long getSubAppId() {
-        return this.SubAppId;
-    }
-
-    /**
-     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public void setSubAppId(Long SubAppId) {
-        this.SubAppId = SubAppId;
-    }
-
     public ProcessMediaByUrlRequest() {
     }
 
@@ -260,6 +261,9 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public ProcessMediaByUrlRequest(ProcessMediaByUrlRequest source) {
+        if (source.SubAppId != null) {
+            this.SubAppId = new Long(source.SubAppId);
+        }
         if (source.InputInfo != null) {
             this.InputInfo = new MediaInputInfo(source.InputInfo);
         }
@@ -287,9 +291,6 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
         if (source.SessionId != null) {
             this.SessionId = new String(source.SessionId);
         }
-        if (source.SubAppId != null) {
-            this.SubAppId = new Long(source.SubAppId);
-        }
     }
 
 
@@ -297,6 +298,7 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
         this.setParamObj(map, prefix + "InputInfo.", this.InputInfo);
         this.setParamObj(map, prefix + "OutputInfo.", this.OutputInfo);
         this.setParamObj(map, prefix + "AiContentReviewTask.", this.AiContentReviewTask);
@@ -306,7 +308,6 @@ public class ProcessMediaByUrlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TasksNotifyMode", this.TasksNotifyMode);
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);
-        this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
 
     }
 }

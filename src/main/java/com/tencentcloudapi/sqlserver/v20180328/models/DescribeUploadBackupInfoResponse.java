@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUploadBackupInfoResponse extends AbstractModel{
+public class DescribeUploadBackupInfoResponse extends AbstractModel {
 
     /**
     * 存储桶名称
@@ -79,7 +80,14 @@ public class DescribeUploadBackupInfoResponse extends AbstractModel{
     private String ExpiredTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 临时密钥Token
+    */
+    @SerializedName("CosSecurityToken")
+    @Expose
+    private String CosSecurityToken;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -168,7 +176,9 @@ public class DescribeUploadBackupInfoResponse extends AbstractModel{
     /**
      * Get 临时密钥Token 
      * @return XCosSecurityToken 临时密钥Token
+     * @deprecated
      */
+    @Deprecated
     public String getXCosSecurityToken() {
         return this.XCosSecurityToken;
     }
@@ -176,7 +186,9 @@ public class DescribeUploadBackupInfoResponse extends AbstractModel{
     /**
      * Set 临时密钥Token
      * @param XCosSecurityToken 临时密钥Token
+     * @deprecated
      */
+    @Deprecated
     public void setXCosSecurityToken(String XCosSecurityToken) {
         this.XCosSecurityToken = XCosSecurityToken;
     }
@@ -214,16 +226,32 @@ public class DescribeUploadBackupInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 临时密钥Token 
+     * @return CosSecurityToken 临时密钥Token
+     */
+    public String getCosSecurityToken() {
+        return this.CosSecurityToken;
+    }
+
+    /**
+     * Set 临时密钥Token
+     * @param CosSecurityToken 临时密钥Token
+     */
+    public void setCosSecurityToken(String CosSecurityToken) {
+        this.CosSecurityToken = CosSecurityToken;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -261,6 +289,9 @@ public class DescribeUploadBackupInfoResponse extends AbstractModel{
         if (source.ExpiredTime != null) {
             this.ExpiredTime = new String(source.ExpiredTime);
         }
+        if (source.CosSecurityToken != null) {
+            this.CosSecurityToken = new String(source.CosSecurityToken);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -279,6 +310,7 @@ public class DescribeUploadBackupInfoResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "XCosSecurityToken", this.XCosSecurityToken);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "ExpiredTime", this.ExpiredTime);
+        this.setParamSimple(map, prefix + "CosSecurityToken", this.CosSecurityToken);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

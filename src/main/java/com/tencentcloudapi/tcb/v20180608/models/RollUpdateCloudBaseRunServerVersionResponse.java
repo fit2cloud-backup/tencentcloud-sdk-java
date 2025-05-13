@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RollUpdateCloudBaseRunServerVersionResponse extends AbstractModel{
+public class RollUpdateCloudBaseRunServerVersionResponse extends AbstractModel {
 
     /**
     * succ为成功
@@ -31,7 +32,6 @@ public class RollUpdateCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 滚动更新的VersionName
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionName")
     @Expose
@@ -39,14 +39,13 @@ public class RollUpdateCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
     * 操作记录id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RunId")
     @Expose
     private String RunId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -69,10 +68,8 @@ public class RollUpdateCloudBaseRunServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 滚动更新的VersionName
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 滚动更新的VersionName 
      * @return VersionName 滚动更新的VersionName
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersionName() {
         return this.VersionName;
@@ -80,19 +77,15 @@ public class RollUpdateCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 滚动更新的VersionName
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VersionName 滚动更新的VersionName
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionName(String VersionName) {
         this.VersionName = VersionName;
     }
 
     /**
-     * Get 操作记录id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作记录id 
      * @return RunId 操作记录id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRunId() {
         return this.RunId;
@@ -100,25 +93,23 @@ public class RollUpdateCloudBaseRunServerVersionResponse extends AbstractModel{
 
     /**
      * Set 操作记录id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RunId 操作记录id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRunId(String RunId) {
         this.RunId = RunId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

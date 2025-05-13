@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApiRateLimitRule extends AbstractModel{
+public class ApiRateLimitRule extends AbstractModel {
 
     /**
     * rule Id
@@ -101,6 +102,30 @@ public class ApiRateLimitRule extends AbstractModel{
     @SerializedName("UpdatedTime")
     @Expose
     private String UpdatedTime;
+
+    /**
+    * 分页参数limit
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
+
+    /**
+    * 分页参数offset
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * AppId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AppId")
+    @Expose
+    private String AppId;
 
     /**
      * Get rule Id
@@ -302,6 +327,66 @@ public class ApiRateLimitRule extends AbstractModel{
         this.UpdatedTime = UpdatedTime;
     }
 
+    /**
+     * Get 分页参数limit
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Limit 分页参数limit
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 分页参数limit
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Limit 分页参数limit
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
+    /**
+     * Get 分页参数offset
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Offset 分页参数offset
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 分页参数offset
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Offset 分页参数offset
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get AppId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AppId AppId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAppId() {
+        return this.AppId;
+    }
+
+    /**
+     * Set AppId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AppId AppId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAppId(String AppId) {
+        this.AppId = AppId;
+    }
+
     public ApiRateLimitRule() {
     }
 
@@ -340,6 +425,15 @@ public class ApiRateLimitRule extends AbstractModel{
         if (source.UpdatedTime != null) {
             this.UpdatedTime = new String(source.UpdatedTime);
         }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.AppId != null) {
+            this.AppId = new String(source.AppId);
+        }
     }
 
 
@@ -357,6 +451,9 @@ public class ApiRateLimitRule extends AbstractModel{
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
         this.setParamSimple(map, prefix + "UpdatedTime", this.UpdatedTime);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "AppId", this.AppId);
 
     }
 }

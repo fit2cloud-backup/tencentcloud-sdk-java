@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetSummaryResponse extends AbstractModel{
+public class DescribeAssetSummaryResponse extends AbstractModel {
 
     /**
     * 应用个数
@@ -177,7 +178,42 @@ public class DescribeAssetSummaryResponse extends AbstractModel{
     private Long SuperNodeRunningCnt;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 今日新增镜像个数
+    */
+    @SerializedName("TodayNewImageCnt")
+    @Expose
+    private Long TodayNewImageCnt;
+
+    /**
+    * 今日新增风险镜像个数
+    */
+    @SerializedName("TodayUnsafeImageCnt")
+    @Expose
+    private Long TodayUnsafeImageCnt;
+
+    /**
+    * 推荐处置镜像个数
+    */
+    @SerializedName("RecommendedFixImageCnt")
+    @Expose
+    private Long RecommendedFixImageCnt;
+
+    /**
+    * 已扫描镜像个数
+    */
+    @SerializedName("ScannedImageCnt")
+    @Expose
+    private Long ScannedImageCnt;
+
+    /**
+    * 待扫描镜像个数
+    */
+    @SerializedName("UnScannedImageCnt")
+    @Expose
+    private Long UnScannedImageCnt;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -536,16 +572,96 @@ public class DescribeAssetSummaryResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 今日新增镜像个数 
+     * @return TodayNewImageCnt 今日新增镜像个数
+     */
+    public Long getTodayNewImageCnt() {
+        return this.TodayNewImageCnt;
+    }
+
+    /**
+     * Set 今日新增镜像个数
+     * @param TodayNewImageCnt 今日新增镜像个数
+     */
+    public void setTodayNewImageCnt(Long TodayNewImageCnt) {
+        this.TodayNewImageCnt = TodayNewImageCnt;
+    }
+
+    /**
+     * Get 今日新增风险镜像个数 
+     * @return TodayUnsafeImageCnt 今日新增风险镜像个数
+     */
+    public Long getTodayUnsafeImageCnt() {
+        return this.TodayUnsafeImageCnt;
+    }
+
+    /**
+     * Set 今日新增风险镜像个数
+     * @param TodayUnsafeImageCnt 今日新增风险镜像个数
+     */
+    public void setTodayUnsafeImageCnt(Long TodayUnsafeImageCnt) {
+        this.TodayUnsafeImageCnt = TodayUnsafeImageCnt;
+    }
+
+    /**
+     * Get 推荐处置镜像个数 
+     * @return RecommendedFixImageCnt 推荐处置镜像个数
+     */
+    public Long getRecommendedFixImageCnt() {
+        return this.RecommendedFixImageCnt;
+    }
+
+    /**
+     * Set 推荐处置镜像个数
+     * @param RecommendedFixImageCnt 推荐处置镜像个数
+     */
+    public void setRecommendedFixImageCnt(Long RecommendedFixImageCnt) {
+        this.RecommendedFixImageCnt = RecommendedFixImageCnt;
+    }
+
+    /**
+     * Get 已扫描镜像个数 
+     * @return ScannedImageCnt 已扫描镜像个数
+     */
+    public Long getScannedImageCnt() {
+        return this.ScannedImageCnt;
+    }
+
+    /**
+     * Set 已扫描镜像个数
+     * @param ScannedImageCnt 已扫描镜像个数
+     */
+    public void setScannedImageCnt(Long ScannedImageCnt) {
+        this.ScannedImageCnt = ScannedImageCnt;
+    }
+
+    /**
+     * Get 待扫描镜像个数 
+     * @return UnScannedImageCnt 待扫描镜像个数
+     */
+    public Long getUnScannedImageCnt() {
+        return this.UnScannedImageCnt;
+    }
+
+    /**
+     * Set 待扫描镜像个数
+     * @param UnScannedImageCnt 待扫描镜像个数
+     */
+    public void setUnScannedImageCnt(Long UnScannedImageCnt) {
+        this.UnScannedImageCnt = UnScannedImageCnt;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -625,6 +741,21 @@ public class DescribeAssetSummaryResponse extends AbstractModel{
         if (source.SuperNodeRunningCnt != null) {
             this.SuperNodeRunningCnt = new Long(source.SuperNodeRunningCnt);
         }
+        if (source.TodayNewImageCnt != null) {
+            this.TodayNewImageCnt = new Long(source.TodayNewImageCnt);
+        }
+        if (source.TodayUnsafeImageCnt != null) {
+            this.TodayUnsafeImageCnt = new Long(source.TodayUnsafeImageCnt);
+        }
+        if (source.RecommendedFixImageCnt != null) {
+            this.RecommendedFixImageCnt = new Long(source.RecommendedFixImageCnt);
+        }
+        if (source.ScannedImageCnt != null) {
+            this.ScannedImageCnt = new Long(source.ScannedImageCnt);
+        }
+        if (source.UnScannedImageCnt != null) {
+            this.UnScannedImageCnt = new Long(source.UnScannedImageCnt);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -657,6 +788,11 @@ public class DescribeAssetSummaryResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "HostUnInstallCnt", this.HostUnInstallCnt);
         this.setParamSimple(map, prefix + "SuperNodeCnt", this.SuperNodeCnt);
         this.setParamSimple(map, prefix + "SuperNodeRunningCnt", this.SuperNodeRunningCnt);
+        this.setParamSimple(map, prefix + "TodayNewImageCnt", this.TodayNewImageCnt);
+        this.setParamSimple(map, prefix + "TodayUnsafeImageCnt", this.TodayUnsafeImageCnt);
+        this.setParamSimple(map, prefix + "RecommendedFixImageCnt", this.RecommendedFixImageCnt);
+        this.setParamSimple(map, prefix + "ScannedImageCnt", this.ScannedImageCnt);
+        this.setParamSimple(map, prefix + "UnScannedImageCnt", this.UnScannedImageCnt);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

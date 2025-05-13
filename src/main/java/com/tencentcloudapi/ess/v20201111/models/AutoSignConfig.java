@@ -16,233 +16,324 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AutoSignConfig extends AbstractModel{
+public class AutoSignConfig extends AbstractModel {
 
     /**
-    * 自动签开通个人用户的三要素
+    * 自动签开通个人用户信息, 包括名字,身份证等
     */
     @SerializedName("UserInfo")
     @Expose
     private UserThreeFactor UserInfo;
 
     /**
-    * 接受回调URL地址。支持http://或者https://协议
-
-Post数据到此地址后返回httpcode200表示接受回调成功, 返回其他httpcode表示接受回调失败
-    */
-    @SerializedName("CallbackUrl")
-    @Expose
-    private String CallbackUrl;
-
-    /**
-    * 是否回调证书信息
-false-不需要 (默认值)
-true-需要
+    * 是否回调证书信息:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**:需要</li></ul>
     */
     @SerializedName("CertInfoCallback")
     @Expose
     private Boolean CertInfoCallback;
 
     /**
-    * 是否支持用户自定义签名印章
-false-不需要(默认)
-true-需要
+    * 是否支持用户自定义签名印章:
+<ul><li>**false**: 不能自己定义(默认)</li>
+<li>**true**: 可以自己定义</li></ul>
     */
     @SerializedName("UserDefineSeal")
     @Expose
     private Boolean UserDefineSeal;
 
     /**
-    * 是否需要回调的时候返回印章(签名) 图片的 base64
-
-false-不需要(默认)
-true-需要
+    * 回调中是否需要自动签将要使用的印章(签名) 图片的 base64:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**: 需要</li></ul>
     */
     @SerializedName("SealImgCallback")
     @Expose
     private Boolean SealImgCallback;
 
     /**
-    * 开通时候的验证方式, 分布为
+    * 执行结果的回调URL，该URL仅支持HTTP或HTTPS协议，建议采用HTTPS协议以保证数据传输的安全性。
+腾讯电子签服务器将通过POST方式，application/json格式通知执行结果，请确保外网可以正常访问该URL。
+回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
+    */
+    @SerializedName("CallbackUrl")
+    @Expose
+    private String CallbackUrl;
 
-WEIXINAPP : 微信人脸识别
-INSIGHT : 慧眼人脸认别
-TELECOM : 运营商三要素验证
-
-如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。
-
-如果是 H5 开通链接，支持传 INSIGHT / TELECOM。默认值 WEIXINAPP / INSIGHT。
+    /**
+    * 开通时候的身份验证方式, 取值为：
+<ul><li>**WEIXINAPP** : 微信人脸识别</li>
+<li>**INSIGHT** : 慧眼人脸认别</li>
+<li>**TELECOM** : 运营商三要素验证</li></ul>
+注：
+<ul><li>如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。为空默认 WEIXINAPP</li>
+<li>如果是 H5 开通链接，支持传 INSIGHT / TELECOM。为空默认 INSIGHT </li></ul>
     */
     @SerializedName("VerifyChannels")
     @Expose
     private String [] VerifyChannels;
 
     /**
-     * Get 自动签开通个人用户的三要素 
-     * @return UserInfo 自动签开通个人用户的三要素
+    * 设置用户自动签合同的扣费方式。
+
+<ul><li><b>1</b>: (默认)使用合同份额进行扣减</li></ul>
+    */
+    @SerializedName("LicenseType")
+    @Expose
+    private Long LicenseType;
+
+    /**
+    * 开通成功后前端页面跳转的url，此字段的用法场景请联系客户经理确认。
+
+注：`仅支持H5开通场景`, `跳转链接仅支持 https:// , qianapp:// 开头`
+
+跳转场景：
+<ul><li>**贵方H5 -> 腾讯电子签H5 -> 贵方H5** : JumpUrl格式: https://YOUR_CUSTOM_URL/xxxx，只需满足 https:// 开头的正确且合规的网址即可。</li>
+<li>**贵方原生App -> 腾讯电子签H5 -> 贵方原生App** : JumpUrl格式: qianapp://YOUR_CUSTOM_URL，只需满足 qianapp:// 开头的URL即可。`APP实现方，需要拦截Webview地址跳转，发现url是qianapp:// 开头时跳转到原生页面。`APP拦截地址跳转可参考：<a href='https://stackoverflow.com/questions/41693263/android-webview-err-unknown-url-scheme'>Android</a>，<a href='https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/webview/upi-intent-ios/'>IOS</a> </li></ul>
+
+成功结果返回：
+若贵方需要在跳转回时通过链接query参数提示开通成功，JumpUrl中的query应携带如下参数：`appendResult=qian`。这样腾讯电子签H5会在跳转回的url后面会添加query参数提示贵方签署成功，例如： qianapp://YOUR_CUSTOM_URL?action=sign&result=success&from=tencent_ess
+    */
+    @SerializedName("JumpUrl")
+    @Expose
+    private String JumpUrl;
+
+    /**
+     * Get 自动签开通个人用户信息, 包括名字,身份证等 
+     * @return UserInfo 自动签开通个人用户信息, 包括名字,身份证等
      */
     public UserThreeFactor getUserInfo() {
         return this.UserInfo;
     }
 
     /**
-     * Set 自动签开通个人用户的三要素
-     * @param UserInfo 自动签开通个人用户的三要素
+     * Set 自动签开通个人用户信息, 包括名字,身份证等
+     * @param UserInfo 自动签开通个人用户信息, 包括名字,身份证等
      */
     public void setUserInfo(UserThreeFactor UserInfo) {
         this.UserInfo = UserInfo;
     }
 
     /**
-     * Get 接受回调URL地址。支持http://或者https://协议
-
-Post数据到此地址后返回httpcode200表示接受回调成功, 返回其他httpcode表示接受回调失败 
-     * @return CallbackUrl 接受回调URL地址。支持http://或者https://协议
-
-Post数据到此地址后返回httpcode200表示接受回调成功, 返回其他httpcode表示接受回调失败
-     */
-    public String getCallbackUrl() {
-        return this.CallbackUrl;
-    }
-
-    /**
-     * Set 接受回调URL地址。支持http://或者https://协议
-
-Post数据到此地址后返回httpcode200表示接受回调成功, 返回其他httpcode表示接受回调失败
-     * @param CallbackUrl 接受回调URL地址。支持http://或者https://协议
-
-Post数据到此地址后返回httpcode200表示接受回调成功, 返回其他httpcode表示接受回调失败
-     */
-    public void setCallbackUrl(String CallbackUrl) {
-        this.CallbackUrl = CallbackUrl;
-    }
-
-    /**
-     * Get 是否回调证书信息
-false-不需要 (默认值)
-true-需要 
-     * @return CertInfoCallback 是否回调证书信息
-false-不需要 (默认值)
-true-需要
+     * Get 是否回调证书信息:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**:需要</li></ul> 
+     * @return CertInfoCallback 是否回调证书信息:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**:需要</li></ul>
      */
     public Boolean getCertInfoCallback() {
         return this.CertInfoCallback;
     }
 
     /**
-     * Set 是否回调证书信息
-false-不需要 (默认值)
-true-需要
-     * @param CertInfoCallback 是否回调证书信息
-false-不需要 (默认值)
-true-需要
+     * Set 是否回调证书信息:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**:需要</li></ul>
+     * @param CertInfoCallback 是否回调证书信息:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**:需要</li></ul>
      */
     public void setCertInfoCallback(Boolean CertInfoCallback) {
         this.CertInfoCallback = CertInfoCallback;
     }
 
     /**
-     * Get 是否支持用户自定义签名印章
-false-不需要(默认)
-true-需要 
-     * @return UserDefineSeal 是否支持用户自定义签名印章
-false-不需要(默认)
-true-需要
+     * Get 是否支持用户自定义签名印章:
+<ul><li>**false**: 不能自己定义(默认)</li>
+<li>**true**: 可以自己定义</li></ul> 
+     * @return UserDefineSeal 是否支持用户自定义签名印章:
+<ul><li>**false**: 不能自己定义(默认)</li>
+<li>**true**: 可以自己定义</li></ul>
      */
     public Boolean getUserDefineSeal() {
         return this.UserDefineSeal;
     }
 
     /**
-     * Set 是否支持用户自定义签名印章
-false-不需要(默认)
-true-需要
-     * @param UserDefineSeal 是否支持用户自定义签名印章
-false-不需要(默认)
-true-需要
+     * Set 是否支持用户自定义签名印章:
+<ul><li>**false**: 不能自己定义(默认)</li>
+<li>**true**: 可以自己定义</li></ul>
+     * @param UserDefineSeal 是否支持用户自定义签名印章:
+<ul><li>**false**: 不能自己定义(默认)</li>
+<li>**true**: 可以自己定义</li></ul>
      */
     public void setUserDefineSeal(Boolean UserDefineSeal) {
         this.UserDefineSeal = UserDefineSeal;
     }
 
     /**
-     * Get 是否需要回调的时候返回印章(签名) 图片的 base64
-
-false-不需要(默认)
-true-需要 
-     * @return SealImgCallback 是否需要回调的时候返回印章(签名) 图片的 base64
-
-false-不需要(默认)
-true-需要
+     * Get 回调中是否需要自动签将要使用的印章(签名) 图片的 base64:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**: 需要</li></ul> 
+     * @return SealImgCallback 回调中是否需要自动签将要使用的印章(签名) 图片的 base64:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**: 需要</li></ul>
      */
     public Boolean getSealImgCallback() {
         return this.SealImgCallback;
     }
 
     /**
-     * Set 是否需要回调的时候返回印章(签名) 图片的 base64
-
-false-不需要(默认)
-true-需要
-     * @param SealImgCallback 是否需要回调的时候返回印章(签名) 图片的 base64
-
-false-不需要(默认)
-true-需要
+     * Set 回调中是否需要自动签将要使用的印章(签名) 图片的 base64:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**: 需要</li></ul>
+     * @param SealImgCallback 回调中是否需要自动签将要使用的印章(签名) 图片的 base64:
+<ul><li>**false**: 不需要(默认)</li>
+<li>**true**: 需要</li></ul>
      */
     public void setSealImgCallback(Boolean SealImgCallback) {
         this.SealImgCallback = SealImgCallback;
     }
 
     /**
-     * Get 开通时候的验证方式, 分布为
+     * Get 执行结果的回调URL，该URL仅支持HTTP或HTTPS协议，建议采用HTTPS协议以保证数据传输的安全性。
+腾讯电子签服务器将通过POST方式，application/json格式通知执行结果，请确保外网可以正常访问该URL。
+回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。 
+     * @return CallbackUrl 执行结果的回调URL，该URL仅支持HTTP或HTTPS协议，建议采用HTTPS协议以保证数据传输的安全性。
+腾讯电子签服务器将通过POST方式，application/json格式通知执行结果，请确保外网可以正常访问该URL。
+回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
+     * @deprecated
+     */
+    @Deprecated
+    public String getCallbackUrl() {
+        return this.CallbackUrl;
+    }
 
-WEIXINAPP : 微信人脸识别
-INSIGHT : 慧眼人脸认别
-TELECOM : 运营商三要素验证
+    /**
+     * Set 执行结果的回调URL，该URL仅支持HTTP或HTTPS协议，建议采用HTTPS协议以保证数据传输的安全性。
+腾讯电子签服务器将通过POST方式，application/json格式通知执行结果，请确保外网可以正常访问该URL。
+回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
+     * @param CallbackUrl 执行结果的回调URL，该URL仅支持HTTP或HTTPS协议，建议采用HTTPS协议以保证数据传输的安全性。
+腾讯电子签服务器将通过POST方式，application/json格式通知执行结果，请确保外网可以正常访问该URL。
+回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
+     * @deprecated
+     */
+    @Deprecated
+    public void setCallbackUrl(String CallbackUrl) {
+        this.CallbackUrl = CallbackUrl;
+    }
 
-如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。
-
-如果是 H5 开通链接，支持传 INSIGHT / TELECOM。默认值 WEIXINAPP / INSIGHT。 
-     * @return VerifyChannels 开通时候的验证方式, 分布为
-
-WEIXINAPP : 微信人脸识别
-INSIGHT : 慧眼人脸认别
-TELECOM : 运营商三要素验证
-
-如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。
-
-如果是 H5 开通链接，支持传 INSIGHT / TELECOM。默认值 WEIXINAPP / INSIGHT。
+    /**
+     * Get 开通时候的身份验证方式, 取值为：
+<ul><li>**WEIXINAPP** : 微信人脸识别</li>
+<li>**INSIGHT** : 慧眼人脸认别</li>
+<li>**TELECOM** : 运营商三要素验证</li></ul>
+注：
+<ul><li>如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。为空默认 WEIXINAPP</li>
+<li>如果是 H5 开通链接，支持传 INSIGHT / TELECOM。为空默认 INSIGHT </li></ul> 
+     * @return VerifyChannels 开通时候的身份验证方式, 取值为：
+<ul><li>**WEIXINAPP** : 微信人脸识别</li>
+<li>**INSIGHT** : 慧眼人脸认别</li>
+<li>**TELECOM** : 运营商三要素验证</li></ul>
+注：
+<ul><li>如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。为空默认 WEIXINAPP</li>
+<li>如果是 H5 开通链接，支持传 INSIGHT / TELECOM。为空默认 INSIGHT </li></ul>
      */
     public String [] getVerifyChannels() {
         return this.VerifyChannels;
     }
 
     /**
-     * Set 开通时候的验证方式, 分布为
-
-WEIXINAPP : 微信人脸识别
-INSIGHT : 慧眼人脸认别
-TELECOM : 运营商三要素验证
-
-如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。
-
-如果是 H5 开通链接，支持传 INSIGHT / TELECOM。默认值 WEIXINAPP / INSIGHT。
-     * @param VerifyChannels 开通时候的验证方式, 分布为
-
-WEIXINAPP : 微信人脸识别
-INSIGHT : 慧眼人脸认别
-TELECOM : 运营商三要素验证
-
-如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。
-
-如果是 H5 开通链接，支持传 INSIGHT / TELECOM。默认值 WEIXINAPP / INSIGHT。
+     * Set 开通时候的身份验证方式, 取值为：
+<ul><li>**WEIXINAPP** : 微信人脸识别</li>
+<li>**INSIGHT** : 慧眼人脸认别</li>
+<li>**TELECOM** : 运营商三要素验证</li></ul>
+注：
+<ul><li>如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。为空默认 WEIXINAPP</li>
+<li>如果是 H5 开通链接，支持传 INSIGHT / TELECOM。为空默认 INSIGHT </li></ul>
+     * @param VerifyChannels 开通时候的身份验证方式, 取值为：
+<ul><li>**WEIXINAPP** : 微信人脸识别</li>
+<li>**INSIGHT** : 慧眼人脸认别</li>
+<li>**TELECOM** : 运营商三要素验证</li></ul>
+注：
+<ul><li>如果是小程序开通链接，支持传 WEIXINAPP / TELECOM。为空默认 WEIXINAPP</li>
+<li>如果是 H5 开通链接，支持传 INSIGHT / TELECOM。为空默认 INSIGHT </li></ul>
      */
     public void setVerifyChannels(String [] VerifyChannels) {
         this.VerifyChannels = VerifyChannels;
+    }
+
+    /**
+     * Get 设置用户自动签合同的扣费方式。
+
+<ul><li><b>1</b>: (默认)使用合同份额进行扣减</li></ul> 
+     * @return LicenseType 设置用户自动签合同的扣费方式。
+
+<ul><li><b>1</b>: (默认)使用合同份额进行扣减</li></ul>
+     */
+    public Long getLicenseType() {
+        return this.LicenseType;
+    }
+
+    /**
+     * Set 设置用户自动签合同的扣费方式。
+
+<ul><li><b>1</b>: (默认)使用合同份额进行扣减</li></ul>
+     * @param LicenseType 设置用户自动签合同的扣费方式。
+
+<ul><li><b>1</b>: (默认)使用合同份额进行扣减</li></ul>
+     */
+    public void setLicenseType(Long LicenseType) {
+        this.LicenseType = LicenseType;
+    }
+
+    /**
+     * Get 开通成功后前端页面跳转的url，此字段的用法场景请联系客户经理确认。
+
+注：`仅支持H5开通场景`, `跳转链接仅支持 https:// , qianapp:// 开头`
+
+跳转场景：
+<ul><li>**贵方H5 -> 腾讯电子签H5 -> 贵方H5** : JumpUrl格式: https://YOUR_CUSTOM_URL/xxxx，只需满足 https:// 开头的正确且合规的网址即可。</li>
+<li>**贵方原生App -> 腾讯电子签H5 -> 贵方原生App** : JumpUrl格式: qianapp://YOUR_CUSTOM_URL，只需满足 qianapp:// 开头的URL即可。`APP实现方，需要拦截Webview地址跳转，发现url是qianapp:// 开头时跳转到原生页面。`APP拦截地址跳转可参考：<a href='https://stackoverflow.com/questions/41693263/android-webview-err-unknown-url-scheme'>Android</a>，<a href='https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/webview/upi-intent-ios/'>IOS</a> </li></ul>
+
+成功结果返回：
+若贵方需要在跳转回时通过链接query参数提示开通成功，JumpUrl中的query应携带如下参数：`appendResult=qian`。这样腾讯电子签H5会在跳转回的url后面会添加query参数提示贵方签署成功，例如： qianapp://YOUR_CUSTOM_URL?action=sign&result=success&from=tencent_ess 
+     * @return JumpUrl 开通成功后前端页面跳转的url，此字段的用法场景请联系客户经理确认。
+
+注：`仅支持H5开通场景`, `跳转链接仅支持 https:// , qianapp:// 开头`
+
+跳转场景：
+<ul><li>**贵方H5 -> 腾讯电子签H5 -> 贵方H5** : JumpUrl格式: https://YOUR_CUSTOM_URL/xxxx，只需满足 https:// 开头的正确且合规的网址即可。</li>
+<li>**贵方原生App -> 腾讯电子签H5 -> 贵方原生App** : JumpUrl格式: qianapp://YOUR_CUSTOM_URL，只需满足 qianapp:// 开头的URL即可。`APP实现方，需要拦截Webview地址跳转，发现url是qianapp:// 开头时跳转到原生页面。`APP拦截地址跳转可参考：<a href='https://stackoverflow.com/questions/41693263/android-webview-err-unknown-url-scheme'>Android</a>，<a href='https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/webview/upi-intent-ios/'>IOS</a> </li></ul>
+
+成功结果返回：
+若贵方需要在跳转回时通过链接query参数提示开通成功，JumpUrl中的query应携带如下参数：`appendResult=qian`。这样腾讯电子签H5会在跳转回的url后面会添加query参数提示贵方签署成功，例如： qianapp://YOUR_CUSTOM_URL?action=sign&result=success&from=tencent_ess
+     */
+    public String getJumpUrl() {
+        return this.JumpUrl;
+    }
+
+    /**
+     * Set 开通成功后前端页面跳转的url，此字段的用法场景请联系客户经理确认。
+
+注：`仅支持H5开通场景`, `跳转链接仅支持 https:// , qianapp:// 开头`
+
+跳转场景：
+<ul><li>**贵方H5 -> 腾讯电子签H5 -> 贵方H5** : JumpUrl格式: https://YOUR_CUSTOM_URL/xxxx，只需满足 https:// 开头的正确且合规的网址即可。</li>
+<li>**贵方原生App -> 腾讯电子签H5 -> 贵方原生App** : JumpUrl格式: qianapp://YOUR_CUSTOM_URL，只需满足 qianapp:// 开头的URL即可。`APP实现方，需要拦截Webview地址跳转，发现url是qianapp:// 开头时跳转到原生页面。`APP拦截地址跳转可参考：<a href='https://stackoverflow.com/questions/41693263/android-webview-err-unknown-url-scheme'>Android</a>，<a href='https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/webview/upi-intent-ios/'>IOS</a> </li></ul>
+
+成功结果返回：
+若贵方需要在跳转回时通过链接query参数提示开通成功，JumpUrl中的query应携带如下参数：`appendResult=qian`。这样腾讯电子签H5会在跳转回的url后面会添加query参数提示贵方签署成功，例如： qianapp://YOUR_CUSTOM_URL?action=sign&result=success&from=tencent_ess
+     * @param JumpUrl 开通成功后前端页面跳转的url，此字段的用法场景请联系客户经理确认。
+
+注：`仅支持H5开通场景`, `跳转链接仅支持 https:// , qianapp:// 开头`
+
+跳转场景：
+<ul><li>**贵方H5 -> 腾讯电子签H5 -> 贵方H5** : JumpUrl格式: https://YOUR_CUSTOM_URL/xxxx，只需满足 https:// 开头的正确且合规的网址即可。</li>
+<li>**贵方原生App -> 腾讯电子签H5 -> 贵方原生App** : JumpUrl格式: qianapp://YOUR_CUSTOM_URL，只需满足 qianapp:// 开头的URL即可。`APP实现方，需要拦截Webview地址跳转，发现url是qianapp:// 开头时跳转到原生页面。`APP拦截地址跳转可参考：<a href='https://stackoverflow.com/questions/41693263/android-webview-err-unknown-url-scheme'>Android</a>，<a href='https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/webview/upi-intent-ios/'>IOS</a> </li></ul>
+
+成功结果返回：
+若贵方需要在跳转回时通过链接query参数提示开通成功，JumpUrl中的query应携带如下参数：`appendResult=qian`。这样腾讯电子签H5会在跳转回的url后面会添加query参数提示贵方签署成功，例如： qianapp://YOUR_CUSTOM_URL?action=sign&result=success&from=tencent_ess
+     */
+    public void setJumpUrl(String JumpUrl) {
+        this.JumpUrl = JumpUrl;
     }
 
     public AutoSignConfig() {
@@ -256,9 +347,6 @@ TELECOM : 运营商三要素验证
         if (source.UserInfo != null) {
             this.UserInfo = new UserThreeFactor(source.UserInfo);
         }
-        if (source.CallbackUrl != null) {
-            this.CallbackUrl = new String(source.CallbackUrl);
-        }
         if (source.CertInfoCallback != null) {
             this.CertInfoCallback = new Boolean(source.CertInfoCallback);
         }
@@ -268,11 +356,20 @@ TELECOM : 运营商三要素验证
         if (source.SealImgCallback != null) {
             this.SealImgCallback = new Boolean(source.SealImgCallback);
         }
+        if (source.CallbackUrl != null) {
+            this.CallbackUrl = new String(source.CallbackUrl);
+        }
         if (source.VerifyChannels != null) {
             this.VerifyChannels = new String[source.VerifyChannels.length];
             for (int i = 0; i < source.VerifyChannels.length; i++) {
                 this.VerifyChannels[i] = new String(source.VerifyChannels[i]);
             }
+        }
+        if (source.LicenseType != null) {
+            this.LicenseType = new Long(source.LicenseType);
+        }
+        if (source.JumpUrl != null) {
+            this.JumpUrl = new String(source.JumpUrl);
         }
     }
 
@@ -282,11 +379,13 @@ TELECOM : 运营商三要素验证
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "UserInfo.", this.UserInfo);
-        this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamSimple(map, prefix + "CertInfoCallback", this.CertInfoCallback);
         this.setParamSimple(map, prefix + "UserDefineSeal", this.UserDefineSeal);
         this.setParamSimple(map, prefix + "SealImgCallback", this.SealImgCallback);
+        this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
         this.setParamArraySimple(map, prefix + "VerifyChannels.", this.VerifyChannels);
+        this.setParamSimple(map, prefix + "LicenseType", this.LicenseType);
+        this.setParamSimple(map, prefix + "JumpUrl", this.JumpUrl);
 
     }
 }

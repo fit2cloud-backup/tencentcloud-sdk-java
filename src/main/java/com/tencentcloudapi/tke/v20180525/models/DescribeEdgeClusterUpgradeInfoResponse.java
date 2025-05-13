@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
+public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel {
 
     /**
-    * 可升级的集群组件和
-注意：此字段可能返回 null，表示取不到有效值。
+    * 可升级的集群组件及其版本
     */
     @SerializedName("ComponentVersion")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
     * 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EdgeVersionCurrent")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
     * 边缘组件镜像仓库地址前缀，包含域名和命名空间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegistryPrefix")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
     * 集群升级状态，可能值：running、updating、failed
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterUpgradeStatus")
     @Expose
@@ -56,44 +53,37 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
     * 集群升级中状态或者失败原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterUpgradeStatusReason")
     @Expose
     private String ClusterUpgradeStatusReason;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 可升级的集群组件和
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ComponentVersion 可升级的集群组件和
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 可升级的集群组件及其版本 
+     * @return ComponentVersion 可升级的集群组件及其版本
      */
     public String getComponentVersion() {
         return this.ComponentVersion;
     }
 
     /**
-     * Set 可升级的集群组件和
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ComponentVersion 可升级的集群组件和
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 可升级的集群组件及其版本
+     * @param ComponentVersion 可升级的集群组件及其版本
      */
     public void setComponentVersion(String ComponentVersion) {
         this.ComponentVersion = ComponentVersion;
     }
 
     /**
-     * Get 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 边缘集群当前版本 
      * @return EdgeVersionCurrent 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEdgeVersionCurrent() {
         return this.EdgeVersionCurrent;
@@ -101,19 +91,15 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
      * Set 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EdgeVersionCurrent 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEdgeVersionCurrent(String EdgeVersionCurrent) {
         this.EdgeVersionCurrent = EdgeVersionCurrent;
     }
 
     /**
-     * Get 边缘组件镜像仓库地址前缀，包含域名和命名空间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 边缘组件镜像仓库地址前缀，包含域名和命名空间 
      * @return RegistryPrefix 边缘组件镜像仓库地址前缀，包含域名和命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegistryPrefix() {
         return this.RegistryPrefix;
@@ -121,19 +107,15 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
      * Set 边缘组件镜像仓库地址前缀，包含域名和命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegistryPrefix 边缘组件镜像仓库地址前缀，包含域名和命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegistryPrefix(String RegistryPrefix) {
         this.RegistryPrefix = RegistryPrefix;
     }
 
     /**
-     * Get 集群升级状态，可能值：running、updating、failed
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群升级状态，可能值：running、updating、failed 
      * @return ClusterUpgradeStatus 集群升级状态，可能值：running、updating、failed
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterUpgradeStatus() {
         return this.ClusterUpgradeStatus;
@@ -141,19 +123,15 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
      * Set 集群升级状态，可能值：running、updating、failed
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterUpgradeStatus 集群升级状态，可能值：running、updating、failed
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterUpgradeStatus(String ClusterUpgradeStatus) {
         this.ClusterUpgradeStatus = ClusterUpgradeStatus;
     }
 
     /**
-     * Get 集群升级中状态或者失败原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群升级中状态或者失败原因 
      * @return ClusterUpgradeStatusReason 集群升级中状态或者失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterUpgradeStatusReason() {
         return this.ClusterUpgradeStatusReason;
@@ -161,25 +139,23 @@ public class DescribeEdgeClusterUpgradeInfoResponse extends AbstractModel{
 
     /**
      * Set 集群升级中状态或者失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterUpgradeStatusReason 集群升级中状态或者失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterUpgradeStatusReason(String ClusterUpgradeStatusReason) {
         this.ClusterUpgradeStatusReason = ClusterUpgradeStatusReason;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

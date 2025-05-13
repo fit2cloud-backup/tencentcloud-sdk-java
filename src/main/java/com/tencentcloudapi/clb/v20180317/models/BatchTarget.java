@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchTarget extends AbstractModel{
+public class BatchTarget extends AbstractModel {
 
     /**
     * 监听器 ID。
@@ -59,11 +60,18 @@ public class BatchTarget extends AbstractModel{
     private Long Weight;
 
     /**
-    * 七层规则 ID。
+    * 七层规则 ID。7层负载均衡该参数必填
     */
     @SerializedName("LocationId")
     @Expose
     private String LocationId;
+
+    /**
+    * 标签。
+    */
+    @SerializedName("Tag")
+    @Expose
+    private String Tag;
 
     /**
      * Get 监听器 ID。 
@@ -150,19 +158,35 @@ public class BatchTarget extends AbstractModel{
     }
 
     /**
-     * Get 七层规则 ID。 
-     * @return LocationId 七层规则 ID。
+     * Get 七层规则 ID。7层负载均衡该参数必填 
+     * @return LocationId 七层规则 ID。7层负载均衡该参数必填
      */
     public String getLocationId() {
         return this.LocationId;
     }
 
     /**
-     * Set 七层规则 ID。
-     * @param LocationId 七层规则 ID。
+     * Set 七层规则 ID。7层负载均衡该参数必填
+     * @param LocationId 七层规则 ID。7层负载均衡该参数必填
      */
     public void setLocationId(String LocationId) {
         this.LocationId = LocationId;
+    }
+
+    /**
+     * Get 标签。 
+     * @return Tag 标签。
+     */
+    public String getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 标签。
+     * @param Tag 标签。
+     */
+    public void setTag(String Tag) {
+        this.Tag = Tag;
     }
 
     public BatchTarget() {
@@ -191,6 +215,9 @@ public class BatchTarget extends AbstractModel{
         if (source.LocationId != null) {
             this.LocationId = new String(source.LocationId);
         }
+        if (source.Tag != null) {
+            this.Tag = new String(source.Tag);
+        }
     }
 
 
@@ -204,6 +231,7 @@ public class BatchTarget extends AbstractModel{
         this.setParamSimple(map, prefix + "EniIp", this.EniIp);
         this.setParamSimple(map, prefix + "Weight", this.Weight);
         this.setParamSimple(map, prefix + "LocationId", this.LocationId);
+        this.setParamSimple(map, prefix + "Tag", this.Tag);
 
     }
 }

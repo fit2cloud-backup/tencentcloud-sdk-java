@@ -16,15 +16,15 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Quota extends AbstractModel{
+public class Quota extends AbstractModel {
 
     /**
     * 服务开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -32,7 +32,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 服务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -40,7 +39,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 配额ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QuotaId")
     @Expose
@@ -48,7 +46,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CorpId")
     @Expose
@@ -56,7 +53,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 开通服务
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Services")
     @Expose
@@ -64,7 +60,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 商户配额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FactoryQuota")
     @Expose
@@ -72,7 +67,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 商品配额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ItemQuota")
     @Expose
@@ -80,7 +74,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 溯源码配额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TrackQuota")
     @Expose
@@ -88,7 +81,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 销售码配额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SaleQuota")
     @Expose
@@ -96,7 +88,6 @@ public class Quota extends AbstractModel{
 
     /**
     * 上链配额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChainQuota")
     @Expose
@@ -104,15 +95,27 @@ public class Quota extends AbstractModel{
 
     /**
     * 风控配额
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskQuota")
     @Expose
     private Long RiskQuota;
 
     /**
+    * AI文字数量
+    */
+    @SerializedName("AigcTextQuota")
+    @Expose
+    private Long AigcTextQuota;
+
+    /**
+    * AI图片数量
+    */
+    @SerializedName("AigcImageQuota")
+    @Expose
+    private Long AigcImageQuota;
+
+    /**
     * 溯源类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TrackType")
     @Expose
@@ -120,17 +123,21 @@ public class Quota extends AbstractModel{
 
     /**
     * 开通版本 lite:轻量版, basic:基础版, standard:标准版
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
     private String Version;
 
     /**
-     * Get 服务开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 是否开启企业认证
+    */
+    @SerializedName("ProductCertify")
+    @Expose
+    private Long ProductCertify;
+
+    /**
+     * Get 服务开始时间 
      * @return StartTime 服务开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -138,19 +145,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 服务开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 服务开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 服务结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务结束时间 
      * @return EndTime 服务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -158,19 +161,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 服务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 服务结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 配额ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 配额ID 
      * @return QuotaId 配额ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getQuotaId() {
         return this.QuotaId;
@@ -178,19 +177,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 配额ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param QuotaId 配额ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQuotaId(Long QuotaId) {
         this.QuotaId = QuotaId;
     }
 
     /**
-     * Get 企业ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 企业ID 
      * @return CorpId 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCorpId() {
         return this.CorpId;
@@ -198,19 +193,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CorpId 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCorpId(Long CorpId) {
         this.CorpId = CorpId;
     }
 
     /**
-     * Get 开通服务
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开通服务 
      * @return Services 开通服务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getServices() {
         return this.Services;
@@ -218,19 +209,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 开通服务
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Services 开通服务
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServices(String [] Services) {
         this.Services = Services;
     }
 
     /**
-     * Get 商户配额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商户配额 
      * @return FactoryQuota 商户配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFactoryQuota() {
         return this.FactoryQuota;
@@ -238,19 +225,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 商户配额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FactoryQuota 商户配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFactoryQuota(Long FactoryQuota) {
         this.FactoryQuota = FactoryQuota;
     }
 
     /**
-     * Get 商品配额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商品配额 
      * @return ItemQuota 商品配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getItemQuota() {
         return this.ItemQuota;
@@ -258,19 +241,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 商品配额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ItemQuota 商品配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItemQuota(Long ItemQuota) {
         this.ItemQuota = ItemQuota;
     }
 
     /**
-     * Get 溯源码配额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 溯源码配额 
      * @return TrackQuota 溯源码配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTrackQuota() {
         return this.TrackQuota;
@@ -278,19 +257,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 溯源码配额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TrackQuota 溯源码配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTrackQuota(Long TrackQuota) {
         this.TrackQuota = TrackQuota;
     }
 
     /**
-     * Get 销售码配额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 销售码配额 
      * @return SaleQuota 销售码配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSaleQuota() {
         return this.SaleQuota;
@@ -298,19 +273,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 销售码配额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SaleQuota 销售码配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSaleQuota(Long SaleQuota) {
         this.SaleQuota = SaleQuota;
     }
 
     /**
-     * Get 上链配额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上链配额 
      * @return ChainQuota 上链配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getChainQuota() {
         return this.ChainQuota;
@@ -318,19 +289,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 上链配额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChainQuota 上链配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChainQuota(Long ChainQuota) {
         this.ChainQuota = ChainQuota;
     }
 
     /**
-     * Get 风控配额
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 风控配额 
      * @return RiskQuota 风控配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRiskQuota() {
         return this.RiskQuota;
@@ -338,19 +305,47 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 风控配额
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskQuota 风控配额
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskQuota(Long RiskQuota) {
         this.RiskQuota = RiskQuota;
     }
 
     /**
-     * Get 溯源类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get AI文字数量 
+     * @return AigcTextQuota AI文字数量
+     */
+    public Long getAigcTextQuota() {
+        return this.AigcTextQuota;
+    }
+
+    /**
+     * Set AI文字数量
+     * @param AigcTextQuota AI文字数量
+     */
+    public void setAigcTextQuota(Long AigcTextQuota) {
+        this.AigcTextQuota = AigcTextQuota;
+    }
+
+    /**
+     * Get AI图片数量 
+     * @return AigcImageQuota AI图片数量
+     */
+    public Long getAigcImageQuota() {
+        return this.AigcImageQuota;
+    }
+
+    /**
+     * Set AI图片数量
+     * @param AigcImageQuota AI图片数量
+     */
+    public void setAigcImageQuota(Long AigcImageQuota) {
+        this.AigcImageQuota = AigcImageQuota;
+    }
+
+    /**
+     * Get 溯源类型 
      * @return TrackType 溯源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTrackType() {
         return this.TrackType;
@@ -358,19 +353,15 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 溯源类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TrackType 溯源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTrackType(Long TrackType) {
         this.TrackType = TrackType;
     }
 
     /**
-     * Get 开通版本 lite:轻量版, basic:基础版, standard:标准版
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开通版本 lite:轻量版, basic:基础版, standard:标准版 
      * @return Version 开通版本 lite:轻量版, basic:基础版, standard:标准版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersion() {
         return this.Version;
@@ -378,12 +369,26 @@ public class Quota extends AbstractModel{
 
     /**
      * Set 开通版本 lite:轻量版, basic:基础版, standard:标准版
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 开通版本 lite:轻量版, basic:基础版, standard:标准版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(String Version) {
         this.Version = Version;
+    }
+
+    /**
+     * Get 是否开启企业认证 
+     * @return ProductCertify 是否开启企业认证
+     */
+    public Long getProductCertify() {
+        return this.ProductCertify;
+    }
+
+    /**
+     * Set 是否开启企业认证
+     * @param ProductCertify 是否开启企业认证
+     */
+    public void setProductCertify(Long ProductCertify) {
+        this.ProductCertify = ProductCertify;
     }
 
     public Quota() {
@@ -430,11 +435,20 @@ public class Quota extends AbstractModel{
         if (source.RiskQuota != null) {
             this.RiskQuota = new Long(source.RiskQuota);
         }
+        if (source.AigcTextQuota != null) {
+            this.AigcTextQuota = new Long(source.AigcTextQuota);
+        }
+        if (source.AigcImageQuota != null) {
+            this.AigcImageQuota = new Long(source.AigcImageQuota);
+        }
         if (source.TrackType != null) {
             this.TrackType = new Long(source.TrackType);
         }
         if (source.Version != null) {
             this.Version = new String(source.Version);
+        }
+        if (source.ProductCertify != null) {
+            this.ProductCertify = new Long(source.ProductCertify);
         }
     }
 
@@ -454,8 +468,11 @@ public class Quota extends AbstractModel{
         this.setParamSimple(map, prefix + "SaleQuota", this.SaleQuota);
         this.setParamSimple(map, prefix + "ChainQuota", this.ChainQuota);
         this.setParamSimple(map, prefix + "RiskQuota", this.RiskQuota);
+        this.setParamSimple(map, prefix + "AigcTextQuota", this.AigcTextQuota);
+        this.setParamSimple(map, prefix + "AigcImageQuota", this.AigcImageQuota);
         this.setParamSimple(map, prefix + "TrackType", this.TrackType);
         this.setParamSimple(map, prefix + "Version", this.Version);
+        this.setParamSimple(map, prefix + "ProductCertify", this.ProductCertify);
 
     }
 }

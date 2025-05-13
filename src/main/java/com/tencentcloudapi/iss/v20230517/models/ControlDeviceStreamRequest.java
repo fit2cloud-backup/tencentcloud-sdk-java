@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ControlDeviceStreamRequest extends AbstractModel{
+public class ControlDeviceStreamRequest extends AbstractModel {
 
     /**
     * 通道 ID（从通道查询接口DescribeDeviceChannel中获取）
@@ -49,6 +50,13 @@ public class ControlDeviceStreamRequest extends AbstractModel{
     @SerializedName("Resolution")
     @Expose
     private String Resolution;
+
+    /**
+    * 是否内网
+    */
+    @SerializedName("IsInternal")
+    @Expose
+    private Boolean IsInternal;
 
     /**
      * Get 通道 ID（从通道查询接口DescribeDeviceChannel中获取） 
@@ -126,6 +134,22 @@ public class ControlDeviceStreamRequest extends AbstractModel{
         this.Resolution = Resolution;
     }
 
+    /**
+     * Get 是否内网 
+     * @return IsInternal 是否内网
+     */
+    public Boolean getIsInternal() {
+        return this.IsInternal;
+    }
+
+    /**
+     * Set 是否内网
+     * @param IsInternal 是否内网
+     */
+    public void setIsInternal(Boolean IsInternal) {
+        this.IsInternal = IsInternal;
+    }
+
     public ControlDeviceStreamRequest() {
     }
 
@@ -143,6 +167,9 @@ public class ControlDeviceStreamRequest extends AbstractModel{
         if (source.Resolution != null) {
             this.Resolution = new String(source.Resolution);
         }
+        if (source.IsInternal != null) {
+            this.IsInternal = new Boolean(source.IsInternal);
+        }
     }
 
 
@@ -153,6 +180,7 @@ public class ControlDeviceStreamRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ChannelId", this.ChannelId);
         this.setParamSimple(map, prefix + "StreamType", this.StreamType);
         this.setParamSimple(map, prefix + "Resolution", this.Resolution);
+        this.setParamSimple(map, prefix + "IsInternal", this.IsInternal);
 
     }
 }

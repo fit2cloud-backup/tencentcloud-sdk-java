@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchUserRequest extends AbstractModel{
+public class BatchUserRequest extends AbstractModel {
 
     /**
     * 低代码互动课堂的SdkAppId。
@@ -39,8 +40,8 @@ public class BatchUserRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 用户在客户系统的Id，需要在同一应用下唯一。
-
+    * 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId
+。
     */
     @SerializedName("OriginId")
     @Expose
@@ -95,20 +96,20 @@ public class BatchUserRequest extends AbstractModel{
     }
 
     /**
-     * Get 用户在客户系统的Id，需要在同一应用下唯一。
- 
-     * @return OriginId 用户在客户系统的Id，需要在同一应用下唯一。
-
+     * Get 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId
+。 
+     * @return OriginId 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId
+。
      */
     public String getOriginId() {
         return this.OriginId;
     }
 
     /**
-     * Set 用户在客户系统的Id，需要在同一应用下唯一。
-
-     * @param OriginId 用户在客户系统的Id，需要在同一应用下唯一。
-
+     * Set 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId
+。
+     * @param OriginId 用户在客户系统的Id，需要在同一应用下唯一。入参为空时默认赋值为UserId
+。
      */
     public void setOriginId(String OriginId) {
         this.OriginId = OriginId;

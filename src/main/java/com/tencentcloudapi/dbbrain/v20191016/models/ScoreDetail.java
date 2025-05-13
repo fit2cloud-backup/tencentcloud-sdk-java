@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20191016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScoreDetail extends AbstractModel{
+public class ScoreDetail extends AbstractModel {
 
     /**
     * 扣分项分类，取值包括：可用性、可维护性、性能及可靠性。
@@ -45,7 +46,6 @@ public class ScoreDetail extends AbstractModel{
 
     /**
     * 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Items")
     @Expose
@@ -100,10 +100,8 @@ public class ScoreDetail extends AbstractModel{
     }
 
     /**
-     * Get 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扣分项列表。 
      * @return Items 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ScoreItem [] getItems() {
         return this.Items;
@@ -111,9 +109,7 @@ public class ScoreDetail extends AbstractModel{
 
     /**
      * Set 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Items 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setItems(ScoreItem [] Items) {
         this.Items = Items;

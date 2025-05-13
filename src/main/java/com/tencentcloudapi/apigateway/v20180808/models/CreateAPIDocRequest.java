@@ -16,11 +16,12 @@
 package com.tencentcloudapi.apigateway.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAPIDocRequest extends AbstractModel{
+public class CreateAPIDocRequest extends AbstractModel {
 
     /**
     * API文档名称
@@ -49,6 +50,13 @@ public class CreateAPIDocRequest extends AbstractModel{
     @SerializedName("ApiIds")
     @Expose
     private String [] ApiIds;
+
+    /**
+    * 标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get API文档名称 
@@ -114,6 +122,22 @@ public class CreateAPIDocRequest extends AbstractModel{
         this.ApiIds = ApiIds;
     }
 
+    /**
+     * Get 标签 
+     * @return Tags 标签
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+     * @param Tags 标签
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateAPIDocRequest() {
     }
 
@@ -137,6 +161,12 @@ public class CreateAPIDocRequest extends AbstractModel{
                 this.ApiIds[i] = new String(source.ApiIds[i]);
             }
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -148,6 +178,7 @@ public class CreateAPIDocRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ServiceId", this.ServiceId);
         this.setParamSimple(map, prefix + "Environment", this.Environment);
         this.setParamArraySimple(map, prefix + "ApiIds.", this.ApiIds);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

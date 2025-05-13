@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TargetGroupAssociation extends AbstractModel{
+public class TargetGroupAssociation extends AbstractModel {
 
     /**
     * 负载均衡ID
@@ -37,7 +38,7 @@ public class TargetGroupAssociation extends AbstractModel{
     private String TargetGroupId;
 
     /**
-    * 监听器ID
+    * 监听器ID。访问AssociateTargetGroups和DisassociateTargetGroups接口时必传此参数。
     */
     @SerializedName("ListenerId")
     @Expose
@@ -49,6 +50,13 @@ public class TargetGroupAssociation extends AbstractModel{
     @SerializedName("LocationId")
     @Expose
     private String LocationId;
+
+    /**
+    * 目标组权重，范围[0, 100]。仅绑定v2目标组时生效，如果不存在，则默认为10。
+    */
+    @SerializedName("Weight")
+    @Expose
+    private Long Weight;
 
     /**
      * Get 负载均衡ID 
@@ -83,16 +91,16 @@ public class TargetGroupAssociation extends AbstractModel{
     }
 
     /**
-     * Get 监听器ID 
-     * @return ListenerId 监听器ID
+     * Get 监听器ID。访问AssociateTargetGroups和DisassociateTargetGroups接口时必传此参数。 
+     * @return ListenerId 监听器ID。访问AssociateTargetGroups和DisassociateTargetGroups接口时必传此参数。
      */
     public String getListenerId() {
         return this.ListenerId;
     }
 
     /**
-     * Set 监听器ID
-     * @param ListenerId 监听器ID
+     * Set 监听器ID。访问AssociateTargetGroups和DisassociateTargetGroups接口时必传此参数。
+     * @param ListenerId 监听器ID。访问AssociateTargetGroups和DisassociateTargetGroups接口时必传此参数。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
@@ -112,6 +120,22 @@ public class TargetGroupAssociation extends AbstractModel{
      */
     public void setLocationId(String LocationId) {
         this.LocationId = LocationId;
+    }
+
+    /**
+     * Get 目标组权重，范围[0, 100]。仅绑定v2目标组时生效，如果不存在，则默认为10。 
+     * @return Weight 目标组权重，范围[0, 100]。仅绑定v2目标组时生效，如果不存在，则默认为10。
+     */
+    public Long getWeight() {
+        return this.Weight;
+    }
+
+    /**
+     * Set 目标组权重，范围[0, 100]。仅绑定v2目标组时生效，如果不存在，则默认为10。
+     * @param Weight 目标组权重，范围[0, 100]。仅绑定v2目标组时生效，如果不存在，则默认为10。
+     */
+    public void setWeight(Long Weight) {
+        this.Weight = Weight;
     }
 
     public TargetGroupAssociation() {
@@ -134,6 +158,9 @@ public class TargetGroupAssociation extends AbstractModel{
         if (source.LocationId != null) {
             this.LocationId = new String(source.LocationId);
         }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class TargetGroupAssociation extends AbstractModel{
         this.setParamSimple(map, prefix + "TargetGroupId", this.TargetGroupId);
         this.setParamSimple(map, prefix + "ListenerId", this.ListenerId);
         this.setParamSimple(map, prefix + "LocationId", this.LocationId);
+        this.setParamSimple(map, prefix + "Weight", this.Weight);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CachePrefresh extends AbstractModel{
+public class CachePrefresh extends AbstractModel {
 
     /**
     * 缓存预刷新配置开关，取值有：
@@ -33,7 +34,6 @@ public class CachePrefresh extends AbstractModel{
 
     /**
     * 缓存预刷新百分比，取值范围：1-99。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Percent")
     @Expose
@@ -64,10 +64,8 @@ public class CachePrefresh extends AbstractModel{
     }
 
     /**
-     * Get 缓存预刷新百分比，取值范围：1-99。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 缓存预刷新百分比，取值范围：1-99。 
      * @return Percent 缓存预刷新百分比，取值范围：1-99。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPercent() {
         return this.Percent;
@@ -75,9 +73,7 @@ public class CachePrefresh extends AbstractModel{
 
     /**
      * Set 缓存预刷新百分比，取值范围：1-99。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Percent 缓存预刷新百分比，取值范围：1-99。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPercent(Long Percent) {
         this.Percent = Percent;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PersonInfo extends AbstractModel{
+public class PersonInfo extends AbstractModel {
 
     /**
     * 公众人物姓名
@@ -57,6 +58,14 @@ public class PersonInfo extends AbstractModel{
     @SerializedName("AppearRect")
     @Expose
     private Rectf AppearRect;
+
+    /**
+    * 人物的personId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PersonId")
+    @Expose
+    private String PersonId;
 
     /**
      * Get 公众人物姓名 
@@ -142,6 +151,26 @@ public class PersonInfo extends AbstractModel{
         this.AppearRect = AppearRect;
     }
 
+    /**
+     * Get 人物的personId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PersonId 人物的personId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getPersonId() {
+        return this.PersonId;
+    }
+
+    /**
+     * Set 人物的personId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PersonId 人物的personId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPersonId(String PersonId) {
+        this.PersonId = PersonId;
+    }
+
     public PersonInfo() {
     }
 
@@ -165,6 +194,9 @@ public class PersonInfo extends AbstractModel{
         if (source.AppearRect != null) {
             this.AppearRect = new Rectf(source.AppearRect);
         }
+        if (source.PersonId != null) {
+            this.PersonId = new String(source.PersonId);
+        }
     }
 
 
@@ -177,6 +209,7 @@ public class PersonInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "FirstAppear", this.FirstAppear);
         this.setParamObj(map, prefix + "AppearInfo.", this.AppearInfo);
         this.setParamObj(map, prefix + "AppearRect.", this.AppearRect);
+        this.setParamSimple(map, prefix + "PersonId", this.PersonId);
 
     }
 }

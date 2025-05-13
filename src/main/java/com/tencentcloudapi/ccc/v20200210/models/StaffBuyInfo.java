@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StaffBuyInfo extends AbstractModel{
+public class StaffBuyInfo extends AbstractModel {
 
     /**
-    * 购买坐席数量
+    * 购买座席数量
     */
     @SerializedName("Num")
     @Expose
@@ -45,23 +46,22 @@ public class StaffBuyInfo extends AbstractModel{
 
     /**
     * 购买办公电话数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SipNum")
     @Expose
     private Long SipNum;
 
     /**
-     * Get 购买坐席数量 
-     * @return Num 购买坐席数量
+     * Get 购买座席数量 
+     * @return Num 购买座席数量
      */
     public Long getNum() {
         return this.Num;
     }
 
     /**
-     * Set 购买坐席数量
-     * @param Num 购买坐席数量
+     * Set 购买座席数量
+     * @param Num 购买座席数量
      */
     public void setNum(Long Num) {
         this.Num = Num;
@@ -100,10 +100,8 @@ public class StaffBuyInfo extends AbstractModel{
     }
 
     /**
-     * Get 购买办公电话数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买办公电话数量 
      * @return SipNum 购买办公电话数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSipNum() {
         return this.SipNum;
@@ -111,9 +109,7 @@ public class StaffBuyInfo extends AbstractModel{
 
     /**
      * Set 购买办公电话数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SipNum 购买办公电话数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSipNum(Long SipNum) {
         this.SipNum = SipNum;

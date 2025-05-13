@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTimingL4DataRequest extends AbstractModel{
+public class DescribeTimingL4DataRequest extends AbstractModel {
 
     /**
     * 开始时间。
@@ -38,20 +39,19 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 
     /**
     * 查询指标，取值有：
-<li>l4Flow_connections: 访问连接数；</li>
+<li>l4Flow_connections: 访问并发连接数；</li>
 <li>l4Flow_flux: 访问总流量；</li>
 <li>l4Flow_inFlux: 访问入流量；</li>
 <li>l4Flow_outFlux: 访问出流量；</li>
-<li> l4Flow_outPkt: 访问出包量。</li>
+<li>l4Flow_inBandwidth: 访问入向带宽峰值；</li>
+<li>l4Flow_outBandwidth: 访问出向带宽峰值。</li>
     */
     @SerializedName("MetricNames")
     @Expose
     private String [] MetricNames;
 
     /**
-    * 站点集合。
-若不填写，默认选择全部站点，且最多只能查询近30天的数据；
-若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
+    * 站点 ID 集合，此参数必填。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -77,18 +77,15 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 
     /**
     * 过滤条件，详细的过滤条件Key值如下：
-<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
-<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
+<li>ruleId：按照转发规则 ID 进行过滤。</li>
+<li>proxyId：按照四层代理实例 ID 进行过滤。</li>
     */
     @SerializedName("Filters")
     @Expose
     private QueryCondition [] Filters;
 
     /**
-    * 数据归属地区，取值有：
-<li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据；</li>
-<li>global：全球数据。</li>不填默认取值为global。
+    * 数据归属地区。该参数已废弃。请在 Filters.country 中按客户端地域过滤数据。
     */
     @SerializedName("Area")
     @Expose
@@ -128,17 +125,19 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 
     /**
      * Get 查询指标，取值有：
-<li>l4Flow_connections: 访问连接数；</li>
+<li>l4Flow_connections: 访问并发连接数；</li>
 <li>l4Flow_flux: 访问总流量；</li>
 <li>l4Flow_inFlux: 访问入流量；</li>
 <li>l4Flow_outFlux: 访问出流量；</li>
-<li> l4Flow_outPkt: 访问出包量。</li> 
+<li>l4Flow_inBandwidth: 访问入向带宽峰值；</li>
+<li>l4Flow_outBandwidth: 访问出向带宽峰值。</li> 
      * @return MetricNames 查询指标，取值有：
-<li>l4Flow_connections: 访问连接数；</li>
+<li>l4Flow_connections: 访问并发连接数；</li>
 <li>l4Flow_flux: 访问总流量；</li>
 <li>l4Flow_inFlux: 访问入流量；</li>
 <li>l4Flow_outFlux: 访问出流量；</li>
-<li> l4Flow_outPkt: 访问出包量。</li>
+<li>l4Flow_inBandwidth: 访问入向带宽峰值；</li>
+<li>l4Flow_outBandwidth: 访问出向带宽峰值。</li>
      */
     public String [] getMetricNames() {
         return this.MetricNames;
@@ -146,41 +145,35 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 
     /**
      * Set 查询指标，取值有：
-<li>l4Flow_connections: 访问连接数；</li>
+<li>l4Flow_connections: 访问并发连接数；</li>
 <li>l4Flow_flux: 访问总流量；</li>
 <li>l4Flow_inFlux: 访问入流量；</li>
 <li>l4Flow_outFlux: 访问出流量；</li>
-<li> l4Flow_outPkt: 访问出包量。</li>
+<li>l4Flow_inBandwidth: 访问入向带宽峰值；</li>
+<li>l4Flow_outBandwidth: 访问出向带宽峰值。</li>
      * @param MetricNames 查询指标，取值有：
-<li>l4Flow_connections: 访问连接数；</li>
+<li>l4Flow_connections: 访问并发连接数；</li>
 <li>l4Flow_flux: 访问总流量；</li>
 <li>l4Flow_inFlux: 访问入流量；</li>
 <li>l4Flow_outFlux: 访问出流量；</li>
-<li> l4Flow_outPkt: 访问出包量。</li>
+<li>l4Flow_inBandwidth: 访问入向带宽峰值；</li>
+<li>l4Flow_outBandwidth: 访问出向带宽峰值。</li>
      */
     public void setMetricNames(String [] MetricNames) {
         this.MetricNames = MetricNames;
     }
 
     /**
-     * Get 站点集合。
-若不填写，默认选择全部站点，且最多只能查询近30天的数据；
-若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。 
-     * @return ZoneIds 站点集合。
-若不填写，默认选择全部站点，且最多只能查询近30天的数据；
-若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
+     * Get 站点 ID 集合，此参数必填。 
+     * @return ZoneIds 站点 ID 集合，此参数必填。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 站点集合。
-若不填写，默认选择全部站点，且最多只能查询近30天的数据；
-若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
-     * @param ZoneIds 站点集合。
-若不填写，默认选择全部站点，且最多只能查询近30天的数据；
-若填写，则可查询站点绑定套餐支持的<a href="https://cloud.tencent.com/document/product/1552/77380#edgeone-.E5.A5.97.E9.A4.90">数据分析最大查询范围</a>。
+     * Set 站点 ID 集合，此参数必填。
+     * @param ZoneIds 站点 ID 集合，此参数必填。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;
@@ -236,11 +229,11 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 
     /**
      * Get 过滤条件，详细的过滤条件Key值如下：
-<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
-<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li> 
+<li>ruleId：按照转发规则 ID 进行过滤。</li>
+<li>proxyId：按照四层代理实例 ID 进行过滤。</li> 
      * @return Filters 过滤条件，详细的过滤条件Key值如下：
-<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
-<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
+<li>ruleId：按照转发规则 ID 进行过滤。</li>
+<li>proxyId：按照四层代理实例 ID 进行过滤。</li>
      */
     public QueryCondition [] getFilters() {
         return this.Filters;
@@ -248,39 +241,27 @@ public class DescribeTimingL4DataRequest extends AbstractModel{
 
     /**
      * Set 过滤条件，详细的过滤条件Key值如下：
-<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
-<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
+<li>ruleId：按照转发规则 ID 进行过滤。</li>
+<li>proxyId：按照四层代理实例 ID 进行过滤。</li>
      * @param Filters 过滤条件，详细的过滤条件Key值如下：
-<li>ruleId<br>   按照【<strong>转发规则ID</strong>】进行过滤。</li>
-<li>proxyId<br>   按照【<strong>四层代理实例ID</strong>】进行过滤。</li>
+<li>ruleId：按照转发规则 ID 进行过滤。</li>
+<li>proxyId：按照四层代理实例 ID 进行过滤。</li>
      */
     public void setFilters(QueryCondition [] Filters) {
         this.Filters = Filters;
     }
 
     /**
-     * Get 数据归属地区，取值有：
-<li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据；</li>
-<li>global：全球数据。</li>不填默认取值为global。 
-     * @return Area 数据归属地区，取值有：
-<li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据；</li>
-<li>global：全球数据。</li>不填默认取值为global。
+     * Get 数据归属地区。该参数已废弃。请在 Filters.country 中按客户端地域过滤数据。 
+     * @return Area 数据归属地区。该参数已废弃。请在 Filters.country 中按客户端地域过滤数据。
      */
     public String getArea() {
         return this.Area;
     }
 
     /**
-     * Set 数据归属地区，取值有：
-<li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据；</li>
-<li>global：全球数据。</li>不填默认取值为global。
-     * @param Area 数据归属地区，取值有：
-<li>overseas：全球（除中国大陆地区）数据；</li>
-<li>mainland：中国大陆地区数据；</li>
-<li>global：全球数据。</li>不填默认取值为global。
+     * Set 数据归属地区。该参数已废弃。请在 Filters.country 中按客户端地域过滤数据。
+     * @param Area 数据归属地区。该参数已废弃。请在 Filters.country 中按客户端地域过滤数据。
      */
     public void setArea(String Area) {
         this.Area = Area;

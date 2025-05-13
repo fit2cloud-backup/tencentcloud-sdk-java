@@ -16,14 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCustomRulesRspRuleListItem extends AbstractModel{
+public class DescribeCustomRulesRspRuleListItem extends AbstractModel {
 
     /**
-    * 动作类型
+    * 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
     */
     @SerializedName("ActionType")
     @Expose
@@ -94,23 +95,92 @@ public class DescribeCustomRulesRspRuleListItem extends AbstractModel{
 
     /**
     * 事件id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventId")
     @Expose
     private String EventId;
 
     /**
-     * Get 动作类型 
-     * @return ActionType 动作类型
+    * 修改时间
+    */
+    @SerializedName("ModifyTime")
+    @Expose
+    private String ModifyTime;
+
+    /**
+    * 生效状态
+    */
+    @SerializedName("ValidStatus")
+    @Expose
+    private Long ValidStatus;
+
+    /**
+    * 来源
+    */
+    @SerializedName("Source")
+    @Expose
+    private String Source;
+
+    /**
+    * 定时任务类型
+    */
+    @SerializedName("JobType")
+    @Expose
+    private String JobType;
+
+    /**
+    * 定时任务配置信息
+    */
+    @SerializedName("JobDateTime")
+    @Expose
+    private JobDateTime JobDateTime;
+
+    /**
+    * 周期任务粒度
+    */
+    @SerializedName("CronType")
+    @Expose
+    private String CronType;
+
+    /**
+    * 自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+    */
+    @SerializedName("Label")
+    @Expose
+    private String Label;
+
+    /**
+    * 拦截页面id
+    */
+    @SerializedName("PageId")
+    @Expose
+    private String PageId;
+
+    /**
+    * 域名
+    */
+    @SerializedName("Domain")
+    @Expose
+    private String Domain;
+
+    /**
+    * 匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+    */
+    @SerializedName("LogicalOp")
+    @Expose
+    private String LogicalOp;
+
+    /**
+     * Get 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验 
+     * @return ActionType 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
      */
     public String getActionType() {
         return this.ActionType;
     }
 
     /**
-     * Set 动作类型
-     * @param ActionType 动作类型
+     * Set 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
+     * @param ActionType 动作类型，1代表阻断，2代表人机识别，3代表观察，4代表重定向，5代表JS校验
      */
     public void setActionType(String ActionType) {
         this.ActionType = ActionType;
@@ -261,10 +331,8 @@ public class DescribeCustomRulesRspRuleListItem extends AbstractModel{
     }
 
     /**
-     * Get 事件id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件id 
      * @return EventId 事件id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEventId() {
         return this.EventId;
@@ -272,12 +340,170 @@ public class DescribeCustomRulesRspRuleListItem extends AbstractModel{
 
     /**
      * Set 事件id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventId 事件id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventId(String EventId) {
         this.EventId = EventId;
+    }
+
+    /**
+     * Get 修改时间 
+     * @return ModifyTime 修改时间
+     */
+    public String getModifyTime() {
+        return this.ModifyTime;
+    }
+
+    /**
+     * Set 修改时间
+     * @param ModifyTime 修改时间
+     */
+    public void setModifyTime(String ModifyTime) {
+        this.ModifyTime = ModifyTime;
+    }
+
+    /**
+     * Get 生效状态 
+     * @return ValidStatus 生效状态
+     */
+    public Long getValidStatus() {
+        return this.ValidStatus;
+    }
+
+    /**
+     * Set 生效状态
+     * @param ValidStatus 生效状态
+     */
+    public void setValidStatus(Long ValidStatus) {
+        this.ValidStatus = ValidStatus;
+    }
+
+    /**
+     * Get 来源 
+     * @return Source 来源
+     */
+    public String getSource() {
+        return this.Source;
+    }
+
+    /**
+     * Set 来源
+     * @param Source 来源
+     */
+    public void setSource(String Source) {
+        this.Source = Source;
+    }
+
+    /**
+     * Get 定时任务类型 
+     * @return JobType 定时任务类型
+     */
+    public String getJobType() {
+        return this.JobType;
+    }
+
+    /**
+     * Set 定时任务类型
+     * @param JobType 定时任务类型
+     */
+    public void setJobType(String JobType) {
+        this.JobType = JobType;
+    }
+
+    /**
+     * Get 定时任务配置信息 
+     * @return JobDateTime 定时任务配置信息
+     */
+    public JobDateTime getJobDateTime() {
+        return this.JobDateTime;
+    }
+
+    /**
+     * Set 定时任务配置信息
+     * @param JobDateTime 定时任务配置信息
+     */
+    public void setJobDateTime(JobDateTime JobDateTime) {
+        this.JobDateTime = JobDateTime;
+    }
+
+    /**
+     * Get 周期任务粒度 
+     * @return CronType 周期任务粒度
+     */
+    public String getCronType() {
+        return this.CronType;
+    }
+
+    /**
+     * Set 周期任务粒度
+     * @param CronType 周期任务粒度
+     */
+    public void setCronType(String CronType) {
+        this.CronType = CronType;
+    }
+
+    /**
+     * Get 自定义标签，风控规则用，用来表示是内置规则还是用户自定义的 
+     * @return Label 自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+     */
+    public String getLabel() {
+        return this.Label;
+    }
+
+    /**
+     * Set 自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+     * @param Label 自定义标签，风控规则用，用来表示是内置规则还是用户自定义的
+     */
+    public void setLabel(String Label) {
+        this.Label = Label;
+    }
+
+    /**
+     * Get 拦截页面id 
+     * @return PageId 拦截页面id
+     */
+    public String getPageId() {
+        return this.PageId;
+    }
+
+    /**
+     * Set 拦截页面id
+     * @param PageId 拦截页面id
+     */
+    public void setPageId(String PageId) {
+        this.PageId = PageId;
+    }
+
+    /**
+     * Get 域名 
+     * @return Domain 域名
+     */
+    public String getDomain() {
+        return this.Domain;
+    }
+
+    /**
+     * Set 域名
+     * @param Domain 域名
+     */
+    public void setDomain(String Domain) {
+        this.Domain = Domain;
+    }
+
+    /**
+     * Get 匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系 
+     * @return LogicalOp 匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+     */
+    public String getLogicalOp() {
+        return this.LogicalOp;
+    }
+
+    /**
+     * Set 匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+     * @param LogicalOp 匹配条件的逻辑关系，支持and、or，分别表示多个逻辑匹配条件是与、或的关系
+     */
+    public void setLogicalOp(String LogicalOp) {
+        this.LogicalOp = LogicalOp;
     }
 
     public DescribeCustomRulesRspRuleListItem() {
@@ -324,6 +550,36 @@ public class DescribeCustomRulesRspRuleListItem extends AbstractModel{
         if (source.EventId != null) {
             this.EventId = new String(source.EventId);
         }
+        if (source.ModifyTime != null) {
+            this.ModifyTime = new String(source.ModifyTime);
+        }
+        if (source.ValidStatus != null) {
+            this.ValidStatus = new Long(source.ValidStatus);
+        }
+        if (source.Source != null) {
+            this.Source = new String(source.Source);
+        }
+        if (source.JobType != null) {
+            this.JobType = new String(source.JobType);
+        }
+        if (source.JobDateTime != null) {
+            this.JobDateTime = new JobDateTime(source.JobDateTime);
+        }
+        if (source.CronType != null) {
+            this.CronType = new String(source.CronType);
+        }
+        if (source.Label != null) {
+            this.Label = new String(source.Label);
+        }
+        if (source.PageId != null) {
+            this.PageId = new String(source.PageId);
+        }
+        if (source.Domain != null) {
+            this.Domain = new String(source.Domain);
+        }
+        if (source.LogicalOp != null) {
+            this.LogicalOp = new String(source.LogicalOp);
+        }
     }
 
 
@@ -342,6 +598,16 @@ public class DescribeCustomRulesRspRuleListItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamArrayObj(map, prefix + "Strategies.", this.Strategies);
         this.setParamSimple(map, prefix + "EventId", this.EventId);
+        this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
+        this.setParamSimple(map, prefix + "ValidStatus", this.ValidStatus);
+        this.setParamSimple(map, prefix + "Source", this.Source);
+        this.setParamSimple(map, prefix + "JobType", this.JobType);
+        this.setParamObj(map, prefix + "JobDateTime.", this.JobDateTime);
+        this.setParamSimple(map, prefix + "CronType", this.CronType);
+        this.setParamSimple(map, prefix + "Label", this.Label);
+        this.setParamSimple(map, prefix + "PageId", this.PageId);
+        this.setParamSimple(map, prefix + "Domain", this.Domain);
+        this.setParamSimple(map, prefix + "LogicalOp", this.LogicalOp);
 
     }
 }

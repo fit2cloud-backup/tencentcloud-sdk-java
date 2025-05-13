@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSparkAppRequest extends AbstractModel{
+public class CreateSparkAppRequest extends AbstractModel {
 
     /**
     * spark作业名
@@ -51,7 +52,7 @@ public class CreateSparkAppRequest extends AbstractModel{
     private String AppFile;
 
     /**
-    * 数据访问策略，CAM Role arn
+    * 数据访问策略，CAM Role arn，控制台通过数据作业—>作业配置获取，SDK通过DescribeUserRoles接口获取对应的值；
     */
     @SerializedName("RoleArn")
     @Expose
@@ -290,16 +291,16 @@ public class CreateSparkAppRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据访问策略，CAM Role arn 
-     * @return RoleArn 数据访问策略，CAM Role arn
+     * Get 数据访问策略，CAM Role arn，控制台通过数据作业—>作业配置获取，SDK通过DescribeUserRoles接口获取对应的值； 
+     * @return RoleArn 数据访问策略，CAM Role arn，控制台通过数据作业—>作业配置获取，SDK通过DescribeUserRoles接口获取对应的值；
      */
     public Long getRoleArn() {
         return this.RoleArn;
     }
 
     /**
-     * Set 数据访问策略，CAM Role arn
-     * @param RoleArn 数据访问策略，CAM Role arn
+     * Set 数据访问策略，CAM Role arn，控制台通过数据作业—>作业配置获取，SDK通过DescribeUserRoles接口获取对应的值；
+     * @param RoleArn 数据访问策略，CAM Role arn，控制台通过数据作业—>作业配置获取，SDK通过DescribeUserRoles接口获取对应的值；
      */
     public void setRoleArn(Long RoleArn) {
         this.RoleArn = RoleArn;

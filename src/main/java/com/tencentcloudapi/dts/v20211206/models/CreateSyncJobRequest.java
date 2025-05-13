@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSyncJobRequest extends AbstractModel{
+public class CreateSyncJobRequest extends AbstractModel {
 
     /**
     * 付款类型, 如：PrePay(表示包年包月)、PostPay(表示按时按量)
@@ -30,7 +31,7 @@ public class CreateSyncJobRequest extends AbstractModel{
     private String PayMode;
 
     /**
-    * 源端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql等
+    * 源端数据库类型,如mysql,mariadb,percona,postgresql,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,tdstore(表示TDSQL TDStore版)等。
     */
     @SerializedName("SrcDatabaseType")
     @Expose
@@ -44,7 +45,7 @@ public class CreateSyncJobRequest extends AbstractModel{
     private String SrcRegion;
 
     /**
-    * 目标端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql,kafka等
+    * 目标端数据库类型,如mysql,mariadb,percona,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,kafka,tdstore(表示TDSQL TDStore版)等。
     */
     @SerializedName("DstDatabaseType")
     @Expose
@@ -63,6 +64,13 @@ public class CreateSyncJobRequest extends AbstractModel{
     @SerializedName("Specification")
     @Expose
     private String Specification;
+
+    /**
+    * 购买时长（单位：月），当PayMode值为PrePay则此项配置有意义，默认为1月，取值范围为[1,100]
+    */
+    @SerializedName("TimeSpan")
+    @Expose
+    private Long TimeSpan;
 
     /**
     * 标签信息
@@ -123,16 +131,16 @@ public class CreateSyncJobRequest extends AbstractModel{
     }
 
     /**
-     * Get 源端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql等 
-     * @return SrcDatabaseType 源端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql等
+     * Get 源端数据库类型,如mysql,mariadb,percona,postgresql,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,tdstore(表示TDSQL TDStore版)等。 
+     * @return SrcDatabaseType 源端数据库类型,如mysql,mariadb,percona,postgresql,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,tdstore(表示TDSQL TDStore版)等。
      */
     public String getSrcDatabaseType() {
         return this.SrcDatabaseType;
     }
 
     /**
-     * Set 源端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql等
-     * @param SrcDatabaseType 源端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql等
+     * Set 源端数据库类型,如mysql,mariadb,percona,postgresql,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,tdstore(表示TDSQL TDStore版)等。
+     * @param SrcDatabaseType 源端数据库类型,如mysql,mariadb,percona,postgresql,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,tdstore(表示TDSQL TDStore版)等。
      */
     public void setSrcDatabaseType(String SrcDatabaseType) {
         this.SrcDatabaseType = SrcDatabaseType;
@@ -155,16 +163,16 @@ public class CreateSyncJobRequest extends AbstractModel{
     }
 
     /**
-     * Get 目标端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql,kafka等 
-     * @return DstDatabaseType 目标端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql,kafka等
+     * Get 目标端数据库类型,如mysql,mariadb,percona,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,kafka,tdstore(表示TDSQL TDStore版)等。 
+     * @return DstDatabaseType 目标端数据库类型,如mysql,mariadb,percona,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,kafka,tdstore(表示TDSQL TDStore版)等。
      */
     public String getDstDatabaseType() {
         return this.DstDatabaseType;
     }
 
     /**
-     * Set 目标端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql,kafka等
-     * @param DstDatabaseType 目标端数据库类型,如mysql,cynosdbmysql,tdapg,tdpg,tdsqlmysql,kafka等
+     * Set 目标端数据库类型,如mysql,mariadb,percona,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,kafka,tdstore(表示TDSQL TDStore版)等。
+     * @param DstDatabaseType 目标端数据库类型,如mysql,mariadb,percona,cynosdbmysql(表示TDSQL-C MySQL),tdpg(TDSQL PostgreSQL版),tdsqlmysql,kafka,tdstore(表示TDSQL TDStore版)等。
      */
     public void setDstDatabaseType(String DstDatabaseType) {
         this.DstDatabaseType = DstDatabaseType;
@@ -200,6 +208,22 @@ public class CreateSyncJobRequest extends AbstractModel{
      */
     public void setSpecification(String Specification) {
         this.Specification = Specification;
+    }
+
+    /**
+     * Get 购买时长（单位：月），当PayMode值为PrePay则此项配置有意义，默认为1月，取值范围为[1,100] 
+     * @return TimeSpan 购买时长（单位：月），当PayMode值为PrePay则此项配置有意义，默认为1月，取值范围为[1,100]
+     */
+    public Long getTimeSpan() {
+        return this.TimeSpan;
+    }
+
+    /**
+     * Set 购买时长（单位：月），当PayMode值为PrePay则此项配置有意义，默认为1月，取值范围为[1,100]
+     * @param TimeSpan 购买时长（单位：月），当PayMode值为PrePay则此项配置有意义，默认为1月，取值范围为[1,100]
+     */
+    public void setTimeSpan(Long TimeSpan) {
+        this.TimeSpan = TimeSpan;
     }
 
     /**
@@ -324,6 +348,9 @@ public class CreateSyncJobRequest extends AbstractModel{
         if (source.Specification != null) {
             this.Specification = new String(source.Specification);
         }
+        if (source.TimeSpan != null) {
+            this.TimeSpan = new Long(source.TimeSpan);
+        }
         if (source.Tags != null) {
             this.Tags = new TagItem[source.Tags.length];
             for (int i = 0; i < source.Tags.length; i++) {
@@ -358,6 +385,7 @@ public class CreateSyncJobRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DstDatabaseType", this.DstDatabaseType);
         this.setParamSimple(map, prefix + "DstRegion", this.DstRegion);
         this.setParamSimple(map, prefix + "Specification", this.Specification);
+        this.setParamSimple(map, prefix + "TimeSpan", this.TimeSpan);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "Count", this.Count);
         this.setParamSimple(map, prefix + "AutoRenew", this.AutoRenew);

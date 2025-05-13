@@ -16,25 +16,23 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CVEWhitelistItem extends AbstractModel{
+public class CVEWhitelistItem extends AbstractModel {
 
     /**
     * 漏洞白名单 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CVEID")
     @Expose
     private String CVEID;
 
     /**
-     * Get 漏洞白名单 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞白名单 ID 
      * @return CVEID 漏洞白名单 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCVEID() {
         return this.CVEID;
@@ -42,9 +40,7 @@ public class CVEWhitelistItem extends AbstractModel{
 
     /**
      * Set 漏洞白名单 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CVEID 漏洞白名单 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCVEID(String CVEID) {
         this.CVEID = CVEID;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeImmutableTagRulesRequest extends AbstractModel{
+public class DescribeImmutableTagRulesRequest extends AbstractModel {
 
     /**
     * 实例 Id
@@ -28,6 +29,20 @@ public class DescribeImmutableTagRulesRequest extends AbstractModel{
     @SerializedName("RegistryId")
     @Expose
     private String RegistryId;
+
+    /**
+    * 页数，默认为1
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+    * 每页展示个数，最大值为100
+    */
+    @SerializedName("PageSize")
+    @Expose
+    private Long PageSize;
 
     /**
      * Get 实例 Id 
@@ -45,6 +60,38 @@ public class DescribeImmutableTagRulesRequest extends AbstractModel{
         this.RegistryId = RegistryId;
     }
 
+    /**
+     * Get 页数，默认为1 
+     * @return Page 页数，默认为1
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 页数，默认为1
+     * @param Page 页数，默认为1
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
+    }
+
+    /**
+     * Get 每页展示个数，最大值为100 
+     * @return PageSize 每页展示个数，最大值为100
+     */
+    public Long getPageSize() {
+        return this.PageSize;
+    }
+
+    /**
+     * Set 每页展示个数，最大值为100
+     * @param PageSize 每页展示个数，最大值为100
+     */
+    public void setPageSize(Long PageSize) {
+        this.PageSize = PageSize;
+    }
+
     public DescribeImmutableTagRulesRequest() {
     }
 
@@ -56,6 +103,12 @@ public class DescribeImmutableTagRulesRequest extends AbstractModel{
         if (source.RegistryId != null) {
             this.RegistryId = new String(source.RegistryId);
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
+        if (source.PageSize != null) {
+            this.PageSize = new Long(source.PageSize);
+        }
     }
 
 
@@ -64,6 +117,8 @@ public class DescribeImmutableTagRulesRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "RegistryId", this.RegistryId);
+        this.setParamSimple(map, prefix + "Page", this.Page);
+        this.setParamSimple(map, prefix + "PageSize", this.PageSize);
 
     }
 }

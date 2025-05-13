@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DetailDomain extends AbstractModel{
+public class DetailDomain extends AbstractModel {
 
     /**
     * 域名 ID
@@ -567,6 +568,14 @@ off：不支持
     @SerializedName("OthersPrivateAccess")
     @Expose
     private OthersPrivateAccess OthersPrivateAccess;
+
+    /**
+    * 参数黑名单
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ParamFilter")
+    @Expose
+    private ParamFilter ParamFilter;
 
     /**
      * Get 域名 ID 
@@ -1960,6 +1969,26 @@ off：不支持
         this.OthersPrivateAccess = OthersPrivateAccess;
     }
 
+    /**
+     * Get 参数黑名单
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ParamFilter 参数黑名单
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ParamFilter getParamFilter() {
+        return this.ParamFilter;
+    }
+
+    /**
+     * Set 参数黑名单
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ParamFilter 参数黑名单
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setParamFilter(ParamFilter ParamFilter) {
+        this.ParamFilter = ParamFilter;
+    }
+
     public DetailDomain() {
     }
 
@@ -2175,6 +2204,9 @@ off：不支持
         if (source.OthersPrivateAccess != null) {
             this.OthersPrivateAccess = new OthersPrivateAccess(source.OthersPrivateAccess);
         }
+        if (source.ParamFilter != null) {
+            this.ParamFilter = new ParamFilter(source.ParamFilter);
+        }
     }
 
 
@@ -2248,6 +2280,7 @@ off：不支持
         this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
         this.setParamObj(map, prefix + "HttpsBilling.", this.HttpsBilling);
         this.setParamObj(map, prefix + "OthersPrivateAccess.", this.OthersPrivateAccess);
+        this.setParamObj(map, prefix + "ParamFilter.", this.ParamFilter);
 
     }
 }

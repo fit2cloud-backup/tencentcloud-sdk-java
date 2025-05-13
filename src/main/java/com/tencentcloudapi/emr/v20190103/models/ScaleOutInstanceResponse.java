@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScaleOutInstanceResponse extends AbstractModel{
+public class ScaleOutInstanceResponse extends AbstractModel {
 
     /**
     * 实例ID。
@@ -39,7 +40,6 @@ public class ScaleOutInstanceResponse extends AbstractModel{
 
     /**
     * 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientToken")
     @Expose
@@ -47,7 +47,6 @@ public class ScaleOutInstanceResponse extends AbstractModel{
 
     /**
     * 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowId")
     @Expose
@@ -55,14 +54,20 @@ public class ScaleOutInstanceResponse extends AbstractModel{
 
     /**
     * 大订单号。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BillId")
     @Expose
     private String BillId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 扩容TraceId
+    */
+    @SerializedName("TraceId")
+    @Expose
+    private String TraceId;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -105,10 +110,8 @@ public class ScaleOutInstanceResponse extends AbstractModel{
     }
 
     /**
-     * Get 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端Token。 
      * @return ClientToken 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClientToken() {
         return this.ClientToken;
@@ -116,19 +119,15 @@ public class ScaleOutInstanceResponse extends AbstractModel{
 
     /**
      * Set 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientToken 客户端Token。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
     }
 
     /**
-     * Get 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扩容流程ID。 
      * @return FlowId 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFlowId() {
         return this.FlowId;
@@ -136,19 +135,15 @@ public class ScaleOutInstanceResponse extends AbstractModel{
 
     /**
      * Set 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowId 扩容流程ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowId(Long FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 大订单号。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 大订单号。 
      * @return BillId 大订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBillId() {
         return this.BillId;
@@ -156,25 +151,39 @@ public class ScaleOutInstanceResponse extends AbstractModel{
 
     /**
      * Set 大订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BillId 大订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBillId(String BillId) {
         this.BillId = BillId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 扩容TraceId 
+     * @return TraceId 扩容TraceId
+     */
+    public String getTraceId() {
+        return this.TraceId;
+    }
+
+    /**
+     * Set 扩容TraceId
+     * @param TraceId 扩容TraceId
+     */
+    public void setTraceId(String TraceId) {
+        this.TraceId = TraceId;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -206,6 +215,9 @@ public class ScaleOutInstanceResponse extends AbstractModel{
         if (source.BillId != null) {
             this.BillId = new String(source.BillId);
         }
+        if (source.TraceId != null) {
+            this.TraceId = new String(source.TraceId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -221,6 +233,7 @@ public class ScaleOutInstanceResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
         this.setParamSimple(map, prefix + "FlowId", this.FlowId);
         this.setParamSimple(map, prefix + "BillId", this.BillId);
+        this.setParamSimple(map, prefix + "TraceId", this.TraceId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

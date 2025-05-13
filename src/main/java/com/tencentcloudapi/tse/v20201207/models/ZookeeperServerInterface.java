@@ -16,25 +16,23 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZookeeperServerInterface extends AbstractModel{
+public class ZookeeperServerInterface extends AbstractModel {
 
     /**
     * 接口名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Interface")
     @Expose
     private String Interface;
 
     /**
-     * Get 接口名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接口名 
      * @return Interface 接口名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInterface() {
         return this.Interface;
@@ -42,9 +40,7 @@ public class ZookeeperServerInterface extends AbstractModel{
 
     /**
      * Set 接口名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Interface 接口名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInterface(String Interface) {
         this.Interface = Interface;

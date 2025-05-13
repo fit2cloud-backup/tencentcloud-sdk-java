@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AsrFullTextConfigureInfo extends AbstractModel{
+public class AsrFullTextConfigureInfo extends AbstractModel {
 
     /**
     * 语音全文识别任务开关，可选值：
@@ -34,7 +35,7 @@ public class AsrFullTextConfigureInfo extends AbstractModel{
     /**
     * 生成的字幕文件格式列表，不填或者填空数组表示不生成字幕文件，可选值：
 <li>vtt：生成 WebVTT 字幕文件；</li>
-<li>srt：生成 SRT 字幕文件。</li>
+<li>srt：生成 SRT 字幕文件。</li><font color=red>注意：</font>云点播媒资信息仅支持添加 vtt 字幕，因此当且仅当 SubtitleFormats 包含 vtt 时，云点播将生成的字幕添加到媒资。
     */
     @SerializedName("SubtitleFormats")
     @Expose
@@ -63,6 +64,14 @@ public class AsrFullTextConfigureInfo extends AbstractModel{
     private String SrcLanguage;
 
     /**
+    * 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示，若不填则云点播自动生成。
+<font color=red>注意：</font>仅当 SubtitleFormats 包含 vtt 时，该字段有效。
+    */
+    @SerializedName("SubtitleName")
+    @Expose
+    private String SubtitleName;
+
+    /**
      * Get 语音全文识别任务开关，可选值：
 <li>ON：开启智能语音全文识别任务；</li>
 <li>OFF：关闭智能语音全文识别任务。</li> 
@@ -89,10 +98,10 @@ public class AsrFullTextConfigureInfo extends AbstractModel{
     /**
      * Get 生成的字幕文件格式列表，不填或者填空数组表示不生成字幕文件，可选值：
 <li>vtt：生成 WebVTT 字幕文件；</li>
-<li>srt：生成 SRT 字幕文件。</li> 
+<li>srt：生成 SRT 字幕文件。</li><font color=red>注意：</font>云点播媒资信息仅支持添加 vtt 字幕，因此当且仅当 SubtitleFormats 包含 vtt 时，云点播将生成的字幕添加到媒资。 
      * @return SubtitleFormats 生成的字幕文件格式列表，不填或者填空数组表示不生成字幕文件，可选值：
 <li>vtt：生成 WebVTT 字幕文件；</li>
-<li>srt：生成 SRT 字幕文件。</li>
+<li>srt：生成 SRT 字幕文件。</li><font color=red>注意：</font>云点播媒资信息仅支持添加 vtt 字幕，因此当且仅当 SubtitleFormats 包含 vtt 时，云点播将生成的字幕添加到媒资。
      */
     public String [] getSubtitleFormats() {
         return this.SubtitleFormats;
@@ -101,10 +110,10 @@ public class AsrFullTextConfigureInfo extends AbstractModel{
     /**
      * Set 生成的字幕文件格式列表，不填或者填空数组表示不生成字幕文件，可选值：
 <li>vtt：生成 WebVTT 字幕文件；</li>
-<li>srt：生成 SRT 字幕文件。</li>
+<li>srt：生成 SRT 字幕文件。</li><font color=red>注意：</font>云点播媒资信息仅支持添加 vtt 字幕，因此当且仅当 SubtitleFormats 包含 vtt 时，云点播将生成的字幕添加到媒资。
      * @param SubtitleFormats 生成的字幕文件格式列表，不填或者填空数组表示不生成字幕文件，可选值：
 <li>vtt：生成 WebVTT 字幕文件；</li>
-<li>srt：生成 SRT 字幕文件。</li>
+<li>srt：生成 SRT 字幕文件。</li><font color=red>注意：</font>云点播媒资信息仅支持添加 vtt 字幕，因此当且仅当 SubtitleFormats 包含 vtt 时，云点播将生成的字幕添加到媒资。
      */
     public void setSubtitleFormats(String [] SubtitleFormats) {
         this.SubtitleFormats = SubtitleFormats;
@@ -174,6 +183,26 @@ public class AsrFullTextConfigureInfo extends AbstractModel{
         this.SrcLanguage = SrcLanguage;
     }
 
+    /**
+     * Get 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示，若不填则云点播自动生成。
+<font color=red>注意：</font>仅当 SubtitleFormats 包含 vtt 时，该字段有效。 
+     * @return SubtitleName 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示，若不填则云点播自动生成。
+<font color=red>注意：</font>仅当 SubtitleFormats 包含 vtt 时，该字段有效。
+     */
+    public String getSubtitleName() {
+        return this.SubtitleName;
+    }
+
+    /**
+     * Set 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示，若不填则云点播自动生成。
+<font color=red>注意：</font>仅当 SubtitleFormats 包含 vtt 时，该字段有效。
+     * @param SubtitleName 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示，若不填则云点播自动生成。
+<font color=red>注意：</font>仅当 SubtitleFormats 包含 vtt 时，该字段有效。
+     */
+    public void setSubtitleName(String SubtitleName) {
+        this.SubtitleName = SubtitleName;
+    }
+
     public AsrFullTextConfigureInfo() {
     }
 
@@ -197,6 +226,9 @@ public class AsrFullTextConfigureInfo extends AbstractModel{
         if (source.SrcLanguage != null) {
             this.SrcLanguage = new String(source.SrcLanguage);
         }
+        if (source.SubtitleName != null) {
+            this.SubtitleName = new String(source.SubtitleName);
+        }
     }
 
 
@@ -208,6 +240,7 @@ public class AsrFullTextConfigureInfo extends AbstractModel{
         this.setParamArraySimple(map, prefix + "SubtitleFormats.", this.SubtitleFormats);
         this.setParamSimple(map, prefix + "SubtitleFormat", this.SubtitleFormat);
         this.setParamSimple(map, prefix + "SrcLanguage", this.SrcLanguage);
+        this.setParamSimple(map, prefix + "SubtitleName", this.SubtitleName);
 
     }
 }

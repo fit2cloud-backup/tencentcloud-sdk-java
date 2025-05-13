@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstancesRequest extends AbstractModel{
+public class DescribeInstancesRequest extends AbstractModel {
 
     /**
     * 偏移量
@@ -42,6 +43,13 @@ public class DescribeInstancesRequest extends AbstractModel{
     @SerializedName("Filters")
     @Expose
     private FiltersItemNew [] Filters;
+
+    /**
+    * 释放延期标识
+    */
+    @SerializedName("FreeDelayFlag")
+    @Expose
+    private Long FreeDelayFlag;
 
     /**
      * Get 偏移量 
@@ -91,6 +99,22 @@ public class DescribeInstancesRequest extends AbstractModel{
         this.Filters = Filters;
     }
 
+    /**
+     * Get 释放延期标识 
+     * @return FreeDelayFlag 释放延期标识
+     */
+    public Long getFreeDelayFlag() {
+        return this.FreeDelayFlag;
+    }
+
+    /**
+     * Set 释放延期标识
+     * @param FreeDelayFlag 释放延期标识
+     */
+    public void setFreeDelayFlag(Long FreeDelayFlag) {
+        this.FreeDelayFlag = FreeDelayFlag;
+    }
+
     public DescribeInstancesRequest() {
     }
 
@@ -111,6 +135,9 @@ public class DescribeInstancesRequest extends AbstractModel{
                 this.Filters[i] = new FiltersItemNew(source.Filters[i]);
             }
         }
+        if (source.FreeDelayFlag != null) {
+            this.FreeDelayFlag = new Long(source.FreeDelayFlag);
+        }
     }
 
 
@@ -121,6 +148,7 @@ public class DescribeInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "FreeDelayFlag", this.FreeDelayFlag);
 
     }
 }

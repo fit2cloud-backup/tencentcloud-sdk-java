@@ -16,11 +16,12 @@
 package com.tencentcloudapi.keewidb.v20220308.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BinlogInfo extends AbstractModel{
+public class BinlogInfo extends AbstractModel {
 
     /**
     * 备份开始时间。
@@ -52,7 +53,6 @@ public class BinlogInfo extends AbstractModel{
 
     /**
     * 备份文件大小，单位：Byte。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FileSize")
     @Expose
@@ -123,10 +123,8 @@ public class BinlogInfo extends AbstractModel{
     }
 
     /**
-     * Get 备份文件大小，单位：Byte。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份文件大小，单位：Byte。 
      * @return FileSize 备份文件大小，单位：Byte。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFileSize() {
         return this.FileSize;
@@ -134,9 +132,7 @@ public class BinlogInfo extends AbstractModel{
 
     /**
      * Set 备份文件大小，单位：Byte。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FileSize 备份文件大小，单位：Byte。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFileSize(Long FileSize) {
         this.FileSize = FileSize;

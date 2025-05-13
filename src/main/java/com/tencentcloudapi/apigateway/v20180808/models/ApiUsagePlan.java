@@ -16,11 +16,12 @@
 package com.tencentcloudapi.apigateway.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApiUsagePlan extends AbstractModel{
+public class ApiUsagePlan extends AbstractModel {
 
     /**
     * 服务唯一ID。
@@ -141,6 +142,14 @@ public class ApiUsagePlan extends AbstractModel{
     @SerializedName("ServiceName")
     @Expose
     private String ServiceName;
+
+    /**
+    * 标签
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 服务唯一ID。
@@ -442,6 +451,26 @@ public class ApiUsagePlan extends AbstractModel{
         this.ServiceName = ServiceName;
     }
 
+    /**
+     * Get 标签
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public ApiUsagePlan() {
     }
 
@@ -495,6 +524,12 @@ public class ApiUsagePlan extends AbstractModel{
         if (source.ServiceName != null) {
             this.ServiceName = new String(source.ServiceName);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -517,6 +552,7 @@ public class ApiUsagePlan extends AbstractModel{
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
         this.setParamSimple(map, prefix + "ModifiedTime", this.ModifiedTime);
         this.setParamSimple(map, prefix + "ServiceName", this.ServiceName);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

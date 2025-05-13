@@ -16,11 +16,35 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDestRegionsRequest extends AbstractModel{
+public class DescribeDestRegionsRequest extends AbstractModel {
+
+    /**
+    * 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+    */
+    @SerializedName("QualityType")
+    @Expose
+    private Long QualityType;
+
+    /**
+     * Get 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域 
+     * @return QualityType 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+     */
+    public Long getQualityType() {
+        return this.QualityType;
+    }
+
+    /**
+     * Set 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+     * @param QualityType 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+     */
+    public void setQualityType(Long QualityType) {
+        this.QualityType = QualityType;
+    }
 
     public DescribeDestRegionsRequest() {
     }
@@ -30,6 +54,9 @@ public class DescribeDestRegionsRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeDestRegionsRequest(DescribeDestRegionsRequest source) {
+        if (source.QualityType != null) {
+            this.QualityType = new Long(source.QualityType);
+        }
     }
 
 
@@ -37,6 +64,7 @@ public class DescribeDestRegionsRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "QualityType", this.QualityType);
 
     }
 }

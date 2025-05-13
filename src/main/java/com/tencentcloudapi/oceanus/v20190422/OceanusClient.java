@@ -45,18 +45,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CheckSavepointResponse CheckSavepoint(CheckSavepointRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CheckSavepointResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CheckSavepointResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CheckSavepoint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CheckSavepoint", CheckSavepointResponse.class);
     }
 
     /**
@@ -66,18 +56,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CopyJobsResponse CopyJobs(CopyJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CopyJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CopyJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CopyJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CopyJobs", CopyJobsResponse.class);
     }
 
     /**
@@ -87,18 +67,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateFolderResponse CreateFolder(CreateFolderRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateFolderResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateFolderResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateFolder");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateFolder", CreateFolderResponse.class);
     }
 
     /**
@@ -108,18 +78,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateJobResponse CreateJob(CreateJobRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateJobResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateJobResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateJob");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateJob", CreateJobResponse.class);
     }
 
     /**
@@ -129,18 +89,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateJobConfigResponse CreateJobConfig(CreateJobConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateJobConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateJobConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateJobConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateJobConfig", CreateJobConfigResponse.class);
     }
 
     /**
@@ -150,18 +100,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateResourceResponse CreateResource(CreateResourceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateResourceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateResourceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateResource");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateResource", CreateResourceResponse.class);
     }
 
     /**
@@ -171,18 +111,41 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateResourceConfigResponse CreateResourceConfig(CreateResourceConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateResourceConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateResourceConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateResourceConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateResourceConfig", CreateResourceConfigResponse.class);
+    }
+
+    /**
+     *创建工作空间
+     * @param req CreateWorkSpaceRequest
+     * @return CreateWorkSpaceResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateWorkSpaceResponse CreateWorkSpace(CreateWorkSpaceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateWorkSpace", CreateWorkSpaceResponse.class);
+    }
+
+    /**
+     *作业列表删除文件夹
+     * @param req DeleteFoldersRequest
+     * @return DeleteFoldersResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteFoldersResponse DeleteFolders(DeleteFoldersRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteFolders", DeleteFoldersResponse.class);
+    }
+
+    /**
+     *删除作业配置
+     * @param req DeleteJobConfigsRequest
+     * @return DeleteJobConfigsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteJobConfigsResponse DeleteJobConfigs(DeleteJobConfigsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteJobConfigs", DeleteJobConfigsResponse.class);
     }
 
     /**
@@ -192,18 +155,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteJobsResponse DeleteJobs(DeleteJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteJobs", DeleteJobsResponse.class);
     }
 
     /**
@@ -213,18 +166,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteResourceConfigsResponse DeleteResourceConfigs(DeleteResourceConfigsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteResourceConfigsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteResourceConfigsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteResourceConfigs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteResourceConfigs", DeleteResourceConfigsResponse.class);
     }
 
     /**
@@ -234,18 +177,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteResourcesResponse DeleteResources(DeleteResourcesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteResourcesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteResourcesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteResources");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteResources", DeleteResourcesResponse.class);
     }
 
     /**
@@ -255,18 +188,19 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteTableConfigResponse DeleteTableConfig(DeleteTableConfigRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteTableConfigResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteTableConfigResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteTableConfig");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteTableConfig", DeleteTableConfigResponse.class);
+    }
+
+    /**
+     *删除工作空间
+     * @param req DeleteWorkSpaceRequest
+     * @return DeleteWorkSpaceResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteWorkSpaceResponse DeleteWorkSpace(DeleteWorkSpaceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteWorkSpace", DeleteWorkSpaceResponse.class);
     }
 
     /**
@@ -276,18 +210,19 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeClustersResponse DescribeClusters(DescribeClustersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeClustersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeClustersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeClusters");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeClusters", DescribeClustersResponse.class);
+    }
+
+    /**
+     *查询指定文件夹及其相应的子文件夹信息
+     * @param req DescribeFolderRequest
+     * @return DescribeFolderResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFolderResponse DescribeFolder(DescribeFolderRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeFolder", DescribeFolderResponse.class);
     }
 
     /**
@@ -297,18 +232,30 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeJobConfigsResponse DescribeJobConfigs(DescribeJobConfigsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeJobConfigsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeJobConfigsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeJobConfigs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeJobConfigs", DescribeJobConfigsResponse.class);
+    }
+
+    /**
+     *获取指定作业的事件，包括作业启动停止、运行失败、快照失败、作业异常等各种事件类型
+     * @param req DescribeJobEventsRequest
+     * @return DescribeJobEventsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeJobEventsResponse DescribeJobEvents(DescribeJobEventsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeJobEvents", DescribeJobEventsResponse.class);
+    }
+
+    /**
+     *获取作业运行时的信息
+     * @param req DescribeJobRuntimeInfoRequest
+     * @return DescribeJobRuntimeInfoResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeJobRuntimeInfoResponse DescribeJobRuntimeInfo(DescribeJobRuntimeInfoRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeJobRuntimeInfo", DescribeJobRuntimeInfoResponse.class);
     }
 
     /**
@@ -318,18 +265,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeJobSavepointResponse DescribeJobSavepoint(DescribeJobSavepointRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeJobSavepointResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeJobSavepointResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeJobSavepoint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeJobSavepoint", DescribeJobSavepointResponse.class);
     }
 
     /**
@@ -339,18 +276,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeJobSubmissionLogResponse DescribeJobSubmissionLog(DescribeJobSubmissionLogRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeJobSubmissionLogResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeJobSubmissionLogResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeJobSubmissionLog");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeJobSubmissionLog", DescribeJobSubmissionLogResponse.class);
     }
 
     /**
@@ -360,18 +287,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeJobsResponse DescribeJobs(DescribeJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeJobs", DescribeJobsResponse.class);
     }
 
     /**
@@ -381,18 +298,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeResourceConfigsResponse DescribeResourceConfigs(DescribeResourceConfigsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeResourceConfigsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeResourceConfigsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeResourceConfigs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeResourceConfigs", DescribeResourceConfigsResponse.class);
     }
 
     /**
@@ -402,18 +309,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeResourceRelatedJobsResponse DescribeResourceRelatedJobs(DescribeResourceRelatedJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeResourceRelatedJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeResourceRelatedJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeResourceRelatedJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeResourceRelatedJobs", DescribeResourceRelatedJobsResponse.class);
     }
 
     /**
@@ -423,18 +320,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeResourcesResponse DescribeResources(DescribeResourcesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeResourcesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeResourcesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeResources");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeResources", DescribeResourcesResponse.class);
     }
 
     /**
@@ -444,18 +331,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSystemResourcesResponse DescribeSystemResources(DescribeSystemResourcesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSystemResourcesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSystemResourcesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSystemResources");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSystemResources", DescribeSystemResourcesResponse.class);
     }
 
     /**
@@ -465,18 +342,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTreeJobsResponse DescribeTreeJobs(DescribeTreeJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTreeJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTreeJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTreeJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTreeJobs", DescribeTreeJobsResponse.class);
     }
 
     /**
@@ -486,18 +353,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTreeResourcesResponse DescribeTreeResources(DescribeTreeResourcesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTreeResourcesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTreeResourcesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTreeResources");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTreeResources", DescribeTreeResourcesResponse.class);
     }
 
     /**
@@ -507,18 +364,41 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeWorkSpacesResponse DescribeWorkSpaces(DescribeWorkSpacesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeWorkSpacesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeWorkSpacesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeWorkSpaces");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeWorkSpaces", DescribeWorkSpacesResponse.class);
+    }
+
+    /**
+     *查询Sql Gateway的Statement执行结果
+     * @param req FetchSqlGatewayStatementResultRequest
+     * @return FetchSqlGatewayStatementResultResponse
+     * @throws TencentCloudSDKException
+     */
+    public FetchSqlGatewayStatementResultResponse FetchSqlGatewayStatementResult(FetchSqlGatewayStatementResultRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "FetchSqlGatewayStatementResult", FetchSqlGatewayStatementResultResponse.class);
+    }
+
+    /**
+     *查询元数据表
+     * @param req GetMetaTableRequest
+     * @return GetMetaTableResponse
+     * @throws TencentCloudSDKException
+     */
+    public GetMetaTableResponse GetMetaTable(GetMetaTableRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "GetMetaTable", GetMetaTableResponse.class);
+    }
+
+    /**
+     *自定义树状结构页面拖拽文件夹
+     * @param req ModifyFolderRequest
+     * @return ModifyFolderResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyFolderResponse ModifyFolder(ModifyFolderRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyFolder", ModifyFolderResponse.class);
     }
 
     /**
@@ -531,25 +411,24 @@ public class OceanusClient extends AbstractClient{
 如果MaxParallelism变大，则要求入参RestartAllowed必须为True
 假设作业运行状态，则先停止作业，再启动作业，中间状态丢失
 假设作业暂停状态，则将作业更改为停止状态，中间状态丢失
-
-
      * @param req ModifyJobRequest
      * @return ModifyJobResponse
      * @throws TencentCloudSDKException
      */
     public ModifyJobResponse ModifyJob(ModifyJobRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyJobResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyJobResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyJob");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyJob", ModifyJobResponse.class);
+    }
+
+    /**
+     *修改工作空间
+     * @param req ModifyWorkSpaceRequest
+     * @return ModifyWorkSpaceResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyWorkSpaceResponse ModifyWorkSpace(ModifyWorkSpaceRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyWorkSpace", ModifyWorkSpaceResponse.class);
     }
 
     /**
@@ -559,18 +438,19 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public RunJobsResponse RunJobs(RunJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RunJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RunJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RunJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RunJobs", RunJobsResponse.class);
+    }
+
+    /**
+     *通过Sql gateway执行satement
+     * @param req RunSqlGatewayStatementRequest
+     * @return RunSqlGatewayStatementResponse
+     * @throws TencentCloudSDKException
+     */
+    public RunSqlGatewayStatementResponse RunSqlGatewayStatement(RunSqlGatewayStatementRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "RunSqlGatewayStatement", RunSqlGatewayStatementResponse.class);
     }
 
     /**
@@ -580,18 +460,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public StopJobsResponse StopJobs(StopJobsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopJobsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopJobsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopJobs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopJobs", StopJobsResponse.class);
     }
 
     /**
@@ -601,18 +471,8 @@ public class OceanusClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public TriggerJobSavepointResponse TriggerJobSavepoint(TriggerJobSavepointRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TriggerJobSavepointResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TriggerJobSavepointResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TriggerJobSavepoint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TriggerJobSavepoint", TriggerJobSavepointResponse.class);
     }
 
 }

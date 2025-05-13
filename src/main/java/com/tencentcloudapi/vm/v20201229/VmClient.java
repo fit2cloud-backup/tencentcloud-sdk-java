@@ -47,30 +47,20 @@ public class VmClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CancelTaskResponse CancelTask(CancelTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CancelTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CancelTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CancelTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CancelTask", CancelTaskResponse.class);
     }
 
     /**
-     *本接口（Video Moderation System，VM）用于提交视频文件或视频流进行智能审核任务。使用前请您使用腾讯云主账号登录控制台[开通视频内容安全服务](https://console.cloud.tencent.com/cms/video/package)并调整好对应的业务配置。<br>
+     *本接口（Video Moderation System，VM）用于提交视频文件或视频流进行智能审核任务。使用前请您使用腾讯云主账号登录控制台[开通视频内容安全服务](https://console.cloud.tencent.com/cms)并调整好对应的业务配置。<br>
 ### 功能使用说明：
 
-- 前往“[内容安全控制台-视频内容安全](https://console.cloud.tencent.com/cms/video/package)”开启使用视频内容安全服务，首次开通服务的用户可免费领用试用套餐包，包含600分钟的处理量（换算1s每帧截图，赠送**36000张图**、**600分钟的音频**处理量），有效期为1个月。
+- 前往“[内容安全控制台-视频内容安全](https://console.cloud.tencent.com/cms)”开启使用视频内容安全服务，首次开通服务的用户可免费领用试用套餐包，包含200分钟的处理量（换算1s每帧截图，赠送**12000张图**、**200分钟的音频**处理量），有效期为15天。
 
 - 该接口为收费接口，计费方式敬请参见[腾讯云视频内容安全定价](https://cloud.tencent.com/product/vm/pricing)。
 
 - 默认接口请求频率限制：**20次/秒**，对于异步审核任务（点播视频），超出频率限制的请求会自动排入待审核队列，对于同步审核任务（直播视频），超出频率限制将会报错。
-- 默认并发审核路数限制：10路，异步审核任务（点播视频）数量超过并发审核路数时，将会进入排队；同步审核任务（直播视频）超过并发审核路数，接口会返回错误。
+- 默认并发审核路数限制：点播默认10路，异步审核任务（点播视频）数量超过并发审核路数时，将会进入排队；直播默认100路，同步审核任务（直播视频）超过并发审核路数，接口会返回错误。
 
 
 ### 接口功能说明：
@@ -86,8 +76,8 @@ public class VmClient extends AbstractClient{
 
 ### 视频文件调用说明：
 
-- 视频文件大小支持：**文件 < 3GB**
-- 视频文件分辨率支持：**最佳分辨率为1920x1080 (1080p)**，如果视频文件小于300MB，则分辨率可以大于1080p，更大视频可以调用[云转码服务](https://cloud.tencent.com/product/mps/details)转码后再送审；
+- 视频文件大小支持：**4K视频文件 < 10GB**；**低于4K视频文件 < 5GB**
+- 视频文件分辨率支持：**最佳分辨率为1920x1080 (1080p)**，如果视频文件小于300MB，则分辨率可以大于1080p，分辨率最大支持4K，更大视频可以调用[云转码服务](https://cloud.tencent.com/product/mps/details)转码后再送审；
 - 视频文件支持格式：flv、mkv 、mp4 、rmvb 、avi 、wmv、3gp、ts、mov、rm、mpeg、wmf等。
 - 视频文件支持的访问方式：链接地址（支持HTTP/HTTPS）、腾讯云COS存储；
 - 若传入视频文件的访问链接，则需要注意视频**头文件的读取时间限制为3秒**，为保障被检测视频的稳定性和可靠性，建议您使用腾讯云COS存储或者CDN缓存等；
@@ -95,7 +85,7 @@ public class VmClient extends AbstractClient{
 
 ### 视频流调用说明：
 
-- 视频流时长支持：**5小时以内**
+- 视频流时长支持：**8小时以内**
 - 视频流分辨率支持：支持**1920x1080 (1080p)**，更高分辨率视频可以调用[直播云转码服务](https://cloud.tencent.com/document/product/267/39889)转码后再送审；
 - 视频流支持格式：rmtp，flv 等主流视频流编码格式。
 - 视频文件支持的传输协议：HTTP/HTTPS/RTMP；
@@ -105,41 +95,19 @@ public class VmClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVideoModerationTaskResponse CreateVideoModerationTask(CreateVideoModerationTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVideoModerationTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVideoModerationTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVideoModerationTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVideoModerationTask", CreateVideoModerationTaskResponse.class);
     }
 
     /**
-     *通过查看任务详情 DescribeTaskDetail 接口，可主动轮询获取检测结果详情。<br>
-
-默认接口请求频率限制：**200次/秒**。
+     *通过查看任务详情 DescribeTaskDetail 接口，可主动轮询获取检测结果详情。
      * @param req DescribeTaskDetailRequest
      * @return DescribeTaskDetailResponse
      * @throws TencentCloudSDKException
      */
     public DescribeTaskDetailResponse DescribeTaskDetail(DescribeTaskDetailRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTaskDetailResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTaskDetailResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTaskDetail");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTaskDetail", DescribeTaskDetailResponse.class);
     }
 
     /**
@@ -151,18 +119,8 @@ public class VmClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTasksResponse DescribeTasks(DescribeTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTasks", DescribeTasksResponse.class);
     }
 
 }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.trro.v20220325.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyPolicyResponse extends AbstractModel{
+public class ModifyPolicyResponse extends AbstractModel {
 
     /**
     * 添加关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedInsertIds")
     @Expose
@@ -32,24 +32,21 @@ public class ModifyPolicyResponse extends AbstractModel{
 
     /**
     * 解除关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedDeleteIds")
     @Expose
     private String [] FailedDeleteIds;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 添加关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 添加关联失败的现场设备ID列表 
      * @return FailedInsertIds 添加关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFailedInsertIds() {
         return this.FailedInsertIds;
@@ -57,19 +54,15 @@ public class ModifyPolicyResponse extends AbstractModel{
 
     /**
      * Set 添加关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedInsertIds 添加关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedInsertIds(String [] FailedInsertIds) {
         this.FailedInsertIds = FailedInsertIds;
     }
 
     /**
-     * Get 解除关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 解除关联失败的现场设备ID列表 
      * @return FailedDeleteIds 解除关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFailedDeleteIds() {
         return this.FailedDeleteIds;
@@ -77,25 +70,23 @@ public class ModifyPolicyResponse extends AbstractModel{
 
     /**
      * Set 解除关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedDeleteIds 解除关联失败的现场设备ID列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedDeleteIds(String [] FailedDeleteIds) {
         this.FailedDeleteIds = FailedDeleteIds;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

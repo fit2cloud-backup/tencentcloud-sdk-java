@@ -12,23 +12,42 @@
 
 从 3.1.500 版本开始，本项目使用 [KonaJDK](https://github.com/Tencent/TencentKona-8) 编译发布。
 
-通过 Maven 获取安装是使用 JAVA SDK 的推荐方法，Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。关于 Maven 详细可参考 Maven 官网。
-1. 请访问[Maven官网](https://maven.apache.org/)下载对应系统Maven安装包进行安装；
-2. 为您的项目添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可。注意这里的版本号只是举例，您可以在[Maven仓库](https://search.maven.org/search?q=tencentcloud-sdk-java)上找到最新的版本(最新版本是3.1.708)。请知悉，SDK 是先确认 `mvn deploy` 发布成功后再更新 GitHub tag，但是 Maven 官网索引更新有延迟，导致新发布的版本暂时（约1-2小时）在 Maven 官网搜索不到，实际不影响使用最新版本，您可以正常执行 `mvn compile` 等指令。
-3. maven仓库中显示的4.0.11是废弃版本，我们已经联系maven官方删除jar包，但maven索引无法清除，请勿使用;
-4. 引用方法可参考示例。
-```xml
+通过 Maven 获取安装是使用 JAVA SDK 的推荐方法，Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
+
+关于 Maven 详细可参考 [Maven](https://maven.apache.org/) 官网，并下载对应系统Maven安装包进行安装。
+
+### 安装指定产品 SDK（推荐）
+例如：安装指定产品包
+```bash
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-sdk-java-指定产品包名</artifactId>
+    <!-- 如 CVM 产品包：tencentcloud-sdk-java-cvm -->
+    <!-- 请到 maven 官网查询 sdk 的所有版本，例如 cvm 的产品包链接为 https://central.sonatype.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java-cvm/versions -->
+    <version>3.1.1000</version>
+</dependency>
+```
+具体产品的包名缩写请参考 [products.md](./products.md) 中的包名字段。
+
+### 安装全产品 SDK
+```bash
 <dependency>
     <groupId>com.tencentcloudapi</groupId>
     <artifactId>tencentcloud-sdk-java</artifactId>
-    <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
-    <!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
-    <version>3.1.833</version>
+    <!-- go to https://central.sonatype.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java/versions and get the latest version. -->
+    <!-- 请到 https://central.sonatype.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java/versions 查询所有版本，最新版本如下 -->
+    <version>3.1.1000</version>
 </dependency>
 ```
-5. 如上引用方式会将腾讯云所有产品sdk下载到本地，可以将artifactId换成tencentcloud-sdk-java-cvm/cbs/vpc等，即可引用特定产品的sdk，代码中使用方式和大包相同，可参考示例。最新版本也可在[Maven仓库](https://search.maven.org/search?q=tencentcloud-sdk-java)查询，可大大节省存储空间。
-6. 中国大陆地区的用户可以使用镜像源加速下载，编辑 maven 的 settings.xml 配置文件，在 mirrors 段落增加镜像配置：
-```
+全产品 SDK 包含了所有云产品的调用代码，体积偏大，对体积敏感的场景，推荐安装指定产品 SDK。
+
+### 注意事项
+- 安装全产品 SDK 和安装指定产品的 SDK 两种方式只能选择其中一种。
+- 如果同时安装多个产品的包，建议多个产品的包和 common 包保持在同一个版本。
+- 项目中添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可。注意这里的版本号只是举例，您可以在[Maven仓库](https://central.sonatype.com/search?q=tencentcloud-sdk-java&smo=true)上找到最新的版本(最新版本是3.1.1000)。请知悉，SDK 是先确认 `mvn deploy` 发布成功后再更新 GitHub tag，但是 Maven 官网索引更新有延迟，导致新发布的版本暂时（约1-2小时）在 Maven 官网搜索不到，实际不影响使用最新版本，您可以正常执行 `mvn compile` 等指令。
+- maven仓库中显示的4.0.11是废弃版本，我们已经联系maven官方删除jar包，但maven索引无法清除，请勿使用;
+- 无法使用官方源的用户可以使用镜像源加速下载，编辑 maven 的 settings.xml 配置文件，在 mirrors 段落增加镜像配置：
+```bash
     <mirror>
       <id>tencent</id>
       <name>tencent maven mirror</name>
@@ -114,7 +133,7 @@ public class DescribeInstances {
 
             // 实例化一个client选项，可选的，没有特殊需求可以跳过
             ClientProfile clientProfile = new ClientProfile();
-            clientProfile.setSignMethod("HmacSHA256"); // 指定签名算法(默认为HmacSHA256)
+            clientProfile.setSignMethod(ClientProfile.SIGN_TC3_256); // 指定签名算法(默认为TC3-HMAC-SHA256)
             // 自3.1.80版本开始，SDK 支持打印日志。
             clientProfile.setHttpProfile(httpProfile);
             clientProfile.setDebug(true);
@@ -127,7 +146,7 @@ public class DescribeInstances {
             DescribeInstancesRequest req = new DescribeInstancesRequest();
 
             // 填充请求参数,这里request对象的成员变量即对应接口的入参
-            // 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
+            // 您可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
             Filter respFilter = new Filter(); // 创建Filter对象, 以zone的维度来查询cvm实例
             respFilter.setName("zone");
             respFilter.setValues(new String[] { "ap-shanghai-1", "ap-shanghai-2" });
@@ -141,7 +160,7 @@ public class DescribeInstances {
             System.out.println(DescribeInstancesResponse.toJsonString(resp));
 
             // 也可以取出单个值。
-            // 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
+            // 您可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
             System.out.println(resp.getTotalCount());
         } catch (TencentCloudSDKException e) {
             System.out.println(e.toString());
@@ -196,7 +215,7 @@ httpProfile.setEndpoint("cvm.ap-shanghai.tencentcloudapi.com"); // 指定接入�
 
 ```java
 ClientProfile clientProfile = new ClientProfile();
-clientProfile.setSignMethod("HmacSHA256"); // 指定签名算法(默认为HmacSHA256)
+clientProfile.setSignMethod(ClientProfile.SIGN_TC3_256); // 指定签名算法(默认为TC3-HMAC-SHA256)
 // 自3.1.80版本开始，SDK 支持打印日志。
 clientProfile.setHttpProfile(httpProfile);
 clientProfile.setDebug(true);
@@ -215,7 +234,7 @@ CvmClient client = new CvmClient(cred, "ap-shanghai", clientProfile);
 ```java
 DescribeInstancesRequest req = new DescribeInstancesRequest();
 // 填充请求参数,这里request对象的成员变量即对应接口的入参
-// 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
+// 您可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
 Filter respFilter = new Filter(); // 创建Filter对象, 以zone的维度来查询cvm实例
 respFilter.setName("zone");
 respFilter.setValues(new String[] { "ap-shanghai-1", "ap-shanghai-2" });
@@ -236,7 +255,7 @@ DescribeInstancesResponse resp = client.DescribeInstances(req);
 // 输出json格式的字符串回包
 System.out.println(DescribeInstancesResponse.toJsonString(resp));
 // 也可以取出单个值。
-// 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
+// 您可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
 System.out.println(resp.getTotalCount());
 } 
 ```
@@ -357,14 +376,14 @@ SDK 会自动将您请求的地域设置为备选地域。
 
 目前仅支持使用POST方式，且签名方法必须使用签名方法 v3。
 
-详细使用请参阅示例：[使用 Common Client 进行调用](./examples/common/CommonClient)
+详细使用请参阅示例：[使用 Common Client 进行调用](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples/common/commonclient)
 
 
 # 支持重试请求
 
 从 3.1.310 版本开始腾讯云 Java SDK 支持重试请求。对于每一个请求，您可以设置重试次数，如果接口请求未成功，就进行重试，直到请求成功或者达到重试次数为止。待设置的重试次数最大为10，最小为0，每次重试失败需要睡眠1秒钟。
 
-详细使用请参阅示例：[使用 retry 进行重试请求](./examples/common/retry/Retry.java)
+详细使用请参阅示例：[使用 retry 进行重试请求](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples/common/Retry.java)
 
 # 凭证管理
 
@@ -440,13 +459,85 @@ Credential credential = provider.getCredentials();
 Credential cred = new DefaultCredentialsProvider().getCredentials();
 ```
 
-凭证管理详细使用请参阅示例：[使用凭证提供链](./examples/common/credential_manager/CredentialManager.java)
+凭证管理详细使用请参阅示例：[使用凭证提供链](https://github.com/TencentCloud/tencentcloud-sdk-java/blob/master/examples/common/CredentialManager.java)
 
 # 自定义 SSLSocketFactory 和 X509TrustManager
 ```java
 ClientProfile cpf = new ClientProfile();
 cpf.getHttpProfile().setSslSocketFactory(new MySSLSocketFactoryImpl());
 cpf.getHttpProfile().setX509TrustManager(new MyX509TrustManagerImpl());
+```
+
+# 跳过证书校验
+```java
+ClientProfile cpf = new ClientProfile();
+// 创建一个信任所有证书的 TrustManager
+TrustManager[] trustAllCerts = new TrustManager[] {
+        new X509TrustManager() {
+            @Override
+            public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+            }
+
+            @Override
+            public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+            }
+
+            @Override
+            public X509Certificate[] getAcceptedIssuers() {
+                return new X509Certificate[0];
+            }
+        }
+};
+SSLContext sslContext = SSLContext.getInstance("TLS");
+sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+httpProfile.setSslSocketFactory(sslSocketFactory);
+httpProfile.setX509TrustManager((X509TrustManager) trustAllCerts[0]);
+httpProfile.setHostnameVerifier(new HostnameVerifier() {
+    @Override
+    //创建一个不进行主机名验证的 HostnameVerifier
+    public boolean verify(String hostname, SSLSession session) {
+        return true;
+    }
+});
+
+```
+# 自定义 Header
+
+## DescribeInstancesRequest示例
+
+```java
+ClientProfile cpf = new ClientProfile();
+// 自定义 Header 需要使用 v3 签名方式
+cpf.setSignMethod(ClientProfile.SIGN_TC3_256);
+
+DescribeInstancesRequest request = new DescribeInstancesRequest();
+Map<String, String> header = new HashMap<String, String>();
+header.put("X-TC-TraceId","ffe0c072-8a5d-4e17-8887-a8a60252abca");
+request.SetHeader(header);
+```
+
+## CommonClientRequest示例
+
+```java
+ClientProfile cpf = new ClientProfile();
+// 自定义 Header 需要使用 v3 签名方式
+cpf.setSignMethod(ClientProfile.SIGN_TC3_256);
+
+CommonClientRequest request = new CommonClientRequest();
+Map<String, String> header = new HashMap<String, String>();
+header.put("X-TC-TraceId","ffe0c072-8a5d-4e17-8887-a8a60252abca");
+request.SetHeader(header);
+```
+
+## CommonHttpClient示例
+
+参考示例代码 [CustomHttpClient.java](examples/common/CustomHttpClient.java)
+```java
+// 可以通过 HttpProfile.setHttpClient 来自定义 httpClient
+// 注意: 如果使用自定义 httpClient, 则 HttpProfile 中的配置则不会生效，需要用户自己配置
+ClientProfile cpf = new ClientProfile();
+cpf.getHttpProfile().setHttpClient(...);
 ```
 
 # 其他问题
@@ -464,3 +555,18 @@ cpf.getHttpProfile().setX509TrustManager(new MyX509TrustManagerImpl());
 ## kotlin 问题
 
 部分用户可能使用时遇到报错：`java.lang.NoSuchMethodError: kotlin.collections.ArraysKt.copyInto`。这是因为 kotlin 运行环境版本较低导致，可尝试升级 kotlin 版本解决。
+
+## java.lang.NoSuchMethodError: xxx.setSkipSign 问题
+
+部分用户可能使用时遇到报错：`java.lang.NoSuchMethodError: xxx.setSkipSign`。这是因为 `tencentcloud-sdk-java-common` 包和其他产品（如`tencentcloud-sdk-java-cvm`）的版本不一致导致的。
+
+该问题可能是 pom 中指定的 `common` 包版本有误，也可能是因为引用了其他第三方 sdk 而间接引用了不匹配的 `common` 版本导致的。
+
+解决方式是在 pom.xml 中显式指定相同版本的 `common` 包版本，如
+```
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-sdk-java-common</artifactId>
+    <version>3.1.1000</version>
+</dependency>
+```

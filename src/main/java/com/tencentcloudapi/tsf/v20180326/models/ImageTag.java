@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageTag extends AbstractModel{
+public class ImageTag extends AbstractModel {
 
     /**
     * 仓库名
@@ -94,7 +95,6 @@ public class ImageTag extends AbstractModel{
 
     /**
     * 操作系统
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Os")
     @Expose
@@ -116,7 +116,6 @@ public class ImageTag extends AbstractModel{
 
     /**
     * TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TcrRepoInfo")
     @Expose
@@ -283,10 +282,8 @@ public class ImageTag extends AbstractModel{
     }
 
     /**
-     * Get 操作系统
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作系统 
      * @return Os 操作系统
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOs() {
         return this.Os;
@@ -294,9 +291,7 @@ public class ImageTag extends AbstractModel{
 
     /**
      * Set 操作系统
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Os 操作系统
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOs(String Os) {
         this.Os = Os;
@@ -335,10 +330,8 @@ public class ImageTag extends AbstractModel{
     }
 
     /**
-     * Get TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TcrRepoInfo值 
      * @return TcrRepoInfo TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TcrRepoInfo getTcrRepoInfo() {
         return this.TcrRepoInfo;
@@ -346,9 +339,7 @@ public class ImageTag extends AbstractModel{
 
     /**
      * Set TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TcrRepoInfo TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTcrRepoInfo(TcrRepoInfo TcrRepoInfo) {
         this.TcrRepoInfo = TcrRepoInfo;

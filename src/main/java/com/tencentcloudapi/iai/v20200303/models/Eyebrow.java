@@ -16,15 +16,16 @@
 package com.tencentcloudapi.iai.v20200303.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Eyebrow extends AbstractModel{
+public class Eyebrow extends AbstractModel {
 
     /**
     * 眉毛浓密。
-AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
+- AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
     */
     @SerializedName("EyebrowDensity")
     @Expose
@@ -32,7 +33,7 @@ AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
 
     /**
     * 眉毛弯曲。
-AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
+- AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
     */
     @SerializedName("EyebrowCurve")
     @Expose
@@ -40,7 +41,7 @@ AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
 
     /**
     * 眉毛长短。
-AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
+- AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
     */
     @SerializedName("EyebrowLength")
     @Expose
@@ -48,9 +49,9 @@ AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
 
     /**
      * Get 眉毛浓密。
-AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。 
+- AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。 
      * @return EyebrowDensity 眉毛浓密。
-AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
+- AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
      */
     public AttributeItem getEyebrowDensity() {
         return this.EyebrowDensity;
@@ -58,9 +59,9 @@ AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
 
     /**
      * Set 眉毛浓密。
-AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
+- AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
      * @param EyebrowDensity 眉毛浓密。
-AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
+- AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
      */
     public void setEyebrowDensity(AttributeItem EyebrowDensity) {
         this.EyebrowDensity = EyebrowDensity;
@@ -68,9 +69,9 @@ AttributeItem对应的Type为 —— 0：淡眉，1：浓眉。
 
     /**
      * Get 眉毛弯曲。
-AttributeItem对应的Type为 —— 0：不弯，1：弯眉。 
+- AttributeItem对应的Type为 —— 0：不弯，1：弯眉。 
      * @return EyebrowCurve 眉毛弯曲。
-AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
+- AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
      */
     public AttributeItem getEyebrowCurve() {
         return this.EyebrowCurve;
@@ -78,9 +79,9 @@ AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
 
     /**
      * Set 眉毛弯曲。
-AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
+- AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
      * @param EyebrowCurve 眉毛弯曲。
-AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
+- AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
      */
     public void setEyebrowCurve(AttributeItem EyebrowCurve) {
         this.EyebrowCurve = EyebrowCurve;
@@ -88,9 +89,9 @@ AttributeItem对应的Type为 —— 0：不弯，1：弯眉。
 
     /**
      * Get 眉毛长短。
-AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。 
+- AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。 
      * @return EyebrowLength 眉毛长短。
-AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
+- AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
      */
     public AttributeItem getEyebrowLength() {
         return this.EyebrowLength;
@@ -98,9 +99,9 @@ AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
 
     /**
      * Set 眉毛长短。
-AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
+- AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
      * @param EyebrowLength 眉毛长短。
-AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
+- AttributeItem对应的Type为 —— 0：短眉毛，1：长眉毛。
      */
     public void setEyebrowLength(AttributeItem EyebrowLength) {
         this.EyebrowLength = EyebrowLength;

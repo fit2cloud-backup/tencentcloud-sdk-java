@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class File extends AbstractModel{
+public class File extends AbstractModel {
 
     /**
     * 文件 ID
@@ -66,7 +67,6 @@ public class File extends AbstractModel{
 
     /**
     * 文件行数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LineCount")
     @Expose
@@ -90,7 +90,6 @@ public class File extends AbstractModel{
 
     /**
     * 首行是否为参数名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HeaderInFile")
     @Expose
@@ -122,7 +121,6 @@ public class File extends AbstractModel{
 
     /**
     * 文件状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -138,7 +136,6 @@ public class File extends AbstractModel{
 
     /**
     * 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -146,7 +143,6 @@ public class File extends AbstractModel{
 
     /**
     * 此字段不再使用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppID")
     @Expose
@@ -154,7 +150,6 @@ public class File extends AbstractModel{
 
     /**
     * 用户主账号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uin")
     @Expose
@@ -162,7 +157,6 @@ public class File extends AbstractModel{
 
     /**
     * 用户子账号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubAccountUin")
     @Expose
@@ -170,7 +164,6 @@ public class File extends AbstractModel{
 
     /**
     * 用户账号的 App ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -273,10 +266,8 @@ public class File extends AbstractModel{
     }
 
     /**
-     * Get 文件行数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件行数 
      * @return LineCount 文件行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLineCount() {
         return this.LineCount;
@@ -284,9 +275,7 @@ public class File extends AbstractModel{
 
     /**
      * Set 文件行数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LineCount 文件行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLineCount(Long LineCount) {
         this.LineCount = LineCount;
@@ -333,10 +322,8 @@ public class File extends AbstractModel{
     }
 
     /**
-     * Get 首行是否为参数名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 首行是否为参数名 
      * @return HeaderInFile 首行是否为参数名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getHeaderInFile() {
         return this.HeaderInFile;
@@ -344,9 +331,7 @@ public class File extends AbstractModel{
 
     /**
      * Set 首行是否为参数名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HeaderInFile 首行是否为参数名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeaderInFile(Boolean HeaderInFile) {
         this.HeaderInFile = HeaderInFile;
@@ -413,10 +398,8 @@ public class File extends AbstractModel{
     }
 
     /**
-     * Get 文件状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件状态 
      * @return Status 文件状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -424,9 +407,7 @@ public class File extends AbstractModel{
 
     /**
      * Set 文件状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 文件状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -453,10 +434,8 @@ public class File extends AbstractModel{
     }
 
     /**
-     * Get 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 项目 ID 
      * @return ProjectId 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProjectId() {
         return this.ProjectId;
@@ -464,19 +443,15 @@ public class File extends AbstractModel{
 
     /**
      * Set 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectId 项目 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
     }
 
     /**
-     * Get 此字段不再使用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 此字段不再使用 
      * @return AppID 此字段不再使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppID() {
         return this.AppID;
@@ -484,19 +459,15 @@ public class File extends AbstractModel{
 
     /**
      * Set 此字段不再使用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppID 此字段不再使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppID(Long AppID) {
         this.AppID = AppID;
     }
 
     /**
-     * Get 用户主账号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户主账号 
      * @return Uin 用户主账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUin() {
         return this.Uin;
@@ -504,19 +475,15 @@ public class File extends AbstractModel{
 
     /**
      * Set 用户主账号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uin 用户主账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUin(String Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get 用户子账号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户子账号 
      * @return SubAccountUin 用户子账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubAccountUin() {
         return this.SubAccountUin;
@@ -524,19 +491,15 @@ public class File extends AbstractModel{
 
     /**
      * Set 用户子账号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubAccountUin 用户子账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubAccountUin(String SubAccountUin) {
         this.SubAccountUin = SubAccountUin;
     }
 
     /**
-     * Get 用户账号的 App ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户账号的 App ID 
      * @return AppId 用户账号的 App ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -544,9 +507,7 @@ public class File extends AbstractModel{
 
     /**
      * Set 用户账号的 App ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId 用户账号的 App ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;

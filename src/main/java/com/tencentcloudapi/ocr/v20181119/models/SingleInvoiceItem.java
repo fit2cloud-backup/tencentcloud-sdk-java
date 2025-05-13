@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SingleInvoiceItem extends AbstractModel{
+public class SingleInvoiceItem extends AbstractModel {
 
     /**
     * 增值税专用发票
@@ -221,6 +222,46 @@ public class SingleInvoiceItem extends AbstractModel{
     @SerializedName("VatSalesList")
     @Expose
     private VatInvoiceInfo VatSalesList;
+
+    /**
+    * 电子发票（火车票）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ElectronicTrainTicketFull")
+    @Expose
+    private ElectronicTrainTicketFull ElectronicTrainTicketFull;
+
+    /**
+    * 电子发票（机票行程单）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ElectronicFlightTicketFull")
+    @Expose
+    private ElectronicFlightTicketFull ElectronicFlightTicketFull;
+
+    /**
+    * 完税凭证
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaxPayment")
+    @Expose
+    private TaxPayment TaxPayment;
+
+    /**
+    * 海关缴款
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CustomsPaymentReceipt")
+    @Expose
+    private CustomsPaymentReceipt CustomsPaymentReceipt;
+
+    /**
+    * 银行回单
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BankSlip")
+    @Expose
+    private BankSlip BankSlip;
 
     /**
      * Get 增值税专用发票
@@ -722,6 +763,106 @@ public class SingleInvoiceItem extends AbstractModel{
         this.VatSalesList = VatSalesList;
     }
 
+    /**
+     * Get 电子发票（火车票）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ElectronicTrainTicketFull 电子发票（火车票）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ElectronicTrainTicketFull getElectronicTrainTicketFull() {
+        return this.ElectronicTrainTicketFull;
+    }
+
+    /**
+     * Set 电子发票（火车票）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ElectronicTrainTicketFull 电子发票（火车票）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setElectronicTrainTicketFull(ElectronicTrainTicketFull ElectronicTrainTicketFull) {
+        this.ElectronicTrainTicketFull = ElectronicTrainTicketFull;
+    }
+
+    /**
+     * Get 电子发票（机票行程单）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ElectronicFlightTicketFull 电子发票（机票行程单）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ElectronicFlightTicketFull getElectronicFlightTicketFull() {
+        return this.ElectronicFlightTicketFull;
+    }
+
+    /**
+     * Set 电子发票（机票行程单）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ElectronicFlightTicketFull 电子发票（机票行程单）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setElectronicFlightTicketFull(ElectronicFlightTicketFull ElectronicFlightTicketFull) {
+        this.ElectronicFlightTicketFull = ElectronicFlightTicketFull;
+    }
+
+    /**
+     * Get 完税凭证
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaxPayment 完税凭证
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TaxPayment getTaxPayment() {
+        return this.TaxPayment;
+    }
+
+    /**
+     * Set 完税凭证
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaxPayment 完税凭证
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaxPayment(TaxPayment TaxPayment) {
+        this.TaxPayment = TaxPayment;
+    }
+
+    /**
+     * Get 海关缴款
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CustomsPaymentReceipt 海关缴款
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CustomsPaymentReceipt getCustomsPaymentReceipt() {
+        return this.CustomsPaymentReceipt;
+    }
+
+    /**
+     * Set 海关缴款
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CustomsPaymentReceipt 海关缴款
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCustomsPaymentReceipt(CustomsPaymentReceipt CustomsPaymentReceipt) {
+        this.CustomsPaymentReceipt = CustomsPaymentReceipt;
+    }
+
+    /**
+     * Get 银行回单
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BankSlip 银行回单
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public BankSlip getBankSlip() {
+        return this.BankSlip;
+    }
+
+    /**
+     * Set 银行回单
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BankSlip 银行回单
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBankSlip(BankSlip BankSlip) {
+        this.BankSlip = BankSlip;
+    }
+
     public SingleInvoiceItem() {
     }
 
@@ -805,6 +946,21 @@ public class SingleInvoiceItem extends AbstractModel{
         if (source.VatSalesList != null) {
             this.VatSalesList = new VatInvoiceInfo(source.VatSalesList);
         }
+        if (source.ElectronicTrainTicketFull != null) {
+            this.ElectronicTrainTicketFull = new ElectronicTrainTicketFull(source.ElectronicTrainTicketFull);
+        }
+        if (source.ElectronicFlightTicketFull != null) {
+            this.ElectronicFlightTicketFull = new ElectronicFlightTicketFull(source.ElectronicFlightTicketFull);
+        }
+        if (source.TaxPayment != null) {
+            this.TaxPayment = new TaxPayment(source.TaxPayment);
+        }
+        if (source.CustomsPaymentReceipt != null) {
+            this.CustomsPaymentReceipt = new CustomsPaymentReceipt(source.CustomsPaymentReceipt);
+        }
+        if (source.BankSlip != null) {
+            this.BankSlip = new BankSlip(source.BankSlip);
+        }
     }
 
 
@@ -837,6 +993,11 @@ public class SingleInvoiceItem extends AbstractModel{
         this.setParamObj(map, prefix + "MedicalOutpatientInvoice.", this.MedicalOutpatientInvoice);
         this.setParamObj(map, prefix + "MedicalHospitalizedInvoice.", this.MedicalHospitalizedInvoice);
         this.setParamObj(map, prefix + "VatSalesList.", this.VatSalesList);
+        this.setParamObj(map, prefix + "ElectronicTrainTicketFull.", this.ElectronicTrainTicketFull);
+        this.setParamObj(map, prefix + "ElectronicFlightTicketFull.", this.ElectronicFlightTicketFull);
+        this.setParamObj(map, prefix + "TaxPayment.", this.TaxPayment);
+        this.setParamObj(map, prefix + "CustomsPaymentReceipt.", this.CustomsPaymentReceipt);
+        this.setParamObj(map, prefix + "BankSlip.", this.BankSlip);
 
     }
 }

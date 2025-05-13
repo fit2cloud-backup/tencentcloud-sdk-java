@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIpAccessControlRequest extends AbstractModel{
+public class DescribeIpAccessControlRequest extends AbstractModel {
 
     /**
     * 域名
@@ -72,14 +73,14 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     private Long CtsMax;
 
     /**
-    * 分页开始条数
+    * 分页偏移量，取Limit整数倍。最小值为0，最大值= Total/Limit向上取整
     */
     @SerializedName("OffSet")
     @Expose
     private Long OffSet;
 
     /**
-    * 每页的条数
+    * 每页返回的数量，默认为20
     */
     @SerializedName("Limit")
     @Expose
@@ -100,11 +101,46 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     private String Sort;
 
     /**
-    * ip
+    * IP
     */
     @SerializedName("Ip")
     @Expose
     private String Ip;
+
+    /**
+    * 生效状态，1表示生效中，2表示过期，0表示全部
+    */
+    @SerializedName("ValidStatus")
+    @Expose
+    private Long ValidStatus;
+
+    /**
+    * 最小有效时间的时间戳
+    */
+    @SerializedName("ValidTimeStampMin")
+    @Expose
+    private String ValidTimeStampMin;
+
+    /**
+    * 最大有效时间的时间戳
+    */
+    @SerializedName("ValidTimeStampMax")
+    @Expose
+    private String ValidTimeStampMax;
+
+    /**
+    * 规则ID
+    */
+    @SerializedName("RuleId")
+    @Expose
+    private Long RuleId;
+
+    /**
+    * 0表示全部，1表示永久生效，2表示定时生效，3表示周粒度生效，4表示月粒度生效
+    */
+    @SerializedName("TimerType")
+    @Expose
+    private Long TimerType;
 
     /**
      * Get 域名 
@@ -157,7 +193,9 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     /**
      * Get 最小有效时间的时间戳 
      * @return VtsMin 最小有效时间的时间戳
+     * @deprecated
      */
+    @Deprecated
     public Long getVtsMin() {
         return this.VtsMin;
     }
@@ -165,7 +203,9 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     /**
      * Set 最小有效时间的时间戳
      * @param VtsMin 最小有效时间的时间戳
+     * @deprecated
      */
+    @Deprecated
     public void setVtsMin(Long VtsMin) {
         this.VtsMin = VtsMin;
     }
@@ -173,7 +213,9 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     /**
      * Get 最大有效时间的时间戳 
      * @return VtsMax 最大有效时间的时间戳
+     * @deprecated
      */
+    @Deprecated
     public Long getVtsMax() {
         return this.VtsMax;
     }
@@ -181,7 +223,9 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     /**
      * Set 最大有效时间的时间戳
      * @param VtsMax 最大有效时间的时间戳
+     * @deprecated
      */
+    @Deprecated
     public void setVtsMax(Long VtsMax) {
         this.VtsMax = VtsMax;
     }
@@ -219,32 +263,32 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页开始条数 
-     * @return OffSet 分页开始条数
+     * Get 分页偏移量，取Limit整数倍。最小值为0，最大值= Total/Limit向上取整 
+     * @return OffSet 分页偏移量，取Limit整数倍。最小值为0，最大值= Total/Limit向上取整
      */
     public Long getOffSet() {
         return this.OffSet;
     }
 
     /**
-     * Set 分页开始条数
-     * @param OffSet 分页开始条数
+     * Set 分页偏移量，取Limit整数倍。最小值为0，最大值= Total/Limit向上取整
+     * @param OffSet 分页偏移量，取Limit整数倍。最小值为0，最大值= Total/Limit向上取整
      */
     public void setOffSet(Long OffSet) {
         this.OffSet = OffSet;
     }
 
     /**
-     * Get 每页的条数 
-     * @return Limit 每页的条数
+     * Get 每页返回的数量，默认为20 
+     * @return Limit 每页返回的数量，默认为20
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页的条数
-     * @param Limit 每页的条数
+     * Set 每页返回的数量，默认为20
+     * @param Limit 每页返回的数量，默认为20
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -283,19 +327,99 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
     }
 
     /**
-     * Get ip 
-     * @return Ip ip
+     * Get IP 
+     * @return Ip IP
      */
     public String getIp() {
         return this.Ip;
     }
 
     /**
-     * Set ip
-     * @param Ip ip
+     * Set IP
+     * @param Ip IP
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
+    }
+
+    /**
+     * Get 生效状态，1表示生效中，2表示过期，0表示全部 
+     * @return ValidStatus 生效状态，1表示生效中，2表示过期，0表示全部
+     */
+    public Long getValidStatus() {
+        return this.ValidStatus;
+    }
+
+    /**
+     * Set 生效状态，1表示生效中，2表示过期，0表示全部
+     * @param ValidStatus 生效状态，1表示生效中，2表示过期，0表示全部
+     */
+    public void setValidStatus(Long ValidStatus) {
+        this.ValidStatus = ValidStatus;
+    }
+
+    /**
+     * Get 最小有效时间的时间戳 
+     * @return ValidTimeStampMin 最小有效时间的时间戳
+     */
+    public String getValidTimeStampMin() {
+        return this.ValidTimeStampMin;
+    }
+
+    /**
+     * Set 最小有效时间的时间戳
+     * @param ValidTimeStampMin 最小有效时间的时间戳
+     */
+    public void setValidTimeStampMin(String ValidTimeStampMin) {
+        this.ValidTimeStampMin = ValidTimeStampMin;
+    }
+
+    /**
+     * Get 最大有效时间的时间戳 
+     * @return ValidTimeStampMax 最大有效时间的时间戳
+     */
+    public String getValidTimeStampMax() {
+        return this.ValidTimeStampMax;
+    }
+
+    /**
+     * Set 最大有效时间的时间戳
+     * @param ValidTimeStampMax 最大有效时间的时间戳
+     */
+    public void setValidTimeStampMax(String ValidTimeStampMax) {
+        this.ValidTimeStampMax = ValidTimeStampMax;
+    }
+
+    /**
+     * Get 规则ID 
+     * @return RuleId 规则ID
+     */
+    public Long getRuleId() {
+        return this.RuleId;
+    }
+
+    /**
+     * Set 规则ID
+     * @param RuleId 规则ID
+     */
+    public void setRuleId(Long RuleId) {
+        this.RuleId = RuleId;
+    }
+
+    /**
+     * Get 0表示全部，1表示永久生效，2表示定时生效，3表示周粒度生效，4表示月粒度生效 
+     * @return TimerType 0表示全部，1表示永久生效，2表示定时生效，3表示周粒度生效，4表示月粒度生效
+     */
+    public Long getTimerType() {
+        return this.TimerType;
+    }
+
+    /**
+     * Set 0表示全部，1表示永久生效，2表示定时生效，3表示周粒度生效，4表示月粒度生效
+     * @param TimerType 0表示全部，1表示永久生效，2表示定时生效，3表示周粒度生效，4表示月粒度生效
+     */
+    public void setTimerType(Long TimerType) {
+        this.TimerType = TimerType;
     }
 
     public DescribeIpAccessControlRequest() {
@@ -342,6 +466,21 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
         if (source.Ip != null) {
             this.Ip = new String(source.Ip);
         }
+        if (source.ValidStatus != null) {
+            this.ValidStatus = new Long(source.ValidStatus);
+        }
+        if (source.ValidTimeStampMin != null) {
+            this.ValidTimeStampMin = new String(source.ValidTimeStampMin);
+        }
+        if (source.ValidTimeStampMax != null) {
+            this.ValidTimeStampMax = new String(source.ValidTimeStampMax);
+        }
+        if (source.RuleId != null) {
+            this.RuleId = new Long(source.RuleId);
+        }
+        if (source.TimerType != null) {
+            this.TimerType = new Long(source.TimerType);
+        }
     }
 
 
@@ -361,6 +500,11 @@ public class DescribeIpAccessControlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Source", this.Source);
         this.setParamSimple(map, prefix + "Sort", this.Sort);
         this.setParamSimple(map, prefix + "Ip", this.Ip);
+        this.setParamSimple(map, prefix + "ValidStatus", this.ValidStatus);
+        this.setParamSimple(map, prefix + "ValidTimeStampMin", this.ValidTimeStampMin);
+        this.setParamSimple(map, prefix + "ValidTimeStampMax", this.ValidTimeStampMax);
+        this.setParamSimple(map, prefix + "RuleId", this.RuleId);
+        this.setParamSimple(map, prefix + "TimerType", this.TimerType);
 
     }
 }

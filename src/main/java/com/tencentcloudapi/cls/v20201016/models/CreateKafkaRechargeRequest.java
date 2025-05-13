@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateKafkaRechargeRequest extends AbstractModel{
+public class CreateKafkaRechargeRequest extends AbstractModel {
 
     /**
     * 导入CLS目标topic ID
@@ -58,28 +59,36 @@ public class CreateKafkaRechargeRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 腾讯云CKafka实例ID，KafkaType为0时必填
+    * 日志导入规则。
+    */
+    @SerializedName("LogRechargeRule")
+    @Expose
+    private LogRechargeRuleInfo LogRechargeRule;
+
+    /**
+    * 腾讯云CKafka实例ID，KafkaType为0时必填。
     */
     @SerializedName("KafkaInstance")
     @Expose
     private String KafkaInstance;
 
     /**
-    * 服务地址，KafkaType为1时必填
+    * 服务地址，KafkaType为1时必填。
     */
     @SerializedName("ServerAddr")
     @Expose
     private String ServerAddr;
 
     /**
-    * ServerAddr是否为加密连接，KafkaType为1时必填
+    * ServerAddr是否为加密连接，KafkaType为1时必填。
     */
     @SerializedName("IsEncryptionAddr")
     @Expose
     private Boolean IsEncryptionAddr;
 
     /**
-    * 加密访问协议，IsEncryptionAddr参数为true时必填
+    * 加密访问协议。
+KafkaType为1并且IsEncryptionAddr为true时Protocol必填。
     */
     @SerializedName("Protocol")
     @Expose
@@ -91,13 +100,6 @@ public class CreateKafkaRechargeRequest extends AbstractModel{
     @SerializedName("ConsumerGroupName")
     @Expose
     private String ConsumerGroupName;
-
-    /**
-    * 日志导入规则
-    */
-    @SerializedName("LogRechargeRule")
-    @Expose
-    private LogRechargeRuleInfo LogRechargeRule;
 
     /**
      * Get 导入CLS目标topic ID 
@@ -180,64 +182,84 @@ public class CreateKafkaRechargeRequest extends AbstractModel{
     }
 
     /**
-     * Get 腾讯云CKafka实例ID，KafkaType为0时必填 
-     * @return KafkaInstance 腾讯云CKafka实例ID，KafkaType为0时必填
+     * Get 日志导入规则。 
+     * @return LogRechargeRule 日志导入规则。
+     */
+    public LogRechargeRuleInfo getLogRechargeRule() {
+        return this.LogRechargeRule;
+    }
+
+    /**
+     * Set 日志导入规则。
+     * @param LogRechargeRule 日志导入规则。
+     */
+    public void setLogRechargeRule(LogRechargeRuleInfo LogRechargeRule) {
+        this.LogRechargeRule = LogRechargeRule;
+    }
+
+    /**
+     * Get 腾讯云CKafka实例ID，KafkaType为0时必填。 
+     * @return KafkaInstance 腾讯云CKafka实例ID，KafkaType为0时必填。
      */
     public String getKafkaInstance() {
         return this.KafkaInstance;
     }
 
     /**
-     * Set 腾讯云CKafka实例ID，KafkaType为0时必填
-     * @param KafkaInstance 腾讯云CKafka实例ID，KafkaType为0时必填
+     * Set 腾讯云CKafka实例ID，KafkaType为0时必填。
+     * @param KafkaInstance 腾讯云CKafka实例ID，KafkaType为0时必填。
      */
     public void setKafkaInstance(String KafkaInstance) {
         this.KafkaInstance = KafkaInstance;
     }
 
     /**
-     * Get 服务地址，KafkaType为1时必填 
-     * @return ServerAddr 服务地址，KafkaType为1时必填
+     * Get 服务地址，KafkaType为1时必填。 
+     * @return ServerAddr 服务地址，KafkaType为1时必填。
      */
     public String getServerAddr() {
         return this.ServerAddr;
     }
 
     /**
-     * Set 服务地址，KafkaType为1时必填
-     * @param ServerAddr 服务地址，KafkaType为1时必填
+     * Set 服务地址，KafkaType为1时必填。
+     * @param ServerAddr 服务地址，KafkaType为1时必填。
      */
     public void setServerAddr(String ServerAddr) {
         this.ServerAddr = ServerAddr;
     }
 
     /**
-     * Get ServerAddr是否为加密连接，KafkaType为1时必填 
-     * @return IsEncryptionAddr ServerAddr是否为加密连接，KafkaType为1时必填
+     * Get ServerAddr是否为加密连接，KafkaType为1时必填。 
+     * @return IsEncryptionAddr ServerAddr是否为加密连接，KafkaType为1时必填。
      */
     public Boolean getIsEncryptionAddr() {
         return this.IsEncryptionAddr;
     }
 
     /**
-     * Set ServerAddr是否为加密连接，KafkaType为1时必填
-     * @param IsEncryptionAddr ServerAddr是否为加密连接，KafkaType为1时必填
+     * Set ServerAddr是否为加密连接，KafkaType为1时必填。
+     * @param IsEncryptionAddr ServerAddr是否为加密连接，KafkaType为1时必填。
      */
     public void setIsEncryptionAddr(Boolean IsEncryptionAddr) {
         this.IsEncryptionAddr = IsEncryptionAddr;
     }
 
     /**
-     * Get 加密访问协议，IsEncryptionAddr参数为true时必填 
-     * @return Protocol 加密访问协议，IsEncryptionAddr参数为true时必填
+     * Get 加密访问协议。
+KafkaType为1并且IsEncryptionAddr为true时Protocol必填。 
+     * @return Protocol 加密访问协议。
+KafkaType为1并且IsEncryptionAddr为true时Protocol必填。
      */
     public KafkaProtocolInfo getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 加密访问协议，IsEncryptionAddr参数为true时必填
-     * @param Protocol 加密访问协议，IsEncryptionAddr参数为true时必填
+     * Set 加密访问协议。
+KafkaType为1并且IsEncryptionAddr为true时Protocol必填。
+     * @param Protocol 加密访问协议。
+KafkaType为1并且IsEncryptionAddr为true时Protocol必填。
      */
     public void setProtocol(KafkaProtocolInfo Protocol) {
         this.Protocol = Protocol;
@@ -257,22 +279,6 @@ public class CreateKafkaRechargeRequest extends AbstractModel{
      */
     public void setConsumerGroupName(String ConsumerGroupName) {
         this.ConsumerGroupName = ConsumerGroupName;
-    }
-
-    /**
-     * Get 日志导入规则 
-     * @return LogRechargeRule 日志导入规则
-     */
-    public LogRechargeRuleInfo getLogRechargeRule() {
-        return this.LogRechargeRule;
-    }
-
-    /**
-     * Set 日志导入规则
-     * @param LogRechargeRule 日志导入规则
-     */
-    public void setLogRechargeRule(LogRechargeRuleInfo LogRechargeRule) {
-        this.LogRechargeRule = LogRechargeRule;
     }
 
     public CreateKafkaRechargeRequest() {
@@ -298,6 +304,9 @@ public class CreateKafkaRechargeRequest extends AbstractModel{
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
+        if (source.LogRechargeRule != null) {
+            this.LogRechargeRule = new LogRechargeRuleInfo(source.LogRechargeRule);
+        }
         if (source.KafkaInstance != null) {
             this.KafkaInstance = new String(source.KafkaInstance);
         }
@@ -313,9 +322,6 @@ public class CreateKafkaRechargeRequest extends AbstractModel{
         if (source.ConsumerGroupName != null) {
             this.ConsumerGroupName = new String(source.ConsumerGroupName);
         }
-        if (source.LogRechargeRule != null) {
-            this.LogRechargeRule = new LogRechargeRuleInfo(source.LogRechargeRule);
-        }
     }
 
 
@@ -328,12 +334,12 @@ public class CreateKafkaRechargeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "KafkaType", this.KafkaType);
         this.setParamSimple(map, prefix + "UserKafkaTopics", this.UserKafkaTopics);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamObj(map, prefix + "LogRechargeRule.", this.LogRechargeRule);
         this.setParamSimple(map, prefix + "KafkaInstance", this.KafkaInstance);
         this.setParamSimple(map, prefix + "ServerAddr", this.ServerAddr);
         this.setParamSimple(map, prefix + "IsEncryptionAddr", this.IsEncryptionAddr);
         this.setParamObj(map, prefix + "Protocol.", this.Protocol);
         this.setParamSimple(map, prefix + "ConsumerGroupName", this.ConsumerGroupName);
-        this.setParamObj(map, prefix + "LogRechargeRule.", this.LogRechargeRule);
 
     }
 }

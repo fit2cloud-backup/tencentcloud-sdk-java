@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TcrRepoInfo extends AbstractModel{
+public class TcrRepoInfo extends AbstractModel {
 
     /**
     * 地域（填数字）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -32,7 +32,6 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
     * 实例id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegistryId")
     @Expose
@@ -40,7 +39,6 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
     * 实例名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegistryName")
     @Expose
@@ -48,7 +46,6 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
     * 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Namespace")
     @Expose
@@ -56,17 +53,14 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
     * 仓库名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepoName")
     @Expose
     private String RepoName;
 
     /**
-     * Get 地域（填数字）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域（填数字） 
      * @return Region 地域（填数字）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -74,19 +68,15 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
      * Set 地域（填数字）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域（填数字）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 实例id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例id 
      * @return RegistryId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegistryId() {
         return this.RegistryId;
@@ -94,19 +84,15 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
      * Set 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegistryId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegistryId(String RegistryId) {
         this.RegistryId = RegistryId;
     }
 
     /**
-     * Get 实例名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例名 
      * @return RegistryName 实例名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegistryName() {
         return this.RegistryName;
@@ -114,19 +100,15 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
      * Set 实例名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegistryName 实例名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegistryName(String RegistryName) {
         this.RegistryName = RegistryName;
     }
 
     /**
-     * Get 命名空间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命名空间 
      * @return Namespace 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespace() {
         return this.Namespace;
@@ -134,19 +116,15 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
      * Set 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Namespace 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
     }
 
     /**
-     * Get 仓库名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库名 
      * @return RepoName 仓库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepoName() {
         return this.RepoName;
@@ -154,9 +132,7 @@ public class TcrRepoInfo extends AbstractModel{
 
     /**
      * Set 仓库名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepoName 仓库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepoName(String RepoName) {
         this.RepoName = RepoName;

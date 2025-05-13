@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RocketMQClusterConfig extends AbstractModel{
+public class RocketMQClusterConfig extends AbstractModel {
 
     /**
-    * 单命名空间TPS上线
+    * 单命名空间TPS上限
     */
     @SerializedName("MaxTpsPerNamespace")
     @Expose
@@ -94,17 +95,43 @@ public class RocketMQClusterConfig extends AbstractModel{
     private Long MaxQueuesPerTopic;
 
     /**
-     * Get 单命名空间TPS上线 
-     * @return MaxTpsPerNamespace 单命名空间TPS上线
+    * topic分布
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TopicDistribution")
+    @Expose
+    private RocketMQTopicDistribution [] TopicDistribution;
+
+    /**
+    * 最大角色数量
+    */
+    @SerializedName("MaxRoleNum")
+    @Expose
+    private Long MaxRoleNum;
+
+    /**
+    * TPS限额
+    */
+    @SerializedName("MaxTpsLimit")
+    @Expose
+    private Long MaxTpsLimit;
+
+    /**
+     * Get 单命名空间TPS上限 
+     * @return MaxTpsPerNamespace 单命名空间TPS上限
+     * @deprecated
      */
+    @Deprecated
     public Long getMaxTpsPerNamespace() {
         return this.MaxTpsPerNamespace;
     }
 
     /**
-     * Set 单命名空间TPS上线
-     * @param MaxTpsPerNamespace 单命名空间TPS上线
+     * Set 单命名空间TPS上限
+     * @param MaxTpsPerNamespace 单命名空间TPS上限
+     * @deprecated
      */
+    @Deprecated
     public void setMaxTpsPerNamespace(Long MaxTpsPerNamespace) {
         this.MaxTpsPerNamespace = MaxTpsPerNamespace;
     }
@@ -257,6 +284,58 @@ public class RocketMQClusterConfig extends AbstractModel{
         this.MaxQueuesPerTopic = MaxQueuesPerTopic;
     }
 
+    /**
+     * Get topic分布
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TopicDistribution topic分布
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RocketMQTopicDistribution [] getTopicDistribution() {
+        return this.TopicDistribution;
+    }
+
+    /**
+     * Set topic分布
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TopicDistribution topic分布
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTopicDistribution(RocketMQTopicDistribution [] TopicDistribution) {
+        this.TopicDistribution = TopicDistribution;
+    }
+
+    /**
+     * Get 最大角色数量 
+     * @return MaxRoleNum 最大角色数量
+     */
+    public Long getMaxRoleNum() {
+        return this.MaxRoleNum;
+    }
+
+    /**
+     * Set 最大角色数量
+     * @param MaxRoleNum 最大角色数量
+     */
+    public void setMaxRoleNum(Long MaxRoleNum) {
+        this.MaxRoleNum = MaxRoleNum;
+    }
+
+    /**
+     * Get TPS限额 
+     * @return MaxTpsLimit TPS限额
+     */
+    public Long getMaxTpsLimit() {
+        return this.MaxTpsLimit;
+    }
+
+    /**
+     * Set TPS限额
+     * @param MaxTpsLimit TPS限额
+     */
+    public void setMaxTpsLimit(Long MaxTpsLimit) {
+        this.MaxTpsLimit = MaxTpsLimit;
+    }
+
     public RocketMQClusterConfig() {
     }
 
@@ -295,6 +374,18 @@ public class RocketMQClusterConfig extends AbstractModel{
         if (source.MaxQueuesPerTopic != null) {
             this.MaxQueuesPerTopic = new Long(source.MaxQueuesPerTopic);
         }
+        if (source.TopicDistribution != null) {
+            this.TopicDistribution = new RocketMQTopicDistribution[source.TopicDistribution.length];
+            for (int i = 0; i < source.TopicDistribution.length; i++) {
+                this.TopicDistribution[i] = new RocketMQTopicDistribution(source.TopicDistribution[i]);
+            }
+        }
+        if (source.MaxRoleNum != null) {
+            this.MaxRoleNum = new Long(source.MaxRoleNum);
+        }
+        if (source.MaxTpsLimit != null) {
+            this.MaxTpsLimit = new Long(source.MaxTpsLimit);
+        }
     }
 
 
@@ -312,6 +403,9 @@ public class RocketMQClusterConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxRetentionTime", this.MaxRetentionTime);
         this.setParamSimple(map, prefix + "MaxLatencyTime", this.MaxLatencyTime);
         this.setParamSimple(map, prefix + "MaxQueuesPerTopic", this.MaxQueuesPerTopic);
+        this.setParamArrayObj(map, prefix + "TopicDistribution.", this.TopicDistribution);
+        this.setParamSimple(map, prefix + "MaxRoleNum", this.MaxRoleNum);
+        this.setParamSimple(map, prefix + "MaxTpsLimit", this.MaxTpsLimit);
 
     }
 }

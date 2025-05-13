@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NodeView extends AbstractModel{
+public class NodeView extends AbstractModel {
 
     /**
     * 节点ID
@@ -140,6 +141,36 @@ public class NodeView extends AbstractModel{
     @SerializedName("Hidden")
     @Expose
     private Boolean Hidden;
+
+    /**
+    * 是否充当协调节点的角色
+    */
+    @SerializedName("IsCoordinationNode")
+    @Expose
+    private Boolean IsCoordinationNode;
+
+    /**
+    * CVM运行状态
+    */
+    @SerializedName("CVMStatus")
+    @Expose
+    private String CVMStatus;
+
+    /**
+    * cvm绑定的置放群组的id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CVMDisasterRecoverGroupId")
+    @Expose
+    private String CVMDisasterRecoverGroupId;
+
+    /**
+    * cvm绑定置放群组的状态。2: 已绑定；1: 绑定中；0: 未开启
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CVMDisasterRecoverGroupStatus")
+    @Expose
+    private Long CVMDisasterRecoverGroupStatus;
 
     /**
      * Get 节点ID 
@@ -413,6 +444,78 @@ public class NodeView extends AbstractModel{
         this.Hidden = Hidden;
     }
 
+    /**
+     * Get 是否充当协调节点的角色 
+     * @return IsCoordinationNode 是否充当协调节点的角色
+     */
+    public Boolean getIsCoordinationNode() {
+        return this.IsCoordinationNode;
+    }
+
+    /**
+     * Set 是否充当协调节点的角色
+     * @param IsCoordinationNode 是否充当协调节点的角色
+     */
+    public void setIsCoordinationNode(Boolean IsCoordinationNode) {
+        this.IsCoordinationNode = IsCoordinationNode;
+    }
+
+    /**
+     * Get CVM运行状态 
+     * @return CVMStatus CVM运行状态
+     */
+    public String getCVMStatus() {
+        return this.CVMStatus;
+    }
+
+    /**
+     * Set CVM运行状态
+     * @param CVMStatus CVM运行状态
+     */
+    public void setCVMStatus(String CVMStatus) {
+        this.CVMStatus = CVMStatus;
+    }
+
+    /**
+     * Get cvm绑定的置放群组的id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CVMDisasterRecoverGroupId cvm绑定的置放群组的id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCVMDisasterRecoverGroupId() {
+        return this.CVMDisasterRecoverGroupId;
+    }
+
+    /**
+     * Set cvm绑定的置放群组的id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CVMDisasterRecoverGroupId cvm绑定的置放群组的id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCVMDisasterRecoverGroupId(String CVMDisasterRecoverGroupId) {
+        this.CVMDisasterRecoverGroupId = CVMDisasterRecoverGroupId;
+    }
+
+    /**
+     * Get cvm绑定置放群组的状态。2: 已绑定；1: 绑定中；0: 未开启
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CVMDisasterRecoverGroupStatus cvm绑定置放群组的状态。2: 已绑定；1: 绑定中；0: 未开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCVMDisasterRecoverGroupStatus() {
+        return this.CVMDisasterRecoverGroupStatus;
+    }
+
+    /**
+     * Set cvm绑定置放群组的状态。2: 已绑定；1: 绑定中；0: 未开启
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CVMDisasterRecoverGroupStatus cvm绑定置放群组的状态。2: 已绑定；1: 绑定中；0: 未开启
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCVMDisasterRecoverGroupStatus(Long CVMDisasterRecoverGroupStatus) {
+        this.CVMDisasterRecoverGroupStatus = CVMDisasterRecoverGroupStatus;
+    }
+
     public NodeView() {
     }
 
@@ -475,6 +578,18 @@ public class NodeView extends AbstractModel{
         if (source.Hidden != null) {
             this.Hidden = new Boolean(source.Hidden);
         }
+        if (source.IsCoordinationNode != null) {
+            this.IsCoordinationNode = new Boolean(source.IsCoordinationNode);
+        }
+        if (source.CVMStatus != null) {
+            this.CVMStatus = new String(source.CVMStatus);
+        }
+        if (source.CVMDisasterRecoverGroupId != null) {
+            this.CVMDisasterRecoverGroupId = new String(source.CVMDisasterRecoverGroupId);
+        }
+        if (source.CVMDisasterRecoverGroupStatus != null) {
+            this.CVMDisasterRecoverGroupStatus = new Long(source.CVMDisasterRecoverGroupStatus);
+        }
     }
 
 
@@ -499,6 +614,10 @@ public class NodeView extends AbstractModel{
         this.setParamSimple(map, prefix + "ShardNum", this.ShardNum);
         this.setParamArraySimple(map, prefix + "DiskIds.", this.DiskIds);
         this.setParamSimple(map, prefix + "Hidden", this.Hidden);
+        this.setParamSimple(map, prefix + "IsCoordinationNode", this.IsCoordinationNode);
+        this.setParamSimple(map, prefix + "CVMStatus", this.CVMStatus);
+        this.setParamSimple(map, prefix + "CVMDisasterRecoverGroupId", this.CVMDisasterRecoverGroupId);
+        this.setParamSimple(map, prefix + "CVMDisasterRecoverGroupStatus", this.CVMDisasterRecoverGroupStatus);
 
     }
 }

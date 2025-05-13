@@ -16,14 +16,16 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LivenessCompareResponse extends AbstractModel{
+public class LivenessCompareResponse extends AbstractModel {
 
     /**
-    * 验证通过后的视频最佳截图照片，照片为BASE64编码后的值，jpg格式。
+    * 验证通过后的视频最佳截图照片。
+- 照片为BASE64编码后的值，jpg格式。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BestFrameBase64")
@@ -31,14 +33,18 @@ public class LivenessCompareResponse extends AbstractModel{
     private String BestFrameBase64;
 
     /**
-    * 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
+    * 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
     */
     @SerializedName("Sim")
     @Expose
     private Float Sim;
 
     /**
-    * 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
+    * 业务错误码。
+- 成功情况返回Success。
+- 错误情况请参考下方错误码，列表中FailedOperation部分。
     */
     @SerializedName("Result")
     @Expose
@@ -52,7 +58,8 @@ public class LivenessCompareResponse extends AbstractModel{
     private String Description;
 
     /**
-    * 最佳截图列表，仅在配置了返回多张最佳截图时返回。
+    * 最佳截图列表。
+- 仅在配置了返回多张最佳截图时返回。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BestFrameList")
@@ -60,16 +67,18 @@ public class LivenessCompareResponse extends AbstractModel{
     private String [] BestFrameList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 验证通过后的视频最佳截图照片，照片为BASE64编码后的值，jpg格式。
+     * Get 验证通过后的视频最佳截图照片。
+- 照片为BASE64编码后的值，jpg格式。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BestFrameBase64 验证通过后的视频最佳截图照片，照片为BASE64编码后的值，jpg格式。
+     * @return BestFrameBase64 验证通过后的视频最佳截图照片。
+- 照片为BASE64编码后的值，jpg格式。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBestFrameBase64() {
@@ -77,9 +86,11 @@ public class LivenessCompareResponse extends AbstractModel{
     }
 
     /**
-     * Set 验证通过后的视频最佳截图照片，照片为BASE64编码后的值，jpg格式。
+     * Set 验证通过后的视频最佳截图照片。
+- 照片为BASE64编码后的值，jpg格式。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param BestFrameBase64 验证通过后的视频最佳截图照片，照片为BASE64编码后的值，jpg格式。
+     * @param BestFrameBase64 验证通过后的视频最佳截图照片。
+- 照片为BASE64编码后的值，jpg格式。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBestFrameBase64(String BestFrameBase64) {
@@ -87,32 +98,48 @@ public class LivenessCompareResponse extends AbstractModel{
     }
 
     /**
-     * Get 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。 
-     * @return Sim 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
+     * Get 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。 
+     * @return Sim 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
      */
     public Float getSim() {
         return this.Sim;
     }
 
     /**
-     * Set 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
-     * @param Sim 相似度，取值范围 [0.00, 100.00]。推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
+     * Set 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
+     * @param Sim 相似度。
+- 取值范围 [0.00, 100.00]。
+- 推荐相似度大于等于70时可判断为同一人，可根据具体场景自行调整阈值（阈值70的误通过率为千分之一，阈值80的误通过率是万分之一）。
      */
     public void setSim(Float Sim) {
         this.Sim = Sim;
     }
 
     /**
-     * Get 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分 
-     * @return Result 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
+     * Get 业务错误码。
+- 成功情况返回Success。
+- 错误情况请参考下方错误码，列表中FailedOperation部分。 
+     * @return Result 业务错误码。
+- 成功情况返回Success。
+- 错误情况请参考下方错误码，列表中FailedOperation部分。
      */
     public String getResult() {
         return this.Result;
     }
 
     /**
-     * Set 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
-     * @param Result 业务错误码，成功情况返回Success, 错误情况请参考下方错误码 列表中FailedOperation部分
+     * Set 业务错误码。
+- 成功情况返回Success。
+- 错误情况请参考下方错误码，列表中FailedOperation部分。
+     * @param Result 业务错误码。
+- 成功情况返回Success。
+- 错误情况请参考下方错误码，列表中FailedOperation部分。
      */
     public void setResult(String Result) {
         this.Result = Result;
@@ -135,9 +162,11 @@ public class LivenessCompareResponse extends AbstractModel{
     }
 
     /**
-     * Get 最佳截图列表，仅在配置了返回多张最佳截图时返回。
+     * Get 最佳截图列表。
+- 仅在配置了返回多张最佳截图时返回。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BestFrameList 最佳截图列表，仅在配置了返回多张最佳截图时返回。
+     * @return BestFrameList 最佳截图列表。
+- 仅在配置了返回多张最佳截图时返回。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getBestFrameList() {
@@ -145,9 +174,11 @@ public class LivenessCompareResponse extends AbstractModel{
     }
 
     /**
-     * Set 最佳截图列表，仅在配置了返回多张最佳截图时返回。
+     * Set 最佳截图列表。
+- 仅在配置了返回多张最佳截图时返回。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param BestFrameList 最佳截图列表，仅在配置了返回多张最佳截图时返回。
+     * @param BestFrameList 最佳截图列表。
+- 仅在配置了返回多张最佳截图时返回。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBestFrameList(String [] BestFrameList) {
@@ -155,16 +186,16 @@ public class LivenessCompareResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

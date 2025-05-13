@@ -16,25 +16,23 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskId extends AbstractModel{
+public class TaskId extends AbstractModel {
 
     /**
     * 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskId")
     @Expose
     private String TaskId;
 
     /**
-     * Get 任务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务ID 
      * @return TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskId() {
         return this.TaskId;
@@ -42,9 +40,7 @@ public class TaskId extends AbstractModel{
 
     /**
      * Set 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;

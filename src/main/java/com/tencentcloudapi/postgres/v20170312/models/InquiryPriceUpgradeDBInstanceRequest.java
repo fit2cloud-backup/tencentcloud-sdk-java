@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel{
+public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel {
 
     /**
     * 实例的磁盘大小，单位GB
@@ -49,6 +50,13 @@ public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel{
     @SerializedName("InstanceChargeType")
     @Expose
     private String InstanceChargeType;
+
+    /**
+    * 实例的Cpu大小，单位Core
+    */
+    @SerializedName("Cpu")
+    @Expose
+    private Long Cpu;
 
     /**
      * Get 实例的磁盘大小，单位GB 
@@ -114,6 +122,22 @@ public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel{
         this.InstanceChargeType = InstanceChargeType;
     }
 
+    /**
+     * Get 实例的Cpu大小，单位Core 
+     * @return Cpu 实例的Cpu大小，单位Core
+     */
+    public Long getCpu() {
+        return this.Cpu;
+    }
+
+    /**
+     * Set 实例的Cpu大小，单位Core
+     * @param Cpu 实例的Cpu大小，单位Core
+     */
+    public void setCpu(Long Cpu) {
+        this.Cpu = Cpu;
+    }
+
     public InquiryPriceUpgradeDBInstanceRequest() {
     }
 
@@ -134,6 +158,9 @@ public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel{
         if (source.InstanceChargeType != null) {
             this.InstanceChargeType = new String(source.InstanceChargeType);
         }
+        if (source.Cpu != null) {
+            this.Cpu = new Long(source.Cpu);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class InquiryPriceUpgradeDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Memory", this.Memory);
         this.setParamSimple(map, prefix + "DBInstanceId", this.DBInstanceId);
         this.setParamSimple(map, prefix + "InstanceChargeType", this.InstanceChargeType);
+        this.setParamSimple(map, prefix + "Cpu", this.Cpu);
 
     }
 }

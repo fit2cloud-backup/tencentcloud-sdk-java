@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGraphDataResponse extends AbstractModel{
+public class DescribeGraphDataResponse extends AbstractModel {
 
     /**
     * 开始时间, 会根据数据的统计周期进行取整.
@@ -51,7 +52,7 @@ public class DescribeGraphDataResponse extends AbstractModel{
     private Long Period;
 
     /**
-    * 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到.
+    * 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到。
     */
     @SerializedName("Values")
     @Expose
@@ -65,7 +66,7 @@ public class DescribeGraphDataResponse extends AbstractModel{
     private Long [] Time;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -136,16 +137,16 @@ public class DescribeGraphDataResponse extends AbstractModel{
     }
 
     /**
-     * Get 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到. 
-     * @return Values 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到.
+     * Get 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到。 
+     * @return Values 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到。
      */
     public Float [] getValues() {
         return this.Values;
     }
 
     /**
-     * Set 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到.
-     * @param Values 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到.
+     * Set 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到。
+     * @param Values 有效的监控数据, 每个有效监控数据的上报时间可以从时间数组中的对应位置上获取到。
      */
     public void setValues(Float [] Values) {
         this.Values = Values;
@@ -168,16 +169,16 @@ public class DescribeGraphDataResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

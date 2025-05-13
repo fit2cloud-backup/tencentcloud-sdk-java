@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GeneralAccurateOCRRequest extends AbstractModel{
+public class GeneralAccurateOCRRequest extends AbstractModel {
 
     /**
     * 图片的 Base64 值。
@@ -33,7 +34,7 @@ public class GeneralAccurateOCRRequest extends AbstractModel{
 
     /**
     * 图片的 Url 地址。
-要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。
+要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
     */
     @SerializedName("ImageUrl")
@@ -69,6 +70,13 @@ public class GeneralAccurateOCRRequest extends AbstractModel{
     private Long PdfPageNumber;
 
     /**
+    * 文本检测开关，默认为true。设置为false可直接进行单行识别，适用于仅包含正向单行文本的图片场景。
+    */
+    @SerializedName("EnableDetectText")
+    @Expose
+    private Boolean EnableDetectText;
+
+    /**
      * Get 图片的 Base64 值。
 要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。
 图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。 
@@ -94,10 +102,10 @@ public class GeneralAccurateOCRRequest extends AbstractModel{
 
     /**
      * Get 图片的 Url 地址。
-要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。
+要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。 
      * @return ImageUrl 图片的 Url 地址。
-要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。
+要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
     public String getImageUrl() {
@@ -106,10 +114,10 @@ public class GeneralAccurateOCRRequest extends AbstractModel{
 
     /**
      * Set 图片的 Url 地址。
-要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。
+要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      * @param ImageUrl 图片的 Url 地址。
-要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。
+要求图片经Base64编码后不超过 7M，分辨率建议600*800以上，支持PNG、JPG、JPEG、BMP格式。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
     public void setImageUrl(String ImageUrl) {
@@ -180,6 +188,22 @@ public class GeneralAccurateOCRRequest extends AbstractModel{
         this.PdfPageNumber = PdfPageNumber;
     }
 
+    /**
+     * Get 文本检测开关，默认为true。设置为false可直接进行单行识别，适用于仅包含正向单行文本的图片场景。 
+     * @return EnableDetectText 文本检测开关，默认为true。设置为false可直接进行单行识别，适用于仅包含正向单行文本的图片场景。
+     */
+    public Boolean getEnableDetectText() {
+        return this.EnableDetectText;
+    }
+
+    /**
+     * Set 文本检测开关，默认为true。设置为false可直接进行单行识别，适用于仅包含正向单行文本的图片场景。
+     * @param EnableDetectText 文本检测开关，默认为true。设置为false可直接进行单行识别，适用于仅包含正向单行文本的图片场景。
+     */
+    public void setEnableDetectText(Boolean EnableDetectText) {
+        this.EnableDetectText = EnableDetectText;
+    }
+
     public GeneralAccurateOCRRequest() {
     }
 
@@ -206,6 +230,9 @@ public class GeneralAccurateOCRRequest extends AbstractModel{
         if (source.PdfPageNumber != null) {
             this.PdfPageNumber = new Long(source.PdfPageNumber);
         }
+        if (source.EnableDetectText != null) {
+            this.EnableDetectText = new Boolean(source.EnableDetectText);
+        }
     }
 
 
@@ -219,6 +246,7 @@ public class GeneralAccurateOCRRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EnableDetectSplit", this.EnableDetectSplit);
         this.setParamSimple(map, prefix + "IsPdf", this.IsPdf);
         this.setParamSimple(map, prefix + "PdfPageNumber", this.PdfPageNumber);
+        this.setParamSimple(map, prefix + "EnableDetectText", this.EnableDetectText);
 
     }
 }

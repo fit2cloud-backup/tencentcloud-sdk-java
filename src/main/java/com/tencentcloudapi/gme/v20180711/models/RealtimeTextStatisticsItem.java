@@ -16,25 +16,23 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RealtimeTextStatisticsItem extends AbstractModel{
+public class RealtimeTextStatisticsItem extends AbstractModel {
 
     /**
     * 统计值，单位：秒
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private Float Data;
 
     /**
-     * Get 统计值，单位：秒
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 统计值，单位：秒 
      * @return Data 统计值，单位：秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getData() {
         return this.Data;
@@ -42,9 +40,7 @@ public class RealtimeTextStatisticsItem extends AbstractModel{
 
     /**
      * Set 统计值，单位：秒
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 统计值，单位：秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(Float Data) {
         this.Data = Data;

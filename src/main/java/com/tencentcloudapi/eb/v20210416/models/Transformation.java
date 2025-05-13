@@ -16,14 +16,15 @@
 package com.tencentcloudapi.eb.v20210416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Transformation extends AbstractModel{
+public class Transformation extends AbstractModel {
 
     /**
-    * 描述如何提取数据
+    * 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Extraction")
@@ -31,7 +32,7 @@ public class Transformation extends AbstractModel{
     private Extraction Extraction;
 
     /**
-    * 描述如何过滤数据
+    * 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EtlFilter")
@@ -39,7 +40,7 @@ public class Transformation extends AbstractModel{
     private EtlFilter EtlFilter;
 
     /**
-    * 描述如何数据转换
+    * 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Transform")
@@ -47,9 +48,9 @@ public class Transformation extends AbstractModel{
     private Transform Transform;
 
     /**
-     * Get 描述如何提取数据
+     * Get 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Extraction 描述如何提取数据
+     * @return Extraction 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Extraction getExtraction() {
@@ -57,9 +58,9 @@ public class Transformation extends AbstractModel{
     }
 
     /**
-     * Set 描述如何提取数据
+     * Set 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Extraction 描述如何提取数据
+     * @param Extraction 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtraction(Extraction Extraction) {
@@ -67,9 +68,9 @@ public class Transformation extends AbstractModel{
     }
 
     /**
-     * Get 描述如何过滤数据
+     * Get 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return EtlFilter 描述如何过滤数据
+     * @return EtlFilter 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public EtlFilter getEtlFilter() {
@@ -77,9 +78,9 @@ public class Transformation extends AbstractModel{
     }
 
     /**
-     * Set 描述如何过滤数据
+     * Set 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param EtlFilter 描述如何过滤数据
+     * @param EtlFilter 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEtlFilter(EtlFilter EtlFilter) {
@@ -87,9 +88,9 @@ public class Transformation extends AbstractModel{
     }
 
     /**
-     * Get 描述如何数据转换
+     * Get 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Transform 描述如何数据转换
+     * @return Transform 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Transform getTransform() {
@@ -97,9 +98,9 @@ public class Transformation extends AbstractModel{
     }
 
     /**
-     * Set 描述如何数据转换
+     * Set 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Transform 描述如何数据转换
+     * @param Transform 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTransform(Transform Transform) {

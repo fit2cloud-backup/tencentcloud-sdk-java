@@ -16,11 +16,12 @@
 package com.tencentcloudapi.kms.v20190118.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetServiceStatusResponse extends AbstractModel{
+public class GetServiceStatusResponse extends AbstractModel {
 
     /**
     * KMS服务是否开通， true 表示已开通
@@ -31,7 +32,6 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
     * 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InvalidType")
     @Expose
@@ -46,7 +46,6 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
     * 旗舰版到期时间（Epoch Unix Timestamp）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProExpireTime")
     @Expose
@@ -54,7 +53,6 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
     * 旗舰版是否自动续费：0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProRenewFlag")
     @Expose
@@ -62,7 +60,6 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
     * 旗舰版购买记录的唯一性标识。如果为开通旗舰版，则返回值为空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProResourceId")
     @Expose
@@ -70,7 +67,6 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
     * 是否开通 KMS 托管版
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExclusiveVSMEnabled")
     @Expose
@@ -78,7 +74,6 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
     * 是否开通 KMS 独享版
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExclusiveHSMEnabled")
     @Expose
@@ -86,14 +81,34 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
     * KMS 订阅信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubscriptionInfo")
     @Expose
     private String SubscriptionInfo;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 返回KMS用户密钥使用数量
+    */
+    @SerializedName("CmkUserCount")
+    @Expose
+    private Long CmkUserCount;
+
+    /**
+    * 返回KMS用户密钥规格数量
+    */
+    @SerializedName("CmkLimit")
+    @Expose
+    private Long CmkLimit;
+
+    /**
+    * 返回独享集群组
+    */
+    @SerializedName("ExclusiveHSMList")
+    @Expose
+    private ExclusiveHSM [] ExclusiveHSMList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -116,10 +131,8 @@ public class GetServiceStatusResponse extends AbstractModel{
     }
 
     /**
-     * Get 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放 
      * @return InvalidType 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInvalidType() {
         return this.InvalidType;
@@ -127,9 +140,7 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
      * Set 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InvalidType 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInvalidType(Long InvalidType) {
         this.InvalidType = InvalidType;
@@ -152,10 +163,8 @@ public class GetServiceStatusResponse extends AbstractModel{
     }
 
     /**
-     * Get 旗舰版到期时间（Epoch Unix Timestamp）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 旗舰版到期时间（Epoch Unix Timestamp）。 
      * @return ProExpireTime 旗舰版到期时间（Epoch Unix Timestamp）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProExpireTime() {
         return this.ProExpireTime;
@@ -163,19 +172,15 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
      * Set 旗舰版到期时间（Epoch Unix Timestamp）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProExpireTime 旗舰版到期时间（Epoch Unix Timestamp）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProExpireTime(Long ProExpireTime) {
         this.ProExpireTime = ProExpireTime;
     }
 
     /**
-     * Get 旗舰版是否自动续费：0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 旗舰版是否自动续费：0-不自动续费，1-自动续费 
      * @return ProRenewFlag 旗舰版是否自动续费：0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProRenewFlag() {
         return this.ProRenewFlag;
@@ -183,19 +188,15 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
      * Set 旗舰版是否自动续费：0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProRenewFlag 旗舰版是否自动续费：0-不自动续费，1-自动续费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProRenewFlag(Long ProRenewFlag) {
         this.ProRenewFlag = ProRenewFlag;
     }
 
     /**
-     * Get 旗舰版购买记录的唯一性标识。如果为开通旗舰版，则返回值为空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 旗舰版购买记录的唯一性标识。如果为开通旗舰版，则返回值为空 
      * @return ProResourceId 旗舰版购买记录的唯一性标识。如果为开通旗舰版，则返回值为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProResourceId() {
         return this.ProResourceId;
@@ -203,19 +204,15 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
      * Set 旗舰版购买记录的唯一性标识。如果为开通旗舰版，则返回值为空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProResourceId 旗舰版购买记录的唯一性标识。如果为开通旗舰版，则返回值为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProResourceId(String ProResourceId) {
         this.ProResourceId = ProResourceId;
     }
 
     /**
-     * Get 是否开通 KMS 托管版
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开通 KMS 托管版 
      * @return ExclusiveVSMEnabled 是否开通 KMS 托管版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getExclusiveVSMEnabled() {
         return this.ExclusiveVSMEnabled;
@@ -223,19 +220,15 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
      * Set 是否开通 KMS 托管版
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExclusiveVSMEnabled 是否开通 KMS 托管版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExclusiveVSMEnabled(Boolean ExclusiveVSMEnabled) {
         this.ExclusiveVSMEnabled = ExclusiveVSMEnabled;
     }
 
     /**
-     * Get 是否开通 KMS 独享版
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开通 KMS 独享版 
      * @return ExclusiveHSMEnabled 是否开通 KMS 独享版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getExclusiveHSMEnabled() {
         return this.ExclusiveHSMEnabled;
@@ -243,19 +236,15 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
      * Set 是否开通 KMS 独享版
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExclusiveHSMEnabled 是否开通 KMS 独享版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExclusiveHSMEnabled(Boolean ExclusiveHSMEnabled) {
         this.ExclusiveHSMEnabled = ExclusiveHSMEnabled;
     }
 
     /**
-     * Get KMS 订阅信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get KMS 订阅信息。 
      * @return SubscriptionInfo KMS 订阅信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubscriptionInfo() {
         return this.SubscriptionInfo;
@@ -263,25 +252,71 @@ public class GetServiceStatusResponse extends AbstractModel{
 
     /**
      * Set KMS 订阅信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubscriptionInfo KMS 订阅信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubscriptionInfo(String SubscriptionInfo) {
         this.SubscriptionInfo = SubscriptionInfo;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 返回KMS用户密钥使用数量 
+     * @return CmkUserCount 返回KMS用户密钥使用数量
+     */
+    public Long getCmkUserCount() {
+        return this.CmkUserCount;
+    }
+
+    /**
+     * Set 返回KMS用户密钥使用数量
+     * @param CmkUserCount 返回KMS用户密钥使用数量
+     */
+    public void setCmkUserCount(Long CmkUserCount) {
+        this.CmkUserCount = CmkUserCount;
+    }
+
+    /**
+     * Get 返回KMS用户密钥规格数量 
+     * @return CmkLimit 返回KMS用户密钥规格数量
+     */
+    public Long getCmkLimit() {
+        return this.CmkLimit;
+    }
+
+    /**
+     * Set 返回KMS用户密钥规格数量
+     * @param CmkLimit 返回KMS用户密钥规格数量
+     */
+    public void setCmkLimit(Long CmkLimit) {
+        this.CmkLimit = CmkLimit;
+    }
+
+    /**
+     * Get 返回独享集群组 
+     * @return ExclusiveHSMList 返回独享集群组
+     */
+    public ExclusiveHSM [] getExclusiveHSMList() {
+        return this.ExclusiveHSMList;
+    }
+
+    /**
+     * Set 返回独享集群组
+     * @param ExclusiveHSMList 返回独享集群组
+     */
+    public void setExclusiveHSMList(ExclusiveHSM [] ExclusiveHSMList) {
+        this.ExclusiveHSMList = ExclusiveHSMList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -322,6 +357,18 @@ public class GetServiceStatusResponse extends AbstractModel{
         if (source.SubscriptionInfo != null) {
             this.SubscriptionInfo = new String(source.SubscriptionInfo);
         }
+        if (source.CmkUserCount != null) {
+            this.CmkUserCount = new Long(source.CmkUserCount);
+        }
+        if (source.CmkLimit != null) {
+            this.CmkLimit = new Long(source.CmkLimit);
+        }
+        if (source.ExclusiveHSMList != null) {
+            this.ExclusiveHSMList = new ExclusiveHSM[source.ExclusiveHSMList.length];
+            for (int i = 0; i < source.ExclusiveHSMList.length; i++) {
+                this.ExclusiveHSMList[i] = new ExclusiveHSM(source.ExclusiveHSMList[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -341,6 +388,9 @@ public class GetServiceStatusResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ExclusiveVSMEnabled", this.ExclusiveVSMEnabled);
         this.setParamSimple(map, prefix + "ExclusiveHSMEnabled", this.ExclusiveHSMEnabled);
         this.setParamSimple(map, prefix + "SubscriptionInfo", this.SubscriptionInfo);
+        this.setParamSimple(map, prefix + "CmkUserCount", this.CmkUserCount);
+        this.setParamSimple(map, prefix + "CmkLimit", this.CmkLimit);
+        this.setParamArrayObj(map, prefix + "ExclusiveHSMList.", this.ExclusiveHSMList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

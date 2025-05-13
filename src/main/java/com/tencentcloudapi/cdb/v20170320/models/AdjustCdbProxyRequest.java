@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AdjustCdbProxyRequest extends AbstractModel{
+public class AdjustCdbProxyRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -38,6 +39,13 @@ public class AdjustCdbProxyRequest extends AbstractModel{
 
     /**
     * 节点规格配置
+备注：数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+示例中参数说明：
+NodeCount：节点个数
+Region：节点地域
+Zone：节点可用区
+Cpu：单个代理节点核数（单位：核）
+Mem：单个代理节点内存数（单位：MB）
     */
     @SerializedName("ProxyNodeCustom")
     @Expose
@@ -90,8 +98,22 @@ public class AdjustCdbProxyRequest extends AbstractModel{
     }
 
     /**
-     * Get 节点规格配置 
+     * Get 节点规格配置
+备注：数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+示例中参数说明：
+NodeCount：节点个数
+Region：节点地域
+Zone：节点可用区
+Cpu：单个代理节点核数（单位：核）
+Mem：单个代理节点内存数（单位：MB） 
      * @return ProxyNodeCustom 节点规格配置
+备注：数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+示例中参数说明：
+NodeCount：节点个数
+Region：节点地域
+Zone：节点可用区
+Cpu：单个代理节点核数（单位：核）
+Mem：单个代理节点内存数（单位：MB）
      */
     public ProxyNodeCustom [] getProxyNodeCustom() {
         return this.ProxyNodeCustom;
@@ -99,7 +121,21 @@ public class AdjustCdbProxyRequest extends AbstractModel{
 
     /**
      * Set 节点规格配置
+备注：数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+示例中参数说明：
+NodeCount：节点个数
+Region：节点地域
+Zone：节点可用区
+Cpu：单个代理节点核数（单位：核）
+Mem：单个代理节点内存数（单位：MB）
      * @param ProxyNodeCustom 节点规格配置
+备注：数据库代理支持的节点规格为：2C4000MB、4C8000MB、8C16000MB。
+示例中参数说明：
+NodeCount：节点个数
+Region：节点地域
+Zone：节点可用区
+Cpu：单个代理节点核数（单位：核）
+Mem：单个代理节点内存数（单位：MB）
      */
     public void setProxyNodeCustom(ProxyNodeCustom [] ProxyNodeCustom) {
         this.ProxyNodeCustom = ProxyNodeCustom;

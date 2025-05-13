@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParamTemplateInfo extends AbstractModel{
+public class ParamTemplateInfo extends AbstractModel {
 
     /**
     * 参数模板ID
@@ -59,7 +60,6 @@ public class ParamTemplateInfo extends AbstractModel{
 
     /**
     * 参数模板引擎
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EngineType")
     @Expose
@@ -146,10 +146,8 @@ public class ParamTemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 参数模板引擎
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数模板引擎 
      * @return EngineType 参数模板引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEngineType() {
         return this.EngineType;
@@ -157,9 +155,7 @@ public class ParamTemplateInfo extends AbstractModel{
 
     /**
      * Set 参数模板引擎
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EngineType 参数模板引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEngineType(String EngineType) {
         this.EngineType = EngineType;

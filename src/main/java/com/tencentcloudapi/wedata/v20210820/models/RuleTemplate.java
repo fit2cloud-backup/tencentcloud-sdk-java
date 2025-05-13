@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleTemplate extends AbstractModel{
+public class RuleTemplate extends AbstractModel {
 
     /**
     * 规则模版ID
@@ -159,6 +160,30 @@ public class RuleTemplate extends AbstractModel{
     @SerializedName("SubQualityDim")
     @Expose
     private Long SubQualityDim;
+
+    /**
+    * sql表达式解析对象
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResolvedSqlExpression")
+    @Expose
+    private SqlExpression ResolvedSqlExpression;
+
+    /**
+    * 支持的数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatasourceTypes")
+    @Expose
+    private Long [] DatasourceTypes;
+
+    /**
+    * 创建人IdStr
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserIdStr")
+    @Expose
+    private String UserIdStr;
 
     /**
      * Get 规则模版ID 
@@ -496,6 +521,66 @@ public class RuleTemplate extends AbstractModel{
         this.SubQualityDim = SubQualityDim;
     }
 
+    /**
+     * Get sql表达式解析对象
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResolvedSqlExpression sql表达式解析对象
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SqlExpression getResolvedSqlExpression() {
+        return this.ResolvedSqlExpression;
+    }
+
+    /**
+     * Set sql表达式解析对象
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResolvedSqlExpression sql表达式解析对象
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResolvedSqlExpression(SqlExpression ResolvedSqlExpression) {
+        this.ResolvedSqlExpression = ResolvedSqlExpression;
+    }
+
+    /**
+     * Get 支持的数据源类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatasourceTypes 支持的数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long [] getDatasourceTypes() {
+        return this.DatasourceTypes;
+    }
+
+    /**
+     * Set 支持的数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatasourceTypes 支持的数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatasourceTypes(Long [] DatasourceTypes) {
+        this.DatasourceTypes = DatasourceTypes;
+    }
+
+    /**
+     * Get 创建人IdStr
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserIdStr 创建人IdStr
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUserIdStr() {
+        return this.UserIdStr;
+    }
+
+    /**
+     * Set 创建人IdStr
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserIdStr 创建人IdStr
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserIdStr(String UserIdStr) {
+        this.UserIdStr = UserIdStr;
+    }
+
     public RuleTemplate() {
     }
 
@@ -561,6 +646,18 @@ public class RuleTemplate extends AbstractModel{
         if (source.SubQualityDim != null) {
             this.SubQualityDim = new Long(source.SubQualityDim);
         }
+        if (source.ResolvedSqlExpression != null) {
+            this.ResolvedSqlExpression = new SqlExpression(source.ResolvedSqlExpression);
+        }
+        if (source.DatasourceTypes != null) {
+            this.DatasourceTypes = new Long[source.DatasourceTypes.length];
+            for (int i = 0; i < source.DatasourceTypes.length; i++) {
+                this.DatasourceTypes[i] = new Long(source.DatasourceTypes[i]);
+            }
+        }
+        if (source.UserIdStr != null) {
+            this.UserIdStr = new String(source.UserIdStr);
+        }
     }
 
 
@@ -586,6 +683,9 @@ public class RuleTemplate extends AbstractModel{
         this.setParamSimple(map, prefix + "MultiSourceFlag", this.MultiSourceFlag);
         this.setParamSimple(map, prefix + "SqlExpression", this.SqlExpression);
         this.setParamSimple(map, prefix + "SubQualityDim", this.SubQualityDim);
+        this.setParamObj(map, prefix + "ResolvedSqlExpression.", this.ResolvedSqlExpression);
+        this.setParamArraySimple(map, prefix + "DatasourceTypes.", this.DatasourceTypes);
+        this.setParamSimple(map, prefix + "UserIdStr", this.UserIdStr);
 
     }
 }

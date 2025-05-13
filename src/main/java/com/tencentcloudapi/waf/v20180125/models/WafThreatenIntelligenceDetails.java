@@ -16,15 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WafThreatenIntelligenceDetails extends AbstractModel{
+public class WafThreatenIntelligenceDetails extends AbstractModel {
 
     /**
     * 封禁属性标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -45,10 +45,8 @@ public class WafThreatenIntelligenceDetails extends AbstractModel{
     private String LastUpdateTime;
 
     /**
-     * Get 封禁属性标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 封禁属性标签 
      * @return Tags 封禁属性标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTags() {
         return this.Tags;
@@ -56,9 +54,7 @@ public class WafThreatenIntelligenceDetails extends AbstractModel{
 
     /**
      * Set 封禁属性标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 封禁属性标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(String [] Tags) {
         this.Tags = Tags;

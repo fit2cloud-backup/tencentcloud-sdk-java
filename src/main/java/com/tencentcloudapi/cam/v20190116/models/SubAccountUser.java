@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SubAccountUser extends AbstractModel{
+public class SubAccountUser extends AbstractModel {
 
     /**
     * 子用户用户 ID
@@ -73,7 +74,7 @@ public class SubAccountUser extends AbstractModel{
     private String LastLoginIp;
 
     /**
-    * 最近登录时间
+    * 最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastLoginTime")
@@ -197,9 +198,9 @@ public class SubAccountUser extends AbstractModel{
     }
 
     /**
-     * Get 最近登录时间
+     * Get 最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LastLoginTime 最近登录时间
+     * @return LastLoginTime 最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastLoginTime() {
@@ -207,9 +208,9 @@ public class SubAccountUser extends AbstractModel{
     }
 
     /**
-     * Set 最近登录时间
+     * Set 最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LastLoginTime 最近登录时间
+     * @param LastLoginTime 最近登录时间，回参为空，即为未登录过控制台
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastLoginTime(String LastLoginTime) {

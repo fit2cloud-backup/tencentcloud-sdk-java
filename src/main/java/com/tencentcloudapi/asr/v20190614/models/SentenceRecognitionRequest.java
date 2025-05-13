@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SentenceRecognitionRequest extends AbstractModel{
+public class SentenceRecognitionRequest extends AbstractModel {
 
     /**
     * 引擎模型类型。
@@ -45,6 +46,9 @@ public class SentenceRecognitionRequest extends AbstractModel{
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
     */
     @SerializedName("EngSerViceType")
@@ -81,6 +85,8 @@ public class SentenceRecognitionRequest extends AbstractModel{
 
     /**
     * 语音的URL地址，需要公网环境浏览器可下载。当 SourceType 值为 0时须填写该字段，为 1 时不填。音频时长不能超过60s，音频文件大小不能超过3MB。
+
+注意：推荐使用 [腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储音频、生成URL并提交请求，此种方式会走内网下载音频，极大降低整体请求时延；并且不会产生外网和流量下行费用，可节约成本（COS桶权限需要设置公有读私有写，或URL设置时效访问签名）
     */
     @SerializedName("Url")
     @Expose
@@ -122,7 +128,7 @@ public class SentenceRecognitionRequest extends AbstractModel{
     private Long FilterDirty;
 
     /**
-    * 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
+    * 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
     */
     @SerializedName("FilterModal")
     @Expose
@@ -164,13 +170,16 @@ public class SentenceRecognitionRequest extends AbstractModel{
     private Long ReinforceHotword;
 
     /**
-    * 临时热词表，该参数用于提升热词识别准确率。
-单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
-临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
-参数 hotword_list 与 hotword_id 区别：
-hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
-hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
-注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
+    * 临时热词表：该参数用于提升识别准确率。
+单个热词限制："热词|权重"，单个热词不超过30个字符（最多10个汉字），权重1-11或者100，如：“腾讯云|5” 或 “ASR|11”；
+临时热词表限制：多个热词用英文逗号分割，最多支持128个热词，如：“腾讯云|10,语音识别|5,ASR|11”；
+参数 hotword_list（临时热词表） 与 hotword_id（热词表） 区别：
+hotword_id：热词表。需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：临时热词表。每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表。适用于有极大量热词需求的用户；
+注意：
+• 如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list；
+• 热词权重设置为11时，当前热词将升级为超级热词，建议仅将重要且必须生效的热词设置到11，设置过多权重为11的热词将影响整体字准率。
+• 热词权重设置为100时，当前热词开启热词增强同音替换功能（仅支持8k_zh,16k_zh），举例：热词配置“蜜制|100”时，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。建议仅将重要且必须生效的热词设置到100，设置过多权重为100的热词将影响整体字准率。
     */
     @SerializedName("HotwordList")
     @Expose
@@ -206,6 +215,9 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）； 
      * @return EngSerViceType 引擎模型类型。
 电话场景：
@@ -229,6 +241,9 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      */
     public String getEngSerViceType() {
@@ -258,6 +273,9 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      * @param EngSerViceType 引擎模型类型。
 电话场景：
@@ -281,6 +299,9 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
 • 16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；
      */
     public void setEngSerViceType(String EngSerViceType) {
@@ -360,8 +381,12 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
     }
 
     /**
-     * Get 语音的URL地址，需要公网环境浏览器可下载。当 SourceType 值为 0时须填写该字段，为 1 时不填。音频时长不能超过60s，音频文件大小不能超过3MB。 
+     * Get 语音的URL地址，需要公网环境浏览器可下载。当 SourceType 值为 0时须填写该字段，为 1 时不填。音频时长不能超过60s，音频文件大小不能超过3MB。
+
+注意：推荐使用 [腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储音频、生成URL并提交请求，此种方式会走内网下载音频，极大降低整体请求时延；并且不会产生外网和流量下行费用，可节约成本（COS桶权限需要设置公有读私有写，或URL设置时效访问签名） 
      * @return Url 语音的URL地址，需要公网环境浏览器可下载。当 SourceType 值为 0时须填写该字段，为 1 时不填。音频时长不能超过60s，音频文件大小不能超过3MB。
+
+注意：推荐使用 [腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储音频、生成URL并提交请求，此种方式会走内网下载音频，极大降低整体请求时延；并且不会产生外网和流量下行费用，可节约成本（COS桶权限需要设置公有读私有写，或URL设置时效访问签名）
      */
     public String getUrl() {
         return this.Url;
@@ -369,7 +394,11 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
 
     /**
      * Set 语音的URL地址，需要公网环境浏览器可下载。当 SourceType 值为 0时须填写该字段，为 1 时不填。音频时长不能超过60s，音频文件大小不能超过3MB。
+
+注意：推荐使用 [腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储音频、生成URL并提交请求，此种方式会走内网下载音频，极大降低整体请求时延；并且不会产生外网和流量下行费用，可节约成本（COS桶权限需要设置公有读私有写，或URL设置时效访问签名）
      * @param Url 语音的URL地址，需要公网环境浏览器可下载。当 SourceType 值为 0时须填写该字段，为 1 时不填。音频时长不能超过60s，音频文件大小不能超过3MB。
+
+注意：推荐使用 [腾讯云COS](https://cloud.tencent.com/document/product/436/38484) 来存储音频、生成URL并提交请求，此种方式会走内网下载音频，极大降低整体请求时延；并且不会产生外网和流量下行费用，可节约成本（COS桶权限需要设置公有读私有写，或URL设置时效访问签名）
      */
     public void setUrl(String Url) {
         this.Url = Url;
@@ -460,16 +489,16 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
     }
 
     /**
-     * Get 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。 
-     * @return FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
+     * Get 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。 
+     * @return FilterModal 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
      */
     public Long getFilterModal() {
         return this.FilterModal;
     }
 
     /**
-     * Set 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
-     * @param FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
+     * Set 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
+     * @param FilterModal 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。
      */
     public void setFilterModal(Long FilterModal) {
         this.FilterModal = FilterModal;
@@ -542,7 +571,9 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
     /**
      * Get 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。 
      * @return ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * @deprecated
      */
+    @Deprecated
     public Long getReinforceHotword() {
         return this.ReinforceHotword;
     }
@@ -550,46 +581,60 @@ hotword_list：每次请求时直接传入临时热词表来使用热词功能�
     /**
      * Set 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
      * @param ReinforceHotword 热词增强功能。1:开启后（仅支持8k_zh,16k_zh），将开启同音替换功能，同音字、词在热词中配置。举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。
+     * @deprecated
      */
+    @Deprecated
     public void setReinforceHotword(Long ReinforceHotword) {
         this.ReinforceHotword = ReinforceHotword;
     }
 
     /**
-     * Get 临时热词表，该参数用于提升热词识别准确率。
-单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
-临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
-参数 hotword_list 与 hotword_id 区别：
-hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
-hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
-注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。 
-     * @return HotwordList 临时热词表，该参数用于提升热词识别准确率。
-单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
-临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
-参数 hotword_list 与 hotword_id 区别：
-hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
-hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
-注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
+     * Get 临时热词表：该参数用于提升识别准确率。
+单个热词限制："热词|权重"，单个热词不超过30个字符（最多10个汉字），权重1-11或者100，如：“腾讯云|5” 或 “ASR|11”；
+临时热词表限制：多个热词用英文逗号分割，最多支持128个热词，如：“腾讯云|10,语音识别|5,ASR|11”；
+参数 hotword_list（临时热词表） 与 hotword_id（热词表） 区别：
+hotword_id：热词表。需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：临时热词表。每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表。适用于有极大量热词需求的用户；
+注意：
+• 如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list；
+• 热词权重设置为11时，当前热词将升级为超级热词，建议仅将重要且必须生效的热词设置到11，设置过多权重为11的热词将影响整体字准率。
+• 热词权重设置为100时，当前热词开启热词增强同音替换功能（仅支持8k_zh,16k_zh），举例：热词配置“蜜制|100”时，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。建议仅将重要且必须生效的热词设置到100，设置过多权重为100的热词将影响整体字准率。 
+     * @return HotwordList 临时热词表：该参数用于提升识别准确率。
+单个热词限制："热词|权重"，单个热词不超过30个字符（最多10个汉字），权重1-11或者100，如：“腾讯云|5” 或 “ASR|11”；
+临时热词表限制：多个热词用英文逗号分割，最多支持128个热词，如：“腾讯云|10,语音识别|5,ASR|11”；
+参数 hotword_list（临时热词表） 与 hotword_id（热词表） 区别：
+hotword_id：热词表。需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：临时热词表。每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表。适用于有极大量热词需求的用户；
+注意：
+• 如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list；
+• 热词权重设置为11时，当前热词将升级为超级热词，建议仅将重要且必须生效的热词设置到11，设置过多权重为11的热词将影响整体字准率。
+• 热词权重设置为100时，当前热词开启热词增强同音替换功能（仅支持8k_zh,16k_zh），举例：热词配置“蜜制|100”时，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。建议仅将重要且必须生效的热词设置到100，设置过多权重为100的热词将影响整体字准率。
      */
     public String getHotwordList() {
         return this.HotwordList;
     }
 
     /**
-     * Set 临时热词表，该参数用于提升热词识别准确率。
-单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
-临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
-参数 hotword_list 与 hotword_id 区别：
-hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
-hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
-注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
-     * @param HotwordList 临时热词表，该参数用于提升热词识别准确率。
-单个热词规则："热词|权重"，不超过30个字符（最多10个汉字），权重1-10；
-临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云|10,语音识别|5,ASR|10"；
-参数 hotword_list 与 hotword_id 区别：
-hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
-hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；
-注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。
+     * Set 临时热词表：该参数用于提升识别准确率。
+单个热词限制："热词|权重"，单个热词不超过30个字符（最多10个汉字），权重1-11或者100，如：“腾讯云|5” 或 “ASR|11”；
+临时热词表限制：多个热词用英文逗号分割，最多支持128个热词，如：“腾讯云|10,语音识别|5,ASR|11”；
+参数 hotword_list（临时热词表） 与 hotword_id（热词表） 区别：
+hotword_id：热词表。需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：临时热词表。每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表。适用于有极大量热词需求的用户；
+注意：
+• 如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list；
+• 热词权重设置为11时，当前热词将升级为超级热词，建议仅将重要且必须生效的热词设置到11，设置过多权重为11的热词将影响整体字准率。
+• 热词权重设置为100时，当前热词开启热词增强同音替换功能（仅支持8k_zh,16k_zh），举例：热词配置“蜜制|100”时，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。建议仅将重要且必须生效的热词设置到100，设置过多权重为100的热词将影响整体字准率。
+     * @param HotwordList 临时热词表：该参数用于提升识别准确率。
+单个热词限制："热词|权重"，单个热词不超过30个字符（最多10个汉字），权重1-11或者100，如：“腾讯云|5” 或 “ASR|11”；
+临时热词表限制：多个热词用英文逗号分割，最多支持128个热词，如：“腾讯云|10,语音识别|5,ASR|11”；
+参数 hotword_list（临时热词表） 与 hotword_id（热词表） 区别：
+hotword_id：热词表。需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；
+hotword_list：临时热词表。每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表。适用于有极大量热词需求的用户；
+注意：
+• 如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list；
+• 热词权重设置为11时，当前热词将升级为超级热词，建议仅将重要且必须生效的热词设置到11，设置过多权重为11的热词将影响整体字准率。
+• 热词权重设置为100时，当前热词开启热词增强同音替换功能（仅支持8k_zh,16k_zh），举例：热词配置“蜜制|100”时，与“蜜制”同拼音（mizhi）的“秘制”的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。建议仅将重要且必须生效的热词设置到100，设置过多权重为100的热词将影响整体字准率。
      */
     public void setHotwordList(String HotwordList) {
         this.HotwordList = HotwordList;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSecretRequest extends AbstractModel{
+public class CreateSecretRequest extends AbstractModel {
 
     /**
     * 凭据名称，同一region内不可重复，最长128字节，使用字母、数字或者 - _ 的组合，第一个字符必须为字母或者数字。一旦创建不可修改。
@@ -51,21 +52,21 @@ public class CreateSecretRequest extends AbstractModel{
     private String KmsKeyId;
 
     /**
-    * 凭据类型，默认为自定义凭据。
+    * 凭据类型，默认为0自定义凭据。
     */
     @SerializedName("SecretType")
     @Expose
     private Long SecretType;
 
     /**
-    * 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持4096字节。
+    * 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
     */
     @SerializedName("SecretBinary")
     @Expose
     private String SecretBinary;
 
     /**
-    * 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，，最大支持4096字节。
+    * 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
     */
     @SerializedName("SecretString")
     @Expose
@@ -84,6 +85,13 @@ public class CreateSecretRequest extends AbstractModel{
     @SerializedName("Tags")
     @Expose
     private Tag [] Tags;
+
+    /**
+    * KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+    */
+    @SerializedName("KmsHsmClusterId")
+    @Expose
+    private String KmsHsmClusterId;
 
     /**
      * Get 凭据名称，同一region内不可重复，最长128字节，使用字母、数字或者 - _ 的组合，第一个字符必须为字母或者数字。一旦创建不可修改。 
@@ -150,48 +158,48 @@ public class CreateSecretRequest extends AbstractModel{
     }
 
     /**
-     * Get 凭据类型，默认为自定义凭据。 
-     * @return SecretType 凭据类型，默认为自定义凭据。
+     * Get 凭据类型，默认为0自定义凭据。 
+     * @return SecretType 凭据类型，默认为0自定义凭据。
      */
     public Long getSecretType() {
         return this.SecretType;
     }
 
     /**
-     * Set 凭据类型，默认为自定义凭据。
-     * @param SecretType 凭据类型，默认为自定义凭据。
+     * Set 凭据类型，默认为0自定义凭据。
+     * @param SecretType 凭据类型，默认为0自定义凭据。
      */
     public void setSecretType(Long SecretType) {
         this.SecretType = SecretType;
     }
 
     /**
-     * Get 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持4096字节。 
-     * @return SecretBinary 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持4096字节。
+     * Get 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。 
+     * @return SecretBinary 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
      */
     public String getSecretBinary() {
         return this.SecretBinary;
     }
 
     /**
-     * Set 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持4096字节。
-     * @param SecretBinary 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持4096字节。
+     * Set 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
+     * @param SecretBinary 二进制凭据信息base64编码后的明文。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
      */
     public void setSecretBinary(String SecretBinary) {
         this.SecretBinary = SecretBinary;
     }
 
     /**
-     * Get 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，，最大支持4096字节。 
-     * @return SecretString 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，，最大支持4096字节。
+     * Get 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。 
+     * @return SecretString 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
      */
     public String getSecretString() {
         return this.SecretString;
     }
 
     /**
-     * Set 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，，最大支持4096字节。
-     * @param SecretString 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，，最大支持4096字节。
+     * Set 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
+     * @param SecretString 文本类型凭据信息明文（不需要进行base64编码）。SecretBinary 和 SecretString 必须且只能设置一个，最大支持32KB字节。
      */
     public void setSecretString(String SecretString) {
         this.SecretString = SecretString;
@@ -227,6 +235,22 @@ public class CreateSecretRequest extends AbstractModel{
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
+    }
+
+    /**
+     * Get KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。 
+     * @return KmsHsmClusterId KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     */
+    public String getKmsHsmClusterId() {
+        return this.KmsHsmClusterId;
+    }
+
+    /**
+     * Set KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     * @param KmsHsmClusterId KMS的独享集群的ID。当KmsKeyId为空,并且用户的KMS存在有效的HsmClusterId时有效。
+     */
+    public void setKmsHsmClusterId(String KmsHsmClusterId) {
+        this.KmsHsmClusterId = KmsHsmClusterId;
     }
 
     public CreateSecretRequest() {
@@ -267,6 +291,9 @@ public class CreateSecretRequest extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.KmsHsmClusterId != null) {
+            this.KmsHsmClusterId = new String(source.KmsHsmClusterId);
+        }
     }
 
 
@@ -283,6 +310,7 @@ public class CreateSecretRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SecretString", this.SecretString);
         this.setParamSimple(map, prefix + "AdditionalConfig", this.AdditionalConfig);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "KmsHsmClusterId", this.KmsHsmClusterId);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KillMasterGroupRequest extends AbstractModel{
+public class KillMasterGroupRequest extends AbstractModel {
 
     /**
     * 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
@@ -40,7 +41,7 @@ public class KillMasterGroupRequest extends AbstractModel{
     private String Password;
 
     /**
-    * 分片集群的分片 ID。
+    * 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
     */
     @SerializedName("ShardIds")
     @Expose
@@ -91,16 +92,16 @@ public class KillMasterGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 分片集群的分片 ID。 
-     * @return ShardIds 分片集群的分片 ID。
+     * Get 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。 
+     * @return ShardIds 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
      */
     public Long [] getShardIds() {
         return this.ShardIds;
     }
 
     /**
-     * Set 分片集群的分片 ID。
-     * @param ShardIds 分片集群的分片 ID。
+     * Set 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
+     * @param ShardIds 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
      */
     public void setShardIds(Long [] ShardIds) {
         this.ShardIds = ShardIds;

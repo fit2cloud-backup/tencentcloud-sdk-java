@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel{
+public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel {
 
     /**
     * 安全组名称，可任意命名，但不得超过60个字符。
@@ -37,7 +38,7 @@ public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel{
     private String GroupDescription;
 
     /**
-    * 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
+    * 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -49,6 +50,13 @@ public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel{
     @SerializedName("SecurityGroupPolicySet")
     @Expose
     private SecurityGroupPolicySet SecurityGroupPolicySet;
+
+    /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 安全组名称，可任意命名，但不得超过60个字符。 
@@ -83,16 +91,16 @@ public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel{
     }
 
     /**
-     * Get 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。 
-     * @return ProjectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
+     * Get 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。 
+     * @return ProjectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
      */
     public String getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
-     * @param ProjectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
+     * Set 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
+     * @param ProjectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
@@ -112,6 +120,22 @@ public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel{
      */
     public void setSecurityGroupPolicySet(SecurityGroupPolicySet SecurityGroupPolicySet) {
         this.SecurityGroupPolicySet = SecurityGroupPolicySet;
+    }
+
+    /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
     }
 
     public CreateSecurityGroupWithPoliciesRequest() {
@@ -134,6 +158,12 @@ public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel{
         if (source.SecurityGroupPolicySet != null) {
             this.SecurityGroupPolicySet = new SecurityGroupPolicySet(source.SecurityGroupPolicySet);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -145,6 +175,7 @@ public class CreateSecurityGroupWithPoliciesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "GroupDescription", this.GroupDescription);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamObj(map, prefix + "SecurityGroupPolicySet.", this.SecurityGroupPolicySet);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

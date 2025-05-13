@@ -16,14 +16,15 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyConnectionConfigRequest extends AbstractModel{
+public class ModifyConnectionConfigRequest extends AbstractModel {
 
     /**
-    * 实例的ID，长度在12-36之间。
+    * 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -38,24 +39,24 @@ public class ModifyConnectionConfigRequest extends AbstractModel{
 
     /**
     * 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
     */
     @SerializedName("ClientLimit")
     @Expose
     private Long ClientLimit;
 
     /**
-     * Get 实例的ID，长度在12-36之间。 
-     * @return InstanceId 实例的ID，长度在12-36之间。
+     * Get 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。 
+     * @return InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例的ID，长度在12-36之间。
-     * @param InstanceId 实例的ID，长度在12-36之间。
+     * Set 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+     * @param InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -79,11 +80,11 @@ public class ModifyConnectionConfigRequest extends AbstractModel{
 
     /**
      * Get 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。 
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。 
      * @return ClientLimit 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
      */
     public Long getClientLimit() {
         return this.ClientLimit;
@@ -91,11 +92,11 @@ public class ModifyConnectionConfigRequest extends AbstractModel{
 
     /**
      * Set 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
      * @param ClientLimit 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
      */
     public void setClientLimit(Long ClientLimit) {
         this.ClientLimit = ClientLimit;

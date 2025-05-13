@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SymptomInfo extends AbstractModel{
+public class SymptomInfo extends AbstractModel {
 
     /**
     * 等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Grade")
     @Expose
@@ -32,7 +32,6 @@ public class SymptomInfo extends AbstractModel{
 
     /**
     * 部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Part")
     @Expose
@@ -40,7 +39,6 @@ public class SymptomInfo extends AbstractModel{
 
     /**
     * 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Index")
     @Expose
@@ -48,7 +46,6 @@ public class SymptomInfo extends AbstractModel{
 
     /**
     * 病变
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Symptom")
     @Expose
@@ -56,7 +53,6 @@ public class SymptomInfo extends AbstractModel{
 
     /**
     * 属性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Attrs")
     @Expose
@@ -64,7 +60,6 @@ public class SymptomInfo extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -72,17 +67,14 @@ public class SymptomInfo extends AbstractModel{
 
     /**
     * 坐标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Coords")
     @Expose
     private Coord [] Coords;
 
     /**
-     * Get 等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 等级 
      * @return Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BlockInfo getGrade() {
         return this.Grade;
@@ -90,19 +82,15 @@ public class SymptomInfo extends AbstractModel{
 
     /**
      * Set 等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGrade(BlockInfo Grade) {
         this.Grade = Grade;
     }
 
     /**
-     * Get 部位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部位 
      * @return Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Part getPart() {
         return this.Part;
@@ -110,19 +98,15 @@ public class SymptomInfo extends AbstractModel{
 
     /**
      * Set 部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Part 部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPart(Part Part) {
         this.Part = Part;
     }
 
     /**
-     * Get 原文位置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文位置 
      * @return Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getIndex() {
         return this.Index;
@@ -130,19 +114,15 @@ public class SymptomInfo extends AbstractModel{
 
     /**
      * Set 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndex(Long [] Index) {
         this.Index = Index;
     }
 
     /**
-     * Get 病变
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 病变 
      * @return Symptom 病变
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BlockInfo getSymptom() {
         return this.Symptom;
@@ -150,19 +130,15 @@ public class SymptomInfo extends AbstractModel{
 
     /**
      * Set 病变
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Symptom 病变
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSymptom(BlockInfo Symptom) {
         this.Symptom = Symptom;
     }
 
     /**
-     * Get 属性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 属性 
      * @return Attrs 属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BlockInfo [] getAttrs() {
         return this.Attrs;
@@ -170,19 +146,15 @@ public class SymptomInfo extends AbstractModel{
 
     /**
      * Set 属性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Attrs 属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttrs(BlockInfo [] Attrs) {
         this.Attrs = Attrs;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -190,19 +162,15 @@ public class SymptomInfo extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get 坐标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 坐标 
      * @return Coords 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Coord [] getCoords() {
         return this.Coords;
@@ -210,9 +178,7 @@ public class SymptomInfo extends AbstractModel{
 
     /**
      * Set 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Coords 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoords(Coord [] Coords) {
         this.Coords = Coords;

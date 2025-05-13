@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeInstanceRequest extends AbstractModel{
+public class UpgradeInstanceRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -30,7 +31,7 @@ public class UpgradeInstanceRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
+    * 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1", "7.10.1", "7.14.2"
     */
     @SerializedName("EsVersion")
     @Expose
@@ -79,6 +80,41 @@ public class UpgradeInstanceRequest extends AbstractModel{
     private Boolean SkipCheckForceRestart;
 
     /**
+    * cvm延迟上架参数
+    */
+    @SerializedName("CvmDelayOnlineTime")
+    @Expose
+    private Long CvmDelayOnlineTime;
+
+    /**
+    * 分片迁移并发数
+    */
+    @SerializedName("ShardAllocationConcurrents")
+    @Expose
+    private Long ShardAllocationConcurrents;
+
+    /**
+    * 分片迁移并发速度
+    */
+    @SerializedName("ShardAllocationBytes")
+    @Expose
+    private Long ShardAllocationBytes;
+
+    /**
+    * 是否开启置放群组异步任务
+    */
+    @SerializedName("EnableScheduleRecoverGroup")
+    @Expose
+    private Boolean EnableScheduleRecoverGroup;
+
+    /**
+    * 置放群组异步任务时间段
+    */
+    @SerializedName("EnableScheduleOperationDuration")
+    @Expose
+    private EnableScheduleOperationDuration EnableScheduleOperationDuration;
+
+    /**
      * Get 实例ID 
      * @return InstanceId 实例ID
      */
@@ -95,16 +131,16 @@ public class UpgradeInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1" 
-     * @return EsVersion 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
+     * Get 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1", "7.10.1", "7.14.2" 
+     * @return EsVersion 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1", "7.10.1", "7.14.2"
      */
     public String getEsVersion() {
         return this.EsVersion;
     }
 
     /**
-     * Set 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
-     * @param EsVersion 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1"
+     * Set 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1", "7.10.1", "7.14.2"
+     * @param EsVersion 目标ES版本，支持：”6.4.3“, "6.8.2"，"7.5.1", "7.10.1", "7.14.2"
      */
     public void setEsVersion(String EsVersion) {
         this.EsVersion = EsVersion;
@@ -206,6 +242,86 @@ public class UpgradeInstanceRequest extends AbstractModel{
         this.SkipCheckForceRestart = SkipCheckForceRestart;
     }
 
+    /**
+     * Get cvm延迟上架参数 
+     * @return CvmDelayOnlineTime cvm延迟上架参数
+     */
+    public Long getCvmDelayOnlineTime() {
+        return this.CvmDelayOnlineTime;
+    }
+
+    /**
+     * Set cvm延迟上架参数
+     * @param CvmDelayOnlineTime cvm延迟上架参数
+     */
+    public void setCvmDelayOnlineTime(Long CvmDelayOnlineTime) {
+        this.CvmDelayOnlineTime = CvmDelayOnlineTime;
+    }
+
+    /**
+     * Get 分片迁移并发数 
+     * @return ShardAllocationConcurrents 分片迁移并发数
+     */
+    public Long getShardAllocationConcurrents() {
+        return this.ShardAllocationConcurrents;
+    }
+
+    /**
+     * Set 分片迁移并发数
+     * @param ShardAllocationConcurrents 分片迁移并发数
+     */
+    public void setShardAllocationConcurrents(Long ShardAllocationConcurrents) {
+        this.ShardAllocationConcurrents = ShardAllocationConcurrents;
+    }
+
+    /**
+     * Get 分片迁移并发速度 
+     * @return ShardAllocationBytes 分片迁移并发速度
+     */
+    public Long getShardAllocationBytes() {
+        return this.ShardAllocationBytes;
+    }
+
+    /**
+     * Set 分片迁移并发速度
+     * @param ShardAllocationBytes 分片迁移并发速度
+     */
+    public void setShardAllocationBytes(Long ShardAllocationBytes) {
+        this.ShardAllocationBytes = ShardAllocationBytes;
+    }
+
+    /**
+     * Get 是否开启置放群组异步任务 
+     * @return EnableScheduleRecoverGroup 是否开启置放群组异步任务
+     */
+    public Boolean getEnableScheduleRecoverGroup() {
+        return this.EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Set 是否开启置放群组异步任务
+     * @param EnableScheduleRecoverGroup 是否开启置放群组异步任务
+     */
+    public void setEnableScheduleRecoverGroup(Boolean EnableScheduleRecoverGroup) {
+        this.EnableScheduleRecoverGroup = EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Get 置放群组异步任务时间段 
+     * @return EnableScheduleOperationDuration 置放群组异步任务时间段
+     */
+    public EnableScheduleOperationDuration getEnableScheduleOperationDuration() {
+        return this.EnableScheduleOperationDuration;
+    }
+
+    /**
+     * Set 置放群组异步任务时间段
+     * @param EnableScheduleOperationDuration 置放群组异步任务时间段
+     */
+    public void setEnableScheduleOperationDuration(EnableScheduleOperationDuration EnableScheduleOperationDuration) {
+        this.EnableScheduleOperationDuration = EnableScheduleOperationDuration;
+    }
+
     public UpgradeInstanceRequest() {
     }
 
@@ -238,6 +354,21 @@ public class UpgradeInstanceRequest extends AbstractModel{
         if (source.SkipCheckForceRestart != null) {
             this.SkipCheckForceRestart = new Boolean(source.SkipCheckForceRestart);
         }
+        if (source.CvmDelayOnlineTime != null) {
+            this.CvmDelayOnlineTime = new Long(source.CvmDelayOnlineTime);
+        }
+        if (source.ShardAllocationConcurrents != null) {
+            this.ShardAllocationConcurrents = new Long(source.ShardAllocationConcurrents);
+        }
+        if (source.ShardAllocationBytes != null) {
+            this.ShardAllocationBytes = new Long(source.ShardAllocationBytes);
+        }
+        if (source.EnableScheduleRecoverGroup != null) {
+            this.EnableScheduleRecoverGroup = new Boolean(source.EnableScheduleRecoverGroup);
+        }
+        if (source.EnableScheduleOperationDuration != null) {
+            this.EnableScheduleOperationDuration = new EnableScheduleOperationDuration(source.EnableScheduleOperationDuration);
+        }
     }
 
 
@@ -253,6 +384,11 @@ public class UpgradeInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "UpgradeMode", this.UpgradeMode);
         this.setParamSimple(map, prefix + "CosBackup", this.CosBackup);
         this.setParamSimple(map, prefix + "SkipCheckForceRestart", this.SkipCheckForceRestart);
+        this.setParamSimple(map, prefix + "CvmDelayOnlineTime", this.CvmDelayOnlineTime);
+        this.setParamSimple(map, prefix + "ShardAllocationConcurrents", this.ShardAllocationConcurrents);
+        this.setParamSimple(map, prefix + "ShardAllocationBytes", this.ShardAllocationBytes);
+        this.setParamSimple(map, prefix + "EnableScheduleRecoverGroup", this.EnableScheduleRecoverGroup);
+        this.setParamObj(map, prefix + "EnableScheduleOperationDuration.", this.EnableScheduleOperationDuration);
 
     }
 }

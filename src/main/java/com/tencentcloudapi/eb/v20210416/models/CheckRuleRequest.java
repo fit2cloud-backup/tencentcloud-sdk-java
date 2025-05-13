@@ -16,11 +16,58 @@
 package com.tencentcloudapi.eb.v20210416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CheckRuleRequest extends AbstractModel{
+public class CheckRuleRequest extends AbstractModel {
+
+    /**
+    * Event信息
+    */
+    @SerializedName("Event")
+    @Expose
+    private String Event;
+
+    /**
+    * EventPattern信息
+    */
+    @SerializedName("EventPattern")
+    @Expose
+    private String EventPattern;
+
+    /**
+     * Get Event信息 
+     * @return Event Event信息
+     */
+    public String getEvent() {
+        return this.Event;
+    }
+
+    /**
+     * Set Event信息
+     * @param Event Event信息
+     */
+    public void setEvent(String Event) {
+        this.Event = Event;
+    }
+
+    /**
+     * Get EventPattern信息 
+     * @return EventPattern EventPattern信息
+     */
+    public String getEventPattern() {
+        return this.EventPattern;
+    }
+
+    /**
+     * Set EventPattern信息
+     * @param EventPattern EventPattern信息
+     */
+    public void setEventPattern(String EventPattern) {
+        this.EventPattern = EventPattern;
+    }
 
     public CheckRuleRequest() {
     }
@@ -30,6 +77,12 @@ public class CheckRuleRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public CheckRuleRequest(CheckRuleRequest source) {
+        if (source.Event != null) {
+            this.Event = new String(source.Event);
+        }
+        if (source.EventPattern != null) {
+            this.EventPattern = new String(source.EventPattern);
+        }
     }
 
 
@@ -37,6 +90,8 @@ public class CheckRuleRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "Event", this.Event);
+        this.setParamSimple(map, prefix + "EventPattern", this.EventPattern);
 
     }
 }

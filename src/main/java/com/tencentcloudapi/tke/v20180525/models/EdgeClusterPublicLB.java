@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EdgeClusterPublicLB extends AbstractModel{
+public class EdgeClusterPublicLB extends AbstractModel {
 
     /**
     * 是否开启公网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Enabled")
     @Expose
@@ -32,17 +32,14 @@ public class EdgeClusterPublicLB extends AbstractModel{
 
     /**
     * 允许访问的公网cidr
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AllowFromCidrs")
     @Expose
     private String [] AllowFromCidrs;
 
     /**
-     * Get 是否开启公网访问LB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启公网访问LB 
      * @return Enabled 是否开启公网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnabled() {
         return this.Enabled;
@@ -50,19 +47,15 @@ public class EdgeClusterPublicLB extends AbstractModel{
 
     /**
      * Set 是否开启公网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Enabled 是否开启公网访问LB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnabled(Boolean Enabled) {
         this.Enabled = Enabled;
     }
 
     /**
-     * Get 允许访问的公网cidr
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 允许访问的公网cidr 
      * @return AllowFromCidrs 允许访问的公网cidr
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAllowFromCidrs() {
         return this.AllowFromCidrs;
@@ -70,9 +63,7 @@ public class EdgeClusterPublicLB extends AbstractModel{
 
     /**
      * Set 允许访问的公网cidr
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AllowFromCidrs 允许访问的公网cidr
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAllowFromCidrs(String [] AllowFromCidrs) {
         this.AllowFromCidrs = AllowFromCidrs;

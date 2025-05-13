@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBatchProductionResponse extends AbstractModel{
+public class DescribeBatchProductionResponse extends AbstractModel {
 
     /**
     * 量产数量。
@@ -65,7 +66,28 @@ public class DescribeBatchProductionResponse extends AbstractModel{
     private String UploadUrl;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 成功数
+    */
+    @SerializedName("SuccessCount")
+    @Expose
+    private Long SuccessCount;
+
+    /**
+    * 量产最后失败原因
+    */
+    @SerializedName("LastFailedReason")
+    @Expose
+    private String LastFailedReason;
+
+    /**
+    * 量产状态  0：任务创建，未量产；1：处理中；2：量产结束上传结果中；3：任务完成
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -168,16 +190,64 @@ public class DescribeBatchProductionResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 成功数 
+     * @return SuccessCount 成功数
+     */
+    public Long getSuccessCount() {
+        return this.SuccessCount;
+    }
+
+    /**
+     * Set 成功数
+     * @param SuccessCount 成功数
+     */
+    public void setSuccessCount(Long SuccessCount) {
+        this.SuccessCount = SuccessCount;
+    }
+
+    /**
+     * Get 量产最后失败原因 
+     * @return LastFailedReason 量产最后失败原因
+     */
+    public String getLastFailedReason() {
+        return this.LastFailedReason;
+    }
+
+    /**
+     * Set 量产最后失败原因
+     * @param LastFailedReason 量产最后失败原因
+     */
+    public void setLastFailedReason(String LastFailedReason) {
+        this.LastFailedReason = LastFailedReason;
+    }
+
+    /**
+     * Get 量产状态  0：任务创建，未量产；1：处理中；2：量产结束上传结果中；3：任务完成 
+     * @return Status 量产状态  0：任务创建，未量产；1：处理中；2：量产结束上传结果中；3：任务完成
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 量产状态  0：任务创建，未量产；1：处理中；2：量产结束上传结果中；3：任务完成
+     * @param Status 量产状态  0：任务创建，未量产；1：处理中；2：量产结束上传结果中；3：任务完成
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -209,6 +279,15 @@ public class DescribeBatchProductionResponse extends AbstractModel{
         if (source.UploadUrl != null) {
             this.UploadUrl = new String(source.UploadUrl);
         }
+        if (source.SuccessCount != null) {
+            this.SuccessCount = new Long(source.SuccessCount);
+        }
+        if (source.LastFailedReason != null) {
+            this.LastFailedReason = new String(source.LastFailedReason);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -225,6 +304,9 @@ public class DescribeBatchProductionResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "DownloadUrl", this.DownloadUrl);
         this.setParamSimple(map, prefix + "GenerationMethod", this.GenerationMethod);
         this.setParamSimple(map, prefix + "UploadUrl", this.UploadUrl);
+        this.setParamSimple(map, prefix + "SuccessCount", this.SuccessCount);
+        this.setParamSimple(map, prefix + "LastFailedReason", this.LastFailedReason);
+        this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

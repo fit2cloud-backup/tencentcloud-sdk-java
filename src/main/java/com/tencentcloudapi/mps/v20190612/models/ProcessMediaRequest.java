@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProcessMediaRequest extends AbstractModel{
+public class ProcessMediaRequest extends AbstractModel {
 
     /**
     * 媒体处理的文件输入信息。
@@ -31,6 +32,7 @@ public class ProcessMediaRequest extends AbstractModel{
 
     /**
     * 媒体处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。
+注意：当InputInfo.Type为URL时，该参数是必填项
     */
     @SerializedName("OutputStorage")
     @Expose
@@ -48,7 +50,8 @@ public class ProcessMediaRequest extends AbstractModel{
     * 编排ID。
 注意1：对于OutputStorage、OutputDir参数：
 <li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
-<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有输出，将覆盖原有编排的默认输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有指定输出，将覆盖原有编排的默认输出。</li>
+<li>即输出设置的优先级：编排子任务节点 > 任务接口指定 > 对应编排内的配置 </li>
 注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessMedia）有设置，将覆盖原有编排的默认回调。
 
 注意3：编排的 Trigger 只是用来自动化触发场景，在手动发起的请求中已经配置的 Trigger 无意义。
@@ -86,7 +89,7 @@ public class ProcessMediaRequest extends AbstractModel{
     private AiRecognitionTaskInput AiRecognitionTask;
 
     /**
-    * 视频质检类型任务参数。
+    * 媒体质检类型任务参数。
     */
     @SerializedName("AiQualityControlTask")
     @Expose
@@ -107,7 +110,7 @@ public class ProcessMediaRequest extends AbstractModel{
     private Long TasksPriority;
 
     /**
-    * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+    * 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不传该参数或者参数为空字符串则本次请求不做去重操作。
     */
     @SerializedName("SessionId")
     @Expose
@@ -130,6 +133,30 @@ public class ProcessMediaRequest extends AbstractModel{
     private String TaskType;
 
     /**
+    * 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+    */
+    @SerializedName("ResourceId")
+    @Expose
+    private String ResourceId;
+
+    /**
+    * 智能字幕
+    */
+    @SerializedName("SmartSubtitlesTask")
+    @Expose
+    private SmartSubtitlesTaskInput SmartSubtitlesTask;
+
+    /**
+    * 是否跳过元信息获取，可选值： 
+0：表示不跳过 
+1：表示跳过 
+默认值：0	
+    */
+    @SerializedName("SkipMateData")
+    @Expose
+    private Long SkipMateData;
+
+    /**
      * Get 媒体处理的文件输入信息。 
      * @return InputInfo 媒体处理的文件输入信息。
      */
@@ -146,8 +173,10 @@ public class ProcessMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 媒体处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。 
+     * Get 媒体处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。
+注意：当InputInfo.Type为URL时，该参数是必填项 
      * @return OutputStorage 媒体处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。
+注意：当InputInfo.Type为URL时，该参数是必填项
      */
     public TaskOutputStorage getOutputStorage() {
         return this.OutputStorage;
@@ -155,7 +184,9 @@ public class ProcessMediaRequest extends AbstractModel{
 
     /**
      * Set 媒体处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。
+注意：当InputInfo.Type为URL时，该参数是必填项
      * @param OutputStorage 媒体处理输出文件的目标存储。不填则继承 InputInfo 中的存储位置。
+注意：当InputInfo.Type为URL时，该参数是必填项
      */
     public void setOutputStorage(TaskOutputStorage OutputStorage) {
         this.OutputStorage = OutputStorage;
@@ -185,14 +216,16 @@ public class ProcessMediaRequest extends AbstractModel{
      * Get 编排ID。
 注意1：对于OutputStorage、OutputDir参数：
 <li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
-<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有输出，将覆盖原有编排的默认输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有指定输出，将覆盖原有编排的默认输出。</li>
+<li>即输出设置的优先级：编排子任务节点 > 任务接口指定 > 对应编排内的配置 </li>
 注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessMedia）有设置，将覆盖原有编排的默认回调。
 
 注意3：编排的 Trigger 只是用来自动化触发场景，在手动发起的请求中已经配置的 Trigger 无意义。 
      * @return ScheduleId 编排ID。
 注意1：对于OutputStorage、OutputDir参数：
 <li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
-<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有输出，将覆盖原有编排的默认输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有指定输出，将覆盖原有编排的默认输出。</li>
+<li>即输出设置的优先级：编排子任务节点 > 任务接口指定 > 对应编排内的配置 </li>
 注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessMedia）有设置，将覆盖原有编排的默认回调。
 
 注意3：编排的 Trigger 只是用来自动化触发场景，在手动发起的请求中已经配置的 Trigger 无意义。
@@ -205,14 +238,16 @@ public class ProcessMediaRequest extends AbstractModel{
      * Set 编排ID。
 注意1：对于OutputStorage、OutputDir参数：
 <li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
-<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有输出，将覆盖原有编排的默认输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有指定输出，将覆盖原有编排的默认输出。</li>
+<li>即输出设置的优先级：编排子任务节点 > 任务接口指定 > 对应编排内的配置 </li>
 注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessMedia）有设置，将覆盖原有编排的默认回调。
 
 注意3：编排的 Trigger 只是用来自动化触发场景，在手动发起的请求中已经配置的 Trigger 无意义。
      * @param ScheduleId 编排ID。
 注意1：对于OutputStorage、OutputDir参数：
 <li>当服务编排中子任务节点配置了OutputStorage、OutputDir时，该子任务节点中配置的输出作为子任务的输出。</li>
-<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有输出，将覆盖原有编排的默认输出。</li>
+<li>当服务编排中子任务节点没有配置OutputStorage、OutputDir时，若创建任务接口（ProcessMedia）有指定输出，将覆盖原有编排的默认输出。</li>
+<li>即输出设置的优先级：编排子任务节点 > 任务接口指定 > 对应编排内的配置 </li>
 注意2：对于TaskNotifyConfig参数，若创建任务接口（ProcessMedia）有设置，将覆盖原有编排的默认回调。
 
 注意3：编排的 Trigger 只是用来自动化触发场景，在手动发起的请求中已经配置的 Trigger 无意义。
@@ -286,16 +321,16 @@ public class ProcessMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 视频质检类型任务参数。 
-     * @return AiQualityControlTask 视频质检类型任务参数。
+     * Get 媒体质检类型任务参数。 
+     * @return AiQualityControlTask 媒体质检类型任务参数。
      */
     public AiQualityControlTaskInput getAiQualityControlTask() {
         return this.AiQualityControlTask;
     }
 
     /**
-     * Set 视频质检类型任务参数。
-     * @param AiQualityControlTask 视频质检类型任务参数。
+     * Set 媒体质检类型任务参数。
+     * @param AiQualityControlTask 媒体质检类型任务参数。
      */
     public void setAiQualityControlTask(AiQualityControlTaskInput AiQualityControlTask) {
         this.AiQualityControlTask = AiQualityControlTask;
@@ -334,16 +369,16 @@ public class ProcessMediaRequest extends AbstractModel{
     }
 
     /**
-     * Get 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。 
-     * @return SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Get 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不传该参数或者参数为空字符串则本次请求不做去重操作。 
+     * @return SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不传该参数或者参数为空字符串则本次请求不做去重操作。
      */
     public String getSessionId() {
         return this.SessionId;
     }
 
     /**
-     * Set 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
-     * @param SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不带或者带空字符串表示不做去重。
+     * Set 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不传该参数或者参数为空字符串则本次请求不做去重操作。
+     * @param SessionId 用于去重的识别码，如果三天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长 50 个字符，不传该参数或者参数为空字符串则本次请求不做去重操作。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
@@ -387,6 +422,66 @@ public class ProcessMediaRequest extends AbstractModel{
      */
     public void setTaskType(String TaskType) {
         this.TaskType = TaskType;
+    }
+
+    /**
+     * Get 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。 
+     * @return ResourceId 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+     */
+    public String getResourceId() {
+        return this.ResourceId;
+    }
+
+    /**
+     * Set 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+     * @param ResourceId 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+     */
+    public void setResourceId(String ResourceId) {
+        this.ResourceId = ResourceId;
+    }
+
+    /**
+     * Get 智能字幕 
+     * @return SmartSubtitlesTask 智能字幕
+     */
+    public SmartSubtitlesTaskInput getSmartSubtitlesTask() {
+        return this.SmartSubtitlesTask;
+    }
+
+    /**
+     * Set 智能字幕
+     * @param SmartSubtitlesTask 智能字幕
+     */
+    public void setSmartSubtitlesTask(SmartSubtitlesTaskInput SmartSubtitlesTask) {
+        this.SmartSubtitlesTask = SmartSubtitlesTask;
+    }
+
+    /**
+     * Get 是否跳过元信息获取，可选值： 
+0：表示不跳过 
+1：表示跳过 
+默认值：0	 
+     * @return SkipMateData 是否跳过元信息获取，可选值： 
+0：表示不跳过 
+1：表示跳过 
+默认值：0	
+     */
+    public Long getSkipMateData() {
+        return this.SkipMateData;
+    }
+
+    /**
+     * Set 是否跳过元信息获取，可选值： 
+0：表示不跳过 
+1：表示跳过 
+默认值：0	
+     * @param SkipMateData 是否跳过元信息获取，可选值： 
+0：表示不跳过 
+1：表示跳过 
+默认值：0	
+     */
+    public void setSkipMateData(Long SkipMateData) {
+        this.SkipMateData = SkipMateData;
     }
 
     public ProcessMediaRequest() {
@@ -439,6 +534,15 @@ public class ProcessMediaRequest extends AbstractModel{
         if (source.TaskType != null) {
             this.TaskType = new String(source.TaskType);
         }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
+        if (source.SmartSubtitlesTask != null) {
+            this.SmartSubtitlesTask = new SmartSubtitlesTaskInput(source.SmartSubtitlesTask);
+        }
+        if (source.SkipMateData != null) {
+            this.SkipMateData = new Long(source.SkipMateData);
+        }
     }
 
 
@@ -460,6 +564,9 @@ public class ProcessMediaRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
+        this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
+        this.setParamObj(map, prefix + "SmartSubtitlesTask.", this.SmartSubtitlesTask);
+        this.setParamSimple(map, prefix + "SkipMateData", this.SkipMateData);
 
     }
 }

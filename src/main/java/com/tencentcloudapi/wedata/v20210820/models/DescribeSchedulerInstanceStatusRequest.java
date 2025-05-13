@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSchedulerInstanceStatusRequest extends AbstractModel{
+public class DescribeSchedulerInstanceStatusRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -70,6 +71,20 @@ public class DescribeSchedulerInstanceStatusRequest extends AbstractModel{
     @SerializedName("InCharge")
     @Expose
     private String InCharge;
+
+    /**
+    * 工作流ID
+    */
+    @SerializedName("WorkflowId")
+    @Expose
+    private String WorkflowId;
+
+    /**
+    * 任务ID列表
+    */
+    @SerializedName("ProjectIds")
+    @Expose
+    private String [] ProjectIds;
 
     /**
      * Get 项目ID 
@@ -183,6 +198,38 @@ public class DescribeSchedulerInstanceStatusRequest extends AbstractModel{
         this.InCharge = InCharge;
     }
 
+    /**
+     * Get 工作流ID 
+     * @return WorkflowId 工作流ID
+     */
+    public String getWorkflowId() {
+        return this.WorkflowId;
+    }
+
+    /**
+     * Set 工作流ID
+     * @param WorkflowId 工作流ID
+     */
+    public void setWorkflowId(String WorkflowId) {
+        this.WorkflowId = WorkflowId;
+    }
+
+    /**
+     * Get 任务ID列表 
+     * @return ProjectIds 任务ID列表
+     */
+    public String [] getProjectIds() {
+        return this.ProjectIds;
+    }
+
+    /**
+     * Set 任务ID列表
+     * @param ProjectIds 任务ID列表
+     */
+    public void setProjectIds(String [] ProjectIds) {
+        this.ProjectIds = ProjectIds;
+    }
+
     public DescribeSchedulerInstanceStatusRequest() {
     }
 
@@ -212,6 +259,15 @@ public class DescribeSchedulerInstanceStatusRequest extends AbstractModel{
         if (source.InCharge != null) {
             this.InCharge = new String(source.InCharge);
         }
+        if (source.WorkflowId != null) {
+            this.WorkflowId = new String(source.WorkflowId);
+        }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new String[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new String(source.ProjectIds[i]);
+            }
+        }
     }
 
 
@@ -226,6 +282,8 @@ public class DescribeSchedulerInstanceStatusRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "InCharge", this.InCharge);
+        this.setParamSimple(map, prefix + "WorkflowId", this.WorkflowId);
+        this.setParamArraySimple(map, prefix + "ProjectIds.", this.ProjectIds);
 
     }
 }

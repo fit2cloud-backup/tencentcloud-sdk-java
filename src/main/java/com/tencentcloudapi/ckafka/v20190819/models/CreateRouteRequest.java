@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateRouteRequest extends AbstractModel{
+public class CreateRouteRequest extends AbstractModel {
 
     /**
     * 实例唯一id
@@ -30,7 +31,7 @@ public class CreateRouteRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 路由网络类型(3:vpc路由;4:标准版支撑路由;7:专业版支撑路由)
+    * 路由网络类型(3:vpc路由;7:内部支撑路由)
     */
     @SerializedName("VipType")
     @Expose
@@ -51,7 +52,7 @@ public class CreateRouteRequest extends AbstractModel{
     private String SubnetId;
 
     /**
-    * 访问类型
+    * 访问类型：0-plaintext；1-sasl_plaintext；2-ssl；3-sasl_ssl
     */
     @SerializedName("AccessType")
     @Expose
@@ -102,16 +103,16 @@ public class CreateRouteRequest extends AbstractModel{
     }
 
     /**
-     * Get 路由网络类型(3:vpc路由;4:标准版支撑路由;7:专业版支撑路由) 
-     * @return VipType 路由网络类型(3:vpc路由;4:标准版支撑路由;7:专业版支撑路由)
+     * Get 路由网络类型(3:vpc路由;7:内部支撑路由) 
+     * @return VipType 路由网络类型(3:vpc路由;7:内部支撑路由)
      */
     public Long getVipType() {
         return this.VipType;
     }
 
     /**
-     * Set 路由网络类型(3:vpc路由;4:标准版支撑路由;7:专业版支撑路由)
-     * @param VipType 路由网络类型(3:vpc路由;4:标准版支撑路由;7:专业版支撑路由)
+     * Set 路由网络类型(3:vpc路由;7:内部支撑路由)
+     * @param VipType 路由网络类型(3:vpc路由;7:内部支撑路由)
      */
     public void setVipType(Long VipType) {
         this.VipType = VipType;
@@ -150,16 +151,16 @@ public class CreateRouteRequest extends AbstractModel{
     }
 
     /**
-     * Get 访问类型 
-     * @return AccessType 访问类型
+     * Get 访问类型：0-plaintext；1-sasl_plaintext；2-ssl；3-sasl_ssl 
+     * @return AccessType 访问类型：0-plaintext；1-sasl_plaintext；2-ssl；3-sasl_ssl
      */
     public Long getAccessType() {
         return this.AccessType;
     }
 
     /**
-     * Set 访问类型
-     * @param AccessType 访问类型
+     * Set 访问类型：0-plaintext；1-sasl_plaintext；2-ssl；3-sasl_ssl
+     * @param AccessType 访问类型：0-plaintext；1-sasl_plaintext；2-ssl；3-sasl_ssl
      */
     public void setAccessType(Long AccessType) {
         this.AccessType = AccessType;

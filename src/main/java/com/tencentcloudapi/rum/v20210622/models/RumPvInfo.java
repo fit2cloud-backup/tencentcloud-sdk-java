@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RumPvInfo extends AbstractModel{
+public class RumPvInfo extends AbstractModel {
 
     /**
     * 项目ID
@@ -31,7 +32,6 @@ public class RumPvInfo extends AbstractModel{
 
     /**
     * pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Pv")
     @Expose
@@ -61,10 +61,8 @@ public class RumPvInfo extends AbstractModel{
     }
 
     /**
-     * Get pv访问量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get pv访问量 
      * @return Pv pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPv() {
         return this.Pv;
@@ -72,9 +70,7 @@ public class RumPvInfo extends AbstractModel{
 
     /**
      * Set pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Pv pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPv(String Pv) {
         this.Pv = Pv;

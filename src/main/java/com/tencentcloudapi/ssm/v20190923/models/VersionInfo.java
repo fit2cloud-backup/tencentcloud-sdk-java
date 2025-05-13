@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VersionInfo extends AbstractModel{
+public class VersionInfo extends AbstractModel {
 
     /**
-    * 版本号。
+    * 版本号
     */
     @SerializedName("VersionId")
     @Expose
@@ -37,16 +38,16 @@ public class VersionInfo extends AbstractModel{
     private Long CreateTime;
 
     /**
-     * Get 版本号。 
-     * @return VersionId 版本号。
+     * Get 版本号 
+     * @return VersionId 版本号
      */
     public String getVersionId() {
         return this.VersionId;
     }
 
     /**
-     * Set 版本号。
-     * @param VersionId 版本号。
+     * Set 版本号
+     * @param VersionId 版本号
      */
     public void setVersionId(String VersionId) {
         this.VersionId = VersionId;

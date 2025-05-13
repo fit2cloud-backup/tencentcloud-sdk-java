@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUndoVulCountsResponse extends AbstractModel{
+public class DescribeUndoVulCountsResponse extends AbstractModel {
 
     /**
     * 未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UndoVulCount")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeUndoVulCountsResponse extends AbstractModel{
 
     /**
     * 未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UndoHostCount")
     @Expose
@@ -40,24 +39,21 @@ public class DescribeUndoVulCountsResponse extends AbstractModel{
 
     /**
     * 普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NotProfessionCount")
     @Expose
     private Long NotProfessionCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 未处理的漏洞数 
      * @return UndoVulCount 未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUndoVulCount() {
         return this.UndoVulCount;
@@ -65,19 +61,15 @@ public class DescribeUndoVulCountsResponse extends AbstractModel{
 
     /**
      * Set 未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UndoVulCount 未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUndoVulCount(Long UndoVulCount) {
         this.UndoVulCount = UndoVulCount;
     }
 
     /**
-     * Get 未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 未处理的主机数 
      * @return UndoHostCount 未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUndoHostCount() {
         return this.UndoHostCount;
@@ -85,19 +77,15 @@ public class DescribeUndoVulCountsResponse extends AbstractModel{
 
     /**
      * Set 未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UndoHostCount 未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUndoHostCount(Long UndoHostCount) {
         this.UndoHostCount = UndoHostCount;
     }
 
     /**
-     * Get 普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 普通版主机数 
      * @return NotProfessionCount 普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNotProfessionCount() {
         return this.NotProfessionCount;
@@ -105,25 +93,23 @@ public class DescribeUndoVulCountsResponse extends AbstractModel{
 
     /**
      * Set 普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NotProfessionCount 普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNotProfessionCount(Long NotProfessionCount) {
         this.NotProfessionCount = NotProfessionCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

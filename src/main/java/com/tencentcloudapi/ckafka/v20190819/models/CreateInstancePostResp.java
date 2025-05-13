@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInstancePostResp extends AbstractModel{
+public class CreateInstancePostResp extends AbstractModel {
 
     /**
     * 返回的code，0为正常，非0为错误
@@ -38,7 +39,6 @@ public class CreateInstancePostResp extends AbstractModel{
 
     /**
     * 返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
@@ -77,10 +77,8 @@ public class CreateInstancePostResp extends AbstractModel{
     }
 
     /**
-     * Get 返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 返回的Data数据 
      * @return Data 返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CreateInstancePostData getData() {
         return this.Data;
@@ -88,9 +86,7 @@ public class CreateInstancePostResp extends AbstractModel{
 
     /**
      * Set 返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(CreateInstancePostData Data) {
         this.Data = Data;

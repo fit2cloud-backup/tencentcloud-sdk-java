@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCloudRecordingResponse extends AbstractModel{
+public class DescribeCloudRecordingResponse extends AbstractModel {
 
     /**
     * 录制任务的唯一Id。
@@ -41,14 +42,20 @@ Exited：表示当前录制任务正在退出的过程中。
 
     /**
     * 录制文件信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StorageFileList")
     @Expose
     private StorageFile [] StorageFileList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 转推录制任务发起时所填，标识一次录制
+    */
+    @SerializedName("RecorderKey")
+    @Expose
+    private String RecorderKey;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -99,10 +106,8 @@ Exited：表示当前录制任务正在退出的过程中。
     }
 
     /**
-     * Get 录制文件信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 录制文件信息。 
      * @return StorageFileList 录制文件信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StorageFile [] getStorageFileList() {
         return this.StorageFileList;
@@ -110,25 +115,39 @@ Exited：表示当前录制任务正在退出的过程中。
 
     /**
      * Set 录制文件信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StorageFileList 录制文件信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStorageFileList(StorageFile [] StorageFileList) {
         this.StorageFileList = StorageFileList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 转推录制任务发起时所填，标识一次录制 
+     * @return RecorderKey 转推录制任务发起时所填，标识一次录制
+     */
+    public String getRecorderKey() {
+        return this.RecorderKey;
+    }
+
+    /**
+     * Set 转推录制任务发起时所填，标识一次录制
+     * @param RecorderKey 转推录制任务发起时所填，标识一次录制
+     */
+    public void setRecorderKey(String RecorderKey) {
+        this.RecorderKey = RecorderKey;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -154,6 +173,9 @@ Exited：表示当前录制任务正在退出的过程中。
                 this.StorageFileList[i] = new StorageFile(source.StorageFileList[i]);
             }
         }
+        if (source.RecorderKey != null) {
+            this.RecorderKey = new String(source.RecorderKey);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -167,6 +189,7 @@ Exited：表示当前录制任务正在退出的过程中。
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamArrayObj(map, prefix + "StorageFileList.", this.StorageFileList);
+        this.setParamSimple(map, prefix + "RecorderKey", this.RecorderKey);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

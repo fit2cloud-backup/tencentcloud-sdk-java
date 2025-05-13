@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RocketMQMessageTrack extends AbstractModel{
+public class RocketMQMessageTrack extends AbstractModel {
 
     /**
     * 消费者组
@@ -30,7 +31,13 @@ public class RocketMQMessageTrack extends AbstractModel{
     private String Group;
 
     /**
-    * 消费状态
+    * 消费状态,
+CONSUMED: 已消费
+CONSUMED_BUT_FILTERED: 已过滤
+NOT_CONSUME: 未消费
+ENTER_RETRY: 进入重试队列
+ENTER_DLQ: 进入死信队列
+UNKNOWN: 查询不到消费状态
     */
     @SerializedName("ConsumeStatus")
     @Expose
@@ -68,16 +75,40 @@ public class RocketMQMessageTrack extends AbstractModel{
     }
 
     /**
-     * Get 消费状态 
-     * @return ConsumeStatus 消费状态
+     * Get 消费状态,
+CONSUMED: 已消费
+CONSUMED_BUT_FILTERED: 已过滤
+NOT_CONSUME: 未消费
+ENTER_RETRY: 进入重试队列
+ENTER_DLQ: 进入死信队列
+UNKNOWN: 查询不到消费状态 
+     * @return ConsumeStatus 消费状态,
+CONSUMED: 已消费
+CONSUMED_BUT_FILTERED: 已过滤
+NOT_CONSUME: 未消费
+ENTER_RETRY: 进入重试队列
+ENTER_DLQ: 进入死信队列
+UNKNOWN: 查询不到消费状态
      */
     public String getConsumeStatus() {
         return this.ConsumeStatus;
     }
 
     /**
-     * Set 消费状态
-     * @param ConsumeStatus 消费状态
+     * Set 消费状态,
+CONSUMED: 已消费
+CONSUMED_BUT_FILTERED: 已过滤
+NOT_CONSUME: 未消费
+ENTER_RETRY: 进入重试队列
+ENTER_DLQ: 进入死信队列
+UNKNOWN: 查询不到消费状态
+     * @param ConsumeStatus 消费状态,
+CONSUMED: 已消费
+CONSUMED_BUT_FILTERED: 已过滤
+NOT_CONSUME: 未消费
+ENTER_RETRY: 进入重试队列
+ENTER_DLQ: 进入死信队列
+UNKNOWN: 查询不到消费状态
      */
     public void setConsumeStatus(String ConsumeStatus) {
         this.ConsumeStatus = ConsumeStatus;

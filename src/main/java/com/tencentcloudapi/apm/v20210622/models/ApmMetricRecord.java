@@ -16,53 +16,54 @@
 package com.tencentcloudapi.apm.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApmMetricRecord extends AbstractModel{
+public class ApmMetricRecord extends AbstractModel {
 
     /**
-    * field数组
+    * field数组，用于指标的查询结果
     */
     @SerializedName("Fields")
     @Expose
     private ApmField [] Fields;
 
     /**
-    * tag数组
+    * tag数组，用于区分 Groupby 的对象
     */
     @SerializedName("Tags")
     @Expose
     private ApmTag [] Tags;
 
     /**
-     * Get field数组 
-     * @return Fields field数组
+     * Get field数组，用于指标的查询结果 
+     * @return Fields field数组，用于指标的查询结果
      */
     public ApmField [] getFields() {
         return this.Fields;
     }
 
     /**
-     * Set field数组
-     * @param Fields field数组
+     * Set field数组，用于指标的查询结果
+     * @param Fields field数组，用于指标的查询结果
      */
     public void setFields(ApmField [] Fields) {
         this.Fields = Fields;
     }
 
     /**
-     * Get tag数组 
-     * @return Tags tag数组
+     * Get tag数组，用于区分 Groupby 的对象 
+     * @return Tags tag数组，用于区分 Groupby 的对象
      */
     public ApmTag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set tag数组
-     * @param Tags tag数组
+     * Set tag数组，用于区分 Groupby 的对象
+     * @param Tags tag数组，用于区分 Groupby 的对象
      */
     public void setTags(ApmTag [] Tags) {
         this.Tags = Tags;

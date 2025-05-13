@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssetInitServiceBaseInfo extends AbstractModel{
+public class AssetInitServiceBaseInfo extends AbstractModel {
 
     /**
     * 名称
@@ -137,11 +138,17 @@ public class AssetInitServiceBaseInfo extends AbstractModel{
     /**
     *  附加信息
 
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
     private MachineExtraInfo MachineExtraInfo;
+
+    /**
+    * 开机自启动[0:否|1:是]
+    */
+    @SerializedName("IsAutoRun")
+    @Expose
+    private Long IsAutoRun;
 
     /**
      * Get 名称 
@@ -425,11 +432,9 @@ public class AssetInitServiceBaseInfo extends AbstractModel{
 
     /**
      * Get  附加信息
-
-注意：此字段可能返回 null，表示取不到有效值。 
+ 
      * @return MachineExtraInfo  附加信息
 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -438,13 +443,27 @@ public class AssetInitServiceBaseInfo extends AbstractModel{
     /**
      * Set  附加信息
 
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo  附加信息
 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
+    }
+
+    /**
+     * Get 开机自启动[0:否|1:是] 
+     * @return IsAutoRun 开机自启动[0:否|1:是]
+     */
+    public Long getIsAutoRun() {
+        return this.IsAutoRun;
+    }
+
+    /**
+     * Set 开机自启动[0:否|1:是]
+     * @param IsAutoRun 开机自启动[0:否|1:是]
+     */
+    public void setIsAutoRun(Long IsAutoRun) {
+        this.IsAutoRun = IsAutoRun;
     }
 
     public AssetInitServiceBaseInfo() {
@@ -500,6 +519,9 @@ public class AssetInitServiceBaseInfo extends AbstractModel{
         if (source.MachineExtraInfo != null) {
             this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
         }
+        if (source.IsAutoRun != null) {
+            this.IsAutoRun = new Long(source.IsAutoRun);
+        }
     }
 
 
@@ -522,6 +544,7 @@ public class AssetInitServiceBaseInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "IsNew", this.IsNew);
         this.setParamSimple(map, prefix + "MachineWanIp", this.MachineWanIp);
         this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
+        this.setParamSimple(map, prefix + "IsAutoRun", this.IsAutoRun);
 
     }
 }

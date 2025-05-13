@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LoginWhiteCombinedInfo extends AbstractModel{
+public class LoginWhiteCombinedInfo extends AbstractModel {
 
     /**
     * 白名单地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Places")
     @Expose
@@ -129,10 +129,8 @@ public class LoginWhiteCombinedInfo extends AbstractModel{
     private String Locations;
 
     /**
-     * Get 白名单地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 白名单地域 
      * @return Places 白名单地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Place [] getPlaces() {
         return this.Places;
@@ -140,9 +138,7 @@ public class LoginWhiteCombinedInfo extends AbstractModel{
 
     /**
      * Set 白名单地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Places 白名单地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPlaces(Place [] Places) {
         this.Places = Places;

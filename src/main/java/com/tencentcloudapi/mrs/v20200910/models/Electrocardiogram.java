@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Electrocardiogram extends AbstractModel{
+public class Electrocardiogram extends AbstractModel {
 
     /**
     * 心电图详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EcgDescription")
     @Expose
@@ -32,17 +32,21 @@ public class Electrocardiogram extends AbstractModel{
 
     /**
     * 心电图诊断
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EcgDiagnosis")
     @Expose
     private EcgDiagnosis EcgDiagnosis;
 
     /**
-     * Get 心电图详情
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 心电图详情 
      * @return EcgDescription 心电图详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EcgDescription getEcgDescription() {
         return this.EcgDescription;
@@ -50,19 +54,15 @@ public class Electrocardiogram extends AbstractModel{
 
     /**
      * Set 心电图详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EcgDescription 心电图详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEcgDescription(EcgDescription EcgDescription) {
         this.EcgDescription = EcgDescription;
     }
 
     /**
-     * Get 心电图诊断
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 心电图诊断 
      * @return EcgDiagnosis 心电图诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EcgDiagnosis getEcgDiagnosis() {
         return this.EcgDiagnosis;
@@ -70,12 +70,26 @@ public class Electrocardiogram extends AbstractModel{
 
     /**
      * Set 心电图诊断
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EcgDiagnosis 心电图诊断
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEcgDiagnosis(EcgDiagnosis EcgDiagnosis) {
         this.EcgDiagnosis = EcgDiagnosis;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public Electrocardiogram() {
@@ -92,6 +106,9 @@ public class Electrocardiogram extends AbstractModel{
         if (source.EcgDiagnosis != null) {
             this.EcgDiagnosis = new EcgDiagnosis(source.EcgDiagnosis);
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -101,6 +118,7 @@ public class Electrocardiogram extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "EcgDescription.", this.EcgDescription);
         this.setParamObj(map, prefix + "EcgDiagnosis.", this.EcgDiagnosis);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

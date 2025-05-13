@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iai.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DetectFaceResponse extends AbstractModel{
+public class DetectFaceResponse extends AbstractModel {
 
     /**
     * 请求的图片宽度。
@@ -45,13 +46,9 @@ public class DetectFaceResponse extends AbstractModel{
 
     /**
     * 人脸识别服务所用的算法模型版本。
-
 目前入参支持 “2.0”和“3.0“ 两个输入。
-
 2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
-
 2020年11月26日后开通服务的账号仅支持输入“3.0”。
-
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
     */
     @SerializedName("FaceModelVersion")
@@ -59,7 +56,7 @@ public class DetectFaceResponse extends AbstractModel{
     private String FaceModelVersion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -115,22 +112,14 @@ public class DetectFaceResponse extends AbstractModel{
 
     /**
      * Get 人脸识别服务所用的算法模型版本。
-
 目前入参支持 “2.0”和“3.0“ 两个输入。
-
 2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
-
 2020年11月26日后开通服务的账号仅支持输入“3.0”。
-
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。 
      * @return FaceModelVersion 人脸识别服务所用的算法模型版本。
-
 目前入参支持 “2.0”和“3.0“ 两个输入。
-
 2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
-
 2020年11月26日后开通服务的账号仅支持输入“3.0”。
-
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public String getFaceModelVersion() {
@@ -139,22 +128,14 @@ public class DetectFaceResponse extends AbstractModel{
 
     /**
      * Set 人脸识别服务所用的算法模型版本。
-
 目前入参支持 “2.0”和“3.0“ 两个输入。
-
 2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
-
 2020年11月26日后开通服务的账号仅支持输入“3.0”。
-
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      * @param FaceModelVersion 人脸识别服务所用的算法模型版本。
-
 目前入参支持 “2.0”和“3.0“ 两个输入。
-
 2020年4月2日开始，默认为“3.0”，之前使用过本接口的账号若未填写本参数默认为“2.0”。
-
 2020年11月26日后开通服务的账号仅支持输入“3.0”。
-
 不同算法模型版本对应的人脸识别算法不同，新版本的整体效果会优于旧版本，建议使用“3.0”版本。
      */
     public void setFaceModelVersion(String FaceModelVersion) {
@@ -162,16 +143,16 @@ public class DetectFaceResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

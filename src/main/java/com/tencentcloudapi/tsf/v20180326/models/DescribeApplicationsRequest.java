@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeApplicationsRequest extends AbstractModel{
+public class DescribeApplicationsRequest extends AbstractModel {
 
     /**
     * 搜索字段
@@ -84,6 +85,13 @@ public class DescribeApplicationsRequest extends AbstractModel{
     @SerializedName("ApplicationIdList")
     @Expose
     private String [] ApplicationIdList;
+
+    /**
+    * 查询多种微服务类型的应用
+    */
+    @SerializedName("MicroserviceTypeList")
+    @Expose
+    private String [] MicroserviceTypeList;
 
     /**
      * Get 搜索字段 
@@ -229,6 +237,22 @@ public class DescribeApplicationsRequest extends AbstractModel{
         this.ApplicationIdList = ApplicationIdList;
     }
 
+    /**
+     * Get 查询多种微服务类型的应用 
+     * @return MicroserviceTypeList 查询多种微服务类型的应用
+     */
+    public String [] getMicroserviceTypeList() {
+        return this.MicroserviceTypeList;
+    }
+
+    /**
+     * Set 查询多种微服务类型的应用
+     * @param MicroserviceTypeList 查询多种微服务类型的应用
+     */
+    public void setMicroserviceTypeList(String [] MicroserviceTypeList) {
+        this.MicroserviceTypeList = MicroserviceTypeList;
+    }
+
     public DescribeApplicationsRequest() {
     }
 
@@ -270,6 +294,12 @@ public class DescribeApplicationsRequest extends AbstractModel{
                 this.ApplicationIdList[i] = new String(source.ApplicationIdList[i]);
             }
         }
+        if (source.MicroserviceTypeList != null) {
+            this.MicroserviceTypeList = new String[source.MicroserviceTypeList.length];
+            for (int i = 0; i < source.MicroserviceTypeList.length; i++) {
+                this.MicroserviceTypeList[i] = new String(source.MicroserviceTypeList[i]);
+            }
+        }
     }
 
 
@@ -286,6 +316,7 @@ public class DescribeApplicationsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MicroserviceType", this.MicroserviceType);
         this.setParamArraySimple(map, prefix + "ApplicationResourceTypeList.", this.ApplicationResourceTypeList);
         this.setParamArraySimple(map, prefix + "ApplicationIdList.", this.ApplicationIdList);
+        this.setParamArraySimple(map, prefix + "MicroserviceTypeList.", this.MicroserviceTypeList);
 
     }
 }

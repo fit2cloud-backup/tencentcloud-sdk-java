@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssociationItem extends AbstractModel{
+public class AssociationItem extends AbstractModel {
 
     /**
     * 关联到的负载均衡ID
@@ -87,6 +88,13 @@ public class AssociationItem extends AbstractModel{
     @SerializedName("ListenerName")
     @Expose
     private String ListenerName;
+
+    /**
+    * 关联目标组的权重， 该参数只有v2新版目标组生效。
+    */
+    @SerializedName("Weight")
+    @Expose
+    private Long Weight;
 
     /**
      * Get 关联到的负载均衡ID 
@@ -244,6 +252,22 @@ public class AssociationItem extends AbstractModel{
         this.ListenerName = ListenerName;
     }
 
+    /**
+     * Get 关联目标组的权重， 该参数只有v2新版目标组生效。 
+     * @return Weight 关联目标组的权重， 该参数只有v2新版目标组生效。
+     */
+    public Long getWeight() {
+        return this.Weight;
+    }
+
+    /**
+     * Set 关联目标组的权重， 该参数只有v2新版目标组生效。
+     * @param Weight 关联目标组的权重， 该参数只有v2新版目标组生效。
+     */
+    public void setWeight(Long Weight) {
+        this.Weight = Weight;
+    }
+
     public AssociationItem() {
     }
 
@@ -279,6 +303,9 @@ public class AssociationItem extends AbstractModel{
         if (source.ListenerName != null) {
             this.ListenerName = new String(source.ListenerName);
         }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
     }
 
 
@@ -295,6 +322,7 @@ public class AssociationItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Url", this.Url);
         this.setParamSimple(map, prefix + "LoadBalancerName", this.LoadBalancerName);
         this.setParamSimple(map, prefix + "ListenerName", this.ListenerName);
+        this.setParamSimple(map, prefix + "Weight", this.Weight);
 
     }
 }

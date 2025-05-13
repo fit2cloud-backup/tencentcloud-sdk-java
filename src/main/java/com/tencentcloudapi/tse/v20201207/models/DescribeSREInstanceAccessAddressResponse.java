@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
+public class DescribeSREInstanceAccessAddressResponse extends AbstractModel {
 
     /**
     * 内网访问地址
@@ -45,7 +46,6 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
     * 控制台公网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConsoleInternetAddress")
     @Expose
@@ -53,7 +53,6 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
     * 控制台内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConsoleIntranetAddress")
     @Expose
@@ -61,7 +60,6 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
     * 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternetBandWidth")
     @Expose
@@ -69,7 +67,6 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
     * 控制台公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConsoleInternetBandWidth")
     @Expose
@@ -84,7 +81,14 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
     private PolarisLimiterAddress [] LimiterAddressInfos;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * InternetAddress 的公网 CLB 多可用区信息
+    */
+    @SerializedName("CLBMultiRegion")
+    @Expose
+    private CLBMultiRegion CLBMultiRegion;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -139,10 +143,8 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
     }
 
     /**
-     * Get 控制台公网访问地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 控制台公网访问地址 
      * @return ConsoleInternetAddress 控制台公网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConsoleInternetAddress() {
         return this.ConsoleInternetAddress;
@@ -150,19 +152,15 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
      * Set 控制台公网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConsoleInternetAddress 控制台公网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConsoleInternetAddress(String ConsoleInternetAddress) {
         this.ConsoleInternetAddress = ConsoleInternetAddress;
     }
 
     /**
-     * Get 控制台内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 控制台内网访问地址 
      * @return ConsoleIntranetAddress 控制台内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConsoleIntranetAddress() {
         return this.ConsoleIntranetAddress;
@@ -170,19 +168,15 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
      * Set 控制台内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConsoleIntranetAddress 控制台内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConsoleIntranetAddress(String ConsoleIntranetAddress) {
         this.ConsoleIntranetAddress = ConsoleIntranetAddress;
     }
 
     /**
-     * Get 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户端公网带宽 
      * @return InternetBandWidth 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInternetBandWidth() {
         return this.InternetBandWidth;
@@ -190,19 +184,15 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
      * Set 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InternetBandWidth 客户端公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternetBandWidth(Long InternetBandWidth) {
         this.InternetBandWidth = InternetBandWidth;
     }
 
     /**
-     * Get 控制台公网带宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 控制台公网带宽 
      * @return ConsoleInternetBandWidth 控制台公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getConsoleInternetBandWidth() {
         return this.ConsoleInternetBandWidth;
@@ -210,9 +200,7 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
 
     /**
      * Set 控制台公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConsoleInternetBandWidth 控制台公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConsoleInternetBandWidth(Long ConsoleInternetBandWidth) {
         this.ConsoleInternetBandWidth = ConsoleInternetBandWidth;
@@ -239,16 +227,32 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get InternetAddress 的公网 CLB 多可用区信息 
+     * @return CLBMultiRegion InternetAddress 的公网 CLB 多可用区信息
+     */
+    public CLBMultiRegion getCLBMultiRegion() {
+        return this.CLBMultiRegion;
+    }
+
+    /**
+     * Set InternetAddress 的公网 CLB 多可用区信息
+     * @param CLBMultiRegion InternetAddress 的公网 CLB 多可用区信息
+     */
+    public void setCLBMultiRegion(CLBMultiRegion CLBMultiRegion) {
+        this.CLBMultiRegion = CLBMultiRegion;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -292,6 +296,9 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
                 this.LimiterAddressInfos[i] = new PolarisLimiterAddress(source.LimiterAddressInfos[i]);
             }
         }
+        if (source.CLBMultiRegion != null) {
+            this.CLBMultiRegion = new CLBMultiRegion(source.CLBMultiRegion);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -310,6 +317,7 @@ public class DescribeSREInstanceAccessAddressResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "InternetBandWidth", this.InternetBandWidth);
         this.setParamSimple(map, prefix + "ConsoleInternetBandWidth", this.ConsoleInternetBandWidth);
         this.setParamArrayObj(map, prefix + "LimiterAddressInfos.", this.LimiterAddressInfos);
+        this.setParamObj(map, prefix + "CLBMultiRegion.", this.CLBMultiRegion);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

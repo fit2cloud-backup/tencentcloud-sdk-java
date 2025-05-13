@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20191016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HealthStatus extends AbstractModel{
+public class HealthStatus extends AbstractModel {
 
     /**
     * 健康分数，满分100。
@@ -45,11 +46,17 @@ public class HealthStatus extends AbstractModel{
 
     /**
     * 扣分详情。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScoreDetails")
     @Expose
     private ScoreDetail [] ScoreDetails;
+
+    /**
+    * 健康等级版本，默认为V1
+    */
+    @SerializedName("HealthLevelVersion")
+    @Expose
+    private String HealthLevelVersion;
 
     /**
      * Get 健康分数，满分100。 
@@ -100,10 +107,8 @@ public class HealthStatus extends AbstractModel{
     }
 
     /**
-     * Get 扣分详情。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扣分详情。 
      * @return ScoreDetails 扣分详情。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ScoreDetail [] getScoreDetails() {
         return this.ScoreDetails;
@@ -111,12 +116,26 @@ public class HealthStatus extends AbstractModel{
 
     /**
      * Set 扣分详情。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScoreDetails 扣分详情。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScoreDetails(ScoreDetail [] ScoreDetails) {
         this.ScoreDetails = ScoreDetails;
+    }
+
+    /**
+     * Get 健康等级版本，默认为V1 
+     * @return HealthLevelVersion 健康等级版本，默认为V1
+     */
+    public String getHealthLevelVersion() {
+        return this.HealthLevelVersion;
+    }
+
+    /**
+     * Set 健康等级版本，默认为V1
+     * @param HealthLevelVersion 健康等级版本，默认为V1
+     */
+    public void setHealthLevelVersion(String HealthLevelVersion) {
+        this.HealthLevelVersion = HealthLevelVersion;
     }
 
     public HealthStatus() {
@@ -142,6 +161,9 @@ public class HealthStatus extends AbstractModel{
                 this.ScoreDetails[i] = new ScoreDetail(source.ScoreDetails[i]);
             }
         }
+        if (source.HealthLevelVersion != null) {
+            this.HealthLevelVersion = new String(source.HealthLevelVersion);
+        }
     }
 
 
@@ -153,6 +175,7 @@ public class HealthStatus extends AbstractModel{
         this.setParamSimple(map, prefix + "HealthLevel", this.HealthLevel);
         this.setParamSimple(map, prefix + "ScoreLost", this.ScoreLost);
         this.setParamArrayObj(map, prefix + "ScoreDetails.", this.ScoreDetails);
+        this.setParamSimple(map, prefix + "HealthLevelVersion", this.HealthLevelVersion);
 
     }
 }

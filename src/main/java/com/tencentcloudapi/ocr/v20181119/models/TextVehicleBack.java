@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TextVehicleBack extends AbstractModel{
+public class TextVehicleBack extends AbstractModel {
 
     /**
     * 号牌号码
@@ -109,6 +110,29 @@ public class TextVehicleBack extends AbstractModel{
     @SerializedName("SubPageCode")
     @Expose
     private String SubPageCode;
+
+    /**
+    * 燃料种类
+
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FuelType")
+    @Expose
+    private String FuelType;
+
+    /**
+    * 住址
+    */
+    @SerializedName("AddressElectronic")
+    @Expose
+    private String AddressElectronic;
+
+    /**
+    * 发证机关
+    */
+    @SerializedName("IssueAuthorityElectronic")
+    @Expose
+    private String IssueAuthorityElectronic;
 
     /**
      * Get 号牌号码
@@ -330,6 +354,62 @@ public class TextVehicleBack extends AbstractModel{
         this.SubPageCode = SubPageCode;
     }
 
+    /**
+     * Get 燃料种类
+
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FuelType 燃料种类
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFuelType() {
+        return this.FuelType;
+    }
+
+    /**
+     * Set 燃料种类
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FuelType 燃料种类
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFuelType(String FuelType) {
+        this.FuelType = FuelType;
+    }
+
+    /**
+     * Get 住址 
+     * @return AddressElectronic 住址
+     */
+    public String getAddressElectronic() {
+        return this.AddressElectronic;
+    }
+
+    /**
+     * Set 住址
+     * @param AddressElectronic 住址
+     */
+    public void setAddressElectronic(String AddressElectronic) {
+        this.AddressElectronic = AddressElectronic;
+    }
+
+    /**
+     * Get 发证机关 
+     * @return IssueAuthorityElectronic 发证机关
+     */
+    public String getIssueAuthorityElectronic() {
+        return this.IssueAuthorityElectronic;
+    }
+
+    /**
+     * Set 发证机关
+     * @param IssueAuthorityElectronic 发证机关
+     */
+    public void setIssueAuthorityElectronic(String IssueAuthorityElectronic) {
+        this.IssueAuthorityElectronic = IssueAuthorityElectronic;
+    }
+
     public TextVehicleBack() {
     }
 
@@ -371,6 +451,15 @@ public class TextVehicleBack extends AbstractModel{
         if (source.SubPageCode != null) {
             this.SubPageCode = new String(source.SubPageCode);
         }
+        if (source.FuelType != null) {
+            this.FuelType = new String(source.FuelType);
+        }
+        if (source.AddressElectronic != null) {
+            this.AddressElectronic = new String(source.AddressElectronic);
+        }
+        if (source.IssueAuthorityElectronic != null) {
+            this.IssueAuthorityElectronic = new String(source.IssueAuthorityElectronic);
+        }
     }
 
 
@@ -389,6 +478,9 @@ public class TextVehicleBack extends AbstractModel{
         this.setParamSimple(map, prefix + "Record", this.Record);
         this.setParamSimple(map, prefix + "TotalQuasiMass", this.TotalQuasiMass);
         this.setParamSimple(map, prefix + "SubPageCode", this.SubPageCode);
+        this.setParamSimple(map, prefix + "FuelType", this.FuelType);
+        this.setParamSimple(map, prefix + "AddressElectronic", this.AddressElectronic);
+        this.setParamSimple(map, prefix + "IssueAuthorityElectronic", this.IssueAuthorityElectronic);
 
     }
 }

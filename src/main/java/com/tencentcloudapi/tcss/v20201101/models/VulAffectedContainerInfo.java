@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VulAffectedContainerInfo extends AbstractModel{
+public class VulAffectedContainerInfo extends AbstractModel {
 
     /**
     * 内网IP
@@ -119,6 +120,13 @@ public class VulAffectedContainerInfo extends AbstractModel{
     @SerializedName("NodeName")
     @Expose
     private String NodeName;
+
+    /**
+    * 容器状态 "RUNNING":运行,"PAUSED":暂停,"STOPPED":停止,"CREATED":已经创建,"DESTROYED":已销毁,"RESTARTING":重启中,"REMOVING":迁移中,"DEAD":DEAD,"UNKNOWN":未知
+    */
+    @SerializedName("ContainerStatus")
+    @Expose
+    private String ContainerStatus;
 
     /**
      * Get 内网IP 
@@ -344,6 +352,22 @@ public class VulAffectedContainerInfo extends AbstractModel{
         this.NodeName = NodeName;
     }
 
+    /**
+     * Get 容器状态 "RUNNING":运行,"PAUSED":暂停,"STOPPED":停止,"CREATED":已经创建,"DESTROYED":已销毁,"RESTARTING":重启中,"REMOVING":迁移中,"DEAD":DEAD,"UNKNOWN":未知 
+     * @return ContainerStatus 容器状态 "RUNNING":运行,"PAUSED":暂停,"STOPPED":停止,"CREATED":已经创建,"DESTROYED":已销毁,"RESTARTING":重启中,"REMOVING":迁移中,"DEAD":DEAD,"UNKNOWN":未知
+     */
+    public String getContainerStatus() {
+        return this.ContainerStatus;
+    }
+
+    /**
+     * Set 容器状态 "RUNNING":运行,"PAUSED":暂停,"STOPPED":停止,"CREATED":已经创建,"DESTROYED":已销毁,"RESTARTING":重启中,"REMOVING":迁移中,"DEAD":DEAD,"UNKNOWN":未知
+     * @param ContainerStatus 容器状态 "RUNNING":运行,"PAUSED":暂停,"STOPPED":停止,"CREATED":已经创建,"DESTROYED":已销毁,"RESTARTING":重启中,"REMOVING":迁移中,"DEAD":DEAD,"UNKNOWN":未知
+     */
+    public void setContainerStatus(String ContainerStatus) {
+        this.ContainerStatus = ContainerStatus;
+    }
+
     public VulAffectedContainerInfo() {
     }
 
@@ -394,6 +418,9 @@ public class VulAffectedContainerInfo extends AbstractModel{
         if (source.NodeName != null) {
             this.NodeName = new String(source.NodeName);
         }
+        if (source.ContainerStatus != null) {
+            this.ContainerStatus = new String(source.ContainerStatus);
+        }
     }
 
 
@@ -415,6 +442,7 @@ public class VulAffectedContainerInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "NodeUniqueID", this.NodeUniqueID);
         this.setParamSimple(map, prefix + "NodeID", this.NodeID);
         this.setParamSimple(map, prefix + "NodeName", this.NodeName);
+        this.setParamSimple(map, prefix + "ContainerStatus", this.ContainerStatus);
 
     }
 }

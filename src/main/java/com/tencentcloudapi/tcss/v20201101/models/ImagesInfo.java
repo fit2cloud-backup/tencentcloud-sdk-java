@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImagesInfo extends AbstractModel{
+public class ImagesInfo extends AbstractModel {
 
     /**
     * 镜像id
@@ -51,11 +52,18 @@ public class ImagesInfo extends AbstractModel{
     private Long Size;
 
     /**
-    * 主机个数
+    * 主机个数(包含普通节点数和超级节点数)
     */
     @SerializedName("HostCnt")
     @Expose
     private Long HostCnt;
+
+    /**
+    * 超级节点数
+    */
+    @SerializedName("SuperNodeCnt")
+    @Expose
+    private Long SuperNodeCnt;
 
     /**
     * 容器个数
@@ -170,6 +178,48 @@ public class ImagesInfo extends AbstractModel{
     private Long ComponentCnt;
 
     /**
+    * 严重漏洞数
+    */
+    @SerializedName("CriticalLevelVulCnt")
+    @Expose
+    private Long CriticalLevelVulCnt;
+
+    /**
+    * 高危漏洞数
+    */
+    @SerializedName("HighLevelVulCnt")
+    @Expose
+    private Long HighLevelVulCnt;
+
+    /**
+    * 中危漏洞数
+    */
+    @SerializedName("MediumLevelVulCnt")
+    @Expose
+    private Long MediumLevelVulCnt;
+
+    /**
+    * 低危漏洞数
+    */
+    @SerializedName("LowLevelVulCnt")
+    @Expose
+    private Long LowLevelVulCnt;
+
+    /**
+    * 是否最新版本镜像
+    */
+    @SerializedName("IsLatestImage")
+    @Expose
+    private Boolean IsLatestImage;
+
+    /**
+    * 是否推荐处置
+    */
+    @SerializedName("RecommendedFix")
+    @Expose
+    private Boolean RecommendedFix;
+
+    /**
      * Get 镜像id 
      * @return ImageID 镜像id
      */
@@ -234,19 +284,35 @@ public class ImagesInfo extends AbstractModel{
     }
 
     /**
-     * Get 主机个数 
-     * @return HostCnt 主机个数
+     * Get 主机个数(包含普通节点数和超级节点数) 
+     * @return HostCnt 主机个数(包含普通节点数和超级节点数)
      */
     public Long getHostCnt() {
         return this.HostCnt;
     }
 
     /**
-     * Set 主机个数
-     * @param HostCnt 主机个数
+     * Set 主机个数(包含普通节点数和超级节点数)
+     * @param HostCnt 主机个数(包含普通节点数和超级节点数)
      */
     public void setHostCnt(Long HostCnt) {
         this.HostCnt = HostCnt;
+    }
+
+    /**
+     * Get 超级节点数 
+     * @return SuperNodeCnt 超级节点数
+     */
+    public Long getSuperNodeCnt() {
+        return this.SuperNodeCnt;
+    }
+
+    /**
+     * Set 超级节点数
+     * @param SuperNodeCnt 超级节点数
+     */
+    public void setSuperNodeCnt(Long SuperNodeCnt) {
+        this.SuperNodeCnt = SuperNodeCnt;
     }
 
     /**
@@ -505,6 +571,102 @@ public class ImagesInfo extends AbstractModel{
         this.ComponentCnt = ComponentCnt;
     }
 
+    /**
+     * Get 严重漏洞数 
+     * @return CriticalLevelVulCnt 严重漏洞数
+     */
+    public Long getCriticalLevelVulCnt() {
+        return this.CriticalLevelVulCnt;
+    }
+
+    /**
+     * Set 严重漏洞数
+     * @param CriticalLevelVulCnt 严重漏洞数
+     */
+    public void setCriticalLevelVulCnt(Long CriticalLevelVulCnt) {
+        this.CriticalLevelVulCnt = CriticalLevelVulCnt;
+    }
+
+    /**
+     * Get 高危漏洞数 
+     * @return HighLevelVulCnt 高危漏洞数
+     */
+    public Long getHighLevelVulCnt() {
+        return this.HighLevelVulCnt;
+    }
+
+    /**
+     * Set 高危漏洞数
+     * @param HighLevelVulCnt 高危漏洞数
+     */
+    public void setHighLevelVulCnt(Long HighLevelVulCnt) {
+        this.HighLevelVulCnt = HighLevelVulCnt;
+    }
+
+    /**
+     * Get 中危漏洞数 
+     * @return MediumLevelVulCnt 中危漏洞数
+     */
+    public Long getMediumLevelVulCnt() {
+        return this.MediumLevelVulCnt;
+    }
+
+    /**
+     * Set 中危漏洞数
+     * @param MediumLevelVulCnt 中危漏洞数
+     */
+    public void setMediumLevelVulCnt(Long MediumLevelVulCnt) {
+        this.MediumLevelVulCnt = MediumLevelVulCnt;
+    }
+
+    /**
+     * Get 低危漏洞数 
+     * @return LowLevelVulCnt 低危漏洞数
+     */
+    public Long getLowLevelVulCnt() {
+        return this.LowLevelVulCnt;
+    }
+
+    /**
+     * Set 低危漏洞数
+     * @param LowLevelVulCnt 低危漏洞数
+     */
+    public void setLowLevelVulCnt(Long LowLevelVulCnt) {
+        this.LowLevelVulCnt = LowLevelVulCnt;
+    }
+
+    /**
+     * Get 是否最新版本镜像 
+     * @return IsLatestImage 是否最新版本镜像
+     */
+    public Boolean getIsLatestImage() {
+        return this.IsLatestImage;
+    }
+
+    /**
+     * Set 是否最新版本镜像
+     * @param IsLatestImage 是否最新版本镜像
+     */
+    public void setIsLatestImage(Boolean IsLatestImage) {
+        this.IsLatestImage = IsLatestImage;
+    }
+
+    /**
+     * Get 是否推荐处置 
+     * @return RecommendedFix 是否推荐处置
+     */
+    public Boolean getRecommendedFix() {
+        return this.RecommendedFix;
+    }
+
+    /**
+     * Set 是否推荐处置
+     * @param RecommendedFix 是否推荐处置
+     */
+    public void setRecommendedFix(Boolean RecommendedFix) {
+        this.RecommendedFix = RecommendedFix;
+    }
+
     public ImagesInfo() {
     }
 
@@ -527,6 +689,9 @@ public class ImagesInfo extends AbstractModel{
         }
         if (source.HostCnt != null) {
             this.HostCnt = new Long(source.HostCnt);
+        }
+        if (source.SuperNodeCnt != null) {
+            this.SuperNodeCnt = new Long(source.SuperNodeCnt);
         }
         if (source.ContainerCnt != null) {
             this.ContainerCnt = new Long(source.ContainerCnt);
@@ -576,6 +741,24 @@ public class ImagesInfo extends AbstractModel{
         if (source.ComponentCnt != null) {
             this.ComponentCnt = new Long(source.ComponentCnt);
         }
+        if (source.CriticalLevelVulCnt != null) {
+            this.CriticalLevelVulCnt = new Long(source.CriticalLevelVulCnt);
+        }
+        if (source.HighLevelVulCnt != null) {
+            this.HighLevelVulCnt = new Long(source.HighLevelVulCnt);
+        }
+        if (source.MediumLevelVulCnt != null) {
+            this.MediumLevelVulCnt = new Long(source.MediumLevelVulCnt);
+        }
+        if (source.LowLevelVulCnt != null) {
+            this.LowLevelVulCnt = new Long(source.LowLevelVulCnt);
+        }
+        if (source.IsLatestImage != null) {
+            this.IsLatestImage = new Boolean(source.IsLatestImage);
+        }
+        if (source.RecommendedFix != null) {
+            this.RecommendedFix = new Boolean(source.RecommendedFix);
+        }
     }
 
 
@@ -588,6 +771,7 @@ public class ImagesInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "Size", this.Size);
         this.setParamSimple(map, prefix + "HostCnt", this.HostCnt);
+        this.setParamSimple(map, prefix + "SuperNodeCnt", this.SuperNodeCnt);
         this.setParamSimple(map, prefix + "ContainerCnt", this.ContainerCnt);
         this.setParamSimple(map, prefix + "ScanTime", this.ScanTime);
         this.setParamSimple(map, prefix + "VulCnt", this.VulCnt);
@@ -604,6 +788,12 @@ public class ImagesInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "IsSuggest", this.IsSuggest);
         this.setParamSimple(map, prefix + "IsAuthorized", this.IsAuthorized);
         this.setParamSimple(map, prefix + "ComponentCnt", this.ComponentCnt);
+        this.setParamSimple(map, prefix + "CriticalLevelVulCnt", this.CriticalLevelVulCnt);
+        this.setParamSimple(map, prefix + "HighLevelVulCnt", this.HighLevelVulCnt);
+        this.setParamSimple(map, prefix + "MediumLevelVulCnt", this.MediumLevelVulCnt);
+        this.setParamSimple(map, prefix + "LowLevelVulCnt", this.LowLevelVulCnt);
+        this.setParamSimple(map, prefix + "IsLatestImage", this.IsLatestImage);
+        this.setParamSimple(map, prefix + "RecommendedFix", this.RecommendedFix);
 
     }
 }

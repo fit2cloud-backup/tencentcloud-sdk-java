@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExpandCfwVerticalRequest extends AbstractModel{
+public class ExpandCfwVerticalRequest extends AbstractModel {
 
     /**
     * nat：nat防火墙，ew：东西向防火墙
@@ -42,6 +43,27 @@ public class ExpandCfwVerticalRequest extends AbstractModel{
     @SerializedName("CfwInstance")
     @Expose
     private String CfwInstance;
+
+    /**
+    * 弹性开关 1打开 0 关闭
+    */
+    @SerializedName("ElasticSwitch")
+    @Expose
+    private Long ElasticSwitch;
+
+    /**
+    * 弹性带宽上限，单位Mbps
+    */
+    @SerializedName("ElasticBandwidth")
+    @Expose
+    private Long ElasticBandwidth;
+
+    /**
+    * 按量计费标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private TagInfo [] Tags;
 
     /**
      * Get nat：nat防火墙，ew：东西向防火墙 
@@ -91,6 +113,54 @@ public class ExpandCfwVerticalRequest extends AbstractModel{
         this.CfwInstance = CfwInstance;
     }
 
+    /**
+     * Get 弹性开关 1打开 0 关闭 
+     * @return ElasticSwitch 弹性开关 1打开 0 关闭
+     */
+    public Long getElasticSwitch() {
+        return this.ElasticSwitch;
+    }
+
+    /**
+     * Set 弹性开关 1打开 0 关闭
+     * @param ElasticSwitch 弹性开关 1打开 0 关闭
+     */
+    public void setElasticSwitch(Long ElasticSwitch) {
+        this.ElasticSwitch = ElasticSwitch;
+    }
+
+    /**
+     * Get 弹性带宽上限，单位Mbps 
+     * @return ElasticBandwidth 弹性带宽上限，单位Mbps
+     */
+    public Long getElasticBandwidth() {
+        return this.ElasticBandwidth;
+    }
+
+    /**
+     * Set 弹性带宽上限，单位Mbps
+     * @param ElasticBandwidth 弹性带宽上限，单位Mbps
+     */
+    public void setElasticBandwidth(Long ElasticBandwidth) {
+        this.ElasticBandwidth = ElasticBandwidth;
+    }
+
+    /**
+     * Get 按量计费标签 
+     * @return Tags 按量计费标签
+     */
+    public TagInfo [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 按量计费标签
+     * @param Tags 按量计费标签
+     */
+    public void setTags(TagInfo [] Tags) {
+        this.Tags = Tags;
+    }
+
     public ExpandCfwVerticalRequest() {
     }
 
@@ -108,6 +178,18 @@ public class ExpandCfwVerticalRequest extends AbstractModel{
         if (source.CfwInstance != null) {
             this.CfwInstance = new String(source.CfwInstance);
         }
+        if (source.ElasticSwitch != null) {
+            this.ElasticSwitch = new Long(source.ElasticSwitch);
+        }
+        if (source.ElasticBandwidth != null) {
+            this.ElasticBandwidth = new Long(source.ElasticBandwidth);
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagInfo[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagInfo(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -118,6 +200,9 @@ public class ExpandCfwVerticalRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "FwType", this.FwType);
         this.setParamSimple(map, prefix + "Width", this.Width);
         this.setParamSimple(map, prefix + "CfwInstance", this.CfwInstance);
+        this.setParamSimple(map, prefix + "ElasticSwitch", this.ElasticSwitch);
+        this.setParamSimple(map, prefix + "ElasticBandwidth", this.ElasticBandwidth);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

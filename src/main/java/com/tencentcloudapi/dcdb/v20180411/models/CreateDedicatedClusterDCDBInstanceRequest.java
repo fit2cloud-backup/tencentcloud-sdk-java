@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDedicatedClusterDCDBInstanceRequest extends AbstractModel{
+public class CreateDedicatedClusterDCDBInstanceRequest extends AbstractModel {
 
     /**
     * 分配实例个数
@@ -224,6 +225,13 @@ public class CreateDedicatedClusterDCDBInstanceRequest extends AbstractModel{
     @SerializedName("RollbackTime")
     @Expose
     private String RollbackTime;
+
+    /**
+    * DCN同步模式，0：异步， 1：强同步
+    */
+    @SerializedName("DcnSyncMode")
+    @Expose
+    private Long DcnSyncMode;
 
     /**
      * Get 分配实例个数 
@@ -689,6 +697,22 @@ public class CreateDedicatedClusterDCDBInstanceRequest extends AbstractModel{
         this.RollbackTime = RollbackTime;
     }
 
+    /**
+     * Get DCN同步模式，0：异步， 1：强同步 
+     * @return DcnSyncMode DCN同步模式，0：异步， 1：强同步
+     */
+    public Long getDcnSyncMode() {
+        return this.DcnSyncMode;
+    }
+
+    /**
+     * Set DCN同步模式，0：异步， 1：强同步
+     * @param DcnSyncMode DCN同步模式，0：异步， 1：强同步
+     */
+    public void setDcnSyncMode(Long DcnSyncMode) {
+        this.DcnSyncMode = DcnSyncMode;
+    }
+
     public CreateDedicatedClusterDCDBInstanceRequest() {
     }
 
@@ -796,6 +820,9 @@ public class CreateDedicatedClusterDCDBInstanceRequest extends AbstractModel{
         if (source.RollbackTime != null) {
             this.RollbackTime = new String(source.RollbackTime);
         }
+        if (source.DcnSyncMode != null) {
+            this.DcnSyncMode = new Long(source.DcnSyncMode);
+        }
     }
 
 
@@ -832,6 +859,7 @@ public class CreateDedicatedClusterDCDBInstanceRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "SlaveHostIds.", this.SlaveHostIds);
         this.setParamSimple(map, prefix + "RollbackInstanceId", this.RollbackInstanceId);
         this.setParamSimple(map, prefix + "RollbackTime", this.RollbackTime);
+        this.setParamSimple(map, prefix + "DcnSyncMode", this.DcnSyncMode);
 
     }
 }

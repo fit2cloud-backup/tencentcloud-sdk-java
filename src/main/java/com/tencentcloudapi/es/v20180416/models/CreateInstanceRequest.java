@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInstanceRequest extends AbstractModel{
+public class CreateInstanceRequest extends AbstractModel {
 
     /**
     * 可用区
@@ -103,7 +104,7 @@ public class CreateInstanceRequest extends AbstractModel{
 
     /**
     * 已废弃请使用NodeInfoList
-节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高硬能云硬盘</li>默认值CLOUD_SSD
+节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li> CLOUD_HSSD：增强型SSD云硬盘</li><li> CLOUD_BSSD：通用型SSD云硬盘</li>默认值CLOUD_SSD
     */
     @SerializedName("DiskType")
     @Expose
@@ -178,7 +179,7 @@ public class CreateInstanceRequest extends AbstractModel{
     private String ClusterNameInConf;
 
     /**
-    * 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署</li>默认为0
+    * 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>默认为0
     */
     @SerializedName("DeployMode")
     @Expose
@@ -267,6 +268,48 @@ public class CreateInstanceRequest extends AbstractModel{
     @SerializedName("EnableDiagnose")
     @Expose
     private Boolean EnableDiagnose;
+
+    /**
+    * cdcId，使用cdc子网时传递
+    */
+    @SerializedName("CdcId")
+    @Expose
+    private String CdcId;
+
+    /**
+    * 置放群组亲和度，范围[0,10]，0表示不开启
+    */
+    @SerializedName("DisasterRecoverGroupAffinity")
+    @Expose
+    private Long DisasterRecoverGroupAffinity;
+
+    /**
+    * 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+    */
+    @SerializedName("SubProductCode")
+    @Expose
+    private String SubProductCode;
+
+    /**
+    * 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+    */
+    @SerializedName("ReadWriteMode")
+    @Expose
+    private Long ReadWriteMode;
+
+    /**
+    * 置放群组是否开启异步任务
+    */
+    @SerializedName("EnableScheduleRecoverGroup")
+    @Expose
+    private Boolean EnableScheduleRecoverGroup;
+
+    /**
+    * 置放群组开启异步任务的可维护时间段
+    */
+    @SerializedName("EnableScheduleOperationDuration")
+    @Expose
+    private EnableScheduleOperationDuration EnableScheduleOperationDuration;
 
     /**
      * Get 可用区 
@@ -454,9 +497,9 @@ public class CreateInstanceRequest extends AbstractModel{
 
     /**
      * Get 已废弃请使用NodeInfoList
-节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高硬能云硬盘</li>默认值CLOUD_SSD 
+节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li> CLOUD_HSSD：增强型SSD云硬盘</li><li> CLOUD_BSSD：通用型SSD云硬盘</li>默认值CLOUD_SSD 
      * @return DiskType 已废弃请使用NodeInfoList
-节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高硬能云硬盘</li>默认值CLOUD_SSD
+节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li> CLOUD_HSSD：增强型SSD云硬盘</li><li> CLOUD_BSSD：通用型SSD云硬盘</li>默认值CLOUD_SSD
      */
     public String getDiskType() {
         return this.DiskType;
@@ -464,9 +507,9 @@ public class CreateInstanceRequest extends AbstractModel{
 
     /**
      * Set 已废弃请使用NodeInfoList
-节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高硬能云硬盘</li>默认值CLOUD_SSD
+节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li> CLOUD_HSSD：增强型SSD云硬盘</li><li> CLOUD_BSSD：通用型SSD云硬盘</li>默认值CLOUD_SSD
      * @param DiskType 已废弃请使用NodeInfoList
-节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高硬能云硬盘</li>默认值CLOUD_SSD
+节点磁盘类型<li>CLOUD_SSD：SSD云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li> CLOUD_HSSD：增强型SSD云硬盘</li><li> CLOUD_BSSD：通用型SSD云硬盘</li>默认值CLOUD_SSD
      */
     public void setDiskType(String DiskType) {
         this.DiskType = DiskType;
@@ -637,16 +680,16 @@ public class CreateInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署</li>默认为0 
-     * @return DeployMode 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署</li>默认为0
+     * Get 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>默认为0 
+     * @return DeployMode 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>默认为0
      */
     public Long getDeployMode() {
         return this.DeployMode;
     }
 
     /**
-     * Set 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署</li>默认为0
-     * @param DeployMode 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署</li>默认为0
+     * Set 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>默认为0
+     * @param DeployMode 集群部署方式<li>0：单可用区部署</li><li>1：多可用区部署，北京、上海、上海金融、广州、南京、香港、新加坡、法兰克福（白名单控制）</li>默认为0
      */
     public void setDeployMode(Long DeployMode) {
         this.DeployMode = DeployMode;
@@ -844,6 +887,102 @@ public class CreateInstanceRequest extends AbstractModel{
         this.EnableDiagnose = EnableDiagnose;
     }
 
+    /**
+     * Get cdcId，使用cdc子网时传递 
+     * @return CdcId cdcId，使用cdc子网时传递
+     */
+    public String getCdcId() {
+        return this.CdcId;
+    }
+
+    /**
+     * Set cdcId，使用cdc子网时传递
+     * @param CdcId cdcId，使用cdc子网时传递
+     */
+    public void setCdcId(String CdcId) {
+        this.CdcId = CdcId;
+    }
+
+    /**
+     * Get 置放群组亲和度，范围[0,10]，0表示不开启 
+     * @return DisasterRecoverGroupAffinity 置放群组亲和度，范围[0,10]，0表示不开启
+     */
+    public Long getDisasterRecoverGroupAffinity() {
+        return this.DisasterRecoverGroupAffinity;
+    }
+
+    /**
+     * Set 置放群组亲和度，范围[0,10]，0表示不开启
+     * @param DisasterRecoverGroupAffinity 置放群组亲和度，范围[0,10]，0表示不开启
+     */
+    public void setDisasterRecoverGroupAffinity(Long DisasterRecoverGroupAffinity) {
+        this.DisasterRecoverGroupAffinity = DisasterRecoverGroupAffinity;
+    }
+
+    /**
+     * Get 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段 
+     * @return SubProductCode 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+     */
+    public String getSubProductCode() {
+        return this.SubProductCode;
+    }
+
+    /**
+     * Set 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+     * @param SubProductCode 子产品ID枚举值： 开源版："sp_es_io2"， 基础版："sp_es_basic"，白金版："sp_es_platinum"，企业版："sp_es_enterprise"，CDC白金版："sp_es_cdc_platinum"，日志增强版："sp_es_enlogging"，tsearch："sp_tsearch_io2"，logstash："sp_es_logstash" ，可以为空，为空的时候后台取LicenseType映射该字段
+     */
+    public void setSubProductCode(String SubProductCode) {
+        this.SubProductCode = SubProductCode;
+    }
+
+    /**
+     * Get 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离 
+     * @return ReadWriteMode 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+     */
+    public Long getReadWriteMode() {
+        return this.ReadWriteMode;
+    }
+
+    /**
+     * Set 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+     * @param ReadWriteMode 读写分离模式：0-不开启，1-本地读写分离，2-远端读写分离
+     */
+    public void setReadWriteMode(Long ReadWriteMode) {
+        this.ReadWriteMode = ReadWriteMode;
+    }
+
+    /**
+     * Get 置放群组是否开启异步任务 
+     * @return EnableScheduleRecoverGroup 置放群组是否开启异步任务
+     */
+    public Boolean getEnableScheduleRecoverGroup() {
+        return this.EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Set 置放群组是否开启异步任务
+     * @param EnableScheduleRecoverGroup 置放群组是否开启异步任务
+     */
+    public void setEnableScheduleRecoverGroup(Boolean EnableScheduleRecoverGroup) {
+        this.EnableScheduleRecoverGroup = EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Get 置放群组开启异步任务的可维护时间段 
+     * @return EnableScheduleOperationDuration 置放群组开启异步任务的可维护时间段
+     */
+    public EnableScheduleOperationDuration getEnableScheduleOperationDuration() {
+        return this.EnableScheduleOperationDuration;
+    }
+
+    /**
+     * Set 置放群组开启异步任务的可维护时间段
+     * @param EnableScheduleOperationDuration 置放群组开启异步任务的可维护时间段
+     */
+    public void setEnableScheduleOperationDuration(EnableScheduleOperationDuration EnableScheduleOperationDuration) {
+        this.EnableScheduleOperationDuration = EnableScheduleOperationDuration;
+    }
+
     public CreateInstanceRequest() {
     }
 
@@ -966,6 +1105,24 @@ public class CreateInstanceRequest extends AbstractModel{
         if (source.EnableDiagnose != null) {
             this.EnableDiagnose = new Boolean(source.EnableDiagnose);
         }
+        if (source.CdcId != null) {
+            this.CdcId = new String(source.CdcId);
+        }
+        if (source.DisasterRecoverGroupAffinity != null) {
+            this.DisasterRecoverGroupAffinity = new Long(source.DisasterRecoverGroupAffinity);
+        }
+        if (source.SubProductCode != null) {
+            this.SubProductCode = new String(source.SubProductCode);
+        }
+        if (source.ReadWriteMode != null) {
+            this.ReadWriteMode = new Long(source.ReadWriteMode);
+        }
+        if (source.EnableScheduleRecoverGroup != null) {
+            this.EnableScheduleRecoverGroup = new Boolean(source.EnableScheduleRecoverGroup);
+        }
+        if (source.EnableScheduleOperationDuration != null) {
+            this.EnableScheduleOperationDuration = new EnableScheduleOperationDuration(source.EnableScheduleOperationDuration);
+        }
     }
 
 
@@ -1007,6 +1164,12 @@ public class CreateInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EnableHybridStorage", this.EnableHybridStorage);
         this.setParamSimple(map, prefix + "DiskEnhance", this.DiskEnhance);
         this.setParamSimple(map, prefix + "EnableDiagnose", this.EnableDiagnose);
+        this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamSimple(map, prefix + "DisasterRecoverGroupAffinity", this.DisasterRecoverGroupAffinity);
+        this.setParamSimple(map, prefix + "SubProductCode", this.SubProductCode);
+        this.setParamSimple(map, prefix + "ReadWriteMode", this.ReadWriteMode);
+        this.setParamSimple(map, prefix + "EnableScheduleRecoverGroup", this.EnableScheduleRecoverGroup);
+        this.setParamObj(map, prefix + "EnableScheduleOperationDuration.", this.EnableScheduleOperationDuration);
 
     }
 }

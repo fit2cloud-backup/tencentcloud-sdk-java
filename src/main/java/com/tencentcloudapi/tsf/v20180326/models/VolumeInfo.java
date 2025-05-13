@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VolumeInfo extends AbstractModel{
+public class VolumeInfo extends AbstractModel {
 
     /**
     * 数据卷类型
@@ -42,6 +43,20 @@ public class VolumeInfo extends AbstractModel{
     @SerializedName("VolumeConfig")
     @Expose
     private String VolumeConfig;
+
+    /**
+    * -
+    */
+    @SerializedName("ConfigMapOptions")
+    @Expose
+    private ConfigMapOption [] ConfigMapOptions;
+
+    /**
+    * -
+    */
+    @SerializedName("EmptyDirOption")
+    @Expose
+    private EmptyDirOption EmptyDirOption;
 
     /**
      * Get 数据卷类型 
@@ -91,6 +106,38 @@ public class VolumeInfo extends AbstractModel{
         this.VolumeConfig = VolumeConfig;
     }
 
+    /**
+     * Get - 
+     * @return ConfigMapOptions -
+     */
+    public ConfigMapOption [] getConfigMapOptions() {
+        return this.ConfigMapOptions;
+    }
+
+    /**
+     * Set -
+     * @param ConfigMapOptions -
+     */
+    public void setConfigMapOptions(ConfigMapOption [] ConfigMapOptions) {
+        this.ConfigMapOptions = ConfigMapOptions;
+    }
+
+    /**
+     * Get - 
+     * @return EmptyDirOption -
+     */
+    public EmptyDirOption getEmptyDirOption() {
+        return this.EmptyDirOption;
+    }
+
+    /**
+     * Set -
+     * @param EmptyDirOption -
+     */
+    public void setEmptyDirOption(EmptyDirOption EmptyDirOption) {
+        this.EmptyDirOption = EmptyDirOption;
+    }
+
     public VolumeInfo() {
     }
 
@@ -108,6 +155,15 @@ public class VolumeInfo extends AbstractModel{
         if (source.VolumeConfig != null) {
             this.VolumeConfig = new String(source.VolumeConfig);
         }
+        if (source.ConfigMapOptions != null) {
+            this.ConfigMapOptions = new ConfigMapOption[source.ConfigMapOptions.length];
+            for (int i = 0; i < source.ConfigMapOptions.length; i++) {
+                this.ConfigMapOptions[i] = new ConfigMapOption(source.ConfigMapOptions[i]);
+            }
+        }
+        if (source.EmptyDirOption != null) {
+            this.EmptyDirOption = new EmptyDirOption(source.EmptyDirOption);
+        }
     }
 
 
@@ -118,6 +174,8 @@ public class VolumeInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "VolumeType", this.VolumeType);
         this.setParamSimple(map, prefix + "VolumeName", this.VolumeName);
         this.setParamSimple(map, prefix + "VolumeConfig", this.VolumeConfig);
+        this.setParamArrayObj(map, prefix + "ConfigMapOptions.", this.ConfigMapOptions);
+        this.setParamObj(map, prefix + "EmptyDirOption.", this.EmptyDirOption);
 
     }
 }

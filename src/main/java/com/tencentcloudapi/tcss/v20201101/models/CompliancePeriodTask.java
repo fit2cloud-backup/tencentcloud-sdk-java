@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CompliancePeriodTask extends AbstractModel{
+public class CompliancePeriodTask extends AbstractModel {
 
     /**
     * 周期任务的ID
@@ -42,7 +43,6 @@ ASSET_K8S, K8S资产
 
     /**
     * 最近一次触发的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastTriggerTime")
     @Expose
@@ -118,10 +118,8 @@ ASSET_K8S, K8S资产
     }
 
     /**
-     * Get 最近一次触发的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近一次触发的时间 
      * @return LastTriggerTime 最近一次触发的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastTriggerTime() {
         return this.LastTriggerTime;
@@ -129,9 +127,7 @@ ASSET_K8S, K8S资产
 
     /**
      * Set 最近一次触发的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastTriggerTime 最近一次触发的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastTriggerTime(String LastTriggerTime) {
         this.LastTriggerTime = LastTriggerTime;

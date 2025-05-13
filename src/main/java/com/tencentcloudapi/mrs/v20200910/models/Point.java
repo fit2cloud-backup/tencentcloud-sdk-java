@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Point extends AbstractModel{
+public class Point extends AbstractModel {
 
     /**
     * x坐标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("X")
     @Expose
@@ -32,17 +32,14 @@ public class Point extends AbstractModel{
 
     /**
     * y坐标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Y")
     @Expose
     private Long Y;
 
     /**
-     * Get x坐标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get x坐标 
      * @return X x坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getX() {
         return this.X;
@@ -50,19 +47,15 @@ public class Point extends AbstractModel{
 
     /**
      * Set x坐标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param X x坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setX(Long X) {
         this.X = X;
     }
 
     /**
-     * Get y坐标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get y坐标 
      * @return Y y坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getY() {
         return this.Y;
@@ -70,9 +63,7 @@ public class Point extends AbstractModel{
 
     /**
      * Set y坐标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Y y坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setY(Long Y) {
         this.Y = Y;

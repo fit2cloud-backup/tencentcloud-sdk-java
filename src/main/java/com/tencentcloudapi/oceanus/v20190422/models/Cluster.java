@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Cluster extends AbstractModel{
+public class Cluster extends AbstractModel {
 
     /**
     * 集群 ID
@@ -292,6 +293,129 @@ public class Cluster extends AbstractModel{
     @SerializedName("ClusterSessions")
     @Expose
     private ClusterSession [] ClusterSessions;
+
+    /**
+    * V3版本 = 2
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ArchGeneration")
+    @Expose
+    private Long ArchGeneration;
+
+    /**
+    * 0:TKE, 1:EKS
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ClusterType")
+    @Expose
+    private Long ClusterType;
+
+    /**
+    * 订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Orders")
+    @Expose
+    private Order [] Orders;
+
+    /**
+    * Gateway信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SqlGateways")
+    @Expose
+    private SqlGatewayItem [] SqlGateways;
+
+    /**
+    * 0 公网访问 // 1 内网访问	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WebUIType")
+    @Expose
+    private Long WebUIType;
+
+    /**
+    * 2 独享集群
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Type")
+    @Expose
+    private Long Type;
+
+    /**
+    * 子eks集群
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubEks")
+    @Expose
+    private SubEks SubEks;
+
+    /**
+    * 上级集群
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AgentSerialId")
+    @Expose
+    private String AgentSerialId;
+
+    /**
+    * 资源类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ResourceType")
+    @Expose
+    private Long ResourceType;
+
+    /**
+    * 集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BillingResourceMode")
+    @Expose
+    private String BillingResourceMode;
+
+    /**
+    * Cu比例
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MemRatio")
+    @Expose
+    private Long MemRatio;
+
+    /**
+    * 是否开启跨租户弹性网卡
+    */
+    @SerializedName("CrossTenantEniMode")
+    @Expose
+    private Long CrossTenantEniMode;
+
+    /**
+    * 总的CPU
+    */
+    @SerializedName("TotalCpu")
+    @Expose
+    private Float TotalCpu;
+
+    /**
+    * 总的内存
+    */
+    @SerializedName("TotalMem")
+    @Expose
+    private Float TotalMem;
+
+    /**
+    * 运行的CPU
+    */
+    @SerializedName("RunningCpu")
+    @Expose
+    private Float RunningCpu;
+
+    /**
+    * 运行的内存
+    */
+    @SerializedName("RunningMem")
+    @Expose
+    private Float RunningMem;
 
     /**
      * Get 集群 ID 
@@ -945,6 +1069,306 @@ public class Cluster extends AbstractModel{
         this.ClusterSessions = ClusterSessions;
     }
 
+    /**
+     * Get V3版本 = 2
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ArchGeneration V3版本 = 2
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getArchGeneration() {
+        return this.ArchGeneration;
+    }
+
+    /**
+     * Set V3版本 = 2
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ArchGeneration V3版本 = 2
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setArchGeneration(Long ArchGeneration) {
+        this.ArchGeneration = ArchGeneration;
+    }
+
+    /**
+     * Get 0:TKE, 1:EKS
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ClusterType 0:TKE, 1:EKS
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getClusterType() {
+        return this.ClusterType;
+    }
+
+    /**
+     * Set 0:TKE, 1:EKS
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ClusterType 0:TKE, 1:EKS
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setClusterType(Long ClusterType) {
+        this.ClusterType = ClusterType;
+    }
+
+    /**
+     * Get 订单信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Orders 订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Order [] getOrders() {
+        return this.Orders;
+    }
+
+    /**
+     * Set 订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Orders 订单信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOrders(Order [] Orders) {
+        this.Orders = Orders;
+    }
+
+    /**
+     * Get Gateway信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SqlGateways Gateway信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SqlGatewayItem [] getSqlGateways() {
+        return this.SqlGateways;
+    }
+
+    /**
+     * Set Gateway信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SqlGateways Gateway信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSqlGateways(SqlGatewayItem [] SqlGateways) {
+        this.SqlGateways = SqlGateways;
+    }
+
+    /**
+     * Get 0 公网访问 // 1 内网访问	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WebUIType 0 公网访问 // 1 内网访问	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getWebUIType() {
+        return this.WebUIType;
+    }
+
+    /**
+     * Set 0 公网访问 // 1 内网访问	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WebUIType 0 公网访问 // 1 内网访问	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWebUIType(Long WebUIType) {
+        this.WebUIType = WebUIType;
+    }
+
+    /**
+     * Get 2 独享集群
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Type 2 独享集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 2 独享集群
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Type 2 独享集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setType(Long Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 子eks集群
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubEks 子eks集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SubEks getSubEks() {
+        return this.SubEks;
+    }
+
+    /**
+     * Set 子eks集群
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubEks 子eks集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubEks(SubEks SubEks) {
+        this.SubEks = SubEks;
+    }
+
+    /**
+     * Get 上级集群
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AgentSerialId 上级集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAgentSerialId() {
+        return this.AgentSerialId;
+    }
+
+    /**
+     * Set 上级集群
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AgentSerialId 上级集群
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAgentSerialId(String AgentSerialId) {
+        this.AgentSerialId = AgentSerialId;
+    }
+
+    /**
+     * Get 资源类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ResourceType 资源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getResourceType() {
+        return this.ResourceType;
+    }
+
+    /**
+     * Set 资源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ResourceType 资源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setResourceType(Long ResourceType) {
+        this.ResourceType = ResourceType;
+    }
+
+    /**
+     * Get 集群类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BillingResourceMode 集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBillingResourceMode() {
+        return this.BillingResourceMode;
+    }
+
+    /**
+     * Set 集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BillingResourceMode 集群类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBillingResourceMode(String BillingResourceMode) {
+        this.BillingResourceMode = BillingResourceMode;
+    }
+
+    /**
+     * Get Cu比例
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MemRatio Cu比例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMemRatio() {
+        return this.MemRatio;
+    }
+
+    /**
+     * Set Cu比例
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MemRatio Cu比例
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMemRatio(Long MemRatio) {
+        this.MemRatio = MemRatio;
+    }
+
+    /**
+     * Get 是否开启跨租户弹性网卡 
+     * @return CrossTenantEniMode 是否开启跨租户弹性网卡
+     */
+    public Long getCrossTenantEniMode() {
+        return this.CrossTenantEniMode;
+    }
+
+    /**
+     * Set 是否开启跨租户弹性网卡
+     * @param CrossTenantEniMode 是否开启跨租户弹性网卡
+     */
+    public void setCrossTenantEniMode(Long CrossTenantEniMode) {
+        this.CrossTenantEniMode = CrossTenantEniMode;
+    }
+
+    /**
+     * Get 总的CPU 
+     * @return TotalCpu 总的CPU
+     */
+    public Float getTotalCpu() {
+        return this.TotalCpu;
+    }
+
+    /**
+     * Set 总的CPU
+     * @param TotalCpu 总的CPU
+     */
+    public void setTotalCpu(Float TotalCpu) {
+        this.TotalCpu = TotalCpu;
+    }
+
+    /**
+     * Get 总的内存 
+     * @return TotalMem 总的内存
+     */
+    public Float getTotalMem() {
+        return this.TotalMem;
+    }
+
+    /**
+     * Set 总的内存
+     * @param TotalMem 总的内存
+     */
+    public void setTotalMem(Float TotalMem) {
+        this.TotalMem = TotalMem;
+    }
+
+    /**
+     * Get 运行的CPU 
+     * @return RunningCpu 运行的CPU
+     */
+    public Float getRunningCpu() {
+        return this.RunningCpu;
+    }
+
+    /**
+     * Set 运行的CPU
+     * @param RunningCpu 运行的CPU
+     */
+    public void setRunningCpu(Float RunningCpu) {
+        this.RunningCpu = RunningCpu;
+    }
+
+    /**
+     * Get 运行的内存 
+     * @return RunningMem 运行的内存
+     */
+    public Float getRunningMem() {
+        return this.RunningMem;
+    }
+
+    /**
+     * Set 运行的内存
+     * @param RunningMem 运行的内存
+     */
+    public void setRunningMem(Float RunningMem) {
+        this.RunningMem = RunningMem;
+    }
+
     public Cluster() {
     }
 
@@ -1073,6 +1497,60 @@ public class Cluster extends AbstractModel{
                 this.ClusterSessions[i] = new ClusterSession(source.ClusterSessions[i]);
             }
         }
+        if (source.ArchGeneration != null) {
+            this.ArchGeneration = new Long(source.ArchGeneration);
+        }
+        if (source.ClusterType != null) {
+            this.ClusterType = new Long(source.ClusterType);
+        }
+        if (source.Orders != null) {
+            this.Orders = new Order[source.Orders.length];
+            for (int i = 0; i < source.Orders.length; i++) {
+                this.Orders[i] = new Order(source.Orders[i]);
+            }
+        }
+        if (source.SqlGateways != null) {
+            this.SqlGateways = new SqlGatewayItem[source.SqlGateways.length];
+            for (int i = 0; i < source.SqlGateways.length; i++) {
+                this.SqlGateways[i] = new SqlGatewayItem(source.SqlGateways[i]);
+            }
+        }
+        if (source.WebUIType != null) {
+            this.WebUIType = new Long(source.WebUIType);
+        }
+        if (source.Type != null) {
+            this.Type = new Long(source.Type);
+        }
+        if (source.SubEks != null) {
+            this.SubEks = new SubEks(source.SubEks);
+        }
+        if (source.AgentSerialId != null) {
+            this.AgentSerialId = new String(source.AgentSerialId);
+        }
+        if (source.ResourceType != null) {
+            this.ResourceType = new Long(source.ResourceType);
+        }
+        if (source.BillingResourceMode != null) {
+            this.BillingResourceMode = new String(source.BillingResourceMode);
+        }
+        if (source.MemRatio != null) {
+            this.MemRatio = new Long(source.MemRatio);
+        }
+        if (source.CrossTenantEniMode != null) {
+            this.CrossTenantEniMode = new Long(source.CrossTenantEniMode);
+        }
+        if (source.TotalCpu != null) {
+            this.TotalCpu = new Float(source.TotalCpu);
+        }
+        if (source.TotalMem != null) {
+            this.TotalMem = new Float(source.TotalMem);
+        }
+        if (source.RunningCpu != null) {
+            this.RunningCpu = new Float(source.RunningCpu);
+        }
+        if (source.RunningMem != null) {
+            this.RunningMem = new Float(source.RunningMem);
+        }
     }
 
 
@@ -1116,6 +1594,22 @@ public class Cluster extends AbstractModel{
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "IsNeedManageNode", this.IsNeedManageNode);
         this.setParamArrayObj(map, prefix + "ClusterSessions.", this.ClusterSessions);
+        this.setParamSimple(map, prefix + "ArchGeneration", this.ArchGeneration);
+        this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
+        this.setParamArrayObj(map, prefix + "Orders.", this.Orders);
+        this.setParamArrayObj(map, prefix + "SqlGateways.", this.SqlGateways);
+        this.setParamSimple(map, prefix + "WebUIType", this.WebUIType);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamObj(map, prefix + "SubEks.", this.SubEks);
+        this.setParamSimple(map, prefix + "AgentSerialId", this.AgentSerialId);
+        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
+        this.setParamSimple(map, prefix + "BillingResourceMode", this.BillingResourceMode);
+        this.setParamSimple(map, prefix + "MemRatio", this.MemRatio);
+        this.setParamSimple(map, prefix + "CrossTenantEniMode", this.CrossTenantEniMode);
+        this.setParamSimple(map, prefix + "TotalCpu", this.TotalCpu);
+        this.setParamSimple(map, prefix + "TotalMem", this.TotalMem);
+        this.setParamSimple(map, prefix + "RunningCpu", this.RunningCpu);
+        this.setParamSimple(map, prefix + "RunningMem", this.RunningMem);
 
     }
 }

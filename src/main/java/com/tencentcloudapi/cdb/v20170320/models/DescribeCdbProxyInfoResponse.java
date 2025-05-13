@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCdbProxyInfoResponse extends AbstractModel{
+public class DescribeCdbProxyInfoResponse extends AbstractModel {
 
     /**
     * 代理组数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Count")
     @Expose
@@ -32,24 +32,21 @@ public class DescribeCdbProxyInfoResponse extends AbstractModel{
 
     /**
     * 代理组信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyInfos")
     @Expose
     private ProxyGroupInfo [] ProxyInfos;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 代理组数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代理组数量 
      * @return Count 代理组数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCount() {
         return this.Count;
@@ -57,19 +54,15 @@ public class DescribeCdbProxyInfoResponse extends AbstractModel{
 
     /**
      * Set 代理组数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Count 代理组数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCount(Long Count) {
         this.Count = Count;
     }
 
     /**
-     * Get 代理组信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代理组信息 
      * @return ProxyInfos 代理组信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ProxyGroupInfo [] getProxyInfos() {
         return this.ProxyInfos;
@@ -77,25 +70,23 @@ public class DescribeCdbProxyInfoResponse extends AbstractModel{
 
     /**
      * Set 代理组信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProxyInfos 代理组信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyInfos(ProxyGroupInfo [] ProxyInfos) {
         this.ProxyInfos = ProxyInfos;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Department extends AbstractModel{
+public class Department extends AbstractModel {
 
     /**
     * 部门id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DepartmentId")
     @Expose
@@ -32,17 +32,14 @@ public class Department extends AbstractModel{
 
     /**
     * 部门名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DepartmentName")
     @Expose
     private String DepartmentName;
 
     /**
-     * Get 部门id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部门id 
      * @return DepartmentId 部门id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDepartmentId() {
         return this.DepartmentId;
@@ -50,19 +47,15 @@ public class Department extends AbstractModel{
 
     /**
      * Set 部门id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DepartmentId 部门id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDepartmentId(String DepartmentId) {
         this.DepartmentId = DepartmentId;
     }
 
     /**
-     * Get 部门名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部门名称 
      * @return DepartmentName 部门名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDepartmentName() {
         return this.DepartmentName;
@@ -70,9 +63,7 @@ public class Department extends AbstractModel{
 
     /**
      * Set 部门名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DepartmentName 部门名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDepartmentName(String DepartmentName) {
         this.DepartmentName = DepartmentName;

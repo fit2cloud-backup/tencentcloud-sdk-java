@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ObstericalMedicalHistory extends AbstractModel{
+public class ObstericalMedicalHistory extends AbstractModel {
 
     /**
     * 婚史
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MarriageHistory")
     @Expose
@@ -32,17 +32,14 @@ public class ObstericalMedicalHistory extends AbstractModel{
 
     /**
     * 孕史
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FertilityHistory")
     @Expose
     private String FertilityHistory;
 
     /**
-     * Get 婚史
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 婚史 
      * @return MarriageHistory 婚史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMarriageHistory() {
         return this.MarriageHistory;
@@ -50,19 +47,15 @@ public class ObstericalMedicalHistory extends AbstractModel{
 
     /**
      * Set 婚史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MarriageHistory 婚史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMarriageHistory(String MarriageHistory) {
         this.MarriageHistory = MarriageHistory;
     }
 
     /**
-     * Get 孕史
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 孕史 
      * @return FertilityHistory 孕史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFertilityHistory() {
         return this.FertilityHistory;
@@ -70,9 +63,7 @@ public class ObstericalMedicalHistory extends AbstractModel{
 
     /**
      * Set 孕史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FertilityHistory 孕史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFertilityHistory(String FertilityHistory) {
         this.FertilityHistory = FertilityHistory;

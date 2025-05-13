@@ -16,14 +16,15 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateJobRequest extends AbstractModel{
+public class CreateJobRequest extends AbstractModel {
 
     /**
-    * 作业名称，允许输入长度小于等于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
+    * 作业名称，允许输入长度小于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
     */
     @SerializedName("Name")
     @Expose
@@ -93,16 +94,30 @@ public class CreateJobRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-     * Get 作业名称，允许输入长度小于等于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名 
-     * @return Name 作业名称，允许输入长度小于等于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
+    * 作业描述
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
+
+    /**
+    * 开启默认告警
+    */
+    @SerializedName("OpenJobDefaultAlarm")
+    @Expose
+    private Long OpenJobDefaultAlarm;
+
+    /**
+     * Get 作业名称，允许输入长度小于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名 
+     * @return Name 作业名称，允许输入长度小于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 作业名称，允许输入长度小于等于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
-     * @param Name 作业名称，允许输入长度小于等于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
+     * Set 作业名称，允许输入长度小于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
+     * @param Name 作业名称，允许输入长度小于50个字符的中文、英文、数字、-（横线）、_（下划线）、.（点），且符号必须半角字符。注意作业名不能和现有作业同名
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -252,6 +267,38 @@ public class CreateJobRequest extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get 作业描述 
+     * @return Description 作业描述
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 作业描述
+     * @param Description 作业描述
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    /**
+     * Get 开启默认告警 
+     * @return OpenJobDefaultAlarm 开启默认告警
+     */
+    public Long getOpenJobDefaultAlarm() {
+        return this.OpenJobDefaultAlarm;
+    }
+
+    /**
+     * Set 开启默认告警
+     * @param OpenJobDefaultAlarm 开启默认告警
+     */
+    public void setOpenJobDefaultAlarm(Long OpenJobDefaultAlarm) {
+        this.OpenJobDefaultAlarm = OpenJobDefaultAlarm;
+    }
+
     public CreateJobRequest() {
     }
 
@@ -293,6 +340,12 @@ public class CreateJobRequest extends AbstractModel{
                 this.Tags[i] = new Tag(source.Tags[i]);
             }
         }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
+        if (source.OpenJobDefaultAlarm != null) {
+            this.OpenJobDefaultAlarm = new Long(source.OpenJobDefaultAlarm);
+        }
     }
 
 
@@ -310,6 +363,8 @@ public class CreateJobRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "FlinkVersion", this.FlinkVersion);
         this.setParamSimple(map, prefix + "WorkSpaceId", this.WorkSpaceId);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "OpenJobDefaultAlarm", this.OpenJobDefaultAlarm);
 
     }
 }

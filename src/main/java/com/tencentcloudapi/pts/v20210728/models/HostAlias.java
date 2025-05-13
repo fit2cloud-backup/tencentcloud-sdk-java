@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostAlias extends AbstractModel{
+public class HostAlias extends AbstractModel {
 
     /**
     * 需绑定的域名列表
@@ -32,7 +33,6 @@ public class HostAlias extends AbstractModel{
 
     /**
     * 需绑定的 IP 地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IP")
     @Expose
@@ -59,10 +59,8 @@ public class HostAlias extends AbstractModel{
     }
 
     /**
-     * Get 需绑定的 IP 地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 需绑定的 IP 地址 
      * @return IP 需绑定的 IP 地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIP() {
         return this.IP;
@@ -70,9 +68,7 @@ public class HostAlias extends AbstractModel{
 
     /**
      * Set 需绑定的 IP 地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IP 需绑定的 IP 地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIP(String IP) {
         this.IP = IP;

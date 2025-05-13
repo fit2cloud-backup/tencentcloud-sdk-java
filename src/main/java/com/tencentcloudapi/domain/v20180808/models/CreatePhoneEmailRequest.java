@@ -16,11 +16,12 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePhoneEmailRequest extends AbstractModel{
+public class CreatePhoneEmailRequest extends AbstractModel {
 
     /**
     * 手机号或者邮箱
@@ -38,6 +39,7 @@ public class CreatePhoneEmailRequest extends AbstractModel{
 
     /**
     * 验证码
+通过调用SendPhoneEmailCode接口发送到手机或邮箱的验证码：https://cloud.tencent.com/document/api/242/62666
     */
     @SerializedName("VerifyCode")
     @Expose
@@ -76,8 +78,10 @@ public class CreatePhoneEmailRequest extends AbstractModel{
     }
 
     /**
-     * Get 验证码 
+     * Get 验证码
+通过调用SendPhoneEmailCode接口发送到手机或邮箱的验证码：https://cloud.tencent.com/document/api/242/62666 
      * @return VerifyCode 验证码
+通过调用SendPhoneEmailCode接口发送到手机或邮箱的验证码：https://cloud.tencent.com/document/api/242/62666
      */
     public String getVerifyCode() {
         return this.VerifyCode;
@@ -85,7 +89,9 @@ public class CreatePhoneEmailRequest extends AbstractModel{
 
     /**
      * Set 验证码
+通过调用SendPhoneEmailCode接口发送到手机或邮箱的验证码：https://cloud.tencent.com/document/api/242/62666
      * @param VerifyCode 验证码
+通过调用SendPhoneEmailCode接口发送到手机或邮箱的验证码：https://cloud.tencent.com/document/api/242/62666
      */
     public void setVerifyCode(String VerifyCode) {
         this.VerifyCode = VerifyCode;

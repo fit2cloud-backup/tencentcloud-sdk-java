@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OrganizationalFunction extends AbstractModel{
+public class OrganizationalFunction extends AbstractModel {
 
     /**
     * 名称
@@ -185,6 +186,78 @@ public class OrganizationalFunction extends AbstractModel{
     @SerializedName("SubmitErrorMsg")
     @Expose
     private String SubmitErrorMsg;
+
+    /**
+    * 模式名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SchemaName")
+    @Expose
+    private String SchemaName;
+
+    /**
+    * 函数命令格式
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CommandFormat")
+    @Expose
+    private String CommandFormat;
+
+    /**
+    * 名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OwnerName")
+    @Expose
+    private String OwnerName;
+
+    /**
+    * 时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubmitTimestamp")
+    @Expose
+    private String SubmitTimestamp;
+
+    /**
+    * 函数tag
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tag")
+    @Expose
+    private String Tag;
+
+    /**
+    * 操作人 ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OperatorUserIdsStr")
+    @Expose
+    private String [] OperatorUserIdsStr;
+
+    /**
+    * 公有云 Owner ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OwnerUserIdsStr")
+    @Expose
+    private String [] OwnerUserIdsStr;
+
+    /**
+    * 数据库环境
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EnvType")
+    @Expose
+    private String EnvType;
+
+    /**
+    * 函数资源文件类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FunctionResourceFileType")
+    @Expose
+    private String FunctionResourceFileType;
 
     /**
      * Get 名称 
@@ -590,6 +663,186 @@ public class OrganizationalFunction extends AbstractModel{
         this.SubmitErrorMsg = SubmitErrorMsg;
     }
 
+    /**
+     * Get 模式名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SchemaName 模式名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSchemaName() {
+        return this.SchemaName;
+    }
+
+    /**
+     * Set 模式名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SchemaName 模式名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSchemaName(String SchemaName) {
+        this.SchemaName = SchemaName;
+    }
+
+    /**
+     * Get 函数命令格式
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CommandFormat 函数命令格式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCommandFormat() {
+        return this.CommandFormat;
+    }
+
+    /**
+     * Set 函数命令格式
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CommandFormat 函数命令格式
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCommandFormat(String CommandFormat) {
+        this.CommandFormat = CommandFormat;
+    }
+
+    /**
+     * Get 名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OwnerName 名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOwnerName() {
+        return this.OwnerName;
+    }
+
+    /**
+     * Set 名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OwnerName 名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOwnerName(String OwnerName) {
+        this.OwnerName = OwnerName;
+    }
+
+    /**
+     * Get 时间戳
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubmitTimestamp 时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubmitTimestamp() {
+        return this.SubmitTimestamp;
+    }
+
+    /**
+     * Set 时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubmitTimestamp 时间戳
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubmitTimestamp(String SubmitTimestamp) {
+        this.SubmitTimestamp = SubmitTimestamp;
+    }
+
+    /**
+     * Get 函数tag
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tag 函数tag
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTag() {
+        return this.Tag;
+    }
+
+    /**
+     * Set 函数tag
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tag 函数tag
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTag(String Tag) {
+        this.Tag = Tag;
+    }
+
+    /**
+     * Get 操作人 ID 列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OperatorUserIdsStr 操作人 ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getOperatorUserIdsStr() {
+        return this.OperatorUserIdsStr;
+    }
+
+    /**
+     * Set 操作人 ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OperatorUserIdsStr 操作人 ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOperatorUserIdsStr(String [] OperatorUserIdsStr) {
+        this.OperatorUserIdsStr = OperatorUserIdsStr;
+    }
+
+    /**
+     * Get 公有云 Owner ID 列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OwnerUserIdsStr 公有云 Owner ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getOwnerUserIdsStr() {
+        return this.OwnerUserIdsStr;
+    }
+
+    /**
+     * Set 公有云 Owner ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OwnerUserIdsStr 公有云 Owner ID 列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOwnerUserIdsStr(String [] OwnerUserIdsStr) {
+        this.OwnerUserIdsStr = OwnerUserIdsStr;
+    }
+
+    /**
+     * Get 数据库环境
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EnvType 数据库环境
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEnvType() {
+        return this.EnvType;
+    }
+
+    /**
+     * Set 数据库环境
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EnvType 数据库环境
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEnvType(String EnvType) {
+        this.EnvType = EnvType;
+    }
+
+    /**
+     * Get 函数资源文件类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FunctionResourceFileType 函数资源文件类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFunctionResourceFileType() {
+        return this.FunctionResourceFileType;
+    }
+
+    /**
+     * Set 函数资源文件类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FunctionResourceFileType 函数资源文件类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFunctionResourceFileType(String FunctionResourceFileType) {
+        this.FunctionResourceFileType = FunctionResourceFileType;
+    }
+
     public OrganizationalFunction() {
     }
 
@@ -670,6 +923,39 @@ public class OrganizationalFunction extends AbstractModel{
         if (source.SubmitErrorMsg != null) {
             this.SubmitErrorMsg = new String(source.SubmitErrorMsg);
         }
+        if (source.SchemaName != null) {
+            this.SchemaName = new String(source.SchemaName);
+        }
+        if (source.CommandFormat != null) {
+            this.CommandFormat = new String(source.CommandFormat);
+        }
+        if (source.OwnerName != null) {
+            this.OwnerName = new String(source.OwnerName);
+        }
+        if (source.SubmitTimestamp != null) {
+            this.SubmitTimestamp = new String(source.SubmitTimestamp);
+        }
+        if (source.Tag != null) {
+            this.Tag = new String(source.Tag);
+        }
+        if (source.OperatorUserIdsStr != null) {
+            this.OperatorUserIdsStr = new String[source.OperatorUserIdsStr.length];
+            for (int i = 0; i < source.OperatorUserIdsStr.length; i++) {
+                this.OperatorUserIdsStr[i] = new String(source.OperatorUserIdsStr[i]);
+            }
+        }
+        if (source.OwnerUserIdsStr != null) {
+            this.OwnerUserIdsStr = new String[source.OwnerUserIdsStr.length];
+            for (int i = 0; i < source.OwnerUserIdsStr.length; i++) {
+                this.OwnerUserIdsStr[i] = new String(source.OwnerUserIdsStr[i]);
+            }
+        }
+        if (source.EnvType != null) {
+            this.EnvType = new String(source.EnvType);
+        }
+        if (source.FunctionResourceFileType != null) {
+            this.FunctionResourceFileType = new String(source.FunctionResourceFileType);
+        }
     }
 
 
@@ -698,6 +984,15 @@ public class OrganizationalFunction extends AbstractModel{
         this.setParamArraySimple(map, prefix + "OwnerUserIds.", this.OwnerUserIds);
         this.setParamSimple(map, prefix + "DbName", this.DbName);
         this.setParamSimple(map, prefix + "SubmitErrorMsg", this.SubmitErrorMsg);
+        this.setParamSimple(map, prefix + "SchemaName", this.SchemaName);
+        this.setParamSimple(map, prefix + "CommandFormat", this.CommandFormat);
+        this.setParamSimple(map, prefix + "OwnerName", this.OwnerName);
+        this.setParamSimple(map, prefix + "SubmitTimestamp", this.SubmitTimestamp);
+        this.setParamSimple(map, prefix + "Tag", this.Tag);
+        this.setParamArraySimple(map, prefix + "OperatorUserIdsStr.", this.OperatorUserIdsStr);
+        this.setParamArraySimple(map, prefix + "OwnerUserIdsStr.", this.OwnerUserIdsStr);
+        this.setParamSimple(map, prefix + "EnvType", this.EnvType);
+        this.setParamSimple(map, prefix + "FunctionResourceFileType", this.FunctionResourceFileType);
 
     }
 }

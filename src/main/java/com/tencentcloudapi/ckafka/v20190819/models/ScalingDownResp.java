@@ -16,35 +16,31 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScalingDownResp extends AbstractModel{
+public class ScalingDownResp extends AbstractModel {
 
     /**
-    * 订单号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 订单号列表
     */
     @SerializedName("DealNames")
     @Expose
     private String [] DealNames;
 
     /**
-     * Get 订单号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DealNames 订单号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 订单号列表 
+     * @return DealNames 订单号列表
      */
     public String [] getDealNames() {
         return this.DealNames;
     }
 
     /**
-     * Set 订单号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DealNames 订单号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 订单号列表
+     * @param DealNames 订单号列表
      */
     public void setDealNames(String [] DealNames) {
         this.DealNames = DealNames;

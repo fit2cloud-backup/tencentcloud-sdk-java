@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClickHouseConnectParam extends AbstractModel{
+public class ClickHouseConnectParam extends AbstractModel {
 
     /**
     * ClickHouse的连接port
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
@@ -32,7 +32,6 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
     * ClickHouse连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserName")
     @Expose
@@ -40,7 +39,6 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
     * ClickHouse连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Password")
     @Expose
@@ -48,7 +46,6 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
     * ClickHouse连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resource")
     @Expose
@@ -56,7 +53,6 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
     * ClickHouse连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SelfBuilt")
     @Expose
@@ -64,7 +60,6 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
     * ClickHouse连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceVip")
     @Expose
@@ -72,7 +67,6 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
     * ClickHouse连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UniqVpcId")
     @Expose
@@ -87,10 +81,8 @@ public class ClickHouseConnectParam extends AbstractModel{
     private Boolean IsUpdate;
 
     /**
-     * Get ClickHouse的连接port
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ClickHouse的连接port 
      * @return Port ClickHouse的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -98,19 +90,15 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
      * Set ClickHouse的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Port ClickHouse的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get ClickHouse连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ClickHouse连接源的用户名 
      * @return UserName ClickHouse连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserName() {
         return this.UserName;
@@ -118,19 +106,15 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
      * Set ClickHouse连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserName ClickHouse连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
     }
 
     /**
-     * Get ClickHouse连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ClickHouse连接源的密码 
      * @return Password ClickHouse连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPassword() {
         return this.Password;
@@ -138,19 +122,15 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
      * Set ClickHouse连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Password ClickHouse连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
     /**
-     * Get ClickHouse连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ClickHouse连接源的实例资源 
      * @return Resource ClickHouse连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResource() {
         return this.Resource;
@@ -158,19 +138,15 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
      * Set ClickHouse连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Resource ClickHouse连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResource(String Resource) {
         this.Resource = Resource;
     }
 
     /**
-     * Get ClickHouse连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ClickHouse连接源是否为自建集群 
      * @return SelfBuilt ClickHouse连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSelfBuilt() {
         return this.SelfBuilt;
@@ -178,19 +154,15 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
      * Set ClickHouse连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SelfBuilt ClickHouse连接源是否为自建集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSelfBuilt(Boolean SelfBuilt) {
         this.SelfBuilt = SelfBuilt;
     }
 
     /**
-     * Get ClickHouse连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ClickHouse连接源的实例vip，当为腾讯云实例时，必填 
      * @return ServiceVip ClickHouse连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceVip() {
         return this.ServiceVip;
@@ -198,19 +170,15 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
      * Set ClickHouse连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceVip ClickHouse连接源的实例vip，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceVip(String ServiceVip) {
         this.ServiceVip = ServiceVip;
     }
 
     /**
-     * Get ClickHouse连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ClickHouse连接源的vpcId，当为腾讯云实例时，必填 
      * @return UniqVpcId ClickHouse连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUniqVpcId() {
         return this.UniqVpcId;
@@ -218,9 +186,7 @@ public class ClickHouseConnectParam extends AbstractModel{
 
     /**
      * Set ClickHouse连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UniqVpcId ClickHouse连接源的vpcId，当为腾讯云实例时，必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUniqVpcId(String UniqVpcId) {
         this.UniqVpcId = UniqVpcId;

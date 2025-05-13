@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rce.v20201103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OnlineScamInfo extends AbstractModel{
+public class OnlineScamInfo extends AbstractModel {
 
     /**
     * 内容标签。
@@ -48,7 +49,9 @@ public class OnlineScamInfo extends AbstractModel{
     private Long ContentType;
 
     /**
-    * 类型
+    * 账号类型
+1：手机号
+2：uin账号
     */
     @SerializedName("FraudType")
     @Expose
@@ -126,16 +129,24 @@ public class OnlineScamInfo extends AbstractModel{
     }
 
     /**
-     * Get 类型 
-     * @return FraudType 类型
+     * Get 账号类型
+1：手机号
+2：uin账号 
+     * @return FraudType 账号类型
+1：手机号
+2：uin账号
      */
     public Long getFraudType() {
         return this.FraudType;
     }
 
     /**
-     * Set 类型
-     * @param FraudType 类型
+     * Set 账号类型
+1：手机号
+2：uin账号
+     * @param FraudType 账号类型
+1：手机号
+2：uin账号
      */
     public void setFraudType(Long FraudType) {
         this.FraudType = FraudType;

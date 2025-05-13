@@ -16,25 +16,23 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConsistencyOption extends AbstractModel{
+public class ConsistencyOption extends AbstractModel {
 
     /**
     * 一致性检测类型: full(全量检测迁移对象)、noCheck(不检测)、notConfigured(未配置)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Mode")
     @Expose
     private String Mode;
 
     /**
-     * Get 一致性检测类型: full(全量检测迁移对象)、noCheck(不检测)、notConfigured(未配置)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 一致性检测类型: full(全量检测迁移对象)、noCheck(不检测)、notConfigured(未配置) 
      * @return Mode 一致性检测类型: full(全量检测迁移对象)、noCheck(不检测)、notConfigured(未配置)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMode() {
         return this.Mode;
@@ -42,9 +40,7 @@ public class ConsistencyOption extends AbstractModel{
 
     /**
      * Set 一致性检测类型: full(全量检测迁移对象)、noCheck(不检测)、notConfigured(未配置)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Mode 一致性检测类型: full(全量检测迁移对象)、noCheck(不检测)、notConfigured(未配置)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMode(String Mode) {
         this.Mode = Mode;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScheduleStrategy extends AbstractModel{
+public class ScheduleStrategy extends AbstractModel {
 
     /**
-    * 备份桶列表
-注意：此字段可能返回 null，表示取不到有效值。
+    * 备份桶名称
     */
     @SerializedName("CosBucketName")
     @Expose
@@ -60,27 +60,22 @@ public class ScheduleStrategy extends AbstractModel{
 
     /**
     * 下次备份时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NextBackupTime")
     @Expose
     private String NextBackupTime;
 
     /**
-     * Get 备份桶列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CosBucketName 备份桶列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 备份桶名称 
+     * @return CosBucketName 备份桶名称
      */
     public String getCosBucketName() {
         return this.CosBucketName;
     }
 
     /**
-     * Set 备份桶列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CosBucketName 备份桶列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 备份桶名称
+     * @param CosBucketName 备份桶名称
      */
     public void setCosBucketName(String CosBucketName) {
         this.CosBucketName = CosBucketName;
@@ -151,10 +146,8 @@ public class ScheduleStrategy extends AbstractModel{
     }
 
     /**
-     * Get 下次备份时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下次备份时间 
      * @return NextBackupTime 下次备份时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNextBackupTime() {
         return this.NextBackupTime;
@@ -162,9 +155,7 @@ public class ScheduleStrategy extends AbstractModel{
 
     /**
      * Set 下次备份时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NextBackupTime 下次备份时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNextBackupTime(String NextBackupTime) {
         this.NextBackupTime = NextBackupTime;

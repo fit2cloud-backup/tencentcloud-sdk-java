@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ssm.v20190923.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAsyncRequestInfoRequest extends AbstractModel{
+public class DescribeAsyncRequestInfoRequest extends AbstractModel {
 
     /**
-    * 异步任务ID号。
+    * 异步任务ID号
     */
     @SerializedName("FlowID")
     @Expose
     private Long FlowID;
 
     /**
-     * Get 异步任务ID号。 
-     * @return FlowID 异步任务ID号。
+     * Get 异步任务ID号 
+     * @return FlowID 异步任务ID号
      */
     public Long getFlowID() {
         return this.FlowID;
     }
 
     /**
-     * Set 异步任务ID号。
-     * @param FlowID 异步任务ID号。
+     * Set 异步任务ID号
+     * @param FlowID 异步任务ID号
      */
     public void setFlowID(Long FlowID) {
         this.FlowID = FlowID;

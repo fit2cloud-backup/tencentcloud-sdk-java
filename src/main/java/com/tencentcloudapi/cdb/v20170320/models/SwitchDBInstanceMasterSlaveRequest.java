@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SwitchDBInstanceMasterSlaveRequest extends AbstractModel{
+public class SwitchDBInstanceMasterSlaveRequest extends AbstractModel {
 
     /**
     * 实例 ID。
@@ -49,6 +50,13 @@ public class SwitchDBInstanceMasterSlaveRequest extends AbstractModel{
     @SerializedName("WaitSwitch")
     @Expose
     private Boolean WaitSwitch;
+
+    /**
+    * 集群版实例指定节点 ID 发起主从切换。
+    */
+    @SerializedName("DstNodeId")
+    @Expose
+    private String DstNodeId;
 
     /**
      * Get 实例 ID。 
@@ -114,6 +122,22 @@ public class SwitchDBInstanceMasterSlaveRequest extends AbstractModel{
         this.WaitSwitch = WaitSwitch;
     }
 
+    /**
+     * Get 集群版实例指定节点 ID 发起主从切换。 
+     * @return DstNodeId 集群版实例指定节点 ID 发起主从切换。
+     */
+    public String getDstNodeId() {
+        return this.DstNodeId;
+    }
+
+    /**
+     * Set 集群版实例指定节点 ID 发起主从切换。
+     * @param DstNodeId 集群版实例指定节点 ID 发起主从切换。
+     */
+    public void setDstNodeId(String DstNodeId) {
+        this.DstNodeId = DstNodeId;
+    }
+
     public SwitchDBInstanceMasterSlaveRequest() {
     }
 
@@ -134,6 +158,9 @@ public class SwitchDBInstanceMasterSlaveRequest extends AbstractModel{
         if (source.WaitSwitch != null) {
             this.WaitSwitch = new Boolean(source.WaitSwitch);
         }
+        if (source.DstNodeId != null) {
+            this.DstNodeId = new String(source.DstNodeId);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class SwitchDBInstanceMasterSlaveRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DstSlave", this.DstSlave);
         this.setParamSimple(map, prefix + "ForceSwitch", this.ForceSwitch);
         this.setParamSimple(map, prefix + "WaitSwitch", this.WaitSwitch);
+        this.setParamSimple(map, prefix + "DstNodeId", this.DstNodeId);
 
     }
 }

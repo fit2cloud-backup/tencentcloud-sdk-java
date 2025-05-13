@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel{
+public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel {
 
     /**
     * 可创建置放群组数量的上限。
@@ -58,7 +59,14 @@ public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel{
     private Long CvmInRackGroupQuota;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 交换机类型容灾组内实例的配额数。
+    */
+    @SerializedName("CvmInSwitchGroupQuota")
+    @Expose
+    private Long CvmInSwitchGroupQuota;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -115,7 +123,9 @@ public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel{
     /**
      * Get 交换机类型容灾组内实例的配额数。 
      * @return CvmInSwGroupQuota 交换机类型容灾组内实例的配额数。
+     * @deprecated
      */
+    @Deprecated
     public Long getCvmInSwGroupQuota() {
         return this.CvmInSwGroupQuota;
     }
@@ -123,7 +133,9 @@ public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel{
     /**
      * Set 交换机类型容灾组内实例的配额数。
      * @param CvmInSwGroupQuota 交换机类型容灾组内实例的配额数。
+     * @deprecated
      */
+    @Deprecated
     public void setCvmInSwGroupQuota(Long CvmInSwGroupQuota) {
         this.CvmInSwGroupQuota = CvmInSwGroupQuota;
     }
@@ -145,16 +157,32 @@ public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 交换机类型容灾组内实例的配额数。 
+     * @return CvmInSwitchGroupQuota 交换机类型容灾组内实例的配额数。
+     */
+    public Long getCvmInSwitchGroupQuota() {
+        return this.CvmInSwitchGroupQuota;
+    }
+
+    /**
+     * Set 交换机类型容灾组内实例的配额数。
+     * @param CvmInSwitchGroupQuota 交换机类型容灾组内实例的配额数。
+     */
+    public void setCvmInSwitchGroupQuota(Long CvmInSwitchGroupQuota) {
+        this.CvmInSwitchGroupQuota = CvmInSwitchGroupQuota;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -183,6 +211,9 @@ public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel{
         if (source.CvmInRackGroupQuota != null) {
             this.CvmInRackGroupQuota = new Long(source.CvmInRackGroupQuota);
         }
+        if (source.CvmInSwitchGroupQuota != null) {
+            this.CvmInSwitchGroupQuota = new Long(source.CvmInSwitchGroupQuota);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -198,6 +229,7 @@ public class DescribeDisasterRecoverGroupQuotaResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "CvmInHostGroupQuota", this.CvmInHostGroupQuota);
         this.setParamSimple(map, prefix + "CvmInSwGroupQuota", this.CvmInSwGroupQuota);
         this.setParamSimple(map, prefix + "CvmInRackGroupQuota", this.CvmInRackGroupQuota);
+        this.setParamSimple(map, prefix + "CvmInSwitchGroupQuota", this.CvmInSwitchGroupQuota);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

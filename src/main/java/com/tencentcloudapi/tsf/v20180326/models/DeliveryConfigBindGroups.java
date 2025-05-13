@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeliveryConfigBindGroups extends AbstractModel{
+public class DeliveryConfigBindGroups extends AbstractModel {
 
     /**
     * 公共条数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -32,17 +32,14 @@ public class DeliveryConfigBindGroups extends AbstractModel{
 
     /**
     * 内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
     private DeliveryConfigBindGroup [] Content;
 
     /**
-     * Get 公共条数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 公共条数 
      * @return TotalCount 公共条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -50,19 +47,15 @@ public class DeliveryConfigBindGroups extends AbstractModel{
 
     /**
      * Set 公共条数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 公共条数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内容 
      * @return Content 内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DeliveryConfigBindGroup [] getContent() {
         return this.Content;
@@ -70,9 +63,7 @@ public class DeliveryConfigBindGroups extends AbstractModel{
 
     /**
      * Set 内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(DeliveryConfigBindGroup [] Content) {
         this.Content = Content;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyClusterNodePoolRequest extends AbstractModel{
+public class ModifyClusterNodePoolRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -70,6 +71,13 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
     @SerializedName("Taints")
     @Expose
     private Taint [] Taints;
+
+    /**
+    * 节点 Annotation 列表
+    */
+    @SerializedName("Annotations")
+    @Expose
+    private AnnotationValue [] Annotations;
 
     /**
     * 是否开启伸缩
@@ -147,6 +155,13 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
     @SerializedName("DockerGraphPath")
     @Expose
     private String DockerGraphPath;
+
+    /**
+    * base64编码后的自定义脚本
+    */
+    @SerializedName("PreStartUserScript")
+    @Expose
+    private String PreStartUserScript;
 
     /**
      * Get 集群ID 
@@ -258,6 +273,22 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
      */
     public void setTaints(Taint [] Taints) {
         this.Taints = Taints;
+    }
+
+    /**
+     * Get 节点 Annotation 列表 
+     * @return Annotations 节点 Annotation 列表
+     */
+    public AnnotationValue [] getAnnotations() {
+        return this.Annotations;
+    }
+
+    /**
+     * Set 节点 Annotation 列表
+     * @param Annotations 节点 Annotation 列表
+     */
+    public void setAnnotations(AnnotationValue [] Annotations) {
+        this.Annotations = Annotations;
     }
 
     /**
@@ -436,6 +467,22 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
         this.DockerGraphPath = DockerGraphPath;
     }
 
+    /**
+     * Get base64编码后的自定义脚本 
+     * @return PreStartUserScript base64编码后的自定义脚本
+     */
+    public String getPreStartUserScript() {
+        return this.PreStartUserScript;
+    }
+
+    /**
+     * Set base64编码后的自定义脚本
+     * @param PreStartUserScript base64编码后的自定义脚本
+     */
+    public void setPreStartUserScript(String PreStartUserScript) {
+        this.PreStartUserScript = PreStartUserScript;
+    }
+
     public ModifyClusterNodePoolRequest() {
     }
 
@@ -469,6 +516,12 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
             this.Taints = new Taint[source.Taints.length];
             for (int i = 0; i < source.Taints.length; i++) {
                 this.Taints[i] = new Taint(source.Taints[i]);
+            }
+        }
+        if (source.Annotations != null) {
+            this.Annotations = new AnnotationValue[source.Annotations.length];
+            for (int i = 0; i < source.Annotations.length; i++) {
+                this.Annotations[i] = new AnnotationValue(source.Annotations[i]);
             }
         }
         if (source.EnableAutoscale != null) {
@@ -507,6 +560,9 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
         if (source.DockerGraphPath != null) {
             this.DockerGraphPath = new String(source.DockerGraphPath);
         }
+        if (source.PreStartUserScript != null) {
+            this.PreStartUserScript = new String(source.PreStartUserScript);
+        }
     }
 
 
@@ -521,6 +577,7 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MinNodesNum", this.MinNodesNum);
         this.setParamArrayObj(map, prefix + "Labels.", this.Labels);
         this.setParamArrayObj(map, prefix + "Taints.", this.Taints);
+        this.setParamArrayObj(map, prefix + "Annotations.", this.Annotations);
         this.setParamSimple(map, prefix + "EnableAutoscale", this.EnableAutoscale);
         this.setParamSimple(map, prefix + "OsName", this.OsName);
         this.setParamSimple(map, prefix + "OsCustomizeType", this.OsCustomizeType);
@@ -532,6 +589,7 @@ public class ModifyClusterNodePoolRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Unschedulable", this.Unschedulable);
         this.setParamSimple(map, prefix + "DeletionProtection", this.DeletionProtection);
         this.setParamSimple(map, prefix + "DockerGraphPath", this.DockerGraphPath);
+        this.setParamSimple(map, prefix + "PreStartUserScript", this.PreStartUserScript);
 
     }
 }

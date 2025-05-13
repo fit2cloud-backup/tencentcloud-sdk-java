@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleTargets extends AbstractModel{
+public class RuleTargets extends AbstractModel {
 
     /**
     * 转发规则的 ID
@@ -45,7 +46,6 @@ public class RuleTargets extends AbstractModel{
 
     /**
     * 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Targets")
     @Expose
@@ -53,7 +53,6 @@ public class RuleTargets extends AbstractModel{
 
     /**
     * 后端云函数的信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FunctionTargets")
     @Expose
@@ -108,10 +107,8 @@ public class RuleTargets extends AbstractModel{
     }
 
     /**
-     * Get 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端服务的信息 
      * @return Targets 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Backend [] getTargets() {
         return this.Targets;
@@ -119,19 +116,15 @@ public class RuleTargets extends AbstractModel{
 
     /**
      * Set 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Targets 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargets(Backend [] Targets) {
         this.Targets = Targets;
     }
 
     /**
-     * Get 后端云函数的信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后端云函数的信息 
      * @return FunctionTargets 后端云函数的信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FunctionTarget [] getFunctionTargets() {
         return this.FunctionTargets;
@@ -139,9 +132,7 @@ public class RuleTargets extends AbstractModel{
 
     /**
      * Set 后端云函数的信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FunctionTargets 后端云函数的信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFunctionTargets(FunctionTarget [] FunctionTargets) {
         this.FunctionTargets = FunctionTargets;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeProVersionInfoResponse extends AbstractModel{
+public class DescribeProVersionInfoResponse extends AbstractModel {
 
     /**
     * 专业版开始时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
 
     /**
     * 专业版结束时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -54,7 +53,6 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
 
     /**
     * 资源ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceId")
     @Expose
@@ -78,17 +76,15 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
     private Boolean IsPurchased;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 专业版开始时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专业版开始时间，补充购买时才不为空 
      * @return StartTime 专业版开始时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -96,19 +92,15 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
 
     /**
      * Set 专业版开始时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 专业版开始时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 专业版结束时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专业版结束时间，补充购买时才不为空 
      * @return EndTime 专业版结束时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -116,9 +108,7 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
 
     /**
      * Set 专业版结束时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 专业版结束时间，补充购买时才不为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -157,10 +147,8 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 资源ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源ID 
      * @return ResourceId 资源ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceId() {
         return this.ResourceId;
@@ -168,9 +156,7 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
 
     /**
      * Set 资源ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceId 资源ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
@@ -221,16 +207,16 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeScanStateResponse extends AbstractModel{
+public class DescribeScanStateResponse extends AbstractModel {
 
     /**
     * 0 从未扫描过、 1 扫描中、 2扫描完成、 3停止中、 4停止完成
@@ -59,7 +60,6 @@ public class DescribeScanStateResponse extends AbstractModel{
 
     /**
     * 开始扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanBeginTime")
     @Expose
@@ -67,7 +67,6 @@ public class DescribeScanStateResponse extends AbstractModel{
 
     /**
     * 扫描漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskEventCount")
     @Expose
@@ -75,14 +74,13 @@ public class DescribeScanStateResponse extends AbstractModel{
 
     /**
     * 扫描结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanEndTime")
     @Expose
     private String ScanEndTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -169,10 +167,8 @@ public class DescribeScanStateResponse extends AbstractModel{
     }
 
     /**
-     * Get 开始扫描时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始扫描时间 
      * @return ScanBeginTime 开始扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanBeginTime() {
         return this.ScanBeginTime;
@@ -180,19 +176,15 @@ public class DescribeScanStateResponse extends AbstractModel{
 
     /**
      * Set 开始扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanBeginTime 开始扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanBeginTime(String ScanBeginTime) {
         this.ScanBeginTime = ScanBeginTime;
     }
 
     /**
-     * Get 扫描漏洞数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描漏洞数 
      * @return RiskEventCount 扫描漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRiskEventCount() {
         return this.RiskEventCount;
@@ -200,19 +192,15 @@ public class DescribeScanStateResponse extends AbstractModel{
 
     /**
      * Set 扫描漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskEventCount 扫描漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskEventCount(Long RiskEventCount) {
         this.RiskEventCount = RiskEventCount;
     }
 
     /**
-     * Get 扫描结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描结束时间 
      * @return ScanEndTime 扫描结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanEndTime() {
         return this.ScanEndTime;
@@ -220,25 +208,23 @@ public class DescribeScanStateResponse extends AbstractModel{
 
     /**
      * Set 扫描结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanEndTime 扫描结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanEndTime(String ScanEndTime) {
         this.ScanEndTime = ScanEndTime;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

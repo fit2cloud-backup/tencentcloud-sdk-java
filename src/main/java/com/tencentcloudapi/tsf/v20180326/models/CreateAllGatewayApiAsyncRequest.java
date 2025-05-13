@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAllGatewayApiAsyncRequest extends AbstractModel{
+public class CreateAllGatewayApiAsyncRequest extends AbstractModel {
 
     /**
     * API分组ID
@@ -35,6 +36,13 @@ public class CreateAllGatewayApiAsyncRequest extends AbstractModel{
     @SerializedName("MicroserviceId")
     @Expose
     private String MicroserviceId;
+
+    /**
+    * 命名空间ID
+    */
+    @SerializedName("NamespaceId")
+    @Expose
+    private String NamespaceId;
 
     /**
      * Get API分组ID 
@@ -68,6 +76,22 @@ public class CreateAllGatewayApiAsyncRequest extends AbstractModel{
         this.MicroserviceId = MicroserviceId;
     }
 
+    /**
+     * Get 命名空间ID 
+     * @return NamespaceId 命名空间ID
+     */
+    public String getNamespaceId() {
+        return this.NamespaceId;
+    }
+
+    /**
+     * Set 命名空间ID
+     * @param NamespaceId 命名空间ID
+     */
+    public void setNamespaceId(String NamespaceId) {
+        this.NamespaceId = NamespaceId;
+    }
+
     public CreateAllGatewayApiAsyncRequest() {
     }
 
@@ -82,6 +106,9 @@ public class CreateAllGatewayApiAsyncRequest extends AbstractModel{
         if (source.MicroserviceId != null) {
             this.MicroserviceId = new String(source.MicroserviceId);
         }
+        if (source.NamespaceId != null) {
+            this.NamespaceId = new String(source.NamespaceId);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class CreateAllGatewayApiAsyncRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
         this.setParamSimple(map, prefix + "MicroserviceId", this.MicroserviceId);
+        this.setParamSimple(map, prefix + "NamespaceId", this.NamespaceId);
 
     }
 }

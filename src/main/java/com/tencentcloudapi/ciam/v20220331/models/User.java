@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ciam.v20220331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class User extends AbstractModel{
+public class User extends AbstractModel {
 
     /**
     * 用户ID
@@ -124,7 +125,6 @@ public class User extends AbstractModel{
 
     /**
     * 自定义属性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomAttributes")
     @Expose
@@ -179,6 +179,14 @@ public class User extends AbstractModel{
     private String AlipayUserId;
 
     /**
+    * 企业微信的WeComUserId
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WeComUserId")
+    @Expose
+    private String WeComUserId;
+
+    /**
     * 描述
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -220,7 +228,6 @@ public class User extends AbstractModel{
 
     /**
     * 是否已经实名核验
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IdentityVerified")
     @Expose
@@ -244,7 +251,6 @@ public class User extends AbstractModel{
 
     /**
     * 是否主账号（进行过账号融合后，主账号为true，从账号为false）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Primary")
     @Expose
@@ -260,7 +266,6 @@ public class User extends AbstractModel{
 
     /**
     * 是否已经首次登录
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AlreadyFirstLogin")
     @Expose
@@ -268,7 +273,6 @@ public class User extends AbstractModel{
 
     /**
     * 租户id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TenantId")
     @Expose
@@ -276,7 +280,6 @@ public class User extends AbstractModel{
 
     /**
     * 用户目录id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserStoreId")
     @Expose
@@ -591,10 +594,8 @@ public class User extends AbstractModel{
     }
 
     /**
-     * Get 自定义属性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自定义属性 
      * @return CustomAttributes 自定义属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MemberMap [] getCustomAttributes() {
         return this.CustomAttributes;
@@ -602,9 +603,7 @@ public class User extends AbstractModel{
 
     /**
      * Set 自定义属性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomAttributes 自定义属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomAttributes(MemberMap [] CustomAttributes) {
         this.CustomAttributes = CustomAttributes;
@@ -731,6 +730,26 @@ public class User extends AbstractModel{
     }
 
     /**
+     * Get 企业微信的WeComUserId
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WeComUserId 企业微信的WeComUserId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWeComUserId() {
+        return this.WeComUserId;
+    }
+
+    /**
+     * Set 企业微信的WeComUserId
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WeComUserId 企业微信的WeComUserId
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWeComUserId(String WeComUserId) {
+        this.WeComUserId = WeComUserId;
+    }
+
+    /**
      * Get 描述
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Description 描述
@@ -831,10 +850,8 @@ public class User extends AbstractModel{
     }
 
     /**
-     * Get 是否已经实名核验
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否已经实名核验 
      * @return IdentityVerified 是否已经实名核验
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIdentityVerified() {
         return this.IdentityVerified;
@@ -842,9 +859,7 @@ public class User extends AbstractModel{
 
     /**
      * Set 是否已经实名核验
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IdentityVerified 是否已经实名核验
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdentityVerified(Boolean IdentityVerified) {
         this.IdentityVerified = IdentityVerified;
@@ -891,10 +906,8 @@ public class User extends AbstractModel{
     }
 
     /**
-     * Get 是否主账号（进行过账号融合后，主账号为true，从账号为false）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否主账号（进行过账号融合后，主账号为true，从账号为false） 
      * @return Primary 是否主账号（进行过账号融合后，主账号为true，从账号为false）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getPrimary() {
         return this.Primary;
@@ -902,9 +915,7 @@ public class User extends AbstractModel{
 
     /**
      * Set 是否主账号（进行过账号融合后，主账号为true，从账号为false）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Primary 是否主账号（进行过账号融合后，主账号为true，从账号为false）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrimary(Boolean Primary) {
         this.Primary = Primary;
@@ -931,10 +942,8 @@ public class User extends AbstractModel{
     }
 
     /**
-     * Get 是否已经首次登录
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否已经首次登录 
      * @return AlreadyFirstLogin 是否已经首次登录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAlreadyFirstLogin() {
         return this.AlreadyFirstLogin;
@@ -942,19 +951,15 @@ public class User extends AbstractModel{
 
     /**
      * Set 是否已经首次登录
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AlreadyFirstLogin 是否已经首次登录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAlreadyFirstLogin(Boolean AlreadyFirstLogin) {
         this.AlreadyFirstLogin = AlreadyFirstLogin;
     }
 
     /**
-     * Get 租户id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 租户id 
      * @return TenantId 租户id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTenantId() {
         return this.TenantId;
@@ -962,19 +967,15 @@ public class User extends AbstractModel{
 
     /**
      * Set 租户id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TenantId 租户id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTenantId(String TenantId) {
         this.TenantId = TenantId;
     }
 
     /**
-     * Get 用户目录id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户目录id 
      * @return UserStoreId 用户目录id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserStoreId() {
         return this.UserStoreId;
@@ -982,9 +983,7 @@ public class User extends AbstractModel{
 
     /**
      * Set 用户目录id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserStoreId 用户目录id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserStoreId(String UserStoreId) {
         this.UserStoreId = UserStoreId;
@@ -1224,6 +1223,9 @@ public class User extends AbstractModel{
         if (source.AlipayUserId != null) {
             this.AlipayUserId = new String(source.AlipayUserId);
         }
+        if (source.WeComUserId != null) {
+            this.WeComUserId = new String(source.WeComUserId);
+        }
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
@@ -1314,6 +1316,7 @@ public class User extends AbstractModel{
         this.setParamSimple(map, prefix + "WechatOpenId", this.WechatOpenId);
         this.setParamSimple(map, prefix + "WechatUnionId", this.WechatUnionId);
         this.setParamSimple(map, prefix + "AlipayUserId", this.AlipayUserId);
+        this.setParamSimple(map, prefix + "WeComUserId", this.WeComUserId);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Locale", this.Locale);

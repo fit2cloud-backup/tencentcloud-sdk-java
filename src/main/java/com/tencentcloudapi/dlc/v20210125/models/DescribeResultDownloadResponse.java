@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeResultDownloadResponse extends AbstractModel{
+public class DescribeResultDownloadResponse extends AbstractModel {
 
     /**
     * 下载文件路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Path")
     @Expose
@@ -39,23 +39,20 @@ public class DescribeResultDownloadResponse extends AbstractModel{
 
     /**
     * 任务异常原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Reason")
     @Expose
     private String Reason;
 
     /**
-    * 临时AK
-注意：此字段可能返回 null，表示取不到有效值。
+    * 临时SecretId
     */
     @SerializedName("SecretId")
     @Expose
     private String SecretId;
 
     /**
-    * 临时SK
-注意：此字段可能返回 null，表示取不到有效值。
+    * 临时SecretKey
     */
     @SerializedName("SecretKey")
     @Expose
@@ -63,24 +60,21 @@ public class DescribeResultDownloadResponse extends AbstractModel{
 
     /**
     * 临时Token
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Token")
     @Expose
     private String Token;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 下载文件路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下载文件路径 
      * @return Path 下载文件路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPath() {
         return this.Path;
@@ -88,9 +82,7 @@ public class DescribeResultDownloadResponse extends AbstractModel{
 
     /**
      * Set 下载文件路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Path 下载文件路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPath(String Path) {
         this.Path = Path;
@@ -113,10 +105,8 @@ public class DescribeResultDownloadResponse extends AbstractModel{
     }
 
     /**
-     * Get 任务异常原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务异常原因 
      * @return Reason 任务异常原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReason() {
         return this.Reason;
@@ -124,59 +114,47 @@ public class DescribeResultDownloadResponse extends AbstractModel{
 
     /**
      * Set 任务异常原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Reason 任务异常原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReason(String Reason) {
         this.Reason = Reason;
     }
 
     /**
-     * Get 临时AK
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SecretId 临时AK
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 临时SecretId 
+     * @return SecretId 临时SecretId
      */
     public String getSecretId() {
         return this.SecretId;
     }
 
     /**
-     * Set 临时AK
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SecretId 临时AK
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 临时SecretId
+     * @param SecretId 临时SecretId
      */
     public void setSecretId(String SecretId) {
         this.SecretId = SecretId;
     }
 
     /**
-     * Get 临时SK
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SecretKey 临时SK
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 临时SecretKey 
+     * @return SecretKey 临时SecretKey
      */
     public String getSecretKey() {
         return this.SecretKey;
     }
 
     /**
-     * Set 临时SK
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SecretKey 临时SK
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 临时SecretKey
+     * @param SecretKey 临时SecretKey
      */
     public void setSecretKey(String SecretKey) {
         this.SecretKey = SecretKey;
     }
 
     /**
-     * Get 临时Token
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 临时Token 
      * @return Token 临时Token
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getToken() {
         return this.Token;
@@ -184,25 +162,23 @@ public class DescribeResultDownloadResponse extends AbstractModel{
 
     /**
      * Set 临时Token
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Token 临时Token
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setToken(String Token) {
         this.Token = Token;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

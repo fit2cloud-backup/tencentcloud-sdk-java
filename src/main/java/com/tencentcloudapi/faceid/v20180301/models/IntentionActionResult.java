@@ -16,11 +16,12 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IntentionActionResult extends AbstractModel{
+public class IntentionActionResult extends AbstractModel {
 
     /**
     * 意愿核身错误码：
@@ -39,10 +40,12 @@ public class IntentionActionResult extends AbstractModel{
 -301: "意愿核验不通过"   
 -800: "前端不兼容错误"    
 -801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
+-802: "核验流程异常中断，请勿切屏或进行其他操作"   
 -803: "用户主动关闭链接/异常断开链接"   
+-804: "用户当前网络不稳定，请重试"  
 -998: "系统数据异常"   
 -999: "系统未知错误，请联系人工核实"   
+若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FinalResultDetailCode")
@@ -82,10 +85,12 @@ public class IntentionActionResult extends AbstractModel{
 -301: "意愿核验不通过"   
 -800: "前端不兼容错误"    
 -801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
+-802: "核验流程异常中断，请勿切屏或进行其他操作"   
 -803: "用户主动关闭链接/异常断开链接"   
+-804: "用户当前网络不稳定，请重试"  
 -998: "系统数据异常"   
 -999: "系统未知错误，请联系人工核实"   
+若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return FinalResultDetailCode 意愿核身错误码：
 0: "成功"       
@@ -103,10 +108,12 @@ public class IntentionActionResult extends AbstractModel{
 -301: "意愿核验不通过"   
 -800: "前端不兼容错误"    
 -801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
+-802: "核验流程异常中断，请勿切屏或进行其他操作"   
 -803: "用户主动关闭链接/异常断开链接"   
+-804: "用户当前网络不稳定，请重试"  
 -998: "系统数据异常"   
 -999: "系统未知错误，请联系人工核实"   
+若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFinalResultDetailCode() {
@@ -130,10 +137,12 @@ public class IntentionActionResult extends AbstractModel{
 -301: "意愿核验不通过"   
 -800: "前端不兼容错误"    
 -801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
+-802: "核验流程异常中断，请勿切屏或进行其他操作"   
 -803: "用户主动关闭链接/异常断开链接"   
+-804: "用户当前网络不稳定，请重试"  
 -998: "系统数据异常"   
 -999: "系统未知错误，请联系人工核实"   
+若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
      * @param FinalResultDetailCode 意愿核身错误码：
 0: "成功"       
@@ -151,10 +160,12 @@ public class IntentionActionResult extends AbstractModel{
 -301: "意愿核验不通过"   
 -800: "前端不兼容错误"    
 -801: "用户未授权摄像头和麦克风权限"   
--802: "获取视频流失败"   
+-802: "核验流程异常中断，请勿切屏或进行其他操作"   
 -803: "用户主动关闭链接/异常断开链接"   
+-804: "用户当前网络不稳定，请重试"  
 -998: "系统数据异常"   
 -999: "系统未知错误，请联系人工核实"   
+若在人脸核身过程失败、未进入意愿确认过程，则该参数返回为空，请参考人脸核身错误码结果（DetectInfoText.ErrCode)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFinalResultDetailCode(Long FinalResultDetailCode) {

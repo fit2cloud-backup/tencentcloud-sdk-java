@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VatInvoice extends AbstractModel{
+public class VatInvoice extends AbstractModel {
 
     /**
     * 发票代码
@@ -45,6 +46,7 @@ public class VatInvoice extends AbstractModel{
 
     /**
     * 购方抬头
+通用机打发票类型时不返回
     */
     @SerializedName("BuyerName")
     @Expose
@@ -52,6 +54,7 @@ public class VatInvoice extends AbstractModel{
 
     /**
     * 购方税号
+通用机打发票类型时不返回
     */
     @SerializedName("BuyerTaxCode")
     @Expose
@@ -59,6 +62,7 @@ public class VatInvoice extends AbstractModel{
 
     /**
     * 购方地址电话
+通用机打发票类型做不返回
     */
     @SerializedName("BuyerAddressPhone")
     @Expose
@@ -66,6 +70,7 @@ public class VatInvoice extends AbstractModel{
 
     /**
     * 购方银行账号
+通用机打发票类型时不返回
     */
     @SerializedName("BuyerBankAccount")
     @Expose
@@ -126,10 +131,21 @@ public class VatInvoice extends AbstractModel{
 15：二手车销售统一发票，
 32：深圳区块链发票，
 102：通用机打电子发票
+61：电子发票（航空运输电子客票行程单）
+83：电子发票（铁路电子发票）
+0915：全电纸质（二手车统一销售发票）
+0903：全电纸质（机动车统一发票）
     */
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 具体的全电发票类型：01: 全电专用发票；02：全电普通发票；03：全电火车票；04：全电机票行程单
+    */
+    @SerializedName("ElectronicType")
+    @Expose
+    private String ElectronicType;
 
     /**
     * 检验码
@@ -212,6 +228,36 @@ Y: 有清单 N：无清单
     private String TrafficFreeFlag;
 
     /**
+    * 是否为红票
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RedLetterInvoiceMark")
+    @Expose
+    private Boolean RedLetterInvoiceMark;
+
+    /**
+    * 开具类型标识（0: 委托代开，1：自开，2：代开，3：代办退税
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IssuingTypeMark")
+    @Expose
+    private Long IssuingTypeMark;
+
+    /**
+    * 代开销售方名称
+    */
+    @SerializedName("SellerAgentName")
+    @Expose
+    private String SellerAgentName;
+
+    /**
+    * 代开销售方税号
+    */
+    @SerializedName("SellerAgentTaxID")
+    @Expose
+    private String SellerAgentTaxID;
+
+    /**
      * Get 发票代码 
      * @return Code 发票代码
      */
@@ -260,8 +306,10 @@ Y: 有清单 N：无清单
     }
 
     /**
-     * Get 购方抬头 
+     * Get 购方抬头
+通用机打发票类型时不返回 
      * @return BuyerName 购方抬头
+通用机打发票类型时不返回
      */
     public String getBuyerName() {
         return this.BuyerName;
@@ -269,15 +317,19 @@ Y: 有清单 N：无清单
 
     /**
      * Set 购方抬头
+通用机打发票类型时不返回
      * @param BuyerName 购方抬头
+通用机打发票类型时不返回
      */
     public void setBuyerName(String BuyerName) {
         this.BuyerName = BuyerName;
     }
 
     /**
-     * Get 购方税号 
+     * Get 购方税号
+通用机打发票类型时不返回 
      * @return BuyerTaxCode 购方税号
+通用机打发票类型时不返回
      */
     public String getBuyerTaxCode() {
         return this.BuyerTaxCode;
@@ -285,15 +337,19 @@ Y: 有清单 N：无清单
 
     /**
      * Set 购方税号
+通用机打发票类型时不返回
      * @param BuyerTaxCode 购方税号
+通用机打发票类型时不返回
      */
     public void setBuyerTaxCode(String BuyerTaxCode) {
         this.BuyerTaxCode = BuyerTaxCode;
     }
 
     /**
-     * Get 购方地址电话 
+     * Get 购方地址电话
+通用机打发票类型做不返回 
      * @return BuyerAddressPhone 购方地址电话
+通用机打发票类型做不返回
      */
     public String getBuyerAddressPhone() {
         return this.BuyerAddressPhone;
@@ -301,15 +357,19 @@ Y: 有清单 N：无清单
 
     /**
      * Set 购方地址电话
+通用机打发票类型做不返回
      * @param BuyerAddressPhone 购方地址电话
+通用机打发票类型做不返回
      */
     public void setBuyerAddressPhone(String BuyerAddressPhone) {
         this.BuyerAddressPhone = BuyerAddressPhone;
     }
 
     /**
-     * Get 购方银行账号 
+     * Get 购方银行账号
+通用机打发票类型时不返回 
      * @return BuyerBankAccount 购方银行账号
+通用机打发票类型时不返回
      */
     public String getBuyerBankAccount() {
         return this.BuyerBankAccount;
@@ -317,7 +377,9 @@ Y: 有清单 N：无清单
 
     /**
      * Set 购方银行账号
+通用机打发票类型时不返回
      * @param BuyerBankAccount 购方银行账号
+通用机打发票类型时不返回
      */
     public void setBuyerBankAccount(String BuyerBankAccount) {
         this.BuyerBankAccount = BuyerBankAccount;
@@ -431,7 +493,11 @@ Y: 有清单 N：无清单
 14：增值税电子（通行费）发票，
 15：二手车销售统一发票，
 32：深圳区块链发票，
-102：通用机打电子发票 
+102：通用机打电子发票
+61：电子发票（航空运输电子客票行程单）
+83：电子发票（铁路电子发票）
+0915：全电纸质（二手车统一销售发票）
+0903：全电纸质（机动车统一发票） 
      * @return Type 票种类型
 01：增值税专用发票，
 02：货运运输业增值税专用发票，
@@ -444,6 +510,10 @@ Y: 有清单 N：无清单
 15：二手车销售统一发票，
 32：深圳区块链发票，
 102：通用机打电子发票
+61：电子发票（航空运输电子客票行程单）
+83：电子发票（铁路电子发票）
+0915：全电纸质（二手车统一销售发票）
+0903：全电纸质（机动车统一发票）
      */
     public String getType() {
         return this.Type;
@@ -462,6 +532,10 @@ Y: 有清单 N：无清单
 15：二手车销售统一发票，
 32：深圳区块链发票，
 102：通用机打电子发票
+61：电子发票（航空运输电子客票行程单）
+83：电子发票（铁路电子发票）
+0915：全电纸质（二手车统一销售发票）
+0903：全电纸质（机动车统一发票）
      * @param Type 票种类型
 01：增值税专用发票，
 02：货运运输业增值税专用发票，
@@ -474,9 +548,29 @@ Y: 有清单 N：无清单
 15：二手车销售统一发票，
 32：深圳区块链发票，
 102：通用机打电子发票
+61：电子发票（航空运输电子客票行程单）
+83：电子发票（铁路电子发票）
+0915：全电纸质（二手车统一销售发票）
+0903：全电纸质（机动车统一发票）
      */
     public void setType(String Type) {
         this.Type = Type;
+    }
+
+    /**
+     * Get 具体的全电发票类型：01: 全电专用发票；02：全电普通发票；03：全电火车票；04：全电机票行程单 
+     * @return ElectronicType 具体的全电发票类型：01: 全电专用发票；02：全电普通发票；03：全电火车票；04：全电机票行程单
+     */
+    public String getElectronicType() {
+        return this.ElectronicType;
+    }
+
+    /**
+     * Set 具体的全电发票类型：01: 全电专用发票；02：全电普通发票；03：全电火车票；04：全电机票行程单
+     * @param ElectronicType 具体的全电发票类型：01: 全电专用发票；02：全电普通发票；03：全电火车票；04：全电机票行程单
+     */
+    public void setElectronicType(String ElectronicType) {
+        this.ElectronicType = ElectronicType;
     }
 
     /**
@@ -667,6 +761,78 @@ Y: 有清单 N：无清单
         this.TrafficFreeFlag = TrafficFreeFlag;
     }
 
+    /**
+     * Get 是否为红票
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RedLetterInvoiceMark 是否为红票
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getRedLetterInvoiceMark() {
+        return this.RedLetterInvoiceMark;
+    }
+
+    /**
+     * Set 是否为红票
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RedLetterInvoiceMark 是否为红票
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRedLetterInvoiceMark(Boolean RedLetterInvoiceMark) {
+        this.RedLetterInvoiceMark = RedLetterInvoiceMark;
+    }
+
+    /**
+     * Get 开具类型标识（0: 委托代开，1：自开，2：代开，3：代办退税
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IssuingTypeMark 开具类型标识（0: 委托代开，1：自开，2：代开，3：代办退税
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIssuingTypeMark() {
+        return this.IssuingTypeMark;
+    }
+
+    /**
+     * Set 开具类型标识（0: 委托代开，1：自开，2：代开，3：代办退税
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IssuingTypeMark 开具类型标识（0: 委托代开，1：自开，2：代开，3：代办退税
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIssuingTypeMark(Long IssuingTypeMark) {
+        this.IssuingTypeMark = IssuingTypeMark;
+    }
+
+    /**
+     * Get 代开销售方名称 
+     * @return SellerAgentName 代开销售方名称
+     */
+    public String getSellerAgentName() {
+        return this.SellerAgentName;
+    }
+
+    /**
+     * Set 代开销售方名称
+     * @param SellerAgentName 代开销售方名称
+     */
+    public void setSellerAgentName(String SellerAgentName) {
+        this.SellerAgentName = SellerAgentName;
+    }
+
+    /**
+     * Get 代开销售方税号 
+     * @return SellerAgentTaxID 代开销售方税号
+     */
+    public String getSellerAgentTaxID() {
+        return this.SellerAgentTaxID;
+    }
+
+    /**
+     * Set 代开销售方税号
+     * @param SellerAgentTaxID 代开销售方税号
+     */
+    public void setSellerAgentTaxID(String SellerAgentTaxID) {
+        this.SellerAgentTaxID = SellerAgentTaxID;
+    }
+
     public VatInvoice() {
     }
 
@@ -717,6 +883,9 @@ Y: 有清单 N：无清单
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.ElectronicType != null) {
+            this.ElectronicType = new String(source.ElectronicType);
+        }
         if (source.CheckCode != null) {
             this.CheckCode = new String(source.CheckCode);
         }
@@ -753,6 +922,18 @@ Y: 有清单 N：无清单
         if (source.TrafficFreeFlag != null) {
             this.TrafficFreeFlag = new String(source.TrafficFreeFlag);
         }
+        if (source.RedLetterInvoiceMark != null) {
+            this.RedLetterInvoiceMark = new Boolean(source.RedLetterInvoiceMark);
+        }
+        if (source.IssuingTypeMark != null) {
+            this.IssuingTypeMark = new Long(source.IssuingTypeMark);
+        }
+        if (source.SellerAgentName != null) {
+            this.SellerAgentName = new String(source.SellerAgentName);
+        }
+        if (source.SellerAgentTaxID != null) {
+            this.SellerAgentTaxID = new String(source.SellerAgentTaxID);
+        }
     }
 
 
@@ -774,6 +955,7 @@ Y: 有清单 N：无清单
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "MachineNo", this.MachineNo);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "ElectronicType", this.ElectronicType);
         this.setParamSimple(map, prefix + "CheckCode", this.CheckCode);
         this.setParamSimple(map, prefix + "IsAbandoned", this.IsAbandoned);
         this.setParamSimple(map, prefix + "HasSellerList", this.HasSellerList);
@@ -785,6 +967,10 @@ Y: 有清单 N：无清单
         this.setParamArrayObj(map, prefix + "Items.", this.Items);
         this.setParamSimple(map, prefix + "TaxBureau", this.TaxBureau);
         this.setParamSimple(map, prefix + "TrafficFreeFlag", this.TrafficFreeFlag);
+        this.setParamSimple(map, prefix + "RedLetterInvoiceMark", this.RedLetterInvoiceMark);
+        this.setParamSimple(map, prefix + "IssuingTypeMark", this.IssuingTypeMark);
+        this.setParamSimple(map, prefix + "SellerAgentName", this.SellerAgentName);
+        this.setParamSimple(map, prefix + "SellerAgentTaxID", this.SellerAgentTaxID);
 
     }
 }

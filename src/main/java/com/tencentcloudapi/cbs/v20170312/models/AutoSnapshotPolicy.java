@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cbs.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AutoSnapshotPolicy extends AbstractModel{
+public class AutoSnapshotPolicy extends AbstractModel {
 
     /**
     * 已绑定当前定期快照策略的云盘ID列表。
@@ -37,7 +38,11 @@ public class AutoSnapshotPolicy extends AbstractModel{
     private Boolean IsActivated;
 
     /**
-    * 定期快照策略的状态。取值范围：<br><li>NORMAL：正常<br><li>ISOLATED：已隔离。
+    * 定期快照策略的状态。取值范围：
+<ul>
+  <li>NORMAL：正常</li>
+  <li>ISOLATED：已隔离</li>
+</ul>
     */
     @SerializedName("AutoSnapshotPolicyState")
     @Expose
@@ -45,7 +50,6 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
     * 是否是跨账号复制快照快照, 1：是, 0: 不是
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsCopyToRemote")
     @Expose
@@ -110,7 +114,6 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
     * 已绑定当前定期快照策略的实例ID列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceIdSet")
     @Expose
@@ -118,7 +121,6 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
     * 该定期快照创建的快照可以保留的月数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RetentionMonths")
     @Expose
@@ -126,7 +128,6 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
     * 该定期快照创建的快照最大保留数量。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RetentionAmount")
     @Expose
@@ -150,7 +151,6 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
     * 标签。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -189,26 +189,40 @@ public class AutoSnapshotPolicy extends AbstractModel{
     }
 
     /**
-     * Get 定期快照策略的状态。取值范围：<br><li>NORMAL：正常<br><li>ISOLATED：已隔离。 
-     * @return AutoSnapshotPolicyState 定期快照策略的状态。取值范围：<br><li>NORMAL：正常<br><li>ISOLATED：已隔离。
+     * Get 定期快照策略的状态。取值范围：
+<ul>
+  <li>NORMAL：正常</li>
+  <li>ISOLATED：已隔离</li>
+</ul> 
+     * @return AutoSnapshotPolicyState 定期快照策略的状态。取值范围：
+<ul>
+  <li>NORMAL：正常</li>
+  <li>ISOLATED：已隔离</li>
+</ul>
      */
     public String getAutoSnapshotPolicyState() {
         return this.AutoSnapshotPolicyState;
     }
 
     /**
-     * Set 定期快照策略的状态。取值范围：<br><li>NORMAL：正常<br><li>ISOLATED：已隔离。
-     * @param AutoSnapshotPolicyState 定期快照策略的状态。取值范围：<br><li>NORMAL：正常<br><li>ISOLATED：已隔离。
+     * Set 定期快照策略的状态。取值范围：
+<ul>
+  <li>NORMAL：正常</li>
+  <li>ISOLATED：已隔离</li>
+</ul>
+     * @param AutoSnapshotPolicyState 定期快照策略的状态。取值范围：
+<ul>
+  <li>NORMAL：正常</li>
+  <li>ISOLATED：已隔离</li>
+</ul>
      */
     public void setAutoSnapshotPolicyState(String AutoSnapshotPolicyState) {
         this.AutoSnapshotPolicyState = AutoSnapshotPolicyState;
     }
 
     /**
-     * Get 是否是跨账号复制快照快照, 1：是, 0: 不是
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否是跨账号复制快照快照, 1：是, 0: 不是 
      * @return IsCopyToRemote 是否是跨账号复制快照快照, 1：是, 0: 不是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsCopyToRemote() {
         return this.IsCopyToRemote;
@@ -216,9 +230,7 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
      * Set 是否是跨账号复制快照快照, 1：是, 0: 不是
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsCopyToRemote 是否是跨账号复制快照快照, 1：是, 0: 不是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsCopyToRemote(Long IsCopyToRemote) {
         this.IsCopyToRemote = IsCopyToRemote;
@@ -357,10 +369,8 @@ public class AutoSnapshotPolicy extends AbstractModel{
     }
 
     /**
-     * Get 已绑定当前定期快照策略的实例ID列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已绑定当前定期快照策略的实例ID列表。 
      * @return InstanceIdSet 已绑定当前定期快照策略的实例ID列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getInstanceIdSet() {
         return this.InstanceIdSet;
@@ -368,19 +378,15 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
      * Set 已绑定当前定期快照策略的实例ID列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceIdSet 已绑定当前定期快照策略的实例ID列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceIdSet(String [] InstanceIdSet) {
         this.InstanceIdSet = InstanceIdSet;
     }
 
     /**
-     * Get 该定期快照创建的快照可以保留的月数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该定期快照创建的快照可以保留的月数。 
      * @return RetentionMonths 该定期快照创建的快照可以保留的月数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRetentionMonths() {
         return this.RetentionMonths;
@@ -388,19 +394,15 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
      * Set 该定期快照创建的快照可以保留的月数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RetentionMonths 该定期快照创建的快照可以保留的月数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRetentionMonths(Long RetentionMonths) {
         this.RetentionMonths = RetentionMonths;
     }
 
     /**
-     * Get 该定期快照创建的快照最大保留数量。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该定期快照创建的快照最大保留数量。 
      * @return RetentionAmount 该定期快照创建的快照最大保留数量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRetentionAmount() {
         return this.RetentionAmount;
@@ -408,9 +410,7 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
      * Set 该定期快照创建的快照最大保留数量。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RetentionAmount 该定期快照创建的快照最大保留数量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRetentionAmount(Long RetentionAmount) {
         this.RetentionAmount = RetentionAmount;
@@ -457,10 +457,8 @@ public class AutoSnapshotPolicy extends AbstractModel{
     }
 
     /**
-     * Get 标签。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签。 
      * @return Tags 标签。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -468,9 +466,7 @@ public class AutoSnapshotPolicy extends AbstractModel{
 
     /**
      * Set 标签。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;

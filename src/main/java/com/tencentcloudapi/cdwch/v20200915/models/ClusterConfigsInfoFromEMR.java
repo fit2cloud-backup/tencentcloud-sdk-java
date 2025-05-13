@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterConfigsInfoFromEMR extends AbstractModel{
+public class ClusterConfigsInfoFromEMR extends AbstractModel {
 
     /**
     * 配置文件名称
@@ -59,7 +60,6 @@ public class ClusterConfigsInfoFromEMR extends AbstractModel{
 
     /**
     * 保存配置文件的路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FilePath")
     @Expose
@@ -146,10 +146,8 @@ public class ClusterConfigsInfoFromEMR extends AbstractModel{
     }
 
     /**
-     * Get 保存配置文件的路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 保存配置文件的路径 
      * @return FilePath 保存配置文件的路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFilePath() {
         return this.FilePath;
@@ -157,9 +155,7 @@ public class ClusterConfigsInfoFromEMR extends AbstractModel{
 
     /**
      * Set 保存配置文件的路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FilePath 保存配置文件的路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFilePath(String FilePath) {
         this.FilePath = FilePath;

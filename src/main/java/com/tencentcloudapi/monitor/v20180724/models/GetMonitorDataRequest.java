@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetMonitorDataRequest extends AbstractModel{
+public class GetMonitorDataRequest extends AbstractModel {
 
     /**
     * 命名空间，如QCE/CVM。各个云产品的详细命名空间说明请参阅各个产品[监控指标](https://cloud.tencent.com/document/product/248/6140)文档
@@ -63,6 +64,13 @@ public class GetMonitorDataRequest extends AbstractModel{
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
+
+    /**
+    * 返回多种统计方式数据。avg, max, min (1,2,4)可以自由组合。注意: 仅支持对API配置文档中展示的统计方式返回对应的统计数据。如所需的统计方式不满足您的查询需求，请提工单反馈。
+    */
+    @SerializedName("SpecifyStatistics")
+    @Expose
+    private Long SpecifyStatistics;
 
     /**
      * Get 命名空间，如QCE/CVM。各个云产品的详细命名空间说明请参阅各个产品[监控指标](https://cloud.tencent.com/document/product/248/6140)文档 
@@ -160,6 +168,22 @@ public class GetMonitorDataRequest extends AbstractModel{
         this.EndTime = EndTime;
     }
 
+    /**
+     * Get 返回多种统计方式数据。avg, max, min (1,2,4)可以自由组合。注意: 仅支持对API配置文档中展示的统计方式返回对应的统计数据。如所需的统计方式不满足您的查询需求，请提工单反馈。 
+     * @return SpecifyStatistics 返回多种统计方式数据。avg, max, min (1,2,4)可以自由组合。注意: 仅支持对API配置文档中展示的统计方式返回对应的统计数据。如所需的统计方式不满足您的查询需求，请提工单反馈。
+     */
+    public Long getSpecifyStatistics() {
+        return this.SpecifyStatistics;
+    }
+
+    /**
+     * Set 返回多种统计方式数据。avg, max, min (1,2,4)可以自由组合。注意: 仅支持对API配置文档中展示的统计方式返回对应的统计数据。如所需的统计方式不满足您的查询需求，请提工单反馈。
+     * @param SpecifyStatistics 返回多种统计方式数据。avg, max, min (1,2,4)可以自由组合。注意: 仅支持对API配置文档中展示的统计方式返回对应的统计数据。如所需的统计方式不满足您的查询需求，请提工单反馈。
+     */
+    public void setSpecifyStatistics(Long SpecifyStatistics) {
+        this.SpecifyStatistics = SpecifyStatistics;
+    }
+
     public GetMonitorDataRequest() {
     }
 
@@ -189,6 +213,9 @@ public class GetMonitorDataRequest extends AbstractModel{
         if (source.EndTime != null) {
             this.EndTime = new String(source.EndTime);
         }
+        if (source.SpecifyStatistics != null) {
+            this.SpecifyStatistics = new Long(source.SpecifyStatistics);
+        }
     }
 
 
@@ -202,6 +229,7 @@ public class GetMonitorDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Period", this.Period);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "SpecifyStatistics", this.SpecifyStatistics);
 
     }
 }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EventHistoryItem extends AbstractModel{
+public class EventHistoryItem extends AbstractModel {
 
     /**
     * 事件的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeStamp")
     @Expose
@@ -32,7 +32,6 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
     * 事件的产品ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProductId")
     @Expose
@@ -40,7 +39,6 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
     * 事件的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeviceName")
     @Expose
@@ -48,7 +46,6 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
     * 事件的标识符ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventId")
     @Expose
@@ -56,7 +53,6 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
     * 事件的类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -64,17 +60,14 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
     * 事件的数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private String Data;
 
     /**
-     * Get 事件的时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件的时间戳 
      * @return TimeStamp 事件的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTimeStamp() {
         return this.TimeStamp;
@@ -82,19 +75,15 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
      * Set 事件的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeStamp 事件的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeStamp(Long TimeStamp) {
         this.TimeStamp = TimeStamp;
     }
 
     /**
-     * Get 事件的产品ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件的产品ID 
      * @return ProductId 事件的产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProductId() {
         return this.ProductId;
@@ -102,19 +91,15 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
      * Set 事件的产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProductId 事件的产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProductId(String ProductId) {
         this.ProductId = ProductId;
     }
 
     /**
-     * Get 事件的设备名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件的设备名称 
      * @return DeviceName 事件的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeviceName() {
         return this.DeviceName;
@@ -122,19 +107,15 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
      * Set 事件的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeviceName 事件的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeviceName(String DeviceName) {
         this.DeviceName = DeviceName;
     }
 
     /**
-     * Get 事件的标识符ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件的标识符ID 
      * @return EventId 事件的标识符ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEventId() {
         return this.EventId;
@@ -142,19 +123,15 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
      * Set 事件的标识符ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventId 事件的标识符ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventId(String EventId) {
         this.EventId = EventId;
     }
 
     /**
-     * Get 事件的类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件的类型 
      * @return Type 事件的类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -162,19 +139,15 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
      * Set 事件的类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 事件的类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 事件的数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件的数据 
      * @return Data 事件的数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getData() {
         return this.Data;
@@ -182,9 +155,7 @@ public class EventHistoryItem extends AbstractModel{
 
     /**
      * Set 事件的数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 事件的数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(String Data) {
         this.Data = Data;

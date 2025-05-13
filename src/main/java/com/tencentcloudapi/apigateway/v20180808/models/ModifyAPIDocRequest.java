@@ -16,18 +16,12 @@
 package com.tencentcloudapi.apigateway.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyAPIDocRequest extends AbstractModel{
-
-    /**
-    * API文档ID
-    */
-    @SerializedName("ApiDocId")
-    @Expose
-    private String ApiDocId;
+public class ModifyAPIDocRequest extends AbstractModel {
 
     /**
     * API文档名称
@@ -58,20 +52,11 @@ public class ModifyAPIDocRequest extends AbstractModel{
     private String [] ApiIds;
 
     /**
-     * Get API文档ID 
-     * @return ApiDocId API文档ID
-     */
-    public String getApiDocId() {
-        return this.ApiDocId;
-    }
-
-    /**
-     * Set API文档ID
-     * @param ApiDocId API文档ID
-     */
-    public void setApiDocId(String ApiDocId) {
-        this.ApiDocId = ApiDocId;
-    }
+    * API文档ID
+    */
+    @SerializedName("ApiDocId")
+    @Expose
+    private String ApiDocId;
 
     /**
      * Get API文档名称 
@@ -137,6 +122,22 @@ public class ModifyAPIDocRequest extends AbstractModel{
         this.ApiIds = ApiIds;
     }
 
+    /**
+     * Get API文档ID 
+     * @return ApiDocId API文档ID
+     */
+    public String getApiDocId() {
+        return this.ApiDocId;
+    }
+
+    /**
+     * Set API文档ID
+     * @param ApiDocId API文档ID
+     */
+    public void setApiDocId(String ApiDocId) {
+        this.ApiDocId = ApiDocId;
+    }
+
     public ModifyAPIDocRequest() {
     }
 
@@ -145,9 +146,6 @@ public class ModifyAPIDocRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public ModifyAPIDocRequest(ModifyAPIDocRequest source) {
-        if (source.ApiDocId != null) {
-            this.ApiDocId = new String(source.ApiDocId);
-        }
         if (source.ApiDocName != null) {
             this.ApiDocName = new String(source.ApiDocName);
         }
@@ -163,6 +161,9 @@ public class ModifyAPIDocRequest extends AbstractModel{
                 this.ApiIds[i] = new String(source.ApiIds[i]);
             }
         }
+        if (source.ApiDocId != null) {
+            this.ApiDocId = new String(source.ApiDocId);
+        }
     }
 
 
@@ -170,11 +171,11 @@ public class ModifyAPIDocRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "ApiDocId", this.ApiDocId);
         this.setParamSimple(map, prefix + "ApiDocName", this.ApiDocName);
         this.setParamSimple(map, prefix + "ServiceId", this.ServiceId);
         this.setParamSimple(map, prefix + "Environment", this.Environment);
         this.setParamArraySimple(map, prefix + "ApiIds.", this.ApiIds);
+        this.setParamSimple(map, prefix + "ApiDocId", this.ApiDocId);
 
     }
 }

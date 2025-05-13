@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DedicatedClusterOrder extends AbstractModel{
+public class DedicatedClusterOrder extends AbstractModel {
 
     /**
     * 专用集群id
@@ -101,7 +102,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * 子订单详情列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DedicatedClusterOrderItems")
     @Expose
@@ -109,7 +109,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * cpu值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cpu")
     @Expose
@@ -117,7 +116,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * mem值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Mem")
     @Expose
@@ -125,7 +123,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * gpu值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Gpu")
     @Expose
@@ -133,7 +130,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * 0代表未支付，1代表已支付
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PayStatus")
     @Expose
@@ -141,7 +137,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * 支付方式，一次性、按月、按年
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PayType")
     @Expose
@@ -149,7 +144,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * 购买时长的单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeUnit")
     @Expose
@@ -157,7 +151,6 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * 购买时长
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -165,11 +158,66 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
     * 订单类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrderType")
     @Expose
     private String OrderType;
+
+    /**
+    * 验收状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CheckStatus")
+    @Expose
+    private String CheckStatus;
+
+    /**
+    * 交付预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeliverExpectTime")
+    @Expose
+    private String DeliverExpectTime;
+
+    /**
+    * 交付实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeliverFinishTime")
+    @Expose
+    private String DeliverFinishTime;
+
+    /**
+    * 验收预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CheckExpectTime")
+    @Expose
+    private String CheckExpectTime;
+
+    /**
+    * 验收实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CheckFinishTime")
+    @Expose
+    private String CheckFinishTime;
+
+    /**
+    * 订单SLA
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OrderSLA")
+    @Expose
+    private String OrderSLA;
+
+    /**
+    * 订单支付计划
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("OrderPayPlan")
+    @Expose
+    private String OrderPayPlan;
 
     /**
      * Get 专用集群id 
@@ -348,10 +396,8 @@ public class DedicatedClusterOrder extends AbstractModel{
     }
 
     /**
-     * Get 子订单详情列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子订单详情列表 
      * @return DedicatedClusterOrderItems 子订单详情列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DedicatedClusterOrderItem [] getDedicatedClusterOrderItems() {
         return this.DedicatedClusterOrderItems;
@@ -359,19 +405,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set 子订单详情列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DedicatedClusterOrderItems 子订单详情列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDedicatedClusterOrderItems(DedicatedClusterOrderItem [] DedicatedClusterOrderItems) {
         this.DedicatedClusterOrderItems = DedicatedClusterOrderItems;
     }
 
     /**
-     * Get cpu值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cpu值 
      * @return Cpu cpu值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCpu() {
         return this.Cpu;
@@ -379,19 +421,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set cpu值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Cpu cpu值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCpu(Long Cpu) {
         this.Cpu = Cpu;
     }
 
     /**
-     * Get mem值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get mem值 
      * @return Mem mem值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMem() {
         return this.Mem;
@@ -399,19 +437,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set mem值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Mem mem值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMem(Long Mem) {
         this.Mem = Mem;
     }
 
     /**
-     * Get gpu值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get gpu值 
      * @return Gpu gpu值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGpu() {
         return this.Gpu;
@@ -419,19 +453,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set gpu值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Gpu gpu值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGpu(Long Gpu) {
         this.Gpu = Gpu;
     }
 
     /**
-     * Get 0代表未支付，1代表已支付
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0代表未支付，1代表已支付 
      * @return PayStatus 0代表未支付，1代表已支付
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPayStatus() {
         return this.PayStatus;
@@ -439,19 +469,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set 0代表未支付，1代表已支付
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PayStatus 0代表未支付，1代表已支付
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPayStatus(Long PayStatus) {
         this.PayStatus = PayStatus;
     }
 
     /**
-     * Get 支付方式，一次性、按月、按年
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 支付方式，一次性、按月、按年 
      * @return PayType 支付方式，一次性、按月、按年
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPayType() {
         return this.PayType;
@@ -459,19 +485,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set 支付方式，一次性、按月、按年
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PayType 支付方式，一次性、按月、按年
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPayType(String PayType) {
         this.PayType = PayType;
     }
 
     /**
-     * Get 购买时长的单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买时长的单位 
      * @return TimeUnit 购买时长的单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimeUnit() {
         return this.TimeUnit;
@@ -479,19 +501,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set 购买时长的单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeUnit 购买时长的单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;
     }
 
     /**
-     * Get 购买时长
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 购买时长 
      * @return TimeSpan 购买时长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
@@ -499,19 +517,15 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set 购买时长
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeSpan 购买时长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
     }
 
     /**
-     * Get 订单类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 订单类型 
      * @return OrderType 订单类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOrderType() {
         return this.OrderType;
@@ -519,12 +533,150 @@ public class DedicatedClusterOrder extends AbstractModel{
 
     /**
      * Set 订单类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrderType 订单类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrderType(String OrderType) {
         this.OrderType = OrderType;
+    }
+
+    /**
+     * Get 验收状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CheckStatus 验收状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCheckStatus() {
+        return this.CheckStatus;
+    }
+
+    /**
+     * Set 验收状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CheckStatus 验收状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCheckStatus(String CheckStatus) {
+        this.CheckStatus = CheckStatus;
+    }
+
+    /**
+     * Get 交付预期时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeliverExpectTime 交付预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeliverExpectTime() {
+        return this.DeliverExpectTime;
+    }
+
+    /**
+     * Set 交付预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeliverExpectTime 交付预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeliverExpectTime(String DeliverExpectTime) {
+        this.DeliverExpectTime = DeliverExpectTime;
+    }
+
+    /**
+     * Get 交付实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeliverFinishTime 交付实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeliverFinishTime() {
+        return this.DeliverFinishTime;
+    }
+
+    /**
+     * Set 交付实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeliverFinishTime 交付实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeliverFinishTime(String DeliverFinishTime) {
+        this.DeliverFinishTime = DeliverFinishTime;
+    }
+
+    /**
+     * Get 验收预期时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CheckExpectTime 验收预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCheckExpectTime() {
+        return this.CheckExpectTime;
+    }
+
+    /**
+     * Set 验收预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CheckExpectTime 验收预期时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCheckExpectTime(String CheckExpectTime) {
+        this.CheckExpectTime = CheckExpectTime;
+    }
+
+    /**
+     * Get 验收实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CheckFinishTime 验收实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCheckFinishTime() {
+        return this.CheckFinishTime;
+    }
+
+    /**
+     * Set 验收实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CheckFinishTime 验收实际完成时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCheckFinishTime(String CheckFinishTime) {
+        this.CheckFinishTime = CheckFinishTime;
+    }
+
+    /**
+     * Get 订单SLA
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OrderSLA 订单SLA
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOrderSLA() {
+        return this.OrderSLA;
+    }
+
+    /**
+     * Set 订单SLA
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OrderSLA 订单SLA
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOrderSLA(String OrderSLA) {
+        this.OrderSLA = OrderSLA;
+    }
+
+    /**
+     * Get 订单支付计划
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return OrderPayPlan 订单支付计划
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getOrderPayPlan() {
+        return this.OrderPayPlan;
+    }
+
+    /**
+     * Set 订单支付计划
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param OrderPayPlan 订单支付计划
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setOrderPayPlan(String OrderPayPlan) {
+        this.OrderPayPlan = OrderPayPlan;
     }
 
     public DedicatedClusterOrder() {
@@ -607,6 +759,27 @@ public class DedicatedClusterOrder extends AbstractModel{
         if (source.OrderType != null) {
             this.OrderType = new String(source.OrderType);
         }
+        if (source.CheckStatus != null) {
+            this.CheckStatus = new String(source.CheckStatus);
+        }
+        if (source.DeliverExpectTime != null) {
+            this.DeliverExpectTime = new String(source.DeliverExpectTime);
+        }
+        if (source.DeliverFinishTime != null) {
+            this.DeliverFinishTime = new String(source.DeliverFinishTime);
+        }
+        if (source.CheckExpectTime != null) {
+            this.CheckExpectTime = new String(source.CheckExpectTime);
+        }
+        if (source.CheckFinishTime != null) {
+            this.CheckFinishTime = new String(source.CheckFinishTime);
+        }
+        if (source.OrderSLA != null) {
+            this.OrderSLA = new String(source.OrderSLA);
+        }
+        if (source.OrderPayPlan != null) {
+            this.OrderPayPlan = new String(source.OrderPayPlan);
+        }
     }
 
 
@@ -634,6 +807,13 @@ public class DedicatedClusterOrder extends AbstractModel{
         this.setParamSimple(map, prefix + "TimeUnit", this.TimeUnit);
         this.setParamSimple(map, prefix + "TimeSpan", this.TimeSpan);
         this.setParamSimple(map, prefix + "OrderType", this.OrderType);
+        this.setParamSimple(map, prefix + "CheckStatus", this.CheckStatus);
+        this.setParamSimple(map, prefix + "DeliverExpectTime", this.DeliverExpectTime);
+        this.setParamSimple(map, prefix + "DeliverFinishTime", this.DeliverFinishTime);
+        this.setParamSimple(map, prefix + "CheckExpectTime", this.CheckExpectTime);
+        this.setParamSimple(map, prefix + "CheckFinishTime", this.CheckFinishTime);
+        this.setParamSimple(map, prefix + "OrderSLA", this.OrderSLA);
+        this.setParamSimple(map, prefix + "OrderPayPlan", this.OrderPayPlan);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRelatedIngressesRequest extends AbstractModel{
+public class DescribeRelatedIngressesRequest extends AbstractModel {
 
     /**
     * 环境 id
@@ -37,18 +38,18 @@ public class DescribeRelatedIngressesRequest extends AbstractModel{
     private String ClusterNamespace;
 
     /**
-    * 来源渠道
-    */
-    @SerializedName("SourceChannel")
-    @Expose
-    private Long SourceChannel;
-
-    /**
     * 应用 ID
     */
     @SerializedName("ApplicationId")
     @Expose
     private String ApplicationId;
+
+    /**
+    * 来源渠道
+    */
+    @SerializedName("SourceChannel")
+    @Expose
+    private Long SourceChannel;
 
     /**
      * Get 环境 id 
@@ -83,22 +84,6 @@ public class DescribeRelatedIngressesRequest extends AbstractModel{
     }
 
     /**
-     * Get 来源渠道 
-     * @return SourceChannel 来源渠道
-     */
-    public Long getSourceChannel() {
-        return this.SourceChannel;
-    }
-
-    /**
-     * Set 来源渠道
-     * @param SourceChannel 来源渠道
-     */
-    public void setSourceChannel(Long SourceChannel) {
-        this.SourceChannel = SourceChannel;
-    }
-
-    /**
      * Get 应用 ID 
      * @return ApplicationId 应用 ID
      */
@@ -112,6 +97,22 @@ public class DescribeRelatedIngressesRequest extends AbstractModel{
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
+    }
+
+    /**
+     * Get 来源渠道 
+     * @return SourceChannel 来源渠道
+     */
+    public Long getSourceChannel() {
+        return this.SourceChannel;
+    }
+
+    /**
+     * Set 来源渠道
+     * @param SourceChannel 来源渠道
+     */
+    public void setSourceChannel(Long SourceChannel) {
+        this.SourceChannel = SourceChannel;
     }
 
     public DescribeRelatedIngressesRequest() {
@@ -128,11 +129,11 @@ public class DescribeRelatedIngressesRequest extends AbstractModel{
         if (source.ClusterNamespace != null) {
             this.ClusterNamespace = new String(source.ClusterNamespace);
         }
-        if (source.SourceChannel != null) {
-            this.SourceChannel = new Long(source.SourceChannel);
-        }
         if (source.ApplicationId != null) {
             this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.SourceChannel != null) {
+            this.SourceChannel = new Long(source.SourceChannel);
         }
     }
 
@@ -143,8 +144,8 @@ public class DescribeRelatedIngressesRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
         this.setParamSimple(map, prefix + "ClusterNamespace", this.ClusterNamespace);
-        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
+        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
 
     }
 }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Table extends AbstractModel{
+public class Table extends AbstractModel {
 
     /**
     * 表格ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TableId")
     @Expose
@@ -32,7 +32,6 @@ public class Table extends AbstractModel{
 
     /**
     * 关联项目ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -40,7 +39,6 @@ public class Table extends AbstractModel{
 
     /**
     * 表格名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -48,7 +46,6 @@ public class Table extends AbstractModel{
 
     /**
     * 表格描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -56,7 +53,6 @@ public class Table extends AbstractModel{
 
     /**
     * 表格列
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Columns")
     @Expose
@@ -64,7 +60,6 @@ public class Table extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -72,17 +67,21 @@ public class Table extends AbstractModel{
 
     /**
     * 创建人
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Creator")
     @Expose
     private String Creator;
 
     /**
-     * Get 表格ID
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 创建人ID
+    */
+    @SerializedName("CreatorId")
+    @Expose
+    private String CreatorId;
+
+    /**
+     * Get 表格ID 
      * @return TableId 表格ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTableId() {
         return this.TableId;
@@ -90,19 +89,15 @@ public class Table extends AbstractModel{
 
     /**
      * Set 表格ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TableId 表格ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTableId(String TableId) {
         this.TableId = TableId;
     }
 
     /**
-     * Get 关联项目ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 关联项目ID 
      * @return ProjectId 关联项目ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProjectId() {
         return this.ProjectId;
@@ -110,19 +105,15 @@ public class Table extends AbstractModel{
 
     /**
      * Set 关联项目ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectId 关联项目ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
     }
 
     /**
-     * Get 表格名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表格名称 
      * @return Name 表格名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -130,19 +121,15 @@ public class Table extends AbstractModel{
 
     /**
      * Set 表格名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 表格名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 表格描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表格描述 
      * @return Description 表格描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -150,19 +137,15 @@ public class Table extends AbstractModel{
 
     /**
      * Set 表格描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 表格描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 表格列
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表格列 
      * @return Columns 表格列
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TableColumn [] getColumns() {
         return this.Columns;
@@ -170,19 +153,15 @@ public class Table extends AbstractModel{
 
     /**
      * Set 表格列
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Columns 表格列
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setColumns(TableColumn [] Columns) {
         this.Columns = Columns;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -190,19 +169,15 @@ public class Table extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 创建人
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建人 
      * @return Creator 创建人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreator() {
         return this.Creator;
@@ -210,12 +185,26 @@ public class Table extends AbstractModel{
 
     /**
      * Set 创建人
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Creator 创建人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreator(String Creator) {
         this.Creator = Creator;
+    }
+
+    /**
+     * Get 创建人ID 
+     * @return CreatorId 创建人ID
+     */
+    public String getCreatorId() {
+        return this.CreatorId;
+    }
+
+    /**
+     * Set 创建人ID
+     * @param CreatorId 创建人ID
+     */
+    public void setCreatorId(String CreatorId) {
+        this.CreatorId = CreatorId;
     }
 
     public Table() {
@@ -250,6 +239,9 @@ public class Table extends AbstractModel{
         if (source.Creator != null) {
             this.Creator = new String(source.Creator);
         }
+        if (source.CreatorId != null) {
+            this.CreatorId = new String(source.CreatorId);
+        }
     }
 
 
@@ -264,6 +256,7 @@ public class Table extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Columns.", this.Columns);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "Creator", this.Creator);
+        this.setParamSimple(map, prefix + "CreatorId", this.CreatorId);
 
     }
 }

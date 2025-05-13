@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TemplateParamInfo extends AbstractModel{
+public class TemplateParamInfo extends AbstractModel {
 
     /**
     * 当前值
@@ -38,7 +39,6 @@ public class TemplateParamInfo extends AbstractModel{
 
     /**
     * 参数类型为enum时可选的值类型集合
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnumValue")
     @Expose
@@ -46,7 +46,6 @@ public class TemplateParamInfo extends AbstractModel{
 
     /**
     * 参数类型为float/integer时的最大值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Max")
     @Expose
@@ -54,7 +53,6 @@ public class TemplateParamInfo extends AbstractModel{
 
     /**
     * 参数类型为float/integer时的最小值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Min")
     @Expose
@@ -121,10 +119,8 @@ public class TemplateParamInfo extends AbstractModel{
     }
 
     /**
-     * Get 参数类型为enum时可选的值类型集合
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数类型为enum时可选的值类型集合 
      * @return EnumValue 参数类型为enum时可选的值类型集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getEnumValue() {
         return this.EnumValue;
@@ -132,19 +128,15 @@ public class TemplateParamInfo extends AbstractModel{
 
     /**
      * Set 参数类型为enum时可选的值类型集合
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnumValue 参数类型为enum时可选的值类型集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnumValue(String [] EnumValue) {
         this.EnumValue = EnumValue;
     }
 
     /**
-     * Get 参数类型为float/integer时的最大值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数类型为float/integer时的最大值 
      * @return Max 参数类型为float/integer时的最大值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMax() {
         return this.Max;
@@ -152,19 +144,15 @@ public class TemplateParamInfo extends AbstractModel{
 
     /**
      * Set 参数类型为float/integer时的最大值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Max 参数类型为float/integer时的最大值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMax(String Max) {
         this.Max = Max;
     }
 
     /**
-     * Get 参数类型为float/integer时的最小值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数类型为float/integer时的最小值 
      * @return Min 参数类型为float/integer时的最小值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMin() {
         return this.Min;
@@ -172,9 +160,7 @@ public class TemplateParamInfo extends AbstractModel{
 
     /**
      * Set 参数类型为float/integer时的最小值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Min 参数类型为float/integer时的最小值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMin(String Min) {
         this.Min = Min;

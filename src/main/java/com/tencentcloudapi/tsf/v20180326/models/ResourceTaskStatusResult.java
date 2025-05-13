@@ -16,25 +16,23 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResourceTaskStatusResult extends AbstractModel{
+public class ResourceTaskStatusResult extends AbstractModel {
 
     /**
     * 任务的执行状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskStatus")
     @Expose
     private Long TaskStatus;
 
     /**
-     * Get 任务的执行状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务的执行状态 
      * @return TaskStatus 任务的执行状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskStatus() {
         return this.TaskStatus;
@@ -42,9 +40,7 @@ public class ResourceTaskStatusResult extends AbstractModel{
 
     /**
      * Set 任务的执行状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskStatus 任务的执行状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskStatus(Long TaskStatus) {
         this.TaskStatus = TaskStatus;

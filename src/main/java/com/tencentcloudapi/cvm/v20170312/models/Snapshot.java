@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Snapshot extends AbstractModel{
+public class Snapshot extends AbstractModel {
 
     /**
     * 快照Id。
@@ -39,7 +40,7 @@ DATA_DISK：数据盘。
     private String DiskUsage;
 
     /**
-    * 创建此快照的云硬盘大小，单位GB。
+    * 创建此快照的云硬盘大小，单位 GiB。
     */
     @SerializedName("DiskSize")
     @Expose
@@ -86,16 +87,16 @@ DATA_DISK：数据盘。
     }
 
     /**
-     * Get 创建此快照的云硬盘大小，单位GB。 
-     * @return DiskSize 创建此快照的云硬盘大小，单位GB。
+     * Get 创建此快照的云硬盘大小，单位 GiB。 
+     * @return DiskSize 创建此快照的云硬盘大小，单位 GiB。
      */
     public Long getDiskSize() {
         return this.DiskSize;
     }
 
     /**
-     * Set 创建此快照的云硬盘大小，单位GB。
-     * @param DiskSize 创建此快照的云硬盘大小，单位GB。
+     * Set 创建此快照的云硬盘大小，单位 GiB。
+     * @param DiskSize 创建此快照的云硬盘大小，单位 GiB。
      */
     public void setDiskSize(Long DiskSize) {
         this.DiskSize = DiskSize;

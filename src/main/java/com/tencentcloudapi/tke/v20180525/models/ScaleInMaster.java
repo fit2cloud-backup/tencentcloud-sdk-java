@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScaleInMaster extends AbstractModel{
+public class ScaleInMaster extends AbstractModel {
 
     /**
     * 实例ID
@@ -37,7 +38,7 @@ public class ScaleInMaster extends AbstractModel{
     private String NodeRole;
 
     /**
-    * 实例的保留模式
+    * 实例删除时的策略：terminate（销毁实例，仅支持按量计费云主机实例） retain （仅移除，保留实例）
     */
     @SerializedName("InstanceDeleteMode")
     @Expose
@@ -76,16 +77,16 @@ public class ScaleInMaster extends AbstractModel{
     }
 
     /**
-     * Get 实例的保留模式 
-     * @return InstanceDeleteMode 实例的保留模式
+     * Get 实例删除时的策略：terminate（销毁实例，仅支持按量计费云主机实例） retain （仅移除，保留实例） 
+     * @return InstanceDeleteMode 实例删除时的策略：terminate（销毁实例，仅支持按量计费云主机实例） retain （仅移除，保留实例）
      */
     public String getInstanceDeleteMode() {
         return this.InstanceDeleteMode;
     }
 
     /**
-     * Set 实例的保留模式
-     * @param InstanceDeleteMode 实例的保留模式
+     * Set 实例删除时的策略：terminate（销毁实例，仅支持按量计费云主机实例） retain （仅移除，保留实例）
+     * @param InstanceDeleteMode 实例删除时的策略：terminate（销毁实例，仅支持按量计费云主机实例） retain （仅移除，保留实例）
      */
     public void setInstanceDeleteMode(String InstanceDeleteMode) {
         this.InstanceDeleteMode = InstanceDeleteMode;

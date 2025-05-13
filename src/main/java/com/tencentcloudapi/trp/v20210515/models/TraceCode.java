@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TraceCode extends AbstractModel{
+public class TraceCode extends AbstractModel {
 
     /**
     * 二维码
@@ -112,6 +113,27 @@ public class TraceCode extends AbstractModel{
     @SerializedName("Level")
     @Expose
     private Long Level;
+
+    /**
+    * 码层级详情
+    */
+    @SerializedName("PackSpec")
+    @Expose
+    private PackSpec [] PackSpec;
+
+    /**
+    * 场景码
+    */
+    @SerializedName("SceneCode")
+    @Expose
+    private Long SceneCode;
+
+    /**
+    * 流水码
+    */
+    @SerializedName("SerialCode")
+    @Expose
+    private Long SerialCode;
 
     /**
      * Get 二维码 
@@ -321,6 +343,54 @@ public class TraceCode extends AbstractModel{
         this.Level = Level;
     }
 
+    /**
+     * Get 码层级详情 
+     * @return PackSpec 码层级详情
+     */
+    public PackSpec [] getPackSpec() {
+        return this.PackSpec;
+    }
+
+    /**
+     * Set 码层级详情
+     * @param PackSpec 码层级详情
+     */
+    public void setPackSpec(PackSpec [] PackSpec) {
+        this.PackSpec = PackSpec;
+    }
+
+    /**
+     * Get 场景码 
+     * @return SceneCode 场景码
+     */
+    public Long getSceneCode() {
+        return this.SceneCode;
+    }
+
+    /**
+     * Set 场景码
+     * @param SceneCode 场景码
+     */
+    public void setSceneCode(Long SceneCode) {
+        this.SceneCode = SceneCode;
+    }
+
+    /**
+     * Get 流水码 
+     * @return SerialCode 流水码
+     */
+    public Long getSerialCode() {
+        return this.SerialCode;
+    }
+
+    /**
+     * Set 流水码
+     * @param SerialCode 流水码
+     */
+    public void setSerialCode(Long SerialCode) {
+        this.SerialCode = SerialCode;
+    }
+
     public TraceCode() {
     }
 
@@ -368,6 +438,18 @@ public class TraceCode extends AbstractModel{
         if (source.Level != null) {
             this.Level = new Long(source.Level);
         }
+        if (source.PackSpec != null) {
+            this.PackSpec = new PackSpec[source.PackSpec.length];
+            for (int i = 0; i < source.PackSpec.length; i++) {
+                this.PackSpec[i] = new PackSpec(source.PackSpec[i]);
+            }
+        }
+        if (source.SceneCode != null) {
+            this.SceneCode = new Long(source.SceneCode);
+        }
+        if (source.SerialCode != null) {
+            this.SerialCode = new Long(source.SerialCode);
+        }
     }
 
 
@@ -388,6 +470,9 @@ public class TraceCode extends AbstractModel{
         this.setParamSimple(map, prefix + "ProductName", this.ProductName);
         this.setParamSimple(map, prefix + "AgentId", this.AgentId);
         this.setParamSimple(map, prefix + "Level", this.Level);
+        this.setParamArrayObj(map, prefix + "PackSpec.", this.PackSpec);
+        this.setParamSimple(map, prefix + "SceneCode", this.SceneCode);
+        this.setParamSimple(map, prefix + "SerialCode", this.SerialCode);
 
     }
 }

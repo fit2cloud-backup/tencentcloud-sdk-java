@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyCCPrecisionPolicyRequest extends AbstractModel{
+public class ModifyCCPrecisionPolicyRequest extends AbstractModel {
 
     /**
     * 实例Id
@@ -37,7 +38,7 @@ public class ModifyCCPrecisionPolicyRequest extends AbstractModel{
     private String PolicyId;
 
     /**
-    * 策略方式。可取值：alg、drop。alg指返回验证码方式验证，drop表示该访问丢弃。
+    * 策略方式。可取值：alg、drop、trans。alg指返回验证码方式验证，drop表示该访问丢弃，trans表示该访问放行。
     */
     @SerializedName("PolicyAction")
     @Expose
@@ -83,16 +84,16 @@ public class ModifyCCPrecisionPolicyRequest extends AbstractModel{
     }
 
     /**
-     * Get 策略方式。可取值：alg、drop。alg指返回验证码方式验证，drop表示该访问丢弃。 
-     * @return PolicyAction 策略方式。可取值：alg、drop。alg指返回验证码方式验证，drop表示该访问丢弃。
+     * Get 策略方式。可取值：alg、drop、trans。alg指返回验证码方式验证，drop表示该访问丢弃，trans表示该访问放行。 
+     * @return PolicyAction 策略方式。可取值：alg、drop、trans。alg指返回验证码方式验证，drop表示该访问丢弃，trans表示该访问放行。
      */
     public String getPolicyAction() {
         return this.PolicyAction;
     }
 
     /**
-     * Set 策略方式。可取值：alg、drop。alg指返回验证码方式验证，drop表示该访问丢弃。
-     * @param PolicyAction 策略方式。可取值：alg、drop。alg指返回验证码方式验证，drop表示该访问丢弃。
+     * Set 策略方式。可取值：alg、drop、trans。alg指返回验证码方式验证，drop表示该访问丢弃，trans表示该访问放行。
+     * @param PolicyAction 策略方式。可取值：alg、drop、trans。alg指返回验证码方式验证，drop表示该访问丢弃，trans表示该访问放行。
      */
     public void setPolicyAction(String PolicyAction) {
         this.PolicyAction = PolicyAction;

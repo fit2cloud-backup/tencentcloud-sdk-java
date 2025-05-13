@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApplicationProxyRule extends AbstractModel{
+public class ApplicationProxyRule extends AbstractModel {
 
     /**
     * 协议，取值有：
@@ -44,6 +45,7 @@ public class ApplicationProxyRule extends AbstractModel{
     /**
     * 源站类型，取值有：
 <li>custom：手动添加；</li>
+<li>loadbalancer：负载均衡；</li>
 <li>origins：源站组。</li>
     */
     @SerializedName("OriginType")
@@ -53,6 +55,7 @@ public class ApplicationProxyRule extends AbstractModel{
     /**
     * 源站信息：
 <li>当 OriginType 为 custom 时，表示一个或多个源站，如`["8.8.8.8","9.9.9.9"]` 或 `OriginValue=["test.com"]`；</li>
+<li>当 OriginType 为 loadbalancer 时，表示一个负载均衡，如`["lb-xdffsfasdfs"]`；</li>
 <li>当 OriginType 为 origins 时，要求有且仅有一个元素，表示源站组ID，如`["origin-537f5b41-162a-11ed-abaa-525400c5da15"]`。</li>
     */
     @SerializedName("OriginValue")
@@ -100,7 +103,6 @@ public class ApplicationProxyRule extends AbstractModel{
 
     /**
     * 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SessionPersistTime")
     @Expose
@@ -117,7 +119,6 @@ public class ApplicationProxyRule extends AbstractModel{
 
     /**
     * 规则标签。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleTag")
     @Expose
@@ -178,9 +179,11 @@ public class ApplicationProxyRule extends AbstractModel{
     /**
      * Get 源站类型，取值有：
 <li>custom：手动添加；</li>
+<li>loadbalancer：负载均衡；</li>
 <li>origins：源站组。</li> 
      * @return OriginType 源站类型，取值有：
 <li>custom：手动添加；</li>
+<li>loadbalancer：负载均衡；</li>
 <li>origins：源站组。</li>
      */
     public String getOriginType() {
@@ -190,9 +193,11 @@ public class ApplicationProxyRule extends AbstractModel{
     /**
      * Set 源站类型，取值有：
 <li>custom：手动添加；</li>
+<li>loadbalancer：负载均衡；</li>
 <li>origins：源站组。</li>
      * @param OriginType 源站类型，取值有：
 <li>custom：手动添加；</li>
+<li>loadbalancer：负载均衡；</li>
 <li>origins：源站组。</li>
      */
     public void setOriginType(String OriginType) {
@@ -202,9 +207,11 @@ public class ApplicationProxyRule extends AbstractModel{
     /**
      * Get 源站信息：
 <li>当 OriginType 为 custom 时，表示一个或多个源站，如`["8.8.8.8","9.9.9.9"]` 或 `OriginValue=["test.com"]`；</li>
+<li>当 OriginType 为 loadbalancer 时，表示一个负载均衡，如`["lb-xdffsfasdfs"]`；</li>
 <li>当 OriginType 为 origins 时，要求有且仅有一个元素，表示源站组ID，如`["origin-537f5b41-162a-11ed-abaa-525400c5da15"]`。</li> 
      * @return OriginValue 源站信息：
 <li>当 OriginType 为 custom 时，表示一个或多个源站，如`["8.8.8.8","9.9.9.9"]` 或 `OriginValue=["test.com"]`；</li>
+<li>当 OriginType 为 loadbalancer 时，表示一个负载均衡，如`["lb-xdffsfasdfs"]`；</li>
 <li>当 OriginType 为 origins 时，要求有且仅有一个元素，表示源站组ID，如`["origin-537f5b41-162a-11ed-abaa-525400c5da15"]`。</li>
      */
     public String [] getOriginValue() {
@@ -214,9 +221,11 @@ public class ApplicationProxyRule extends AbstractModel{
     /**
      * Set 源站信息：
 <li>当 OriginType 为 custom 时，表示一个或多个源站，如`["8.8.8.8","9.9.9.9"]` 或 `OriginValue=["test.com"]`；</li>
+<li>当 OriginType 为 loadbalancer 时，表示一个负载均衡，如`["lb-xdffsfasdfs"]`；</li>
 <li>当 OriginType 为 origins 时，要求有且仅有一个元素，表示源站组ID，如`["origin-537f5b41-162a-11ed-abaa-525400c5da15"]`。</li>
      * @param OriginValue 源站信息：
 <li>当 OriginType 为 custom 时，表示一个或多个源站，如`["8.8.8.8","9.9.9.9"]` 或 `OriginValue=["test.com"]`；</li>
+<li>当 OriginType 为 loadbalancer 时，表示一个负载均衡，如`["lb-xdffsfasdfs"]`；</li>
 <li>当 OriginType 为 origins 时，要求有且仅有一个元素，表示源站组ID，如`["origin-537f5b41-162a-11ed-abaa-525400c5da15"]`。</li>
      */
     public void setOriginValue(String [] OriginValue) {
@@ -332,10 +341,8 @@ public class ApplicationProxyRule extends AbstractModel{
     }
 
     /**
-     * Get 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 会话保持的时间，只有当SessionPersist为true时，该值才会生效。 
      * @return SessionPersistTime 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSessionPersistTime() {
         return this.SessionPersistTime;
@@ -343,9 +350,7 @@ public class ApplicationProxyRule extends AbstractModel{
 
     /**
      * Set 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SessionPersistTime 会话保持的时间，只有当SessionPersist为true时，该值才会生效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSessionPersistTime(Long SessionPersistTime) {
         this.SessionPersistTime = SessionPersistTime;
@@ -376,10 +381,8 @@ public class ApplicationProxyRule extends AbstractModel{
     }
 
     /**
-     * Get 规则标签。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则标签。 
      * @return RuleTag 规则标签。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuleTag() {
         return this.RuleTag;
@@ -387,9 +390,7 @@ public class ApplicationProxyRule extends AbstractModel{
 
     /**
      * Set 规则标签。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleTag 规则标签。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleTag(String RuleTag) {
         this.RuleTag = RuleTag;

@@ -16,119 +16,130 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFlowInfoRequest extends AbstractModel{
+public class DescribeFlowInfoRequest extends AbstractModel {
 
     /**
-    * 调用方用户信息，userId 必填
+    * 执行本接口操作的员工信息。 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`	
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 需要查询的流程ID列表，限制最大100个
+    * 需要查询的流程ID列表，最多可传入100个ID。
+如果要查询合同组的信息，则不需要传入此参数，只需传入 FlowGroupId 参数即可。
 
-如果查询合同组的信息,不要传此参数
+
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
+
+[点击查看FlowId在控制台中的位置](https://qcloudimg.tencent-cloud.cn/raw/0a83015166cfe1cb043d14f9ec4bd75e.png)
     */
     @SerializedName("FlowIds")
     @Expose
     private String [] FlowIds;
 
     /**
-    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+    * 代理企业和员工的信息。 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。	
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 合同组ID, 如果传此参数会忽略FlowIds入参
- 所以如传此参数不要传FlowIds参数
-
+    * 需要查询的流程组ID，如果传入此参数，则会忽略 FlowIds 参数。该合同组由<a href="https://qian.tencent.com/developers/companyApis/startFlows/CreateFlowGroupByFiles" target="_blank">通过多文件创建合同组签署流程</a>等接口创建。
     */
     @SerializedName("FlowGroupId")
     @Expose
     private String FlowGroupId;
 
     /**
-     * Get 调用方用户信息，userId 必填 
-     * @return Operator 调用方用户信息，userId 必填
+     * Get 执行本接口操作的员工信息。 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`	 
+     * @return Operator 执行本接口操作的员工信息。 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`	
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方用户信息，userId 必填
-     * @param Operator 调用方用户信息，userId 必填
+     * Set 执行本接口操作的员工信息。 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`	
+     * @param Operator 执行本接口操作的员工信息。 注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`	
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 需要查询的流程ID列表，限制最大100个
+     * Get 需要查询的流程ID列表，最多可传入100个ID。
+如果要查询合同组的信息，则不需要传入此参数，只需传入 FlowGroupId 参数即可。
 
-如果查询合同组的信息,不要传此参数 
-     * @return FlowIds 需要查询的流程ID列表，限制最大100个
 
-如果查询合同组的信息,不要传此参数
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
+
+[点击查看FlowId在控制台中的位置](https://qcloudimg.tencent-cloud.cn/raw/0a83015166cfe1cb043d14f9ec4bd75e.png) 
+     * @return FlowIds 需要查询的流程ID列表，最多可传入100个ID。
+如果要查询合同组的信息，则不需要传入此参数，只需传入 FlowGroupId 参数即可。
+
+
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
+
+[点击查看FlowId在控制台中的位置](https://qcloudimg.tencent-cloud.cn/raw/0a83015166cfe1cb043d14f9ec4bd75e.png)
      */
     public String [] getFlowIds() {
         return this.FlowIds;
     }
 
     /**
-     * Set 需要查询的流程ID列表，限制最大100个
+     * Set 需要查询的流程ID列表，最多可传入100个ID。
+如果要查询合同组的信息，则不需要传入此参数，只需传入 FlowGroupId 参数即可。
 
-如果查询合同组的信息,不要传此参数
-     * @param FlowIds 需要查询的流程ID列表，限制最大100个
 
-如果查询合同组的信息,不要传此参数
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
+
+[点击查看FlowId在控制台中的位置](https://qcloudimg.tencent-cloud.cn/raw/0a83015166cfe1cb043d14f9ec4bd75e.png)
+     * @param FlowIds 需要查询的流程ID列表，最多可传入100个ID。
+如果要查询合同组的信息，则不需要传入此参数，只需传入 FlowGroupId 参数即可。
+
+
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
+
+[点击查看FlowId在控制台中的位置](https://qcloudimg.tencent-cloud.cn/raw/0a83015166cfe1cb043d14f9ec4bd75e.png)
      */
     public void setFlowIds(String [] FlowIds) {
         this.FlowIds = FlowIds;
     }
 
     /**
-     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
-     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Get 代理企业和员工的信息。 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。	 
+     * @return Agent 代理企业和员工的信息。 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。	
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Set 代理企业和员工的信息。 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。	
+     * @param Agent 代理企业和员工的信息。 在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。	
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 合同组ID, 如果传此参数会忽略FlowIds入参
- 所以如传此参数不要传FlowIds参数
- 
-     * @return FlowGroupId 合同组ID, 如果传此参数会忽略FlowIds入参
- 所以如传此参数不要传FlowIds参数
-
+     * Get 需要查询的流程组ID，如果传入此参数，则会忽略 FlowIds 参数。该合同组由<a href="https://qian.tencent.com/developers/companyApis/startFlows/CreateFlowGroupByFiles" target="_blank">通过多文件创建合同组签署流程</a>等接口创建。 
+     * @return FlowGroupId 需要查询的流程组ID，如果传入此参数，则会忽略 FlowIds 参数。该合同组由<a href="https://qian.tencent.com/developers/companyApis/startFlows/CreateFlowGroupByFiles" target="_blank">通过多文件创建合同组签署流程</a>等接口创建。
      */
     public String getFlowGroupId() {
         return this.FlowGroupId;
     }
 
     /**
-     * Set 合同组ID, 如果传此参数会忽略FlowIds入参
- 所以如传此参数不要传FlowIds参数
-
-     * @param FlowGroupId 合同组ID, 如果传此参数会忽略FlowIds入参
- 所以如传此参数不要传FlowIds参数
-
+     * Set 需要查询的流程组ID，如果传入此参数，则会忽略 FlowIds 参数。该合同组由<a href="https://qian.tencent.com/developers/companyApis/startFlows/CreateFlowGroupByFiles" target="_blank">通过多文件创建合同组签署流程</a>等接口创建。
+     * @param FlowGroupId 需要查询的流程组ID，如果传入此参数，则会忽略 FlowIds 参数。该合同组由<a href="https://qian.tencent.com/developers/companyApis/startFlows/CreateFlowGroupByFiles" target="_blank">通过多文件创建合同组签署流程</a>等接口创建。
      */
     public void setFlowGroupId(String FlowGroupId) {
         this.FlowGroupId = FlowGroupId;

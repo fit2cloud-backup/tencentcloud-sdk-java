@@ -16,14 +16,22 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTopicsRequest extends AbstractModel{
+public class DescribeTopicsRequest extends AbstractModel {
 
     /**
-    * <li> topicName按照【日志主题名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> logsetName按照【日志集名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> topicId按照【日志主题ID】进行过滤。类型：String必选：否<br><li> logsetId按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。类型：String必选：否<br><li> tagKey按照【标签键】进行过滤。类型：String必选：否<br><li> tag:tagKey按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换，例如tag:exampleKey。类型：String必选：否<br><li> storageType按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String必选：否每次请求的Filters的上限为10，Filter.Values的上限为100。
+    * <ul><li>topicName 按照【日志主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>topicId 按照【日志主题ID】进行过滤。类型：String。必选：否</li>
+<li>logsetId 按照【日志集ID】进行过滤，可通过调用 DescribeLogsets 查询已创建的日志集列表或登录控制台进行查看；也可以调用 CreateLogset 创建新的日志集。类型：String。必选：否</li>
+<li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li>
+<li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li>
+<li>storageType 按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>
+注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
     */
     @SerializedName("Filters")
     @Expose
@@ -45,10 +53,10 @@ public class DescribeTopicsRequest extends AbstractModel{
 
     /**
     * 控制Filters相关字段是否为精确匹配。
-- 0: 默认值，topicName和logsetName模糊匹配
-- 1: topicName精确匹配
-- 2: logsetName精确匹配
-- 3: topicName和logsetName都精确匹配
+<ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li>
+<li>1: topicName   精确匹配</li>
+<li>2: logsetName精确匹配</li>
+<li>3: topicName 和logsetName 都精确匹配</li></ul>
     */
     @SerializedName("PreciseSearch")
     @Expose
@@ -58,23 +66,50 @@ public class DescribeTopicsRequest extends AbstractModel{
     * 主题类型
 - 0:日志主题，默认值
 - 1:指标主题
-
     */
     @SerializedName("BizType")
     @Expose
     private Long BizType;
 
     /**
-     * Get <li> topicName按照【日志主题名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> logsetName按照【日志集名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> topicId按照【日志主题ID】进行过滤。类型：String必选：否<br><li> logsetId按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。类型：String必选：否<br><li> tagKey按照【标签键】进行过滤。类型：String必选：否<br><li> tag:tagKey按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换，例如tag:exampleKey。类型：String必选：否<br><li> storageType按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String必选：否每次请求的Filters的上限为10，Filter.Values的上限为100。 
-     * @return Filters <li> topicName按照【日志主题名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> logsetName按照【日志集名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> topicId按照【日志主题ID】进行过滤。类型：String必选：否<br><li> logsetId按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。类型：String必选：否<br><li> tagKey按照【标签键】进行过滤。类型：String必选：否<br><li> tag:tagKey按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换，例如tag:exampleKey。类型：String必选：否<br><li> storageType按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String必选：否每次请求的Filters的上限为10，Filter.Values的上限为100。
+     * Get <ul><li>topicName 按照【日志主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>topicId 按照【日志主题ID】进行过滤。类型：String。必选：否</li>
+<li>logsetId 按照【日志集ID】进行过滤，可通过调用 DescribeLogsets 查询已创建的日志集列表或登录控制台进行查看；也可以调用 CreateLogset 创建新的日志集。类型：String。必选：否</li>
+<li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li>
+<li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li>
+<li>storageType 按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>
+注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。 
+     * @return Filters <ul><li>topicName 按照【日志主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>topicId 按照【日志主题ID】进行过滤。类型：String。必选：否</li>
+<li>logsetId 按照【日志集ID】进行过滤，可通过调用 DescribeLogsets 查询已创建的日志集列表或登录控制台进行查看；也可以调用 CreateLogset 创建新的日志集。类型：String。必选：否</li>
+<li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li>
+<li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li>
+<li>storageType 按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>
+注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set <li> topicName按照【日志主题名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> logsetName按照【日志集名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> topicId按照【日志主题ID】进行过滤。类型：String必选：否<br><li> logsetId按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。类型：String必选：否<br><li> tagKey按照【标签键】进行过滤。类型：String必选：否<br><li> tag:tagKey按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换，例如tag:exampleKey。类型：String必选：否<br><li> storageType按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String必选：否每次请求的Filters的上限为10，Filter.Values的上限为100。
-     * @param Filters <li> topicName按照【日志主题名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> logsetName按照【日志集名称】进行过滤，默认为模糊匹配，可使用PreciseSearch参数设置为精确匹配。类型：String必选：否<br><li> topicId按照【日志主题ID】进行过滤。类型：String必选：否<br><li> logsetId按照【日志集ID】进行过滤，可通过调用DescribeLogsets查询已创建的日志集列表或登录控制台进行查看；也可以调用CreateLogset创建新的日志集。类型：String必选：否<br><li> tagKey按照【标签键】进行过滤。类型：String必选：否<br><li> tag:tagKey按照【标签键值对】进行过滤。tagKey使用具体的标签键进行替换，例如tag:exampleKey。类型：String必选：否<br><li> storageType按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String必选：否每次请求的Filters的上限为10，Filter.Values的上限为100。
+     * Set <ul><li>topicName 按照【日志主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>topicId 按照【日志主题ID】进行过滤。类型：String。必选：否</li>
+<li>logsetId 按照【日志集ID】进行过滤，可通过调用 DescribeLogsets 查询已创建的日志集列表或登录控制台进行查看；也可以调用 CreateLogset 创建新的日志集。类型：String。必选：否</li>
+<li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li>
+<li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li>
+<li>storageType 按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>
+注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
+     * @param Filters <ul><li>topicName 按照【日志主题名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>logsetName 按照【日志集名称】进行过滤，默认为模糊匹配，可使用 PreciseSearch 参数设置为精确匹配。类型：String。必选：否</li>
+<li>topicId 按照【日志主题ID】进行过滤。类型：String。必选：否</li>
+<li>logsetId 按照【日志集ID】进行过滤，可通过调用 DescribeLogsets 查询已创建的日志集列表或登录控制台进行查看；也可以调用 CreateLogset 创建新的日志集。类型：String。必选：否</li>
+<li>tagKey 按照【标签键】进行过滤。类型：String。必选：否</li>
+<li>tag:tagKey 按照【标签键值对】进行过滤。tagKey 使用具体的标签键进行替换，例如 tag:exampleKey。类型：String。必选：否</li>
+<li>storageType 按照【日志主题的存储类型】进行过滤。可选值 hot（标准存储），cold（低频存储）类型：String。必选：否</li></ul>
+注意：每次请求的 Filters 的上限为10，Filter.Values 的上限为100。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -114,15 +149,15 @@ public class DescribeTopicsRequest extends AbstractModel{
 
     /**
      * Get 控制Filters相关字段是否为精确匹配。
-- 0: 默认值，topicName和logsetName模糊匹配
-- 1: topicName精确匹配
-- 2: logsetName精确匹配
-- 3: topicName和logsetName都精确匹配 
+<ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li>
+<li>1: topicName   精确匹配</li>
+<li>2: logsetName精确匹配</li>
+<li>3: topicName 和logsetName 都精确匹配</li></ul> 
      * @return PreciseSearch 控制Filters相关字段是否为精确匹配。
-- 0: 默认值，topicName和logsetName模糊匹配
-- 1: topicName精确匹配
-- 2: logsetName精确匹配
-- 3: topicName和logsetName都精确匹配
+<ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li>
+<li>1: topicName   精确匹配</li>
+<li>2: logsetName精确匹配</li>
+<li>3: topicName 和logsetName 都精确匹配</li></ul>
      */
     public Long getPreciseSearch() {
         return this.PreciseSearch;
@@ -130,15 +165,15 @@ public class DescribeTopicsRequest extends AbstractModel{
 
     /**
      * Set 控制Filters相关字段是否为精确匹配。
-- 0: 默认值，topicName和logsetName模糊匹配
-- 1: topicName精确匹配
-- 2: logsetName精确匹配
-- 3: topicName和logsetName都精确匹配
+<ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li>
+<li>1: topicName   精确匹配</li>
+<li>2: logsetName精确匹配</li>
+<li>3: topicName 和logsetName 都精确匹配</li></ul>
      * @param PreciseSearch 控制Filters相关字段是否为精确匹配。
-- 0: 默认值，topicName和logsetName模糊匹配
-- 1: topicName精确匹配
-- 2: logsetName精确匹配
-- 3: topicName和logsetName都精确匹配
+<ul><li>0: 默认值，topicName 和 logsetName 模糊匹配</li>
+<li>1: topicName   精确匹配</li>
+<li>2: logsetName精确匹配</li>
+<li>3: topicName 和logsetName 都精确匹配</li></ul>
      */
     public void setPreciseSearch(Long PreciseSearch) {
         this.PreciseSearch = PreciseSearch;
@@ -147,12 +182,10 @@ public class DescribeTopicsRequest extends AbstractModel{
     /**
      * Get 主题类型
 - 0:日志主题，默认值
-- 1:指标主题
- 
+- 1:指标主题 
      * @return BizType 主题类型
 - 0:日志主题，默认值
 - 1:指标主题
-
      */
     public Long getBizType() {
         return this.BizType;
@@ -162,11 +195,9 @@ public class DescribeTopicsRequest extends AbstractModel{
      * Set 主题类型
 - 0:日志主题，默认值
 - 1:指标主题
-
      * @param BizType 主题类型
 - 0:日志主题，默认值
 - 1:指标主题
-
      */
     public void setBizType(Long BizType) {
         this.BizType = BizType;

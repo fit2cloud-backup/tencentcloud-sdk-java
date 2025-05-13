@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NacosReplica extends AbstractModel{
+public class NacosReplica extends AbstractModel {
 
     /**
     * 名称
@@ -45,7 +46,6 @@ public class NacosReplica extends AbstractModel{
 
     /**
     * 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetId")
     @Expose
@@ -53,7 +53,6 @@ public class NacosReplica extends AbstractModel{
 
     /**
     * 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Zone")
     @Expose
@@ -61,7 +60,6 @@ public class NacosReplica extends AbstractModel{
 
     /**
     * 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneId")
     @Expose
@@ -69,7 +67,6 @@ public class NacosReplica extends AbstractModel{
 
     /**
     * VPC ID	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -124,10 +121,8 @@ public class NacosReplica extends AbstractModel{
     }
 
     /**
-     * Get 子网ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网ID 
      * @return SubnetId 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetId() {
         return this.SubnetId;
@@ -135,19 +130,15 @@ public class NacosReplica extends AbstractModel{
 
     /**
      * Set 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetId 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
     }
 
     /**
-     * Get 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区ID 
      * @return Zone 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZone() {
         return this.Zone;
@@ -155,19 +146,15 @@ public class NacosReplica extends AbstractModel{
 
     /**
      * Set 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Zone 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
     }
 
     /**
-     * Get 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区ID 
      * @return ZoneId 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZoneId() {
         return this.ZoneId;
@@ -175,19 +162,15 @@ public class NacosReplica extends AbstractModel{
 
     /**
      * Set 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneId 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneId(String ZoneId) {
         this.ZoneId = ZoneId;
     }
 
     /**
-     * Get VPC ID	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get VPC ID	 
      * @return VpcId VPC ID	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -195,9 +178,7 @@ public class NacosReplica extends AbstractModel{
 
     /**
      * Set VPC ID	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId VPC ID	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;

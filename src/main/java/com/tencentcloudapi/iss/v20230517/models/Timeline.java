@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Timeline extends AbstractModel{
+public class Timeline extends AbstractModel {
 
     /**
     * 分片起始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Begin")
     @Expose
@@ -32,17 +32,14 @@ public class Timeline extends AbstractModel{
 
     /**
     * 分片结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("End")
     @Expose
     private Long End;
 
     /**
-     * Get 分片起始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分片起始时间 
      * @return Begin 分片起始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBegin() {
         return this.Begin;
@@ -50,19 +47,15 @@ public class Timeline extends AbstractModel{
 
     /**
      * Set 分片起始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Begin 分片起始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBegin(Long Begin) {
         this.Begin = Begin;
     }
 
     /**
-     * Get 分片结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分片结束时间 
      * @return End 分片结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEnd() {
         return this.End;
@@ -70,9 +63,7 @@ public class Timeline extends AbstractModel{
 
     /**
      * Set 分片结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param End 分片结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnd(Long End) {
         this.End = End;

@@ -16,30 +16,31 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResetAttachCcnRequest extends AbstractModel{
+public class ResetAttachCcnRequest extends AbstractModel {
 
     /**
-    * 云联网实例ID。
+    * 云联网实例ID。可通过[DescribeCcns](https://cloud.tencent.com/document/product/215/19199)接口返回值中的CcnId获取。
     */
     @SerializedName("CcnId")
     @Expose
     private String CcnId;
 
     /**
-     * Get 云联网实例ID。 
-     * @return CcnId 云联网实例ID。
+     * Get 云联网实例ID。可通过[DescribeCcns](https://cloud.tencent.com/document/product/215/19199)接口返回值中的CcnId获取。 
+     * @return CcnId 云联网实例ID。可通过[DescribeCcns](https://cloud.tencent.com/document/product/215/19199)接口返回值中的CcnId获取。
      */
     public String getCcnId() {
         return this.CcnId;
     }
 
     /**
-     * Set 云联网实例ID。
-     * @param CcnId 云联网实例ID。
+     * Set 云联网实例ID。可通过[DescribeCcns](https://cloud.tencent.com/document/product/215/19199)接口返回值中的CcnId获取。
+     * @param CcnId 云联网实例ID。可通过[DescribeCcns](https://cloud.tencent.com/document/product/215/19199)接口返回值中的CcnId获取。
      */
     public void setCcnId(String CcnId) {
         this.CcnId = CcnId;

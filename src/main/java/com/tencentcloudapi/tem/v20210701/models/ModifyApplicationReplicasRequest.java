@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyApplicationReplicasRequest extends AbstractModel{
+public class ModifyApplicationReplicasRequest extends AbstractModel {
 
     /**
-    * 服务id
+    * 应用id
     */
     @SerializedName("ApplicationId")
     @Expose
@@ -51,16 +52,16 @@ public class ModifyApplicationReplicasRequest extends AbstractModel{
     private Long SourceChannel;
 
     /**
-     * Get 服务id 
-     * @return ApplicationId 服务id
+     * Get 应用id 
+     * @return ApplicationId 应用id
      */
     public String getApplicationId() {
         return this.ApplicationId;
     }
 
     /**
-     * Set 服务id
-     * @param ApplicationId 服务id
+     * Set 应用id
+     * @param ApplicationId 应用id
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;

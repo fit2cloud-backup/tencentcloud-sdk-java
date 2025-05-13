@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudaudit.v20190319.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAuditTrackResponse extends AbstractModel{
+public class DescribeAuditTrackResponse extends AbstractModel {
 
     /**
     * 跟踪集名称
@@ -73,14 +74,20 @@ public class DescribeAuditTrackResponse extends AbstractModel{
 
     /**
     * 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TrackForAllMembers")
     @Expose
     private Long TrackForAllMembers;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 数据投递过滤条件
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter Filters;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -199,10 +206,8 @@ public class DescribeAuditTrackResponse extends AbstractModel{
     }
 
     /**
-     * Get 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号 
      * @return TrackForAllMembers 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTrackForAllMembers() {
         return this.TrackForAllMembers;
@@ -210,25 +215,39 @@ public class DescribeAuditTrackResponse extends AbstractModel{
 
     /**
      * Set 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TrackForAllMembers 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTrackForAllMembers(Long TrackForAllMembers) {
         this.TrackForAllMembers = TrackForAllMembers;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 数据投递过滤条件 
+     * @return Filters 数据投递过滤条件
+     */
+    public Filter getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 数据投递过滤条件
+     * @param Filters 数据投递过滤条件
+     */
+    public void setFilters(Filter Filters) {
+        this.Filters = Filters;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -269,6 +288,9 @@ public class DescribeAuditTrackResponse extends AbstractModel{
         if (source.TrackForAllMembers != null) {
             this.TrackForAllMembers = new Long(source.TrackForAllMembers);
         }
+        if (source.Filters != null) {
+            this.Filters = new Filter(source.Filters);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -287,6 +309,7 @@ public class DescribeAuditTrackResponse extends AbstractModel{
         this.setParamObj(map, prefix + "Storage.", this.Storage);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "TrackForAllMembers", this.TrackForAllMembers);
+        this.setParamObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

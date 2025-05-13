@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlowLogInfoItem extends AbstractModel{
+public class SlowLogInfoItem extends AbstractModel {
 
     /**
     * 慢日志开始时间
@@ -45,7 +46,6 @@ public class SlowLogInfoItem extends AbstractModel{
 
     /**
     * User来源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserName")
     @Expose
@@ -53,7 +53,6 @@ public class SlowLogInfoItem extends AbstractModel{
 
     /**
     * IP来源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserHost")
     @Expose
@@ -64,19 +63,17 @@ public class SlowLogInfoItem extends AbstractModel{
     */
     @SerializedName("QueryTime")
     @Expose
-    private Long QueryTime;
+    private Float QueryTime;
 
     /**
     * 锁时间,单位秒
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LockTime")
     @Expose
-    private Long LockTime;
+    private Float LockTime;
 
     /**
     * 扫描行数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RowsExamined")
     @Expose
@@ -84,7 +81,6 @@ public class SlowLogInfoItem extends AbstractModel{
 
     /**
     * 返回行数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RowsSent")
     @Expose
@@ -139,10 +135,8 @@ public class SlowLogInfoItem extends AbstractModel{
     }
 
     /**
-     * Get User来源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get User来源 
      * @return UserName User来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserName() {
         return this.UserName;
@@ -150,19 +144,15 @@ public class SlowLogInfoItem extends AbstractModel{
 
     /**
      * Set User来源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserName User来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
     }
 
     /**
-     * Get IP来源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get IP来源 
      * @return UserHost IP来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserHost() {
         return this.UserHost;
@@ -170,9 +160,7 @@ public class SlowLogInfoItem extends AbstractModel{
 
     /**
      * Set IP来源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserHost IP来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserHost(String UserHost) {
         this.UserHost = UserHost;
@@ -182,7 +170,7 @@ public class SlowLogInfoItem extends AbstractModel{
      * Get 执行时间,单位秒 
      * @return QueryTime 执行时间,单位秒
      */
-    public Long getQueryTime() {
+    public Float getQueryTime() {
         return this.QueryTime;
     }
 
@@ -190,35 +178,29 @@ public class SlowLogInfoItem extends AbstractModel{
      * Set 执行时间,单位秒
      * @param QueryTime 执行时间,单位秒
      */
-    public void setQueryTime(Long QueryTime) {
+    public void setQueryTime(Float QueryTime) {
         this.QueryTime = QueryTime;
     }
 
     /**
-     * Get 锁时间,单位秒
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 锁时间,单位秒 
      * @return LockTime 锁时间,单位秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
-    public Long getLockTime() {
+    public Float getLockTime() {
         return this.LockTime;
     }
 
     /**
      * Set 锁时间,单位秒
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LockTime 锁时间,单位秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
-    public void setLockTime(Long LockTime) {
+    public void setLockTime(Float LockTime) {
         this.LockTime = LockTime;
     }
 
     /**
-     * Get 扫描行数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描行数 
      * @return RowsExamined 扫描行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRowsExamined() {
         return this.RowsExamined;
@@ -226,19 +208,15 @@ public class SlowLogInfoItem extends AbstractModel{
 
     /**
      * Set 扫描行数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RowsExamined 扫描行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRowsExamined(Long RowsExamined) {
         this.RowsExamined = RowsExamined;
     }
 
     /**
-     * Get 返回行数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 返回行数 
      * @return RowsSent 返回行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRowsSent() {
         return this.RowsSent;
@@ -246,9 +224,7 @@ public class SlowLogInfoItem extends AbstractModel{
 
     /**
      * Set 返回行数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RowsSent 返回行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRowsSent(Long RowsSent) {
         this.RowsSent = RowsSent;
@@ -278,10 +254,10 @@ public class SlowLogInfoItem extends AbstractModel{
             this.UserHost = new String(source.UserHost);
         }
         if (source.QueryTime != null) {
-            this.QueryTime = new Long(source.QueryTime);
+            this.QueryTime = new Float(source.QueryTime);
         }
         if (source.LockTime != null) {
-            this.LockTime = new Long(source.LockTime);
+            this.LockTime = new Float(source.LockTime);
         }
         if (source.RowsExamined != null) {
             this.RowsExamined = new Long(source.RowsExamined);

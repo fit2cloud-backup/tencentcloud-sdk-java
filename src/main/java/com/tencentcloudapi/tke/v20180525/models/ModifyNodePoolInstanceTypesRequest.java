@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyNodePoolInstanceTypesRequest extends AbstractModel{
+public class ModifyNodePoolInstanceTypesRequest extends AbstractModel {
 
     /**
     * 集群id
@@ -37,7 +38,7 @@ public class ModifyNodePoolInstanceTypesRequest extends AbstractModel{
     private String NodePoolId;
 
     /**
-    * 机型列表
+    * 机型列表，主实例机型不支持修改
     */
     @SerializedName("InstanceTypes")
     @Expose
@@ -76,16 +77,16 @@ public class ModifyNodePoolInstanceTypesRequest extends AbstractModel{
     }
 
     /**
-     * Get 机型列表 
-     * @return InstanceTypes 机型列表
+     * Get 机型列表，主实例机型不支持修改 
+     * @return InstanceTypes 机型列表，主实例机型不支持修改
      */
     public String [] getInstanceTypes() {
         return this.InstanceTypes;
     }
 
     /**
-     * Set 机型列表
-     * @param InstanceTypes 机型列表
+     * Set 机型列表，主实例机型不支持修改
+     * @param InstanceTypes 机型列表，主实例机型不支持修改
      */
     public void setInstanceTypes(String [] InstanceTypes) {
         this.InstanceTypes = InstanceTypes;

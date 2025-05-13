@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlowQueriesItem extends AbstractModel{
+public class SlowQueriesItem extends AbstractModel {
 
     /**
     * 执行时间戳
@@ -98,6 +99,62 @@ public class SlowQueriesItem extends AbstractModel{
     @SerializedName("SqlMd5")
     @Expose
     private String SqlMd5;
+
+    /**
+    * 远程读取次数
+数据库内核版本大于3.1.12
+    */
+    @SerializedName("SyncReadCountRemote")
+    @Expose
+    private Long SyncReadCountRemote;
+
+    /**
+    * 远程读取的字节数
+数据库内核版本大于3.1.12
+    */
+    @SerializedName("SyncReadBytesRemote")
+    @Expose
+    private Long SyncReadBytesRemote;
+
+    /**
+    * 远程读取所花费的时间（微秒）
+数据库内核版本大于3.1.12
+    */
+    @SerializedName("SyncReadTimeRemote")
+    @Expose
+    private Long SyncReadTimeRemote;
+
+    /**
+    * 远程写入次数
+数据库内核版本大于3.1.12
+    */
+    @SerializedName("SyncWriteCountRemote")
+    @Expose
+    private Long SyncWriteCountRemote;
+
+    /**
+    * 远程写入的字节数。
+数据库内核版本大于3.1.12
+    */
+    @SerializedName("SyncWriteBytesRemote")
+    @Expose
+    private Long SyncWriteBytesRemote;
+
+    /**
+    * 远程写入所花费的时间（微秒）。
+数据库内核版本大于3.1.12
+    */
+    @SerializedName("SyncWriteTimeRemote")
+    @Expose
+    private Long SyncWriteTimeRemote;
+
+    /**
+    * 事务提交延迟（微秒）
+数据库内核版本大于3.1.12
+    */
+    @SerializedName("TrxCommitDelay")
+    @Expose
+    private Long TrxCommitDelay;
 
     /**
      * Get 执行时间戳 
@@ -275,6 +332,146 @@ public class SlowQueriesItem extends AbstractModel{
         this.SqlMd5 = SqlMd5;
     }
 
+    /**
+     * Get 远程读取次数
+数据库内核版本大于3.1.12 
+     * @return SyncReadCountRemote 远程读取次数
+数据库内核版本大于3.1.12
+     */
+    public Long getSyncReadCountRemote() {
+        return this.SyncReadCountRemote;
+    }
+
+    /**
+     * Set 远程读取次数
+数据库内核版本大于3.1.12
+     * @param SyncReadCountRemote 远程读取次数
+数据库内核版本大于3.1.12
+     */
+    public void setSyncReadCountRemote(Long SyncReadCountRemote) {
+        this.SyncReadCountRemote = SyncReadCountRemote;
+    }
+
+    /**
+     * Get 远程读取的字节数
+数据库内核版本大于3.1.12 
+     * @return SyncReadBytesRemote 远程读取的字节数
+数据库内核版本大于3.1.12
+     */
+    public Long getSyncReadBytesRemote() {
+        return this.SyncReadBytesRemote;
+    }
+
+    /**
+     * Set 远程读取的字节数
+数据库内核版本大于3.1.12
+     * @param SyncReadBytesRemote 远程读取的字节数
+数据库内核版本大于3.1.12
+     */
+    public void setSyncReadBytesRemote(Long SyncReadBytesRemote) {
+        this.SyncReadBytesRemote = SyncReadBytesRemote;
+    }
+
+    /**
+     * Get 远程读取所花费的时间（微秒）
+数据库内核版本大于3.1.12 
+     * @return SyncReadTimeRemote 远程读取所花费的时间（微秒）
+数据库内核版本大于3.1.12
+     */
+    public Long getSyncReadTimeRemote() {
+        return this.SyncReadTimeRemote;
+    }
+
+    /**
+     * Set 远程读取所花费的时间（微秒）
+数据库内核版本大于3.1.12
+     * @param SyncReadTimeRemote 远程读取所花费的时间（微秒）
+数据库内核版本大于3.1.12
+     */
+    public void setSyncReadTimeRemote(Long SyncReadTimeRemote) {
+        this.SyncReadTimeRemote = SyncReadTimeRemote;
+    }
+
+    /**
+     * Get 远程写入次数
+数据库内核版本大于3.1.12 
+     * @return SyncWriteCountRemote 远程写入次数
+数据库内核版本大于3.1.12
+     */
+    public Long getSyncWriteCountRemote() {
+        return this.SyncWriteCountRemote;
+    }
+
+    /**
+     * Set 远程写入次数
+数据库内核版本大于3.1.12
+     * @param SyncWriteCountRemote 远程写入次数
+数据库内核版本大于3.1.12
+     */
+    public void setSyncWriteCountRemote(Long SyncWriteCountRemote) {
+        this.SyncWriteCountRemote = SyncWriteCountRemote;
+    }
+
+    /**
+     * Get 远程写入的字节数。
+数据库内核版本大于3.1.12 
+     * @return SyncWriteBytesRemote 远程写入的字节数。
+数据库内核版本大于3.1.12
+     */
+    public Long getSyncWriteBytesRemote() {
+        return this.SyncWriteBytesRemote;
+    }
+
+    /**
+     * Set 远程写入的字节数。
+数据库内核版本大于3.1.12
+     * @param SyncWriteBytesRemote 远程写入的字节数。
+数据库内核版本大于3.1.12
+     */
+    public void setSyncWriteBytesRemote(Long SyncWriteBytesRemote) {
+        this.SyncWriteBytesRemote = SyncWriteBytesRemote;
+    }
+
+    /**
+     * Get 远程写入所花费的时间（微秒）。
+数据库内核版本大于3.1.12 
+     * @return SyncWriteTimeRemote 远程写入所花费的时间（微秒）。
+数据库内核版本大于3.1.12
+     */
+    public Long getSyncWriteTimeRemote() {
+        return this.SyncWriteTimeRemote;
+    }
+
+    /**
+     * Set 远程写入所花费的时间（微秒）。
+数据库内核版本大于3.1.12
+     * @param SyncWriteTimeRemote 远程写入所花费的时间（微秒）。
+数据库内核版本大于3.1.12
+     */
+    public void setSyncWriteTimeRemote(Long SyncWriteTimeRemote) {
+        this.SyncWriteTimeRemote = SyncWriteTimeRemote;
+    }
+
+    /**
+     * Get 事务提交延迟（微秒）
+数据库内核版本大于3.1.12 
+     * @return TrxCommitDelay 事务提交延迟（微秒）
+数据库内核版本大于3.1.12
+     */
+    public Long getTrxCommitDelay() {
+        return this.TrxCommitDelay;
+    }
+
+    /**
+     * Set 事务提交延迟（微秒）
+数据库内核版本大于3.1.12
+     * @param TrxCommitDelay 事务提交延迟（微秒）
+数据库内核版本大于3.1.12
+     */
+    public void setTrxCommitDelay(Long TrxCommitDelay) {
+        this.TrxCommitDelay = TrxCommitDelay;
+    }
+
     public SlowQueriesItem() {
     }
 
@@ -316,6 +513,27 @@ public class SlowQueriesItem extends AbstractModel{
         if (source.SqlMd5 != null) {
             this.SqlMd5 = new String(source.SqlMd5);
         }
+        if (source.SyncReadCountRemote != null) {
+            this.SyncReadCountRemote = new Long(source.SyncReadCountRemote);
+        }
+        if (source.SyncReadBytesRemote != null) {
+            this.SyncReadBytesRemote = new Long(source.SyncReadBytesRemote);
+        }
+        if (source.SyncReadTimeRemote != null) {
+            this.SyncReadTimeRemote = new Long(source.SyncReadTimeRemote);
+        }
+        if (source.SyncWriteCountRemote != null) {
+            this.SyncWriteCountRemote = new Long(source.SyncWriteCountRemote);
+        }
+        if (source.SyncWriteBytesRemote != null) {
+            this.SyncWriteBytesRemote = new Long(source.SyncWriteBytesRemote);
+        }
+        if (source.SyncWriteTimeRemote != null) {
+            this.SyncWriteTimeRemote = new Long(source.SyncWriteTimeRemote);
+        }
+        if (source.TrxCommitDelay != null) {
+            this.TrxCommitDelay = new Long(source.TrxCommitDelay);
+        }
     }
 
 
@@ -334,6 +552,13 @@ public class SlowQueriesItem extends AbstractModel{
         this.setParamSimple(map, prefix + "RowsSent", this.RowsSent);
         this.setParamSimple(map, prefix + "SqlTemplate", this.SqlTemplate);
         this.setParamSimple(map, prefix + "SqlMd5", this.SqlMd5);
+        this.setParamSimple(map, prefix + "SyncReadCountRemote", this.SyncReadCountRemote);
+        this.setParamSimple(map, prefix + "SyncReadBytesRemote", this.SyncReadBytesRemote);
+        this.setParamSimple(map, prefix + "SyncReadTimeRemote", this.SyncReadTimeRemote);
+        this.setParamSimple(map, prefix + "SyncWriteCountRemote", this.SyncWriteCountRemote);
+        this.setParamSimple(map, prefix + "SyncWriteBytesRemote", this.SyncWriteBytesRemote);
+        this.setParamSimple(map, prefix + "SyncWriteTimeRemote", this.SyncWriteTimeRemote);
+        this.setParamSimple(map, prefix + "TrxCommitDelay", this.TrxCommitDelay);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTawInstancesRequest extends AbstractModel{
+public class DescribeTawInstancesRequest extends AbstractModel {
 
     /**
     * 计费状态
@@ -168,7 +169,9 @@ public class DescribeTawInstancesRequest extends AbstractModel{
     /**
      * Get 实例状态(1=创建中，2=运行中，3=异常，4=重启中，5=停止中，6=已停止，7=销毁中，8=已销毁), 该参数已废弃，请在Filters内注明 
      * @return InstanceStatuses 实例状态(1=创建中，2=运行中，3=异常，4=重启中，5=停止中，6=已停止，7=销毁中，8=已销毁), 该参数已废弃，请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public Long [] getInstanceStatuses() {
         return this.InstanceStatuses;
     }
@@ -176,7 +179,9 @@ public class DescribeTawInstancesRequest extends AbstractModel{
     /**
      * Set 实例状态(1=创建中，2=运行中，3=异常，4=重启中，5=停止中，6=已停止，7=销毁中，8=已销毁), 该参数已废弃，请在Filters内注明
      * @param InstanceStatuses 实例状态(1=创建中，2=运行中，3=异常，4=重启中，5=停止中，6=已停止，7=销毁中，8=已销毁), 该参数已废弃，请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceStatuses(Long [] InstanceStatuses) {
         this.InstanceStatuses = InstanceStatuses;
     }
@@ -184,7 +189,9 @@ public class DescribeTawInstancesRequest extends AbstractModel{
     /**
      * Get 实例Id, 该参数已废弃，请在Filters内注明 
      * @return InstanceIds 实例Id, 该参数已废弃，请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public String [] getInstanceIds() {
         return this.InstanceIds;
     }
@@ -192,7 +199,9 @@ public class DescribeTawInstancesRequest extends AbstractModel{
     /**
      * Set 实例Id, 该参数已废弃，请在Filters内注明
      * @param InstanceIds 实例Id, 该参数已废弃，请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;
     }
@@ -216,7 +225,9 @@ public class DescribeTawInstancesRequest extends AbstractModel{
     /**
      * Get 该参数已废弃，demo模式请在Filters内注明 
      * @return IsDemo 该参数已废弃，demo模式请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public Long getIsDemo() {
         return this.IsDemo;
     }
@@ -224,7 +235,9 @@ public class DescribeTawInstancesRequest extends AbstractModel{
     /**
      * Set 该参数已废弃，demo模式请在Filters内注明
      * @param IsDemo 该参数已废弃，demo模式请在Filters内注明
+     * @deprecated
      */
+    @Deprecated
     public void setIsDemo(Long IsDemo) {
         this.IsDemo = IsDemo;
     }

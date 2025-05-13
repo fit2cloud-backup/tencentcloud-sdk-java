@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyOrderAttributeRequest extends AbstractModel{
+public class ModifyOrderAttributeRequest extends AbstractModel {
 
     /**
     * 授权类型 0 专业版-按量计费, 1专业版-包年包月 , 2 旗舰版-包年包月
@@ -37,7 +38,9 @@ public class ModifyOrderAttributeRequest extends AbstractModel{
     private String ResourceId;
 
     /**
-    * 可编辑的属性名称 ,当前支持的有: alias 资源别名
+    * 可编辑的属性名称 ,当前支持的有: 
+alias 资源别名
+projectId 项目ID
     */
     @SerializedName("AttrName")
     @Expose
@@ -45,6 +48,8 @@ public class ModifyOrderAttributeRequest extends AbstractModel{
 
     /**
     * 属性值
+AttrName=alias时,任意字符串,最大字符15长度
+AttrName=projectId时,项目ID必须是真实存在的
     */
     @SerializedName("AttrValue")
     @Expose
@@ -83,24 +88,36 @@ public class ModifyOrderAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get 可编辑的属性名称 ,当前支持的有: alias 资源别名 
-     * @return AttrName 可编辑的属性名称 ,当前支持的有: alias 资源别名
+     * Get 可编辑的属性名称 ,当前支持的有: 
+alias 资源别名
+projectId 项目ID 
+     * @return AttrName 可编辑的属性名称 ,当前支持的有: 
+alias 资源别名
+projectId 项目ID
      */
     public String getAttrName() {
         return this.AttrName;
     }
 
     /**
-     * Set 可编辑的属性名称 ,当前支持的有: alias 资源别名
-     * @param AttrName 可编辑的属性名称 ,当前支持的有: alias 资源别名
+     * Set 可编辑的属性名称 ,当前支持的有: 
+alias 资源别名
+projectId 项目ID
+     * @param AttrName 可编辑的属性名称 ,当前支持的有: 
+alias 资源别名
+projectId 项目ID
      */
     public void setAttrName(String AttrName) {
         this.AttrName = AttrName;
     }
 
     /**
-     * Get 属性值 
+     * Get 属性值
+AttrName=alias时,任意字符串,最大字符15长度
+AttrName=projectId时,项目ID必须是真实存在的 
      * @return AttrValue 属性值
+AttrName=alias时,任意字符串,最大字符15长度
+AttrName=projectId时,项目ID必须是真实存在的
      */
     public String getAttrValue() {
         return this.AttrValue;
@@ -108,7 +125,11 @@ public class ModifyOrderAttributeRequest extends AbstractModel{
 
     /**
      * Set 属性值
+AttrName=alias时,任意字符串,最大字符15长度
+AttrName=projectId时,项目ID必须是真实存在的
      * @param AttrValue 属性值
+AttrName=alias时,任意字符串,最大字符15长度
+AttrName=projectId时,项目ID必须是真实存在的
      */
     public void setAttrValue(String AttrValue) {
         this.AttrValue = AttrValue;

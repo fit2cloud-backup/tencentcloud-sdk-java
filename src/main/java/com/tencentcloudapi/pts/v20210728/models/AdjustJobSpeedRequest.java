@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AdjustJobSpeedRequest extends AbstractModel{
+public class AdjustJobSpeedRequest extends AbstractModel {
 
     /**
     * 任务ID
@@ -30,7 +31,7 @@ public class AdjustJobSpeedRequest extends AbstractModel{
     private String JobId;
 
     /**
-    * 目标RPS
+    * 目标 RPS。其取值应大于起始 RPS，并且小于最大 RPS
     */
     @SerializedName("TargetRequestsPerSecond")
     @Expose
@@ -53,16 +54,16 @@ public class AdjustJobSpeedRequest extends AbstractModel{
     }
 
     /**
-     * Get 目标RPS 
-     * @return TargetRequestsPerSecond 目标RPS
+     * Get 目标 RPS。其取值应大于起始 RPS，并且小于最大 RPS 
+     * @return TargetRequestsPerSecond 目标 RPS。其取值应大于起始 RPS，并且小于最大 RPS
      */
     public Long getTargetRequestsPerSecond() {
         return this.TargetRequestsPerSecond;
     }
 
     /**
-     * Set 目标RPS
-     * @param TargetRequestsPerSecond 目标RPS
+     * Set 目标 RPS。其取值应大于起始 RPS，并且小于最大 RPS
+     * @param TargetRequestsPerSecond 目标 RPS。其取值应大于起始 RPS，并且小于最大 RPS
      */
     public void setTargetRequestsPerSecond(Long TargetRequestsPerSecond) {
         this.TargetRequestsPerSecond = TargetRequestsPerSecond;

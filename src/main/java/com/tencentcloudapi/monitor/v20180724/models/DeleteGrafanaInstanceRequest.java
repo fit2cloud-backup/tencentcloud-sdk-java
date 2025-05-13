@@ -16,30 +16,31 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteGrafanaInstanceRequest extends AbstractModel{
+public class DeleteGrafanaInstanceRequest extends AbstractModel {
 
     /**
-    * 实例名数组
+    * 实例ID数组
     */
     @SerializedName("InstanceIDs")
     @Expose
     private String [] InstanceIDs;
 
     /**
-     * Get 实例名数组 
-     * @return InstanceIDs 实例名数组
+     * Get 实例ID数组 
+     * @return InstanceIDs 实例ID数组
      */
     public String [] getInstanceIDs() {
         return this.InstanceIDs;
     }
 
     /**
-     * Set 实例名数组
-     * @param InstanceIDs 实例名数组
+     * Set 实例ID数组
+     * @param InstanceIDs 实例ID数组
      */
     public void setInstanceIDs(String [] InstanceIDs) {
         this.InstanceIDs = InstanceIDs;

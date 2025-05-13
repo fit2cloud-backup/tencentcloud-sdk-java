@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ComplianceAffectedAsset extends AbstractModel{
+public class ComplianceAffectedAsset extends AbstractModel {
 
     /**
     * 为客户分配的唯一的资产项的ID。
@@ -87,7 +88,6 @@ RESULT_PASSED: 通过
 
     /**
     * 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostIP")
     @Expose
@@ -95,7 +95,6 @@ RESULT_PASSED: 通过
 
     /**
     * 镜像的tag
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageTag")
     @Expose
@@ -103,7 +102,6 @@ RESULT_PASSED: 通过
 
     /**
     * 检查项验证信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VerifyInfo")
     @Expose
@@ -111,11 +109,31 @@ RESULT_PASSED: 通过
 
     /**
     * 主机实例id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
+
+    /**
+    * 镜像仓库信息
+    */
+    @SerializedName("ImageRegistryInfo")
+    @Expose
+    private ImageRegistryInfo ImageRegistryInfo;
+
+    /**
+    * 集群id
+    */
+    @SerializedName("ClusterID")
+    @Expose
+    private String ClusterID;
+
+    /**
+    * 集群名称
+    */
+    @SerializedName("ClusterName")
+    @Expose
+    private String ClusterName;
 
     /**
      * Get 为客户分配的唯一的资产项的ID。 
@@ -286,10 +304,8 @@ RESULT_PASSED: 通过
     }
 
     /**
-     * Get 主机IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机IP 
      * @return HostIP 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostIP() {
         return this.HostIP;
@@ -297,19 +313,15 @@ RESULT_PASSED: 通过
 
     /**
      * Set 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostIP 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostIP(String HostIP) {
         this.HostIP = HostIP;
     }
 
     /**
-     * Get 镜像的tag
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像的tag 
      * @return ImageTag 镜像的tag
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageTag() {
         return this.ImageTag;
@@ -317,19 +329,15 @@ RESULT_PASSED: 通过
 
     /**
      * Set 镜像的tag
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageTag 镜像的tag
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageTag(String ImageTag) {
         this.ImageTag = ImageTag;
     }
 
     /**
-     * Get 检查项验证信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检查项验证信息 
      * @return VerifyInfo 检查项验证信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVerifyInfo() {
         return this.VerifyInfo;
@@ -337,19 +345,15 @@ RESULT_PASSED: 通过
 
     /**
      * Set 检查项验证信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VerifyInfo 检查项验证信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVerifyInfo(String VerifyInfo) {
         this.VerifyInfo = VerifyInfo;
     }
 
     /**
-     * Get 主机实例id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机实例id 
      * @return InstanceId 主机实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -357,12 +361,58 @@ RESULT_PASSED: 通过
 
     /**
      * Set 主机实例id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 主机实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 镜像仓库信息 
+     * @return ImageRegistryInfo 镜像仓库信息
+     */
+    public ImageRegistryInfo getImageRegistryInfo() {
+        return this.ImageRegistryInfo;
+    }
+
+    /**
+     * Set 镜像仓库信息
+     * @param ImageRegistryInfo 镜像仓库信息
+     */
+    public void setImageRegistryInfo(ImageRegistryInfo ImageRegistryInfo) {
+        this.ImageRegistryInfo = ImageRegistryInfo;
+    }
+
+    /**
+     * Get 集群id 
+     * @return ClusterID 集群id
+     */
+    public String getClusterID() {
+        return this.ClusterID;
+    }
+
+    /**
+     * Set 集群id
+     * @param ClusterID 集群id
+     */
+    public void setClusterID(String ClusterID) {
+        this.ClusterID = ClusterID;
+    }
+
+    /**
+     * Get 集群名称 
+     * @return ClusterName 集群名称
+     */
+    public String getClusterName() {
+        return this.ClusterName;
+    }
+
+    /**
+     * Set 集群名称
+     * @param ClusterName 集群名称
+     */
+    public void setClusterName(String ClusterName) {
+        this.ClusterName = ClusterName;
     }
 
     public ComplianceAffectedAsset() {
@@ -406,6 +456,15 @@ RESULT_PASSED: 通过
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
         }
+        if (source.ImageRegistryInfo != null) {
+            this.ImageRegistryInfo = new ImageRegistryInfo(source.ImageRegistryInfo);
+        }
+        if (source.ClusterID != null) {
+            this.ClusterID = new String(source.ClusterID);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
     }
 
 
@@ -424,6 +483,9 @@ RESULT_PASSED: 通过
         this.setParamSimple(map, prefix + "ImageTag", this.ImageTag);
         this.setParamSimple(map, prefix + "VerifyInfo", this.VerifyInfo);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamObj(map, prefix + "ImageRegistryInfo.", this.ImageRegistryInfo);
+        this.setParamSimple(map, prefix + "ClusterID", this.ClusterID);
+        this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
 
     }
 }

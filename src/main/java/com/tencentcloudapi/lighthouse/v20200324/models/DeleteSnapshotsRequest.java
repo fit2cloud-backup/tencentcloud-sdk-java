@@ -16,30 +16,31 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteSnapshotsRequest extends AbstractModel{
+public class DeleteSnapshotsRequest extends AbstractModel {
 
     /**
-    * 要删除的快照 ID 列表，可通过 DescribeSnapshots 查询。
+    * 要删除的快照 ID 列表，每次请求批量快照的上限为10个，可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a>查询。
     */
     @SerializedName("SnapshotIds")
     @Expose
     private String [] SnapshotIds;
 
     /**
-     * Get 要删除的快照 ID 列表，可通过 DescribeSnapshots 查询。 
-     * @return SnapshotIds 要删除的快照 ID 列表，可通过 DescribeSnapshots 查询。
+     * Get 要删除的快照 ID 列表，每次请求批量快照的上限为10个，可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a>查询。 
+     * @return SnapshotIds 要删除的快照 ID 列表，每次请求批量快照的上限为10个，可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a>查询。
      */
     public String [] getSnapshotIds() {
         return this.SnapshotIds;
     }
 
     /**
-     * Set 要删除的快照 ID 列表，可通过 DescribeSnapshots 查询。
-     * @param SnapshotIds 要删除的快照 ID 列表，可通过 DescribeSnapshots 查询。
+     * Set 要删除的快照 ID 列表，每次请求批量快照的上限为10个，可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a>查询。
+     * @param SnapshotIds 要删除的快照 ID 列表，每次请求批量快照的上限为10个，可通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a>查询。
      */
     public void setSnapshotIds(String [] SnapshotIds) {
         this.SnapshotIds = SnapshotIds;

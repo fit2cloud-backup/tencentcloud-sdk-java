@@ -16,26 +16,29 @@
 package com.tencentcloudapi.fmu.v20191213.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BeautifyPicRequest extends AbstractModel{
+public class BeautifyPicRequest extends AbstractModel {
 
     /**
-    * 图片 base64 数据，base64 编码后大小不可超过5M。 
+    * 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
     */
     @SerializedName("Image")
     @Expose
     private String Image;
 
     /**
-    * 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+    * 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
     */
     @SerializedName("Url")
     @Expose
@@ -77,52 +80,60 @@ Url、Image必须提供一个，如果都提供，只使用 Url。
     private String RspImgType;
 
     /**
-     * Get 图片 base64 数据，base64 编码后大小不可超过5M。 
-支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
-     * @return Image 图片 base64 数据，base64 编码后大小不可超过5M。 
+     * Get 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。 
+     * @return Image 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public String getImage() {
         return this.Image;
     }
 
     /**
-     * Set 图片 base64 数据，base64 编码后大小不可超过5M。 
+     * Set 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
-     * @param Image 图片 base64 数据，base64 编码后大小不可超过5M。 
+暂不支持带有alpha透明通道的图片。
+     * @param Image 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public void setImage(String Image) {
         this.Image = Image;
     }
 
     /**
-     * Get 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
-Url、Image必须提供一个，如果都提供，只使用 Url。  
-图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
-非腾讯云存储的Url速度和稳定性可能受一定影响。 
-支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
-     * @return Url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+     * Get 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。 
+     * @return Url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
+Url、Image必须提供一个，如果都提供，只使用 Url。  
+图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
+非腾讯云存储的Url速度和稳定性可能受一定影响。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public String getUrl() {
         return this.Url;
     }
 
     /**
-     * Set 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+     * Set 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
-     * @param Url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+暂不支持带有alpha透明通道的图片。
+     * @param Url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public void setUrl(String Url) {
         this.Url = Url;

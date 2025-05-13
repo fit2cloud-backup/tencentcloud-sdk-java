@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceUpgradeProgressItem extends AbstractModel{
+public class InstanceUpgradeProgressItem extends AbstractModel {
 
     /**
     * 节点instanceID
@@ -45,7 +46,6 @@ pending 还未开始
 
     /**
     * 升级开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartAt")
     @Expose
@@ -53,7 +53,6 @@ pending 还未开始
 
     /**
     * 升级结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndAt")
     @Expose
@@ -134,10 +133,8 @@ pending 还未开始
     }
 
     /**
-     * Get 升级开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 升级开始时间 
      * @return StartAt 升级开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartAt() {
         return this.StartAt;
@@ -145,19 +142,15 @@ pending 还未开始
 
     /**
      * Set 升级开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartAt 升级开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartAt(String StartAt) {
         this.StartAt = StartAt;
     }
 
     /**
-     * Get 升级结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 升级结束时间 
      * @return EndAt 升级结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndAt() {
         return this.EndAt;
@@ -165,9 +158,7 @@ pending 还未开始
 
     /**
      * Set 升级结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndAt 升级结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndAt(String EndAt) {
         this.EndAt = EndAt;

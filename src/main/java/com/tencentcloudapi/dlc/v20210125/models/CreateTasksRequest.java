@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateTasksRequest extends AbstractModel{
+public class CreateTasksRequest extends AbstractModel {
 
     /**
     * 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。
@@ -49,6 +50,27 @@ public class CreateTasksRequest extends AbstractModel{
     @SerializedName("DataEngineName")
     @Expose
     private String DataEngineName;
+
+    /**
+    * spark集群资源组名称
+    */
+    @SerializedName("ResourceGroupName")
+    @Expose
+    private String ResourceGroupName;
+
+    /**
+    * 是否使用multi- statement方式运行一批次任务，true: 是，false: 否
+    */
+    @SerializedName("IsMultiStatement")
+    @Expose
+    private Boolean IsMultiStatement;
+
+    /**
+    * 任务来源信息
+    */
+    @SerializedName("SourceInfo")
+    @Expose
+    private KVPair [] SourceInfo;
 
     /**
      * Get 数据库名称。如果SQL语句中有数据库名称，优先使用SQL语句中的数据库，否则使用该参数指定的数据库（注：当提交建库sql时，该字段传空字符串）。 
@@ -114,6 +136,54 @@ public class CreateTasksRequest extends AbstractModel{
         this.DataEngineName = DataEngineName;
     }
 
+    /**
+     * Get spark集群资源组名称 
+     * @return ResourceGroupName spark集群资源组名称
+     */
+    public String getResourceGroupName() {
+        return this.ResourceGroupName;
+    }
+
+    /**
+     * Set spark集群资源组名称
+     * @param ResourceGroupName spark集群资源组名称
+     */
+    public void setResourceGroupName(String ResourceGroupName) {
+        this.ResourceGroupName = ResourceGroupName;
+    }
+
+    /**
+     * Get 是否使用multi- statement方式运行一批次任务，true: 是，false: 否 
+     * @return IsMultiStatement 是否使用multi- statement方式运行一批次任务，true: 是，false: 否
+     */
+    public Boolean getIsMultiStatement() {
+        return this.IsMultiStatement;
+    }
+
+    /**
+     * Set 是否使用multi- statement方式运行一批次任务，true: 是，false: 否
+     * @param IsMultiStatement 是否使用multi- statement方式运行一批次任务，true: 是，false: 否
+     */
+    public void setIsMultiStatement(Boolean IsMultiStatement) {
+        this.IsMultiStatement = IsMultiStatement;
+    }
+
+    /**
+     * Get 任务来源信息 
+     * @return SourceInfo 任务来源信息
+     */
+    public KVPair [] getSourceInfo() {
+        return this.SourceInfo;
+    }
+
+    /**
+     * Set 任务来源信息
+     * @param SourceInfo 任务来源信息
+     */
+    public void setSourceInfo(KVPair [] SourceInfo) {
+        this.SourceInfo = SourceInfo;
+    }
+
     public CreateTasksRequest() {
     }
 
@@ -134,6 +204,18 @@ public class CreateTasksRequest extends AbstractModel{
         if (source.DataEngineName != null) {
             this.DataEngineName = new String(source.DataEngineName);
         }
+        if (source.ResourceGroupName != null) {
+            this.ResourceGroupName = new String(source.ResourceGroupName);
+        }
+        if (source.IsMultiStatement != null) {
+            this.IsMultiStatement = new Boolean(source.IsMultiStatement);
+        }
+        if (source.SourceInfo != null) {
+            this.SourceInfo = new KVPair[source.SourceInfo.length];
+            for (int i = 0; i < source.SourceInfo.length; i++) {
+                this.SourceInfo[i] = new KVPair(source.SourceInfo[i]);
+            }
+        }
     }
 
 
@@ -145,6 +227,9 @@ public class CreateTasksRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Tasks.", this.Tasks);
         this.setParamSimple(map, prefix + "DatasourceConnectionName", this.DatasourceConnectionName);
         this.setParamSimple(map, prefix + "DataEngineName", this.DataEngineName);
+        this.setParamSimple(map, prefix + "ResourceGroupName", this.ResourceGroupName);
+        this.setParamSimple(map, prefix + "IsMultiStatement", this.IsMultiStatement);
+        this.setParamArrayObj(map, prefix + "SourceInfo.", this.SourceInfo);
 
     }
 }

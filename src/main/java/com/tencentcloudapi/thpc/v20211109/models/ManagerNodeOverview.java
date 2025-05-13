@@ -16,25 +16,23 @@
 package com.tencentcloudapi.thpc.v20211109.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ManagerNodeOverview extends AbstractModel{
+public class ManagerNodeOverview extends AbstractModel {
 
     /**
     * 管控节点ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeId")
     @Expose
     private String NodeId;
 
     /**
-     * Get 管控节点ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 管控节点ID。 
      * @return NodeId 管控节点ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNodeId() {
         return this.NodeId;
@@ -42,9 +40,7 @@ public class ManagerNodeOverview extends AbstractModel{
 
     /**
      * Set 管控节点ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeId 管控节点ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeId(String NodeId) {
         this.NodeId = NodeId;

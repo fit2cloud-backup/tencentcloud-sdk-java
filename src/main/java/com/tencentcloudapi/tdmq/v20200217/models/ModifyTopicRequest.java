@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyTopicRequest extends AbstractModel{
+public class ModifyTopicRequest extends AbstractModel {
 
     /**
     * 环境（命名空间）名称。
@@ -37,11 +38,18 @@ public class ModifyTopicRequest extends AbstractModel{
     private String TopicName;
 
     /**
-    * 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过128个分区。
+    * 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过32个分区。
     */
     @SerializedName("Partitions")
     @Expose
     private Long Partitions;
+
+    /**
+    * Pulsar 集群的ID
+    */
+    @SerializedName("ClusterId")
+    @Expose
+    private String ClusterId;
 
     /**
     * 备注，128字符以内。
@@ -51,11 +59,33 @@ public class ModifyTopicRequest extends AbstractModel{
     private String Remark;
 
     /**
-    * Pulsar 集群的ID
+    * 未消费消息过期时间，单位：秒，取值范围：60秒~15天。
+
     */
-    @SerializedName("ClusterId")
+    @SerializedName("MsgTTL")
     @Expose
-    private String ClusterId;
+    private Long MsgTTL;
+
+    /**
+    * 不传默认是原生策略，DefaultPolicy表示当订阅下达到最大未确认消息数 5000 时，服务端将不再向当前订阅下的所有消费者推送消息，DynamicPolicy表示动态调整订阅下的最大未确认消息数，具体配额是在 5000 和消费者数量*20之间取最大值。每个消费者默认最大 unack 消息数为 20，超过该限制时仅影响该消费者，不影响其他消费者。
+    */
+    @SerializedName("UnackPolicy")
+    @Expose
+    private String UnackPolicy;
+
+    /**
+    * 是否开启异常消费者隔离
+    */
+    @SerializedName("IsolateConsumerEnable")
+    @Expose
+    private Boolean IsolateConsumerEnable;
+
+    /**
+    * 消费者 Ack 超时时间，单位：秒，范围60-（3600*24
+    */
+    @SerializedName("AckTimeOut")
+    @Expose
+    private Long AckTimeOut;
 
     /**
      * Get 环境（命名空间）名称。 
@@ -90,19 +120,35 @@ public class ModifyTopicRequest extends AbstractModel{
     }
 
     /**
-     * Get 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过128个分区。 
-     * @return Partitions 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过128个分区。
+     * Get 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过32个分区。 
+     * @return Partitions 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过32个分区。
      */
     public Long getPartitions() {
         return this.Partitions;
     }
 
     /**
-     * Set 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过128个分区。
-     * @param Partitions 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过128个分区。
+     * Set 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过32个分区。
+     * @param Partitions 分区数，必须大于或者等于原分区数，若想维持原分区数请输入原数目，修改分区数仅对非全局顺序消息起效果，不允许超过32个分区。
      */
     public void setPartitions(Long Partitions) {
         this.Partitions = Partitions;
+    }
+
+    /**
+     * Get Pulsar 集群的ID 
+     * @return ClusterId Pulsar 集群的ID
+     */
+    public String getClusterId() {
+        return this.ClusterId;
+    }
+
+    /**
+     * Set Pulsar 集群的ID
+     * @param ClusterId Pulsar 集群的ID
+     */
+    public void setClusterId(String ClusterId) {
+        this.ClusterId = ClusterId;
     }
 
     /**
@@ -122,19 +168,71 @@ public class ModifyTopicRequest extends AbstractModel{
     }
 
     /**
-     * Get Pulsar 集群的ID 
-     * @return ClusterId Pulsar 集群的ID
+     * Get 未消费消息过期时间，单位：秒，取值范围：60秒~15天。
+ 
+     * @return MsgTTL 未消费消息过期时间，单位：秒，取值范围：60秒~15天。
+
      */
-    public String getClusterId() {
-        return this.ClusterId;
+    public Long getMsgTTL() {
+        return this.MsgTTL;
     }
 
     /**
-     * Set Pulsar 集群的ID
-     * @param ClusterId Pulsar 集群的ID
+     * Set 未消费消息过期时间，单位：秒，取值范围：60秒~15天。
+
+     * @param MsgTTL 未消费消息过期时间，单位：秒，取值范围：60秒~15天。
+
      */
-    public void setClusterId(String ClusterId) {
-        this.ClusterId = ClusterId;
+    public void setMsgTTL(Long MsgTTL) {
+        this.MsgTTL = MsgTTL;
+    }
+
+    /**
+     * Get 不传默认是原生策略，DefaultPolicy表示当订阅下达到最大未确认消息数 5000 时，服务端将不再向当前订阅下的所有消费者推送消息，DynamicPolicy表示动态调整订阅下的最大未确认消息数，具体配额是在 5000 和消费者数量*20之间取最大值。每个消费者默认最大 unack 消息数为 20，超过该限制时仅影响该消费者，不影响其他消费者。 
+     * @return UnackPolicy 不传默认是原生策略，DefaultPolicy表示当订阅下达到最大未确认消息数 5000 时，服务端将不再向当前订阅下的所有消费者推送消息，DynamicPolicy表示动态调整订阅下的最大未确认消息数，具体配额是在 5000 和消费者数量*20之间取最大值。每个消费者默认最大 unack 消息数为 20，超过该限制时仅影响该消费者，不影响其他消费者。
+     */
+    public String getUnackPolicy() {
+        return this.UnackPolicy;
+    }
+
+    /**
+     * Set 不传默认是原生策略，DefaultPolicy表示当订阅下达到最大未确认消息数 5000 时，服务端将不再向当前订阅下的所有消费者推送消息，DynamicPolicy表示动态调整订阅下的最大未确认消息数，具体配额是在 5000 和消费者数量*20之间取最大值。每个消费者默认最大 unack 消息数为 20，超过该限制时仅影响该消费者，不影响其他消费者。
+     * @param UnackPolicy 不传默认是原生策略，DefaultPolicy表示当订阅下达到最大未确认消息数 5000 时，服务端将不再向当前订阅下的所有消费者推送消息，DynamicPolicy表示动态调整订阅下的最大未确认消息数，具体配额是在 5000 和消费者数量*20之间取最大值。每个消费者默认最大 unack 消息数为 20，超过该限制时仅影响该消费者，不影响其他消费者。
+     */
+    public void setUnackPolicy(String UnackPolicy) {
+        this.UnackPolicy = UnackPolicy;
+    }
+
+    /**
+     * Get 是否开启异常消费者隔离 
+     * @return IsolateConsumerEnable 是否开启异常消费者隔离
+     */
+    public Boolean getIsolateConsumerEnable() {
+        return this.IsolateConsumerEnable;
+    }
+
+    /**
+     * Set 是否开启异常消费者隔离
+     * @param IsolateConsumerEnable 是否开启异常消费者隔离
+     */
+    public void setIsolateConsumerEnable(Boolean IsolateConsumerEnable) {
+        this.IsolateConsumerEnable = IsolateConsumerEnable;
+    }
+
+    /**
+     * Get 消费者 Ack 超时时间，单位：秒，范围60-（3600*24 
+     * @return AckTimeOut 消费者 Ack 超时时间，单位：秒，范围60-（3600*24
+     */
+    public Long getAckTimeOut() {
+        return this.AckTimeOut;
+    }
+
+    /**
+     * Set 消费者 Ack 超时时间，单位：秒，范围60-（3600*24
+     * @param AckTimeOut 消费者 Ack 超时时间，单位：秒，范围60-（3600*24
+     */
+    public void setAckTimeOut(Long AckTimeOut) {
+        this.AckTimeOut = AckTimeOut;
     }
 
     public ModifyTopicRequest() {
@@ -154,11 +252,23 @@ public class ModifyTopicRequest extends AbstractModel{
         if (source.Partitions != null) {
             this.Partitions = new Long(source.Partitions);
         }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
+        }
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
-        if (source.ClusterId != null) {
-            this.ClusterId = new String(source.ClusterId);
+        if (source.MsgTTL != null) {
+            this.MsgTTL = new Long(source.MsgTTL);
+        }
+        if (source.UnackPolicy != null) {
+            this.UnackPolicy = new String(source.UnackPolicy);
+        }
+        if (source.IsolateConsumerEnable != null) {
+            this.IsolateConsumerEnable = new Boolean(source.IsolateConsumerEnable);
+        }
+        if (source.AckTimeOut != null) {
+            this.AckTimeOut = new Long(source.AckTimeOut);
         }
     }
 
@@ -170,8 +280,12 @@ public class ModifyTopicRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
         this.setParamSimple(map, prefix + "Partitions", this.Partitions);
-        this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamSimple(map, prefix + "MsgTTL", this.MsgTTL);
+        this.setParamSimple(map, prefix + "UnackPolicy", this.UnackPolicy);
+        this.setParamSimple(map, prefix + "IsolateConsumerEnable", this.IsolateConsumerEnable);
+        this.setParamSimple(map, prefix + "AckTimeOut", this.AckTimeOut);
 
     }
 }

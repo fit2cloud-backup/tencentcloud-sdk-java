@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSubscriptionRequest extends AbstractModel{
+public class CreateSubscriptionRequest extends AbstractModel {
 
     /**
     * 环境（命名空间）名称。
@@ -51,18 +52,18 @@ public class CreateSubscriptionRequest extends AbstractModel{
     private Boolean IsIdempotent;
 
     /**
-    * 备注，128个字符以内。
-    */
-    @SerializedName("Remark")
-    @Expose
-    private String Remark;
-
-    /**
     * Pulsar 集群的ID
     */
     @SerializedName("ClusterId")
     @Expose
     private String ClusterId;
+
+    /**
+    * 备注，128个字符以内。
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
 
     /**
     * 是否自动创建死信和重试主题，True 表示创建，False表示不创建，默认自动创建死信和重试主题。
@@ -143,22 +144,6 @@ public class CreateSubscriptionRequest extends AbstractModel{
     }
 
     /**
-     * Get 备注，128个字符以内。 
-     * @return Remark 备注，128个字符以内。
-     */
-    public String getRemark() {
-        return this.Remark;
-    }
-
-    /**
-     * Set 备注，128个字符以内。
-     * @param Remark 备注，128个字符以内。
-     */
-    public void setRemark(String Remark) {
-        this.Remark = Remark;
-    }
-
-    /**
      * Get Pulsar 集群的ID 
      * @return ClusterId Pulsar 集群的ID
      */
@@ -172,6 +157,22 @@ public class CreateSubscriptionRequest extends AbstractModel{
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
+    }
+
+    /**
+     * Get 备注，128个字符以内。 
+     * @return Remark 备注，128个字符以内。
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 备注，128个字符以内。
+     * @param Remark 备注，128个字符以内。
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
     }
 
     /**
@@ -226,11 +227,11 @@ public class CreateSubscriptionRequest extends AbstractModel{
         if (source.IsIdempotent != null) {
             this.IsIdempotent = new Boolean(source.IsIdempotent);
         }
-        if (source.Remark != null) {
-            this.Remark = new String(source.Remark);
-        }
         if (source.ClusterId != null) {
             this.ClusterId = new String(source.ClusterId);
+        }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
         }
         if (source.AutoCreatePolicyTopic != null) {
             this.AutoCreatePolicyTopic = new Boolean(source.AutoCreatePolicyTopic);
@@ -249,8 +250,8 @@ public class CreateSubscriptionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
         this.setParamSimple(map, prefix + "SubscriptionName", this.SubscriptionName);
         this.setParamSimple(map, prefix + "IsIdempotent", this.IsIdempotent);
-        this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "AutoCreatePolicyTopic", this.AutoCreatePolicyTopic);
         this.setParamSimple(map, prefix + "PostFixPattern", this.PostFixPattern);
 

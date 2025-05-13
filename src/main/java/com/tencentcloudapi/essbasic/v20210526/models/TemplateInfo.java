@@ -16,11 +16,12 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TemplateInfo extends AbstractModel{
+public class TemplateInfo extends AbstractModel {
 
     /**
     * 模板ID，模板的唯一标识
@@ -45,27 +46,38 @@ public class TemplateInfo extends AbstractModel{
 
     /**
     * 模板的填充控件列表
+
+[点击查看在模板中配置的填充控件的样子](https://qcloudimg.tencent-cloud.cn/raw/cb2f58529fca8d909258f9d45a56f7f4.png)
     */
     @SerializedName("Components")
     @Expose
     private Component [] Components;
 
     /**
-    * 模板中的签署参与方列表
+    * 此模块需要签署的各个参与方的角色列表。RecipientId标识每个参与方角色对应的唯一标识符，用于确定此角色的信息。
+
+[点击查看在模板中配置的签署参与方角色列表的样子](https://qcloudimg.tencent-cloud.cn/raw/e082bbcc0d923f8cb723d98382410aa2.png)
+
+
     */
     @SerializedName("Recipients")
     @Expose
     private Recipient [] Recipients;
 
     /**
-    * 模板中的签署控件列表
+    * 此模板中的签署控件列表
+
+[点击查看在模板中配置的签署控件的样子](https://qcloudimg.tencent-cloud.cn/raw/29bc6ed753a5a0fce4a3ab02e2c0d955.png)
     */
     @SerializedName("SignComponents")
     @Expose
     private Component [] SignComponents;
 
     /**
-    * 模板类型：1-静默签；3-普通模板
+    * 模板类型可以分为以下两种：
+
+<b>1</b>：带有<b>本企业自动签署</b>的模板，即签署过程无需签署人手动操作，系统自动完成签署。
+<b>3</b>：普通模板，即签署人需要手动进行签署操作。
     */
     @SerializedName("TemplateType")
     @Expose
@@ -79,7 +91,7 @@ public class TemplateInfo extends AbstractModel{
     private Boolean IsPromoter;
 
     /**
-    * 模板的创建者信息，电子签系统用户ID
+    * 模板的创建者名字
     */
     @SerializedName("Creator")
     @Expose
@@ -93,10 +105,10 @@ public class TemplateInfo extends AbstractModel{
     private Long CreatedOn;
 
     /**
-    * 模板的H5预览链接,有效期5分钟。
-可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
-（此功能开放需要联系客户经理）
-注意：此字段可能返回 null，表示取不到有效值。
+    * 模板的 H5 预览链接，有效期为 5 分钟。
+您可以通过浏览器直接打开此链接预览模板，或将其嵌入到 iframe 中进行预览。
+
+注意：只有在请求接口时将 <b>WithPreviewUrl </b>参数设置为 true，才会生成预览链接。
     */
     @SerializedName("PreviewUrl")
     @Expose
@@ -106,7 +118,6 @@ public class TemplateInfo extends AbstractModel{
     * 第三方应用集成-模板PDF文件链接，有效期5分钟。
 请求参数WithPdfUrl=true时返回
 （此功能开放需要联系客户经理）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PdfUrl")
     @Expose
@@ -121,7 +132,6 @@ public class TemplateInfo extends AbstractModel{
 
     /**
     * 本模板关联的三方应用平台平台企业模板名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChannelTemplateName")
     @Expose
@@ -130,30 +140,35 @@ public class TemplateInfo extends AbstractModel{
     /**
     * 0-需要子客企业手动领取平台企业的模板(默认); 
 1-平台自动设置子客模板
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChannelAutoSave")
     @Expose
     private Long ChannelAutoSave;
 
     /**
-    * 模板版本，全数字字符。
-默认为空，初始版本为yyyyMMdd001。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 模板版本，由全数字字符组成。
+默认为空，模板版本号由日期和序号组成，初始版本为yyyyMMdd001，yyyyMMdd002表示第二个版本，以此类推。
     */
     @SerializedName("TemplateVersion")
     @Expose
     private String TemplateVersion;
 
     /**
-    * 模板可用状态：
-1启用（默认）
-2停用
-注意：此字段可能返回 null，表示取不到有效值。
+    * 模板可用状态的取值通常为以下两种：
+
+<ul><li>1：启用（默认），表示模板处于启用状态，可以被用户正常使用。</li>
+<li>2：停用，表示模板处于停用状态，禁止用户使用该模板。</li></ul>
     */
     @SerializedName("Available")
     @Expose
     private Long Available;
+
+    /**
+    * 模版的用户合同类型
+    */
+    @SerializedName("UserFlowType")
+    @Expose
+    private UserFlowType UserFlowType;
 
     /**
      * Get 模板ID，模板的唯一标识 
@@ -204,8 +219,12 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 模板的填充控件列表 
+     * Get 模板的填充控件列表
+
+[点击查看在模板中配置的填充控件的样子](https://qcloudimg.tencent-cloud.cn/raw/cb2f58529fca8d909258f9d45a56f7f4.png) 
      * @return Components 模板的填充控件列表
+
+[点击查看在模板中配置的填充控件的样子](https://qcloudimg.tencent-cloud.cn/raw/cb2f58529fca8d909258f9d45a56f7f4.png)
      */
     public Component [] getComponents() {
         return this.Components;
@@ -213,55 +232,95 @@ public class TemplateInfo extends AbstractModel{
 
     /**
      * Set 模板的填充控件列表
+
+[点击查看在模板中配置的填充控件的样子](https://qcloudimg.tencent-cloud.cn/raw/cb2f58529fca8d909258f9d45a56f7f4.png)
      * @param Components 模板的填充控件列表
+
+[点击查看在模板中配置的填充控件的样子](https://qcloudimg.tencent-cloud.cn/raw/cb2f58529fca8d909258f9d45a56f7f4.png)
      */
     public void setComponents(Component [] Components) {
         this.Components = Components;
     }
 
     /**
-     * Get 模板中的签署参与方列表 
-     * @return Recipients 模板中的签署参与方列表
+     * Get 此模块需要签署的各个参与方的角色列表。RecipientId标识每个参与方角色对应的唯一标识符，用于确定此角色的信息。
+
+[点击查看在模板中配置的签署参与方角色列表的样子](https://qcloudimg.tencent-cloud.cn/raw/e082bbcc0d923f8cb723d98382410aa2.png)
+
+ 
+     * @return Recipients 此模块需要签署的各个参与方的角色列表。RecipientId标识每个参与方角色对应的唯一标识符，用于确定此角色的信息。
+
+[点击查看在模板中配置的签署参与方角色列表的样子](https://qcloudimg.tencent-cloud.cn/raw/e082bbcc0d923f8cb723d98382410aa2.png)
+
+
      */
     public Recipient [] getRecipients() {
         return this.Recipients;
     }
 
     /**
-     * Set 模板中的签署参与方列表
-     * @param Recipients 模板中的签署参与方列表
+     * Set 此模块需要签署的各个参与方的角色列表。RecipientId标识每个参与方角色对应的唯一标识符，用于确定此角色的信息。
+
+[点击查看在模板中配置的签署参与方角色列表的样子](https://qcloudimg.tencent-cloud.cn/raw/e082bbcc0d923f8cb723d98382410aa2.png)
+
+
+     * @param Recipients 此模块需要签署的各个参与方的角色列表。RecipientId标识每个参与方角色对应的唯一标识符，用于确定此角色的信息。
+
+[点击查看在模板中配置的签署参与方角色列表的样子](https://qcloudimg.tencent-cloud.cn/raw/e082bbcc0d923f8cb723d98382410aa2.png)
+
+
      */
     public void setRecipients(Recipient [] Recipients) {
         this.Recipients = Recipients;
     }
 
     /**
-     * Get 模板中的签署控件列表 
-     * @return SignComponents 模板中的签署控件列表
+     * Get 此模板中的签署控件列表
+
+[点击查看在模板中配置的签署控件的样子](https://qcloudimg.tencent-cloud.cn/raw/29bc6ed753a5a0fce4a3ab02e2c0d955.png) 
+     * @return SignComponents 此模板中的签署控件列表
+
+[点击查看在模板中配置的签署控件的样子](https://qcloudimg.tencent-cloud.cn/raw/29bc6ed753a5a0fce4a3ab02e2c0d955.png)
      */
     public Component [] getSignComponents() {
         return this.SignComponents;
     }
 
     /**
-     * Set 模板中的签署控件列表
-     * @param SignComponents 模板中的签署控件列表
+     * Set 此模板中的签署控件列表
+
+[点击查看在模板中配置的签署控件的样子](https://qcloudimg.tencent-cloud.cn/raw/29bc6ed753a5a0fce4a3ab02e2c0d955.png)
+     * @param SignComponents 此模板中的签署控件列表
+
+[点击查看在模板中配置的签署控件的样子](https://qcloudimg.tencent-cloud.cn/raw/29bc6ed753a5a0fce4a3ab02e2c0d955.png)
      */
     public void setSignComponents(Component [] SignComponents) {
         this.SignComponents = SignComponents;
     }
 
     /**
-     * Get 模板类型：1-静默签；3-普通模板 
-     * @return TemplateType 模板类型：1-静默签；3-普通模板
+     * Get 模板类型可以分为以下两种：
+
+<b>1</b>：带有<b>本企业自动签署</b>的模板，即签署过程无需签署人手动操作，系统自动完成签署。
+<b>3</b>：普通模板，即签署人需要手动进行签署操作。 
+     * @return TemplateType 模板类型可以分为以下两种：
+
+<b>1</b>：带有<b>本企业自动签署</b>的模板，即签署过程无需签署人手动操作，系统自动完成签署。
+<b>3</b>：普通模板，即签署人需要手动进行签署操作。
      */
     public Long getTemplateType() {
         return this.TemplateType;
     }
 
     /**
-     * Set 模板类型：1-静默签；3-普通模板
-     * @param TemplateType 模板类型：1-静默签；3-普通模板
+     * Set 模板类型可以分为以下两种：
+
+<b>1</b>：带有<b>本企业自动签署</b>的模板，即签署过程无需签署人手动操作，系统自动完成签署。
+<b>3</b>：普通模板，即签署人需要手动进行签署操作。
+     * @param TemplateType 模板类型可以分为以下两种：
+
+<b>1</b>：带有<b>本企业自动签署</b>的模板，即签署过程无需签署人手动操作，系统自动完成签署。
+<b>3</b>：普通模板，即签署人需要手动进行签署操作。
      */
     public void setTemplateType(Long TemplateType) {
         this.TemplateType = TemplateType;
@@ -288,16 +347,16 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 模板的创建者信息，电子签系统用户ID 
-     * @return Creator 模板的创建者信息，电子签系统用户ID
+     * Get 模板的创建者名字 
+     * @return Creator 模板的创建者名字
      */
     public String getCreator() {
         return this.Creator;
     }
 
     /**
-     * Set 模板的创建者信息，电子签系统用户ID
-     * @param Creator 模板的创建者信息，电子签系统用户ID
+     * Set 模板的创建者名字
+     * @param Creator 模板的创建者名字
      */
     public void setCreator(String Creator) {
         this.Creator = Creator;
@@ -320,28 +379,28 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 模板的H5预览链接,有效期5分钟。
-可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
-（此功能开放需要联系客户经理）
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return PreviewUrl 模板的H5预览链接,有效期5分钟。
-可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
-（此功能开放需要联系客户经理）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 模板的 H5 预览链接，有效期为 5 分钟。
+您可以通过浏览器直接打开此链接预览模板，或将其嵌入到 iframe 中进行预览。
+
+注意：只有在请求接口时将 <b>WithPreviewUrl </b>参数设置为 true，才会生成预览链接。 
+     * @return PreviewUrl 模板的 H5 预览链接，有效期为 5 分钟。
+您可以通过浏览器直接打开此链接预览模板，或将其嵌入到 iframe 中进行预览。
+
+注意：只有在请求接口时将 <b>WithPreviewUrl </b>参数设置为 true，才会生成预览链接。
      */
     public String getPreviewUrl() {
         return this.PreviewUrl;
     }
 
     /**
-     * Set 模板的H5预览链接,有效期5分钟。
-可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
-（此功能开放需要联系客户经理）
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param PreviewUrl 模板的H5预览链接,有效期5分钟。
-可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
-（此功能开放需要联系客户经理）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 模板的 H5 预览链接，有效期为 5 分钟。
+您可以通过浏览器直接打开此链接预览模板，或将其嵌入到 iframe 中进行预览。
+
+注意：只有在请求接口时将 <b>WithPreviewUrl </b>参数设置为 true，才会生成预览链接。
+     * @param PreviewUrl 模板的 H5 预览链接，有效期为 5 分钟。
+您可以通过浏览器直接打开此链接预览模板，或将其嵌入到 iframe 中进行预览。
+
+注意：只有在请求接口时将 <b>WithPreviewUrl </b>参数设置为 true，才会生成预览链接。
      */
     public void setPreviewUrl(String PreviewUrl) {
         this.PreviewUrl = PreviewUrl;
@@ -350,12 +409,10 @@ public class TemplateInfo extends AbstractModel{
     /**
      * Get 第三方应用集成-模板PDF文件链接，有效期5分钟。
 请求参数WithPdfUrl=true时返回
-（此功能开放需要联系客户经理）。
-注意：此字段可能返回 null，表示取不到有效值。 
+（此功能开放需要联系客户经理）。 
      * @return PdfUrl 第三方应用集成-模板PDF文件链接，有效期5分钟。
 请求参数WithPdfUrl=true时返回
 （此功能开放需要联系客户经理）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPdfUrl() {
         return this.PdfUrl;
@@ -365,11 +422,9 @@ public class TemplateInfo extends AbstractModel{
      * Set 第三方应用集成-模板PDF文件链接，有效期5分钟。
 请求参数WithPdfUrl=true时返回
 （此功能开放需要联系客户经理）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PdfUrl 第三方应用集成-模板PDF文件链接，有效期5分钟。
 请求参数WithPdfUrl=true时返回
 （此功能开放需要联系客户经理）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPdfUrl(String PdfUrl) {
         this.PdfUrl = PdfUrl;
@@ -392,10 +447,8 @@ public class TemplateInfo extends AbstractModel{
     }
 
     /**
-     * Get 本模板关联的三方应用平台平台企业模板名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 本模板关联的三方应用平台平台企业模板名称 
      * @return ChannelTemplateName 本模板关联的三方应用平台平台企业模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChannelTemplateName() {
         return this.ChannelTemplateName;
@@ -403,9 +456,7 @@ public class TemplateInfo extends AbstractModel{
 
     /**
      * Set 本模板关联的三方应用平台平台企业模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChannelTemplateName 本模板关联的三方应用平台平台企业模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChannelTemplateName(String ChannelTemplateName) {
         this.ChannelTemplateName = ChannelTemplateName;
@@ -413,11 +464,9 @@ public class TemplateInfo extends AbstractModel{
 
     /**
      * Get 0-需要子客企业手动领取平台企业的模板(默认); 
-1-平台自动设置子客模板
-注意：此字段可能返回 null，表示取不到有效值。 
+1-平台自动设置子客模板 
      * @return ChannelAutoSave 0-需要子客企业手动领取平台企业的模板(默认); 
 1-平台自动设置子客模板
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getChannelAutoSave() {
         return this.ChannelAutoSave;
@@ -426,65 +475,75 @@ public class TemplateInfo extends AbstractModel{
     /**
      * Set 0-需要子客企业手动领取平台企业的模板(默认); 
 1-平台自动设置子客模板
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChannelAutoSave 0-需要子客企业手动领取平台企业的模板(默认); 
 1-平台自动设置子客模板
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChannelAutoSave(Long ChannelAutoSave) {
         this.ChannelAutoSave = ChannelAutoSave;
     }
 
     /**
-     * Get 模板版本，全数字字符。
-默认为空，初始版本为yyyyMMdd001。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TemplateVersion 模板版本，全数字字符。
-默认为空，初始版本为yyyyMMdd001。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 模板版本，由全数字字符组成。
+默认为空，模板版本号由日期和序号组成，初始版本为yyyyMMdd001，yyyyMMdd002表示第二个版本，以此类推。 
+     * @return TemplateVersion 模板版本，由全数字字符组成。
+默认为空，模板版本号由日期和序号组成，初始版本为yyyyMMdd001，yyyyMMdd002表示第二个版本，以此类推。
      */
     public String getTemplateVersion() {
         return this.TemplateVersion;
     }
 
     /**
-     * Set 模板版本，全数字字符。
-默认为空，初始版本为yyyyMMdd001。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TemplateVersion 模板版本，全数字字符。
-默认为空，初始版本为yyyyMMdd001。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 模板版本，由全数字字符组成。
+默认为空，模板版本号由日期和序号组成，初始版本为yyyyMMdd001，yyyyMMdd002表示第二个版本，以此类推。
+     * @param TemplateVersion 模板版本，由全数字字符组成。
+默认为空，模板版本号由日期和序号组成，初始版本为yyyyMMdd001，yyyyMMdd002表示第二个版本，以此类推。
      */
     public void setTemplateVersion(String TemplateVersion) {
         this.TemplateVersion = TemplateVersion;
     }
 
     /**
-     * Get 模板可用状态：
-1启用（默认）
-2停用
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Available 模板可用状态：
-1启用（默认）
-2停用
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 模板可用状态的取值通常为以下两种：
+
+<ul><li>1：启用（默认），表示模板处于启用状态，可以被用户正常使用。</li>
+<li>2：停用，表示模板处于停用状态，禁止用户使用该模板。</li></ul> 
+     * @return Available 模板可用状态的取值通常为以下两种：
+
+<ul><li>1：启用（默认），表示模板处于启用状态，可以被用户正常使用。</li>
+<li>2：停用，表示模板处于停用状态，禁止用户使用该模板。</li></ul>
      */
     public Long getAvailable() {
         return this.Available;
     }
 
     /**
-     * Set 模板可用状态：
-1启用（默认）
-2停用
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Available 模板可用状态：
-1启用（默认）
-2停用
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 模板可用状态的取值通常为以下两种：
+
+<ul><li>1：启用（默认），表示模板处于启用状态，可以被用户正常使用。</li>
+<li>2：停用，表示模板处于停用状态，禁止用户使用该模板。</li></ul>
+     * @param Available 模板可用状态的取值通常为以下两种：
+
+<ul><li>1：启用（默认），表示模板处于启用状态，可以被用户正常使用。</li>
+<li>2：停用，表示模板处于停用状态，禁止用户使用该模板。</li></ul>
      */
     public void setAvailable(Long Available) {
         this.Available = Available;
+    }
+
+    /**
+     * Get 模版的用户合同类型 
+     * @return UserFlowType 模版的用户合同类型
+     */
+    public UserFlowType getUserFlowType() {
+        return this.UserFlowType;
+    }
+
+    /**
+     * Set 模版的用户合同类型
+     * @param UserFlowType 模版的用户合同类型
+     */
+    public void setUserFlowType(UserFlowType UserFlowType) {
+        this.UserFlowType = UserFlowType;
     }
 
     public TemplateInfo() {
@@ -555,6 +614,9 @@ public class TemplateInfo extends AbstractModel{
         if (source.Available != null) {
             this.Available = new Long(source.Available);
         }
+        if (source.UserFlowType != null) {
+            this.UserFlowType = new UserFlowType(source.UserFlowType);
+        }
     }
 
 
@@ -579,6 +641,7 @@ public class TemplateInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ChannelAutoSave", this.ChannelAutoSave);
         this.setParamSimple(map, prefix + "TemplateVersion", this.TemplateVersion);
         this.setParamSimple(map, prefix + "Available", this.Available);
+        this.setParamObj(map, prefix + "UserFlowType.", this.UserFlowType);
 
     }
 }

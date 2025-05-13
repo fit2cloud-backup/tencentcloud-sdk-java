@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostCosInstanceListResponse extends AbstractModel{
+public class DescribeHostCosInstanceListResponse extends AbstractModel {
 
     /**
     * COS实例列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceList")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
     * 总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
     * 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsyncTotalNum")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
     * 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsyncOffset")
     @Expose
@@ -56,24 +53,21 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
     * 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsyncCacheTime")
     @Expose
     private String AsyncCacheTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get COS实例列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get COS实例列表 
      * @return InstanceList COS实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CosInstanceDetail [] getInstanceList() {
         return this.InstanceList;
@@ -81,19 +75,15 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
      * Set COS实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceList COS实例列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceList(CosInstanceDetail [] InstanceList) {
         this.InstanceList = InstanceList;
     }
 
     /**
-     * Get 总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总数 
      * @return TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -101,19 +91,15 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
      * Set 总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 异步刷新总数 
      * @return AsyncTotalNum 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAsyncTotalNum() {
         return this.AsyncTotalNum;
@@ -121,19 +107,15 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
      * Set 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsyncTotalNum 异步刷新总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsyncTotalNum(Long AsyncTotalNum) {
         this.AsyncTotalNum = AsyncTotalNum;
     }
 
     /**
-     * Get 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 异步刷新当前执行数 
      * @return AsyncOffset 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAsyncOffset() {
         return this.AsyncOffset;
@@ -141,19 +123,15 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
      * Set 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsyncOffset 异步刷新当前执行数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsyncOffset(Long AsyncOffset) {
         this.AsyncOffset = AsyncOffset;
     }
 
     /**
-     * Get 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前缓存读取时间 
      * @return AsyncCacheTime 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAsyncCacheTime() {
         return this.AsyncCacheTime;
@@ -161,25 +139,23 @@ public class DescribeHostCosInstanceListResponse extends AbstractModel{
 
     /**
      * Set 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsyncCacheTime 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsyncCacheTime(String AsyncCacheTime) {
         this.AsyncCacheTime = AsyncCacheTime;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

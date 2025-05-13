@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateGrafanaConfigRequest extends AbstractModel{
+public class UpdateGrafanaConfigRequest extends AbstractModel {
 
     /**
     * 实例 ID
@@ -30,7 +31,7 @@ public class UpdateGrafanaConfigRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * JSON 编码后的字符串
+    * JSON 编码后的字符串，如 "{"server":{"root_url":"http://custom.domain"}}"
     */
     @SerializedName("Config")
     @Expose
@@ -53,16 +54,16 @@ public class UpdateGrafanaConfigRequest extends AbstractModel{
     }
 
     /**
-     * Get JSON 编码后的字符串 
-     * @return Config JSON 编码后的字符串
+     * Get JSON 编码后的字符串，如 "{"server":{"root_url":"http://custom.domain"}}" 
+     * @return Config JSON 编码后的字符串，如 "{"server":{"root_url":"http://custom.domain"}}"
      */
     public String getConfig() {
         return this.Config;
     }
 
     /**
-     * Set JSON 编码后的字符串
-     * @param Config JSON 编码后的字符串
+     * Set JSON 编码后的字符串，如 "{"server":{"root_url":"http://custom.domain"}}"
+     * @param Config JSON 编码后的字符串，如 "{"server":{"root_url":"http://custom.domain"}}"
      */
     public void setConfig(String Config) {
         this.Config = Config;

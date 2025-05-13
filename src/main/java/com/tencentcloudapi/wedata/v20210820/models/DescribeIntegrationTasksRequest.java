@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIntegrationTasksRequest extends AbstractModel{
+public class DescribeIntegrationTasksRequest extends AbstractModel {
 
     /**
     * 项目id
@@ -44,7 +45,7 @@ public class DescribeIntegrationTasksRequest extends AbstractModel{
     private Long PageSize;
 
     /**
-    * 查询filter
+    * 查询filter;默认查询任务的开发态，如需查询生产态任务需添加{"Values":["true"],"Name":"ProductionState"};如需查询查询任务状态需要查询生产态任务列表
     */
     @SerializedName("Filters")
     @Expose
@@ -72,7 +73,7 @@ public class DescribeIntegrationTasksRequest extends AbstractModel{
     private String EndTime;
 
     /**
-    * 201. stream, 202. offline 默认实时
+    * 201. 实时同步, 202. 离线同步 默认实时
     */
     @SerializedName("TaskType")
     @Expose
@@ -127,16 +128,16 @@ public class DescribeIntegrationTasksRequest extends AbstractModel{
     }
 
     /**
-     * Get 查询filter 
-     * @return Filters 查询filter
+     * Get 查询filter;默认查询任务的开发态，如需查询生产态任务需添加{"Values":["true"],"Name":"ProductionState"};如需查询查询任务状态需要查询生产态任务列表 
+     * @return Filters 查询filter;默认查询任务的开发态，如需查询生产态任务需添加{"Values":["true"],"Name":"ProductionState"};如需查询查询任务状态需要查询生产态任务列表
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 查询filter
-     * @param Filters 查询filter
+     * Set 查询filter;默认查询任务的开发态，如需查询生产态任务需添加{"Values":["true"],"Name":"ProductionState"};如需查询查询任务状态需要查询生产态任务列表
+     * @param Filters 查询filter;默认查询任务的开发态，如需查询生产态任务需添加{"Values":["true"],"Name":"ProductionState"};如需查询查询任务状态需要查询生产态任务列表
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -191,16 +192,16 @@ public class DescribeIntegrationTasksRequest extends AbstractModel{
     }
 
     /**
-     * Get 201. stream, 202. offline 默认实时 
-     * @return TaskType 201. stream, 202. offline 默认实时
+     * Get 201. 实时同步, 202. 离线同步 默认实时 
+     * @return TaskType 201. 实时同步, 202. 离线同步 默认实时
      */
     public Long getTaskType() {
         return this.TaskType;
     }
 
     /**
-     * Set 201. stream, 202. offline 默认实时
-     * @param TaskType 201. stream, 202. offline 默认实时
+     * Set 201. 实时同步, 202. 离线同步 默认实时
+     * @param TaskType 201. 实时同步, 202. 离线同步 默认实时
      */
     public void setTaskType(Long TaskType) {
         this.TaskType = TaskType;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskFlowEdge extends AbstractModel{
+public class TaskFlowEdge extends AbstractModel {
 
     /**
     * 节点 ID
@@ -31,7 +32,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 子节点 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChildNodeId")
     @Expose
@@ -39,7 +39,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 是否核心任务,Y/N
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CoreNode")
     @Expose
@@ -47,7 +46,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 边类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EdgeType")
     @Expose
@@ -62,7 +60,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * X轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PositionX")
     @Expose
@@ -70,7 +67,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * Y轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PositionY")
     @Expose
@@ -78,7 +74,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 图 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GraphId")
     @Expose
@@ -86,7 +81,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 工作流 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowId")
     @Expose
@@ -94,7 +88,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 节点名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeName")
     @Expose
@@ -102,7 +95,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskId")
     @Expose
@@ -110,7 +102,6 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
     * 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskLogId")
     @Expose
@@ -133,10 +124,8 @@ public class TaskFlowEdge extends AbstractModel{
     }
 
     /**
-     * Get 子节点 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子节点 ID 
      * @return ChildNodeId 子节点 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChildNodeId() {
         return this.ChildNodeId;
@@ -144,19 +133,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 子节点 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChildNodeId 子节点 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChildNodeId(String ChildNodeId) {
         this.ChildNodeId = ChildNodeId;
     }
 
     /**
-     * Get 是否核心任务,Y/N
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否核心任务,Y/N 
      * @return CoreNode 是否核心任务,Y/N
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCoreNode() {
         return this.CoreNode;
@@ -164,19 +149,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 是否核心任务,Y/N
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CoreNode 是否核心任务,Y/N
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoreNode(String CoreNode) {
         this.CoreNode = CoreNode;
     }
 
     /**
-     * Get 边类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 边类型 
      * @return EdgeType 边类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEdgeType() {
         return this.EdgeType;
@@ -184,9 +165,7 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 边类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EdgeType 边类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEdgeType(String EdgeType) {
         this.EdgeType = EdgeType;
@@ -209,10 +188,8 @@ public class TaskFlowEdge extends AbstractModel{
     }
 
     /**
-     * Get X轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get X轴坐标位置 
      * @return PositionX X轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPositionX() {
         return this.PositionX;
@@ -220,19 +197,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set X轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PositionX X轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPositionX(String PositionX) {
         this.PositionX = PositionX;
     }
 
     /**
-     * Get Y轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Y轴坐标位置 
      * @return PositionY Y轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPositionY() {
         return this.PositionY;
@@ -240,19 +213,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set Y轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PositionY Y轴坐标位置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPositionY(String PositionY) {
         this.PositionY = PositionY;
     }
 
     /**
-     * Get 图 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 图 ID 
      * @return GraphId 图 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGraphId() {
         return this.GraphId;
@@ -260,19 +229,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 图 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GraphId 图 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGraphId(String GraphId) {
         this.GraphId = GraphId;
     }
 
     /**
-     * Get 工作流 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 工作流 ID 
      * @return FlowId 工作流 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFlowId() {
         return this.FlowId;
@@ -280,19 +245,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 工作流 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowId 工作流 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowId(String FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 节点名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点名称 
      * @return NodeName 节点名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNodeName() {
         return this.NodeName;
@@ -300,19 +261,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 节点名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeName 节点名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeName(String NodeName) {
         this.NodeName = NodeName;
     }
 
     /**
-     * Get 任务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务ID 
      * @return TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskId() {
         return this.TaskId;
@@ -320,19 +277,15 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskId 任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;
     }
 
     /**
-     * Get 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务历史ID 
      * @return TaskLogId 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskLogId() {
         return this.TaskLogId;
@@ -340,9 +293,7 @@ public class TaskFlowEdge extends AbstractModel{
 
     /**
      * Set 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskLogId 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskLogId(String TaskLogId) {
         this.TaskLogId = TaskLogId;

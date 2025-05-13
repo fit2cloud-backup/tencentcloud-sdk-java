@@ -16,84 +16,123 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFlowEvidenceReportRequest extends AbstractModel{
+public class DescribeFlowEvidenceReportRequest extends AbstractModel {
 
     /**
-    * 调用方用户信息，userId 必填
+    * 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 出证报告编号
+    * 签署报告编号, 由<a href="https://qian.tencent.com/developers/companyApis/certificate/CreateFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
     */
     @SerializedName("ReportId")
     @Expose
     private String ReportId;
 
     /**
-    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-     * Get 调用方用户信息，userId 必填 
-     * @return Operator 调用方用户信息，userId 必填
+    * 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+    */
+    @SerializedName("ReportType")
+    @Expose
+    private Long ReportType;
+
+    /**
+     * Get 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方用户信息，userId 必填
-     * @param Operator 调用方用户信息，userId 必填
+     * Set 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 出证报告编号 
-     * @return ReportId 出证报告编号
+     * Get 签署报告编号, 由<a href="https://qian.tencent.com/developers/companyApis/certificate/CreateFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生 
+     * @return ReportId 签署报告编号, 由<a href="https://qian.tencent.com/developers/companyApis/certificate/CreateFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
      */
     public String getReportId() {
         return this.ReportId;
     }
 
     /**
-     * Set 出证报告编号
-     * @param ReportId 出证报告编号
+     * Set 签署报告编号, 由<a href="https://qian.tencent.com/developers/companyApis/certificate/CreateFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
+     * @param ReportId 签署报告编号, 由<a href="https://qian.tencent.com/developers/companyApis/certificate/CreateFlowEvidenceReport" target="_blank">提交申请出证报告任务</a>产生
      */
     public void setReportId(String ReportId) {
         this.ReportId = ReportId;
     }
 
     /**
-     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
- 
-     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-
-     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
+    }
+
+    /**
+     * Get 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul> 
+     * @return ReportType 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+     */
+    public Long getReportType() {
+        return this.ReportType;
+    }
+
+    /**
+     * Set 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+     * @param ReportType 指定申请的报告类型，可选类型如下：
+<ul><li> **0** :合同签署报告（默认）</li>
+<li> **1** :公证处核验报告</li></ul>
+     */
+    public void setReportType(Long ReportType) {
+        this.ReportType = ReportType;
     }
 
     public DescribeFlowEvidenceReportRequest() {
@@ -113,6 +152,9 @@ public class DescribeFlowEvidenceReportRequest extends AbstractModel{
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
         }
+        if (source.ReportType != null) {
+            this.ReportType = new Long(source.ReportType);
+        }
     }
 
 
@@ -123,6 +165,7 @@ public class DescribeFlowEvidenceReportRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamSimple(map, prefix + "ReportId", this.ReportId);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "ReportType", this.ReportType);
 
     }
 }

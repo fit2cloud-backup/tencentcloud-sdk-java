@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tag.v20180813.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetTagsResponse extends AbstractModel{
+public class GetTagsResponse extends AbstractModel {
 
     /**
-    * 获取的下一页的Token值
+    * 获取的下一页的Token值，如果当前是最后一页，返回为空
     */
     @SerializedName("PaginationToken")
     @Expose
@@ -37,23 +38,23 @@ public class GetTagsResponse extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 获取的下一页的Token值 
-     * @return PaginationToken 获取的下一页的Token值
+     * Get 获取的下一页的Token值，如果当前是最后一页，返回为空 
+     * @return PaginationToken 获取的下一页的Token值，如果当前是最后一页，返回为空
      */
     public String getPaginationToken() {
         return this.PaginationToken;
     }
 
     /**
-     * Set 获取的下一页的Token值
-     * @param PaginationToken 获取的下一页的Token值
+     * Set 获取的下一页的Token值，如果当前是最后一页，返回为空
+     * @param PaginationToken 获取的下一页的Token值，如果当前是最后一页，返回为空
      */
     public void setPaginationToken(String PaginationToken) {
         this.PaginationToken = PaginationToken;
@@ -76,16 +77,16 @@ public class GetTagsResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

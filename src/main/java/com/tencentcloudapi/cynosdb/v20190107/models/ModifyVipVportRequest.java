@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVipVportRequest extends AbstractModel{
+public class ModifyVipVportRequest extends AbstractModel {
 
     /**
     * 集群id
@@ -35,6 +36,13 @@ public class ModifyVipVportRequest extends AbstractModel{
     @SerializedName("InstanceGrpId")
     @Expose
     private String InstanceGrpId;
+
+    /**
+    * 实例组id
+    */
+    @SerializedName("InstanceGroupId")
+    @Expose
+    private String InstanceGroupId;
 
     /**
     * 需要修改的目的ip
@@ -84,7 +92,9 @@ public class ModifyVipVportRequest extends AbstractModel{
     /**
      * Get 实例组id 
      * @return InstanceGrpId 实例组id
+     * @deprecated
      */
+    @Deprecated
     public String getInstanceGrpId() {
         return this.InstanceGrpId;
     }
@@ -92,9 +102,27 @@ public class ModifyVipVportRequest extends AbstractModel{
     /**
      * Set 实例组id
      * @param InstanceGrpId 实例组id
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceGrpId(String InstanceGrpId) {
         this.InstanceGrpId = InstanceGrpId;
+    }
+
+    /**
+     * Get 实例组id 
+     * @return InstanceGroupId 实例组id
+     */
+    public String getInstanceGroupId() {
+        return this.InstanceGroupId;
+    }
+
+    /**
+     * Set 实例组id
+     * @param InstanceGroupId 实例组id
+     */
+    public void setInstanceGroupId(String InstanceGroupId) {
+        this.InstanceGroupId = InstanceGroupId;
     }
 
     /**
@@ -179,6 +207,9 @@ public class ModifyVipVportRequest extends AbstractModel{
         if (source.InstanceGrpId != null) {
             this.InstanceGrpId = new String(source.InstanceGrpId);
         }
+        if (source.InstanceGroupId != null) {
+            this.InstanceGroupId = new String(source.InstanceGroupId);
+        }
         if (source.Vip != null) {
             this.Vip = new String(source.Vip);
         }
@@ -200,6 +231,7 @@ public class ModifyVipVportRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "InstanceGrpId", this.InstanceGrpId);
+        this.setParamSimple(map, prefix + "InstanceGroupId", this.InstanceGroupId);
         this.setParamSimple(map, prefix + "Vip", this.Vip);
         this.setParamSimple(map, prefix + "Vport", this.Vport);
         this.setParamSimple(map, prefix + "DbType", this.DbType);

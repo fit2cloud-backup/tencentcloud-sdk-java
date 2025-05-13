@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateClustersRequest extends AbstractModel{
+public class CreateClustersRequest extends AbstractModel {
 
     /**
     * 可用区
@@ -81,6 +82,13 @@ public class CreateClustersRequest extends AbstractModel{
     @SerializedName("Memory")
     @Expose
     private Long Memory;
+
+    /**
+    * 实例数量，数量范围为(0,16]，默认值为2（即一个rw实例+一个ro实例），传递的n表示1个rw实例+n-1个ro实例（规格相同），如需要更精确的集群组成搭配，请使用InstanceInitInfos
+    */
+    @SerializedName("InstanceCount")
+    @Expose
+    private Long InstanceCount;
 
     /**
     * 该参数无实际意义，已废弃。
@@ -173,13 +181,6 @@ timeRollback，时间点回档
     private Long StorageLimit;
 
     /**
-    * 实例数量，数量范围为(0,16]
-    */
-    @SerializedName("InstanceCount")
-    @Expose
-    private Long InstanceCount;
-
-    /**
     * 包年包月购买时长
     */
     @SerializedName("TimeSpan")
@@ -194,7 +195,8 @@ timeRollback，时间点回档
     private String TimeUnit;
 
     /**
-    * 包年包月购买是否自动续费，默认为0
+    * 包年包月购买是否自动续费，默认为0。
+0标识默认续费方式，1表示自动续费，2表示不自动续费。
     */
     @SerializedName("AutoRenewFlag")
     @Expose
@@ -239,7 +241,7 @@ timeRollback，时间点回档
     private String DbMode;
 
     /**
-    * 当DbMode为SEVERLESS时必填
+    * 当DbMode为SERVERLESS时必填
 cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     */
     @SerializedName("MinCpu")
@@ -247,7 +249,7 @@ cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     private Float MinCpu;
 
     /**
-    * 当DbMode为SEVERLESS时必填：
+    * 当DbMode为SERVERLESS时必填：
 cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     */
     @SerializedName("MaxCpu")
@@ -255,7 +257,7 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     private Float MaxCpu;
 
     /**
-    * 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+    * 当DbMode为SERVERLESS时，指定集群是否自动暂停，可选范围
 <li>yes</li>
 <li>no</li>
 默认值:yes
@@ -265,7 +267,7 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     private String AutoPause;
 
     /**
-    * 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+    * 当DbMode为SERVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
 默认值:600
     */
     @SerializedName("AutoPauseDelay")
@@ -310,7 +312,7 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     private Long DealMode;
 
     /**
-    * 参数模版ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
+    * 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
     */
     @SerializedName("ParamTemplateId")
     @Expose
@@ -472,6 +474,22 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
      */
     public void setMemory(Long Memory) {
         this.Memory = Memory;
+    }
+
+    /**
+     * Get 实例数量，数量范围为(0,16]，默认值为2（即一个rw实例+一个ro实例），传递的n表示1个rw实例+n-1个ro实例（规格相同），如需要更精确的集群组成搭配，请使用InstanceInitInfos 
+     * @return InstanceCount 实例数量，数量范围为(0,16]，默认值为2（即一个rw实例+一个ro实例），传递的n表示1个rw实例+n-1个ro实例（规格相同），如需要更精确的集群组成搭配，请使用InstanceInitInfos
+     */
+    public Long getInstanceCount() {
+        return this.InstanceCount;
+    }
+
+    /**
+     * Set 实例数量，数量范围为(0,16]，默认值为2（即一个rw实例+一个ro实例），传递的n表示1个rw实例+n-1个ro实例（规格相同），如需要更精确的集群组成搭配，请使用InstanceInitInfos
+     * @param InstanceCount 实例数量，数量范围为(0,16]，默认值为2（即一个rw实例+一个ro实例），传递的n表示1个rw实例+n-1个ro实例（规格相同），如需要更精确的集群组成搭配，请使用InstanceInitInfos
+     */
+    public void setInstanceCount(Long InstanceCount) {
+        this.InstanceCount = InstanceCount;
     }
 
     /**
@@ -691,22 +709,6 @@ timeRollback，时间点回档
     }
 
     /**
-     * Get 实例数量，数量范围为(0,16] 
-     * @return InstanceCount 实例数量，数量范围为(0,16]
-     */
-    public Long getInstanceCount() {
-        return this.InstanceCount;
-    }
-
-    /**
-     * Set 实例数量，数量范围为(0,16]
-     * @param InstanceCount 实例数量，数量范围为(0,16]
-     */
-    public void setInstanceCount(Long InstanceCount) {
-        this.InstanceCount = InstanceCount;
-    }
-
-    /**
      * Get 包年包月购买时长 
      * @return TimeSpan 包年包月购买时长
      */
@@ -739,16 +741,20 @@ timeRollback，时间点回档
     }
 
     /**
-     * Get 包年包月购买是否自动续费，默认为0 
-     * @return AutoRenewFlag 包年包月购买是否自动续费，默认为0
+     * Get 包年包月购买是否自动续费，默认为0。
+0标识默认续费方式，1表示自动续费，2表示不自动续费。 
+     * @return AutoRenewFlag 包年包月购买是否自动续费，默认为0。
+0标识默认续费方式，1表示自动续费，2表示不自动续费。
      */
     public Long getAutoRenewFlag() {
         return this.AutoRenewFlag;
     }
 
     /**
-     * Set 包年包月购买是否自动续费，默认为0
-     * @param AutoRenewFlag 包年包月购买是否自动续费，默认为0
+     * Set 包年包月购买是否自动续费，默认为0。
+0标识默认续费方式，1表示自动续费，2表示不自动续费。
+     * @param AutoRenewFlag 包年包月购买是否自动续费，默认为0。
+0标识默认续费方式，1表示自动续费，2表示不自动续费。
      */
     public void setAutoRenewFlag(Long AutoRenewFlag) {
         this.AutoRenewFlag = AutoRenewFlag;
@@ -847,9 +853,9 @@ timeRollback，时间点回档
     }
 
     /**
-     * Get 当DbMode为SEVERLESS时必填
+     * Get 当DbMode为SERVERLESS时必填
 cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回 
-     * @return MinCpu 当DbMode为SEVERLESS时必填
+     * @return MinCpu 当DbMode为SERVERLESS时必填
 cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
      */
     public Float getMinCpu() {
@@ -857,9 +863,9 @@ cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Set 当DbMode为SEVERLESS时必填
+     * Set 当DbMode为SERVERLESS时必填
 cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
-     * @param MinCpu 当DbMode为SEVERLESS时必填
+     * @param MinCpu 当DbMode为SERVERLESS时必填
 cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
      */
     public void setMinCpu(Float MinCpu) {
@@ -867,9 +873,9 @@ cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Get 当DbMode为SEVERLESS时必填：
+     * Get 当DbMode为SERVERLESS时必填：
 cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回 
-     * @return MaxCpu 当DbMode为SEVERLESS时必填：
+     * @return MaxCpu 当DbMode为SERVERLESS时必填：
 cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
      */
     public Float getMaxCpu() {
@@ -877,9 +883,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Set 当DbMode为SEVERLESS时必填：
+     * Set 当DbMode为SERVERLESS时必填：
 cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
-     * @param MaxCpu 当DbMode为SEVERLESS时必填：
+     * @param MaxCpu 当DbMode为SERVERLESS时必填：
 cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
      */
     public void setMaxCpu(Float MaxCpu) {
@@ -887,11 +893,11 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Get 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+     * Get 当DbMode为SERVERLESS时，指定集群是否自动暂停，可选范围
 <li>yes</li>
 <li>no</li>
 默认值:yes 
-     * @return AutoPause 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+     * @return AutoPause 当DbMode为SERVERLESS时，指定集群是否自动暂停，可选范围
 <li>yes</li>
 <li>no</li>
 默认值:yes
@@ -901,11 +907,11 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Set 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+     * Set 当DbMode为SERVERLESS时，指定集群是否自动暂停，可选范围
 <li>yes</li>
 <li>no</li>
 默认值:yes
-     * @param AutoPause 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+     * @param AutoPause 当DbMode为SERVERLESS时，指定集群是否自动暂停，可选范围
 <li>yes</li>
 <li>no</li>
 默认值:yes
@@ -915,9 +921,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Get 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+     * Get 当DbMode为SERVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
 默认值:600 
-     * @return AutoPauseDelay 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+     * @return AutoPauseDelay 当DbMode为SERVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
 默认值:600
      */
     public Long getAutoPauseDelay() {
@@ -925,9 +931,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Set 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+     * Set 当DbMode为SERVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
 默认值:600
-     * @param AutoPauseDelay 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+     * @param AutoPauseDelay 当DbMode为SERVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
 默认值:600
      */
     public void setAutoPauseDelay(Long AutoPauseDelay) {
@@ -1023,16 +1029,16 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
     }
 
     /**
-     * Get 参数模版ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID 
-     * @return ParamTemplateId 参数模版ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
+     * Get 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID 
+     * @return ParamTemplateId 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
      */
     public Long getParamTemplateId() {
         return this.ParamTemplateId;
     }
 
     /**
-     * Set 参数模版ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
-     * @param ParamTemplateId 参数模版ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
+     * Set 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
+     * @param ParamTemplateId 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
      */
     public void setParamTemplateId(Long ParamTemplateId) {
         this.ParamTemplateId = ParamTemplateId;
@@ -1102,6 +1108,9 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
         if (source.Memory != null) {
             this.Memory = new Long(source.Memory);
         }
+        if (source.InstanceCount != null) {
+            this.InstanceCount = new Long(source.InstanceCount);
+        }
         if (source.Storage != null) {
             this.Storage = new Long(source.Storage);
         }
@@ -1137,9 +1146,6 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
         }
         if (source.StorageLimit != null) {
             this.StorageLimit = new Long(source.StorageLimit);
-        }
-        if (source.InstanceCount != null) {
-            this.InstanceCount = new Long(source.InstanceCount);
         }
         if (source.TimeSpan != null) {
             this.TimeSpan = new Long(source.TimeSpan);
@@ -1231,6 +1237,7 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "Memory", this.Memory);
+        this.setParamSimple(map, prefix + "InstanceCount", this.InstanceCount);
         this.setParamSimple(map, prefix + "Storage", this.Storage);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
         this.setParamSimple(map, prefix + "AdminPassword", this.AdminPassword);
@@ -1243,7 +1250,6 @@ cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
         this.setParamSimple(map, prefix + "ExpectTime", this.ExpectTime);
         this.setParamSimple(map, prefix + "ExpectTimeThresh", this.ExpectTimeThresh);
         this.setParamSimple(map, prefix + "StorageLimit", this.StorageLimit);
-        this.setParamSimple(map, prefix + "InstanceCount", this.InstanceCount);
         this.setParamSimple(map, prefix + "TimeSpan", this.TimeSpan);
         this.setParamSimple(map, prefix + "TimeUnit", this.TimeUnit);
         this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);

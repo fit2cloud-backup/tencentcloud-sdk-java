@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TPartition extends AbstractModel{
+public class TPartition extends AbstractModel {
 
     /**
     * 字段名称
@@ -44,21 +45,21 @@ public class TPartition extends AbstractModel{
     private String Comment;
 
     /**
-    * 分区类型
+    * 分区类型（已废弃）
     */
     @SerializedName("PartitionType")
     @Expose
     private String PartitionType;
 
     /**
-    * 分区格式
+    * 分区格式（已废弃）
     */
     @SerializedName("PartitionFormat")
     @Expose
     private String PartitionFormat;
 
     /**
-    * 分区分隔数
+    * 分区分隔数（已废弃）
     */
     @SerializedName("PartitionDot")
     @Expose
@@ -127,48 +128,48 @@ public class TPartition extends AbstractModel{
     }
 
     /**
-     * Get 分区类型 
-     * @return PartitionType 分区类型
+     * Get 分区类型（已废弃） 
+     * @return PartitionType 分区类型（已废弃）
      */
     public String getPartitionType() {
         return this.PartitionType;
     }
 
     /**
-     * Set 分区类型
-     * @param PartitionType 分区类型
+     * Set 分区类型（已废弃）
+     * @param PartitionType 分区类型（已废弃）
      */
     public void setPartitionType(String PartitionType) {
         this.PartitionType = PartitionType;
     }
 
     /**
-     * Get 分区格式 
-     * @return PartitionFormat 分区格式
+     * Get 分区格式（已废弃） 
+     * @return PartitionFormat 分区格式（已废弃）
      */
     public String getPartitionFormat() {
         return this.PartitionFormat;
     }
 
     /**
-     * Set 分区格式
-     * @param PartitionFormat 分区格式
+     * Set 分区格式（已废弃）
+     * @param PartitionFormat 分区格式（已废弃）
      */
     public void setPartitionFormat(String PartitionFormat) {
         this.PartitionFormat = PartitionFormat;
     }
 
     /**
-     * Get 分区分隔数 
-     * @return PartitionDot 分区分隔数
+     * Get 分区分隔数（已废弃） 
+     * @return PartitionDot 分区分隔数（已废弃）
      */
     public Long getPartitionDot() {
         return this.PartitionDot;
     }
 
     /**
-     * Set 分区分隔数
-     * @param PartitionDot 分区分隔数
+     * Set 分区分隔数（已废弃）
+     * @param PartitionDot 分区分隔数（已废弃）
      */
     public void setPartitionDot(Long PartitionDot) {
         this.PartitionDot = PartitionDot;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyJobRequest extends AbstractModel{
+public class ModifyJobRequest extends AbstractModel {
 
     /**
     * 作业Id
@@ -56,6 +57,13 @@ public class ModifyJobRequest extends AbstractModel{
     @SerializedName("WorkSpaceId")
     @Expose
     private String WorkSpaceId;
+
+    /**
+    * 作业描述
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
 
     /**
      * Get 作业Id 
@@ -137,6 +145,22 @@ public class ModifyJobRequest extends AbstractModel{
         this.WorkSpaceId = WorkSpaceId;
     }
 
+    /**
+     * Get 作业描述 
+     * @return Description 作业描述
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 作业描述
+     * @param Description 作业描述
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
     public ModifyJobRequest() {
     }
 
@@ -160,6 +184,9 @@ public class ModifyJobRequest extends AbstractModel{
         if (source.WorkSpaceId != null) {
             this.WorkSpaceId = new String(source.WorkSpaceId);
         }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class ModifyJobRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "TargetFolderId", this.TargetFolderId);
         this.setParamSimple(map, prefix + "WorkSpaceId", this.WorkSpaceId);
+        this.setParamSimple(map, prefix + "Description", this.Description);
 
     }
 }

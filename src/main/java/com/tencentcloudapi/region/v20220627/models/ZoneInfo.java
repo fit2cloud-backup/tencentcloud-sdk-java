@@ -16,11 +16,12 @@
 package com.tencentcloudapi.region.v20220627.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZoneInfo extends AbstractModel{
+public class ZoneInfo extends AbstractModel {
 
     /**
     * 可用区名称，例如，ap-guangzhou-3
@@ -54,7 +55,6 @@ public class ZoneInfo extends AbstractModel{
 <li> ap-shanghai-5 </li>
 <li> ap-mumbai-1 </li>
 <li> ap-mumbai-2 </li>
-<li> eu-moscow-1 </li>
 <li> ap-beijing-1 </li>
 <li> ap-beijing-2 </li>
 <li> ap-beijing-3 </li>
@@ -63,7 +63,6 @@ public class ZoneInfo extends AbstractModel{
 <li> na-siliconvalley-1 </li>
 <li> na-siliconvalley-2 </li>
 <li> eu-frankfurt-1 </li>
-<li> na-toronto-1 </li>
 <li> na-ashburn-1 </li>
 <li> na-ashburn-2 </li>
 <li> ap-nanjing-1 </li>
@@ -174,7 +173,6 @@ public class ZoneInfo extends AbstractModel{
 <li> ap-shanghai-5 </li>
 <li> ap-mumbai-1 </li>
 <li> ap-mumbai-2 </li>
-<li> eu-moscow-1 </li>
 <li> ap-beijing-1 </li>
 <li> ap-beijing-2 </li>
 <li> ap-beijing-3 </li>
@@ -183,7 +181,6 @@ public class ZoneInfo extends AbstractModel{
 <li> na-siliconvalley-1 </li>
 <li> na-siliconvalley-2 </li>
 <li> eu-frankfurt-1 </li>
-<li> na-toronto-1 </li>
 <li> na-ashburn-1 </li>
 <li> na-ashburn-2 </li>
 <li> ap-nanjing-1 </li>
@@ -219,7 +216,6 @@ public class ZoneInfo extends AbstractModel{
 <li> ap-shanghai-5 </li>
 <li> ap-mumbai-1 </li>
 <li> ap-mumbai-2 </li>
-<li> eu-moscow-1 </li>
 <li> ap-beijing-1 </li>
 <li> ap-beijing-2 </li>
 <li> ap-beijing-3 </li>
@@ -228,7 +224,6 @@ public class ZoneInfo extends AbstractModel{
 <li> na-siliconvalley-1 </li>
 <li> na-siliconvalley-2 </li>
 <li> eu-frankfurt-1 </li>
-<li> na-toronto-1 </li>
 <li> na-ashburn-1 </li>
 <li> na-ashburn-2 </li>
 <li> ap-nanjing-1 </li>
@@ -270,7 +265,6 @@ public class ZoneInfo extends AbstractModel{
 <li> ap-shanghai-5 </li>
 <li> ap-mumbai-1 </li>
 <li> ap-mumbai-2 </li>
-<li> eu-moscow-1 </li>
 <li> ap-beijing-1 </li>
 <li> ap-beijing-2 </li>
 <li> ap-beijing-3 </li>
@@ -279,7 +273,6 @@ public class ZoneInfo extends AbstractModel{
 <li> na-siliconvalley-1 </li>
 <li> na-siliconvalley-2 </li>
 <li> eu-frankfurt-1 </li>
-<li> na-toronto-1 </li>
 <li> na-ashburn-1 </li>
 <li> na-ashburn-2 </li>
 <li> ap-nanjing-1 </li>
@@ -315,7 +308,6 @@ public class ZoneInfo extends AbstractModel{
 <li> ap-shanghai-5 </li>
 <li> ap-mumbai-1 </li>
 <li> ap-mumbai-2 </li>
-<li> eu-moscow-1 </li>
 <li> ap-beijing-1 </li>
 <li> ap-beijing-2 </li>
 <li> ap-beijing-3 </li>
@@ -324,7 +316,6 @@ public class ZoneInfo extends AbstractModel{
 <li> na-siliconvalley-1 </li>
 <li> na-siliconvalley-2 </li>
 <li> eu-frankfurt-1 </li>
-<li> na-toronto-1 </li>
 <li> na-ashburn-1 </li>
 <li> na-ashburn-2 </li>
 <li> ap-nanjing-1 </li>

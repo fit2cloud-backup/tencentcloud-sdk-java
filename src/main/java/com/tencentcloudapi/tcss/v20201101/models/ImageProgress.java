@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageProgress extends AbstractModel{
+public class ImageProgress extends AbstractModel {
 
     /**
     * 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageId")
     @Expose
@@ -32,7 +32,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegistryType")
     @Expose
@@ -40,7 +39,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 镜像仓库地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageRepoAddress")
     @Expose
@@ -48,7 +46,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 实例id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -56,7 +53,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -64,7 +60,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Namespace")
     @Expose
@@ -72,7 +67,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageName")
     @Expose
@@ -80,7 +74,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 镜像tag
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageTag")
     @Expose
@@ -88,7 +81,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 镜像扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanStatus")
     @Expose
@@ -96,7 +88,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 镜像cve扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CveProgress")
     @Expose
@@ -104,7 +95,6 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 镜像敏感扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskProgress")
     @Expose
@@ -112,17 +102,14 @@ public class ImageProgress extends AbstractModel{
 
     /**
     * 镜像木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VirusProgress")
     @Expose
     private Long VirusProgress;
 
     /**
-     * Get 镜像id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像id 
      * @return ImageId 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageId() {
         return this.ImageId;
@@ -130,19 +117,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageId 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
     }
 
     /**
-     * Get 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库类型 
      * @return RegistryType 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegistryType() {
         return this.RegistryType;
@@ -150,19 +133,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegistryType 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegistryType(String RegistryType) {
         this.RegistryType = RegistryType;
     }
 
     /**
-     * Get 镜像仓库地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像仓库地址 
      * @return ImageRepoAddress 镜像仓库地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageRepoAddress() {
         return this.ImageRepoAddress;
@@ -170,19 +149,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 镜像仓库地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageRepoAddress 镜像仓库地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageRepoAddress(String ImageRepoAddress) {
         this.ImageRepoAddress = ImageRepoAddress;
     }
 
     /**
-     * Get 实例id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例id 
      * @return InstanceId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -190,19 +165,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 实例名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例名称 
      * @return InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -210,19 +181,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 实例名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 命名空间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命名空间 
      * @return Namespace 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespace() {
         return this.Namespace;
@@ -230,19 +197,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Namespace 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
     }
 
     /**
-     * Get 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库名称 
      * @return ImageName 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageName() {
         return this.ImageName;
@@ -250,19 +213,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageName 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageName(String ImageName) {
         this.ImageName = ImageName;
     }
 
     /**
-     * Get 镜像tag
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像tag 
      * @return ImageTag 镜像tag
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageTag() {
         return this.ImageTag;
@@ -270,19 +229,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 镜像tag
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageTag 镜像tag
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageTag(String ImageTag) {
         this.ImageTag = ImageTag;
     }
 
     /**
-     * Get 镜像扫描状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像扫描状态 
      * @return ScanStatus 镜像扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanStatus() {
         return this.ScanStatus;
@@ -290,19 +245,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 镜像扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanStatus 镜像扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanStatus(String ScanStatus) {
         this.ScanStatus = ScanStatus;
     }
 
     /**
-     * Get 镜像cve扫描进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像cve扫描进度 
      * @return CveProgress 镜像cve扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCveProgress() {
         return this.CveProgress;
@@ -310,19 +261,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 镜像cve扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CveProgress 镜像cve扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCveProgress(Long CveProgress) {
         this.CveProgress = CveProgress;
     }
 
     /**
-     * Get 镜像敏感扫描进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像敏感扫描进度 
      * @return RiskProgress 镜像敏感扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRiskProgress() {
         return this.RiskProgress;
@@ -330,19 +277,15 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 镜像敏感扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskProgress 镜像敏感扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskProgress(Long RiskProgress) {
         this.RiskProgress = RiskProgress;
     }
 
     /**
-     * Get 镜像木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像木马扫描进度 
      * @return VirusProgress 镜像木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVirusProgress() {
         return this.VirusProgress;
@@ -350,9 +293,7 @@ public class ImageProgress extends AbstractModel{
 
     /**
      * Set 镜像木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VirusProgress 镜像木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVirusProgress(Long VirusProgress) {
         this.VirusProgress = VirusProgress;

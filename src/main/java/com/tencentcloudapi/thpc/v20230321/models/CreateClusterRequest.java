@@ -16,11 +16,12 @@
 package com.tencentcloudapi.thpc.v20230321.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateClusterRequest extends AbstractModel{
+public class CreateClusterRequest extends AbstractModel {
 
     /**
     * 集群中实例所在的位置。
@@ -58,14 +59,24 @@ public class CreateClusterRequest extends AbstractModel{
     private Long ComputeNodeCount;
 
     /**
-    * 调度器类型。默认取值：SLURM。<br><li>SGE：SGE调度器。<br><li>SLURM：SLURM调度器。
+    * 调度器类型。默认取值：SLURM。<li>SGE：SGE调度器。</li><li>SLURM：SLURM调度器。</li>
     */
     @SerializedName("SchedulerType")
     @Expose
     private String SchedulerType;
 
     /**
-    * 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。
+    * 创建调度器的版本号，可填写版本号为“latest” 和 各调度器支持的版本号；如果是"latest", 则代表创建的是平台当前支持的该类型调度器最新版本。如果不填写，默认创建的是“latest”版本调度器
+各调度器支持的集群版本：
+<li>SLURM：21.08.8、23.11.7</li>
+<li>SGE：     8.1.9</li>
+    */
+    @SerializedName("SchedulerVersion")
+    @Expose
+    private String SchedulerVersion;
+
+    /**
+    * 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。公共镜像请参考[镜像限制](https://cloud.tencent.com/document/product/1527/64818#.E9.95.9C.E5.83.8F)
     */
     @SerializedName("ImageId")
     @Expose
@@ -112,7 +123,7 @@ false（默认）：发送正常请求，通过检查后直接创建实例
 
     /**
     * 域名字服务类型。默认取值：NIS。
-<li>NIS：NIS域名字服务。
+<li>NIS：NIS域名字服务。</li>
     */
     @SerializedName("AccountType")
     @Expose
@@ -154,7 +165,7 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     private Tag [] Tags;
 
     /**
-    * 弹性伸缩类型。默认值：THPC_AS<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
+    * 弹性伸缩类型。默认值：THPC_AS
     */
     @SerializedName("AutoScalingType")
     @Expose
@@ -166,6 +177,13 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     @SerializedName("InitNodeScripts")
     @Expose
     private NodeScript [] InitNodeScripts;
+
+    /**
+    * 高性能计算集群ID。若创建的实例为高性能计算实例，需指定实例放置的集群，否则不可指定。
+    */
+    @SerializedName("HpcClusterId")
+    @Expose
+    private String HpcClusterId;
 
     /**
      * Get 集群中实例所在的位置。 
@@ -248,32 +266,60 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     }
 
     /**
-     * Get 调度器类型。默认取值：SLURM。<br><li>SGE：SGE调度器。<br><li>SLURM：SLURM调度器。 
-     * @return SchedulerType 调度器类型。默认取值：SLURM。<br><li>SGE：SGE调度器。<br><li>SLURM：SLURM调度器。
+     * Get 调度器类型。默认取值：SLURM。<li>SGE：SGE调度器。</li><li>SLURM：SLURM调度器。</li> 
+     * @return SchedulerType 调度器类型。默认取值：SLURM。<li>SGE：SGE调度器。</li><li>SLURM：SLURM调度器。</li>
      */
     public String getSchedulerType() {
         return this.SchedulerType;
     }
 
     /**
-     * Set 调度器类型。默认取值：SLURM。<br><li>SGE：SGE调度器。<br><li>SLURM：SLURM调度器。
-     * @param SchedulerType 调度器类型。默认取值：SLURM。<br><li>SGE：SGE调度器。<br><li>SLURM：SLURM调度器。
+     * Set 调度器类型。默认取值：SLURM。<li>SGE：SGE调度器。</li><li>SLURM：SLURM调度器。</li>
+     * @param SchedulerType 调度器类型。默认取值：SLURM。<li>SGE：SGE调度器。</li><li>SLURM：SLURM调度器。</li>
      */
     public void setSchedulerType(String SchedulerType) {
         this.SchedulerType = SchedulerType;
     }
 
     /**
-     * Get 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。 
-     * @return ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。
+     * Get 创建调度器的版本号，可填写版本号为“latest” 和 各调度器支持的版本号；如果是"latest", 则代表创建的是平台当前支持的该类型调度器最新版本。如果不填写，默认创建的是“latest”版本调度器
+各调度器支持的集群版本：
+<li>SLURM：21.08.8、23.11.7</li>
+<li>SGE：     8.1.9</li> 
+     * @return SchedulerVersion 创建调度器的版本号，可填写版本号为“latest” 和 各调度器支持的版本号；如果是"latest", 则代表创建的是平台当前支持的该类型调度器最新版本。如果不填写，默认创建的是“latest”版本调度器
+各调度器支持的集群版本：
+<li>SLURM：21.08.8、23.11.7</li>
+<li>SGE：     8.1.9</li>
+     */
+    public String getSchedulerVersion() {
+        return this.SchedulerVersion;
+    }
+
+    /**
+     * Set 创建调度器的版本号，可填写版本号为“latest” 和 各调度器支持的版本号；如果是"latest", 则代表创建的是平台当前支持的该类型调度器最新版本。如果不填写，默认创建的是“latest”版本调度器
+各调度器支持的集群版本：
+<li>SLURM：21.08.8、23.11.7</li>
+<li>SGE：     8.1.9</li>
+     * @param SchedulerVersion 创建调度器的版本号，可填写版本号为“latest” 和 各调度器支持的版本号；如果是"latest", 则代表创建的是平台当前支持的该类型调度器最新版本。如果不填写，默认创建的是“latest”版本调度器
+各调度器支持的集群版本：
+<li>SLURM：21.08.8、23.11.7</li>
+<li>SGE：     8.1.9</li>
+     */
+    public void setSchedulerVersion(String SchedulerVersion) {
+        this.SchedulerVersion = SchedulerVersion;
+    }
+
+    /**
+     * Get 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。公共镜像请参考[镜像限制](https://cloud.tencent.com/document/product/1527/64818#.E9.95.9C.E5.83.8F) 
+     * @return ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。公共镜像请参考[镜像限制](https://cloud.tencent.com/document/product/1527/64818#.E9.95.9C.E5.83.8F)
      */
     public String getImageId() {
         return this.ImageId;
     }
 
     /**
-     * Set 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。
-     * @param ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。
+     * Set 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。公共镜像请参考[镜像限制](https://cloud.tencent.com/document/product/1527/64818#.E9.95.9C.E5.83.8F)
+     * @param ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-xxx`。目前支持部分公有镜像和自定义镜像。公共镜像请参考[镜像限制](https://cloud.tencent.com/document/product/1527/64818#.E9.95.9C.E5.83.8F)
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
@@ -377,9 +423,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
 
     /**
      * Get 域名字服务类型。默认取值：NIS。
-<li>NIS：NIS域名字服务。 
+<li>NIS：NIS域名字服务。</li> 
      * @return AccountType 域名字服务类型。默认取值：NIS。
-<li>NIS：NIS域名字服务。
+<li>NIS：NIS域名字服务。</li>
      */
     public String getAccountType() {
         return this.AccountType;
@@ -387,9 +433,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
 
     /**
      * Set 域名字服务类型。默认取值：NIS。
-<li>NIS：NIS域名字服务。
+<li>NIS：NIS域名字服务。</li>
      * @param AccountType 域名字服务类型。默认取值：NIS。
-<li>NIS：NIS域名字服务。
+<li>NIS：NIS域名字服务。</li>
      */
     public void setAccountType(String AccountType) {
         this.AccountType = AccountType;
@@ -476,16 +522,16 @@ false（默认）：发送正常请求，通过检查后直接创建实例
     }
 
     /**
-     * Get 弹性伸缩类型。默认值：THPC_AS<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。 
-     * @return AutoScalingType 弹性伸缩类型。默认值：THPC_AS<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
+     * Get 弹性伸缩类型。默认值：THPC_AS 
+     * @return AutoScalingType 弹性伸缩类型。默认值：THPC_AS
      */
     public String getAutoScalingType() {
         return this.AutoScalingType;
     }
 
     /**
-     * Set 弹性伸缩类型。默认值：THPC_AS<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
-     * @param AutoScalingType 弹性伸缩类型。默认值：THPC_AS<br><li>THPC_AS：集群自动扩缩容由THPC产品内部实现。<br><li>AS：集群自动扩缩容由[弹性伸缩](https://cloud.tencent.com/document/product/377/3154)产品实现。
+     * Set 弹性伸缩类型。默认值：THPC_AS
+     * @param AutoScalingType 弹性伸缩类型。默认值：THPC_AS
      */
     public void setAutoScalingType(String AutoScalingType) {
         this.AutoScalingType = AutoScalingType;
@@ -505,6 +551,22 @@ false（默认）：发送正常请求，通过检查后直接创建实例
      */
     public void setInitNodeScripts(NodeScript [] InitNodeScripts) {
         this.InitNodeScripts = InitNodeScripts;
+    }
+
+    /**
+     * Get 高性能计算集群ID。若创建的实例为高性能计算实例，需指定实例放置的集群，否则不可指定。 
+     * @return HpcClusterId 高性能计算集群ID。若创建的实例为高性能计算实例，需指定实例放置的集群，否则不可指定。
+     */
+    public String getHpcClusterId() {
+        return this.HpcClusterId;
+    }
+
+    /**
+     * Set 高性能计算集群ID。若创建的实例为高性能计算实例，需指定实例放置的集群，否则不可指定。
+     * @param HpcClusterId 高性能计算集群ID。若创建的实例为高性能计算实例，需指定实例放置的集群，否则不可指定。
+     */
+    public void setHpcClusterId(String HpcClusterId) {
+        this.HpcClusterId = HpcClusterId;
     }
 
     public CreateClusterRequest() {
@@ -532,6 +594,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         }
         if (source.SchedulerType != null) {
             this.SchedulerType = new String(source.SchedulerType);
+        }
+        if (source.SchedulerVersion != null) {
+            this.SchedulerVersion = new String(source.SchedulerVersion);
         }
         if (source.ImageId != null) {
             this.ImageId = new String(source.ImageId);
@@ -584,6 +649,9 @@ false（默认）：发送正常请求，通过检查后直接创建实例
                 this.InitNodeScripts[i] = new NodeScript(source.InitNodeScripts[i]);
             }
         }
+        if (source.HpcClusterId != null) {
+            this.HpcClusterId = new String(source.HpcClusterId);
+        }
     }
 
 
@@ -597,6 +665,7 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         this.setParamObj(map, prefix + "ComputeNode.", this.ComputeNode);
         this.setParamSimple(map, prefix + "ComputeNodeCount", this.ComputeNodeCount);
         this.setParamSimple(map, prefix + "SchedulerType", this.SchedulerType);
+        this.setParamSimple(map, prefix + "SchedulerVersion", this.SchedulerVersion);
         this.setParamSimple(map, prefix + "ImageId", this.ImageId);
         this.setParamObj(map, prefix + "VirtualPrivateCloud.", this.VirtualPrivateCloud);
         this.setParamObj(map, prefix + "LoginSettings.", this.LoginSettings);
@@ -611,6 +680,7 @@ false（默认）：发送正常请求，通过检查后直接创建实例
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "AutoScalingType", this.AutoScalingType);
         this.setParamArrayObj(map, prefix + "InitNodeScripts.", this.InitNodeScripts);
+        this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
 
     }
 }

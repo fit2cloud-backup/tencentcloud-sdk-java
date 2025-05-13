@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CrossTargets extends AbstractModel{
+public class CrossTargets extends AbstractModel {
 
     /**
     * 本地私有网络ID，即负载均衡的VpcId。
@@ -59,7 +60,6 @@ public class CrossTargets extends AbstractModel{
 
     /**
     * 子机实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -67,7 +67,6 @@ public class CrossTargets extends AbstractModel{
 
     /**
     * 子机实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -161,10 +160,8 @@ public class CrossTargets extends AbstractModel{
     }
 
     /**
-     * Get 子机实例ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子机实例ID。 
      * @return InstanceId 子机实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -172,19 +169,15 @@ public class CrossTargets extends AbstractModel{
 
     /**
      * Set 子机实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 子机实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 子机实例名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子机实例名称。 
      * @return InstanceName 子机实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -192,9 +185,7 @@ public class CrossTargets extends AbstractModel{
 
     /**
      * Set 子机实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 子机实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;

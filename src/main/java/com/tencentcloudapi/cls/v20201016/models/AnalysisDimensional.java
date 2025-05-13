@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AnalysisDimensional extends AbstractModel{
+public class AnalysisDimensional extends AbstractModel {
 
     /**
     * 分析名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class AnalysisDimensional extends AbstractModel{
 
     /**
     * 分析类型：query，field ，original
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -40,25 +39,61 @@ public class AnalysisDimensional extends AbstractModel{
 
     /**
     * 分析内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
     private String Content;
 
     /**
-    * 配置
-注意：此字段可能返回 null，表示取不到有效值。
+    * 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
     */
     @SerializedName("ConfigInfo")
     @Expose
     private AlarmAnalysisConfig [] ConfigInfo;
 
     /**
-     * Get 分析名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分析名称 
      * @return Name 分析名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -66,19 +101,15 @@ public class AnalysisDimensional extends AbstractModel{
 
     /**
      * Set 分析名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 分析名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 分析类型：query，field ，original
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分析类型：query，field ，original 
      * @return Type 分析类型：query，field ，original
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -86,19 +117,15 @@ public class AnalysisDimensional extends AbstractModel{
 
     /**
      * Set 分析类型：query，field ，original
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 分析类型：query，field ，original
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 分析内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分析内容 
      * @return Content 分析内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContent() {
         return this.Content;
@@ -106,29 +133,183 @@ public class AnalysisDimensional extends AbstractModel{
 
     /**
      * Set 分析内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 分析内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(String Content) {
         this.Content = Content;
     }
 
     /**
-     * Get 配置
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ConfigInfo 配置
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+} 
+     * @return ConfigInfo 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
      */
     public AlarmAnalysisConfig [] getConfigInfo() {
         return this.ConfigInfo;
     }
 
     /**
-     * Set 配置
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ConfigInfo 配置
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
+     * @param ConfigInfo 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
      */
     public void setConfigInfo(AlarmAnalysisConfig [] ConfigInfo) {
         this.ConfigInfo = ConfigInfo;

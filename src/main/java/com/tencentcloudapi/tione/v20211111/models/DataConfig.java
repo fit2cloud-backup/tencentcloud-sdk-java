@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DataConfig extends AbstractModel{
+public class DataConfig extends AbstractModel {
 
     /**
     * 映射路径
@@ -30,7 +31,16 @@ public class DataConfig extends AbstractModel{
     private String MappingPath;
 
     /**
-    * DATASET、COS、CFS、HDFS、WEDATA_HDFS
+    * 存储用途
+可选值为 BUILTIN_CODE, BUILTIN_DATA, BUILTIN_MODEL, USER_DATA, USER_CODE, USER_MODEL, OUTPUT, OTHER
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DataSourceUsage")
+    @Expose
+    private String DataSourceUsage;
+
+    /**
+    * DATASET、COS、CFS、CFSTurbo、GooseFSx、HDFS、WEDATA_HDFS
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataSourceType")
@@ -86,6 +96,29 @@ public class DataConfig extends AbstractModel{
     private CFSTurbo CFSTurboSource;
 
     /**
+    * 来自本地磁盘的信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LocalDiskSource")
+    @Expose
+    private LocalDisk LocalDiskSource;
+
+    /**
+    * CBS配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CBSSource")
+    @Expose
+    private CBSConfig CBSSource;
+
+    /**
+    * 主机路径信息
+    */
+    @SerializedName("HostPathSource")
+    @Expose
+    private HostPath HostPathSource;
+
+    /**
      * Get 映射路径 
      * @return MappingPath 映射路径
      */
@@ -102,9 +135,33 @@ public class DataConfig extends AbstractModel{
     }
 
     /**
-     * Get DATASET、COS、CFS、HDFS、WEDATA_HDFS
+     * Get 存储用途
+可选值为 BUILTIN_CODE, BUILTIN_DATA, BUILTIN_MODEL, USER_DATA, USER_CODE, USER_MODEL, OUTPUT, OTHER
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DataSourceType DATASET、COS、CFS、HDFS、WEDATA_HDFS
+     * @return DataSourceUsage 存储用途
+可选值为 BUILTIN_CODE, BUILTIN_DATA, BUILTIN_MODEL, USER_DATA, USER_CODE, USER_MODEL, OUTPUT, OTHER
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDataSourceUsage() {
+        return this.DataSourceUsage;
+    }
+
+    /**
+     * Set 存储用途
+可选值为 BUILTIN_CODE, BUILTIN_DATA, BUILTIN_MODEL, USER_DATA, USER_CODE, USER_MODEL, OUTPUT, OTHER
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DataSourceUsage 存储用途
+可选值为 BUILTIN_CODE, BUILTIN_DATA, BUILTIN_MODEL, USER_DATA, USER_CODE, USER_MODEL, OUTPUT, OTHER
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDataSourceUsage(String DataSourceUsage) {
+        this.DataSourceUsage = DataSourceUsage;
+    }
+
+    /**
+     * Get DATASET、COS、CFS、CFSTurbo、GooseFSx、HDFS、WEDATA_HDFS
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DataSourceType DATASET、COS、CFS、CFSTurbo、GooseFSx、HDFS、WEDATA_HDFS
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDataSourceType() {
@@ -112,9 +169,9 @@ public class DataConfig extends AbstractModel{
     }
 
     /**
-     * Set DATASET、COS、CFS、HDFS、WEDATA_HDFS
+     * Set DATASET、COS、CFS、CFSTurbo、GooseFSx、HDFS、WEDATA_HDFS
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param DataSourceType DATASET、COS、CFS、HDFS、WEDATA_HDFS
+     * @param DataSourceType DATASET、COS、CFS、CFSTurbo、GooseFSx、HDFS、WEDATA_HDFS
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataSourceType(String DataSourceType) {
@@ -241,6 +298,62 @@ public class DataConfig extends AbstractModel{
         this.CFSTurboSource = CFSTurboSource;
     }
 
+    /**
+     * Get 来自本地磁盘的信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LocalDiskSource 来自本地磁盘的信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public LocalDisk getLocalDiskSource() {
+        return this.LocalDiskSource;
+    }
+
+    /**
+     * Set 来自本地磁盘的信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LocalDiskSource 来自本地磁盘的信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLocalDiskSource(LocalDisk LocalDiskSource) {
+        this.LocalDiskSource = LocalDiskSource;
+    }
+
+    /**
+     * Get CBS配置信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CBSSource CBS配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public CBSConfig getCBSSource() {
+        return this.CBSSource;
+    }
+
+    /**
+     * Set CBS配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CBSSource CBS配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCBSSource(CBSConfig CBSSource) {
+        this.CBSSource = CBSSource;
+    }
+
+    /**
+     * Get 主机路径信息 
+     * @return HostPathSource 主机路径信息
+     */
+    public HostPath getHostPathSource() {
+        return this.HostPathSource;
+    }
+
+    /**
+     * Set 主机路径信息
+     * @param HostPathSource 主机路径信息
+     */
+    public void setHostPathSource(HostPath HostPathSource) {
+        this.HostPathSource = HostPathSource;
+    }
+
     public DataConfig() {
     }
 
@@ -251,6 +364,9 @@ public class DataConfig extends AbstractModel{
     public DataConfig(DataConfig source) {
         if (source.MappingPath != null) {
             this.MappingPath = new String(source.MappingPath);
+        }
+        if (source.DataSourceUsage != null) {
+            this.DataSourceUsage = new String(source.DataSourceUsage);
         }
         if (source.DataSourceType != null) {
             this.DataSourceType = new String(source.DataSourceType);
@@ -273,6 +389,15 @@ public class DataConfig extends AbstractModel{
         if (source.CFSTurboSource != null) {
             this.CFSTurboSource = new CFSTurbo(source.CFSTurboSource);
         }
+        if (source.LocalDiskSource != null) {
+            this.LocalDiskSource = new LocalDisk(source.LocalDiskSource);
+        }
+        if (source.CBSSource != null) {
+            this.CBSSource = new CBSConfig(source.CBSSource);
+        }
+        if (source.HostPathSource != null) {
+            this.HostPathSource = new HostPath(source.HostPathSource);
+        }
     }
 
 
@@ -281,6 +406,7 @@ public class DataConfig extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "MappingPath", this.MappingPath);
+        this.setParamSimple(map, prefix + "DataSourceUsage", this.DataSourceUsage);
         this.setParamSimple(map, prefix + "DataSourceType", this.DataSourceType);
         this.setParamObj(map, prefix + "DataSetSource.", this.DataSetSource);
         this.setParamObj(map, prefix + "COSSource.", this.COSSource);
@@ -288,6 +414,9 @@ public class DataConfig extends AbstractModel{
         this.setParamObj(map, prefix + "HDFSSource.", this.HDFSSource);
         this.setParamObj(map, prefix + "GooseFSSource.", this.GooseFSSource);
         this.setParamObj(map, prefix + "CFSTurboSource.", this.CFSTurboSource);
+        this.setParamObj(map, prefix + "LocalDiskSource.", this.LocalDiskSource);
+        this.setParamObj(map, prefix + "CBSSource.", this.CBSSource);
+        this.setParamObj(map, prefix + "HostPathSource.", this.HostPathSource);
 
     }
 }

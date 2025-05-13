@@ -16,21 +16,22 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceAttributesResponse extends AbstractModel{
+public class InstanceAttributesResponse extends AbstractModel {
 
     /**
-    * 实例ID
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 实例名称
+    * ckafka集群实例Name
     */
     @SerializedName("InstanceName")
     @Expose
@@ -58,7 +59,7 @@ public class InstanceAttributesResponse extends AbstractModel{
     private String Vport;
 
     /**
-    * 实例的状态。0：创建中，1：运行中，2：删除中
+    * 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
     */
     @SerializedName("Status")
     @Expose
@@ -164,7 +165,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 标签数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -172,23 +172,20 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 过期时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExpireTime")
     @Expose
     private Long ExpireTime;
 
     /**
-    * 跨可用区
-注意：此字段可能返回 null，表示取不到有效值。
+    * 可用区列表
     */
     @SerializedName("ZoneIds")
     @Expose
     private Long [] ZoneIds;
 
     /**
-    * kafka版本信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * ckafka集群实例版本
     */
     @SerializedName("Version")
     @Expose
@@ -196,7 +193,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 最大分组数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxGroupNum")
     @Expose
@@ -204,7 +200,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 售卖类型,0:标准版,1:专业版
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cvm")
     @Expose
@@ -212,7 +207,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceType")
     @Expose
@@ -220,7 +214,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Features")
     @Expose
@@ -228,7 +221,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 动态消息保留策略
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RetentionTimeConfig")
     @Expose
@@ -236,7 +228,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 最大连接数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxConnection")
     @Expose
@@ -244,7 +235,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PublicNetwork")
     @Expose
@@ -252,7 +242,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeleteRouteTimestamp")
     @Expose
@@ -260,7 +249,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 剩余创建分区数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RemainingPartitions")
     @Expose
@@ -268,7 +256,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 剩余创建主题数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RemainingTopics")
     @Expose
@@ -276,7 +263,6 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 动态硬盘扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DynamicDiskConfig")
     @Expose
@@ -284,39 +270,73 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
     * 实例计费类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceChargeType")
     @Expose
     private String InstanceChargeType;
 
     /**
-     * Get 实例ID 
-     * @return InstanceId 实例ID
+    * 集群类型
+    */
+    @SerializedName("ClusterType")
+    @Expose
+    private String ClusterType;
+
+    /**
+    * 免费分区数量
+    */
+    @SerializedName("FreePartitionNumber")
+    @Expose
+    private Long FreePartitionNumber;
+
+    /**
+    * 弹性带宽上浮值
+    */
+    @SerializedName("ElasticFloatBandwidth")
+    @Expose
+    private Long ElasticFloatBandwidth;
+
+    /**
+    * ssl自定义证书id
+    */
+    @SerializedName("CustomCertId")
+    @Expose
+    private String CustomCertId;
+
+    /**
+    * 集群topic默认 unclean.leader.election.enable配置: 1 开启 0 关闭
+    */
+    @SerializedName("UncleanLeaderElectionEnable")
+    @Expose
+    private Long UncleanLeaderElectionEnable;
+
+    /**
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID
-     * @param InstanceId 实例ID
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 实例名称 
-     * @return InstanceName 实例名称
+     * Get ckafka集群实例Name 
+     * @return InstanceName ckafka集群实例Name
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 实例名称
-     * @param InstanceName 实例名称
+     * Set ckafka集群实例Name
+     * @param InstanceName ckafka集群实例Name
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
@@ -371,16 +391,16 @@ public class InstanceAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 实例的状态。0：创建中，1：运行中，2：删除中 
-     * @return Status 实例的状态。0：创建中，1：运行中，2：删除中
+     * Get 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败  
+     * @return Status 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例的状态。0：创建中，1：运行中，2：删除中
-     * @param Status 实例的状态。0：创建中，1：运行中，2：删除中
+     * Set 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
+     * @param Status 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -611,10 +631,8 @@ public class InstanceAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 标签数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签数组 
      * @return Tags 标签数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -622,19 +640,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 标签数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 过期时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 过期时间 
      * @return ExpireTime 过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getExpireTime() {
         return this.ExpireTime;
@@ -642,59 +656,47 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExpireTime 过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExpireTime(Long ExpireTime) {
         this.ExpireTime = ExpireTime;
     }
 
     /**
-     * Get 跨可用区
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ZoneIds 跨可用区
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 可用区列表 
+     * @return ZoneIds 可用区列表
      */
     public Long [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 跨可用区
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ZoneIds 跨可用区
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 可用区列表
+     * @param ZoneIds 可用区列表
      */
     public void setZoneIds(Long [] ZoneIds) {
         this.ZoneIds = ZoneIds;
     }
 
     /**
-     * Get kafka版本信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Version kafka版本信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get ckafka集群实例版本 
+     * @return Version ckafka集群实例版本
      */
     public String getVersion() {
         return this.Version;
     }
 
     /**
-     * Set kafka版本信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Version kafka版本信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set ckafka集群实例版本
+     * @param Version ckafka集群实例版本
      */
     public void setVersion(String Version) {
         this.Version = Version;
     }
 
     /**
-     * Get 最大分组数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大分组数 
      * @return MaxGroupNum 最大分组数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxGroupNum() {
         return this.MaxGroupNum;
@@ -702,19 +704,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 最大分组数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxGroupNum 最大分组数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxGroupNum(Long MaxGroupNum) {
         this.MaxGroupNum = MaxGroupNum;
     }
 
     /**
-     * Get 售卖类型,0:标准版,1:专业版
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 售卖类型,0:标准版,1:专业版 
      * @return Cvm 售卖类型,0:标准版,1:专业版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCvm() {
         return this.Cvm;
@@ -722,19 +720,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 售卖类型,0:标准版,1:专业版
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Cvm 售卖类型,0:标准版,1:专业版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCvm(Long Cvm) {
         this.Cvm = Cvm;
     }
 
     /**
-     * Get 类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 类型 
      * @return InstanceType 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceType() {
         return this.InstanceType;
@@ -742,19 +736,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceType 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceType(String InstanceType) {
         this.InstanceType = InstanceType;
     }
 
     /**
-     * Get 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。 
      * @return Features 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFeatures() {
         return this.Features;
@@ -762,19 +752,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Features 表示该实例支持的特性。FEATURE_SUBNET_ACL:表示acl策略支持设置子网。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFeatures(String [] Features) {
         this.Features = Features;
     }
 
     /**
-     * Get 动态消息保留策略
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 动态消息保留策略 
      * @return RetentionTimeConfig 动态消息保留策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DynamicRetentionTime getRetentionTimeConfig() {
         return this.RetentionTimeConfig;
@@ -782,19 +768,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 动态消息保留策略
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RetentionTimeConfig 动态消息保留策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRetentionTimeConfig(DynamicRetentionTime RetentionTimeConfig) {
         this.RetentionTimeConfig = RetentionTimeConfig;
     }
 
     /**
-     * Get 最大连接数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大连接数 
      * @return MaxConnection 最大连接数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxConnection() {
         return this.MaxConnection;
@@ -802,19 +784,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 最大连接数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxConnection 最大连接数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxConnection(Long MaxConnection) {
         this.MaxConnection = MaxConnection;
     }
 
     /**
-     * Get 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 公网带宽 
      * @return PublicNetwork 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPublicNetwork() {
         return this.PublicNetwork;
@@ -822,19 +800,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PublicNetwork 公网带宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublicNetwork(Long PublicNetwork) {
         this.PublicNetwork = PublicNetwork;
     }
 
     /**
-     * Get 时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时间 
      * @return DeleteRouteTimestamp 时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeleteRouteTimestamp() {
         return this.DeleteRouteTimestamp;
@@ -842,19 +816,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeleteRouteTimestamp 时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeleteRouteTimestamp(String DeleteRouteTimestamp) {
         this.DeleteRouteTimestamp = DeleteRouteTimestamp;
     }
 
     /**
-     * Get 剩余创建分区数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 剩余创建分区数 
      * @return RemainingPartitions 剩余创建分区数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRemainingPartitions() {
         return this.RemainingPartitions;
@@ -862,19 +832,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 剩余创建分区数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RemainingPartitions 剩余创建分区数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemainingPartitions(Long RemainingPartitions) {
         this.RemainingPartitions = RemainingPartitions;
     }
 
     /**
-     * Get 剩余创建主题数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 剩余创建主题数 
      * @return RemainingTopics 剩余创建主题数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRemainingTopics() {
         return this.RemainingTopics;
@@ -882,19 +848,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 剩余创建主题数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RemainingTopics 剩余创建主题数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemainingTopics(Long RemainingTopics) {
         this.RemainingTopics = RemainingTopics;
     }
 
     /**
-     * Get 动态硬盘扩容策略
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 动态硬盘扩容策略 
      * @return DynamicDiskConfig 动态硬盘扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DynamicDiskConfig getDynamicDiskConfig() {
         return this.DynamicDiskConfig;
@@ -902,19 +864,15 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 动态硬盘扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DynamicDiskConfig 动态硬盘扩容策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDynamicDiskConfig(DynamicDiskConfig DynamicDiskConfig) {
         this.DynamicDiskConfig = DynamicDiskConfig;
     }
 
     /**
-     * Get 实例计费类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例计费类型 
      * @return InstanceChargeType 实例计费类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
@@ -922,12 +880,90 @@ public class InstanceAttributesResponse extends AbstractModel{
 
     /**
      * Set 实例计费类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceChargeType 实例计费类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
+    }
+
+    /**
+     * Get 集群类型 
+     * @return ClusterType 集群类型
+     */
+    public String getClusterType() {
+        return this.ClusterType;
+    }
+
+    /**
+     * Set 集群类型
+     * @param ClusterType 集群类型
+     */
+    public void setClusterType(String ClusterType) {
+        this.ClusterType = ClusterType;
+    }
+
+    /**
+     * Get 免费分区数量 
+     * @return FreePartitionNumber 免费分区数量
+     */
+    public Long getFreePartitionNumber() {
+        return this.FreePartitionNumber;
+    }
+
+    /**
+     * Set 免费分区数量
+     * @param FreePartitionNumber 免费分区数量
+     */
+    public void setFreePartitionNumber(Long FreePartitionNumber) {
+        this.FreePartitionNumber = FreePartitionNumber;
+    }
+
+    /**
+     * Get 弹性带宽上浮值 
+     * @return ElasticFloatBandwidth 弹性带宽上浮值
+     */
+    public Long getElasticFloatBandwidth() {
+        return this.ElasticFloatBandwidth;
+    }
+
+    /**
+     * Set 弹性带宽上浮值
+     * @param ElasticFloatBandwidth 弹性带宽上浮值
+     */
+    public void setElasticFloatBandwidth(Long ElasticFloatBandwidth) {
+        this.ElasticFloatBandwidth = ElasticFloatBandwidth;
+    }
+
+    /**
+     * Get ssl自定义证书id 
+     * @return CustomCertId ssl自定义证书id
+     */
+    public String getCustomCertId() {
+        return this.CustomCertId;
+    }
+
+    /**
+     * Set ssl自定义证书id
+     * @param CustomCertId ssl自定义证书id
+     */
+    public void setCustomCertId(String CustomCertId) {
+        this.CustomCertId = CustomCertId;
+    }
+
+    /**
+     * Get 集群topic默认 unclean.leader.election.enable配置: 1 开启 0 关闭 
+     * @return UncleanLeaderElectionEnable 集群topic默认 unclean.leader.election.enable配置: 1 开启 0 关闭
+     */
+    public Long getUncleanLeaderElectionEnable() {
+        return this.UncleanLeaderElectionEnable;
+    }
+
+    /**
+     * Set 集群topic默认 unclean.leader.election.enable配置: 1 开启 0 关闭
+     * @param UncleanLeaderElectionEnable 集群topic默认 unclean.leader.election.enable配置: 1 开启 0 关闭
+     */
+    public void setUncleanLeaderElectionEnable(Long UncleanLeaderElectionEnable) {
+        this.UncleanLeaderElectionEnable = UncleanLeaderElectionEnable;
     }
 
     public InstanceAttributesResponse() {
@@ -1058,6 +1094,21 @@ public class InstanceAttributesResponse extends AbstractModel{
         if (source.InstanceChargeType != null) {
             this.InstanceChargeType = new String(source.InstanceChargeType);
         }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
+        if (source.FreePartitionNumber != null) {
+            this.FreePartitionNumber = new Long(source.FreePartitionNumber);
+        }
+        if (source.ElasticFloatBandwidth != null) {
+            this.ElasticFloatBandwidth = new Long(source.ElasticFloatBandwidth);
+        }
+        if (source.CustomCertId != null) {
+            this.CustomCertId = new String(source.CustomCertId);
+        }
+        if (source.UncleanLeaderElectionEnable != null) {
+            this.UncleanLeaderElectionEnable = new Long(source.UncleanLeaderElectionEnable);
+        }
     }
 
 
@@ -1101,6 +1152,11 @@ public class InstanceAttributesResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "RemainingTopics", this.RemainingTopics);
         this.setParamObj(map, prefix + "DynamicDiskConfig.", this.DynamicDiskConfig);
         this.setParamSimple(map, prefix + "InstanceChargeType", this.InstanceChargeType);
+        this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
+        this.setParamSimple(map, prefix + "FreePartitionNumber", this.FreePartitionNumber);
+        this.setParamSimple(map, prefix + "ElasticFloatBandwidth", this.ElasticFloatBandwidth);
+        this.setParamSimple(map, prefix + "CustomCertId", this.CustomCertId);
+        this.setParamSimple(map, prefix + "UncleanLeaderElectionEnable", this.UncleanLeaderElectionEnable);
 
     }
 }

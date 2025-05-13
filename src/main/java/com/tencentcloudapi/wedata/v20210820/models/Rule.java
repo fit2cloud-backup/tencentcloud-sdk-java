@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Rule extends AbstractModel{
+public class Rule extends AbstractModel {
 
     /**
     * 规则ID
@@ -301,6 +302,134 @@ public class Rule extends AbstractModel{
     @SerializedName("SourceEngineTypes")
     @Expose
     private Long [] SourceEngineTypes;
+
+    /**
+    * 表名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TableName")
+    @Expose
+    private String TableName;
+
+    /**
+    * 表负责人名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TableOwnerName")
+    @Expose
+    private String TableOwnerName;
+
+    /**
+    * 执行策略信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExecStrategy")
+    @Expose
+    private RuleGroupExecStrategy ExecStrategy;
+
+    /**
+    * 订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Subscription")
+    @Expose
+    private RuleGroupSubscribe Subscription;
+
+    /**
+    * 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
+
+    /**
+    * 数据源 id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatasourceId")
+    @Expose
+    private Long DatasourceId;
+
+    /**
+    * 数据库 id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatabaseId")
+    @Expose
+    private String DatabaseId;
+
+    /**
+    * 监控是否开启.0false,1true
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MonitorStatus")
+    @Expose
+    private Long MonitorStatus;
+
+    /**
+    * 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TriggerCondition")
+    @Expose
+    private String TriggerCondition;
+
+    /**
+    * 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DsEnvType")
+    @Expose
+    private Long DsEnvType;
+
+    /**
+    * 数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DatasourceType")
+    @Expose
+    private Long DatasourceType;
+
+    /**
+    * 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SchemaName")
+    @Expose
+    private String SchemaName;
+
+    /**
+    * 目标模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TargetSchemaName")
+    @Expose
+    private String TargetSchemaName;
+
+    /**
+    * 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
+    * 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ProjectName")
+    @Expose
+    private String ProjectName;
+
+    /**
+    * 更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UpdateTime")
+    @Expose
+    private String UpdateTime;
 
     /**
      * Get 规则ID
@@ -1002,6 +1131,326 @@ public class Rule extends AbstractModel{
         this.SourceEngineTypes = SourceEngineTypes;
     }
 
+    /**
+     * Get 表名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TableName 表名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTableName() {
+        return this.TableName;
+    }
+
+    /**
+     * Set 表名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TableName 表名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTableName(String TableName) {
+        this.TableName = TableName;
+    }
+
+    /**
+     * Get 表负责人名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TableOwnerName 表负责人名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTableOwnerName() {
+        return this.TableOwnerName;
+    }
+
+    /**
+     * Set 表负责人名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TableOwnerName 表负责人名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTableOwnerName(String TableOwnerName) {
+        this.TableOwnerName = TableOwnerName;
+    }
+
+    /**
+     * Get 执行策略信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExecStrategy 执行策略信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RuleGroupExecStrategy getExecStrategy() {
+        return this.ExecStrategy;
+    }
+
+    /**
+     * Set 执行策略信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExecStrategy 执行策略信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExecStrategy(RuleGroupExecStrategy ExecStrategy) {
+        this.ExecStrategy = ExecStrategy;
+    }
+
+    /**
+     * Get 订阅信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Subscription 订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RuleGroupSubscribe getSubscription() {
+        return this.Subscription;
+    }
+
+    /**
+     * Set 订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Subscription 订阅信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubscription(RuleGroupSubscribe Subscription) {
+        this.Subscription = Subscription;
+    }
+
+    /**
+     * Get 创建时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 数据源 id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatasourceId 数据源 id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDatasourceId() {
+        return this.DatasourceId;
+    }
+
+    /**
+     * Set 数据源 id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatasourceId 数据源 id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatasourceId(Long DatasourceId) {
+        this.DatasourceId = DatasourceId;
+    }
+
+    /**
+     * Get 数据库 id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatabaseId 数据库 id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDatabaseId() {
+        return this.DatabaseId;
+    }
+
+    /**
+     * Set 数据库 id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatabaseId 数据库 id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatabaseId(String DatabaseId) {
+        this.DatabaseId = DatabaseId;
+    }
+
+    /**
+     * Get 监控是否开启.0false,1true
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MonitorStatus 监控是否开启.0false,1true
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getMonitorStatus() {
+        return this.MonitorStatus;
+    }
+
+    /**
+     * Set 监控是否开启.0false,1true
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MonitorStatus 监控是否开启.0false,1true
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMonitorStatus(Long MonitorStatus) {
+        this.MonitorStatus = MonitorStatus;
+    }
+
+    /**
+     * Get 触发条件
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TriggerCondition 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTriggerCondition() {
+        return this.TriggerCondition;
+    }
+
+    /**
+     * Set 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TriggerCondition 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTriggerCondition(String TriggerCondition) {
+        this.TriggerCondition = TriggerCondition;
+    }
+
+    /**
+     * Get 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DsEnvType 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDsEnvType() {
+        return this.DsEnvType;
+    }
+
+    /**
+     * Set 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DsEnvType 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDsEnvType(Long DsEnvType) {
+        this.DsEnvType = DsEnvType;
+    }
+
+    /**
+     * Get 数据源类型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DatasourceType 数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDatasourceType() {
+        return this.DatasourceType;
+    }
+
+    /**
+     * Set 数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DatasourceType 数据源类型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDatasourceType(Long DatasourceType) {
+        this.DatasourceType = DatasourceType;
+    }
+
+    /**
+     * Get 模式名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SchemaName 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSchemaName() {
+        return this.SchemaName;
+    }
+
+    /**
+     * Set 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SchemaName 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSchemaName(String SchemaName) {
+        this.SchemaName = SchemaName;
+    }
+
+    /**
+     * Get 目标模式名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TargetSchemaName 目标模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTargetSchemaName() {
+        return this.TargetSchemaName;
+    }
+
+    /**
+     * Set 目标模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TargetSchemaName 目标模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTargetSchemaName(String TargetSchemaName) {
+        this.TargetSchemaName = TargetSchemaName;
+    }
+
+    /**
+     * Get 项目id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectId 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectId 项目id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 项目名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ProjectName 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getProjectName() {
+        return this.ProjectName;
+    }
+
+    /**
+     * Set 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ProjectName 项目名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setProjectName(String ProjectName) {
+        this.ProjectName = ProjectName;
+    }
+
+    /**
+     * Get 更新时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UpdateTime 更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUpdateTime() {
+        return this.UpdateTime;
+    }
+
+    /**
+     * Set 更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UpdateTime 更新时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUpdateTime(String UpdateTime) {
+        this.UpdateTime = UpdateTime;
+    }
+
     public Rule() {
     }
 
@@ -1118,6 +1567,54 @@ public class Rule extends AbstractModel{
                 this.SourceEngineTypes[i] = new Long(source.SourceEngineTypes[i]);
             }
         }
+        if (source.TableName != null) {
+            this.TableName = new String(source.TableName);
+        }
+        if (source.TableOwnerName != null) {
+            this.TableOwnerName = new String(source.TableOwnerName);
+        }
+        if (source.ExecStrategy != null) {
+            this.ExecStrategy = new RuleGroupExecStrategy(source.ExecStrategy);
+        }
+        if (source.Subscription != null) {
+            this.Subscription = new RuleGroupSubscribe(source.Subscription);
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.DatasourceId != null) {
+            this.DatasourceId = new Long(source.DatasourceId);
+        }
+        if (source.DatabaseId != null) {
+            this.DatabaseId = new String(source.DatabaseId);
+        }
+        if (source.MonitorStatus != null) {
+            this.MonitorStatus = new Long(source.MonitorStatus);
+        }
+        if (source.TriggerCondition != null) {
+            this.TriggerCondition = new String(source.TriggerCondition);
+        }
+        if (source.DsEnvType != null) {
+            this.DsEnvType = new Long(source.DsEnvType);
+        }
+        if (source.DatasourceType != null) {
+            this.DatasourceType = new Long(source.DatasourceType);
+        }
+        if (source.SchemaName != null) {
+            this.SchemaName = new String(source.SchemaName);
+        }
+        if (source.TargetSchemaName != null) {
+            this.TargetSchemaName = new String(source.TargetSchemaName);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.ProjectName != null) {
+            this.ProjectName = new String(source.ProjectName);
+        }
+        if (source.UpdateTime != null) {
+            this.UpdateTime = new String(source.UpdateTime);
+        }
     }
 
 
@@ -1160,6 +1657,22 @@ public class Rule extends AbstractModel{
         this.setParamSimple(map, prefix + "TargetObjectDataTypeName", this.TargetObjectDataTypeName);
         this.setParamSimple(map, prefix + "TargetObjectValue", this.TargetObjectValue);
         this.setParamArraySimple(map, prefix + "SourceEngineTypes.", this.SourceEngineTypes);
+        this.setParamSimple(map, prefix + "TableName", this.TableName);
+        this.setParamSimple(map, prefix + "TableOwnerName", this.TableOwnerName);
+        this.setParamObj(map, prefix + "ExecStrategy.", this.ExecStrategy);
+        this.setParamObj(map, prefix + "Subscription.", this.Subscription);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "DatasourceId", this.DatasourceId);
+        this.setParamSimple(map, prefix + "DatabaseId", this.DatabaseId);
+        this.setParamSimple(map, prefix + "MonitorStatus", this.MonitorStatus);
+        this.setParamSimple(map, prefix + "TriggerCondition", this.TriggerCondition);
+        this.setParamSimple(map, prefix + "DsEnvType", this.DsEnvType);
+        this.setParamSimple(map, prefix + "DatasourceType", this.DatasourceType);
+        this.setParamSimple(map, prefix + "SchemaName", this.SchemaName);
+        this.setParamSimple(map, prefix + "TargetSchemaName", this.TargetSchemaName);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
+        this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
 
     }
 }

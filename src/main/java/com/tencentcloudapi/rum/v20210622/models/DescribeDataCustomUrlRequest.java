@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataCustomUrlRequest extends AbstractModel{
+public class DescribeDataCustomUrlRequest extends AbstractModel {
 
     /**
     * 开始时间
@@ -128,7 +129,7 @@ public class DescribeDataCustomUrlRequest extends AbstractModel{
     private String ExtFirst;
 
     /**
-    * 网络类型
+    * 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
     */
     @SerializedName("NetType")
     @Expose
@@ -142,7 +143,7 @@ public class DescribeDataCustomUrlRequest extends AbstractModel{
     private String Device;
 
     /**
-    * 是否海外
+    * 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
     */
     @SerializedName("IsAbroad")
     @Expose
@@ -424,16 +425,16 @@ public class DescribeDataCustomUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 网络类型 
-     * @return NetType 网络类型
+     * Get 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。 
+     * @return NetType 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
      */
     public String getNetType() {
         return this.NetType;
     }
 
     /**
-     * Set 网络类型
-     * @param NetType 网络类型
+     * Set 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
+     * @param NetType 网络类型（1,2,3,4,5,100），1表示WIFI, 2表示2G, 3表示3G, 4表示4G, 5表示5G, 6表示6G, 100表示未知。
      */
     public void setNetType(String NetType) {
         this.NetType = NetType;
@@ -456,16 +457,16 @@ public class DescribeDataCustomUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否海外 
-     * @return IsAbroad 是否海外
+     * Get 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。 
+     * @return IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public String getIsAbroad() {
         return this.IsAbroad;
     }
 
     /**
-     * Set 是否海外
-     * @param IsAbroad 是否海外
+     * Set 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public void setIsAbroad(String IsAbroad) {
         this.IsAbroad = IsAbroad;

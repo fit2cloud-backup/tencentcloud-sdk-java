@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateFlowGroupByTemplatesResponse extends AbstractModel{
+public class CreateFlowGroupByTemplatesResponse extends AbstractModel {
 
     /**
     * 合同(流程)组的合同组Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowGroupId")
     @Expose
@@ -32,24 +32,28 @@ public class CreateFlowGroupByTemplatesResponse extends AbstractModel{
 
     /**
     * 合同(流程)组中子合同列表.
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlowIds")
     @Expose
     private String [] FlowIds;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 合同组签署人信息。
+    */
+    @SerializedName("Approvers")
+    @Expose
+    private FlowGroupApprovers [] Approvers;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 合同(流程)组的合同组Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 合同(流程)组的合同组Id 
      * @return FlowGroupId 合同(流程)组的合同组Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFlowGroupId() {
         return this.FlowGroupId;
@@ -57,19 +61,15 @@ public class CreateFlowGroupByTemplatesResponse extends AbstractModel{
 
     /**
      * Set 合同(流程)组的合同组Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowGroupId 合同(流程)组的合同组Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowGroupId(String FlowGroupId) {
         this.FlowGroupId = FlowGroupId;
     }
 
     /**
-     * Get 合同(流程)组中子合同列表.
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 合同(流程)组中子合同列表. 
      * @return FlowIds 合同(流程)组中子合同列表.
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFlowIds() {
         return this.FlowIds;
@@ -77,25 +77,39 @@ public class CreateFlowGroupByTemplatesResponse extends AbstractModel{
 
     /**
      * Set 合同(流程)组中子合同列表.
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlowIds 合同(流程)组中子合同列表.
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlowIds(String [] FlowIds) {
         this.FlowIds = FlowIds;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 合同组签署人信息。 
+     * @return Approvers 合同组签署人信息。
+     */
+    public FlowGroupApprovers [] getApprovers() {
+        return this.Approvers;
+    }
+
+    /**
+     * Set 合同组签署人信息。
+     * @param Approvers 合同组签署人信息。
+     */
+    public void setApprovers(FlowGroupApprovers [] Approvers) {
+        this.Approvers = Approvers;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -118,6 +132,12 @@ public class CreateFlowGroupByTemplatesResponse extends AbstractModel{
                 this.FlowIds[i] = new String(source.FlowIds[i]);
             }
         }
+        if (source.Approvers != null) {
+            this.Approvers = new FlowGroupApprovers[source.Approvers.length];
+            for (int i = 0; i < source.Approvers.length; i++) {
+                this.Approvers[i] = new FlowGroupApprovers(source.Approvers[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -130,6 +150,7 @@ public class CreateFlowGroupByTemplatesResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FlowGroupId", this.FlowGroupId);
         this.setParamArraySimple(map, prefix + "FlowIds.", this.FlowIds);
+        this.setParamArrayObj(map, prefix + "Approvers.", this.Approvers);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

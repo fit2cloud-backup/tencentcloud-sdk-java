@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AudioData extends AbstractModel{
+public class AudioData extends AbstractModel {
 
     /**
     * 音频识别文本结果
@@ -36,6 +37,14 @@ public class AudioData extends AbstractModel{
     @SerializedName("TextTagSet")
     @Expose
     private MultiLevelTag TextTagSet;
+
+    /**
+    * 音频下载地址
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WebMediaURL")
+    @Expose
+    private String WebMediaURL;
 
     /**
      * Get 音频识别文本结果
@@ -73,6 +82,26 @@ public class AudioData extends AbstractModel{
         this.TextTagSet = TextTagSet;
     }
 
+    /**
+     * Get 音频下载地址
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WebMediaURL 音频下载地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWebMediaURL() {
+        return this.WebMediaURL;
+    }
+
+    /**
+     * Set 音频下载地址
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WebMediaURL 音频下载地址
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWebMediaURL(String WebMediaURL) {
+        this.WebMediaURL = WebMediaURL;
+    }
+
     public AudioData() {
     }
 
@@ -90,6 +119,9 @@ public class AudioData extends AbstractModel{
         if (source.TextTagSet != null) {
             this.TextTagSet = new MultiLevelTag(source.TextTagSet);
         }
+        if (source.WebMediaURL != null) {
+            this.WebMediaURL = new String(source.WebMediaURL);
+        }
     }
 
 
@@ -99,6 +131,7 @@ public class AudioData extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "AudioInfoSet.", this.AudioInfoSet);
         this.setParamObj(map, prefix + "TextTagSet.", this.TextTagSet);
+        this.setParamSimple(map, prefix + "WebMediaURL", this.WebMediaURL);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateClusterRequest extends AbstractModel{
+public class CreateClusterRequest extends AbstractModel {
 
     /**
     * EMR产品版本名称如EMR-V2.3.0 表示2.3.0版本的EMR， 当前支持产品版本名称查询：[产品版本名称](https://cloud.tencent.com/document/product/589/66338)
@@ -94,7 +95,7 @@ public class CreateClusterRequest extends AbstractModel{
     private ScriptBootstrapActionConfig [] ScriptBootstrapActionConfig;
 
     /**
-    * 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-751a-41b6-aad6-fae360632808
+    * 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-****-****-****-fae360632808
     */
     @SerializedName("ClientToken")
     @Expose
@@ -180,6 +181,13 @@ public class CreateClusterRequest extends AbstractModel{
     @SerializedName("ZoneResourceConfiguration")
     @Expose
     private ZoneResourceConfiguration [] ZoneResourceConfiguration;
+
+    /**
+    * cos桶路径，创建StarRocks存算分离集群时用到
+    */
+    @SerializedName("CosBucket")
+    @Expose
+    private String CosBucket;
 
     /**
      * Get EMR产品版本名称如EMR-V2.3.0 表示2.3.0版本的EMR， 当前支持产品版本名称查询：[产品版本名称](https://cloud.tencent.com/document/product/589/66338) 
@@ -358,16 +366,16 @@ public class CreateClusterRequest extends AbstractModel{
     }
 
     /**
-     * Get 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-751a-41b6-aad6-fae360632808 
-     * @return ClientToken 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-751a-41b6-aad6-fae360632808
+     * Get 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-****-****-****-fae360632808 
+     * @return ClientToken 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-****-****-****-fae360632808
      */
     public String getClientToken() {
         return this.ClientToken;
     }
 
     /**
-     * Set 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-751a-41b6-aad6-fae360632808
-     * @param ClientToken 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-751a-41b6-aad6-fae360632808
+     * Set 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-****-****-****-fae360632808
+     * @param ClientToken 唯一随机标识，时效性为5分钟，需要调用者指定 防止客户端重复创建资源，例如 a9a90aa6-****-****-****-fae360632808
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
@@ -577,6 +585,22 @@ public class CreateClusterRequest extends AbstractModel{
         this.ZoneResourceConfiguration = ZoneResourceConfiguration;
     }
 
+    /**
+     * Get cos桶路径，创建StarRocks存算分离集群时用到 
+     * @return CosBucket cos桶路径，创建StarRocks存算分离集群时用到
+     */
+    public String getCosBucket() {
+        return this.CosBucket;
+    }
+
+    /**
+     * Set cos桶路径，创建StarRocks存算分离集群时用到
+     * @param CosBucket cos桶路径，创建StarRocks存算分离集群时用到
+     */
+    public void setCosBucket(String CosBucket) {
+        this.CosBucket = CosBucket;
+    }
+
     public CreateClusterRequest() {
     }
 
@@ -663,6 +687,9 @@ public class CreateClusterRequest extends AbstractModel{
                 this.ZoneResourceConfiguration[i] = new ZoneResourceConfiguration(source.ZoneResourceConfiguration[i]);
             }
         }
+        if (source.CosBucket != null) {
+            this.CosBucket = new String(source.CosBucket);
+        }
     }
 
 
@@ -690,6 +717,7 @@ public class CreateClusterRequest extends AbstractModel{
         this.setParamObj(map, prefix + "MetaDBInfo.", this.MetaDBInfo);
         this.setParamArrayObj(map, prefix + "DependService.", this.DependService);
         this.setParamArrayObj(map, prefix + "ZoneResourceConfiguration.", this.ZoneResourceConfiguration);
+        this.setParamSimple(map, prefix + "CosBucket", this.CosBucket);
 
     }
 }

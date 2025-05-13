@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FirmwareInfo extends AbstractModel{
+public class FirmwareInfo extends AbstractModel {
 
     /**
     * 固件版本
@@ -45,7 +46,6 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
     * 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProductName")
     @Expose
@@ -53,7 +53,6 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
     * 固件名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -61,7 +60,6 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
     * 固件描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -69,7 +67,6 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
     * 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProductId")
     @Expose
@@ -77,7 +74,6 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
     * 固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FwType")
     @Expose
@@ -85,7 +81,6 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
     * 创建者子 uin
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateUserId")
     @Expose
@@ -93,11 +88,17 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
     * 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatorNickName")
     @Expose
     private String CreatorNickName;
+
+    /**
+    * 固件用户自定义配置信息
+    */
+    @SerializedName("UserDefined")
+    @Expose
+    private String UserDefined;
 
     /**
      * Get 固件版本 
@@ -148,10 +149,8 @@ public class FirmwareInfo extends AbstractModel{
     }
 
     /**
-     * Get 产品名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 产品名称 
      * @return ProductName 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProductName() {
         return this.ProductName;
@@ -159,19 +158,15 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
      * Set 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProductName 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProductName(String ProductName) {
         this.ProductName = ProductName;
     }
 
     /**
-     * Get 固件名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 固件名称 
      * @return Name 固件名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -179,19 +174,15 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
      * Set 固件名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 固件名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 固件描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 固件描述 
      * @return Description 固件描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -199,19 +190,15 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
      * Set 固件描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 固件描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 产品ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 产品ID 
      * @return ProductId 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProductId() {
         return this.ProductId;
@@ -219,19 +206,15 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
      * Set 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProductId 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProductId(String ProductId) {
         this.ProductId = ProductId;
     }
 
     /**
-     * Get 固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 固件升级模块 
      * @return FwType 固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFwType() {
         return this.FwType;
@@ -239,19 +222,15 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
      * Set 固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FwType 固件升级模块
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFwType(String FwType) {
         this.FwType = FwType;
     }
 
     /**
-     * Get 创建者子 uin
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建者子 uin 
      * @return CreateUserId 创建者子 uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCreateUserId() {
         return this.CreateUserId;
@@ -259,19 +238,15 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
      * Set 创建者子 uin
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateUserId 创建者子 uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateUserId(Long CreateUserId) {
         this.CreateUserId = CreateUserId;
     }
 
     /**
-     * Get 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建者昵称 
      * @return CreatorNickName 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreatorNickName() {
         return this.CreatorNickName;
@@ -279,12 +254,26 @@ public class FirmwareInfo extends AbstractModel{
 
     /**
      * Set 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreatorNickName 创建者昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatorNickName(String CreatorNickName) {
         this.CreatorNickName = CreatorNickName;
+    }
+
+    /**
+     * Get 固件用户自定义配置信息 
+     * @return UserDefined 固件用户自定义配置信息
+     */
+    public String getUserDefined() {
+        return this.UserDefined;
+    }
+
+    /**
+     * Set 固件用户自定义配置信息
+     * @param UserDefined 固件用户自定义配置信息
+     */
+    public void setUserDefined(String UserDefined) {
+        this.UserDefined = UserDefined;
     }
 
     public FirmwareInfo() {
@@ -325,6 +314,9 @@ public class FirmwareInfo extends AbstractModel{
         if (source.CreatorNickName != null) {
             this.CreatorNickName = new String(source.CreatorNickName);
         }
+        if (source.UserDefined != null) {
+            this.UserDefined = new String(source.UserDefined);
+        }
     }
 
 
@@ -342,6 +334,7 @@ public class FirmwareInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "FwType", this.FwType);
         this.setParamSimple(map, prefix + "CreateUserId", this.CreateUserId);
         this.setParamSimple(map, prefix + "CreatorNickName", this.CreatorNickName);
+        this.setParamSimple(map, prefix + "UserDefined", this.UserDefined);
 
     }
 }

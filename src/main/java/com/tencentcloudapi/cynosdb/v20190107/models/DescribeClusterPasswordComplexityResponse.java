@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
+public class DescribeClusterPasswordComplexityResponse extends AbstractModel {
 
     /**
     * 数据字典参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ValidatePasswordDictionary")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
     * 密码长度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ValidatePasswordLength")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
     * 大小写敏感字符个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ValidatePasswordMixedCaseCount")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
     * 数字个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ValidatePasswordNumberCount")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
     * 密码等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ValidatePasswordPolicy")
     @Expose
@@ -64,24 +60,21 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
     * 特殊字符个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ValidatePasswordSpecialCharCount")
     @Expose
     private ParamInfo ValidatePasswordSpecialCharCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 数据字典参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据字典参数 
      * @return ValidatePasswordDictionary 数据字典参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamInfo getValidatePasswordDictionary() {
         return this.ValidatePasswordDictionary;
@@ -89,19 +82,15 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
      * Set 数据字典参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ValidatePasswordDictionary 数据字典参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValidatePasswordDictionary(ParamInfo ValidatePasswordDictionary) {
         this.ValidatePasswordDictionary = ValidatePasswordDictionary;
     }
 
     /**
-     * Get 密码长度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 密码长度 
      * @return ValidatePasswordLength 密码长度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamInfo getValidatePasswordLength() {
         return this.ValidatePasswordLength;
@@ -109,19 +98,15 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
      * Set 密码长度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ValidatePasswordLength 密码长度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValidatePasswordLength(ParamInfo ValidatePasswordLength) {
         this.ValidatePasswordLength = ValidatePasswordLength;
     }
 
     /**
-     * Get 大小写敏感字符个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 大小写敏感字符个数 
      * @return ValidatePasswordMixedCaseCount 大小写敏感字符个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamInfo getValidatePasswordMixedCaseCount() {
         return this.ValidatePasswordMixedCaseCount;
@@ -129,19 +114,15 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
      * Set 大小写敏感字符个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ValidatePasswordMixedCaseCount 大小写敏感字符个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValidatePasswordMixedCaseCount(ParamInfo ValidatePasswordMixedCaseCount) {
         this.ValidatePasswordMixedCaseCount = ValidatePasswordMixedCaseCount;
     }
 
     /**
-     * Get 数字个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数字个数 
      * @return ValidatePasswordNumberCount 数字个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamInfo getValidatePasswordNumberCount() {
         return this.ValidatePasswordNumberCount;
@@ -149,19 +130,15 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
      * Set 数字个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ValidatePasswordNumberCount 数字个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValidatePasswordNumberCount(ParamInfo ValidatePasswordNumberCount) {
         this.ValidatePasswordNumberCount = ValidatePasswordNumberCount;
     }
 
     /**
-     * Get 密码等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 密码等级 
      * @return ValidatePasswordPolicy 密码等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamInfo getValidatePasswordPolicy() {
         return this.ValidatePasswordPolicy;
@@ -169,19 +146,15 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
      * Set 密码等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ValidatePasswordPolicy 密码等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValidatePasswordPolicy(ParamInfo ValidatePasswordPolicy) {
         this.ValidatePasswordPolicy = ValidatePasswordPolicy;
     }
 
     /**
-     * Get 特殊字符个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 特殊字符个数 
      * @return ValidatePasswordSpecialCharCount 特殊字符个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ParamInfo getValidatePasswordSpecialCharCount() {
         return this.ValidatePasswordSpecialCharCount;
@@ -189,25 +162,23 @@ public class DescribeClusterPasswordComplexityResponse extends AbstractModel{
 
     /**
      * Set 特殊字符个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ValidatePasswordSpecialCharCount 特殊字符个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValidatePasswordSpecialCharCount(ParamInfo ValidatePasswordSpecialCharCount) {
         this.ValidatePasswordSpecialCharCount = ValidatePasswordSpecialCharCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCosRechargeRequest extends AbstractModel{
+public class CreateCosRechargeRequest extends AbstractModel {
 
     /**
     * 日志主题 ID
@@ -44,25 +45,18 @@ public class CreateCosRechargeRequest extends AbstractModel{
     private String Name;
 
     /**
-    * COS存储桶
+    * COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
     */
     @SerializedName("Bucket")
     @Expose
     private String Bucket;
 
     /**
-    * COS存储桶所在地域
+    * COS存储桶所在地域，详见产品支持的[地域列表](https://cloud.tencent.com/document/product/436/6224)。
     */
     @SerializedName("BucketRegion")
     @Expose
     private String BucketRegion;
-
-    /**
-    * COS文件所在文件夹的前缀
-    */
-    @SerializedName("Prefix")
-    @Expose
-    private String Prefix;
 
     /**
     * 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表单行全文；
@@ -73,7 +67,14 @@ public class CreateCosRechargeRequest extends AbstractModel{
     private String LogType;
 
     /**
-    * supported: "", "gzip", "lzop", "snappy”; 默认空
+    * COS文件所在文件夹的前缀。默认为空，投递存储桶下所有的文件。
+    */
+    @SerializedName("Prefix")
+    @Expose
+    private String Prefix;
+
+    /**
+    * supported: "", "gzip", "lzop", "snappy"; 默认空
     */
     @SerializedName("Compress")
     @Expose
@@ -85,6 +86,20 @@ public class CreateCosRechargeRequest extends AbstractModel{
     @SerializedName("ExtractRuleInfo")
     @Expose
     private ExtractRuleInfo ExtractRuleInfo;
+
+    /**
+    * COS导入任务类型。1：一次性导入任务；2：持续性导入任务。默认为1：一次性导入任务
+    */
+    @SerializedName("TaskType")
+    @Expose
+    private Long TaskType;
+
+    /**
+    * 元数据。
+    */
+    @SerializedName("Metadata")
+    @Expose
+    private String [] Metadata;
 
     /**
      * Get 日志主题 ID 
@@ -135,51 +150,35 @@ public class CreateCosRechargeRequest extends AbstractModel{
     }
 
     /**
-     * Get COS存储桶 
-     * @return Bucket COS存储桶
+     * Get COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。 
+     * @return Bucket COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
      */
     public String getBucket() {
         return this.Bucket;
     }
 
     /**
-     * Set COS存储桶
-     * @param Bucket COS存储桶
+     * Set COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
+     * @param Bucket COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
      */
     public void setBucket(String Bucket) {
         this.Bucket = Bucket;
     }
 
     /**
-     * Get COS存储桶所在地域 
-     * @return BucketRegion COS存储桶所在地域
+     * Get COS存储桶所在地域，详见产品支持的[地域列表](https://cloud.tencent.com/document/product/436/6224)。 
+     * @return BucketRegion COS存储桶所在地域，详见产品支持的[地域列表](https://cloud.tencent.com/document/product/436/6224)。
      */
     public String getBucketRegion() {
         return this.BucketRegion;
     }
 
     /**
-     * Set COS存储桶所在地域
-     * @param BucketRegion COS存储桶所在地域
+     * Set COS存储桶所在地域，详见产品支持的[地域列表](https://cloud.tencent.com/document/product/436/6224)。
+     * @param BucketRegion COS存储桶所在地域，详见产品支持的[地域列表](https://cloud.tencent.com/document/product/436/6224)。
      */
     public void setBucketRegion(String BucketRegion) {
         this.BucketRegion = BucketRegion;
-    }
-
-    /**
-     * Get COS文件所在文件夹的前缀 
-     * @return Prefix COS文件所在文件夹的前缀
-     */
-    public String getPrefix() {
-        return this.Prefix;
-    }
-
-    /**
-     * Set COS文件所在文件夹的前缀
-     * @param Prefix COS文件所在文件夹的前缀
-     */
-    public void setPrefix(String Prefix) {
-        this.Prefix = Prefix;
     }
 
     /**
@@ -203,16 +202,32 @@ public class CreateCosRechargeRequest extends AbstractModel{
     }
 
     /**
-     * Get supported: "", "gzip", "lzop", "snappy”; 默认空 
-     * @return Compress supported: "", "gzip", "lzop", "snappy”; 默认空
+     * Get COS文件所在文件夹的前缀。默认为空，投递存储桶下所有的文件。 
+     * @return Prefix COS文件所在文件夹的前缀。默认为空，投递存储桶下所有的文件。
+     */
+    public String getPrefix() {
+        return this.Prefix;
+    }
+
+    /**
+     * Set COS文件所在文件夹的前缀。默认为空，投递存储桶下所有的文件。
+     * @param Prefix COS文件所在文件夹的前缀。默认为空，投递存储桶下所有的文件。
+     */
+    public void setPrefix(String Prefix) {
+        this.Prefix = Prefix;
+    }
+
+    /**
+     * Get supported: "", "gzip", "lzop", "snappy"; 默认空 
+     * @return Compress supported: "", "gzip", "lzop", "snappy"; 默认空
      */
     public String getCompress() {
         return this.Compress;
     }
 
     /**
-     * Set supported: "", "gzip", "lzop", "snappy”; 默认空
-     * @param Compress supported: "", "gzip", "lzop", "snappy”; 默认空
+     * Set supported: "", "gzip", "lzop", "snappy"; 默认空
+     * @param Compress supported: "", "gzip", "lzop", "snappy"; 默认空
      */
     public void setCompress(String Compress) {
         this.Compress = Compress;
@@ -232,6 +247,38 @@ public class CreateCosRechargeRequest extends AbstractModel{
      */
     public void setExtractRuleInfo(ExtractRuleInfo ExtractRuleInfo) {
         this.ExtractRuleInfo = ExtractRuleInfo;
+    }
+
+    /**
+     * Get COS导入任务类型。1：一次性导入任务；2：持续性导入任务。默认为1：一次性导入任务 
+     * @return TaskType COS导入任务类型。1：一次性导入任务；2：持续性导入任务。默认为1：一次性导入任务
+     */
+    public Long getTaskType() {
+        return this.TaskType;
+    }
+
+    /**
+     * Set COS导入任务类型。1：一次性导入任务；2：持续性导入任务。默认为1：一次性导入任务
+     * @param TaskType COS导入任务类型。1：一次性导入任务；2：持续性导入任务。默认为1：一次性导入任务
+     */
+    public void setTaskType(Long TaskType) {
+        this.TaskType = TaskType;
+    }
+
+    /**
+     * Get 元数据。 
+     * @return Metadata 元数据。
+     */
+    public String [] getMetadata() {
+        return this.Metadata;
+    }
+
+    /**
+     * Set 元数据。
+     * @param Metadata 元数据。
+     */
+    public void setMetadata(String [] Metadata) {
+        this.Metadata = Metadata;
     }
 
     public CreateCosRechargeRequest() {
@@ -257,17 +304,26 @@ public class CreateCosRechargeRequest extends AbstractModel{
         if (source.BucketRegion != null) {
             this.BucketRegion = new String(source.BucketRegion);
         }
-        if (source.Prefix != null) {
-            this.Prefix = new String(source.Prefix);
-        }
         if (source.LogType != null) {
             this.LogType = new String(source.LogType);
+        }
+        if (source.Prefix != null) {
+            this.Prefix = new String(source.Prefix);
         }
         if (source.Compress != null) {
             this.Compress = new String(source.Compress);
         }
         if (source.ExtractRuleInfo != null) {
             this.ExtractRuleInfo = new ExtractRuleInfo(source.ExtractRuleInfo);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new Long(source.TaskType);
+        }
+        if (source.Metadata != null) {
+            this.Metadata = new String[source.Metadata.length];
+            for (int i = 0; i < source.Metadata.length; i++) {
+                this.Metadata[i] = new String(source.Metadata[i]);
+            }
         }
     }
 
@@ -281,10 +337,12 @@ public class CreateCosRechargeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Bucket", this.Bucket);
         this.setParamSimple(map, prefix + "BucketRegion", this.BucketRegion);
-        this.setParamSimple(map, prefix + "Prefix", this.Prefix);
         this.setParamSimple(map, prefix + "LogType", this.LogType);
+        this.setParamSimple(map, prefix + "Prefix", this.Prefix);
         this.setParamSimple(map, prefix + "Compress", this.Compress);
         this.setParamObj(map, prefix + "ExtractRuleInfo.", this.ExtractRuleInfo);
+        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
+        this.setParamArraySimple(map, prefix + "Metadata.", this.Metadata);
 
     }
 }

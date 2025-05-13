@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteApplicationServiceRequest extends AbstractModel{
+public class DeleteApplicationServiceRequest extends AbstractModel {
 
     /**
     * 服务id
@@ -28,13 +29,6 @@ public class DeleteApplicationServiceRequest extends AbstractModel{
     @SerializedName("ApplicationId")
     @Expose
     private String ApplicationId;
-
-    /**
-    * 来源渠道
-    */
-    @SerializedName("SourceChannel")
-    @Expose
-    private Long SourceChannel;
 
     /**
     * 环境ID
@@ -51,6 +45,13 @@ public class DeleteApplicationServiceRequest extends AbstractModel{
     private String ServiceName;
 
     /**
+    * 来源渠道
+    */
+    @SerializedName("SourceChannel")
+    @Expose
+    private Long SourceChannel;
+
+    /**
      * Get 服务id 
      * @return ApplicationId 服务id
      */
@@ -64,22 +65,6 @@ public class DeleteApplicationServiceRequest extends AbstractModel{
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
-    }
-
-    /**
-     * Get 来源渠道 
-     * @return SourceChannel 来源渠道
-     */
-    public Long getSourceChannel() {
-        return this.SourceChannel;
-    }
-
-    /**
-     * Set 来源渠道
-     * @param SourceChannel 来源渠道
-     */
-    public void setSourceChannel(Long SourceChannel) {
-        this.SourceChannel = SourceChannel;
     }
 
     /**
@@ -114,6 +99,22 @@ public class DeleteApplicationServiceRequest extends AbstractModel{
         this.ServiceName = ServiceName;
     }
 
+    /**
+     * Get 来源渠道 
+     * @return SourceChannel 来源渠道
+     */
+    public Long getSourceChannel() {
+        return this.SourceChannel;
+    }
+
+    /**
+     * Set 来源渠道
+     * @param SourceChannel 来源渠道
+     */
+    public void setSourceChannel(Long SourceChannel) {
+        this.SourceChannel = SourceChannel;
+    }
+
     public DeleteApplicationServiceRequest() {
     }
 
@@ -125,14 +126,14 @@ public class DeleteApplicationServiceRequest extends AbstractModel{
         if (source.ApplicationId != null) {
             this.ApplicationId = new String(source.ApplicationId);
         }
-        if (source.SourceChannel != null) {
-            this.SourceChannel = new Long(source.SourceChannel);
-        }
         if (source.EnvironmentId != null) {
             this.EnvironmentId = new String(source.EnvironmentId);
         }
         if (source.ServiceName != null) {
             this.ServiceName = new String(source.ServiceName);
+        }
+        if (source.SourceChannel != null) {
+            this.SourceChannel = new Long(source.SourceChannel);
         }
     }
 
@@ -142,9 +143,9 @@ public class DeleteApplicationServiceRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
-        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
         this.setParamSimple(map, prefix + "ServiceName", this.ServiceName);
+        this.setParamSimple(map, prefix + "SourceChannel", this.SourceChannel);
 
     }
 }

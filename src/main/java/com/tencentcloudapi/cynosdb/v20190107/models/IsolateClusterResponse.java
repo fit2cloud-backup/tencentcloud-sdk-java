@@ -16,22 +16,22 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IsolateClusterResponse extends AbstractModel{
+public class IsolateClusterResponse extends AbstractModel {
 
     /**
-    * 任务流ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 任务流ID(后付费或者serverless资源返回，如果需要同步任务状态，请使用DescribeFlow接口)
     */
     @SerializedName("FlowId")
     @Expose
     private Long FlowId;
 
     /**
-    * 退款订单号
+    * 退款订单号(预付费资源返回，如果需要同步订单状态，请使用计费产品的DescribeDealsByCond同步订单状态)
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DealNames")
@@ -39,36 +39,32 @@ public class IsolateClusterResponse extends AbstractModel{
     private String [] DealNames;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 任务流ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FlowId 任务流ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 任务流ID(后付费或者serverless资源返回，如果需要同步任务状态，请使用DescribeFlow接口) 
+     * @return FlowId 任务流ID(后付费或者serverless资源返回，如果需要同步任务状态，请使用DescribeFlow接口)
      */
     public Long getFlowId() {
         return this.FlowId;
     }
 
     /**
-     * Set 任务流ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param FlowId 任务流ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 任务流ID(后付费或者serverless资源返回，如果需要同步任务状态，请使用DescribeFlow接口)
+     * @param FlowId 任务流ID(后付费或者serverless资源返回，如果需要同步任务状态，请使用DescribeFlow接口)
      */
     public void setFlowId(Long FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 退款订单号
+     * Get 退款订单号(预付费资源返回，如果需要同步订单状态，请使用计费产品的DescribeDealsByCond同步订单状态)
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DealNames 退款订单号
+     * @return DealNames 退款订单号(预付费资源返回，如果需要同步订单状态，请使用计费产品的DescribeDealsByCond同步订单状态)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDealNames() {
@@ -76,9 +72,9 @@ public class IsolateClusterResponse extends AbstractModel{
     }
 
     /**
-     * Set 退款订单号
+     * Set 退款订单号(预付费资源返回，如果需要同步订单状态，请使用计费产品的DescribeDealsByCond同步订单状态)
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param DealNames 退款订单号
+     * @param DealNames 退款订单号(预付费资源返回，如果需要同步订单状态，请使用计费产品的DescribeDealsByCond同步订单状态)
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDealNames(String [] DealNames) {
@@ -86,16 +82,16 @@ public class IsolateClusterResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

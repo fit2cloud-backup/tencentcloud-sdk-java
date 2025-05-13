@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vm.v20210922.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskDetailResponse extends AbstractModel{
+public class DescribeTaskDetailResponse extends AbstractModel {
 
     /**
     * 该字段用于返回创建视频审核任务后返回的任务ID（在Results参数中），用于标识需要查询任务详情的审核任务。
@@ -128,7 +129,7 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private Long TryInSeconds;
 
     /**
-    * 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+    * 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageSegments")
@@ -136,7 +137,7 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private ImageSegments [] ImageSegments;
 
     /**
-    * 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+    * 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AudioSegments")
@@ -144,9 +145,14 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private AudioSegments [] AudioSegments;
 
     /**
-    * 当任务状态为Error时，返回对应错误的类型，取值：**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
+    * 当任务状态为Error时，返回对应错误的类型，取值：
+**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
 **URL_ERROR**：下载地址验证失败。
-**TIMEOUT_ERROR**：处理超时。任务状态非Error时默认返回为空。
+**TIMEOUT_ERROR**：处理超时。
+**CALLBACK_ERRORR**：回调错误。
+**MODERATION_ERROR**：审核失败。
+**URL_NOT_SUPPORTED**：源文件太大或没有图片音频帧
+任务状态非Error时默认返回为空。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorType")
@@ -186,7 +192,15 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private RcbAsr [] Asrs;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 该字段用于返回检测结果明细数据相关的cos url	
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SegmentCosUrlList")
+    @Expose
+    private SegmentCosUrlList SegmentCosUrlList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -457,9 +471,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Get 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @return ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public ImageSegments [] getImageSegments() {
@@ -467,9 +481,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Set 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Set 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @param ImageSegments 该字段用于返回视频中截帧审核的结果，详细返回内容敬请参考ImageSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageSegments(ImageSegments [] ImageSegments) {
@@ -477,9 +491,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Get 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @return AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public AudioSegments [] getAudioSegments() {
@@ -487,9 +501,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Set 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * Set 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。<br>备注：数据有效期为24小时，如需要延长存储时间，请在已配置的COS储存桶中设置。
+     * @param AudioSegments 该字段用于返回视频中音频审核的结果，详细返回内容敬请参考AudioSegments数据结构的描述。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAudioSegments(AudioSegments [] AudioSegments) {
@@ -497,13 +511,23 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 当任务状态为Error时，返回对应错误的类型，取值：**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
+     * Get 当任务状态为Error时，返回对应错误的类型，取值：
+**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
 **URL_ERROR**：下载地址验证失败。
-**TIMEOUT_ERROR**：处理超时。任务状态非Error时默认返回为空。
+**TIMEOUT_ERROR**：处理超时。
+**CALLBACK_ERRORR**：回调错误。
+**MODERATION_ERROR**：审核失败。
+**URL_NOT_SUPPORTED**：源文件太大或没有图片音频帧
+任务状态非Error时默认返回为空。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ErrorType 当任务状态为Error时，返回对应错误的类型，取值：**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
+     * @return ErrorType 当任务状态为Error时，返回对应错误的类型，取值：
+**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
 **URL_ERROR**：下载地址验证失败。
-**TIMEOUT_ERROR**：处理超时。任务状态非Error时默认返回为空。
+**TIMEOUT_ERROR**：处理超时。
+**CALLBACK_ERRORR**：回调错误。
+**MODERATION_ERROR**：审核失败。
+**URL_NOT_SUPPORTED**：源文件太大或没有图片音频帧
+任务状态非Error时默认返回为空。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorType() {
@@ -511,13 +535,23 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Set 当任务状态为Error时，返回对应错误的类型，取值：**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
+     * Set 当任务状态为Error时，返回对应错误的类型，取值：
+**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
 **URL_ERROR**：下载地址验证失败。
-**TIMEOUT_ERROR**：处理超时。任务状态非Error时默认返回为空。
+**TIMEOUT_ERROR**：处理超时。
+**CALLBACK_ERRORR**：回调错误。
+**MODERATION_ERROR**：审核失败。
+**URL_NOT_SUPPORTED**：源文件太大或没有图片音频帧
+任务状态非Error时默认返回为空。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ErrorType 当任务状态为Error时，返回对应错误的类型，取值：**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
+     * @param ErrorType 当任务状态为Error时，返回对应错误的类型，取值：
+**DECODE_ERROR**: 解码失败。（输入资源中可能包含无法解码的视频）
 **URL_ERROR**：下载地址验证失败。
-**TIMEOUT_ERROR**：处理超时。任务状态非Error时默认返回为空。
+**TIMEOUT_ERROR**：处理超时。
+**CALLBACK_ERRORR**：回调错误。
+**MODERATION_ERROR**：审核失败。
+**URL_NOT_SUPPORTED**：源文件太大或没有图片音频帧
+任务状态非Error时默认返回为空。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorType(String ErrorType) {
@@ -605,16 +639,36 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 该字段用于返回检测结果明细数据相关的cos url	
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SegmentCosUrlList 该字段用于返回检测结果明细数据相关的cos url	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SegmentCosUrlList getSegmentCosUrlList() {
+        return this.SegmentCosUrlList;
+    }
+
+    /**
+     * Set 该字段用于返回检测结果明细数据相关的cos url	
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SegmentCosUrlList 该字段用于返回检测结果明细数据相关的cos url	
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSegmentCosUrlList(SegmentCosUrlList SegmentCosUrlList) {
+        this.SegmentCosUrlList = SegmentCosUrlList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -700,6 +754,9 @@ public class DescribeTaskDetailResponse extends AbstractModel{
                 this.Asrs[i] = new RcbAsr(source.Asrs[i]);
             }
         }
+        if (source.SegmentCosUrlList != null) {
+            this.SegmentCosUrlList = new SegmentCosUrlList(source.SegmentCosUrlList);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -730,6 +787,7 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Label", this.Label);
         this.setParamSimple(map, prefix + "AudioText", this.AudioText);
         this.setParamArrayObj(map, prefix + "Asrs.", this.Asrs);
+        this.setParamObj(map, prefix + "SegmentCosUrlList.", this.SegmentCosUrlList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

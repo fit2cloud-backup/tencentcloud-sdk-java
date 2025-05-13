@@ -16,178 +16,247 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelDescribeOrganizationSealsRequest extends AbstractModel{
+public class ChannelDescribeOrganizationSealsRequest extends AbstractModel {
 
     /**
-    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+    * 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 返回最大数量，最大为100
+    * 指定分页每页返回的数据条数，单页最大支持 100。
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 偏移量，默认为0，最大为20000
+    * 分页查询偏移量，默认为0，最大为20000
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 查询信息类型，为1时返回授权用户，为其他值时不返回
+    * 查询授权用户信息类型，取值如下：
+
+<ul> <li><b>0</b>：（默认）不返回授权用户信息</li> <li><b>1</b>：返回授权用户的信息</li> </ul>
     */
     @SerializedName("InfoType")
     @Expose
     private Long InfoType;
 
     /**
-    * 印章id（没有输入返回所有）
+    * 印章id，是否查询特定的印章（没有输入返回所有）
+
+注:  `没有输入返回所有记录，最大返回100条。`
     */
     @SerializedName("SealId")
     @Expose
     private String SealId;
 
     /**
-    * 印章类型列表（都是组织机构印章）。
-为空时查询所有类型的印章。
-目前支持以下类型：
-OFFICIAL：企业公章；
-CONTRACT：合同专用章；
-ORGANIZATION_SEAL：企业印章(图片上传创建)；
-LEGAL_PERSON_SEAL：法定代表人章
+    * 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: 公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**LEGAL_PERSON_SEAL**: 法定代表人章;</li><li>**EMPLOYEE_QUALIFICATION_SEAL**: 员工执业章</li></ul>注:  `1.为空时查询所有类型的印章。`
     */
     @SerializedName("SealTypes")
     @Expose
     private String [] SealTypes;
 
     /**
-     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。 
-     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+    * 
+需查询的印章状态列表。
+
+<ul> <li>空，()仅查询启用状态的印章；</li> <li><strong>ALL</strong>，查询所有状态的印章；</li> <li><strong>CHECKING</strong>，查询待审核的印章；</li> <li><strong>SUCCESS</strong>，查询启用状态的印章；</li> <li><strong>FAIL</strong>，查询印章审核拒绝的印章；</li> <li><strong>DISABLE</strong>，查询已停用的印章；</li> <li><strong>STOPPED</strong>，查询已终止的印章；</li> <li><strong>VOID</strong>，查询已作废的印章；</li> <li><strong>INVALID</strong>，查询已失效的印章。</li> </ul>
+    */
+    @SerializedName("SealStatuses")
+    @Expose
+    private String [] SealStatuses;
+
+    /**
+     * Get 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证 
+     * @return Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
-     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填。
+     * Set 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
+     * @param Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 返回最大数量，最大为100 
-     * @return Limit 返回最大数量，最大为100
+     * Get 指定分页每页返回的数据条数，单页最大支持 100。 
+     * @return Limit 指定分页每页返回的数据条数，单页最大支持 100。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 返回最大数量，最大为100
-     * @param Limit 返回最大数量，最大为100
+     * Set 指定分页每页返回的数据条数，单页最大支持 100。
+     * @param Limit 指定分页每页返回的数据条数，单页最大支持 100。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 偏移量，默认为0，最大为20000 
-     * @return Offset 偏移量，默认为0，最大为20000
+     * Get 分页查询偏移量，默认为0，最大为20000 
+     * @return Offset 分页查询偏移量，默认为0，最大为20000
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量，默认为0，最大为20000
-     * @param Offset 偏移量，默认为0，最大为20000
+     * Set 分页查询偏移量，默认为0，最大为20000
+     * @param Offset 分页查询偏移量，默认为0，最大为20000
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 查询信息类型，为1时返回授权用户，为其他值时不返回 
-     * @return InfoType 查询信息类型，为1时返回授权用户，为其他值时不返回
+     * Get 查询授权用户信息类型，取值如下：
+
+<ul> <li><b>0</b>：（默认）不返回授权用户信息</li> <li><b>1</b>：返回授权用户的信息</li> </ul> 
+     * @return InfoType 查询授权用户信息类型，取值如下：
+
+<ul> <li><b>0</b>：（默认）不返回授权用户信息</li> <li><b>1</b>：返回授权用户的信息</li> </ul>
      */
     public Long getInfoType() {
         return this.InfoType;
     }
 
     /**
-     * Set 查询信息类型，为1时返回授权用户，为其他值时不返回
-     * @param InfoType 查询信息类型，为1时返回授权用户，为其他值时不返回
+     * Set 查询授权用户信息类型，取值如下：
+
+<ul> <li><b>0</b>：（默认）不返回授权用户信息</li> <li><b>1</b>：返回授权用户的信息</li> </ul>
+     * @param InfoType 查询授权用户信息类型，取值如下：
+
+<ul> <li><b>0</b>：（默认）不返回授权用户信息</li> <li><b>1</b>：返回授权用户的信息</li> </ul>
      */
     public void setInfoType(Long InfoType) {
         this.InfoType = InfoType;
     }
 
     /**
-     * Get 印章id（没有输入返回所有） 
-     * @return SealId 印章id（没有输入返回所有）
+     * Get 印章id，是否查询特定的印章（没有输入返回所有）
+
+注:  `没有输入返回所有记录，最大返回100条。` 
+     * @return SealId 印章id，是否查询特定的印章（没有输入返回所有）
+
+注:  `没有输入返回所有记录，最大返回100条。`
      */
     public String getSealId() {
         return this.SealId;
     }
 
     /**
-     * Set 印章id（没有输入返回所有）
-     * @param SealId 印章id（没有输入返回所有）
+     * Set 印章id，是否查询特定的印章（没有输入返回所有）
+
+注:  `没有输入返回所有记录，最大返回100条。`
+     * @param SealId 印章id，是否查询特定的印章（没有输入返回所有）
+
+注:  `没有输入返回所有记录，最大返回100条。`
      */
     public void setSealId(String SealId) {
         this.SealId = SealId;
     }
 
     /**
-     * Get 印章类型列表（都是组织机构印章）。
-为空时查询所有类型的印章。
-目前支持以下类型：
-OFFICIAL：企业公章；
-CONTRACT：合同专用章；
-ORGANIZATION_SEAL：企业印章(图片上传创建)；
-LEGAL_PERSON_SEAL：法定代表人章 
-     * @return SealTypes 印章类型列表（都是组织机构印章）。
-为空时查询所有类型的印章。
-目前支持以下类型：
-OFFICIAL：企业公章；
-CONTRACT：合同专用章；
-ORGANIZATION_SEAL：企业印章(图片上传创建)；
-LEGAL_PERSON_SEAL：法定代表人章
+     * Get 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: 公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**LEGAL_PERSON_SEAL**: 法定代表人章;</li><li>**EMPLOYEE_QUALIFICATION_SEAL**: 员工执业章</li></ul>注:  `1.为空时查询所有类型的印章。` 
+     * @return SealTypes 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: 公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**LEGAL_PERSON_SEAL**: 法定代表人章;</li><li>**EMPLOYEE_QUALIFICATION_SEAL**: 员工执业章</li></ul>注:  `1.为空时查询所有类型的印章。`
      */
     public String [] getSealTypes() {
         return this.SealTypes;
     }
 
     /**
-     * Set 印章类型列表（都是组织机构印章）。
-为空时查询所有类型的印章。
-目前支持以下类型：
-OFFICIAL：企业公章；
-CONTRACT：合同专用章；
-ORGANIZATION_SEAL：企业印章(图片上传创建)；
-LEGAL_PERSON_SEAL：法定代表人章
-     * @param SealTypes 印章类型列表（都是组织机构印章）。
-为空时查询所有类型的印章。
-目前支持以下类型：
-OFFICIAL：企业公章；
-CONTRACT：合同专用章；
-ORGANIZATION_SEAL：企业印章(图片上传创建)；
-LEGAL_PERSON_SEAL：法定代表人章
+     * Set 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: 公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**LEGAL_PERSON_SEAL**: 法定代表人章;</li><li>**EMPLOYEE_QUALIFICATION_SEAL**: 员工执业章</li></ul>注:  `1.为空时查询所有类型的印章。`
+     * @param SealTypes 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: 公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**LEGAL_PERSON_SEAL**: 法定代表人章;</li><li>**EMPLOYEE_QUALIFICATION_SEAL**: 员工执业章</li></ul>注:  `1.为空时查询所有类型的印章。`
      */
     public void setSealTypes(String [] SealTypes) {
         this.SealTypes = SealTypes;
+    }
+
+    /**
+     * Get 
+需查询的印章状态列表。
+
+<ul> <li>空，()仅查询启用状态的印章；</li> <li><strong>ALL</strong>，查询所有状态的印章；</li> <li><strong>CHECKING</strong>，查询待审核的印章；</li> <li><strong>SUCCESS</strong>，查询启用状态的印章；</li> <li><strong>FAIL</strong>，查询印章审核拒绝的印章；</li> <li><strong>DISABLE</strong>，查询已停用的印章；</li> <li><strong>STOPPED</strong>，查询已终止的印章；</li> <li><strong>VOID</strong>，查询已作废的印章；</li> <li><strong>INVALID</strong>，查询已失效的印章。</li> </ul> 
+     * @return SealStatuses 
+需查询的印章状态列表。
+
+<ul> <li>空，()仅查询启用状态的印章；</li> <li><strong>ALL</strong>，查询所有状态的印章；</li> <li><strong>CHECKING</strong>，查询待审核的印章；</li> <li><strong>SUCCESS</strong>，查询启用状态的印章；</li> <li><strong>FAIL</strong>，查询印章审核拒绝的印章；</li> <li><strong>DISABLE</strong>，查询已停用的印章；</li> <li><strong>STOPPED</strong>，查询已终止的印章；</li> <li><strong>VOID</strong>，查询已作废的印章；</li> <li><strong>INVALID</strong>，查询已失效的印章。</li> </ul>
+     */
+    public String [] getSealStatuses() {
+        return this.SealStatuses;
+    }
+
+    /**
+     * Set 
+需查询的印章状态列表。
+
+<ul> <li>空，()仅查询启用状态的印章；</li> <li><strong>ALL</strong>，查询所有状态的印章；</li> <li><strong>CHECKING</strong>，查询待审核的印章；</li> <li><strong>SUCCESS</strong>，查询启用状态的印章；</li> <li><strong>FAIL</strong>，查询印章审核拒绝的印章；</li> <li><strong>DISABLE</strong>，查询已停用的印章；</li> <li><strong>STOPPED</strong>，查询已终止的印章；</li> <li><strong>VOID</strong>，查询已作废的印章；</li> <li><strong>INVALID</strong>，查询已失效的印章。</li> </ul>
+     * @param SealStatuses 
+需查询的印章状态列表。
+
+<ul> <li>空，()仅查询启用状态的印章；</li> <li><strong>ALL</strong>，查询所有状态的印章；</li> <li><strong>CHECKING</strong>，查询待审核的印章；</li> <li><strong>SUCCESS</strong>，查询启用状态的印章；</li> <li><strong>FAIL</strong>，查询印章审核拒绝的印章；</li> <li><strong>DISABLE</strong>，查询已停用的印章；</li> <li><strong>STOPPED</strong>，查询已终止的印章；</li> <li><strong>VOID</strong>，查询已作废的印章；</li> <li><strong>INVALID</strong>，查询已失效的印章。</li> </ul>
+     */
+    public void setSealStatuses(String [] SealStatuses) {
+        this.SealStatuses = SealStatuses;
     }
 
     public ChannelDescribeOrganizationSealsRequest() {
@@ -219,6 +288,12 @@ LEGAL_PERSON_SEAL：法定代表人章
                 this.SealTypes[i] = new String(source.SealTypes[i]);
             }
         }
+        if (source.SealStatuses != null) {
+            this.SealStatuses = new String[source.SealStatuses.length];
+            for (int i = 0; i < source.SealStatuses.length; i++) {
+                this.SealStatuses[i] = new String(source.SealStatuses[i]);
+            }
+        }
     }
 
 
@@ -232,6 +307,7 @@ LEGAL_PERSON_SEAL：法定代表人章
         this.setParamSimple(map, prefix + "InfoType", this.InfoType);
         this.setParamSimple(map, prefix + "SealId", this.SealId);
         this.setParamArraySimple(map, prefix + "SealTypes.", this.SealTypes);
+        this.setParamArraySimple(map, prefix + "SealStatuses.", this.SealStatuses);
 
     }
 }

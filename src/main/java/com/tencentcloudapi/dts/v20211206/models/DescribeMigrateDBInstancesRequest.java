@@ -16,14 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeMigrateDBInstancesRequest extends AbstractModel{
+public class DescribeMigrateDBInstancesRequest extends AbstractModel {
 
     /**
-    * 数据库类型，如mysql
+    * 数据库类型，如mysql,redis等
     */
     @SerializedName("DatabaseType")
     @Expose
@@ -72,37 +73,37 @@ public class DescribeMigrateDBInstancesRequest extends AbstractModel{
     private String AccountMode;
 
     /**
-    * 临时密钥Id，若为跨账号资源此项必填
+    * 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
     */
     @SerializedName("TmpSecretId")
     @Expose
     private String TmpSecretId;
 
     /**
-    * 临时密钥Key，若为跨账号资源此项必填
+    * 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
     */
     @SerializedName("TmpSecretKey")
     @Expose
     private String TmpSecretKey;
 
     /**
-    * 临时密钥Token，若为跨账号资源此项必填
+    * 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
     */
     @SerializedName("TmpToken")
     @Expose
     private String TmpToken;
 
     /**
-     * Get 数据库类型，如mysql 
-     * @return DatabaseType 数据库类型，如mysql
+     * Get 数据库类型，如mysql,redis等 
+     * @return DatabaseType 数据库类型，如mysql,redis等
      */
     public String getDatabaseType() {
         return this.DatabaseType;
     }
 
     /**
-     * Set 数据库类型，如mysql
-     * @param DatabaseType 数据库类型，如mysql
+     * Set 数据库类型，如mysql,redis等
+     * @param DatabaseType 数据库类型，如mysql,redis等
      */
     public void setDatabaseType(String DatabaseType) {
         this.DatabaseType = DatabaseType;
@@ -205,48 +206,48 @@ public class DescribeMigrateDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 临时密钥Id，若为跨账号资源此项必填 
-     * @return TmpSecretId 临时密钥Id，若为跨账号资源此项必填
+     * Get 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。 
+     * @return TmpSecretId 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
      */
     public String getTmpSecretId() {
         return this.TmpSecretId;
     }
 
     /**
-     * Set 临时密钥Id，若为跨账号资源此项必填
-     * @param TmpSecretId 临时密钥Id，若为跨账号资源此项必填
+     * Set 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
+     * @param TmpSecretId 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
      */
     public void setTmpSecretId(String TmpSecretId) {
         this.TmpSecretId = TmpSecretId;
     }
 
     /**
-     * Get 临时密钥Key，若为跨账号资源此项必填 
-     * @return TmpSecretKey 临时密钥Key，若为跨账号资源此项必填
+     * Get 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。 
+     * @return TmpSecretKey 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
      */
     public String getTmpSecretKey() {
         return this.TmpSecretKey;
     }
 
     /**
-     * Set 临时密钥Key，若为跨账号资源此项必填
-     * @param TmpSecretKey 临时密钥Key，若为跨账号资源此项必填
+     * Set 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
+     * @param TmpSecretKey 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
      */
     public void setTmpSecretKey(String TmpSecretKey) {
         this.TmpSecretKey = TmpSecretKey;
     }
 
     /**
-     * Get 临时密钥Token，若为跨账号资源此项必填 
-     * @return TmpToken 临时密钥Token，若为跨账号资源此项必填
+     * Get 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。 
+     * @return TmpToken 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
      */
     public String getTmpToken() {
         return this.TmpToken;
     }
 
     /**
-     * Set 临时密钥Token，若为跨账号资源此项必填
-     * @param TmpToken 临时密钥Token，若为跨账号资源此项必填
+     * Set 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
+     * @param TmpToken 临时密钥Id，可通过申请扮演角色临时访问凭证获取临时密钥https://cloud.tencent.com/document/product/1312/48197，其中角色资源RoleArn的定义可参考DTS跨账号迁移文档(https://cloud.tencent.com/document/product/571/54117)第4节中关于角色的定义。
      */
     public void setTmpToken(String TmpToken) {
         this.TmpToken = TmpToken;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRecordPlaybackUrlRequest extends AbstractModel{
+public class DescribeRecordPlaybackUrlRequest extends AbstractModel {
 
     /**
     * 设备通道ID
@@ -42,6 +43,20 @@ public class DescribeRecordPlaybackUrlRequest extends AbstractModel{
     @SerializedName("EndTime")
     @Expose
     private Long EndTime;
+
+    /**
+    * 是否获取内网地址
+    */
+    @SerializedName("IsInternal")
+    @Expose
+    private Boolean IsInternal;
+
+    /**
+    * 云录像回放时，是否需要开启时间戳矫正，主要解决时间戳反转，会退等问题导致无法播放
+    */
+    @SerializedName("CorrectTimestamp")
+    @Expose
+    private Boolean CorrectTimestamp;
 
     /**
      * Get 设备通道ID 
@@ -91,6 +106,38 @@ public class DescribeRecordPlaybackUrlRequest extends AbstractModel{
         this.EndTime = EndTime;
     }
 
+    /**
+     * Get 是否获取内网地址 
+     * @return IsInternal 是否获取内网地址
+     */
+    public Boolean getIsInternal() {
+        return this.IsInternal;
+    }
+
+    /**
+     * Set 是否获取内网地址
+     * @param IsInternal 是否获取内网地址
+     */
+    public void setIsInternal(Boolean IsInternal) {
+        this.IsInternal = IsInternal;
+    }
+
+    /**
+     * Get 云录像回放时，是否需要开启时间戳矫正，主要解决时间戳反转，会退等问题导致无法播放 
+     * @return CorrectTimestamp 云录像回放时，是否需要开启时间戳矫正，主要解决时间戳反转，会退等问题导致无法播放
+     */
+    public Boolean getCorrectTimestamp() {
+        return this.CorrectTimestamp;
+    }
+
+    /**
+     * Set 云录像回放时，是否需要开启时间戳矫正，主要解决时间戳反转，会退等问题导致无法播放
+     * @param CorrectTimestamp 云录像回放时，是否需要开启时间戳矫正，主要解决时间戳反转，会退等问题导致无法播放
+     */
+    public void setCorrectTimestamp(Boolean CorrectTimestamp) {
+        this.CorrectTimestamp = CorrectTimestamp;
+    }
+
     public DescribeRecordPlaybackUrlRequest() {
     }
 
@@ -108,6 +155,12 @@ public class DescribeRecordPlaybackUrlRequest extends AbstractModel{
         if (source.EndTime != null) {
             this.EndTime = new Long(source.EndTime);
         }
+        if (source.IsInternal != null) {
+            this.IsInternal = new Boolean(source.IsInternal);
+        }
+        if (source.CorrectTimestamp != null) {
+            this.CorrectTimestamp = new Boolean(source.CorrectTimestamp);
+        }
     }
 
 
@@ -118,6 +171,8 @@ public class DescribeRecordPlaybackUrlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ChannelId", this.ChannelId);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "IsInternal", this.IsInternal);
+        this.setParamSimple(map, prefix + "CorrectTimestamp", this.CorrectTimestamp);
 
     }
 }

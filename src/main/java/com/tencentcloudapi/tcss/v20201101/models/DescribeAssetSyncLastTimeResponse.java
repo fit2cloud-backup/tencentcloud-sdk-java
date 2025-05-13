@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetSyncLastTimeResponse extends AbstractModel{
+public class DescribeAssetSyncLastTimeResponse extends AbstractModel {
 
     /**
     * 资产最近同步时间
@@ -30,7 +31,24 @@ public class DescribeAssetSyncLastTimeResponse extends AbstractModel{
     private String AssetSyncLastTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 任务状态
+PENDING:待处理
+PROCESSING:处理中
+PROCESSED:已完成
+    */
+    @SerializedName("TaskStatus")
+    @Expose
+    private String TaskStatus;
+
+    /**
+    * 任务进度(百分比)
+    */
+    @SerializedName("TaskProcess")
+    @Expose
+    private Long TaskProcess;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +71,60 @@ public class DescribeAssetSyncLastTimeResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 任务状态
+PENDING:待处理
+PROCESSING:处理中
+PROCESSED:已完成 
+     * @return TaskStatus 任务状态
+PENDING:待处理
+PROCESSING:处理中
+PROCESSED:已完成
+     */
+    public String getTaskStatus() {
+        return this.TaskStatus;
+    }
+
+    /**
+     * Set 任务状态
+PENDING:待处理
+PROCESSING:处理中
+PROCESSED:已完成
+     * @param TaskStatus 任务状态
+PENDING:待处理
+PROCESSING:处理中
+PROCESSED:已完成
+     */
+    public void setTaskStatus(String TaskStatus) {
+        this.TaskStatus = TaskStatus;
+    }
+
+    /**
+     * Get 任务进度(百分比) 
+     * @return TaskProcess 任务进度(百分比)
+     */
+    public Long getTaskProcess() {
+        return this.TaskProcess;
+    }
+
+    /**
+     * Set 任务进度(百分比)
+     * @param TaskProcess 任务进度(百分比)
+     */
+    public void setTaskProcess(Long TaskProcess) {
+        this.TaskProcess = TaskProcess;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -79,6 +141,12 @@ public class DescribeAssetSyncLastTimeResponse extends AbstractModel{
         if (source.AssetSyncLastTime != null) {
             this.AssetSyncLastTime = new String(source.AssetSyncLastTime);
         }
+        if (source.TaskStatus != null) {
+            this.TaskStatus = new String(source.TaskStatus);
+        }
+        if (source.TaskProcess != null) {
+            this.TaskProcess = new Long(source.TaskProcess);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -90,6 +158,8 @@ public class DescribeAssetSyncLastTimeResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "AssetSyncLastTime", this.AssetSyncLastTime);
+        this.setParamSimple(map, prefix + "TaskStatus", this.TaskStatus);
+        this.setParamSimple(map, prefix + "TaskProcess", this.TaskProcess);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

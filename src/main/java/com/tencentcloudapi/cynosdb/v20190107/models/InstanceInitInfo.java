@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceInitInfo extends AbstractModel{
+public class InstanceInitInfo extends AbstractModel {
 
     /**
     * 实例cpu
@@ -77,6 +78,13 @@ public class InstanceInitInfo extends AbstractModel{
     @SerializedName("MaxRoCpu")
     @Expose
     private Float MaxRoCpu;
+
+    /**
+    * 实例机器类型
+    */
+    @SerializedName("DeviceType")
+    @Expose
+    private String DeviceType;
 
     /**
      * Get 实例cpu 
@@ -206,6 +214,22 @@ public class InstanceInitInfo extends AbstractModel{
         this.MaxRoCpu = MaxRoCpu;
     }
 
+    /**
+     * Get 实例机器类型 
+     * @return DeviceType 实例机器类型
+     */
+    public String getDeviceType() {
+        return this.DeviceType;
+    }
+
+    /**
+     * Set 实例机器类型
+     * @param DeviceType 实例机器类型
+     */
+    public void setDeviceType(String DeviceType) {
+        this.DeviceType = DeviceType;
+    }
+
     public InstanceInitInfo() {
     }
 
@@ -238,6 +262,9 @@ public class InstanceInitInfo extends AbstractModel{
         if (source.MaxRoCpu != null) {
             this.MaxRoCpu = new Float(source.MaxRoCpu);
         }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
+        }
     }
 
 
@@ -253,6 +280,7 @@ public class InstanceInitInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxRoCount", this.MaxRoCount);
         this.setParamSimple(map, prefix + "MinRoCpu", this.MinRoCpu);
         this.setParamSimple(map, prefix + "MaxRoCpu", this.MaxRoCpu);
+        this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
 
     }
 }

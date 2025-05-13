@@ -16,11 +16,12 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceTypeQuotaItem extends AbstractModel{
+public class InstanceTypeQuotaItem extends AbstractModel {
 
     /**
     * 可用区。
@@ -37,7 +38,7 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     private String InstanceType;
 
     /**
-    * 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br><li>POSTPAID_BY_HOUR：表示后付费，即按量计费<br><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
+    * 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br></li><li>POSTPAID_BY_HOUR：表示后付费，即按量计费</li><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br></li><li>SPOTPAID：表示竞价实例付费。</li>
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -52,7 +53,6 @@ public class InstanceTypeQuotaItem extends AbstractModel{
 
     /**
     * 扩展属性。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Externals")
     @Expose
@@ -94,7 +94,7 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     private LocalDiskType [] LocalDiskTypeList;
 
     /**
-    * 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br><li>SOLD_OUT：表示实例已售罄。
+    * 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br></li><li>SOLD_OUT：表示实例已售罄。</li>
     */
     @SerializedName("Status")
     @Expose
@@ -109,7 +109,6 @@ public class InstanceTypeQuotaItem extends AbstractModel{
 
     /**
     * 售罄原因。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SoldOutReason")
     @Expose
@@ -179,6 +178,14 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     private String Frequency;
 
     /**
+    * 描述库存情况。取值范围：
+<li> EnoughStock：表示对应库存非常充足</li> <li>NormalStock：表示对应库存供应有保障</li><li> UnderStock：表示对应库存即将售罄</li> <li>WithoutStock：表示对应库存已经售罄</li>
+    */
+    @SerializedName("StatusCategory")
+    @Expose
+    private String StatusCategory;
+
+    /**
      * Get 可用区。 
      * @return Zone 可用区。
      */
@@ -211,16 +218,16 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     }
 
     /**
-     * Get 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br><li>POSTPAID_BY_HOUR：表示后付费，即按量计费<br><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。 
-     * @return InstanceChargeType 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br><li>POSTPAID_BY_HOUR：表示后付费，即按量计费<br><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
+     * Get 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br></li><li>POSTPAID_BY_HOUR：表示后付费，即按量计费</li><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br></li><li>SPOTPAID：表示竞价实例付费。</li> 
+     * @return InstanceChargeType 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br></li><li>POSTPAID_BY_HOUR：表示后付费，即按量计费</li><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br></li><li>SPOTPAID：表示竞价实例付费。</li>
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
     }
 
     /**
-     * Set 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br><li>POSTPAID_BY_HOUR：表示后付费，即按量计费<br><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
-     * @param InstanceChargeType 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br><li>POSTPAID_BY_HOUR：表示后付费，即按量计费<br><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br><li>`SPOTPAID`：表示竞价实例付费。
+     * Set 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br></li><li>POSTPAID_BY_HOUR：表示后付费，即按量计费</li><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br></li><li>SPOTPAID：表示竞价实例付费。</li>
+     * @param InstanceChargeType 实例计费模式。取值范围： <br><li>PREPAID：表示预付费，即包年包月<br></li><li>POSTPAID_BY_HOUR：表示后付费，即按量计费</li><li>CDHPAID：表示[专用宿主机](https://cloud.tencent.com/document/product/416)付费，即只对`专用宿主机`计费，不对`专用宿主机`上的实例计费。<br></li><li>SPOTPAID：表示竞价实例付费。</li>
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
@@ -243,10 +250,8 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     }
 
     /**
-     * Get 扩展属性。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扩展属性。 
      * @return Externals 扩展属性。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Externals getExternals() {
         return this.Externals;
@@ -254,9 +259,7 @@ public class InstanceTypeQuotaItem extends AbstractModel{
 
     /**
      * Set 扩展属性。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Externals 扩展属性。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExternals(Externals Externals) {
         this.Externals = Externals;
@@ -343,16 +346,16 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     }
 
     /**
-     * Get 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br><li>SOLD_OUT：表示实例已售罄。 
-     * @return Status 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br><li>SOLD_OUT：表示实例已售罄。
+     * Get 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br></li><li>SOLD_OUT：表示实例已售罄。</li> 
+     * @return Status 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br></li><li>SOLD_OUT：表示实例已售罄。</li>
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br><li>SOLD_OUT：表示实例已售罄。
-     * @param Status 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br><li>SOLD_OUT：表示实例已售罄。
+     * Set 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br></li><li>SOLD_OUT：表示实例已售罄。</li>
+     * @param Status 实例是否售卖。取值范围： <br><li>SELL：表示实例可购买<br></li><li>SOLD_OUT：表示实例已售罄。</li>
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -375,10 +378,8 @@ public class InstanceTypeQuotaItem extends AbstractModel{
     }
 
     /**
-     * Get 售罄原因。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 售罄原因。 
      * @return SoldOutReason 售罄原因。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSoldOutReason() {
         return this.SoldOutReason;
@@ -386,9 +387,7 @@ public class InstanceTypeQuotaItem extends AbstractModel{
 
     /**
      * Set 售罄原因。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SoldOutReason 售罄原因。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSoldOutReason(String SoldOutReason) {
         this.SoldOutReason = SoldOutReason;
@@ -538,6 +537,26 @@ public class InstanceTypeQuotaItem extends AbstractModel{
         this.Frequency = Frequency;
     }
 
+    /**
+     * Get 描述库存情况。取值范围：
+<li> EnoughStock：表示对应库存非常充足</li> <li>NormalStock：表示对应库存供应有保障</li><li> UnderStock：表示对应库存即将售罄</li> <li>WithoutStock：表示对应库存已经售罄</li> 
+     * @return StatusCategory 描述库存情况。取值范围：
+<li> EnoughStock：表示对应库存非常充足</li> <li>NormalStock：表示对应库存供应有保障</li><li> UnderStock：表示对应库存即将售罄</li> <li>WithoutStock：表示对应库存已经售罄</li>
+     */
+    public String getStatusCategory() {
+        return this.StatusCategory;
+    }
+
+    /**
+     * Set 描述库存情况。取值范围：
+<li> EnoughStock：表示对应库存非常充足</li> <li>NormalStock：表示对应库存供应有保障</li><li> UnderStock：表示对应库存即将售罄</li> <li>WithoutStock：表示对应库存已经售罄</li>
+     * @param StatusCategory 描述库存情况。取值范围：
+<li> EnoughStock：表示对应库存非常充足</li> <li>NormalStock：表示对应库存供应有保障</li><li> UnderStock：表示对应库存即将售罄</li> <li>WithoutStock：表示对应库存已经售罄</li>
+     */
+    public void setStatusCategory(String StatusCategory) {
+        this.StatusCategory = StatusCategory;
+    }
+
     public InstanceTypeQuotaItem() {
     }
 
@@ -615,6 +634,9 @@ public class InstanceTypeQuotaItem extends AbstractModel{
         if (source.Frequency != null) {
             this.Frequency = new String(source.Frequency);
         }
+        if (source.StatusCategory != null) {
+            this.StatusCategory = new String(source.StatusCategory);
+        }
     }
 
 
@@ -644,6 +666,7 @@ public class InstanceTypeQuotaItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "GpuCount", this.GpuCount);
         this.setParamSimple(map, prefix + "Frequency", this.Frequency);
+        this.setParamSimple(map, prefix + "StatusCategory", this.StatusCategory);
 
     }
 }

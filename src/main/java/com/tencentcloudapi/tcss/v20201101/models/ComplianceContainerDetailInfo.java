@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ComplianceContainerDetailInfo extends AbstractModel{
+public class ComplianceContainerDetailInfo extends AbstractModel {
 
     /**
     * 容器在主机上的ID。
@@ -31,7 +32,6 @@ public class ComplianceContainerDetailInfo extends AbstractModel{
 
     /**
     * 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PodName")
     @Expose
@@ -54,10 +54,8 @@ public class ComplianceContainerDetailInfo extends AbstractModel{
     }
 
     /**
-     * Get 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器所属的Pod的名称。 
      * @return PodName 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPodName() {
         return this.PodName;
@@ -65,9 +63,7 @@ public class ComplianceContainerDetailInfo extends AbstractModel{
 
     /**
      * Set 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PodName 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPodName(String PodName) {
         this.PodName = PodName;

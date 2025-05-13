@@ -16,21 +16,22 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyTopicAttributesRequest extends AbstractModel{
+public class ModifyTopicAttributesRequest extends AbstractModel {
 
     /**
-    * 实例 ID。
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 主题名称。
+    * 主题名
     */
     @SerializedName("TopicName")
     @Expose
@@ -72,18 +73,18 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     private Long RetentionMs;
 
     /**
-    * Segment 分片滚动的时长，单位：ms，当前最小为86400000ms。
-    */
-    @SerializedName("SegmentMs")
-    @Expose
-    private Long SegmentMs;
-
-    /**
     * 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。
     */
     @SerializedName("MaxMessageBytes")
     @Expose
     private Long MaxMessageBytes;
+
+    /**
+    * Segment 分片滚动的时长，单位：ms，当前最小为300000ms。
+    */
+    @SerializedName("SegmentMs")
+    @Expose
+    private Long SegmentMs;
 
     /**
     * 消息删除策略，可以选择delete 或者compact
@@ -107,7 +108,7 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     private Long EnableAclRule;
 
     /**
-    * 预设ACL规则的名称
+    * ACL规则名
     */
     @SerializedName("AclRuleName")
     @Expose
@@ -128,53 +129,53 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 生产限流，单位 MB/s
+    * 生产限流，单位 MB/s；设置为-1，则生产不限流
     */
     @SerializedName("QuotaProducerByteRate")
     @Expose
     private Long QuotaProducerByteRate;
 
     /**
-    * 消费限流，单位 MB/s
+    * 消费限流，单位 MB/s；设置为-1，则消费不限流
     */
     @SerializedName("QuotaConsumerByteRate")
     @Expose
     private Long QuotaConsumerByteRate;
 
     /**
-    * 调整topic副本数
+    * topic副本数  最小值 1,最大值 3
     */
     @SerializedName("ReplicaNum")
     @Expose
     private Long ReplicaNum;
 
     /**
-     * Get 实例 ID。 
-     * @return InstanceId 实例 ID。
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例 ID。
-     * @param InstanceId 实例 ID。
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 主题名称。 
-     * @return TopicName 主题名称。
+     * Get 主题名 
+     * @return TopicName 主题名
      */
     public String getTopicName() {
         return this.TopicName;
     }
 
     /**
-     * Set 主题名称。
-     * @param TopicName 主题名称。
+     * Set 主题名
+     * @param TopicName 主题名
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
@@ -261,22 +262,6 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get Segment 分片滚动的时长，单位：ms，当前最小为86400000ms。 
-     * @return SegmentMs Segment 分片滚动的时长，单位：ms，当前最小为86400000ms。
-     */
-    public Long getSegmentMs() {
-        return this.SegmentMs;
-    }
-
-    /**
-     * Set Segment 分片滚动的时长，单位：ms，当前最小为86400000ms。
-     * @param SegmentMs Segment 分片滚动的时长，单位：ms，当前最小为86400000ms。
-     */
-    public void setSegmentMs(Long SegmentMs) {
-        this.SegmentMs = SegmentMs;
-    }
-
-    /**
      * Get 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。 
      * @return MaxMessageBytes 主题消息最大值，单位为 Byte，最大值为12582912Byte（即12MB）。
      */
@@ -290,6 +275,22 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
      */
     public void setMaxMessageBytes(Long MaxMessageBytes) {
         this.MaxMessageBytes = MaxMessageBytes;
+    }
+
+    /**
+     * Get Segment 分片滚动的时长，单位：ms，当前最小为300000ms。 
+     * @return SegmentMs Segment 分片滚动的时长，单位：ms，当前最小为300000ms。
+     */
+    public Long getSegmentMs() {
+        return this.SegmentMs;
+    }
+
+    /**
+     * Set Segment 分片滚动的时长，单位：ms，当前最小为300000ms。
+     * @param SegmentMs Segment 分片滚动的时长，单位：ms，当前最小为300000ms。
+     */
+    public void setSegmentMs(Long SegmentMs) {
+        this.SegmentMs = SegmentMs;
     }
 
     /**
@@ -341,16 +342,16 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 预设ACL规则的名称 
-     * @return AclRuleName 预设ACL规则的名称
+     * Get ACL规则名 
+     * @return AclRuleName ACL规则名
      */
     public String getAclRuleName() {
         return this.AclRuleName;
     }
 
     /**
-     * Set 预设ACL规则的名称
-     * @param AclRuleName 预设ACL规则的名称
+     * Set ACL规则名
+     * @param AclRuleName ACL规则名
      */
     public void setAclRuleName(String AclRuleName) {
         this.AclRuleName = AclRuleName;
@@ -389,48 +390,48 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 生产限流，单位 MB/s 
-     * @return QuotaProducerByteRate 生产限流，单位 MB/s
+     * Get 生产限流，单位 MB/s；设置为-1，则生产不限流 
+     * @return QuotaProducerByteRate 生产限流，单位 MB/s；设置为-1，则生产不限流
      */
     public Long getQuotaProducerByteRate() {
         return this.QuotaProducerByteRate;
     }
 
     /**
-     * Set 生产限流，单位 MB/s
-     * @param QuotaProducerByteRate 生产限流，单位 MB/s
+     * Set 生产限流，单位 MB/s；设置为-1，则生产不限流
+     * @param QuotaProducerByteRate 生产限流，单位 MB/s；设置为-1，则生产不限流
      */
     public void setQuotaProducerByteRate(Long QuotaProducerByteRate) {
         this.QuotaProducerByteRate = QuotaProducerByteRate;
     }
 
     /**
-     * Get 消费限流，单位 MB/s 
-     * @return QuotaConsumerByteRate 消费限流，单位 MB/s
+     * Get 消费限流，单位 MB/s；设置为-1，则消费不限流 
+     * @return QuotaConsumerByteRate 消费限流，单位 MB/s；设置为-1，则消费不限流
      */
     public Long getQuotaConsumerByteRate() {
         return this.QuotaConsumerByteRate;
     }
 
     /**
-     * Set 消费限流，单位 MB/s
-     * @param QuotaConsumerByteRate 消费限流，单位 MB/s
+     * Set 消费限流，单位 MB/s；设置为-1，则消费不限流
+     * @param QuotaConsumerByteRate 消费限流，单位 MB/s；设置为-1，则消费不限流
      */
     public void setQuotaConsumerByteRate(Long QuotaConsumerByteRate) {
         this.QuotaConsumerByteRate = QuotaConsumerByteRate;
     }
 
     /**
-     * Get 调整topic副本数 
-     * @return ReplicaNum 调整topic副本数
+     * Get topic副本数  最小值 1,最大值 3 
+     * @return ReplicaNum topic副本数  最小值 1,最大值 3
      */
     public Long getReplicaNum() {
         return this.ReplicaNum;
     }
 
     /**
-     * Set 调整topic副本数
-     * @param ReplicaNum 调整topic副本数
+     * Set topic副本数  最小值 1,最大值 3
+     * @param ReplicaNum topic副本数  最小值 1,最大值 3
      */
     public void setReplicaNum(Long ReplicaNum) {
         this.ReplicaNum = ReplicaNum;
@@ -465,11 +466,11 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
         if (source.RetentionMs != null) {
             this.RetentionMs = new Long(source.RetentionMs);
         }
-        if (source.SegmentMs != null) {
-            this.SegmentMs = new Long(source.SegmentMs);
-        }
         if (source.MaxMessageBytes != null) {
             this.MaxMessageBytes = new Long(source.MaxMessageBytes);
+        }
+        if (source.SegmentMs != null) {
+            this.SegmentMs = new Long(source.SegmentMs);
         }
         if (source.CleanUpPolicy != null) {
             this.CleanUpPolicy = new String(source.CleanUpPolicy);
@@ -518,8 +519,8 @@ public class ModifyTopicAttributesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MinInsyncReplicas", this.MinInsyncReplicas);
         this.setParamSimple(map, prefix + "UncleanLeaderElectionEnable", this.UncleanLeaderElectionEnable);
         this.setParamSimple(map, prefix + "RetentionMs", this.RetentionMs);
-        this.setParamSimple(map, prefix + "SegmentMs", this.SegmentMs);
         this.setParamSimple(map, prefix + "MaxMessageBytes", this.MaxMessageBytes);
+        this.setParamSimple(map, prefix + "SegmentMs", this.SegmentMs);
         this.setParamSimple(map, prefix + "CleanUpPolicy", this.CleanUpPolicy);
         this.setParamArraySimple(map, prefix + "IpWhiteList.", this.IpWhiteList);
         this.setParamSimple(map, prefix + "EnableAclRule", this.EnableAclRule);

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSecLogVasInfoResponse extends AbstractModel{
+public class DescribeSecLogVasInfoResponse extends AbstractModel {
 
     /**
     * 购买状态
@@ -82,7 +83,14 @@ public class DescribeSecLogVasInfoResponse extends AbstractModel{
     private Long TrialCapacity;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 资源详情数组对象
+    */
+    @SerializedName("ResourceDetailList")
+    @Expose
+    private VasInfoResourceDetail [] ResourceDetailList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -229,16 +237,32 @@ public class DescribeSecLogVasInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 资源详情数组对象 
+     * @return ResourceDetailList 资源详情数组对象
+     */
+    public VasInfoResourceDetail [] getResourceDetailList() {
+        return this.ResourceDetailList;
+    }
+
+    /**
+     * Set 资源详情数组对象
+     * @param ResourceDetailList 资源详情数组对象
+     */
+    public void setResourceDetailList(VasInfoResourceDetail [] ResourceDetailList) {
+        this.ResourceDetailList = ResourceDetailList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -276,6 +300,12 @@ public class DescribeSecLogVasInfoResponse extends AbstractModel{
         if (source.TrialCapacity != null) {
             this.TrialCapacity = new Long(source.TrialCapacity);
         }
+        if (source.ResourceDetailList != null) {
+            this.ResourceDetailList = new VasInfoResourceDetail[source.ResourceDetailList.length];
+            for (int i = 0; i < source.ResourceDetailList.length; i++) {
+                this.ResourceDetailList[i] = new VasInfoResourceDetail(source.ResourceDetailList[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -294,6 +324,7 @@ public class DescribeSecLogVasInfoResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ResourceID", this.ResourceID);
         this.setParamSimple(map, prefix + "IsPurchased", this.IsPurchased);
         this.setParamSimple(map, prefix + "TrialCapacity", this.TrialCapacity);
+        this.setParamArrayObj(map, prefix + "ResourceDetailList.", this.ResourceDetailList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

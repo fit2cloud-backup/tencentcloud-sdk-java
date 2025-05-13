@@ -16,15 +16,15 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OrgMemberAuthAccount extends AbstractModel{
+public class OrgMemberAuthAccount extends AbstractModel {
 
     /**
     * 组织子账号Uin。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrgSubAccountUin")
     @Expose
@@ -32,7 +32,6 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 策略ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyId")
     @Expose
@@ -40,7 +39,6 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 策略名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyName")
     @Expose
@@ -48,7 +46,6 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IdentityId")
     @Expose
@@ -56,7 +53,6 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 身份角色名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IdentityRoleName")
     @Expose
@@ -64,7 +60,6 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 身份角色别名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IdentityRoleAliasName")
     @Expose
@@ -72,7 +67,6 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -80,7 +74,6 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 更新时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -88,17 +81,14 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
     * 子账号名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrgSubAccountName")
     @Expose
     private String OrgSubAccountName;
 
     /**
-     * Get 组织子账号Uin。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组织子账号Uin。 
      * @return OrgSubAccountUin 组织子账号Uin。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOrgSubAccountUin() {
         return this.OrgSubAccountUin;
@@ -106,19 +96,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 组织子账号Uin。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrgSubAccountUin 组织子账号Uin。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrgSubAccountUin(Long OrgSubAccountUin) {
         this.OrgSubAccountUin = OrgSubAccountUin;
     }
 
     /**
-     * Get 策略ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略ID。 
      * @return PolicyId 策略ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPolicyId() {
         return this.PolicyId;
@@ -126,19 +112,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 策略ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyId 策略ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyId(Long PolicyId) {
         this.PolicyId = PolicyId;
     }
 
     /**
-     * Get 策略名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略名。 
      * @return PolicyName 策略名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPolicyName() {
         return this.PolicyName;
@@ -146,19 +128,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 策略名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyName 策略名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyName(String PolicyName) {
         this.PolicyName = PolicyName;
     }
 
     /**
-     * Get 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 身份ID。 
      * @return IdentityId 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIdentityId() {
         return this.IdentityId;
@@ -166,19 +144,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IdentityId 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdentityId(Long IdentityId) {
         this.IdentityId = IdentityId;
     }
 
     /**
-     * Get 身份角色名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 身份角色名。 
      * @return IdentityRoleName 身份角色名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIdentityRoleName() {
         return this.IdentityRoleName;
@@ -186,19 +160,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 身份角色名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IdentityRoleName 身份角色名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdentityRoleName(String IdentityRoleName) {
         this.IdentityRoleName = IdentityRoleName;
     }
 
     /**
-     * Get 身份角色别名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 身份角色别名。 
      * @return IdentityRoleAliasName 身份角色别名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIdentityRoleAliasName() {
         return this.IdentityRoleAliasName;
@@ -206,19 +176,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 身份角色别名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IdentityRoleAliasName 身份角色别名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdentityRoleAliasName(String IdentityRoleAliasName) {
         this.IdentityRoleAliasName = IdentityRoleAliasName;
     }
 
     /**
-     * Get 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间。 
      * @return CreateTime 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -226,19 +192,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间。 
      * @return UpdateTime 更新时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -246,19 +208,15 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 更新时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 子账号名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子账号名称 
      * @return OrgSubAccountName 子账号名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOrgSubAccountName() {
         return this.OrgSubAccountName;
@@ -266,9 +224,7 @@ public class OrgMemberAuthAccount extends AbstractModel{
 
     /**
      * Set 子账号名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrgSubAccountName 子账号名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrgSubAccountName(String OrgSubAccountName) {
         this.OrgSubAccountName = OrgSubAccountName;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LoadBalancerTraffic extends AbstractModel{
+public class LoadBalancerTraffic extends AbstractModel {
 
     /**
     * 负载均衡ID
@@ -59,7 +60,6 @@ public class LoadBalancerTraffic extends AbstractModel{
 
     /**
     * CLB域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domain")
     @Expose
@@ -146,10 +146,8 @@ public class LoadBalancerTraffic extends AbstractModel{
     }
 
     /**
-     * Get CLB域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CLB域名 
      * @return Domain CLB域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDomain() {
         return this.Domain;
@@ -157,9 +155,7 @@ public class LoadBalancerTraffic extends AbstractModel{
 
     /**
      * Set CLB域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domain CLB域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;

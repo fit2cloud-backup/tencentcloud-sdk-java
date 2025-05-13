@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAvailableTKEEdgeVersionResponse extends AbstractModel{
+public class DescribeAvailableTKEEdgeVersionResponse extends AbstractModel {
 
     /**
     * 版本列表
@@ -31,7 +32,6 @@ public class DescribeAvailableTKEEdgeVersionResponse extends AbstractModel{
 
     /**
     * 边缘集群最新版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EdgeVersionLatest")
     @Expose
@@ -39,14 +39,13 @@ public class DescribeAvailableTKEEdgeVersionResponse extends AbstractModel{
 
     /**
     * 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EdgeVersionCurrent")
     @Expose
     private String EdgeVersionCurrent;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -69,10 +68,8 @@ public class DescribeAvailableTKEEdgeVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 边缘集群最新版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 边缘集群最新版本 
      * @return EdgeVersionLatest 边缘集群最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEdgeVersionLatest() {
         return this.EdgeVersionLatest;
@@ -80,19 +77,15 @@ public class DescribeAvailableTKEEdgeVersionResponse extends AbstractModel{
 
     /**
      * Set 边缘集群最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EdgeVersionLatest 边缘集群最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEdgeVersionLatest(String EdgeVersionLatest) {
         this.EdgeVersionLatest = EdgeVersionLatest;
     }
 
     /**
-     * Get 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 边缘集群当前版本 
      * @return EdgeVersionCurrent 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEdgeVersionCurrent() {
         return this.EdgeVersionCurrent;
@@ -100,25 +93,23 @@ public class DescribeAvailableTKEEdgeVersionResponse extends AbstractModel{
 
     /**
      * Set 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EdgeVersionCurrent 边缘集群当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEdgeVersionCurrent(String EdgeVersionCurrent) {
         this.EdgeVersionCurrent = EdgeVersionCurrent;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

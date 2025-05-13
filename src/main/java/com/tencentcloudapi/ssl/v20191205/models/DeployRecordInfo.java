@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeployRecordInfo extends AbstractModel{
+public class DeployRecordInfo extends AbstractModel {
 
     /**
     * 部署记录ID
@@ -51,7 +52,7 @@ public class DeployRecordInfo extends AbstractModel{
     private String Region;
 
     /**
-    * 部署状态
+    * 部署状态:0 未开始， 1 成功， 2 失败
     */
     @SerializedName("Status")
     @Expose
@@ -136,16 +137,16 @@ public class DeployRecordInfo extends AbstractModel{
     }
 
     /**
-     * Get 部署状态 
-     * @return Status 部署状态
+     * Get 部署状态:0 未开始， 1 成功， 2 失败 
+     * @return Status 部署状态:0 未开始， 1 成功， 2 失败
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 部署状态
-     * @param Status 部署状态
+     * Set 部署状态:0 未开始， 1 成功， 2 失败
+     * @param Status 部署状态:0 未开始， 1 成功， 2 失败
      */
     public void setStatus(Long Status) {
         this.Status = Status;

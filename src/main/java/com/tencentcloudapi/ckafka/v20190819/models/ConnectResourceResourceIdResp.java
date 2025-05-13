@@ -16,25 +16,23 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConnectResourceResourceIdResp extends AbstractModel{
+public class ConnectResourceResourceIdResp extends AbstractModel {
 
     /**
     * 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceId")
     @Expose
     private String ResourceId;
 
     /**
-     * Get 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接源的Id 
      * @return ResourceId 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceId() {
         return this.ResourceId;
@@ -42,9 +40,7 @@ public class ConnectResourceResourceIdResp extends AbstractModel{
 
     /**
      * Set 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceId 连接源的Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TerrorismImgReviewTemplateInfo extends AbstractModel{
+public class TerrorismImgReviewTemplateInfo extends AbstractModel {
 
     /**
     * 画面涉敏任务开关，可选值：
@@ -41,7 +42,6 @@ public class TerrorismImgReviewTemplateInfo extends AbstractModel{
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
     */
     @SerializedName("LabelSet")
     @Expose
@@ -94,8 +94,7 @@ public class TerrorismImgReviewTemplateInfo extends AbstractModel{
 <li>banners：涉敏旗帜；</li>
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
-<li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li> 
+<li>terrorists：涉敏人物；</li> 
      * @return LabelSet 画面涉敏过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
 <li>guns：武器枪支；</li>
 <li>crowd：人群聚集；</li>
@@ -105,7 +104,6 @@ public class TerrorismImgReviewTemplateInfo extends AbstractModel{
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
      */
     public String [] getLabelSet() {
         return this.LabelSet;
@@ -121,7 +119,6 @@ public class TerrorismImgReviewTemplateInfo extends AbstractModel{
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
      * @param LabelSet 画面涉敏过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
 <li>guns：武器枪支；</li>
 <li>crowd：人群聚集；</li>
@@ -131,7 +128,6 @@ public class TerrorismImgReviewTemplateInfo extends AbstractModel{
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
      */
     public void setLabelSet(String [] LabelSet) {
         this.LabelSet = LabelSet;

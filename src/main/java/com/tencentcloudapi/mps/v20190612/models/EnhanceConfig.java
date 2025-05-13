@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EnhanceConfig extends AbstractModel{
+public class EnhanceConfig extends AbstractModel {
 
     /**
     * 视频增强配置。
@@ -29,6 +30,14 @@ public class EnhanceConfig extends AbstractModel{
     @SerializedName("VideoEnhance")
     @Expose
     private VideoEnhanceConfig VideoEnhance;
+
+    /**
+    * 音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AudioEnhance")
+    @Expose
+    private AudioEnhanceConfig AudioEnhance;
 
     /**
      * Get 视频增强配置。
@@ -50,6 +59,26 @@ public class EnhanceConfig extends AbstractModel{
         this.VideoEnhance = VideoEnhance;
     }
 
+    /**
+     * Get 音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AudioEnhance 音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AudioEnhanceConfig getAudioEnhance() {
+        return this.AudioEnhance;
+    }
+
+    /**
+     * Set 音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AudioEnhance 音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAudioEnhance(AudioEnhanceConfig AudioEnhance) {
+        this.AudioEnhance = AudioEnhance;
+    }
+
     public EnhanceConfig() {
     }
 
@@ -61,6 +90,9 @@ public class EnhanceConfig extends AbstractModel{
         if (source.VideoEnhance != null) {
             this.VideoEnhance = new VideoEnhanceConfig(source.VideoEnhance);
         }
+        if (source.AudioEnhance != null) {
+            this.AudioEnhance = new AudioEnhanceConfig(source.AudioEnhance);
+        }
     }
 
 
@@ -69,6 +101,7 @@ public class EnhanceConfig extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "VideoEnhance.", this.VideoEnhance);
+        this.setParamObj(map, prefix + "AudioEnhance.", this.AudioEnhance);
 
     }
 }

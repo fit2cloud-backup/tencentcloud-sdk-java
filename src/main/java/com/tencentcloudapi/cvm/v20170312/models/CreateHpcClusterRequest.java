@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateHpcClusterRequest extends AbstractModel{
+public class CreateHpcClusterRequest extends AbstractModel {
 
     /**
     * 可用区。
@@ -42,6 +43,27 @@ public class CreateHpcClusterRequest extends AbstractModel{
     @SerializedName("Remark")
     @Expose
     private String Remark;
+
+    /**
+    * 高性能计算集群类型。
+    */
+    @SerializedName("HpcClusterType")
+    @Expose
+    private String HpcClusterType;
+
+    /**
+    * 高性能计算集群对应的业务场景标识，当前只支持CDC。
+    */
+    @SerializedName("HpcClusterBusinessId")
+    @Expose
+    private String HpcClusterBusinessId;
+
+    /**
+    * 标签描述列表。通过指定该参数可以同时绑定标签到相应的HPC高性能集群。
+    */
+    @SerializedName("TagSpecification")
+    @Expose
+    private TagSpecification [] TagSpecification;
 
     /**
      * Get 可用区。 
@@ -91,6 +113,54 @@ public class CreateHpcClusterRequest extends AbstractModel{
         this.Remark = Remark;
     }
 
+    /**
+     * Get 高性能计算集群类型。 
+     * @return HpcClusterType 高性能计算集群类型。
+     */
+    public String getHpcClusterType() {
+        return this.HpcClusterType;
+    }
+
+    /**
+     * Set 高性能计算集群类型。
+     * @param HpcClusterType 高性能计算集群类型。
+     */
+    public void setHpcClusterType(String HpcClusterType) {
+        this.HpcClusterType = HpcClusterType;
+    }
+
+    /**
+     * Get 高性能计算集群对应的业务场景标识，当前只支持CDC。 
+     * @return HpcClusterBusinessId 高性能计算集群对应的业务场景标识，当前只支持CDC。
+     */
+    public String getHpcClusterBusinessId() {
+        return this.HpcClusterBusinessId;
+    }
+
+    /**
+     * Set 高性能计算集群对应的业务场景标识，当前只支持CDC。
+     * @param HpcClusterBusinessId 高性能计算集群对应的业务场景标识，当前只支持CDC。
+     */
+    public void setHpcClusterBusinessId(String HpcClusterBusinessId) {
+        this.HpcClusterBusinessId = HpcClusterBusinessId;
+    }
+
+    /**
+     * Get 标签描述列表。通过指定该参数可以同时绑定标签到相应的HPC高性能集群。 
+     * @return TagSpecification 标签描述列表。通过指定该参数可以同时绑定标签到相应的HPC高性能集群。
+     */
+    public TagSpecification [] getTagSpecification() {
+        return this.TagSpecification;
+    }
+
+    /**
+     * Set 标签描述列表。通过指定该参数可以同时绑定标签到相应的HPC高性能集群。
+     * @param TagSpecification 标签描述列表。通过指定该参数可以同时绑定标签到相应的HPC高性能集群。
+     */
+    public void setTagSpecification(TagSpecification [] TagSpecification) {
+        this.TagSpecification = TagSpecification;
+    }
+
     public CreateHpcClusterRequest() {
     }
 
@@ -108,6 +178,18 @@ public class CreateHpcClusterRequest extends AbstractModel{
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
+        if (source.HpcClusterType != null) {
+            this.HpcClusterType = new String(source.HpcClusterType);
+        }
+        if (source.HpcClusterBusinessId != null) {
+            this.HpcClusterBusinessId = new String(source.HpcClusterBusinessId);
+        }
+        if (source.TagSpecification != null) {
+            this.TagSpecification = new TagSpecification[source.TagSpecification.length];
+            for (int i = 0; i < source.TagSpecification.length; i++) {
+                this.TagSpecification[i] = new TagSpecification(source.TagSpecification[i]);
+            }
+        }
     }
 
 
@@ -118,6 +200,9 @@ public class CreateHpcClusterRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamSimple(map, prefix + "HpcClusterType", this.HpcClusterType);
+        this.setParamSimple(map, prefix + "HpcClusterBusinessId", this.HpcClusterBusinessId);
+        this.setParamArrayObj(map, prefix + "TagSpecification.", this.TagSpecification);
 
     }
 }

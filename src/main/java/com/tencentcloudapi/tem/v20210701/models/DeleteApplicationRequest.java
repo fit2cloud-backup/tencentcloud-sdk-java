@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteApplicationRequest extends AbstractModel{
+public class DeleteApplicationRequest extends AbstractModel {
 
     /**
     * 服务Id
@@ -37,7 +38,7 @@ public class DeleteApplicationRequest extends AbstractModel{
     private String EnvironmentId;
 
     /**
-    * 来源渠道
+    * 来源渠道(用户不需要关心此参数)
     */
     @SerializedName("SourceChannel")
     @Expose
@@ -83,16 +84,16 @@ public class DeleteApplicationRequest extends AbstractModel{
     }
 
     /**
-     * Get 来源渠道 
-     * @return SourceChannel 来源渠道
+     * Get 来源渠道(用户不需要关心此参数) 
+     * @return SourceChannel 来源渠道(用户不需要关心此参数)
      */
     public Long getSourceChannel() {
         return this.SourceChannel;
     }
 
     /**
-     * Set 来源渠道
-     * @param SourceChannel 来源渠道
+     * Set 来源渠道(用户不需要关心此参数)
+     * @param SourceChannel 来源渠道(用户不需要关心此参数)
      */
     public void setSourceChannel(Long SourceChannel) {
         this.SourceChannel = SourceChannel;

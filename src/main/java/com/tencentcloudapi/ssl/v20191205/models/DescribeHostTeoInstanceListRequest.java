@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostTeoInstanceListRequest extends AbstractModel{
+public class DescribeHostTeoInstanceListRequest extends AbstractModel {
 
     /**
     * 待部署的证书ID
@@ -58,6 +59,27 @@ public class DescribeHostTeoInstanceListRequest extends AbstractModel{
     private String OldCertificateId;
 
     /**
+    * 分页偏移量，默认值为0.
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * 每页数量，默认10，最大值为200。	
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
+
+    /**
+    * 是否异步，1表示是，0表示否，默认为0
+    */
+    @SerializedName("AsyncCache")
+    @Expose
+    private Long AsyncCache;
+
+    /**
      * Get 待部署的证书ID 
      * @return CertificateId 待部署的证书ID
      */
@@ -76,7 +98,9 @@ public class DescribeHostTeoInstanceListRequest extends AbstractModel{
     /**
      * Get 部署资源类型 
      * @return ResourceType 部署资源类型
+     * @deprecated
      */
+    @Deprecated
     public String getResourceType() {
         return this.ResourceType;
     }
@@ -84,7 +108,9 @@ public class DescribeHostTeoInstanceListRequest extends AbstractModel{
     /**
      * Set 部署资源类型
      * @param ResourceType 部署资源类型
+     * @deprecated
      */
+    @Deprecated
     public void setResourceType(String ResourceType) {
         this.ResourceType = ResourceType;
     }
@@ -137,6 +163,54 @@ public class DescribeHostTeoInstanceListRequest extends AbstractModel{
         this.OldCertificateId = OldCertificateId;
     }
 
+    /**
+     * Get 分页偏移量，默认值为0. 
+     * @return Offset 分页偏移量，默认值为0.
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set 分页偏移量，默认值为0.
+     * @param Offset 分页偏移量，默认值为0.
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get 每页数量，默认10，最大值为200。	 
+     * @return Limit 每页数量，默认10，最大值为200。	
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set 每页数量，默认10，最大值为200。	
+     * @param Limit 每页数量，默认10，最大值为200。	
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
+    /**
+     * Get 是否异步，1表示是，0表示否，默认为0 
+     * @return AsyncCache 是否异步，1表示是，0表示否，默认为0
+     */
+    public Long getAsyncCache() {
+        return this.AsyncCache;
+    }
+
+    /**
+     * Set 是否异步，1表示是，0表示否，默认为0
+     * @param AsyncCache 是否异步，1表示是，0表示否，默认为0
+     */
+    public void setAsyncCache(Long AsyncCache) {
+        this.AsyncCache = AsyncCache;
+    }
+
     public DescribeHostTeoInstanceListRequest() {
     }
 
@@ -163,6 +237,15 @@ public class DescribeHostTeoInstanceListRequest extends AbstractModel{
         if (source.OldCertificateId != null) {
             this.OldCertificateId = new String(source.OldCertificateId);
         }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
+        if (source.AsyncCache != null) {
+            this.AsyncCache = new Long(source.AsyncCache);
+        }
     }
 
 
@@ -175,6 +258,9 @@ public class DescribeHostTeoInstanceListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsCache", this.IsCache);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "OldCertificateId", this.OldCertificateId);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "AsyncCache", this.AsyncCache);
 
     }
 }

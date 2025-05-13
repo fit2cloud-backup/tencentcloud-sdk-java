@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZoneInfo extends AbstractModel{
+public class ZoneInfo extends AbstractModel {
 
     /**
-    * zone的id
+    * 可用区
     */
     @SerializedName("ZoneId")
     @Expose
@@ -37,7 +38,7 @@ public class ZoneInfo extends AbstractModel{
     private Long IsInternalApp;
 
     /**
-    * app id
+    * 应用标识
     */
     @SerializedName("AppId")
     @Expose
@@ -51,14 +52,14 @@ public class ZoneInfo extends AbstractModel{
     private Boolean Flag;
 
     /**
-    * zone名称
+    * 可用区名称
     */
     @SerializedName("ZoneName")
     @Expose
     private String ZoneName;
 
     /**
-    * zone状态
+    * 可用区状态
     */
     @SerializedName("ZoneStatus")
     @Expose
@@ -72,7 +73,7 @@ public class ZoneInfo extends AbstractModel{
     private String Exflag;
 
     /**
-    * json对象，key为机型，value true为售罄，false为未售罄
+    * true为售罄，false为未售罄
     */
     @SerializedName("SoldOut")
     @Expose
@@ -80,23 +81,29 @@ public class ZoneInfo extends AbstractModel{
 
     /**
     * 标准版售罄信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SalesInfo")
     @Expose
     private SaleInfo [] SalesInfo;
 
     /**
-     * Get zone的id 
-     * @return ZoneId zone的id
+    * 额外标识
+    */
+    @SerializedName("ExtraFlag")
+    @Expose
+    private String ExtraFlag;
+
+    /**
+     * Get 可用区 
+     * @return ZoneId 可用区
      */
     public String getZoneId() {
         return this.ZoneId;
     }
 
     /**
-     * Set zone的id
-     * @param ZoneId zone的id
+     * Set 可用区
+     * @param ZoneId 可用区
      */
     public void setZoneId(String ZoneId) {
         this.ZoneId = ZoneId;
@@ -119,16 +126,16 @@ public class ZoneInfo extends AbstractModel{
     }
 
     /**
-     * Get app id 
-     * @return AppId app id
+     * Get 应用标识 
+     * @return AppId 应用标识
      */
     public Long getAppId() {
         return this.AppId;
     }
 
     /**
-     * Set app id
-     * @param AppId app id
+     * Set 应用标识
+     * @param AppId 应用标识
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
@@ -151,32 +158,32 @@ public class ZoneInfo extends AbstractModel{
     }
 
     /**
-     * Get zone名称 
-     * @return ZoneName zone名称
+     * Get 可用区名称 
+     * @return ZoneName 可用区名称
      */
     public String getZoneName() {
         return this.ZoneName;
     }
 
     /**
-     * Set zone名称
-     * @param ZoneName zone名称
+     * Set 可用区名称
+     * @param ZoneName 可用区名称
      */
     public void setZoneName(String ZoneName) {
         this.ZoneName = ZoneName;
     }
 
     /**
-     * Get zone状态 
-     * @return ZoneStatus zone状态
+     * Get 可用区状态 
+     * @return ZoneStatus 可用区状态
      */
     public Long getZoneStatus() {
         return this.ZoneStatus;
     }
 
     /**
-     * Set zone状态
-     * @param ZoneStatus zone状态
+     * Set 可用区状态
+     * @param ZoneStatus 可用区状态
      */
     public void setZoneStatus(Long ZoneStatus) {
         this.ZoneStatus = ZoneStatus;
@@ -185,7 +192,9 @@ public class ZoneInfo extends AbstractModel{
     /**
      * Get 额外标识 
      * @return Exflag 额外标识
+     * @deprecated
      */
+    @Deprecated
     public String getExflag() {
         return this.Exflag;
     }
@@ -193,32 +202,32 @@ public class ZoneInfo extends AbstractModel{
     /**
      * Set 额外标识
      * @param Exflag 额外标识
+     * @deprecated
      */
+    @Deprecated
     public void setExflag(String Exflag) {
         this.Exflag = Exflag;
     }
 
     /**
-     * Get json对象，key为机型，value true为售罄，false为未售罄 
-     * @return SoldOut json对象，key为机型，value true为售罄，false为未售罄
+     * Get true为售罄，false为未售罄 
+     * @return SoldOut true为售罄，false为未售罄
      */
     public String getSoldOut() {
         return this.SoldOut;
     }
 
     /**
-     * Set json对象，key为机型，value true为售罄，false为未售罄
-     * @param SoldOut json对象，key为机型，value true为售罄，false为未售罄
+     * Set true为售罄，false为未售罄
+     * @param SoldOut true为售罄，false为未售罄
      */
     public void setSoldOut(String SoldOut) {
         this.SoldOut = SoldOut;
     }
 
     /**
-     * Get 标准版售罄信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标准版售罄信息 
      * @return SalesInfo 标准版售罄信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SaleInfo [] getSalesInfo() {
         return this.SalesInfo;
@@ -226,12 +235,26 @@ public class ZoneInfo extends AbstractModel{
 
     /**
      * Set 标准版售罄信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SalesInfo 标准版售罄信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSalesInfo(SaleInfo [] SalesInfo) {
         this.SalesInfo = SalesInfo;
+    }
+
+    /**
+     * Get 额外标识 
+     * @return ExtraFlag 额外标识
+     */
+    public String getExtraFlag() {
+        return this.ExtraFlag;
+    }
+
+    /**
+     * Set 额外标识
+     * @param ExtraFlag 额外标识
+     */
+    public void setExtraFlag(String ExtraFlag) {
+        this.ExtraFlag = ExtraFlag;
     }
 
     public ZoneInfo() {
@@ -272,6 +295,9 @@ public class ZoneInfo extends AbstractModel{
                 this.SalesInfo[i] = new SaleInfo(source.SalesInfo[i]);
             }
         }
+        if (source.ExtraFlag != null) {
+            this.ExtraFlag = new String(source.ExtraFlag);
+        }
     }
 
 
@@ -288,6 +314,7 @@ public class ZoneInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Exflag", this.Exflag);
         this.setParamSimple(map, prefix + "SoldOut", this.SoldOut);
         this.setParamArrayObj(map, prefix + "SalesInfo.", this.SalesInfo);
+        this.setParamSimple(map, prefix + "ExtraFlag", this.ExtraFlag);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BGPInstance extends AbstractModel{
+public class BGPInstance extends AbstractModel {
 
     /**
     * 资产实例的详细信息
@@ -148,11 +149,17 @@ public class BGPInstance extends AbstractModel{
 
     /**
     * 网络线路
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Line")
     @Expose
     private Long Line;
+
+    /**
+    * 不计费的业务带宽
+    */
+    @SerializedName("FreeServiceBandwidth")
+    @Expose
+    private Long FreeServiceBandwidth;
 
     /**
     * 弹性业务带宽开关
@@ -170,7 +177,6 @@ public class BGPInstance extends AbstractModel{
 
     /**
     * 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModifyTime")
     @Expose
@@ -178,11 +184,38 @@ public class BGPInstance extends AbstractModel{
 
     /**
     * 是否是基础防护加强版 0: 不是 1: 是
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BasicPlusFlag")
     @Expose
     private Long BasicPlusFlag;
+
+    /**
+    * 是否标准版2.0 0: 包含标准版2.0 1: 只查询标准版2.0 2: 不查标准版2.0
+    */
+    @SerializedName("PlanCntFlag")
+    @Expose
+    private Long PlanCntFlag;
+
+    /**
+    * 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品
+    */
+    @SerializedName("TransRegionFlag")
+    @Expose
+    private Long TransRegionFlag;
+
+    /**
+    * 是否为超级高防包
+    */
+    @SerializedName("SuperPackFlag")
+    @Expose
+    private Long SuperPackFlag;
+
+    /**
+    * 所属ZoneId
+    */
+    @SerializedName("ZoneId")
+    @Expose
+    private Long ZoneId;
 
     /**
      * Get 资产实例的详细信息 
@@ -489,10 +522,8 @@ public class BGPInstance extends AbstractModel{
     }
 
     /**
-     * Get 网络线路
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络线路 
      * @return Line 网络线路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLine() {
         return this.Line;
@@ -500,12 +531,26 @@ public class BGPInstance extends AbstractModel{
 
     /**
      * Set 网络线路
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Line 网络线路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLine(Long Line) {
         this.Line = Line;
+    }
+
+    /**
+     * Get 不计费的业务带宽 
+     * @return FreeServiceBandwidth 不计费的业务带宽
+     */
+    public Long getFreeServiceBandwidth() {
+        return this.FreeServiceBandwidth;
+    }
+
+    /**
+     * Set 不计费的业务带宽
+     * @param FreeServiceBandwidth 不计费的业务带宽
+     */
+    public void setFreeServiceBandwidth(Long FreeServiceBandwidth) {
+        this.FreeServiceBandwidth = FreeServiceBandwidth;
     }
 
     /**
@@ -541,10 +586,8 @@ public class BGPInstance extends AbstractModel{
     }
 
     /**
-     * Get 修改时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修改时间 
      * @return ModifyTime 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModifyTime() {
         return this.ModifyTime;
@@ -552,19 +595,15 @@ public class BGPInstance extends AbstractModel{
 
     /**
      * Set 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModifyTime 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;
     }
 
     /**
-     * Get 是否是基础防护加强版 0: 不是 1: 是
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否是基础防护加强版 0: 不是 1: 是 
      * @return BasicPlusFlag 是否是基础防护加强版 0: 不是 1: 是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBasicPlusFlag() {
         return this.BasicPlusFlag;
@@ -572,12 +611,74 @@ public class BGPInstance extends AbstractModel{
 
     /**
      * Set 是否是基础防护加强版 0: 不是 1: 是
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BasicPlusFlag 是否是基础防护加强版 0: 不是 1: 是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBasicPlusFlag(Long BasicPlusFlag) {
         this.BasicPlusFlag = BasicPlusFlag;
+    }
+
+    /**
+     * Get 是否标准版2.0 0: 包含标准版2.0 1: 只查询标准版2.0 2: 不查标准版2.0 
+     * @return PlanCntFlag 是否标准版2.0 0: 包含标准版2.0 1: 只查询标准版2.0 2: 不查标准版2.0
+     */
+    public Long getPlanCntFlag() {
+        return this.PlanCntFlag;
+    }
+
+    /**
+     * Set 是否标准版2.0 0: 包含标准版2.0 1: 只查询标准版2.0 2: 不查标准版2.0
+     * @param PlanCntFlag 是否标准版2.0 0: 包含标准版2.0 1: 只查询标准版2.0 2: 不查标准版2.0
+     */
+    public void setPlanCntFlag(Long PlanCntFlag) {
+        this.PlanCntFlag = PlanCntFlag;
+    }
+
+    /**
+     * Get 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品 
+     * @return TransRegionFlag 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品
+     */
+    public Long getTransRegionFlag() {
+        return this.TransRegionFlag;
+    }
+
+    /**
+     * Set 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品
+     * @param TransRegionFlag 是否跨区域产品 0: 不包含跨区域产品 1: 中国大陆跨区域产品 2: 非中国大陆跨区域产品
+     */
+    public void setTransRegionFlag(Long TransRegionFlag) {
+        this.TransRegionFlag = TransRegionFlag;
+    }
+
+    /**
+     * Get 是否为超级高防包 
+     * @return SuperPackFlag 是否为超级高防包
+     */
+    public Long getSuperPackFlag() {
+        return this.SuperPackFlag;
+    }
+
+    /**
+     * Set 是否为超级高防包
+     * @param SuperPackFlag 是否为超级高防包
+     */
+    public void setSuperPackFlag(Long SuperPackFlag) {
+        this.SuperPackFlag = SuperPackFlag;
+    }
+
+    /**
+     * Get 所属ZoneId 
+     * @return ZoneId 所属ZoneId
+     */
+    public Long getZoneId() {
+        return this.ZoneId;
+    }
+
+    /**
+     * Set 所属ZoneId
+     * @param ZoneId 所属ZoneId
+     */
+    public void setZoneId(Long ZoneId) {
+        this.ZoneId = ZoneId;
     }
 
     public BGPInstance() {
@@ -645,6 +746,9 @@ public class BGPInstance extends AbstractModel{
         if (source.Line != null) {
             this.Line = new Long(source.Line);
         }
+        if (source.FreeServiceBandwidth != null) {
+            this.FreeServiceBandwidth = new Long(source.FreeServiceBandwidth);
+        }
         if (source.ElasticServiceBandwidth != null) {
             this.ElasticServiceBandwidth = new Long(source.ElasticServiceBandwidth);
         }
@@ -656,6 +760,18 @@ public class BGPInstance extends AbstractModel{
         }
         if (source.BasicPlusFlag != null) {
             this.BasicPlusFlag = new Long(source.BasicPlusFlag);
+        }
+        if (source.PlanCntFlag != null) {
+            this.PlanCntFlag = new Long(source.PlanCntFlag);
+        }
+        if (source.TransRegionFlag != null) {
+            this.TransRegionFlag = new Long(source.TransRegionFlag);
+        }
+        if (source.SuperPackFlag != null) {
+            this.SuperPackFlag = new Long(source.SuperPackFlag);
+        }
+        if (source.ZoneId != null) {
+            this.ZoneId = new Long(source.ZoneId);
         }
     }
 
@@ -681,10 +797,15 @@ public class BGPInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "IpCountNewFlag", this.IpCountNewFlag);
         this.setParamSimple(map, prefix + "VitalityVersion", this.VitalityVersion);
         this.setParamSimple(map, prefix + "Line", this.Line);
+        this.setParamSimple(map, prefix + "FreeServiceBandwidth", this.FreeServiceBandwidth);
         this.setParamSimple(map, prefix + "ElasticServiceBandwidth", this.ElasticServiceBandwidth);
         this.setParamSimple(map, prefix + "GiftServiceBandWidth", this.GiftServiceBandWidth);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "BasicPlusFlag", this.BasicPlusFlag);
+        this.setParamSimple(map, prefix + "PlanCntFlag", this.PlanCntFlag);
+        this.setParamSimple(map, prefix + "TransRegionFlag", this.TransRegionFlag);
+        this.setParamSimple(map, prefix + "SuperPackFlag", this.SuperPackFlag);
+        this.setParamSimple(map, prefix + "ZoneId", this.ZoneId);
 
     }
 }

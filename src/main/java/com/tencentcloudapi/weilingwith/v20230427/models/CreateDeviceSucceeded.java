@@ -1,0 +1,152 @@
+/*
+ * Copyright (c) 2017-2018 THL A29 Limited, a Tencent company. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.tencentcloudapi.weilingwith.v20230427.models;
+
+import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.Expose;
+import java.util.HashMap;
+
+public class CreateDeviceSucceeded extends AbstractModel {
+
+    /**
+    * 产品id
+    */
+    @SerializedName("ProductId")
+    @Expose
+    private Long ProductId;
+
+    /**
+    * 父设备wid，不为空表示导入自设备
+    */
+    @SerializedName("ParentWID")
+    @Expose
+    private String ParentWID;
+
+    /**
+    * 设备编码
+    */
+    @SerializedName("WID")
+    @Expose
+    private String WID;
+
+    /**
+    * 设备sn序列号
+    */
+    @SerializedName("SN")
+    @Expose
+    private String SN;
+
+    /**
+     * Get 产品id 
+     * @return ProductId 产品id
+     */
+    public Long getProductId() {
+        return this.ProductId;
+    }
+
+    /**
+     * Set 产品id
+     * @param ProductId 产品id
+     */
+    public void setProductId(Long ProductId) {
+        this.ProductId = ProductId;
+    }
+
+    /**
+     * Get 父设备wid，不为空表示导入自设备 
+     * @return ParentWID 父设备wid，不为空表示导入自设备
+     */
+    public String getParentWID() {
+        return this.ParentWID;
+    }
+
+    /**
+     * Set 父设备wid，不为空表示导入自设备
+     * @param ParentWID 父设备wid，不为空表示导入自设备
+     */
+    public void setParentWID(String ParentWID) {
+        this.ParentWID = ParentWID;
+    }
+
+    /**
+     * Get 设备编码 
+     * @return WID 设备编码
+     */
+    public String getWID() {
+        return this.WID;
+    }
+
+    /**
+     * Set 设备编码
+     * @param WID 设备编码
+     */
+    public void setWID(String WID) {
+        this.WID = WID;
+    }
+
+    /**
+     * Get 设备sn序列号 
+     * @return SN 设备sn序列号
+     */
+    public String getSN() {
+        return this.SN;
+    }
+
+    /**
+     * Set 设备sn序列号
+     * @param SN 设备sn序列号
+     */
+    public void setSN(String SN) {
+        this.SN = SN;
+    }
+
+    public CreateDeviceSucceeded() {
+    }
+
+    /**
+     * NOTE: Any ambiguous key set via .set("AnyKey", "value") will be a shallow copy,
+     *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
+     */
+    public CreateDeviceSucceeded(CreateDeviceSucceeded source) {
+        if (source.ProductId != null) {
+            this.ProductId = new Long(source.ProductId);
+        }
+        if (source.ParentWID != null) {
+            this.ParentWID = new String(source.ParentWID);
+        }
+        if (source.WID != null) {
+            this.WID = new String(source.WID);
+        }
+        if (source.SN != null) {
+            this.SN = new String(source.SN);
+        }
+    }
+
+
+    /**
+     * Internal implementation, normal users should not use it.
+     */
+    public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "ProductId", this.ProductId);
+        this.setParamSimple(map, prefix + "ParentWID", this.ParentWID);
+        this.setParamSimple(map, prefix + "WID", this.WID);
+        this.setParamSimple(map, prefix + "SN", this.SN);
+
+    }
+}
+

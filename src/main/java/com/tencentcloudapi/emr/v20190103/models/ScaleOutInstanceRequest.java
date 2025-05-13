@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScaleOutInstanceRequest extends AbstractModel{
+public class ScaleOutInstanceRequest extends AbstractModel {
 
     /**
     * 扩容的时间单位。取值范围：
@@ -57,7 +58,7 @@ public class ScaleOutInstanceRequest extends AbstractModel{
     private Long PayMode;
 
     /**
-    * 客户端Token。
+    * 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
     */
     @SerializedName("ClientToken")
     @Expose
@@ -129,7 +130,7 @@ public class ScaleOutInstanceRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
+    * 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
     */
     @SerializedName("HardwareResourceType")
     @Expose
@@ -214,6 +215,20 @@ public class ScaleOutInstanceRequest extends AbstractModel{
     @SerializedName("AutoRenew")
     @Expose
     private Long AutoRenew;
+
+    /**
+    * 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+    */
+    @SerializedName("ResourceBaseType")
+    @Expose
+    private String ResourceBaseType;
+
+    /**
+    * 计算资源id
+    */
+    @SerializedName("ComputeResourceId")
+    @Expose
+    private String ComputeResourceId;
 
     /**
      * Get 扩容的时间单位。取值范围：
@@ -304,16 +319,16 @@ public class ScaleOutInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 客户端Token。 
-     * @return ClientToken 客户端Token。
+     * Get 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280 
+     * @return ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
      */
     public String getClientToken() {
         return this.ClientToken;
     }
 
     /**
-     * Set 客户端Token。
-     * @param ClientToken 客户端Token。
+     * Set 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
+     * @param ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
@@ -472,16 +487,16 @@ public class ScaleOutInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源 
-     * @return HardwareResourceType 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
+     * Get 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型 
+     * @return HardwareResourceType 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
      */
     public String getHardwareResourceType() {
         return this.HardwareResourceType;
     }
 
     /**
-     * Set 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
-     * @param HardwareResourceType 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
+     * Set 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
+     * @param HardwareResourceType 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
      */
     public void setHardwareResourceType(String HardwareResourceType) {
         this.HardwareResourceType = HardwareResourceType;
@@ -675,6 +690,38 @@ public class ScaleOutInstanceRequest extends AbstractModel{
         this.AutoRenew = AutoRenew;
     }
 
+    /**
+     * Get 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识 
+     * @return ResourceBaseType 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+     */
+    public String getResourceBaseType() {
+        return this.ResourceBaseType;
+    }
+
+    /**
+     * Set 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+     * @param ResourceBaseType 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+     */
+    public void setResourceBaseType(String ResourceBaseType) {
+        this.ResourceBaseType = ResourceBaseType;
+    }
+
+    /**
+     * Get 计算资源id 
+     * @return ComputeResourceId 计算资源id
+     */
+    public String getComputeResourceId() {
+        return this.ComputeResourceId;
+    }
+
+    /**
+     * Set 计算资源id
+     * @param ComputeResourceId 计算资源id
+     */
+    public void setComputeResourceId(String ComputeResourceId) {
+        this.ComputeResourceId = ComputeResourceId;
+    }
+
     public ScaleOutInstanceRequest() {
     }
 
@@ -779,6 +826,12 @@ public class ScaleOutInstanceRequest extends AbstractModel{
         if (source.AutoRenew != null) {
             this.AutoRenew = new Long(source.AutoRenew);
         }
+        if (source.ResourceBaseType != null) {
+            this.ResourceBaseType = new String(source.ResourceBaseType);
+        }
+        if (source.ComputeResourceId != null) {
+            this.ComputeResourceId = new String(source.ComputeResourceId);
+        }
     }
 
 
@@ -812,6 +865,8 @@ public class ScaleOutInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "ScaleOutServiceConfAssign", this.ScaleOutServiceConfAssign);
         this.setParamSimple(map, prefix + "AutoRenew", this.AutoRenew);
+        this.setParamSimple(map, prefix + "ResourceBaseType", this.ResourceBaseType);
+        this.setParamSimple(map, prefix + "ComputeResourceId", this.ComputeResourceId);
 
     }
 }

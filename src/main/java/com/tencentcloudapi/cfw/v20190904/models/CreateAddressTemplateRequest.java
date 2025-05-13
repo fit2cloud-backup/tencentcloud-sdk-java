@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAddressTemplateRequest extends AbstractModel{
+public class CreateAddressTemplateRequest extends AbstractModel {
 
     /**
     * 模板名称
@@ -47,10 +48,25 @@ Type为5，域名模板eg：www.qq.com,www.tencent.com
     /**
     * 1 ip模板
 5 域名模板
+6 协议端口模板
     */
     @SerializedName("Type")
     @Expose
     private Long Type;
+
+    /**
+    * 协议端口模板，协议类型，4:4层协议，7:7层协议，Type=6时必填
+    */
+    @SerializedName("ProtocolType")
+    @Expose
+    private String ProtocolType;
+
+    /**
+    * IP版本,0 IPV4;1 IPV6
+    */
+    @SerializedName("IpVersion")
+    @Expose
+    private Long IpVersion;
 
     /**
      * Get 模板名称 
@@ -106,9 +122,11 @@ Type为5，域名模板eg：www.qq.com,www.tencent.com
 
     /**
      * Get 1 ip模板
-5 域名模板 
+5 域名模板
+6 协议端口模板 
      * @return Type 1 ip模板
 5 域名模板
+6 协议端口模板
      */
     public Long getType() {
         return this.Type;
@@ -117,11 +135,45 @@ Type为5，域名模板eg：www.qq.com,www.tencent.com
     /**
      * Set 1 ip模板
 5 域名模板
+6 协议端口模板
      * @param Type 1 ip模板
 5 域名模板
+6 协议端口模板
      */
     public void setType(Long Type) {
         this.Type = Type;
+    }
+
+    /**
+     * Get 协议端口模板，协议类型，4:4层协议，7:7层协议，Type=6时必填 
+     * @return ProtocolType 协议端口模板，协议类型，4:4层协议，7:7层协议，Type=6时必填
+     */
+    public String getProtocolType() {
+        return this.ProtocolType;
+    }
+
+    /**
+     * Set 协议端口模板，协议类型，4:4层协议，7:7层协议，Type=6时必填
+     * @param ProtocolType 协议端口模板，协议类型，4:4层协议，7:7层协议，Type=6时必填
+     */
+    public void setProtocolType(String ProtocolType) {
+        this.ProtocolType = ProtocolType;
+    }
+
+    /**
+     * Get IP版本,0 IPV4;1 IPV6 
+     * @return IpVersion IP版本,0 IPV4;1 IPV6
+     */
+    public Long getIpVersion() {
+        return this.IpVersion;
+    }
+
+    /**
+     * Set IP版本,0 IPV4;1 IPV6
+     * @param IpVersion IP版本,0 IPV4;1 IPV6
+     */
+    public void setIpVersion(Long IpVersion) {
+        this.IpVersion = IpVersion;
     }
 
     public CreateAddressTemplateRequest() {
@@ -144,6 +196,12 @@ Type为5，域名模板eg：www.qq.com,www.tencent.com
         if (source.Type != null) {
             this.Type = new Long(source.Type);
         }
+        if (source.ProtocolType != null) {
+            this.ProtocolType = new String(source.ProtocolType);
+        }
+        if (source.IpVersion != null) {
+            this.IpVersion = new Long(source.IpVersion);
+        }
     }
 
 
@@ -155,6 +213,8 @@ Type为5，域名模板eg：www.qq.com,www.tencent.com
         this.setParamSimple(map, prefix + "Detail", this.Detail);
         this.setParamSimple(map, prefix + "IpString", this.IpString);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "ProtocolType", this.ProtocolType);
+        this.setParamSimple(map, prefix + "IpVersion", this.IpVersion);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeScanVulSettingResponse extends AbstractModel{
+public class DescribeScanVulSettingResponse extends AbstractModel {
 
     /**
     * 漏洞类型：1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞
@@ -86,14 +87,21 @@ public class DescribeScanVulSettingResponse extends AbstractModel{
     private Long ClickTimeout;
 
     /**
-    * 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
+    * 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
     */
     @SerializedName("Uuids")
     @Expose
     private String [] Uuids;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 0版本比对,2版本比对+poc
+    */
+    @SerializedName("ScanMethod")
+    @Expose
+    private Long ScanMethod;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -244,32 +252,48 @@ public class DescribeScanVulSettingResponse extends AbstractModel{
     }
 
     /**
-     * Get 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机 
-     * @return Uuids 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
+     * Get 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机 
+     * @return Uuids 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
      */
     public String [] getUuids() {
         return this.Uuids;
     }
 
     /**
-     * Set 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
-     * @param Uuids 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
+     * Set 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
+     * @param Uuids 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
      */
     public void setUuids(String [] Uuids) {
         this.Uuids = Uuids;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 0版本比对,2版本比对+poc 
+     * @return ScanMethod 0版本比对,2版本比对+poc
+     */
+    public Long getScanMethod() {
+        return this.ScanMethod;
+    }
+
+    /**
+     * Set 0版本比对,2版本比对+poc
+     * @param ScanMethod 0版本比对,2版本比对+poc
+     */
+    public void setScanMethod(Long ScanMethod) {
+        this.ScanMethod = ScanMethod;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -316,6 +340,9 @@ public class DescribeScanVulSettingResponse extends AbstractModel{
                 this.Uuids[i] = new String(source.Uuids[i]);
             }
         }
+        if (source.ScanMethod != null) {
+            this.ScanMethod = new Long(source.ScanMethod);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -336,6 +363,7 @@ public class DescribeScanVulSettingResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "ClickTimeout", this.ClickTimeout);
         this.setParamArraySimple(map, prefix + "Uuids.", this.Uuids);
+        this.setParamSimple(map, prefix + "ScanMethod", this.ScanMethod);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

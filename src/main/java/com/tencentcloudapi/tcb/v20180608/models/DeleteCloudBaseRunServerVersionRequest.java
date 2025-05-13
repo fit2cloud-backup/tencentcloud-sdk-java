@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteCloudBaseRunServerVersionRequest extends AbstractModel{
+public class DeleteCloudBaseRunServerVersionRequest extends AbstractModel {
 
     /**
     * 环境ID
@@ -63,6 +64,13 @@ public class DeleteCloudBaseRunServerVersionRequest extends AbstractModel{
     @SerializedName("OperatorRemark")
     @Expose
     private String OperatorRemark;
+
+    /**
+    * 延迟删除版本时间
+    */
+    @SerializedName("DelayedDeletionTime")
+    @Expose
+    private Long DelayedDeletionTime;
 
     /**
      * Get 环境ID 
@@ -160,6 +168,22 @@ public class DeleteCloudBaseRunServerVersionRequest extends AbstractModel{
         this.OperatorRemark = OperatorRemark;
     }
 
+    /**
+     * Get 延迟删除版本时间 
+     * @return DelayedDeletionTime 延迟删除版本时间
+     */
+    public Long getDelayedDeletionTime() {
+        return this.DelayedDeletionTime;
+    }
+
+    /**
+     * Set 延迟删除版本时间
+     * @param DelayedDeletionTime 延迟删除版本时间
+     */
+    public void setDelayedDeletionTime(Long DelayedDeletionTime) {
+        this.DelayedDeletionTime = DelayedDeletionTime;
+    }
+
     public DeleteCloudBaseRunServerVersionRequest() {
     }
 
@@ -186,6 +210,9 @@ public class DeleteCloudBaseRunServerVersionRequest extends AbstractModel{
         if (source.OperatorRemark != null) {
             this.OperatorRemark = new String(source.OperatorRemark);
         }
+        if (source.DelayedDeletionTime != null) {
+            this.DelayedDeletionTime = new Long(source.DelayedDeletionTime);
+        }
     }
 
 
@@ -199,6 +226,7 @@ public class DeleteCloudBaseRunServerVersionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IsDeleteServer", this.IsDeleteServer);
         this.setParamSimple(map, prefix + "IsDeleteImage", this.IsDeleteImage);
         this.setParamSimple(map, prefix + "OperatorRemark", this.OperatorRemark);
+        this.setParamSimple(map, prefix + "DelayedDeletionTime", this.DelayedDeletionTime);
 
     }
 }

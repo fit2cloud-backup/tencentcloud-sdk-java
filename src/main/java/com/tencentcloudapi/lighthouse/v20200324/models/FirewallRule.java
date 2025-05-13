@@ -16,35 +16,52 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FirewallRule extends AbstractModel{
+public class FirewallRule extends AbstractModel {
 
     /**
-    * 协议，取值：TCP，UDP，ICMP，ALL。
+    * 协议，取值：TCP，UDP，ICMP，ALL，ICMPv6。
+
+- 使用ICMP协议时，只支持CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
+- 使用ICMPv6协议时，只支持Ipv6CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
 
     /**
-    * 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。
+    * 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。注意：单独的端口与离散端口不能同时存在。
     */
     @SerializedName("Port")
     @Expose
     private String Port;
 
     /**
-    * 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
+    * IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
     */
     @SerializedName("CidrBlock")
     @Expose
     private String CidrBlock;
 
     /**
-    * 取值：ACCEPT，DROP。默认为 ACCEPT。
+    * IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+    */
+    @SerializedName("Ipv6CidrBlock")
+    @Expose
+    private String Ipv6CidrBlock;
+
+    /**
+    * 取值：ACCEPT（允许），DROP（拒绝）。默认为 ACCEPT。
     */
     @SerializedName("Action")
     @Expose
@@ -58,64 +75,116 @@ public class FirewallRule extends AbstractModel{
     private String FirewallRuleDescription;
 
     /**
-     * Get 协议，取值：TCP，UDP，ICMP，ALL。 
-     * @return Protocol 协议，取值：TCP，UDP，ICMP，ALL。
+     * Get 协议，取值：TCP，UDP，ICMP，ALL，ICMPv6。
+
+- 使用ICMP协议时，只支持CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
+- 使用ICMPv6协议时，只支持Ipv6CidrBlock，不支持使用Port、Ipv6CidrBlock参数； 
+     * @return Protocol 协议，取值：TCP，UDP，ICMP，ALL，ICMPv6。
+
+- 使用ICMP协议时，只支持CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
+- 使用ICMPv6协议时，只支持Ipv6CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议，取值：TCP，UDP，ICMP，ALL。
-     * @param Protocol 协议，取值：TCP，UDP，ICMP，ALL。
+     * Set 协议，取值：TCP，UDP，ICMP，ALL，ICMPv6。
+
+- 使用ICMP协议时，只支持CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
+- 使用ICMPv6协议时，只支持Ipv6CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
+     * @param Protocol 协议，取值：TCP，UDP，ICMP，ALL，ICMPv6。
+
+- 使用ICMP协议时，只支持CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
+- 使用ICMPv6协议时，只支持Ipv6CidrBlock，不支持使用Port、Ipv6CidrBlock参数；
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。 
-     * @return Port 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。
+     * Get 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。注意：单独的端口与离散端口不能同时存在。 
+     * @return Port 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。注意：单独的端口与离散端口不能同时存在。
      */
     public String getPort() {
         return this.Port;
     }
 
     /**
-     * Set 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。
-     * @param Port 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。
+     * Set 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。注意：单独的端口与离散端口不能同时存在。
+     * @param Port 端口，取值：ALL，单独的端口，逗号分隔的离散端口，减号分隔的端口范围。注意：单独的端口与离散端口不能同时存在。
      */
     public void setPort(String Port) {
         this.Port = Port;
     }
 
     /**
-     * Get 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。 
-     * @return CidrBlock 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
+     * Get IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。 
+     * @return CidrBlock IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
      */
     public String getCidrBlock() {
         return this.CidrBlock;
     }
 
     /**
-     * Set 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
-     * @param CidrBlock 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
+     * Set IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
+     * @param CidrBlock IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
      */
     public void setCidrBlock(String CidrBlock) {
         this.CidrBlock = CidrBlock;
     }
 
     /**
-     * Get 取值：ACCEPT，DROP。默认为 ACCEPT。 
-     * @return Action 取值：ACCEPT，DROP。默认为 ACCEPT。
+     * Get IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。 
+     * @return Ipv6CidrBlock IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+     */
+    public String getIpv6CidrBlock() {
+        return this.Ipv6CidrBlock;
+    }
+
+    /**
+     * Set IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+     * @param Ipv6CidrBlock IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+     */
+    public void setIpv6CidrBlock(String Ipv6CidrBlock) {
+        this.Ipv6CidrBlock = Ipv6CidrBlock;
+    }
+
+    /**
+     * Get 取值：ACCEPT（允许），DROP（拒绝）。默认为 ACCEPT。 
+     * @return Action 取值：ACCEPT（允许），DROP（拒绝）。默认为 ACCEPT。
      */
     public String getAction() {
         return this.Action;
     }
 
     /**
-     * Set 取值：ACCEPT，DROP。默认为 ACCEPT。
-     * @param Action 取值：ACCEPT，DROP。默认为 ACCEPT。
+     * Set 取值：ACCEPT（允许），DROP（拒绝）。默认为 ACCEPT。
+     * @param Action 取值：ACCEPT（允许），DROP（拒绝）。默认为 ACCEPT。
      */
     public void setAction(String Action) {
         this.Action = Action;
@@ -154,6 +223,9 @@ public class FirewallRule extends AbstractModel{
         if (source.CidrBlock != null) {
             this.CidrBlock = new String(source.CidrBlock);
         }
+        if (source.Ipv6CidrBlock != null) {
+            this.Ipv6CidrBlock = new String(source.Ipv6CidrBlock);
+        }
         if (source.Action != null) {
             this.Action = new String(source.Action);
         }
@@ -170,6 +242,7 @@ public class FirewallRule extends AbstractModel{
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
         this.setParamSimple(map, prefix + "Port", this.Port);
         this.setParamSimple(map, prefix + "CidrBlock", this.CidrBlock);
+        this.setParamSimple(map, prefix + "Ipv6CidrBlock", this.Ipv6CidrBlock);
         this.setParamSimple(map, prefix + "Action", this.Action);
         this.setParamSimple(map, prefix + "FirewallRuleDescription", this.FirewallRuleDescription);
 

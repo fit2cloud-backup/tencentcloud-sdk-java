@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTableSchemaInfoRequest extends AbstractModel{
+public class DescribeTableSchemaInfoRequest extends AbstractModel {
 
     /**
     * 表名称
@@ -37,7 +38,7 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
     private String DatabaseName;
 
     /**
-    * 表类型
+    * 数据源的类型（例如MYSQL、HIVE、KAFKA等）
     */
     @SerializedName("MsType")
     @Expose
@@ -51,7 +52,7 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
     private String DatasourceId;
 
     /**
-    * HIVE传rpc
+    * 连接类型（示例值rpc）
     */
     @SerializedName("ConnectionType")
     @Expose
@@ -63,6 +64,34 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
     @SerializedName("SchemaName")
     @Expose
     private String SchemaName;
+
+    /**
+    * 项目空间ID
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
+    * 环境信息
+    */
+    @SerializedName("Env")
+    @Expose
+    private String Env;
+
+    /**
+    * 空间模式
+    */
+    @SerializedName("Model")
+    @Expose
+    private String Model;
+
+    /**
+    * 开发态的datasourceId
+    */
+    @SerializedName("DevDatasourceId")
+    @Expose
+    private String DevDatasourceId;
 
     /**
      * Get 表名称 
@@ -97,16 +126,16 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get 表类型 
-     * @return MsType 表类型
+     * Get 数据源的类型（例如MYSQL、HIVE、KAFKA等） 
+     * @return MsType 数据源的类型（例如MYSQL、HIVE、KAFKA等）
      */
     public String getMsType() {
         return this.MsType;
     }
 
     /**
-     * Set 表类型
-     * @param MsType 表类型
+     * Set 数据源的类型（例如MYSQL、HIVE、KAFKA等）
+     * @param MsType 数据源的类型（例如MYSQL、HIVE、KAFKA等）
      */
     public void setMsType(String MsType) {
         this.MsType = MsType;
@@ -129,16 +158,16 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get HIVE传rpc 
-     * @return ConnectionType HIVE传rpc
+     * Get 连接类型（示例值rpc） 
+     * @return ConnectionType 连接类型（示例值rpc）
      */
     public String getConnectionType() {
         return this.ConnectionType;
     }
 
     /**
-     * Set HIVE传rpc
-     * @param ConnectionType HIVE传rpc
+     * Set 连接类型（示例值rpc）
+     * @param ConnectionType 连接类型（示例值rpc）
      */
     public void setConnectionType(String ConnectionType) {
         this.ConnectionType = ConnectionType;
@@ -158,6 +187,70 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
      */
     public void setSchemaName(String SchemaName) {
         this.SchemaName = SchemaName;
+    }
+
+    /**
+     * Get 项目空间ID 
+     * @return ProjectId 项目空间ID
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目空间ID
+     * @param ProjectId 项目空间ID
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 环境信息 
+     * @return Env 环境信息
+     */
+    public String getEnv() {
+        return this.Env;
+    }
+
+    /**
+     * Set 环境信息
+     * @param Env 环境信息
+     */
+    public void setEnv(String Env) {
+        this.Env = Env;
+    }
+
+    /**
+     * Get 空间模式 
+     * @return Model 空间模式
+     */
+    public String getModel() {
+        return this.Model;
+    }
+
+    /**
+     * Set 空间模式
+     * @param Model 空间模式
+     */
+    public void setModel(String Model) {
+        this.Model = Model;
+    }
+
+    /**
+     * Get 开发态的datasourceId 
+     * @return DevDatasourceId 开发态的datasourceId
+     */
+    public String getDevDatasourceId() {
+        return this.DevDatasourceId;
+    }
+
+    /**
+     * Set 开发态的datasourceId
+     * @param DevDatasourceId 开发态的datasourceId
+     */
+    public void setDevDatasourceId(String DevDatasourceId) {
+        this.DevDatasourceId = DevDatasourceId;
     }
 
     public DescribeTableSchemaInfoRequest() {
@@ -186,6 +279,18 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
         if (source.SchemaName != null) {
             this.SchemaName = new String(source.SchemaName);
         }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.Env != null) {
+            this.Env = new String(source.Env);
+        }
+        if (source.Model != null) {
+            this.Model = new String(source.Model);
+        }
+        if (source.DevDatasourceId != null) {
+            this.DevDatasourceId = new String(source.DevDatasourceId);
+        }
     }
 
 
@@ -199,6 +304,10 @@ public class DescribeTableSchemaInfoRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DatasourceId", this.DatasourceId);
         this.setParamSimple(map, prefix + "ConnectionType", this.ConnectionType);
         this.setParamSimple(map, prefix + "SchemaName", this.SchemaName);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "Env", this.Env);
+        this.setParamSimple(map, prefix + "Model", this.Model);
+        this.setParamSimple(map, prefix + "DevDatasourceId", this.DevDatasourceId);
 
     }
 }

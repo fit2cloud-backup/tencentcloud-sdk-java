@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResumeInstanceRequest extends AbstractModel{
+public class ResumeInstanceRequest extends AbstractModel {
 
     /**
     * 需要恢复的实例id
@@ -28,6 +29,13 @@ public class ResumeInstanceRequest extends AbstractModel{
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
+
+    /**
+    * 修改是否包括白名单
+    */
+    @SerializedName("IsModifyAll")
+    @Expose
+    private Boolean IsModifyAll;
 
     /**
      * Get 需要恢复的实例id 
@@ -45,6 +53,22 @@ public class ResumeInstanceRequest extends AbstractModel{
         this.InstanceId = InstanceId;
     }
 
+    /**
+     * Get 修改是否包括白名单 
+     * @return IsModifyAll 修改是否包括白名单
+     */
+    public Boolean getIsModifyAll() {
+        return this.IsModifyAll;
+    }
+
+    /**
+     * Set 修改是否包括白名单
+     * @param IsModifyAll 修改是否包括白名单
+     */
+    public void setIsModifyAll(Boolean IsModifyAll) {
+        this.IsModifyAll = IsModifyAll;
+    }
+
     public ResumeInstanceRequest() {
     }
 
@@ -56,6 +80,9 @@ public class ResumeInstanceRequest extends AbstractModel{
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
         }
+        if (source.IsModifyAll != null) {
+            this.IsModifyAll = new Boolean(source.IsModifyAll);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class ResumeInstanceRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "IsModifyAll", this.IsModifyAll);
 
     }
 }

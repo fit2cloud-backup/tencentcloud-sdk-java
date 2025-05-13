@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tag.v20180813.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetTagsRequest extends AbstractModel{
+public class GetTagsRequest extends AbstractModel {
 
     /**
     * 从上一页的响应中获取的下一页的Token值。
@@ -46,6 +47,13 @@ public class GetTagsRequest extends AbstractModel{
     @SerializedName("TagKeys")
     @Expose
     private String [] TagKeys;
+
+    /**
+    * 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+    */
+    @SerializedName("Category")
+    @Expose
+    private String Category;
 
     /**
      * Get 从上一页的响应中获取的下一页的Token值。
@@ -111,6 +119,22 @@ public class GetTagsRequest extends AbstractModel{
         this.TagKeys = TagKeys;
     }
 
+    /**
+     * Get 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。 
+     * @return Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     */
+    public String getCategory() {
+        return this.Category;
+    }
+
+    /**
+     * Set 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     * @param Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+     */
+    public void setCategory(String Category) {
+        this.Category = Category;
+    }
+
     public GetTagsRequest() {
     }
 
@@ -131,6 +155,9 @@ public class GetTagsRequest extends AbstractModel{
                 this.TagKeys[i] = new String(source.TagKeys[i]);
             }
         }
+        if (source.Category != null) {
+            this.Category = new String(source.Category);
+        }
     }
 
 
@@ -141,6 +168,7 @@ public class GetTagsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PaginationToken", this.PaginationToken);
         this.setParamSimple(map, prefix + "MaxResults", this.MaxResults);
         this.setParamArraySimple(map, prefix + "TagKeys.", this.TagKeys);
+        this.setParamSimple(map, prefix + "Category", this.Category);
 
     }
 }

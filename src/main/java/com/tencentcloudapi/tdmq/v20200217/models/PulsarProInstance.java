@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PulsarProInstance extends AbstractModel{
+public class PulsarProInstance extends AbstractModel {
 
     /**
     * 实例id
@@ -137,6 +138,37 @@ public class PulsarProInstance extends AbstractModel{
     @SerializedName("MaxBandWidth")
     @Expose
     private Long MaxBandWidth;
+
+    /**
+    * 集群的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 集群创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CreateTime")
+    @Expose
+    private String CreateTime;
+
+    /**
+    * 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("BillingLabelVersion")
+    @Expose
+    private String BillingLabelVersion;
+
+    /**
+    * 自定义租户
+    */
+    @SerializedName("Tenant")
+    @Expose
+    private String Tenant;
 
     /**
      * Get 实例id 
@@ -410,6 +442,82 @@ public class PulsarProInstance extends AbstractModel{
         this.MaxBandWidth = MaxBandWidth;
     }
 
+    /**
+     * Get 集群的标签列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 集群的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 集群的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 集群的标签列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 集群创建时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CreateTime 集群创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCreateTime() {
+        return this.CreateTime;
+    }
+
+    /**
+     * Set 集群创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CreateTime 集群创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return BillingLabelVersion 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getBillingLabelVersion() {
+        return this.BillingLabelVersion;
+    }
+
+    /**
+     * Set 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param BillingLabelVersion 代表是专业版和小规格专业版的不同计费规格PULSAR.P1固定存储PULSAR.P2弹性存储
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setBillingLabelVersion(String BillingLabelVersion) {
+        this.BillingLabelVersion = BillingLabelVersion;
+    }
+
+    /**
+     * Get 自定义租户 
+     * @return Tenant 自定义租户
+     */
+    public String getTenant() {
+        return this.Tenant;
+    }
+
+    /**
+     * Set 自定义租户
+     * @param Tenant 自定义租户
+     */
+    public void setTenant(String Tenant) {
+        this.Tenant = Tenant;
+    }
+
     public PulsarProInstance() {
     }
 
@@ -466,6 +574,21 @@ public class PulsarProInstance extends AbstractModel{
         if (source.MaxBandWidth != null) {
             this.MaxBandWidth = new Long(source.MaxBandWidth);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.CreateTime != null) {
+            this.CreateTime = new String(source.CreateTime);
+        }
+        if (source.BillingLabelVersion != null) {
+            this.BillingLabelVersion = new String(source.BillingLabelVersion);
+        }
+        if (source.Tenant != null) {
+            this.Tenant = new String(source.Tenant);
+        }
     }
 
 
@@ -489,6 +612,10 @@ public class PulsarProInstance extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "MaxBandWidth", this.MaxBandWidth);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "BillingLabelVersion", this.BillingLabelVersion);
+        this.setParamSimple(map, prefix + "Tenant", this.Tenant);
 
     }
 }

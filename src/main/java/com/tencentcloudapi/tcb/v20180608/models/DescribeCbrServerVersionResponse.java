@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCbrServerVersionResponse extends AbstractModel{
+public class DescribeCbrServerVersionResponse extends AbstractModel {
 
     /**
     * 版本名称
@@ -31,7 +32,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DockerfilePath")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BuildDir")
     @Expose
@@ -83,7 +81,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvParams")
     @Expose
@@ -105,7 +102,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionIP")
     @Expose
@@ -113,7 +109,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VersionPort")
     @Expose
@@ -121,7 +116,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -129,7 +123,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UploadType")
     @Expose
@@ -137,7 +130,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServerName")
     @Expose
@@ -145,7 +137,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsPublic")
     @Expose
@@ -153,7 +144,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * vpc id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -161,7 +151,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 子网实例id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetIds")
     @Expose
@@ -169,7 +158,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomLogs")
     @Expose
@@ -177,7 +165,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContainerPort")
     @Expose
@@ -185,7 +172,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InitialDelaySeconds")
     @Expose
@@ -193,7 +179,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageUrl")
     @Expose
@@ -201,7 +186,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HasDockerfile")
     @Expose
@@ -209,7 +193,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BaseImage")
     @Expose
@@ -217,7 +200,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EntryPoint")
     @Expose
@@ -225,7 +207,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 自动扩缩容策略组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyDetail")
     @Expose
@@ -233,7 +214,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * Tke集群信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TkeClusterInfo")
     @Expose
@@ -241,7 +221,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TkeWorkloadType")
     @Expose
@@ -249,7 +228,6 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 代码包信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackageInfo")
     @Expose
@@ -257,14 +235,13 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
     * 仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepoInfo")
     @Expose
     private CbrRepoInfo RepoInfo;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -287,10 +264,8 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注 
      * @return Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -298,19 +273,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Dockefile的路径 
      * @return DockerfilePath Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDockerfilePath() {
         return this.DockerfilePath;
@@ -318,19 +289,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DockerfilePath Dockefile的路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDockerfilePath(String DockerfilePath) {
         this.DockerfilePath = DockerfilePath;
     }
 
     /**
-     * Get DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DockerBuild的目录 
      * @return BuildDir DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBuildDir() {
         return this.BuildDir;
@@ -338,9 +305,7 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BuildDir DockerBuild的目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBuildDir(String BuildDir) {
         this.BuildDir = BuildDir;
@@ -411,10 +376,8 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 环境变量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境变量 
      * @return EnvParams 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvParams() {
         return this.EnvParams;
@@ -422,9 +385,7 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvParams 环境变量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvParams(String EnvParams) {
         this.EnvParams = EnvParams;
@@ -463,10 +424,8 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
     }
 
     /**
-     * Get 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本的IP 
      * @return VersionIP 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersionIP() {
         return this.VersionIP;
@@ -474,19 +433,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VersionIP 版本的IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionIP(String VersionIP) {
         this.VersionIP = VersionIP;
     }
 
     /**
-     * Get 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本的端口号 
      * @return VersionPort 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVersionPort() {
         return this.VersionPort;
@@ -494,19 +449,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VersionPort 版本的端口号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersionPort(Long VersionPort) {
         this.VersionPort = VersionPort;
     }
 
     /**
-     * Get 版本状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本状态 
      * @return Status 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -514,19 +465,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 版本状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 枚举（package/repository/image) 
      * @return UploadType 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUploadType() {
         return this.UploadType;
@@ -534,19 +481,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UploadType 枚举（package/repository/image)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUploadType(String UploadType) {
         this.UploadType = UploadType;
     }
 
     /**
-     * Get 服务名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务名字 
      * @return ServerName 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServerName() {
         return this.ServerName;
@@ -554,19 +497,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServerName 服务名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServerName(String ServerName) {
         this.ServerName = ServerName;
     }
 
     /**
-     * Get 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否对于外网开放 
      * @return IsPublic 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsPublic() {
         return this.IsPublic;
@@ -574,19 +513,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsPublic 是否对于外网开放
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsPublic(Boolean IsPublic) {
         this.IsPublic = IsPublic;
     }
 
     /**
-     * Get vpc id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vpc id 
      * @return VpcId vpc id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -594,19 +529,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set vpc id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId vpc id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 子网实例id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网实例id 
      * @return SubnetIds 子网实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSubnetIds() {
         return this.SubnetIds;
@@ -614,19 +545,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 子网实例id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetIds 子网实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetIds(String [] SubnetIds) {
         this.SubnetIds = SubnetIds;
     }
 
     /**
-     * Get 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志采集路径 
      * @return CustomLogs 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomLogs() {
         return this.CustomLogs;
@@ -634,19 +561,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomLogs 日志采集路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomLogs(String CustomLogs) {
         this.CustomLogs = CustomLogs;
     }
 
     /**
-     * Get 监听端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听端口 
      * @return ContainerPort 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getContainerPort() {
         return this.ContainerPort;
@@ -654,19 +577,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContainerPort 监听端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainerPort(Long ContainerPort) {
         this.ContainerPort = ContainerPort;
     }
 
     /**
-     * Get 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 延迟多长时间开始健康检查（单位s） 
      * @return InitialDelaySeconds 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInitialDelaySeconds() {
         return this.InitialDelaySeconds;
@@ -674,19 +593,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InitialDelaySeconds 延迟多长时间开始健康检查（单位s）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInitialDelaySeconds(Long InitialDelaySeconds) {
         this.InitialDelaySeconds = InitialDelaySeconds;
     }
 
     /**
-     * Get 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像地址 
      * @return ImageUrl 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageUrl() {
         return this.ImageUrl;
@@ -694,19 +609,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageUrl 镜像地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
     }
 
     /**
-     * Get 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否有Dockerfile：0-default has, 1-has, 2-has not 
      * @return HasDockerfile 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHasDockerfile() {
         return this.HasDockerfile;
@@ -714,19 +625,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HasDockerfile 是否有Dockerfile：0-default has, 1-has, 2-has not
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHasDockerfile(Long HasDockerfile) {
         this.HasDockerfile = HasDockerfile;
     }
 
     /**
-     * Get 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 基础镜像 
      * @return BaseImage 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBaseImage() {
         return this.BaseImage;
@@ -734,19 +641,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BaseImage 基础镜像
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBaseImage(String BaseImage) {
         this.BaseImage = BaseImage;
     }
 
     /**
-     * Get 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器启动入口命令 
      * @return EntryPoint 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEntryPoint() {
         return this.EntryPoint;
@@ -754,19 +657,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EntryPoint 容器启动入口命令
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEntryPoint(String EntryPoint) {
         this.EntryPoint = EntryPoint;
     }
 
     /**
-     * Get 自动扩缩容策略组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自动扩缩容策略组 
      * @return PolicyDetail 自动扩缩容策略组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public HpaPolicy [] getPolicyDetail() {
         return this.PolicyDetail;
@@ -774,19 +673,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 自动扩缩容策略组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyDetail 自动扩缩容策略组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyDetail(HpaPolicy [] PolicyDetail) {
         this.PolicyDetail = PolicyDetail;
     }
 
     /**
-     * Get Tke集群信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Tke集群信息 
      * @return TkeClusterInfo Tke集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TkeClusterInfo getTkeClusterInfo() {
         return this.TkeClusterInfo;
@@ -794,19 +689,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set Tke集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TkeClusterInfo Tke集群信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTkeClusterInfo(TkeClusterInfo TkeClusterInfo) {
         this.TkeClusterInfo = TkeClusterInfo;
     }
 
     /**
-     * Get 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本工作负载类型；deployment/deamonset 
      * @return TkeWorkloadType 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTkeWorkloadType() {
         return this.TkeWorkloadType;
@@ -814,19 +705,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TkeWorkloadType 版本工作负载类型；deployment/deamonset
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTkeWorkloadType(String TkeWorkloadType) {
         this.TkeWorkloadType = TkeWorkloadType;
     }
 
     /**
-     * Get 代码包信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代码包信息 
      * @return PackageInfo 代码包信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CbrPackageInfo getPackageInfo() {
         return this.PackageInfo;
@@ -834,19 +721,15 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 代码包信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackageInfo 代码包信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackageInfo(CbrPackageInfo PackageInfo) {
         this.PackageInfo = PackageInfo;
     }
 
     /**
-     * Get 仓库信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库信息 
      * @return RepoInfo 仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CbrRepoInfo getRepoInfo() {
         return this.RepoInfo;
@@ -854,25 +737,23 @@ public class DescribeCbrServerVersionResponse extends AbstractModel{
 
     /**
      * Set 仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepoInfo 仓库信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepoInfo(CbrRepoInfo RepoInfo) {
         this.RepoInfo = RepoInfo;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

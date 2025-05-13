@@ -16,25 +16,23 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloudBaseSecurityContext extends AbstractModel{
+public class CloudBaseSecurityContext extends AbstractModel {
 
     /**
     * 安全特性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Capabilities")
     @Expose
     private CloudBaseCapabilities Capabilities;
 
     /**
-     * Get 安全特性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 安全特性 
      * @return Capabilities 安全特性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CloudBaseCapabilities getCapabilities() {
         return this.Capabilities;
@@ -42,9 +40,7 @@ public class CloudBaseSecurityContext extends AbstractModel{
 
     /**
      * Set 安全特性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Capabilities 安全特性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCapabilities(CloudBaseCapabilities Capabilities) {
         this.Capabilities = Capabilities;

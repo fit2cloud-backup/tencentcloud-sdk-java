@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBInstanceInfoResponse extends AbstractModel{
+public class DescribeDBInstanceInfoResponse extends AbstractModel {
 
     /**
     * 实例 ID 。
@@ -45,7 +46,6 @@ public class DescribeDBInstanceInfoResponse extends AbstractModel{
 
     /**
     * 加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeyId")
     @Expose
@@ -53,7 +53,6 @@ public class DescribeDBInstanceInfoResponse extends AbstractModel{
 
     /**
     * 密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeyRegion")
     @Expose
@@ -61,14 +60,13 @@ public class DescribeDBInstanceInfoResponse extends AbstractModel{
 
     /**
     * 当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DefaultKmsRegion")
     @Expose
     private String DefaultKmsRegion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -123,10 +121,8 @@ public class DescribeDBInstanceInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 加密使用的密钥 ID 。 
      * @return KeyId 加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKeyId() {
         return this.KeyId;
@@ -134,19 +130,15 @@ public class DescribeDBInstanceInfoResponse extends AbstractModel{
 
     /**
      * Set 加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KeyId 加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeyId(String KeyId) {
         this.KeyId = KeyId;
     }
 
     /**
-     * Get 密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 密钥所在地域。 
      * @return KeyRegion 密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKeyRegion() {
         return this.KeyRegion;
@@ -154,19 +146,15 @@ public class DescribeDBInstanceInfoResponse extends AbstractModel{
 
     /**
      * Set 密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KeyRegion 密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeyRegion(String KeyRegion) {
         this.KeyRegion = KeyRegion;
     }
 
     /**
-     * Get 当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前 CDB 后端服务使用的 KMS 服务的默认地域。 
      * @return DefaultKmsRegion 当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDefaultKmsRegion() {
         return this.DefaultKmsRegion;
@@ -174,25 +162,23 @@ public class DescribeDBInstanceInfoResponse extends AbstractModel{
 
     /**
      * Set 当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DefaultKmsRegion 当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDefaultKmsRegion(String DefaultKmsRegion) {
         this.DefaultKmsRegion = DefaultKmsRegion;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

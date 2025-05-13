@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ses.v20201002.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Attachment extends AbstractModel{
+public class Attachment extends AbstractModel {
 
     /**
     * 附件名称，最大支持255个字符长度，不支持部分附件类型，详情请参考[附件类型](https://cloud.tencent.com/document/product/1288/51951)。
@@ -30,11 +31,18 @@ public class Attachment extends AbstractModel{
     private String FileName;
 
     /**
-    * Base64之后的附件内容，你可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
+    * Base64之后的附件内容，您可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
     */
     @SerializedName("Content")
     @Expose
     private String Content;
+
+    /**
+    * 附件URL。未开放功能，请勿使用。
+    */
+    @SerializedName("FileURL")
+    @Expose
+    private String FileURL;
 
     /**
      * Get 附件名称，最大支持255个字符长度，不支持部分附件类型，详情请参考[附件类型](https://cloud.tencent.com/document/product/1288/51951)。 
@@ -53,19 +61,35 @@ public class Attachment extends AbstractModel{
     }
 
     /**
-     * Get Base64之后的附件内容，你可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。 
-     * @return Content Base64之后的附件内容，你可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
+     * Get Base64之后的附件内容，您可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。 
+     * @return Content Base64之后的附件内容，您可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
      */
     public String getContent() {
         return this.Content;
     }
 
     /**
-     * Set Base64之后的附件内容，你可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
-     * @param Content Base64之后的附件内容，你可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
+     * Set Base64之后的附件内容，您可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
+     * @param Content Base64之后的附件内容，您可以发送的附件大小上限为4M。注意：腾讯云接口请求最大支持 8M 的请求包，附件内容经过 Base64 预期扩大1.5倍。应该控制所有附件的总大小最大在 4M 以内，整体请求超出 8M 接口会返回错误。
      */
     public void setContent(String Content) {
         this.Content = Content;
+    }
+
+    /**
+     * Get 附件URL。未开放功能，请勿使用。 
+     * @return FileURL 附件URL。未开放功能，请勿使用。
+     */
+    public String getFileURL() {
+        return this.FileURL;
+    }
+
+    /**
+     * Set 附件URL。未开放功能，请勿使用。
+     * @param FileURL 附件URL。未开放功能，请勿使用。
+     */
+    public void setFileURL(String FileURL) {
+        this.FileURL = FileURL;
     }
 
     public Attachment() {
@@ -82,6 +106,9 @@ public class Attachment extends AbstractModel{
         if (source.Content != null) {
             this.Content = new String(source.Content);
         }
+        if (source.FileURL != null) {
+            this.FileURL = new String(source.FileURL);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class Attachment extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FileName", this.FileName);
         this.setParamSimple(map, prefix + "Content", this.Content);
+        this.setParamSimple(map, prefix + "FileURL", this.FileURL);
 
     }
 }

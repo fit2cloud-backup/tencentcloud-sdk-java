@@ -16,76 +16,90 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HasAuthUser extends AbstractModel{
+public class HasAuthUser extends AbstractModel {
 
     /**
-    * 用户id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 员工在腾讯电子签平台的唯一身份标识，为32位字符串。
     */
     @SerializedName("UserId")
     @Expose
     private String UserId;
 
     /**
-    * 用户归属
-MainOrg：主企业
-CurrentOrg：当前企业
-注意：此字段可能返回 null，表示取不到有效值。
+    * 当前员工的归属情况，可能值是：
+MainOrg：在集团企业的场景下，返回此值代表是归属主企业
+CurrentOrg：在普通企业场景下返回此值；或者在集团企业的场景下，返回此值代表归属子企业
     */
     @SerializedName("BelongTo")
     @Expose
     private String BelongTo;
 
     /**
-     * Get 用户id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UserId 用户id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 集团主企业id，当前企业为集团子企业时，该字段有值
+    */
+    @SerializedName("MainOrganizationId")
+    @Expose
+    private String MainOrganizationId;
+
+    /**
+     * Get 员工在腾讯电子签平台的唯一身份标识，为32位字符串。 
+     * @return UserId 员工在腾讯电子签平台的唯一身份标识，为32位字符串。
      */
     public String getUserId() {
         return this.UserId;
     }
 
     /**
-     * Set 用户id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UserId 用户id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 员工在腾讯电子签平台的唯一身份标识，为32位字符串。
+     * @param UserId 员工在腾讯电子签平台的唯一身份标识，为32位字符串。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
     }
 
     /**
-     * Get 用户归属
-MainOrg：主企业
-CurrentOrg：当前企业
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return BelongTo 用户归属
-MainOrg：主企业
-CurrentOrg：当前企业
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 当前员工的归属情况，可能值是：
+MainOrg：在集团企业的场景下，返回此值代表是归属主企业
+CurrentOrg：在普通企业场景下返回此值；或者在集团企业的场景下，返回此值代表归属子企业 
+     * @return BelongTo 当前员工的归属情况，可能值是：
+MainOrg：在集团企业的场景下，返回此值代表是归属主企业
+CurrentOrg：在普通企业场景下返回此值；或者在集团企业的场景下，返回此值代表归属子企业
      */
     public String getBelongTo() {
         return this.BelongTo;
     }
 
     /**
-     * Set 用户归属
-MainOrg：主企业
-CurrentOrg：当前企业
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param BelongTo 用户归属
-MainOrg：主企业
-CurrentOrg：当前企业
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 当前员工的归属情况，可能值是：
+MainOrg：在集团企业的场景下，返回此值代表是归属主企业
+CurrentOrg：在普通企业场景下返回此值；或者在集团企业的场景下，返回此值代表归属子企业
+     * @param BelongTo 当前员工的归属情况，可能值是：
+MainOrg：在集团企业的场景下，返回此值代表是归属主企业
+CurrentOrg：在普通企业场景下返回此值；或者在集团企业的场景下，返回此值代表归属子企业
      */
     public void setBelongTo(String BelongTo) {
         this.BelongTo = BelongTo;
+    }
+
+    /**
+     * Get 集团主企业id，当前企业为集团子企业时，该字段有值 
+     * @return MainOrganizationId 集团主企业id，当前企业为集团子企业时，该字段有值
+     */
+    public String getMainOrganizationId() {
+        return this.MainOrganizationId;
+    }
+
+    /**
+     * Set 集团主企业id，当前企业为集团子企业时，该字段有值
+     * @param MainOrganizationId 集团主企业id，当前企业为集团子企业时，该字段有值
+     */
+    public void setMainOrganizationId(String MainOrganizationId) {
+        this.MainOrganizationId = MainOrganizationId;
     }
 
     public HasAuthUser() {
@@ -102,6 +116,9 @@ CurrentOrg：当前企业
         if (source.BelongTo != null) {
             this.BelongTo = new String(source.BelongTo);
         }
+        if (source.MainOrganizationId != null) {
+            this.MainOrganizationId = new String(source.MainOrganizationId);
+        }
     }
 
 
@@ -111,6 +128,7 @@ CurrentOrg：当前企业
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "UserId", this.UserId);
         this.setParamSimple(map, prefix + "BelongTo", this.BelongTo);
+        this.setParamSimple(map, prefix + "MainOrganizationId", this.MainOrganizationId);
 
     }
 }

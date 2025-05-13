@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeletePrometheusConfigRequest extends AbstractModel{
+public class DeletePrometheusConfigRequest extends AbstractModel {
 
     /**
     * 实例id
@@ -63,6 +64,13 @@ public class DeletePrometheusConfigRequest extends AbstractModel{
     @SerializedName("RawJobs")
     @Expose
     private String [] RawJobs;
+
+    /**
+    * 要删除的Probe名字列表
+    */
+    @SerializedName("Probes")
+    @Expose
+    private String [] Probes;
 
     /**
      * Get 实例id 
@@ -160,6 +168,22 @@ public class DeletePrometheusConfigRequest extends AbstractModel{
         this.RawJobs = RawJobs;
     }
 
+    /**
+     * Get 要删除的Probe名字列表 
+     * @return Probes 要删除的Probe名字列表
+     */
+    public String [] getProbes() {
+        return this.Probes;
+    }
+
+    /**
+     * Set 要删除的Probe名字列表
+     * @param Probes 要删除的Probe名字列表
+     */
+    public void setProbes(String [] Probes) {
+        this.Probes = Probes;
+    }
+
     public DeletePrometheusConfigRequest() {
     }
 
@@ -195,6 +219,12 @@ public class DeletePrometheusConfigRequest extends AbstractModel{
                 this.RawJobs[i] = new String(source.RawJobs[i]);
             }
         }
+        if (source.Probes != null) {
+            this.Probes = new String[source.Probes.length];
+            for (int i = 0; i < source.Probes.length; i++) {
+                this.Probes[i] = new String(source.Probes[i]);
+            }
+        }
     }
 
 
@@ -208,6 +238,7 @@ public class DeletePrometheusConfigRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ServiceMonitors.", this.ServiceMonitors);
         this.setParamArraySimple(map, prefix + "PodMonitors.", this.PodMonitors);
         this.setParamArraySimple(map, prefix + "RawJobs.", this.RawJobs);
+        this.setParamArraySimple(map, prefix + "Probes.", this.Probes);
 
     }
 }

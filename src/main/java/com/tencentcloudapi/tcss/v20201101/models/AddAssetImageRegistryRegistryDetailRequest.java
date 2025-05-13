@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel{
+public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel {
 
     /**
     * 仓库名
@@ -51,7 +52,7 @@ public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel{
     private String Url;
 
     /**
-    * 仓库类型，列表：harbor
+    * 仓库类型，列表：harbor,quay,jfrog,aws,azure,other-tcr
     */
     @SerializedName("RegistryType")
     @Expose
@@ -98,6 +99,34 @@ public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel{
     @SerializedName("ConnDetectConfig")
     @Expose
     private ConnDetectConfig [] ConnDetectConfig;
+
+    /**
+    * 是否自动授权&扫描，选择全量同步时只针对最新版本镜像，增量同步时则包含所有新增镜像
+    */
+    @SerializedName("NeedScan")
+    @Expose
+    private Boolean NeedScan;
+
+    /**
+    * 同步方式，0全量同步，1增量同步
+    */
+    @SerializedName("SyncMode")
+    @Expose
+    private Long SyncMode;
+
+    /**
+    * webhook接入地址
+    */
+    @SerializedName("WebhookUrl")
+    @Expose
+    private String WebhookUrl;
+
+    /**
+    * webhook接入token
+    */
+    @SerializedName("WebhookToken")
+    @Expose
+    private String WebhookToken;
 
     /**
      * Get 仓库名 
@@ -164,16 +193,16 @@ public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel{
     }
 
     /**
-     * Get 仓库类型，列表：harbor 
-     * @return RegistryType 仓库类型，列表：harbor
+     * Get 仓库类型，列表：harbor,quay,jfrog,aws,azure,other-tcr 
+     * @return RegistryType 仓库类型，列表：harbor,quay,jfrog,aws,azure,other-tcr
      */
     public String getRegistryType() {
         return this.RegistryType;
     }
 
     /**
-     * Set 仓库类型，列表：harbor
-     * @param RegistryType 仓库类型，列表：harbor
+     * Set 仓库类型，列表：harbor,quay,jfrog,aws,azure,other-tcr
+     * @param RegistryType 仓库类型，列表：harbor,quay,jfrog,aws,azure,other-tcr
      */
     public void setRegistryType(String RegistryType) {
         this.RegistryType = RegistryType;
@@ -275,6 +304,70 @@ public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel{
         this.ConnDetectConfig = ConnDetectConfig;
     }
 
+    /**
+     * Get 是否自动授权&扫描，选择全量同步时只针对最新版本镜像，增量同步时则包含所有新增镜像 
+     * @return NeedScan 是否自动授权&扫描，选择全量同步时只针对最新版本镜像，增量同步时则包含所有新增镜像
+     */
+    public Boolean getNeedScan() {
+        return this.NeedScan;
+    }
+
+    /**
+     * Set 是否自动授权&扫描，选择全量同步时只针对最新版本镜像，增量同步时则包含所有新增镜像
+     * @param NeedScan 是否自动授权&扫描，选择全量同步时只针对最新版本镜像，增量同步时则包含所有新增镜像
+     */
+    public void setNeedScan(Boolean NeedScan) {
+        this.NeedScan = NeedScan;
+    }
+
+    /**
+     * Get 同步方式，0全量同步，1增量同步 
+     * @return SyncMode 同步方式，0全量同步，1增量同步
+     */
+    public Long getSyncMode() {
+        return this.SyncMode;
+    }
+
+    /**
+     * Set 同步方式，0全量同步，1增量同步
+     * @param SyncMode 同步方式，0全量同步，1增量同步
+     */
+    public void setSyncMode(Long SyncMode) {
+        this.SyncMode = SyncMode;
+    }
+
+    /**
+     * Get webhook接入地址 
+     * @return WebhookUrl webhook接入地址
+     */
+    public String getWebhookUrl() {
+        return this.WebhookUrl;
+    }
+
+    /**
+     * Set webhook接入地址
+     * @param WebhookUrl webhook接入地址
+     */
+    public void setWebhookUrl(String WebhookUrl) {
+        this.WebhookUrl = WebhookUrl;
+    }
+
+    /**
+     * Get webhook接入token 
+     * @return WebhookToken webhook接入token
+     */
+    public String getWebhookToken() {
+        return this.WebhookToken;
+    }
+
+    /**
+     * Set webhook接入token
+     * @param WebhookToken webhook接入token
+     */
+    public void setWebhookToken(String WebhookToken) {
+        this.WebhookToken = WebhookToken;
+    }
+
     public AddAssetImageRegistryRegistryDetailRequest() {
     }
 
@@ -319,6 +412,18 @@ public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel{
                 this.ConnDetectConfig[i] = new ConnDetectConfig(source.ConnDetectConfig[i]);
             }
         }
+        if (source.NeedScan != null) {
+            this.NeedScan = new Boolean(source.NeedScan);
+        }
+        if (source.SyncMode != null) {
+            this.SyncMode = new Long(source.SyncMode);
+        }
+        if (source.WebhookUrl != null) {
+            this.WebhookUrl = new String(source.WebhookUrl);
+        }
+        if (source.WebhookToken != null) {
+            this.WebhookToken = new String(source.WebhookToken);
+        }
     }
 
 
@@ -337,6 +442,10 @@ public class AddAssetImageRegistryRegistryDetailRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SpeedLimit", this.SpeedLimit);
         this.setParamSimple(map, prefix + "Insecure", this.Insecure);
         this.setParamArrayObj(map, prefix + "ConnDetectConfig.", this.ConnDetectConfig);
+        this.setParamSimple(map, prefix + "NeedScan", this.NeedScan);
+        this.setParamSimple(map, prefix + "SyncMode", this.SyncMode);
+        this.setParamSimple(map, prefix + "WebhookUrl", this.WebhookUrl);
+        this.setParamSimple(map, prefix + "WebhookToken", this.WebhookToken);
 
     }
 }

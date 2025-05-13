@@ -16,15 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IpAccessControlData extends AbstractModel{
+public class IpAccessControlData extends AbstractModel {
 
     /**
     * ip黑白名单
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Res")
     @Expose
@@ -38,10 +38,8 @@ public class IpAccessControlData extends AbstractModel{
     private Long TotalCount;
 
     /**
-     * Get ip黑白名单
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ip黑白名单 
      * @return Res ip黑白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public IpAccessControlItem [] getRes() {
         return this.Res;
@@ -49,9 +47,7 @@ public class IpAccessControlData extends AbstractModel{
 
     /**
      * Set ip黑白名单
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Res ip黑白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRes(IpAccessControlItem [] Res) {
         this.Res = Res;

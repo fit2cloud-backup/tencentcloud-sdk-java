@@ -39,24 +39,16 @@ public class SmopClient extends AbstractClient{
     }
 
     /**
-     *提交任务事件接口
+     *smop产品下线，接口也一起下线
+
+提交任务事件接口
      * @param req SubmitTaskEventRequest
      * @return SubmitTaskEventResponse
      * @throws TencentCloudSDKException
      */
     public SubmitTaskEventResponse SubmitTaskEvent(SubmitTaskEventRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SubmitTaskEventResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SubmitTaskEventResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SubmitTaskEvent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SubmitTaskEvent", SubmitTaskEventResponse.class);
     }
 
 }

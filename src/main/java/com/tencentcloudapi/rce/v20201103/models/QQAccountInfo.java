@@ -16,14 +16,15 @@
 package com.tencentcloudapi.rce.v20201103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QQAccountInfo extends AbstractModel{
+public class QQAccountInfo extends AbstractModel {
 
     /**
-    * QQ的OpenID。
+    * QQ的OpenId。
     */
     @SerializedName("QQOpenId")
     @Expose
@@ -44,30 +45,32 @@ public class QQAccountInfo extends AbstractModel{
     private String AssociateAccount;
 
     /**
-    * 账号绑定的手机号。
+    * 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
     */
     @SerializedName("MobilePhone")
     @Expose
     private String MobilePhone;
 
     /**
-    * 用户设备号。
+    * 用户设备号（已不推荐使用）。
     */
     @SerializedName("DeviceId")
     @Expose
     private String DeviceId;
 
     /**
-     * Get QQ的OpenID。 
-     * @return QQOpenId QQ的OpenID。
+     * Get QQ的OpenId。 
+     * @return QQOpenId QQ的OpenId。
      */
     public String getQQOpenId() {
         return this.QQOpenId;
     }
 
     /**
-     * Set QQ的OpenID。
-     * @param QQOpenId QQ的OpenID。
+     * Set QQ的OpenId。
+     * @param QQOpenId QQ的OpenId。
      */
     public void setQQOpenId(String QQOpenId) {
         this.QQOpenId = QQOpenId;
@@ -106,32 +109,40 @@ public class QQAccountInfo extends AbstractModel{
     }
 
     /**
-     * Get 账号绑定的手机号。 
-     * @return MobilePhone 账号绑定的手机号。
+     * Get 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。 
+     * @return MobilePhone 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
      */
     public String getMobilePhone() {
         return this.MobilePhone;
     }
 
     /**
-     * Set 账号绑定的手机号。
-     * @param MobilePhone 账号绑定的手机号。
+     * Set 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+     * @param MobilePhone 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
      */
     public void setMobilePhone(String MobilePhone) {
         this.MobilePhone = MobilePhone;
     }
 
     /**
-     * Get 用户设备号。 
-     * @return DeviceId 用户设备号。
+     * Get 用户设备号（已不推荐使用）。 
+     * @return DeviceId 用户设备号（已不推荐使用）。
      */
     public String getDeviceId() {
         return this.DeviceId;
     }
 
     /**
-     * Set 用户设备号。
-     * @param DeviceId 用户设备号。
+     * Set 用户设备号（已不推荐使用）。
+     * @param DeviceId 用户设备号（已不推荐使用）。
      */
     public void setDeviceId(String DeviceId) {
         this.DeviceId = DeviceId;

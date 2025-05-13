@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVpcEndPointServiceRequest extends AbstractModel{
+public class DescribeVpcEndPointServiceRequest extends AbstractModel {
 
     /**
     * 过滤条件。不支持同时传入参数 EndPointServiceIds and Filters。
@@ -55,11 +56,18 @@ public class DescribeVpcEndPointServiceRequest extends AbstractModel{
     private String [] EndPointServiceIds;
 
     /**
-    * <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，那些终端节点服务授权了该账户。</li>
+    * <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，哪些终端节点服务授权了该账户。</li>
     */
     @SerializedName("IsListAuthorizedEndPointService")
     @Expose
     private Boolean IsListAuthorizedEndPointService;
+
+    /**
+    * 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+    */
+    @SerializedName("IpAddressType")
+    @Expose
+    private String IpAddressType;
 
     /**
      * Get 过滤条件。不支持同时传入参数 EndPointServiceIds and Filters。
@@ -142,19 +150,35 @@ public class DescribeVpcEndPointServiceRequest extends AbstractModel{
     }
 
     /**
-     * Get <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，那些终端节点服务授权了该账户。</li> 
-     * @return IsListAuthorizedEndPointService <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，那些终端节点服务授权了该账户。</li>
+     * Get <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，哪些终端节点服务授权了该账户。</li> 
+     * @return IsListAuthorizedEndPointService <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，哪些终端节点服务授权了该账户。</li>
      */
     public Boolean getIsListAuthorizedEndPointService() {
         return this.IsListAuthorizedEndPointService;
     }
 
     /**
-     * Set <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，那些终端节点服务授权了该账户。</li>
-     * @param IsListAuthorizedEndPointService <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，那些终端节点服务授权了该账户。</li>
+     * Set <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，哪些终端节点服务授权了该账户。</li>
+     * @param IsListAuthorizedEndPointService <li>不支持同时传入参数 Filters 。</li> <li>列出授权给当前账号的终端节点服务信息。可以配合EndPointServiceIds参数进行过滤，哪些终端节点服务授权了该账户。</li>
      */
     public void setIsListAuthorizedEndPointService(Boolean IsListAuthorizedEndPointService) {
         this.IsListAuthorizedEndPointService = IsListAuthorizedEndPointService;
+    }
+
+    /**
+     * Get 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。 
+     * @return IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public String getIpAddressType() {
+        return this.IpAddressType;
+    }
+
+    /**
+     * Set 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     * @param IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public void setIpAddressType(String IpAddressType) {
+        this.IpAddressType = IpAddressType;
     }
 
     public DescribeVpcEndPointServiceRequest() {
@@ -186,6 +210,9 @@ public class DescribeVpcEndPointServiceRequest extends AbstractModel{
         if (source.IsListAuthorizedEndPointService != null) {
             this.IsListAuthorizedEndPointService = new Boolean(source.IsListAuthorizedEndPointService);
         }
+        if (source.IpAddressType != null) {
+            this.IpAddressType = new String(source.IpAddressType);
+        }
     }
 
 
@@ -198,6 +225,7 @@ public class DescribeVpcEndPointServiceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamArraySimple(map, prefix + "EndPointServiceIds.", this.EndPointServiceIds);
         this.setParamSimple(map, prefix + "IsListAuthorizedEndPointService", this.IsListAuthorizedEndPointService);
+        this.setParamSimple(map, prefix + "IpAddressType", this.IpAddressType);
 
     }
 }

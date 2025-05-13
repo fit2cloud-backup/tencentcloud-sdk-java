@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ZookeeperReplica extends AbstractModel{
+public class ZookeeperReplica extends AbstractModel {
 
     /**
     * 名称
@@ -45,7 +46,6 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
     * 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetId")
     @Expose
@@ -53,7 +53,6 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
     * 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Zone")
     @Expose
@@ -61,7 +60,6 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
     * 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneId")
     @Expose
@@ -69,7 +67,6 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
     * 别名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AliasName")
     @Expose
@@ -77,7 +74,6 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
     * VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcId")
     @Expose
@@ -132,10 +128,8 @@ public class ZookeeperReplica extends AbstractModel{
     }
 
     /**
-     * Get 子网ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网ID 
      * @return SubnetId 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetId() {
         return this.SubnetId;
@@ -143,19 +137,15 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
      * Set 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetId 子网ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
     }
 
     /**
-     * Get 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区ID 
      * @return Zone 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZone() {
         return this.Zone;
@@ -163,19 +153,15 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
      * Set 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Zone 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
     }
 
     /**
-     * Get 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用区ID 
      * @return ZoneId 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZoneId() {
         return this.ZoneId;
@@ -183,19 +169,15 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
      * Set 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneId 可用区ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneId(String ZoneId) {
         this.ZoneId = ZoneId;
     }
 
     /**
-     * Get 别名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 别名 
      * @return AliasName 别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAliasName() {
         return this.AliasName;
@@ -203,19 +185,15 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
      * Set 别名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AliasName 别名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAliasName(String AliasName) {
         this.AliasName = AliasName;
     }
 
     /**
-     * Get VPC ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get VPC ID 
      * @return VpcId VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcId() {
         return this.VpcId;
@@ -223,9 +201,7 @@ public class ZookeeperReplica extends AbstractModel{
 
     /**
      * Set VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcId VPC ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;

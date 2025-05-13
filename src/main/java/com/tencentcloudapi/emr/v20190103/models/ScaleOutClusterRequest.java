@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScaleOutClusterRequest extends AbstractModel{
+public class ScaleOutClusterRequest extends AbstractModel {
 
     /**
     * 节点计费模式。取值范围：
@@ -47,7 +48,7 @@ public class ScaleOutClusterRequest extends AbstractModel{
     private ScaleOutNodeConfig ScaleOutNodeConfig;
 
     /**
-    * 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-751a-41b6-aad6-fae36063280
+    * 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
     */
     @SerializedName("ClientToken")
     @Expose
@@ -68,14 +69,14 @@ public class ScaleOutClusterRequest extends AbstractModel{
     private ScriptBootstrapActionConfig [] ScriptBootstrapActionConfig;
 
     /**
-    * 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，此参数仅填写HDFS、YARN
+    * 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
     */
     @SerializedName("SoftDeployInfo")
     @Expose
     private Long [] SoftDeployInfo;
 
     /**
-    * 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，此参数信息可填写：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor
+    * 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
     */
     @SerializedName("ServiceNodeInfo")
     @Expose
@@ -97,7 +98,7 @@ public class ScaleOutClusterRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
+    * 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
     */
     @SerializedName("HardwareSourceType")
     @Expose
@@ -162,6 +163,13 @@ public class ScaleOutClusterRequest extends AbstractModel{
     private String SubnetId;
 
     /**
+    * 扩容指定配置组
+    */
+    @SerializedName("ScaleOutServiceConfGroupsInfo")
+    @Expose
+    private ScaleOutServiceConfGroupsInfo [] ScaleOutServiceConfGroupsInfo;
+
+    /**
      * Get 节点计费模式。取值范围：
 <li>PREPAID：预付费，即包年包月。</li>
 <li>POSTPAID_BY_HOUR：按小时后付费。</li>
@@ -222,16 +230,16 @@ public class ScaleOutClusterRequest extends AbstractModel{
     }
 
     /**
-     * Get 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-751a-41b6-aad6-fae36063280 
-     * @return ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-751a-41b6-aad6-fae36063280
+     * Get 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280 
+     * @return ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
      */
     public String getClientToken() {
         return this.ClientToken;
     }
 
     /**
-     * Set 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-751a-41b6-aad6-fae36063280
-     * @param ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-751a-41b6-aad6-fae36063280
+     * Set 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
+     * @param ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
@@ -270,32 +278,32 @@ public class ScaleOutClusterRequest extends AbstractModel{
     }
 
     /**
-     * Get 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，此参数仅填写HDFS、YARN 
-     * @return SoftDeployInfo 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，此参数仅填写HDFS、YARN
+     * Get 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。 
+     * @return SoftDeployInfo 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
      */
     public Long [] getSoftDeployInfo() {
         return this.SoftDeployInfo;
     }
 
     /**
-     * Set 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，此参数仅填写HDFS、YARN
-     * @param SoftDeployInfo 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，此参数仅填写HDFS、YARN
+     * Set 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
+     * @param SoftDeployInfo 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
      */
     public void setSoftDeployInfo(Long [] SoftDeployInfo) {
         this.SoftDeployInfo = SoftDeployInfo;
     }
 
     /**
-     * Get 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，此参数信息可填写：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor 
-     * @return ServiceNodeInfo 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，此参数信息可填写：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor
+     * Get 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。 
+     * @return ServiceNodeInfo 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
      */
     public Long [] getServiceNodeInfo() {
         return this.ServiceNodeInfo;
     }
 
     /**
-     * Set 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，此参数信息可填写：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor
-     * @param ServiceNodeInfo 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，此参数信息可填写：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor
+     * Set 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
+     * @param ServiceNodeInfo 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
      */
     public void setServiceNodeInfo(Long [] ServiceNodeInfo) {
         this.ServiceNodeInfo = ServiceNodeInfo;
@@ -338,16 +346,16 @@ public class ScaleOutClusterRequest extends AbstractModel{
     }
 
     /**
-     * Get 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源 
-     * @return HardwareSourceType 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
+     * Get 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型 
+     * @return HardwareSourceType 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
      */
     public String getHardwareSourceType() {
         return this.HardwareSourceType;
     }
 
     /**
-     * Set 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
-     * @param HardwareSourceType 扩容所选资源类型，可选范围为"host","pod"，host为普通的CVM资源，Pod为TKE集群或EKS集群提供的资源
+     * Set 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
+     * @param HardwareSourceType 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
      */
     public void setHardwareSourceType(String HardwareSourceType) {
         this.HardwareSourceType = HardwareSourceType;
@@ -489,6 +497,22 @@ public class ScaleOutClusterRequest extends AbstractModel{
         this.SubnetId = SubnetId;
     }
 
+    /**
+     * Get 扩容指定配置组 
+     * @return ScaleOutServiceConfGroupsInfo 扩容指定配置组
+     */
+    public ScaleOutServiceConfGroupsInfo [] getScaleOutServiceConfGroupsInfo() {
+        return this.ScaleOutServiceConfGroupsInfo;
+    }
+
+    /**
+     * Set 扩容指定配置组
+     * @param ScaleOutServiceConfGroupsInfo 扩容指定配置组
+     */
+    public void setScaleOutServiceConfGroupsInfo(ScaleOutServiceConfGroupsInfo [] ScaleOutServiceConfGroupsInfo) {
+        this.ScaleOutServiceConfGroupsInfo = ScaleOutServiceConfGroupsInfo;
+    }
+
     public ScaleOutClusterRequest() {
     }
 
@@ -569,6 +593,12 @@ public class ScaleOutClusterRequest extends AbstractModel{
         if (source.SubnetId != null) {
             this.SubnetId = new String(source.SubnetId);
         }
+        if (source.ScaleOutServiceConfGroupsInfo != null) {
+            this.ScaleOutServiceConfGroupsInfo = new ScaleOutServiceConfGroupsInfo[source.ScaleOutServiceConfGroupsInfo.length];
+            for (int i = 0; i < source.ScaleOutServiceConfGroupsInfo.length; i++) {
+                this.ScaleOutServiceConfGroupsInfo[i] = new ScaleOutServiceConfGroupsInfo(source.ScaleOutServiceConfGroupsInfo[i]);
+            }
+        }
     }
 
 
@@ -595,6 +625,7 @@ public class ScaleOutClusterRequest extends AbstractModel{
         this.setParamObj(map, prefix + "ResourceSpec.", this.ResourceSpec);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamArrayObj(map, prefix + "ScaleOutServiceConfGroupsInfo.", this.ScaleOutServiceConfGroupsInfo);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ses.v20201002.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ListBlackEmailAddressRequest extends AbstractModel{
+public class ListBlackEmailAddressRequest extends AbstractModel {
 
     /**
     * 开始日期，格式为YYYY-MM-DD
@@ -58,7 +59,7 @@ public class ListBlackEmailAddressRequest extends AbstractModel{
     private String EmailAddress;
 
     /**
-    * 可以指定任务ID进行查询
+    * 已废弃
     */
     @SerializedName("TaskID")
     @Expose
@@ -145,16 +146,16 @@ public class ListBlackEmailAddressRequest extends AbstractModel{
     }
 
     /**
-     * Get 可以指定任务ID进行查询 
-     * @return TaskID 可以指定任务ID进行查询
+     * Get 已废弃 
+     * @return TaskID 已废弃
      */
     public String getTaskID() {
         return this.TaskID;
     }
 
     /**
-     * Set 可以指定任务ID进行查询
-     * @param TaskID 可以指定任务ID进行查询
+     * Set 已废弃
+     * @param TaskID 已废弃
      */
     public void setTaskID(String TaskID) {
         this.TaskID = TaskID;

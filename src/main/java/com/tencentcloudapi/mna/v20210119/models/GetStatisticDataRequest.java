@@ -16,14 +16,15 @@
 package com.tencentcloudapi.mna.v20210119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetStatisticDataRequest extends AbstractModel{
+public class GetStatisticDataRequest extends AbstractModel {
 
     /**
-    * 设备ID
+    * 设备ID。若不指定设备，可传"-1"
     */
     @SerializedName("DeviceId")
     @Expose
@@ -53,16 +54,44 @@ public class GetStatisticDataRequest extends AbstractModel{
     private Long TimeGranularity;
 
     /**
-     * Get 设备ID 
-     * @return DeviceId 设备ID
+    * 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+    */
+    @SerializedName("AccessRegion")
+    @Expose
+    private String AccessRegion;
+
+    /**
+    * 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+    */
+    @SerializedName("GatewayType")
+    @Expose
+    private Long GatewayType;
+
+    /**
+    * 设备ID列表，最多10个设备，下载多个设备流量和时使用，此时DeviceId可传"-1"
+    */
+    @SerializedName("DeviceList")
+    @Expose
+    private String [] DeviceList;
+
+    /**
+    * 设备分组ID，若不指定分组则不传，按分组下载数据时使用
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private String GroupId;
+
+    /**
+     * Get 设备ID。若不指定设备，可传"-1" 
+     * @return DeviceId 设备ID。若不指定设备，可传"-1"
      */
     public String getDeviceId() {
         return this.DeviceId;
     }
 
     /**
-     * Set 设备ID
-     * @param DeviceId 设备ID
+     * Set 设备ID。若不指定设备，可传"-1"
+     * @param DeviceId 设备ID。若不指定设备，可传"-1"
      */
     public void setDeviceId(String DeviceId) {
         this.DeviceId = DeviceId;
@@ -124,6 +153,70 @@ public class GetStatisticDataRequest extends AbstractModel{
         this.TimeGranularity = TimeGranularity;
     }
 
+    /**
+     * Get 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。 
+     * @return AccessRegion 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+     */
+    public String getAccessRegion() {
+        return this.AccessRegion;
+    }
+
+    /**
+     * Set 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+     * @param AccessRegion 接入区域。取值范围：['MC','AP','EU','AM'] MC=中国大陆 AP=亚太 EU=欧洲 AM=美洲。不填代表全量区域。
+     */
+    public void setAccessRegion(String AccessRegion) {
+        this.AccessRegion = AccessRegion;
+    }
+
+    /**
+     * Get 网关类型。0：公有云网关；1：自有网关。不传默认为0。 
+     * @return GatewayType 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+     */
+    public Long getGatewayType() {
+        return this.GatewayType;
+    }
+
+    /**
+     * Set 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+     * @param GatewayType 网关类型。0：公有云网关；1：自有网关。不传默认为0。
+     */
+    public void setGatewayType(Long GatewayType) {
+        this.GatewayType = GatewayType;
+    }
+
+    /**
+     * Get 设备ID列表，最多10个设备，下载多个设备流量和时使用，此时DeviceId可传"-1" 
+     * @return DeviceList 设备ID列表，最多10个设备，下载多个设备流量和时使用，此时DeviceId可传"-1"
+     */
+    public String [] getDeviceList() {
+        return this.DeviceList;
+    }
+
+    /**
+     * Set 设备ID列表，最多10个设备，下载多个设备流量和时使用，此时DeviceId可传"-1"
+     * @param DeviceList 设备ID列表，最多10个设备，下载多个设备流量和时使用，此时DeviceId可传"-1"
+     */
+    public void setDeviceList(String [] DeviceList) {
+        this.DeviceList = DeviceList;
+    }
+
+    /**
+     * Get 设备分组ID，若不指定分组则不传，按分组下载数据时使用 
+     * @return GroupId 设备分组ID，若不指定分组则不传，按分组下载数据时使用
+     */
+    public String getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 设备分组ID，若不指定分组则不传，按分组下载数据时使用
+     * @param GroupId 设备分组ID，若不指定分组则不传，按分组下载数据时使用
+     */
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
+    }
+
     public GetStatisticDataRequest() {
     }
 
@@ -144,6 +237,21 @@ public class GetStatisticDataRequest extends AbstractModel{
         if (source.TimeGranularity != null) {
             this.TimeGranularity = new Long(source.TimeGranularity);
         }
+        if (source.AccessRegion != null) {
+            this.AccessRegion = new String(source.AccessRegion);
+        }
+        if (source.GatewayType != null) {
+            this.GatewayType = new Long(source.GatewayType);
+        }
+        if (source.DeviceList != null) {
+            this.DeviceList = new String[source.DeviceList.length];
+            for (int i = 0; i < source.DeviceList.length; i++) {
+                this.DeviceList[i] = new String(source.DeviceList[i]);
+            }
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
+        }
     }
 
 
@@ -155,6 +263,10 @@ public class GetStatisticDataRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "BeginTime", this.BeginTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "TimeGranularity", this.TimeGranularity);
+        this.setParamSimple(map, prefix + "AccessRegion", this.AccessRegion);
+        this.setParamSimple(map, prefix + "GatewayType", this.GatewayType);
+        this.setParamArraySimple(map, prefix + "DeviceList.", this.DeviceList);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
 
     }
 }

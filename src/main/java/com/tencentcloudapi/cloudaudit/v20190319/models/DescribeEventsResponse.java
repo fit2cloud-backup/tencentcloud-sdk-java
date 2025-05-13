@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudaudit.v20190319.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeEventsResponse extends AbstractModel{
+public class DescribeEventsResponse extends AbstractModel {
 
     /**
     * 日志集合是否结束。true表示结束，无需进行翻页。
@@ -38,7 +39,6 @@ public class DescribeEventsResponse extends AbstractModel{
 
     /**
     * 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Events")
     @Expose
@@ -46,14 +46,13 @@ public class DescribeEventsResponse extends AbstractModel{
 
     /**
     * 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -92,10 +91,8 @@ public class DescribeEventsResponse extends AbstractModel{
     }
 
     /**
-     * Get 日志集合
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志集合 
      * @return Events 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Event [] getEvents() {
         return this.Events;
@@ -103,19 +100,15 @@ public class DescribeEventsResponse extends AbstractModel{
 
     /**
      * Set 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Events 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEvents(Event [] Events) {
         this.Events = Events;
     }
 
     /**
-     * Get 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。 
      * @return TotalCount 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -123,25 +116,23 @@ public class DescribeEventsResponse extends AbstractModel{
 
     /**
      * Set 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

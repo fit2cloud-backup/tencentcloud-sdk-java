@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyProxiesAttributeRequest extends AbstractModel{
+public class ModifyProxiesAttributeRequest extends AbstractModel {
 
     /**
     * （旧参数，请切换到ProxyIds）一个或多个待操作的通道ID。
@@ -30,7 +31,7 @@ public class ModifyProxiesAttributeRequest extends AbstractModel{
     private String [] InstanceIds;
 
     /**
-    * 通道名称。可任意命名，但不得超过30个字符。
+    * 通道名称。可任意命名，但不得超过32个字符。
     */
     @SerializedName("ProxyName")
     @Expose
@@ -68,16 +69,16 @@ public class ModifyProxiesAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get 通道名称。可任意命名，但不得超过30个字符。 
-     * @return ProxyName 通道名称。可任意命名，但不得超过30个字符。
+     * Get 通道名称。可任意命名，但不得超过32个字符。 
+     * @return ProxyName 通道名称。可任意命名，但不得超过32个字符。
      */
     public String getProxyName() {
         return this.ProxyName;
     }
 
     /**
-     * Set 通道名称。可任意命名，但不得超过30个字符。
-     * @param ProxyName 通道名称。可任意命名，但不得超过30个字符。
+     * Set 通道名称。可任意命名，但不得超过32个字符。
+     * @param ProxyName 通道名称。可任意命名，但不得超过32个字符。
      */
     public void setProxyName(String ProxyName) {
         this.ProxyName = ProxyName;

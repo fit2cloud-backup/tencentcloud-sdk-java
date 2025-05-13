@@ -39,45 +39,91 @@ public class RceClient extends AbstractClient{
     }
 
     /**
-     *此接口用于查询风险评估结果
-     * @param req DescribeRiskAssessmentRequest
-     * @return DescribeRiskAssessmentResponse
+     *创建黑白名单，黑白名单数量上限为100
+     * @param req CreateNameListRequest
+     * @return CreateNameListResponse
      * @throws TencentCloudSDKException
      */
-    public DescribeRiskAssessmentResponse DescribeRiskAssessment(DescribeRiskAssessmentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRiskAssessmentResponse> rsp = null;
-        String rspStr = "";
+    public CreateNameListResponse CreateNameList(CreateNameListRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRiskAssessmentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRiskAssessment");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNameList", CreateNameListResponse.class);
     }
 
     /**
-     *以图表形式展示三种请求状态的趋势变化
-     * @param req DescribeRiskTrendsRequest
-     * @return DescribeRiskTrendsResponse
+     *修改黑白名单状态 关闭 开启 删除
+     * @param req DeleteNameListRequest
+     * @return DeleteNameListResponse
      * @throws TencentCloudSDKException
      */
-    public DescribeRiskTrendsResponse DescribeRiskTrends(DescribeRiskTrendsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRiskTrendsResponse> rsp = null;
-        String rspStr = "";
+    public DeleteNameListResponse DeleteNameList(DeleteNameListRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRiskTrendsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRiskTrends");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNameList", DeleteNameListResponse.class);
+    }
+
+    /**
+     *删除黑白名单数据
+     * @param req DeleteNameListDataRequest
+     * @return DeleteNameListDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteNameListDataResponse DeleteNameListData(DeleteNameListDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteNameListData", DeleteNameListDataResponse.class);
+    }
+
+    /**
+     *列表展示黑白名单列表数据, 包含列表名称, 名单类型, 数据类型, 数据来源, 描述, 状态等
+     * @param req DescribeNameListRequest
+     * @return DescribeNameListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNameListResponse DescribeNameList(DescribeNameListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeNameList", DescribeNameListResponse.class);
+    }
+
+    /**
+     *黑白名单详情数据展示 名单id 客户appid uin 数据内容 开始时间和结束时间 状态 描述
+     * @param req DescribeNameListDataListRequest
+     * @return DescribeNameListDataListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNameListDataListResponse DescribeNameListDataList(DescribeNameListDataListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeNameListDataList", DescribeNameListDataListResponse.class);
+    }
+
+    /**
+     *查询黑白名单列表详情
+     * @param req DescribeNameListDetailRequest
+     * @return DescribeNameListDetailResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNameListDetailResponse DescribeNameListDetail(DescribeNameListDetailRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeNameListDetail", DescribeNameListDetailResponse.class);
+    }
+
+    /**
+     *RCE控制台预付费和后付费次数展示
+     * @param req DescribeUserUsageCntRequest
+     * @return DescribeUserUsageCntResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeUserUsageCntResponse DescribeUserUsageCnt(DescribeUserUsageCntRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeUserUsageCnt", DescribeUserUsageCntResponse.class);
+    }
+
+    /**
+     *新增黑白名单数据，所有黑白名单数据总量上限为10000
+     * @param req ImportNameListDataRequest
+     * @return ImportNameListDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public ImportNameListDataResponse ImportNameListData(ImportNameListDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ImportNameListData", ImportNameListDataResponse.class);
     }
 
     /**
@@ -87,18 +133,30 @@ public class RceClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ManageMarketingRiskResponse ManageMarketingRisk(ManageMarketingRiskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ManageMarketingRiskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ManageMarketingRiskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ManageMarketingRisk");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ManageMarketingRisk", ManageMarketingRiskResponse.class);
+    }
+
+    /**
+     *修改列表数据 列表名称 列表类型 数据类型 状态 备注
+     * @param req ModifyNameListRequest
+     * @return ModifyNameListResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyNameListResponse ModifyNameList(ModifyNameListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyNameList", ModifyNameListResponse.class);
+    }
+
+    /**
+     *修改黑白名单列表详情 详情内容 开始和结束时间 状态 备注等
+     * @param req ModifyNameListDataRequest
+     * @return ModifyNameListDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyNameListDataResponse ModifyNameListData(ModifyNameListDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyNameListData", ModifyNameListDataResponse.class);
     }
 
 }

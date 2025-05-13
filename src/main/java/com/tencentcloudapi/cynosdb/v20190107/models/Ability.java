@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Ability extends AbstractModel{
+public class Ability extends AbstractModel {
 
     /**
     * 是否支持从可用区
@@ -31,7 +32,6 @@ public class Ability extends AbstractModel{
 
     /**
     * 不支持从可用区的原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NonsupportSlaveZoneReason")
     @Expose
@@ -46,11 +46,38 @@ public class Ability extends AbstractModel{
 
     /**
     * 不支持RO实例的原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NonsupportRoReason")
     @Expose
     private String NonsupportRoReason;
+
+    /**
+    * 是否支持手动发起快照备份
+    */
+    @SerializedName("IsSupportManualSnapshot")
+    @Expose
+    private String IsSupportManualSnapshot;
+
+    /**
+    * 是否支持透明数据加密
+    */
+    @SerializedName("IsSupportTransparentDataEncryption")
+    @Expose
+    private String IsSupportTransparentDataEncryption;
+
+    /**
+    * 不支持透明数据加密原因
+    */
+    @SerializedName("NoSupportTransparentDataEncryptionReason")
+    @Expose
+    private String NoSupportTransparentDataEncryptionReason;
+
+    /**
+    * 是否支持手动发起逻辑备份
+    */
+    @SerializedName("IsSupportManualLogic")
+    @Expose
+    private String IsSupportManualLogic;
 
     /**
      * Get 是否支持从可用区 
@@ -69,10 +96,8 @@ public class Ability extends AbstractModel{
     }
 
     /**
-     * Get 不支持从可用区的原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 不支持从可用区的原因 
      * @return NonsupportSlaveZoneReason 不支持从可用区的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNonsupportSlaveZoneReason() {
         return this.NonsupportSlaveZoneReason;
@@ -80,9 +105,7 @@ public class Ability extends AbstractModel{
 
     /**
      * Set 不支持从可用区的原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NonsupportSlaveZoneReason 不支持从可用区的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNonsupportSlaveZoneReason(String NonsupportSlaveZoneReason) {
         this.NonsupportSlaveZoneReason = NonsupportSlaveZoneReason;
@@ -105,10 +128,8 @@ public class Ability extends AbstractModel{
     }
 
     /**
-     * Get 不支持RO实例的原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 不支持RO实例的原因 
      * @return NonsupportRoReason 不支持RO实例的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNonsupportRoReason() {
         return this.NonsupportRoReason;
@@ -116,12 +137,74 @@ public class Ability extends AbstractModel{
 
     /**
      * Set 不支持RO实例的原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NonsupportRoReason 不支持RO实例的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNonsupportRoReason(String NonsupportRoReason) {
         this.NonsupportRoReason = NonsupportRoReason;
+    }
+
+    /**
+     * Get 是否支持手动发起快照备份 
+     * @return IsSupportManualSnapshot 是否支持手动发起快照备份
+     */
+    public String getIsSupportManualSnapshot() {
+        return this.IsSupportManualSnapshot;
+    }
+
+    /**
+     * Set 是否支持手动发起快照备份
+     * @param IsSupportManualSnapshot 是否支持手动发起快照备份
+     */
+    public void setIsSupportManualSnapshot(String IsSupportManualSnapshot) {
+        this.IsSupportManualSnapshot = IsSupportManualSnapshot;
+    }
+
+    /**
+     * Get 是否支持透明数据加密 
+     * @return IsSupportTransparentDataEncryption 是否支持透明数据加密
+     */
+    public String getIsSupportTransparentDataEncryption() {
+        return this.IsSupportTransparentDataEncryption;
+    }
+
+    /**
+     * Set 是否支持透明数据加密
+     * @param IsSupportTransparentDataEncryption 是否支持透明数据加密
+     */
+    public void setIsSupportTransparentDataEncryption(String IsSupportTransparentDataEncryption) {
+        this.IsSupportTransparentDataEncryption = IsSupportTransparentDataEncryption;
+    }
+
+    /**
+     * Get 不支持透明数据加密原因 
+     * @return NoSupportTransparentDataEncryptionReason 不支持透明数据加密原因
+     */
+    public String getNoSupportTransparentDataEncryptionReason() {
+        return this.NoSupportTransparentDataEncryptionReason;
+    }
+
+    /**
+     * Set 不支持透明数据加密原因
+     * @param NoSupportTransparentDataEncryptionReason 不支持透明数据加密原因
+     */
+    public void setNoSupportTransparentDataEncryptionReason(String NoSupportTransparentDataEncryptionReason) {
+        this.NoSupportTransparentDataEncryptionReason = NoSupportTransparentDataEncryptionReason;
+    }
+
+    /**
+     * Get 是否支持手动发起逻辑备份 
+     * @return IsSupportManualLogic 是否支持手动发起逻辑备份
+     */
+    public String getIsSupportManualLogic() {
+        return this.IsSupportManualLogic;
+    }
+
+    /**
+     * Set 是否支持手动发起逻辑备份
+     * @param IsSupportManualLogic 是否支持手动发起逻辑备份
+     */
+    public void setIsSupportManualLogic(String IsSupportManualLogic) {
+        this.IsSupportManualLogic = IsSupportManualLogic;
     }
 
     public Ability() {
@@ -144,6 +227,18 @@ public class Ability extends AbstractModel{
         if (source.NonsupportRoReason != null) {
             this.NonsupportRoReason = new String(source.NonsupportRoReason);
         }
+        if (source.IsSupportManualSnapshot != null) {
+            this.IsSupportManualSnapshot = new String(source.IsSupportManualSnapshot);
+        }
+        if (source.IsSupportTransparentDataEncryption != null) {
+            this.IsSupportTransparentDataEncryption = new String(source.IsSupportTransparentDataEncryption);
+        }
+        if (source.NoSupportTransparentDataEncryptionReason != null) {
+            this.NoSupportTransparentDataEncryptionReason = new String(source.NoSupportTransparentDataEncryptionReason);
+        }
+        if (source.IsSupportManualLogic != null) {
+            this.IsSupportManualLogic = new String(source.IsSupportManualLogic);
+        }
     }
 
 
@@ -155,6 +250,10 @@ public class Ability extends AbstractModel{
         this.setParamSimple(map, prefix + "NonsupportSlaveZoneReason", this.NonsupportSlaveZoneReason);
         this.setParamSimple(map, prefix + "IsSupportRo", this.IsSupportRo);
         this.setParamSimple(map, prefix + "NonsupportRoReason", this.NonsupportRoReason);
+        this.setParamSimple(map, prefix + "IsSupportManualSnapshot", this.IsSupportManualSnapshot);
+        this.setParamSimple(map, prefix + "IsSupportTransparentDataEncryption", this.IsSupportTransparentDataEncryption);
+        this.setParamSimple(map, prefix + "NoSupportTransparentDataEncryptionReason", this.NoSupportTransparentDataEncryptionReason);
+        this.setParamSimple(map, prefix + "IsSupportManualLogic", this.IsSupportManualLogic);
 
     }
 }

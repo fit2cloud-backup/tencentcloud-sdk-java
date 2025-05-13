@@ -16,14 +16,15 @@
 package com.tencentcloudapi.rce.v20201103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WeChatAccountInfo extends AbstractModel{
+public class WeChatAccountInfo extends AbstractModel {
 
     /**
-    * 微信的OpenID/UnionID 。
+    * 微信的OpenId/UnionId。
     */
     @SerializedName("WeChatOpenId")
     @Expose
@@ -46,7 +47,8 @@ public class WeChatAccountInfo extends AbstractModel{
     private String RandStr;
 
     /**
-    * token
+    * 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
     */
     @SerializedName("WeChatAccessToken")
     @Expose
@@ -60,30 +62,32 @@ public class WeChatAccountInfo extends AbstractModel{
     private String AssociateAccount;
 
     /**
-    * 账号绑定的手机号。
+    * 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
     */
     @SerializedName("MobilePhone")
     @Expose
     private String MobilePhone;
 
     /**
-    * 用户设备号。
+    * 用户设备号（已不推荐使用）。
     */
     @SerializedName("DeviceId")
     @Expose
     private String DeviceId;
 
     /**
-     * Get 微信的OpenID/UnionID 。 
-     * @return WeChatOpenId 微信的OpenID/UnionID 。
+     * Get 微信的OpenId/UnionId。 
+     * @return WeChatOpenId 微信的OpenId/UnionId。
      */
     public String getWeChatOpenId() {
         return this.WeChatOpenId;
     }
 
     /**
-     * Set 微信的OpenID/UnionID 。
-     * @param WeChatOpenId 微信的OpenID/UnionID 。
+     * Set 微信的OpenId/UnionId。
+     * @param WeChatOpenId 微信的OpenId/UnionId。
      */
     public void setWeChatOpenId(String WeChatOpenId) {
         this.WeChatOpenId = WeChatOpenId;
@@ -130,16 +134,20 @@ public class WeChatAccountInfo extends AbstractModel{
     }
 
     /**
-     * Get token 
-     * @return WeChatAccessToken token
+     * Get 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。 
+     * @return WeChatAccessToken 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
      */
     public String getWeChatAccessToken() {
         return this.WeChatAccessToken;
     }
 
     /**
-     * Set token
-     * @param WeChatAccessToken token
+     * Set 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+     * @param WeChatAccessToken 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
      */
     public void setWeChatAccessToken(String WeChatAccessToken) {
         this.WeChatAccessToken = WeChatAccessToken;
@@ -162,32 +170,40 @@ public class WeChatAccountInfo extends AbstractModel{
     }
 
     /**
-     * Get 账号绑定的手机号。 
-     * @return MobilePhone 账号绑定的手机号。
+     * Get 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。 
+     * @return MobilePhone 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
      */
     public String getMobilePhone() {
         return this.MobilePhone;
     }
 
     /**
-     * Set 账号绑定的手机号。
-     * @param MobilePhone 账号绑定的手机号。
+     * Set 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+     * @param MobilePhone 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
      */
     public void setMobilePhone(String MobilePhone) {
         this.MobilePhone = MobilePhone;
     }
 
     /**
-     * Get 用户设备号。 
-     * @return DeviceId 用户设备号。
+     * Get 用户设备号（已不推荐使用）。 
+     * @return DeviceId 用户设备号（已不推荐使用）。
      */
     public String getDeviceId() {
         return this.DeviceId;
     }
 
     /**
-     * Set 用户设备号。
-     * @param DeviceId 用户设备号。
+     * Set 用户设备号（已不推荐使用）。
+     * @param DeviceId 用户设备号（已不推荐使用）。
      */
     public void setDeviceId(String DeviceId) {
         this.DeviceId = DeviceId;

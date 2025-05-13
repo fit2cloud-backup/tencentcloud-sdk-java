@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iai.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateFaceResponse extends AbstractModel{
+public class CreateFaceResponse extends AbstractModel {
 
     /**
     * 加入成功的人脸数量
@@ -37,7 +38,7 @@ public class CreateFaceResponse extends AbstractModel{
     private String [] SucFaceIds;
 
     /**
-    * 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败， 
+    * 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败，-1109 代表图片尺寸过大或者过小， 
 -1601代表不符合图片质量控制要求, -1604 代表人脸相似度没有超过FaceMatchThreshold。 
 其他非 0 值代表算法服务异常。 
 RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
@@ -69,7 +70,7 @@ RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
     private String FaceModelVersion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -108,11 +109,11 @@ RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
     }
 
     /**
-     * Get 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败， 
+     * Get 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败，-1109 代表图片尺寸过大或者过小， 
 -1601代表不符合图片质量控制要求, -1604 代表人脸相似度没有超过FaceMatchThreshold。 
 其他非 0 值代表算法服务异常。 
 RetCode的顺序和入参中 Images 或 Urls 的顺序一致。 
-     * @return RetCode 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败， 
+     * @return RetCode 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败，-1109 代表图片尺寸过大或者过小， 
 -1601代表不符合图片质量控制要求, -1604 代表人脸相似度没有超过FaceMatchThreshold。 
 其他非 0 值代表算法服务异常。 
 RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
@@ -122,11 +123,11 @@ RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
     }
 
     /**
-     * Set 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败， 
+     * Set 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败，-1109 代表图片尺寸过大或者过小， 
 -1601代表不符合图片质量控制要求, -1604 代表人脸相似度没有超过FaceMatchThreshold。 
 其他非 0 值代表算法服务异常。 
 RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
-     * @param RetCode 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败， 
+     * @param RetCode 每张人脸图片添加结果，-1101 代表未检测到人脸，-1102 代表图片解码失败，-1109 代表图片尺寸过大或者过小， 
 -1601代表不符合图片质量控制要求, -1604 代表人脸相似度没有超过FaceMatchThreshold。 
 其他非 0 值代表算法服务异常。 
 RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
@@ -188,16 +189,16 @@ RetCode的顺序和入参中 Images 或 Urls 的顺序一致。
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

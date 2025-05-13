@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel{
+public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel {
 
     /**
     * 终端节点服务ID。
@@ -44,7 +45,7 @@ public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel{
     private String EndPointServiceName;
 
     /**
-    * 是否自动接受终端节点的连接请求。<ui><li>true：自动接受<li>false：不自动接受</ul>
+    * 是否自动接受终端节点的连接请求。<ul><li>true：自动接受</li><li>false：不自动接受</li></ul>
     */
     @SerializedName("AutoAcceptFlag")
     @Expose
@@ -56,6 +57,13 @@ public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel{
     @SerializedName("ServiceInstanceId")
     @Expose
     private String ServiceInstanceId;
+
+    /**
+    * 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+    */
+    @SerializedName("IpAddressType")
+    @Expose
+    private String IpAddressType;
 
     /**
      * Get 终端节点服务ID。 
@@ -106,16 +114,16 @@ public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否自动接受终端节点的连接请求。<ui><li>true：自动接受<li>false：不自动接受</ul> 
-     * @return AutoAcceptFlag 是否自动接受终端节点的连接请求。<ui><li>true：自动接受<li>false：不自动接受</ul>
+     * Get 是否自动接受终端节点的连接请求。<ul><li>true：自动接受</li><li>false：不自动接受</li></ul> 
+     * @return AutoAcceptFlag 是否自动接受终端节点的连接请求。<ul><li>true：自动接受</li><li>false：不自动接受</li></ul>
      */
     public Boolean getAutoAcceptFlag() {
         return this.AutoAcceptFlag;
     }
 
     /**
-     * Set 是否自动接受终端节点的连接请求。<ui><li>true：自动接受<li>false：不自动接受</ul>
-     * @param AutoAcceptFlag 是否自动接受终端节点的连接请求。<ui><li>true：自动接受<li>false：不自动接受</ul>
+     * Set 是否自动接受终端节点的连接请求。<ul><li>true：自动接受</li><li>false：不自动接受</li></ul>
+     * @param AutoAcceptFlag 是否自动接受终端节点的连接请求。<ul><li>true：自动接受</li><li>false：不自动接受</li></ul>
      */
     public void setAutoAcceptFlag(Boolean AutoAcceptFlag) {
         this.AutoAcceptFlag = AutoAcceptFlag;
@@ -135,6 +143,22 @@ public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel{
      */
     public void setServiceInstanceId(String ServiceInstanceId) {
         this.ServiceInstanceId = ServiceInstanceId;
+    }
+
+    /**
+     * Get 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。 
+     * @return IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public String getIpAddressType() {
+        return this.IpAddressType;
+    }
+
+    /**
+     * Set 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     * @param IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public void setIpAddressType(String IpAddressType) {
+        this.IpAddressType = IpAddressType;
     }
 
     public ModifyVpcEndPointServiceAttributeRequest() {
@@ -160,6 +184,9 @@ public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel{
         if (source.ServiceInstanceId != null) {
             this.ServiceInstanceId = new String(source.ServiceInstanceId);
         }
+        if (source.IpAddressType != null) {
+            this.IpAddressType = new String(source.IpAddressType);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class ModifyVpcEndPointServiceAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndPointServiceName", this.EndPointServiceName);
         this.setParamSimple(map, prefix + "AutoAcceptFlag", this.AutoAcceptFlag);
         this.setParamSimple(map, prefix + "ServiceInstanceId", this.ServiceInstanceId);
+        this.setParamSimple(map, prefix + "IpAddressType", this.IpAddressType);
 
     }
 }

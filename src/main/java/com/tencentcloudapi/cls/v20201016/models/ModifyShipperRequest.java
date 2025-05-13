@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyShipperRequest extends AbstractModel{
+public class ModifyShipperRequest extends AbstractModel {
 
     /**
     * 投递规则ID
@@ -30,21 +31,23 @@ public class ModifyShipperRequest extends AbstractModel{
     private String ShipperId;
 
     /**
-    * 投递规则投递的新的bucket
+    * COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
     */
     @SerializedName("Bucket")
     @Expose
     private String Bucket;
 
     /**
-    * 投递规则投递的新的目录前缀
+    * 投递规则投递的新的目录前缀。
+- 仅支持0-9A-Za-z-_/
+- 最大支持256个字符
     */
     @SerializedName("Prefix")
     @Expose
     private String Prefix;
 
     /**
-    * 投递规则的开关状态
+    * 投递规则的开关状态。true：开启投递任务；false：关闭投递任务。
     */
     @SerializedName("Status")
     @Expose
@@ -100,11 +103,26 @@ public class ModifyShipperRequest extends AbstractModel{
     private ContentInfo Content;
 
     /**
-    * 投递文件命名配置，0：随机数命名，1：投递时间命名，默认0（随机数命名）
+    * 投递文件命名配置，0：随机数命名，1：投递时间命名。
     */
     @SerializedName("FilenameMode")
     @Expose
     private Long FilenameMode;
+
+    /**
+    * cos桶存储类型。支持：STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、STANDARD、MAZ_STANDARD、MAZ_STANDARD_IA、INTELLIGENT_TIERING。
+
+1. STANDARD_IA：低频存储；
+2. ARCHIVE：归档存储；
+3. DEEP_ARCHIVE：深度归档存储；
+4. STANDARD：标准存储；
+5. MAZ_STANDARD：标准存储（多 AZ）；
+6. MAZ_STANDARD_IA：低频存储（多 AZ）；
+7. INTELLIGENT_TIERING：智能分层存储。
+    */
+    @SerializedName("StorageType")
+    @Expose
+    private String StorageType;
 
     /**
      * Get 投递规则ID 
@@ -123,48 +141,56 @@ public class ModifyShipperRequest extends AbstractModel{
     }
 
     /**
-     * Get 投递规则投递的新的bucket 
-     * @return Bucket 投递规则投递的新的bucket
+     * Get COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。 
+     * @return Bucket COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
      */
     public String getBucket() {
         return this.Bucket;
     }
 
     /**
-     * Set 投递规则投递的新的bucket
-     * @param Bucket 投递规则投递的新的bucket
+     * Set COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
+     * @param Bucket COS存储桶，详见产品支持的[存储桶命名规范](https://cloud.tencent.com/document/product/436/13312)。
      */
     public void setBucket(String Bucket) {
         this.Bucket = Bucket;
     }
 
     /**
-     * Get 投递规则投递的新的目录前缀 
-     * @return Prefix 投递规则投递的新的目录前缀
+     * Get 投递规则投递的新的目录前缀。
+- 仅支持0-9A-Za-z-_/
+- 最大支持256个字符 
+     * @return Prefix 投递规则投递的新的目录前缀。
+- 仅支持0-9A-Za-z-_/
+- 最大支持256个字符
      */
     public String getPrefix() {
         return this.Prefix;
     }
 
     /**
-     * Set 投递规则投递的新的目录前缀
-     * @param Prefix 投递规则投递的新的目录前缀
+     * Set 投递规则投递的新的目录前缀。
+- 仅支持0-9A-Za-z-_/
+- 最大支持256个字符
+     * @param Prefix 投递规则投递的新的目录前缀。
+- 仅支持0-9A-Za-z-_/
+- 最大支持256个字符
      */
     public void setPrefix(String Prefix) {
         this.Prefix = Prefix;
     }
 
     /**
-     * Get 投递规则的开关状态 
-     * @return Status 投递规则的开关状态
+     * Get 投递规则的开关状态。true：开启投递任务；false：关闭投递任务。 
+     * @return Status 投递规则的开关状态。true：开启投递任务；false：关闭投递任务。
      */
     public Boolean getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 投递规则的开关状态
-     * @param Status 投递规则的开关状态
+     * Set 投递规则的开关状态。true：开启投递任务；false：关闭投递任务。
+     * @param Status 投递规则的开关状态。true：开启投递任务；false：关闭投递任务。
      */
     public void setStatus(Boolean Status) {
         this.Status = Status;
@@ -283,19 +309,67 @@ public class ModifyShipperRequest extends AbstractModel{
     }
 
     /**
-     * Get 投递文件命名配置，0：随机数命名，1：投递时间命名，默认0（随机数命名） 
-     * @return FilenameMode 投递文件命名配置，0：随机数命名，1：投递时间命名，默认0（随机数命名）
+     * Get 投递文件命名配置，0：随机数命名，1：投递时间命名。 
+     * @return FilenameMode 投递文件命名配置，0：随机数命名，1：投递时间命名。
      */
     public Long getFilenameMode() {
         return this.FilenameMode;
     }
 
     /**
-     * Set 投递文件命名配置，0：随机数命名，1：投递时间命名，默认0（随机数命名）
-     * @param FilenameMode 投递文件命名配置，0：随机数命名，1：投递时间命名，默认0（随机数命名）
+     * Set 投递文件命名配置，0：随机数命名，1：投递时间命名。
+     * @param FilenameMode 投递文件命名配置，0：随机数命名，1：投递时间命名。
      */
     public void setFilenameMode(Long FilenameMode) {
         this.FilenameMode = FilenameMode;
+    }
+
+    /**
+     * Get cos桶存储类型。支持：STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、STANDARD、MAZ_STANDARD、MAZ_STANDARD_IA、INTELLIGENT_TIERING。
+
+1. STANDARD_IA：低频存储；
+2. ARCHIVE：归档存储；
+3. DEEP_ARCHIVE：深度归档存储；
+4. STANDARD：标准存储；
+5. MAZ_STANDARD：标准存储（多 AZ）；
+6. MAZ_STANDARD_IA：低频存储（多 AZ）；
+7. INTELLIGENT_TIERING：智能分层存储。 
+     * @return StorageType cos桶存储类型。支持：STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、STANDARD、MAZ_STANDARD、MAZ_STANDARD_IA、INTELLIGENT_TIERING。
+
+1. STANDARD_IA：低频存储；
+2. ARCHIVE：归档存储；
+3. DEEP_ARCHIVE：深度归档存储；
+4. STANDARD：标准存储；
+5. MAZ_STANDARD：标准存储（多 AZ）；
+6. MAZ_STANDARD_IA：低频存储（多 AZ）；
+7. INTELLIGENT_TIERING：智能分层存储。
+     */
+    public String getStorageType() {
+        return this.StorageType;
+    }
+
+    /**
+     * Set cos桶存储类型。支持：STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、STANDARD、MAZ_STANDARD、MAZ_STANDARD_IA、INTELLIGENT_TIERING。
+
+1. STANDARD_IA：低频存储；
+2. ARCHIVE：归档存储；
+3. DEEP_ARCHIVE：深度归档存储；
+4. STANDARD：标准存储；
+5. MAZ_STANDARD：标准存储（多 AZ）；
+6. MAZ_STANDARD_IA：低频存储（多 AZ）；
+7. INTELLIGENT_TIERING：智能分层存储。
+     * @param StorageType cos桶存储类型。支持：STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、STANDARD、MAZ_STANDARD、MAZ_STANDARD_IA、INTELLIGENT_TIERING。
+
+1. STANDARD_IA：低频存储；
+2. ARCHIVE：归档存储；
+3. DEEP_ARCHIVE：深度归档存储；
+4. STANDARD：标准存储；
+5. MAZ_STANDARD：标准存储（多 AZ）；
+6. MAZ_STANDARD_IA：低频存储（多 AZ）；
+7. INTELLIGENT_TIERING：智能分层存储。
+     */
+    public void setStorageType(String StorageType) {
+        this.StorageType = StorageType;
     }
 
     public ModifyShipperRequest() {
@@ -345,6 +419,9 @@ public class ModifyShipperRequest extends AbstractModel{
         if (source.FilenameMode != null) {
             this.FilenameMode = new Long(source.FilenameMode);
         }
+        if (source.StorageType != null) {
+            this.StorageType = new String(source.StorageType);
+        }
     }
 
 
@@ -364,6 +441,7 @@ public class ModifyShipperRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Compress.", this.Compress);
         this.setParamObj(map, prefix + "Content.", this.Content);
         this.setParamSimple(map, prefix + "FilenameMode", this.FilenameMode);
+        this.setParamSimple(map, prefix + "StorageType", this.StorageType);
 
     }
 }

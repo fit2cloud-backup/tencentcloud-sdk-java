@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TCPListener extends AbstractModel{
+public class TCPListener extends AbstractModel {
 
     /**
     * 监听器ID
@@ -118,7 +119,6 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 监听器绑定的源站信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealServerSet")
     @Expose
@@ -133,7 +133,6 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClientIPMethod")
     @Expose
@@ -141,7 +140,6 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HealthyThreshold")
     @Expose
@@ -149,7 +147,6 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnhealthyThreshold")
     @Expose
@@ -157,7 +154,6 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailoverSwitch")
     @Expose
@@ -165,7 +161,6 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SessionPersist")
     @Expose
@@ -173,7 +168,6 @@ public class TCPListener extends AbstractModel{
 
     /**
     * 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyId")
     @Expose
@@ -420,10 +414,8 @@ public class TCPListener extends AbstractModel{
     }
 
     /**
-     * Get 监听器绑定的源站信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器绑定的源站信息 
      * @return RealServerSet 监听器绑定的源站信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BindRealServer [] getRealServerSet() {
         return this.RealServerSet;
@@ -431,9 +423,7 @@ public class TCPListener extends AbstractModel{
 
     /**
      * Set 监听器绑定的源站信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealServerSet 监听器绑定的源站信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealServerSet(BindRealServer [] RealServerSet) {
         this.RealServerSet = RealServerSet;
@@ -456,10 +446,8 @@ public class TCPListener extends AbstractModel{
     }
 
     /**
-     * Get 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol 
      * @return ClientIPMethod 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getClientIPMethod() {
         return this.ClientIPMethod;
@@ -467,19 +455,15 @@ public class TCPListener extends AbstractModel{
 
     /**
      * Set 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClientIPMethod 监听器获取客户端 IP 的方式，0表示TOA, 1表示Proxy Protocol
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClientIPMethod(Long ClientIPMethod) {
         this.ClientIPMethod = ClientIPMethod;
     }
 
     /**
-     * Get 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10 
      * @return HealthyThreshold 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHealthyThreshold() {
         return this.HealthyThreshold;
@@ -487,19 +471,15 @@ public class TCPListener extends AbstractModel{
 
     /**
      * Set 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HealthyThreshold 健康阈值，表示连续检查成功多少次后认定源站健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHealthyThreshold(Long HealthyThreshold) {
         this.HealthyThreshold = HealthyThreshold;
     }
 
     /**
-     * Get 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10 
      * @return UnhealthyThreshold 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUnhealthyThreshold() {
         return this.UnhealthyThreshold;
@@ -507,19 +487,15 @@ public class TCPListener extends AbstractModel{
 
     /**
      * Set 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnhealthyThreshold 不健康阈值，表示连续检查失败多少次数后认为源站不健康。范围为1到10
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnhealthyThreshold(Long UnhealthyThreshold) {
         this.UnhealthyThreshold = UnhealthyThreshold;
     }
 
     /**
-     * Get 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启 
      * @return FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFailoverSwitch() {
         return this.FailoverSwitch;
@@ -527,19 +503,15 @@ public class TCPListener extends AbstractModel{
 
     /**
      * Set 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailoverSwitch(Long FailoverSwitch) {
         this.FailoverSwitch = FailoverSwitch;
     }
 
     /**
-     * Get 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间 
      * @return SessionPersist 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSessionPersist() {
         return this.SessionPersist;
@@ -547,19 +519,15 @@ public class TCPListener extends AbstractModel{
 
     /**
      * Set 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SessionPersist 是否开启会话保持选项：0关闭， 非0开启，非0值为会话保持时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSessionPersist(Long SessionPersist) {
         this.SessionPersist = SessionPersist;
     }
 
     /**
-     * Get 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器的通道ID，如果监听器属于通道组，则为null 
      * @return ProxyId 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProxyId() {
         return this.ProxyId;
@@ -567,9 +535,7 @@ public class TCPListener extends AbstractModel{
 
     /**
      * Set 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProxyId 监听器的通道ID，如果监听器属于通道组，则为null
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyId(String ProxyId) {
         this.ProxyId = ProxyId;

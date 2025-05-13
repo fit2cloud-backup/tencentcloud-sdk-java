@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTopL7CacheDataRequest extends AbstractModel{
+public class DescribeTopL7CacheDataRequest extends AbstractModel {
 
     /**
     * 开始时间。
@@ -48,14 +49,14 @@ public class DescribeTopL7CacheDataRequest extends AbstractModel{
     private String MetricName;
 
     /**
-    * 站点id集合，不填默认选择全部站点。
+    * 站点 ID 集合，此参数必填。
     */
     @SerializedName("ZoneIds")
     @Expose
     private String [] ZoneIds;
 
     /**
-    * 查询前多少个数据，最大值为1000，不填默认默认为10， 表示查询前top 10的数据。
+    * 查询前多少个数据，最大值为1000，不填默认为10， 表示查询前top 10的数据。
     */
     @SerializedName("Limit")
     @Expose
@@ -161,32 +162,32 @@ public class DescribeTopL7CacheDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 站点id集合，不填默认选择全部站点。 
-     * @return ZoneIds 站点id集合，不填默认选择全部站点。
+     * Get 站点 ID 集合，此参数必填。 
+     * @return ZoneIds 站点 ID 集合，此参数必填。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 站点id集合，不填默认选择全部站点。
-     * @param ZoneIds 站点id集合，不填默认选择全部站点。
+     * Set 站点 ID 集合，此参数必填。
+     * @param ZoneIds 站点 ID 集合，此参数必填。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;
     }
 
     /**
-     * Get 查询前多少个数据，最大值为1000，不填默认默认为10， 表示查询前top 10的数据。 
-     * @return Limit 查询前多少个数据，最大值为1000，不填默认默认为10， 表示查询前top 10的数据。
+     * Get 查询前多少个数据，最大值为1000，不填默认为10， 表示查询前top 10的数据。 
+     * @return Limit 查询前多少个数据，最大值为1000，不填默认为10， 表示查询前top 10的数据。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 查询前多少个数据，最大值为1000，不填默认默认为10， 表示查询前top 10的数据。
-     * @param Limit 查询前多少个数据，最大值为1000，不填默认默认为10， 表示查询前top 10的数据。
+     * Set 查询前多少个数据，最大值为1000，不填默认为10， 表示查询前top 10的数据。
+     * @param Limit 查询前多少个数据，最大值为1000，不填默认为10， 表示查询前top 10的数据。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

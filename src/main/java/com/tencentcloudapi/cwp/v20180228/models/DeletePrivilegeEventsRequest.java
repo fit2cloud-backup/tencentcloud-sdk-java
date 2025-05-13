@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeletePrivilegeEventsRequest extends AbstractModel{
+public class DeletePrivilegeEventsRequest extends AbstractModel {
 
     /**
     * ID数组. (最大100条)
@@ -28,6 +29,13 @@ public class DeletePrivilegeEventsRequest extends AbstractModel{
     @SerializedName("Ids")
     @Expose
     private Long [] Ids;
+
+    /**
+    * 是否删除全部
+    */
+    @SerializedName("All")
+    @Expose
+    private Boolean All;
 
     /**
      * Get ID数组. (最大100条) 
@@ -45,6 +53,22 @@ public class DeletePrivilegeEventsRequest extends AbstractModel{
         this.Ids = Ids;
     }
 
+    /**
+     * Get 是否删除全部 
+     * @return All 是否删除全部
+     */
+    public Boolean getAll() {
+        return this.All;
+    }
+
+    /**
+     * Set 是否删除全部
+     * @param All 是否删除全部
+     */
+    public void setAll(Boolean All) {
+        this.All = All;
+    }
+
     public DeletePrivilegeEventsRequest() {
     }
 
@@ -59,6 +83,9 @@ public class DeletePrivilegeEventsRequest extends AbstractModel{
                 this.Ids[i] = new Long(source.Ids[i]);
             }
         }
+        if (source.All != null) {
+            this.All = new Boolean(source.All);
+        }
     }
 
 
@@ -67,6 +94,7 @@ public class DeletePrivilegeEventsRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "Ids.", this.Ids);
+        this.setParamSimple(map, prefix + "All", this.All);
 
     }
 }

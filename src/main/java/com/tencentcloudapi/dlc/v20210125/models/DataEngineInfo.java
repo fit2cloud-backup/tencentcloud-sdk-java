@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DataEngineInfo extends AbstractModel{
+public class DataEngineInfo extends AbstractModel {
 
     /**
     * DataEngine名称
@@ -368,6 +369,118 @@ public class DataEngineInfo extends AbstractModel{
     @SerializedName("SessionResourceTemplate")
     @Expose
     private SessionResourceTemplate SessionResourceTemplate;
+
+    /**
+    * 自动授权开关
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AutoAuthorization")
+    @Expose
+    private Boolean AutoAuthorization;
+
+    /**
+    * 引擎版本，支持Native/SuperSQL
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EngineGeneration")
+    @Expose
+    private String EngineGeneration;
+
+    /**
+    * 引擎详细类型，支持：SparkSQL/SparkBatch/PrestoSQL/Kyuubi
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EngineTypeDetail")
+    @Expose
+    private String EngineTypeDetail;
+
+    /**
+    * 引擎网络ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EngineNetworkId")
+    @Expose
+    private String EngineNetworkId;
+
+    /**
+    * 标准引擎关联的资源组个数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EngineResourceGroupCount")
+    @Expose
+    private Long EngineResourceGroupCount;
+
+    /**
+    * 引擎当前使用量（Cu）
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EngineResourceUsedCU")
+    @Expose
+    private Long EngineResourceUsedCU;
+
+    /**
+    * 引擎的访问信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AccessInfos")
+    @Expose
+    private AccessInfo [] AccessInfos;
+
+    /**
+    * 引擎所在网络名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EngineNetworkName")
+    @Expose
+    private String EngineNetworkName;
+
+    /**
+    * 是否使用预留池
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsPoolMode")
+    @Expose
+    private String IsPoolMode;
+
+    /**
+    * 是否支持AI，false: 不支持；true：支持
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsSupportAI")
+    @Expose
+    private Boolean IsSupportAI;
+
+    /**
+    * 网关id
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GatewayId")
+    @Expose
+    private String GatewayId;
+
+    /**
+    * 网关状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GatewayState")
+    @Expose
+    private Long GatewayState;
+
+    /**
+    * 是否能执行AI任务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsAIGateway")
+    @Expose
+    private Boolean IsAIGateway;
+
+    /**
+    * 1:AI引擎，0:非AI引擎
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsAIEngine")
+    @Expose
+    private Long IsAIEngine;
 
     /**
      * Get DataEngine名称 
@@ -1217,6 +1330,286 @@ public class DataEngineInfo extends AbstractModel{
         this.SessionResourceTemplate = SessionResourceTemplate;
     }
 
+    /**
+     * Get 自动授权开关
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AutoAuthorization 自动授权开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getAutoAuthorization() {
+        return this.AutoAuthorization;
+    }
+
+    /**
+     * Set 自动授权开关
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AutoAuthorization 自动授权开关
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAutoAuthorization(Boolean AutoAuthorization) {
+        this.AutoAuthorization = AutoAuthorization;
+    }
+
+    /**
+     * Get 引擎版本，支持Native/SuperSQL
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EngineGeneration 引擎版本，支持Native/SuperSQL
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEngineGeneration() {
+        return this.EngineGeneration;
+    }
+
+    /**
+     * Set 引擎版本，支持Native/SuperSQL
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EngineGeneration 引擎版本，支持Native/SuperSQL
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEngineGeneration(String EngineGeneration) {
+        this.EngineGeneration = EngineGeneration;
+    }
+
+    /**
+     * Get 引擎详细类型，支持：SparkSQL/SparkBatch/PrestoSQL/Kyuubi
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EngineTypeDetail 引擎详细类型，支持：SparkSQL/SparkBatch/PrestoSQL/Kyuubi
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEngineTypeDetail() {
+        return this.EngineTypeDetail;
+    }
+
+    /**
+     * Set 引擎详细类型，支持：SparkSQL/SparkBatch/PrestoSQL/Kyuubi
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EngineTypeDetail 引擎详细类型，支持：SparkSQL/SparkBatch/PrestoSQL/Kyuubi
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEngineTypeDetail(String EngineTypeDetail) {
+        this.EngineTypeDetail = EngineTypeDetail;
+    }
+
+    /**
+     * Get 引擎网络ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EngineNetworkId 引擎网络ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEngineNetworkId() {
+        return this.EngineNetworkId;
+    }
+
+    /**
+     * Set 引擎网络ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EngineNetworkId 引擎网络ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEngineNetworkId(String EngineNetworkId) {
+        this.EngineNetworkId = EngineNetworkId;
+    }
+
+    /**
+     * Get 标准引擎关联的资源组个数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EngineResourceGroupCount 标准引擎关联的资源组个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getEngineResourceGroupCount() {
+        return this.EngineResourceGroupCount;
+    }
+
+    /**
+     * Set 标准引擎关联的资源组个数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EngineResourceGroupCount 标准引擎关联的资源组个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEngineResourceGroupCount(Long EngineResourceGroupCount) {
+        this.EngineResourceGroupCount = EngineResourceGroupCount;
+    }
+
+    /**
+     * Get 引擎当前使用量（Cu）
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EngineResourceUsedCU 引擎当前使用量（Cu）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getEngineResourceUsedCU() {
+        return this.EngineResourceUsedCU;
+    }
+
+    /**
+     * Set 引擎当前使用量（Cu）
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EngineResourceUsedCU 引擎当前使用量（Cu）
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEngineResourceUsedCU(Long EngineResourceUsedCU) {
+        this.EngineResourceUsedCU = EngineResourceUsedCU;
+    }
+
+    /**
+     * Get 引擎的访问信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AccessInfos 引擎的访问信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AccessInfo [] getAccessInfos() {
+        return this.AccessInfos;
+    }
+
+    /**
+     * Set 引擎的访问信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AccessInfos 引擎的访问信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAccessInfos(AccessInfo [] AccessInfos) {
+        this.AccessInfos = AccessInfos;
+    }
+
+    /**
+     * Get 引擎所在网络名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EngineNetworkName 引擎所在网络名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEngineNetworkName() {
+        return this.EngineNetworkName;
+    }
+
+    /**
+     * Set 引擎所在网络名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EngineNetworkName 引擎所在网络名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEngineNetworkName(String EngineNetworkName) {
+        this.EngineNetworkName = EngineNetworkName;
+    }
+
+    /**
+     * Get 是否使用预留池
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsPoolMode 是否使用预留池
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIsPoolMode() {
+        return this.IsPoolMode;
+    }
+
+    /**
+     * Set 是否使用预留池
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsPoolMode 是否使用预留池
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsPoolMode(String IsPoolMode) {
+        this.IsPoolMode = IsPoolMode;
+    }
+
+    /**
+     * Get 是否支持AI，false: 不支持；true：支持
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsSupportAI 是否支持AI，false: 不支持；true：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsSupportAI() {
+        return this.IsSupportAI;
+    }
+
+    /**
+     * Set 是否支持AI，false: 不支持；true：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsSupportAI 是否支持AI，false: 不支持；true：支持
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsSupportAI(Boolean IsSupportAI) {
+        this.IsSupportAI = IsSupportAI;
+    }
+
+    /**
+     * Get 网关id
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GatewayId 网关id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGatewayId() {
+        return this.GatewayId;
+    }
+
+    /**
+     * Set 网关id
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GatewayId 网关id
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGatewayId(String GatewayId) {
+        this.GatewayId = GatewayId;
+    }
+
+    /**
+     * Get 网关状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GatewayState 网关状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getGatewayState() {
+        return this.GatewayState;
+    }
+
+    /**
+     * Set 网关状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GatewayState 网关状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGatewayState(Long GatewayState) {
+        this.GatewayState = GatewayState;
+    }
+
+    /**
+     * Get 是否能执行AI任务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsAIGateway 是否能执行AI任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsAIGateway() {
+        return this.IsAIGateway;
+    }
+
+    /**
+     * Set 是否能执行AI任务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsAIGateway 是否能执行AI任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsAIGateway(Boolean IsAIGateway) {
+        this.IsAIGateway = IsAIGateway;
+    }
+
+    /**
+     * Get 1:AI引擎，0:非AI引擎
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsAIEngine 1:AI引擎，0:非AI引擎
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIsAIEngine() {
+        return this.IsAIEngine;
+    }
+
+    /**
+     * Set 1:AI引擎，0:非AI引擎
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsAIEngine 1:AI引擎，0:非AI引擎
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsAIEngine(Long IsAIEngine) {
+        this.IsAIEngine = IsAIEngine;
+    }
+
     public DataEngineInfo() {
     }
 
@@ -1369,6 +1762,51 @@ public class DataEngineInfo extends AbstractModel{
         if (source.SessionResourceTemplate != null) {
             this.SessionResourceTemplate = new SessionResourceTemplate(source.SessionResourceTemplate);
         }
+        if (source.AutoAuthorization != null) {
+            this.AutoAuthorization = new Boolean(source.AutoAuthorization);
+        }
+        if (source.EngineGeneration != null) {
+            this.EngineGeneration = new String(source.EngineGeneration);
+        }
+        if (source.EngineTypeDetail != null) {
+            this.EngineTypeDetail = new String(source.EngineTypeDetail);
+        }
+        if (source.EngineNetworkId != null) {
+            this.EngineNetworkId = new String(source.EngineNetworkId);
+        }
+        if (source.EngineResourceGroupCount != null) {
+            this.EngineResourceGroupCount = new Long(source.EngineResourceGroupCount);
+        }
+        if (source.EngineResourceUsedCU != null) {
+            this.EngineResourceUsedCU = new Long(source.EngineResourceUsedCU);
+        }
+        if (source.AccessInfos != null) {
+            this.AccessInfos = new AccessInfo[source.AccessInfos.length];
+            for (int i = 0; i < source.AccessInfos.length; i++) {
+                this.AccessInfos[i] = new AccessInfo(source.AccessInfos[i]);
+            }
+        }
+        if (source.EngineNetworkName != null) {
+            this.EngineNetworkName = new String(source.EngineNetworkName);
+        }
+        if (source.IsPoolMode != null) {
+            this.IsPoolMode = new String(source.IsPoolMode);
+        }
+        if (source.IsSupportAI != null) {
+            this.IsSupportAI = new Boolean(source.IsSupportAI);
+        }
+        if (source.GatewayId != null) {
+            this.GatewayId = new String(source.GatewayId);
+        }
+        if (source.GatewayState != null) {
+            this.GatewayState = new Long(source.GatewayState);
+        }
+        if (source.IsAIGateway != null) {
+            this.IsAIGateway = new Boolean(source.IsAIGateway);
+        }
+        if (source.IsAIEngine != null) {
+            this.IsAIEngine = new Long(source.IsAIEngine);
+        }
     }
 
 
@@ -1421,6 +1859,20 @@ public class DataEngineInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UserAppId", this.UserAppId);
         this.setParamSimple(map, prefix + "UserUin", this.UserUin);
         this.setParamObj(map, prefix + "SessionResourceTemplate.", this.SessionResourceTemplate);
+        this.setParamSimple(map, prefix + "AutoAuthorization", this.AutoAuthorization);
+        this.setParamSimple(map, prefix + "EngineGeneration", this.EngineGeneration);
+        this.setParamSimple(map, prefix + "EngineTypeDetail", this.EngineTypeDetail);
+        this.setParamSimple(map, prefix + "EngineNetworkId", this.EngineNetworkId);
+        this.setParamSimple(map, prefix + "EngineResourceGroupCount", this.EngineResourceGroupCount);
+        this.setParamSimple(map, prefix + "EngineResourceUsedCU", this.EngineResourceUsedCU);
+        this.setParamArrayObj(map, prefix + "AccessInfos.", this.AccessInfos);
+        this.setParamSimple(map, prefix + "EngineNetworkName", this.EngineNetworkName);
+        this.setParamSimple(map, prefix + "IsPoolMode", this.IsPoolMode);
+        this.setParamSimple(map, prefix + "IsSupportAI", this.IsSupportAI);
+        this.setParamSimple(map, prefix + "GatewayId", this.GatewayId);
+        this.setParamSimple(map, prefix + "GatewayState", this.GatewayState);
+        this.setParamSimple(map, prefix + "IsAIGateway", this.IsAIGateway);
+        this.setParamSimple(map, prefix + "IsAIEngine", this.IsAIEngine);
 
     }
 }

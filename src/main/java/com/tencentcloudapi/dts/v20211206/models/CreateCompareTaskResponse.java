@@ -16,32 +16,30 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCompareTaskResponse extends AbstractModel{
+public class CreateCompareTaskResponse extends AbstractModel {
 
     /**
     * 数据对比任务 ID，形如：dts-8yv4w2i1-cmp-37skmii9
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CompareTaskId")
     @Expose
     private String CompareTaskId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 数据对比任务 ID，形如：dts-8yv4w2i1-cmp-37skmii9
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据对比任务 ID，形如：dts-8yv4w2i1-cmp-37skmii9 
      * @return CompareTaskId 数据对比任务 ID，形如：dts-8yv4w2i1-cmp-37skmii9
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCompareTaskId() {
         return this.CompareTaskId;
@@ -49,25 +47,23 @@ public class CreateCompareTaskResponse extends AbstractModel{
 
     /**
      * Set 数据对比任务 ID，形如：dts-8yv4w2i1-cmp-37skmii9
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CompareTaskId 数据对比任务 ID，形如：dts-8yv4w2i1-cmp-37skmii9
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCompareTaskId(String CompareTaskId) {
         this.CompareTaskId = CompareTaskId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

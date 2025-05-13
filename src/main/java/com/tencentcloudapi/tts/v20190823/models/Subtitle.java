@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tts.v20190823.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Subtitle extends AbstractModel{
+public class Subtitle extends AbstractModel {
 
     /**
     * ⽂本信息。
@@ -44,21 +45,21 @@ public class Subtitle extends AbstractModel{
     private Long EndTime;
 
     /**
-    * 该字在整句中的开始位置，从0开始。
+    * 该文本在时间戳数组中的开始位置，从0开始。
     */
     @SerializedName("BeginIndex")
     @Expose
     private Long BeginIndex;
 
     /**
-    * 该字在整句中的结束位置，从0开始。
+    * 该文本在时间戳数组中的结束位置，从0开始。
     */
     @SerializedName("EndIndex")
     @Expose
     private Long EndIndex;
 
     /**
-    * 该字的音素
+    * 该字的音素。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Phoneme")
@@ -114,41 +115,41 @@ public class Subtitle extends AbstractModel{
     }
 
     /**
-     * Get 该字在整句中的开始位置，从0开始。 
-     * @return BeginIndex 该字在整句中的开始位置，从0开始。
+     * Get 该文本在时间戳数组中的开始位置，从0开始。 
+     * @return BeginIndex 该文本在时间戳数组中的开始位置，从0开始。
      */
     public Long getBeginIndex() {
         return this.BeginIndex;
     }
 
     /**
-     * Set 该字在整句中的开始位置，从0开始。
-     * @param BeginIndex 该字在整句中的开始位置，从0开始。
+     * Set 该文本在时间戳数组中的开始位置，从0开始。
+     * @param BeginIndex 该文本在时间戳数组中的开始位置，从0开始。
      */
     public void setBeginIndex(Long BeginIndex) {
         this.BeginIndex = BeginIndex;
     }
 
     /**
-     * Get 该字在整句中的结束位置，从0开始。 
-     * @return EndIndex 该字在整句中的结束位置，从0开始。
+     * Get 该文本在时间戳数组中的结束位置，从0开始。 
+     * @return EndIndex 该文本在时间戳数组中的结束位置，从0开始。
      */
     public Long getEndIndex() {
         return this.EndIndex;
     }
 
     /**
-     * Set 该字在整句中的结束位置，从0开始。
-     * @param EndIndex 该字在整句中的结束位置，从0开始。
+     * Set 该文本在时间戳数组中的结束位置，从0开始。
+     * @param EndIndex 该文本在时间戳数组中的结束位置，从0开始。
      */
     public void setEndIndex(Long EndIndex) {
         this.EndIndex = EndIndex;
     }
 
     /**
-     * Get 该字的音素
+     * Get 该字的音素。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Phoneme 该字的音素
+     * @return Phoneme 该字的音素。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPhoneme() {
@@ -156,9 +157,9 @@ public class Subtitle extends AbstractModel{
     }
 
     /**
-     * Set 该字的音素
+     * Set 该字的音素。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Phoneme 该字的音素
+     * @param Phoneme 该字的音素。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPhoneme(String Phoneme) {

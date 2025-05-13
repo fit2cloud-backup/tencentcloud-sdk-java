@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dnspod.v20210323.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyRecordRequest extends AbstractModel{
+public class ModifyRecordRequest extends AbstractModel {
 
     /**
     * 域名
@@ -93,7 +94,7 @@ public class ModifyRecordRequest extends AbstractModel{
     private Long TTL;
 
     /**
-    * 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
+    * 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
     */
     @SerializedName("Weight")
     @Expose
@@ -105,6 +106,20 @@ public class ModifyRecordRequest extends AbstractModel{
     @SerializedName("Status")
     @Expose
     private String Status;
+
+    /**
+    * 记录的备注信息。传空删除备注。
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
+
+    /**
+    * 开启DNSSEC时，强制将其它记录修改为CNAME/URL记录
+    */
+    @SerializedName("DnssecConflictMode")
+    @Expose
+    private String DnssecConflictMode;
 
     /**
      * Get 域名 
@@ -267,16 +282,16 @@ public class ModifyRecordRequest extends AbstractModel{
     }
 
     /**
-     * Get 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。 
-     * @return Weight 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
+     * Get 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。 
+     * @return Weight 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
      */
     public Long getWeight() {
         return this.Weight;
     }
 
     /**
-     * Set 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
-     * @param Weight 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
+     * Set 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
+     * @param Weight 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
      */
     public void setWeight(Long Weight) {
         this.Weight = Weight;
@@ -296,6 +311,38 @@ public class ModifyRecordRequest extends AbstractModel{
      */
     public void setStatus(String Status) {
         this.Status = Status;
+    }
+
+    /**
+     * Get 记录的备注信息。传空删除备注。 
+     * @return Remark 记录的备注信息。传空删除备注。
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 记录的备注信息。传空删除备注。
+     * @param Remark 记录的备注信息。传空删除备注。
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    /**
+     * Get 开启DNSSEC时，强制将其它记录修改为CNAME/URL记录 
+     * @return DnssecConflictMode 开启DNSSEC时，强制将其它记录修改为CNAME/URL记录
+     */
+    public String getDnssecConflictMode() {
+        return this.DnssecConflictMode;
+    }
+
+    /**
+     * Set 开启DNSSEC时，强制将其它记录修改为CNAME/URL记录
+     * @param DnssecConflictMode 开启DNSSEC时，强制将其它记录修改为CNAME/URL记录
+     */
+    public void setDnssecConflictMode(String DnssecConflictMode) {
+        this.DnssecConflictMode = DnssecConflictMode;
     }
 
     public ModifyRecordRequest() {
@@ -342,6 +389,12 @@ public class ModifyRecordRequest extends AbstractModel{
         if (source.Status != null) {
             this.Status = new String(source.Status);
         }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
+        if (source.DnssecConflictMode != null) {
+            this.DnssecConflictMode = new String(source.DnssecConflictMode);
+        }
     }
 
 
@@ -361,6 +414,8 @@ public class ModifyRecordRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TTL", this.TTL);
         this.setParamSimple(map, prefix + "Weight", this.Weight);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamSimple(map, prefix + "DnssecConflictMode", this.DnssecConflictMode);
 
     }
 }

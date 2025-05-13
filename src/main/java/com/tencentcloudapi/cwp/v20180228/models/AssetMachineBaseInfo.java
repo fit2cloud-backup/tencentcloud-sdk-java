@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssetMachineBaseInfo extends AbstractModel{
+public class AssetMachineBaseInfo extends AbstractModel {
 
     /**
     * 服务器Quuid
@@ -129,7 +130,6 @@ public class AssetMachineBaseInfo extends AbstractModel{
 
     /**
     * 标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
     @Expose
@@ -137,7 +137,6 @@ public class AssetMachineBaseInfo extends AbstractModel{
 
     /**
     * 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -159,11 +158,17 @@ public class AssetMachineBaseInfo extends AbstractModel{
 
     /**
     * 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
     private MachineExtraInfo MachineExtraInfo;
+
+    /**
+    * cpu负载读数（仅linux系统有效）
+    */
+    @SerializedName("CpuLoadNum")
+    @Expose
+    private String CpuLoadNum;
 
     /**
      * Get 服务器Quuid 
@@ -406,10 +411,8 @@ public class AssetMachineBaseInfo extends AbstractModel{
     }
 
     /**
-     * Get 标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签 
      * @return Tag 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineTag [] getTag() {
         return this.Tag;
@@ -417,19 +420,15 @@ public class AssetMachineBaseInfo extends AbstractModel{
 
     /**
      * Set 标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tag 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(MachineTag [] Tag) {
         this.Tag = Tag;
     }
 
     /**
-     * Get 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据更新时间 
      * @return UpdateTime 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -437,9 +436,7 @@ public class AssetMachineBaseInfo extends AbstractModel{
 
     /**
      * Set 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
@@ -478,10 +475,8 @@ public class AssetMachineBaseInfo extends AbstractModel{
     }
 
     /**
-     * Get 附加信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 附加信息 
      * @return MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -489,12 +484,26 @@ public class AssetMachineBaseInfo extends AbstractModel{
 
     /**
      * Set 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
+    }
+
+    /**
+     * Get cpu负载读数（仅linux系统有效） 
+     * @return CpuLoadNum cpu负载读数（仅linux系统有效）
+     */
+    public String getCpuLoadNum() {
+        return this.CpuLoadNum;
+    }
+
+    /**
+     * Set cpu负载读数（仅linux系统有效）
+     * @param CpuLoadNum cpu负载读数（仅linux系统有效）
+     */
+    public void setCpuLoadNum(String CpuLoadNum) {
+        this.CpuLoadNum = CpuLoadNum;
     }
 
     public AssetMachineBaseInfo() {
@@ -568,6 +577,9 @@ public class AssetMachineBaseInfo extends AbstractModel{
         if (source.MachineExtraInfo != null) {
             this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
         }
+        if (source.CpuLoadNum != null) {
+            this.CpuLoadNum = new String(source.CpuLoadNum);
+        }
     }
 
 
@@ -595,6 +607,7 @@ public class AssetMachineBaseInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "IsNew", this.IsNew);
         this.setParamSimple(map, prefix + "FirstTime", this.FirstTime);
         this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
+        this.setParamSimple(map, prefix + "CpuLoadNum", this.CpuLoadNum);
 
     }
 }

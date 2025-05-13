@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BaselineRuleTopInfo extends AbstractModel{
+public class BaselineRuleTopInfo extends AbstractModel {
 
     /**
     * 基线检测项名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleName")
     @Expose
@@ -32,7 +32,6 @@ public class BaselineRuleTopInfo extends AbstractModel{
 
     /**
     * 检测项危害等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Level")
     @Expose
@@ -40,7 +39,6 @@ public class BaselineRuleTopInfo extends AbstractModel{
 
     /**
     * 事件总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventCount")
     @Expose
@@ -48,17 +46,14 @@ public class BaselineRuleTopInfo extends AbstractModel{
 
     /**
     * 检测项id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleId")
     @Expose
     private Long RuleId;
 
     /**
-     * Get 基线检测项名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 基线检测项名 
      * @return RuleName 基线检测项名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuleName() {
         return this.RuleName;
@@ -66,19 +61,15 @@ public class BaselineRuleTopInfo extends AbstractModel{
 
     /**
      * Set 基线检测项名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleName 基线检测项名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleName(String RuleName) {
         this.RuleName = RuleName;
     }
 
     /**
-     * Get 检测项危害等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测项危害等级 
      * @return Level 检测项危害等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLevel() {
         return this.Level;
@@ -86,19 +77,15 @@ public class BaselineRuleTopInfo extends AbstractModel{
 
     /**
      * Set 检测项危害等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Level 检测项危害等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLevel(Long Level) {
         this.Level = Level;
     }
 
     /**
-     * Get 事件总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件总数 
      * @return EventCount 事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEventCount() {
         return this.EventCount;
@@ -106,19 +93,15 @@ public class BaselineRuleTopInfo extends AbstractModel{
 
     /**
      * Set 事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventCount 事件总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventCount(Long EventCount) {
         this.EventCount = EventCount;
     }
 
     /**
-     * Get 检测项id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测项id 
      * @return RuleId 检测项id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRuleId() {
         return this.RuleId;
@@ -126,9 +109,7 @@ public class BaselineRuleTopInfo extends AbstractModel{
 
     /**
      * Set 检测项id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleId 检测项id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleId(Long RuleId) {
         this.RuleId = RuleId;

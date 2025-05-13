@@ -16,39 +16,36 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostCdnInstanceListResponse extends AbstractModel{
+public class DescribeHostCdnInstanceListResponse extends AbstractModel {
 
     /**
-    * CDN实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+    * CDN实例列表，如取不到值返回空数组
     */
     @SerializedName("InstanceList")
     @Expose
     private CdnInstanceDetail [] InstanceList;
 
     /**
-    * CDN域名总数
-注意：此字段可能返回 null，表示取不到有效值。
+    * CDN域名总数，如取不到值返回0
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 异步刷新总数	
-注意：此字段可能返回 null，表示取不到有效值。
+    * 异步刷新总数，如取不到值返回0
     */
     @SerializedName("AsyncTotalNum")
     @Expose
     private Long AsyncTotalNum;
 
     /**
-    * 异步刷新当前执行数	
-注意：此字段可能返回 null，表示取不到有效值。
+    * 异步刷新当前执行数，如取不到值返回0
     */
     @SerializedName("AsyncOffset")
     @Expose
@@ -56,104 +53,85 @@ public class DescribeHostCdnInstanceListResponse extends AbstractModel{
 
     /**
     * 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AsyncCacheTime")
     @Expose
     private String AsyncCacheTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get CDN实例列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceList CDN实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get CDN实例列表，如取不到值返回空数组 
+     * @return InstanceList CDN实例列表，如取不到值返回空数组
      */
     public CdnInstanceDetail [] getInstanceList() {
         return this.InstanceList;
     }
 
     /**
-     * Set CDN实例列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceList CDN实例列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set CDN实例列表，如取不到值返回空数组
+     * @param InstanceList CDN实例列表，如取不到值返回空数组
      */
     public void setInstanceList(CdnInstanceDetail [] InstanceList) {
         this.InstanceList = InstanceList;
     }
 
     /**
-     * Get CDN域名总数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TotalCount CDN域名总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get CDN域名总数，如取不到值返回0 
+     * @return TotalCount CDN域名总数，如取不到值返回0
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set CDN域名总数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TotalCount CDN域名总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set CDN域名总数，如取不到值返回0
+     * @param TotalCount CDN域名总数，如取不到值返回0
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 异步刷新总数	
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AsyncTotalNum 异步刷新总数	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 异步刷新总数，如取不到值返回0 
+     * @return AsyncTotalNum 异步刷新总数，如取不到值返回0
      */
     public Long getAsyncTotalNum() {
         return this.AsyncTotalNum;
     }
 
     /**
-     * Set 异步刷新总数	
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AsyncTotalNum 异步刷新总数	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 异步刷新总数，如取不到值返回0
+     * @param AsyncTotalNum 异步刷新总数，如取不到值返回0
      */
     public void setAsyncTotalNum(Long AsyncTotalNum) {
         this.AsyncTotalNum = AsyncTotalNum;
     }
 
     /**
-     * Get 异步刷新当前执行数	
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AsyncOffset 异步刷新当前执行数	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 异步刷新当前执行数，如取不到值返回0 
+     * @return AsyncOffset 异步刷新当前执行数，如取不到值返回0
      */
     public Long getAsyncOffset() {
         return this.AsyncOffset;
     }
 
     /**
-     * Set 异步刷新当前执行数	
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AsyncOffset 异步刷新当前执行数	
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 异步刷新当前执行数，如取不到值返回0
+     * @param AsyncOffset 异步刷新当前执行数，如取不到值返回0
      */
     public void setAsyncOffset(Long AsyncOffset) {
         this.AsyncOffset = AsyncOffset;
     }
 
     /**
-     * Get 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前缓存读取时间 
      * @return AsyncCacheTime 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAsyncCacheTime() {
         return this.AsyncCacheTime;
@@ -161,25 +139,23 @@ public class DescribeHostCdnInstanceListResponse extends AbstractModel{
 
     /**
      * Set 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AsyncCacheTime 当前缓存读取时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAsyncCacheTime(String AsyncCacheTime) {
         this.AsyncCacheTime = AsyncCacheTime;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BaselineBasicInfo extends AbstractModel{
+public class BaselineBasicInfo extends AbstractModel {
 
     /**
     * 基线名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class BaselineBasicInfo extends AbstractModel{
 
     /**
     * 基线id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BaselineId")
     @Expose
@@ -40,17 +39,14 @@ public class BaselineBasicInfo extends AbstractModel{
 
     /**
     * 父级id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParentId")
     @Expose
     private Long ParentId;
 
     /**
-     * Get 基线名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 基线名称 
      * @return Name 基线名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -58,19 +54,15 @@ public class BaselineBasicInfo extends AbstractModel{
 
     /**
      * Set 基线名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 基线名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 基线id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 基线id 
      * @return BaselineId 基线id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBaselineId() {
         return this.BaselineId;
@@ -78,19 +70,15 @@ public class BaselineBasicInfo extends AbstractModel{
 
     /**
      * Set 基线id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BaselineId 基线id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBaselineId(Long BaselineId) {
         this.BaselineId = BaselineId;
     }
 
     /**
-     * Get 父级id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 父级id 
      * @return ParentId 父级id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getParentId() {
         return this.ParentId;
@@ -98,9 +86,7 @@ public class BaselineBasicInfo extends AbstractModel{
 
     /**
      * Set 父级id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParentId 父级id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParentId(Long ParentId) {
         this.ParentId = ParentId;

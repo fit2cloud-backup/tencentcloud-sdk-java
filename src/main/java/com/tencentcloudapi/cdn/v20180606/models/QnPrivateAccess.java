@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QnPrivateAccess extends AbstractModel{
+public class QnPrivateAccess extends AbstractModel {
 
     /**
     * 七牛元对象存储回源鉴权配置开关，取值有：
@@ -40,7 +41,7 @@ off：关闭
     private String AccessKey;
 
     /**
-    * 密钥
+    * 密钥，字段为脱敏返回。
     */
     @SerializedName("SecretKey")
     @Expose
@@ -91,16 +92,16 @@ off：关闭
     }
 
     /**
-     * Get 密钥 
-     * @return SecretKey 密钥
+     * Get 密钥，字段为脱敏返回。 
+     * @return SecretKey 密钥，字段为脱敏返回。
      */
     public String getSecretKey() {
         return this.SecretKey;
     }
 
     /**
-     * Set 密钥
-     * @param SecretKey 密钥
+     * Set 密钥，字段为脱敏返回。
+     * @param SecretKey 密钥，字段为脱敏返回。
      */
     public void setSecretKey(String SecretKey) {
         this.SecretKey = SecretKey;

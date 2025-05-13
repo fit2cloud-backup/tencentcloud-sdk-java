@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccessKey extends AbstractModel{
+public class AccessKey extends AbstractModel {
 
     /**
     * 访问密钥标识
@@ -42,6 +43,14 @@ public class AccessKey extends AbstractModel{
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
+
+    /**
+    * 密钥描述
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
 
     /**
      * Get 访问密钥标识 
@@ -91,6 +100,26 @@ public class AccessKey extends AbstractModel{
         this.CreateTime = CreateTime;
     }
 
+    /**
+     * Get 密钥描述
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Description 密钥描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 密钥描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Description 密钥描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
     public AccessKey() {
     }
 
@@ -108,6 +137,9 @@ public class AccessKey extends AbstractModel{
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
     }
 
 
@@ -118,6 +150,7 @@ public class AccessKey extends AbstractModel{
         this.setParamSimple(map, prefix + "AccessKeyId", this.AccessKeyId);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamSimple(map, prefix + "Description", this.Description);
 
     }
 }

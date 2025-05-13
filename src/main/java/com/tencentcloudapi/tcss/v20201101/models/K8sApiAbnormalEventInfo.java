@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class K8sApiAbnormalEventInfo extends AbstractModel{
+public class K8sApiAbnormalEventInfo extends AbstractModel {
 
     /**
     * 命中规则名称
@@ -58,7 +59,7 @@ public class K8sApiAbnormalEventInfo extends AbstractModel{
     private String ClusterName;
 
     /**
-    * 集群运行状态
+    * 集群运行状态，CSR_RUNNING-运行中，CSR_EXCEPTION-异常，CSR_CREATING-创建中
     */
     @SerializedName("ClusterRunningStatus")
     @Expose
@@ -241,16 +242,16 @@ public class K8sApiAbnormalEventInfo extends AbstractModel{
     }
 
     /**
-     * Get 集群运行状态 
-     * @return ClusterRunningStatus 集群运行状态
+     * Get 集群运行状态，CSR_RUNNING-运行中，CSR_EXCEPTION-异常，CSR_CREATING-创建中 
+     * @return ClusterRunningStatus 集群运行状态，CSR_RUNNING-运行中，CSR_EXCEPTION-异常，CSR_CREATING-创建中
      */
     public String getClusterRunningStatus() {
         return this.ClusterRunningStatus;
     }
 
     /**
-     * Set 集群运行状态
-     * @param ClusterRunningStatus 集群运行状态
+     * Set 集群运行状态，CSR_RUNNING-运行中，CSR_EXCEPTION-异常，CSR_CREATING-创建中
+     * @param ClusterRunningStatus 集群运行状态，CSR_RUNNING-运行中，CSR_EXCEPTION-异常，CSR_CREATING-创建中
      */
     public void setClusterRunningStatus(String ClusterRunningStatus) {
         this.ClusterRunningStatus = ClusterRunningStatus;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfg.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Task extends AbstractModel{
+public class Task extends AbstractModel {
 
     /**
     * 任务ID
@@ -45,7 +46,6 @@ public class Task extends AbstractModel{
 
     /**
     * 自定义标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskTag")
     @Expose
@@ -53,7 +53,6 @@ public class Task extends AbstractModel{
 
     /**
     * 任务状态，1001--未开始  1002--进行中（执行）1003--进行中（暂停）1004--执行结束
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskStatus")
     @Expose
@@ -157,7 +156,6 @@ public class Task extends AbstractModel{
 
     /**
     * 监控指标列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskMonitors")
     @Expose
@@ -173,7 +171,6 @@ public class Task extends AbstractModel{
 
     /**
     * 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -194,6 +191,96 @@ public class Task extends AbstractModel{
     @SerializedName("TaskPlanTitle")
     @Expose
     private String TaskPlanTitle;
+
+    /**
+    * 关联的应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ApplicationId")
+    @Expose
+    private String ApplicationId;
+
+    /**
+    * 关联的应用名称
+    */
+    @SerializedName("ApplicationName")
+    @Expose
+    private String ApplicationName;
+
+    /**
+    * 关联的告警指标
+    */
+    @SerializedName("AlarmPolicy")
+    @Expose
+    private String [] AlarmPolicy;
+
+    /**
+    * 关联的APM服务
+    */
+    @SerializedName("ApmServiceList")
+    @Expose
+    private ApmServiceInfo [] ApmServiceList;
+
+    /**
+    * 关联的隐患验证项ID
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VerifyId")
+    @Expose
+    private Long VerifyId;
+
+    /**
+    * 护栏处理方式，1--顺序回滚，2--演练暂停
+    */
+    @SerializedName("PolicyDealType")
+    @Expose
+    private Long PolicyDealType;
+
+    /**
+    * 计划开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskPlanStartTime")
+    @Expose
+    private String TaskPlanStartTime;
+
+    /**
+    * 计划结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskPlanEndTime")
+    @Expose
+    private String TaskPlanEndTime;
+
+    /**
+    * 人员组织
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskOrg")
+    @Expose
+    private TaskOrg [] TaskOrg;
+
+    /**
+    * 问题和改进
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskIssue")
+    @Expose
+    private String TaskIssue;
+
+    /**
+    * region信息
+    */
+    @SerializedName("TaskRegionName")
+    @Expose
+    private String TaskRegionName;
+
+    /**
+    * 架构ID
+    */
+    @SerializedName("TaskArchId")
+    @Expose
+    private String TaskArchId;
 
     /**
      * Get 任务ID 
@@ -244,10 +331,8 @@ public class Task extends AbstractModel{
     }
 
     /**
-     * Get 自定义标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自定义标签 
      * @return TaskTag 自定义标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskTag() {
         return this.TaskTag;
@@ -255,19 +340,15 @@ public class Task extends AbstractModel{
 
     /**
      * Set 自定义标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskTag 自定义标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskTag(String TaskTag) {
         this.TaskTag = TaskTag;
     }
 
     /**
-     * Get 任务状态，1001--未开始  1002--进行中（执行）1003--进行中（暂停）1004--执行结束
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务状态，1001--未开始  1002--进行中（执行）1003--进行中（暂停）1004--执行结束 
      * @return TaskStatus 任务状态，1001--未开始  1002--进行中（执行）1003--进行中（暂停）1004--执行结束
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskStatus() {
         return this.TaskStatus;
@@ -275,9 +356,7 @@ public class Task extends AbstractModel{
 
     /**
      * Set 任务状态，1001--未开始  1002--进行中（执行）1003--进行中（暂停）1004--执行结束
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskStatus 任务状态，1001--未开始  1002--进行中（执行）1003--进行中（暂停）1004--执行结束
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskStatus(Long TaskStatus) {
         this.TaskStatus = TaskStatus;
@@ -512,10 +591,8 @@ public class Task extends AbstractModel{
     }
 
     /**
-     * Get 监控指标列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监控指标列表 
      * @return TaskMonitors 监控指标列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TaskMonitor [] getTaskMonitors() {
         return this.TaskMonitors;
@@ -523,9 +600,7 @@ public class Task extends AbstractModel{
 
     /**
      * Set 监控指标列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskMonitors 监控指标列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskMonitors(TaskMonitor [] TaskMonitors) {
         this.TaskMonitors = TaskMonitors;
@@ -552,10 +627,8 @@ public class Task extends AbstractModel{
     }
 
     /**
-     * Get 标签列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签列表 
      * @return Tags 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagWithDescribe [] getTags() {
         return this.Tags;
@@ -563,9 +636,7 @@ public class Task extends AbstractModel{
 
     /**
      * Set 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(TagWithDescribe [] Tags) {
         this.Tags = Tags;
@@ -609,6 +680,222 @@ public class Task extends AbstractModel{
      */
     public void setTaskPlanTitle(String TaskPlanTitle) {
         this.TaskPlanTitle = TaskPlanTitle;
+    }
+
+    /**
+     * Get 关联的应用ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ApplicationId 关联的应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getApplicationId() {
+        return this.ApplicationId;
+    }
+
+    /**
+     * Set 关联的应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ApplicationId 关联的应用ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setApplicationId(String ApplicationId) {
+        this.ApplicationId = ApplicationId;
+    }
+
+    /**
+     * Get 关联的应用名称 
+     * @return ApplicationName 关联的应用名称
+     */
+    public String getApplicationName() {
+        return this.ApplicationName;
+    }
+
+    /**
+     * Set 关联的应用名称
+     * @param ApplicationName 关联的应用名称
+     */
+    public void setApplicationName(String ApplicationName) {
+        this.ApplicationName = ApplicationName;
+    }
+
+    /**
+     * Get 关联的告警指标 
+     * @return AlarmPolicy 关联的告警指标
+     */
+    public String [] getAlarmPolicy() {
+        return this.AlarmPolicy;
+    }
+
+    /**
+     * Set 关联的告警指标
+     * @param AlarmPolicy 关联的告警指标
+     */
+    public void setAlarmPolicy(String [] AlarmPolicy) {
+        this.AlarmPolicy = AlarmPolicy;
+    }
+
+    /**
+     * Get 关联的APM服务 
+     * @return ApmServiceList 关联的APM服务
+     */
+    public ApmServiceInfo [] getApmServiceList() {
+        return this.ApmServiceList;
+    }
+
+    /**
+     * Set 关联的APM服务
+     * @param ApmServiceList 关联的APM服务
+     */
+    public void setApmServiceList(ApmServiceInfo [] ApmServiceList) {
+        this.ApmServiceList = ApmServiceList;
+    }
+
+    /**
+     * Get 关联的隐患验证项ID
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VerifyId 关联的隐患验证项ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getVerifyId() {
+        return this.VerifyId;
+    }
+
+    /**
+     * Set 关联的隐患验证项ID
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VerifyId 关联的隐患验证项ID
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVerifyId(Long VerifyId) {
+        this.VerifyId = VerifyId;
+    }
+
+    /**
+     * Get 护栏处理方式，1--顺序回滚，2--演练暂停 
+     * @return PolicyDealType 护栏处理方式，1--顺序回滚，2--演练暂停
+     */
+    public Long getPolicyDealType() {
+        return this.PolicyDealType;
+    }
+
+    /**
+     * Set 护栏处理方式，1--顺序回滚，2--演练暂停
+     * @param PolicyDealType 护栏处理方式，1--顺序回滚，2--演练暂停
+     */
+    public void setPolicyDealType(Long PolicyDealType) {
+        this.PolicyDealType = PolicyDealType;
+    }
+
+    /**
+     * Get 计划开始时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskPlanStartTime 计划开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTaskPlanStartTime() {
+        return this.TaskPlanStartTime;
+    }
+
+    /**
+     * Set 计划开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskPlanStartTime 计划开始时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskPlanStartTime(String TaskPlanStartTime) {
+        this.TaskPlanStartTime = TaskPlanStartTime;
+    }
+
+    /**
+     * Get 计划结束时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskPlanEndTime 计划结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTaskPlanEndTime() {
+        return this.TaskPlanEndTime;
+    }
+
+    /**
+     * Set 计划结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskPlanEndTime 计划结束时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskPlanEndTime(String TaskPlanEndTime) {
+        this.TaskPlanEndTime = TaskPlanEndTime;
+    }
+
+    /**
+     * Get 人员组织
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskOrg 人员组织
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TaskOrg [] getTaskOrg() {
+        return this.TaskOrg;
+    }
+
+    /**
+     * Set 人员组织
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskOrg 人员组织
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskOrg(TaskOrg [] TaskOrg) {
+        this.TaskOrg = TaskOrg;
+    }
+
+    /**
+     * Get 问题和改进
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskIssue 问题和改进
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTaskIssue() {
+        return this.TaskIssue;
+    }
+
+    /**
+     * Set 问题和改进
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskIssue 问题和改进
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskIssue(String TaskIssue) {
+        this.TaskIssue = TaskIssue;
+    }
+
+    /**
+     * Get region信息 
+     * @return TaskRegionName region信息
+     */
+    public String getTaskRegionName() {
+        return this.TaskRegionName;
+    }
+
+    /**
+     * Set region信息
+     * @param TaskRegionName region信息
+     */
+    public void setTaskRegionName(String TaskRegionName) {
+        this.TaskRegionName = TaskRegionName;
+    }
+
+    /**
+     * Get 架构ID 
+     * @return TaskArchId 架构ID
+     */
+    public String getTaskArchId() {
+        return this.TaskArchId;
+    }
+
+    /**
+     * Set 架构ID
+     * @param TaskArchId 架构ID
+     */
+    public void setTaskArchId(String TaskArchId) {
+        this.TaskArchId = TaskArchId;
     }
 
     public Task() {
@@ -697,6 +984,51 @@ public class Task extends AbstractModel{
         if (source.TaskPlanTitle != null) {
             this.TaskPlanTitle = new String(source.TaskPlanTitle);
         }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String(source.ApplicationId);
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String(source.ApplicationName);
+        }
+        if (source.AlarmPolicy != null) {
+            this.AlarmPolicy = new String[source.AlarmPolicy.length];
+            for (int i = 0; i < source.AlarmPolicy.length; i++) {
+                this.AlarmPolicy[i] = new String(source.AlarmPolicy[i]);
+            }
+        }
+        if (source.ApmServiceList != null) {
+            this.ApmServiceList = new ApmServiceInfo[source.ApmServiceList.length];
+            for (int i = 0; i < source.ApmServiceList.length; i++) {
+                this.ApmServiceList[i] = new ApmServiceInfo(source.ApmServiceList[i]);
+            }
+        }
+        if (source.VerifyId != null) {
+            this.VerifyId = new Long(source.VerifyId);
+        }
+        if (source.PolicyDealType != null) {
+            this.PolicyDealType = new Long(source.PolicyDealType);
+        }
+        if (source.TaskPlanStartTime != null) {
+            this.TaskPlanStartTime = new String(source.TaskPlanStartTime);
+        }
+        if (source.TaskPlanEndTime != null) {
+            this.TaskPlanEndTime = new String(source.TaskPlanEndTime);
+        }
+        if (source.TaskOrg != null) {
+            this.TaskOrg = new TaskOrg[source.TaskOrg.length];
+            for (int i = 0; i < source.TaskOrg.length; i++) {
+                this.TaskOrg[i] = new TaskOrg(source.TaskOrg[i]);
+            }
+        }
+        if (source.TaskIssue != null) {
+            this.TaskIssue = new String(source.TaskIssue);
+        }
+        if (source.TaskRegionName != null) {
+            this.TaskRegionName = new String(source.TaskRegionName);
+        }
+        if (source.TaskArchId != null) {
+            this.TaskArchId = new String(source.TaskArchId);
+        }
     }
 
 
@@ -727,6 +1059,18 @@ public class Task extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "TaskPlanId", this.TaskPlanId);
         this.setParamSimple(map, prefix + "TaskPlanTitle", this.TaskPlanTitle);
+        this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
+        this.setParamSimple(map, prefix + "ApplicationName", this.ApplicationName);
+        this.setParamArraySimple(map, prefix + "AlarmPolicy.", this.AlarmPolicy);
+        this.setParamArrayObj(map, prefix + "ApmServiceList.", this.ApmServiceList);
+        this.setParamSimple(map, prefix + "VerifyId", this.VerifyId);
+        this.setParamSimple(map, prefix + "PolicyDealType", this.PolicyDealType);
+        this.setParamSimple(map, prefix + "TaskPlanStartTime", this.TaskPlanStartTime);
+        this.setParamSimple(map, prefix + "TaskPlanEndTime", this.TaskPlanEndTime);
+        this.setParamArrayObj(map, prefix + "TaskOrg.", this.TaskOrg);
+        this.setParamSimple(map, prefix + "TaskIssue", this.TaskIssue);
+        this.setParamSimple(map, prefix + "TaskRegionName", this.TaskRegionName);
+        this.setParamSimple(map, prefix + "TaskArchId", this.TaskArchId);
 
     }
 }

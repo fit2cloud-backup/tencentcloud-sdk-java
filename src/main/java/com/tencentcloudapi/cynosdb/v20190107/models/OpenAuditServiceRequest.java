@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OpenAuditServiceRequest extends AbstractModel{
+public class OpenAuditServiceRequest extends AbstractModel {
 
     /**
     * 实例ID。
@@ -51,11 +52,18 @@ public class OpenAuditServiceRequest extends AbstractModel{
     private AuditRuleFilters [] AuditRuleFilters;
 
     /**
-    * 规则模版ID。同AuditRuleFilters都不填是全审计。
+    * 规则模板ID。同AuditRuleFilters都不填是全审计。
     */
     @SerializedName("RuleTemplateIds")
     @Expose
     private String [] RuleTemplateIds;
+
+    /**
+    * 审计类型。true-全审计；默认false-规则审计。
+    */
+    @SerializedName("AuditAll")
+    @Expose
+    private Boolean AuditAll;
 
     /**
      * Get 实例ID。 
@@ -122,19 +130,35 @@ public class OpenAuditServiceRequest extends AbstractModel{
     }
 
     /**
-     * Get 规则模版ID。同AuditRuleFilters都不填是全审计。 
-     * @return RuleTemplateIds 规则模版ID。同AuditRuleFilters都不填是全审计。
+     * Get 规则模板ID。同AuditRuleFilters都不填是全审计。 
+     * @return RuleTemplateIds 规则模板ID。同AuditRuleFilters都不填是全审计。
      */
     public String [] getRuleTemplateIds() {
         return this.RuleTemplateIds;
     }
 
     /**
-     * Set 规则模版ID。同AuditRuleFilters都不填是全审计。
-     * @param RuleTemplateIds 规则模版ID。同AuditRuleFilters都不填是全审计。
+     * Set 规则模板ID。同AuditRuleFilters都不填是全审计。
+     * @param RuleTemplateIds 规则模板ID。同AuditRuleFilters都不填是全审计。
      */
     public void setRuleTemplateIds(String [] RuleTemplateIds) {
         this.RuleTemplateIds = RuleTemplateIds;
+    }
+
+    /**
+     * Get 审计类型。true-全审计；默认false-规则审计。 
+     * @return AuditAll 审计类型。true-全审计；默认false-规则审计。
+     */
+    public Boolean getAuditAll() {
+        return this.AuditAll;
+    }
+
+    /**
+     * Set 审计类型。true-全审计；默认false-规则审计。
+     * @param AuditAll 审计类型。true-全审计；默认false-规则审计。
+     */
+    public void setAuditAll(Boolean AuditAll) {
+        this.AuditAll = AuditAll;
     }
 
     public OpenAuditServiceRequest() {
@@ -166,6 +190,9 @@ public class OpenAuditServiceRequest extends AbstractModel{
                 this.RuleTemplateIds[i] = new String(source.RuleTemplateIds[i]);
             }
         }
+        if (source.AuditAll != null) {
+            this.AuditAll = new Boolean(source.AuditAll);
+        }
     }
 
 
@@ -178,6 +205,7 @@ public class OpenAuditServiceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "HighLogExpireDay", this.HighLogExpireDay);
         this.setParamArrayObj(map, prefix + "AuditRuleFilters.", this.AuditRuleFilters);
         this.setParamArraySimple(map, prefix + "RuleTemplateIds.", this.RuleTemplateIds);
+        this.setParamSimple(map, prefix + "AuditAll", this.AuditAll);
 
     }
 }

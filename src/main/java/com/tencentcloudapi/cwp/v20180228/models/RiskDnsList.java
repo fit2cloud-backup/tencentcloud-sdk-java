@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RiskDnsList extends AbstractModel{
+public class RiskDnsList extends AbstractModel {
 
     /**
     * 对外访问域名
@@ -164,7 +165,6 @@ public class RiskDnsList extends AbstractModel{
 
     /**
     * 外网ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineWanIp")
     @Expose
@@ -172,7 +172,6 @@ public class RiskDnsList extends AbstractModel{
 
     /**
     * 主机在线状态[OFFLINE:离线|ONLINE:在线|UNKNOWN:未知]
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineStatus")
     @Expose
@@ -499,10 +498,8 @@ public class RiskDnsList extends AbstractModel{
     }
 
     /**
-     * Get 外网ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外网ip 
      * @return MachineWanIp 外网ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMachineWanIp() {
         return this.MachineWanIp;
@@ -510,19 +507,15 @@ public class RiskDnsList extends AbstractModel{
 
     /**
      * Set 外网ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineWanIp 外网ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineWanIp(String MachineWanIp) {
         this.MachineWanIp = MachineWanIp;
     }
 
     /**
-     * Get 主机在线状态[OFFLINE:离线|ONLINE:在线|UNKNOWN:未知]
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机在线状态[OFFLINE:离线|ONLINE:在线|UNKNOWN:未知] 
      * @return MachineStatus 主机在线状态[OFFLINE:离线|ONLINE:在线|UNKNOWN:未知]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMachineStatus() {
         return this.MachineStatus;
@@ -530,9 +523,7 @@ public class RiskDnsList extends AbstractModel{
 
     /**
      * Set 主机在线状态[OFFLINE:离线|ONLINE:在线|UNKNOWN:未知]
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineStatus 主机在线状态[OFFLINE:离线|ONLINE:在线|UNKNOWN:未知]
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineStatus(String MachineStatus) {
         this.MachineStatus = MachineStatus;

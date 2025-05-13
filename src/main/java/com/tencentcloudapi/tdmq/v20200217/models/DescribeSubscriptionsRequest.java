@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSubscriptionsRequest extends AbstractModel{
+public class DescribeSubscriptionsRequest extends AbstractModel {
 
     /**
     * 环境（命名空间）名称。
@@ -35,6 +36,13 @@ public class DescribeSubscriptionsRequest extends AbstractModel{
     @SerializedName("TopicName")
     @Expose
     private String TopicName;
+
+    /**
+    * Pulsar 集群的ID
+    */
+    @SerializedName("ClusterId")
+    @Expose
+    private String ClusterId;
 
     /**
     * 起始下标，不填默认为0。
@@ -63,13 +71,6 @@ public class DescribeSubscriptionsRequest extends AbstractModel{
     @SerializedName("Filters")
     @Expose
     private FilterSubscription [] Filters;
-
-    /**
-    * Pulsar 集群的ID
-    */
-    @SerializedName("ClusterId")
-    @Expose
-    private String ClusterId;
 
     /**
      * Get 环境（命名空间）名称。 
@@ -101,6 +102,22 @@ public class DescribeSubscriptionsRequest extends AbstractModel{
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
+    }
+
+    /**
+     * Get Pulsar 集群的ID 
+     * @return ClusterId Pulsar 集群的ID
+     */
+    public String getClusterId() {
+        return this.ClusterId;
+    }
+
+    /**
+     * Set Pulsar 集群的ID
+     * @param ClusterId Pulsar 集群的ID
+     */
+    public void setClusterId(String ClusterId) {
+        this.ClusterId = ClusterId;
     }
 
     /**
@@ -167,22 +184,6 @@ public class DescribeSubscriptionsRequest extends AbstractModel{
         this.Filters = Filters;
     }
 
-    /**
-     * Get Pulsar 集群的ID 
-     * @return ClusterId Pulsar 集群的ID
-     */
-    public String getClusterId() {
-        return this.ClusterId;
-    }
-
-    /**
-     * Set Pulsar 集群的ID
-     * @param ClusterId Pulsar 集群的ID
-     */
-    public void setClusterId(String ClusterId) {
-        this.ClusterId = ClusterId;
-    }
-
     public DescribeSubscriptionsRequest() {
     }
 
@@ -196,6 +197,9 @@ public class DescribeSubscriptionsRequest extends AbstractModel{
         }
         if (source.TopicName != null) {
             this.TopicName = new String(source.TopicName);
+        }
+        if (source.ClusterId != null) {
+            this.ClusterId = new String(source.ClusterId);
         }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
@@ -212,9 +216,6 @@ public class DescribeSubscriptionsRequest extends AbstractModel{
                 this.Filters[i] = new FilterSubscription(source.Filters[i]);
             }
         }
-        if (source.ClusterId != null) {
-            this.ClusterId = new String(source.ClusterId);
-        }
     }
 
 
@@ -224,11 +225,11 @@ public class DescribeSubscriptionsRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
         this.setParamSimple(map, prefix + "TopicName", this.TopicName);
+        this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "SubscriptionName", this.SubscriptionName);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
-        this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetworkInterface extends AbstractModel{
+public class NetworkInterface extends AbstractModel {
 
     /**
     * 弹性网卡实例ID，例如：eni-f1xjkw1b。
@@ -91,6 +92,19 @@ public class NetworkInterface extends AbstractModel{
     private String State;
 
     /**
+    * 弹性网卡状态：
+<li>`PENDING`：创建中</li>
+<li>`AVAILABLE`：可用的</li>
+<li>`ATTACHING`：绑定中</li>
+<li>`DETACHING`：解绑中</li>
+<li>`DELETING`：删除中</li>
+<li>`INUSE`：已绑定</li>
+    */
+    @SerializedName("NetworkInterfaceState")
+    @Expose
+    private String NetworkInterfaceState;
+
+    /**
     * 内网IP信息。
     */
     @SerializedName("PrivateIpAddressSet")
@@ -113,7 +127,7 @@ public class NetworkInterface extends AbstractModel{
     private String Zone;
 
     /**
-    * 创建时间。
+    * 创建时间。格式：YYYY-MM-DD hh:mm:ss。示例值：2020-10-28 08:23:59
     */
     @SerializedName("CreatedTime")
     @Expose
@@ -134,15 +148,14 @@ public class NetworkInterface extends AbstractModel{
     private Tag [] TagSet;
 
     /**
-    * 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。
+    * 网卡类型。“0”-辅助网卡，“1”-主网卡，“2”：中继网卡
     */
     @SerializedName("EniType")
     @Expose
     private Long EniType;
 
     /**
-    * 网卡绑定的子机类型：cvm，eks。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 网卡绑定的子机类型：cvm（普通CVM子机），eks（弹性容器服务Elastic Kubernetes Service）， hai（高性能应用服务Hyper Application Inventor）。
     */
     @SerializedName("Business")
     @Expose
@@ -150,7 +163,6 @@ public class NetworkInterface extends AbstractModel{
 
     /**
     * 网卡所关联的CDC实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CdcId")
     @Expose
@@ -158,7 +170,6 @@ public class NetworkInterface extends AbstractModel{
 
     /**
     * 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AttachType")
     @Expose
@@ -166,7 +177,6 @@ public class NetworkInterface extends AbstractModel{
 
     /**
     * 用于保留网卡主IP的资源ID用于保留网卡主IP的资源ID。用于删除网卡时作为入参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceId")
     @Expose
@@ -174,11 +184,10 @@ public class NetworkInterface extends AbstractModel{
 
     /**
     * 服务质量级别：
-<li>`DEFAULT`：默认</li>
-<li>`PT`：云金</li>
-<li>`AU`：云银</li>
-<li>`AG`：云铜</li>
-注意：此字段可能返回 null，表示取不到有效值。
+PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
+可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
     */
     @SerializedName("QosLevel")
     @Expose
@@ -349,6 +358,46 @@ public class NetworkInterface extends AbstractModel{
     }
 
     /**
+     * Get 弹性网卡状态：
+<li>`PENDING`：创建中</li>
+<li>`AVAILABLE`：可用的</li>
+<li>`ATTACHING`：绑定中</li>
+<li>`DETACHING`：解绑中</li>
+<li>`DELETING`：删除中</li>
+<li>`INUSE`：已绑定</li> 
+     * @return NetworkInterfaceState 弹性网卡状态：
+<li>`PENDING`：创建中</li>
+<li>`AVAILABLE`：可用的</li>
+<li>`ATTACHING`：绑定中</li>
+<li>`DETACHING`：解绑中</li>
+<li>`DELETING`：删除中</li>
+<li>`INUSE`：已绑定</li>
+     */
+    public String getNetworkInterfaceState() {
+        return this.NetworkInterfaceState;
+    }
+
+    /**
+     * Set 弹性网卡状态：
+<li>`PENDING`：创建中</li>
+<li>`AVAILABLE`：可用的</li>
+<li>`ATTACHING`：绑定中</li>
+<li>`DETACHING`：解绑中</li>
+<li>`DELETING`：删除中</li>
+<li>`INUSE`：已绑定</li>
+     * @param NetworkInterfaceState 弹性网卡状态：
+<li>`PENDING`：创建中</li>
+<li>`AVAILABLE`：可用的</li>
+<li>`ATTACHING`：绑定中</li>
+<li>`DETACHING`：解绑中</li>
+<li>`DELETING`：删除中</li>
+<li>`INUSE`：已绑定</li>
+     */
+    public void setNetworkInterfaceState(String NetworkInterfaceState) {
+        this.NetworkInterfaceState = NetworkInterfaceState;
+    }
+
+    /**
      * Get 内网IP信息。 
      * @return PrivateIpAddressSet 内网IP信息。
      */
@@ -401,16 +450,16 @@ public class NetworkInterface extends AbstractModel{
     }
 
     /**
-     * Get 创建时间。 
-     * @return CreatedTime 创建时间。
+     * Get 创建时间。格式：YYYY-MM-DD hh:mm:ss。示例值：2020-10-28 08:23:59 
+     * @return CreatedTime 创建时间。格式：YYYY-MM-DD hh:mm:ss。示例值：2020-10-28 08:23:59
      */
     public String getCreatedTime() {
         return this.CreatedTime;
     }
 
     /**
-     * Set 创建时间。
-     * @param CreatedTime 创建时间。
+     * Set 创建时间。格式：YYYY-MM-DD hh:mm:ss。示例值：2020-10-28 08:23:59
+     * @param CreatedTime 创建时间。格式：YYYY-MM-DD hh:mm:ss。示例值：2020-10-28 08:23:59
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
@@ -449,46 +498,40 @@ public class NetworkInterface extends AbstractModel{
     }
 
     /**
-     * Get 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。 
-     * @return EniType 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。
+     * Get 网卡类型。“0”-辅助网卡，“1”-主网卡，“2”：中继网卡 
+     * @return EniType 网卡类型。“0”-辅助网卡，“1”-主网卡，“2”：中继网卡
      */
     public Long getEniType() {
         return this.EniType;
     }
 
     /**
-     * Set 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。
-     * @param EniType 网卡类型。0 - 弹性网卡；1 - evm弹性网卡。
+     * Set 网卡类型。“0”-辅助网卡，“1”-主网卡，“2”：中继网卡
+     * @param EniType 网卡类型。“0”-辅助网卡，“1”-主网卡，“2”：中继网卡
      */
     public void setEniType(Long EniType) {
         this.EniType = EniType;
     }
 
     /**
-     * Get 网卡绑定的子机类型：cvm，eks。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Business 网卡绑定的子机类型：cvm，eks。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 网卡绑定的子机类型：cvm（普通CVM子机），eks（弹性容器服务Elastic Kubernetes Service）， hai（高性能应用服务Hyper Application Inventor）。 
+     * @return Business 网卡绑定的子机类型：cvm（普通CVM子机），eks（弹性容器服务Elastic Kubernetes Service）， hai（高性能应用服务Hyper Application Inventor）。
      */
     public String getBusiness() {
         return this.Business;
     }
 
     /**
-     * Set 网卡绑定的子机类型：cvm，eks。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Business 网卡绑定的子机类型：cvm，eks。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 网卡绑定的子机类型：cvm（普通CVM子机），eks（弹性容器服务Elastic Kubernetes Service）， hai（高性能应用服务Hyper Application Inventor）。
+     * @param Business 网卡绑定的子机类型：cvm（普通CVM子机），eks（弹性容器服务Elastic Kubernetes Service）， hai（高性能应用服务Hyper Application Inventor）。
      */
     public void setBusiness(String Business) {
         this.Business = Business;
     }
 
     /**
-     * Get 网卡所关联的CDC实例ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网卡所关联的CDC实例ID。 
      * @return CdcId 网卡所关联的CDC实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCdcId() {
         return this.CdcId;
@@ -496,19 +539,15 @@ public class NetworkInterface extends AbstractModel{
 
     /**
      * Set 网卡所关联的CDC实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CdcId 网卡所关联的CDC实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCdcId(String CdcId) {
         this.CdcId = CdcId;
     }
 
     /**
-     * Get 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 弹性网卡类型：0:标准型/1:扩展型。默认值为0。 
      * @return AttachType 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAttachType() {
         return this.AttachType;
@@ -516,19 +555,15 @@ public class NetworkInterface extends AbstractModel{
 
     /**
      * Set 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AttachType 弹性网卡类型：0:标准型/1:扩展型。默认值为0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttachType(Long AttachType) {
         this.AttachType = AttachType;
     }
 
     /**
-     * Get 用于保留网卡主IP的资源ID用于保留网卡主IP的资源ID。用于删除网卡时作为入参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用于保留网卡主IP的资源ID用于保留网卡主IP的资源ID。用于删除网卡时作为入参数。 
      * @return ResourceId 用于保留网卡主IP的资源ID用于保留网卡主IP的资源ID。用于删除网卡时作为入参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceId() {
         return this.ResourceId;
@@ -536,9 +571,7 @@ public class NetworkInterface extends AbstractModel{
 
     /**
      * Set 用于保留网卡主IP的资源ID用于保留网卡主IP的资源ID。用于删除网卡时作为入参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceId 用于保留网卡主IP的资源ID用于保留网卡主IP的资源ID。用于删除网卡时作为入参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceId(String ResourceId) {
         this.ResourceId = ResourceId;
@@ -546,17 +579,15 @@ public class NetworkInterface extends AbstractModel{
 
     /**
      * Get 服务质量级别：
-<li>`DEFAULT`：默认</li>
-<li>`PT`：云金</li>
-<li>`AU`：云银</li>
-<li>`AG`：云铜</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
+可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+ 
      * @return QosLevel 服务质量级别：
-<li>`DEFAULT`：默认</li>
-<li>`PT`：云金</li>
-<li>`AU`：云银</li>
-<li>`AG`：云铜</li>
-注意：此字段可能返回 null，表示取不到有效值。
+PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
+可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
      */
     public String getQosLevel() {
         return this.QosLevel;
@@ -564,17 +595,15 @@ public class NetworkInterface extends AbstractModel{
 
     /**
      * Set 服务质量级别：
-<li>`DEFAULT`：默认</li>
-<li>`PT`：云金</li>
-<li>`AU`：云银</li>
-<li>`AG`：云铜</li>
-注意：此字段可能返回 null，表示取不到有效值。
+PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
+可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
      * @param QosLevel 服务质量级别：
-<li>`DEFAULT`：默认</li>
-<li>`PT`：云金</li>
-<li>`AU`：云银</li>
-<li>`AG`：云铜</li>
-注意：此字段可能返回 null，表示取不到有效值。
+PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
+可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+
      */
     public void setQosLevel(String QosLevel) {
         this.QosLevel = QosLevel;
@@ -617,6 +646,9 @@ public class NetworkInterface extends AbstractModel{
         }
         if (source.State != null) {
             this.State = new String(source.State);
+        }
+        if (source.NetworkInterfaceState != null) {
+            this.NetworkInterfaceState = new String(source.NetworkInterfaceState);
         }
         if (source.PrivateIpAddressSet != null) {
             this.PrivateIpAddressSet = new PrivateIpAddressSpecification[source.PrivateIpAddressSet.length];
@@ -679,6 +711,7 @@ public class NetworkInterface extends AbstractModel{
         this.setParamSimple(map, prefix + "Primary", this.Primary);
         this.setParamSimple(map, prefix + "MacAddress", this.MacAddress);
         this.setParamSimple(map, prefix + "State", this.State);
+        this.setParamSimple(map, prefix + "NetworkInterfaceState", this.NetworkInterfaceState);
         this.setParamArrayObj(map, prefix + "PrivateIpAddressSet.", this.PrivateIpAddressSet);
         this.setParamObj(map, prefix + "Attachment.", this.Attachment);
         this.setParamSimple(map, prefix + "Zone", this.Zone);

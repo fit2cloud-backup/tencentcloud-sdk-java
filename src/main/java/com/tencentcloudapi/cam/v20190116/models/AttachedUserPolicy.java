@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cam.v20190116.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AttachedUserPolicy extends AbstractModel{
+public class AttachedUserPolicy extends AbstractModel {
 
     /**
     * 策略ID
@@ -66,7 +67,6 @@ public class AttachedUserPolicy extends AbstractModel{
 
     /**
     * 随组关联信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Groups")
     @Expose
@@ -74,7 +74,6 @@ public class AttachedUserPolicy extends AbstractModel{
 
     /**
     * 是否已下线(0:否 1:是)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Deactived")
     @Expose
@@ -82,7 +81,6 @@ public class AttachedUserPolicy extends AbstractModel{
 
     /**
     * 已下线的产品列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeactivedDetail")
     @Expose
@@ -185,10 +183,8 @@ public class AttachedUserPolicy extends AbstractModel{
     }
 
     /**
-     * Get 随组关联信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 随组关联信息 
      * @return Groups 随组关联信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AttachedUserPolicyGroupInfo [] getGroups() {
         return this.Groups;
@@ -196,19 +192,15 @@ public class AttachedUserPolicy extends AbstractModel{
 
     /**
      * Set 随组关联信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Groups 随组关联信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroups(AttachedUserPolicyGroupInfo [] Groups) {
         this.Groups = Groups;
     }
 
     /**
-     * Get 是否已下线(0:否 1:是)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否已下线(0:否 1:是) 
      * @return Deactived 是否已下线(0:否 1:是)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDeactived() {
         return this.Deactived;
@@ -216,19 +208,15 @@ public class AttachedUserPolicy extends AbstractModel{
 
     /**
      * Set 是否已下线(0:否 1:是)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Deactived 是否已下线(0:否 1:是)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeactived(Long Deactived) {
         this.Deactived = Deactived;
     }
 
     /**
-     * Get 已下线的产品列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已下线的产品列表 
      * @return DeactivedDetail 已下线的产品列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDeactivedDetail() {
         return this.DeactivedDetail;
@@ -236,9 +224,7 @@ public class AttachedUserPolicy extends AbstractModel{
 
     /**
      * Set 已下线的产品列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeactivedDetail 已下线的产品列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeactivedDetail(String [] DeactivedDetail) {
         this.DeactivedDetail = DeactivedDetail;

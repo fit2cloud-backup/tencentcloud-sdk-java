@@ -16,14 +16,16 @@
 package com.tencentcloudapi.eb.v20210416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ESTargetParams extends AbstractModel{
+public class ESTargetParams extends AbstractModel {
 
     /**
     * 网络连接类型
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetMode")
     @Expose
@@ -31,6 +33,7 @@ public class ESTargetParams extends AbstractModel{
 
     /**
     * 索引前缀
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IndexPrefix")
     @Expose
@@ -38,6 +41,7 @@ public class ESTargetParams extends AbstractModel{
 
     /**
     * es日志轮换粒度
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RotationInterval")
     @Expose
@@ -45,6 +49,7 @@ public class ESTargetParams extends AbstractModel{
 
     /**
     * DTS事件配置
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OutputMode")
     @Expose
@@ -52,6 +57,7 @@ public class ESTargetParams extends AbstractModel{
 
     /**
     * DTS索引配置
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IndexSuffixMode")
     @Expose
@@ -59,14 +65,17 @@ public class ESTargetParams extends AbstractModel{
 
     /**
     * es模版类型
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IndexTemplateType")
     @Expose
     private String IndexTemplateType;
 
     /**
-     * Get 网络连接类型 
+     * Get 网络连接类型
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return NetMode 网络连接类型
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNetMode() {
         return this.NetMode;
@@ -74,15 +83,19 @@ public class ESTargetParams extends AbstractModel{
 
     /**
      * Set 网络连接类型
+注意：此字段可能返回 null，表示取不到有效值。
      * @param NetMode 网络连接类型
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetMode(String NetMode) {
         this.NetMode = NetMode;
     }
 
     /**
-     * Get 索引前缀 
+     * Get 索引前缀
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return IndexPrefix 索引前缀
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIndexPrefix() {
         return this.IndexPrefix;
@@ -90,15 +103,19 @@ public class ESTargetParams extends AbstractModel{
 
     /**
      * Set 索引前缀
+注意：此字段可能返回 null，表示取不到有效值。
      * @param IndexPrefix 索引前缀
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndexPrefix(String IndexPrefix) {
         this.IndexPrefix = IndexPrefix;
     }
 
     /**
-     * Get es日志轮换粒度 
+     * Get es日志轮换粒度
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return RotationInterval es日志轮换粒度
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRotationInterval() {
         return this.RotationInterval;
@@ -106,15 +123,19 @@ public class ESTargetParams extends AbstractModel{
 
     /**
      * Set es日志轮换粒度
+注意：此字段可能返回 null，表示取不到有效值。
      * @param RotationInterval es日志轮换粒度
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRotationInterval(String RotationInterval) {
         this.RotationInterval = RotationInterval;
     }
 
     /**
-     * Get DTS事件配置 
+     * Get DTS事件配置
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return OutputMode DTS事件配置
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOutputMode() {
         return this.OutputMode;
@@ -122,15 +143,19 @@ public class ESTargetParams extends AbstractModel{
 
     /**
      * Set DTS事件配置
+注意：此字段可能返回 null，表示取不到有效值。
      * @param OutputMode DTS事件配置
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutputMode(String OutputMode) {
         this.OutputMode = OutputMode;
     }
 
     /**
-     * Get DTS索引配置 
+     * Get DTS索引配置
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return IndexSuffixMode DTS索引配置
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIndexSuffixMode() {
         return this.IndexSuffixMode;
@@ -138,15 +163,19 @@ public class ESTargetParams extends AbstractModel{
 
     /**
      * Set DTS索引配置
+注意：此字段可能返回 null，表示取不到有效值。
      * @param IndexSuffixMode DTS索引配置
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndexSuffixMode(String IndexSuffixMode) {
         this.IndexSuffixMode = IndexSuffixMode;
     }
 
     /**
-     * Get es模版类型 
+     * Get es模版类型
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return IndexTemplateType es模版类型
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIndexTemplateType() {
         return this.IndexTemplateType;
@@ -154,7 +183,9 @@ public class ESTargetParams extends AbstractModel{
 
     /**
      * Set es模版类型
+注意：此字段可能返回 null，表示取不到有效值。
      * @param IndexTemplateType es模版类型
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndexTemplateType(String IndexTemplateType) {
         this.IndexTemplateType = IndexTemplateType;

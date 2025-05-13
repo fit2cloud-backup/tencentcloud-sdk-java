@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetContainerDetailResponse extends AbstractModel{
+public class DescribeAssetContainerDetailResponse extends AbstractModel {
 
     /**
     * 主机id
@@ -205,7 +206,6 @@ public class DescribeAssetContainerDetailResponse extends AbstractModel{
 
     /**
     * 隔离来源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsolateSource")
     @Expose
@@ -213,7 +213,6 @@ public class DescribeAssetContainerDetailResponse extends AbstractModel{
 
     /**
     * 隔离时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsolateTime")
     @Expose
@@ -311,7 +310,7 @@ public class DescribeAssetContainerDetailResponse extends AbstractModel{
     private String PublicIP;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -742,10 +741,8 @@ public class DescribeAssetContainerDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 隔离来源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 隔离来源 
      * @return IsolateSource 隔离来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIsolateSource() {
         return this.IsolateSource;
@@ -753,19 +750,15 @@ public class DescribeAssetContainerDetailResponse extends AbstractModel{
 
     /**
      * Set 隔离来源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsolateSource 隔离来源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsolateSource(String IsolateSource) {
         this.IsolateSource = IsolateSource;
     }
 
     /**
-     * Get 隔离时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 隔离时间 
      * @return IsolateTime 隔离时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIsolateTime() {
         return this.IsolateTime;
@@ -773,9 +766,7 @@ public class DescribeAssetContainerDetailResponse extends AbstractModel{
 
     /**
      * Set 隔离时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsolateTime 隔离时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsolateTime(String IsolateTime) {
         this.IsolateTime = IsolateTime;
@@ -990,16 +981,16 @@ public class DescribeAssetContainerDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

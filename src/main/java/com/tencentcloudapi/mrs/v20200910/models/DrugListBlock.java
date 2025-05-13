@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DrugListBlock extends AbstractModel{
+public class DrugListBlock extends AbstractModel {
 
     /**
     * 通用名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CommonName")
     @Expose
@@ -32,7 +32,6 @@ public class DrugListBlock extends AbstractModel{
 
     /**
     * 商品名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TradeName")
     @Expose
@@ -40,7 +39,6 @@ public class DrugListBlock extends AbstractModel{
 
     /**
     * 用法用量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Dosage")
     @Expose
@@ -48,17 +46,14 @@ public class DrugListBlock extends AbstractModel{
 
     /**
     * 值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
     private String Value;
 
     /**
-     * Get 通用名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 通用名称 
      * @return CommonName 通用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCommonName() {
         return this.CommonName;
@@ -66,19 +61,15 @@ public class DrugListBlock extends AbstractModel{
 
     /**
      * Set 通用名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CommonName 通用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCommonName(String CommonName) {
         this.CommonName = CommonName;
     }
 
     /**
-     * Get 商品名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商品名称 
      * @return TradeName 商品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTradeName() {
         return this.TradeName;
@@ -86,19 +77,15 @@ public class DrugListBlock extends AbstractModel{
 
     /**
      * Set 商品名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TradeName 商品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTradeName(String TradeName) {
         this.TradeName = TradeName;
     }
 
     /**
-     * Get 用法用量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用法用量 
      * @return Dosage 用法用量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DosageBlock getDosage() {
         return this.Dosage;
@@ -106,19 +93,15 @@ public class DrugListBlock extends AbstractModel{
 
     /**
      * Set 用法用量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Dosage 用法用量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDosage(DosageBlock Dosage) {
         this.Dosage = Dosage;
     }
 
     /**
-     * Get 值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 值 
      * @return Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -126,9 +109,7 @@ public class DrugListBlock extends AbstractModel{
 
     /**
      * Set 值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

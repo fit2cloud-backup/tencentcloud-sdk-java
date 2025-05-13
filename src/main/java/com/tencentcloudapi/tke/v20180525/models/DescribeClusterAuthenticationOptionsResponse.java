@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterAuthenticationOptionsResponse extends AbstractModel{
+public class DescribeClusterAuthenticationOptionsResponse extends AbstractModel {
 
     /**
     * ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceAccounts")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeClusterAuthenticationOptionsResponse extends AbstractModel{
 
     /**
     * 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LatestOperationState")
     @Expose
@@ -40,24 +39,21 @@ public class DescribeClusterAuthenticationOptionsResponse extends AbstractModel{
 
     /**
     * OIDC认证配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OIDCConfig")
     @Expose
     private OIDCConfigAuthenticationOptions OIDCConfig;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ServiceAccount认证配置 
      * @return ServiceAccounts ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ServiceAccountAuthenticationOptions getServiceAccounts() {
         return this.ServiceAccounts;
@@ -65,19 +61,15 @@ public class DescribeClusterAuthenticationOptionsResponse extends AbstractModel{
 
     /**
      * Set ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceAccounts ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceAccounts(ServiceAccountAuthenticationOptions ServiceAccounts) {
         this.ServiceAccounts = ServiceAccounts;
     }
 
     /**
-     * Get 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut 
      * @return LatestOperationState 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLatestOperationState() {
         return this.LatestOperationState;
@@ -85,19 +77,15 @@ public class DescribeClusterAuthenticationOptionsResponse extends AbstractModel{
 
     /**
      * Set 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LatestOperationState 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLatestOperationState(String LatestOperationState) {
         this.LatestOperationState = LatestOperationState;
     }
 
     /**
-     * Get OIDC认证配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get OIDC认证配置 
      * @return OIDCConfig OIDC认证配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OIDCConfigAuthenticationOptions getOIDCConfig() {
         return this.OIDCConfig;
@@ -105,25 +93,23 @@ public class DescribeClusterAuthenticationOptionsResponse extends AbstractModel{
 
     /**
      * Set OIDC认证配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OIDCConfig OIDC认证配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOIDCConfig(OIDCConfigAuthenticationOptions OIDCConfig) {
         this.OIDCConfig = OIDCConfig;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

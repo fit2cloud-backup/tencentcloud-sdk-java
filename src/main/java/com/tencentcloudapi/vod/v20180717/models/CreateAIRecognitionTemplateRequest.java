@@ -16,14 +16,15 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAIRecognitionTemplateRequest extends AbstractModel{
+public class CreateAIRecognitionTemplateRequest extends AbstractModel {
 
     /**
-    * <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
     */
     @SerializedName("SubAppId")
     @Expose
@@ -80,6 +81,7 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
 
     /**
     * 语音全文识别控制参数。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
     */
     @SerializedName("AsrFullTextConfigure")
     @Expose
@@ -91,6 +93,13 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
     @SerializedName("AsrWordsConfigure")
     @Expose
     private AsrWordsConfigureInfo AsrWordsConfigure;
+
+    /**
+    * 语音翻译识别控制参数。
+    */
+    @SerializedName("AsrTranslateConfigure")
+    @Expose
+    private AsrTranslateConfigureInfo AsrTranslateConfigure;
 
     /**
     * 物体识别控制参数。
@@ -107,16 +116,16 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
     private Float ScreenshotInterval;
 
     /**
-     * Get <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b> 
-     * @return SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public Long getSubAppId() {
         return this.SubAppId;
     }
 
     /**
-     * Set <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
-     * @param SubAppId <b>点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。</b>
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
      */
     public void setSubAppId(Long SubAppId) {
         this.SubAppId = SubAppId;
@@ -235,8 +244,10 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
     }
 
     /**
-     * Get 语音全文识别控制参数。 
+     * Get 语音全文识别控制参数。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font>  
      * @return AsrFullTextConfigure 语音全文识别控制参数。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
      */
     public AsrFullTextConfigureInfo getAsrFullTextConfigure() {
         return this.AsrFullTextConfigure;
@@ -244,7 +255,9 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
 
     /**
      * Set 语音全文识别控制参数。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
      * @param AsrFullTextConfigure 语音全文识别控制参数。
+<font color=red>注意：本参数已不再维护，推荐使用 AsrTranslateConfigure 参数发起语音翻译识别（当 DstLanguage 不填或填空字符串时，则不进行翻译，计费项和语音全文识别一致）。</font> 
      */
     public void setAsrFullTextConfigure(AsrFullTextConfigureInfo AsrFullTextConfigure) {
         this.AsrFullTextConfigure = AsrFullTextConfigure;
@@ -264,6 +277,22 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
      */
     public void setAsrWordsConfigure(AsrWordsConfigureInfo AsrWordsConfigure) {
         this.AsrWordsConfigure = AsrWordsConfigure;
+    }
+
+    /**
+     * Get 语音翻译识别控制参数。 
+     * @return AsrTranslateConfigure 语音翻译识别控制参数。
+     */
+    public AsrTranslateConfigureInfo getAsrTranslateConfigure() {
+        return this.AsrTranslateConfigure;
+    }
+
+    /**
+     * Set 语音翻译识别控制参数。
+     * @param AsrTranslateConfigure 语音翻译识别控制参数。
+     */
+    public void setAsrTranslateConfigure(AsrTranslateConfigureInfo AsrTranslateConfigure) {
+        this.AsrTranslateConfigure = AsrTranslateConfigure;
     }
 
     /**
@@ -336,6 +365,9 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
         if (source.AsrWordsConfigure != null) {
             this.AsrWordsConfigure = new AsrWordsConfigureInfo(source.AsrWordsConfigure);
         }
+        if (source.AsrTranslateConfigure != null) {
+            this.AsrTranslateConfigure = new AsrTranslateConfigureInfo(source.AsrTranslateConfigure);
+        }
         if (source.ObjectConfigure != null) {
             this.ObjectConfigure = new ObjectConfigureInfo(source.ObjectConfigure);
         }
@@ -359,6 +391,7 @@ public class CreateAIRecognitionTemplateRequest extends AbstractModel{
         this.setParamObj(map, prefix + "OcrWordsConfigure.", this.OcrWordsConfigure);
         this.setParamObj(map, prefix + "AsrFullTextConfigure.", this.AsrFullTextConfigure);
         this.setParamObj(map, prefix + "AsrWordsConfigure.", this.AsrWordsConfigure);
+        this.setParamObj(map, prefix + "AsrTranslateConfigure.", this.AsrTranslateConfigure);
         this.setParamObj(map, prefix + "ObjectConfigure.", this.ObjectConfigure);
         this.setParamSimple(map, prefix + "ScreenshotInterval", this.ScreenshotInterval);
 

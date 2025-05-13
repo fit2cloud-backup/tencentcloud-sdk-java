@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParamRecord extends AbstractModel{
+public class ParamRecord extends AbstractModel {
 
     /**
     * 实例ID
@@ -63,6 +64,13 @@ public class ParamRecord extends AbstractModel{
     @SerializedName("ModifyTime")
     @Expose
     private String ModifyTime;
+
+    /**
+    * 参数是否修改成功
+    */
+    @SerializedName("IsSuccess")
+    @Expose
+    private Boolean IsSuccess;
 
     /**
      * Get 实例ID 
@@ -131,7 +139,9 @@ public class ParamRecord extends AbstractModel{
     /**
      * Get 参数是否修改成功 
      * @return IsSucess 参数是否修改成功
+     * @deprecated
      */
+    @Deprecated
     public Boolean getIsSucess() {
         return this.IsSucess;
     }
@@ -139,7 +149,9 @@ public class ParamRecord extends AbstractModel{
     /**
      * Set 参数是否修改成功
      * @param IsSucess 参数是否修改成功
+     * @deprecated
      */
+    @Deprecated
     public void setIsSucess(Boolean IsSucess) {
         this.IsSucess = IsSucess;
     }
@@ -158,6 +170,22 @@ public class ParamRecord extends AbstractModel{
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;
+    }
+
+    /**
+     * Get 参数是否修改成功 
+     * @return IsSuccess 参数是否修改成功
+     */
+    public Boolean getIsSuccess() {
+        return this.IsSuccess;
+    }
+
+    /**
+     * Set 参数是否修改成功
+     * @param IsSuccess 参数是否修改成功
+     */
+    public void setIsSuccess(Boolean IsSuccess) {
+        this.IsSuccess = IsSuccess;
     }
 
     public ParamRecord() {
@@ -186,6 +214,9 @@ public class ParamRecord extends AbstractModel{
         if (source.ModifyTime != null) {
             this.ModifyTime = new String(source.ModifyTime);
         }
+        if (source.IsSuccess != null) {
+            this.IsSuccess = new Boolean(source.IsSuccess);
+        }
     }
 
 
@@ -199,6 +230,7 @@ public class ParamRecord extends AbstractModel{
         this.setParamSimple(map, prefix + "NewValue", this.NewValue);
         this.setParamSimple(map, prefix + "IsSucess", this.IsSucess);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
+        this.setParamSimple(map, prefix + "IsSuccess", this.IsSuccess);
 
     }
 }

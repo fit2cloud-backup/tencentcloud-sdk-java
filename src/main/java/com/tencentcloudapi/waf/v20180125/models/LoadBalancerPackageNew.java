@@ -16,15 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LoadBalancerPackageNew extends AbstractModel{
+public class LoadBalancerPackageNew extends AbstractModel {
 
     /**
     * 监听id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ListenerId")
     @Expose
@@ -32,7 +32,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 监听名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ListenerName")
     @Expose
@@ -40,7 +39,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 负载均衡id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerId")
     @Expose
@@ -48,7 +46,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 负载均衡名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerName")
     @Expose
@@ -56,7 +53,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 协议
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Protocol")
     @Expose
@@ -64,7 +60,34 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 地区
-注意：此字段可能返回 null，表示取不到有效值。
+"多伦多": "ca",
+    "广州": "gz",
+    "成都": "cd",
+    "福州": "fzec",
+    "深圳": "szx",
+    "印度": "in",
+    "济南": "jnec",
+    "重庆": "cq",
+    "天津": "tsn",
+    "欧洲东北": "ru",
+    "南京": "nj",
+    "美国硅谷": "usw",
+    "泰国": "th",
+    "广州Open": "gzopen",
+    "深圳金融": "szjr",
+    "法兰克福": "de",
+    "日本": "jp",
+    "弗吉尼亚": "use",
+    "北京": "bj",
+    "中国香港": "hk",
+    "杭州": "hzec",
+    "北京金融": "bjjr",
+    "上海金融": "shjr",
+    "台北": "tpe",
+    "首尔": "kr",
+    "上海": "sh",
+    "新加坡": "sg",
+    "清远": "qy"
     */
     @SerializedName("Region")
     @Expose
@@ -72,7 +95,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 接入IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vip")
     @Expose
@@ -80,7 +102,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 接入端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vport")
     @Expose
@@ -88,7 +109,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * 地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Zone")
     @Expose
@@ -96,7 +116,6 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * VPCID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NumericalVpcId")
     @Expose
@@ -104,17 +123,21 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
     * CLB类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerType")
     @Expose
     private String LoadBalancerType;
 
     /**
-     * Get 监听id
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 负载均衡器的域名
+    */
+    @SerializedName("LoadBalancerDomain")
+    @Expose
+    private String LoadBalancerDomain;
+
+    /**
+     * Get 监听id 
      * @return ListenerId 监听id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getListenerId() {
         return this.ListenerId;
@@ -122,19 +145,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 监听id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ListenerId 监听id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
     }
 
     /**
-     * Get 监听名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听名 
      * @return ListenerName 监听名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getListenerName() {
         return this.ListenerName;
@@ -142,19 +161,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 监听名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ListenerName 监听名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListenerName(String ListenerName) {
         this.ListenerName = ListenerName;
     }
 
     /**
-     * Get 负载均衡id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 负载均衡id 
      * @return LoadBalancerId 负载均衡id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
@@ -162,19 +177,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 负载均衡id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadBalancerId 负载均衡id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 负载均衡名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 负载均衡名 
      * @return LoadBalancerName 负载均衡名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLoadBalancerName() {
         return this.LoadBalancerName;
@@ -182,19 +193,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 负载均衡名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadBalancerName 负载均衡名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerName(String LoadBalancerName) {
         this.LoadBalancerName = LoadBalancerName;
     }
 
     /**
-     * Get 协议
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 协议 
      * @return Protocol 协议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProtocol() {
         return this.Protocol;
@@ -202,9 +209,7 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 协议
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Protocol 协议
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -212,9 +217,63 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Get 地区
-注意：此字段可能返回 null，表示取不到有效值。 
+"多伦多": "ca",
+    "广州": "gz",
+    "成都": "cd",
+    "福州": "fzec",
+    "深圳": "szx",
+    "印度": "in",
+    "济南": "jnec",
+    "重庆": "cq",
+    "天津": "tsn",
+    "欧洲东北": "ru",
+    "南京": "nj",
+    "美国硅谷": "usw",
+    "泰国": "th",
+    "广州Open": "gzopen",
+    "深圳金融": "szjr",
+    "法兰克福": "de",
+    "日本": "jp",
+    "弗吉尼亚": "use",
+    "北京": "bj",
+    "中国香港": "hk",
+    "杭州": "hzec",
+    "北京金融": "bjjr",
+    "上海金融": "shjr",
+    "台北": "tpe",
+    "首尔": "kr",
+    "上海": "sh",
+    "新加坡": "sg",
+    "清远": "qy" 
      * @return Region 地区
-注意：此字段可能返回 null，表示取不到有效值。
+"多伦多": "ca",
+    "广州": "gz",
+    "成都": "cd",
+    "福州": "fzec",
+    "深圳": "szx",
+    "印度": "in",
+    "济南": "jnec",
+    "重庆": "cq",
+    "天津": "tsn",
+    "欧洲东北": "ru",
+    "南京": "nj",
+    "美国硅谷": "usw",
+    "泰国": "th",
+    "广州Open": "gzopen",
+    "深圳金融": "szjr",
+    "法兰克福": "de",
+    "日本": "jp",
+    "弗吉尼亚": "use",
+    "北京": "bj",
+    "中国香港": "hk",
+    "杭州": "hzec",
+    "北京金融": "bjjr",
+    "上海金融": "shjr",
+    "台北": "tpe",
+    "首尔": "kr",
+    "上海": "sh",
+    "新加坡": "sg",
+    "清远": "qy"
      */
     public String getRegion() {
         return this.Region;
@@ -222,19 +281,71 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 地区
-注意：此字段可能返回 null，表示取不到有效值。
+"多伦多": "ca",
+    "广州": "gz",
+    "成都": "cd",
+    "福州": "fzec",
+    "深圳": "szx",
+    "印度": "in",
+    "济南": "jnec",
+    "重庆": "cq",
+    "天津": "tsn",
+    "欧洲东北": "ru",
+    "南京": "nj",
+    "美国硅谷": "usw",
+    "泰国": "th",
+    "广州Open": "gzopen",
+    "深圳金融": "szjr",
+    "法兰克福": "de",
+    "日本": "jp",
+    "弗吉尼亚": "use",
+    "北京": "bj",
+    "中国香港": "hk",
+    "杭州": "hzec",
+    "北京金融": "bjjr",
+    "上海金融": "shjr",
+    "台北": "tpe",
+    "首尔": "kr",
+    "上海": "sh",
+    "新加坡": "sg",
+    "清远": "qy"
      * @param Region 地区
-注意：此字段可能返回 null，表示取不到有效值。
+"多伦多": "ca",
+    "广州": "gz",
+    "成都": "cd",
+    "福州": "fzec",
+    "深圳": "szx",
+    "印度": "in",
+    "济南": "jnec",
+    "重庆": "cq",
+    "天津": "tsn",
+    "欧洲东北": "ru",
+    "南京": "nj",
+    "美国硅谷": "usw",
+    "泰国": "th",
+    "广州Open": "gzopen",
+    "深圳金融": "szjr",
+    "法兰克福": "de",
+    "日本": "jp",
+    "弗吉尼亚": "use",
+    "北京": "bj",
+    "中国香港": "hk",
+    "杭州": "hzec",
+    "北京金融": "bjjr",
+    "上海金融": "shjr",
+    "台北": "tpe",
+    "首尔": "kr",
+    "上海": "sh",
+    "新加坡": "sg",
+    "清远": "qy"
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 接入IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接入IP 
      * @return Vip 接入IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVip() {
         return this.Vip;
@@ -242,19 +353,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 接入IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vip 接入IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
     }
 
     /**
-     * Get 接入端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接入端口 
      * @return Vport 接入端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVport() {
         return this.Vport;
@@ -262,19 +369,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 接入端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vport 接入端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVport(Long Vport) {
         this.Vport = Vport;
     }
 
     /**
-     * Get 地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域 
      * @return Zone 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZone() {
         return this.Zone;
@@ -282,19 +385,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Zone 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZone(String Zone) {
         this.Zone = Zone;
     }
 
     /**
-     * Get VPCID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get VPCID 
      * @return NumericalVpcId VPCID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNumericalVpcId() {
         return this.NumericalVpcId;
@@ -302,19 +401,15 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set VPCID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NumericalVpcId VPCID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNumericalVpcId(Long NumericalVpcId) {
         this.NumericalVpcId = NumericalVpcId;
     }
 
     /**
-     * Get CLB类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CLB类型 
      * @return LoadBalancerType CLB类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLoadBalancerType() {
         return this.LoadBalancerType;
@@ -322,12 +417,26 @@ public class LoadBalancerPackageNew extends AbstractModel{
 
     /**
      * Set CLB类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadBalancerType CLB类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerType(String LoadBalancerType) {
         this.LoadBalancerType = LoadBalancerType;
+    }
+
+    /**
+     * Get 负载均衡器的域名 
+     * @return LoadBalancerDomain 负载均衡器的域名
+     */
+    public String getLoadBalancerDomain() {
+        return this.LoadBalancerDomain;
+    }
+
+    /**
+     * Set 负载均衡器的域名
+     * @param LoadBalancerDomain 负载均衡器的域名
+     */
+    public void setLoadBalancerDomain(String LoadBalancerDomain) {
+        this.LoadBalancerDomain = LoadBalancerDomain;
     }
 
     public LoadBalancerPackageNew() {
@@ -371,6 +480,9 @@ public class LoadBalancerPackageNew extends AbstractModel{
         if (source.LoadBalancerType != null) {
             this.LoadBalancerType = new String(source.LoadBalancerType);
         }
+        if (source.LoadBalancerDomain != null) {
+            this.LoadBalancerDomain = new String(source.LoadBalancerDomain);
+        }
     }
 
 
@@ -389,6 +501,7 @@ public class LoadBalancerPackageNew extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "NumericalVpcId", this.NumericalVpcId);
         this.setParamSimple(map, prefix + "LoadBalancerType", this.LoadBalancerType);
+        this.setParamSimple(map, prefix + "LoadBalancerDomain", this.LoadBalancerDomain);
 
     }
 }

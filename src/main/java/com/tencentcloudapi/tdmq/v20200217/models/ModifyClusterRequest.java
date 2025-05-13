@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyClusterRequest extends AbstractModel{
+public class ModifyClusterRequest extends AbstractModel {
 
     /**
     * Pulsar 集群的ID，需要更新的集群Id。
@@ -37,7 +38,7 @@ public class ModifyClusterRequest extends AbstractModel{
     private String ClusterName;
 
     /**
-    * 说明信息。
+    * 说明信息。长度限制为 128 字节
     */
     @SerializedName("Remark")
     @Expose
@@ -83,16 +84,16 @@ public class ModifyClusterRequest extends AbstractModel{
     }
 
     /**
-     * Get 说明信息。 
-     * @return Remark 说明信息。
+     * Get 说明信息。长度限制为 128 字节 
+     * @return Remark 说明信息。长度限制为 128 字节
      */
     public String getRemark() {
         return this.Remark;
     }
 
     /**
-     * Set 说明信息。
-     * @param Remark 说明信息。
+     * Set 说明信息。长度限制为 128 字节
+     * @param Remark 说明信息。长度限制为 128 字节
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;

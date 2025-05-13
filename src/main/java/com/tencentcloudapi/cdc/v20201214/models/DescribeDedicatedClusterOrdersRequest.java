@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDedicatedClusterOrdersRequest extends AbstractModel{
+public class DescribeDedicatedClusterOrdersRequest extends AbstractModel {
 
     /**
     * 按照专用集群id过滤
@@ -63,6 +64,13 @@ public class DescribeDedicatedClusterOrdersRequest extends AbstractModel{
     @SerializedName("ActionType")
     @Expose
     private String ActionType;
+
+    /**
+    * 订单类型列表
+    */
+    @SerializedName("OrderTypes")
+    @Expose
+    private String [] OrderTypes;
 
     /**
      * Get 按照专用集群id过滤 
@@ -160,6 +168,22 @@ public class DescribeDedicatedClusterOrdersRequest extends AbstractModel{
         this.ActionType = ActionType;
     }
 
+    /**
+     * Get 订单类型列表 
+     * @return OrderTypes 订单类型列表
+     */
+    public String [] getOrderTypes() {
+        return this.OrderTypes;
+    }
+
+    /**
+     * Set 订单类型列表
+     * @param OrderTypes 订单类型列表
+     */
+    public void setOrderTypes(String [] OrderTypes) {
+        this.OrderTypes = OrderTypes;
+    }
+
     public DescribeDedicatedClusterOrdersRequest() {
     }
 
@@ -189,6 +213,12 @@ public class DescribeDedicatedClusterOrdersRequest extends AbstractModel{
         if (source.ActionType != null) {
             this.ActionType = new String(source.ActionType);
         }
+        if (source.OrderTypes != null) {
+            this.OrderTypes = new String[source.OrderTypes.length];
+            for (int i = 0; i < source.OrderTypes.length; i++) {
+                this.OrderTypes[i] = new String(source.OrderTypes[i]);
+            }
+        }
     }
 
 
@@ -202,6 +232,7 @@ public class DescribeDedicatedClusterOrdersRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "ActionType", this.ActionType);
+        this.setParamArraySimple(map, prefix + "OrderTypes.", this.OrderTypes);
 
     }
 }

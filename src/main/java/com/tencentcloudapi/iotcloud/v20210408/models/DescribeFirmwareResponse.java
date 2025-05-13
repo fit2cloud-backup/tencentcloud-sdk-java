@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotcloud.v20210408.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFirmwareResponse extends AbstractModel{
+public class DescribeFirmwareResponse extends AbstractModel {
 
     /**
     * 固件版本号
@@ -83,7 +84,15 @@ public class DescribeFirmwareResponse extends AbstractModel{
     private String FwType;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 固件用户自定义配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("UserDefined")
+    @Expose
+    private String UserDefined;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -234,16 +243,36 @@ public class DescribeFirmwareResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 固件用户自定义配置信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return UserDefined 固件用户自定义配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getUserDefined() {
+        return this.UserDefined;
+    }
+
+    /**
+     * Set 固件用户自定义配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param UserDefined 固件用户自定义配置信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setUserDefined(String UserDefined) {
+        this.UserDefined = UserDefined;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -281,6 +310,9 @@ public class DescribeFirmwareResponse extends AbstractModel{
         if (source.FwType != null) {
             this.FwType = new String(source.FwType);
         }
+        if (source.UserDefined != null) {
+            this.UserDefined = new String(source.UserDefined);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -299,6 +331,7 @@ public class DescribeFirmwareResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Createtime", this.Createtime);
         this.setParamSimple(map, prefix + "ProductName", this.ProductName);
         this.setParamSimple(map, prefix + "FwType", this.FwType);
+        this.setParamSimple(map, prefix + "UserDefined", this.UserDefined);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGatewayVersion extends AbstractModel{
+public class DescribeGatewayVersion extends AbstractModel {
 
     /**
     * 服务名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
     * 服务版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
     * 服务最新版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LatestVersion")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
     * 是否需要更新
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsUpdate")
     @Expose
@@ -56,17 +53,14 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
     * 升级信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpgradeInfo")
     @Expose
     private String [] UpgradeInfo;
 
     /**
-     * Get 服务名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务名 
      * @return Name 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -74,19 +68,15 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
      * Set 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 服务名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 服务版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务版本 
      * @return Version 服务版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersion() {
         return this.Version;
@@ -94,19 +84,15 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
      * Set 服务版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 服务版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(String Version) {
         this.Version = Version;
     }
 
     /**
-     * Get 服务最新版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务最新版本 
      * @return LatestVersion 服务最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLatestVersion() {
         return this.LatestVersion;
@@ -114,19 +100,15 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
      * Set 服务最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LatestVersion 服务最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLatestVersion(String LatestVersion) {
         this.LatestVersion = LatestVersion;
     }
 
     /**
-     * Get 是否需要更新
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否需要更新 
      * @return IsUpdate 是否需要更新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsUpdate() {
         return this.IsUpdate;
@@ -134,19 +116,15 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
      * Set 是否需要更新
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsUpdate 是否需要更新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsUpdate(Boolean IsUpdate) {
         this.IsUpdate = IsUpdate;
     }
 
     /**
-     * Get 升级信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 升级信息 
      * @return UpgradeInfo 升级信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getUpgradeInfo() {
         return this.UpgradeInfo;
@@ -154,9 +132,7 @@ public class DescribeGatewayVersion extends AbstractModel{
 
     /**
      * Set 升级信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpgradeInfo 升级信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpgradeInfo(String [] UpgradeInfo) {
         this.UpgradeInfo = UpgradeInfo;

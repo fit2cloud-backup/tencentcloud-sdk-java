@@ -16,14 +16,15 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IntegrationNodeSchema extends AbstractModel{
+public class IntegrationNodeSchema extends AbstractModel {
 
     /**
-    * schema id
+    * schema id 随机唯一
     */
     @SerializedName("Id")
     @Expose
@@ -68,16 +69,32 @@ public class IntegrationNodeSchema extends AbstractModel{
     private String Alias;
 
     /**
-     * Get schema id 
-     * @return Id schema id
+    * 字段备注
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Comment")
+    @Expose
+    private String Comment;
+
+    /**
+    * category
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Category")
+    @Expose
+    private String Category;
+
+    /**
+     * Get schema id 随机唯一 
+     * @return Id schema id 随机唯一
      */
     public String getId() {
         return this.Id;
     }
 
     /**
-     * Set schema id
-     * @param Id schema id
+     * Set schema id 随机唯一
+     * @param Id schema id 随机唯一
      */
     public void setId(String Id) {
         this.Id = Id;
@@ -175,6 +192,46 @@ public class IntegrationNodeSchema extends AbstractModel{
         this.Alias = Alias;
     }
 
+    /**
+     * Get 字段备注
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Comment 字段备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getComment() {
+        return this.Comment;
+    }
+
+    /**
+     * Set 字段备注
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Comment 字段备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setComment(String Comment) {
+        this.Comment = Comment;
+    }
+
+    /**
+     * Get category
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Category category
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCategory() {
+        return this.Category;
+    }
+
+    /**
+     * Set category
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Category category
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCategory(String Category) {
+        this.Category = Category;
+    }
+
     public IntegrationNodeSchema() {
     }
 
@@ -204,6 +261,12 @@ public class IntegrationNodeSchema extends AbstractModel{
         if (source.Alias != null) {
             this.Alias = new String(source.Alias);
         }
+        if (source.Comment != null) {
+            this.Comment = new String(source.Comment);
+        }
+        if (source.Category != null) {
+            this.Category = new String(source.Category);
+        }
     }
 
 
@@ -217,6 +280,8 @@ public class IntegrationNodeSchema extends AbstractModel{
         this.setParamSimple(map, prefix + "Value", this.Value);
         this.setParamArrayObj(map, prefix + "Properties.", this.Properties);
         this.setParamSimple(map, prefix + "Alias", this.Alias);
+        this.setParamSimple(map, prefix + "Comment", this.Comment);
+        this.setParamSimple(map, prefix + "Category", this.Category);
 
     }
 }

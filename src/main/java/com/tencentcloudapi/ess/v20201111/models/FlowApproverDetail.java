@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FlowApproverDetail extends AbstractModel{
+public class FlowApproverDetail extends AbstractModel {
 
     /**
     * 签署时的相关信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveMessage")
     @Expose
@@ -66,7 +66,6 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 客户自定义的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomUserId")
     @Expose
@@ -95,7 +94,6 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 签署方类型，ORGANIZATION-企业员工，PERSON-个人，ENTERPRISESERVER-企业静默签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveType")
     @Expose
@@ -103,7 +101,6 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 签署方侧用户来源，如WEWORKAPP-企业微信等
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproverSource")
     @Expose
@@ -111,7 +108,6 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 客户自定义签署方标识
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomApproverTag")
     @Expose
@@ -119,7 +115,6 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 签署方企业Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrganizationId")
     @Expose
@@ -127,17 +122,35 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 签署方企业名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrganizationName")
     @Expose
     private String OrganizationName;
 
     /**
-     * Get 签署时的相关信息
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点，也可用于后续创建签署链接等操作。
+    */
+    @SerializedName("SignId")
+    @Expose
+    private String SignId;
+
+    /**
+    * 自定义签署人角色
+    */
+    @SerializedName("ApproverRoleName")
+    @Expose
+    private String ApproverRoleName;
+
+    /**
+    * 模板配置中的参与方ID,与控件绑定
+    */
+    @SerializedName("RecipientId")
+    @Expose
+    private String RecipientId;
+
+    /**
+     * Get 签署时的相关信息 
      * @return ApproveMessage 签署时的相关信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApproveMessage() {
         return this.ApproveMessage;
@@ -145,9 +158,7 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 签署时的相关信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApproveMessage 签署时的相关信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveMessage(String ApproveMessage) {
         this.ApproveMessage = ApproveMessage;
@@ -240,7 +251,9 @@ public class FlowApproverDetail extends AbstractModel{
     /**
      * Get 模板配置中的参与方ID,与控件绑定 
      * @return ReceiptId 模板配置中的参与方ID,与控件绑定
+     * @deprecated
      */
+    @Deprecated
     public String getReceiptId() {
         return this.ReceiptId;
     }
@@ -248,16 +261,16 @@ public class FlowApproverDetail extends AbstractModel{
     /**
      * Set 模板配置中的参与方ID,与控件绑定
      * @param ReceiptId 模板配置中的参与方ID,与控件绑定
+     * @deprecated
      */
+    @Deprecated
     public void setReceiptId(String ReceiptId) {
         this.ReceiptId = ReceiptId;
     }
 
     /**
-     * Get 客户自定义的用户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户自定义的用户ID 
      * @return CustomUserId 客户自定义的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomUserId() {
         return this.CustomUserId;
@@ -265,9 +278,7 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 客户自定义的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomUserId 客户自定义的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomUserId(String CustomUserId) {
         this.CustomUserId = CustomUserId;
@@ -322,10 +333,8 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Get 签署方类型，ORGANIZATION-企业员工，PERSON-个人，ENTERPRISESERVER-企业静默签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签署方类型，ORGANIZATION-企业员工，PERSON-个人，ENTERPRISESERVER-企业静默签 
      * @return ApproveType 签署方类型，ORGANIZATION-企业员工，PERSON-个人，ENTERPRISESERVER-企业静默签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApproveType() {
         return this.ApproveType;
@@ -333,19 +342,15 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 签署方类型，ORGANIZATION-企业员工，PERSON-个人，ENTERPRISESERVER-企业静默签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApproveType 签署方类型，ORGANIZATION-企业员工，PERSON-个人，ENTERPRISESERVER-企业静默签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveType(String ApproveType) {
         this.ApproveType = ApproveType;
     }
 
     /**
-     * Get 签署方侧用户来源，如WEWORKAPP-企业微信等
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签署方侧用户来源，如WEWORKAPP-企业微信等 
      * @return ApproverSource 签署方侧用户来源，如WEWORKAPP-企业微信等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApproverSource() {
         return this.ApproverSource;
@@ -353,19 +358,15 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 签署方侧用户来源，如WEWORKAPP-企业微信等
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApproverSource 签署方侧用户来源，如WEWORKAPP-企业微信等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproverSource(String ApproverSource) {
         this.ApproverSource = ApproverSource;
     }
 
     /**
-     * Get 客户自定义签署方标识
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 客户自定义签署方标识 
      * @return CustomApproverTag 客户自定义签署方标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomApproverTag() {
         return this.CustomApproverTag;
@@ -373,19 +374,15 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 客户自定义签署方标识
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomApproverTag 客户自定义签署方标识
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomApproverTag(String CustomApproverTag) {
         this.CustomApproverTag = CustomApproverTag;
     }
 
     /**
-     * Get 签署方企业Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签署方企业Id 
      * @return OrganizationId 签署方企业Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOrganizationId() {
         return this.OrganizationId;
@@ -393,19 +390,15 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 签署方企业Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrganizationId 签署方企业Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrganizationId(String OrganizationId) {
         this.OrganizationId = OrganizationId;
     }
 
     /**
-     * Get 签署方企业名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 签署方企业名称 
      * @return OrganizationName 签署方企业名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOrganizationName() {
         return this.OrganizationName;
@@ -413,12 +406,58 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 签署方企业名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrganizationName 签署方企业名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrganizationName(String OrganizationName) {
         this.OrganizationName = OrganizationName;
+    }
+
+    /**
+     * Get 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点，也可用于后续创建签署链接等操作。 
+     * @return SignId 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点，也可用于后续创建签署链接等操作。
+     */
+    public String getSignId() {
+        return this.SignId;
+    }
+
+    /**
+     * Set 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点，也可用于后续创建签署链接等操作。
+     * @param SignId 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点，也可用于后续创建签署链接等操作。
+     */
+    public void setSignId(String SignId) {
+        this.SignId = SignId;
+    }
+
+    /**
+     * Get 自定义签署人角色 
+     * @return ApproverRoleName 自定义签署人角色
+     */
+    public String getApproverRoleName() {
+        return this.ApproverRoleName;
+    }
+
+    /**
+     * Set 自定义签署人角色
+     * @param ApproverRoleName 自定义签署人角色
+     */
+    public void setApproverRoleName(String ApproverRoleName) {
+        this.ApproverRoleName = ApproverRoleName;
+    }
+
+    /**
+     * Get 模板配置中的参与方ID,与控件绑定 
+     * @return RecipientId 模板配置中的参与方ID,与控件绑定
+     */
+    public String getRecipientId() {
+        return this.RecipientId;
+    }
+
+    /**
+     * Set 模板配置中的参与方ID,与控件绑定
+     * @param RecipientId 模板配置中的参与方ID,与控件绑定
+     */
+    public void setRecipientId(String RecipientId) {
+        this.RecipientId = RecipientId;
     }
 
     public FlowApproverDetail() {
@@ -468,6 +507,15 @@ public class FlowApproverDetail extends AbstractModel{
         if (source.OrganizationName != null) {
             this.OrganizationName = new String(source.OrganizationName);
         }
+        if (source.SignId != null) {
+            this.SignId = new String(source.SignId);
+        }
+        if (source.ApproverRoleName != null) {
+            this.ApproverRoleName = new String(source.ApproverRoleName);
+        }
+        if (source.RecipientId != null) {
+            this.RecipientId = new String(source.RecipientId);
+        }
     }
 
 
@@ -488,6 +536,9 @@ public class FlowApproverDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "CustomApproverTag", this.CustomApproverTag);
         this.setParamSimple(map, prefix + "OrganizationId", this.OrganizationId);
         this.setParamSimple(map, prefix + "OrganizationName", this.OrganizationName);
+        this.setParamSimple(map, prefix + "SignId", this.SignId);
+        this.setParamSimple(map, prefix + "ApproverRoleName", this.ApproverRoleName);
+        this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
 
     }
 }

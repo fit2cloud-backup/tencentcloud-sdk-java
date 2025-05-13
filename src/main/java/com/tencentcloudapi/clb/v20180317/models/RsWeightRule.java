@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RsWeightRule extends AbstractModel{
+public class RsWeightRule extends AbstractModel {
 
     /**
     * 负载均衡监听器 ID。
@@ -115,7 +116,9 @@ public class RsWeightRule extends AbstractModel{
     /**
      * Get 目标规则的域名，提供LocationId参数时本参数不生效。 
      * @return Domain 目标规则的域名，提供LocationId参数时本参数不生效。
+     * @deprecated
      */
+    @Deprecated
     public String getDomain() {
         return this.Domain;
     }
@@ -123,7 +126,9 @@ public class RsWeightRule extends AbstractModel{
     /**
      * Set 目标规则的域名，提供LocationId参数时本参数不生效。
      * @param Domain 目标规则的域名，提供LocationId参数时本参数不生效。
+     * @deprecated
      */
+    @Deprecated
     public void setDomain(String Domain) {
         this.Domain = Domain;
     }
@@ -131,7 +136,9 @@ public class RsWeightRule extends AbstractModel{
     /**
      * Get 目标规则的URL，提供LocationId参数时本参数不生效。 
      * @return Url 目标规则的URL，提供LocationId参数时本参数不生效。
+     * @deprecated
      */
+    @Deprecated
     public String getUrl() {
         return this.Url;
     }
@@ -139,7 +146,9 @@ public class RsWeightRule extends AbstractModel{
     /**
      * Set 目标规则的URL，提供LocationId参数时本参数不生效。
      * @param Url 目标规则的URL，提供LocationId参数时本参数不生效。
+     * @deprecated
      */
+    @Deprecated
     public void setUrl(String Url) {
         this.Url = Url;
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSampleSnapshotTemplatesRequest extends AbstractModel{
+public class DescribeSampleSnapshotTemplatesRequest extends AbstractModel {
 
     /**
     * 采样截图模板唯一标识过滤条件，数组长度限制：100。
@@ -51,6 +52,13 @@ public class DescribeSampleSnapshotTemplatesRequest extends AbstractModel{
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 采样截图模板标识过滤条件，长度限制：64 个字符。
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get 采样截图模板唯一标识过滤条件，数组长度限制：100。 
@@ -124,6 +132,22 @@ public class DescribeSampleSnapshotTemplatesRequest extends AbstractModel{
         this.Type = Type;
     }
 
+    /**
+     * Get 采样截图模板标识过滤条件，长度限制：64 个字符。 
+     * @return Name 采样截图模板标识过滤条件，长度限制：64 个字符。
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 采样截图模板标识过滤条件，长度限制：64 个字符。
+     * @param Name 采样截图模板标识过滤条件，长度限制：64 个字符。
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
     public DescribeSampleSnapshotTemplatesRequest() {
     }
 
@@ -147,6 +171,9 @@ public class DescribeSampleSnapshotTemplatesRequest extends AbstractModel{
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
     }
 
 
@@ -158,6 +185,7 @@ public class DescribeSampleSnapshotTemplatesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

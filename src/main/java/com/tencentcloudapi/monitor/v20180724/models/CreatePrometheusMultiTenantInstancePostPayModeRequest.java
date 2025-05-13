@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePrometheusMultiTenantInstancePostPayModeRequest extends AbstractModel{
+public class CreatePrometheusMultiTenantInstancePostPayModeRequest extends AbstractModel {
 
     /**
     * 实例名
@@ -30,28 +31,28 @@ public class CreatePrometheusMultiTenantInstancePostPayModeRequest extends Abstr
     private String InstanceName;
 
     /**
-    * VPC ID
+    * VPC ID(可通过 vpc:DescribeVpcs 接口获取，与实例同地域)
     */
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
 
     /**
-    * 子网 ID
+    * 子网 ID(可通过 vpc:DescribeSubnets 接口获取)
     */
     @SerializedName("SubnetId")
     @Expose
     private String SubnetId;
 
     /**
-    * 数据存储时间（单位天），限制值为15，30，45之一
+    * 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
     */
     @SerializedName("DataRetentionTime")
     @Expose
     private Long DataRetentionTime;
 
     /**
-    * 可用区
+    * 可用区(与子网同可用区)
     */
     @SerializedName("Zone")
     @Expose
@@ -88,64 +89,64 @@ public class CreatePrometheusMultiTenantInstancePostPayModeRequest extends Abstr
     }
 
     /**
-     * Get VPC ID 
-     * @return VpcId VPC ID
+     * Get VPC ID(可通过 vpc:DescribeVpcs 接口获取，与实例同地域) 
+     * @return VpcId VPC ID(可通过 vpc:DescribeVpcs 接口获取，与实例同地域)
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set VPC ID
-     * @param VpcId VPC ID
+     * Set VPC ID(可通过 vpc:DescribeVpcs 接口获取，与实例同地域)
+     * @param VpcId VPC ID(可通过 vpc:DescribeVpcs 接口获取，与实例同地域)
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 子网 ID 
-     * @return SubnetId 子网 ID
+     * Get 子网 ID(可通过 vpc:DescribeSubnets 接口获取) 
+     * @return SubnetId 子网 ID(可通过 vpc:DescribeSubnets 接口获取)
      */
     public String getSubnetId() {
         return this.SubnetId;
     }
 
     /**
-     * Set 子网 ID
-     * @param SubnetId 子网 ID
+     * Set 子网 ID(可通过 vpc:DescribeSubnets 接口获取)
+     * @param SubnetId 子网 ID(可通过 vpc:DescribeSubnets 接口获取)
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
     }
 
     /**
-     * Get 数据存储时间（单位天），限制值为15，30，45之一 
-     * @return DataRetentionTime 数据存储时间（单位天），限制值为15，30，45之一
+     * Get 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一 
+     * @return DataRetentionTime 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
      */
     public Long getDataRetentionTime() {
         return this.DataRetentionTime;
     }
 
     /**
-     * Set 数据存储时间（单位天），限制值为15，30，45之一
-     * @param DataRetentionTime 数据存储时间（单位天），限制值为15，30，45之一
+     * Set 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
+     * @param DataRetentionTime 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
      */
     public void setDataRetentionTime(Long DataRetentionTime) {
         this.DataRetentionTime = DataRetentionTime;
     }
 
     /**
-     * Get 可用区 
-     * @return Zone 可用区
+     * Get 可用区(与子网同可用区) 
+     * @return Zone 可用区(与子网同可用区)
      */
     public String getZone() {
         return this.Zone;
     }
 
     /**
-     * Set 可用区
-     * @param Zone 可用区
+     * Set 可用区(与子网同可用区)
+     * @param Zone 可用区(与子网同可用区)
      */
     public void setZone(String Zone) {
         this.Zone = Zone;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateEngineRequest extends AbstractModel{
+public class CreateEngineRequest extends AbstractModel {
 
     /**
     * 引擎类型。参考值：
@@ -45,6 +46,7 @@ public class CreateEngineRequest extends AbstractModel{
     /**
     * 引擎的产品版本。参考值：
 - STANDARD： 标准版
+- PROFESSIONAL: 专业版（Zookeeper）/企业版（PolarisMesh）
 
 引擎各版本及可选择的规格、节点数说明：
 apollo - STANDARD版本
@@ -79,7 +81,8 @@ polarismesh - STANDARD版本
 - ap-jakarta：雅加达
 - ap-singapore：新加坡
 北美区 参考值
-- na-toronto：多伦多
+- na-siliconvalley：硅谷
+- na-ashburn: 弗吉尼亚
 金融专区 参考值
 - ap-beijing-fsi：北京金融
 - ap-shanghai-fsi：上海金融
@@ -158,7 +161,7 @@ polarismesh - STANDARD版本
     private InstanceTagInfo [] EngineTags;
 
     /**
-    * 引擎的初始帐号信息。可设置参数：
+    * 引擎的初始账号信息。可设置参数：
 - Name：控制台初始用户名
 - Password：控制台初始密码
 - Token：引擎接口的管理员 Token
@@ -185,10 +188,44 @@ polarismesh - STANDARD版本
 
     /**
     * 跨地域部署的引擎地域配置详情
+zk标准版没有跨地域部署，请不要填写
+zk专业版跨地域部署开启了固定Leader所在地域，需要满足以下条件
+- 固定Leader所在地域当前仅支持跨两个地域
+- leader地域的副本数必须是3/2 + 1，5/2+1，7/2+1，也就是 2，3，4
     */
     @SerializedName("EngineRegionInfos")
     @Expose
     private EngineRegionInfo [] EngineRegionInfos;
+
+    /**
+    * zk标准版请填CLOUD_PREMIUM，zk标准版无法选择磁盘类型和磁盘容量，默认为CLOUD_PREMIUM
+zk专业版可以为：CLOUD_SSD,CLOUD_SSD_PLUS,CLOUD_PREMIUM
+    */
+    @SerializedName("StorageType")
+    @Expose
+    private String StorageType;
+
+    /**
+    * zk标准版请填50，zk标准版无法选择磁盘类型和磁盘容量，磁盘容量默认为50
+    */
+    @SerializedName("StorageCapacity")
+    @Expose
+    private Long StorageCapacity;
+
+    /**
+    * zk专业版至多有两个盘，且磁盘的容量在50-3200之间
+如果只有一个磁盘，storageCapacity与storageOption里面的capacity应该一致
+    */
+    @SerializedName("StorageOption")
+    @Expose
+    private StorageOption [] StorageOption;
+
+    /**
+    * ZK引擎实例，可用区分布约束，STRICT:强约束，PERMISSIVE: 弱约束
+    */
+    @SerializedName("AffinityConstraint")
+    @Expose
+    private String AffinityConstraint;
 
     /**
      * Get 引擎类型。参考值：
@@ -249,6 +286,7 @@ polarismesh - STANDARD版本
     /**
      * Get 引擎的产品版本。参考值：
 - STANDARD： 标准版
+- PROFESSIONAL: 专业版（Zookeeper）/企业版（PolarisMesh）
 
 引擎各版本及可选择的规格、节点数说明：
 apollo - STANDARD版本
@@ -265,6 +303,7 @@ polarismesh - STANDARD版本
 兼容原spec-xxxxxx形式的规格ID 
      * @return EngineProductVersion 引擎的产品版本。参考值：
 - STANDARD： 标准版
+- PROFESSIONAL: 专业版（Zookeeper）/企业版（PolarisMesh）
 
 引擎各版本及可选择的规格、节点数说明：
 apollo - STANDARD版本
@@ -287,6 +326,7 @@ polarismesh - STANDARD版本
     /**
      * Set 引擎的产品版本。参考值：
 - STANDARD： 标准版
+- PROFESSIONAL: 专业版（Zookeeper）/企业版（PolarisMesh）
 
 引擎各版本及可选择的规格、节点数说明：
 apollo - STANDARD版本
@@ -303,6 +343,7 @@ polarismesh - STANDARD版本
 兼容原spec-xxxxxx形式的规格ID
      * @param EngineProductVersion 引擎的产品版本。参考值：
 - STANDARD： 标准版
+- PROFESSIONAL: 专业版（Zookeeper）/企业版（PolarisMesh）
 
 引擎各版本及可选择的规格、节点数说明：
 apollo - STANDARD版本
@@ -337,7 +378,8 @@ polarismesh - STANDARD版本
 - ap-jakarta：雅加达
 - ap-singapore：新加坡
 北美区 参考值
-- na-toronto：多伦多
+- na-siliconvalley：硅谷
+- na-ashburn: 弗吉尼亚
 金融专区 参考值
 - ap-beijing-fsi：北京金融
 - ap-shanghai-fsi：上海金融
@@ -356,7 +398,8 @@ polarismesh - STANDARD版本
 - ap-jakarta：雅加达
 - ap-singapore：新加坡
 北美区 参考值
-- na-toronto：多伦多
+- na-siliconvalley：硅谷
+- na-ashburn: 弗吉尼亚
 金融专区 参考值
 - ap-beijing-fsi：北京金融
 - ap-shanghai-fsi：上海金融
@@ -381,7 +424,8 @@ polarismesh - STANDARD版本
 - ap-jakarta：雅加达
 - ap-singapore：新加坡
 北美区 参考值
-- na-toronto：多伦多
+- na-siliconvalley：硅谷
+- na-ashburn: 弗吉尼亚
 金融专区 参考值
 - ap-beijing-fsi：北京金融
 - ap-shanghai-fsi：上海金融
@@ -400,7 +444,8 @@ polarismesh - STANDARD版本
 - ap-jakarta：雅加达
 - ap-singapore：新加坡
 北美区 参考值
-- na-toronto：多伦多
+- na-siliconvalley：硅谷
+- na-ashburn: 弗吉尼亚
 金融专区 参考值
 - ap-beijing-fsi：北京金融
 - ap-shanghai-fsi：上海金融
@@ -587,11 +632,11 @@ polarismesh - STANDARD版本
     }
 
     /**
-     * Get 引擎的初始帐号信息。可设置参数：
+     * Get 引擎的初始账号信息。可设置参数：
 - Name：控制台初始用户名
 - Password：控制台初始密码
 - Token：引擎接口的管理员 Token 
-     * @return EngineAdmin 引擎的初始帐号信息。可设置参数：
+     * @return EngineAdmin 引擎的初始账号信息。可设置参数：
 - Name：控制台初始用户名
 - Password：控制台初始密码
 - Token：引擎接口的管理员 Token
@@ -601,11 +646,11 @@ polarismesh - STANDARD版本
     }
 
     /**
-     * Set 引擎的初始帐号信息。可设置参数：
+     * Set 引擎的初始账号信息。可设置参数：
 - Name：控制台初始用户名
 - Password：控制台初始密码
 - Token：引擎接口的管理员 Token
-     * @param EngineAdmin 引擎的初始帐号信息。可设置参数：
+     * @param EngineAdmin 引擎的初始账号信息。可设置参数：
 - Name：控制台初始用户名
 - Password：控制台初始密码
 - Token：引擎接口的管理员 Token
@@ -655,8 +700,16 @@ polarismesh - STANDARD版本
     }
 
     /**
-     * Get 跨地域部署的引擎地域配置详情 
+     * Get 跨地域部署的引擎地域配置详情
+zk标准版没有跨地域部署，请不要填写
+zk专业版跨地域部署开启了固定Leader所在地域，需要满足以下条件
+- 固定Leader所在地域当前仅支持跨两个地域
+- leader地域的副本数必须是3/2 + 1，5/2+1，7/2+1，也就是 2，3，4 
      * @return EngineRegionInfos 跨地域部署的引擎地域配置详情
+zk标准版没有跨地域部署，请不要填写
+zk专业版跨地域部署开启了固定Leader所在地域，需要满足以下条件
+- 固定Leader所在地域当前仅支持跨两个地域
+- leader地域的副本数必须是3/2 + 1，5/2+1，7/2+1，也就是 2，3，4
      */
     public EngineRegionInfo [] getEngineRegionInfos() {
         return this.EngineRegionInfos;
@@ -664,10 +717,90 @@ polarismesh - STANDARD版本
 
     /**
      * Set 跨地域部署的引擎地域配置详情
+zk标准版没有跨地域部署，请不要填写
+zk专业版跨地域部署开启了固定Leader所在地域，需要满足以下条件
+- 固定Leader所在地域当前仅支持跨两个地域
+- leader地域的副本数必须是3/2 + 1，5/2+1，7/2+1，也就是 2，3，4
      * @param EngineRegionInfos 跨地域部署的引擎地域配置详情
+zk标准版没有跨地域部署，请不要填写
+zk专业版跨地域部署开启了固定Leader所在地域，需要满足以下条件
+- 固定Leader所在地域当前仅支持跨两个地域
+- leader地域的副本数必须是3/2 + 1，5/2+1，7/2+1，也就是 2，3，4
      */
     public void setEngineRegionInfos(EngineRegionInfo [] EngineRegionInfos) {
         this.EngineRegionInfos = EngineRegionInfos;
+    }
+
+    /**
+     * Get zk标准版请填CLOUD_PREMIUM，zk标准版无法选择磁盘类型和磁盘容量，默认为CLOUD_PREMIUM
+zk专业版可以为：CLOUD_SSD,CLOUD_SSD_PLUS,CLOUD_PREMIUM 
+     * @return StorageType zk标准版请填CLOUD_PREMIUM，zk标准版无法选择磁盘类型和磁盘容量，默认为CLOUD_PREMIUM
+zk专业版可以为：CLOUD_SSD,CLOUD_SSD_PLUS,CLOUD_PREMIUM
+     */
+    public String getStorageType() {
+        return this.StorageType;
+    }
+
+    /**
+     * Set zk标准版请填CLOUD_PREMIUM，zk标准版无法选择磁盘类型和磁盘容量，默认为CLOUD_PREMIUM
+zk专业版可以为：CLOUD_SSD,CLOUD_SSD_PLUS,CLOUD_PREMIUM
+     * @param StorageType zk标准版请填CLOUD_PREMIUM，zk标准版无法选择磁盘类型和磁盘容量，默认为CLOUD_PREMIUM
+zk专业版可以为：CLOUD_SSD,CLOUD_SSD_PLUS,CLOUD_PREMIUM
+     */
+    public void setStorageType(String StorageType) {
+        this.StorageType = StorageType;
+    }
+
+    /**
+     * Get zk标准版请填50，zk标准版无法选择磁盘类型和磁盘容量，磁盘容量默认为50 
+     * @return StorageCapacity zk标准版请填50，zk标准版无法选择磁盘类型和磁盘容量，磁盘容量默认为50
+     */
+    public Long getStorageCapacity() {
+        return this.StorageCapacity;
+    }
+
+    /**
+     * Set zk标准版请填50，zk标准版无法选择磁盘类型和磁盘容量，磁盘容量默认为50
+     * @param StorageCapacity zk标准版请填50，zk标准版无法选择磁盘类型和磁盘容量，磁盘容量默认为50
+     */
+    public void setStorageCapacity(Long StorageCapacity) {
+        this.StorageCapacity = StorageCapacity;
+    }
+
+    /**
+     * Get zk专业版至多有两个盘，且磁盘的容量在50-3200之间
+如果只有一个磁盘，storageCapacity与storageOption里面的capacity应该一致 
+     * @return StorageOption zk专业版至多有两个盘，且磁盘的容量在50-3200之间
+如果只有一个磁盘，storageCapacity与storageOption里面的capacity应该一致
+     */
+    public StorageOption [] getStorageOption() {
+        return this.StorageOption;
+    }
+
+    /**
+     * Set zk专业版至多有两个盘，且磁盘的容量在50-3200之间
+如果只有一个磁盘，storageCapacity与storageOption里面的capacity应该一致
+     * @param StorageOption zk专业版至多有两个盘，且磁盘的容量在50-3200之间
+如果只有一个磁盘，storageCapacity与storageOption里面的capacity应该一致
+     */
+    public void setStorageOption(StorageOption [] StorageOption) {
+        this.StorageOption = StorageOption;
+    }
+
+    /**
+     * Get ZK引擎实例，可用区分布约束，STRICT:强约束，PERMISSIVE: 弱约束 
+     * @return AffinityConstraint ZK引擎实例，可用区分布约束，STRICT:强约束，PERMISSIVE: 弱约束
+     */
+    public String getAffinityConstraint() {
+        return this.AffinityConstraint;
+    }
+
+    /**
+     * Set ZK引擎实例，可用区分布约束，STRICT:强约束，PERMISSIVE: 弱约束
+     * @param AffinityConstraint ZK引擎实例，可用区分布约束，STRICT:强约束，PERMISSIVE: 弱约束
+     */
+    public void setAffinityConstraint(String AffinityConstraint) {
+        this.AffinityConstraint = AffinityConstraint;
     }
 
     public CreateEngineRequest() {
@@ -735,6 +868,21 @@ polarismesh - STANDARD版本
                 this.EngineRegionInfos[i] = new EngineRegionInfo(source.EngineRegionInfos[i]);
             }
         }
+        if (source.StorageType != null) {
+            this.StorageType = new String(source.StorageType);
+        }
+        if (source.StorageCapacity != null) {
+            this.StorageCapacity = new Long(source.StorageCapacity);
+        }
+        if (source.StorageOption != null) {
+            this.StorageOption = new StorageOption[source.StorageOption.length];
+            for (int i = 0; i < source.StorageOption.length; i++) {
+                this.StorageOption[i] = new StorageOption(source.StorageOption[i]);
+            }
+        }
+        if (source.AffinityConstraint != null) {
+            this.AffinityConstraint = new String(source.AffinityConstraint);
+        }
     }
 
 
@@ -758,6 +906,10 @@ polarismesh - STANDARD版本
         this.setParamSimple(map, prefix + "PrepaidPeriod", this.PrepaidPeriod);
         this.setParamSimple(map, prefix + "PrepaidRenewFlag", this.PrepaidRenewFlag);
         this.setParamArrayObj(map, prefix + "EngineRegionInfos.", this.EngineRegionInfos);
+        this.setParamSimple(map, prefix + "StorageType", this.StorageType);
+        this.setParamSimple(map, prefix + "StorageCapacity", this.StorageCapacity);
+        this.setParamArrayObj(map, prefix + "StorageOption.", this.StorageOption);
+        this.setParamSimple(map, prefix + "AffinityConstraint", this.AffinityConstraint);
 
     }
 }

@@ -16,42 +16,54 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PhoneVerificationRequest extends AbstractModel{
+public class PhoneVerificationRequest extends AbstractModel {
 
     /**
-    * 身份证号
+    * 身份证号。
     */
     @SerializedName("IdCard")
     @Expose
     private String IdCard;
 
     /**
-    * 姓名
+    * 姓名。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 手机号
+    * 手机号。
     */
     @SerializedName("Phone")
     @Expose
     private String Phone;
 
     /**
-    * 有加密需求的用户，传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+    * 验证模式（详版/简版）。
+- 简版与详版价格不一致，详见[价格说明](https://cloud.tencent.com/document/product/1007/84321)。
+- 枚举值：0（简版）；1（详版）。
+- 默认值为0。
+    */
+    @SerializedName("VerifyMode")
+    @Expose
+    private String VerifyMode;
+
+    /**
+    * 有加密需求的用户，传入kms的CiphertextBlob。关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
     */
     @SerializedName("CiphertextBlob")
     @Expose
     private String CiphertextBlob;
 
     /**
-    * 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
+    * 在使用加密服务时，填入要被加密的字段。
+- 本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
     */
     @SerializedName("EncryptList")
     @Expose
@@ -65,80 +77,112 @@ public class PhoneVerificationRequest extends AbstractModel{
     private String Iv;
 
     /**
-     * Get 身份证号 
-     * @return IdCard 身份证号
+     * Get 身份证号。 
+     * @return IdCard 身份证号。
      */
     public String getIdCard() {
         return this.IdCard;
     }
 
     /**
-     * Set 身份证号
-     * @param IdCard 身份证号
+     * Set 身份证号。
+     * @param IdCard 身份证号。
      */
     public void setIdCard(String IdCard) {
         this.IdCard = IdCard;
     }
 
     /**
-     * Get 姓名 
-     * @return Name 姓名
+     * Get 姓名。 
+     * @return Name 姓名。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 姓名
-     * @param Name 姓名
+     * Set 姓名。
+     * @param Name 姓名。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 手机号 
-     * @return Phone 手机号
+     * Get 手机号。 
+     * @return Phone 手机号。
      */
     public String getPhone() {
         return this.Phone;
     }
 
     /**
-     * Set 手机号
-     * @param Phone 手机号
+     * Set 手机号。
+     * @param Phone 手机号。
      */
     public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 
     /**
-     * Get 有加密需求的用户，传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。 
-     * @return CiphertextBlob 有加密需求的用户，传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * Get 验证模式（详版/简版）。
+- 简版与详版价格不一致，详见[价格说明](https://cloud.tencent.com/document/product/1007/84321)。
+- 枚举值：0（简版）；1（详版）。
+- 默认值为0。 
+     * @return VerifyMode 验证模式（详版/简版）。
+- 简版与详版价格不一致，详见[价格说明](https://cloud.tencent.com/document/product/1007/84321)。
+- 枚举值：0（简版）；1（详版）。
+- 默认值为0。
+     */
+    public String getVerifyMode() {
+        return this.VerifyMode;
+    }
+
+    /**
+     * Set 验证模式（详版/简版）。
+- 简版与详版价格不一致，详见[价格说明](https://cloud.tencent.com/document/product/1007/84321)。
+- 枚举值：0（简版）；1（详版）。
+- 默认值为0。
+     * @param VerifyMode 验证模式（详版/简版）。
+- 简版与详版价格不一致，详见[价格说明](https://cloud.tencent.com/document/product/1007/84321)。
+- 枚举值：0（简版）；1（详版）。
+- 默认值为0。
+     */
+    public void setVerifyMode(String VerifyMode) {
+        this.VerifyMode = VerifyMode;
+    }
+
+    /**
+     * Get 有加密需求的用户，传入kms的CiphertextBlob。关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。 
+     * @return CiphertextBlob 有加密需求的用户，传入kms的CiphertextBlob。关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
      */
     public String getCiphertextBlob() {
         return this.CiphertextBlob;
     }
 
     /**
-     * Set 有加密需求的用户，传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
-     * @param CiphertextBlob 有加密需求的用户，传入kms的CiphertextBlob，关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * Set 有加密需求的用户，传入kms的CiphertextBlob。关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
+     * @param CiphertextBlob 有加密需求的用户，传入kms的CiphertextBlob。关于数据加密可查阅 <a href="https://cloud.tencent.com/document/product/1007/47180">数据加密</a> 文档。
      */
     public void setCiphertextBlob(String CiphertextBlob) {
         this.CiphertextBlob = CiphertextBlob;
     }
 
     /**
-     * Get 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。 
-     * @return EncryptList 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
+     * Get 在使用加密服务时，填入要被加密的字段。
+- 本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。 
+     * @return EncryptList 在使用加密服务时，填入要被加密的字段。
+- 本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
      */
     public String [] getEncryptList() {
         return this.EncryptList;
     }
 
     /**
-     * Set 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
-     * @param EncryptList 在使用加密服务时，填入要被加密的字段。本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
+     * Set 在使用加密服务时，填入要被加密的字段。
+- 本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
+     * @param EncryptList 在使用加密服务时，填入要被加密的字段。
+- 本接口中可填入加密后的IdCard，Name，Phone中的一个或多个。
      */
     public void setEncryptList(String [] EncryptList) {
         this.EncryptList = EncryptList;
@@ -177,6 +221,9 @@ public class PhoneVerificationRequest extends AbstractModel{
         if (source.Phone != null) {
             this.Phone = new String(source.Phone);
         }
+        if (source.VerifyMode != null) {
+            this.VerifyMode = new String(source.VerifyMode);
+        }
         if (source.CiphertextBlob != null) {
             this.CiphertextBlob = new String(source.CiphertextBlob);
         }
@@ -199,6 +246,7 @@ public class PhoneVerificationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "IdCard", this.IdCard);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Phone", this.Phone);
+        this.setParamSimple(map, prefix + "VerifyMode", this.VerifyMode);
         this.setParamSimple(map, prefix + "CiphertextBlob", this.CiphertextBlob);
         this.setParamArraySimple(map, prefix + "EncryptList.", this.EncryptList);
         this.setParamSimple(map, prefix + "Iv", this.Iv);

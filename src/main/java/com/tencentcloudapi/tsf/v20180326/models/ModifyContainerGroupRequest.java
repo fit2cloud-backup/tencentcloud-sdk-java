@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyContainerGroupRequest extends AbstractModel{
+public class ModifyContainerGroupRequest extends AbstractModel {
 
     /**
-    * 部署组ID
+    * 部署组ID 必填项
     */
     @SerializedName("GroupId")
     @Expose
@@ -72,16 +73,16 @@ public class ModifyContainerGroupRequest extends AbstractModel{
     private String Alias;
 
     /**
-     * Get 部署组ID 
-     * @return GroupId 部署组ID
+     * Get 部署组ID 必填项 
+     * @return GroupId 部署组ID 必填项
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 部署组ID
-     * @param GroupId 部署组ID
+     * Set 部署组ID 必填项
+     * @param GroupId 部署组ID 必填项
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;

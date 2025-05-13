@@ -16,15 +16,15 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TableColumn extends AbstractModel{
+public class TableColumn extends AbstractModel {
 
     /**
     * 列名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Header")
     @Expose
@@ -32,17 +32,14 @@ public class TableColumn extends AbstractModel{
 
     /**
     * 列数据类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataType")
     @Expose
     private String DataType;
 
     /**
-     * Get 列名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 列名称 
      * @return Header 列名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHeader() {
         return this.Header;
@@ -50,19 +47,15 @@ public class TableColumn extends AbstractModel{
 
     /**
      * Set 列名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Header 列名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeader(String Header) {
         this.Header = Header;
     }
 
     /**
-     * Get 列数据类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 列数据类型 
      * @return DataType 列数据类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDataType() {
         return this.DataType;
@@ -70,9 +63,7 @@ public class TableColumn extends AbstractModel{
 
     /**
      * Set 列数据类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataType 列数据类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataType(String DataType) {
         this.DataType = DataType;

@@ -16,18 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HKIDCardOCRRequest extends AbstractModel{
-
-    /**
-    * 是否鉴伪。
-    */
-    @SerializedName("DetectFake")
-    @Expose
-    private Boolean DetectFake;
+public class HKIDCardOCRRequest extends AbstractModel {
 
     /**
     * 是否返回人像照片。
@@ -35,6 +29,13 @@ public class HKIDCardOCRRequest extends AbstractModel{
     @SerializedName("ReturnHeadImage")
     @Expose
     private Boolean ReturnHeadImage;
+
+    /**
+    * 是否鉴伪。
+    */
+    @SerializedName("DetectFake")
+    @Expose
+    private Boolean DetectFake;
 
     /**
     * 图片的 Base64 值。
@@ -57,22 +58,6 @@ public class HKIDCardOCRRequest extends AbstractModel{
     private String ImageUrl;
 
     /**
-     * Get 是否鉴伪。 
-     * @return DetectFake 是否鉴伪。
-     */
-    public Boolean getDetectFake() {
-        return this.DetectFake;
-    }
-
-    /**
-     * Set 是否鉴伪。
-     * @param DetectFake 是否鉴伪。
-     */
-    public void setDetectFake(Boolean DetectFake) {
-        this.DetectFake = DetectFake;
-    }
-
-    /**
      * Get 是否返回人像照片。 
      * @return ReturnHeadImage 是否返回人像照片。
      */
@@ -86,6 +71,26 @@ public class HKIDCardOCRRequest extends AbstractModel{
      */
     public void setReturnHeadImage(Boolean ReturnHeadImage) {
         this.ReturnHeadImage = ReturnHeadImage;
+    }
+
+    /**
+     * Get 是否鉴伪。 
+     * @return DetectFake 是否鉴伪。
+     * @deprecated
+     */
+    @Deprecated
+    public Boolean getDetectFake() {
+        return this.DetectFake;
+    }
+
+    /**
+     * Set 是否鉴伪。
+     * @param DetectFake 是否鉴伪。
+     * @deprecated
+     */
+    @Deprecated
+    public void setDetectFake(Boolean DetectFake) {
+        this.DetectFake = DetectFake;
     }
 
     /**
@@ -152,11 +157,11 @@ public class HKIDCardOCRRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public HKIDCardOCRRequest(HKIDCardOCRRequest source) {
-        if (source.DetectFake != null) {
-            this.DetectFake = new Boolean(source.DetectFake);
-        }
         if (source.ReturnHeadImage != null) {
             this.ReturnHeadImage = new Boolean(source.ReturnHeadImage);
+        }
+        if (source.DetectFake != null) {
+            this.DetectFake = new Boolean(source.DetectFake);
         }
         if (source.ImageBase64 != null) {
             this.ImageBase64 = new String(source.ImageBase64);
@@ -171,8 +176,8 @@ public class HKIDCardOCRRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "DetectFake", this.DetectFake);
         this.setParamSimple(map, prefix + "ReturnHeadImage", this.ReturnHeadImage);
+        this.setParamSimple(map, prefix + "DetectFake", this.DetectFake);
         this.setParamSimple(map, prefix + "ImageBase64", this.ImageBase64);
         this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
 

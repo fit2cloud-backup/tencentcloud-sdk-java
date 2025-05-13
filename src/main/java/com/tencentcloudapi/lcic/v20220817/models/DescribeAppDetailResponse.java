@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAppDetailResponse extends AbstractModel{
+public class DescribeAppDetailResponse extends AbstractModel {
 
     /**
     * SDK 对应的AppId 
@@ -44,7 +45,14 @@ public class DescribeAppDetailResponse extends AbstractModel{
     private SceneItem [] SceneConfig;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 转存配置
+    */
+    @SerializedName("TransferConfig")
+    @Expose
+    private TransferItem TransferConfig;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -99,16 +107,32 @@ public class DescribeAppDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 转存配置 
+     * @return TransferConfig 转存配置
+     */
+    public TransferItem getTransferConfig() {
+        return this.TransferConfig;
+    }
+
+    /**
+     * Set 转存配置
+     * @param TransferConfig 转存配置
+     */
+    public void setTransferConfig(TransferItem TransferConfig) {
+        this.TransferConfig = TransferConfig;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -134,6 +158,9 @@ public class DescribeAppDetailResponse extends AbstractModel{
                 this.SceneConfig[i] = new SceneItem(source.SceneConfig[i]);
             }
         }
+        if (source.TransferConfig != null) {
+            this.TransferConfig = new TransferItem(source.TransferConfig);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -147,6 +174,7 @@ public class DescribeAppDetailResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "SdkAppId", this.SdkAppId);
         this.setParamObj(map, prefix + "AppConfig.", this.AppConfig);
         this.setParamArrayObj(map, prefix + "SceneConfig.", this.SceneConfig);
+        this.setParamObj(map, prefix + "TransferConfig.", this.TransferConfig);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

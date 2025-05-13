@@ -16,14 +16,16 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateImageRequest extends AbstractModel{
+public class CreateImageRequest extends AbstractModel {
 
     /**
-    * 镜像名称
+    * 镜像名称。
+最多支持60个字符。
     */
     @SerializedName("ImageName")
     @Expose
@@ -31,13 +33,16 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
     * 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的`InstanceId`获取。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * 镜像描述
+    * 镜像描述。
+最多支持 256 个字符。
     */
     @SerializedName("ImageDescription")
     @Expose
@@ -45,7 +50,7 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
     * 是否执行强制关机以制作镜像。
-取值范围：<br><li>TRUE：表示关机之后制作镜像<br><li>FALSE：表示开机状态制作镜像<br><br>默认取值：FALSE。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
+取值范围：<br><li>true：表示关机之后制作镜像</li><br><li>false：表示开机状态制作镜像</li><br><br>默认取值：false。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
     */
     @SerializedName("ForcePoweroff")
     @Expose
@@ -53,7 +58,7 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
     * 创建Windows镜像时是否启用Sysprep。
-取值范围：TRUE或FALSE，默认取值为FALSE。
+取值范围：true或false，传true表示启用Sysprep，传false表示不启用，默认取值为false。
 
 关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
     */
@@ -62,21 +67,25 @@ public class CreateImageRequest extends AbstractModel{
     private String Sysprep;
 
     /**
-    * 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID
+    * 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID。
+DataDiskIds 只能在指定 InstanceId 实例所包含的数据盘范围内指定。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的 `DataDisks` 获取。
     */
     @SerializedName("DataDiskIds")
     @Expose
     private String [] DataDiskIds;
 
     /**
-    * 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与InstanceId同时传入。
+    * 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与 InstanceId 同时传入。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeSnapshots](https://cloud.tencent.com/document/product/362/15647) 接口返回值中的`SnapshotId`获取。
     */
     @SerializedName("SnapshotIds")
     @Expose
     private String [] SnapshotIds;
 
     /**
-    * 检测本次请求的是否成功，但不会对操作的资源产生任何影响
+    * 检测本次请求的是否成功，但不会对操作的资源产生任何影响。默认取值为false。
     */
     @SerializedName("DryRun")
     @Expose
@@ -84,30 +93,46 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
     * 标签描述列表。通过指定该参数可以同时绑定标签到自定义镜像。
+可通过 [DescribeTags](https://cloud.tencent.com/document/api/651/35316) 接口返回值中的 `TagKey` 和 `TagValue` 获取。
     */
     @SerializedName("TagSpecification")
     @Expose
     private TagSpecification [] TagSpecification;
 
     /**
-     * Get 镜像名称 
-     * @return ImageName 镜像名称
+    * 镜像族
+    */
+    @SerializedName("ImageFamily")
+    @Expose
+    private String ImageFamily;
+
+    /**
+     * Get 镜像名称。
+最多支持60个字符。 
+     * @return ImageName 镜像名称。
+最多支持60个字符。
      */
     public String getImageName() {
         return this.ImageName;
     }
 
     /**
-     * Set 镜像名称
-     * @param ImageName 镜像名称
+     * Set 镜像名称。
+最多支持60个字符。
+     * @param ImageName 镜像名称。
+最多支持60个字符。
      */
     public void setImageName(String ImageName) {
         this.ImageName = ImageName;
     }
 
     /**
-     * Get 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。 
+     * Get 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的`InstanceId`获取。 
      * @return InstanceId 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的`InstanceId`获取。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -115,23 +140,31 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
      * Set 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的`InstanceId`获取。
      * @param InstanceId 需要制作镜像的实例ID。基于实例创建镜像时，为必填参数。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的`InstanceId`获取。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 镜像描述 
-     * @return ImageDescription 镜像描述
+     * Get 镜像描述。
+最多支持 256 个字符。 
+     * @return ImageDescription 镜像描述。
+最多支持 256 个字符。
      */
     public String getImageDescription() {
         return this.ImageDescription;
     }
 
     /**
-     * Set 镜像描述
-     * @param ImageDescription 镜像描述
+     * Set 镜像描述。
+最多支持 256 个字符。
+     * @param ImageDescription 镜像描述。
+最多支持 256 个字符。
      */
     public void setImageDescription(String ImageDescription) {
         this.ImageDescription = ImageDescription;
@@ -139,9 +172,9 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
      * Get 是否执行强制关机以制作镜像。
-取值范围：<br><li>TRUE：表示关机之后制作镜像<br><li>FALSE：表示开机状态制作镜像<br><br>默认取值：FALSE。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。 
+取值范围：<br><li>true：表示关机之后制作镜像</li><br><li>false：表示开机状态制作镜像</li><br><br>默认取值：false。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。 
      * @return ForcePoweroff 是否执行强制关机以制作镜像。
-取值范围：<br><li>TRUE：表示关机之后制作镜像<br><li>FALSE：表示开机状态制作镜像<br><br>默认取值：FALSE。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
+取值范围：<br><li>true：表示关机之后制作镜像</li><br><li>false：表示开机状态制作镜像</li><br><br>默认取值：false。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
      */
     public String getForcePoweroff() {
         return this.ForcePoweroff;
@@ -149,9 +182,9 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
      * Set 是否执行强制关机以制作镜像。
-取值范围：<br><li>TRUE：表示关机之后制作镜像<br><li>FALSE：表示开机状态制作镜像<br><br>默认取值：FALSE。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
+取值范围：<br><li>true：表示关机之后制作镜像</li><br><li>false：表示开机状态制作镜像</li><br><br>默认取值：false。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
      * @param ForcePoweroff 是否执行强制关机以制作镜像。
-取值范围：<br><li>TRUE：表示关机之后制作镜像<br><li>FALSE：表示开机状态制作镜像<br><br>默认取值：FALSE。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
+取值范围：<br><li>true：表示关机之后制作镜像</li><br><li>false：表示开机状态制作镜像</li><br><br>默认取值：false。<br><br>开机状态制作镜像，可能导致部分数据未备份，影响数据安全。
      */
     public void setForcePoweroff(String ForcePoweroff) {
         this.ForcePoweroff = ForcePoweroff;
@@ -159,11 +192,11 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
      * Get 创建Windows镜像时是否启用Sysprep。
-取值范围：TRUE或FALSE，默认取值为FALSE。
+取值范围：true或false，传true表示启用Sysprep，传false表示不启用，默认取值为false。
 
 关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。 
      * @return Sysprep 创建Windows镜像时是否启用Sysprep。
-取值范围：TRUE或FALSE，默认取值为FALSE。
+取值范围：true或false，传true表示启用Sysprep，传false表示不启用，默认取值为false。
 
 关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
      */
@@ -173,11 +206,11 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
      * Set 创建Windows镜像时是否启用Sysprep。
-取值范围：TRUE或FALSE，默认取值为FALSE。
+取值范围：true或false，传true表示启用Sysprep，传false表示不启用，默认取值为false。
 
 关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
      * @param Sysprep 创建Windows镜像时是否启用Sysprep。
-取值范围：TRUE或FALSE，默认取值为FALSE。
+取值范围：true或false，传true表示启用Sysprep，传false表示不启用，默认取值为false。
 
 关于Sysprep的详情请参考[链接](https://cloud.tencent.com/document/product/213/43498)。
      */
@@ -186,56 +219,74 @@ public class CreateImageRequest extends AbstractModel{
     }
 
     /**
-     * Get 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID 
-     * @return DataDiskIds 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID
+     * Get 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID。
+DataDiskIds 只能在指定 InstanceId 实例所包含的数据盘范围内指定。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的 `DataDisks` 获取。 
+     * @return DataDiskIds 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID。
+DataDiskIds 只能在指定 InstanceId 实例所包含的数据盘范围内指定。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的 `DataDisks` 获取。
      */
     public String [] getDataDiskIds() {
         return this.DataDiskIds;
     }
 
     /**
-     * Set 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID
-     * @param DataDiskIds 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID
+     * Set 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID。
+DataDiskIds 只能在指定 InstanceId 实例所包含的数据盘范围内指定。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的 `DataDisks` 获取。
+     * @param DataDiskIds 基于实例创建整机镜像时，指定包含在镜像里的数据盘ID。
+DataDiskIds 只能在指定 InstanceId 实例所包含的数据盘范围内指定。
+可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口返回值中的 `DataDisks` 获取。
      */
     public void setDataDiskIds(String [] DataDiskIds) {
         this.DataDiskIds = DataDiskIds;
     }
 
     /**
-     * Get 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与InstanceId同时传入。 
-     * @return SnapshotIds 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与InstanceId同时传入。
+     * Get 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与 InstanceId 同时传入。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeSnapshots](https://cloud.tencent.com/document/product/362/15647) 接口返回值中的`SnapshotId`获取。 
+     * @return SnapshotIds 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与 InstanceId 同时传入。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeSnapshots](https://cloud.tencent.com/document/product/362/15647) 接口返回值中的`SnapshotId`获取。
      */
     public String [] getSnapshotIds() {
         return this.SnapshotIds;
     }
 
     /**
-     * Set 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与InstanceId同时传入。
-     * @param SnapshotIds 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与InstanceId同时传入。
+     * Set 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与 InstanceId 同时传入。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeSnapshots](https://cloud.tencent.com/document/product/362/15647) 接口返回值中的`SnapshotId`获取。
+     * @param SnapshotIds 基于快照创建镜像，指定快照ID，必须包含一个系统盘快照。不可与 InstanceId 同时传入。
+InstanceId 和 SnapshotIds 为二选一必填参数。
+可通过 [DescribeSnapshots](https://cloud.tencent.com/document/product/362/15647) 接口返回值中的`SnapshotId`获取。
      */
     public void setSnapshotIds(String [] SnapshotIds) {
         this.SnapshotIds = SnapshotIds;
     }
 
     /**
-     * Get 检测本次请求的是否成功，但不会对操作的资源产生任何影响 
-     * @return DryRun 检测本次请求的是否成功，但不会对操作的资源产生任何影响
+     * Get 检测本次请求的是否成功，但不会对操作的资源产生任何影响。默认取值为false。 
+     * @return DryRun 检测本次请求的是否成功，但不会对操作的资源产生任何影响。默认取值为false。
      */
     public Boolean getDryRun() {
         return this.DryRun;
     }
 
     /**
-     * Set 检测本次请求的是否成功，但不会对操作的资源产生任何影响
-     * @param DryRun 检测本次请求的是否成功，但不会对操作的资源产生任何影响
+     * Set 检测本次请求的是否成功，但不会对操作的资源产生任何影响。默认取值为false。
+     * @param DryRun 检测本次请求的是否成功，但不会对操作的资源产生任何影响。默认取值为false。
      */
     public void setDryRun(Boolean DryRun) {
         this.DryRun = DryRun;
     }
 
     /**
-     * Get 标签描述列表。通过指定该参数可以同时绑定标签到自定义镜像。 
+     * Get 标签描述列表。通过指定该参数可以同时绑定标签到自定义镜像。
+可通过 [DescribeTags](https://cloud.tencent.com/document/api/651/35316) 接口返回值中的 `TagKey` 和 `TagValue` 获取。 
      * @return TagSpecification 标签描述列表。通过指定该参数可以同时绑定标签到自定义镜像。
+可通过 [DescribeTags](https://cloud.tencent.com/document/api/651/35316) 接口返回值中的 `TagKey` 和 `TagValue` 获取。
      */
     public TagSpecification [] getTagSpecification() {
         return this.TagSpecification;
@@ -243,10 +294,28 @@ public class CreateImageRequest extends AbstractModel{
 
     /**
      * Set 标签描述列表。通过指定该参数可以同时绑定标签到自定义镜像。
+可通过 [DescribeTags](https://cloud.tencent.com/document/api/651/35316) 接口返回值中的 `TagKey` 和 `TagValue` 获取。
      * @param TagSpecification 标签描述列表。通过指定该参数可以同时绑定标签到自定义镜像。
+可通过 [DescribeTags](https://cloud.tencent.com/document/api/651/35316) 接口返回值中的 `TagKey` 和 `TagValue` 获取。
      */
     public void setTagSpecification(TagSpecification [] TagSpecification) {
         this.TagSpecification = TagSpecification;
+    }
+
+    /**
+     * Get 镜像族 
+     * @return ImageFamily 镜像族
+     */
+    public String getImageFamily() {
+        return this.ImageFamily;
+    }
+
+    /**
+     * Set 镜像族
+     * @param ImageFamily 镜像族
+     */
+    public void setImageFamily(String ImageFamily) {
+        this.ImageFamily = ImageFamily;
     }
 
     public CreateImageRequest() {
@@ -293,6 +362,9 @@ public class CreateImageRequest extends AbstractModel{
                 this.TagSpecification[i] = new TagSpecification(source.TagSpecification[i]);
             }
         }
+        if (source.ImageFamily != null) {
+            this.ImageFamily = new String(source.ImageFamily);
+        }
     }
 
 
@@ -309,6 +381,7 @@ public class CreateImageRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "SnapshotIds.", this.SnapshotIds);
         this.setParamSimple(map, prefix + "DryRun", this.DryRun);
         this.setParamArrayObj(map, prefix + "TagSpecification.", this.TagSpecification);
+        this.setParamSimple(map, prefix + "ImageFamily", this.ImageFamily);
 
     }
 }

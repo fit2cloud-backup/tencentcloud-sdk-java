@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNotebookSessionStatementSqlResultRequest extends AbstractModel{
+public class DescribeNotebookSessionStatementSqlResultRequest extends AbstractModel {
 
     /**
     * 任务唯一ID
@@ -42,6 +43,20 @@ public class DescribeNotebookSessionStatementSqlResultRequest extends AbstractMo
     @SerializedName("NextToken")
     @Expose
     private String NextToken;
+
+    /**
+    * 批次Id
+    */
+    @SerializedName("BatchId")
+    @Expose
+    private String BatchId;
+
+    /**
+    * 返回结果集中字段值长度截取，如果超过该长度则截取到该长度
+    */
+    @SerializedName("DataFieldCutLen")
+    @Expose
+    private Long DataFieldCutLen;
 
     /**
      * Get 任务唯一ID 
@@ -91,6 +106,38 @@ public class DescribeNotebookSessionStatementSqlResultRequest extends AbstractMo
         this.NextToken = NextToken;
     }
 
+    /**
+     * Get 批次Id 
+     * @return BatchId 批次Id
+     */
+    public String getBatchId() {
+        return this.BatchId;
+    }
+
+    /**
+     * Set 批次Id
+     * @param BatchId 批次Id
+     */
+    public void setBatchId(String BatchId) {
+        this.BatchId = BatchId;
+    }
+
+    /**
+     * Get 返回结果集中字段值长度截取，如果超过该长度则截取到该长度 
+     * @return DataFieldCutLen 返回结果集中字段值长度截取，如果超过该长度则截取到该长度
+     */
+    public Long getDataFieldCutLen() {
+        return this.DataFieldCutLen;
+    }
+
+    /**
+     * Set 返回结果集中字段值长度截取，如果超过该长度则截取到该长度
+     * @param DataFieldCutLen 返回结果集中字段值长度截取，如果超过该长度则截取到该长度
+     */
+    public void setDataFieldCutLen(Long DataFieldCutLen) {
+        this.DataFieldCutLen = DataFieldCutLen;
+    }
+
     public DescribeNotebookSessionStatementSqlResultRequest() {
     }
 
@@ -108,6 +155,12 @@ public class DescribeNotebookSessionStatementSqlResultRequest extends AbstractMo
         if (source.NextToken != null) {
             this.NextToken = new String(source.NextToken);
         }
+        if (source.BatchId != null) {
+            this.BatchId = new String(source.BatchId);
+        }
+        if (source.DataFieldCutLen != null) {
+            this.DataFieldCutLen = new Long(source.DataFieldCutLen);
+        }
     }
 
 
@@ -118,6 +171,8 @@ public class DescribeNotebookSessionStatementSqlResultRequest extends AbstractMo
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "MaxResults", this.MaxResults);
         this.setParamSimple(map, prefix + "NextToken", this.NextToken);
+        this.setParamSimple(map, prefix + "BatchId", this.BatchId);
+        this.setParamSimple(map, prefix + "DataFieldCutLen", this.DataFieldCutLen);
 
     }
 }

@@ -16,17 +16,18 @@
 package com.tencentcloudapi.aiart.v20221229.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageToImageRequest extends AbstractModel{
+public class ImageToImageRequest extends AbstractModel {
 
     /**
     * 输入图 Base64 数据。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
     */
     @SerializedName("InputImage")
     @Expose
@@ -35,8 +36,8 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
     /**
     * 输入图 Url。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
     */
     @SerializedName("InputUrl")
     @Expose
@@ -62,7 +63,7 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
 
     /**
     * 绘画风格。
-请在  [智能图生图风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
 推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
     */
     @SerializedName("Styles")
@@ -71,6 +72,8 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
 
     /**
     * 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
     */
     @SerializedName("ResultConfig")
     @Expose
@@ -97,7 +100,8 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
 
     /**
     * 生成自由度。
-Strength 值越小，生成图和原图越接近。取值范围0~1，不传默认为0.75。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
     */
     @SerializedName("Strength")
     @Expose
@@ -111,14 +115,32 @@ Strength 值越小，生成图和原图越接近。取值范围0~1，不传默�
     private String RspImgType;
 
     /**
+    * 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
+    */
+    @SerializedName("EnhanceImage")
+    @Expose
+    private Long EnhanceImage;
+
+    /**
+    * 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
+    */
+    @SerializedName("RestoreFace")
+    @Expose
+    private Long RestoreFace;
+
+    /**
      * Get 输入图 Base64 数据。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。 
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。 
      * @return InputImage 输入图 Base64 数据。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
      */
     public String getInputImage() {
         return this.InputImage;
@@ -127,12 +149,12 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
     /**
      * Set 输入图 Base64 数据。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
      * @param InputImage 输入图 Base64 数据。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
      */
     public void setInputImage(String InputImage) {
         this.InputImage = InputImage;
@@ -141,12 +163,12 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
     /**
      * Get 输入图 Url。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。 
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。 
      * @return InputUrl 输入图 Url。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
      */
     public String getInputUrl() {
         return this.InputUrl;
@@ -155,12 +177,12 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
     /**
      * Set 输入图 Url。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
      * @param InputUrl 输入图 Url。
 算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
-Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
-图片限制：单边分辨率小于2000，转成 Base64 字符串后小于 5MB。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
      */
     public void setInputUrl(String InputUrl) {
         this.InputUrl = InputUrl;
@@ -216,10 +238,10 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
 
     /**
      * Get 绘画风格。
-请在  [智能图生图风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
 推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。 
      * @return Styles 绘画风格。
-请在  [智能图生图风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
 推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
      */
     public String [] getStyles() {
@@ -228,10 +250,10 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
 
     /**
      * Set 绘画风格。
-请在  [智能图生图风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
 推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
      * @param Styles 绘画风格。
-请在  [智能图生图风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
 推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
      */
     public void setStyles(String [] Styles) {
@@ -239,8 +261,12 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
     }
 
     /**
-     * Get 生成图结果的配置，包括输出图片分辨率和尺寸等。 
+     * Get 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。 
      * @return ResultConfig 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
      */
     public ResultConfig getResultConfig() {
         return this.ResultConfig;
@@ -248,7 +274,11 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
 
     /**
      * Set 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
      * @param ResultConfig 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
      */
     public void setResultConfig(ResultConfig ResultConfig) {
         this.ResultConfig = ResultConfig;
@@ -308,9 +338,11 @@ Base64 和 Url 必须提供一个，如果都提供以 Base64 为准。
 
     /**
      * Get 生成自由度。
-Strength 值越小，生成图和原图越接近。取值范围0~1，不传默认为0.75。 
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。 
      * @return Strength 生成自由度。
-Strength 值越小，生成图和原图越接近。取值范围0~1，不传默认为0.75。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
      */
     public Float getStrength() {
         return this.Strength;
@@ -318,9 +350,11 @@ Strength 值越小，生成图和原图越接近。取值范围0~1，不传默�
 
     /**
      * Set 生成自由度。
-Strength 值越小，生成图和原图越接近。取值范围0~1，不传默认为0.75。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
      * @param Strength 生成自由度。
-Strength 值越小，生成图和原图越接近。取值范围0~1，不传默认为0.75。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
      */
     public void setStrength(Float Strength) {
         this.Strength = Strength;
@@ -340,6 +374,54 @@ Strength 值越小，生成图和原图越接近。取值范围0~1，不传默�
      */
     public void setRspImgType(String RspImgType) {
         this.RspImgType = RspImgType;
+    }
+
+    /**
+     * Get 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。 
+     * @return EnhanceImage 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
+     */
+    public Long getEnhanceImage() {
+        return this.EnhanceImage;
+    }
+
+    /**
+     * Set 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
+     * @param EnhanceImage 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
+     */
+    public void setEnhanceImage(Long EnhanceImage) {
+        this.EnhanceImage = EnhanceImage;
+    }
+
+    /**
+     * Get 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。 
+     * @return RestoreFace 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
+     */
+    public Long getRestoreFace() {
+        return this.RestoreFace;
+    }
+
+    /**
+     * Set 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
+     * @param RestoreFace 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
+     */
+    public void setRestoreFace(Long RestoreFace) {
+        this.RestoreFace = RestoreFace;
     }
 
     public ImageToImageRequest() {
@@ -383,6 +465,12 @@ Strength 值越小，生成图和原图越接近。取值范围0~1，不传默�
         if (source.RspImgType != null) {
             this.RspImgType = new String(source.RspImgType);
         }
+        if (source.EnhanceImage != null) {
+            this.EnhanceImage = new Long(source.EnhanceImage);
+        }
+        if (source.RestoreFace != null) {
+            this.RestoreFace = new Long(source.RestoreFace);
+        }
     }
 
 
@@ -400,6 +488,8 @@ Strength 值越小，生成图和原图越接近。取值范围0~1，不传默�
         this.setParamObj(map, prefix + "LogoParam.", this.LogoParam);
         this.setParamSimple(map, prefix + "Strength", this.Strength);
         this.setParamSimple(map, prefix + "RspImgType", this.RspImgType);
+        this.setParamSimple(map, prefix + "EnhanceImage", this.EnhanceImage);
+        this.setParamSimple(map, prefix + "RestoreFace", this.RestoreFace);
 
     }
 }

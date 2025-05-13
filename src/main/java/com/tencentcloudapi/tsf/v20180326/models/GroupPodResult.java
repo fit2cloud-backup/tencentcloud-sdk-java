@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GroupPodResult extends AbstractModel{
+public class GroupPodResult extends AbstractModel {
 
     /**
     * 总记录数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -32,17 +32,14 @@ public class GroupPodResult extends AbstractModel{
 
     /**
     * 列表信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
     private GroupPod [] Content;
 
     /**
-     * Get 总记录数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总记录数 
      * @return TotalCount 总记录数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -50,19 +47,15 @@ public class GroupPodResult extends AbstractModel{
 
     /**
      * Set 总记录数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 总记录数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 列表信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 列表信息 
      * @return Content 列表信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public GroupPod [] getContent() {
         return this.Content;
@@ -70,9 +63,7 @@ public class GroupPodResult extends AbstractModel{
 
     /**
      * Set 列表信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 列表信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(GroupPod [] Content) {
         this.Content = Content;

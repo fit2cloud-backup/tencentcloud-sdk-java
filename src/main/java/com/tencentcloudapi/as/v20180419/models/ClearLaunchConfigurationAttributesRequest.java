@@ -16,14 +16,17 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClearLaunchConfigurationAttributesRequest extends AbstractModel{
+public class ClearLaunchConfigurationAttributesRequest extends AbstractModel {
 
     /**
-    * 启动配置ID。
+    * 启动配置ID。可通过如下方式获取：
+<li>通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 查询启动配置ID。</li>
+<li>通过调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。</li>
     */
     @SerializedName("LaunchConfigurationId")
     @Expose
@@ -62,16 +65,39 @@ public class ClearLaunchConfigurationAttributesRequest extends AbstractModel{
     private Boolean ClearDisasterRecoverGroupIds;
 
     /**
-     * Get 启动配置ID。 
-     * @return LaunchConfigurationId 启动配置ID。
+    * 是否清空实例标签列表，非必填，默认为 false。
+填 true 代表清空实例标签列表，清空后基于此新创建的云主机将不会绑定列表中的标签。
+    */
+    @SerializedName("ClearInstanceTags")
+    @Expose
+    private Boolean ClearInstanceTags;
+
+    /**
+    * 是否清空 MetaData，非必填，默认为 false。填 true 代表清空 MetaData，清空后基于此新创建的云主机将不会关联自定义的 Metadata。
+    */
+    @SerializedName("ClearMetadata")
+    @Expose
+    private Boolean ClearMetadata;
+
+    /**
+     * Get 启动配置ID。可通过如下方式获取：
+<li>通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 查询启动配置ID。</li>
+<li>通过调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。</li> 
+     * @return LaunchConfigurationId 启动配置ID。可通过如下方式获取：
+<li>通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 查询启动配置ID。</li>
+<li>通过调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。</li>
      */
     public String getLaunchConfigurationId() {
         return this.LaunchConfigurationId;
     }
 
     /**
-     * Set 启动配置ID。
-     * @param LaunchConfigurationId 启动配置ID。
+     * Set 启动配置ID。可通过如下方式获取：
+<li>通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 查询启动配置ID。</li>
+<li>通过调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。</li>
+     * @param LaunchConfigurationId 启动配置ID。可通过如下方式获取：
+<li>通过登录 [控制台](https://console.cloud.tencent.com/autoscaling/config) 查询启动配置ID。</li>
+<li>通过调用接口 [DescribeLaunchConfigurations](https://cloud.tencent.com/document/api/377/20445) ，取返回信息中的 LaunchConfigurationId 获取启动配置ID。</li>
      */
     public void setLaunchConfigurationId(String LaunchConfigurationId) {
         this.LaunchConfigurationId = LaunchConfigurationId;
@@ -157,6 +183,42 @@ public class ClearLaunchConfigurationAttributesRequest extends AbstractModel{
         this.ClearDisasterRecoverGroupIds = ClearDisasterRecoverGroupIds;
     }
 
+    /**
+     * Get 是否清空实例标签列表，非必填，默认为 false。
+填 true 代表清空实例标签列表，清空后基于此新创建的云主机将不会绑定列表中的标签。 
+     * @return ClearInstanceTags 是否清空实例标签列表，非必填，默认为 false。
+填 true 代表清空实例标签列表，清空后基于此新创建的云主机将不会绑定列表中的标签。
+     */
+    public Boolean getClearInstanceTags() {
+        return this.ClearInstanceTags;
+    }
+
+    /**
+     * Set 是否清空实例标签列表，非必填，默认为 false。
+填 true 代表清空实例标签列表，清空后基于此新创建的云主机将不会绑定列表中的标签。
+     * @param ClearInstanceTags 是否清空实例标签列表，非必填，默认为 false。
+填 true 代表清空实例标签列表，清空后基于此新创建的云主机将不会绑定列表中的标签。
+     */
+    public void setClearInstanceTags(Boolean ClearInstanceTags) {
+        this.ClearInstanceTags = ClearInstanceTags;
+    }
+
+    /**
+     * Get 是否清空 MetaData，非必填，默认为 false。填 true 代表清空 MetaData，清空后基于此新创建的云主机将不会关联自定义的 Metadata。 
+     * @return ClearMetadata 是否清空 MetaData，非必填，默认为 false。填 true 代表清空 MetaData，清空后基于此新创建的云主机将不会关联自定义的 Metadata。
+     */
+    public Boolean getClearMetadata() {
+        return this.ClearMetadata;
+    }
+
+    /**
+     * Set 是否清空 MetaData，非必填，默认为 false。填 true 代表清空 MetaData，清空后基于此新创建的云主机将不会关联自定义的 Metadata。
+     * @param ClearMetadata 是否清空 MetaData，非必填，默认为 false。填 true 代表清空 MetaData，清空后基于此新创建的云主机将不会关联自定义的 Metadata。
+     */
+    public void setClearMetadata(Boolean ClearMetadata) {
+        this.ClearMetadata = ClearMetadata;
+    }
+
     public ClearLaunchConfigurationAttributesRequest() {
     }
 
@@ -180,6 +242,12 @@ public class ClearLaunchConfigurationAttributesRequest extends AbstractModel{
         if (source.ClearDisasterRecoverGroupIds != null) {
             this.ClearDisasterRecoverGroupIds = new Boolean(source.ClearDisasterRecoverGroupIds);
         }
+        if (source.ClearInstanceTags != null) {
+            this.ClearInstanceTags = new Boolean(source.ClearInstanceTags);
+        }
+        if (source.ClearMetadata != null) {
+            this.ClearMetadata = new Boolean(source.ClearMetadata);
+        }
     }
 
 
@@ -192,6 +260,8 @@ public class ClearLaunchConfigurationAttributesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClearHostNameSettings", this.ClearHostNameSettings);
         this.setParamSimple(map, prefix + "ClearInstanceNameSettings", this.ClearInstanceNameSettings);
         this.setParamSimple(map, prefix + "ClearDisasterRecoverGroupIds", this.ClearDisasterRecoverGroupIds);
+        this.setParamSimple(map, prefix + "ClearInstanceTags", this.ClearInstanceTags);
+        this.setParamSimple(map, prefix + "ClearMetadata", this.ClearMetadata);
 
     }
 }

@@ -16,99 +16,105 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetWeChatBillDetailsResponse extends AbstractModel{
+public class GetWeChatBillDetailsResponse extends AbstractModel {
 
     /**
-    * 是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+    * 是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
     */
     @SerializedName("HasNextPage")
     @Expose
     private Boolean HasNextPage;
 
     /**
-    * 下一页的游标。用于分页。
+    * 下一页的游标，用于分页。
     */
     @SerializedName("NextCursor")
     @Expose
     private Long NextCursor;
 
     /**
-    * 数据
+    * 数据。
     */
     @SerializedName("WeChatBillDetails")
     @Expose
     private WeChatBillDetail [] WeChatBillDetails;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。 
-     * @return HasNextPage 是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+     * Get 是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。 
+     * @return HasNextPage 是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
      */
     public Boolean getHasNextPage() {
         return this.HasNextPage;
     }
 
     /**
-     * Set 是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
-     * @param HasNextPage 是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+     * Set 是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+     * @param HasNextPage 是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
      */
     public void setHasNextPage(Boolean HasNextPage) {
         this.HasNextPage = HasNextPage;
     }
 
     /**
-     * Get 下一页的游标。用于分页。 
-     * @return NextCursor 下一页的游标。用于分页。
+     * Get 下一页的游标，用于分页。 
+     * @return NextCursor 下一页的游标，用于分页。
      */
     public Long getNextCursor() {
         return this.NextCursor;
     }
 
     /**
-     * Set 下一页的游标。用于分页。
-     * @param NextCursor 下一页的游标。用于分页。
+     * Set 下一页的游标，用于分页。
+     * @param NextCursor 下一页的游标，用于分页。
      */
     public void setNextCursor(Long NextCursor) {
         this.NextCursor = NextCursor;
     }
 
     /**
-     * Get 数据 
-     * @return WeChatBillDetails 数据
+     * Get 数据。 
+     * @return WeChatBillDetails 数据。
      */
     public WeChatBillDetail [] getWeChatBillDetails() {
         return this.WeChatBillDetails;
     }
 
     /**
-     * Set 数据
-     * @param WeChatBillDetails 数据
+     * Set 数据。
+     * @param WeChatBillDetails 数据。
      */
     public void setWeChatBillDetails(WeChatBillDetail [] WeChatBillDetails) {
         this.WeChatBillDetails = WeChatBillDetails;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChcHost extends AbstractModel{
+public class ChcHost extends AbstractModel {
 
     /**
     * CHC物理服务器ID。
@@ -60,7 +61,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 设备类型。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeviceType")
     @Expose
@@ -75,7 +75,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 带外网络。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BmcVirtualPrivateCloud")
     @Expose
@@ -83,7 +82,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 带外网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BmcIp")
     @Expose
@@ -91,7 +89,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 带外网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BmcSecurityGroupIds")
     @Expose
@@ -99,7 +96,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 部署网络。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployVirtualPrivateCloud")
     @Expose
@@ -107,7 +103,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 部署网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployIp")
     @Expose
@@ -115,7 +110,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 部署网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeploySecurityGroupIds")
     @Expose
@@ -123,7 +117,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 关联的云主机Id。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CvmInstanceId")
     @Expose
@@ -138,7 +131,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 机型的硬件描述，分别为CPU核数，内存容量和磁盘容量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HardwareDescription")
     @Expose
@@ -146,7 +138,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * CHC物理服务器的CPU核数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CPU")
     @Expose
@@ -154,7 +145,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * CHC物理服务器的内存大小，单位为GB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Memory")
     @Expose
@@ -162,7 +152,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * CHC物理服务器的磁盘信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Disk")
     @Expose
@@ -170,7 +159,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 带外网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BmcMAC")
     @Expose
@@ -178,7 +166,6 @@ public class ChcHost extends AbstractModel{
 
     /**
     * 部署网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployMAC")
     @Expose
@@ -188,19 +175,128 @@ public class ChcHost extends AbstractModel{
     * 设备托管类型。
 HOSTING: 托管
 TENANT: 租赁
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TenantType")
     @Expose
     private String TenantType;
 
     /**
-    * chc dhcp选项，用于minios调试
-注意：此字段可能返回 null，表示取不到有效值。
+    * chc dhcp选项，用于minios调试。
     */
     @SerializedName("DeployExtraConfig")
     @Expose
     private ChcDeployExtraConfig DeployExtraConfig;
+
+    /**
+    * GPU型号。
+    */
+    @SerializedName("Gpu")
+    @Expose
+    private String Gpu;
+
+    /**
+    * 网卡型号。主要指RDMA网卡。
+    */
+    @SerializedName("NetworkCard")
+    @Expose
+    private String NetworkCard;
+
+    /**
+    * 是否是预定义机型。
+    */
+    @SerializedName("IsPredefinedType")
+    @Expose
+    private Boolean IsPredefinedType;
+
+    /**
+    * CHC云主机机型。
+    */
+    @SerializedName("ChcInstanceType")
+    @Expose
+    private String ChcInstanceType;
+
+    /**
+    * CHC云主机机型簇。
+    */
+    @SerializedName("ChcInstanceFamily")
+    @Expose
+    private String ChcInstanceFamily;
+
+    /**
+    * CHC云主机机型簇名称。
+    */
+    @SerializedName("ChcInstanceFamilyName")
+    @Expose
+    private String ChcInstanceFamilyName;
+
+    /**
+    * 转售客户的AppId。
+    */
+    @SerializedName("ResaleAppId")
+    @Expose
+    private String ResaleAppId;
+
+    /**
+    * 转售客户的账号ID。
+    */
+    @SerializedName("ResaleAccountId")
+    @Expose
+    private String ResaleAccountId;
+
+    /**
+    * 售卖状态。<br/>
+<ul>
+<li>NOT_FOR_SALE:不可售卖</li>
+<li>AVAILABLE: 可售卖</li>
+<li>SOLD: 已售卖</li>
+</ul>
+
+    */
+    @SerializedName("SaleStatus")
+    @Expose
+    private String SaleStatus;
+
+    /**
+    * CHC物理服务器关联的标签列表。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+    * 最近操作
+    */
+    @SerializedName("LatestOperation")
+    @Expose
+    private String LatestOperation;
+
+    /**
+    * 最近操作错误码
+    */
+    @SerializedName("LatestOperationErrorCode")
+    @Expose
+    private String LatestOperationErrorCode;
+
+    /**
+    * 最近操作错误详情和建议项
+    */
+    @SerializedName("LatestOperationErrorMsg")
+    @Expose
+    private String LatestOperationErrorMsg;
+
+    /**
+    * 最近操作名称
+    */
+    @SerializedName("LatestOperationName")
+    @Expose
+    private String LatestOperationName;
+
+    /**
+    * 最近操作状态
+    */
+    @SerializedName("LatestOperationState")
+    @Expose
+    private String LatestOperationState;
 
     /**
      * Get CHC物理服务器ID。 
@@ -299,10 +395,8 @@ TENANT: 租赁
     }
 
     /**
-     * Get 设备类型。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备类型。 
      * @return DeviceType 设备类型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeviceType() {
         return this.DeviceType;
@@ -310,9 +404,7 @@ TENANT: 租赁
 
     /**
      * Set 设备类型。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeviceType 设备类型。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeviceType(String DeviceType) {
         this.DeviceType = DeviceType;
@@ -335,10 +427,8 @@ TENANT: 租赁
     }
 
     /**
-     * Get 带外网络。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带外网络。 
      * @return BmcVirtualPrivateCloud 带外网络。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VirtualPrivateCloud getBmcVirtualPrivateCloud() {
         return this.BmcVirtualPrivateCloud;
@@ -346,19 +436,15 @@ TENANT: 租赁
 
     /**
      * Set 带外网络。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BmcVirtualPrivateCloud 带外网络。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBmcVirtualPrivateCloud(VirtualPrivateCloud BmcVirtualPrivateCloud) {
         this.BmcVirtualPrivateCloud = BmcVirtualPrivateCloud;
     }
 
     /**
-     * Get 带外网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带外网络Ip。 
      * @return BmcIp 带外网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBmcIp() {
         return this.BmcIp;
@@ -366,19 +452,15 @@ TENANT: 租赁
 
     /**
      * Set 带外网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BmcIp 带外网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBmcIp(String BmcIp) {
         this.BmcIp = BmcIp;
     }
 
     /**
-     * Get 带外网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带外网络安全组Id。 
      * @return BmcSecurityGroupIds 带外网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getBmcSecurityGroupIds() {
         return this.BmcSecurityGroupIds;
@@ -386,19 +468,15 @@ TENANT: 租赁
 
     /**
      * Set 带外网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BmcSecurityGroupIds 带外网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBmcSecurityGroupIds(String [] BmcSecurityGroupIds) {
         this.BmcSecurityGroupIds = BmcSecurityGroupIds;
     }
 
     /**
-     * Get 部署网络。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署网络。 
      * @return DeployVirtualPrivateCloud 部署网络。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VirtualPrivateCloud getDeployVirtualPrivateCloud() {
         return this.DeployVirtualPrivateCloud;
@@ -406,19 +484,15 @@ TENANT: 租赁
 
     /**
      * Set 部署网络。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeployVirtualPrivateCloud 部署网络。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployVirtualPrivateCloud(VirtualPrivateCloud DeployVirtualPrivateCloud) {
         this.DeployVirtualPrivateCloud = DeployVirtualPrivateCloud;
     }
 
     /**
-     * Get 部署网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署网络Ip。 
      * @return DeployIp 部署网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeployIp() {
         return this.DeployIp;
@@ -426,19 +500,15 @@ TENANT: 租赁
 
     /**
      * Set 部署网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeployIp 部署网络Ip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployIp(String DeployIp) {
         this.DeployIp = DeployIp;
     }
 
     /**
-     * Get 部署网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署网络安全组Id。 
      * @return DeploySecurityGroupIds 部署网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDeploySecurityGroupIds() {
         return this.DeploySecurityGroupIds;
@@ -446,19 +516,15 @@ TENANT: 租赁
 
     /**
      * Set 部署网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeploySecurityGroupIds 部署网络安全组Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeploySecurityGroupIds(String [] DeploySecurityGroupIds) {
         this.DeploySecurityGroupIds = DeploySecurityGroupIds;
     }
 
     /**
-     * Get 关联的云主机Id。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 关联的云主机Id。 
      * @return CvmInstanceId 关联的云主机Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCvmInstanceId() {
         return this.CvmInstanceId;
@@ -466,9 +532,7 @@ TENANT: 租赁
 
     /**
      * Set 关联的云主机Id。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CvmInstanceId 关联的云主机Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCvmInstanceId(String CvmInstanceId) {
         this.CvmInstanceId = CvmInstanceId;
@@ -491,10 +555,8 @@ TENANT: 租赁
     }
 
     /**
-     * Get 机型的硬件描述，分别为CPU核数，内存容量和磁盘容量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 机型的硬件描述，分别为CPU核数，内存容量和磁盘容量 
      * @return HardwareDescription 机型的硬件描述，分别为CPU核数，内存容量和磁盘容量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHardwareDescription() {
         return this.HardwareDescription;
@@ -502,19 +564,15 @@ TENANT: 租赁
 
     /**
      * Set 机型的硬件描述，分别为CPU核数，内存容量和磁盘容量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HardwareDescription 机型的硬件描述，分别为CPU核数，内存容量和磁盘容量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHardwareDescription(String HardwareDescription) {
         this.HardwareDescription = HardwareDescription;
     }
 
     /**
-     * Get CHC物理服务器的CPU核数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CHC物理服务器的CPU核数 
      * @return CPU CHC物理服务器的CPU核数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCPU() {
         return this.CPU;
@@ -522,19 +580,15 @@ TENANT: 租赁
 
     /**
      * Set CHC物理服务器的CPU核数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CPU CHC物理服务器的CPU核数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCPU(Long CPU) {
         this.CPU = CPU;
     }
 
     /**
-     * Get CHC物理服务器的内存大小，单位为GB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CHC物理服务器的内存大小，单位为GB 
      * @return Memory CHC物理服务器的内存大小，单位为GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMemory() {
         return this.Memory;
@@ -542,19 +596,15 @@ TENANT: 租赁
 
     /**
      * Set CHC物理服务器的内存大小，单位为GB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Memory CHC物理服务器的内存大小，单位为GB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMemory(Long Memory) {
         this.Memory = Memory;
     }
 
     /**
-     * Get CHC物理服务器的磁盘信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CHC物理服务器的磁盘信息 
      * @return Disk CHC物理服务器的磁盘信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDisk() {
         return this.Disk;
@@ -562,19 +612,15 @@ TENANT: 租赁
 
     /**
      * Set CHC物理服务器的磁盘信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Disk CHC物理服务器的磁盘信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDisk(String Disk) {
         this.Disk = Disk;
     }
 
     /**
-     * Get 带外网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带外网络下分配的MAC地址 
      * @return BmcMAC 带外网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBmcMAC() {
         return this.BmcMAC;
@@ -582,19 +628,15 @@ TENANT: 租赁
 
     /**
      * Set 带外网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BmcMAC 带外网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBmcMAC(String BmcMAC) {
         this.BmcMAC = BmcMAC;
     }
 
     /**
-     * Get 部署网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署网络下分配的MAC地址 
      * @return DeployMAC 部署网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeployMAC() {
         return this.DeployMAC;
@@ -602,9 +644,7 @@ TENANT: 租赁
 
     /**
      * Set 部署网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeployMAC 部署网络下分配的MAC地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployMAC(String DeployMAC) {
         this.DeployMAC = DeployMAC;
@@ -613,12 +653,10 @@ TENANT: 租赁
     /**
      * Get 设备托管类型。
 HOSTING: 托管
-TENANT: 租赁
-注意：此字段可能返回 null，表示取不到有效值。 
+TENANT: 租赁 
      * @return TenantType 设备托管类型。
 HOSTING: 托管
 TENANT: 租赁
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTenantType() {
         return this.TenantType;
@@ -628,34 +666,292 @@ TENANT: 租赁
      * Set 设备托管类型。
 HOSTING: 托管
 TENANT: 租赁
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TenantType 设备托管类型。
 HOSTING: 托管
 TENANT: 租赁
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTenantType(String TenantType) {
         this.TenantType = TenantType;
     }
 
     /**
-     * Get chc dhcp选项，用于minios调试
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DeployExtraConfig chc dhcp选项，用于minios调试
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get chc dhcp选项，用于minios调试。 
+     * @return DeployExtraConfig chc dhcp选项，用于minios调试。
      */
     public ChcDeployExtraConfig getDeployExtraConfig() {
         return this.DeployExtraConfig;
     }
 
     /**
-     * Set chc dhcp选项，用于minios调试
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DeployExtraConfig chc dhcp选项，用于minios调试
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set chc dhcp选项，用于minios调试。
+     * @param DeployExtraConfig chc dhcp选项，用于minios调试。
      */
     public void setDeployExtraConfig(ChcDeployExtraConfig DeployExtraConfig) {
         this.DeployExtraConfig = DeployExtraConfig;
+    }
+
+    /**
+     * Get GPU型号。 
+     * @return Gpu GPU型号。
+     */
+    public String getGpu() {
+        return this.Gpu;
+    }
+
+    /**
+     * Set GPU型号。
+     * @param Gpu GPU型号。
+     */
+    public void setGpu(String Gpu) {
+        this.Gpu = Gpu;
+    }
+
+    /**
+     * Get 网卡型号。主要指RDMA网卡。 
+     * @return NetworkCard 网卡型号。主要指RDMA网卡。
+     */
+    public String getNetworkCard() {
+        return this.NetworkCard;
+    }
+
+    /**
+     * Set 网卡型号。主要指RDMA网卡。
+     * @param NetworkCard 网卡型号。主要指RDMA网卡。
+     */
+    public void setNetworkCard(String NetworkCard) {
+        this.NetworkCard = NetworkCard;
+    }
+
+    /**
+     * Get 是否是预定义机型。 
+     * @return IsPredefinedType 是否是预定义机型。
+     */
+    public Boolean getIsPredefinedType() {
+        return this.IsPredefinedType;
+    }
+
+    /**
+     * Set 是否是预定义机型。
+     * @param IsPredefinedType 是否是预定义机型。
+     */
+    public void setIsPredefinedType(Boolean IsPredefinedType) {
+        this.IsPredefinedType = IsPredefinedType;
+    }
+
+    /**
+     * Get CHC云主机机型。 
+     * @return ChcInstanceType CHC云主机机型。
+     */
+    public String getChcInstanceType() {
+        return this.ChcInstanceType;
+    }
+
+    /**
+     * Set CHC云主机机型。
+     * @param ChcInstanceType CHC云主机机型。
+     */
+    public void setChcInstanceType(String ChcInstanceType) {
+        this.ChcInstanceType = ChcInstanceType;
+    }
+
+    /**
+     * Get CHC云主机机型簇。 
+     * @return ChcInstanceFamily CHC云主机机型簇。
+     */
+    public String getChcInstanceFamily() {
+        return this.ChcInstanceFamily;
+    }
+
+    /**
+     * Set CHC云主机机型簇。
+     * @param ChcInstanceFamily CHC云主机机型簇。
+     */
+    public void setChcInstanceFamily(String ChcInstanceFamily) {
+        this.ChcInstanceFamily = ChcInstanceFamily;
+    }
+
+    /**
+     * Get CHC云主机机型簇名称。 
+     * @return ChcInstanceFamilyName CHC云主机机型簇名称。
+     */
+    public String getChcInstanceFamilyName() {
+        return this.ChcInstanceFamilyName;
+    }
+
+    /**
+     * Set CHC云主机机型簇名称。
+     * @param ChcInstanceFamilyName CHC云主机机型簇名称。
+     */
+    public void setChcInstanceFamilyName(String ChcInstanceFamilyName) {
+        this.ChcInstanceFamilyName = ChcInstanceFamilyName;
+    }
+
+    /**
+     * Get 转售客户的AppId。 
+     * @return ResaleAppId 转售客户的AppId。
+     */
+    public String getResaleAppId() {
+        return this.ResaleAppId;
+    }
+
+    /**
+     * Set 转售客户的AppId。
+     * @param ResaleAppId 转售客户的AppId。
+     */
+    public void setResaleAppId(String ResaleAppId) {
+        this.ResaleAppId = ResaleAppId;
+    }
+
+    /**
+     * Get 转售客户的账号ID。 
+     * @return ResaleAccountId 转售客户的账号ID。
+     */
+    public String getResaleAccountId() {
+        return this.ResaleAccountId;
+    }
+
+    /**
+     * Set 转售客户的账号ID。
+     * @param ResaleAccountId 转售客户的账号ID。
+     */
+    public void setResaleAccountId(String ResaleAccountId) {
+        this.ResaleAccountId = ResaleAccountId;
+    }
+
+    /**
+     * Get 售卖状态。<br/>
+<ul>
+<li>NOT_FOR_SALE:不可售卖</li>
+<li>AVAILABLE: 可售卖</li>
+<li>SOLD: 已售卖</li>
+</ul>
+ 
+     * @return SaleStatus 售卖状态。<br/>
+<ul>
+<li>NOT_FOR_SALE:不可售卖</li>
+<li>AVAILABLE: 可售卖</li>
+<li>SOLD: 已售卖</li>
+</ul>
+
+     */
+    public String getSaleStatus() {
+        return this.SaleStatus;
+    }
+
+    /**
+     * Set 售卖状态。<br/>
+<ul>
+<li>NOT_FOR_SALE:不可售卖</li>
+<li>AVAILABLE: 可售卖</li>
+<li>SOLD: 已售卖</li>
+</ul>
+
+     * @param SaleStatus 售卖状态。<br/>
+<ul>
+<li>NOT_FOR_SALE:不可售卖</li>
+<li>AVAILABLE: 可售卖</li>
+<li>SOLD: 已售卖</li>
+</ul>
+
+     */
+    public void setSaleStatus(String SaleStatus) {
+        this.SaleStatus = SaleStatus;
+    }
+
+    /**
+     * Get CHC物理服务器关联的标签列表。 
+     * @return Tags CHC物理服务器关联的标签列表。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set CHC物理服务器关联的标签列表。
+     * @param Tags CHC物理服务器关联的标签列表。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 最近操作 
+     * @return LatestOperation 最近操作
+     */
+    public String getLatestOperation() {
+        return this.LatestOperation;
+    }
+
+    /**
+     * Set 最近操作
+     * @param LatestOperation 最近操作
+     */
+    public void setLatestOperation(String LatestOperation) {
+        this.LatestOperation = LatestOperation;
+    }
+
+    /**
+     * Get 最近操作错误码 
+     * @return LatestOperationErrorCode 最近操作错误码
+     */
+    public String getLatestOperationErrorCode() {
+        return this.LatestOperationErrorCode;
+    }
+
+    /**
+     * Set 最近操作错误码
+     * @param LatestOperationErrorCode 最近操作错误码
+     */
+    public void setLatestOperationErrorCode(String LatestOperationErrorCode) {
+        this.LatestOperationErrorCode = LatestOperationErrorCode;
+    }
+
+    /**
+     * Get 最近操作错误详情和建议项 
+     * @return LatestOperationErrorMsg 最近操作错误详情和建议项
+     */
+    public String getLatestOperationErrorMsg() {
+        return this.LatestOperationErrorMsg;
+    }
+
+    /**
+     * Set 最近操作错误详情和建议项
+     * @param LatestOperationErrorMsg 最近操作错误详情和建议项
+     */
+    public void setLatestOperationErrorMsg(String LatestOperationErrorMsg) {
+        this.LatestOperationErrorMsg = LatestOperationErrorMsg;
+    }
+
+    /**
+     * Get 最近操作名称 
+     * @return LatestOperationName 最近操作名称
+     */
+    public String getLatestOperationName() {
+        return this.LatestOperationName;
+    }
+
+    /**
+     * Set 最近操作名称
+     * @param LatestOperationName 最近操作名称
+     */
+    public void setLatestOperationName(String LatestOperationName) {
+        this.LatestOperationName = LatestOperationName;
+    }
+
+    /**
+     * Get 最近操作状态 
+     * @return LatestOperationState 最近操作状态
+     */
+    public String getLatestOperationState() {
+        return this.LatestOperationState;
+    }
+
+    /**
+     * Set 最近操作状态
+     * @param LatestOperationState 最近操作状态
+     */
+    public void setLatestOperationState(String LatestOperationState) {
+        this.LatestOperationState = LatestOperationState;
     }
 
     public ChcHost() {
@@ -738,6 +1034,54 @@ TENANT: 租赁
         if (source.DeployExtraConfig != null) {
             this.DeployExtraConfig = new ChcDeployExtraConfig(source.DeployExtraConfig);
         }
+        if (source.Gpu != null) {
+            this.Gpu = new String(source.Gpu);
+        }
+        if (source.NetworkCard != null) {
+            this.NetworkCard = new String(source.NetworkCard);
+        }
+        if (source.IsPredefinedType != null) {
+            this.IsPredefinedType = new Boolean(source.IsPredefinedType);
+        }
+        if (source.ChcInstanceType != null) {
+            this.ChcInstanceType = new String(source.ChcInstanceType);
+        }
+        if (source.ChcInstanceFamily != null) {
+            this.ChcInstanceFamily = new String(source.ChcInstanceFamily);
+        }
+        if (source.ChcInstanceFamilyName != null) {
+            this.ChcInstanceFamilyName = new String(source.ChcInstanceFamilyName);
+        }
+        if (source.ResaleAppId != null) {
+            this.ResaleAppId = new String(source.ResaleAppId);
+        }
+        if (source.ResaleAccountId != null) {
+            this.ResaleAccountId = new String(source.ResaleAccountId);
+        }
+        if (source.SaleStatus != null) {
+            this.SaleStatus = new String(source.SaleStatus);
+        }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
+        if (source.LatestOperation != null) {
+            this.LatestOperation = new String(source.LatestOperation);
+        }
+        if (source.LatestOperationErrorCode != null) {
+            this.LatestOperationErrorCode = new String(source.LatestOperationErrorCode);
+        }
+        if (source.LatestOperationErrorMsg != null) {
+            this.LatestOperationErrorMsg = new String(source.LatestOperationErrorMsg);
+        }
+        if (source.LatestOperationName != null) {
+            this.LatestOperationName = new String(source.LatestOperationName);
+        }
+        if (source.LatestOperationState != null) {
+            this.LatestOperationState = new String(source.LatestOperationState);
+        }
     }
 
 
@@ -767,6 +1111,21 @@ TENANT: 租赁
         this.setParamSimple(map, prefix + "DeployMAC", this.DeployMAC);
         this.setParamSimple(map, prefix + "TenantType", this.TenantType);
         this.setParamObj(map, prefix + "DeployExtraConfig.", this.DeployExtraConfig);
+        this.setParamSimple(map, prefix + "Gpu", this.Gpu);
+        this.setParamSimple(map, prefix + "NetworkCard", this.NetworkCard);
+        this.setParamSimple(map, prefix + "IsPredefinedType", this.IsPredefinedType);
+        this.setParamSimple(map, prefix + "ChcInstanceType", this.ChcInstanceType);
+        this.setParamSimple(map, prefix + "ChcInstanceFamily", this.ChcInstanceFamily);
+        this.setParamSimple(map, prefix + "ChcInstanceFamilyName", this.ChcInstanceFamilyName);
+        this.setParamSimple(map, prefix + "ResaleAppId", this.ResaleAppId);
+        this.setParamSimple(map, prefix + "ResaleAccountId", this.ResaleAccountId);
+        this.setParamSimple(map, prefix + "SaleStatus", this.SaleStatus);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "LatestOperation", this.LatestOperation);
+        this.setParamSimple(map, prefix + "LatestOperationErrorCode", this.LatestOperationErrorCode);
+        this.setParamSimple(map, prefix + "LatestOperationErrorMsg", this.LatestOperationErrorMsg);
+        this.setParamSimple(map, prefix + "LatestOperationName", this.LatestOperationName);
+        this.setParamSimple(map, prefix + "LatestOperationState", this.LatestOperationState);
 
     }
 }

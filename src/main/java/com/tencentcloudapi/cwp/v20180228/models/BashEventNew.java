@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BashEventNew extends AbstractModel{
+public class BashEventNew extends AbstractModel {
 
     /**
     * 数据ID
@@ -115,7 +116,6 @@ public class BashEventNew extends AbstractModel{
 
     /**
     * 0: bash日志 1: 实时监控(雷霆版)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DetectBy")
     @Expose
@@ -123,7 +123,6 @@ public class BashEventNew extends AbstractModel{
 
     /**
     * 进程id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Pid")
     @Expose
@@ -131,7 +130,6 @@ public class BashEventNew extends AbstractModel{
 
     /**
     * 进程名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Exe")
     @Expose
@@ -139,7 +137,6 @@ public class BashEventNew extends AbstractModel{
 
     /**
     * 处理时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModifyTime")
     @Expose
@@ -147,23 +144,27 @@ public class BashEventNew extends AbstractModel{
 
     /**
     * 规则类别  0=系统规则，1=用户规则
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleCategory")
     @Expose
     private Long RuleCategory;
 
     /**
-    * 自动生成的正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
+    * 转义后的正则表达式
     */
     @SerializedName("RegexBashCmd")
     @Expose
     private String RegexBashCmd;
 
     /**
+    * 转义后的正则表达式
+    */
+    @SerializedName("RegexExe")
+    @Expose
+    private String RegexExe;
+
+    /**
     * 0:普通 1:专业版 2:旗舰版
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineType")
     @Expose
@@ -171,7 +172,6 @@ public class BashEventNew extends AbstractModel{
 
     /**
     * 机器额外信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
@@ -386,10 +386,8 @@ public class BashEventNew extends AbstractModel{
     }
 
     /**
-     * Get 0: bash日志 1: 实时监控(雷霆版)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0: bash日志 1: 实时监控(雷霆版) 
      * @return DetectBy 0: bash日志 1: 实时监控(雷霆版)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDetectBy() {
         return this.DetectBy;
@@ -397,19 +395,15 @@ public class BashEventNew extends AbstractModel{
 
     /**
      * Set 0: bash日志 1: 实时监控(雷霆版)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DetectBy 0: bash日志 1: 实时监控(雷霆版)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDetectBy(Long DetectBy) {
         this.DetectBy = DetectBy;
     }
 
     /**
-     * Get 进程id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进程id 
      * @return Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPid() {
         return this.Pid;
@@ -417,19 +411,15 @@ public class BashEventNew extends AbstractModel{
 
     /**
      * Set 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPid(String Pid) {
         this.Pid = Pid;
     }
 
     /**
-     * Get 进程名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进程名称 
      * @return Exe 进程名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExe() {
         return this.Exe;
@@ -437,19 +427,15 @@ public class BashEventNew extends AbstractModel{
 
     /**
      * Set 进程名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Exe 进程名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExe(String Exe) {
         this.Exe = Exe;
     }
 
     /**
-     * Get 处理时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 处理时间 
      * @return ModifyTime 处理时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModifyTime() {
         return this.ModifyTime;
@@ -457,19 +443,15 @@ public class BashEventNew extends AbstractModel{
 
     /**
      * Set 处理时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModifyTime 处理时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;
     }
 
     /**
-     * Get 规则类别  0=系统规则，1=用户规则
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则类别  0=系统规则，1=用户规则 
      * @return RuleCategory 规则类别  0=系统规则，1=用户规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRuleCategory() {
         return this.RuleCategory;
@@ -477,39 +459,47 @@ public class BashEventNew extends AbstractModel{
 
     /**
      * Set 规则类别  0=系统规则，1=用户规则
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleCategory 规则类别  0=系统规则，1=用户规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleCategory(Long RuleCategory) {
         this.RuleCategory = RuleCategory;
     }
 
     /**
-     * Get 自动生成的正则表达式
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RegexBashCmd 自动生成的正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 转义后的正则表达式 
+     * @return RegexBashCmd 转义后的正则表达式
      */
     public String getRegexBashCmd() {
         return this.RegexBashCmd;
     }
 
     /**
-     * Set 自动生成的正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RegexBashCmd 自动生成的正则表达式
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 转义后的正则表达式
+     * @param RegexBashCmd 转义后的正则表达式
      */
     public void setRegexBashCmd(String RegexBashCmd) {
         this.RegexBashCmd = RegexBashCmd;
     }
 
     /**
-     * Get 0:普通 1:专业版 2:旗舰版
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转义后的正则表达式 
+     * @return RegexExe 转义后的正则表达式
+     */
+    public String getRegexExe() {
+        return this.RegexExe;
+    }
+
+    /**
+     * Set 转义后的正则表达式
+     * @param RegexExe 转义后的正则表达式
+     */
+    public void setRegexExe(String RegexExe) {
+        this.RegexExe = RegexExe;
+    }
+
+    /**
+     * Get 0:普通 1:专业版 2:旗舰版 
      * @return MachineType 0:普通 1:专业版 2:旗舰版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMachineType() {
         return this.MachineType;
@@ -517,19 +507,15 @@ public class BashEventNew extends AbstractModel{
 
     /**
      * Set 0:普通 1:专业版 2:旗舰版
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineType 0:普通 1:专业版 2:旗舰版
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineType(Long MachineType) {
         this.MachineType = MachineType;
     }
 
     /**
-     * Get 机器额外信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 机器额外信息 
      * @return MachineExtraInfo 机器额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -537,9 +523,7 @@ public class BashEventNew extends AbstractModel{
 
     /**
      * Set 机器额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 机器额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
@@ -610,6 +594,9 @@ public class BashEventNew extends AbstractModel{
         if (source.RegexBashCmd != null) {
             this.RegexBashCmd = new String(source.RegexBashCmd);
         }
+        if (source.RegexExe != null) {
+            this.RegexExe = new String(source.RegexExe);
+        }
         if (source.MachineType != null) {
             this.MachineType = new Long(source.MachineType);
         }
@@ -642,6 +629,7 @@ public class BashEventNew extends AbstractModel{
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "RuleCategory", this.RuleCategory);
         this.setParamSimple(map, prefix + "RegexBashCmd", this.RegexBashCmd);
+        this.setParamSimple(map, prefix + "RegexExe", this.RegexExe);
         this.setParamSimple(map, prefix + "MachineType", this.MachineType);
         this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
 

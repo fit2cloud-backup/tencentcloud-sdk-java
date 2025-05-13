@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquiryPriceCreateProxyResponse extends AbstractModel{
+public class InquiryPriceCreateProxyResponse extends AbstractModel {
 
     /**
     * 通道基础费用价格，单位：元/天。
@@ -69,7 +70,6 @@ public class InquiryPriceCreateProxyResponse extends AbstractModel{
 
     /**
     * 精品BGP的带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cn2BandwidthPrice")
     @Expose
@@ -77,14 +77,13 @@ public class InquiryPriceCreateProxyResponse extends AbstractModel{
 
     /**
     * 精品BGP的折后带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cn2BandwidthPriceWithDiscount")
     @Expose
     private Float Cn2BandwidthPriceWithDiscount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -199,10 +198,8 @@ public class InquiryPriceCreateProxyResponse extends AbstractModel{
     }
 
     /**
-     * Get 精品BGP的带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 精品BGP的带宽费用价格，单位: 元/Mbps/天 
      * @return Cn2BandwidthPrice 精品BGP的带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getCn2BandwidthPrice() {
         return this.Cn2BandwidthPrice;
@@ -210,19 +207,15 @@ public class InquiryPriceCreateProxyResponse extends AbstractModel{
 
     /**
      * Set 精品BGP的带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Cn2BandwidthPrice 精品BGP的带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCn2BandwidthPrice(Float Cn2BandwidthPrice) {
         this.Cn2BandwidthPrice = Cn2BandwidthPrice;
     }
 
     /**
-     * Get 精品BGP的折后带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 精品BGP的折后带宽费用价格，单位: 元/Mbps/天 
      * @return Cn2BandwidthPriceWithDiscount 精品BGP的折后带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getCn2BandwidthPriceWithDiscount() {
         return this.Cn2BandwidthPriceWithDiscount;
@@ -230,25 +223,23 @@ public class InquiryPriceCreateProxyResponse extends AbstractModel{
 
     /**
      * Set 精品BGP的折后带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Cn2BandwidthPriceWithDiscount 精品BGP的折后带宽费用价格，单位: 元/Mbps/天
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCn2BandwidthPriceWithDiscount(Float Cn2BandwidthPriceWithDiscount) {
         this.Cn2BandwidthPriceWithDiscount = Cn2BandwidthPriceWithDiscount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

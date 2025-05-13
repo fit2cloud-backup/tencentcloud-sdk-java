@@ -16,14 +16,16 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Dimension extends AbstractModel{
+public class Dimension extends AbstractModel {
 
     /**
     * 实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -31,14 +33,17 @@ public class Dimension extends AbstractModel{
 
     /**
     * 实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
     private String Value;
 
     /**
-     * Get 实例维度名称 
+     * Get 实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Name 实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -46,15 +51,19 @@ public class Dimension extends AbstractModel{
 
     /**
      * Set 实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 实例维度名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 实例维度值 
+     * Get 实例维度值
+注意：此字段可能返回 null，表示取不到有效值。 
      * @return Value 实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -62,7 +71,9 @@ public class Dimension extends AbstractModel{
 
     /**
      * Set 实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 实例维度值
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

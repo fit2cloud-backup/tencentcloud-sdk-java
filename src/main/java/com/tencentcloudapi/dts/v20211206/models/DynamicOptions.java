@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DynamicOptions extends AbstractModel{
+public class DynamicOptions extends AbstractModel {
 
     /**
     * 所要同步的DML和DDL的选项，Insert(插入操作)、Update(更新操作)、Delete(删除操作)、DDL(结构同步)，PartialDDL(自定义,和DdlOptions一起起作用 )；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OpTypes")
     @Expose
@@ -32,7 +32,6 @@ public class DynamicOptions extends AbstractModel{
 
     /**
     * DDL同步选项，具体描述要同步那些DDL; 当OpTypes取值PartialDDL时、字段不能为空；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DdlOptions")
     @Expose
@@ -40,7 +39,6 @@ public class DynamicOptions extends AbstractModel{
 
     /**
     * 冲突处理选项，ReportError(报错)、Ignore(忽略)、Cover(覆盖)、ConditionCover(条件覆盖); 目前目标端为kafka的链路不支持修改该配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConflictHandleType")
     @Expose
@@ -48,17 +46,49 @@ public class DynamicOptions extends AbstractModel{
 
     /**
     * 冲突处理的详细选项，如条件覆盖中的条件行和条件操作；不能部分更新该选项的内部字段；有更新时、需要全量更新该字段
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConflictHandleOption")
     @Expose
     private ConflictHandleOption ConflictHandleOption;
 
     /**
-     * Get 所要同步的DML和DDL的选项，Insert(插入操作)、Update(更新操作)、Delete(删除操作)、DDL(结构同步)，PartialDDL(自定义,和DdlOptions一起起作用 )；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 同步到kafka链路的kafka配置
+    */
+    @SerializedName("KafkaOption")
+    @Expose
+    private KafkaOption KafkaOption;
+
+    /**
+    * 同步到kafka链路是否过滤掉begin和commit消息。目前仅mysql2kafka链路支持
+    */
+    @SerializedName("FilterBeginCommit")
+    @Expose
+    private Boolean FilterBeginCommit;
+
+    /**
+    * 同步到kafka链路是否过滤掉checkpoint消息。目前仅mysql2kafka链路支持
+    */
+    @SerializedName("FilterCheckpoint")
+    @Expose
+    private Boolean FilterCheckpoint;
+
+    /**
+    * 同名表的处理，ReportErrorAfterCheck(前置校验并报错，默认)、ExecuteAfterIgnore(忽略并继续执行)
+    */
+    @SerializedName("DealOfExistSameTable")
+    @Expose
+    private String DealOfExistSameTable;
+
+    /**
+    * 仅增量任务重新设置指定位点
+    */
+    @SerializedName("StartPosition")
+    @Expose
+    private String StartPosition;
+
+    /**
+     * Get 所要同步的DML和DDL的选项，Insert(插入操作)、Update(更新操作)、Delete(删除操作)、DDL(结构同步)，PartialDDL(自定义,和DdlOptions一起起作用 )；必填、dts会用该值覆盖原有的值 
      * @return OpTypes 所要同步的DML和DDL的选项，Insert(插入操作)、Update(更新操作)、Delete(删除操作)、DDL(结构同步)，PartialDDL(自定义,和DdlOptions一起起作用 )；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getOpTypes() {
         return this.OpTypes;
@@ -66,19 +96,15 @@ public class DynamicOptions extends AbstractModel{
 
     /**
      * Set 所要同步的DML和DDL的选项，Insert(插入操作)、Update(更新操作)、Delete(删除操作)、DDL(结构同步)，PartialDDL(自定义,和DdlOptions一起起作用 )；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OpTypes 所要同步的DML和DDL的选项，Insert(插入操作)、Update(更新操作)、Delete(删除操作)、DDL(结构同步)，PartialDDL(自定义,和DdlOptions一起起作用 )；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOpTypes(String [] OpTypes) {
         this.OpTypes = OpTypes;
     }
 
     /**
-     * Get DDL同步选项，具体描述要同步那些DDL; 当OpTypes取值PartialDDL时、字段不能为空；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DDL同步选项，具体描述要同步那些DDL; 当OpTypes取值PartialDDL时、字段不能为空；必填、dts会用该值覆盖原有的值 
      * @return DdlOptions DDL同步选项，具体描述要同步那些DDL; 当OpTypes取值PartialDDL时、字段不能为空；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DdlOption [] getDdlOptions() {
         return this.DdlOptions;
@@ -86,19 +112,15 @@ public class DynamicOptions extends AbstractModel{
 
     /**
      * Set DDL同步选项，具体描述要同步那些DDL; 当OpTypes取值PartialDDL时、字段不能为空；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DdlOptions DDL同步选项，具体描述要同步那些DDL; 当OpTypes取值PartialDDL时、字段不能为空；必填、dts会用该值覆盖原有的值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDdlOptions(DdlOption [] DdlOptions) {
         this.DdlOptions = DdlOptions;
     }
 
     /**
-     * Get 冲突处理选项，ReportError(报错)、Ignore(忽略)、Cover(覆盖)、ConditionCover(条件覆盖); 目前目标端为kafka的链路不支持修改该配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 冲突处理选项，ReportError(报错)、Ignore(忽略)、Cover(覆盖)、ConditionCover(条件覆盖); 目前目标端为kafka的链路不支持修改该配置 
      * @return ConflictHandleType 冲突处理选项，ReportError(报错)、Ignore(忽略)、Cover(覆盖)、ConditionCover(条件覆盖); 目前目标端为kafka的链路不支持修改该配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConflictHandleType() {
         return this.ConflictHandleType;
@@ -106,19 +128,15 @@ public class DynamicOptions extends AbstractModel{
 
     /**
      * Set 冲突处理选项，ReportError(报错)、Ignore(忽略)、Cover(覆盖)、ConditionCover(条件覆盖); 目前目标端为kafka的链路不支持修改该配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConflictHandleType 冲突处理选项，ReportError(报错)、Ignore(忽略)、Cover(覆盖)、ConditionCover(条件覆盖); 目前目标端为kafka的链路不支持修改该配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConflictHandleType(String ConflictHandleType) {
         this.ConflictHandleType = ConflictHandleType;
     }
 
     /**
-     * Get 冲突处理的详细选项，如条件覆盖中的条件行和条件操作；不能部分更新该选项的内部字段；有更新时、需要全量更新该字段
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 冲突处理的详细选项，如条件覆盖中的条件行和条件操作；不能部分更新该选项的内部字段；有更新时、需要全量更新该字段 
      * @return ConflictHandleOption 冲突处理的详细选项，如条件覆盖中的条件行和条件操作；不能部分更新该选项的内部字段；有更新时、需要全量更新该字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ConflictHandleOption getConflictHandleOption() {
         return this.ConflictHandleOption;
@@ -126,12 +144,90 @@ public class DynamicOptions extends AbstractModel{
 
     /**
      * Set 冲突处理的详细选项，如条件覆盖中的条件行和条件操作；不能部分更新该选项的内部字段；有更新时、需要全量更新该字段
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConflictHandleOption 冲突处理的详细选项，如条件覆盖中的条件行和条件操作；不能部分更新该选项的内部字段；有更新时、需要全量更新该字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConflictHandleOption(ConflictHandleOption ConflictHandleOption) {
         this.ConflictHandleOption = ConflictHandleOption;
+    }
+
+    /**
+     * Get 同步到kafka链路的kafka配置 
+     * @return KafkaOption 同步到kafka链路的kafka配置
+     */
+    public KafkaOption getKafkaOption() {
+        return this.KafkaOption;
+    }
+
+    /**
+     * Set 同步到kafka链路的kafka配置
+     * @param KafkaOption 同步到kafka链路的kafka配置
+     */
+    public void setKafkaOption(KafkaOption KafkaOption) {
+        this.KafkaOption = KafkaOption;
+    }
+
+    /**
+     * Get 同步到kafka链路是否过滤掉begin和commit消息。目前仅mysql2kafka链路支持 
+     * @return FilterBeginCommit 同步到kafka链路是否过滤掉begin和commit消息。目前仅mysql2kafka链路支持
+     */
+    public Boolean getFilterBeginCommit() {
+        return this.FilterBeginCommit;
+    }
+
+    /**
+     * Set 同步到kafka链路是否过滤掉begin和commit消息。目前仅mysql2kafka链路支持
+     * @param FilterBeginCommit 同步到kafka链路是否过滤掉begin和commit消息。目前仅mysql2kafka链路支持
+     */
+    public void setFilterBeginCommit(Boolean FilterBeginCommit) {
+        this.FilterBeginCommit = FilterBeginCommit;
+    }
+
+    /**
+     * Get 同步到kafka链路是否过滤掉checkpoint消息。目前仅mysql2kafka链路支持 
+     * @return FilterCheckpoint 同步到kafka链路是否过滤掉checkpoint消息。目前仅mysql2kafka链路支持
+     */
+    public Boolean getFilterCheckpoint() {
+        return this.FilterCheckpoint;
+    }
+
+    /**
+     * Set 同步到kafka链路是否过滤掉checkpoint消息。目前仅mysql2kafka链路支持
+     * @param FilterCheckpoint 同步到kafka链路是否过滤掉checkpoint消息。目前仅mysql2kafka链路支持
+     */
+    public void setFilterCheckpoint(Boolean FilterCheckpoint) {
+        this.FilterCheckpoint = FilterCheckpoint;
+    }
+
+    /**
+     * Get 同名表的处理，ReportErrorAfterCheck(前置校验并报错，默认)、ExecuteAfterIgnore(忽略并继续执行) 
+     * @return DealOfExistSameTable 同名表的处理，ReportErrorAfterCheck(前置校验并报错，默认)、ExecuteAfterIgnore(忽略并继续执行)
+     */
+    public String getDealOfExistSameTable() {
+        return this.DealOfExistSameTable;
+    }
+
+    /**
+     * Set 同名表的处理，ReportErrorAfterCheck(前置校验并报错，默认)、ExecuteAfterIgnore(忽略并继续执行)
+     * @param DealOfExistSameTable 同名表的处理，ReportErrorAfterCheck(前置校验并报错，默认)、ExecuteAfterIgnore(忽略并继续执行)
+     */
+    public void setDealOfExistSameTable(String DealOfExistSameTable) {
+        this.DealOfExistSameTable = DealOfExistSameTable;
+    }
+
+    /**
+     * Get 仅增量任务重新设置指定位点 
+     * @return StartPosition 仅增量任务重新设置指定位点
+     */
+    public String getStartPosition() {
+        return this.StartPosition;
+    }
+
+    /**
+     * Set 仅增量任务重新设置指定位点
+     * @param StartPosition 仅增量任务重新设置指定位点
+     */
+    public void setStartPosition(String StartPosition) {
+        this.StartPosition = StartPosition;
     }
 
     public DynamicOptions() {
@@ -160,6 +256,21 @@ public class DynamicOptions extends AbstractModel{
         if (source.ConflictHandleOption != null) {
             this.ConflictHandleOption = new ConflictHandleOption(source.ConflictHandleOption);
         }
+        if (source.KafkaOption != null) {
+            this.KafkaOption = new KafkaOption(source.KafkaOption);
+        }
+        if (source.FilterBeginCommit != null) {
+            this.FilterBeginCommit = new Boolean(source.FilterBeginCommit);
+        }
+        if (source.FilterCheckpoint != null) {
+            this.FilterCheckpoint = new Boolean(source.FilterCheckpoint);
+        }
+        if (source.DealOfExistSameTable != null) {
+            this.DealOfExistSameTable = new String(source.DealOfExistSameTable);
+        }
+        if (source.StartPosition != null) {
+            this.StartPosition = new String(source.StartPosition);
+        }
     }
 
 
@@ -171,6 +282,11 @@ public class DynamicOptions extends AbstractModel{
         this.setParamArrayObj(map, prefix + "DdlOptions.", this.DdlOptions);
         this.setParamSimple(map, prefix + "ConflictHandleType", this.ConflictHandleType);
         this.setParamObj(map, prefix + "ConflictHandleOption.", this.ConflictHandleOption);
+        this.setParamObj(map, prefix + "KafkaOption.", this.KafkaOption);
+        this.setParamSimple(map, prefix + "FilterBeginCommit", this.FilterBeginCommit);
+        this.setParamSimple(map, prefix + "FilterCheckpoint", this.FilterCheckpoint);
+        this.setParamSimple(map, prefix + "DealOfExistSameTable", this.DealOfExistSameTable);
+        this.setParamSimple(map, prefix + "StartPosition", this.StartPosition);
 
     }
 }

@@ -16,25 +16,23 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccessLogItems extends AbstractModel{
+public class AccessLogItems extends AbstractModel {
 
     /**
     * 分析结果返回的KV数据对
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private AccessLogItem [] Data;
 
     /**
-     * Get 分析结果返回的KV数据对
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分析结果返回的KV数据对 
      * @return Data 分析结果返回的KV数据对
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AccessLogItem [] getData() {
         return this.Data;
@@ -42,9 +40,7 @@ public class AccessLogItems extends AbstractModel{
 
     /**
      * Set 分析结果返回的KV数据对
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 分析结果返回的KV数据对
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(AccessLogItem [] Data) {
         this.Data = Data;

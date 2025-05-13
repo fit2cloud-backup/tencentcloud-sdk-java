@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDataEngineRequest extends AbstractModel{
+public class CreateDataEngineRequest extends AbstractModel {
 
     /**
     * 引擎类型spark/presto
@@ -107,7 +108,7 @@ public class CreateDataEngineRequest extends AbstractModel{
     private Long PayMode;
 
     /**
-    * 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认3600
+    * 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认1
     */
     @SerializedName("TimeSpan")
     @Expose
@@ -231,6 +232,27 @@ public class CreateDataEngineRequest extends AbstractModel{
     @SerializedName("SessionResourceTemplate")
     @Expose
     private SessionResourceTemplate SessionResourceTemplate;
+
+    /**
+    * 自动授权
+    */
+    @SerializedName("AutoAuthorization")
+    @Expose
+    private Boolean AutoAuthorization;
+
+    /**
+    * 引擎网络ID
+    */
+    @SerializedName("EngineNetworkId")
+    @Expose
+    private String EngineNetworkId;
+
+    /**
+    * 引擎世代，SuperSQL：代表supersql引擎，Native：代表标准引擎。默认值为SuperSQL
+    */
+    @SerializedName("EngineGeneration")
+    @Expose
+    private String EngineGeneration;
 
     /**
      * Get 引擎类型spark/presto 
@@ -429,16 +451,16 @@ public class CreateDataEngineRequest extends AbstractModel{
     }
 
     /**
-     * Get 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认3600 
-     * @return TimeSpan 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认3600
+     * Get 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认1 
+     * @return TimeSpan 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认1
      */
     public Long getTimeSpan() {
         return this.TimeSpan;
     }
 
     /**
-     * Set 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认3600
-     * @param TimeSpan 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认3600
+     * Set 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认1
+     * @param TimeSpan 资源使用时长，后付费：固定填3600，预付费：最少填1，代表购买资源一个月，最长不超过120。默认1
      */
     public void setTimeSpan(Long TimeSpan) {
         this.TimeSpan = TimeSpan;
@@ -716,6 +738,54 @@ public class CreateDataEngineRequest extends AbstractModel{
         this.SessionResourceTemplate = SessionResourceTemplate;
     }
 
+    /**
+     * Get 自动授权 
+     * @return AutoAuthorization 自动授权
+     */
+    public Boolean getAutoAuthorization() {
+        return this.AutoAuthorization;
+    }
+
+    /**
+     * Set 自动授权
+     * @param AutoAuthorization 自动授权
+     */
+    public void setAutoAuthorization(Boolean AutoAuthorization) {
+        this.AutoAuthorization = AutoAuthorization;
+    }
+
+    /**
+     * Get 引擎网络ID 
+     * @return EngineNetworkId 引擎网络ID
+     */
+    public String getEngineNetworkId() {
+        return this.EngineNetworkId;
+    }
+
+    /**
+     * Set 引擎网络ID
+     * @param EngineNetworkId 引擎网络ID
+     */
+    public void setEngineNetworkId(String EngineNetworkId) {
+        this.EngineNetworkId = EngineNetworkId;
+    }
+
+    /**
+     * Get 引擎世代，SuperSQL：代表supersql引擎，Native：代表标准引擎。默认值为SuperSQL 
+     * @return EngineGeneration 引擎世代，SuperSQL：代表supersql引擎，Native：代表标准引擎。默认值为SuperSQL
+     */
+    public String getEngineGeneration() {
+        return this.EngineGeneration;
+    }
+
+    /**
+     * Set 引擎世代，SuperSQL：代表supersql引擎，Native：代表标准引擎。默认值为SuperSQL
+     * @param EngineGeneration 引擎世代，SuperSQL：代表supersql引擎，Native：代表标准引擎。默认值为SuperSQL
+     */
+    public void setEngineGeneration(String EngineGeneration) {
+        this.EngineGeneration = EngineGeneration;
+    }
+
     public CreateDataEngineRequest() {
     }
 
@@ -820,6 +890,15 @@ public class CreateDataEngineRequest extends AbstractModel{
         if (source.SessionResourceTemplate != null) {
             this.SessionResourceTemplate = new SessionResourceTemplate(source.SessionResourceTemplate);
         }
+        if (source.AutoAuthorization != null) {
+            this.AutoAuthorization = new Boolean(source.AutoAuthorization);
+        }
+        if (source.EngineNetworkId != null) {
+            this.EngineNetworkId = new String(source.EngineNetworkId);
+        }
+        if (source.EngineGeneration != null) {
+            this.EngineGeneration = new String(source.EngineGeneration);
+        }
     }
 
 
@@ -857,6 +936,9 @@ public class CreateDataEngineRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ElasticSwitch", this.ElasticSwitch);
         this.setParamSimple(map, prefix + "ElasticLimit", this.ElasticLimit);
         this.setParamObj(map, prefix + "SessionResourceTemplate.", this.SessionResourceTemplate);
+        this.setParamSimple(map, prefix + "AutoAuthorization", this.AutoAuthorization);
+        this.setParamSimple(map, prefix + "EngineNetworkId", this.EngineNetworkId);
+        this.setParamSimple(map, prefix + "EngineGeneration", this.EngineGeneration);
 
     }
 }

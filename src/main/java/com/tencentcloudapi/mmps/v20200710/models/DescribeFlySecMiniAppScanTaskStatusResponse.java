@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mmps.v20200710.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
+public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel {
 
     /**
     * 返回值, 0:成功, 其他值请查看“返回值”定义
@@ -38,7 +39,6 @@ public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
 
     /**
     * 诊断失败错误码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Errno")
     @Expose
@@ -46,7 +46,6 @@ public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
 
     /**
     * 小程序名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MiniAppName")
     @Expose
@@ -54,14 +53,13 @@ public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
 
     /**
     * 小程序版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MiniAppVersion")
     @Expose
     private String MiniAppVersion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -100,10 +98,8 @@ public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
     }
 
     /**
-     * Get 诊断失败错误码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断失败错误码 
      * @return Errno 诊断失败错误码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getErrno() {
         return this.Errno;
@@ -111,19 +107,15 @@ public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
 
     /**
      * Set 诊断失败错误码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Errno 诊断失败错误码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrno(Long Errno) {
         this.Errno = Errno;
     }
 
     /**
-     * Get 小程序名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 小程序名称 
      * @return MiniAppName 小程序名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMiniAppName() {
         return this.MiniAppName;
@@ -131,19 +123,15 @@ public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
 
     /**
      * Set 小程序名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MiniAppName 小程序名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMiniAppName(String MiniAppName) {
         this.MiniAppName = MiniAppName;
     }
 
     /**
-     * Get 小程序版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 小程序版本 
      * @return MiniAppVersion 小程序版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMiniAppVersion() {
         return this.MiniAppVersion;
@@ -151,25 +139,23 @@ public class DescribeFlySecMiniAppScanTaskStatusResponse extends AbstractModel{
 
     /**
      * Set 小程序版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MiniAppVersion 小程序版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMiniAppVersion(String MiniAppVersion) {
         this.MiniAppVersion = MiniAppVersion;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

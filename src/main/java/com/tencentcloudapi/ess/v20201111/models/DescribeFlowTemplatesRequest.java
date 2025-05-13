@@ -16,65 +16,71 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFlowTemplatesRequest extends AbstractModel{
+public class DescribeFlowTemplatesRequest extends AbstractModel {
 
     /**
-    * 调用方员工/经办人信息
-UserId 必填，在企业控制台组织架构中可以查到员工的UserId
-注：请保证员工有相关的角色权限
+    * 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 代理相关应用信息
-如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 查询内容类型
-0-模板列表及详情（默认）
-1-仅模板列表
+    * 查询内容控制
+
+<ul><li>**0**：模板列表及详情（默认）</li>
+<li>**1**：仅模板列表</li></ul>
     */
     @SerializedName("ContentType")
     @Expose
     private Long ContentType;
 
     /**
-    * 搜索条件，本字段用于指定模板Id进行查询。
-Key：template-id
-Values：需要查询的模板Id列表
+    * 搜索过滤的条件，本字段允许您通过指定模板 ID 或模板名称来进行查询。
+<ul><li><strong>模板 ID</strong>：<strong>Key</strong>设置为 <code>template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">模板 ID </a>列表。</li>  <li><strong>主企业模板 ID</strong>：<strong>Key</strong>设置为 <code>share-template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">主企业模板 ID </a>列表。用来查询主企业分享模板到子企业场景下，子企业的模板信息，在此情境下，参数 <strong>Agent.ProxyOrganizationId</strong>（子企业的组织ID）为必填项。</li> <li><strong>模板名称</strong>：<strong>Key</strong>设置为 <code>template-name</code> ，<strong>Values</strong>为您想要查询的<a href="https://qcloudimg.tencent-cloud.cn/raw/03a924ee0a53d86575f8067d1c97876d.png" target="_blank">模板名称</a>列表。</li><li><strong>模板的用户合同类型</strong>：<strong>Key</strong>设置为 <code>user-flow-type-id</code> ，<strong>Values</strong>为您想要查询的用户模版类型id列表。</li></ul>
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-    * 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
+    * 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用。
+
+注：`1.offset从0开始，即第一页为0。`
+`2.默认从第一页返回。`
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 指定每页多少条数据，如果不传默认为20，单页最大200。
+    * 指定每页返回的数据条数，和Offset参数配合使用。
+
+注：`1.默认值为20，单页做大值为200。`
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 用于查询指定应用号下单模板列表。
-ApplicationId不为空，查询指定应用下的模板列表
-ApplicationId为空，查询所有应用下的模板列表
+    * 通过指定[第三方应用的应用号（ApplicationId）](https://qcloudimg.tencent-cloud.cn/raw/60efa1e9049732e5246b20a268882b1a.png)，您可以查询<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中某个第三方应用下的模板。
+
+<p><strong>注意事项：</strong></p>
+<ul><li>当 <strong>ApplicationId</strong> 为空时（默认），系统将查询<a href="https://qcloudimg.tencent-cloud.cn/raw/376943a1d472393dd5388592f2e85ee5.png" target="_blank">平台企业的所有模板</a>（自建应用使用的模板）。</li><li>当 <strong>ApplicationId</strong> 不为空时，系统将从<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中查询该特定应用下的模板（分享给第三方应用子企业的模板）。</li></ul>
     */
     @SerializedName("ApplicationId")
     @Expose
@@ -103,148 +109,178 @@ ApplicationId为空，查询所有应用下的模板列表
     private Long GenerateSource;
 
     /**
-     * Get 调用方员工/经办人信息
-UserId 必填，在企业控制台组织架构中可以查到员工的UserId
-注：请保证员工有相关的角色权限 
-     * @return Operator 调用方员工/经办人信息
-UserId 必填，在企业控制台组织架构中可以查到员工的UserId
-注：请保证员工有相关的角色权限
+    * 是否获取模板预览链接。
+
+<ul><li><strong>false</strong>：不获取（默认）</li><li><strong>true</strong>：需要获取</li></ul>
+设置为true之后， 返回参数PreviewUrl，为模板的H5预览链接, 有效期5分钟。可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+    */
+    @SerializedName("WithPreviewUrl")
+    @Expose
+    private Boolean WithPreviewUrl;
+
+    /**
+     * Get 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方员工/经办人信息
-UserId 必填，在企业控制台组织架构中可以查到员工的UserId
-注：请保证员工有相关的角色权限
-     * @param Operator 调用方员工/经办人信息
-UserId 必填，在企业控制台组织架构中可以查到员工的UserId
-注：请保证员工有相关的角色权限
+     * Set 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 代理相关应用信息
-如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
-     * @return Agent 代理相关应用信息
-如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 代理相关应用信息
-如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-     * @param Agent 代理相关应用信息
-如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 查询内容类型
-0-模板列表及详情（默认）
-1-仅模板列表 
-     * @return ContentType 查询内容类型
-0-模板列表及详情（默认）
-1-仅模板列表
+     * Get 查询内容控制
+
+<ul><li>**0**：模板列表及详情（默认）</li>
+<li>**1**：仅模板列表</li></ul> 
+     * @return ContentType 查询内容控制
+
+<ul><li>**0**：模板列表及详情（默认）</li>
+<li>**1**：仅模板列表</li></ul>
      */
     public Long getContentType() {
         return this.ContentType;
     }
 
     /**
-     * Set 查询内容类型
-0-模板列表及详情（默认）
-1-仅模板列表
-     * @param ContentType 查询内容类型
-0-模板列表及详情（默认）
-1-仅模板列表
+     * Set 查询内容控制
+
+<ul><li>**0**：模板列表及详情（默认）</li>
+<li>**1**：仅模板列表</li></ul>
+     * @param ContentType 查询内容控制
+
+<ul><li>**0**：模板列表及详情（默认）</li>
+<li>**1**：仅模板列表</li></ul>
      */
     public void setContentType(Long ContentType) {
         this.ContentType = ContentType;
     }
 
     /**
-     * Get 搜索条件，本字段用于指定模板Id进行查询。
-Key：template-id
-Values：需要查询的模板Id列表 
-     * @return Filters 搜索条件，本字段用于指定模板Id进行查询。
-Key：template-id
-Values：需要查询的模板Id列表
+     * Get 搜索过滤的条件，本字段允许您通过指定模板 ID 或模板名称来进行查询。
+<ul><li><strong>模板 ID</strong>：<strong>Key</strong>设置为 <code>template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">模板 ID </a>列表。</li>  <li><strong>主企业模板 ID</strong>：<strong>Key</strong>设置为 <code>share-template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">主企业模板 ID </a>列表。用来查询主企业分享模板到子企业场景下，子企业的模板信息，在此情境下，参数 <strong>Agent.ProxyOrganizationId</strong>（子企业的组织ID）为必填项。</li> <li><strong>模板名称</strong>：<strong>Key</strong>设置为 <code>template-name</code> ，<strong>Values</strong>为您想要查询的<a href="https://qcloudimg.tencent-cloud.cn/raw/03a924ee0a53d86575f8067d1c97876d.png" target="_blank">模板名称</a>列表。</li><li><strong>模板的用户合同类型</strong>：<strong>Key</strong>设置为 <code>user-flow-type-id</code> ，<strong>Values</strong>为您想要查询的用户模版类型id列表。</li></ul> 
+     * @return Filters 搜索过滤的条件，本字段允许您通过指定模板 ID 或模板名称来进行查询。
+<ul><li><strong>模板 ID</strong>：<strong>Key</strong>设置为 <code>template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">模板 ID </a>列表。</li>  <li><strong>主企业模板 ID</strong>：<strong>Key</strong>设置为 <code>share-template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">主企业模板 ID </a>列表。用来查询主企业分享模板到子企业场景下，子企业的模板信息，在此情境下，参数 <strong>Agent.ProxyOrganizationId</strong>（子企业的组织ID）为必填项。</li> <li><strong>模板名称</strong>：<strong>Key</strong>设置为 <code>template-name</code> ，<strong>Values</strong>为您想要查询的<a href="https://qcloudimg.tencent-cloud.cn/raw/03a924ee0a53d86575f8067d1c97876d.png" target="_blank">模板名称</a>列表。</li><li><strong>模板的用户合同类型</strong>：<strong>Key</strong>设置为 <code>user-flow-type-id</code> ，<strong>Values</strong>为您想要查询的用户模版类型id列表。</li></ul>
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 搜索条件，本字段用于指定模板Id进行查询。
-Key：template-id
-Values：需要查询的模板Id列表
-     * @param Filters 搜索条件，本字段用于指定模板Id进行查询。
-Key：template-id
-Values：需要查询的模板Id列表
+     * Set 搜索过滤的条件，本字段允许您通过指定模板 ID 或模板名称来进行查询。
+<ul><li><strong>模板 ID</strong>：<strong>Key</strong>设置为 <code>template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">模板 ID </a>列表。</li>  <li><strong>主企业模板 ID</strong>：<strong>Key</strong>设置为 <code>share-template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">主企业模板 ID </a>列表。用来查询主企业分享模板到子企业场景下，子企业的模板信息，在此情境下，参数 <strong>Agent.ProxyOrganizationId</strong>（子企业的组织ID）为必填项。</li> <li><strong>模板名称</strong>：<strong>Key</strong>设置为 <code>template-name</code> ，<strong>Values</strong>为您想要查询的<a href="https://qcloudimg.tencent-cloud.cn/raw/03a924ee0a53d86575f8067d1c97876d.png" target="_blank">模板名称</a>列表。</li><li><strong>模板的用户合同类型</strong>：<strong>Key</strong>设置为 <code>user-flow-type-id</code> ，<strong>Values</strong>为您想要查询的用户模版类型id列表。</li></ul>
+     * @param Filters 搜索过滤的条件，本字段允许您通过指定模板 ID 或模板名称来进行查询。
+<ul><li><strong>模板 ID</strong>：<strong>Key</strong>设置为 <code>template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">模板 ID </a>列表。</li>  <li><strong>主企业模板 ID</strong>：<strong>Key</strong>设置为 <code>share-template-id</code> ，<strong>Values</strong>为您想要查询的 <a href="https://qcloudimg.tencent-cloud.cn/raw/5c27b917b2bbe8c341566c78ca6f8782.png" target="_blank">主企业模板 ID </a>列表。用来查询主企业分享模板到子企业场景下，子企业的模板信息，在此情境下，参数 <strong>Agent.ProxyOrganizationId</strong>（子企业的组织ID）为必填项。</li> <li><strong>模板名称</strong>：<strong>Key</strong>设置为 <code>template-name</code> ，<strong>Values</strong>为您想要查询的<a href="https://qcloudimg.tencent-cloud.cn/raw/03a924ee0a53d86575f8067d1c97876d.png" target="_blank">模板名称</a>列表。</li><li><strong>模板的用户合同类型</strong>：<strong>Key</strong>设置为 <code>user-flow-type-id</code> ，<strong>Values</strong>为您想要查询的用户模版类型id列表。</li></ul>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
     }
 
     /**
-     * Get 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。 
-     * @return Offset 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
+     * Get 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用。
+
+注：`1.offset从0开始，即第一页为0。`
+`2.默认从第一页返回。` 
+     * @return Offset 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用。
+
+注：`1.offset从0开始，即第一页为0。`
+`2.默认从第一页返回。`
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
-     * @param Offset 查询结果分页返回，此处指定第几页，如果不传默从第一页返回。页码从0开始，即首页为0。
+     * Set 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用。
+
+注：`1.offset从0开始，即第一页为0。`
+`2.默认从第一页返回。`
+     * @param Offset 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用。
+
+注：`1.offset从0开始，即第一页为0。`
+`2.默认从第一页返回。`
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 指定每页多少条数据，如果不传默认为20，单页最大200。 
-     * @return Limit 指定每页多少条数据，如果不传默认为20，单页最大200。
+     * Get 指定每页返回的数据条数，和Offset参数配合使用。
+
+注：`1.默认值为20，单页做大值为200。` 
+     * @return Limit 指定每页返回的数据条数，和Offset参数配合使用。
+
+注：`1.默认值为20，单页做大值为200。`
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 指定每页多少条数据，如果不传默认为20，单页最大200。
-     * @param Limit 指定每页多少条数据，如果不传默认为20，单页最大200。
+     * Set 指定每页返回的数据条数，和Offset参数配合使用。
+
+注：`1.默认值为20，单页做大值为200。`
+     * @param Limit 指定每页返回的数据条数，和Offset参数配合使用。
+
+注：`1.默认值为20，单页做大值为200。`
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 用于查询指定应用号下单模板列表。
-ApplicationId不为空，查询指定应用下的模板列表
-ApplicationId为空，查询所有应用下的模板列表 
-     * @return ApplicationId 用于查询指定应用号下单模板列表。
-ApplicationId不为空，查询指定应用下的模板列表
-ApplicationId为空，查询所有应用下的模板列表
+     * Get 通过指定[第三方应用的应用号（ApplicationId）](https://qcloudimg.tencent-cloud.cn/raw/60efa1e9049732e5246b20a268882b1a.png)，您可以查询<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中某个第三方应用下的模板。
+
+<p><strong>注意事项：</strong></p>
+<ul><li>当 <strong>ApplicationId</strong> 为空时（默认），系统将查询<a href="https://qcloudimg.tencent-cloud.cn/raw/376943a1d472393dd5388592f2e85ee5.png" target="_blank">平台企业的所有模板</a>（自建应用使用的模板）。</li><li>当 <strong>ApplicationId</strong> 不为空时，系统将从<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中查询该特定应用下的模板（分享给第三方应用子企业的模板）。</li></ul> 
+     * @return ApplicationId 通过指定[第三方应用的应用号（ApplicationId）](https://qcloudimg.tencent-cloud.cn/raw/60efa1e9049732e5246b20a268882b1a.png)，您可以查询<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中某个第三方应用下的模板。
+
+<p><strong>注意事项：</strong></p>
+<ul><li>当 <strong>ApplicationId</strong> 为空时（默认），系统将查询<a href="https://qcloudimg.tencent-cloud.cn/raw/376943a1d472393dd5388592f2e85ee5.png" target="_blank">平台企业的所有模板</a>（自建应用使用的模板）。</li><li>当 <strong>ApplicationId</strong> 不为空时，系统将从<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中查询该特定应用下的模板（分享给第三方应用子企业的模板）。</li></ul>
      */
     public String getApplicationId() {
         return this.ApplicationId;
     }
 
     /**
-     * Set 用于查询指定应用号下单模板列表。
-ApplicationId不为空，查询指定应用下的模板列表
-ApplicationId为空，查询所有应用下的模板列表
-     * @param ApplicationId 用于查询指定应用号下单模板列表。
-ApplicationId不为空，查询指定应用下的模板列表
-ApplicationId为空，查询所有应用下的模板列表
+     * Set 通过指定[第三方应用的应用号（ApplicationId）](https://qcloudimg.tencent-cloud.cn/raw/60efa1e9049732e5246b20a268882b1a.png)，您可以查询<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中某个第三方应用下的模板。
+
+<p><strong>注意事项：</strong></p>
+<ul><li>当 <strong>ApplicationId</strong> 为空时（默认），系统将查询<a href="https://qcloudimg.tencent-cloud.cn/raw/376943a1d472393dd5388592f2e85ee5.png" target="_blank">平台企业的所有模板</a>（自建应用使用的模板）。</li><li>当 <strong>ApplicationId</strong> 不为空时，系统将从<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中查询该特定应用下的模板（分享给第三方应用子企业的模板）。</li></ul>
+     * @param ApplicationId 通过指定[第三方应用的应用号（ApplicationId）](https://qcloudimg.tencent-cloud.cn/raw/60efa1e9049732e5246b20a268882b1a.png)，您可以查询<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中某个第三方应用下的模板。
+
+<p><strong>注意事项：</strong></p>
+<ul><li>当 <strong>ApplicationId</strong> 为空时（默认），系统将查询<a href="https://qcloudimg.tencent-cloud.cn/raw/376943a1d472393dd5388592f2e85ee5.png" target="_blank">平台企业的所有模板</a>（自建应用使用的模板）。</li><li>当 <strong>ApplicationId</strong> 不为空时，系统将从<a href="https://qcloudimg.tencent-cloud.cn/raw/18319e5e77f7d47eab493d43d47827d3.png" target="_blank">【应用模板库管理】</a>中查询该特定应用下的模板（分享给第三方应用子企业的模板）。</li></ul>
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
@@ -314,6 +350,34 @@ ApplicationId为空，查询所有应用下的模板列表
         this.GenerateSource = GenerateSource;
     }
 
+    /**
+     * Get 是否获取模板预览链接。
+
+<ul><li><strong>false</strong>：不获取（默认）</li><li><strong>true</strong>：需要获取</li></ul>
+设置为true之后， 返回参数PreviewUrl，为模板的H5预览链接, 有效期5分钟。可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。 
+     * @return WithPreviewUrl 是否获取模板预览链接。
+
+<ul><li><strong>false</strong>：不获取（默认）</li><li><strong>true</strong>：需要获取</li></ul>
+设置为true之后， 返回参数PreviewUrl，为模板的H5预览链接, 有效期5分钟。可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+     */
+    public Boolean getWithPreviewUrl() {
+        return this.WithPreviewUrl;
+    }
+
+    /**
+     * Set 是否获取模板预览链接。
+
+<ul><li><strong>false</strong>：不获取（默认）</li><li><strong>true</strong>：需要获取</li></ul>
+设置为true之后， 返回参数PreviewUrl，为模板的H5预览链接, 有效期5分钟。可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+     * @param WithPreviewUrl 是否获取模板预览链接。
+
+<ul><li><strong>false</strong>：不获取（默认）</li><li><strong>true</strong>：需要获取</li></ul>
+设置为true之后， 返回参数PreviewUrl，为模板的H5预览链接, 有效期5分钟。可以通过浏览器打开此链接预览模板，或者嵌入到iframe中预览模板。
+     */
+    public void setWithPreviewUrl(Boolean WithPreviewUrl) {
+        this.WithPreviewUrl = WithPreviewUrl;
+    }
+
     public DescribeFlowTemplatesRequest() {
     }
 
@@ -355,6 +419,9 @@ ApplicationId为空，查询所有应用下的模板列表
         if (source.GenerateSource != null) {
             this.GenerateSource = new Long(source.GenerateSource);
         }
+        if (source.WithPreviewUrl != null) {
+            this.WithPreviewUrl = new Boolean(source.WithPreviewUrl);
+        }
     }
 
 
@@ -372,6 +439,7 @@ ApplicationId为空，查询所有应用下的模板列表
         this.setParamSimple(map, prefix + "IsChannel", this.IsChannel);
         this.setParamObj(map, prefix + "Organization.", this.Organization);
         this.setParamSimple(map, prefix + "GenerateSource", this.GenerateSource);
+        this.setParamSimple(map, prefix + "WithPreviewUrl", this.WithPreviewUrl);
 
     }
 }

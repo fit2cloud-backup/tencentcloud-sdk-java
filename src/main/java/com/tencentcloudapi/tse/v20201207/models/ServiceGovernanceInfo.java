@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceGovernanceInfo extends AbstractModel{
+public class ServiceGovernanceInfo extends AbstractModel {
 
     /**
     * 引擎所在的地域
@@ -77,6 +78,20 @@ public class ServiceGovernanceInfo extends AbstractModel{
     @SerializedName("LimiterVpcInfos")
     @Expose
     private VpcInfo [] LimiterVpcInfos;
+
+    /**
+    * 引擎关联CLS日志主题信息
+    */
+    @SerializedName("CLSTopics")
+    @Expose
+    private PolarisCLSTopicInfo [] CLSTopics;
+
+    /**
+    * 子用户密码
+    */
+    @SerializedName("SubPassword")
+    @Expose
+    private String SubPassword;
 
     /**
      * Get 引擎所在的地域 
@@ -206,6 +221,38 @@ public class ServiceGovernanceInfo extends AbstractModel{
         this.LimiterVpcInfos = LimiterVpcInfos;
     }
 
+    /**
+     * Get 引擎关联CLS日志主题信息 
+     * @return CLSTopics 引擎关联CLS日志主题信息
+     */
+    public PolarisCLSTopicInfo [] getCLSTopics() {
+        return this.CLSTopics;
+    }
+
+    /**
+     * Set 引擎关联CLS日志主题信息
+     * @param CLSTopics 引擎关联CLS日志主题信息
+     */
+    public void setCLSTopics(PolarisCLSTopicInfo [] CLSTopics) {
+        this.CLSTopics = CLSTopics;
+    }
+
+    /**
+     * Get 子用户密码 
+     * @return SubPassword 子用户密码
+     */
+    public String getSubPassword() {
+        return this.SubPassword;
+    }
+
+    /**
+     * Set 子用户密码
+     * @param SubPassword 子用户密码
+     */
+    public void setSubPassword(String SubPassword) {
+        this.SubPassword = SubPassword;
+    }
+
     public ServiceGovernanceInfo() {
     }
 
@@ -253,6 +300,15 @@ public class ServiceGovernanceInfo extends AbstractModel{
                 this.LimiterVpcInfos[i] = new VpcInfo(source.LimiterVpcInfos[i]);
             }
         }
+        if (source.CLSTopics != null) {
+            this.CLSTopics = new PolarisCLSTopicInfo[source.CLSTopics.length];
+            for (int i = 0; i < source.CLSTopics.length; i++) {
+                this.CLSTopics[i] = new PolarisCLSTopicInfo(source.CLSTopics[i]);
+            }
+        }
+        if (source.SubPassword != null) {
+            this.SubPassword = new String(source.SubPassword);
+        }
     }
 
 
@@ -268,6 +324,8 @@ public class ServiceGovernanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "MainPassword", this.MainPassword);
         this.setParamArrayObj(map, prefix + "PgwVpcInfos.", this.PgwVpcInfos);
         this.setParamArrayObj(map, prefix + "LimiterVpcInfos.", this.LimiterVpcInfos);
+        this.setParamArrayObj(map, prefix + "CLSTopics.", this.CLSTopics);
+        this.setParamSimple(map, prefix + "SubPassword", this.SubPassword);
 
     }
 }

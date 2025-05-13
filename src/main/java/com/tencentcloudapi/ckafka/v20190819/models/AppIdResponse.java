@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AppIdResponse extends AbstractModel{
+public class AppIdResponse extends AbstractModel {
 
     /**
     * 符合要求的所有AppId数量
@@ -31,7 +32,6 @@ public class AppIdResponse extends AbstractModel{
 
     /**
     * 符合要求的App Id列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppIdList")
     @Expose
@@ -54,10 +54,8 @@ public class AppIdResponse extends AbstractModel{
     }
 
     /**
-     * Get 符合要求的App Id列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 符合要求的App Id列表 
      * @return AppIdList 符合要求的App Id列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getAppIdList() {
         return this.AppIdList;
@@ -65,9 +63,7 @@ public class AppIdResponse extends AbstractModel{
 
     /**
      * Set 符合要求的App Id列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppIdList 符合要求的App Id列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppIdList(Long [] AppIdList) {
         this.AppIdList = AppIdList;

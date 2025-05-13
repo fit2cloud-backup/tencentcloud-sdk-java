@@ -16,14 +16,15 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateListenerRequest extends AbstractModel{
+public class CreateListenerRequest extends AbstractModel {
 
     /**
-    * 负载均衡实例 ID。
+    * 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
     */
     @SerializedName("LoadBalancerId")
     @Expose
@@ -31,6 +32,7 @@ public class CreateListenerRequest extends AbstractModel{
 
     /**
     * 要将监听器创建到哪些端口，每个端口对应一个新的监听器。
+端口范围：1~65535
     */
     @SerializedName("Ports")
     @Expose
@@ -58,43 +60,45 @@ public class CreateListenerRequest extends AbstractModel{
     private HealthCheck HealthCheck;
 
     /**
-    * 证书相关信息，此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。此参数和MultiCertInfo不能同时传入。
+    * 证书相关信息。参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数MultiCertInfo至少需要传一个， 但不能同时传入。</li>
     */
     @SerializedName("Certificate")
     @Expose
     private CertificateInput Certificate;
 
     /**
-    * 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。此参数仅适用于TCP/UDP监听器。
+    * 会话保持时间，单位：秒。可选值：30~3600，默认为0，默认不开启。此参数仅适用于TCP/UDP监听器。
     */
     @SerializedName("SessionExpireTime")
     @Expose
     private Long SessionExpireTime;
 
     /**
-    * 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
+    * 监听器转发的方式。可选值：WRR（按权重轮询）、LEAST_CONN（按最小连接数）、IP_HASH（按 IP 地址哈希）
+默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
     */
     @SerializedName("Scheduler")
     @Expose
     private String Scheduler;
 
     /**
-    * 是否开启SNI特性，此参数仅适用于HTTPS监听器。
+    * 是否开启SNI特性，此参数仅适用于HTTPS监听器。0表示未开启，1表示开启。
     */
     @SerializedName("SniSwitch")
     @Expose
     private Long SniSwitch;
 
     /**
-    * 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
+    * 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。
     */
     @SerializedName("TargetType")
     @Expose
     private String TargetType;
 
     /**
-    * 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。
+    * 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。（若选择QUIC_CID，则Protocol必须为UDP，Scheduler必须为WRR，同时只支持ipv4）
     */
     @SerializedName("SessionType")
     @Expose
@@ -102,6 +106,7 @@ public class CreateListenerRequest extends AbstractModel{
 
     /**
     * 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器，0:关闭；1:开启， 默认关闭。
+若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。
     */
     @SerializedName("KeepaliveEnable")
     @Expose
@@ -122,52 +127,91 @@ public class CreateListenerRequest extends AbstractModel{
     private Boolean DeregisterTargetRst;
 
     /**
-    * 证书信息，支持同时传入不同算法类型的多本服务端证书；此参数仅适用于未开启SNI特性的HTTPS监听器。此参数和Certificate不能同时传入。
+    * 证书信息，支持同时传入不同算法类型的多本服务端证书，参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数Certificate至少需要传一个， 但不能同时传入。</li>
     */
     @SerializedName("MultiCertInfo")
     @Expose
     private MultiCertInfo MultiCertInfo;
 
     /**
-    * 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+    * 监听器最大连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
     */
     @SerializedName("MaxConn")
     @Expose
     private Long MaxConn;
 
     /**
-    * 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+    * 监听器最大新增连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
     */
     @SerializedName("MaxCps")
     @Expose
     private Long MaxCps;
 
     /**
-    * 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+    * 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。取值范围：共享型实例和独占型实例支持：300-900，性能容量型实例支持：300-1980。如需设置请通过 [工单申请](https://console.cloud.tencent.com/workorder/category)。
     */
     @SerializedName("IdleConnectTimeout")
     @Expose
     private Long IdleConnectTimeout;
 
     /**
-     * Get 负载均衡实例 ID。 
-     * @return LoadBalancerId 负载均衡实例 ID。
+    * 是否开启SNAT，True（开启）、False（关闭）
+    */
+    @SerializedName("SnatEnable")
+    @Expose
+    private Boolean SnatEnable;
+
+    /**
+    * 全端口段监听器的结束端口，端口范围：2 - 65535
+    */
+    @SerializedName("FullEndPorts")
+    @Expose
+    private Long [] FullEndPorts;
+
+    /**
+    * 内网http监听器开启h2c开关，True（开启）、False（关闭）
+    */
+    @SerializedName("H2cSwitch")
+    @Expose
+    private Boolean H2cSwitch;
+
+    /**
+    * TCP_SSL监听器支持关闭SSL后仍然支持混绑，此参数为关闭开关。True（关闭）、False（开启）
+    */
+    @SerializedName("SslCloseSwitch")
+    @Expose
+    private Boolean SslCloseSwitch;
+
+    /**
+    * 数据压缩模式。可选值：transparent（透传模式）、compatibility（兼容模式）
+    */
+    @SerializedName("DataCompressMode")
+    @Expose
+    private String DataCompressMode;
+
+    /**
+     * Get 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。 
+     * @return LoadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID。
-     * @param LoadBalancerId 负载均衡实例 ID。
+     * Set 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
+     * @param LoadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 要将监听器创建到哪些端口，每个端口对应一个新的监听器。 
+     * Get 要将监听器创建到哪些端口，每个端口对应一个新的监听器。
+端口范围：1~65535 
      * @return Ports 要将监听器创建到哪些端口，每个端口对应一个新的监听器。
+端口范围：1~65535
      */
     public Long [] getPorts() {
         return this.Ports;
@@ -175,7 +219,9 @@ public class CreateListenerRequest extends AbstractModel{
 
     /**
      * Set 要将监听器创建到哪些端口，每个端口对应一个新的监听器。
+端口范围：1~65535
      * @param Ports 要将监听器创建到哪些端口，每个端口对应一个新的监听器。
+端口范围：1~65535
      */
     public void setPorts(Long [] Ports) {
         this.Ports = Ports;
@@ -230,108 +276,118 @@ public class CreateListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 证书相关信息，此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。此参数和MultiCertInfo不能同时传入。 
-     * @return Certificate 证书相关信息，此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。此参数和MultiCertInfo不能同时传入。
+     * Get 证书相关信息。参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数MultiCertInfo至少需要传一个， 但不能同时传入。</li> 
+     * @return Certificate 证书相关信息。参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数MultiCertInfo至少需要传一个， 但不能同时传入。</li>
      */
     public CertificateInput getCertificate() {
         return this.Certificate;
     }
 
     /**
-     * Set 证书相关信息，此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。此参数和MultiCertInfo不能同时传入。
-     * @param Certificate 证书相关信息，此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。此参数和MultiCertInfo不能同时传入。
+     * Set 证书相关信息。参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数MultiCertInfo至少需要传一个， 但不能同时传入。</li>
+     * @param Certificate 证书相关信息。参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数MultiCertInfo至少需要传一个， 但不能同时传入。</li>
      */
     public void setCertificate(CertificateInput Certificate) {
         this.Certificate = Certificate;
     }
 
     /**
-     * Get 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。此参数仅适用于TCP/UDP监听器。 
-     * @return SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。此参数仅适用于TCP/UDP监听器。
+     * Get 会话保持时间，单位：秒。可选值：30~3600，默认为0，默认不开启。此参数仅适用于TCP/UDP监听器。 
+     * @return SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认为0，默认不开启。此参数仅适用于TCP/UDP监听器。
      */
     public Long getSessionExpireTime() {
         return this.SessionExpireTime;
     }
 
     /**
-     * Set 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。此参数仅适用于TCP/UDP监听器。
-     * @param SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。此参数仅适用于TCP/UDP监听器。
+     * Set 会话保持时间，单位：秒。可选值：30~3600，默认为0，默认不开启。此参数仅适用于TCP/UDP监听器。
+     * @param SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认为0，默认不开启。此参数仅适用于TCP/UDP监听器。
      */
     public void setSessionExpireTime(Long SessionExpireTime) {
         this.SessionExpireTime = SessionExpireTime;
     }
 
     /**
-     * Get 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。 
-     * @return Scheduler 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
+     * Get 监听器转发的方式。可选值：WRR（按权重轮询）、LEAST_CONN（按最小连接数）、IP_HASH（按 IP 地址哈希）
+默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。 
+     * @return Scheduler 监听器转发的方式。可选值：WRR（按权重轮询）、LEAST_CONN（按最小连接数）、IP_HASH（按 IP 地址哈希）
+默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public String getScheduler() {
         return this.Scheduler;
     }
 
     /**
-     * Set 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
-     * @param Scheduler 监听器转发的方式。可选值：WRR、LEAST_CONN
-分别表示按权重轮询、最小连接数， 默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
+     * Set 监听器转发的方式。可选值：WRR（按权重轮询）、LEAST_CONN（按最小连接数）、IP_HASH（按 IP 地址哈希）
+默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
+     * @param Scheduler 监听器转发的方式。可选值：WRR（按权重轮询）、LEAST_CONN（按最小连接数）、IP_HASH（按 IP 地址哈希）
+默认为 WRR。此参数仅适用于TCP/UDP/TCP_SSL/QUIC监听器。
      */
     public void setScheduler(String Scheduler) {
         this.Scheduler = Scheduler;
     }
 
     /**
-     * Get 是否开启SNI特性，此参数仅适用于HTTPS监听器。 
-     * @return SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。
+     * Get 是否开启SNI特性，此参数仅适用于HTTPS监听器。0表示未开启，1表示开启。 
+     * @return SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。0表示未开启，1表示开启。
      */
     public Long getSniSwitch() {
         return this.SniSwitch;
     }
 
     /**
-     * Set 是否开启SNI特性，此参数仅适用于HTTPS监听器。
-     * @param SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。
+     * Set 是否开启SNI特性，此参数仅适用于HTTPS监听器。0表示未开启，1表示开启。
+     * @param SniSwitch 是否开启SNI特性，此参数仅适用于HTTPS监听器。0表示未开启，1表示开启。
      */
     public void setSniSwitch(Long SniSwitch) {
         this.SniSwitch = SniSwitch;
     }
 
     /**
-     * Get 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。 
-     * @return TargetType 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
+     * Get 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。 
+     * @return TargetType 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。
      */
     public String getTargetType() {
         return this.TargetType;
     }
 
     /**
-     * Set 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
-     * @param TargetType 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。
+     * Set 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。
+     * @param TargetType 后端目标类型，NODE表示绑定普通节点，TARGETGROUP表示绑定目标组。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。
      */
     public void setTargetType(String TargetType) {
         this.TargetType = TargetType;
     }
 
     /**
-     * Get 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。 
-     * @return SessionType 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。
+     * Get 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。（若选择QUIC_CID，则Protocol必须为UDP，Scheduler必须为WRR，同时只支持ipv4） 
+     * @return SessionType 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。（若选择QUIC_CID，则Protocol必须为UDP，Scheduler必须为WRR，同时只支持ipv4）
      */
     public String getSessionType() {
         return this.SessionType;
     }
 
     /**
-     * Set 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。
-     * @param SessionType 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。
+     * Set 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。（若选择QUIC_CID，则Protocol必须为UDP，Scheduler必须为WRR，同时只支持ipv4）
+     * @param SessionType 会话保持类型。不传或传NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。QUIC_CID只支持UDP协议。此参数仅适用于TCP/UDP监听器。七层监听器应在转发规则中设置。（若选择QUIC_CID，则Protocol必须为UDP，Scheduler必须为WRR，同时只支持ipv4）
      */
     public void setSessionType(String SessionType) {
         this.SessionType = SessionType;
     }
 
     /**
-     * Get 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器，0:关闭；1:开启， 默认关闭。 
+     * Get 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器，0:关闭；1:开启， 默认关闭。
+若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。 
      * @return KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器，0:关闭；1:开启， 默认关闭。
+若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。
      */
     public Long getKeepaliveEnable() {
         return this.KeepaliveEnable;
@@ -339,7 +395,9 @@ public class CreateListenerRequest extends AbstractModel{
 
     /**
      * Set 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器，0:关闭；1:开启， 默认关闭。
+若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。
      * @param KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS监听器，0:关闭；1:开启， 默认关闭。
+若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。
      */
     public void setKeepaliveEnable(Long KeepaliveEnable) {
         this.KeepaliveEnable = KeepaliveEnable;
@@ -378,67 +436,155 @@ public class CreateListenerRequest extends AbstractModel{
     }
 
     /**
-     * Get 证书信息，支持同时传入不同算法类型的多本服务端证书；此参数仅适用于未开启SNI特性的HTTPS监听器。此参数和Certificate不能同时传入。 
-     * @return MultiCertInfo 证书信息，支持同时传入不同算法类型的多本服务端证书；此参数仅适用于未开启SNI特性的HTTPS监听器。此参数和Certificate不能同时传入。
+     * Get 证书信息，支持同时传入不同算法类型的多本服务端证书，参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数Certificate至少需要传一个， 但不能同时传入。</li> 
+     * @return MultiCertInfo 证书信息，支持同时传入不同算法类型的多本服务端证书，参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数Certificate至少需要传一个， 但不能同时传入。</li>
      */
     public MultiCertInfo getMultiCertInfo() {
         return this.MultiCertInfo;
     }
 
     /**
-     * Set 证书信息，支持同时传入不同算法类型的多本服务端证书；此参数仅适用于未开启SNI特性的HTTPS监听器。此参数和Certificate不能同时传入。
-     * @param MultiCertInfo 证书信息，支持同时传入不同算法类型的多本服务端证书；此参数仅适用于未开启SNI特性的HTTPS监听器。此参数和Certificate不能同时传入。
+     * Set 证书信息，支持同时传入不同算法类型的多本服务端证书，参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数Certificate至少需要传一个， 但不能同时传入。</li>
+     * @param MultiCertInfo 证书信息，支持同时传入不同算法类型的多本服务端证书，参数限制如下：
+<li>此参数仅适用于TCP_SSL监听器和未开启SNI特性的HTTPS监听器。</li>
+<li>创建TCP_SSL监听器和未开启SNI特性的HTTPS监听器时，此参数和参数Certificate至少需要传一个， 但不能同时传入。</li>
      */
     public void setMultiCertInfo(MultiCertInfo MultiCertInfo) {
         this.MultiCertInfo = MultiCertInfo;
     }
 
     /**
-     * Get 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。 
-     * @return MaxConn 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     * Get 监听器最大连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。 
+     * @return MaxConn 监听器最大连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
      */
     public Long getMaxConn() {
         return this.MaxConn;
     }
 
     /**
-     * Set 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
-     * @param MaxConn 监听器最大连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     * Set 监听器最大连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
+     * @param MaxConn 监听器最大连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
      */
     public void setMaxConn(Long MaxConn) {
         this.MaxConn = MaxConn;
     }
 
     /**
-     * Get 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。 
-     * @return MaxCps 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     * Get 监听器最大新增连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。 
+     * @return MaxCps 监听器最大新增连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
      */
     public Long getMaxCps() {
         return this.MaxCps;
     }
 
     /**
-     * Set 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
-     * @param MaxCps 监听器最大新增连接数，只有TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。
+     * Set 监听器最大新增连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
+     * @param MaxCps 监听器最大新增连接数，当前仅性能容量型实例且仅TCP/UDP/TCP_SSL/QUIC监听器支持，不传或者传-1表示监听器维度不限速。基础网络实例不支持该参数。
      */
     public void setMaxCps(Long MaxCps) {
         this.MaxCps = MaxCps;
     }
 
     /**
-     * Get 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。 
-     * @return IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     * Get 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。取值范围：共享型实例和独占型实例支持：300-900，性能容量型实例支持：300-1980。如需设置请通过 [工单申请](https://console.cloud.tencent.com/workorder/category)。 
+     * @return IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。取值范围：共享型实例和独占型实例支持：300-900，性能容量型实例支持：300-1980。如需设置请通过 [工单申请](https://console.cloud.tencent.com/workorder/category)。
      */
     public Long getIdleConnectTimeout() {
         return this.IdleConnectTimeout;
     }
 
     /**
-     * Set 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
-     * @param IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。默认值：900，取值范围：共享型实例和独占型实例支持：300～900，性能容量型实例支持：300~2000。如需设置超过2000s，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category),最大可设置到3600s。
+     * Set 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。取值范围：共享型实例和独占型实例支持：300-900，性能容量型实例支持：300-1980。如需设置请通过 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+     * @param IdleConnectTimeout 空闲连接超时时间，此参数仅适用于TCP监听器，单位：秒。取值范围：共享型实例和独占型实例支持：300-900，性能容量型实例支持：300-1980。如需设置请通过 [工单申请](https://console.cloud.tencent.com/workorder/category)。
      */
     public void setIdleConnectTimeout(Long IdleConnectTimeout) {
         this.IdleConnectTimeout = IdleConnectTimeout;
+    }
+
+    /**
+     * Get 是否开启SNAT，True（开启）、False（关闭） 
+     * @return SnatEnable 是否开启SNAT，True（开启）、False（关闭）
+     */
+    public Boolean getSnatEnable() {
+        return this.SnatEnable;
+    }
+
+    /**
+     * Set 是否开启SNAT，True（开启）、False（关闭）
+     * @param SnatEnable 是否开启SNAT，True（开启）、False（关闭）
+     */
+    public void setSnatEnable(Boolean SnatEnable) {
+        this.SnatEnable = SnatEnable;
+    }
+
+    /**
+     * Get 全端口段监听器的结束端口，端口范围：2 - 65535 
+     * @return FullEndPorts 全端口段监听器的结束端口，端口范围：2 - 65535
+     */
+    public Long [] getFullEndPorts() {
+        return this.FullEndPorts;
+    }
+
+    /**
+     * Set 全端口段监听器的结束端口，端口范围：2 - 65535
+     * @param FullEndPorts 全端口段监听器的结束端口，端口范围：2 - 65535
+     */
+    public void setFullEndPorts(Long [] FullEndPorts) {
+        this.FullEndPorts = FullEndPorts;
+    }
+
+    /**
+     * Get 内网http监听器开启h2c开关，True（开启）、False（关闭） 
+     * @return H2cSwitch 内网http监听器开启h2c开关，True（开启）、False（关闭）
+     */
+    public Boolean getH2cSwitch() {
+        return this.H2cSwitch;
+    }
+
+    /**
+     * Set 内网http监听器开启h2c开关，True（开启）、False（关闭）
+     * @param H2cSwitch 内网http监听器开启h2c开关，True（开启）、False（关闭）
+     */
+    public void setH2cSwitch(Boolean H2cSwitch) {
+        this.H2cSwitch = H2cSwitch;
+    }
+
+    /**
+     * Get TCP_SSL监听器支持关闭SSL后仍然支持混绑，此参数为关闭开关。True（关闭）、False（开启） 
+     * @return SslCloseSwitch TCP_SSL监听器支持关闭SSL后仍然支持混绑，此参数为关闭开关。True（关闭）、False（开启）
+     */
+    public Boolean getSslCloseSwitch() {
+        return this.SslCloseSwitch;
+    }
+
+    /**
+     * Set TCP_SSL监听器支持关闭SSL后仍然支持混绑，此参数为关闭开关。True（关闭）、False（开启）
+     * @param SslCloseSwitch TCP_SSL监听器支持关闭SSL后仍然支持混绑，此参数为关闭开关。True（关闭）、False（开启）
+     */
+    public void setSslCloseSwitch(Boolean SslCloseSwitch) {
+        this.SslCloseSwitch = SslCloseSwitch;
+    }
+
+    /**
+     * Get 数据压缩模式。可选值：transparent（透传模式）、compatibility（兼容模式） 
+     * @return DataCompressMode 数据压缩模式。可选值：transparent（透传模式）、compatibility（兼容模式）
+     */
+    public String getDataCompressMode() {
+        return this.DataCompressMode;
+    }
+
+    /**
+     * Set 数据压缩模式。可选值：transparent（透传模式）、compatibility（兼容模式）
+     * @param DataCompressMode 数据压缩模式。可选值：transparent（透传模式）、compatibility（兼容模式）
+     */
+    public void setDataCompressMode(String DataCompressMode) {
+        this.DataCompressMode = DataCompressMode;
     }
 
     public CreateListenerRequest() {
@@ -509,6 +655,24 @@ public class CreateListenerRequest extends AbstractModel{
         if (source.IdleConnectTimeout != null) {
             this.IdleConnectTimeout = new Long(source.IdleConnectTimeout);
         }
+        if (source.SnatEnable != null) {
+            this.SnatEnable = new Boolean(source.SnatEnable);
+        }
+        if (source.FullEndPorts != null) {
+            this.FullEndPorts = new Long[source.FullEndPorts.length];
+            for (int i = 0; i < source.FullEndPorts.length; i++) {
+                this.FullEndPorts[i] = new Long(source.FullEndPorts[i]);
+            }
+        }
+        if (source.H2cSwitch != null) {
+            this.H2cSwitch = new Boolean(source.H2cSwitch);
+        }
+        if (source.SslCloseSwitch != null) {
+            this.SslCloseSwitch = new Boolean(source.SslCloseSwitch);
+        }
+        if (source.DataCompressMode != null) {
+            this.DataCompressMode = new String(source.DataCompressMode);
+        }
     }
 
 
@@ -534,6 +698,11 @@ public class CreateListenerRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxConn", this.MaxConn);
         this.setParamSimple(map, prefix + "MaxCps", this.MaxCps);
         this.setParamSimple(map, prefix + "IdleConnectTimeout", this.IdleConnectTimeout);
+        this.setParamSimple(map, prefix + "SnatEnable", this.SnatEnable);
+        this.setParamArraySimple(map, prefix + "FullEndPorts.", this.FullEndPorts);
+        this.setParamSimple(map, prefix + "H2cSwitch", this.H2cSwitch);
+        this.setParamSimple(map, prefix + "SslCloseSwitch", this.SslCloseSwitch);
+        this.setParamSimple(map, prefix + "DataCompressMode", this.DataCompressMode);
 
     }
 }

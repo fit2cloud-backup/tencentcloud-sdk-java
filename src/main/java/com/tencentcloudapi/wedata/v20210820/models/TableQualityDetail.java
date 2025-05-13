@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TableQualityDetail extends AbstractModel{
+public class TableQualityDetail extends AbstractModel {
 
     /**
     * 数据库id
@@ -93,6 +94,30 @@ public class TableQualityDetail extends AbstractModel{
     @SerializedName("LastPeriodRatio")
     @Expose
     private Float LastPeriodRatio;
+
+    /**
+    * 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DsEnvType")
+    @Expose
+    private Long DsEnvType;
+
+    /**
+    * 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SchemaName")
+    @Expose
+    private String SchemaName;
+
+    /**
+    * 规则表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleGroupTableId")
+    @Expose
+    private String RuleGroupTableId;
 
     /**
      * Get 数据库id
@@ -274,6 +299,66 @@ public class TableQualityDetail extends AbstractModel{
         this.LastPeriodRatio = LastPeriodRatio;
     }
 
+    /**
+     * Get 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DsEnvType 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getDsEnvType() {
+        return this.DsEnvType;
+    }
+
+    /**
+     * Set 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DsEnvType 0或者未返回或者null：未定义，1：生产，2：开发
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDsEnvType(Long DsEnvType) {
+        this.DsEnvType = DsEnvType;
+    }
+
+    /**
+     * Get 模式名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SchemaName 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSchemaName() {
+        return this.SchemaName;
+    }
+
+    /**
+     * Set 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SchemaName 模式名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSchemaName(String SchemaName) {
+        this.SchemaName = SchemaName;
+    }
+
+    /**
+     * Get 规则表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleGroupTableId 规则表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRuleGroupTableId() {
+        return this.RuleGroupTableId;
+    }
+
+    /**
+     * Set 规则表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleGroupTableId 规则表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleGroupTableId(String RuleGroupTableId) {
+        this.RuleGroupTableId = RuleGroupTableId;
+    }
+
     public TableQualityDetail() {
     }
 
@@ -309,6 +394,15 @@ public class TableQualityDetail extends AbstractModel{
         if (source.LastPeriodRatio != null) {
             this.LastPeriodRatio = new Float(source.LastPeriodRatio);
         }
+        if (source.DsEnvType != null) {
+            this.DsEnvType = new Long(source.DsEnvType);
+        }
+        if (source.SchemaName != null) {
+            this.SchemaName = new String(source.SchemaName);
+        }
+        if (source.RuleGroupTableId != null) {
+            this.RuleGroupTableId = new String(source.RuleGroupTableId);
+        }
     }
 
 
@@ -325,6 +419,9 @@ public class TableQualityDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "DatabaseScore", this.DatabaseScore);
         this.setParamSimple(map, prefix + "TableScore", this.TableScore);
         this.setParamSimple(map, prefix + "LastPeriodRatio", this.LastPeriodRatio);
+        this.setParamSimple(map, prefix + "DsEnvType", this.DsEnvType);
+        this.setParamSimple(map, prefix + "SchemaName", this.SchemaName);
+        this.setParamSimple(map, prefix + "RuleGroupTableId", this.RuleGroupTableId);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IMCdrInfo extends AbstractModel{
+public class IMCdrInfo extends AbstractModel {
 
     /**
     * 服务记录ID
@@ -40,12 +41,13 @@ public class IMCdrInfo extends AbstractModel{
     * 结束状态
 0 异常结束
 1 正常结束
-3 无坐席在线
-17 坐席放弃接听
+3 无座席在线
+17 座席放弃接听
 100 黑名单
-101 坐席手动转接
+101 座席手动转接
 102 IVR阶段放弃
 108 用户超时自动结束
+109 用户主动结束
     */
     @SerializedName("EndStatus")
     @Expose
@@ -81,7 +83,6 @@ public class IMCdrInfo extends AbstractModel{
 
     /**
     * 会话ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SessionId")
     @Expose
@@ -89,7 +90,6 @@ public class IMCdrInfo extends AbstractModel{
 
     /**
     * 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SkillGroupId")
     @Expose
@@ -97,7 +97,6 @@ public class IMCdrInfo extends AbstractModel{
 
     /**
     * 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SkillGroupName")
     @Expose
@@ -110,6 +109,13 @@ public class IMCdrInfo extends AbstractModel{
     @SerializedName("Satisfaction")
     @Expose
     private IMSatisfaction Satisfaction;
+
+    /**
+    * 用户ID
+    */
+    @SerializedName("ClientUserId")
+    @Expose
+    private String ClientUserId;
 
     /**
      * Get 服务记录ID 
@@ -147,21 +153,23 @@ public class IMCdrInfo extends AbstractModel{
      * Get 结束状态
 0 异常结束
 1 正常结束
-3 无坐席在线
-17 坐席放弃接听
+3 无座席在线
+17 座席放弃接听
 100 黑名单
-101 坐席手动转接
+101 座席手动转接
 102 IVR阶段放弃
-108 用户超时自动结束 
+108 用户超时自动结束
+109 用户主动结束 
      * @return EndStatus 结束状态
 0 异常结束
 1 正常结束
-3 无坐席在线
-17 坐席放弃接听
+3 无座席在线
+17 座席放弃接听
 100 黑名单
-101 坐席手动转接
+101 座席手动转接
 102 IVR阶段放弃
 108 用户超时自动结束
+109 用户主动结束
      */
     public Long getEndStatus() {
         return this.EndStatus;
@@ -171,21 +179,23 @@ public class IMCdrInfo extends AbstractModel{
      * Set 结束状态
 0 异常结束
 1 正常结束
-3 无坐席在线
-17 坐席放弃接听
+3 无座席在线
+17 座席放弃接听
 100 黑名单
-101 坐席手动转接
+101 座席手动转接
 102 IVR阶段放弃
 108 用户超时自动结束
+109 用户主动结束
      * @param EndStatus 结束状态
 0 异常结束
 1 正常结束
-3 无坐席在线
-17 坐席放弃接听
+3 无座席在线
+17 座席放弃接听
 100 黑名单
-101 坐席手动转接
+101 座席手动转接
 102 IVR阶段放弃
 108 用户超时自动结束
+109 用户主动结束
      */
     public void setEndStatus(Long EndStatus) {
         this.EndStatus = EndStatus;
@@ -256,10 +266,8 @@ public class IMCdrInfo extends AbstractModel{
     }
 
     /**
-     * Get 会话ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 会话ID 
      * @return SessionId 会话ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSessionId() {
         return this.SessionId;
@@ -267,19 +275,15 @@ public class IMCdrInfo extends AbstractModel{
 
     /**
      * Set 会话ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SessionId 会话ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
     }
 
     /**
-     * Get 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 技能组ID 
      * @return SkillGroupId 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSkillGroupId() {
         return this.SkillGroupId;
@@ -287,19 +291,15 @@ public class IMCdrInfo extends AbstractModel{
 
     /**
      * Set 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SkillGroupId 技能组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSkillGroupId(String SkillGroupId) {
         this.SkillGroupId = SkillGroupId;
     }
 
     /**
-     * Get 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 技能组名称 
      * @return SkillGroupName 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSkillGroupName() {
         return this.SkillGroupName;
@@ -307,9 +307,7 @@ public class IMCdrInfo extends AbstractModel{
 
     /**
      * Set 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SkillGroupName 技能组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSkillGroupName(String SkillGroupName) {
         this.SkillGroupName = SkillGroupName;
@@ -333,6 +331,22 @@ public class IMCdrInfo extends AbstractModel{
      */
     public void setSatisfaction(IMSatisfaction Satisfaction) {
         this.Satisfaction = Satisfaction;
+    }
+
+    /**
+     * Get 用户ID 
+     * @return ClientUserId 用户ID
+     */
+    public String getClientUserId() {
+        return this.ClientUserId;
+    }
+
+    /**
+     * Set 用户ID
+     * @param ClientUserId 用户ID
+     */
+    public void setClientUserId(String ClientUserId) {
+        this.ClientUserId = ClientUserId;
     }
 
     public IMCdrInfo() {
@@ -376,6 +390,9 @@ public class IMCdrInfo extends AbstractModel{
         if (source.Satisfaction != null) {
             this.Satisfaction = new IMSatisfaction(source.Satisfaction);
         }
+        if (source.ClientUserId != null) {
+            this.ClientUserId = new String(source.ClientUserId);
+        }
     }
 
 
@@ -394,6 +411,7 @@ public class IMCdrInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "SkillGroupId", this.SkillGroupId);
         this.setParamSimple(map, prefix + "SkillGroupName", this.SkillGroupName);
         this.setParamObj(map, prefix + "Satisfaction.", this.Satisfaction);
+        this.setParamSimple(map, prefix + "ClientUserId", this.ClientUserId);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyApplicationRequest extends AbstractModel{
+public class ModifyApplicationRequest extends AbstractModel {
 
     /**
     * 应用ID
@@ -56,6 +57,27 @@ public class ModifyApplicationRequest extends AbstractModel{
     @SerializedName("ServiceConfigList")
     @Expose
     private ServiceConfig [] ServiceConfigList;
+
+    /**
+    * 应用的微服务类型
+    */
+    @SerializedName("MicroserviceType")
+    @Expose
+    private String MicroserviceType;
+
+    /**
+    * 注册配置治理信息
+    */
+    @SerializedName("ServiceGovernanceConfig")
+    @Expose
+    private ServiceGovernanceConfig ServiceGovernanceConfig;
+
+    /**
+    * 应用开发框架
+    */
+    @SerializedName("FrameworkType")
+    @Expose
+    private String FrameworkType;
 
     /**
      * Get 应用ID 
@@ -137,6 +159,54 @@ public class ModifyApplicationRequest extends AbstractModel{
         this.ServiceConfigList = ServiceConfigList;
     }
 
+    /**
+     * Get 应用的微服务类型 
+     * @return MicroserviceType 应用的微服务类型
+     */
+    public String getMicroserviceType() {
+        return this.MicroserviceType;
+    }
+
+    /**
+     * Set 应用的微服务类型
+     * @param MicroserviceType 应用的微服务类型
+     */
+    public void setMicroserviceType(String MicroserviceType) {
+        this.MicroserviceType = MicroserviceType;
+    }
+
+    /**
+     * Get 注册配置治理信息 
+     * @return ServiceGovernanceConfig 注册配置治理信息
+     */
+    public ServiceGovernanceConfig getServiceGovernanceConfig() {
+        return this.ServiceGovernanceConfig;
+    }
+
+    /**
+     * Set 注册配置治理信息
+     * @param ServiceGovernanceConfig 注册配置治理信息
+     */
+    public void setServiceGovernanceConfig(ServiceGovernanceConfig ServiceGovernanceConfig) {
+        this.ServiceGovernanceConfig = ServiceGovernanceConfig;
+    }
+
+    /**
+     * Get 应用开发框架 
+     * @return FrameworkType 应用开发框架
+     */
+    public String getFrameworkType() {
+        return this.FrameworkType;
+    }
+
+    /**
+     * Set 应用开发框架
+     * @param FrameworkType 应用开发框架
+     */
+    public void setFrameworkType(String FrameworkType) {
+        this.FrameworkType = FrameworkType;
+    }
+
     public ModifyApplicationRequest() {
     }
 
@@ -163,6 +233,15 @@ public class ModifyApplicationRequest extends AbstractModel{
                 this.ServiceConfigList[i] = new ServiceConfig(source.ServiceConfigList[i]);
             }
         }
+        if (source.MicroserviceType != null) {
+            this.MicroserviceType = new String(source.MicroserviceType);
+        }
+        if (source.ServiceGovernanceConfig != null) {
+            this.ServiceGovernanceConfig = new ServiceGovernanceConfig(source.ServiceGovernanceConfig);
+        }
+        if (source.FrameworkType != null) {
+            this.FrameworkType = new String(source.FrameworkType);
+        }
     }
 
 
@@ -175,6 +254,9 @@ public class ModifyApplicationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ApplicationDesc", this.ApplicationDesc);
         this.setParamSimple(map, prefix + "ApplicationRemarkName", this.ApplicationRemarkName);
         this.setParamArrayObj(map, prefix + "ServiceConfigList.", this.ServiceConfigList);
+        this.setParamSimple(map, prefix + "MicroserviceType", this.MicroserviceType);
+        this.setParamObj(map, prefix + "ServiceGovernanceConfig.", this.ServiceGovernanceConfig);
+        this.setParamSimple(map, prefix + "FrameworkType", this.FrameworkType);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateTrainingModelRequest extends AbstractModel{
+public class CreateTrainingModelRequest extends AbstractModel {
 
     /**
     * 导入方式
@@ -31,13 +32,6 @@ EXIST：导入现有版本
     @SerializedName("ImportMethod")
     @Expose
     private String ImportMethod;
-
-    /**
-    * 模型来源cos目录，以/结尾
-    */
-    @SerializedName("TrainingModelCosPath")
-    @Expose
-    private CosPathInfo TrainingModelCosPath;
 
     /**
     * 推理环境来源（SYSTEM/CUSTOM）
@@ -66,6 +60,13 @@ EXIST：导入现有版本
     @SerializedName("TrainingJobName")
     @Expose
     private String TrainingJobName;
+
+    /**
+    * 模型来源cos目录，以/结尾
+    */
+    @SerializedName("TrainingModelCosPath")
+    @Expose
+    private CosPathInfo TrainingModelCosPath;
 
     /**
     * 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
@@ -238,22 +239,6 @@ EXIST：导入现有版本
     }
 
     /**
-     * Get 模型来源cos目录，以/结尾 
-     * @return TrainingModelCosPath 模型来源cos目录，以/结尾
-     */
-    public CosPathInfo getTrainingModelCosPath() {
-        return this.TrainingModelCosPath;
-    }
-
-    /**
-     * Set 模型来源cos目录，以/结尾
-     * @param TrainingModelCosPath 模型来源cos目录，以/结尾
-     */
-    public void setTrainingModelCosPath(CosPathInfo TrainingModelCosPath) {
-        this.TrainingModelCosPath = TrainingModelCosPath;
-    }
-
-    /**
      * Get 推理环境来源（SYSTEM/CUSTOM） 
      * @return ReasoningEnvironmentSource 推理环境来源（SYSTEM/CUSTOM）
      */
@@ -315,6 +300,22 @@ EXIST：导入现有版本
      */
     public void setTrainingJobName(String TrainingJobName) {
         this.TrainingJobName = TrainingJobName;
+    }
+
+    /**
+     * Get 模型来源cos目录，以/结尾 
+     * @return TrainingModelCosPath 模型来源cos目录，以/结尾
+     */
+    public CosPathInfo getTrainingModelCosPath() {
+        return this.TrainingModelCosPath;
+    }
+
+    /**
+     * Set 模型来源cos目录，以/结尾
+     * @param TrainingModelCosPath 模型来源cos目录，以/结尾
+     */
+    public void setTrainingModelCosPath(CosPathInfo TrainingModelCosPath) {
+        this.TrainingModelCosPath = TrainingModelCosPath;
     }
 
     /**
@@ -656,9 +657,6 @@ EXIST：导入现有版本
         if (source.ImportMethod != null) {
             this.ImportMethod = new String(source.ImportMethod);
         }
-        if (source.TrainingModelCosPath != null) {
-            this.TrainingModelCosPath = new CosPathInfo(source.TrainingModelCosPath);
-        }
         if (source.ReasoningEnvironmentSource != null) {
             this.ReasoningEnvironmentSource = new String(source.ReasoningEnvironmentSource);
         }
@@ -673,6 +671,9 @@ EXIST：导入现有版本
         }
         if (source.TrainingJobName != null) {
             this.TrainingJobName = new String(source.TrainingJobName);
+        }
+        if (source.TrainingModelCosPath != null) {
+            this.TrainingModelCosPath = new CosPathInfo(source.TrainingModelCosPath);
         }
         if (source.AlgorithmFramework != null) {
             this.AlgorithmFramework = new String(source.AlgorithmFramework);
@@ -742,11 +743,11 @@ EXIST：导入现有版本
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ImportMethod", this.ImportMethod);
-        this.setParamObj(map, prefix + "TrainingModelCosPath.", this.TrainingModelCosPath);
         this.setParamSimple(map, prefix + "ReasoningEnvironmentSource", this.ReasoningEnvironmentSource);
         this.setParamSimple(map, prefix + "TrainingModelName", this.TrainingModelName);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "TrainingJobName", this.TrainingJobName);
+        this.setParamObj(map, prefix + "TrainingModelCosPath.", this.TrainingModelCosPath);
         this.setParamSimple(map, prefix + "AlgorithmFramework", this.AlgorithmFramework);
         this.setParamSimple(map, prefix + "ReasoningEnvironment", this.ReasoningEnvironment);
         this.setParamSimple(map, prefix + "TrainingModelIndex", this.TrainingModelIndex);

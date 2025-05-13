@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExportInstanceErrorLogsRequest extends AbstractModel{
+public class ExportInstanceErrorLogsRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -86,7 +87,7 @@ public class ExportInstanceErrorLogsRequest extends AbstractModel{
     private String OrderBy;
 
     /**
-    * ASC或DESC
+    * 排序类型，ASC 或 DESC。
     */
     @SerializedName("OrderByType")
     @Expose
@@ -237,16 +238,16 @@ public class ExportInstanceErrorLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get ASC或DESC 
-     * @return OrderByType ASC或DESC
+     * Get 排序类型，ASC 或 DESC。 
+     * @return OrderByType 排序类型，ASC 或 DESC。
      */
     public String getOrderByType() {
         return this.OrderByType;
     }
 
     /**
-     * Set ASC或DESC
-     * @param OrderByType ASC或DESC
+     * Set 排序类型，ASC 或 DESC。
+     * @param OrderByType 排序类型，ASC 或 DESC。
      */
     public void setOrderByType(String OrderByType) {
         this.OrderByType = OrderByType;

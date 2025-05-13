@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WebhookTrigger extends AbstractModel{
+public class WebhookTrigger extends AbstractModel {
 
     /**
     * 触发器名称
@@ -77,6 +78,13 @@ public class WebhookTrigger extends AbstractModel{
     @SerializedName("NamespaceId")
     @Expose
     private Long NamespaceId;
+
+    /**
+    * 触发器所属命名空间名称
+    */
+    @SerializedName("NamespaceName")
+    @Expose
+    private String NamespaceName;
 
     /**
      * Get 触发器名称 
@@ -206,6 +214,22 @@ public class WebhookTrigger extends AbstractModel{
         this.NamespaceId = NamespaceId;
     }
 
+    /**
+     * Get 触发器所属命名空间名称 
+     * @return NamespaceName 触发器所属命名空间名称
+     */
+    public String getNamespaceName() {
+        return this.NamespaceName;
+    }
+
+    /**
+     * Set 触发器所属命名空间名称
+     * @param NamespaceName 触发器所属命名空间名称
+     */
+    public void setNamespaceName(String NamespaceName) {
+        this.NamespaceName = NamespaceName;
+    }
+
     public WebhookTrigger() {
     }
 
@@ -244,6 +268,9 @@ public class WebhookTrigger extends AbstractModel{
         if (source.NamespaceId != null) {
             this.NamespaceId = new Long(source.NamespaceId);
         }
+        if (source.NamespaceName != null) {
+            this.NamespaceName = new String(source.NamespaceName);
+        }
     }
 
 
@@ -259,6 +286,7 @@ public class WebhookTrigger extends AbstractModel{
         this.setParamSimple(map, prefix + "Id", this.Id);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "NamespaceId", this.NamespaceId);
+        this.setParamSimple(map, prefix + "NamespaceName", this.NamespaceName);
 
     }
 }

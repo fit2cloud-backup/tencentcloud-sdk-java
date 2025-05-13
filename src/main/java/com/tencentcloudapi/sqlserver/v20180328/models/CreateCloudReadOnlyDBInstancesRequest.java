@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel{
+public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel {
 
     /**
     * 主实例ID，格式如：mssql-3l3fgqn7
@@ -121,7 +122,7 @@ public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel{
     private String InstanceChargeType;
 
     /**
-    * 本次购买几个只读实例，默认值为2。
+    * 本次即将购买的实例数量，默认取值2。
     */
     @SerializedName("GoodsNum")
     @Expose
@@ -189,6 +190,13 @@ public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel{
     @SerializedName("TimeZone")
     @Expose
     private String TimeZone;
+
+    /**
+    * 磁盘加密标识，0-不加密，1-加密
+    */
+    @SerializedName("DiskEncryptFlag")
+    @Expose
+    private Long DiskEncryptFlag;
 
     /**
      * Get 主实例ID，格式如：mssql-3l3fgqn7 
@@ -415,16 +423,16 @@ public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 本次购买几个只读实例，默认值为2。 
-     * @return GoodsNum 本次购买几个只读实例，默认值为2。
+     * Get 本次即将购买的实例数量，默认取值2。 
+     * @return GoodsNum 本次即将购买的实例数量，默认取值2。
      */
     public Long getGoodsNum() {
         return this.GoodsNum;
     }
 
     /**
-     * Set 本次购买几个只读实例，默认值为2。
-     * @param GoodsNum 本次购买几个只读实例，默认值为2。
+     * Set 本次即将购买的实例数量，默认取值2。
+     * @param GoodsNum 本次即将购买的实例数量，默认取值2。
      */
     public void setGoodsNum(Long GoodsNum) {
         this.GoodsNum = GoodsNum;
@@ -574,6 +582,22 @@ public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel{
         this.TimeZone = TimeZone;
     }
 
+    /**
+     * Get 磁盘加密标识，0-不加密，1-加密 
+     * @return DiskEncryptFlag 磁盘加密标识，0-不加密，1-加密
+     */
+    public Long getDiskEncryptFlag() {
+        return this.DiskEncryptFlag;
+    }
+
+    /**
+     * Set 磁盘加密标识，0-不加密，1-加密
+     * @param DiskEncryptFlag 磁盘加密标识，0-不加密，1-加密
+     */
+    public void setDiskEncryptFlag(Long DiskEncryptFlag) {
+        this.DiskEncryptFlag = DiskEncryptFlag;
+    }
+
     public CreateCloudReadOnlyDBInstancesRequest() {
     }
 
@@ -663,6 +687,9 @@ public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel{
         if (source.TimeZone != null) {
             this.TimeZone = new String(source.TimeZone);
         }
+        if (source.DiskEncryptFlag != null) {
+            this.DiskEncryptFlag = new Long(source.DiskEncryptFlag);
+        }
     }
 
 
@@ -694,6 +721,7 @@ public class CreateCloudReadOnlyDBInstancesRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ResourceTags.", this.ResourceTags);
         this.setParamSimple(map, prefix + "Collation", this.Collation);
         this.setParamSimple(map, prefix + "TimeZone", this.TimeZone);
+        this.setParamSimple(map, prefix + "DiskEncryptFlag", this.DiskEncryptFlag);
 
     }
 }

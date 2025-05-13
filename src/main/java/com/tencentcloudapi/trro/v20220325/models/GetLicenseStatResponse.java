@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trro.v20220325.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetLicenseStatResponse extends AbstractModel{
+public class GetLicenseStatResponse extends AbstractModel {
 
     /**
     * 有效授权
@@ -51,7 +52,14 @@ public class GetLicenseStatResponse extends AbstractModel{
     private Long Expire;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 当月用量超时授权个数
+    */
+    @SerializedName("MonthlyExpire")
+    @Expose
+    private Long MonthlyExpire;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -122,16 +130,32 @@ public class GetLicenseStatResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 当月用量超时授权个数 
+     * @return MonthlyExpire 当月用量超时授权个数
+     */
+    public Long getMonthlyExpire() {
+        return this.MonthlyExpire;
+    }
+
+    /**
+     * Set 当月用量超时授权个数
+     * @param MonthlyExpire 当月用量超时授权个数
+     */
+    public void setMonthlyExpire(Long MonthlyExpire) {
+        this.MonthlyExpire = MonthlyExpire;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -157,6 +181,9 @@ public class GetLicenseStatResponse extends AbstractModel{
         if (source.Expire != null) {
             this.Expire = new Long(source.Expire);
         }
+        if (source.MonthlyExpire != null) {
+            this.MonthlyExpire = new Long(source.MonthlyExpire);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -171,6 +198,7 @@ public class GetLicenseStatResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "Bound", this.Bound);
         this.setParamSimple(map, prefix + "UnBound", this.UnBound);
         this.setParamSimple(map, prefix + "Expire", this.Expire);
+        this.setParamSimple(map, prefix + "MonthlyExpire", this.MonthlyExpire);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

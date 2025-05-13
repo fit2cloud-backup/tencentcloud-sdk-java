@@ -16,132 +16,123 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIntegrationEmployeesResponse extends AbstractModel{
+public class DescribeIntegrationEmployeesResponse extends AbstractModel {
 
     /**
-    * 员工数据列表
-注意：此字段可能返回 null，表示取不到有效值。
+    * 员工信息列表。
     */
     @SerializedName("Employees")
     @Expose
     private Staff [] Employees;
 
     /**
-    * 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
-注意：此字段可能返回 null，表示取不到有效值。
+    * 偏移量
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 指定每页多少条数据，单页最大20
+    * 指定分页每页返回的数据条数，单页最大支持 20。
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 符合条件的员工数量
+    * 符合条件的员工数量。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 员工数据列表
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Employees 员工数据列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 员工信息列表。 
+     * @return Employees 员工信息列表。
      */
     public Staff [] getEmployees() {
         return this.Employees;
     }
 
     /**
-     * Set 员工数据列表
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Employees 员工数据列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 员工信息列表。
+     * @param Employees 员工信息列表。
      */
     public void setEmployees(Staff [] Employees) {
         this.Employees = Employees;
     }
 
     /**
-     * Get 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 偏移量 
+     * @return Offset 偏移量
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大20000
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 偏移量
+     * @param Offset 偏移量
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 指定每页多少条数据，单页最大20 
-     * @return Limit 指定每页多少条数据，单页最大20
+     * Get 指定分页每页返回的数据条数，单页最大支持 20。 
+     * @return Limit 指定分页每页返回的数据条数，单页最大支持 20。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 指定每页多少条数据，单页最大20
-     * @param Limit 指定每页多少条数据，单页最大20
+     * Set 指定分页每页返回的数据条数，单页最大支持 20。
+     * @param Limit 指定分页每页返回的数据条数，单页最大支持 20。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 符合条件的员工数量 
-     * @return TotalCount 符合条件的员工数量
+     * Get 符合条件的员工数量。 
+     * @return TotalCount 符合条件的员工数量。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 符合条件的员工数量
-     * @param TotalCount 符合条件的员工数量
+     * Set 符合条件的员工数量。
+     * @param TotalCount 符合条件的员工数量。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

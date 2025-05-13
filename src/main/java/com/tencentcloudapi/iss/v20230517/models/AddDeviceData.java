@@ -16,23 +16,22 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddDeviceData extends AbstractModel{
+public class AddDeviceData extends AbstractModel {
 
     /**
     * 设备iD
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeviceId")
     @Expose
     private String DeviceId;
 
     /**
-    * 设备编码（即我们为设备生成的20位国标编码）
-注意：此字段可能返回 null，表示取不到有效值。
+    * 设备编码（国标设备即我们为设备生成的20位国标编码，rtmp 设备为10 位设备编码）
     */
     @SerializedName("Code")
     @Expose
@@ -40,7 +39,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -48,7 +46,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备接入协议，1:RTMP,2:GB,3:GW 
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AccessProtocol")
     @Expose
@@ -56,7 +53,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备类型，1:IPC,2:NVR
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -64,7 +60,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备接入服务节点ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -73,7 +68,6 @@ public class AddDeviceData extends AbstractModel{
     /**
     * 设备接入服务节点名称
 
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterName")
     @Expose
@@ -81,7 +75,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备流传输协议，1:UDP,2:TCP 
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TransportProtocol")
     @Expose
@@ -89,7 +82,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备密码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Password")
     @Expose
@@ -97,7 +89,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -105,7 +96,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备状态，0:未注册,1:在线,2:离线,3:禁用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -113,7 +103,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备所属组织ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrganizationId")
     @Expose
@@ -121,7 +110,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备接入网关ID，从查询网关列表接口中获取（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GatewayId")
     @Expose
@@ -129,7 +117,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 网关接入协议类型，1.海康SDK，2.大华SDK，3.宇视SDK，4.Onvif（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProtocolType")
     @Expose
@@ -137,7 +124,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备接入IP（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ip")
     @Expose
@@ -145,7 +131,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备Port（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
@@ -153,7 +138,6 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 设备用户名（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Username")
     @Expose
@@ -161,17 +145,14 @@ public class AddDeviceData extends AbstractModel{
 
     /**
     * 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
     private Long AppId;
 
     /**
-     * Get 设备iD
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备iD 
      * @return DeviceId 设备iD
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeviceId() {
         return this.DeviceId;
@@ -179,39 +160,31 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备iD
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeviceId 设备iD
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeviceId(String DeviceId) {
         this.DeviceId = DeviceId;
     }
 
     /**
-     * Get 设备编码（即我们为设备生成的20位国标编码）
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Code 设备编码（即我们为设备生成的20位国标编码）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 设备编码（国标设备即我们为设备生成的20位国标编码，rtmp 设备为10 位设备编码） 
+     * @return Code 设备编码（国标设备即我们为设备生成的20位国标编码，rtmp 设备为10 位设备编码）
      */
     public String getCode() {
         return this.Code;
     }
 
     /**
-     * Set 设备编码（即我们为设备生成的20位国标编码）
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Code 设备编码（即我们为设备生成的20位国标编码）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 设备编码（国标设备即我们为设备生成的20位国标编码，rtmp 设备为10 位设备编码）
+     * @param Code 设备编码（国标设备即我们为设备生成的20位国标编码，rtmp 设备为10 位设备编码）
      */
     public void setCode(String Code) {
         this.Code = Code;
     }
 
     /**
-     * Get 设备名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备名称 
      * @return Name 设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -219,19 +192,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 设备接入协议，1:RTMP,2:GB,3:GW 
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备接入协议，1:RTMP,2:GB,3:GW  
      * @return AccessProtocol 设备接入协议，1:RTMP,2:GB,3:GW 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAccessProtocol() {
         return this.AccessProtocol;
@@ -239,19 +208,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备接入协议，1:RTMP,2:GB,3:GW 
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AccessProtocol 设备接入协议，1:RTMP,2:GB,3:GW 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccessProtocol(Long AccessProtocol) {
         this.AccessProtocol = AccessProtocol;
     }
 
     /**
-     * Get 设备类型，1:IPC,2:NVR
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备类型，1:IPC,2:NVR 
      * @return Type 设备类型，1:IPC,2:NVR
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getType() {
         return this.Type;
@@ -259,19 +224,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备类型，1:IPC,2:NVR
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 设备类型，1:IPC,2:NVR
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(Long Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 设备接入服务节点ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备接入服务节点ID 
      * @return ClusterId 设备接入服务节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -279,9 +240,7 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备接入服务节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 设备接入服务节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
@@ -289,11 +248,9 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Get 设备接入服务节点名称
-
-注意：此字段可能返回 null，表示取不到有效值。 
+ 
      * @return ClusterName 设备接入服务节点名称
 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterName() {
         return this.ClusterName;
@@ -302,20 +259,16 @@ public class AddDeviceData extends AbstractModel{
     /**
      * Set 设备接入服务节点名称
 
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterName 设备接入服务节点名称
 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;
     }
 
     /**
-     * Get 设备流传输协议，1:UDP,2:TCP 
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备流传输协议，1:UDP,2:TCP  
      * @return TransportProtocol 设备流传输协议，1:UDP,2:TCP 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTransportProtocol() {
         return this.TransportProtocol;
@@ -323,19 +276,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备流传输协议，1:UDP,2:TCP 
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TransportProtocol 设备流传输协议，1:UDP,2:TCP 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTransportProtocol(Long TransportProtocol) {
         this.TransportProtocol = TransportProtocol;
     }
 
     /**
-     * Get 设备密码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备密码 
      * @return Password 设备密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPassword() {
         return this.Password;
@@ -343,19 +292,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备密码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Password 设备密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
     /**
-     * Get 设备描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备描述 
      * @return Description 设备描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -363,19 +308,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 设备描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 设备状态，0:未注册,1:在线,2:离线,3:禁用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备状态，0:未注册,1:在线,2:离线,3:禁用 
      * @return Status 设备状态，0:未注册,1:在线,2:离线,3:禁用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -383,19 +324,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备状态，0:未注册,1:在线,2:离线,3:禁用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 设备状态，0:未注册,1:在线,2:离线,3:禁用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 设备所属组织ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备所属组织ID 
      * @return OrganizationId 设备所属组织ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOrganizationId() {
         return this.OrganizationId;
@@ -403,19 +340,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备所属组织ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrganizationId 设备所属组织ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrganizationId(Long OrganizationId) {
         this.OrganizationId = OrganizationId;
     }
 
     /**
-     * Get 设备接入网关ID，从查询网关列表接口中获取（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备接入网关ID，从查询网关列表接口中获取（仅网关接入需要） 
      * @return GatewayId 设备接入网关ID，从查询网关列表接口中获取（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGatewayId() {
         return this.GatewayId;
@@ -423,19 +356,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备接入网关ID，从查询网关列表接口中获取（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GatewayId 设备接入网关ID，从查询网关列表接口中获取（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGatewayId(String GatewayId) {
         this.GatewayId = GatewayId;
     }
 
     /**
-     * Get 网关接入协议类型，1.海康SDK，2.大华SDK，3.宇视SDK，4.Onvif（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网关接入协议类型，1.海康SDK，2.大华SDK，3.宇视SDK，4.Onvif（仅网关接入需要） 
      * @return ProtocolType 网关接入协议类型，1.海康SDK，2.大华SDK，3.宇视SDK，4.Onvif（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProtocolType() {
         return this.ProtocolType;
@@ -443,19 +372,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 网关接入协议类型，1.海康SDK，2.大华SDK，3.宇视SDK，4.Onvif（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProtocolType 网关接入协议类型，1.海康SDK，2.大华SDK，3.宇视SDK，4.Onvif（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocolType(Long ProtocolType) {
         this.ProtocolType = ProtocolType;
     }
 
     /**
-     * Get 设备接入IP（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备接入IP（仅网关接入需要） 
      * @return Ip 设备接入IP（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIp() {
         return this.Ip;
@@ -463,19 +388,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备接入IP（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ip 设备接入IP（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
     }
 
     /**
-     * Get 设备Port（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备Port（仅网关接入需要） 
      * @return Port 设备Port（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -483,19 +404,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备Port（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Port 设备Port（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get 设备用户名（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备用户名（仅网关接入需要） 
      * @return Username 设备用户名（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUsername() {
         return this.Username;
@@ -503,19 +420,15 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 设备用户名（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Username 设备用户名（仅网关接入需要）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsername(String Username) {
         this.Username = Username;
     }
 
     /**
-     * Get 用户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户ID 
      * @return AppId 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -523,9 +436,7 @@ public class AddDeviceData extends AbstractModel{
 
     /**
      * Set 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;

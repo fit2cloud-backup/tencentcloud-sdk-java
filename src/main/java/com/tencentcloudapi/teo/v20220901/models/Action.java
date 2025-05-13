@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Action extends AbstractModel{
+public class Action extends AbstractModel {
 
     /**
     * 常规功能操作，选择该类型的功能项有：
@@ -40,6 +41,7 @@ public class Action extends AbstractModel{
 <li> Host Header 重写（HostHeader）；</li>
 <li> 强制 HTTPS（ForceRedirect）；</li>
 <li> 回源 HTTPS（OriginPullProtocol）；</li>
+<li> 单连接下载限速（ResponseSpeedLimit）；</li>
 <li> 缓存预刷新（CachePrefresh）；</li>
 <li> 智能压缩（Compression）；</li>
 <li> Hsts；</li>
@@ -49,6 +51,8 @@ public class Action extends AbstractModel{
 <li> HTTP/2 访问（Http2）；</li>
 <li> 回源跟随重定向(UpstreamFollowRedirect)；</li>
 <li> 修改源站(Origin)。</li>
+<li> 七层回源超时(HTTPUpstreamTimeout)。</li>
+<li> Http应答（HttpResponse）。</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NormalAction")
@@ -93,6 +97,7 @@ public class Action extends AbstractModel{
 <li> Host Header 重写（HostHeader）；</li>
 <li> 强制 HTTPS（ForceRedirect）；</li>
 <li> 回源 HTTPS（OriginPullProtocol）；</li>
+<li> 单连接下载限速（ResponseSpeedLimit）；</li>
 <li> 缓存预刷新（CachePrefresh）；</li>
 <li> 智能压缩（Compression）；</li>
 <li> Hsts；</li>
@@ -102,6 +107,8 @@ public class Action extends AbstractModel{
 <li> HTTP/2 访问（Http2）；</li>
 <li> 回源跟随重定向(UpstreamFollowRedirect)；</li>
 <li> 修改源站(Origin)。</li>
+<li> 七层回源超时(HTTPUpstreamTimeout)。</li>
+<li> Http应答（HttpResponse）。</li>
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return NormalAction 常规功能操作，选择该类型的功能项有：
 <li> 访问URL 重写（AccessUrlRedirect）；</li>
@@ -120,6 +127,7 @@ public class Action extends AbstractModel{
 <li> Host Header 重写（HostHeader）；</li>
 <li> 强制 HTTPS（ForceRedirect）；</li>
 <li> 回源 HTTPS（OriginPullProtocol）；</li>
+<li> 单连接下载限速（ResponseSpeedLimit）；</li>
 <li> 缓存预刷新（CachePrefresh）；</li>
 <li> 智能压缩（Compression）；</li>
 <li> Hsts；</li>
@@ -129,6 +137,8 @@ public class Action extends AbstractModel{
 <li> HTTP/2 访问（Http2）；</li>
 <li> 回源跟随重定向(UpstreamFollowRedirect)；</li>
 <li> 修改源站(Origin)。</li>
+<li> 七层回源超时(HTTPUpstreamTimeout)。</li>
+<li> Http应答（HttpResponse）。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public NormalAction getNormalAction() {
@@ -153,6 +163,7 @@ public class Action extends AbstractModel{
 <li> Host Header 重写（HostHeader）；</li>
 <li> 强制 HTTPS（ForceRedirect）；</li>
 <li> 回源 HTTPS（OriginPullProtocol）；</li>
+<li> 单连接下载限速（ResponseSpeedLimit）；</li>
 <li> 缓存预刷新（CachePrefresh）；</li>
 <li> 智能压缩（Compression）；</li>
 <li> Hsts；</li>
@@ -162,6 +173,8 @@ public class Action extends AbstractModel{
 <li> HTTP/2 访问（Http2）；</li>
 <li> 回源跟随重定向(UpstreamFollowRedirect)；</li>
 <li> 修改源站(Origin)。</li>
+<li> 七层回源超时(HTTPUpstreamTimeout)。</li>
+<li> Http应答（HttpResponse）。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      * @param NormalAction 常规功能操作，选择该类型的功能项有：
 <li> 访问URL 重写（AccessUrlRedirect）；</li>
@@ -180,6 +193,7 @@ public class Action extends AbstractModel{
 <li> Host Header 重写（HostHeader）；</li>
 <li> 强制 HTTPS（ForceRedirect）；</li>
 <li> 回源 HTTPS（OriginPullProtocol）；</li>
+<li> 单连接下载限速（ResponseSpeedLimit）；</li>
 <li> 缓存预刷新（CachePrefresh）；</li>
 <li> 智能压缩（Compression）；</li>
 <li> Hsts；</li>
@@ -189,6 +203,8 @@ public class Action extends AbstractModel{
 <li> HTTP/2 访问（Http2）；</li>
 <li> 回源跟随重定向(UpstreamFollowRedirect)；</li>
 <li> 修改源站(Origin)。</li>
+<li> 七层回源超时(HTTPUpstreamTimeout)。</li>
+<li> Http应答（HttpResponse）。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNormalAction(NormalAction NormalAction) {

@@ -16,14 +16,16 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DiskChargePrepaid extends AbstractModel{
+public class DiskChargePrepaid extends AbstractModel {
 
     /**
     * 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
     */
     @SerializedName("Period")
     @Expose
@@ -31,27 +33,30 @@ public class DiskChargePrepaid extends AbstractModel{
 
     /**
     * 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
 
-NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
-NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
-DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
-
-默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云盘到期后将按月自动续费。
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
     */
     @SerializedName("RenewFlag")
     @Expose
     private String RenewFlag;
 
     /**
-    * 新购单位. 默认值: "m"。
+    * 新购单位.。
+可选值：m - 月。
+默认值：m - 月。
     */
     @SerializedName("TimeUnit")
     @Expose
     private String TimeUnit;
 
     /**
-     * Get 新购周期。 
+     * Get 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。 
      * @return Period 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
      */
     public Long getPeriod() {
         return this.Period;
@@ -59,7 +64,9 @@ DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
 
     /**
      * Set 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
      * @param Period 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
      */
     public void setPeriod(Long Period) {
         this.Period = Period;
@@ -67,19 +74,17 @@ DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
 
     /**
      * Get 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
 
-NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
-NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
-DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
-
-默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云盘到期后将按月自动续费。 
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。 
      * @return RenewFlag 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
 
-NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
-NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
-DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
-
-默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云盘到期后将按月自动续费。
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
      */
     public String getRenewFlag() {
         return this.RenewFlag;
@@ -87,35 +92,41 @@ DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
 
     /**
      * Set 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
 
-NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
-NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
-DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
-
-默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云盘到期后将按月自动续费。
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
      * @param RenewFlag 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
 
-NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
-NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
-DISABLE_NOTIFY_AND_AUTO_RENEW：不自动续费，且不通知。
-
-默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云盘到期后将按月自动续费。
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
      */
     public void setRenewFlag(String RenewFlag) {
         this.RenewFlag = RenewFlag;
     }
 
     /**
-     * Get 新购单位. 默认值: "m"。 
-     * @return TimeUnit 新购单位. 默认值: "m"。
+     * Get 新购单位.。
+可选值：m - 月。
+默认值：m - 月。 
+     * @return TimeUnit 新购单位.。
+可选值：m - 月。
+默认值：m - 月。
      */
     public String getTimeUnit() {
         return this.TimeUnit;
     }
 
     /**
-     * Set 新购单位. 默认值: "m"。
-     * @param TimeUnit 新购单位. 默认值: "m"。
+     * Set 新购单位.。
+可选值：m - 月。
+默认值：m - 月。
+     * @param TimeUnit 新购单位.。
+可选值：m - 月。
+默认值：m - 月。
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;

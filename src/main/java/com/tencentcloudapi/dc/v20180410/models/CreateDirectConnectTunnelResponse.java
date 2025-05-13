@@ -16,53 +16,54 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDirectConnectTunnelResponse extends AbstractModel{
+public class CreateDirectConnectTunnelResponse extends AbstractModel {
 
     /**
-    * 专用通道ID
+    * 专用通道ID。
     */
     @SerializedName("DirectConnectTunnelIdSet")
     @Expose
     private String [] DirectConnectTunnelIdSet;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 专用通道ID 
-     * @return DirectConnectTunnelIdSet 专用通道ID
+     * Get 专用通道ID。 
+     * @return DirectConnectTunnelIdSet 专用通道ID。
      */
     public String [] getDirectConnectTunnelIdSet() {
         return this.DirectConnectTunnelIdSet;
     }
 
     /**
-     * Set 专用通道ID
-     * @param DirectConnectTunnelIdSet 专用通道ID
+     * Set 专用通道ID。
+     * @param DirectConnectTunnelIdSet 专用通道ID。
      */
     public void setDirectConnectTunnelIdSet(String [] DirectConnectTunnelIdSet) {
         this.DirectConnectTunnelIdSet = DirectConnectTunnelIdSet;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

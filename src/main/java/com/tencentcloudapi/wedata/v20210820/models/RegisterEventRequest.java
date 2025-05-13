@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegisterEventRequest extends AbstractModel{
+public class RegisterEventRequest extends AbstractModel {
 
     /**
     * 项目Id
@@ -58,21 +59,21 @@ public class RegisterEventRequest extends AbstractModel{
     private String TimeUnit;
 
     /**
-    * TBDS 事件所属人
+    * 事件所属人
     */
     @SerializedName("Owner")
     @Expose
     private String Owner;
 
     /**
-    * 事件类型，默认值：TIME_SERIES
+    * 必填，事件类型，默认值：TIME_SERIES
     */
     @SerializedName("EventType")
     @Expose
     private String EventType;
 
     /**
-    * 对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss
+    * 必填，对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss，默认值：yyyyMMdd
     */
     @SerializedName("DimensionFormat")
     @Expose
@@ -173,48 +174,48 @@ public class RegisterEventRequest extends AbstractModel{
     }
 
     /**
-     * Get TBDS 事件所属人 
-     * @return Owner TBDS 事件所属人
+     * Get 事件所属人 
+     * @return Owner 事件所属人
      */
     public String getOwner() {
         return this.Owner;
     }
 
     /**
-     * Set TBDS 事件所属人
-     * @param Owner TBDS 事件所属人
+     * Set 事件所属人
+     * @param Owner 事件所属人
      */
     public void setOwner(String Owner) {
         this.Owner = Owner;
     }
 
     /**
-     * Get 事件类型，默认值：TIME_SERIES 
-     * @return EventType 事件类型，默认值：TIME_SERIES
+     * Get 必填，事件类型，默认值：TIME_SERIES 
+     * @return EventType 必填，事件类型，默认值：TIME_SERIES
      */
     public String getEventType() {
         return this.EventType;
     }
 
     /**
-     * Set 事件类型，默认值：TIME_SERIES
-     * @param EventType 事件类型，默认值：TIME_SERIES
+     * Set 必填，事件类型，默认值：TIME_SERIES
+     * @param EventType 必填，事件类型，默认值：TIME_SERIES
      */
     public void setEventType(String EventType) {
         this.EventType = EventType;
     }
 
     /**
-     * Get 对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss 
-     * @return DimensionFormat 对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss
+     * Get 必填，对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss，默认值：yyyyMMdd 
+     * @return DimensionFormat 必填，对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss，默认值：yyyyMMdd
      */
     public String getDimensionFormat() {
         return this.DimensionFormat;
     }
 
     /**
-     * Set 对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss
-     * @param DimensionFormat 对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss
+     * Set 必填，对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss，默认值：yyyyMMdd
+     * @param DimensionFormat 必填，对应day： yyyyMMdd，对应HOUR：yyyyMMddHH，对应MIN：yyyyMMddHHmm，对应SECOND：yyyyMMddHHmmss，默认值：yyyyMMdd
      */
     public void setDimensionFormat(String DimensionFormat) {
         this.DimensionFormat = DimensionFormat;

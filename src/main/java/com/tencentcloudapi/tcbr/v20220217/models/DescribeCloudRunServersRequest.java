@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcbr.v20220217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCloudRunServersRequest extends AbstractModel{
+public class DescribeCloudRunServersRequest extends AbstractModel {
 
     /**
     * 环境Id
@@ -44,6 +45,20 @@ public class DescribeCloudRunServersRequest extends AbstractModel{
     @SerializedName("PageNum")
     @Expose
     private Long PageNum;
+
+    /**
+    * 服务名
+    */
+    @SerializedName("ServerName")
+    @Expose
+    private String ServerName;
+
+    /**
+    * 服务类型：function | container
+    */
+    @SerializedName("ServerType")
+    @Expose
+    private String ServerType;
 
     /**
      * Get 环境Id 
@@ -101,6 +116,38 @@ public class DescribeCloudRunServersRequest extends AbstractModel{
         this.PageNum = PageNum;
     }
 
+    /**
+     * Get 服务名 
+     * @return ServerName 服务名
+     */
+    public String getServerName() {
+        return this.ServerName;
+    }
+
+    /**
+     * Set 服务名
+     * @param ServerName 服务名
+     */
+    public void setServerName(String ServerName) {
+        this.ServerName = ServerName;
+    }
+
+    /**
+     * Get 服务类型：function | container 
+     * @return ServerType 服务类型：function | container
+     */
+    public String getServerType() {
+        return this.ServerType;
+    }
+
+    /**
+     * Set 服务类型：function | container
+     * @param ServerType 服务类型：function | container
+     */
+    public void setServerType(String ServerType) {
+        this.ServerType = ServerType;
+    }
+
     public DescribeCloudRunServersRequest() {
     }
 
@@ -118,6 +165,12 @@ public class DescribeCloudRunServersRequest extends AbstractModel{
         if (source.PageNum != null) {
             this.PageNum = new Long(source.PageNum);
         }
+        if (source.ServerName != null) {
+            this.ServerName = new String(source.ServerName);
+        }
+        if (source.ServerType != null) {
+            this.ServerType = new String(source.ServerType);
+        }
     }
 
 
@@ -128,6 +181,8 @@ public class DescribeCloudRunServersRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EnvId", this.EnvId);
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
         this.setParamSimple(map, prefix + "PageNum", this.PageNum);
+        this.setParamSimple(map, prefix + "ServerName", this.ServerName);
+        this.setParamSimple(map, prefix + "ServerType", this.ServerType);
 
     }
 }

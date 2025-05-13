@@ -16,11 +16,12 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UploadFile extends AbstractModel{
+public class UploadFile extends AbstractModel {
 
     /**
     * Base64编码后的文件内容
@@ -30,7 +31,9 @@ public class UploadFile extends AbstractModel{
     private String FileBody;
 
     /**
-    * 文件名
+    * 文件的名字。
+文件名的最大长度应不超过200个字符，并且文件名的后缀必须反映其文件类型。
+例如，PDF文件应以“.pdf”结尾，如“XXX.pdf”，而Word文件应以“.doc”或“.docx”结尾，如“XXX.doc”或“XXX.docx”。
     */
     @SerializedName("FileName")
     @Expose
@@ -53,16 +56,24 @@ public class UploadFile extends AbstractModel{
     }
 
     /**
-     * Get 文件名 
-     * @return FileName 文件名
+     * Get 文件的名字。
+文件名的最大长度应不超过200个字符，并且文件名的后缀必须反映其文件类型。
+例如，PDF文件应以“.pdf”结尾，如“XXX.pdf”，而Word文件应以“.doc”或“.docx”结尾，如“XXX.doc”或“XXX.docx”。 
+     * @return FileName 文件的名字。
+文件名的最大长度应不超过200个字符，并且文件名的后缀必须反映其文件类型。
+例如，PDF文件应以“.pdf”结尾，如“XXX.pdf”，而Word文件应以“.doc”或“.docx”结尾，如“XXX.doc”或“XXX.docx”。
      */
     public String getFileName() {
         return this.FileName;
     }
 
     /**
-     * Set 文件名
-     * @param FileName 文件名
+     * Set 文件的名字。
+文件名的最大长度应不超过200个字符，并且文件名的后缀必须反映其文件类型。
+例如，PDF文件应以“.pdf”结尾，如“XXX.pdf”，而Word文件应以“.doc”或“.docx”结尾，如“XXX.doc”或“XXX.docx”。
+     * @param FileName 文件的名字。
+文件名的最大长度应不超过200个字符，并且文件名的后缀必须反映其文件类型。
+例如，PDF文件应以“.pdf”结尾，如“XXX.pdf”，而Word文件应以“.doc”或“.docx”结尾，如“XXX.doc”或“XXX.docx”。
      */
     public void setFileName(String FileName) {
         this.FileName = FileName;

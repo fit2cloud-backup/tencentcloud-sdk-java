@@ -16,15 +16,15 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
+public class DescribeParameterTemplateAttributesResponse extends AbstractModel {
 
     /**
     * 参数模板ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TemplateId")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
     * 参数模板包含的参数个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -48,7 +47,6 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
     * 参数模板名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TemplateName")
     @Expose
@@ -56,7 +54,6 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
     * 参数模板适用的数据库版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DBMajorVersion")
     @Expose
@@ -64,7 +61,6 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
     * 参数模板适用的数据库引擎
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DBEngine")
     @Expose
@@ -72,24 +68,21 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
     * 参数模板描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TemplateDescription")
     @Expose
     private String TemplateDescription;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 参数模板ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数模板ID 
      * @return TemplateId 参数模板ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTemplateId() {
         return this.TemplateId;
@@ -97,19 +90,15 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
      * Set 参数模板ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TemplateId 参数模板ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;
     }
 
     /**
-     * Get 参数模板包含的参数个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数模板包含的参数个数 
      * @return TotalCount 参数模板包含的参数个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -117,9 +106,7 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
      * Set 参数模板包含的参数个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 参数模板包含的参数个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
@@ -146,10 +133,8 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 参数模板名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数模板名称 
      * @return TemplateName 参数模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTemplateName() {
         return this.TemplateName;
@@ -157,19 +142,15 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
      * Set 参数模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TemplateName 参数模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTemplateName(String TemplateName) {
         this.TemplateName = TemplateName;
     }
 
     /**
-     * Get 参数模板适用的数据库版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数模板适用的数据库版本 
      * @return DBMajorVersion 参数模板适用的数据库版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDBMajorVersion() {
         return this.DBMajorVersion;
@@ -177,19 +158,15 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
      * Set 参数模板适用的数据库版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DBMajorVersion 参数模板适用的数据库版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDBMajorVersion(String DBMajorVersion) {
         this.DBMajorVersion = DBMajorVersion;
     }
 
     /**
-     * Get 参数模板适用的数据库引擎
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数模板适用的数据库引擎 
      * @return DBEngine 参数模板适用的数据库引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDBEngine() {
         return this.DBEngine;
@@ -197,19 +174,15 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
      * Set 参数模板适用的数据库引擎
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DBEngine 参数模板适用的数据库引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDBEngine(String DBEngine) {
         this.DBEngine = DBEngine;
     }
 
     /**
-     * Get 参数模板描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数模板描述 
      * @return TemplateDescription 参数模板描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTemplateDescription() {
         return this.TemplateDescription;
@@ -217,25 +190,23 @@ public class DescribeParameterTemplateAttributesResponse extends AbstractModel{
 
     /**
      * Set 参数模板描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TemplateDescription 参数模板描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTemplateDescription(String TemplateDescription) {
         this.TemplateDescription = TemplateDescription;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

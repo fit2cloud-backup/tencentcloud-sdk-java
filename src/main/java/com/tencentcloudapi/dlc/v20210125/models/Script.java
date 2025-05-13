@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Script extends AbstractModel{
+public class Script extends AbstractModel {
 
     /**
     * 脚本Id，长度36字节。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScriptId")
     @Expose
@@ -32,7 +32,6 @@ public class Script extends AbstractModel{
 
     /**
     * 脚本名称，长度0-25。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScriptName")
     @Expose
@@ -48,7 +47,6 @@ public class Script extends AbstractModel{
 
     /**
     * 默认关联数据库。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatabaseName")
     @Expose
@@ -64,17 +62,14 @@ public class Script extends AbstractModel{
 
     /**
     * 更新时间戳， 单位：ms。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
     private Long UpdateTime;
 
     /**
-     * Get 脚本Id，长度36字节。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 脚本Id，长度36字节。 
      * @return ScriptId 脚本Id，长度36字节。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScriptId() {
         return this.ScriptId;
@@ -82,19 +77,15 @@ public class Script extends AbstractModel{
 
     /**
      * Set 脚本Id，长度36字节。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScriptId 脚本Id，长度36字节。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScriptId(String ScriptId) {
         this.ScriptId = ScriptId;
     }
 
     /**
-     * Get 脚本名称，长度0-25。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 脚本名称，长度0-25。 
      * @return ScriptName 脚本名称，长度0-25。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScriptName() {
         return this.ScriptName;
@@ -102,9 +93,7 @@ public class Script extends AbstractModel{
 
     /**
      * Set 脚本名称，长度0-25。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScriptName 脚本名称，长度0-25。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScriptName(String ScriptName) {
         this.ScriptName = ScriptName;
@@ -131,10 +120,8 @@ public class Script extends AbstractModel{
     }
 
     /**
-     * Get 默认关联数据库。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 默认关联数据库。 
      * @return DatabaseName 默认关联数据库。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabaseName() {
         return this.DatabaseName;
@@ -142,9 +129,7 @@ public class Script extends AbstractModel{
 
     /**
      * Set 默认关联数据库。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatabaseName 默认关联数据库。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabaseName(String DatabaseName) {
         this.DatabaseName = DatabaseName;
@@ -171,10 +156,8 @@ public class Script extends AbstractModel{
     }
 
     /**
-     * Get 更新时间戳， 单位：ms。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间戳， 单位：ms。 
      * @return UpdateTime 更新时间戳， 单位：ms。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUpdateTime() {
         return this.UpdateTime;
@@ -182,9 +165,7 @@ public class Script extends AbstractModel{
 
     /**
      * Set 更新时间戳， 单位：ms。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间戳， 单位：ms。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(Long UpdateTime) {
         this.UpdateTime = UpdateTime;

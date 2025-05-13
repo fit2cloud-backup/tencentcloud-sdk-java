@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateResultDownloadRequest extends AbstractModel{
+public class CreateResultDownloadRequest extends AbstractModel {
 
     /**
     * 查询结果任务Id
@@ -37,7 +38,7 @@ public class CreateResultDownloadRequest extends AbstractModel{
     private String Format;
 
     /**
-    * 是否重新生成下载文件，仅当之前任务为 Timout | Error 时有效
+    * 是否重新生成下载文件，仅当之前任务状态为 timeout | error 时有效
     */
     @SerializedName("Force")
     @Expose
@@ -76,16 +77,16 @@ public class CreateResultDownloadRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否重新生成下载文件，仅当之前任务为 Timout | Error 时有效 
-     * @return Force 是否重新生成下载文件，仅当之前任务为 Timout | Error 时有效
+     * Get 是否重新生成下载文件，仅当之前任务状态为 timeout | error 时有效 
+     * @return Force 是否重新生成下载文件，仅当之前任务状态为 timeout | error 时有效
      */
     public Boolean getForce() {
         return this.Force;
     }
 
     /**
-     * Set 是否重新生成下载文件，仅当之前任务为 Timout | Error 时有效
-     * @param Force 是否重新生成下载文件，仅当之前任务为 Timout | Error 时有效
+     * Set 是否重新生成下载文件，仅当之前任务状态为 timeout | error 时有效
+     * @param Force 是否重新生成下载文件，仅当之前任务状态为 timeout | error 时有效
      */
     public void setForce(Boolean Force) {
         this.Force = Force;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostInfo extends AbstractModel{
+public class HostInfo extends AbstractModel {
 
     /**
     * 主机id
@@ -129,7 +130,6 @@ public class HostInfo extends AbstractModel{
 
     /**
     * 所属项目
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Project")
     @Expose
@@ -137,7 +137,6 @@ public class HostInfo extends AbstractModel{
 
     /**
     * 标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -163,6 +162,29 @@ public class HostInfo extends AbstractModel{
     @SerializedName("ClusterAccessedStatus")
     @Expose
     private String ClusterAccessedStatus;
+
+    /**
+    * 计费核数
+    */
+    @SerializedName("ChargeCoresCnt")
+    @Expose
+    private Long ChargeCoresCnt;
+
+    /**
+    * 防护状态:
+已防护: Defended
+未防护: UnDefended
+    */
+    @SerializedName("DefendStatus")
+    @Expose
+    private String DefendStatus;
+
+    /**
+    * 核数
+    */
+    @SerializedName("CoresCnt")
+    @Expose
+    private Long CoresCnt;
 
     /**
      * Get 主机id 
@@ -405,10 +427,8 @@ public class HostInfo extends AbstractModel{
     }
 
     /**
-     * Get 所属项目
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属项目 
      * @return Project 所属项目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ProjectInfo getProject() {
         return this.Project;
@@ -416,19 +436,15 @@ public class HostInfo extends AbstractModel{
 
     /**
      * Set 所属项目
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Project 所属项目
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProject(ProjectInfo Project) {
         this.Project = Project;
     }
 
     /**
-     * Get 标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签 
      * @return Tags 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagInfo [] getTags() {
         return this.Tags;
@@ -436,9 +452,7 @@ public class HostInfo extends AbstractModel{
 
     /**
      * Set 标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(TagInfo [] Tags) {
         this.Tags = Tags;
@@ -490,6 +504,62 @@ public class HostInfo extends AbstractModel{
      */
     public void setClusterAccessedStatus(String ClusterAccessedStatus) {
         this.ClusterAccessedStatus = ClusterAccessedStatus;
+    }
+
+    /**
+     * Get 计费核数 
+     * @return ChargeCoresCnt 计费核数
+     */
+    public Long getChargeCoresCnt() {
+        return this.ChargeCoresCnt;
+    }
+
+    /**
+     * Set 计费核数
+     * @param ChargeCoresCnt 计费核数
+     */
+    public void setChargeCoresCnt(Long ChargeCoresCnt) {
+        this.ChargeCoresCnt = ChargeCoresCnt;
+    }
+
+    /**
+     * Get 防护状态:
+已防护: Defended
+未防护: UnDefended 
+     * @return DefendStatus 防护状态:
+已防护: Defended
+未防护: UnDefended
+     */
+    public String getDefendStatus() {
+        return this.DefendStatus;
+    }
+
+    /**
+     * Set 防护状态:
+已防护: Defended
+未防护: UnDefended
+     * @param DefendStatus 防护状态:
+已防护: Defended
+未防护: UnDefended
+     */
+    public void setDefendStatus(String DefendStatus) {
+        this.DefendStatus = DefendStatus;
+    }
+
+    /**
+     * Get 核数 
+     * @return CoresCnt 核数
+     */
+    public Long getCoresCnt() {
+        return this.CoresCnt;
+    }
+
+    /**
+     * Set 核数
+     * @param CoresCnt 核数
+     */
+    public void setCoresCnt(Long CoresCnt) {
+        this.CoresCnt = CoresCnt;
     }
 
     public HostInfo() {
@@ -563,6 +633,15 @@ public class HostInfo extends AbstractModel{
         if (source.ClusterAccessedStatus != null) {
             this.ClusterAccessedStatus = new String(source.ClusterAccessedStatus);
         }
+        if (source.ChargeCoresCnt != null) {
+            this.ChargeCoresCnt = new Long(source.ChargeCoresCnt);
+        }
+        if (source.DefendStatus != null) {
+            this.DefendStatus = new String(source.DefendStatus);
+        }
+        if (source.CoresCnt != null) {
+            this.CoresCnt = new Long(source.CoresCnt);
+        }
     }
 
 
@@ -590,6 +669,9 @@ public class HostInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterID", this.ClusterID);
         this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
         this.setParamSimple(map, prefix + "ClusterAccessedStatus", this.ClusterAccessedStatus);
+        this.setParamSimple(map, prefix + "ChargeCoresCnt", this.ChargeCoresCnt);
+        this.setParamSimple(map, prefix + "DefendStatus", this.DefendStatus);
+        this.setParamSimple(map, prefix + "CoresCnt", this.CoresCnt);
 
     }
 }

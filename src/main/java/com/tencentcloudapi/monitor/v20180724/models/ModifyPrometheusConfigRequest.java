@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyPrometheusConfigRequest extends AbstractModel{
+public class ModifyPrometheusConfigRequest extends AbstractModel {
 
     /**
     * 实例id
@@ -63,6 +64,14 @@ public class ModifyPrometheusConfigRequest extends AbstractModel{
     @SerializedName("RawJobs")
     @Expose
     private PrometheusConfigItem [] RawJobs;
+
+    /**
+    * 0: 更新实例组件镜像版本；
+1: 不更新实例组件镜像版本
+    */
+    @SerializedName("UpdateImage")
+    @Expose
+    private Long UpdateImage;
 
     /**
      * Get 实例id 
@@ -160,6 +169,26 @@ public class ModifyPrometheusConfigRequest extends AbstractModel{
         this.RawJobs = RawJobs;
     }
 
+    /**
+     * Get 0: 更新实例组件镜像版本；
+1: 不更新实例组件镜像版本 
+     * @return UpdateImage 0: 更新实例组件镜像版本；
+1: 不更新实例组件镜像版本
+     */
+    public Long getUpdateImage() {
+        return this.UpdateImage;
+    }
+
+    /**
+     * Set 0: 更新实例组件镜像版本；
+1: 不更新实例组件镜像版本
+     * @param UpdateImage 0: 更新实例组件镜像版本；
+1: 不更新实例组件镜像版本
+     */
+    public void setUpdateImage(Long UpdateImage) {
+        this.UpdateImage = UpdateImage;
+    }
+
     public ModifyPrometheusConfigRequest() {
     }
 
@@ -195,6 +224,9 @@ public class ModifyPrometheusConfigRequest extends AbstractModel{
                 this.RawJobs[i] = new PrometheusConfigItem(source.RawJobs[i]);
             }
         }
+        if (source.UpdateImage != null) {
+            this.UpdateImage = new Long(source.UpdateImage);
+        }
     }
 
 
@@ -208,6 +240,7 @@ public class ModifyPrometheusConfigRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ServiceMonitors.", this.ServiceMonitors);
         this.setParamArrayObj(map, prefix + "PodMonitors.", this.PodMonitors);
         this.setParamArrayObj(map, prefix + "RawJobs.", this.RawJobs);
+        this.setParamSimple(map, prefix + "UpdateImage", this.UpdateImage);
 
     }
 }

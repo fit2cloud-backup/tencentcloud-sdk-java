@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIpHitItemsRequest extends AbstractModel{
+public class DescribeIpHitItemsRequest extends AbstractModel {
 
     /**
     * 域名
@@ -37,7 +38,7 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     private Long Count;
 
     /**
-    * 类别
+    * 类别，ip封禁传值auto_deny
     */
     @SerializedName("Category")
     @Expose
@@ -79,7 +80,7 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     private Long Skip;
 
     /**
-    * 限制数目
+    * 限制数目，category不等于threat_intelligence时，该值需要必传
     */
     @SerializedName("Limit")
     @Expose
@@ -100,11 +101,25 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     private String Sort;
 
     /**
-    * IP
+    * IP,category传threat_intelligence的时候，该值必传
     */
     @SerializedName("Ip")
     @Expose
     private String Ip;
+
+    /**
+    * 有效时间最小时间戳
+    */
+    @SerializedName("ValidTimeStampMin")
+    @Expose
+    private Long ValidTimeStampMin;
+
+    /**
+    * 有效时间最大时间戳
+    */
+    @SerializedName("ValidTimeStampMax")
+    @Expose
+    private Long ValidTimeStampMax;
 
     /**
      * Get 域名 
@@ -139,16 +154,16 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     }
 
     /**
-     * Get 类别 
-     * @return Category 类别
+     * Get 类别，ip封禁传值auto_deny 
+     * @return Category 类别，ip封禁传值auto_deny
      */
     public String getCategory() {
         return this.Category;
     }
 
     /**
-     * Set 类别
-     * @param Category 类别
+     * Set 类别，ip封禁传值auto_deny
+     * @param Category 类别，ip封禁传值auto_deny
      */
     public void setCategory(String Category) {
         this.Category = Category;
@@ -157,7 +172,9 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     /**
      * Get 有效时间最小时间戳 
      * @return VtsMin 有效时间最小时间戳
+     * @deprecated
      */
+    @Deprecated
     public Long getVtsMin() {
         return this.VtsMin;
     }
@@ -165,7 +182,9 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     /**
      * Set 有效时间最小时间戳
      * @param VtsMin 有效时间最小时间戳
+     * @deprecated
      */
+    @Deprecated
     public void setVtsMin(Long VtsMin) {
         this.VtsMin = VtsMin;
     }
@@ -173,7 +192,9 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     /**
      * Get 有效时间最大时间戳 
      * @return VtsMax 有效时间最大时间戳
+     * @deprecated
      */
+    @Deprecated
     public Long getVtsMax() {
         return this.VtsMax;
     }
@@ -181,7 +202,9 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     /**
      * Set 有效时间最大时间戳
      * @param VtsMax 有效时间最大时间戳
+     * @deprecated
      */
+    @Deprecated
     public void setVtsMax(Long VtsMax) {
         this.VtsMax = VtsMax;
     }
@@ -235,16 +258,16 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     }
 
     /**
-     * Get 限制数目 
-     * @return Limit 限制数目
+     * Get 限制数目，category不等于threat_intelligence时，该值需要必传 
+     * @return Limit 限制数目，category不等于threat_intelligence时，该值需要必传
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 限制数目
-     * @param Limit 限制数目
+     * Set 限制数目，category不等于threat_intelligence时，该值需要必传
+     * @param Limit 限制数目，category不等于threat_intelligence时，该值需要必传
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -283,19 +306,51 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
     }
 
     /**
-     * Get IP 
-     * @return Ip IP
+     * Get IP,category传threat_intelligence的时候，该值必传 
+     * @return Ip IP,category传threat_intelligence的时候，该值必传
      */
     public String getIp() {
         return this.Ip;
     }
 
     /**
-     * Set IP
-     * @param Ip IP
+     * Set IP,category传threat_intelligence的时候，该值必传
+     * @param Ip IP,category传threat_intelligence的时候，该值必传
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
+    }
+
+    /**
+     * Get 有效时间最小时间戳 
+     * @return ValidTimeStampMin 有效时间最小时间戳
+     */
+    public Long getValidTimeStampMin() {
+        return this.ValidTimeStampMin;
+    }
+
+    /**
+     * Set 有效时间最小时间戳
+     * @param ValidTimeStampMin 有效时间最小时间戳
+     */
+    public void setValidTimeStampMin(Long ValidTimeStampMin) {
+        this.ValidTimeStampMin = ValidTimeStampMin;
+    }
+
+    /**
+     * Get 有效时间最大时间戳 
+     * @return ValidTimeStampMax 有效时间最大时间戳
+     */
+    public Long getValidTimeStampMax() {
+        return this.ValidTimeStampMax;
+    }
+
+    /**
+     * Set 有效时间最大时间戳
+     * @param ValidTimeStampMax 有效时间最大时间戳
+     */
+    public void setValidTimeStampMax(Long ValidTimeStampMax) {
+        this.ValidTimeStampMax = ValidTimeStampMax;
     }
 
     public DescribeIpHitItemsRequest() {
@@ -342,6 +397,12 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
         if (source.Ip != null) {
             this.Ip = new String(source.Ip);
         }
+        if (source.ValidTimeStampMin != null) {
+            this.ValidTimeStampMin = new Long(source.ValidTimeStampMin);
+        }
+        if (source.ValidTimeStampMax != null) {
+            this.ValidTimeStampMax = new Long(source.ValidTimeStampMax);
+        }
     }
 
 
@@ -361,6 +422,8 @@ public class DescribeIpHitItemsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Sort", this.Sort);
         this.setParamSimple(map, prefix + "Ip", this.Ip);
+        this.setParamSimple(map, prefix + "ValidTimeStampMin", this.ValidTimeStampMin);
+        this.setParamSimple(map, prefix + "ValidTimeStampMax", this.ValidTimeStampMax);
 
     }
 }

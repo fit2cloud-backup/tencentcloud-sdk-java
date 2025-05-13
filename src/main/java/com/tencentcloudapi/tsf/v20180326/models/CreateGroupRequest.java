@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateGroupRequest extends AbstractModel{
+public class CreateGroupRequest extends AbstractModel {
 
     /**
     * 部署组所属的应用ID
@@ -58,7 +59,7 @@ public class CreateGroupRequest extends AbstractModel{
     private String GroupDesc;
 
     /**
-    * 部署组资源类型
+    * 部署组资源类型；DEF 表示默认资源类型；GW 表示网关资源类型
     */
     @SerializedName("GroupResourceType")
     @Expose
@@ -70,6 +71,13 @@ public class CreateGroupRequest extends AbstractModel{
     @SerializedName("Alias")
     @Expose
     private String Alias;
+
+    /**
+    * 标签列表
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 部署组所属的应用ID 
@@ -152,16 +160,16 @@ public class CreateGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 部署组资源类型 
-     * @return GroupResourceType 部署组资源类型
+     * Get 部署组资源类型；DEF 表示默认资源类型；GW 表示网关资源类型 
+     * @return GroupResourceType 部署组资源类型；DEF 表示默认资源类型；GW 表示网关资源类型
      */
     public String getGroupResourceType() {
         return this.GroupResourceType;
     }
 
     /**
-     * Set 部署组资源类型
-     * @param GroupResourceType 部署组资源类型
+     * Set 部署组资源类型；DEF 表示默认资源类型；GW 表示网关资源类型
+     * @param GroupResourceType 部署组资源类型；DEF 表示默认资源类型；GW 表示网关资源类型
      */
     public void setGroupResourceType(String GroupResourceType) {
         this.GroupResourceType = GroupResourceType;
@@ -181,6 +189,22 @@ public class CreateGroupRequest extends AbstractModel{
      */
     public void setAlias(String Alias) {
         this.Alias = Alias;
+    }
+
+    /**
+     * Get 标签列表 
+     * @return Tags 标签列表
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签列表
+     * @param Tags 标签列表
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
     }
 
     public CreateGroupRequest() {
@@ -212,6 +236,12 @@ public class CreateGroupRequest extends AbstractModel{
         if (source.Alias != null) {
             this.Alias = new String(source.Alias);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -226,6 +256,7 @@ public class CreateGroupRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "GroupDesc", this.GroupDesc);
         this.setParamSimple(map, prefix + "GroupResourceType", this.GroupResourceType);
         this.setParamSimple(map, prefix + "Alias", this.Alias);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

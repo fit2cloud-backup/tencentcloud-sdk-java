@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeletePolicyGroupRequest extends AbstractModel{
+public class DeletePolicyGroupRequest extends AbstractModel {
 
     /**
     * 固定值，为"monitor"
@@ -30,7 +31,7 @@ public class DeletePolicyGroupRequest extends AbstractModel{
     private String Module;
 
     /**
-    * 策略组id
+    * 策略组id,即1.0的告警策略id,可以从策略详情获取
     */
     @SerializedName("GroupId")
     @Expose
@@ -53,16 +54,16 @@ public class DeletePolicyGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 策略组id 
-     * @return GroupId 策略组id
+     * Get 策略组id,即1.0的告警策略id,可以从策略详情获取 
+     * @return GroupId 策略组id,即1.0的告警策略id,可以从策略详情获取
      */
     public Long [] getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 策略组id
-     * @param GroupId 策略组id
+     * Set 策略组id,即1.0的告警策略id,可以从策略详情获取
+     * @param GroupId 策略组id,即1.0的告警策略id,可以从策略详情获取
      */
     public void setGroupId(Long [] GroupId) {
         this.GroupId = GroupId;

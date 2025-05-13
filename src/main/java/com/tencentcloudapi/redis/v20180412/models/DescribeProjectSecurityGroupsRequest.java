@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeProjectSecurityGroupsRequest extends AbstractModel{
+public class DescribeProjectSecurityGroupsRequest extends AbstractModel {
 
     /**
     * 数据库引擎名称，本接口取值：redis。
@@ -30,7 +31,7 @@ public class DescribeProjectSecurityGroupsRequest extends AbstractModel{
     private String Product;
 
     /**
-    * 项目 ID。
+    * 项目 ID，请登录[Redis控制台的项目管理](https://console.cloud.tencent.com/project)页面，在**项目名称**中复制项目 ID。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -74,16 +75,16 @@ public class DescribeProjectSecurityGroupsRequest extends AbstractModel{
     }
 
     /**
-     * Get 项目 ID。 
-     * @return ProjectId 项目 ID。
+     * Get 项目 ID，请登录[Redis控制台的项目管理](https://console.cloud.tencent.com/project)页面，在**项目名称**中复制项目 ID。 
+     * @return ProjectId 项目 ID，请登录[Redis控制台的项目管理](https://console.cloud.tencent.com/project)页面，在**项目名称**中复制项目 ID。
      */
     public Long getProjectId() {
         return this.ProjectId;
     }
 
     /**
-     * Set 项目 ID。
-     * @param ProjectId 项目 ID。
+     * Set 项目 ID，请登录[Redis控制台的项目管理](https://console.cloud.tencent.com/project)页面，在**项目名称**中复制项目 ID。
+     * @param ProjectId 项目 ID，请登录[Redis控制台的项目管理](https://console.cloud.tencent.com/project)页面，在**项目名称**中复制项目 ID。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SecurityGroupPolicy extends AbstractModel{
+public class SecurityGroupPolicy extends AbstractModel {
 
     /**
     * 安全组规则索引号，值会随着安全组规则的变更动态变化。使用PolicyIndex时，请先调用`DescribeSecurityGroupPolicies`获取到规则的PolicyIndex，并且结合返回值中的Version一起使用处理规则。
@@ -52,14 +53,14 @@ public class SecurityGroupPolicy extends AbstractModel{
     private ServiceTemplateSpecification ServiceTemplate;
 
     /**
-    * 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。
+    * 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IP地址。
     */
     @SerializedName("CidrBlock")
     @Expose
     private String CidrBlock;
 
     /**
-    * 网段或IPv6(互斥)。
+    * 网段或IPv6(互斥)。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IPv6地址。
     */
     @SerializedName("Ipv6CidrBlock")
     @Expose
@@ -87,7 +88,7 @@ public class SecurityGroupPolicy extends AbstractModel{
     private String Action;
 
     /**
-    * 安全组规则描述。
+    * 安全组规则描述。作为入参时，当未传递该参数或值为空，且参数CidrBlock或Ipv6CidrBlock值为MY_PUBLIC_IP时，该参数的值将会被自动填充为Replaced-From-MY_PUBLIC_IP。
     */
     @SerializedName("PolicyDescription")
     @Expose
@@ -169,32 +170,32 @@ public class SecurityGroupPolicy extends AbstractModel{
     }
 
     /**
-     * Get 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。 
-     * @return CidrBlock 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。
+     * Get 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IP地址。 
+     * @return CidrBlock 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IP地址。
      */
     public String getCidrBlock() {
         return this.CidrBlock;
     }
 
     /**
-     * Set 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。
-     * @param CidrBlock 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。
+     * Set 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IP地址。
+     * @param CidrBlock 网段或IP(互斥)，特殊说明：0.0.0.0/n 都会映射为0.0.0.0/0。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IP地址。
      */
     public void setCidrBlock(String CidrBlock) {
         this.CidrBlock = CidrBlock;
     }
 
     /**
-     * Get 网段或IPv6(互斥)。 
-     * @return Ipv6CidrBlock 网段或IPv6(互斥)。
+     * Get 网段或IPv6(互斥)。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IPv6地址。 
+     * @return Ipv6CidrBlock 网段或IPv6(互斥)。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IPv6地址。
      */
     public String getIpv6CidrBlock() {
         return this.Ipv6CidrBlock;
     }
 
     /**
-     * Set 网段或IPv6(互斥)。
-     * @param Ipv6CidrBlock 网段或IPv6(互斥)。
+     * Set 网段或IPv6(互斥)。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IPv6地址。
+     * @param Ipv6CidrBlock 网段或IPv6(互斥)。作为入参时，可使用字符串`MY_PUBLIC_IP`指代发起请求的公网IPv6地址。
      */
     public void setIpv6CidrBlock(String Ipv6CidrBlock) {
         this.Ipv6CidrBlock = Ipv6CidrBlock;
@@ -249,16 +250,16 @@ public class SecurityGroupPolicy extends AbstractModel{
     }
 
     /**
-     * Get 安全组规则描述。 
-     * @return PolicyDescription 安全组规则描述。
+     * Get 安全组规则描述。作为入参时，当未传递该参数或值为空，且参数CidrBlock或Ipv6CidrBlock值为MY_PUBLIC_IP时，该参数的值将会被自动填充为Replaced-From-MY_PUBLIC_IP。 
+     * @return PolicyDescription 安全组规则描述。作为入参时，当未传递该参数或值为空，且参数CidrBlock或Ipv6CidrBlock值为MY_PUBLIC_IP时，该参数的值将会被自动填充为Replaced-From-MY_PUBLIC_IP。
      */
     public String getPolicyDescription() {
         return this.PolicyDescription;
     }
 
     /**
-     * Set 安全组规则描述。
-     * @param PolicyDescription 安全组规则描述。
+     * Set 安全组规则描述。作为入参时，当未传递该参数或值为空，且参数CidrBlock或Ipv6CidrBlock值为MY_PUBLIC_IP时，该参数的值将会被自动填充为Replaced-From-MY_PUBLIC_IP。
+     * @param PolicyDescription 安全组规则描述。作为入参时，当未传递该参数或值为空，且参数CidrBlock或Ipv6CidrBlock值为MY_PUBLIC_IP时，该参数的值将会被自动填充为Replaced-From-MY_PUBLIC_IP。
      */
     public void setPolicyDescription(String PolicyDescription) {
         this.PolicyDescription = PolicyDescription;

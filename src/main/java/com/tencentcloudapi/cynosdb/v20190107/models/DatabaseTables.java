@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DatabaseTables extends AbstractModel{
+public class DatabaseTables extends AbstractModel {
 
     /**
     * 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Database")
     @Expose
@@ -32,17 +32,14 @@ public class DatabaseTables extends AbstractModel{
 
     /**
     * 表名称列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tables")
     @Expose
     private String [] Tables;
 
     /**
-     * Get 数据库名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库名 
      * @return Database 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabase() {
         return this.Database;
@@ -50,19 +47,15 @@ public class DatabaseTables extends AbstractModel{
 
     /**
      * Set 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Database 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabase(String Database) {
         this.Database = Database;
     }
 
     /**
-     * Get 表名称列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表名称列表 
      * @return Tables 表名称列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTables() {
         return this.Tables;
@@ -70,9 +63,7 @@ public class DatabaseTables extends AbstractModel{
 
     /**
      * Set 表名称列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tables 表名称列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTables(String [] Tables) {
         this.Tables = Tables;

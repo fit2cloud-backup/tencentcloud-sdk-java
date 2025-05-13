@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetworkClusterPodInfo extends AbstractModel{
+public class NetworkClusterPodInfo extends AbstractModel {
 
     /**
     * pod名字
@@ -31,7 +32,6 @@ public class NetworkClusterPodInfo extends AbstractModel{
 
     /**
     * pod空间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Namespace")
     @Expose
@@ -39,7 +39,6 @@ public class NetworkClusterPodInfo extends AbstractModel{
 
     /**
     * pod标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Labels")
     @Expose
@@ -47,7 +46,6 @@ public class NetworkClusterPodInfo extends AbstractModel{
 
     /**
     * pod类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WorkloadKind")
     @Expose
@@ -70,10 +68,8 @@ public class NetworkClusterPodInfo extends AbstractModel{
     }
 
     /**
-     * Get pod空间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get pod空间 
      * @return Namespace pod空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespace() {
         return this.Namespace;
@@ -81,19 +77,15 @@ public class NetworkClusterPodInfo extends AbstractModel{
 
     /**
      * Set pod空间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Namespace pod空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
     }
 
     /**
-     * Get pod标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get pod标签 
      * @return Labels pod标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLabels() {
         return this.Labels;
@@ -101,19 +93,15 @@ public class NetworkClusterPodInfo extends AbstractModel{
 
     /**
      * Set pod标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Labels pod标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabels(String Labels) {
         this.Labels = Labels;
     }
 
     /**
-     * Get pod类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get pod类型 
      * @return WorkloadKind pod类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getWorkloadKind() {
         return this.WorkloadKind;
@@ -121,9 +109,7 @@ public class NetworkClusterPodInfo extends AbstractModel{
 
     /**
      * Set pod类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WorkloadKind pod类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWorkloadKind(String WorkloadKind) {
         this.WorkloadKind = WorkloadKind;

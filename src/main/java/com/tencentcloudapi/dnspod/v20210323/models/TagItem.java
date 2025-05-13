@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dnspod.v20210323.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TagItem extends AbstractModel{
+public class TagItem extends AbstractModel {
 
     /**
     * 标签键
@@ -31,7 +32,6 @@ public class TagItem extends AbstractModel{
 
     /**
     * 标签值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagValue")
     @Expose
@@ -54,10 +54,8 @@ public class TagItem extends AbstractModel{
     }
 
     /**
-     * Get 标签值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签值 
      * @return TagValue 标签值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTagValue() {
         return this.TagValue;
@@ -65,9 +63,7 @@ public class TagItem extends AbstractModel{
 
     /**
      * Set 标签值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagValue 标签值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagValue(String TagValue) {
         this.TagValue = TagValue;

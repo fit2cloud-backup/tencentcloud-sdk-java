@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest extends AbstractModel{
+public class InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest extends AbstractModel {
 
     /**
     * VPN网关实例ID。
@@ -30,7 +31,7 @@ public class InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest extends Abst
     private String VpnGatewayId;
 
     /**
-    * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
+    * 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100, 200, 500, 1000；单位：Mbps。
     */
     @SerializedName("InternetMaxBandwidthOut")
     @Expose
@@ -53,16 +54,16 @@ public class InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest extends Abst
     }
 
     /**
-     * Get 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。 
-     * @return InternetMaxBandwidthOut 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
+     * Get 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100, 200, 500, 1000；单位：Mbps。 
+     * @return InternetMaxBandwidthOut 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100, 200, 500, 1000；单位：Mbps。
      */
     public Long getInternetMaxBandwidthOut() {
         return this.InternetMaxBandwidthOut;
     }
 
     /**
-     * Set 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
-     * @param InternetMaxBandwidthOut 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100；单位：Mbps。
+     * Set 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100, 200, 500, 1000；单位：Mbps。
+     * @param InternetMaxBandwidthOut 公网带宽设置。可选带宽规格：5, 10, 20, 50, 100, 200, 500, 1000；单位：Mbps。
      */
     public void setInternetMaxBandwidthOut(Long InternetMaxBandwidthOut) {
         this.InternetMaxBandwidthOut = InternetMaxBandwidthOut;

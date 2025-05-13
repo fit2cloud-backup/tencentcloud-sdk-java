@@ -16,26 +16,27 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateFlowByFilesRequest extends AbstractModel{
+public class CreateFlowByFilesRequest extends AbstractModel {
 
     /**
-    * 执行本接口操作的员工信息。使用此接口时，必须填写userId。
-支持填入集团子公司经办人 userId 代发合同。
+    * 本合同的发起人  <a href="https://qcloudimg.tencent-cloud.cn/raw/f850cfbe163a1cb38439a9f551c2505c.png" target="_blank">点击查看合同发起人展示的位置</a>
 
-注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+注： 支持填入集团子公司经办人 userId 代发合同。
+
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
+    * 自定义的合同流程的名称，长度不能超过200个字符，只能由中文汉字、中文标点、英文字母、阿拉伯数字、空格、小括号、中括号、中划线、下划线以及（,）、（;）、（.）、(&)、（+）组成。
 
-该名称还将用于合同签署完成后的下载文件名。
+该名称还将用于合同签署完成后文件下载的默认文件名称。
     */
     @SerializedName("FlowName")
     @Expose
@@ -51,7 +52,7 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     private ApproverInfo [] Approvers;
 
     /**
-    * 本合同流程需包含的PDF文件资源编号列表，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取PDF文件资源编号。
+    * 本合同流程需包含的PDF文件资源编号列表，通过[UploadFiles](https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles)接口获取PDF文件资源编号。
 
 注:  `目前，此接口仅支持单个文件发起。`
     */
@@ -68,19 +69,22 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 
     /**
     * 合同流程的类别分类（可自定义名称，如销售合同/入职合同等），最大长度为200个字符，仅限中文、字母、数字和下划线组成。
+如果用户已经在控制台创建了自定义合同类型，可以将这里的类型名称传入。 如果没有创建，我们会自动给发起方公司创建此自定义合同类型。
+![image](https://qcloudimg.tencent-cloud.cn/raw/36582cea03ae6a2559894844942b5d5c.png)
     */
     @SerializedName("FlowType")
     @Expose
     private String FlowType;
 
     /**
-    * 模板或者合同中的填写控件列表，列表中可支持下列多种填写控件，控件的详细定义参考开发者中心的Component结构体
+    * 发起的时候合成到PDF上的填写控件（需要提供填写控件的内容）
 <ul><li> 单行文本控件      </li>
 <li> 多行文本控件      </li>
 <li> 勾选框控件        </li>
 <li> 数字控件          </li>
 <li> 图片控件          </li>
-<li> 动态表格等填写控件</li></ul>
+<li> 水印控件等          </li>
+</ul>
     */
     @SerializedName("Components")
     @Expose
@@ -89,7 +93,10 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     /**
     * 合同流程的抄送人列表，最多可支持50个抄送人，抄送人可查看合同内容及签署进度，但无需参与合同签署。
 
-注:`此功能为白名单功能，使用前请联系对接的客户经理沟通。`
+<b>注</b>
+1. 抄送人名单中可以包括自然人以及本企业的员工。
+2. 请确保抄送人列表中的成员不与任何签署人重复。
+
     */
     @SerializedName("CcInfos")
     @Expose
@@ -115,7 +122,7 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 
     /**
     * 预览模式下产生的预览链接类型 
-<ul><li> **0** :(默认) 文件流 ,点开后后下载预览的合同PDF文件 </li>
+<ul><li> **0** :(默认) 文件流 ,点开后下载预览的合同PDF文件 </li>
 <li> **1** :H5链接 ,点开后在浏览器中展示合同的样子</li></ul>
 注: `此参数在NeedPreview 为true时有效`
 
@@ -133,6 +140,24 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     private Long Deadline;
 
     /**
+    * 合同流程的签署顺序类型：
+<ul><li> **false**：(默认)有序签署, 本合同多个参与人需要依次签署 </li>
+<li> **true**：无序签署, 本合同多个参与人没有先后签署限制</li></ul>
+    */
+    @SerializedName("Unordered")
+    @Expose
+    private Boolean Unordered;
+
+    /**
+    * 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
+
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的[回调通知](https://qian.tencent.com/developers/company/callback_types_v2)模块。
+    */
+    @SerializedName("UserData")
+    @Expose
+    private String UserData;
+
+    /**
     * 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
 
 到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。
@@ -142,13 +167,24 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     private Long RemindedOn;
 
     /**
-    * 合同流程的签署顺序类型：
-<ul><li> **false**：(默认)有序签署, 本合同多个参与人需要依次签署 </li>
-<li> **true**：无序签署, 本合同多个参与人没有先后签署限制</li></ul>
+    * 指定个人签署方查看合同的校验方式
+<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
+<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号（ApproverMobile）相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）</li></ul>
     */
-    @SerializedName("Unordered")
+    @SerializedName("ApproverVerifyType")
     @Expose
-    private Boolean Unordered;
+    private String ApproverVerifyType;
+
+    /**
+    * 签署方签署控件（印章/签名等）的生成方式：
+<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
+<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
+
+注：签署方在签署时自行添加签署控件仅支持电子签小程序或web控制台签署，不支持H5
+    */
+    @SerializedName("SignBeanTag")
+    @Expose
+    private Long SignBeanTag;
 
     /**
     * 您可以自定义腾讯电子签小程序合同列表页展示的合同内容模板，模板中支持以下变量：
@@ -166,10 +202,30 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 签署方：李四
 
 
+![image](https://qcloudimg.tencent-cloud.cn/raw/628f0928cac15d2e3bfa6088f53f5998.png)
+
+
     */
     @SerializedName("CustomShowMap")
     @Expose
     private String CustomShowMap;
+
+    /**
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+    */
+    @SerializedName("Agent")
+    @Expose
+    private Agent Agent;
+
+    /**
+    * 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：电子处方单（医疗自动签）  </li><li> **OTHER** :  通用场景</li></ul>
+注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
+    */
+    @SerializedName("AutoSignScene")
+    @Expose
+    private String AutoSignScene;
 
     /**
     * 发起方企业的签署人进行签署操作前，是否需要企业内部走审批流程，取值如下：
@@ -185,96 +241,68 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     private Boolean NeedSignReview;
 
     /**
-    * 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
-
-在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
+    * 在短信通知、填写、签署流程中，若标题、按钮、合同详情等地方存在“合同”字样时，可根据此配置指定文案，可选文案如下：  <ul><li> <b>0</b> :合同（默认值）</li> <li> <b>1</b> :文件</li> <li> <b>2</b> :协议</li><li> <b>3</b> :文书</li></ul>效果如下:![FlowDisplayType](https://qcloudimg.tencent-cloud.cn/raw/e4a2c4d638717cc901d3dbd5137c9bbc.png)
     */
-    @SerializedName("UserData")
+    @SerializedName("FlowDisplayType")
     @Expose
-    private String UserData;
+    private Long FlowDisplayType;
 
     /**
-    * 指定个人签署方查看合同的校验方式
-<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
-<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容</li></ul>
+    * 是否开启动态签署合同：
+<ul><li> **true**：开启动态签署合同，可在签署过程中追加签署人（必须满足：1，发起方企业开启了模块化计费能力；2，发起方企业在企业应用管理中开启了动态签署人2.0能力）    。</li>
+<li> **false**：不开启动态签署合同。</li></ul>
     */
-    @SerializedName("ApproverVerifyType")
+    @SerializedName("OpenDynamicSignFlow")
     @Expose
-    private String ApproverVerifyType;
+    private Boolean OpenDynamicSignFlow;
 
     /**
-    * 签署方签署控件（印章/签名等）的生成方式：
-<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
-<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
-    */
-    @SerializedName("SignBeanTag")
-    @Expose
-    private Long SignBeanTag;
+     * Get 本合同的发起人  <a href="https://qcloudimg.tencent-cloud.cn/raw/f850cfbe163a1cb38439a9f551c2505c.png" target="_blank">点击查看合同发起人展示的位置</a>
 
-    /**
-    * 代理企业和员工的信息。
-在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
-    */
-    @SerializedName("Agent")
-    @Expose
-    private Agent Agent;
+注： 支持填入集团子公司经办人 userId 代发合同。
+ 
+     * @return Operator 本合同的发起人  <a href="https://qcloudimg.tencent-cloud.cn/raw/f850cfbe163a1cb38439a9f551c2505c.png" target="_blank">点击查看合同发起人展示的位置</a>
 
-    /**
-    * 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
-<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：处方单（医疗自动签）  </li></ul>
-注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
-    */
-    @SerializedName("AutoSignScene")
-    @Expose
-    private String AutoSignScene;
+注： 支持填入集团子公司经办人 userId 代发合同。
 
-    /**
-     * Get 执行本接口操作的员工信息。使用此接口时，必须填写userId。
-支持填入集团子公司经办人 userId 代发合同。
-
-注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。` 
-     * @return Operator 执行本接口操作的员工信息。使用此接口时，必须填写userId。
-支持填入集团子公司经办人 userId 代发合同。
-
-注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 执行本接口操作的员工信息。使用此接口时，必须填写userId。
-支持填入集团子公司经办人 userId 代发合同。
+     * Set 本合同的发起人  <a href="https://qcloudimg.tencent-cloud.cn/raw/f850cfbe163a1cb38439a9f551c2505c.png" target="_blank">点击查看合同发起人展示的位置</a>
 
-注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
-     * @param Operator 执行本接口操作的员工信息。使用此接口时，必须填写userId。
-支持填入集团子公司经办人 userId 代发合同。
+注： 支持填入集团子公司经办人 userId 代发合同。
 
-注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 本合同的发起人  <a href="https://qcloudimg.tencent-cloud.cn/raw/f850cfbe163a1cb38439a9f551c2505c.png" target="_blank">点击查看合同发起人展示的位置</a>
+
+注： 支持填入集团子公司经办人 userId 代发合同。
+
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
+     * Get 自定义的合同流程的名称，长度不能超过200个字符，只能由中文汉字、中文标点、英文字母、阿拉伯数字、空格、小括号、中括号、中划线、下划线以及（,）、（;）、（.）、(&)、（+）组成。
 
-该名称还将用于合同签署完成后的下载文件名。 
-     * @return FlowName 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
+该名称还将用于合同签署完成后文件下载的默认文件名称。 
+     * @return FlowName 自定义的合同流程的名称，长度不能超过200个字符，只能由中文汉字、中文标点、英文字母、阿拉伯数字、空格、小括号、中括号、中划线、下划线以及（,）、（;）、（.）、(&)、（+）组成。
 
-该名称还将用于合同签署完成后的下载文件名。
+该名称还将用于合同签署完成后文件下载的默认文件名称。
      */
     public String getFlowName() {
         return this.FlowName;
     }
 
     /**
-     * Set 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
+     * Set 自定义的合同流程的名称，长度不能超过200个字符，只能由中文汉字、中文标点、英文字母、阿拉伯数字、空格、小括号、中括号、中划线、下划线以及（,）、（;）、（.）、(&)、（+）组成。
 
-该名称还将用于合同签署完成后的下载文件名。
-     * @param FlowName 合同流程的名称（可自定义此名称），长度不能超过200，只能由中文、字母、数字和下划线组成。
+该名称还将用于合同签署完成后文件下载的默认文件名称。
+     * @param FlowName 自定义的合同流程的名称，长度不能超过200个字符，只能由中文汉字、中文标点、英文字母、阿拉伯数字、空格、小括号、中括号、中划线、下划线以及（,）、（;）、（.）、(&)、（+）组成。
 
-该名称还将用于合同签署完成后的下载文件名。
+该名称还将用于合同签署完成后文件下载的默认文件名称。
      */
     public void setFlowName(String FlowName) {
         this.FlowName = FlowName;
@@ -305,10 +333,10 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 本合同流程需包含的PDF文件资源编号列表，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取PDF文件资源编号。
+     * Get 本合同流程需包含的PDF文件资源编号列表，通过[UploadFiles](https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles)接口获取PDF文件资源编号。
 
 注:  `目前，此接口仅支持单个文件发起。` 
-     * @return FileIds 本合同流程需包含的PDF文件资源编号列表，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取PDF文件资源编号。
+     * @return FileIds 本合同流程需包含的PDF文件资源编号列表，通过[UploadFiles](https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles)接口获取PDF文件资源编号。
 
 注:  `目前，此接口仅支持单个文件发起。`
      */
@@ -317,10 +345,10 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Set 本合同流程需包含的PDF文件资源编号列表，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取PDF文件资源编号。
+     * Set 本合同流程需包含的PDF文件资源编号列表，通过[UploadFiles](https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles)接口获取PDF文件资源编号。
 
 注:  `目前，此接口仅支持单个文件发起。`
-     * @param FileIds 本合同流程需包含的PDF文件资源编号列表，通过<a href="https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles" target="_blank">UploadFiles</a>接口获取PDF文件资源编号。
+     * @param FileIds 本合同流程需包含的PDF文件资源编号列表，通过[UploadFiles](https://qian.tencent.com/developers/companyApis/templatesAndFiles/UploadFiles)接口获取PDF文件资源编号。
 
 注:  `目前，此接口仅支持单个文件发起。`
      */
@@ -345,8 +373,12 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 合同流程的类别分类（可自定义名称，如销售合同/入职合同等），最大长度为200个字符，仅限中文、字母、数字和下划线组成。 
+     * Get 合同流程的类别分类（可自定义名称，如销售合同/入职合同等），最大长度为200个字符，仅限中文、字母、数字和下划线组成。
+如果用户已经在控制台创建了自定义合同类型，可以将这里的类型名称传入。 如果没有创建，我们会自动给发起方公司创建此自定义合同类型。
+![image](https://qcloudimg.tencent-cloud.cn/raw/36582cea03ae6a2559894844942b5d5c.png) 
      * @return FlowType 合同流程的类别分类（可自定义名称，如销售合同/入职合同等），最大长度为200个字符，仅限中文、字母、数字和下划线组成。
+如果用户已经在控制台创建了自定义合同类型，可以将这里的类型名称传入。 如果没有创建，我们会自动给发起方公司创建此自定义合同类型。
+![image](https://qcloudimg.tencent-cloud.cn/raw/36582cea03ae6a2559894844942b5d5c.png)
      */
     public String getFlowType() {
         return this.FlowType;
@@ -354,47 +386,55 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 
     /**
      * Set 合同流程的类别分类（可自定义名称，如销售合同/入职合同等），最大长度为200个字符，仅限中文、字母、数字和下划线组成。
+如果用户已经在控制台创建了自定义合同类型，可以将这里的类型名称传入。 如果没有创建，我们会自动给发起方公司创建此自定义合同类型。
+![image](https://qcloudimg.tencent-cloud.cn/raw/36582cea03ae6a2559894844942b5d5c.png)
      * @param FlowType 合同流程的类别分类（可自定义名称，如销售合同/入职合同等），最大长度为200个字符，仅限中文、字母、数字和下划线组成。
+如果用户已经在控制台创建了自定义合同类型，可以将这里的类型名称传入。 如果没有创建，我们会自动给发起方公司创建此自定义合同类型。
+![image](https://qcloudimg.tencent-cloud.cn/raw/36582cea03ae6a2559894844942b5d5c.png)
      */
     public void setFlowType(String FlowType) {
         this.FlowType = FlowType;
     }
 
     /**
-     * Get 模板或者合同中的填写控件列表，列表中可支持下列多种填写控件，控件的详细定义参考开发者中心的Component结构体
+     * Get 发起的时候合成到PDF上的填写控件（需要提供填写控件的内容）
 <ul><li> 单行文本控件      </li>
 <li> 多行文本控件      </li>
 <li> 勾选框控件        </li>
 <li> 数字控件          </li>
 <li> 图片控件          </li>
-<li> 动态表格等填写控件</li></ul> 
-     * @return Components 模板或者合同中的填写控件列表，列表中可支持下列多种填写控件，控件的详细定义参考开发者中心的Component结构体
+<li> 水印控件等          </li>
+</ul> 
+     * @return Components 发起的时候合成到PDF上的填写控件（需要提供填写控件的内容）
 <ul><li> 单行文本控件      </li>
 <li> 多行文本控件      </li>
 <li> 勾选框控件        </li>
 <li> 数字控件          </li>
 <li> 图片控件          </li>
-<li> 动态表格等填写控件</li></ul>
+<li> 水印控件等          </li>
+</ul>
      */
     public Component [] getComponents() {
         return this.Components;
     }
 
     /**
-     * Set 模板或者合同中的填写控件列表，列表中可支持下列多种填写控件，控件的详细定义参考开发者中心的Component结构体
+     * Set 发起的时候合成到PDF上的填写控件（需要提供填写控件的内容）
 <ul><li> 单行文本控件      </li>
 <li> 多行文本控件      </li>
 <li> 勾选框控件        </li>
 <li> 数字控件          </li>
 <li> 图片控件          </li>
-<li> 动态表格等填写控件</li></ul>
-     * @param Components 模板或者合同中的填写控件列表，列表中可支持下列多种填写控件，控件的详细定义参考开发者中心的Component结构体
+<li> 水印控件等          </li>
+</ul>
+     * @param Components 发起的时候合成到PDF上的填写控件（需要提供填写控件的内容）
 <ul><li> 单行文本控件      </li>
 <li> 多行文本控件      </li>
 <li> 勾选框控件        </li>
 <li> 数字控件          </li>
 <li> 图片控件          </li>
-<li> 动态表格等填写控件</li></ul>
+<li> 水印控件等          </li>
+</ul>
      */
     public void setComponents(Component [] Components) {
         this.Components = Components;
@@ -403,10 +443,16 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     /**
      * Get 合同流程的抄送人列表，最多可支持50个抄送人，抄送人可查看合同内容及签署进度，但无需参与合同签署。
 
-注:`此功能为白名单功能，使用前请联系对接的客户经理沟通。` 
+<b>注</b>
+1. 抄送人名单中可以包括自然人以及本企业的员工。
+2. 请确保抄送人列表中的成员不与任何签署人重复。
+ 
      * @return CcInfos 合同流程的抄送人列表，最多可支持50个抄送人，抄送人可查看合同内容及签署进度，但无需参与合同签署。
 
-注:`此功能为白名单功能，使用前请联系对接的客户经理沟通。`
+<b>注</b>
+1. 抄送人名单中可以包括自然人以及本企业的员工。
+2. 请确保抄送人列表中的成员不与任何签署人重复。
+
      */
     public CcInfo [] getCcInfos() {
         return this.CcInfos;
@@ -415,10 +461,16 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     /**
      * Set 合同流程的抄送人列表，最多可支持50个抄送人，抄送人可查看合同内容及签署进度，但无需参与合同签署。
 
-注:`此功能为白名单功能，使用前请联系对接的客户经理沟通。`
+<b>注</b>
+1. 抄送人名单中可以包括自然人以及本企业的员工。
+2. 请确保抄送人列表中的成员不与任何签署人重复。
+
      * @param CcInfos 合同流程的抄送人列表，最多可支持50个抄送人，抄送人可查看合同内容及签署进度，但无需参与合同签署。
 
-注:`此功能为白名单功能，使用前请联系对接的客户经理沟通。`
+<b>注</b>
+1. 抄送人名单中可以包括自然人以及本企业的员工。
+2. 请确保抄送人列表中的成员不与任何签署人重复。
+
      */
     public void setCcInfos(CcInfo [] CcInfos) {
         this.CcInfos = CcInfos;
@@ -474,12 +526,12 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 
     /**
      * Get 预览模式下产生的预览链接类型 
-<ul><li> **0** :(默认) 文件流 ,点开后后下载预览的合同PDF文件 </li>
+<ul><li> **0** :(默认) 文件流 ,点开后下载预览的合同PDF文件 </li>
 <li> **1** :H5链接 ,点开后在浏览器中展示合同的样子</li></ul>
 注: `此参数在NeedPreview 为true时有效`
  
      * @return PreviewType 预览模式下产生的预览链接类型 
-<ul><li> **0** :(默认) 文件流 ,点开后后下载预览的合同PDF文件 </li>
+<ul><li> **0** :(默认) 文件流 ,点开后下载预览的合同PDF文件 </li>
 <li> **1** :H5链接 ,点开后在浏览器中展示合同的样子</li></ul>
 注: `此参数在NeedPreview 为true时有效`
 
@@ -490,12 +542,12 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 
     /**
      * Set 预览模式下产生的预览链接类型 
-<ul><li> **0** :(默认) 文件流 ,点开后后下载预览的合同PDF文件 </li>
+<ul><li> **0** :(默认) 文件流 ,点开后下载预览的合同PDF文件 </li>
 <li> **1** :H5链接 ,点开后在浏览器中展示合同的样子</li></ul>
 注: `此参数在NeedPreview 为true时有效`
 
      * @param PreviewType 预览模式下产生的预览链接类型 
-<ul><li> **0** :(默认) 文件流 ,点开后后下载预览的合同PDF文件 </li>
+<ul><li> **0** :(默认) 文件流 ,点开后下载预览的合同PDF文件 </li>
 <li> **1** :H5链接 ,点开后在浏览器中展示合同的样子</li></ul>
 注: `此参数在NeedPreview 为true时有效`
 
@@ -525,30 +577,6 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
-
-到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。 
-     * @return RemindedOn 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
-
-到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。
-     */
-    public Long getRemindedOn() {
-        return this.RemindedOn;
-    }
-
-    /**
-     * Set 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
-
-到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。
-     * @param RemindedOn 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
-
-到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。
-     */
-    public void setRemindedOn(Long RemindedOn) {
-        this.RemindedOn = RemindedOn;
-    }
-
-    /**
      * Get 合同流程的签署顺序类型：
 <ul><li> **false**：(默认)有序签署, 本合同多个参与人需要依次签署 </li>
 <li> **true**：无序签署, 本合同多个参与人没有先后签署限制</li></ul> 
@@ -573,6 +601,110 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
+     * Get 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
+
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的[回调通知](https://qian.tencent.com/developers/company/callback_types_v2)模块。 
+     * @return UserData 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
+
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的[回调通知](https://qian.tencent.com/developers/company/callback_types_v2)模块。
+     */
+    public String getUserData() {
+        return this.UserData;
+    }
+
+    /**
+     * Set 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
+
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的[回调通知](https://qian.tencent.com/developers/company/callback_types_v2)模块。
+     * @param UserData 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
+
+在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的[回调通知](https://qian.tencent.com/developers/company/callback_types_v2)模块。
+     */
+    public void setUserData(String UserData) {
+        this.UserData = UserData;
+    }
+
+    /**
+     * Get 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
+
+到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。 
+     * @return RemindedOn 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
+
+到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。
+     */
+    public Long getRemindedOn() {
+        return this.RemindedOn;
+    }
+
+    /**
+     * Set 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
+
+到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。
+     * @param RemindedOn 合同到期提醒时间，为Unix标准时间戳（秒）格式，支持的范围是从发起时间开始到后10年内。
+
+到达提醒时间后，腾讯电子签会短信通知发起方企业合同提醒，可用于处理合同到期事务，如合同续签等事宜。
+     */
+    public void setRemindedOn(Long RemindedOn) {
+        this.RemindedOn = RemindedOn;
+    }
+
+    /**
+     * Get 指定个人签署方查看合同的校验方式
+<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
+<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号（ApproverMobile）相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）</li></ul> 
+     * @return ApproverVerifyType 指定个人签署方查看合同的校验方式
+<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
+<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号（ApproverMobile）相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）</li></ul>
+     */
+    public String getApproverVerifyType() {
+        return this.ApproverVerifyType;
+    }
+
+    /**
+     * Set 指定个人签署方查看合同的校验方式
+<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
+<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号（ApproverMobile）相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）</li></ul>
+     * @param ApproverVerifyType 指定个人签署方查看合同的校验方式
+<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
+<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号（ApproverMobile）相同即可查看合同内容（当手写签名方式为OCR_ESIGN时，该校验方式无效，因为这种签名方式依赖实名认证）</li></ul>
+     */
+    public void setApproverVerifyType(String ApproverVerifyType) {
+        this.ApproverVerifyType = ApproverVerifyType;
+    }
+
+    /**
+     * Get 签署方签署控件（印章/签名等）的生成方式：
+<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
+<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
+
+注：签署方在签署时自行添加签署控件仅支持电子签小程序或web控制台签署，不支持H5 
+     * @return SignBeanTag 签署方签署控件（印章/签名等）的生成方式：
+<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
+<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
+
+注：签署方在签署时自行添加签署控件仅支持电子签小程序或web控制台签署，不支持H5
+     */
+    public Long getSignBeanTag() {
+        return this.SignBeanTag;
+    }
+
+    /**
+     * Set 签署方签署控件（印章/签名等）的生成方式：
+<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
+<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
+
+注：签署方在签署时自行添加签署控件仅支持电子签小程序或web控制台签署，不支持H5
+     * @param SignBeanTag 签署方签署控件（印章/签名等）的生成方式：
+<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
+<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
+
+注：签署方在签署时自行添加签署控件仅支持电子签小程序或web控制台签署，不支持H5
+     */
+    public void setSignBeanTag(Long SignBeanTag) {
+        this.SignBeanTag = SignBeanTag;
+    }
+
+    /**
      * Get 您可以自定义腾讯电子签小程序合同列表页展示的合同内容模板，模板中支持以下变量：
 <ul><li>{合同名称}   </li>
 <li>{发起方企业} </li>
@@ -586,6 +718,9 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 合同名称：租房合同 
 发起方：腾讯公司(张三) 
 签署方：李四
+
+
+![image](https://qcloudimg.tencent-cloud.cn/raw/628f0928cac15d2e3bfa6088f53f5998.png)
 
  
      * @return CustomShowMap 您可以自定义腾讯电子签小程序合同列表页展示的合同内容模板，模板中支持以下变量：
@@ -601,6 +736,9 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 合同名称：租房合同 
 发起方：腾讯公司(张三) 
 签署方：李四
+
+
+![image](https://qcloudimg.tencent-cloud.cn/raw/628f0928cac15d2e3bfa6088f53f5998.png)
 
 
      */
@@ -624,6 +762,9 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 签署方：李四
 
 
+![image](https://qcloudimg.tencent-cloud.cn/raw/628f0928cac15d2e3bfa6088f53f5998.png)
+
+
      * @param CustomShowMap 您可以自定义腾讯电子签小程序合同列表页展示的合同内容模板，模板中支持以下变量：
 <ul><li>{合同名称}   </li>
 <li>{发起方企业} </li>
@@ -639,9 +780,56 @@ public class CreateFlowByFilesRequest extends AbstractModel{
 签署方：李四
 
 
+![image](https://qcloudimg.tencent-cloud.cn/raw/628f0928cac15d2e3bfa6088f53f5998.png)
+
+
      */
     public void setCustomShowMap(String CustomShowMap) {
         this.CustomShowMap = CustomShowMap;
+    }
+
+    /**
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public Agent getAgent() {
+        return this.Agent;
+    }
+
+    /**
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     */
+    public void setAgent(Agent Agent) {
+        this.Agent = Agent;
+    }
+
+    /**
+     * Get 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：电子处方单（医疗自动签）  </li><li> **OTHER** :  通用场景</li></ul>
+注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。` 
+     * @return AutoSignScene 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：电子处方单（医疗自动签）  </li><li> **OTHER** :  通用场景</li></ul>
+注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
+     */
+    public String getAutoSignScene() {
+        return this.AutoSignScene;
+    }
+
+    /**
+     * Set 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：电子处方单（医疗自动签）  </li><li> **OTHER** :  通用场景</li></ul>
+注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
+     * @param AutoSignScene 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：电子处方单（医疗自动签）  </li><li> **OTHER** :  通用场景</li></ul>
+注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
+     */
+    public void setAutoSignScene(String AutoSignScene) {
+        this.AutoSignScene = AutoSignScene;
     }
 
     /**
@@ -685,119 +873,43 @@ public class CreateFlowByFilesRequest extends AbstractModel{
     }
 
     /**
-     * Get 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
-
-在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。 
-     * @return UserData 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
-
-在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
+     * Get 在短信通知、填写、签署流程中，若标题、按钮、合同详情等地方存在“合同”字样时，可根据此配置指定文案，可选文案如下：  <ul><li> <b>0</b> :合同（默认值）</li> <li> <b>1</b> :文件</li> <li> <b>2</b> :协议</li><li> <b>3</b> :文书</li></ul>效果如下:![FlowDisplayType](https://qcloudimg.tencent-cloud.cn/raw/e4a2c4d638717cc901d3dbd5137c9bbc.png) 
+     * @return FlowDisplayType 在短信通知、填写、签署流程中，若标题、按钮、合同详情等地方存在“合同”字样时，可根据此配置指定文案，可选文案如下：  <ul><li> <b>0</b> :合同（默认值）</li> <li> <b>1</b> :文件</li> <li> <b>2</b> :协议</li><li> <b>3</b> :文书</li></ul>效果如下:![FlowDisplayType](https://qcloudimg.tencent-cloud.cn/raw/e4a2c4d638717cc901d3dbd5137c9bbc.png)
      */
-    public String getUserData() {
-        return this.UserData;
+    public Long getFlowDisplayType() {
+        return this.FlowDisplayType;
     }
 
     /**
-     * Set 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
-
-在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
-     * @param UserData 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
-
-在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
+     * Set 在短信通知、填写、签署流程中，若标题、按钮、合同详情等地方存在“合同”字样时，可根据此配置指定文案，可选文案如下：  <ul><li> <b>0</b> :合同（默认值）</li> <li> <b>1</b> :文件</li> <li> <b>2</b> :协议</li><li> <b>3</b> :文书</li></ul>效果如下:![FlowDisplayType](https://qcloudimg.tencent-cloud.cn/raw/e4a2c4d638717cc901d3dbd5137c9bbc.png)
+     * @param FlowDisplayType 在短信通知、填写、签署流程中，若标题、按钮、合同详情等地方存在“合同”字样时，可根据此配置指定文案，可选文案如下：  <ul><li> <b>0</b> :合同（默认值）</li> <li> <b>1</b> :文件</li> <li> <b>2</b> :协议</li><li> <b>3</b> :文书</li></ul>效果如下:![FlowDisplayType](https://qcloudimg.tencent-cloud.cn/raw/e4a2c4d638717cc901d3dbd5137c9bbc.png)
      */
-    public void setUserData(String UserData) {
-        this.UserData = UserData;
+    public void setFlowDisplayType(Long FlowDisplayType) {
+        this.FlowDisplayType = FlowDisplayType;
     }
 
     /**
-     * Get 指定个人签署方查看合同的校验方式
-<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
-<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容</li></ul> 
-     * @return ApproverVerifyType 指定个人签署方查看合同的校验方式
-<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
-<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容</li></ul>
+     * Get 是否开启动态签署合同：
+<ul><li> **true**：开启动态签署合同，可在签署过程中追加签署人（必须满足：1，发起方企业开启了模块化计费能力；2，发起方企业在企业应用管理中开启了动态签署人2.0能力）    。</li>
+<li> **false**：不开启动态签署合同。</li></ul> 
+     * @return OpenDynamicSignFlow 是否开启动态签署合同：
+<ul><li> **true**：开启动态签署合同，可在签署过程中追加签署人（必须满足：1，发起方企业开启了模块化计费能力；2，发起方企业在企业应用管理中开启了动态签署人2.0能力）    。</li>
+<li> **false**：不开启动态签署合同。</li></ul>
      */
-    public String getApproverVerifyType() {
-        return this.ApproverVerifyType;
+    public Boolean getOpenDynamicSignFlow() {
+        return this.OpenDynamicSignFlow;
     }
 
     /**
-     * Set 指定个人签署方查看合同的校验方式
-<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
-<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容</li></ul>
-     * @param ApproverVerifyType 指定个人签署方查看合同的校验方式
-<ul><li>   **VerifyCheck**  :（默认）人脸识别,人脸识别后才能合同内容 </li>
-<li>   **MobileCheck**  :  手机号验证, 用户手机号和参与方手机号(ApproverMobile)相同即可查看合同内容</li></ul>
+     * Set 是否开启动态签署合同：
+<ul><li> **true**：开启动态签署合同，可在签署过程中追加签署人（必须满足：1，发起方企业开启了模块化计费能力；2，发起方企业在企业应用管理中开启了动态签署人2.0能力）    。</li>
+<li> **false**：不开启动态签署合同。</li></ul>
+     * @param OpenDynamicSignFlow 是否开启动态签署合同：
+<ul><li> **true**：开启动态签署合同，可在签署过程中追加签署人（必须满足：1，发起方企业开启了模块化计费能力；2，发起方企业在企业应用管理中开启了动态签署人2.0能力）    。</li>
+<li> **false**：不开启动态签署合同。</li></ul>
      */
-    public void setApproverVerifyType(String ApproverVerifyType) {
-        this.ApproverVerifyType = ApproverVerifyType;
-    }
-
-    /**
-     * Get 签署方签署控件（印章/签名等）的生成方式：
-<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
-<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul> 
-     * @return SignBeanTag 签署方签署控件（印章/签名等）的生成方式：
-<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
-<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
-     */
-    public Long getSignBeanTag() {
-        return this.SignBeanTag;
-    }
-
-    /**
-     * Set 签署方签署控件（印章/签名等）的生成方式：
-<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
-<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
-     * @param SignBeanTag 签署方签署控件（印章/签名等）的生成方式：
-<ul><li> **0**：在合同流程发起时，由发起人指定签署方的签署控件的位置和数量。</li>
-<li> **1**：签署方在签署时自行添加签署控件，可以拖动位置和控制数量。</li></ul>
-     */
-    public void setSignBeanTag(Long SignBeanTag) {
-        this.SignBeanTag = SignBeanTag;
-    }
-
-    /**
-     * Get 代理企业和员工的信息。
-在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
-     * @return Agent 代理企业和员工的信息。
-在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
-     */
-    public Agent getAgent() {
-        return this.Agent;
-    }
-
-    /**
-     * Set 代理企业和员工的信息。
-在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
-     * @param Agent 代理企业和员工的信息。
-在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
-     */
-    public void setAgent(Agent Agent) {
-        this.Agent = Agent;
-    }
-
-    /**
-     * Get 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
-<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：处方单（医疗自动签）  </li></ul>
-注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。` 
-     * @return AutoSignScene 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
-<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：处方单（医疗自动签）  </li></ul>
-注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
-     */
-    public String getAutoSignScene() {
-        return this.AutoSignScene;
-    }
-
-    /**
-     * Set 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
-<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：处方单（医疗自动签）  </li></ul>
-注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
-     * @param AutoSignScene 个人自动签名的使用场景包括以下, 个人自动签署(即ApproverType设置成个人自动签署时)业务此值必传：
-<ul><li> **E_PRESCRIPTION_AUTO_SIGN**：处方单（医疗自动签）  </li></ul>
-注: `个人自动签名场景是白名单功能，使用前请与对接的客户经理联系沟通。`
-     */
-    public void setAutoSignScene(String AutoSignScene) {
-        this.AutoSignScene = AutoSignScene;
+    public void setOpenDynamicSignFlow(Boolean OpenDynamicSignFlow) {
+        this.OpenDynamicSignFlow = OpenDynamicSignFlow;
     }
 
     public CreateFlowByFilesRequest() {
@@ -856,20 +968,14 @@ public class CreateFlowByFilesRequest extends AbstractModel{
         if (source.Deadline != null) {
             this.Deadline = new Long(source.Deadline);
         }
-        if (source.RemindedOn != null) {
-            this.RemindedOn = new Long(source.RemindedOn);
-        }
         if (source.Unordered != null) {
             this.Unordered = new Boolean(source.Unordered);
         }
-        if (source.CustomShowMap != null) {
-            this.CustomShowMap = new String(source.CustomShowMap);
-        }
-        if (source.NeedSignReview != null) {
-            this.NeedSignReview = new Boolean(source.NeedSignReview);
-        }
         if (source.UserData != null) {
             this.UserData = new String(source.UserData);
+        }
+        if (source.RemindedOn != null) {
+            this.RemindedOn = new Long(source.RemindedOn);
         }
         if (source.ApproverVerifyType != null) {
             this.ApproverVerifyType = new String(source.ApproverVerifyType);
@@ -877,11 +983,23 @@ public class CreateFlowByFilesRequest extends AbstractModel{
         if (source.SignBeanTag != null) {
             this.SignBeanTag = new Long(source.SignBeanTag);
         }
+        if (source.CustomShowMap != null) {
+            this.CustomShowMap = new String(source.CustomShowMap);
+        }
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
         }
         if (source.AutoSignScene != null) {
             this.AutoSignScene = new String(source.AutoSignScene);
+        }
+        if (source.NeedSignReview != null) {
+            this.NeedSignReview = new Boolean(source.NeedSignReview);
+        }
+        if (source.FlowDisplayType != null) {
+            this.FlowDisplayType = new Long(source.FlowDisplayType);
+        }
+        if (source.OpenDynamicSignFlow != null) {
+            this.OpenDynamicSignFlow = new Boolean(source.OpenDynamicSignFlow);
         }
     }
 
@@ -902,15 +1020,17 @@ public class CreateFlowByFilesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NeedPreview", this.NeedPreview);
         this.setParamSimple(map, prefix + "PreviewType", this.PreviewType);
         this.setParamSimple(map, prefix + "Deadline", this.Deadline);
-        this.setParamSimple(map, prefix + "RemindedOn", this.RemindedOn);
         this.setParamSimple(map, prefix + "Unordered", this.Unordered);
-        this.setParamSimple(map, prefix + "CustomShowMap", this.CustomShowMap);
-        this.setParamSimple(map, prefix + "NeedSignReview", this.NeedSignReview);
         this.setParamSimple(map, prefix + "UserData", this.UserData);
+        this.setParamSimple(map, prefix + "RemindedOn", this.RemindedOn);
         this.setParamSimple(map, prefix + "ApproverVerifyType", this.ApproverVerifyType);
         this.setParamSimple(map, prefix + "SignBeanTag", this.SignBeanTag);
+        this.setParamSimple(map, prefix + "CustomShowMap", this.CustomShowMap);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
         this.setParamSimple(map, prefix + "AutoSignScene", this.AutoSignScene);
+        this.setParamSimple(map, prefix + "NeedSignReview", this.NeedSignReview);
+        this.setParamSimple(map, prefix + "FlowDisplayType", this.FlowDisplayType);
+        this.setParamSimple(map, prefix + "OpenDynamicSignFlow", this.OpenDynamicSignFlow);
 
     }
 }

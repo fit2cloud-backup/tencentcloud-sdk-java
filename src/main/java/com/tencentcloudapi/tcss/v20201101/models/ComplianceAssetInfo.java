@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ComplianceAssetInfo extends AbstractModel{
+public class ComplianceAssetInfo extends AbstractModel {
 
     /**
     * 客户资产的ID。
@@ -45,7 +46,6 @@ public class ComplianceAssetInfo extends AbstractModel{
 
     /**
     * 当资产为镜像时，这个字段为镜像Tag。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageTag")
     @Expose
@@ -82,7 +82,6 @@ CHECK_FAILED, 检测失败
 
     /**
     * 此类资产通过的检测项的数目。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PassedPolicyItemCount")
     @Expose
@@ -90,7 +89,6 @@ CHECK_FAILED, 检测失败
 
     /**
     * 此类资产未通过的检测的数目。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedPolicyItemCount")
     @Expose
@@ -98,7 +96,6 @@ CHECK_FAILED, 检测失败
 
     /**
     * 上次检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastCheckTime")
     @Expose
@@ -108,7 +105,6 @@ CHECK_FAILED, 检测失败
     * 检测结果：
 RESULT_FAILED: 未通过。
 RESULT_PASSED: 通过。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CheckResult")
     @Expose
@@ -116,11 +112,31 @@ RESULT_PASSED: 通过。
 
     /**
     * 主机节点的实例id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
+
+    /**
+    * 镜像仓库信息
+    */
+    @SerializedName("ImageRegistryInfo")
+    @Expose
+    private ImageRegistryInfo ImageRegistryInfo;
+
+    /**
+    * 集群id
+    */
+    @SerializedName("ClusterID")
+    @Expose
+    private String ClusterID;
+
+    /**
+    * 集群名称
+    */
+    @SerializedName("ClusterName")
+    @Expose
+    private String ClusterName;
 
     /**
      * Get 客户资产的ID。 
@@ -171,10 +187,8 @@ RESULT_PASSED: 通过。
     }
 
     /**
-     * Get 当资产为镜像时，这个字段为镜像Tag。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当资产为镜像时，这个字段为镜像Tag。 
      * @return ImageTag 当资产为镜像时，这个字段为镜像Tag。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageTag() {
         return this.ImageTag;
@@ -182,9 +196,7 @@ RESULT_PASSED: 通过。
 
     /**
      * Set 当资产为镜像时，这个字段为镜像Tag。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageTag 当资产为镜像时，这个字段为镜像Tag。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageTag(String ImageTag) {
         this.ImageTag = ImageTag;
@@ -271,10 +283,8 @@ CHECK_FAILED, 检测失败
     }
 
     /**
-     * Get 此类资产通过的检测项的数目。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 此类资产通过的检测项的数目。 
      * @return PassedPolicyItemCount 此类资产通过的检测项的数目。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPassedPolicyItemCount() {
         return this.PassedPolicyItemCount;
@@ -282,19 +292,15 @@ CHECK_FAILED, 检测失败
 
     /**
      * Set 此类资产通过的检测项的数目。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PassedPolicyItemCount 此类资产通过的检测项的数目。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassedPolicyItemCount(Long PassedPolicyItemCount) {
         this.PassedPolicyItemCount = PassedPolicyItemCount;
     }
 
     /**
-     * Get 此类资产未通过的检测的数目。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 此类资产未通过的检测的数目。 
      * @return FailedPolicyItemCount 此类资产未通过的检测的数目。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFailedPolicyItemCount() {
         return this.FailedPolicyItemCount;
@@ -302,19 +308,15 @@ CHECK_FAILED, 检测失败
 
     /**
      * Set 此类资产未通过的检测的数目。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedPolicyItemCount 此类资产未通过的检测的数目。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedPolicyItemCount(Long FailedPolicyItemCount) {
         this.FailedPolicyItemCount = FailedPolicyItemCount;
     }
 
     /**
-     * Get 上次检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上次检测的时间。 
      * @return LastCheckTime 上次检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastCheckTime() {
         return this.LastCheckTime;
@@ -322,9 +324,7 @@ CHECK_FAILED, 检测失败
 
     /**
      * Set 上次检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastCheckTime 上次检测的时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastCheckTime(String LastCheckTime) {
         this.LastCheckTime = LastCheckTime;
@@ -333,12 +333,10 @@ CHECK_FAILED, 检测失败
     /**
      * Get 检测结果：
 RESULT_FAILED: 未通过。
-RESULT_PASSED: 通过。
-注意：此字段可能返回 null，表示取不到有效值。 
+RESULT_PASSED: 通过。 
      * @return CheckResult 检测结果：
 RESULT_FAILED: 未通过。
 RESULT_PASSED: 通过。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCheckResult() {
         return this.CheckResult;
@@ -348,21 +346,17 @@ RESULT_PASSED: 通过。
      * Set 检测结果：
 RESULT_FAILED: 未通过。
 RESULT_PASSED: 通过。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CheckResult 检测结果：
 RESULT_FAILED: 未通过。
 RESULT_PASSED: 通过。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCheckResult(String CheckResult) {
         this.CheckResult = CheckResult;
     }
 
     /**
-     * Get 主机节点的实例id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机节点的实例id 
      * @return InstanceId 主机节点的实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -370,12 +364,58 @@ RESULT_PASSED: 通过。
 
     /**
      * Set 主机节点的实例id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 主机节点的实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 镜像仓库信息 
+     * @return ImageRegistryInfo 镜像仓库信息
+     */
+    public ImageRegistryInfo getImageRegistryInfo() {
+        return this.ImageRegistryInfo;
+    }
+
+    /**
+     * Set 镜像仓库信息
+     * @param ImageRegistryInfo 镜像仓库信息
+     */
+    public void setImageRegistryInfo(ImageRegistryInfo ImageRegistryInfo) {
+        this.ImageRegistryInfo = ImageRegistryInfo;
+    }
+
+    /**
+     * Get 集群id 
+     * @return ClusterID 集群id
+     */
+    public String getClusterID() {
+        return this.ClusterID;
+    }
+
+    /**
+     * Set 集群id
+     * @param ClusterID 集群id
+     */
+    public void setClusterID(String ClusterID) {
+        this.ClusterID = ClusterID;
+    }
+
+    /**
+     * Get 集群名称 
+     * @return ClusterName 集群名称
+     */
+    public String getClusterName() {
+        return this.ClusterName;
+    }
+
+    /**
+     * Set 集群名称
+     * @param ClusterName 集群名称
+     */
+    public void setClusterName(String ClusterName) {
+        this.ClusterName = ClusterName;
     }
 
     public ComplianceAssetInfo() {
@@ -422,6 +462,15 @@ RESULT_PASSED: 通过。
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
         }
+        if (source.ImageRegistryInfo != null) {
+            this.ImageRegistryInfo = new ImageRegistryInfo(source.ImageRegistryInfo);
+        }
+        if (source.ClusterID != null) {
+            this.ClusterID = new String(source.ClusterID);
+        }
+        if (source.ClusterName != null) {
+            this.ClusterName = new String(source.ClusterName);
+        }
     }
 
 
@@ -441,6 +490,9 @@ RESULT_PASSED: 通过。
         this.setParamSimple(map, prefix + "LastCheckTime", this.LastCheckTime);
         this.setParamSimple(map, prefix + "CheckResult", this.CheckResult);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamObj(map, prefix + "ImageRegistryInfo.", this.ImageRegistryInfo);
+        this.setParamSimple(map, prefix + "ClusterID", this.ClusterID);
+        this.setParamSimple(map, prefix + "ClusterName", this.ClusterName);
 
     }
 }

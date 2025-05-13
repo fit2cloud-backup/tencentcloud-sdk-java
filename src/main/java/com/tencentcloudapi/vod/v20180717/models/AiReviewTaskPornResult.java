@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiReviewTaskPornResult extends AbstractModel{
+public class AiReviewTaskPornResult extends AbstractModel {
 
     /**
     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -59,7 +60,6 @@ public class AiReviewTaskPornResult extends AbstractModel{
 
     /**
     * 音视频审核涉及令人反感的信息的任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
     @Expose
@@ -153,10 +153,8 @@ public class AiReviewTaskPornResult extends AbstractModel{
     }
 
     /**
-     * Get 音视频审核涉及令人反感的信息的任务输出。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音视频审核涉及令人反感的信息的任务输出。 
      * @return Output 音视频审核涉及令人反感的信息的任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiReviewPornTaskOutput getOutput() {
         return this.Output;
@@ -164,9 +162,7 @@ public class AiReviewTaskPornResult extends AbstractModel{
 
     /**
      * Set 音视频审核涉及令人反感的信息的任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Output 音视频审核涉及令人反感的信息的任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(AiReviewPornTaskOutput Output) {
         this.Output = Output;

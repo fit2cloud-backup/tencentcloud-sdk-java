@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterAsGroup extends AbstractModel{
+public class ClusterAsGroup extends AbstractModel {
 
     /**
     * 伸缩组ID
@@ -38,7 +39,6 @@ public class ClusterAsGroup extends AbstractModel{
 
     /**
     * 节点是否设置成不可调度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsUnschedulable")
     @Expose
@@ -46,7 +46,6 @@ public class ClusterAsGroup extends AbstractModel{
 
     /**
     * 伸缩组的label列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Labels")
     @Expose
@@ -92,10 +91,8 @@ public class ClusterAsGroup extends AbstractModel{
     }
 
     /**
-     * Get 节点是否设置成不可调度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点是否设置成不可调度 
      * @return IsUnschedulable 节点是否设置成不可调度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsUnschedulable() {
         return this.IsUnschedulable;
@@ -103,19 +100,15 @@ public class ClusterAsGroup extends AbstractModel{
 
     /**
      * Set 节点是否设置成不可调度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsUnschedulable 节点是否设置成不可调度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsUnschedulable(Boolean IsUnschedulable) {
         this.IsUnschedulable = IsUnschedulable;
     }
 
     /**
-     * Get 伸缩组的label列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 伸缩组的label列表 
      * @return Labels 伸缩组的label列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Label [] getLabels() {
         return this.Labels;
@@ -123,9 +116,7 @@ public class ClusterAsGroup extends AbstractModel{
 
     /**
      * Set 伸缩组的label列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Labels 伸缩组的label列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabels(Label [] Labels) {
         this.Labels = Labels;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BoundK8SInfo extends AbstractModel{
+public class BoundK8SInfo extends AbstractModel {
 
     /**
     * 绑定的kubernetes集群ID
@@ -31,7 +32,6 @@ public class BoundK8SInfo extends AbstractModel{
 
     /**
     * 绑定的kubernetes的集群类型，分tke和eks两种
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BoundClusterType")
     @Expose
@@ -39,11 +39,17 @@ public class BoundK8SInfo extends AbstractModel{
 
     /**
     * 服务同步模式，all为全量同步，demand为按需同步
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SyncMode")
     @Expose
     private String SyncMode;
+
+    /**
+    * 绑定的kubernetes集群所在地域
+    */
+    @SerializedName("BindRegion")
+    @Expose
+    private String BindRegion;
 
     /**
      * Get 绑定的kubernetes集群ID 
@@ -62,10 +68,8 @@ public class BoundK8SInfo extends AbstractModel{
     }
 
     /**
-     * Get 绑定的kubernetes的集群类型，分tke和eks两种
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 绑定的kubernetes的集群类型，分tke和eks两种 
      * @return BoundClusterType 绑定的kubernetes的集群类型，分tke和eks两种
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBoundClusterType() {
         return this.BoundClusterType;
@@ -73,19 +77,15 @@ public class BoundK8SInfo extends AbstractModel{
 
     /**
      * Set 绑定的kubernetes的集群类型，分tke和eks两种
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BoundClusterType 绑定的kubernetes的集群类型，分tke和eks两种
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBoundClusterType(String BoundClusterType) {
         this.BoundClusterType = BoundClusterType;
     }
 
     /**
-     * Get 服务同步模式，all为全量同步，demand为按需同步
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务同步模式，all为全量同步，demand为按需同步 
      * @return SyncMode 服务同步模式，all为全量同步，demand为按需同步
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSyncMode() {
         return this.SyncMode;
@@ -93,12 +93,26 @@ public class BoundK8SInfo extends AbstractModel{
 
     /**
      * Set 服务同步模式，all为全量同步，demand为按需同步
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SyncMode 服务同步模式，all为全量同步，demand为按需同步
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSyncMode(String SyncMode) {
         this.SyncMode = SyncMode;
+    }
+
+    /**
+     * Get 绑定的kubernetes集群所在地域 
+     * @return BindRegion 绑定的kubernetes集群所在地域
+     */
+    public String getBindRegion() {
+        return this.BindRegion;
+    }
+
+    /**
+     * Set 绑定的kubernetes集群所在地域
+     * @param BindRegion 绑定的kubernetes集群所在地域
+     */
+    public void setBindRegion(String BindRegion) {
+        this.BindRegion = BindRegion;
     }
 
     public BoundK8SInfo() {
@@ -118,6 +132,9 @@ public class BoundK8SInfo extends AbstractModel{
         if (source.SyncMode != null) {
             this.SyncMode = new String(source.SyncMode);
         }
+        if (source.BindRegion != null) {
+            this.BindRegion = new String(source.BindRegion);
+        }
     }
 
 
@@ -128,6 +145,7 @@ public class BoundK8SInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "BoundClusterId", this.BoundClusterId);
         this.setParamSimple(map, prefix + "BoundClusterType", this.BoundClusterType);
         this.setParamSimple(map, prefix + "SyncMode", this.SyncMode);
+        this.setParamSimple(map, prefix + "BindRegion", this.BindRegion);
 
     }
 }

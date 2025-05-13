@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ecm.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssignIpv6AddressesRequest extends AbstractModel{
+public class AssignIpv6AddressesRequest extends AbstractModel {
 
     /**
     * ECM 地域
@@ -208,7 +209,9 @@ CMCC：中国移动
     /**
      * Get 该字段没有使用（已过期）。 
      * @return Ipv6ISP 该字段没有使用（已过期）。
+     * @deprecated
      */
+    @Deprecated
     public String getIpv6ISP() {
         return this.Ipv6ISP;
     }
@@ -216,7 +219,9 @@ CMCC：中国移动
     /**
      * Set 该字段没有使用（已过期）。
      * @param Ipv6ISP 该字段没有使用（已过期）。
+     * @deprecated
      */
+    @Deprecated
     public void setIpv6ISP(String Ipv6ISP) {
         this.Ipv6ISP = Ipv6ISP;
     }

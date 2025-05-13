@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ContainerGroupDetail extends AbstractModel{
+public class ContainerGroupDetail extends AbstractModel {
 
     /**
     * 部署组ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupId")
     @Expose
@@ -32,7 +32,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
     @Expose
@@ -48,7 +47,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CurrentNum")
     @Expose
@@ -56,7 +54,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -88,7 +85,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -96,7 +92,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterName")
     @Expose
@@ -104,7 +99,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NamespaceId")
     @Expose
@@ -112,7 +106,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NamespaceName")
     @Expose
@@ -120,7 +113,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationId")
     @Expose
@@ -128,7 +120,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 负载均衡ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LbIp")
     @Expose
@@ -136,7 +127,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 应用类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationType")
     @Expose
@@ -144,7 +134,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * Service ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterIp")
     @Expose
@@ -184,7 +173,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 更新方式：0:快速更新 1:滚动更新
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateType")
     @Expose
@@ -200,7 +188,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 端口数组对象
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProtocolPorts")
     @Expose
@@ -208,7 +195,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 环境变量数组对象
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Envs")
     @Expose
@@ -216,7 +202,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationName")
     @Expose
@@ -232,7 +217,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 部署组状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -240,7 +224,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 服务类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MicroserviceType")
     @Expose
@@ -272,7 +255,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 部署组资源类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupResourceType")
     @Expose
@@ -280,7 +262,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 部署组实例个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceCount")
     @Expose
@@ -288,7 +269,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 部署组更新时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdatedTime")
     @Expose
@@ -320,7 +300,6 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
     * 允许PlainYamlDeploy
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AllowPlainYamlDeploy")
     @Expose
@@ -351,10 +330,8 @@ public class ContainerGroupDetail extends AbstractModel{
     private String Alias;
 
     /**
-     * Get 部署组ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组ID 
      * @return GroupId 部署组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupId() {
         return this.GroupId;
@@ -362,19 +339,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 部署组ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupId 部署组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
     }
 
     /**
-     * Get 分组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组名称 
      * @return GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
         return this.GroupName;
@@ -382,9 +355,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;
@@ -411,10 +382,8 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
-     * Get 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已启动实例总数 
      * @return CurrentNum 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCurrentNum() {
         return this.CurrentNum;
@@ -422,19 +391,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CurrentNum 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCurrentNum(Long CurrentNum) {
         this.CurrentNum = CurrentNum;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -442,9 +407,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
@@ -511,10 +474,8 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
-     * Get 集群ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群ID 
      * @return ClusterId 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -522,19 +483,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get 集群名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群名称 
      * @return ClusterName 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterName() {
         return this.ClusterName;
@@ -542,19 +499,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterName 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;
     }
 
     /**
-     * Get 命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命名空间ID 
      * @return NamespaceId 命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespaceId() {
         return this.NamespaceId;
@@ -562,19 +515,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NamespaceId 命名空间ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespaceId(String NamespaceId) {
         this.NamespaceId = NamespaceId;
     }
 
     /**
-     * Get 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命名空间名称 
      * @return NamespaceName 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespaceName() {
         return this.NamespaceName;
@@ -582,19 +531,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NamespaceName 命名空间名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespaceName(String NamespaceName) {
         this.NamespaceName = NamespaceName;
     }
 
     /**
-     * Get 应用ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用ID 
      * @return ApplicationId 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationId() {
         return this.ApplicationId;
@@ -602,19 +547,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationId 应用ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
     }
 
     /**
-     * Get 负载均衡ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 负载均衡ip 
      * @return LbIp 负载均衡ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLbIp() {
         return this.LbIp;
@@ -622,19 +563,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 负载均衡ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LbIp 负载均衡ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLbIp(String LbIp) {
         this.LbIp = LbIp;
     }
 
     /**
-     * Get 应用类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用类型 
      * @return ApplicationType 应用类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationType() {
         return this.ApplicationType;
@@ -642,19 +579,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 应用类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationType 应用类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationType(String ApplicationType) {
         this.ApplicationType = ApplicationType;
     }
 
     /**
-     * Get Service ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Service ip 
      * @return ClusterIp Service ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterIp() {
         return this.ClusterIp;
@@ -662,9 +595,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set Service ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterIp Service ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterIp(String ClusterIp) {
         this.ClusterIp = ClusterIp;
@@ -751,10 +682,8 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
-     * Get 更新方式：0:快速更新 1:滚动更新
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新方式：0:快速更新 1:滚动更新 
      * @return UpdateType 更新方式：0:快速更新 1:滚动更新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUpdateType() {
         return this.UpdateType;
@@ -762,9 +691,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 更新方式：0:快速更新 1:滚动更新
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateType 更新方式：0:快速更新 1:滚动更新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateType(Long UpdateType) {
         this.UpdateType = UpdateType;
@@ -791,10 +718,8 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
-     * Get 端口数组对象
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 端口数组对象 
      * @return ProtocolPorts 端口数组对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ProtocolPort [] getProtocolPorts() {
         return this.ProtocolPorts;
@@ -802,19 +727,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 端口数组对象
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProtocolPorts 端口数组对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocolPorts(ProtocolPort [] ProtocolPorts) {
         this.ProtocolPorts = ProtocolPorts;
     }
 
     /**
-     * Get 环境变量数组对象
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境变量数组对象 
      * @return Envs 环境变量数组对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Env [] getEnvs() {
         return this.Envs;
@@ -822,19 +743,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 环境变量数组对象
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Envs 环境变量数组对象
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvs(Env [] Envs) {
         this.Envs = Envs;
     }
 
     /**
-     * Get 应用名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用名称 
      * @return ApplicationName 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationName() {
         return this.ApplicationName;
@@ -842,9 +759,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationName 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationName(String ApplicationName) {
         this.ApplicationName = ApplicationName;
@@ -871,10 +786,8 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
-     * Get 部署组状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组状态 
      * @return Status 部署组状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -882,19 +795,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 部署组状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 部署组状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 服务类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务类型 
      * @return MicroserviceType 服务类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMicroserviceType() {
         return this.MicroserviceType;
@@ -902,9 +811,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 服务类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MicroserviceType 服务类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMicroserviceType(String MicroserviceType) {
         this.MicroserviceType = MicroserviceType;
@@ -971,10 +878,8 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
-     * Get 部署组资源类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组资源类型 
      * @return GroupResourceType 部署组资源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupResourceType() {
         return this.GroupResourceType;
@@ -982,19 +887,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 部署组资源类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupResourceType 部署组资源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupResourceType(String GroupResourceType) {
         this.GroupResourceType = GroupResourceType;
     }
 
     /**
-     * Get 部署组实例个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组实例个数 
      * @return InstanceCount 部署组实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceCount() {
         return this.InstanceCount;
@@ -1002,19 +903,15 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 部署组实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceCount 部署组实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceCount(Long InstanceCount) {
         this.InstanceCount = InstanceCount;
     }
 
     /**
-     * Get 部署组更新时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组更新时间戳 
      * @return UpdatedTime 部署组更新时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUpdatedTime() {
         return this.UpdatedTime;
@@ -1022,9 +919,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 部署组更新时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdatedTime 部署组更新时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdatedTime(Long UpdatedTime) {
         this.UpdatedTime = UpdatedTime;
@@ -1091,10 +986,8 @@ public class ContainerGroupDetail extends AbstractModel{
     }
 
     /**
-     * Get 允许PlainYamlDeploy
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 允许PlainYamlDeploy 
      * @return AllowPlainYamlDeploy 允许PlainYamlDeploy
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAllowPlainYamlDeploy() {
         return this.AllowPlainYamlDeploy;
@@ -1102,9 +995,7 @@ public class ContainerGroupDetail extends AbstractModel{
 
     /**
      * Set 允许PlainYamlDeploy
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AllowPlainYamlDeploy 允许PlainYamlDeploy
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAllowPlainYamlDeploy(Boolean AllowPlainYamlDeploy) {
         this.AllowPlainYamlDeploy = AllowPlainYamlDeploy;

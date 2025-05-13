@@ -16,33 +16,62 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteLoadBalancerRequest extends AbstractModel{
+public class DeleteLoadBalancerRequest extends AbstractModel {
 
     /**
-    * 要删除的负载均衡实例 ID数组，数组大小最大支持20。
+    * 要删除的负载均衡实例 ID 数组，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取数组大小最大支持20。
     */
     @SerializedName("LoadBalancerIds")
     @Expose
     private String [] LoadBalancerIds;
 
     /**
-     * Get 要删除的负载均衡实例 ID数组，数组大小最大支持20。 
-     * @return LoadBalancerIds 要删除的负载均衡实例 ID数组，数组大小最大支持20。
+    * 是否强制删除clb。True表示强制删除，False表示不是强制删除，需要做拦截校验。
+默认为 False
+    */
+    @SerializedName("ForceDelete")
+    @Expose
+    private Boolean ForceDelete;
+
+    /**
+     * Get 要删除的负载均衡实例 ID 数组，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取数组大小最大支持20。 
+     * @return LoadBalancerIds 要删除的负载均衡实例 ID 数组，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取数组大小最大支持20。
      */
     public String [] getLoadBalancerIds() {
         return this.LoadBalancerIds;
     }
 
     /**
-     * Set 要删除的负载均衡实例 ID数组，数组大小最大支持20。
-     * @param LoadBalancerIds 要删除的负载均衡实例 ID数组，数组大小最大支持20。
+     * Set 要删除的负载均衡实例 ID 数组，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取数组大小最大支持20。
+     * @param LoadBalancerIds 要删除的负载均衡实例 ID 数组，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取数组大小最大支持20。
      */
     public void setLoadBalancerIds(String [] LoadBalancerIds) {
         this.LoadBalancerIds = LoadBalancerIds;
+    }
+
+    /**
+     * Get 是否强制删除clb。True表示强制删除，False表示不是强制删除，需要做拦截校验。
+默认为 False 
+     * @return ForceDelete 是否强制删除clb。True表示强制删除，False表示不是强制删除，需要做拦截校验。
+默认为 False
+     */
+    public Boolean getForceDelete() {
+        return this.ForceDelete;
+    }
+
+    /**
+     * Set 是否强制删除clb。True表示强制删除，False表示不是强制删除，需要做拦截校验。
+默认为 False
+     * @param ForceDelete 是否强制删除clb。True表示强制删除，False表示不是强制删除，需要做拦截校验。
+默认为 False
+     */
+    public void setForceDelete(Boolean ForceDelete) {
+        this.ForceDelete = ForceDelete;
     }
 
     public DeleteLoadBalancerRequest() {
@@ -59,6 +88,9 @@ public class DeleteLoadBalancerRequest extends AbstractModel{
                 this.LoadBalancerIds[i] = new String(source.LoadBalancerIds[i]);
             }
         }
+        if (source.ForceDelete != null) {
+            this.ForceDelete = new Boolean(source.ForceDelete);
+        }
     }
 
 
@@ -67,6 +99,7 @@ public class DeleteLoadBalancerRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "LoadBalancerIds.", this.LoadBalancerIds);
+        this.setParamSimple(map, prefix + "ForceDelete", this.ForceDelete);
 
     }
 }

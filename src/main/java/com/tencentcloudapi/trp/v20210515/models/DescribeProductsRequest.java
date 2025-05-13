@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeProductsRequest extends AbstractModel{
+public class DescribeProductsRequest extends AbstractModel {
 
     /**
     * 商品名称
@@ -56,6 +57,13 @@ public class DescribeProductsRequest extends AbstractModel{
     @SerializedName("CorpId")
     @Expose
     private Long CorpId;
+
+    /**
+    * 认证状态
+    */
+    @SerializedName("CertState")
+    @Expose
+    private Long CertState;
 
     /**
      * Get 商品名称 
@@ -137,6 +145,22 @@ public class DescribeProductsRequest extends AbstractModel{
         this.CorpId = CorpId;
     }
 
+    /**
+     * Get 认证状态 
+     * @return CertState 认证状态
+     */
+    public Long getCertState() {
+        return this.CertState;
+    }
+
+    /**
+     * Set 认证状态
+     * @param CertState 认证状态
+     */
+    public void setCertState(Long CertState) {
+        this.CertState = CertState;
+    }
+
     public DescribeProductsRequest() {
     }
 
@@ -160,6 +184,9 @@ public class DescribeProductsRequest extends AbstractModel{
         if (source.CorpId != null) {
             this.CorpId = new Long(source.CorpId);
         }
+        if (source.CertState != null) {
+            this.CertState = new Long(source.CertState);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class DescribeProductsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PageNumber", this.PageNumber);
         this.setParamSimple(map, prefix + "MerchantId", this.MerchantId);
         this.setParamSimple(map, prefix + "CorpId", this.CorpId);
+        this.setParamSimple(map, prefix + "CertState", this.CertState);
 
     }
 }

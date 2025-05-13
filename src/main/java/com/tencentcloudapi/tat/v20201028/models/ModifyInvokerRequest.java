@@ -16,28 +16,35 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyInvokerRequest extends AbstractModel{
+public class ModifyInvokerRequest extends AbstractModel {
 
     /**
     * 待修改的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
     */
     @SerializedName("InvokerId")
     @Expose
     private String InvokerId;
 
     /**
-    * 待修改的执行器名称。
+    * 待修改的执行器名称。长度不超过 120 字符。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 执行器类型，当前仅支持周期类型执行器，取值：`SCHEDULE` 。
+    * 待修改的执行器类型。
+
+可选取值（当前仅支持一种）：
+
+- `SCHEDULE`：周期类型执行器。
     */
     @SerializedName("Type")
     @Expose
@@ -45,20 +52,24 @@ public class ModifyInvokerRequest extends AbstractModel{
 
     /**
     * 待修改的命令ID。
+
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
     */
     @SerializedName("CommandId")
     @Expose
     private String CommandId;
 
     /**
-    * 待修改的用户名。
+    * 待修改的用户名。长度不超过 256 字符。
     */
     @SerializedName("Username")
     @Expose
     private String Username;
 
     /**
-    * 待修改的自定义参数。
+    * 待修改的自定义参数。字段类型为 JSON encode string。
+
+仅在 CommandId 所指命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
     */
     @SerializedName("Parameters")
     @Expose
@@ -66,6 +77,10 @@ public class ModifyInvokerRequest extends AbstractModel{
 
     /**
     * 待修改的实例ID列表。列表长度上限100。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：CVM、Lighthouse、TAT 托管实例。
+
+实例需要安装 TAT 客户端, 且客户端为 Online 状态。可通过 [DescribeAutomationAgentStatus(查询客户端状态)](https://cloud.tencent.com/document/api/1340/52682) 接口查询客户端状态。
     */
     @SerializedName("InstanceIds")
     @Expose
@@ -73,14 +88,20 @@ public class ModifyInvokerRequest extends AbstractModel{
 
     /**
     * 待修改的周期执行器设置。
+
+要将执行器类型修改为 `SCHEDULE` 时，必须指定此参数。
     */
     @SerializedName("ScheduleSettings")
     @Expose
     private ScheduleSettings ScheduleSettings;
 
     /**
-     * Get 待修改的执行器ID。 
+     * Get 待修改的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。 
      * @return InvokerId 待修改的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      */
     public String getInvokerId() {
         return this.InvokerId;
@@ -88,47 +109,71 @@ public class ModifyInvokerRequest extends AbstractModel{
 
     /**
      * Set 待修改的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      * @param InvokerId 待修改的执行器ID。
+
+可通过 [DescribeInvokers(查询执行器)](https://cloud.tencent.com/document/api/1340/61759) 接口获取。
      */
     public void setInvokerId(String InvokerId) {
         this.InvokerId = InvokerId;
     }
 
     /**
-     * Get 待修改的执行器名称。 
-     * @return Name 待修改的执行器名称。
+     * Get 待修改的执行器名称。长度不超过 120 字符。 
+     * @return Name 待修改的执行器名称。长度不超过 120 字符。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 待修改的执行器名称。
-     * @param Name 待修改的执行器名称。
+     * Set 待修改的执行器名称。长度不超过 120 字符。
+     * @param Name 待修改的执行器名称。长度不超过 120 字符。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 执行器类型，当前仅支持周期类型执行器，取值：`SCHEDULE` 。 
-     * @return Type 执行器类型，当前仅支持周期类型执行器，取值：`SCHEDULE` 。
+     * Get 待修改的执行器类型。
+
+可选取值（当前仅支持一种）：
+
+- `SCHEDULE`：周期类型执行器。 
+     * @return Type 待修改的执行器类型。
+
+可选取值（当前仅支持一种）：
+
+- `SCHEDULE`：周期类型执行器。
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 执行器类型，当前仅支持周期类型执行器，取值：`SCHEDULE` 。
-     * @param Type 执行器类型，当前仅支持周期类型执行器，取值：`SCHEDULE` 。
+     * Set 待修改的执行器类型。
+
+可选取值（当前仅支持一种）：
+
+- `SCHEDULE`：周期类型执行器。
+     * @param Type 待修改的执行器类型。
+
+可选取值（当前仅支持一种）：
+
+- `SCHEDULE`：周期类型执行器。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 待修改的命令ID。 
+     * Get 待修改的命令ID。
+
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。 
      * @return CommandId 待修改的命令ID。
+
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
      */
     public String getCommandId() {
         return this.CommandId;
@@ -136,47 +181,67 @@ public class ModifyInvokerRequest extends AbstractModel{
 
     /**
      * Set 待修改的命令ID。
+
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
      * @param CommandId 待修改的命令ID。
+
+可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
      */
     public void setCommandId(String CommandId) {
         this.CommandId = CommandId;
     }
 
     /**
-     * Get 待修改的用户名。 
-     * @return Username 待修改的用户名。
+     * Get 待修改的用户名。长度不超过 256 字符。 
+     * @return Username 待修改的用户名。长度不超过 256 字符。
      */
     public String getUsername() {
         return this.Username;
     }
 
     /**
-     * Set 待修改的用户名。
-     * @param Username 待修改的用户名。
+     * Set 待修改的用户名。长度不超过 256 字符。
+     * @param Username 待修改的用户名。长度不超过 256 字符。
      */
     public void setUsername(String Username) {
         this.Username = Username;
     }
 
     /**
-     * Get 待修改的自定义参数。 
-     * @return Parameters 待修改的自定义参数。
+     * Get 待修改的自定义参数。字段类型为 JSON encode string。
+
+仅在 CommandId 所指命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。 
+     * @return Parameters 待修改的自定义参数。字段类型为 JSON encode string。
+
+仅在 CommandId 所指命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
      */
     public String getParameters() {
         return this.Parameters;
     }
 
     /**
-     * Set 待修改的自定义参数。
-     * @param Parameters 待修改的自定义参数。
+     * Set 待修改的自定义参数。字段类型为 JSON encode string。
+
+仅在 CommandId 所指命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+     * @param Parameters 待修改的自定义参数。字段类型为 JSON encode string。
+
+仅在 CommandId 所指命令的 EnableParameter 为 true 时，才允许设置此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
      */
     public void setParameters(String Parameters) {
         this.Parameters = Parameters;
     }
 
     /**
-     * Get 待修改的实例ID列表。列表长度上限100。 
+     * Get 待修改的实例ID列表。列表长度上限100。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：CVM、Lighthouse、TAT 托管实例。
+
+实例需要安装 TAT 客户端, 且客户端为 Online 状态。可通过 [DescribeAutomationAgentStatus(查询客户端状态)](https://cloud.tencent.com/document/api/1340/52682) 接口查询客户端状态。 
      * @return InstanceIds 待修改的实例ID列表。列表长度上限100。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：CVM、Lighthouse、TAT 托管实例。
+
+实例需要安装 TAT 客户端, 且客户端为 Online 状态。可通过 [DescribeAutomationAgentStatus(查询客户端状态)](https://cloud.tencent.com/document/api/1340/52682) 接口查询客户端状态。
      */
     public String [] getInstanceIds() {
         return this.InstanceIds;
@@ -184,15 +249,27 @@ public class ModifyInvokerRequest extends AbstractModel{
 
     /**
      * Set 待修改的实例ID列表。列表长度上限100。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：CVM、Lighthouse、TAT 托管实例。
+
+实例需要安装 TAT 客户端, 且客户端为 Online 状态。可通过 [DescribeAutomationAgentStatus(查询客户端状态)](https://cloud.tencent.com/document/api/1340/52682) 接口查询客户端状态。
      * @param InstanceIds 待修改的实例ID列表。列表长度上限100。
+
+可通过对应云产品的查询实例接口获取实例 ID。目前支持实例类型：CVM、Lighthouse、TAT 托管实例。
+
+实例需要安装 TAT 客户端, 且客户端为 Online 状态。可通过 [DescribeAutomationAgentStatus(查询客户端状态)](https://cloud.tencent.com/document/api/1340/52682) 接口查询客户端状态。
      */
     public void setInstanceIds(String [] InstanceIds) {
         this.InstanceIds = InstanceIds;
     }
 
     /**
-     * Get 待修改的周期执行器设置。 
+     * Get 待修改的周期执行器设置。
+
+要将执行器类型修改为 `SCHEDULE` 时，必须指定此参数。 
      * @return ScheduleSettings 待修改的周期执行器设置。
+
+要将执行器类型修改为 `SCHEDULE` 时，必须指定此参数。
      */
     public ScheduleSettings getScheduleSettings() {
         return this.ScheduleSettings;
@@ -200,7 +277,11 @@ public class ModifyInvokerRequest extends AbstractModel{
 
     /**
      * Set 待修改的周期执行器设置。
+
+要将执行器类型修改为 `SCHEDULE` 时，必须指定此参数。
      * @param ScheduleSettings 待修改的周期执行器设置。
+
+要将执行器类型修改为 `SCHEDULE` 时，必须指定此参数。
      */
     public void setScheduleSettings(ScheduleSettings ScheduleSettings) {
         this.ScheduleSettings = ScheduleSettings;

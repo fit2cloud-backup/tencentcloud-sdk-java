@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RabbitMQVirtualHostInfo extends AbstractModel{
+public class RabbitMQVirtualHostInfo extends AbstractModel {
 
     /**
     * 集群实例Id
@@ -38,7 +39,6 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * vhost描述信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -46,7 +46,6 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * vhost标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -54,7 +53,6 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -62,7 +60,6 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModifyTime")
     @Expose
@@ -70,15 +67,20 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * vhost概览统计信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VirtualHostStatistics")
     @Expose
     private RabbitMQVirtualHostStatistics VirtualHostStatistics;
 
     /**
+    * 消息轨迹开关,true打开,false关闭
+    */
+    @SerializedName("TraceFlag")
+    @Expose
+    private Boolean TraceFlag;
+
+    /**
     * vhost状态，与原生控制台对应，有running、partial、stopped、unknown
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -86,7 +88,6 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * 消息堆积数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MessageHeapCount")
     @Expose
@@ -94,7 +95,6 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * 输入消息速率
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MessageRateIn")
     @Expose
@@ -102,11 +102,17 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
     * 输出消息速率
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MessageRateOut")
     @Expose
     private Float MessageRateOut;
+
+    /**
+    * 是否存在镜像队列策略，true 为存在，false 为不存
+    */
+    @SerializedName("MirrorQueuePolicyFlag")
+    @Expose
+    private Boolean MirrorQueuePolicyFlag;
 
     /**
      * Get 集群实例Id 
@@ -141,10 +147,8 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
     }
 
     /**
-     * Get vhost描述信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vhost描述信息 
      * @return Description vhost描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -152,19 +156,15 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set vhost描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description vhost描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get vhost标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vhost标签 
      * @return Tags vhost标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTags() {
         return this.Tags;
@@ -172,19 +172,15 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set vhost标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags vhost标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(String [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -192,19 +188,15 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 修改时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修改时间 
      * @return ModifyTime 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModifyTime() {
         return this.ModifyTime;
@@ -212,19 +204,15 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModifyTime 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;
     }
 
     /**
-     * Get vhost概览统计信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vhost概览统计信息 
      * @return VirtualHostStatistics vhost概览统计信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RabbitMQVirtualHostStatistics getVirtualHostStatistics() {
         return this.VirtualHostStatistics;
@@ -232,19 +220,31 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set vhost概览统计信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VirtualHostStatistics vhost概览统计信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVirtualHostStatistics(RabbitMQVirtualHostStatistics VirtualHostStatistics) {
         this.VirtualHostStatistics = VirtualHostStatistics;
     }
 
     /**
-     * Get vhost状态，与原生控制台对应，有running、partial、stopped、unknown
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 消息轨迹开关,true打开,false关闭 
+     * @return TraceFlag 消息轨迹开关,true打开,false关闭
+     */
+    public Boolean getTraceFlag() {
+        return this.TraceFlag;
+    }
+
+    /**
+     * Set 消息轨迹开关,true打开,false关闭
+     * @param TraceFlag 消息轨迹开关,true打开,false关闭
+     */
+    public void setTraceFlag(Boolean TraceFlag) {
+        this.TraceFlag = TraceFlag;
+    }
+
+    /**
+     * Get vhost状态，与原生控制台对应，有running、partial、stopped、unknown 
      * @return Status vhost状态，与原生控制台对应，有running、partial、stopped、unknown
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -252,19 +252,15 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set vhost状态，与原生控制台对应，有running、partial、stopped、unknown
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status vhost状态，与原生控制台对应，有running、partial、stopped、unknown
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 消息堆积数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 消息堆积数 
      * @return MessageHeapCount 消息堆积数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMessageHeapCount() {
         return this.MessageHeapCount;
@@ -272,19 +268,15 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set 消息堆积数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MessageHeapCount 消息堆积数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessageHeapCount(Long MessageHeapCount) {
         this.MessageHeapCount = MessageHeapCount;
     }
 
     /**
-     * Get 输入消息速率
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输入消息速率 
      * @return MessageRateIn 输入消息速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getMessageRateIn() {
         return this.MessageRateIn;
@@ -292,19 +284,15 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set 输入消息速率
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MessageRateIn 输入消息速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessageRateIn(Float MessageRateIn) {
         this.MessageRateIn = MessageRateIn;
     }
 
     /**
-     * Get 输出消息速率
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出消息速率 
      * @return MessageRateOut 输出消息速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getMessageRateOut() {
         return this.MessageRateOut;
@@ -312,12 +300,26 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
 
     /**
      * Set 输出消息速率
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MessageRateOut 输出消息速率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessageRateOut(Float MessageRateOut) {
         this.MessageRateOut = MessageRateOut;
+    }
+
+    /**
+     * Get 是否存在镜像队列策略，true 为存在，false 为不存 
+     * @return MirrorQueuePolicyFlag 是否存在镜像队列策略，true 为存在，false 为不存
+     */
+    public Boolean getMirrorQueuePolicyFlag() {
+        return this.MirrorQueuePolicyFlag;
+    }
+
+    /**
+     * Set 是否存在镜像队列策略，true 为存在，false 为不存
+     * @param MirrorQueuePolicyFlag 是否存在镜像队列策略，true 为存在，false 为不存
+     */
+    public void setMirrorQueuePolicyFlag(Boolean MirrorQueuePolicyFlag) {
+        this.MirrorQueuePolicyFlag = MirrorQueuePolicyFlag;
     }
 
     public RabbitMQVirtualHostInfo() {
@@ -352,6 +354,9 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
         if (source.VirtualHostStatistics != null) {
             this.VirtualHostStatistics = new RabbitMQVirtualHostStatistics(source.VirtualHostStatistics);
         }
+        if (source.TraceFlag != null) {
+            this.TraceFlag = new Boolean(source.TraceFlag);
+        }
         if (source.Status != null) {
             this.Status = new String(source.Status);
         }
@@ -363,6 +368,9 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
         }
         if (source.MessageRateOut != null) {
             this.MessageRateOut = new Float(source.MessageRateOut);
+        }
+        if (source.MirrorQueuePolicyFlag != null) {
+            this.MirrorQueuePolicyFlag = new Boolean(source.MirrorQueuePolicyFlag);
         }
     }
 
@@ -378,10 +386,12 @@ public class RabbitMQVirtualHostInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamObj(map, prefix + "VirtualHostStatistics.", this.VirtualHostStatistics);
+        this.setParamSimple(map, prefix + "TraceFlag", this.TraceFlag);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "MessageHeapCount", this.MessageHeapCount);
         this.setParamSimple(map, prefix + "MessageRateIn", this.MessageRateIn);
         this.setParamSimple(map, prefix + "MessageRateOut", this.MessageRateOut);
+        this.setParamSimple(map, prefix + "MirrorQueuePolicyFlag", this.MirrorQueuePolicyFlag);
 
     }
 }

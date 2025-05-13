@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostItem extends AbstractModel{
+public class HostItem extends AbstractModel {
 
     /**
     * 专用宿主机实例所在的位置。通过该参数可以指定实例所属可用区，所属项目等属性。
@@ -108,11 +109,17 @@ public class HostItem extends AbstractModel{
 
     /**
     * 专用宿主机所属的围笼ID。该字段仅对金融专区围笼内的专用宿主机有效。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CageId")
     @Expose
     private String CageId;
+
+    /**
+    * 专用宿主机关联的标签列表。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 专用宿主机实例所在的位置。通过该参数可以指定实例所属可用区，所属项目等属性。 
@@ -307,10 +314,8 @@ public class HostItem extends AbstractModel{
     }
 
     /**
-     * Get 专用宿主机所属的围笼ID。该字段仅对金融专区围笼内的专用宿主机有效。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专用宿主机所属的围笼ID。该字段仅对金融专区围笼内的专用宿主机有效。 
      * @return CageId 专用宿主机所属的围笼ID。该字段仅对金融专区围笼内的专用宿主机有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCageId() {
         return this.CageId;
@@ -318,12 +323,26 @@ public class HostItem extends AbstractModel{
 
     /**
      * Set 专用宿主机所属的围笼ID。该字段仅对金融专区围笼内的专用宿主机有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CageId 专用宿主机所属的围笼ID。该字段仅对金融专区围笼内的专用宿主机有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCageId(String CageId) {
         this.CageId = CageId;
+    }
+
+    /**
+     * Get 专用宿主机关联的标签列表。 
+     * @return Tags 专用宿主机关联的标签列表。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 专用宿主机关联的标签列表。
+     * @param Tags 专用宿主机关联的标签列表。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
     }
 
     public HostItem() {
@@ -376,6 +395,12 @@ public class HostItem extends AbstractModel{
         if (source.CageId != null) {
             this.CageId = new String(source.CageId);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -396,6 +421,7 @@ public class HostItem extends AbstractModel{
         this.setParamSimple(map, prefix + "HostIp", this.HostIp);
         this.setParamObj(map, prefix + "HostResource.", this.HostResource);
         this.setParamSimple(map, prefix + "CageId", this.CageId);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

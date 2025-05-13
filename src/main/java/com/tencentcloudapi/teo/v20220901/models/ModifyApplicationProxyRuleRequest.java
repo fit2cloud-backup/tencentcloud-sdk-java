@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyApplicationProxyRuleRequest extends AbstractModel{
+public class ModifyApplicationProxyRuleRequest extends AbstractModel {
 
     /**
     * 站点ID。
@@ -46,7 +47,7 @@ public class ModifyApplicationProxyRuleRequest extends AbstractModel{
     /**
     * 源站类型，取值有：
 <li>custom：手动添加；</li>
-<li>origins：源站组。</li>不填保持原有值。
+<li>origins：源站组。</li>
     */
     @SerializedName("OriginType")
     @Expose
@@ -175,10 +176,10 @@ public class ModifyApplicationProxyRuleRequest extends AbstractModel{
     /**
      * Get 源站类型，取值有：
 <li>custom：手动添加；</li>
-<li>origins：源站组。</li>不填保持原有值。 
+<li>origins：源站组。</li> 
      * @return OriginType 源站类型，取值有：
 <li>custom：手动添加；</li>
-<li>origins：源站组。</li>不填保持原有值。
+<li>origins：源站组。</li>
      */
     public String getOriginType() {
         return this.OriginType;
@@ -187,10 +188,10 @@ public class ModifyApplicationProxyRuleRequest extends AbstractModel{
     /**
      * Set 源站类型，取值有：
 <li>custom：手动添加；</li>
-<li>origins：源站组。</li>不填保持原有值。
+<li>origins：源站组。</li>
      * @param OriginType 源站类型，取值有：
 <li>custom：手动添加；</li>
-<li>origins：源站组。</li>不填保持原有值。
+<li>origins：源站组。</li>
      */
     public void setOriginType(String OriginType) {
         this.OriginType = OriginType;

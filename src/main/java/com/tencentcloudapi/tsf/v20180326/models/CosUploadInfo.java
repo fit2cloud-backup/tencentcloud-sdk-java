@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CosUploadInfo extends AbstractModel{
+public class CosUploadInfo extends AbstractModel {
 
     /**
     * 程序包ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PkgId")
     @Expose
@@ -32,7 +32,6 @@ public class CosUploadInfo extends AbstractModel{
 
     /**
     * 桶
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Bucket")
     @Expose
@@ -40,7 +39,6 @@ public class CosUploadInfo extends AbstractModel{
 
     /**
     * 目标地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -48,7 +46,6 @@ public class CosUploadInfo extends AbstractModel{
 
     /**
     * 存储路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Path")
     @Expose
@@ -62,10 +59,8 @@ public class CosUploadInfo extends AbstractModel{
     private CosCredentials Credentials;
 
     /**
-     * Get 程序包ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 程序包ID 
      * @return PkgId 程序包ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPkgId() {
         return this.PkgId;
@@ -73,19 +68,15 @@ public class CosUploadInfo extends AbstractModel{
 
     /**
      * Set 程序包ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PkgId 程序包ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPkgId(String PkgId) {
         this.PkgId = PkgId;
     }
 
     /**
-     * Get 桶
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 桶 
      * @return Bucket 桶
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucket() {
         return this.Bucket;
@@ -93,19 +84,15 @@ public class CosUploadInfo extends AbstractModel{
 
     /**
      * Set 桶
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Bucket 桶
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucket(String Bucket) {
         this.Bucket = Bucket;
     }
 
     /**
-     * Get 目标地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目标地域 
      * @return Region 目标地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -113,19 +100,15 @@ public class CosUploadInfo extends AbstractModel{
 
     /**
      * Set 目标地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 目标地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 存储路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储路径 
      * @return Path 存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPath() {
         return this.Path;
@@ -133,9 +116,7 @@ public class CosUploadInfo extends AbstractModel{
 
     /**
      * Set 存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Path 存储路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPath(String Path) {
         this.Path = Path;

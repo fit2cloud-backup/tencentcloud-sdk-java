@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RecordPlanBaseInfo extends AbstractModel{
+public class RecordPlanBaseInfo extends AbstractModel {
 
     /**
     * 上云计划ID
@@ -45,7 +46,6 @@ public class RecordPlanBaseInfo extends AbstractModel{
 
     /**
     * 上云计划描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Describe")
     @Expose
@@ -53,7 +53,6 @@ public class RecordPlanBaseInfo extends AbstractModel{
 
     /**
     * 码流类型，default:设备默认码流类型，main:主码流，sub:子码流，其他根据设备能力集自定义
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StreamType")
     @Expose
@@ -79,6 +78,13 @@ public class RecordPlanBaseInfo extends AbstractModel{
     @SerializedName("ChannelCount")
     @Expose
     private Long ChannelCount;
+
+    /**
+    * 录像补录模式（0:不启用，1:启用）
+    */
+    @SerializedName("RepairMode")
+    @Expose
+    private Long RepairMode;
 
     /**
      * Get 上云计划ID 
@@ -129,10 +135,8 @@ public class RecordPlanBaseInfo extends AbstractModel{
     }
 
     /**
-     * Get 上云计划描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上云计划描述 
      * @return Describe 上云计划描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescribe() {
         return this.Describe;
@@ -140,19 +144,15 @@ public class RecordPlanBaseInfo extends AbstractModel{
 
     /**
      * Set 上云计划描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Describe 上云计划描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescribe(String Describe) {
         this.Describe = Describe;
     }
 
     /**
-     * Get 码流类型，default:设备默认码流类型，main:主码流，sub:子码流，其他根据设备能力集自定义
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码流类型，default:设备默认码流类型，main:主码流，sub:子码流，其他根据设备能力集自定义 
      * @return StreamType 码流类型，default:设备默认码流类型，main:主码流，sub:子码流，其他根据设备能力集自定义
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStreamType() {
         return this.StreamType;
@@ -160,9 +160,7 @@ public class RecordPlanBaseInfo extends AbstractModel{
 
     /**
      * Set 码流类型，default:设备默认码流类型，main:主码流，sub:子码流，其他根据设备能力集自定义
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StreamType 码流类型，default:设备默认码流类型，main:主码流，sub:子码流，其他根据设备能力集自定义
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStreamType(String StreamType) {
         this.StreamType = StreamType;
@@ -216,6 +214,22 @@ public class RecordPlanBaseInfo extends AbstractModel{
         this.ChannelCount = ChannelCount;
     }
 
+    /**
+     * Get 录像补录模式（0:不启用，1:启用） 
+     * @return RepairMode 录像补录模式（0:不启用，1:启用）
+     */
+    public Long getRepairMode() {
+        return this.RepairMode;
+    }
+
+    /**
+     * Set 录像补录模式（0:不启用，1:启用）
+     * @param RepairMode 录像补录模式（0:不启用，1:启用）
+     */
+    public void setRepairMode(Long RepairMode) {
+        this.RepairMode = RepairMode;
+    }
+
     public RecordPlanBaseInfo() {
     }
 
@@ -248,6 +262,9 @@ public class RecordPlanBaseInfo extends AbstractModel{
         if (source.ChannelCount != null) {
             this.ChannelCount = new Long(source.ChannelCount);
         }
+        if (source.RepairMode != null) {
+            this.RepairMode = new Long(source.RepairMode);
+        }
     }
 
 
@@ -263,6 +280,7 @@ public class RecordPlanBaseInfo extends AbstractModel{
         this.setParamObj(map, prefix + "LifeCycle.", this.LifeCycle);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "ChannelCount", this.ChannelCount);
+        this.setParamSimple(map, prefix + "RepairMode", this.RepairMode);
 
     }
 }

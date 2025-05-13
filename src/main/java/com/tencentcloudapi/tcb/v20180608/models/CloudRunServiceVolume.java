@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloudRunServiceVolume extends AbstractModel{
+public class CloudRunServiceVolume extends AbstractModel {
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
     * NFS的挂载方式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NFS")
     @Expose
@@ -40,7 +39,6 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
     * secret名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SecretName")
     @Expose
@@ -48,7 +46,6 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
     * 是否开启临时目录逐步废弃，请使用 EmptyDir
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableEmptyDirVolume")
     @Expose
@@ -56,7 +53,6 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
     * emptydir数据卷详细信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EmptyDir")
     @Expose
@@ -64,17 +60,14 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
     * 主机路径挂载信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostPath")
     @Expose
     private CloudBaseRunServiceVolumeHostPath HostPath;
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -82,19 +75,15 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get NFS的挂载方式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get NFS的挂载方式 
      * @return NFS NFS的挂载方式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CloudBaseRunNfsVolumeSource getNFS() {
         return this.NFS;
@@ -102,19 +91,15 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
      * Set NFS的挂载方式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NFS NFS的挂载方式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNFS(CloudBaseRunNfsVolumeSource NFS) {
         this.NFS = NFS;
     }
 
     /**
-     * Get secret名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get secret名称 
      * @return SecretName secret名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSecretName() {
         return this.SecretName;
@@ -122,19 +107,15 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
      * Set secret名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SecretName secret名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSecretName(String SecretName) {
         this.SecretName = SecretName;
     }
 
     /**
-     * Get 是否开启临时目录逐步废弃，请使用 EmptyDir
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启临时目录逐步废弃，请使用 EmptyDir 
      * @return EnableEmptyDirVolume 是否开启临时目录逐步废弃，请使用 EmptyDir
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnableEmptyDirVolume() {
         return this.EnableEmptyDirVolume;
@@ -142,19 +123,15 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
      * Set 是否开启临时目录逐步废弃，请使用 EmptyDir
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableEmptyDirVolume 是否开启临时目录逐步废弃，请使用 EmptyDir
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableEmptyDirVolume(Boolean EnableEmptyDirVolume) {
         this.EnableEmptyDirVolume = EnableEmptyDirVolume;
     }
 
     /**
-     * Get emptydir数据卷详细信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get emptydir数据卷详细信息 
      * @return EmptyDir emptydir数据卷详细信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CloudBaseRunEmptyDirVolumeSource getEmptyDir() {
         return this.EmptyDir;
@@ -162,19 +139,15 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
      * Set emptydir数据卷详细信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EmptyDir emptydir数据卷详细信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEmptyDir(CloudBaseRunEmptyDirVolumeSource EmptyDir) {
         this.EmptyDir = EmptyDir;
     }
 
     /**
-     * Get 主机路径挂载信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机路径挂载信息 
      * @return HostPath 主机路径挂载信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CloudBaseRunServiceVolumeHostPath getHostPath() {
         return this.HostPath;
@@ -182,9 +155,7 @@ public class CloudRunServiceVolume extends AbstractModel{
 
     /**
      * Set 主机路径挂载信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostPath 主机路径挂载信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostPath(CloudBaseRunServiceVolumeHostPath HostPath) {
         this.HostPath = HostPath;

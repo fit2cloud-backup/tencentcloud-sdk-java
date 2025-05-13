@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VulAffectedComponentInfo extends AbstractModel{
+public class VulAffectedComponentInfo extends AbstractModel {
 
     /**
     * 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class VulAffectedComponentInfo extends AbstractModel{
 
     /**
     * 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
@@ -40,17 +39,14 @@ public class VulAffectedComponentInfo extends AbstractModel{
 
     /**
     * 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FixedVersion")
     @Expose
     private String [] FixedVersion;
 
     /**
-     * Get 组件名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组件名称 
      * @return Name 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -58,19 +54,15 @@ public class VulAffectedComponentInfo extends AbstractModel{
 
     /**
      * Set 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 组件名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 组件版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组件版本 
      * @return Version 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getVersion() {
         return this.Version;
@@ -78,19 +70,15 @@ public class VulAffectedComponentInfo extends AbstractModel{
 
     /**
      * Set 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 组件版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(String [] Version) {
         this.Version = Version;
     }
 
     /**
-     * Get 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 组件修复版本 
      * @return FixedVersion 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getFixedVersion() {
         return this.FixedVersion;
@@ -98,9 +86,7 @@ public class VulAffectedComponentInfo extends AbstractModel{
 
     /**
      * Set 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FixedVersion 组件修复版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFixedVersion(String [] FixedVersion) {
         this.FixedVersion = FixedVersion;

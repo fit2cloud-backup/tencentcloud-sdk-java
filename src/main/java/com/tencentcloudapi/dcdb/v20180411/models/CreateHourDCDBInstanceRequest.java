@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateHourDCDBInstanceRequest extends AbstractModel{
+public class CreateHourDCDBInstanceRequest extends AbstractModel {
 
     /**
     * 分片内存大小，单位：GB，可以通过 DescribeShardSpec
@@ -97,7 +98,7 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     private String DbVersionId;
 
     /**
-    * 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+    * 分片节点可用区分布，可填写多个可用区。
     */
     @SerializedName("Zones")
     @Expose
@@ -172,6 +173,20 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     @SerializedName("SecurityGroupIds")
     @Expose
     private String [] SecurityGroupIds;
+
+    /**
+    * DCN同步模式，0：异步， 1：强同步
+    */
+    @SerializedName("DcnSyncMode")
+    @Expose
+    private Long DcnSyncMode;
+
+    /**
+    * Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+    */
+    @SerializedName("CpuType")
+    @Expose
+    private String CpuType;
 
     /**
      * Get 分片内存大小，单位：GB，可以通过 DescribeShardSpec
@@ -350,16 +365,16 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。 
-     * @return Zones 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+     * Get 分片节点可用区分布，可填写多个可用区。 
+     * @return Zones 分片节点可用区分布，可填写多个可用区。
      */
     public String [] getZones() {
         return this.Zones;
     }
 
     /**
-     * Set 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
-     * @param Zones 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+     * Set 分片节点可用区分布，可填写多个可用区。
+     * @param Zones 分片节点可用区分布，可填写多个可用区。
      */
     public void setZones(String [] Zones) {
         this.Zones = Zones;
@@ -525,6 +540,38 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
         this.SecurityGroupIds = SecurityGroupIds;
     }
 
+    /**
+     * Get DCN同步模式，0：异步， 1：强同步 
+     * @return DcnSyncMode DCN同步模式，0：异步， 1：强同步
+     */
+    public Long getDcnSyncMode() {
+        return this.DcnSyncMode;
+    }
+
+    /**
+     * Set DCN同步模式，0：异步， 1：强同步
+     * @param DcnSyncMode DCN同步模式，0：异步， 1：强同步
+     */
+    public void setDcnSyncMode(Long DcnSyncMode) {
+        this.DcnSyncMode = DcnSyncMode;
+    }
+
+    /**
+     * Get Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD 
+     * @return CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public String getCpuType() {
+        return this.CpuType;
+    }
+
+    /**
+     * Set Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     * @param CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public void setCpuType(String CpuType) {
+        this.CpuType = CpuType;
+    }
+
     public CreateHourDCDBInstanceRequest() {
     }
 
@@ -608,6 +655,12 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
                 this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
             }
         }
+        if (source.DcnSyncMode != null) {
+            this.DcnSyncMode = new Long(source.DcnSyncMode);
+        }
+        if (source.CpuType != null) {
+            this.CpuType = new String(source.CpuType);
+        }
     }
 
 
@@ -636,6 +689,8 @@ public class CreateHourDCDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "RollbackInstanceId", this.RollbackInstanceId);
         this.setParamSimple(map, prefix + "RollbackTime", this.RollbackTime);
         this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamSimple(map, prefix + "DcnSyncMode", this.DcnSyncMode);
+        this.setParamSimple(map, prefix + "CpuType", this.CpuType);
 
     }
 }

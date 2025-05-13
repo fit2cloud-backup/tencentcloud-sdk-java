@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AvifAdapter extends AbstractModel{
+public class AvifAdapter extends AbstractModel {
 
     /**
     * 图片优化AvifAdapter配置项开关，取值有：
@@ -31,6 +32,23 @@ off：关闭
     @SerializedName("Switch")
     @Expose
     private String Switch;
+
+    /**
+    * 当原图是 avif 且客户端 Accept 头包含 image/avif 时，直接返回原图。
+当原图是 avif 且客户端 Accept 头不包含 image/avif 时但包含 image/webp，将 avif 转 webp 格式返回。如果 Accept 头不包含 image/webp, 则转 jpeg 返回。
+
+可用的枚举值： 
+- []
+- ["webp"]
+- ["jpeg"]
+- ["webp", "jpeg"]
+
+"webp"：是否开启  avif 转 webp，"jpeg": 是否开启 avif 转 jpeg。如果 webp 和 jpeg 都开启的情况下，webp 必须在 jpeg 前面。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FallbackFormats")
+    @Expose
+    private String [] FallbackFormats;
 
     /**
      * Get 图片优化AvifAdapter配置项开关，取值有：
@@ -60,6 +78,62 @@ off：关闭
         this.Switch = Switch;
     }
 
+    /**
+     * Get 当原图是 avif 且客户端 Accept 头包含 image/avif 时，直接返回原图。
+当原图是 avif 且客户端 Accept 头不包含 image/avif 时但包含 image/webp，将 avif 转 webp 格式返回。如果 Accept 头不包含 image/webp, 则转 jpeg 返回。
+
+可用的枚举值： 
+- []
+- ["webp"]
+- ["jpeg"]
+- ["webp", "jpeg"]
+
+"webp"：是否开启  avif 转 webp，"jpeg": 是否开启 avif 转 jpeg。如果 webp 和 jpeg 都开启的情况下，webp 必须在 jpeg 前面。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FallbackFormats 当原图是 avif 且客户端 Accept 头包含 image/avif 时，直接返回原图。
+当原图是 avif 且客户端 Accept 头不包含 image/avif 时但包含 image/webp，将 avif 转 webp 格式返回。如果 Accept 头不包含 image/webp, 则转 jpeg 返回。
+
+可用的枚举值： 
+- []
+- ["webp"]
+- ["jpeg"]
+- ["webp", "jpeg"]
+
+"webp"：是否开启  avif 转 webp，"jpeg": 是否开启 avif 转 jpeg。如果 webp 和 jpeg 都开启的情况下，webp 必须在 jpeg 前面。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getFallbackFormats() {
+        return this.FallbackFormats;
+    }
+
+    /**
+     * Set 当原图是 avif 且客户端 Accept 头包含 image/avif 时，直接返回原图。
+当原图是 avif 且客户端 Accept 头不包含 image/avif 时但包含 image/webp，将 avif 转 webp 格式返回。如果 Accept 头不包含 image/webp, 则转 jpeg 返回。
+
+可用的枚举值： 
+- []
+- ["webp"]
+- ["jpeg"]
+- ["webp", "jpeg"]
+
+"webp"：是否开启  avif 转 webp，"jpeg": 是否开启 avif 转 jpeg。如果 webp 和 jpeg 都开启的情况下，webp 必须在 jpeg 前面。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FallbackFormats 当原图是 avif 且客户端 Accept 头包含 image/avif 时，直接返回原图。
+当原图是 avif 且客户端 Accept 头不包含 image/avif 时但包含 image/webp，将 avif 转 webp 格式返回。如果 Accept 头不包含 image/webp, 则转 jpeg 返回。
+
+可用的枚举值： 
+- []
+- ["webp"]
+- ["jpeg"]
+- ["webp", "jpeg"]
+
+"webp"：是否开启  avif 转 webp，"jpeg": 是否开启 avif 转 jpeg。如果 webp 和 jpeg 都开启的情况下，webp 必须在 jpeg 前面。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFallbackFormats(String [] FallbackFormats) {
+        this.FallbackFormats = FallbackFormats;
+    }
+
     public AvifAdapter() {
     }
 
@@ -71,6 +145,12 @@ off：关闭
         if (source.Switch != null) {
             this.Switch = new String(source.Switch);
         }
+        if (source.FallbackFormats != null) {
+            this.FallbackFormats = new String[source.FallbackFormats.length];
+            for (int i = 0; i < source.FallbackFormats.length; i++) {
+                this.FallbackFormats[i] = new String(source.FallbackFormats[i]);
+            }
+        }
     }
 
 
@@ -79,6 +159,7 @@ off：关闭
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Switch", this.Switch);
+        this.setParamArraySimple(map, prefix + "FallbackFormats.", this.FallbackFormats);
 
     }
 }

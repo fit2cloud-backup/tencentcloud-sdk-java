@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IndicatorV3 extends AbstractModel{
+public class IndicatorV3 extends AbstractModel {
 
     /**
     * 检验报告V3结论
@@ -32,18 +33,33 @@ public class IndicatorV3 extends AbstractModel{
 
     /**
     * 版本号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
     private String Version;
 
     /**
+    * 检验报告V3结论
+    */
+    @SerializedName("TableIndicators")
+    @Expose
+    private TableIndicators [] TableIndicators;
+
+    /**
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
      * Get 检验报告V3结论
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return TableIndictors 检验报告V3结论
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public TableIndicators [] getTableIndictors() {
         return this.TableIndictors;
     }
@@ -53,16 +69,16 @@ public class IndicatorV3 extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param TableIndictors 检验报告V3结论
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setTableIndictors(TableIndicators [] TableIndictors) {
         this.TableIndictors = TableIndictors;
     }
 
     /**
-     * Get 版本号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本号 
      * @return Version 版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersion() {
         return this.Version;
@@ -70,12 +86,42 @@ public class IndicatorV3 extends AbstractModel{
 
     /**
      * Set 版本号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(String Version) {
         this.Version = Version;
+    }
+
+    /**
+     * Get 检验报告V3结论 
+     * @return TableIndicators 检验报告V3结论
+     */
+    public TableIndicators [] getTableIndicators() {
+        return this.TableIndicators;
+    }
+
+    /**
+     * Set 检验报告V3结论
+     * @param TableIndicators 检验报告V3结论
+     */
+    public void setTableIndicators(TableIndicators [] TableIndicators) {
+        this.TableIndicators = TableIndicators;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public IndicatorV3() {
@@ -95,6 +141,15 @@ public class IndicatorV3 extends AbstractModel{
         if (source.Version != null) {
             this.Version = new String(source.Version);
         }
+        if (source.TableIndicators != null) {
+            this.TableIndicators = new TableIndicators[source.TableIndicators.length];
+            for (int i = 0; i < source.TableIndicators.length; i++) {
+                this.TableIndicators[i] = new TableIndicators(source.TableIndicators[i]);
+            }
+        }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -104,6 +159,8 @@ public class IndicatorV3 extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "TableIndictors.", this.TableIndictors);
         this.setParamSimple(map, prefix + "Version", this.Version);
+        this.setParamArrayObj(map, prefix + "TableIndicators.", this.TableIndicators);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

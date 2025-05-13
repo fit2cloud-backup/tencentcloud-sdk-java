@@ -16,14 +16,15 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBundlesRequest extends AbstractModel{
+public class DescribeBundlesRequest extends AbstractModel {
 
     /**
-    * 套餐 ID 列表。
+    * 套餐 ID 列表。每次请求批量套餐的上限为 100。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
     */
     @SerializedName("BundleIds")
     @Expose
@@ -53,7 +54,7 @@ public class DescribeBundlesRequest extends AbstractModel{
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -68,22 +69,23 @@ public class DescribeBundlesRequest extends AbstractModel{
 
     /**
     * 可用区列表。默认为全部可用区。
+<li>可用区可通过接口 [DescribeZones](https://cloud.tencent.com/document/product/1207/57513) 查询</li>
     */
     @SerializedName("Zones")
     @Expose
     private String [] Zones;
 
     /**
-     * Get 套餐 ID 列表。 
-     * @return BundleIds 套餐 ID 列表。
+     * Get 套餐 ID 列表。每次请求批量套餐的上限为 100。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。 
+     * @return BundleIds 套餐 ID 列表。每次请求批量套餐的上限为 100。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
      */
     public String [] getBundleIds() {
         return this.BundleIds;
     }
 
     /**
-     * Set 套餐 ID 列表。
-     * @param BundleIds 套餐 ID 列表。
+     * Set 套餐 ID 列表。每次请求批量套餐的上限为 100。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
+     * @param BundleIds 套餐 ID 列表。每次请求批量套餐的上限为 100。可通过[DescribeBundles](https://cloud.tencent.com/document/product/1207/47575)接口返回值中的BundleId获取。
      */
     public void setBundleIds(String [] BundleIds) {
         this.BundleIds = BundleIds;
@@ -131,7 +133,7 @@ public class DescribeBundlesRequest extends AbstractModel{
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -148,7 +150,7 @@ public class DescribeBundlesRequest extends AbstractModel{
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -171,7 +173,7 @@ public class DescribeBundlesRequest extends AbstractModel{
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -188,7 +190,7 @@ public class DescribeBundlesRequest extends AbstractModel{
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);CAREFREE_BUNDLE(无忧型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -202,8 +204,10 @@ public class DescribeBundlesRequest extends AbstractModel{
     }
 
     /**
-     * Get 可用区列表。默认为全部可用区。 
+     * Get 可用区列表。默认为全部可用区。
+<li>可用区可通过接口 [DescribeZones](https://cloud.tencent.com/document/product/1207/57513) 查询</li> 
      * @return Zones 可用区列表。默认为全部可用区。
+<li>可用区可通过接口 [DescribeZones](https://cloud.tencent.com/document/product/1207/57513) 查询</li>
      */
     public String [] getZones() {
         return this.Zones;
@@ -211,7 +215,9 @@ public class DescribeBundlesRequest extends AbstractModel{
 
     /**
      * Set 可用区列表。默认为全部可用区。
+<li>可用区可通过接口 [DescribeZones](https://cloud.tencent.com/document/product/1207/57513) 查询</li>
      * @param Zones 可用区列表。默认为全部可用区。
+<li>可用区可通过接口 [DescribeZones](https://cloud.tencent.com/document/product/1207/57513) 查询</li>
      */
     public void setZones(String [] Zones) {
         this.Zones = Zones;

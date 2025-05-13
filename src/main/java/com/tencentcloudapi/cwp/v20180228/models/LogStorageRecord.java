@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LogStorageRecord extends AbstractModel{
+public class LogStorageRecord extends AbstractModel {
 
     /**
     * 年月份
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Month")
     @Expose
@@ -32,7 +32,6 @@ public class LogStorageRecord extends AbstractModel{
 
     /**
     * 存储量，字节
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UsedSize")
     @Expose
@@ -40,17 +39,14 @@ public class LogStorageRecord extends AbstractModel{
 
     /**
     * 总量，字节
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InquireSize")
     @Expose
     private Long InquireSize;
 
     /**
-     * Get 年月份
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 年月份 
      * @return Month 年月份
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMonth() {
         return this.Month;
@@ -58,19 +54,15 @@ public class LogStorageRecord extends AbstractModel{
 
     /**
      * Set 年月份
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Month 年月份
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMonth(String Month) {
         this.Month = Month;
     }
 
     /**
-     * Get 存储量，字节
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储量，字节 
      * @return UsedSize 存储量，字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUsedSize() {
         return this.UsedSize;
@@ -78,19 +70,15 @@ public class LogStorageRecord extends AbstractModel{
 
     /**
      * Set 存储量，字节
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UsedSize 存储量，字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsedSize(Long UsedSize) {
         this.UsedSize = UsedSize;
     }
 
     /**
-     * Get 总量，字节
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总量，字节 
      * @return InquireSize 总量，字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInquireSize() {
         return this.InquireSize;
@@ -98,9 +86,7 @@ public class LogStorageRecord extends AbstractModel{
 
     /**
      * Set 总量，字节
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InquireSize 总量，字节
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInquireSize(Long InquireSize) {
         this.InquireSize = InquireSize;

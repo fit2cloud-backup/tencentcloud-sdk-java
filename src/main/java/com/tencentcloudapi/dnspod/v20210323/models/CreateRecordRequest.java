@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dnspod.v20210323.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateRecordRequest extends AbstractModel{
+public class CreateRecordRequest extends AbstractModel {
 
     /**
     * 域名
@@ -79,14 +80,14 @@ public class CreateRecordRequest extends AbstractModel{
     private Long MX;
 
     /**
-    * TTL，范围1-604800，不同等级域名最小值不同。
+    * TTL，范围1-604800，不同套餐域名最小值不同。
     */
     @SerializedName("TTL")
     @Expose
     private Long TTL;
 
     /**
-    * 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
+    * 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
     */
     @SerializedName("Weight")
     @Expose
@@ -105,6 +106,20 @@ public class CreateRecordRequest extends AbstractModel{
     @SerializedName("Remark")
     @Expose
     private String Remark;
+
+    /**
+    * 开启DNSSEC时，强制添加CNAME/URL记录
+    */
+    @SerializedName("DnssecConflictMode")
+    @Expose
+    private String DnssecConflictMode;
+
+    /**
+    * 记录分组 Id。可以通过接口 DescribeRecordGroupList 接口 GroupId 字段获取。
+    */
+    @SerializedName("GroupId")
+    @Expose
+    private Long GroupId;
 
     /**
      * Get 域名 
@@ -235,32 +250,32 @@ public class CreateRecordRequest extends AbstractModel{
     }
 
     /**
-     * Get TTL，范围1-604800，不同等级域名最小值不同。 
-     * @return TTL TTL，范围1-604800，不同等级域名最小值不同。
+     * Get TTL，范围1-604800，不同套餐域名最小值不同。 
+     * @return TTL TTL，范围1-604800，不同套餐域名最小值不同。
      */
     public Long getTTL() {
         return this.TTL;
     }
 
     /**
-     * Set TTL，范围1-604800，不同等级域名最小值不同。
-     * @param TTL TTL，范围1-604800，不同等级域名最小值不同。
+     * Set TTL，范围1-604800，不同套餐域名最小值不同。
+     * @param TTL TTL，范围1-604800，不同套餐域名最小值不同。
      */
     public void setTTL(Long TTL) {
         this.TTL = TTL;
     }
 
     /**
-     * Get 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。 
-     * @return Weight 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
+     * Get 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。 
+     * @return Weight 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
      */
     public Long getWeight() {
         return this.Weight;
     }
 
     /**
-     * Set 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
-     * @param Weight 权重信息，0到100的整数。仅企业 VIP 域名可用，0 表示关闭，不传该参数，表示不设置权重信息。
+     * Set 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
+     * @param Weight 权重信息，0到100的整数。0 表示关闭，不传该参数，表示不设置权重信息。
      */
     public void setWeight(Long Weight) {
         this.Weight = Weight;
@@ -296,6 +311,38 @@ public class CreateRecordRequest extends AbstractModel{
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
+    }
+
+    /**
+     * Get 开启DNSSEC时，强制添加CNAME/URL记录 
+     * @return DnssecConflictMode 开启DNSSEC时，强制添加CNAME/URL记录
+     */
+    public String getDnssecConflictMode() {
+        return this.DnssecConflictMode;
+    }
+
+    /**
+     * Set 开启DNSSEC时，强制添加CNAME/URL记录
+     * @param DnssecConflictMode 开启DNSSEC时，强制添加CNAME/URL记录
+     */
+    public void setDnssecConflictMode(String DnssecConflictMode) {
+        this.DnssecConflictMode = DnssecConflictMode;
+    }
+
+    /**
+     * Get 记录分组 Id。可以通过接口 DescribeRecordGroupList 接口 GroupId 字段获取。 
+     * @return GroupId 记录分组 Id。可以通过接口 DescribeRecordGroupList 接口 GroupId 字段获取。
+     */
+    public Long getGroupId() {
+        return this.GroupId;
+    }
+
+    /**
+     * Set 记录分组 Id。可以通过接口 DescribeRecordGroupList 接口 GroupId 字段获取。
+     * @param GroupId 记录分组 Id。可以通过接口 DescribeRecordGroupList 接口 GroupId 字段获取。
+     */
+    public void setGroupId(Long GroupId) {
+        this.GroupId = GroupId;
     }
 
     public CreateRecordRequest() {
@@ -342,6 +389,12 @@ public class CreateRecordRequest extends AbstractModel{
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
+        if (source.DnssecConflictMode != null) {
+            this.DnssecConflictMode = new String(source.DnssecConflictMode);
+        }
+        if (source.GroupId != null) {
+            this.GroupId = new Long(source.GroupId);
+        }
     }
 
 
@@ -361,6 +414,8 @@ public class CreateRecordRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Weight", this.Weight);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamSimple(map, prefix + "DnssecConflictMode", this.DnssecConflictMode);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
 
     }
 }

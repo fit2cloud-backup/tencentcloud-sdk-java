@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Listener extends AbstractModel{
+public class Listener extends AbstractModel {
 
     /**
     * 负载均衡监听器 ID
@@ -30,14 +31,14 @@ public class Listener extends AbstractModel{
     private String ListenerId;
 
     /**
-    * 监听器协议
+    * 监听器协议，可选值：TCP、UDP、HTTP、HTTPS、TCP_SSL、QUIC
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
 
     /**
-    * 监听器端口
+    * 监听器端口，端口范围：1-65535
     */
     @SerializedName("Port")
     @Expose
@@ -60,7 +61,7 @@ public class Listener extends AbstractModel{
     private HealthCheck HealthCheck;
 
     /**
-    * 请求的调度方式
+    * 请求的调度方式。 WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Scheduler")
@@ -68,7 +69,7 @@ public class Listener extends AbstractModel{
     private String Scheduler;
 
     /**
-    * 会话保持时间
+    * 会话保持时间，单位：秒。可选值：30~3600，默认 0，默认不开启。此参数仅适用于TCP/UDP监听器。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SessionExpireTime")
@@ -76,8 +77,7 @@ public class Listener extends AbstractModel{
     private Long SessionExpireTime;
 
     /**
-    * 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）
-注意：此字段可能返回 null，表示取不到有效值。
+    * 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）
     */
     @SerializedName("SniSwitch")
     @Expose
@@ -93,7 +93,6 @@ public class Listener extends AbstractModel{
 
     /**
     * 监听器的名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ListenerName")
     @Expose
@@ -101,22 +100,20 @@ public class Listener extends AbstractModel{
 
     /**
     * 监听器的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
 
     /**
-    * 端口段结束端口
-注意：此字段可能返回 null，表示取不到有效值。
+    * 端口段结束端口，端口范围：2-65535
     */
     @SerializedName("EndPort")
     @Expose
     private Long EndPort;
 
     /**
-    * 后端服务器类型
+    * 后端服务器类型，可选值：NODE、POLARIS、TARGETGROUP、TARGETGROUP-V2
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetType")
@@ -133,7 +130,6 @@ public class Listener extends AbstractModel{
 
     /**
     * 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SessionType")
     @Expose
@@ -149,7 +145,6 @@ public class Listener extends AbstractModel{
 
     /**
     * 仅支持Nat64 CLB TCP监听器
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Toa")
     @Expose
@@ -157,7 +152,6 @@ public class Listener extends AbstractModel{
 
     /**
     * 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeregisterTargetRst")
     @Expose
@@ -165,7 +159,6 @@ public class Listener extends AbstractModel{
 
     /**
     * 监听器的属性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AttrFlags")
     @Expose
@@ -181,7 +174,6 @@ public class Listener extends AbstractModel{
 
     /**
     * 监听器最大连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxConn")
     @Expose
@@ -189,7 +181,6 @@ public class Listener extends AbstractModel{
 
     /**
     * 监听器最大新增连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxCps")
     @Expose
@@ -202,6 +193,20 @@ public class Listener extends AbstractModel{
     @SerializedName("IdleConnectTimeout")
     @Expose
     private Long IdleConnectTimeout;
+
+    /**
+    * 调度时间。触发强制重新调度后，长连接将会在设置的调度时间内断开并完成重新分配
+    */
+    @SerializedName("RescheduleInterval")
+    @Expose
+    private Long RescheduleInterval;
+
+    /**
+    * 数据压缩模式
+    */
+    @SerializedName("DataCompressMode")
+    @Expose
+    private String DataCompressMode;
 
     /**
      * Get 负载均衡监听器 ID 
@@ -220,32 +225,32 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 监听器协议 
-     * @return Protocol 监听器协议
+     * Get 监听器协议，可选值：TCP、UDP、HTTP、HTTPS、TCP_SSL、QUIC 
+     * @return Protocol 监听器协议，可选值：TCP、UDP、HTTP、HTTPS、TCP_SSL、QUIC
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 监听器协议
-     * @param Protocol 监听器协议
+     * Set 监听器协议，可选值：TCP、UDP、HTTP、HTTPS、TCP_SSL、QUIC
+     * @param Protocol 监听器协议，可选值：TCP、UDP、HTTP、HTTPS、TCP_SSL、QUIC
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 监听器端口 
-     * @return Port 监听器端口
+     * Get 监听器端口，端口范围：1-65535 
+     * @return Port 监听器端口，端口范围：1-65535
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 监听器端口
-     * @param Port 监听器端口
+     * Set 监听器端口，端口范围：1-65535
+     * @param Port 监听器端口，端口范围：1-65535
      */
     public void setPort(Long Port) {
         this.Port = Port;
@@ -292,9 +297,9 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 请求的调度方式
+     * Get 请求的调度方式。 WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Scheduler 请求的调度方式
+     * @return Scheduler 请求的调度方式。 WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScheduler() {
@@ -302,9 +307,9 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Set 请求的调度方式
+     * Set 请求的调度方式。 WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Scheduler 请求的调度方式
+     * @param Scheduler 请求的调度方式。 WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、IP Hash。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScheduler(String Scheduler) {
@@ -312,9 +317,9 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 会话保持时间
+     * Get 会话保持时间，单位：秒。可选值：30~3600，默认 0，默认不开启。此参数仅适用于TCP/UDP监听器。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SessionExpireTime 会话保持时间
+     * @return SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，默认不开启。此参数仅适用于TCP/UDP监听器。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSessionExpireTime() {
@@ -322,9 +327,9 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Set 会话保持时间
+     * Set 会话保持时间，单位：秒。可选值：30~3600，默认 0，默认不开启。此参数仅适用于TCP/UDP监听器。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SessionExpireTime 会话保持时间
+     * @param SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，默认不开启。此参数仅适用于TCP/UDP监听器。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSessionExpireTime(Long SessionExpireTime) {
@@ -332,20 +337,16 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SniSwitch 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义） 
+     * @return SniSwitch 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）
      */
     public Long getSniSwitch() {
         return this.SniSwitch;
     }
 
     /**
-     * Set 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SniSwitch 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）
+     * @param SniSwitch 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）
      */
     public void setSniSwitch(Long SniSwitch) {
         this.SniSwitch = SniSwitch;
@@ -372,10 +373,8 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 监听器的名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器的名称 
      * @return ListenerName 监听器的名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getListenerName() {
         return this.ListenerName;
@@ -383,19 +382,15 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 监听器的名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ListenerName 监听器的名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setListenerName(String ListenerName) {
         this.ListenerName = ListenerName;
     }
 
     /**
-     * Get 监听器的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器的创建时间。 
      * @return CreateTime 监听器的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -403,38 +398,32 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 监听器的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 监听器的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 端口段结束端口
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return EndPort 端口段结束端口
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 端口段结束端口，端口范围：2-65535 
+     * @return EndPort 端口段结束端口，端口范围：2-65535
      */
     public Long getEndPort() {
         return this.EndPort;
     }
 
     /**
-     * Set 端口段结束端口
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param EndPort 端口段结束端口
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 端口段结束端口，端口范围：2-65535
+     * @param EndPort 端口段结束端口，端口范围：2-65535
      */
     public void setEndPort(Long EndPort) {
         this.EndPort = EndPort;
     }
 
     /**
-     * Get 后端服务器类型
+     * Get 后端服务器类型，可选值：NODE、POLARIS、TARGETGROUP、TARGETGROUP-V2
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TargetType 后端服务器类型
+     * @return TargetType 后端服务器类型，可选值：NODE、POLARIS、TARGETGROUP、TARGETGROUP-V2
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTargetType() {
@@ -442,9 +431,9 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Set 后端服务器类型
+     * Set 后端服务器类型，可选值：NODE、POLARIS、TARGETGROUP、TARGETGROUP-V2
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param TargetType 后端服务器类型
+     * @param TargetType 后端服务器类型，可选值：NODE、POLARIS、TARGETGROUP、TARGETGROUP-V2
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetType(String TargetType) {
@@ -472,10 +461,8 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。 
      * @return SessionType 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSessionType() {
         return this.SessionType;
@@ -483,9 +470,7 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SessionType 会话保持类型。NORMAL表示默认会话保持类型。QUIC_CID 表示根据Quic Connection ID做会话保持。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSessionType(String SessionType) {
         this.SessionType = SessionType;
@@ -512,10 +497,8 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 仅支持Nat64 CLB TCP监听器
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仅支持Nat64 CLB TCP监听器 
      * @return Toa 仅支持Nat64 CLB TCP监听器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getToa() {
         return this.Toa;
@@ -523,19 +506,15 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 仅支持Nat64 CLB TCP监听器
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Toa 仅支持Nat64 CLB TCP监听器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setToa(Boolean Toa) {
         this.Toa = Toa;
     }
 
     /**
-     * Get 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。 
      * @return DeregisterTargetRst 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDeregisterTargetRst() {
         return this.DeregisterTargetRst;
@@ -543,19 +522,15 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeregisterTargetRst 解绑后端目标时，是否发RST给客户端，（此参数仅对于TCP监听器有意义）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeregisterTargetRst(Boolean DeregisterTargetRst) {
         this.DeregisterTargetRst = DeregisterTargetRst;
     }
 
     /**
-     * Get 监听器的属性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器的属性 
      * @return AttrFlags 监听器的属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getAttrFlags() {
         return this.AttrFlags;
@@ -563,9 +538,7 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 监听器的属性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AttrFlags 监听器的属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAttrFlags(String [] AttrFlags) {
         this.AttrFlags = AttrFlags;
@@ -592,10 +565,8 @@ public class Listener extends AbstractModel{
     }
 
     /**
-     * Get 监听器最大连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器最大连接数，-1表示监听器维度不限速。 
      * @return MaxConn 监听器最大连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxConn() {
         return this.MaxConn;
@@ -603,19 +574,15 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 监听器最大连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxConn 监听器最大连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxConn(Long MaxConn) {
         this.MaxConn = MaxConn;
     }
 
     /**
-     * Get 监听器最大新增连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 监听器最大新增连接数，-1表示监听器维度不限速。 
      * @return MaxCps 监听器最大新增连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxCps() {
         return this.MaxCps;
@@ -623,9 +590,7 @@ public class Listener extends AbstractModel{
 
     /**
      * Set 监听器最大新增连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxCps 监听器最大新增连接数，-1表示监听器维度不限速。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxCps(Long MaxCps) {
         this.MaxCps = MaxCps;
@@ -649,6 +614,38 @@ public class Listener extends AbstractModel{
      */
     public void setIdleConnectTimeout(Long IdleConnectTimeout) {
         this.IdleConnectTimeout = IdleConnectTimeout;
+    }
+
+    /**
+     * Get 调度时间。触发强制重新调度后，长连接将会在设置的调度时间内断开并完成重新分配 
+     * @return RescheduleInterval 调度时间。触发强制重新调度后，长连接将会在设置的调度时间内断开并完成重新分配
+     */
+    public Long getRescheduleInterval() {
+        return this.RescheduleInterval;
+    }
+
+    /**
+     * Set 调度时间。触发强制重新调度后，长连接将会在设置的调度时间内断开并完成重新分配
+     * @param RescheduleInterval 调度时间。触发强制重新调度后，长连接将会在设置的调度时间内断开并完成重新分配
+     */
+    public void setRescheduleInterval(Long RescheduleInterval) {
+        this.RescheduleInterval = RescheduleInterval;
+    }
+
+    /**
+     * Get 数据压缩模式 
+     * @return DataCompressMode 数据压缩模式
+     */
+    public String getDataCompressMode() {
+        return this.DataCompressMode;
+    }
+
+    /**
+     * Set 数据压缩模式
+     * @param DataCompressMode 数据压缩模式
+     */
+    public void setDataCompressMode(String DataCompressMode) {
+        this.DataCompressMode = DataCompressMode;
     }
 
     public Listener() {
@@ -737,6 +734,12 @@ public class Listener extends AbstractModel{
         if (source.IdleConnectTimeout != null) {
             this.IdleConnectTimeout = new Long(source.IdleConnectTimeout);
         }
+        if (source.RescheduleInterval != null) {
+            this.RescheduleInterval = new Long(source.RescheduleInterval);
+        }
+        if (source.DataCompressMode != null) {
+            this.DataCompressMode = new String(source.DataCompressMode);
+        }
     }
 
 
@@ -767,6 +770,8 @@ public class Listener extends AbstractModel{
         this.setParamSimple(map, prefix + "MaxConn", this.MaxConn);
         this.setParamSimple(map, prefix + "MaxCps", this.MaxCps);
         this.setParamSimple(map, prefix + "IdleConnectTimeout", this.IdleConnectTimeout);
+        this.setParamSimple(map, prefix + "RescheduleInterval", this.RescheduleInterval);
+        this.setParamSimple(map, prefix + "DataCompressMode", this.DataCompressMode);
 
     }
 }

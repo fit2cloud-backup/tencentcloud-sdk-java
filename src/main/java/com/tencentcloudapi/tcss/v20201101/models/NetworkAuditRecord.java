@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetworkAuditRecord extends AbstractModel{
+public class NetworkAuditRecord extends AbstractModel {
 
     /**
     * 集群id
@@ -73,7 +74,6 @@ public class NetworkAuditRecord extends AbstractModel{
 
     /**
     * 操作人appid
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -88,7 +88,6 @@ public class NetworkAuditRecord extends AbstractModel{
 
     /**
     * 策略id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PolicyId")
     @Expose
@@ -207,10 +206,8 @@ public class NetworkAuditRecord extends AbstractModel{
     }
 
     /**
-     * Get 操作人appid
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作人appid 
      * @return AppId 操作人appid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -218,9 +215,7 @@ public class NetworkAuditRecord extends AbstractModel{
 
     /**
      * Set 操作人appid
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId 操作人appid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
@@ -243,10 +238,8 @@ public class NetworkAuditRecord extends AbstractModel{
     }
 
     /**
-     * Get 策略id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略id 
      * @return PolicyId 策略id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPolicyId() {
         return this.PolicyId;
@@ -254,9 +247,7 @@ public class NetworkAuditRecord extends AbstractModel{
 
     /**
      * Set 策略id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PolicyId 策略id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPolicyId(Long PolicyId) {
         this.PolicyId = PolicyId;

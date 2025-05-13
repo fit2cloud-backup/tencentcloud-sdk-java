@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RestoreMediaRequest extends AbstractModel{
+public class RestoreMediaRequest extends AbstractModel {
 
     /**
     * 媒体文件唯一标识列表，最大长度：100。
@@ -37,6 +38,13 @@ public class RestoreMediaRequest extends AbstractModel{
     private Long RestoreDay;
 
     /**
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
+
+    /**
     * 解冻模式。当媒体文件当前的存储类型为归档存储时，有以下取值：
 <li>极速模式：Expedited，解冻任务在5分钟后完成。</li>
 <li>标准模式：Standard，解冻任务在5小时后完成 。</li>
@@ -48,13 +56,6 @@ public class RestoreMediaRequest extends AbstractModel{
     @SerializedName("RestoreTier")
     @Expose
     private String RestoreTier;
-
-    /**
-    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-    */
-    @SerializedName("SubAppId")
-    @Expose
-    private Long SubAppId;
 
     /**
      * Get 媒体文件唯一标识列表，最大长度：100。 
@@ -86,6 +87,22 @@ public class RestoreMediaRequest extends AbstractModel{
      */
     public void setRestoreDay(Long RestoreDay) {
         this.RestoreDay = RestoreDay;
+    }
+
+    /**
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
     }
 
     /**
@@ -128,22 +145,6 @@ public class RestoreMediaRequest extends AbstractModel{
         this.RestoreTier = RestoreTier;
     }
 
-    /**
-     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
-     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public Long getSubAppId() {
-        return this.SubAppId;
-    }
-
-    /**
-     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public void setSubAppId(Long SubAppId) {
-        this.SubAppId = SubAppId;
-    }
-
     public RestoreMediaRequest() {
     }
 
@@ -161,11 +162,11 @@ public class RestoreMediaRequest extends AbstractModel{
         if (source.RestoreDay != null) {
             this.RestoreDay = new Long(source.RestoreDay);
         }
-        if (source.RestoreTier != null) {
-            this.RestoreTier = new String(source.RestoreTier);
-        }
         if (source.SubAppId != null) {
             this.SubAppId = new Long(source.SubAppId);
+        }
+        if (source.RestoreTier != null) {
+            this.RestoreTier = new String(source.RestoreTier);
         }
     }
 
@@ -176,8 +177,8 @@ public class RestoreMediaRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "FileIds.", this.FileIds);
         this.setParamSimple(map, prefix + "RestoreDay", this.RestoreDay);
-        this.setParamSimple(map, prefix + "RestoreTier", this.RestoreTier);
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
+        this.setParamSimple(map, prefix + "RestoreTier", this.RestoreTier);
 
     }
 }

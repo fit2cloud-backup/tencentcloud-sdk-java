@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RunGroup extends AbstractModel{
+public class RunGroup extends AbstractModel {
 
     /**
     * 任务批次ID。
@@ -65,6 +66,22 @@ public class RunGroup extends AbstractModel{
     private String ApplicationType;
 
     /**
+    * 应用版本。
+    */
+    @SerializedName("ApplicationVersion")
+    @Expose
+    private ApplicationVersion ApplicationVersion;
+
+    /**
+    * 应用访问类型：
+- PRIVATE 私有应用
+- PUBLIC 公共应用
+    */
+    @SerializedName("AccessMode")
+    @Expose
+    private String AccessMode;
+
+    /**
     * 环境ID。
     */
     @SerializedName("EnvironmentId")
@@ -80,7 +97,6 @@ public class RunGroup extends AbstractModel{
 
     /**
     * 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TableId")
     @Expose
@@ -108,6 +124,22 @@ public class RunGroup extends AbstractModel{
     private String Status;
 
     /**
+    * 任务批次类型 ：
+- WDL
+- NEXTFLOW
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 工作目录。
+    */
+    @SerializedName("WorkDir")
+    @Expose
+    private String WorkDir;
+
+    /**
     * 任务输入。
     */
     @SerializedName("Input")
@@ -115,11 +147,49 @@ public class RunGroup extends AbstractModel{
     private String Input;
 
     /**
-    * 运行选项。
+    * 任务输入类型：
+- JSON: 导入JSON
+- MANUAL: 手动输入
+- COS: COS文件
+    */
+    @SerializedName("InputType")
+    @Expose
+    private String InputType;
+
+    /**
+    * 输入COS地址。
+    */
+    @SerializedName("InputCosUri")
+    @Expose
+    private String InputCosUri;
+
+    /**
+    * 输入模版ID。
+    */
+    @SerializedName("InputTemplateId")
+    @Expose
+    private String InputTemplateId;
+
+    /**
+    * WDL运行选项。
     */
     @SerializedName("Option")
     @Expose
     private RunOption Option;
+
+    /**
+    * Nextflow运行选项。
+    */
+    @SerializedName("NFOption")
+    @Expose
+    private NFOption NFOption;
+
+    /**
+    * 使用的缓存卷。
+    */
+    @SerializedName("Volumes")
+    @Expose
+    private VolumeInfo [] Volumes;
 
     /**
     * 任务总数量。
@@ -150,6 +220,13 @@ public class RunGroup extends AbstractModel{
     private String ErrorMessage;
 
     /**
+    * 运行结果通知方式。
+    */
+    @SerializedName("ResultNotify")
+    @Expose
+    private String ResultNotify;
+
+    /**
     * 创建时间。
     */
     @SerializedName("CreateTime")
@@ -162,6 +239,20 @@ public class RunGroup extends AbstractModel{
     @SerializedName("UpdateTime")
     @Expose
     private String UpdateTime;
+
+    /**
+    * 创建者。
+    */
+    @SerializedName("Creator")
+    @Expose
+    private String Creator;
+
+    /**
+    * 创建者ID。
+    */
+    @SerializedName("CreatorId")
+    @Expose
+    private String CreatorId;
 
     /**
      * Get 任务批次ID。 
@@ -260,6 +351,46 @@ public class RunGroup extends AbstractModel{
     }
 
     /**
+     * Get 应用版本。 
+     * @return ApplicationVersion 应用版本。
+     */
+    public ApplicationVersion getApplicationVersion() {
+        return this.ApplicationVersion;
+    }
+
+    /**
+     * Set 应用版本。
+     * @param ApplicationVersion 应用版本。
+     */
+    public void setApplicationVersion(ApplicationVersion ApplicationVersion) {
+        this.ApplicationVersion = ApplicationVersion;
+    }
+
+    /**
+     * Get 应用访问类型：
+- PRIVATE 私有应用
+- PUBLIC 公共应用 
+     * @return AccessMode 应用访问类型：
+- PRIVATE 私有应用
+- PUBLIC 公共应用
+     */
+    public String getAccessMode() {
+        return this.AccessMode;
+    }
+
+    /**
+     * Set 应用访问类型：
+- PRIVATE 私有应用
+- PUBLIC 公共应用
+     * @param AccessMode 应用访问类型：
+- PRIVATE 私有应用
+- PUBLIC 公共应用
+     */
+    public void setAccessMode(String AccessMode) {
+        this.AccessMode = AccessMode;
+    }
+
+    /**
      * Get 环境ID。 
      * @return EnvironmentId 环境ID。
      */
@@ -292,10 +423,8 @@ public class RunGroup extends AbstractModel{
     }
 
     /**
-     * Get 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表格ID，单例运行为空。 
      * @return TableId 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTableId() {
         return this.TableId;
@@ -303,9 +432,7 @@ public class RunGroup extends AbstractModel{
 
     /**
      * Set 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TableId 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTableId(String TableId) {
         this.TableId = TableId;
@@ -360,6 +487,46 @@ public class RunGroup extends AbstractModel{
     }
 
     /**
+     * Get 任务批次类型 ：
+- WDL
+- NEXTFLOW 
+     * @return Type 任务批次类型 ：
+- WDL
+- NEXTFLOW
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 任务批次类型 ：
+- WDL
+- NEXTFLOW
+     * @param Type 任务批次类型 ：
+- WDL
+- NEXTFLOW
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 工作目录。 
+     * @return WorkDir 工作目录。
+     */
+    public String getWorkDir() {
+        return this.WorkDir;
+    }
+
+    /**
+     * Set 工作目录。
+     * @param WorkDir 工作目录。
+     */
+    public void setWorkDir(String WorkDir) {
+        this.WorkDir = WorkDir;
+    }
+
+    /**
      * Get 任务输入。 
      * @return Input 任务输入。
      */
@@ -376,19 +543,111 @@ public class RunGroup extends AbstractModel{
     }
 
     /**
-     * Get 运行选项。 
-     * @return Option 运行选项。
+     * Get 任务输入类型：
+- JSON: 导入JSON
+- MANUAL: 手动输入
+- COS: COS文件 
+     * @return InputType 任务输入类型：
+- JSON: 导入JSON
+- MANUAL: 手动输入
+- COS: COS文件
+     */
+    public String getInputType() {
+        return this.InputType;
+    }
+
+    /**
+     * Set 任务输入类型：
+- JSON: 导入JSON
+- MANUAL: 手动输入
+- COS: COS文件
+     * @param InputType 任务输入类型：
+- JSON: 导入JSON
+- MANUAL: 手动输入
+- COS: COS文件
+     */
+    public void setInputType(String InputType) {
+        this.InputType = InputType;
+    }
+
+    /**
+     * Get 输入COS地址。 
+     * @return InputCosUri 输入COS地址。
+     */
+    public String getInputCosUri() {
+        return this.InputCosUri;
+    }
+
+    /**
+     * Set 输入COS地址。
+     * @param InputCosUri 输入COS地址。
+     */
+    public void setInputCosUri(String InputCosUri) {
+        this.InputCosUri = InputCosUri;
+    }
+
+    /**
+     * Get 输入模版ID。 
+     * @return InputTemplateId 输入模版ID。
+     */
+    public String getInputTemplateId() {
+        return this.InputTemplateId;
+    }
+
+    /**
+     * Set 输入模版ID。
+     * @param InputTemplateId 输入模版ID。
+     */
+    public void setInputTemplateId(String InputTemplateId) {
+        this.InputTemplateId = InputTemplateId;
+    }
+
+    /**
+     * Get WDL运行选项。 
+     * @return Option WDL运行选项。
      */
     public RunOption getOption() {
         return this.Option;
     }
 
     /**
-     * Set 运行选项。
-     * @param Option 运行选项。
+     * Set WDL运行选项。
+     * @param Option WDL运行选项。
      */
     public void setOption(RunOption Option) {
         this.Option = Option;
+    }
+
+    /**
+     * Get Nextflow运行选项。 
+     * @return NFOption Nextflow运行选项。
+     */
+    public NFOption getNFOption() {
+        return this.NFOption;
+    }
+
+    /**
+     * Set Nextflow运行选项。
+     * @param NFOption Nextflow运行选项。
+     */
+    public void setNFOption(NFOption NFOption) {
+        this.NFOption = NFOption;
+    }
+
+    /**
+     * Get 使用的缓存卷。 
+     * @return Volumes 使用的缓存卷。
+     */
+    public VolumeInfo [] getVolumes() {
+        return this.Volumes;
+    }
+
+    /**
+     * Set 使用的缓存卷。
+     * @param Volumes 使用的缓存卷。
+     */
+    public void setVolumes(VolumeInfo [] Volumes) {
+        this.Volumes = Volumes;
     }
 
     /**
@@ -456,6 +715,22 @@ public class RunGroup extends AbstractModel{
     }
 
     /**
+     * Get 运行结果通知方式。 
+     * @return ResultNotify 运行结果通知方式。
+     */
+    public String getResultNotify() {
+        return this.ResultNotify;
+    }
+
+    /**
+     * Set 运行结果通知方式。
+     * @param ResultNotify 运行结果通知方式。
+     */
+    public void setResultNotify(String ResultNotify) {
+        this.ResultNotify = ResultNotify;
+    }
+
+    /**
      * Get 创建时间。 
      * @return CreateTime 创建时间。
      */
@@ -487,6 +762,38 @@ public class RunGroup extends AbstractModel{
         this.UpdateTime = UpdateTime;
     }
 
+    /**
+     * Get 创建者。 
+     * @return Creator 创建者。
+     */
+    public String getCreator() {
+        return this.Creator;
+    }
+
+    /**
+     * Set 创建者。
+     * @param Creator 创建者。
+     */
+    public void setCreator(String Creator) {
+        this.Creator = Creator;
+    }
+
+    /**
+     * Get 创建者ID。 
+     * @return CreatorId 创建者ID。
+     */
+    public String getCreatorId() {
+        return this.CreatorId;
+    }
+
+    /**
+     * Set 创建者ID。
+     * @param CreatorId 创建者ID。
+     */
+    public void setCreatorId(String CreatorId) {
+        this.CreatorId = CreatorId;
+    }
+
     public RunGroup() {
     }
 
@@ -513,6 +820,12 @@ public class RunGroup extends AbstractModel{
         if (source.ApplicationType != null) {
             this.ApplicationType = new String(source.ApplicationType);
         }
+        if (source.ApplicationVersion != null) {
+            this.ApplicationVersion = new ApplicationVersion(source.ApplicationVersion);
+        }
+        if (source.AccessMode != null) {
+            this.AccessMode = new String(source.AccessMode);
+        }
         if (source.EnvironmentId != null) {
             this.EnvironmentId = new String(source.EnvironmentId);
         }
@@ -531,11 +844,35 @@ public class RunGroup extends AbstractModel{
         if (source.Status != null) {
             this.Status = new String(source.Status);
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.WorkDir != null) {
+            this.WorkDir = new String(source.WorkDir);
+        }
         if (source.Input != null) {
             this.Input = new String(source.Input);
         }
+        if (source.InputType != null) {
+            this.InputType = new String(source.InputType);
+        }
+        if (source.InputCosUri != null) {
+            this.InputCosUri = new String(source.InputCosUri);
+        }
+        if (source.InputTemplateId != null) {
+            this.InputTemplateId = new String(source.InputTemplateId);
+        }
         if (source.Option != null) {
             this.Option = new RunOption(source.Option);
+        }
+        if (source.NFOption != null) {
+            this.NFOption = new NFOption(source.NFOption);
+        }
+        if (source.Volumes != null) {
+            this.Volumes = new VolumeInfo[source.Volumes.length];
+            for (int i = 0; i < source.Volumes.length; i++) {
+                this.Volumes[i] = new VolumeInfo(source.Volumes[i]);
+            }
         }
         if (source.TotalRun != null) {
             this.TotalRun = new Long(source.TotalRun);
@@ -552,11 +889,20 @@ public class RunGroup extends AbstractModel{
         if (source.ErrorMessage != null) {
             this.ErrorMessage = new String(source.ErrorMessage);
         }
+        if (source.ResultNotify != null) {
+            this.ResultNotify = new String(source.ResultNotify);
+        }
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
         if (source.UpdateTime != null) {
             this.UpdateTime = new String(source.UpdateTime);
+        }
+        if (source.Creator != null) {
+            this.Creator = new String(source.Creator);
+        }
+        if (source.CreatorId != null) {
+            this.CreatorId = new String(source.CreatorId);
         }
     }
 
@@ -571,20 +917,32 @@ public class RunGroup extends AbstractModel{
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
         this.setParamSimple(map, prefix + "ApplicationName", this.ApplicationName);
         this.setParamSimple(map, prefix + "ApplicationType", this.ApplicationType);
+        this.setParamObj(map, prefix + "ApplicationVersion.", this.ApplicationVersion);
+        this.setParamSimple(map, prefix + "AccessMode", this.AccessMode);
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
         this.setParamSimple(map, prefix + "EnvironmentName", this.EnvironmentName);
         this.setParamSimple(map, prefix + "TableId", this.TableId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "WorkDir", this.WorkDir);
         this.setParamSimple(map, prefix + "Input", this.Input);
+        this.setParamSimple(map, prefix + "InputType", this.InputType);
+        this.setParamSimple(map, prefix + "InputCosUri", this.InputCosUri);
+        this.setParamSimple(map, prefix + "InputTemplateId", this.InputTemplateId);
         this.setParamObj(map, prefix + "Option.", this.Option);
+        this.setParamObj(map, prefix + "NFOption.", this.NFOption);
+        this.setParamArrayObj(map, prefix + "Volumes.", this.Volumes);
         this.setParamSimple(map, prefix + "TotalRun", this.TotalRun);
         this.setParamArrayObj(map, prefix + "RunStatusCounts.", this.RunStatusCounts);
         this.setParamObj(map, prefix + "ExecutionTime.", this.ExecutionTime);
         this.setParamSimple(map, prefix + "ErrorMessage", this.ErrorMessage);
+        this.setParamSimple(map, prefix + "ResultNotify", this.ResultNotify);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamSimple(map, prefix + "Creator", this.Creator);
+        this.setParamSimple(map, prefix + "CreatorId", this.CreatorId);
 
     }
 }

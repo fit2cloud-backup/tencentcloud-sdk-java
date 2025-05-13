@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AclResponse extends AbstractModel{
+public class AclResponse extends AbstractModel {
 
     /**
     * 符合条件的总数据条数
@@ -31,7 +32,6 @@ public class AclResponse extends AbstractModel{
 
     /**
     * ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AclList")
     @Expose
@@ -54,10 +54,8 @@ public class AclResponse extends AbstractModel{
     }
 
     /**
-     * Get ACL列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ACL列表 
      * @return AclList ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Acl [] getAclList() {
         return this.AclList;
@@ -65,9 +63,7 @@ public class AclResponse extends AbstractModel{
 
     /**
      * Set ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AclList ACL列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAclList(Acl [] AclList) {
         this.AclList = AclList;

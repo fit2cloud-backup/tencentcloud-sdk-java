@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddAITaskRequest extends AbstractModel{
+public class AddAITaskRequest extends AbstractModel {
 
     /**
     * AI 任务名称。仅支持中文、英文、数字、_、-，长度不超过32个字符
@@ -51,7 +52,7 @@ public class AddAITaskRequest extends AbstractModel{
     private String Desc;
 
     /**
-    * AI 结果回调地址。类似 "http://ip:port/xxx或者https://domain/xxx
+    * AI 结果回调地址。类似 "http://ip:port/***或者https://domain/***
     */
     @SerializedName("CallbackUrl")
     @Expose
@@ -129,16 +130,16 @@ public class AddAITaskRequest extends AbstractModel{
     }
 
     /**
-     * Get AI 结果回调地址。类似 "http://ip:port/xxx或者https://domain/xxx 
-     * @return CallbackUrl AI 结果回调地址。类似 "http://ip:port/xxx或者https://domain/xxx
+     * Get AI 结果回调地址。类似 "http://ip:port/***或者https://domain/*** 
+     * @return CallbackUrl AI 结果回调地址。类似 "http://ip:port/***或者https://domain/***
      */
     public String getCallbackUrl() {
         return this.CallbackUrl;
     }
 
     /**
-     * Set AI 结果回调地址。类似 "http://ip:port/xxx或者https://domain/xxx
-     * @param CallbackUrl AI 结果回调地址。类似 "http://ip:port/xxx或者https://domain/xxx
+     * Set AI 结果回调地址。类似 "http://ip:port/***或者https://domain/***
+     * @param CallbackUrl AI 结果回调地址。类似 "http://ip:port/***或者https://domain/***
      */
     public void setCallbackUrl(String CallbackUrl) {
         this.CallbackUrl = CallbackUrl;

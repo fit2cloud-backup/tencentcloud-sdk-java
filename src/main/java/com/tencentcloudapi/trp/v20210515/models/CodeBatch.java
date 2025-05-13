@@ -16,15 +16,15 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CodeBatch extends AbstractModel{
+public class CodeBatch extends AbstractModel {
 
     /**
     * 批次号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchId")
     @Expose
@@ -32,7 +32,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CorpId")
     @Expose
@@ -40,7 +39,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 批次编码(未使用)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchCode")
     @Expose
@@ -48,7 +46,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 码数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CodeCnt")
     @Expose
@@ -56,7 +53,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 所属商户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MerchantId")
     @Expose
@@ -64,7 +60,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProductId")
     @Expose
@@ -72,7 +67,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 批次类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchType")
     @Expose
@@ -80,7 +74,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -88,7 +81,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 微信模板
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MpTpl")
     @Expose
@@ -96,7 +88,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 批次状态 0: 未激活 1: 已激活 -1: 已冻结
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -104,7 +95,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -112,7 +102,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -120,7 +109,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 所属商户名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MerchantName")
     @Expose
@@ -128,7 +116,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProductName")
     @Expose
@@ -144,7 +131,6 @@ public class CodeBatch extends AbstractModel{
 
     /**
     * 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TplName")
     @Expose
@@ -182,10 +168,8 @@ public class CodeBatch extends AbstractModel{
     private AttrItem [] Attrs;
 
     /**
-     * Get 批次号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 批次号 
      * @return BatchId 批次号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBatchId() {
         return this.BatchId;
@@ -193,19 +177,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 批次号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchId 批次号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchId(String BatchId) {
         this.BatchId = BatchId;
     }
 
     /**
-     * Get 企业ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 企业ID 
      * @return CorpId 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCorpId() {
         return this.CorpId;
@@ -213,19 +193,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CorpId 企业ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCorpId(Long CorpId) {
         this.CorpId = CorpId;
     }
 
     /**
-     * Get 批次编码(未使用)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 批次编码(未使用) 
      * @return BatchCode 批次编码(未使用)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBatchCode() {
         return this.BatchCode;
@@ -233,19 +209,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 批次编码(未使用)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchCode 批次编码(未使用)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchCode(String BatchCode) {
         this.BatchCode = BatchCode;
     }
 
     /**
-     * Get 码数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码数量 
      * @return CodeCnt 码数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCodeCnt() {
         return this.CodeCnt;
@@ -253,19 +225,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 码数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CodeCnt 码数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCodeCnt(Long CodeCnt) {
         this.CodeCnt = CodeCnt;
     }
 
     /**
-     * Get 所属商户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属商户ID 
      * @return MerchantId 所属商户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMerchantId() {
         return this.MerchantId;
@@ -273,19 +241,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 所属商户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MerchantId 所属商户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMerchantId(String MerchantId) {
         this.MerchantId = MerchantId;
     }
 
     /**
-     * Get 产品ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 产品ID 
      * @return ProductId 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProductId() {
         return this.ProductId;
@@ -293,19 +257,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProductId 产品ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProductId(String ProductId) {
         this.ProductId = ProductId;
     }
 
     /**
-     * Get 批次类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 批次类型 
      * @return BatchType 批次类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBatchType() {
         return this.BatchType;
@@ -313,19 +273,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 批次类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchType 批次类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchType(Long BatchType) {
         this.BatchType = BatchType;
     }
 
     /**
-     * Get 备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注 
      * @return Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -333,19 +289,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get 微信模板
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 微信模板 
      * @return MpTpl 微信模板
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMpTpl() {
         return this.MpTpl;
@@ -353,19 +305,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 微信模板
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MpTpl 微信模板
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMpTpl(String MpTpl) {
         this.MpTpl = MpTpl;
     }
 
     /**
-     * Get 批次状态 0: 未激活 1: 已激活 -1: 已冻结
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 批次状态 0: 未激活 1: 已激活 -1: 已冻结 
      * @return Status 批次状态 0: 未激活 1: 已激活 -1: 已冻结
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -373,19 +321,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 批次状态 0: 未激活 1: 已激活 -1: 已冻结
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 批次状态 0: 未激活 1: 已激活 -1: 已冻结
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -393,19 +337,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 修改时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修改时间 
      * @return UpdateTime 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -413,19 +353,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 所属商户名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属商户名称 
      * @return MerchantName 所属商户名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMerchantName() {
         return this.MerchantName;
@@ -433,19 +369,15 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 所属商户名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MerchantName 所属商户名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMerchantName(String MerchantName) {
         this.MerchantName = MerchantName;
     }
 
     /**
-     * Get 产品名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 产品名称 
      * @return ProductName 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProductName() {
         return this.ProductName;
@@ -453,9 +385,7 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProductName 产品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProductName(String ProductName) {
         this.ProductName = ProductName;
@@ -466,7 +396,9 @@ public class CodeBatch extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return Ext 未使用
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public Ext getExt() {
         return this.Ext;
     }
@@ -476,16 +408,16 @@ public class CodeBatch extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param Ext 未使用
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setExt(Ext Ext) {
         this.Ext = Ext;
     }
 
     /**
-     * Get 模板名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 模板名称 
      * @return TplName 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTplName() {
         return this.TplName;
@@ -493,9 +425,7 @@ public class CodeBatch extends AbstractModel{
 
     /**
      * Set 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TplName 模板名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTplName(String TplName) {
         this.TplName = TplName;

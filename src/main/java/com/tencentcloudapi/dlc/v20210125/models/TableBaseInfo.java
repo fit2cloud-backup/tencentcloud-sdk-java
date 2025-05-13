@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TableBaseInfo extends AbstractModel{
+public class TableBaseInfo extends AbstractModel {
 
     /**
     * 该数据表所属数据库名字
@@ -38,7 +39,6 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
     * 该数据表所属数据源名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatasourceConnectionName")
     @Expose
@@ -54,7 +54,6 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
     * 具体类型，表or视图
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -62,7 +61,6 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
     * 数据格式类型，hive，iceberg等
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TableFormat")
     @Expose
@@ -70,7 +68,6 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
     * 建表用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserAlias")
     @Expose
@@ -78,7 +75,6 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
     * 建表用户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserSubUin")
     @Expose
@@ -99,6 +95,22 @@ public class TableBaseInfo extends AbstractModel{
     @SerializedName("DbGovernPolicyIsDisable")
     @Expose
     private String DbGovernPolicyIsDisable;
+
+    /**
+    * 智能数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SmartPolicy")
+    @Expose
+    private SmartPolicy SmartPolicy;
+
+    /**
+    * T-ICEBERG表的主键
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PrimaryKeys")
+    @Expose
+    private String [] PrimaryKeys;
 
     /**
      * Get 该数据表所属数据库名字 
@@ -133,10 +145,8 @@ public class TableBaseInfo extends AbstractModel{
     }
 
     /**
-     * Get 该数据表所属数据源名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该数据表所属数据源名字 
      * @return DatasourceConnectionName 该数据表所属数据源名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatasourceConnectionName() {
         return this.DatasourceConnectionName;
@@ -144,9 +154,7 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
      * Set 该数据表所属数据源名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatasourceConnectionName 该数据表所属数据源名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatasourceConnectionName(String DatasourceConnectionName) {
         this.DatasourceConnectionName = DatasourceConnectionName;
@@ -173,10 +181,8 @@ public class TableBaseInfo extends AbstractModel{
     }
 
     /**
-     * Get 具体类型，表or视图
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 具体类型，表or视图 
      * @return Type 具体类型，表or视图
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -184,19 +190,15 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
      * Set 具体类型，表or视图
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 具体类型，表or视图
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 数据格式类型，hive，iceberg等
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据格式类型，hive，iceberg等 
      * @return TableFormat 数据格式类型，hive，iceberg等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTableFormat() {
         return this.TableFormat;
@@ -204,19 +206,15 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
      * Set 数据格式类型，hive，iceberg等
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TableFormat 数据格式类型，hive，iceberg等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTableFormat(String TableFormat) {
         this.TableFormat = TableFormat;
     }
 
     /**
-     * Get 建表用户昵称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 建表用户昵称 
      * @return UserAlias 建表用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserAlias() {
         return this.UserAlias;
@@ -224,19 +222,15 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
      * Set 建表用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserAlias 建表用户昵称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserAlias(String UserAlias) {
         this.UserAlias = UserAlias;
     }
 
     /**
-     * Get 建表用户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 建表用户ID 
      * @return UserSubUin 建表用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserSubUin() {
         return this.UserSubUin;
@@ -244,9 +238,7 @@ public class TableBaseInfo extends AbstractModel{
 
     /**
      * Set 建表用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserSubUin 建表用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserSubUin(String UserSubUin) {
         this.UserSubUin = UserSubUin;
@@ -257,7 +249,9 @@ public class TableBaseInfo extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return GovernPolicy 数据治理配置项
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public DataGovernPolicy getGovernPolicy() {
         return this.GovernPolicy;
     }
@@ -267,7 +261,9 @@ public class TableBaseInfo extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param GovernPolicy 数据治理配置项
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setGovernPolicy(DataGovernPolicy GovernPolicy) {
         this.GovernPolicy = GovernPolicy;
     }
@@ -277,7 +273,9 @@ public class TableBaseInfo extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return DbGovernPolicyIsDisable 库数据治理是否关闭，关闭：true，开启：false
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public String getDbGovernPolicyIsDisable() {
         return this.DbGovernPolicyIsDisable;
     }
@@ -287,9 +285,51 @@ public class TableBaseInfo extends AbstractModel{
 注意：此字段可能返回 null，表示取不到有效值。
      * @param DbGovernPolicyIsDisable 库数据治理是否关闭，关闭：true，开启：false
 注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setDbGovernPolicyIsDisable(String DbGovernPolicyIsDisable) {
         this.DbGovernPolicyIsDisable = DbGovernPolicyIsDisable;
+    }
+
+    /**
+     * Get 智能数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SmartPolicy 智能数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SmartPolicy getSmartPolicy() {
+        return this.SmartPolicy;
+    }
+
+    /**
+     * Set 智能数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SmartPolicy 智能数据治理配置项
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSmartPolicy(SmartPolicy SmartPolicy) {
+        this.SmartPolicy = SmartPolicy;
+    }
+
+    /**
+     * Get T-ICEBERG表的主键
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PrimaryKeys T-ICEBERG表的主键
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getPrimaryKeys() {
+        return this.PrimaryKeys;
+    }
+
+    /**
+     * Set T-ICEBERG表的主键
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PrimaryKeys T-ICEBERG表的主键
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPrimaryKeys(String [] PrimaryKeys) {
+        this.PrimaryKeys = PrimaryKeys;
     }
 
     public TableBaseInfo() {
@@ -330,6 +370,15 @@ public class TableBaseInfo extends AbstractModel{
         if (source.DbGovernPolicyIsDisable != null) {
             this.DbGovernPolicyIsDisable = new String(source.DbGovernPolicyIsDisable);
         }
+        if (source.SmartPolicy != null) {
+            this.SmartPolicy = new SmartPolicy(source.SmartPolicy);
+        }
+        if (source.PrimaryKeys != null) {
+            this.PrimaryKeys = new String[source.PrimaryKeys.length];
+            for (int i = 0; i < source.PrimaryKeys.length; i++) {
+                this.PrimaryKeys[i] = new String(source.PrimaryKeys[i]);
+            }
+        }
     }
 
 
@@ -347,6 +396,8 @@ public class TableBaseInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "UserSubUin", this.UserSubUin);
         this.setParamObj(map, prefix + "GovernPolicy.", this.GovernPolicy);
         this.setParamSimple(map, prefix + "DbGovernPolicyIsDisable", this.DbGovernPolicyIsDisable);
+        this.setParamObj(map, prefix + "SmartPolicy.", this.SmartPolicy);
+        this.setParamArraySimple(map, prefix + "PrimaryKeys.", this.PrimaryKeys);
 
     }
 }

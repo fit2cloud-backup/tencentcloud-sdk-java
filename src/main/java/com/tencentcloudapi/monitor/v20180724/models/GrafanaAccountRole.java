@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GrafanaAccountRole extends AbstractModel{
+public class GrafanaAccountRole extends AbstractModel {
 
     /**
     * 组织
@@ -30,7 +31,7 @@ public class GrafanaAccountRole extends AbstractModel{
     private String Organization;
 
     /**
-    * 权限
+    * 权限(Admin、Editor、Viewer)
     */
     @SerializedName("Role")
     @Expose
@@ -53,16 +54,16 @@ public class GrafanaAccountRole extends AbstractModel{
     }
 
     /**
-     * Get 权限 
-     * @return Role 权限
+     * Get 权限(Admin、Editor、Viewer) 
+     * @return Role 权限(Admin、Editor、Viewer)
      */
     public String getRole() {
         return this.Role;
     }
 
     /**
-     * Set 权限
-     * @param Role 权限
+     * Set 权限(Admin、Editor、Viewer)
+     * @param Role 权限(Admin、Editor、Viewer)
      */
     public void setRole(String Role) {
         this.Role = Role;

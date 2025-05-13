@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDatabaseRequest extends AbstractModel{
+public class CreateDatabaseRequest extends AbstractModel {
 
     /**
     * 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
@@ -30,7 +31,7 @@ public class CreateDatabaseRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 数据库名称。
+    * 数据库名称，长度不超过64。
     */
     @SerializedName("DBName")
     @Expose
@@ -60,16 +61,16 @@ public class CreateDatabaseRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据库名称。 
-     * @return DBName 数据库名称。
+     * Get 数据库名称，长度不超过64。 
+     * @return DBName 数据库名称，长度不超过64。
      */
     public String getDBName() {
         return this.DBName;
     }
 
     /**
-     * Set 数据库名称。
-     * @param DBName 数据库名称。
+     * Set 数据库名称，长度不超过64。
+     * @param DBName 数据库名称，长度不超过64。
      */
     public void setDBName(String DBName) {
         this.DBName = DBName;

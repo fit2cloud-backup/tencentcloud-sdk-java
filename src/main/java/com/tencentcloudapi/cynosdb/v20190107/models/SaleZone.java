@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SaleZone extends AbstractModel{
+public class SaleZone extends AbstractModel {
 
     /**
     * 可用区英文名
@@ -70,7 +71,6 @@ public class SaleZone extends AbstractModel{
 
     /**
     * 用户是否有可用区权限
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HasPermission")
     @Expose
@@ -82,6 +82,13 @@ public class SaleZone extends AbstractModel{
     @SerializedName("IsWholeRdmaZone")
     @Expose
     private String IsWholeRdmaZone;
+
+    /**
+    * 当前可用区是否允许新购集群，1:允许，0:不允许
+    */
+    @SerializedName("IsSupportCreateCluster")
+    @Expose
+    private Long IsSupportCreateCluster;
 
     /**
      * Get 可用区英文名 
@@ -196,10 +203,8 @@ public class SaleZone extends AbstractModel{
     }
 
     /**
-     * Get 用户是否有可用区权限
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户是否有可用区权限 
      * @return HasPermission 用户是否有可用区权限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getHasPermission() {
         return this.HasPermission;
@@ -207,9 +212,7 @@ public class SaleZone extends AbstractModel{
 
     /**
      * Set 用户是否有可用区权限
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HasPermission 用户是否有可用区权限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHasPermission(Boolean HasPermission) {
         this.HasPermission = HasPermission;
@@ -229,6 +232,22 @@ public class SaleZone extends AbstractModel{
      */
     public void setIsWholeRdmaZone(String IsWholeRdmaZone) {
         this.IsWholeRdmaZone = IsWholeRdmaZone;
+    }
+
+    /**
+     * Get 当前可用区是否允许新购集群，1:允许，0:不允许 
+     * @return IsSupportCreateCluster 当前可用区是否允许新购集群，1:允许，0:不允许
+     */
+    public Long getIsSupportCreateCluster() {
+        return this.IsSupportCreateCluster;
+    }
+
+    /**
+     * Set 当前可用区是否允许新购集群，1:允许，0:不允许
+     * @param IsSupportCreateCluster 当前可用区是否允许新购集群，1:允许，0:不允许
+     */
+    public void setIsSupportCreateCluster(Long IsSupportCreateCluster) {
+        this.IsSupportCreateCluster = IsSupportCreateCluster;
     }
 
     public SaleZone() {
@@ -263,6 +282,9 @@ public class SaleZone extends AbstractModel{
         if (source.IsWholeRdmaZone != null) {
             this.IsWholeRdmaZone = new String(source.IsWholeRdmaZone);
         }
+        if (source.IsSupportCreateCluster != null) {
+            this.IsSupportCreateCluster = new Long(source.IsSupportCreateCluster);
+        }
     }
 
 
@@ -278,6 +300,7 @@ public class SaleZone extends AbstractModel{
         this.setParamSimple(map, prefix + "PhysicalZone", this.PhysicalZone);
         this.setParamSimple(map, prefix + "HasPermission", this.HasPermission);
         this.setParamSimple(map, prefix + "IsWholeRdmaZone", this.IsWholeRdmaZone);
+        this.setParamSimple(map, prefix + "IsSupportCreateCluster", this.IsSupportCreateCluster);
 
     }
 }

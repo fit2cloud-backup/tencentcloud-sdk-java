@@ -39,14 +39,37 @@ public class TrtcClient extends AbstractClient{
     }
 
     /**
+     *提供服务端控制机器人的功能
+     * @param req ControlAIConversationRequest
+     * @return ControlAIConversationResponse
+     * @throws TencentCloudSDKException
+     */
+    public ControlAIConversationResponse ControlAIConversation(ControlAIConversationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ControlAIConversation", ControlAIConversationResponse.class);
+    }
+
+    /**
      *接口说明：
-启动云端录制功能，完成房间内的音视频录制，并上传到指定的云存储。您可以通过此 API 接口把TRTC 房间中的每一路音视频流做单独的录制又或者多路视频画面混流一路。
+启动终端审核功能，完成房间内的音频审核。
+     * @param req CreateBasicModerationRequest
+     * @return CreateBasicModerationResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateBasicModerationResponse CreateBasicModeration(CreateBasicModerationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateBasicModeration", CreateBasicModerationResponse.class);
+    }
+
+    /**
+     *接口说明：
+启动云端录制功能，完成房间内的音视频录制，并上传到指定的云存储。您可以通过此 API 接口把TRTC 房间中的每一路音视频流做单独的录制又或者多路视频画面合流混成一路。
 
 您可以通过此接口实现如下目标：
 * 指定订阅流参数（RecordParams）来指定需要录制的主播的黑名单或者白名单。
-* 指定第三方存储的参数（StorageParams）来指定上传到您希望的云存储，目前支持云点播VOD和对象存储COS
-* 指定混流模式下的音视频转码详细参数（MixTranscodeParams），包括视频分辨率、视频码率、视频帧率、以及声音质量等
-* 指定混流模式各路画面的位置和布局或者也可以指定自动模板的方式来配置。
+* 指定录制存储参数（StorageParams）来指定上传到您希望的云存储，目前支持腾讯云（云点播VOD、对象存储COS）和第三方AWS
+* 指定合流模式下的音视频转码详细参数（MixTranscodeParams），包括视频分辨率、视频码率、视频帧率、以及声音质量等
+* 指定合流模式各路画面的位置和布局或者也可以指定自动模板的方式来配置。
 
 关键名词：
 * 单流录制：分别录制房间的订阅UserId的音频和视频，录制服务会实时将录制文件上传至您指定的云存储。
@@ -56,18 +79,8 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateCloudRecordingResponse CreateCloudRecording(CreateCloudRecordingRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCloudRecordingResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCloudRecordingResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCloudRecording");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCloudRecording", CreateCloudRecordingResponse.class);
     }
 
     /**
@@ -77,18 +90,19 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreatePictureResponse CreatePicture(CreatePictureRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreatePictureResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreatePictureResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreatePicture");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePicture", CreatePictureResponse.class);
+    }
+
+    /**
+     *成功开启审核任务后，可以使用此接口来停止任务。
+     * @param req DeleteBasicModerationRequest
+     * @return DeleteBasicModerationResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteBasicModerationResponse DeleteBasicModeration(DeleteBasicModerationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteBasicModeration", DeleteBasicModerationResponse.class);
     }
 
     /**
@@ -98,18 +112,8 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteCloudRecordingResponse DeleteCloudRecording(DeleteCloudRecordingRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteCloudRecordingResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteCloudRecordingResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteCloudRecording");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteCloudRecording", DeleteCloudRecordingResponse.class);
     }
 
     /**
@@ -119,42 +123,46 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeletePictureResponse DeletePicture(DeletePictureRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeletePictureResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeletePictureResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeletePicture");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeletePicture", DeletePictureResponse.class);
     }
 
     /**
-     *查询指定时间内的用户列表及用户通话质量数据，可查询14天内数据。DataType 不为null，查询起止时间不超过1个小时，查询用户不超过6个，支持跨天查询。DataType为null时，查询起止时间不超过4个小时， 默认查询6个用户，同时支持每页查询100以内用户个数（PageSize不超过100）。接口用于查询质量问题，不推荐作为计费使用。（同老接口DescribeCallDetail）
+     *查询AI对话任务状态。
+     * @param req DescribeAIConversationRequest
+     * @return DescribeAIConversationResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAIConversationResponse DescribeAIConversation(DescribeAIConversationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeAIConversation", DescribeAIConversationResponse.class);
+    }
+
+    /**
+     *查询AI转录任务状态。
+     * @param req DescribeAITranscriptionRequest
+     * @return DescribeAITranscriptionResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAITranscriptionResponse DescribeAITranscription(DescribeAITranscriptionRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeAITranscription", DescribeAITranscriptionResponse.class);
+    }
+
+    /**
+     *查询指定时间内的用户列表及用户通话质量数据，最大可查询14天内数据。DataType 不为null，查询起止时间不超过1个小时，查询用户不超过6个，支持跨天查询。DataType为null时，查询起止时间不超过4个小时， 默认查询6个用户，同时支持每页查询100以内用户个数（PageSize不超过100）。接口用于查询质量问题，不推荐作为计费使用。（同老接口DescribeCallDetail）
 **注意**：
 1.该接口只用于历史数据统计或核对数据使用，实时类关键业务逻辑不能使用。
-2.该接口目前免费提供中，监控仪表盘商业化计费后该接口需要订阅付费版后方可调用，仪表盘商业化说明请见：https://cloud.tencent.com/document/product/647/77735
+2.该接口自2024年4月1日起正式商业化，需订阅套餐解锁调用能力，提供以下两种解锁方式，可任选其一解锁：
+方式一：通过订阅[包月套餐](https://cloud.tencent.com/document/product/647/85386)「尊享版」（可查近7天）和「旗舰版」（可查近14天），[前往订阅](https://buy.cloud.tencent.com/trtc?trtcversion=top)。
+方式二：通过订阅[监控仪表盘](https://cloud.tencent.com/document/product/647/81331)商业套餐包「基础版」（可查近7天）和「进阶版」（可查近14天），[前往订阅](https://buy.cloud.tencent.com/trtc_monitor)。
      * @param req DescribeCallDetailInfoRequest
      * @return DescribeCallDetailInfoResponse
      * @throws TencentCloudSDKException
      */
     public DescribeCallDetailInfoResponse DescribeCallDetailInfo(DescribeCallDetailInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCallDetailInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCallDetailInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCallDetailInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCallDetailInfo", DescribeCallDetailInfoResponse.class);
     }
 
     /**
@@ -165,18 +173,8 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCloudRecordingResponse DescribeCloudRecording(DescribeCloudRecordingRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCloudRecordingResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCloudRecordingResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCloudRecording");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCloudRecording", DescribeCloudRecordingResponse.class);
     }
 
     /**
@@ -191,18 +189,8 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeMixTranscodingUsageResponse DescribeMixTranscodingUsage(DescribeMixTranscodingUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeMixTranscodingUsageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeMixTranscodingUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeMixTranscodingUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeMixTranscodingUsage", DescribeMixTranscodingUsageResponse.class);
     }
 
     /**
@@ -212,18 +200,8 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribePictureResponse DescribePicture(DescribePictureRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribePictureResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribePictureResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribePicture");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribePicture", DescribePictureResponse.class);
     }
 
     /**
@@ -238,18 +216,8 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRecordStatisticResponse DescribeRecordStatistic(DescribeRecordStatisticRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRecordStatisticResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRecordStatisticResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRecordStatistic");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRecordStatistic", DescribeRecordStatisticResponse.class);
     }
 
     /**
@@ -264,18 +232,8 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRecordingUsageResponse DescribeRecordingUsage(DescribeRecordingUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRecordingUsageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRecordingUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRecordingUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRecordingUsage", DescribeRecordingUsageResponse.class);
     }
 
     /**
@@ -290,42 +248,24 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRelayUsageResponse DescribeRelayUsage(DescribeRelayUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRelayUsageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRelayUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRelayUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRelayUsage", DescribeRelayUsageResponse.class);
     }
 
     /**
-     *查询SdkAppId下的房间列表。默认返回10条通话，一次最多返回100条通话。可查询14天内的数据。（同老接口DescribeRoomInformation）
+     *查询SdkAppId下的房间列表。默认返回10条通话，一次最多返回100条通话。最大可查询14天内的数据。（同老接口DescribeRoomInformation）
 **注意**：
 1.该接口只用于历史数据统计或核对数据使用，实时类关键业务逻辑不能使用。
-2.该接口目前免费提供中，监控仪表盘商业化计费后该接口需要订阅付费版后方可调用，仪表盘商业化说明请见：https://cloud.tencent.com/document/product/647/77735
+2.该接口自2024年4月1日起正式商业化，需订阅套餐解锁调用能力，提供以下两种解锁方式，可任意其一解锁：
+方式一：通过订阅[包月套餐](https://cloud.tencent.com/document/product/647/85386)「尊享版」（可查近7天）和「旗舰版」（可查近14天），[前往订阅](https://buy.cloud.tencent.com/trtc?trtcversion=top)。
+方式二：通过订阅[监控仪表盘](https://cloud.tencent.com/document/product/647/81331)商业套餐包「基础版」（可查近7天）和「进阶版」（可查近14天），[前往订阅](https://buy.cloud.tencent.com/trtc_monitor)。
      * @param req DescribeRoomInfoRequest
      * @return DescribeRoomInfoResponse
      * @throws TencentCloudSDKException
      */
     public DescribeRoomInfoResponse DescribeRoomInfo(DescribeRoomInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRoomInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRoomInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRoomInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRoomInfo", DescribeRoomInfoResponse.class);
     }
 
     /**
@@ -335,18 +275,38 @@ public class TrtcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeScaleInfoResponse DescribeScaleInfo(DescribeScaleInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeScaleInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeScaleInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeScaleInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeScaleInfo", DescribeScaleInfoResponse.class);
+    }
+
+    /**
+     *您可以查询输入在线媒体流任务的状态。
+     * @param req DescribeStreamIngestRequest
+     * @return DescribeStreamIngestResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeStreamIngestResponse DescribeStreamIngest(DescribeStreamIngestRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeStreamIngest", DescribeStreamIngestResponse.class);
+    }
+
+    /**
+     *查询TRTC监控仪表盘-数据大盘质量指标（包括下列指标）
+joinSuccessRate：加入频道成功率。
+joinSuccessIn5sRate：5s内加入频道成功率。
+audioFreezeRate：音频卡顿率。
+videoFreezeRate：视频卡顿率。
+networkDelay ：网络延迟率。
+注意：
+1.调用接口需开通监控仪表盘【基础版】和【进阶版】，监控仪表盘【免费版】不支持调用，监控仪表盘[版本功能和计费说明](https://cloud.tencent.com/document/product/647/81331)。
+2.查询时间范围根据监控仪表盘功能版本而定，【基础版】可查近30天，【进阶版】可查近60天。
+     * @param req DescribeTRTCMarketQualityDataRequest
+     * @return DescribeTRTCMarketQualityDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTRTCMarketQualityDataResponse DescribeTRTCMarketQualityData(DescribeTRTCMarketQualityDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTRTCMarketQualityData", DescribeTRTCMarketQualityDataResponse.class);
     }
 
     /**
@@ -364,18 +324,26 @@ networkDelay ：网络延迟率。
      * @throws TencentCloudSDKException
      */
     public DescribeTRTCMarketQualityMetricDataResponse DescribeTRTCMarketQualityMetricData(DescribeTRTCMarketQualityMetricDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTRTCMarketQualityMetricDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTRTCMarketQualityMetricDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTRTCMarketQualityMetricData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTRTCMarketQualityMetricData", DescribeTRTCMarketQualityMetricDataResponse.class);
+    }
+
+    /**
+     *查询TRTC监控仪表盘-数据大盘规模指标（会返回通话人数，通话房间数，峰值同时在线人数，峰值同时在线频道数）
+userCount：通话人数，
+roomCount：通话房间数，从有用户加入频道到所有用户离开频道计为一个通话频道。
+peakCurrentChannels：峰值同时在线频道数。
+peakCurrentUsers：峰值同时在线人数。
+注意：
+1.调用接口需开通监控仪表盘【基础版】和【进阶版】，监控仪表盘【免费版】不支持调用，监控仪表盘[版本功能和计费说明](https://cloud.tencent.com/document/product/647/81331)。
+2.查询时间范围根据监控仪表盘功能版本而定，【基础版】可查近30天，【进阶版】可查近60天。
+     * @param req DescribeTRTCMarketScaleDataRequest
+     * @return DescribeTRTCMarketScaleDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTRTCMarketScaleDataResponse DescribeTRTCMarketScaleData(DescribeTRTCMarketScaleDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTRTCMarketScaleData", DescribeTRTCMarketScaleDataResponse.class);
     }
 
     /**
@@ -392,18 +360,24 @@ peakCurrentUsers：峰值同时在线人数。
      * @throws TencentCloudSDKException
      */
     public DescribeTRTCMarketScaleMetricDataResponse DescribeTRTCMarketScaleMetricData(DescribeTRTCMarketScaleMetricDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTRTCMarketScaleMetricDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTRTCMarketScaleMetricDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTRTCMarketScaleMetricData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTRTCMarketScaleMetricData", DescribeTRTCMarketScaleMetricDataResponse.class);
+    }
+
+    /**
+     *查询TRTC监控仪表盘-实时监控质量指标（会返回下列指标）
+-视频卡顿率
+-音频卡顿率
+注意：
+1.调用接口需开通监控仪表盘【基础版】和【进阶版】，监控仪表盘【免费版】不支持调用，监控仪表盘[版本功能和计费说明]（https://cloud.tencent.com/document/product/647/81331）。
+2.查询时间范围根据监控仪表盘功能版本而定，基础版可查近3小时，进阶版可查近12小时。
+     * @param req DescribeTRTCRealTimeQualityDataRequest
+     * @return DescribeTRTCRealTimeQualityDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTRTCRealTimeQualityDataResponse DescribeTRTCRealTimeQualityData(DescribeTRTCRealTimeQualityDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTRTCRealTimeQualityData", DescribeTRTCRealTimeQualityDataResponse.class);
     }
 
     /**
@@ -418,18 +392,25 @@ peakCurrentUsers：峰值同时在线人数。
      * @throws TencentCloudSDKException
      */
     public DescribeTRTCRealTimeQualityMetricDataResponse DescribeTRTCRealTimeQualityMetricData(DescribeTRTCRealTimeQualityMetricDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTRTCRealTimeQualityMetricDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTRTCRealTimeQualityMetricDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTRTCRealTimeQualityMetricData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTRTCRealTimeQualityMetricData", DescribeTRTCRealTimeQualityMetricDataResponse.class);
+    }
+
+    /**
+     *查询TRTC监控仪表盘-实时监控规模指标（会返回下列指标）
+-userCount（在线用户数）
+-roomCount（在线房间数）
+注意：
+1.调用接口需开通监控仪表盘【基础版】和【进阶版】，监控仪表盘【免费版】不支持调用，监控仪表盘[版本功能和计费说明](https://cloud.tencent.com/document/product/647/81331)。
+2.查询时间范围根据监控仪表盘功能版本而定，基础版可查近3小时，进阶版可查近12小时。
+3.除此之外您也可以通过[订阅TRTC包月套餐](https://buy.cloud.tencent.com/trtc)尊享版或旗舰版解锁此接口的调用能力，请在开通包月套餐后，请[提交工单](https://console.cloud.tencent.com/workorder/category)联系售后解锁调用能力
+     * @param req DescribeTRTCRealTimeScaleDataRequest
+     * @return DescribeTRTCRealTimeScaleDataResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTRTCRealTimeScaleDataResponse DescribeTRTCRealTimeScaleData(DescribeTRTCRealTimeScaleDataRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTRTCRealTimeScaleData", DescribeTRTCRealTimeScaleDataResponse.class);
     }
 
     /**
@@ -446,18 +427,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DescribeTRTCRealTimeScaleMetricDataResponse DescribeTRTCRealTimeScaleMetricData(DescribeTRTCRealTimeScaleMetricDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTRTCRealTimeScaleMetricDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTRTCRealTimeScaleMetricDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTRTCRealTimeScaleMetricData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTRTCRealTimeScaleMetricData", DescribeTRTCRealTimeScaleMetricDataResponse.class);
     }
 
     /**
@@ -471,18 +442,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DescribeTrtcMcuTranscodeTimeResponse DescribeTrtcMcuTranscodeTime(DescribeTrtcMcuTranscodeTimeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTrtcMcuTranscodeTimeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTrtcMcuTranscodeTimeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTrtcMcuTranscodeTime");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTrtcMcuTranscodeTime", DescribeTrtcMcuTranscodeTimeResponse.class);
     }
 
     /**
@@ -496,22 +457,12 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DescribeTrtcRoomUsageResponse DescribeTrtcRoomUsage(DescribeTrtcRoomUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTrtcRoomUsageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTrtcRoomUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTrtcRoomUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTrtcRoomUsage", DescribeTrtcRoomUsageResponse.class);
     }
 
     /**
-     *获取TRTC音视频互动的用量明细。
+     *获取TRTC音视频互动的用量明细，单位:分钟。
 - 查询时间小于等于1天时，返回每5分钟粒度的数据；查询时间大于1天时，返回按天汇总的数据。
 - 单次查询统计区间最多不能超过31天。
 - 若查询当天用量，由于统计延迟等原因，返回数据可能不够准确。
@@ -522,18 +473,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DescribeTrtcUsageResponse DescribeTrtcUsage(DescribeTrtcUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTrtcUsageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTrtcUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTrtcUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTrtcUsage", DescribeTrtcUsageResponse.class);
     }
 
     /**
@@ -544,18 +485,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DescribeUnusualEventResponse DescribeUnusualEvent(DescribeUnusualEventRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeUnusualEventResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeUnusualEventResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeUnusualEvent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeUnusualEvent", DescribeUnusualEventResponse.class);
     }
 
     /**
@@ -565,42 +496,35 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DescribeUserEventResponse DescribeUserEvent(DescribeUserEventRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeUserEventResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeUserEventResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeUserEvent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeUserEvent", DescribeUserEventResponse.class);
     }
 
     /**
-     *查询指定时间内的用户列表，可查询14天内数据，查询起止时间不超过4小时。默认每页查询6个用户，支持每页最大查询100个用户PageSize不超过100）。（同老接口DescribeUserInformation）
+     *查询指定时间内的用户列表，最大可查询14天内数据，查询起止时间不超过4小时。默认每页查询6个用户，支持每页最大查询100个用户PageSize不超过100）。（同老接口DescribeUserInformation）
 **注意**：
 1.该接口只用于历史数据统计或核对数据使用，实时类关键业务逻辑不能使用。
-2.该接口目前免费提供中，监控仪表盘商业化计费后该接口需要订阅付费版后方可调用，仪表盘商业化说明请见：https://cloud.tencent.com/document/product/647/77735
+2.该接口自2024年4月1日起正式商业化，需订阅套餐解锁调用能力，提供以下两种解锁方式，可任选其一解锁：
+方式一：通过订阅[包月套餐](https://cloud.tencent.com/document/product/647/85386)「尊享版」（可查近7天）和「旗舰版」（可查近14天），[前往订阅](https://buy.cloud.tencent.com/trtc?trtcversion=top)。
+方式二：通过订阅[监控仪表盘](https://cloud.tencent.com/document/product/647/81331)商业套餐包「基础版」（可查近7天）和「进阶版」（可查近14天），[前往订阅](https://buy.cloud.tencent.com/trtc_monitor)。
      * @param req DescribeUserInfoRequest
      * @return DescribeUserInfoResponse
      * @throws TencentCloudSDKException
      */
     public DescribeUserInfoResponse DescribeUserInfo(DescribeUserInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeUserInfoResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeUserInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeUserInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeUserInfo", DescribeUserInfoResponse.class);
+    }
+
+    /**
+     *查询页面录制任务
+     * @param req DescribeWebRecordRequest
+     * @return DescribeWebRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeWebRecordResponse DescribeWebRecord(DescribeWebRecordRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeWebRecord", DescribeWebRecordResponse.class);
     }
 
     /**
@@ -610,18 +534,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DismissRoomResponse DismissRoom(DismissRoomRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DismissRoomResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DismissRoomResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DismissRoom");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DismissRoom", DismissRoomResponse.class);
     }
 
     /**
@@ -631,18 +545,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public DismissRoomByStrRoomIdResponse DismissRoomByStrRoomId(DismissRoomByStrRoomIdRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DismissRoomByStrRoomIdResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DismissRoomByStrRoomIdResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DismissRoomByStrRoomId");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DismissRoomByStrRoomId", DismissRoomByStrRoomIdResponse.class);
     }
 
     /**
@@ -652,18 +556,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public ModifyCloudRecordingResponse ModifyCloudRecording(ModifyCloudRecordingRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCloudRecordingResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCloudRecordingResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCloudRecording");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCloudRecording", ModifyCloudRecordingResponse.class);
     }
 
     /**
@@ -673,18 +567,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public ModifyPictureResponse ModifyPicture(ModifyPictureRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPictureResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPictureResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPicture");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPicture", ModifyPictureResponse.class);
     }
 
     /**
@@ -694,18 +578,8 @@ xa0
      * @throws TencentCloudSDKException
      */
     public RemoveUserResponse RemoveUser(RemoveUserRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RemoveUserResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RemoveUserResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RemoveUser");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RemoveUser", RemoveUserResponse.class);
     }
 
     /**
@@ -715,18 +589,41 @@ xa0
      * @throws TencentCloudSDKException
      */
     public RemoveUserByStrRoomIdResponse RemoveUserByStrRoomId(RemoveUserByStrRoomIdRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RemoveUserByStrRoomIdResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RemoveUserByStrRoomIdResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RemoveUserByStrRoomId");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RemoveUserByStrRoomId", RemoveUserByStrRoomIdResponse.class);
+    }
+
+    /**
+     *启动AI对话任务，AI通道机器人进入TRTC房间，与房间内指定的成员进行AI对话，适用于智能客服，AI口语教师等场景
+
+TRTC AI对话功能内置语音转文本能力，同时提供通道服务，即客户可灵活指定第三方AI模型（LLM）服务和文本转音频（TTS)服务，更多[功能说明](https://cloud.tencent.com/document/product/647/108901)。
+     * @param req StartAIConversationRequest
+     * @return StartAIConversationResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartAIConversationResponse StartAIConversation(StartAIConversationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StartAIConversation", StartAIConversationResponse.class);
+    }
+
+    /**
+     *启动转录机器人，后台会通过机器人拉流进行实时进行语音识别并下发字幕和转录消息。
+转录机器人支持两种拉流方式，通过TranscriptionMode字段控制：
+- 拉取全房间的流。
+- 拉取特定用户的流。
+
+服务端通过TRTC的自定义消息实时下发字幕以及转录消息，CmdId固定是1。客户端只需监听自定义消息的回调即可，比如[c++回调](https://cloud.tencent.com/document/product/647/79637#4cd82f4edb24992a15a25187089e1565)。其他客户端比如安卓、Web等同样可在该链接处找到。
+
+
+**注意：**
+TranscriptionMode为0时，需要保证一个房间内只发起一个任务，如果发起多个任务，则机器人之间会相互订阅，除非主动停止任务，否则只有10小时后任务才会超时退出，这种情况下建议填写SessionId，保证后续重复发起的任务失败。
+     * @param req StartAITranscriptionRequest
+     * @return StartAITranscriptionResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartAITranscriptionResponse StartAITranscription(StartAITranscriptionRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StartAITranscription", StartAITranscriptionResponse.class);
     }
 
     /**
@@ -756,18 +653,8 @@ TRTC 的一个房间中可能会同时存在多路音视频流，您可以通过
      * @throws TencentCloudSDKException
      */
     public StartMCUMixTranscodeResponse StartMCUMixTranscode(StartMCUMixTranscodeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StartMCUMixTranscodeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StartMCUMixTranscodeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StartMCUMixTranscode");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StartMCUMixTranscode", StartMCUMixTranscodeResponse.class);
     }
 
     /**
@@ -797,134 +684,72 @@ TRTC 的一个房间中可能会同时存在多路音视频流，您可以通过
      * @throws TencentCloudSDKException
      */
     public StartMCUMixTranscodeByStrRoomIdResponse StartMCUMixTranscodeByStrRoomId(StartMCUMixTranscodeByStrRoomIdRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StartMCUMixTranscodeByStrRoomIdResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StartMCUMixTranscodeByStrRoomIdResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StartMCUMixTranscodeByStrRoomId");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StartMCUMixTranscodeByStrRoomId", StartMCUMixTranscodeByStrRoomIdResponse.class);
     }
 
     /**
-     *TRTC房间中可能会同时存在多路音视频流，您可以通过混流转推API，通知腾讯云服务端将同个房间或者多个房间的多路视频画面混合到一起，并指定每一路画面的位置，同时将多路声音进行混音，最终形成一路音视频流，以便用于录制和直播观看，同时可以支持将这一路音视频的混流回推到TRTC房间内部。
+     *接口说明：  
+启动一个混流转推任务，将  TRTC 房间的多路音视频流混成一路音视频流，编码后推到直播 CDN 或者回推到 TRTC 房间。也支持不转码直接转推 TRTC 房间的单路流。启动成功后，会返回一个 SdkAppid 维度唯一的任务 Id（TaskId）。您需要保存该 TaskId，后续需要依赖此 TaskId 更新和结束任务。可以参考文档： [功能说明](https://cloud.tencent.com/document/product/647/84721#b9a855f4-e38c-4616-9b07-fc44e0e8282a) 和 [常见问题](https://cloud.tencent.com/document/product/647/62620)
 
-云api混流转推功能包含三个接口：  
-1、StartPublishCdnStream：启动一个混流转推任务，此接口会发起一个新的混流转推任务，启动成功后会返回一个sdkappid维度唯一的任务id（TaskId）。您需要保存该TaskId，后续需要依赖此TaskId更新任务和结束任务。  
-2、UpdatePublishCdnStream：更新指定的混流转推任务，包括：更新视频画面的布局、更新混音列表、更新转推cdn的地址列表以及更新回推房间列表。  
-3、StopPublishCdnStream：停止指定的混流转推任务。
-
-您可以通过此套接口实现目标：  
-1、设置最终混流的画质和音质，包括视频分辨率、视频帧率、视频码率，和音频质量。  
-2、设置每一路画面的布局位置，您只需要设置一次，后续您指定的混流用户进房上行音视频时，排版引擎会自动将该用户的画面混合到您指定的布局位置。同时您可以使用更新接口调整画面的布局位置。  
-3、设置多个cdn转推的目的地址，一个转推任务最多可以同时设置10个cdn转推地址，如果您需要转推非腾讯云的cdn地址时，需要联系腾讯云开通能力。  
-4、设置多个回推房间列表，一个转推任务最多可以同时将混流回推到10个TRTC房间。
-
-目前已经支持如下几种布局模版，其中动态布局模版（悬浮模板、九宫格模板、屏幕分享模板）只支持单个TRTC房间，自定义模版支持混合多个TRTC房间内的音视频流。具体说明如下：  
-1、悬浮模板：第一个进入房间的用户的视频画面会铺满整个屏幕，其他用户的视频画面从左下角依次水平排列，显示为小画面，最多4行，每行4个，小画面悬浮于大画面之上。最多支持1个大画面和15个小画面，如果用户只发送音频默认不占布局配置，也支持设置。每个子画面默认采用居中裁剪的方式进行渲染，也支持统一设置子画面的渲染方式。   
-2、九宫格模板：所有用户的视频画面大小一致，平分整个屏幕，人数越多，每个画面的尺寸越小。最多支持16个画面，如果用户只发送音频，默认不占布局配置，也支持设置。每个子画面默认采用居中裁剪的方式进行渲染，也支持统一设置子画面的渲染方式。  
-3、屏幕分享模板：适合视频会议和在线教育场景的布局，屏幕分享（或者主讲的摄像头）始终占据屏幕左侧的大画面位置，需要您明确设置占据大画面的混流用户信息。其他用户依次垂直排列于右侧，最多两列，每列最多8个小画面。最多支持1个大画面和15个小画面。若上行分辨率宽高比与画面输出宽高比不一致时，左侧大画面为了保持内容的完整性采用缩放方式处理，右侧小画面采用裁剪方式处理，也支持统一设置子画面的渲染方式。  
-4、自定义布局模版：支持您主动根据业务需要设置布局位置，每个预设的布局位置支持具名设置（具名设置需要明确指定房间号和用户名）和不具名设置。当一个子画面具名设置时，该位置就为该用户预留，用户进房且上行音视频数据时会自动占据该位置，其它用户不会占据该位置。当预设的布局位置未具名时，排版引擎会根据进房间顺序自动填充，预设位置填满时，不再混合其它用户的画面和声音。每个子画面位置支持设置占位图（BackgroundImageUrl），当用户未进房或者只上行音频数据时，该位置画面可显示对应的占位图画面。
-
-您可以控制台开通旁路转推回调功能实现转推cdn状态的事件监控，具体说明请参考官网文档：[旁路转推回调说明](https://cloud.tencent.com/document/product/647/88552)  
-您使用转推api时根据使用特性可能会产生如下费用：  
-MCU混流转码费用请参考文档：[云端混流转码计费说明](https://cloud.tencent.com/document/product/647/49446)  
-转推非腾讯云CDN费用请参考文档：[云端转推计费说明](https://cloud.tencent.com/document/product/647/82155)
-
-参数的使用说明：  
-1、AgentParams：每个转推任务会拉起一个机器人用户进入TRTC房间进行拉流，您需要通过AgentParams.UserId参数进行设置，这个机器人id不能和房间中的普通用户id冲突，否则会导致转推任务由于机器人用户被踢出TRTC房间而异常结束，您可以通过增加特殊前缀的方式规避。您可以通过设置AgentParams.MaxIdleTime控制转推任务的自动结束，当设置此参数时，所有参与混流转推的主播持续离开TRTC房间超过MaxIdleTime的时长，自动停止转推任务。注意：参与混流转推的主播仅是停止音视频上行，转推任务不会自动停止。  
-2、WithTranscoding：如果需要将多路音视频流混合到一路时，WithTranscoding必须设置为1。  
-3、AudioParams：转推任务音频参数和视频参数是分开设置的，若您想要将指定的用户音频进行混音时，需要明确设置AudioParams.SubscribeAudioList。若您不设置AudioParams.SubscribeAudioList，混音引擎会自动将TRTC房间中所有用户的音频混合。若您想要混合TRTC房间除指定用户之外的所有用户的声音，可以通过AudioParams.UnSubscribeAudioList设置音频黑名单列表。
-4、VideoParams：若您想要将用户的视频混合，可以通过VideoParams设置，若只想要混纯音频，则不用设置VideoParams参数。您可以通过VideoParams.LayoutParams.MixLayoutMode设置画面的布局模式，包括：动态布局（1：悬浮布局（默认），2：屏幕分享布局，3：九宫格布局）和自定义布局。动态布局模式由排版引擎按照固定的布局自动混合，不需要设置VideoParams.LayoutParams.MixLayoutList。当使用悬浮布局和屏幕分享布局时，您可以通过设置VideoParams.LayoutParams.MaxVideoUser参数指定大画面用户。自定义布局模式提供给您自主布局画面的能力，可以通过VideoParams.LayoutParams.MixLayoutList参数指定每个用户所在的布局位置。在每个布局参数中，您可以通过用户媒体流参数（UserMediaStream）指定这个布局位置为指定的用户预留，也可以不设置UserMediaStream，由排版引擎按照用户进入TRTC房间的顺序自动填充，另外您也可以设置每个布局位置的渲染方式（RenderMode）和裁剪方式（CustomCrop）。  
-5、VideoParams.WaterMarkList：若您想要混流画面中叠加水印，可以通过VideoParams.WaterMarkList参数设置，支持图片水印和文字水印，支持透明通道。  
-6、SingleSubscribeParams：若您想要将TRTC房间中的一路单流推到CDN，可以使用SingleSubscribeParams参数设置，此时需要将WithTranscoding参数设置为0。  
-7、PublishCdnParams.N：若您想要推流到CDN，可以使用PublishCdnParams.N参数设置，支持最多同时推流到10个CDN地址。若转推地址是腾讯云CDN时，请将IsTencentCdn明确设置为1；若您有转推非腾讯云CDN的需求时，请联系腾讯云技术支持开通，转推非腾讯云会产生转推费用，费用说明请参考官网文档：[云端转推计费说明](https://cloud.tencent.com/document/product/647/82155)。    
-8、FeedBackRoomParams.N：若您想要将混合的音视频流回推到TRTC房间，可以使用FeedBackRoomParams.N参数设置，支持最多同时推10路流回TRTC房间。您需要指定回推的TRTC房间号和机器人ID（UserId），机器人ID不能与普通用户ID冲突，否则会导致转推任务由于机器人用户被踢出TRTC房间而异常结束，您可以通过增加特殊前缀的方式规避。  
-9、SeiParams：若您想要混合的音视频流中增加SEI信息时，可以使用SeiParams参数设置，支持音量布局SEI和叠加转推请求中的SEI，其中音量布局SEI的内容是固定的json结构，具体请看本章节后续的SEI说明。您可以通过FollowIdr参数设置SEI跟随关键帧一起发送。音量布局sei的说明如下：  
-如果您的CDN观众端需要识别到参与混流的主播位置，以及需要识别到参与混流的主播的音量信息，可以通过音量布局sei实现。音量布局sei的payload内容及参数说明如下：
-
-```
-{
-    "app_data":"",
-    "canvas":{
-        "w":1080,
-        "h":960
-    },
-    "regions":[
-        {
-            "uid":"65949987242835883c",
-            "zorder":2,
-            "volume":45,
-            "x":270,
-            "y":480,
-            "w":540,
-            "h":480
-        },
-        {
-            "uid":"659c9d8d242b328d31",
-            "zorder":2,
-            "volume":0,
-            "x":0,
-            "y":0,
-            "w":540,
-            "h":480
-        },
-        {
-            "uid":"64989a82272b308c",
-            "zorder":2,
-            "volume":91,
-            "x":540,
-            "y":0,
-            "w":540,
-            "h":480
-        }
-    ],
-    "ver":"1.0",
-    "ts":1648544726
-}
-```
-canvas：这个是混流信令中VideoEncode设置的宽高，即：混流输出的整个画布宽高。  
-regions：里面是真实混入的用户id和对应的子画面位置，若参与混流的用户未进入TRTC房间或者未开启视频上行，regions中不会包含该用户。  
-uid：代表参与混流的用户ID。  
-zorder：参与混流userid在混流输出的层级。  
-x/y：参与混流userid的子画面在画布的坐标。  
-w/h：参与混流userid的子画面的大小。  
-volume：代表混流用户的音量，取值范围为0-100，值越大，代表该用户参与混流时的音量越大。  
-ts：是输出sei的服务器本地秒级时戳。   
-ver：可以忽略。
-
-其它使用注意事项：  
-1、使用混流转推接口时，您需要先调用启动转推任务接口（StartPublishCdnStream），获取启动转推任务响应中的任务ID标识（TaskId）。后续传入任务ID标识（TaskId）来更新转推任务（UpdatePublishCdnStream）和停止转推任务（StopPublishCdnStream）。  
-2、转推API不支持发起到TRTC控制台配置的自动旁路任务，以及通过TRTC SDK进房接口中设置的自定义流ID的旁路任务。  
-3、为了确保转推链接的稳定，同一个转推任务不支持纯音频、音视频、纯视频之间的切换。  
-4、为了确保转推链接的稳定，不支持update时更新视频参数（codec）和音频参数（codec、采样率、码率、声道数）。  
-5、发起单流旁路任务时，AudioParams和VideoParams都填写表示音视频旁路，如果仅填写AudioParams表示纯音频旁路，任务进行过程中不支持纯音频到音视频的切换。音视频旁路时，VideoParams中的Width、Height、Fps、BitRate、Gop需要按照真实上行参数填写。  
-6、更新请求中必须携带SequenceNumber参数，用于防止请求乱序。客户保证对同一个任务更新时的SequenceNumber参数递增，否则会导致混流任务更新失败。  
-7、调用api时region选择说明：如果应用id是1400xxx时，region可填北京、上海、广州、香港，如果您的cdn观众主要在海外，请选择香港；如果应用id是200xxx或400xxx时，region请选择新加坡。  
-8、回推到TRTC房间的流不会参与其他回推房间任务的混流，满足下面条件之一时，可以参与其他转推cdn任务的混流: (1) 转推cdn任务在视频参数中通过具名方式指定推流机器人参与混流；(2) 转推cdn任务在音频参数中通过白名单方式指定推流机器人参与混流；(3) 转推cdn任务参与混流用户的房间号与回推机器人对应混流用户的房间号完全不同。  
-9、您可以在主播进房前，提前创建转推任务，结束转推任务时需要主动调用停止接口。如果您没有调用停止转推任务接口时，腾讯云后台会按照所有参与混流的用户没有任何数据上行的时间算起，直到超过启动转推任务时设置的超时时间（AgentParams.MaxIdleTime）为止，自动停止混流转推任务。
+注意：
+您可以在控制台开通旁路转推回调功能，对转推 CDN 状态的事件进行监控，回调请参考文档：[旁路转推回调说明](https://cloud.tencent.com/document/product/647/88552)  
+您发起混流转推任务时，可能会产生如下费用：  
+MCU 混流转码费用，请参考文档：[云端混流转码计费说明](https://cloud.tencent.com/document/product/647/49446)  
+转推非腾讯云 CDN 费用，请参考文档：[云端转推计费说明](https://cloud.tencent.com/document/product/647/82155)
      * @param req StartPublishCdnStreamRequest
      * @return StartPublishCdnStreamResponse
      * @throws TencentCloudSDKException
      */
     public StartPublishCdnStreamResponse StartPublishCdnStream(StartPublishCdnStreamRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StartPublishCdnStreamResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StartPublishCdnStreamResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StartPublishCdnStream");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StartPublishCdnStream", StartPublishCdnStreamResponse.class);
+    }
+
+    /**
+     *将一个在线媒体流推到TRTC房间，更多功能说明见[输入媒体流进房](https://cloud.tencent.com/document/product/647/102957#50940aad-d90f-4473-9f46-d5dd46917653)。
+使用输入在线媒体流功能需先订阅 [尊享版或旗舰版套餐包](https://cloud.tencent.com/document/product/647/85386) 解锁能力位。
+     * @param req StartStreamIngestRequest
+     * @return StartStreamIngestResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartStreamIngestResponse StartStreamIngest(StartStreamIngestRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StartStreamIngest", StartStreamIngestResponse.class);
+    }
+
+    /**
+     *通过此接口可以发起 WEB 页面录制任务，在接口参数中指定录制 URL，录制分辨率，录制结果存储等参数。
+因为参数或API逻辑问题会立即返回结果。而因为页面问题，如页面无法访问，会在回调中返回结果，请关注。
+     * @param req StartWebRecordRequest
+     * @return StartWebRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartWebRecordResponse StartWebRecord(StartWebRecordRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StartWebRecord", StartWebRecordResponse.class);
+    }
+
+    /**
+     *停止AI对话任务
+     * @param req StopAIConversationRequest
+     * @return StopAIConversationResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopAIConversationResponse StopAIConversation(StopAIConversationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StopAIConversation", StopAIConversationResponse.class);
+    }
+
+    /**
+     *停止AI转录任务。
+     * @param req StopAITranscriptionRequest
+     * @return StopAITranscriptionResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopAITranscriptionResponse StopAITranscription(StopAITranscriptionRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StopAITranscription", StopAITranscriptionResponse.class);
     }
 
     /**
@@ -934,18 +759,8 @@ ver：可以忽略。
      * @throws TencentCloudSDKException
      */
     public StopMCUMixTranscodeResponse StopMCUMixTranscode(StopMCUMixTranscodeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopMCUMixTranscodeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopMCUMixTranscodeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopMCUMixTranscode");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopMCUMixTranscode", StopMCUMixTranscodeResponse.class);
     }
 
     /**
@@ -955,61 +770,77 @@ ver：可以忽略。
      * @throws TencentCloudSDKException
      */
     public StopMCUMixTranscodeByStrRoomIdResponse StopMCUMixTranscodeByStrRoomId(StopMCUMixTranscodeByStrRoomIdRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopMCUMixTranscodeByStrRoomIdResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopMCUMixTranscodeByStrRoomIdResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopMCUMixTranscodeByStrRoomId");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopMCUMixTranscodeByStrRoomId", StopMCUMixTranscodeByStrRoomIdResponse.class);
     }
 
     /**
-     *停止转推任务。
+     *接口说明：
+停止指定的混流转推任务。如果没有调用 Stop 接口停止任务，所有参与混流转推的主播离开 TRTC 房间超过 AgentParams.MaxIdleTime 设置的时间后，任务也会自动停止。
      * @param req StopPublishCdnStreamRequest
      * @return StopPublishCdnStreamResponse
      * @throws TencentCloudSDKException
      */
     public StopPublishCdnStreamResponse StopPublishCdnStream(StopPublishCdnStreamRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopPublishCdnStreamResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopPublishCdnStreamResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopPublishCdnStream");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopPublishCdnStream", StopPublishCdnStreamResponse.class);
     }
 
     /**
-     *更新转推任务。
-注：请参见启动转推任务的接口说明和使用说明。
+     *停止一个输入在线媒体流任务。
+     * @param req StopStreamIngestRequest
+     * @return StopStreamIngestResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopStreamIngestResponse StopStreamIngest(StopStreamIngestRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StopStreamIngest", StopStreamIngestResponse.class);
+    }
+
+    /**
+     *停止页面录制任务
+     * @param req StopWebRecordRequest
+     * @return StopWebRecordResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopWebRecordResponse StopWebRecord(StopWebRecordRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StopWebRecord", StopWebRecordResponse.class);
+    }
+
+    /**
+     *更新AIConversation参数
+     * @param req UpdateAIConversationRequest
+     * @return UpdateAIConversationResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateAIConversationResponse UpdateAIConversation(UpdateAIConversationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdateAIConversation", UpdateAIConversationResponse.class);
+    }
+
+    /**
+     *接口说明：
+成功发起混流转推后，可以使用此接口来更新任务。仅在任务进行时有效，任务退出后更新将会返回错误。更新操作为增量更新模式。
+注意：为了保障推流的稳定性，更新不支持任务在纯音频、音视频、纯视频之间进行切换。
      * @param req UpdatePublishCdnStreamRequest
      * @return UpdatePublishCdnStreamResponse
      * @throws TencentCloudSDKException
      */
     public UpdatePublishCdnStreamResponse UpdatePublishCdnStream(UpdatePublishCdnStreamRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdatePublishCdnStreamResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdatePublishCdnStreamResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdatePublishCdnStream");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdatePublishCdnStream", UpdatePublishCdnStreamResponse.class);
+    }
+
+    /**
+     *更新输入在线媒体流任务的StreamUrl
+     * @param req UpdateStreamIngestRequest
+     * @return UpdateStreamIngestResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateStreamIngestResponse UpdateStreamIngest(UpdateStreamIngestRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdateStreamIngest", UpdateStreamIngestResponse.class);
     }
 
 }

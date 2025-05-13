@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePreparedPersonalEsignRequest extends AbstractModel{
+public class CreatePreparedPersonalEsignRequest extends AbstractModel {
 
     /**
     * 个人用户姓名
@@ -30,33 +31,35 @@ public class CreatePreparedPersonalEsignRequest extends AbstractModel{
     private String UserName;
 
     /**
-    * 身份证件号码
+    * 证件号码，应符合以下规则
+<ul><li> 中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
     */
     @SerializedName("IdCardNumber")
     @Expose
     private String IdCardNumber;
 
     /**
-    * 印章名称
+    * 印章名称，长度1-50个字。
     */
     @SerializedName("SealName")
     @Expose
     private String SealName;
 
     /**
-    * 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
+    * 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 身份证件类型:
-ID_CARD 身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 中国香港
-FOREIGN_ID_CARD 境外身份
-HONGKONG_MACAO_AND_TAIWAN 中国台湾
+    * 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证 (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同 中国大陆居民身份证)</li></ul>
     */
     @SerializedName("IdCardType")
     @Expose
@@ -86,7 +89,7 @@ HONGKONG_MACAO_AND_TAIWAN 中国台湾
     private String Mobile;
 
     /**
-    * 是否开通自动签，该功能需联系运营工作人员开通后使用
+    * 此字段已废弃，请勿继续使用。
     */
     @SerializedName("EnableAutoSign")
     @Expose
@@ -105,10 +108,12 @@ BLUE 蓝色。
     private String SealColor;
 
     /**
-    * 是否处理印章
-默认不做印章处理。
-取值：false：不做任何处理；
-true：做透明化处理和颜色增强。
+    * 是否处理印章，默认不做印章处理。
+取值如下：
+<ul>
+<li>false：不做任何处理；</li>
+<li>true：做透明化处理和颜色增强。</li>
+</ul>
     */
     @SerializedName("ProcessSeal")
     @Expose
@@ -124,11 +129,29 @@ true：做透明化处理和颜色增强。
     private String FileId;
 
     /**
-    * 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
+
+    /**
+    * 设置用户开通自动签时是否绑定个人自动签账号许可。一旦绑定后，将扣减购买的个人自动签账号许可一次（1年有效期），不可解绑释放。不传默认为绑定自动签账号许可。 0-绑定个人自动签账号许可，开通后将扣减购买的个人自动签账号许可一次 1-不绑定，发起合同时将按标准合同套餐进行扣减	
+    */
+    @SerializedName("LicenseType")
+    @Expose
+    private Long LicenseType;
+
+    /**
+    * 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+    */
+    @SerializedName("SceneKey")
+    @Expose
+    private String SceneKey;
 
     /**
      * Get 个人用户姓名 
@@ -147,84 +170,92 @@ true：做透明化处理和颜色增强。
     }
 
     /**
-     * Get 身份证件号码 
-     * @return IdCardNumber 身份证件号码
+     * Get 证件号码，应符合以下规则
+<ul><li> 中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul> 
+     * @return IdCardNumber 证件号码，应符合以下规则
+<ul><li> 中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
      */
     public String getIdCardNumber() {
         return this.IdCardNumber;
     }
 
     /**
-     * Set 身份证件号码
-     * @param IdCardNumber 身份证件号码
+     * Set 证件号码，应符合以下规则
+<ul><li> 中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
+     * @param IdCardNumber 证件号码，应符合以下规则
+<ul><li> 中国大陆居民身份证号码应为18位字符串，由数字和大写字母X组成（如存在X，请大写）。</li>
+<li>中国港澳居民来往内地通行证号码共11位。第1位为字母，“H”字头签发给中国香港居民，“M”字头签发给中国澳门居民；第2位至第11位为数字。。</li>
+<li>中国港澳台居民居住证号码编码规则与中国大陆身份证相同，应为18位字符串。</li></ul>
      */
     public void setIdCardNumber(String IdCardNumber) {
         this.IdCardNumber = IdCardNumber;
     }
 
     /**
-     * Get 印章名称 
-     * @return SealName 印章名称
+     * Get 印章名称，长度1-50个字。 
+     * @return SealName 印章名称，长度1-50个字。
      */
     public String getSealName() {
         return this.SealName;
     }
 
     /**
-     * Set 印章名称
-     * @param SealName 印章名称
+     * Set 印章名称，长度1-50个字。
+     * @param SealName 印章名称，长度1-50个字。
      */
     public void setSealName(String SealName) {
         this.SealName = SealName;
     }
 
     /**
-     * Get 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。 
-     * @return Operator 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
+     * Get 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
-     * @param Operator 调用方用户信息，userId 必填。支持填入集团子公司经办人 userId代发合同。
+     * Set 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 身份证件类型:
-ID_CARD 身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 中国香港
-FOREIGN_ID_CARD 境外身份
-HONGKONG_MACAO_AND_TAIWAN 中国台湾 
-     * @return IdCardType 身份证件类型:
-ID_CARD 身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 中国香港
-FOREIGN_ID_CARD 境外身份
-HONGKONG_MACAO_AND_TAIWAN 中国台湾
+     * Get 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证 (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同 中国大陆居民身份证)</li></ul> 
+     * @return IdCardType 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证 (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同 中国大陆居民身份证)</li></ul>
      */
     public String getIdCardType() {
         return this.IdCardType;
     }
 
     /**
-     * Set 身份证件类型:
-ID_CARD 身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 中国香港
-FOREIGN_ID_CARD 境外身份
-HONGKONG_MACAO_AND_TAIWAN 中国台湾
-     * @param IdCardType 身份证件类型:
-ID_CARD 身份证
-PASSPORT 护照
-HONGKONG_AND_MACAO 中国香港
-FOREIGN_ID_CARD 境外身份
-HONGKONG_MACAO_AND_TAIWAN 中国台湾
+     * Set 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证 (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同 中国大陆居民身份证)</li></ul>
+     * @param IdCardType 证件类型，支持以下类型
+<ul><li>ID_CARD : 中国大陆居民身份证 (默认值)</li>
+<li>HONGKONG_AND_MACAO : 中国港澳居民来往内地通行证</li>
+<li>HONGKONG_MACAO_AND_TAIWAN : 中国港澳台居民居住证(格式同 中国大陆居民身份证)</li></ul>
      */
     public void setIdCardType(String IdCardType) {
         this.IdCardType = IdCardType;
@@ -291,16 +322,16 @@ HONGKONG_MACAO_AND_TAIWAN 中国台湾
     }
 
     /**
-     * Get 是否开通自动签，该功能需联系运营工作人员开通后使用 
-     * @return EnableAutoSign 是否开通自动签，该功能需联系运营工作人员开通后使用
+     * Get 此字段已废弃，请勿继续使用。 
+     * @return EnableAutoSign 此字段已废弃，请勿继续使用。
      */
     public Boolean getEnableAutoSign() {
         return this.EnableAutoSign;
     }
 
     /**
-     * Set 是否开通自动签，该功能需联系运营工作人员开通后使用
-     * @param EnableAutoSign 是否开通自动签，该功能需联系运营工作人员开通后使用
+     * Set 此字段已废弃，请勿继续使用。
+     * @param EnableAutoSign 此字段已废弃，请勿继续使用。
      */
     public void setEnableAutoSign(Boolean EnableAutoSign) {
         this.EnableAutoSign = EnableAutoSign;
@@ -343,28 +374,36 @@ BLUE 蓝色。
     }
 
     /**
-     * Get 是否处理印章
-默认不做印章处理。
-取值：false：不做任何处理；
-true：做透明化处理和颜色增强。 
-     * @return ProcessSeal 是否处理印章
-默认不做印章处理。
-取值：false：不做任何处理；
-true：做透明化处理和颜色增强。
+     * Get 是否处理印章，默认不做印章处理。
+取值如下：
+<ul>
+<li>false：不做任何处理；</li>
+<li>true：做透明化处理和颜色增强。</li>
+</ul> 
+     * @return ProcessSeal 是否处理印章，默认不做印章处理。
+取值如下：
+<ul>
+<li>false：不做任何处理；</li>
+<li>true：做透明化处理和颜色增强。</li>
+</ul>
      */
     public Boolean getProcessSeal() {
         return this.ProcessSeal;
     }
 
     /**
-     * Set 是否处理印章
-默认不做印章处理。
-取值：false：不做任何处理；
-true：做透明化处理和颜色增强。
-     * @param ProcessSeal 是否处理印章
-默认不做印章处理。
-取值：false：不做任何处理；
-true：做透明化处理和颜色增强。
+     * Set 是否处理印章，默认不做印章处理。
+取值如下：
+<ul>
+<li>false：不做任何处理；</li>
+<li>true：做透明化处理和颜色增强。</li>
+</ul>
+     * @param ProcessSeal 是否处理印章，默认不做印章处理。
+取值如下：
+<ul>
+<li>false：不做任何处理；</li>
+<li>true：做透明化处理和颜色增强。</li>
+</ul>
      */
     public void setProcessSeal(Boolean ProcessSeal) {
         this.ProcessSeal = ProcessSeal;
@@ -395,19 +434,67 @@ true：做透明化处理和颜色增强。
     }
 
     /**
-     * Get 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填 
-     * @return Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
-     * @param Agent 代理相关应用信息，如集团主企业代子企业操作的场景中ProxyOrganizationId必填
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
+    }
+
+    /**
+     * Get 设置用户开通自动签时是否绑定个人自动签账号许可。一旦绑定后，将扣减购买的个人自动签账号许可一次（1年有效期），不可解绑释放。不传默认为绑定自动签账号许可。 0-绑定个人自动签账号许可，开通后将扣减购买的个人自动签账号许可一次 1-不绑定，发起合同时将按标准合同套餐进行扣减	 
+     * @return LicenseType 设置用户开通自动签时是否绑定个人自动签账号许可。一旦绑定后，将扣减购买的个人自动签账号许可一次（1年有效期），不可解绑释放。不传默认为绑定自动签账号许可。 0-绑定个人自动签账号许可，开通后将扣减购买的个人自动签账号许可一次 1-不绑定，发起合同时将按标准合同套餐进行扣减	
+     */
+    public Long getLicenseType() {
+        return this.LicenseType;
+    }
+
+    /**
+     * Set 设置用户开通自动签时是否绑定个人自动签账号许可。一旦绑定后，将扣减购买的个人自动签账号许可一次（1年有效期），不可解绑释放。不传默认为绑定自动签账号许可。 0-绑定个人自动签账号许可，开通后将扣减购买的个人自动签账号许可一次 1-不绑定，发起合同时将按标准合同套餐进行扣减	
+     * @param LicenseType 设置用户开通自动签时是否绑定个人自动签账号许可。一旦绑定后，将扣减购买的个人自动签账号许可一次（1年有效期），不可解绑释放。不传默认为绑定自动签账号许可。 0-绑定个人自动签账号许可，开通后将扣减购买的个人自动签账号许可一次 1-不绑定，发起合同时将按标准合同套餐进行扣减	
+     */
+    public void setLicenseType(Long LicenseType) {
+        this.LicenseType = LicenseType;
+    }
+
+    /**
+     * Get 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN` 
+     * @return SceneKey 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+     */
+    public String getSceneKey() {
+        return this.SceneKey;
+    }
+
+    /**
+     * Set 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+     * @param SceneKey 自动签使用的场景值, 可以选择的场景值如下:
+<ul><li> **E_PRESCRIPTION_AUTO_SIGN** :  电子处方场景</li><li> **OTHER** :  通用场景</li></ul>
+
+注: `不传默认为处方单场景，即E_PRESCRIPTION_AUTO_SIGN`
+     */
+    public void setSceneKey(String SceneKey) {
+        this.SceneKey = SceneKey;
     }
 
     public CreatePreparedPersonalEsignRequest() {
@@ -457,6 +544,12 @@ true：做透明化处理和颜色增强。
         if (source.Agent != null) {
             this.Agent = new Agent(source.Agent);
         }
+        if (source.LicenseType != null) {
+            this.LicenseType = new Long(source.LicenseType);
+        }
+        if (source.SceneKey != null) {
+            this.SceneKey = new String(source.SceneKey);
+        }
     }
 
 
@@ -477,6 +570,8 @@ true：做透明化处理和颜色增强。
         this.setParamSimple(map, prefix + "ProcessSeal", this.ProcessSeal);
         this.setParamSimple(map, prefix + "FileId", this.FileId);
         this.setParamObj(map, prefix + "Agent.", this.Agent);
+        this.setParamSimple(map, prefix + "LicenseType", this.LicenseType);
+        this.setParamSimple(map, prefix + "SceneKey", this.SceneKey);
 
     }
 }

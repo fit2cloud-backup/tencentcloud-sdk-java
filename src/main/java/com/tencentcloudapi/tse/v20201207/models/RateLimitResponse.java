@@ -16,23 +16,22 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RateLimitResponse extends AbstractModel{
+public class RateLimitResponse extends AbstractModel {
 
     /**
     * 自定义响应体
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Body")
     @Expose
     private String Body;
 
     /**
-    * headrs
-注意：此字段可能返回 null，表示取不到有效值。
+    * Headers
     */
     @SerializedName("Headers")
     @Expose
@@ -40,17 +39,14 @@ public class RateLimitResponse extends AbstractModel{
 
     /**
     * http状态码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HttpStatus")
     @Expose
     private Long HttpStatus;
 
     /**
-     * Get 自定义响应体
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自定义响应体 
      * @return Body 自定义响应体
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBody() {
         return this.Body;
@@ -58,39 +54,31 @@ public class RateLimitResponse extends AbstractModel{
 
     /**
      * Set 自定义响应体
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Body 自定义响应体
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBody(String Body) {
         this.Body = Body;
     }
 
     /**
-     * Get headrs
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Headers headrs
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get Headers 
+     * @return Headers Headers
      */
     public KVMapping [] getHeaders() {
         return this.Headers;
     }
 
     /**
-     * Set headrs
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Headers headrs
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set Headers
+     * @param Headers Headers
      */
     public void setHeaders(KVMapping [] Headers) {
         this.Headers = Headers;
     }
 
     /**
-     * Get http状态码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get http状态码 
      * @return HttpStatus http状态码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHttpStatus() {
         return this.HttpStatus;
@@ -98,9 +86,7 @@ public class RateLimitResponse extends AbstractModel{
 
     /**
      * Set http状态码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HttpStatus http状态码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHttpStatus(Long HttpStatus) {
         this.HttpStatus = HttpStatus;

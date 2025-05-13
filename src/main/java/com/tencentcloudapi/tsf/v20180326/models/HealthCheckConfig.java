@@ -16,25 +16,23 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HealthCheckConfig extends AbstractModel{
+public class HealthCheckConfig extends AbstractModel {
 
     /**
     * 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Path")
     @Expose
     private String Path;
 
     /**
-     * Get 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 健康检查路径 
      * @return Path 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPath() {
         return this.Path;
@@ -42,9 +40,7 @@ public class HealthCheckConfig extends AbstractModel{
 
     /**
      * Set 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Path 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPath(String Path) {
         this.Path = Path;

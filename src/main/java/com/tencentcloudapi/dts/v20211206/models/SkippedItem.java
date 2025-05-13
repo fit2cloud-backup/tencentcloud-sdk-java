@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SkippedItem extends AbstractModel{
+public class SkippedItem extends AbstractModel {
 
     /**
     * 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Db")
     @Expose
@@ -32,7 +32,6 @@ public class SkippedItem extends AbstractModel{
 
     /**
     * 表名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Table")
     @Expose
@@ -40,17 +39,14 @@ public class SkippedItem extends AbstractModel{
 
     /**
     * 未发起检查的原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Reason")
     @Expose
     private String Reason;
 
     /**
-     * Get 数据库名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库名 
      * @return Db 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDb() {
         return this.Db;
@@ -58,19 +54,15 @@ public class SkippedItem extends AbstractModel{
 
     /**
      * Set 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Db 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDb(String Db) {
         this.Db = Db;
     }
 
     /**
-     * Get 表名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表名 
      * @return Table 表名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTable() {
         return this.Table;
@@ -78,19 +70,15 @@ public class SkippedItem extends AbstractModel{
 
     /**
      * Set 表名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Table 表名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTable(String Table) {
         this.Table = Table;
     }
 
     /**
-     * Get 未发起检查的原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 未发起检查的原因 
      * @return Reason 未发起检查的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReason() {
         return this.Reason;
@@ -98,9 +86,7 @@ public class SkippedItem extends AbstractModel{
 
     /**
      * Set 未发起检查的原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Reason 未发起检查的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReason(String Reason) {
         this.Reason = Reason;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DateParam extends AbstractModel{
+public class DateParam extends AbstractModel {
 
     /**
     * 时间格式
@@ -31,7 +32,6 @@ public class DateParam extends AbstractModel{
 
     /**
     * 输入类型，string，unix时间戳，默认string
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetType")
     @Expose
@@ -39,7 +39,6 @@ public class DateParam extends AbstractModel{
 
     /**
     * 时区，默认GMT+8
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeZone")
     @Expose
@@ -62,10 +61,8 @@ public class DateParam extends AbstractModel{
     }
 
     /**
-     * Get 输入类型，string，unix时间戳，默认string
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输入类型，string，unix时间戳，默认string 
      * @return TargetType 输入类型，string，unix时间戳，默认string
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTargetType() {
         return this.TargetType;
@@ -73,19 +70,15 @@ public class DateParam extends AbstractModel{
 
     /**
      * Set 输入类型，string，unix时间戳，默认string
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetType 输入类型，string，unix时间戳，默认string
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetType(String TargetType) {
         this.TargetType = TargetType;
     }
 
     /**
-     * Get 时区，默认GMT+8
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时区，默认GMT+8 
      * @return TimeZone 时区，默认GMT+8
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimeZone() {
         return this.TimeZone;
@@ -93,9 +86,7 @@ public class DateParam extends AbstractModel{
 
     /**
      * Set 时区，默认GMT+8
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeZone 时区，默认GMT+8
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeZone(String TimeZone) {
         this.TimeZone = TimeZone;

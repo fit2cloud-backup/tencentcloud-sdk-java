@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
+public class DescribeHostDeployRecordDetailResponse extends AbstractModel {
 
     /**
-    * 总数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 部署记录总数
     */
     @SerializedName("TotalCount")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
     * 证书部署记录列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployRecordDetailList")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
     * 成功总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SuccessTotalCount")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
     * 失败总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailedTotalCount")
     @Expose
@@ -56,44 +53,37 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
     * 部署中总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RunningTotalCount")
     @Expose
     private Long RunningTotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 总数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 部署记录总数 
+     * @return TotalCount 部署记录总数
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 总数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 部署记录总数
+     * @param TotalCount 部署记录总数
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 证书部署记录列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 证书部署记录列表 
      * @return DeployRecordDetailList 证书部署记录列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DeployRecordDetail [] getDeployRecordDetailList() {
         return this.DeployRecordDetailList;
@@ -101,19 +91,15 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
      * Set 证书部署记录列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeployRecordDetailList 证书部署记录列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployRecordDetailList(DeployRecordDetail [] DeployRecordDetailList) {
         this.DeployRecordDetailList = DeployRecordDetailList;
     }
 
     /**
-     * Get 成功总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 成功总数 
      * @return SuccessTotalCount 成功总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSuccessTotalCount() {
         return this.SuccessTotalCount;
@@ -121,19 +107,15 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
      * Set 成功总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SuccessTotalCount 成功总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSuccessTotalCount(Long SuccessTotalCount) {
         this.SuccessTotalCount = SuccessTotalCount;
     }
 
     /**
-     * Get 失败总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 失败总数 
      * @return FailedTotalCount 失败总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFailedTotalCount() {
         return this.FailedTotalCount;
@@ -141,19 +123,15 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
      * Set 失败总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailedTotalCount 失败总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailedTotalCount(Long FailedTotalCount) {
         this.FailedTotalCount = FailedTotalCount;
     }
 
     /**
-     * Get 部署中总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署中总数 
      * @return RunningTotalCount 部署中总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRunningTotalCount() {
         return this.RunningTotalCount;
@@ -161,25 +139,23 @@ public class DescribeHostDeployRecordDetailResponse extends AbstractModel{
 
     /**
      * Set 部署中总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RunningTotalCount 部署中总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRunningTotalCount(Long RunningTotalCount) {
         this.RunningTotalCount = RunningTotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

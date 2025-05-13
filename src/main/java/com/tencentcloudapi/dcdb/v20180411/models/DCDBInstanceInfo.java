@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DCDBInstanceInfo extends AbstractModel{
+public class DCDBInstanceInfo extends AbstractModel {
 
     /**
     * 实例ID
@@ -269,7 +270,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Locker")
     @Expose
@@ -298,7 +298,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ipv6Flag")
     @Expose
@@ -306,7 +305,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vipv6")
     @Expose
@@ -314,7 +312,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WanVipv6")
     @Expose
@@ -322,7 +319,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WanPortIpv6")
     @Expose
@@ -330,7 +326,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WanStatusIpv6")
     @Expose
@@ -338,7 +333,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DcnFlag")
     @Expose
@@ -346,7 +340,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DcnStatus")
     @Expose
@@ -354,7 +347,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DcnDstNum")
     @Expose
@@ -362,7 +354,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceType")
     @Expose
@@ -370,7 +361,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 实例标签信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceTags")
     @Expose
@@ -378,7 +368,6 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
     * 数据库引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DbVersionId")
     @Expose
@@ -945,10 +934,8 @@ public class DCDBInstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例处于异步任务状态时，表示异步任务流程ID 
      * @return Locker 实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLocker() {
         return this.Locker;
@@ -956,9 +943,7 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Locker 实例处于异步任务状态时，表示异步任务流程ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocker(Long Locker) {
         this.Locker = Locker;
@@ -1013,10 +998,8 @@ public class DCDBInstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例IPv6标志 
      * @return Ipv6Flag 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIpv6Flag() {
         return this.Ipv6Flag;
@@ -1024,19 +1007,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ipv6Flag 实例IPv6标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIpv6Flag(Long Ipv6Flag) {
         this.Ipv6Flag = Ipv6Flag;
     }
 
     /**
-     * Get 内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内网IPv6 
      * @return Vipv6 内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVipv6() {
         return this.Vipv6;
@@ -1044,19 +1023,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vipv6 内网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVipv6(String Vipv6) {
         this.Vipv6 = Vipv6;
     }
 
     /**
-     * Get 外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外网IPv6 
      * @return WanVipv6 外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getWanVipv6() {
         return this.WanVipv6;
@@ -1064,19 +1039,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WanVipv6 外网IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWanVipv6(String WanVipv6) {
         this.WanVipv6 = WanVipv6;
     }
 
     /**
-     * Get 外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外网IPv6端口 
      * @return WanPortIpv6 外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWanPortIpv6() {
         return this.WanPortIpv6;
@@ -1084,19 +1055,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WanPortIpv6 外网IPv6端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWanPortIpv6(Long WanPortIpv6) {
         this.WanPortIpv6 = WanPortIpv6;
     }
 
     /**
-     * Get 外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外网IPv6状态 
      * @return WanStatusIpv6 外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWanStatusIpv6() {
         return this.WanStatusIpv6;
@@ -1104,19 +1071,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WanStatusIpv6 外网IPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWanStatusIpv6(Long WanStatusIpv6) {
         this.WanStatusIpv6 = WanStatusIpv6;
     }
 
     /**
-     * Get DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DCN标志，0-无，1-主实例，2-灾备实例 
      * @return DcnFlag DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDcnFlag() {
         return this.DcnFlag;
@@ -1124,19 +1087,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DcnFlag DCN标志，0-无，1-主实例，2-灾备实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDcnFlag(Long DcnFlag) {
         this.DcnFlag = DcnFlag;
     }
 
     /**
-     * Get DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DCN状态，0-无，1-创建中，2-同步中，3-已断开 
      * @return DcnStatus DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDcnStatus() {
         return this.DcnStatus;
@@ -1144,19 +1103,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DcnStatus DCN状态，0-无，1-创建中，2-同步中，3-已断开
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDcnStatus(Long DcnStatus) {
         this.DcnStatus = DcnStatus;
     }
 
     /**
-     * Get DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DCN灾备实例数 
      * @return DcnDstNum DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDcnDstNum() {
         return this.DcnDstNum;
@@ -1164,19 +1119,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DcnDstNum DCN灾备实例数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDcnDstNum(Long DcnDstNum) {
         this.DcnDstNum = DcnDstNum;
     }
 
     /**
-     * Get 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型） 
      * @return InstanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceType() {
         return this.InstanceType;
@@ -1184,19 +1135,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceType(Long InstanceType) {
         this.InstanceType = InstanceType;
     }
 
     /**
-     * Get 实例标签信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例标签信息 
      * @return ResourceTags 实例标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ResourceTag [] getResourceTags() {
         return this.ResourceTags;
@@ -1204,19 +1151,15 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceTags 实例标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceTags(ResourceTag [] ResourceTags) {
         this.ResourceTags = ResourceTags;
     }
 
     /**
-     * Get 数据库引擎版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库引擎版本 
      * @return DbVersionId 数据库引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDbVersionId() {
         return this.DbVersionId;
@@ -1224,9 +1167,7 @@ public class DCDBInstanceInfo extends AbstractModel{
 
     /**
      * Set 数据库引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DbVersionId 数据库引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDbVersionId(String DbVersionId) {
         this.DbVersionId = DbVersionId;

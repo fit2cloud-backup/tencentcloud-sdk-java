@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeStreamTaskLogListRequest extends AbstractModel{
+public class DescribeStreamTaskLogListRequest extends AbstractModel {
 
     /**
     * 项目ID
@@ -84,6 +85,13 @@ public class DescribeStreamTaskLogListRequest extends AbstractModel{
     @SerializedName("RunningOrderId")
     @Expose
     private Long RunningOrderId;
+
+    /**
+    * 关键字
+    */
+    @SerializedName("Keyword")
+    @Expose
+    private String Keyword;
 
     /**
      * Get 项目ID 
@@ -229,6 +237,22 @@ public class DescribeStreamTaskLogListRequest extends AbstractModel{
         this.RunningOrderId = RunningOrderId;
     }
 
+    /**
+     * Get 关键字 
+     * @return Keyword 关键字
+     */
+    public String getKeyword() {
+        return this.Keyword;
+    }
+
+    /**
+     * Set 关键字
+     * @param Keyword 关键字
+     */
+    public void setKeyword(String Keyword) {
+        this.Keyword = Keyword;
+    }
+
     public DescribeStreamTaskLogListRequest() {
     }
 
@@ -264,6 +288,9 @@ public class DescribeStreamTaskLogListRequest extends AbstractModel{
         if (source.RunningOrderId != null) {
             this.RunningOrderId = new Long(source.RunningOrderId);
         }
+        if (source.Keyword != null) {
+            this.Keyword = new String(source.Keyword);
+        }
     }
 
 
@@ -280,6 +307,7 @@ public class DescribeStreamTaskLogListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "OrderType", this.OrderType);
         this.setParamSimple(map, prefix + "RunningOrderId", this.RunningOrderId);
+        this.setParamSimple(map, prefix + "Keyword", this.Keyword);
 
     }
 }

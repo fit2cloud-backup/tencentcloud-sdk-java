@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ciam.v20220331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LogMessage extends AbstractModel{
+public class LogMessage extends AbstractModel {
 
     /**
     * 日志标识
@@ -31,7 +32,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 租户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TenantId")
     @Expose
@@ -39,7 +39,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 用户池ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserStoreId")
     @Expose
@@ -47,7 +46,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 事件编码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventCode")
     @Expose
@@ -55,7 +53,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 事件发生时间戳，单位：毫秒
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventDate")
     @Expose
@@ -74,7 +71,6 @@ public class LogMessage extends AbstractModel{
 
 <li> **TENANT** </li>  租户
 <li> **USER** </li>  用户
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Participant")
     @Expose
@@ -82,7 +78,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 应用clientId
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationClientId")
     @Expose
@@ -90,7 +85,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationName")
     @Expose
@@ -98,7 +92,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 认证源ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthSourceId")
     @Expose
@@ -106,7 +99,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 认证源名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthSourceName")
     @Expose
@@ -114,7 +106,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 认证源类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthSourceType")
     @Expose
@@ -122,7 +113,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 认证源类别
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthSourceCategory")
     @Expose
@@ -130,7 +120,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * IP地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Ip")
     @Expose
@@ -138,7 +127,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 用户代理
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserAgent")
     @Expose
@@ -146,7 +134,6 @@ public class LogMessage extends AbstractModel{
 
     /**
     * 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserId")
     @Expose
@@ -159,6 +146,14 @@ public class LogMessage extends AbstractModel{
     @SerializedName("Detail")
     @Expose
     private String Detail;
+
+    /**
+    * 日志结果
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ActionResult")
+    @Expose
+    private String ActionResult;
 
     /**
      * Get 日志标识 
@@ -177,10 +172,8 @@ public class LogMessage extends AbstractModel{
     }
 
     /**
-     * Get 租户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 租户ID 
      * @return TenantId 租户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTenantId() {
         return this.TenantId;
@@ -188,19 +181,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 租户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TenantId 租户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTenantId(String TenantId) {
         this.TenantId = TenantId;
     }
 
     /**
-     * Get 用户池ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户池ID 
      * @return UserStoreId 用户池ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserStoreId() {
         return this.UserStoreId;
@@ -208,19 +197,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 用户池ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserStoreId 用户池ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserStoreId(String UserStoreId) {
         this.UserStoreId = UserStoreId;
     }
 
     /**
-     * Get 事件编码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件编码 
      * @return EventCode 事件编码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEventCode() {
         return this.EventCode;
@@ -228,19 +213,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 事件编码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventCode 事件编码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventCode(String EventCode) {
         this.EventCode = EventCode;
     }
 
     /**
-     * Get 事件发生时间戳，单位：毫秒
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件发生时间戳，单位：毫秒 
      * @return EventDate 事件发生时间戳，单位：毫秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEventDate() {
         return this.EventDate;
@@ -248,9 +229,7 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 事件发生时间戳，单位：毫秒
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventDate 事件发生时间戳，单位：毫秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventDate(Long EventDate) {
         this.EventDate = EventDate;
@@ -280,13 +259,11 @@ public class LogMessage extends AbstractModel{
      * Get 事件参与者
 
 <li> **TENANT** </li>  租户
-<li> **USER** </li>  用户
-注意：此字段可能返回 null，表示取不到有效值。 
+<li> **USER** </li>  用户 
      * @return Participant 事件参与者
 
 <li> **TENANT** </li>  租户
 <li> **USER** </li>  用户
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParticipant() {
         return this.Participant;
@@ -297,22 +274,18 @@ public class LogMessage extends AbstractModel{
 
 <li> **TENANT** </li>  租户
 <li> **USER** </li>  用户
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Participant 事件参与者
 
 <li> **TENANT** </li>  租户
 <li> **USER** </li>  用户
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParticipant(String Participant) {
         this.Participant = Participant;
     }
 
     /**
-     * Get 应用clientId
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用clientId 
      * @return ApplicationClientId 应用clientId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationClientId() {
         return this.ApplicationClientId;
@@ -320,19 +293,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 应用clientId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationClientId 应用clientId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationClientId(String ApplicationClientId) {
         this.ApplicationClientId = ApplicationClientId;
     }
 
     /**
-     * Get 应用名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用名称 
      * @return ApplicationName 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationName() {
         return this.ApplicationName;
@@ -340,19 +309,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationName 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationName(String ApplicationName) {
         this.ApplicationName = ApplicationName;
     }
 
     /**
-     * Get 认证源ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 认证源ID 
      * @return AuthSourceId 认证源ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAuthSourceId() {
         return this.AuthSourceId;
@@ -360,19 +325,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 认证源ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthSourceId 认证源ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthSourceId(String AuthSourceId) {
         this.AuthSourceId = AuthSourceId;
     }
 
     /**
-     * Get 认证源名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 认证源名称 
      * @return AuthSourceName 认证源名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAuthSourceName() {
         return this.AuthSourceName;
@@ -380,19 +341,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 认证源名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthSourceName 认证源名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthSourceName(String AuthSourceName) {
         this.AuthSourceName = AuthSourceName;
     }
 
     /**
-     * Get 认证源类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 认证源类型 
      * @return AuthSourceType 认证源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAuthSourceType() {
         return this.AuthSourceType;
@@ -400,19 +357,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 认证源类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthSourceType 认证源类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthSourceType(String AuthSourceType) {
         this.AuthSourceType = AuthSourceType;
     }
 
     /**
-     * Get 认证源类别
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 认证源类别 
      * @return AuthSourceCategory 认证源类别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAuthSourceCategory() {
         return this.AuthSourceCategory;
@@ -420,19 +373,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 认证源类别
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthSourceCategory 认证源类别
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthSourceCategory(String AuthSourceCategory) {
         this.AuthSourceCategory = AuthSourceCategory;
     }
 
     /**
-     * Get IP地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get IP地址 
      * @return Ip IP地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIp() {
         return this.Ip;
@@ -440,19 +389,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set IP地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Ip IP地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
     }
 
     /**
-     * Get 用户代理
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户代理 
      * @return UserAgent 用户代理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserAgent() {
         return this.UserAgent;
@@ -460,19 +405,15 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 用户代理
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserAgent 用户代理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserAgent(String UserAgent) {
         this.UserAgent = UserAgent;
     }
 
     /**
-     * Get 用户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户ID 
      * @return UserId 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserId() {
         return this.UserId;
@@ -480,9 +421,7 @@ public class LogMessage extends AbstractModel{
 
     /**
      * Set 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserId 用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserId(String UserId) {
         this.UserId = UserId;
@@ -506,6 +445,26 @@ public class LogMessage extends AbstractModel{
      */
     public void setDetail(String Detail) {
         this.Detail = Detail;
+    }
+
+    /**
+     * Get 日志结果
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ActionResult 日志结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getActionResult() {
+        return this.ActionResult;
+    }
+
+    /**
+     * Set 日志结果
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ActionResult 日志结果
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setActionResult(String ActionResult) {
+        this.ActionResult = ActionResult;
     }
 
     public LogMessage() {
@@ -567,6 +526,9 @@ public class LogMessage extends AbstractModel{
         if (source.Detail != null) {
             this.Detail = new String(source.Detail);
         }
+        if (source.ActionResult != null) {
+            this.ActionResult = new String(source.ActionResult);
+        }
     }
 
 
@@ -591,6 +553,7 @@ public class LogMessage extends AbstractModel{
         this.setParamSimple(map, prefix + "UserAgent", this.UserAgent);
         this.setParamSimple(map, prefix + "UserId", this.UserId);
         this.setParamSimple(map, prefix + "Detail", this.Detail);
+        this.setParamSimple(map, prefix + "ActionResult", this.ActionResult);
 
     }
 }

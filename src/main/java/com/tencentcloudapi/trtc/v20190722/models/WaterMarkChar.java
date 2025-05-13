@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WaterMarkChar extends AbstractModel{
+public class WaterMarkChar extends AbstractModel {
 
     /**
     * 文字水印的起始坐标Y值，从左上角开始
@@ -77,6 +78,15 @@ public class WaterMarkChar extends AbstractModel{
     @SerializedName("BackGroundColor")
     @Expose
     private String BackGroundColor;
+
+    /**
+    * 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+    */
+    @SerializedName("Font")
+    @Expose
+    private String Font;
 
     /**
      * Get 文字水印的起始坐标Y值，从左上角开始 
@@ -206,6 +216,30 @@ public class WaterMarkChar extends AbstractModel{
         this.BackGroundColor = BackGroundColor;
     }
 
+    /**
+     * Get 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans 
+     * @return Font 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+     */
+    public String getFont() {
+        return this.Font;
+    }
+
+    /**
+     * Set 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+     * @param Font 文字水印的字体，支持设置以下值：
+1. Tencent （默认）
+2. SourceHanSans
+     */
+    public void setFont(String Font) {
+        this.Font = Font;
+    }
+
     public WaterMarkChar() {
     }
 
@@ -238,6 +272,9 @@ public class WaterMarkChar extends AbstractModel{
         if (source.BackGroundColor != null) {
             this.BackGroundColor = new String(source.BackGroundColor);
         }
+        if (source.Font != null) {
+            this.Font = new String(source.Font);
+        }
     }
 
 
@@ -253,6 +290,7 @@ public class WaterMarkChar extends AbstractModel{
         this.setParamSimple(map, prefix + "FontSize", this.FontSize);
         this.setParamSimple(map, prefix + "FontColor", this.FontColor);
         this.setParamSimple(map, prefix + "BackGroundColor", this.BackGroundColor);
+        this.setParamSimple(map, prefix + "Font", this.Font);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DriverLicenseOCRRequest extends AbstractModel{
+public class DriverLicenseOCRRequest extends AbstractModel {
 
     /**
     * 图片的 Base64 值。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。
@@ -41,6 +42,7 @@ public class DriverLicenseOCRRequest extends AbstractModel{
     /**
     * FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+DOUBLE 支持自动识别驾驶证正副页单面，和正副双面同框识别
 默认值为：FRONT。
     */
     @SerializedName("CardSide")
@@ -90,9 +92,11 @@ BACK 为驾驶证副页正面（有档案编号的一面）。
     /**
      * Get FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+DOUBLE 支持自动识别驾驶证正副页单面，和正副双面同框识别
 默认值为：FRONT。 
      * @return CardSide FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+DOUBLE 支持自动识别驾驶证正副页单面，和正副双面同框识别
 默认值为：FRONT。
      */
     public String getCardSide() {
@@ -102,9 +106,11 @@ BACK 为驾驶证副页正面（有档案编号的一面）。
     /**
      * Set FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+DOUBLE 支持自动识别驾驶证正副页单面，和正副双面同框识别
 默认值为：FRONT。
      * @param CardSide FRONT 为驾驶证主页正面（有红色印章的一面），
 BACK 为驾驶证副页正面（有档案编号的一面）。
+DOUBLE 支持自动识别驾驶证正副页单面，和正副双面同框识别
 默认值为：FRONT。
      */
     public void setCardSide(String CardSide) {

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IDCardOCRRequest extends AbstractModel{
+public class IDCardOCRRequest extends AbstractModel {
 
     /**
     * 图片的 Base64 值。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。
@@ -58,7 +59,7 @@ DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
-MultiCardDetect，是否开启多卡证检测
+MultiCardDetect，是否开启正反面同框识别（仅支持二代身份证正反页同框识别或临时身份证正反页同框识别）
 ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
@@ -76,6 +77,22 @@ Config = {"CropIdCard":true,"CropPortrait":true}
     @SerializedName("EnableRecognitionRectify")
     @Expose
     private Boolean EnableRecognitionRectify;
+
+    /**
+    * 默认值为false。
+
+此开关需要在反光检测开关开启下才会生效（即此开关生效的前提是config入参里的"ReflectWarn":true），若EnableReflectDetail设置为true，则会返回反光点覆盖区域详情。反光点覆盖区域详情分为四部分：人像照片位置、国徽位置、识别字段位置、其他位置。一个反光点允许覆盖多个区域，且一张图片可能存在多个反光点。
+    */
+    @SerializedName("EnableReflectDetail")
+    @Expose
+    private Boolean EnableReflectDetail;
+
+    /**
+    * 用于控制是否开启日期校验，默认值为true，打开会进行日期校验。
+    */
+    @SerializedName("EnableDateVerify")
+    @Expose
+    private Boolean EnableDateVerify;
 
     /**
      * Get 图片的 Base64 值。要求图片经Base64编码后不超过 7M，分辨率建议500*800以上，支持PNG、JPG、JPEG、BMP格式。建议卡片部分占据图片2/3以上。
@@ -152,7 +169,7 @@ DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
-MultiCardDetect，是否开启多卡证检测
+MultiCardDetect，是否开启正反面同框识别（仅支持二代身份证正反页同框识别或临时身份证正反页同框识别）
 ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
@@ -169,7 +186,7 @@ DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
-MultiCardDetect，是否开启多卡证检测
+MultiCardDetect，是否开启正反面同框识别（仅支持二代身份证正反页同框识别或临时身份证正反页同框识别）
 ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
@@ -192,7 +209,7 @@ DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
-MultiCardDetect，是否开启多卡证检测
+MultiCardDetect，是否开启正反面同框识别（仅支持二代身份证正反页同框识别或临时身份证正反页同框识别）
 ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
@@ -209,7 +226,7 @@ DetectPsWarn，疑似存在PS痕迹告警
 TempIdWarn，临时身份证告警
 InvalidDateWarn，身份证有效日期不合法告警
 Quality，图片质量分数（评价图片的模糊程度）
-MultiCardDetect，是否开启多卡证检测
+MultiCardDetect，是否开启正反面同框识别（仅支持二代身份证正反页同框识别或临时身份证正反页同框识别）
 ReflectWarn，是否开启反光检测
 
 SDK 设置方式参考：
@@ -237,6 +254,46 @@ Config = {"CropIdCard":true,"CropPortrait":true}
         this.EnableRecognitionRectify = EnableRecognitionRectify;
     }
 
+    /**
+     * Get 默认值为false。
+
+此开关需要在反光检测开关开启下才会生效（即此开关生效的前提是config入参里的"ReflectWarn":true），若EnableReflectDetail设置为true，则会返回反光点覆盖区域详情。反光点覆盖区域详情分为四部分：人像照片位置、国徽位置、识别字段位置、其他位置。一个反光点允许覆盖多个区域，且一张图片可能存在多个反光点。 
+     * @return EnableReflectDetail 默认值为false。
+
+此开关需要在反光检测开关开启下才会生效（即此开关生效的前提是config入参里的"ReflectWarn":true），若EnableReflectDetail设置为true，则会返回反光点覆盖区域详情。反光点覆盖区域详情分为四部分：人像照片位置、国徽位置、识别字段位置、其他位置。一个反光点允许覆盖多个区域，且一张图片可能存在多个反光点。
+     */
+    public Boolean getEnableReflectDetail() {
+        return this.EnableReflectDetail;
+    }
+
+    /**
+     * Set 默认值为false。
+
+此开关需要在反光检测开关开启下才会生效（即此开关生效的前提是config入参里的"ReflectWarn":true），若EnableReflectDetail设置为true，则会返回反光点覆盖区域详情。反光点覆盖区域详情分为四部分：人像照片位置、国徽位置、识别字段位置、其他位置。一个反光点允许覆盖多个区域，且一张图片可能存在多个反光点。
+     * @param EnableReflectDetail 默认值为false。
+
+此开关需要在反光检测开关开启下才会生效（即此开关生效的前提是config入参里的"ReflectWarn":true），若EnableReflectDetail设置为true，则会返回反光点覆盖区域详情。反光点覆盖区域详情分为四部分：人像照片位置、国徽位置、识别字段位置、其他位置。一个反光点允许覆盖多个区域，且一张图片可能存在多个反光点。
+     */
+    public void setEnableReflectDetail(Boolean EnableReflectDetail) {
+        this.EnableReflectDetail = EnableReflectDetail;
+    }
+
+    /**
+     * Get 用于控制是否开启日期校验，默认值为true，打开会进行日期校验。 
+     * @return EnableDateVerify 用于控制是否开启日期校验，默认值为true，打开会进行日期校验。
+     */
+    public Boolean getEnableDateVerify() {
+        return this.EnableDateVerify;
+    }
+
+    /**
+     * Set 用于控制是否开启日期校验，默认值为true，打开会进行日期校验。
+     * @param EnableDateVerify 用于控制是否开启日期校验，默认值为true，打开会进行日期校验。
+     */
+    public void setEnableDateVerify(Boolean EnableDateVerify) {
+        this.EnableDateVerify = EnableDateVerify;
+    }
+
     public IDCardOCRRequest() {
     }
 
@@ -260,6 +317,12 @@ Config = {"CropIdCard":true,"CropPortrait":true}
         if (source.EnableRecognitionRectify != null) {
             this.EnableRecognitionRectify = new Boolean(source.EnableRecognitionRectify);
         }
+        if (source.EnableReflectDetail != null) {
+            this.EnableReflectDetail = new Boolean(source.EnableReflectDetail);
+        }
+        if (source.EnableDateVerify != null) {
+            this.EnableDateVerify = new Boolean(source.EnableDateVerify);
+        }
     }
 
 
@@ -272,6 +335,8 @@ Config = {"CropIdCard":true,"CropPortrait":true}
         this.setParamSimple(map, prefix + "CardSide", this.CardSide);
         this.setParamSimple(map, prefix + "Config", this.Config);
         this.setParamSimple(map, prefix + "EnableRecognitionRectify", this.EnableRecognitionRectify);
+        this.setParamSimple(map, prefix + "EnableReflectDetail", this.EnableReflectDetail);
+        this.setParamSimple(map, prefix + "EnableDateVerify", this.EnableDateVerify);
 
     }
 }

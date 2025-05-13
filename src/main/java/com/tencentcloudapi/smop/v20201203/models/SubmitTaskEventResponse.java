@@ -16,31 +16,29 @@
 package com.tencentcloudapi.smop.v20201203.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SubmitTaskEventResponse extends AbstractModel{
+public class SubmitTaskEventResponse extends AbstractModel {
 
     /**
-    * 订单ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 任务的唯一订单号
     */
     @SerializedName("OrderId")
     @Expose
     private String OrderId;
 
     /**
-    * 信息码
-注意：此字段可能返回 null，表示取不到有效值。
+    * 信息码。0表示成功，-1标识失败
     */
     @SerializedName("Code")
     @Expose
     private Long Code;
 
     /**
-    * success
-注意：此字段可能返回 null，表示取不到有效值。
+    * 提示信息
     */
     @SerializedName("Message")
     @Expose
@@ -48,84 +46,69 @@ public class SubmitTaskEventResponse extends AbstractModel{
 
     /**
     * 任务处理结果列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Data")
     @Expose
     private TaskEventData [] Data;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 订单ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OrderId 订单ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 任务的唯一订单号 
+     * @return OrderId 任务的唯一订单号
      */
     public String getOrderId() {
         return this.OrderId;
     }
 
     /**
-     * Set 订单ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OrderId 订单ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 任务的唯一订单号
+     * @param OrderId 任务的唯一订单号
      */
     public void setOrderId(String OrderId) {
         this.OrderId = OrderId;
     }
 
     /**
-     * Get 信息码
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Code 信息码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 信息码。0表示成功，-1标识失败 
+     * @return Code 信息码。0表示成功，-1标识失败
      */
     public Long getCode() {
         return this.Code;
     }
 
     /**
-     * Set 信息码
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Code 信息码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 信息码。0表示成功，-1标识失败
+     * @param Code 信息码。0表示成功，-1标识失败
      */
     public void setCode(Long Code) {
         this.Code = Code;
     }
 
     /**
-     * Get success
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Message success
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 提示信息 
+     * @return Message 提示信息
      */
     public String getMessage() {
         return this.Message;
     }
 
     /**
-     * Set success
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Message success
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 提示信息
+     * @param Message 提示信息
      */
     public void setMessage(String Message) {
         this.Message = Message;
     }
 
     /**
-     * Get 任务处理结果列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务处理结果列表 
      * @return Data 任务处理结果列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TaskEventData [] getData() {
         return this.Data;
@@ -133,25 +116,23 @@ public class SubmitTaskEventResponse extends AbstractModel{
 
     /**
      * Set 任务处理结果列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Data 任务处理结果列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setData(TaskEventData [] Data) {
         this.Data = Data;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

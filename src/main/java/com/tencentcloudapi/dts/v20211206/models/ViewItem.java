@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ViewItem extends AbstractModel{
+public class ViewItem extends AbstractModel {
 
     /**
     * 视图名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ViewName")
     @Expose
@@ -32,17 +32,14 @@ public class ViewItem extends AbstractModel{
 
     /**
     * 迁移后的视图名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NewViewName")
     @Expose
     private String NewViewName;
 
     /**
-     * Get 视图名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视图名称 
      * @return ViewName 视图名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getViewName() {
         return this.ViewName;
@@ -50,19 +47,15 @@ public class ViewItem extends AbstractModel{
 
     /**
      * Set 视图名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ViewName 视图名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setViewName(String ViewName) {
         this.ViewName = ViewName;
     }
 
     /**
-     * Get 迁移后的视图名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 迁移后的视图名称 
      * @return NewViewName 迁移后的视图名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNewViewName() {
         return this.NewViewName;
@@ -70,9 +63,7 @@ public class ViewItem extends AbstractModel{
 
     /**
      * Set 迁移后的视图名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NewViewName 迁移后的视图名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNewViewName(String NewViewName) {
         this.NewViewName = NewViewName;

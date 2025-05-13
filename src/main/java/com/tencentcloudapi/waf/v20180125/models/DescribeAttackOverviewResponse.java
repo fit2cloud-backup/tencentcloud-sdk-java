@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAttackOverviewResponse extends AbstractModel{
+public class DescribeAttackOverviewResponse extends AbstractModel {
 
     /**
     * 访问请求总数
@@ -65,7 +66,42 @@ public class DescribeAttackOverviewResponse extends AbstractModel{
     private Long ApiAssetsCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * api风险事件数量
+    */
+    @SerializedName("ApiRiskEventCount")
+    @Expose
+    private Long ApiRiskEventCount;
+
+    /**
+    * 黑名单总数
+    */
+    @SerializedName("IPBlackCount")
+    @Expose
+    private Long IPBlackCount;
+
+    /**
+    * 防篡改总数
+    */
+    @SerializedName("TamperCount")
+    @Expose
+    private Long TamperCount;
+
+    /**
+    * 信息泄露总数
+    */
+    @SerializedName("LeakCount")
+    @Expose
+    private Long LeakCount;
+
+    /**
+    * API风险事件周环比
+    */
+    @SerializedName("ApiRiskEventCircleCount")
+    @Expose
+    private Long ApiRiskEventCircleCount;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -168,16 +204,96 @@ public class DescribeAttackOverviewResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get api风险事件数量 
+     * @return ApiRiskEventCount api风险事件数量
+     */
+    public Long getApiRiskEventCount() {
+        return this.ApiRiskEventCount;
+    }
+
+    /**
+     * Set api风险事件数量
+     * @param ApiRiskEventCount api风险事件数量
+     */
+    public void setApiRiskEventCount(Long ApiRiskEventCount) {
+        this.ApiRiskEventCount = ApiRiskEventCount;
+    }
+
+    /**
+     * Get 黑名单总数 
+     * @return IPBlackCount 黑名单总数
+     */
+    public Long getIPBlackCount() {
+        return this.IPBlackCount;
+    }
+
+    /**
+     * Set 黑名单总数
+     * @param IPBlackCount 黑名单总数
+     */
+    public void setIPBlackCount(Long IPBlackCount) {
+        this.IPBlackCount = IPBlackCount;
+    }
+
+    /**
+     * Get 防篡改总数 
+     * @return TamperCount 防篡改总数
+     */
+    public Long getTamperCount() {
+        return this.TamperCount;
+    }
+
+    /**
+     * Set 防篡改总数
+     * @param TamperCount 防篡改总数
+     */
+    public void setTamperCount(Long TamperCount) {
+        this.TamperCount = TamperCount;
+    }
+
+    /**
+     * Get 信息泄露总数 
+     * @return LeakCount 信息泄露总数
+     */
+    public Long getLeakCount() {
+        return this.LeakCount;
+    }
+
+    /**
+     * Set 信息泄露总数
+     * @param LeakCount 信息泄露总数
+     */
+    public void setLeakCount(Long LeakCount) {
+        this.LeakCount = LeakCount;
+    }
+
+    /**
+     * Get API风险事件周环比 
+     * @return ApiRiskEventCircleCount API风险事件周环比
+     */
+    public Long getApiRiskEventCircleCount() {
+        return this.ApiRiskEventCircleCount;
+    }
+
+    /**
+     * Set API风险事件周环比
+     * @param ApiRiskEventCircleCount API风险事件周环比
+     */
+    public void setApiRiskEventCircleCount(Long ApiRiskEventCircleCount) {
+        this.ApiRiskEventCircleCount = ApiRiskEventCircleCount;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -209,6 +325,21 @@ public class DescribeAttackOverviewResponse extends AbstractModel{
         if (source.ApiAssetsCount != null) {
             this.ApiAssetsCount = new Long(source.ApiAssetsCount);
         }
+        if (source.ApiRiskEventCount != null) {
+            this.ApiRiskEventCount = new Long(source.ApiRiskEventCount);
+        }
+        if (source.IPBlackCount != null) {
+            this.IPBlackCount = new Long(source.IPBlackCount);
+        }
+        if (source.TamperCount != null) {
+            this.TamperCount = new Long(source.TamperCount);
+        }
+        if (source.LeakCount != null) {
+            this.LeakCount = new Long(source.LeakCount);
+        }
+        if (source.ApiRiskEventCircleCount != null) {
+            this.ApiRiskEventCircleCount = new Long(source.ApiRiskEventCircleCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -225,6 +356,11 @@ public class DescribeAttackOverviewResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "CCCount", this.CCCount);
         this.setParamSimple(map, prefix + "BotCount", this.BotCount);
         this.setParamSimple(map, prefix + "ApiAssetsCount", this.ApiAssetsCount);
+        this.setParamSimple(map, prefix + "ApiRiskEventCount", this.ApiRiskEventCount);
+        this.setParamSimple(map, prefix + "IPBlackCount", this.IPBlackCount);
+        this.setParamSimple(map, prefix + "TamperCount", this.TamperCount);
+        this.setParamSimple(map, prefix + "LeakCount", this.LeakCount);
+        this.setParamSimple(map, prefix + "ApiRiskEventCircleCount", this.ApiRiskEventCircleCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

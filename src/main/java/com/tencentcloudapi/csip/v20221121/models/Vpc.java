@@ -16,11 +16,12 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Vpc extends AbstractModel{
+public class Vpc extends AbstractModel {
 
     /**
     * 子网(只支持32位)
@@ -59,7 +60,6 @@ public class Vpc extends AbstractModel{
 
     /**
     * 标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
     @Expose
@@ -67,7 +67,6 @@ public class Vpc extends AbstractModel{
 
     /**
     * dns域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DNS")
     @Expose
@@ -117,7 +116,6 @@ public class Vpc extends AbstractModel{
 
     /**
     * 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsNewAsset")
     @Expose
@@ -125,7 +123,6 @@ public class Vpc extends AbstractModel{
 
     /**
     * 是否核心资产1是 2不是
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsCore")
     @Expose
@@ -212,10 +209,8 @@ public class Vpc extends AbstractModel{
     }
 
     /**
-     * Get 标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签 
      * @return Tag 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTag() {
         return this.Tag;
@@ -223,19 +218,15 @@ public class Vpc extends AbstractModel{
 
     /**
      * Set 标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tag 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(Tag [] Tag) {
         this.Tag = Tag;
     }
 
     /**
-     * Get dns域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get dns域名 
      * @return DNS dns域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDNS() {
         return this.DNS;
@@ -243,9 +234,7 @@ public class Vpc extends AbstractModel{
 
     /**
      * Set dns域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DNS dns域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDNS(String [] DNS) {
         this.DNS = DNS;
@@ -348,10 +337,8 @@ public class Vpc extends AbstractModel{
     }
 
     /**
-     * Get 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否新资产 1新 
      * @return IsNewAsset 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsNewAsset() {
         return this.IsNewAsset;
@@ -359,19 +346,15 @@ public class Vpc extends AbstractModel{
 
     /**
      * Set 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsNewAsset 是否新资产 1新
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsNewAsset(Long IsNewAsset) {
         this.IsNewAsset = IsNewAsset;
     }
 
     /**
-     * Get 是否核心资产1是 2不是
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否核心资产1是 2不是 
      * @return IsCore 是否核心资产1是 2不是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsCore() {
         return this.IsCore;
@@ -379,9 +362,7 @@ public class Vpc extends AbstractModel{
 
     /**
      * Set 是否核心资产1是 2不是
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsCore 是否核心资产1是 2不是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsCore(Long IsCore) {
         this.IsCore = IsCore;

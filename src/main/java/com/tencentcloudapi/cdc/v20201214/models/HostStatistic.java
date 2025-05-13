@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostStatistic extends AbstractModel{
+public class HostStatistic extends AbstractModel {
 
     /**
     * 宿主机规格
@@ -56,6 +57,55 @@ public class HostStatistic extends AbstractModel{
     @SerializedName("Count")
     @Expose
     private Long Count;
+
+    /**
+    * 平均cpu负载百分比
+    */
+    @SerializedName("CpuAverage")
+    @Expose
+    private Float CpuAverage;
+
+    /**
+    * 平均内存使用率百分比
+    */
+    @SerializedName("MemAverage")
+    @Expose
+    private Float MemAverage;
+
+    /**
+    * 平均网络流量
+    */
+    @SerializedName("NetAverage")
+    @Expose
+    private Float NetAverage;
+
+    /**
+    * cpu详细监控数据
+    */
+    @SerializedName("CpuDetailData")
+    @Expose
+    private DetailData CpuDetailData;
+
+    /**
+    * 内存详细数据
+    */
+    @SerializedName("MemDetailData")
+    @Expose
+    private DetailData MemDetailData;
+
+    /**
+    * 网络速率详细数据
+    */
+    @SerializedName("NetRateDetailData")
+    @Expose
+    private DetailData NetRateDetailData;
+
+    /**
+    * 网速包详细数据
+    */
+    @SerializedName("NetPacketDetailData")
+    @Expose
+    private DetailData NetPacketDetailData;
 
     /**
      * Get 宿主机规格 
@@ -137,6 +187,118 @@ public class HostStatistic extends AbstractModel{
         this.Count = Count;
     }
 
+    /**
+     * Get 平均cpu负载百分比 
+     * @return CpuAverage 平均cpu负载百分比
+     */
+    public Float getCpuAverage() {
+        return this.CpuAverage;
+    }
+
+    /**
+     * Set 平均cpu负载百分比
+     * @param CpuAverage 平均cpu负载百分比
+     */
+    public void setCpuAverage(Float CpuAverage) {
+        this.CpuAverage = CpuAverage;
+    }
+
+    /**
+     * Get 平均内存使用率百分比 
+     * @return MemAverage 平均内存使用率百分比
+     */
+    public Float getMemAverage() {
+        return this.MemAverage;
+    }
+
+    /**
+     * Set 平均内存使用率百分比
+     * @param MemAverage 平均内存使用率百分比
+     */
+    public void setMemAverage(Float MemAverage) {
+        this.MemAverage = MemAverage;
+    }
+
+    /**
+     * Get 平均网络流量 
+     * @return NetAverage 平均网络流量
+     */
+    public Float getNetAverage() {
+        return this.NetAverage;
+    }
+
+    /**
+     * Set 平均网络流量
+     * @param NetAverage 平均网络流量
+     */
+    public void setNetAverage(Float NetAverage) {
+        this.NetAverage = NetAverage;
+    }
+
+    /**
+     * Get cpu详细监控数据 
+     * @return CpuDetailData cpu详细监控数据
+     */
+    public DetailData getCpuDetailData() {
+        return this.CpuDetailData;
+    }
+
+    /**
+     * Set cpu详细监控数据
+     * @param CpuDetailData cpu详细监控数据
+     */
+    public void setCpuDetailData(DetailData CpuDetailData) {
+        this.CpuDetailData = CpuDetailData;
+    }
+
+    /**
+     * Get 内存详细数据 
+     * @return MemDetailData 内存详细数据
+     */
+    public DetailData getMemDetailData() {
+        return this.MemDetailData;
+    }
+
+    /**
+     * Set 内存详细数据
+     * @param MemDetailData 内存详细数据
+     */
+    public void setMemDetailData(DetailData MemDetailData) {
+        this.MemDetailData = MemDetailData;
+    }
+
+    /**
+     * Get 网络速率详细数据 
+     * @return NetRateDetailData 网络速率详细数据
+     */
+    public DetailData getNetRateDetailData() {
+        return this.NetRateDetailData;
+    }
+
+    /**
+     * Set 网络速率详细数据
+     * @param NetRateDetailData 网络速率详细数据
+     */
+    public void setNetRateDetailData(DetailData NetRateDetailData) {
+        this.NetRateDetailData = NetRateDetailData;
+    }
+
+    /**
+     * Get 网速包详细数据 
+     * @return NetPacketDetailData 网速包详细数据
+     */
+    public DetailData getNetPacketDetailData() {
+        return this.NetPacketDetailData;
+    }
+
+    /**
+     * Set 网速包详细数据
+     * @param NetPacketDetailData 网速包详细数据
+     */
+    public void setNetPacketDetailData(DetailData NetPacketDetailData) {
+        this.NetPacketDetailData = NetPacketDetailData;
+    }
+
     public HostStatistic() {
     }
 
@@ -160,6 +322,27 @@ public class HostStatistic extends AbstractModel{
         if (source.Count != null) {
             this.Count = new Long(source.Count);
         }
+        if (source.CpuAverage != null) {
+            this.CpuAverage = new Float(source.CpuAverage);
+        }
+        if (source.MemAverage != null) {
+            this.MemAverage = new Float(source.MemAverage);
+        }
+        if (source.NetAverage != null) {
+            this.NetAverage = new Float(source.NetAverage);
+        }
+        if (source.CpuDetailData != null) {
+            this.CpuDetailData = new DetailData(source.CpuDetailData);
+        }
+        if (source.MemDetailData != null) {
+            this.MemDetailData = new DetailData(source.MemDetailData);
+        }
+        if (source.NetRateDetailData != null) {
+            this.NetRateDetailData = new DetailData(source.NetRateDetailData);
+        }
+        if (source.NetPacketDetailData != null) {
+            this.NetPacketDetailData = new DetailData(source.NetPacketDetailData);
+        }
     }
 
 
@@ -172,6 +355,13 @@ public class HostStatistic extends AbstractModel{
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "Memory", this.Memory);
         this.setParamSimple(map, prefix + "Count", this.Count);
+        this.setParamSimple(map, prefix + "CpuAverage", this.CpuAverage);
+        this.setParamSimple(map, prefix + "MemAverage", this.MemAverage);
+        this.setParamSimple(map, prefix + "NetAverage", this.NetAverage);
+        this.setParamObj(map, prefix + "CpuDetailData.", this.CpuDetailData);
+        this.setParamObj(map, prefix + "MemDetailData.", this.MemDetailData);
+        this.setParamObj(map, prefix + "NetRateDetailData.", this.NetRateDetailData);
+        this.setParamObj(map, prefix + "NetPacketDetailData.", this.NetPacketDetailData);
 
     }
 }

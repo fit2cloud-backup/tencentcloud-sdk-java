@@ -16,35 +16,36 @@
 package com.tencentcloudapi.iai.v20200303.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetGroupInfoResponse extends AbstractModel{
+public class GetGroupInfoResponse extends AbstractModel {
 
     /**
-    * 人员库名称
+    * 人员库名称。
     */
     @SerializedName("GroupName")
     @Expose
     private String GroupName;
 
     /**
-    * 人员库ID
+    * 人员库ID。
     */
     @SerializedName("GroupId")
     @Expose
     private String GroupId;
 
     /**
-    * 人员库自定义描述字段
+    * 人员库自定义描述字段。
     */
     @SerializedName("GroupExDescriptions")
     @Expose
     private String [] GroupExDescriptions;
 
     /**
-    * 人员库信息备注
+    * 人员库信息备注。
     */
     @SerializedName("Tag")
     @Expose
@@ -58,78 +59,78 @@ public class GetGroupInfoResponse extends AbstractModel{
     private String FaceModelVersion;
 
     /**
-    * Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+    * Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
     */
     @SerializedName("CreationTimestamp")
     @Expose
     private Long CreationTimestamp;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 人员库名称 
-     * @return GroupName 人员库名称
+     * Get 人员库名称。 
+     * @return GroupName 人员库名称。
      */
     public String getGroupName() {
         return this.GroupName;
     }
 
     /**
-     * Set 人员库名称
-     * @param GroupName 人员库名称
+     * Set 人员库名称。
+     * @param GroupName 人员库名称。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;
     }
 
     /**
-     * Get 人员库ID 
-     * @return GroupId 人员库ID
+     * Get 人员库ID。 
+     * @return GroupId 人员库ID。
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 人员库ID
-     * @param GroupId 人员库ID
+     * Set 人员库ID。
+     * @param GroupId 人员库ID。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
     }
 
     /**
-     * Get 人员库自定义描述字段 
-     * @return GroupExDescriptions 人员库自定义描述字段
+     * Get 人员库自定义描述字段。 
+     * @return GroupExDescriptions 人员库自定义描述字段。
      */
     public String [] getGroupExDescriptions() {
         return this.GroupExDescriptions;
     }
 
     /**
-     * Set 人员库自定义描述字段
-     * @param GroupExDescriptions 人员库自定义描述字段
+     * Set 人员库自定义描述字段。
+     * @param GroupExDescriptions 人员库自定义描述字段。
      */
     public void setGroupExDescriptions(String [] GroupExDescriptions) {
         this.GroupExDescriptions = GroupExDescriptions;
     }
 
     /**
-     * Get 人员库信息备注 
-     * @return Tag 人员库信息备注
+     * Get 人员库信息备注。 
+     * @return Tag 人员库信息备注。
      */
     public String getTag() {
         return this.Tag;
     }
 
     /**
-     * Set 人员库信息备注
-     * @param Tag 人员库信息备注
+     * Set 人员库信息备注。
+     * @param Tag 人员库信息备注。
      */
     public void setTag(String Tag) {
         this.Tag = Tag;
@@ -152,32 +153,32 @@ public class GetGroupInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。 
-     * @return CreationTimestamp Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+     * Get Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。 
+     * @return CreationTimestamp Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
      */
     public Long getCreationTimestamp() {
         return this.CreationTimestamp;
     }
 
     /**
-     * Set Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
-     * @param CreationTimestamp Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+     * Set Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+     * @param CreationTimestamp Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
      */
     public void setCreationTimestamp(Long CreationTimestamp) {
         this.CreationTimestamp = CreationTimestamp;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

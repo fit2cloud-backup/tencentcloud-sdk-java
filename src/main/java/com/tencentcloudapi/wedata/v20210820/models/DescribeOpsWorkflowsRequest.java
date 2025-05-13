@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOpsWorkflowsRequest extends AbstractModel{
+public class DescribeOpsWorkflowsRequest extends AbstractModel {
 
     /**
     * 项目id
@@ -112,6 +113,27 @@ public class DescribeOpsWorkflowsRequest extends AbstractModel{
     @SerializedName("SortType")
     @Expose
     private String SortType;
+
+    /**
+    * 项目ID列表，用于多项目工作流筛选
+    */
+    @SerializedName("ProjectIds")
+    @Expose
+    private String [] ProjectIds;
+
+    /**
+    * 工作流类型列表 多个用英文逗号连接 cycle,manual. 默认只查询 cycle
+    */
+    @SerializedName("WorkflowTypeList")
+    @Expose
+    private String [] WorkflowTypeList;
+
+    /**
+    * 工作流过滤keyword，支持工作流 id/name 模糊匹配， 多个用|分割
+    */
+    @SerializedName("KeyWord")
+    @Expose
+    private String KeyWord;
 
     /**
      * Get 项目id 
@@ -321,6 +343,54 @@ public class DescribeOpsWorkflowsRequest extends AbstractModel{
         this.SortType = SortType;
     }
 
+    /**
+     * Get 项目ID列表，用于多项目工作流筛选 
+     * @return ProjectIds 项目ID列表，用于多项目工作流筛选
+     */
+    public String [] getProjectIds() {
+        return this.ProjectIds;
+    }
+
+    /**
+     * Set 项目ID列表，用于多项目工作流筛选
+     * @param ProjectIds 项目ID列表，用于多项目工作流筛选
+     */
+    public void setProjectIds(String [] ProjectIds) {
+        this.ProjectIds = ProjectIds;
+    }
+
+    /**
+     * Get 工作流类型列表 多个用英文逗号连接 cycle,manual. 默认只查询 cycle 
+     * @return WorkflowTypeList 工作流类型列表 多个用英文逗号连接 cycle,manual. 默认只查询 cycle
+     */
+    public String [] getWorkflowTypeList() {
+        return this.WorkflowTypeList;
+    }
+
+    /**
+     * Set 工作流类型列表 多个用英文逗号连接 cycle,manual. 默认只查询 cycle
+     * @param WorkflowTypeList 工作流类型列表 多个用英文逗号连接 cycle,manual. 默认只查询 cycle
+     */
+    public void setWorkflowTypeList(String [] WorkflowTypeList) {
+        this.WorkflowTypeList = WorkflowTypeList;
+    }
+
+    /**
+     * Get 工作流过滤keyword，支持工作流 id/name 模糊匹配， 多个用|分割 
+     * @return KeyWord 工作流过滤keyword，支持工作流 id/name 模糊匹配， 多个用|分割
+     */
+    public String getKeyWord() {
+        return this.KeyWord;
+    }
+
+    /**
+     * Set 工作流过滤keyword，支持工作流 id/name 模糊匹配， 多个用|分割
+     * @param KeyWord 工作流过滤keyword，支持工作流 id/name 模糊匹配， 多个用|分割
+     */
+    public void setKeyWord(String KeyWord) {
+        this.KeyWord = KeyWord;
+    }
+
     public DescribeOpsWorkflowsRequest() {
     }
 
@@ -368,6 +438,21 @@ public class DescribeOpsWorkflowsRequest extends AbstractModel{
         if (source.SortType != null) {
             this.SortType = new String(source.SortType);
         }
+        if (source.ProjectIds != null) {
+            this.ProjectIds = new String[source.ProjectIds.length];
+            for (int i = 0; i < source.ProjectIds.length; i++) {
+                this.ProjectIds[i] = new String(source.ProjectIds[i]);
+            }
+        }
+        if (source.WorkflowTypeList != null) {
+            this.WorkflowTypeList = new String[source.WorkflowTypeList.length];
+            for (int i = 0; i < source.WorkflowTypeList.length; i++) {
+                this.WorkflowTypeList[i] = new String(source.WorkflowTypeList[i]);
+            }
+        }
+        if (source.KeyWord != null) {
+            this.KeyWord = new String(source.KeyWord);
+        }
     }
 
 
@@ -388,6 +473,9 @@ public class DescribeOpsWorkflowsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
         this.setParamSimple(map, prefix + "SortItem", this.SortItem);
         this.setParamSimple(map, prefix + "SortType", this.SortType);
+        this.setParamArraySimple(map, prefix + "ProjectIds.", this.ProjectIds);
+        this.setParamArraySimple(map, prefix + "WorkflowTypeList.", this.WorkflowTypeList);
+        this.setParamSimple(map, prefix + "KeyWord", this.KeyWord);
 
     }
 }

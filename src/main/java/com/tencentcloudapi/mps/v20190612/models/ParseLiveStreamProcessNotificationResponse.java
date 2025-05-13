@@ -16,16 +16,19 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
+public class ParseLiveStreamProcessNotificationResponse extends AbstractModel {
 
     /**
     * 直播流处理结果类型，包含：
 <li>AiReviewResult：内容审核结果；</li>
 <li>AiRecognitionResult：内容识别结果；</li>
+<li>LiveRecordResult：直播录制结果；</li>
+<li>AiQualityControlResult：媒体质检结果；</li>
 <li>ProcessEof：直播流处理结束。</li>
     */
     @SerializedName("NotificationType")
@@ -80,6 +83,14 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
     private LiveStreamAiQualityControlResultInfo AiQualityControlResultInfo;
 
     /**
+    * 直播录制结果，当 NotificationType 为 LiveRecordResult 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LiveRecordResultInfo")
+    @Expose
+    private LiveStreamRecordResultInfo LiveRecordResultInfo;
+
+    /**
     * 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
     */
     @SerializedName("SessionId")
@@ -94,7 +105,23 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
     private String SessionContext;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * - 过期时间，事件通知签名过期 UNIX 时间戳。 - 来自媒体处理的消息通知默认过期时间是10分钟，如果一条消息通知中的 Timestamp 值所指定的时间已经过期，则可以判定这条通知无效，进而可以防止网络重放攻击。 - Timestamp 的格式为十进制 UNIX 时间戳，即从1970年01月01日（UTC/GMT 的午夜）开始所经过的秒数。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Timestamp")
+    @Expose
+    private Long Timestamp;
+
+    /**
+    * 事件通知安全签名 Sign = MD5（Timestamp + NotifyKey）。说明：媒体处理把Timestamp 和 TaskNotifyConfig 里面的NotifyKey 进行字符串拼接后通过 MD5 计算得出 Sign 值，并将其放在通知消息里，您的后台服务器在收到通知消息后可以根据同样的算法确认 Sign 是否正确，进而确认消息是否确实来自媒体处理后台。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Sign")
+    @Expose
+    private String Sign;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -104,10 +131,14 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
      * Get 直播流处理结果类型，包含：
 <li>AiReviewResult：内容审核结果；</li>
 <li>AiRecognitionResult：内容识别结果；</li>
+<li>LiveRecordResult：直播录制结果；</li>
+<li>AiQualityControlResult：媒体质检结果；</li>
 <li>ProcessEof：直播流处理结束。</li> 
      * @return NotificationType 直播流处理结果类型，包含：
 <li>AiReviewResult：内容审核结果；</li>
 <li>AiRecognitionResult：内容识别结果；</li>
+<li>LiveRecordResult：直播录制结果；</li>
+<li>AiQualityControlResult：媒体质检结果；</li>
 <li>ProcessEof：直播流处理结束。</li>
      */
     public String getNotificationType() {
@@ -118,10 +149,14 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
      * Set 直播流处理结果类型，包含：
 <li>AiReviewResult：内容审核结果；</li>
 <li>AiRecognitionResult：内容识别结果；</li>
+<li>LiveRecordResult：直播录制结果；</li>
+<li>AiQualityControlResult：媒体质检结果；</li>
 <li>ProcessEof：直播流处理结束。</li>
      * @param NotificationType 直播流处理结果类型，包含：
 <li>AiReviewResult：内容审核结果；</li>
 <li>AiRecognitionResult：内容识别结果；</li>
+<li>LiveRecordResult：直播录制结果；</li>
+<li>AiQualityControlResult：媒体质检结果；</li>
 <li>ProcessEof：直播流处理结束。</li>
      */
     public void setNotificationType(String NotificationType) {
@@ -245,6 +280,26 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
     }
 
     /**
+     * Get 直播录制结果，当 NotificationType 为 LiveRecordResult 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LiveRecordResultInfo 直播录制结果，当 NotificationType 为 LiveRecordResult 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public LiveStreamRecordResultInfo getLiveRecordResultInfo() {
+        return this.LiveRecordResultInfo;
+    }
+
+    /**
+     * Set 直播录制结果，当 NotificationType 为 LiveRecordResult 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LiveRecordResultInfo 直播录制结果，当 NotificationType 为 LiveRecordResult 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLiveRecordResultInfo(LiveStreamRecordResultInfo LiveRecordResultInfo) {
+        this.LiveRecordResultInfo = LiveRecordResultInfo;
+    }
+
+    /**
      * Get 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。 
      * @return SessionId 用于去重的识别码，如果七天内曾有过相同的识别码的请求，则本次的请求会返回错误。最长50个字符，不带或者带空字符串表示不做去重。
      */
@@ -277,16 +332,56 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get - 过期时间，事件通知签名过期 UNIX 时间戳。 - 来自媒体处理的消息通知默认过期时间是10分钟，如果一条消息通知中的 Timestamp 值所指定的时间已经过期，则可以判定这条通知无效，进而可以防止网络重放攻击。 - Timestamp 的格式为十进制 UNIX 时间戳，即从1970年01月01日（UTC/GMT 的午夜）开始所经过的秒数。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Timestamp - 过期时间，事件通知签名过期 UNIX 时间戳。 - 来自媒体处理的消息通知默认过期时间是10分钟，如果一条消息通知中的 Timestamp 值所指定的时间已经过期，则可以判定这条通知无效，进而可以防止网络重放攻击。 - Timestamp 的格式为十进制 UNIX 时间戳，即从1970年01月01日（UTC/GMT 的午夜）开始所经过的秒数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getTimestamp() {
+        return this.Timestamp;
+    }
+
+    /**
+     * Set - 过期时间，事件通知签名过期 UNIX 时间戳。 - 来自媒体处理的消息通知默认过期时间是10分钟，如果一条消息通知中的 Timestamp 值所指定的时间已经过期，则可以判定这条通知无效，进而可以防止网络重放攻击。 - Timestamp 的格式为十进制 UNIX 时间戳，即从1970年01月01日（UTC/GMT 的午夜）开始所经过的秒数。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Timestamp - 过期时间，事件通知签名过期 UNIX 时间戳。 - 来自媒体处理的消息通知默认过期时间是10分钟，如果一条消息通知中的 Timestamp 值所指定的时间已经过期，则可以判定这条通知无效，进而可以防止网络重放攻击。 - Timestamp 的格式为十进制 UNIX 时间戳，即从1970年01月01日（UTC/GMT 的午夜）开始所经过的秒数。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTimestamp(Long Timestamp) {
+        this.Timestamp = Timestamp;
+    }
+
+    /**
+     * Get 事件通知安全签名 Sign = MD5（Timestamp + NotifyKey）。说明：媒体处理把Timestamp 和 TaskNotifyConfig 里面的NotifyKey 进行字符串拼接后通过 MD5 计算得出 Sign 值，并将其放在通知消息里，您的后台服务器在收到通知消息后可以根据同样的算法确认 Sign 是否正确，进而确认消息是否确实来自媒体处理后台。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Sign 事件通知安全签名 Sign = MD5（Timestamp + NotifyKey）。说明：媒体处理把Timestamp 和 TaskNotifyConfig 里面的NotifyKey 进行字符串拼接后通过 MD5 计算得出 Sign 值，并将其放在通知消息里，您的后台服务器在收到通知消息后可以根据同样的算法确认 Sign 是否正确，进而确认消息是否确实来自媒体处理后台。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSign() {
+        return this.Sign;
+    }
+
+    /**
+     * Set 事件通知安全签名 Sign = MD5（Timestamp + NotifyKey）。说明：媒体处理把Timestamp 和 TaskNotifyConfig 里面的NotifyKey 进行字符串拼接后通过 MD5 计算得出 Sign 值，并将其放在通知消息里，您的后台服务器在收到通知消息后可以根据同样的算法确认 Sign 是否正确，进而确认消息是否确实来自媒体处理后台。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Sign 事件通知安全签名 Sign = MD5（Timestamp + NotifyKey）。说明：媒体处理把Timestamp 和 TaskNotifyConfig 里面的NotifyKey 进行字符串拼接后通过 MD5 计算得出 Sign 值，并将其放在通知消息里，您的后台服务器在收到通知消息后可以根据同样的算法确认 Sign 是否正确，进而确认消息是否确实来自媒体处理后台。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSign(String Sign) {
+        this.Sign = Sign;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -321,11 +416,20 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
         if (source.AiQualityControlResultInfo != null) {
             this.AiQualityControlResultInfo = new LiveStreamAiQualityControlResultInfo(source.AiQualityControlResultInfo);
         }
+        if (source.LiveRecordResultInfo != null) {
+            this.LiveRecordResultInfo = new LiveStreamRecordResultInfo(source.LiveRecordResultInfo);
+        }
         if (source.SessionId != null) {
             this.SessionId = new String(source.SessionId);
         }
         if (source.SessionContext != null) {
             this.SessionContext = new String(source.SessionContext);
+        }
+        if (source.Timestamp != null) {
+            this.Timestamp = new Long(source.Timestamp);
+        }
+        if (source.Sign != null) {
+            this.Sign = new String(source.Sign);
         }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
@@ -344,8 +448,11 @@ public class ParseLiveStreamProcessNotificationResponse extends AbstractModel{
         this.setParamObj(map, prefix + "AiRecognitionResultInfo.", this.AiRecognitionResultInfo);
         this.setParamObj(map, prefix + "AiAnalysisResultInfo.", this.AiAnalysisResultInfo);
         this.setParamObj(map, prefix + "AiQualityControlResultInfo.", this.AiQualityControlResultInfo);
+        this.setParamObj(map, prefix + "LiveRecordResultInfo.", this.LiveRecordResultInfo);
         this.setParamSimple(map, prefix + "SessionId", this.SessionId);
         this.setParamSimple(map, prefix + "SessionContext", this.SessionContext);
+        this.setParamSimple(map, prefix + "Timestamp", this.Timestamp);
+        this.setParamSimple(map, prefix + "Sign", this.Sign);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

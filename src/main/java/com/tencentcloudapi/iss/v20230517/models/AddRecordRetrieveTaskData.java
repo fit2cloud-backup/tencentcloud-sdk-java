@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddRecordRetrieveTaskData extends AbstractModel{
+public class AddRecordRetrieveTaskData extends AbstractModel {
 
     /**
     * 任务ID
@@ -80,7 +81,6 @@ public class AddRecordRetrieveTaskData extends AbstractModel{
 
     /**
     * 任务描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Describe")
     @Expose
@@ -215,10 +215,8 @@ public class AddRecordRetrieveTaskData extends AbstractModel{
     }
 
     /**
-     * Get 任务描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务描述 
      * @return Describe 任务描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescribe() {
         return this.Describe;
@@ -226,9 +224,7 @@ public class AddRecordRetrieveTaskData extends AbstractModel{
 
     /**
      * Set 任务描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Describe 任务描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescribe(String Describe) {
         this.Describe = Describe;

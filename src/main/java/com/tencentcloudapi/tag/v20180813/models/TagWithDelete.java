@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tag.v20180813.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TagWithDelete extends AbstractModel{
+public class TagWithDelete extends AbstractModel {
 
     /**
     * 标签键
@@ -42,6 +43,14 @@ public class TagWithDelete extends AbstractModel{
     @SerializedName("CanDelete")
     @Expose
     private Long CanDelete;
+
+    /**
+    * 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Category")
+    @Expose
+    private String Category;
 
     /**
      * Get 标签键 
@@ -91,6 +100,26 @@ public class TagWithDelete extends AbstractModel{
         this.CanDelete = CanDelete;
     }
 
+    /**
+     * Get 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getCategory() {
+        return this.Category;
+    }
+
+    /**
+     * Set 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCategory(String Category) {
+        this.Category = Category;
+    }
+
     public TagWithDelete() {
     }
 
@@ -108,6 +137,9 @@ public class TagWithDelete extends AbstractModel{
         if (source.CanDelete != null) {
             this.CanDelete = new Long(source.CanDelete);
         }
+        if (source.Category != null) {
+            this.Category = new String(source.Category);
+        }
     }
 
 
@@ -118,6 +150,7 @@ public class TagWithDelete extends AbstractModel{
         this.setParamSimple(map, prefix + "TagKey", this.TagKey);
         this.setParamSimple(map, prefix + "TagValue", this.TagValue);
         this.setParamSimple(map, prefix + "CanDelete", this.CanDelete);
+        this.setParamSimple(map, prefix + "Category", this.Category);
 
     }
 }

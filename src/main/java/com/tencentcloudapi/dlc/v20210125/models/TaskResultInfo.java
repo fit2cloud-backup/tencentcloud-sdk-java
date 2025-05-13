@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskResultInfo extends AbstractModel{
+public class TaskResultInfo extends AbstractModel {
 
     /**
     * 任务唯一ID
@@ -31,7 +32,6 @@ public class TaskResultInfo extends AbstractModel{
 
     /**
     * 数据源名称，当前任务执行时候选中的默认数据源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatasourceConnectionName")
     @Expose
@@ -39,7 +39,6 @@ public class TaskResultInfo extends AbstractModel{
 
     /**
     * 数据库名称，当前任务执行时候选中的默认数据库
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatabaseName")
     @Expose
@@ -60,7 +59,7 @@ public class TaskResultInfo extends AbstractModel{
     private String SQLType;
 
     /**
-    * 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功 -1：任务执行失败 -3：用户手动终止。只有任务执行成功的情况下，才会返回任务执行的结果
+    * 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功  3：数据写入中 4：排队中 -1：任务执行失败 -3：用户手动终止 。只有任务执行成功的情况下，才会返回任务执行的结果
     */
     @SerializedName("State")
     @Expose
@@ -118,7 +117,6 @@ public class TaskResultInfo extends AbstractModel{
 
     /**
     * 结果信息，反转义后，外层数组的每个元素为一行数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResultSet")
     @Expose
@@ -160,6 +158,13 @@ public class TaskResultInfo extends AbstractModel{
     private Long TotalTime;
 
     /**
+    * 获取结果消耗的时间
+    */
+    @SerializedName("QueryResultTime")
+    @Expose
+    private Float QueryResultTime;
+
+    /**
      * Get 任务唯一ID 
      * @return TaskId 任务唯一ID
      */
@@ -176,10 +181,8 @@ public class TaskResultInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据源名称，当前任务执行时候选中的默认数据源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据源名称，当前任务执行时候选中的默认数据源 
      * @return DatasourceConnectionName 数据源名称，当前任务执行时候选中的默认数据源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatasourceConnectionName() {
         return this.DatasourceConnectionName;
@@ -187,19 +190,15 @@ public class TaskResultInfo extends AbstractModel{
 
     /**
      * Set 数据源名称，当前任务执行时候选中的默认数据源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatasourceConnectionName 数据源名称，当前任务执行时候选中的默认数据源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatasourceConnectionName(String DatasourceConnectionName) {
         this.DatasourceConnectionName = DatasourceConnectionName;
     }
 
     /**
-     * Get 数据库名称，当前任务执行时候选中的默认数据库
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库名称，当前任务执行时候选中的默认数据库 
      * @return DatabaseName 数据库名称，当前任务执行时候选中的默认数据库
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabaseName() {
         return this.DatabaseName;
@@ -207,9 +206,7 @@ public class TaskResultInfo extends AbstractModel{
 
     /**
      * Set 数据库名称，当前任务执行时候选中的默认数据库
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatabaseName 数据库名称，当前任务执行时候选中的默认数据库
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabaseName(String DatabaseName) {
         this.DatabaseName = DatabaseName;
@@ -248,16 +245,16 @@ public class TaskResultInfo extends AbstractModel{
     }
 
     /**
-     * Get 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功 -1：任务执行失败 -3：用户手动终止。只有任务执行成功的情况下，才会返回任务执行的结果 
-     * @return State 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功 -1：任务执行失败 -3：用户手动终止。只有任务执行成功的情况下，才会返回任务执行的结果
+     * Get 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功  3：数据写入中 4：排队中 -1：任务执行失败 -3：用户手动终止 。只有任务执行成功的情况下，才会返回任务执行的结果 
+     * @return State 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功  3：数据写入中 4：排队中 -1：任务执行失败 -3：用户手动终止 。只有任务执行成功的情况下，才会返回任务执行的结果
      */
     public Long getState() {
         return this.State;
     }
 
     /**
-     * Set 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功 -1：任务执行失败 -3：用户手动终止。只有任务执行成功的情况下，才会返回任务执行的结果
-     * @param State 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功 -1：任务执行失败 -3：用户手动终止。只有任务执行成功的情况下，才会返回任务执行的结果
+     * Set 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功  3：数据写入中 4：排队中 -1：任务执行失败 -3：用户手动终止 。只有任务执行成功的情况下，才会返回任务执行的结果
+     * @param State 任务当前的状态，0：初始化 1：任务运行中 2：任务执行成功  3：数据写入中 4：排队中 -1：任务执行失败 -3：用户手动终止 。只有任务执行成功的情况下，才会返回任务执行的结果
      */
     public void setState(Long State) {
         this.State = State;
@@ -380,10 +377,8 @@ public class TaskResultInfo extends AbstractModel{
     }
 
     /**
-     * Get 结果信息，反转义后，外层数组的每个元素为一行数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结果信息，反转义后，外层数组的每个元素为一行数据 
      * @return ResultSet 结果信息，反转义后，外层数组的每个元素为一行数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResultSet() {
         return this.ResultSet;
@@ -391,9 +386,7 @@ public class TaskResultInfo extends AbstractModel{
 
     /**
      * Set 结果信息，反转义后，外层数组的每个元素为一行数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResultSet 结果信息，反转义后，外层数组的每个元素为一行数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResultSet(String ResultSet) {
         this.ResultSet = ResultSet;
@@ -479,6 +472,22 @@ public class TaskResultInfo extends AbstractModel{
         this.TotalTime = TotalTime;
     }
 
+    /**
+     * Get 获取结果消耗的时间 
+     * @return QueryResultTime 获取结果消耗的时间
+     */
+    public Float getQueryResultTime() {
+        return this.QueryResultTime;
+    }
+
+    /**
+     * Set 获取结果消耗的时间
+     * @param QueryResultTime 获取结果消耗的时间
+     */
+    public void setQueryResultTime(Float QueryResultTime) {
+        this.QueryResultTime = QueryResultTime;
+    }
+
     public TaskResultInfo() {
     }
 
@@ -547,6 +556,9 @@ public class TaskResultInfo extends AbstractModel{
         if (source.TotalTime != null) {
             this.TotalTime = new Long(source.TotalTime);
         }
+        if (source.QueryResultTime != null) {
+            this.QueryResultTime = new Float(source.QueryResultTime);
+        }
     }
 
 
@@ -573,6 +585,7 @@ public class TaskResultInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ProgressDetail", this.ProgressDetail);
         this.setParamSimple(map, prefix + "DisplayFormat", this.DisplayFormat);
         this.setParamSimple(map, prefix + "TotalTime", this.TotalTime);
+        this.setParamSimple(map, prefix + "QueryResultTime", this.QueryResultTime);
 
     }
 }

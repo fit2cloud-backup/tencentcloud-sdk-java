@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeApplicationServiceListRequest extends AbstractModel{
+public class DescribeApplicationServiceListRequest extends AbstractModel {
 
     /**
     * namespace id
@@ -37,7 +38,7 @@ public class DescribeApplicationServiceListRequest extends AbstractModel{
     private String ApplicationId;
 
     /**
-    * xx
+    * 来源渠道
     */
     @SerializedName("SourceChannel")
     @Expose
@@ -76,16 +77,16 @@ public class DescribeApplicationServiceListRequest extends AbstractModel{
     }
 
     /**
-     * Get xx 
-     * @return SourceChannel xx
+     * Get 来源渠道 
+     * @return SourceChannel 来源渠道
      */
     public Long getSourceChannel() {
         return this.SourceChannel;
     }
 
     /**
-     * Set xx
-     * @param SourceChannel xx
+     * Set 来源渠道
+     * @param SourceChannel 来源渠道
      */
     public void setSourceChannel(Long SourceChannel) {
         this.SourceChannel = SourceChannel;

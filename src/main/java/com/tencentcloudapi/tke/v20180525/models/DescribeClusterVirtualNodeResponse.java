@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterVirtualNodeResponse extends AbstractModel{
+public class DescribeClusterVirtualNodeResponse extends AbstractModel {
 
     /**
     * 节点列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Nodes")
     @Expose
@@ -32,24 +32,21 @@ public class DescribeClusterVirtualNodeResponse extends AbstractModel{
 
     /**
     * 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 节点列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点列表 
      * @return Nodes 节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VirtualNode [] getNodes() {
         return this.Nodes;
@@ -57,19 +54,15 @@ public class DescribeClusterVirtualNodeResponse extends AbstractModel{
 
     /**
      * Set 节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Nodes 节点列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodes(VirtualNode [] Nodes) {
         this.Nodes = Nodes;
     }
 
     /**
-     * Get 节点总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 节点总数 
      * @return TotalCount 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -77,25 +70,23 @@ public class DescribeClusterVirtualNodeResponse extends AbstractModel{
 
     /**
      * Set 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 节点总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

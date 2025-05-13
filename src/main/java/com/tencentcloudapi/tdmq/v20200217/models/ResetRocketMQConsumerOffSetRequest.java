@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResetRocketMQConsumerOffSetRequest extends AbstractModel{
+public class ResetRocketMQConsumerOffSetRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -44,18 +45,18 @@ public class ResetRocketMQConsumerOffSetRequest extends AbstractModel{
     private String GroupId;
 
     /**
-    * 主题名称
-    */
-    @SerializedName("Topic")
-    @Expose
-    private String Topic;
-
-    /**
     * 重置方式，0表示从最新位点开始，1表示从指定时间点开始
     */
     @SerializedName("Type")
     @Expose
     private Long Type;
+
+    /**
+    * 主题名称
+    */
+    @SerializedName("Topic")
+    @Expose
+    private String Topic;
 
     /**
     * 重置指定的时间戳，仅在 Type 为1是生效，以毫秒为单位
@@ -113,22 +114,6 @@ public class ResetRocketMQConsumerOffSetRequest extends AbstractModel{
     }
 
     /**
-     * Get 主题名称 
-     * @return Topic 主题名称
-     */
-    public String getTopic() {
-        return this.Topic;
-    }
-
-    /**
-     * Set 主题名称
-     * @param Topic 主题名称
-     */
-    public void setTopic(String Topic) {
-        this.Topic = Topic;
-    }
-
-    /**
      * Get 重置方式，0表示从最新位点开始，1表示从指定时间点开始 
      * @return Type 重置方式，0表示从最新位点开始，1表示从指定时间点开始
      */
@@ -142,6 +127,22 @@ public class ResetRocketMQConsumerOffSetRequest extends AbstractModel{
      */
     public void setType(Long Type) {
         this.Type = Type;
+    }
+
+    /**
+     * Get 主题名称 
+     * @return Topic 主题名称
+     */
+    public String getTopic() {
+        return this.Topic;
+    }
+
+    /**
+     * Set 主题名称
+     * @param Topic 主题名称
+     */
+    public void setTopic(String Topic) {
+        this.Topic = Topic;
     }
 
     /**
@@ -177,11 +178,11 @@ public class ResetRocketMQConsumerOffSetRequest extends AbstractModel{
         if (source.GroupId != null) {
             this.GroupId = new String(source.GroupId);
         }
-        if (source.Topic != null) {
-            this.Topic = new String(source.Topic);
-        }
         if (source.Type != null) {
             this.Type = new Long(source.Type);
+        }
+        if (source.Topic != null) {
+            this.Topic = new String(source.Topic);
         }
         if (source.ResetTimestamp != null) {
             this.ResetTimestamp = new Long(source.ResetTimestamp);
@@ -196,8 +197,8 @@ public class ResetRocketMQConsumerOffSetRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "NamespaceId", this.NamespaceId);
         this.setParamSimple(map, prefix + "GroupId", this.GroupId);
-        this.setParamSimple(map, prefix + "Topic", this.Topic);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Topic", this.Topic);
         this.setParamSimple(map, prefix + "ResetTimestamp", this.ResetTimestamp);
 
     }

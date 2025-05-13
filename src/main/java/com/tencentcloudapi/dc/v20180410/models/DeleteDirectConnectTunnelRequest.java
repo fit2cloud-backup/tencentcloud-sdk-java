@@ -16,30 +16,31 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteDirectConnectTunnelRequest extends AbstractModel{
+public class DeleteDirectConnectTunnelRequest extends AbstractModel {
 
     /**
-    * 专用通道ID
+    * 专用通道ID。
     */
     @SerializedName("DirectConnectTunnelId")
     @Expose
     private String DirectConnectTunnelId;
 
     /**
-     * Get 专用通道ID 
-     * @return DirectConnectTunnelId 专用通道ID
+     * Get 专用通道ID。 
+     * @return DirectConnectTunnelId 专用通道ID。
      */
     public String getDirectConnectTunnelId() {
         return this.DirectConnectTunnelId;
     }
 
     /**
-     * Set 专用通道ID
-     * @param DirectConnectTunnelId 专用通道ID
+     * Set 专用通道ID。
+     * @param DirectConnectTunnelId 专用通道ID。
      */
     public void setDirectConnectTunnelId(String DirectConnectTunnelId) {
         this.DirectConnectTunnelId = DirectConnectTunnelId;

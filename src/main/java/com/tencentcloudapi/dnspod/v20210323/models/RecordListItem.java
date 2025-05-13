@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dnspod.v20210323.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RecordListItem extends AbstractModel{
+public class RecordListItem extends AbstractModel {
 
     /**
     * 记录Id
@@ -109,7 +110,6 @@ public class RecordListItem extends AbstractModel{
 
     /**
     * MX值，只有MX记录有
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MX")
     @Expose
@@ -319,10 +319,8 @@ public class RecordListItem extends AbstractModel{
     }
 
     /**
-     * Get MX值，只有MX记录有
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MX值，只有MX记录有 
      * @return MX MX值，只有MX记录有
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMX() {
         return this.MX;
@@ -330,9 +328,7 @@ public class RecordListItem extends AbstractModel{
 
     /**
      * Set MX值，只有MX记录有
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MX MX值，只有MX记录有
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMX(Long MX) {
         this.MX = MX;

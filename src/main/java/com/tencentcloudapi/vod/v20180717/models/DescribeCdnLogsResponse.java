@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCdnLogsResponse extends AbstractModel{
+public class DescribeCdnLogsResponse extends AbstractModel {
 
     /**
     * 日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeCdnLogsResponse extends AbstractModel{
 
     /**
     * 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OverseaCdnLogs")
     @Expose
@@ -40,24 +39,21 @@ public class DescribeCdnLogsResponse extends AbstractModel{
 
     /**
     * 国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DomesticCdnLogs")
     @Expose
     private CdnLogInfo [] DomesticCdnLogs;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志下载链接总数量。 
      * @return TotalCount 日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -65,19 +61,15 @@ public class DescribeCdnLogsResponse extends AbstractModel{
 
     /**
      * Set 日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。 
      * @return OverseaCdnLogs 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CdnLogInfo [] getOverseaCdnLogs() {
         return this.OverseaCdnLogs;
@@ -85,19 +77,15 @@ public class DescribeCdnLogsResponse extends AbstractModel{
 
     /**
      * Set 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OverseaCdnLogs 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOverseaCdnLogs(CdnLogInfo [] OverseaCdnLogs) {
         this.OverseaCdnLogs = OverseaCdnLogs;
     }
 
     /**
-     * Get 国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 国内CDN节点的日志下载列表。 
      * @return DomesticCdnLogs 国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CdnLogInfo [] getDomesticCdnLogs() {
         return this.DomesticCdnLogs;
@@ -105,25 +93,23 @@ public class DescribeCdnLogsResponse extends AbstractModel{
 
     /**
      * Set 国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DomesticCdnLogs 国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomesticCdnLogs(CdnLogInfo [] DomesticCdnLogs) {
         this.DomesticCdnLogs = DomesticCdnLogs;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

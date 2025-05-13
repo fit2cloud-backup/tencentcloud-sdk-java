@@ -16,76 +16,77 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyAclRuleRequest extends AbstractModel{
+public class ModifyAclRuleRequest extends AbstractModel {
 
     /**
-    * 实例Id
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * ACL策略名
+    * ACL规则名
     */
     @SerializedName("RuleName")
     @Expose
     private String RuleName;
 
     /**
-    * 是否应用到新增的Topic
+    * 修改预设规则时传入,是否应用到新增的Topic
     */
     @SerializedName("IsApplied")
     @Expose
     private Long IsApplied;
 
     /**
-     * Get 实例Id 
-     * @return InstanceId 实例Id
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例Id
-     * @param InstanceId 实例Id
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get ACL策略名 
-     * @return RuleName ACL策略名
+     * Get ACL规则名 
+     * @return RuleName ACL规则名
      */
     public String getRuleName() {
         return this.RuleName;
     }
 
     /**
-     * Set ACL策略名
-     * @param RuleName ACL策略名
+     * Set ACL规则名
+     * @param RuleName ACL规则名
      */
     public void setRuleName(String RuleName) {
         this.RuleName = RuleName;
     }
 
     /**
-     * Get 是否应用到新增的Topic 
-     * @return IsApplied 是否应用到新增的Topic
+     * Get 修改预设规则时传入,是否应用到新增的Topic 
+     * @return IsApplied 修改预设规则时传入,是否应用到新增的Topic
      */
     public Long getIsApplied() {
         return this.IsApplied;
     }
 
     /**
-     * Set 是否应用到新增的Topic
-     * @param IsApplied 是否应用到新增的Topic
+     * Set 修改预设规则时传入,是否应用到新增的Topic
+     * @param IsApplied 修改预设规则时传入,是否应用到新增的Topic
      */
     public void setIsApplied(Long IsApplied) {
         this.IsApplied = IsApplied;

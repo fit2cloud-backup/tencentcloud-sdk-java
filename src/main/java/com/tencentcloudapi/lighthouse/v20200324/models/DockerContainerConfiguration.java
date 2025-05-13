@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DockerContainerConfiguration extends AbstractModel{
+public class DockerContainerConfiguration extends AbstractModel {
 
     /**
     * 容器镜像地址
@@ -65,7 +66,11 @@ public class DockerContainerConfiguration extends AbstractModel{
     private String Command;
 
     /**
-    * 容器重启策略
+    * 容器重启策略。
+- no -默认策略，在容器退出时不重启容器
+- on-failure -在容器非正常退出时（退出状态非0），才会重启容器
+- on-failure:3 -在容器非正常退出时重启容器，最多重启3次
+- always -在容器退出时总是重启容器
     */
     @SerializedName("RestartPolicy")
     @Expose
@@ -168,16 +173,32 @@ public class DockerContainerConfiguration extends AbstractModel{
     }
 
     /**
-     * Get 容器重启策略 
-     * @return RestartPolicy 容器重启策略
+     * Get 容器重启策略。
+- no -默认策略，在容器退出时不重启容器
+- on-failure -在容器非正常退出时（退出状态非0），才会重启容器
+- on-failure:3 -在容器非正常退出时重启容器，最多重启3次
+- always -在容器退出时总是重启容器 
+     * @return RestartPolicy 容器重启策略。
+- no -默认策略，在容器退出时不重启容器
+- on-failure -在容器非正常退出时（退出状态非0），才会重启容器
+- on-failure:3 -在容器非正常退出时重启容器，最多重启3次
+- always -在容器退出时总是重启容器
      */
     public String getRestartPolicy() {
         return this.RestartPolicy;
     }
 
     /**
-     * Set 容器重启策略
-     * @param RestartPolicy 容器重启策略
+     * Set 容器重启策略。
+- no -默认策略，在容器退出时不重启容器
+- on-failure -在容器非正常退出时（退出状态非0），才会重启容器
+- on-failure:3 -在容器非正常退出时重启容器，最多重启3次
+- always -在容器退出时总是重启容器
+     * @param RestartPolicy 容器重启策略。
+- no -默认策略，在容器退出时不重启容器
+- on-failure -在容器非正常退出时（退出状态非0），才会重启容器
+- on-failure:3 -在容器非正常退出时重启容器，最多重启3次
+- always -在容器退出时总是重启容器
      */
     public void setRestartPolicy(String RestartPolicy) {
         this.RestartPolicy = RestartPolicy;

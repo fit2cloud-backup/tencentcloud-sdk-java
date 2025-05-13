@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DockerActivity extends AbstractModel{
+public class DockerActivity extends AbstractModel {
 
     /**
     * 活动ID。
@@ -70,7 +71,6 @@ public class DockerActivity extends AbstractModel{
 
     /**
     * 结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -189,10 +189,8 @@ public class DockerActivity extends AbstractModel{
     }
 
     /**
-     * Get 结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。 
      * @return EndTime 结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -200,9 +198,7 @@ public class DockerActivity extends AbstractModel{
 
     /**
      * Set 结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 结束时间。按照 ISO8601 标准表示，并且使用 UTC 时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;

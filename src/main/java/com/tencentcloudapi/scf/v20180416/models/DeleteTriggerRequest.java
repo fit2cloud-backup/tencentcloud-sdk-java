@@ -16,11 +16,12 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteTriggerRequest extends AbstractModel{
+public class DeleteTriggerRequest extends AbstractModel {
 
     /**
     * 函数的名称
@@ -37,7 +38,7 @@ public class DeleteTriggerRequest extends AbstractModel{
     private String TriggerName;
 
     /**
-    * 要删除的触发器类型，目前支持 cos 、cmq、 timer、ckafka 类型
+    * 要删除的触发器类型，目前只支持  timer、ckafka 、apigw 、cls 、cos 、cmq 、http 类型
     */
     @SerializedName("Type")
     @Expose
@@ -58,7 +59,7 @@ public class DeleteTriggerRequest extends AbstractModel{
     private String TriggerDesc;
 
     /**
-    * 函数的版本，默认为 $LATEST，建议填写 [$DEFAULT](https://cloud.tencent.com/document/product/583/36149#.E9.BB.98.E8.AE.A4.E5.88.AB.E5.90.8D)方便后续进行版本的灰度发布。
+    * 要删除的触发器实际所指向的版本或别名，默认值为 $LATEST
     */
     @SerializedName("Qualifier")
     @Expose
@@ -97,16 +98,16 @@ public class DeleteTriggerRequest extends AbstractModel{
     }
 
     /**
-     * Get 要删除的触发器类型，目前支持 cos 、cmq、 timer、ckafka 类型 
-     * @return Type 要删除的触发器类型，目前支持 cos 、cmq、 timer、ckafka 类型
+     * Get 要删除的触发器类型，目前只支持  timer、ckafka 、apigw 、cls 、cos 、cmq 、http 类型 
+     * @return Type 要删除的触发器类型，目前只支持  timer、ckafka 、apigw 、cls 、cos 、cmq 、http 类型
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 要删除的触发器类型，目前支持 cos 、cmq、 timer、ckafka 类型
-     * @param Type 要删除的触发器类型，目前支持 cos 、cmq、 timer、ckafka 类型
+     * Set 要删除的触发器类型，目前只支持  timer、ckafka 、apigw 、cls 、cos 、cmq 、http 类型
+     * @param Type 要删除的触发器类型，目前只支持  timer、ckafka 、apigw 、cls 、cos 、cmq 、http 类型
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -145,16 +146,16 @@ public class DeleteTriggerRequest extends AbstractModel{
     }
 
     /**
-     * Get 函数的版本，默认为 $LATEST，建议填写 [$DEFAULT](https://cloud.tencent.com/document/product/583/36149#.E9.BB.98.E8.AE.A4.E5.88.AB.E5.90.8D)方便后续进行版本的灰度发布。 
-     * @return Qualifier 函数的版本，默认为 $LATEST，建议填写 [$DEFAULT](https://cloud.tencent.com/document/product/583/36149#.E9.BB.98.E8.AE.A4.E5.88.AB.E5.90.8D)方便后续进行版本的灰度发布。
+     * Get 要删除的触发器实际所指向的版本或别名，默认值为 $LATEST 
+     * @return Qualifier 要删除的触发器实际所指向的版本或别名，默认值为 $LATEST
      */
     public String getQualifier() {
         return this.Qualifier;
     }
 
     /**
-     * Set 函数的版本，默认为 $LATEST，建议填写 [$DEFAULT](https://cloud.tencent.com/document/product/583/36149#.E9.BB.98.E8.AE.A4.E5.88.AB.E5.90.8D)方便后续进行版本的灰度发布。
-     * @param Qualifier 函数的版本，默认为 $LATEST，建议填写 [$DEFAULT](https://cloud.tencent.com/document/product/583/36149#.E9.BB.98.E8.AE.A4.E5.88.AB.E5.90.8D)方便后续进行版本的灰度发布。
+     * Set 要删除的触发器实际所指向的版本或别名，默认值为 $LATEST
+     * @param Qualifier 要删除的触发器实际所指向的版本或别名，默认值为 $LATEST
      */
     public void setQualifier(String Qualifier) {
         this.Qualifier = Qualifier;

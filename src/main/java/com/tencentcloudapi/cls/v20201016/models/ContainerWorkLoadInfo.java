@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ContainerWorkLoadInfo extends AbstractModel{
+public class ContainerWorkLoadInfo extends AbstractModel {
 
     /**
     * 工作负载的类型
@@ -38,7 +39,6 @@ public class ContainerWorkLoadInfo extends AbstractModel{
 
     /**
     * 容器名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Container")
     @Expose
@@ -46,7 +46,6 @@ public class ContainerWorkLoadInfo extends AbstractModel{
 
     /**
     * 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Namespace")
     @Expose
@@ -85,10 +84,8 @@ public class ContainerWorkLoadInfo extends AbstractModel{
     }
 
     /**
-     * Get 容器名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器名 
      * @return Container 容器名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContainer() {
         return this.Container;
@@ -96,19 +93,15 @@ public class ContainerWorkLoadInfo extends AbstractModel{
 
     /**
      * Set 容器名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Container 容器名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContainer(String Container) {
         this.Container = Container;
     }
 
     /**
-     * Get 命名空间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命名空间 
      * @return Namespace 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNamespace() {
         return this.Namespace;
@@ -116,9 +109,7 @@ public class ContainerWorkLoadInfo extends AbstractModel{
 
     /**
      * Set 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Namespace 命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;

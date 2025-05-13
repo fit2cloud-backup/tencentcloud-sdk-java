@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DataDiskPrice extends AbstractModel{
+public class DataDiskPrice extends AbstractModel {
 
     /**
     * 云硬盘ID。
@@ -59,7 +60,6 @@ public class DataDiskPrice extends AbstractModel{
 
     /**
     * 数据盘挂载的实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -146,10 +146,8 @@ public class DataDiskPrice extends AbstractModel{
     }
 
     /**
-     * Get 数据盘挂载的实例ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据盘挂载的实例ID。 
      * @return InstanceId 数据盘挂载的实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -157,9 +155,7 @@ public class DataDiskPrice extends AbstractModel{
 
     /**
      * Set 数据盘挂载的实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 数据盘挂载的实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeProxySupportParamResponse extends AbstractModel{
+public class DescribeProxySupportParamResponse extends AbstractModel {
 
     /**
     * 支持最大代理版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProxyVersion")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
     * 是否支持连接池
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SupportPool")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
     * 连接池最小值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PoolMin")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
     * 连接池最大值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PoolMax")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
     * 是否支持事务拆分
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SupportTransSplit")
     @Expose
@@ -64,7 +60,6 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
     * 支持连接池的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SupportPoolMinVersion")
     @Expose
@@ -72,7 +67,6 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
     * 支持事务拆分的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SupportTransSplitMinVersion")
     @Expose
@@ -80,24 +74,35 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
     * 是否支持设置只读
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SupportReadOnly")
     @Expose
     private Boolean SupportReadOnly;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 是否自动均衡负载
+    */
+    @SerializedName("SupportAutoLoadBalance")
+    @Expose
+    private Boolean SupportAutoLoadBalance;
+
+    /**
+    * 是否支持接入模式
+    */
+    @SerializedName("SupportAccessMode")
+    @Expose
+    private Boolean SupportAccessMode;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 支持最大代理版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 支持最大代理版本 
      * @return ProxyVersion 支持最大代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProxyVersion() {
         return this.ProxyVersion;
@@ -105,19 +110,15 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 支持最大代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProxyVersion 支持最大代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxyVersion(String ProxyVersion) {
         this.ProxyVersion = ProxyVersion;
     }
 
     /**
-     * Get 是否支持连接池
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否支持连接池 
      * @return SupportPool 是否支持连接池
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSupportPool() {
         return this.SupportPool;
@@ -125,19 +126,15 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 是否支持连接池
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SupportPool 是否支持连接池
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupportPool(Boolean SupportPool) {
         this.SupportPool = SupportPool;
     }
 
     /**
-     * Get 连接池最小值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接池最小值 
      * @return PoolMin 连接池最小值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPoolMin() {
         return this.PoolMin;
@@ -145,19 +142,15 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 连接池最小值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PoolMin 连接池最小值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPoolMin(Long PoolMin) {
         this.PoolMin = PoolMin;
     }
 
     /**
-     * Get 连接池最大值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 连接池最大值 
      * @return PoolMax 连接池最大值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPoolMax() {
         return this.PoolMax;
@@ -165,19 +158,15 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 连接池最大值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PoolMax 连接池最大值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPoolMax(Long PoolMax) {
         this.PoolMax = PoolMax;
     }
 
     /**
-     * Get 是否支持事务拆分
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否支持事务拆分 
      * @return SupportTransSplit 是否支持事务拆分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSupportTransSplit() {
         return this.SupportTransSplit;
@@ -185,19 +174,15 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 是否支持事务拆分
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SupportTransSplit 是否支持事务拆分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupportTransSplit(Boolean SupportTransSplit) {
         this.SupportTransSplit = SupportTransSplit;
     }
 
     /**
-     * Get 支持连接池的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 支持连接池的最小代理版本 
      * @return SupportPoolMinVersion 支持连接池的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSupportPoolMinVersion() {
         return this.SupportPoolMinVersion;
@@ -205,19 +190,15 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 支持连接池的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SupportPoolMinVersion 支持连接池的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupportPoolMinVersion(String SupportPoolMinVersion) {
         this.SupportPoolMinVersion = SupportPoolMinVersion;
     }
 
     /**
-     * Get 支持事务拆分的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 支持事务拆分的最小代理版本 
      * @return SupportTransSplitMinVersion 支持事务拆分的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSupportTransSplitMinVersion() {
         return this.SupportTransSplitMinVersion;
@@ -225,19 +206,15 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 支持事务拆分的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SupportTransSplitMinVersion 支持事务拆分的最小代理版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupportTransSplitMinVersion(String SupportTransSplitMinVersion) {
         this.SupportTransSplitMinVersion = SupportTransSplitMinVersion;
     }
 
     /**
-     * Get 是否支持设置只读
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否支持设置只读 
      * @return SupportReadOnly 是否支持设置只读
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSupportReadOnly() {
         return this.SupportReadOnly;
@@ -245,25 +222,55 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
 
     /**
      * Set 是否支持设置只读
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SupportReadOnly 是否支持设置只读
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupportReadOnly(Boolean SupportReadOnly) {
         this.SupportReadOnly = SupportReadOnly;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 是否自动均衡负载 
+     * @return SupportAutoLoadBalance 是否自动均衡负载
+     */
+    public Boolean getSupportAutoLoadBalance() {
+        return this.SupportAutoLoadBalance;
+    }
+
+    /**
+     * Set 是否自动均衡负载
+     * @param SupportAutoLoadBalance 是否自动均衡负载
+     */
+    public void setSupportAutoLoadBalance(Boolean SupportAutoLoadBalance) {
+        this.SupportAutoLoadBalance = SupportAutoLoadBalance;
+    }
+
+    /**
+     * Get 是否支持接入模式 
+     * @return SupportAccessMode 是否支持接入模式
+     */
+    public Boolean getSupportAccessMode() {
+        return this.SupportAccessMode;
+    }
+
+    /**
+     * Set 是否支持接入模式
+     * @param SupportAccessMode 是否支持接入模式
+     */
+    public void setSupportAccessMode(Boolean SupportAccessMode) {
+        this.SupportAccessMode = SupportAccessMode;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -301,6 +308,12 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
         if (source.SupportReadOnly != null) {
             this.SupportReadOnly = new Boolean(source.SupportReadOnly);
         }
+        if (source.SupportAutoLoadBalance != null) {
+            this.SupportAutoLoadBalance = new Boolean(source.SupportAutoLoadBalance);
+        }
+        if (source.SupportAccessMode != null) {
+            this.SupportAccessMode = new Boolean(source.SupportAccessMode);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -319,6 +332,8 @@ public class DescribeProxySupportParamResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "SupportPoolMinVersion", this.SupportPoolMinVersion);
         this.setParamSimple(map, prefix + "SupportTransSplitMinVersion", this.SupportTransSplitMinVersion);
         this.setParamSimple(map, prefix + "SupportReadOnly", this.SupportReadOnly);
+        this.setParamSimple(map, prefix + "SupportAutoLoadBalance", this.SupportAutoLoadBalance);
+        this.setParamSimple(map, prefix + "SupportAccessMode", this.SupportAccessMode);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

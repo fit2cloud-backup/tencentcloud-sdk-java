@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RenewInstancesInfo extends AbstractModel{
+public class RenewInstancesInfo extends AbstractModel {
 
     /**
     * 节点资源ID
@@ -85,6 +86,28 @@ public class RenewInstancesInfo extends AbstractModel{
     @SerializedName("StorageType")
     @Expose
     private Long StorageType;
+
+    /**
+    * 系统盘大小
+    */
+    @SerializedName("RootSize")
+    @Expose
+    private Long RootSize;
+
+    /**
+    * 系统盘类型
+    */
+    @SerializedName("RootStorageType")
+    @Expose
+    private Long RootStorageType;
+
+    /**
+    * 数据盘信息
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MCMultiDisk")
+    @Expose
+    private MultiDiskMC [] MCMultiDisk;
 
     /**
      * Get 节点资源ID 
@@ -234,6 +257,58 @@ public class RenewInstancesInfo extends AbstractModel{
         this.StorageType = StorageType;
     }
 
+    /**
+     * Get 系统盘大小 
+     * @return RootSize 系统盘大小
+     */
+    public Long getRootSize() {
+        return this.RootSize;
+    }
+
+    /**
+     * Set 系统盘大小
+     * @param RootSize 系统盘大小
+     */
+    public void setRootSize(Long RootSize) {
+        this.RootSize = RootSize;
+    }
+
+    /**
+     * Get 系统盘类型 
+     * @return RootStorageType 系统盘类型
+     */
+    public Long getRootStorageType() {
+        return this.RootStorageType;
+    }
+
+    /**
+     * Set 系统盘类型
+     * @param RootStorageType 系统盘类型
+     */
+    public void setRootStorageType(Long RootStorageType) {
+        this.RootStorageType = RootStorageType;
+    }
+
+    /**
+     * Get 数据盘信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MCMultiDisk 数据盘信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MultiDiskMC [] getMCMultiDisk() {
+        return this.MCMultiDisk;
+    }
+
+    /**
+     * Set 数据盘信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MCMultiDisk 数据盘信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMCMultiDisk(MultiDiskMC [] MCMultiDisk) {
+        this.MCMultiDisk = MCMultiDisk;
+    }
+
     public RenewInstancesInfo() {
     }
 
@@ -269,6 +344,18 @@ public class RenewInstancesInfo extends AbstractModel{
         if (source.StorageType != null) {
             this.StorageType = new Long(source.StorageType);
         }
+        if (source.RootSize != null) {
+            this.RootSize = new Long(source.RootSize);
+        }
+        if (source.RootStorageType != null) {
+            this.RootStorageType = new Long(source.RootStorageType);
+        }
+        if (source.MCMultiDisk != null) {
+            this.MCMultiDisk = new MultiDiskMC[source.MCMultiDisk.length];
+            for (int i = 0; i < source.MCMultiDisk.length; i++) {
+                this.MCMultiDisk[i] = new MultiDiskMC(source.MCMultiDisk[i]);
+            }
+        }
     }
 
 
@@ -285,6 +372,9 @@ public class RenewInstancesInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ExpireTime", this.ExpireTime);
         this.setParamSimple(map, prefix + "Spec", this.Spec);
         this.setParamSimple(map, prefix + "StorageType", this.StorageType);
+        this.setParamSimple(map, prefix + "RootSize", this.RootSize);
+        this.setParamSimple(map, prefix + "RootStorageType", this.RootStorageType);
+        this.setParamArrayObj(map, prefix + "MCMultiDisk.", this.MCMultiDisk);
 
     }
 }

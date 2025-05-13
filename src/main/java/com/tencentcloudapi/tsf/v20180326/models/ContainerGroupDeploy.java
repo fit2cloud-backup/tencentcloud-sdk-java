@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ContainerGroupDeploy extends AbstractModel{
+public class ContainerGroupDeploy extends AbstractModel {
 
     /**
     * 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupId")
     @Expose
@@ -32,7 +32,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
     @Expose
@@ -40,7 +39,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceNum")
     @Expose
@@ -48,7 +46,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CurrentNum")
     @Expose
@@ -120,7 +117,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 端口映射
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProtocolPorts")
     @Expose
@@ -240,7 +236,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 是否部署Agent容器
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeployAgent")
     @Expose
@@ -256,7 +251,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 是否创建 k8s service
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DisableService")
     @Expose
@@ -264,7 +258,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * service 是否为 headless 类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HeadlessService")
     @Expose
@@ -304,7 +297,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 仓库类型 (person, tcr)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepoType")
     @Expose
@@ -312,7 +304,6 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
     * 预热配置设置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WarmupSetting")
     @Expose
@@ -327,10 +318,36 @@ public class ContainerGroupDeploy extends AbstractModel{
     private GatewayConfig GatewayConfig;
 
     /**
-     * Get 部署组id
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 容器名称
+    */
+    @SerializedName("ContainerName")
+    @Expose
+    private String ContainerName;
+
+    /**
+    * 附加容器列表
+    */
+    @SerializedName("AdditionalContainerList")
+    @Expose
+    private GroupContainerInfo [] AdditionalContainerList;
+
+    /**
+    * 内部容器列表
+    */
+    @SerializedName("InternalContainerList")
+    @Expose
+    private GroupContainerInfo [] InternalContainerList;
+
+    /**
+    * service列表
+    */
+    @SerializedName("ServiceSettingList")
+    @Expose
+    private ServiceSetting [] ServiceSettingList;
+
+    /**
+     * Get 部署组id 
      * @return GroupId 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupId() {
         return this.GroupId;
@@ -338,19 +355,15 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupId 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
     }
 
     /**
-     * Get 分组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组名称 
      * @return GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
         return this.GroupName;
@@ -358,19 +371,15 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;
     }
 
     /**
-     * Get 实例总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例总数 
      * @return InstanceNum 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceNum() {
         return this.InstanceNum;
@@ -378,19 +387,15 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceNum 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceNum(Long InstanceNum) {
         this.InstanceNum = InstanceNum;
     }
 
     /**
-     * Get 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已启动实例总数 
      * @return CurrentNum 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCurrentNum() {
         return this.CurrentNum;
@@ -398,9 +403,7 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CurrentNum 已启动实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCurrentNum(Long CurrentNum) {
         this.CurrentNum = CurrentNum;
@@ -567,10 +570,8 @@ public class ContainerGroupDeploy extends AbstractModel{
     }
 
     /**
-     * Get 端口映射
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 端口映射 
      * @return ProtocolPorts 端口映射
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ProtocolPort [] getProtocolPorts() {
         return this.ProtocolPorts;
@@ -578,9 +579,7 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 端口映射
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProtocolPorts 端口映射
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtocolPorts(ProtocolPort [] ProtocolPorts) {
         this.ProtocolPorts = ProtocolPorts;
@@ -867,10 +866,8 @@ public class ContainerGroupDeploy extends AbstractModel{
     }
 
     /**
-     * Get 是否部署Agent容器
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否部署Agent容器 
      * @return DeployAgent 是否部署Agent容器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDeployAgent() {
         return this.DeployAgent;
@@ -878,9 +875,7 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 是否部署Agent容器
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeployAgent 是否部署Agent容器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeployAgent(Boolean DeployAgent) {
         this.DeployAgent = DeployAgent;
@@ -907,10 +902,8 @@ public class ContainerGroupDeploy extends AbstractModel{
     }
 
     /**
-     * Get 是否创建 k8s service
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否创建 k8s service 
      * @return DisableService 是否创建 k8s service
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDisableService() {
         return this.DisableService;
@@ -918,19 +911,15 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 是否创建 k8s service
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DisableService 是否创建 k8s service
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDisableService(Boolean DisableService) {
         this.DisableService = DisableService;
     }
 
     /**
-     * Get service 是否为 headless 类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get service 是否为 headless 类型 
      * @return HeadlessService service 是否为 headless 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getHeadlessService() {
         return this.HeadlessService;
@@ -938,9 +927,7 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set service 是否为 headless 类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HeadlessService service 是否为 headless 类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeadlessService(Boolean HeadlessService) {
         this.HeadlessService = HeadlessService;
@@ -1027,10 +1014,8 @@ public class ContainerGroupDeploy extends AbstractModel{
     }
 
     /**
-     * Get 仓库类型 (person, tcr)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库类型 (person, tcr) 
      * @return RepoType 仓库类型 (person, tcr)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepoType() {
         return this.RepoType;
@@ -1038,19 +1023,15 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 仓库类型 (person, tcr)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepoType 仓库类型 (person, tcr)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepoType(String RepoType) {
         this.RepoType = RepoType;
     }
 
     /**
-     * Get 预热配置设置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 预热配置设置 
      * @return WarmupSetting 预热配置设置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public WarmupSetting getWarmupSetting() {
         return this.WarmupSetting;
@@ -1058,9 +1039,7 @@ public class ContainerGroupDeploy extends AbstractModel{
 
     /**
      * Set 预热配置设置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WarmupSetting 预热配置设置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWarmupSetting(WarmupSetting WarmupSetting) {
         this.WarmupSetting = WarmupSetting;
@@ -1084,6 +1063,70 @@ public class ContainerGroupDeploy extends AbstractModel{
      */
     public void setGatewayConfig(GatewayConfig GatewayConfig) {
         this.GatewayConfig = GatewayConfig;
+    }
+
+    /**
+     * Get 容器名称 
+     * @return ContainerName 容器名称
+     */
+    public String getContainerName() {
+        return this.ContainerName;
+    }
+
+    /**
+     * Set 容器名称
+     * @param ContainerName 容器名称
+     */
+    public void setContainerName(String ContainerName) {
+        this.ContainerName = ContainerName;
+    }
+
+    /**
+     * Get 附加容器列表 
+     * @return AdditionalContainerList 附加容器列表
+     */
+    public GroupContainerInfo [] getAdditionalContainerList() {
+        return this.AdditionalContainerList;
+    }
+
+    /**
+     * Set 附加容器列表
+     * @param AdditionalContainerList 附加容器列表
+     */
+    public void setAdditionalContainerList(GroupContainerInfo [] AdditionalContainerList) {
+        this.AdditionalContainerList = AdditionalContainerList;
+    }
+
+    /**
+     * Get 内部容器列表 
+     * @return InternalContainerList 内部容器列表
+     */
+    public GroupContainerInfo [] getInternalContainerList() {
+        return this.InternalContainerList;
+    }
+
+    /**
+     * Set 内部容器列表
+     * @param InternalContainerList 内部容器列表
+     */
+    public void setInternalContainerList(GroupContainerInfo [] InternalContainerList) {
+        this.InternalContainerList = InternalContainerList;
+    }
+
+    /**
+     * Get service列表 
+     * @return ServiceSettingList service列表
+     */
+    public ServiceSetting [] getServiceSettingList() {
+        return this.ServiceSettingList;
+    }
+
+    /**
+     * Set service列表
+     * @param ServiceSettingList service列表
+     */
+    public void setServiceSettingList(ServiceSetting [] ServiceSettingList) {
+        this.ServiceSettingList = ServiceSettingList;
     }
 
     public ContainerGroupDeploy() {
@@ -1220,6 +1263,27 @@ public class ContainerGroupDeploy extends AbstractModel{
         if (source.GatewayConfig != null) {
             this.GatewayConfig = new GatewayConfig(source.GatewayConfig);
         }
+        if (source.ContainerName != null) {
+            this.ContainerName = new String(source.ContainerName);
+        }
+        if (source.AdditionalContainerList != null) {
+            this.AdditionalContainerList = new GroupContainerInfo[source.AdditionalContainerList.length];
+            for (int i = 0; i < source.AdditionalContainerList.length; i++) {
+                this.AdditionalContainerList[i] = new GroupContainerInfo(source.AdditionalContainerList[i]);
+            }
+        }
+        if (source.InternalContainerList != null) {
+            this.InternalContainerList = new GroupContainerInfo[source.InternalContainerList.length];
+            for (int i = 0; i < source.InternalContainerList.length; i++) {
+                this.InternalContainerList[i] = new GroupContainerInfo(source.InternalContainerList[i]);
+            }
+        }
+        if (source.ServiceSettingList != null) {
+            this.ServiceSettingList = new ServiceSetting[source.ServiceSettingList.length];
+            for (int i = 0; i < source.ServiceSettingList.length; i++) {
+                this.ServiceSettingList[i] = new ServiceSetting(source.ServiceSettingList[i]);
+            }
+        }
     }
 
 
@@ -1265,6 +1329,10 @@ public class ContainerGroupDeploy extends AbstractModel{
         this.setParamSimple(map, prefix + "RepoType", this.RepoType);
         this.setParamObj(map, prefix + "WarmupSetting.", this.WarmupSetting);
         this.setParamObj(map, prefix + "GatewayConfig.", this.GatewayConfig);
+        this.setParamSimple(map, prefix + "ContainerName", this.ContainerName);
+        this.setParamArrayObj(map, prefix + "AdditionalContainerList.", this.AdditionalContainerList);
+        this.setParamArrayObj(map, prefix + "InternalContainerList.", this.InternalContainerList);
+        this.setParamArrayObj(map, prefix + "ServiceSettingList.", this.ServiceSettingList);
 
     }
 }

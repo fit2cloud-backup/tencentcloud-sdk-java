@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfg.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskListRequest extends AbstractModel{
+public class DescribeTaskListRequest extends AbstractModel {
 
     /**
     * 分页Limit
@@ -72,6 +73,13 @@ public class DescribeTaskListRequest extends AbstractModel{
     private String TaskEndTime;
 
     /**
+    * 更新时间，固定格式%Y-%m-%d %H:%M:%S
+    */
+    @SerializedName("TaskUpdateTime")
+    @Expose
+    private String TaskUpdateTime;
+
+    /**
     * 标签对
     */
     @SerializedName("Tags")
@@ -84,6 +92,48 @@ public class DescribeTaskListRequest extends AbstractModel{
     @SerializedName("Filters")
     @Expose
     private ActionFilter [] Filters;
+
+    /**
+    * 演练ID
+    */
+    @SerializedName("TaskId")
+    @Expose
+    private Long [] TaskId;
+
+    /**
+    * 关联应用ID筛选
+    */
+    @SerializedName("ApplicationId")
+    @Expose
+    private String [] ApplicationId;
+
+    /**
+    * 关联应用筛选
+    */
+    @SerializedName("ApplicationName")
+    @Expose
+    private String [] ApplicationName;
+
+    /**
+    * 任务状态筛选--支持多选 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
+    */
+    @SerializedName("TaskStatusList")
+    @Expose
+    private Long [] TaskStatusList;
+
+    /**
+    * 架构ID
+    */
+    @SerializedName("ArchId")
+    @Expose
+    private String ArchId;
+
+    /**
+    * 架构名称
+    */
+    @SerializedName("ArchName")
+    @Expose
+    private String ArchName;
 
     /**
      * Get 分页Limit 
@@ -198,6 +248,22 @@ public class DescribeTaskListRequest extends AbstractModel{
     }
 
     /**
+     * Get 更新时间，固定格式%Y-%m-%d %H:%M:%S 
+     * @return TaskUpdateTime 更新时间，固定格式%Y-%m-%d %H:%M:%S
+     */
+    public String getTaskUpdateTime() {
+        return this.TaskUpdateTime;
+    }
+
+    /**
+     * Set 更新时间，固定格式%Y-%m-%d %H:%M:%S
+     * @param TaskUpdateTime 更新时间，固定格式%Y-%m-%d %H:%M:%S
+     */
+    public void setTaskUpdateTime(String TaskUpdateTime) {
+        this.TaskUpdateTime = TaskUpdateTime;
+    }
+
+    /**
      * Get 标签对 
      * @return Tags 标签对
      */
@@ -227,6 +293,102 @@ public class DescribeTaskListRequest extends AbstractModel{
      */
     public void setFilters(ActionFilter [] Filters) {
         this.Filters = Filters;
+    }
+
+    /**
+     * Get 演练ID 
+     * @return TaskId 演练ID
+     */
+    public Long [] getTaskId() {
+        return this.TaskId;
+    }
+
+    /**
+     * Set 演练ID
+     * @param TaskId 演练ID
+     */
+    public void setTaskId(Long [] TaskId) {
+        this.TaskId = TaskId;
+    }
+
+    /**
+     * Get 关联应用ID筛选 
+     * @return ApplicationId 关联应用ID筛选
+     */
+    public String [] getApplicationId() {
+        return this.ApplicationId;
+    }
+
+    /**
+     * Set 关联应用ID筛选
+     * @param ApplicationId 关联应用ID筛选
+     */
+    public void setApplicationId(String [] ApplicationId) {
+        this.ApplicationId = ApplicationId;
+    }
+
+    /**
+     * Get 关联应用筛选 
+     * @return ApplicationName 关联应用筛选
+     */
+    public String [] getApplicationName() {
+        return this.ApplicationName;
+    }
+
+    /**
+     * Set 关联应用筛选
+     * @param ApplicationName 关联应用筛选
+     */
+    public void setApplicationName(String [] ApplicationName) {
+        this.ApplicationName = ApplicationName;
+    }
+
+    /**
+     * Get 任务状态筛选--支持多选 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束) 
+     * @return TaskStatusList 任务状态筛选--支持多选 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
+     */
+    public Long [] getTaskStatusList() {
+        return this.TaskStatusList;
+    }
+
+    /**
+     * Set 任务状态筛选--支持多选 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
+     * @param TaskStatusList 任务状态筛选--支持多选 任务状态(1001 -- 未开始 1002 -- 进行中 1003 -- 暂停中 1004 -- 任务结束)
+     */
+    public void setTaskStatusList(Long [] TaskStatusList) {
+        this.TaskStatusList = TaskStatusList;
+    }
+
+    /**
+     * Get 架构ID 
+     * @return ArchId 架构ID
+     */
+    public String getArchId() {
+        return this.ArchId;
+    }
+
+    /**
+     * Set 架构ID
+     * @param ArchId 架构ID
+     */
+    public void setArchId(String ArchId) {
+        this.ArchId = ArchId;
+    }
+
+    /**
+     * Get 架构名称 
+     * @return ArchName 架构名称
+     */
+    public String getArchName() {
+        return this.ArchName;
+    }
+
+    /**
+     * Set 架构名称
+     * @param ArchName 架构名称
+     */
+    public void setArchName(String ArchName) {
+        this.ArchName = ArchName;
     }
 
     public DescribeTaskListRequest() {
@@ -261,6 +423,9 @@ public class DescribeTaskListRequest extends AbstractModel{
         if (source.TaskEndTime != null) {
             this.TaskEndTime = new String(source.TaskEndTime);
         }
+        if (source.TaskUpdateTime != null) {
+            this.TaskUpdateTime = new String(source.TaskUpdateTime);
+        }
         if (source.Tags != null) {
             this.Tags = new TagWithDescribe[source.Tags.length];
             for (int i = 0; i < source.Tags.length; i++) {
@@ -272,6 +437,36 @@ public class DescribeTaskListRequest extends AbstractModel{
             for (int i = 0; i < source.Filters.length; i++) {
                 this.Filters[i] = new ActionFilter(source.Filters[i]);
             }
+        }
+        if (source.TaskId != null) {
+            this.TaskId = new Long[source.TaskId.length];
+            for (int i = 0; i < source.TaskId.length; i++) {
+                this.TaskId[i] = new Long(source.TaskId[i]);
+            }
+        }
+        if (source.ApplicationId != null) {
+            this.ApplicationId = new String[source.ApplicationId.length];
+            for (int i = 0; i < source.ApplicationId.length; i++) {
+                this.ApplicationId[i] = new String(source.ApplicationId[i]);
+            }
+        }
+        if (source.ApplicationName != null) {
+            this.ApplicationName = new String[source.ApplicationName.length];
+            for (int i = 0; i < source.ApplicationName.length; i++) {
+                this.ApplicationName[i] = new String(source.ApplicationName[i]);
+            }
+        }
+        if (source.TaskStatusList != null) {
+            this.TaskStatusList = new Long[source.TaskStatusList.length];
+            for (int i = 0; i < source.TaskStatusList.length; i++) {
+                this.TaskStatusList[i] = new Long(source.TaskStatusList[i]);
+            }
+        }
+        if (source.ArchId != null) {
+            this.ArchId = new String(source.ArchId);
+        }
+        if (source.ArchName != null) {
+            this.ArchName = new String(source.ArchName);
         }
     }
 
@@ -287,8 +482,15 @@ public class DescribeTaskListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskStatus", this.TaskStatus);
         this.setParamSimple(map, prefix + "TaskStartTime", this.TaskStartTime);
         this.setParamSimple(map, prefix + "TaskEndTime", this.TaskEndTime);
+        this.setParamSimple(map, prefix + "TaskUpdateTime", this.TaskUpdateTime);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamArraySimple(map, prefix + "TaskId.", this.TaskId);
+        this.setParamArraySimple(map, prefix + "ApplicationId.", this.ApplicationId);
+        this.setParamArraySimple(map, prefix + "ApplicationName.", this.ApplicationName);
+        this.setParamArraySimple(map, prefix + "TaskStatusList.", this.TaskStatusList);
+        this.setParamSimple(map, prefix + "ArchId", this.ArchId);
+        this.setParamSimple(map, prefix + "ArchName", this.ArchName);
 
     }
 }

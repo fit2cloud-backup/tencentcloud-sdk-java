@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUserResponse extends AbstractModel{
+public class DescribeUserResponse extends AbstractModel {
 
     /**
     * 应用Id。
@@ -51,7 +52,14 @@ public class DescribeUserResponse extends AbstractModel{
     private String Avatar;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 用户在客户系统的Id
+    */
+    @SerializedName("OriginId")
+    @Expose
+    private String OriginId;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -122,16 +130,32 @@ public class DescribeUserResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 用户在客户系统的Id 
+     * @return OriginId 用户在客户系统的Id
+     */
+    public String getOriginId() {
+        return this.OriginId;
+    }
+
+    /**
+     * Set 用户在客户系统的Id
+     * @param OriginId 用户在客户系统的Id
+     */
+    public void setOriginId(String OriginId) {
+        this.OriginId = OriginId;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -157,6 +181,9 @@ public class DescribeUserResponse extends AbstractModel{
         if (source.Avatar != null) {
             this.Avatar = new String(source.Avatar);
         }
+        if (source.OriginId != null) {
+            this.OriginId = new String(source.OriginId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -171,6 +198,7 @@ public class DescribeUserResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "UserId", this.UserId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Avatar", this.Avatar);
+        this.setParamSimple(map, prefix + "OriginId", this.OriginId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

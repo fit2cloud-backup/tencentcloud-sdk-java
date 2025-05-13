@@ -16,53 +16,64 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteIntegrationEmployeesResponse extends AbstractModel{
+public class DeleteIntegrationEmployeesResponse extends AbstractModel {
 
     /**
-    * 员工删除数据
+    * 员工删除结果。包含成功数据与失败数据。
+<ul><li>**成功数据**：展示员工姓名、手机号与电子签平台UserId</li>
+<li>**失败数据**：展示员工电子签平台UserId、第三方平台OpenId和失败原因</li></ul>
     */
     @SerializedName("DeleteEmployeeResult")
     @Expose
     private DeleteStaffsResult DeleteEmployeeResult;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 员工删除数据 
-     * @return DeleteEmployeeResult 员工删除数据
+     * Get 员工删除结果。包含成功数据与失败数据。
+<ul><li>**成功数据**：展示员工姓名、手机号与电子签平台UserId</li>
+<li>**失败数据**：展示员工电子签平台UserId、第三方平台OpenId和失败原因</li></ul> 
+     * @return DeleteEmployeeResult 员工删除结果。包含成功数据与失败数据。
+<ul><li>**成功数据**：展示员工姓名、手机号与电子签平台UserId</li>
+<li>**失败数据**：展示员工电子签平台UserId、第三方平台OpenId和失败原因</li></ul>
      */
     public DeleteStaffsResult getDeleteEmployeeResult() {
         return this.DeleteEmployeeResult;
     }
 
     /**
-     * Set 员工删除数据
-     * @param DeleteEmployeeResult 员工删除数据
+     * Set 员工删除结果。包含成功数据与失败数据。
+<ul><li>**成功数据**：展示员工姓名、手机号与电子签平台UserId</li>
+<li>**失败数据**：展示员工电子签平台UserId、第三方平台OpenId和失败原因</li></ul>
+     * @param DeleteEmployeeResult 员工删除结果。包含成功数据与失败数据。
+<ul><li>**成功数据**：展示员工姓名、手机号与电子签平台UserId</li>
+<li>**失败数据**：展示员工电子签平台UserId、第三方平台OpenId和失败原因</li></ul>
      */
     public void setDeleteEmployeeResult(DeleteStaffsResult DeleteEmployeeResult) {
         this.DeleteEmployeeResult = DeleteEmployeeResult;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SaveCustomFunctionRequest extends AbstractModel{
+public class SaveCustomFunctionRequest extends AbstractModel {
 
     /**
     * 函数唯一标识
@@ -91,6 +92,27 @@ public class SaveCustomFunctionRequest extends AbstractModel{
     @SerializedName("Example")
     @Expose
     private String Example;
+
+    /**
+    * 项目id，不支持修改，dlc侧创建函数保存时用
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
+
+    /**
+    * 数据库名称，不支持修改，dlc侧创建函数保存时用
+    */
+    @SerializedName("DbName")
+    @Expose
+    private String DbName;
+
+    /**
+    * 函数名称，不支持修改，dlc侧创建函数保存时用
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
 
     /**
      * Get 函数唯一标识 
@@ -252,6 +274,54 @@ public class SaveCustomFunctionRequest extends AbstractModel{
         this.Example = Example;
     }
 
+    /**
+     * Get 项目id，不支持修改，dlc侧创建函数保存时用 
+     * @return ProjectId 项目id，不支持修改，dlc侧创建函数保存时用
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目id，不支持修改，dlc侧创建函数保存时用
+     * @param ProjectId 项目id，不支持修改，dlc侧创建函数保存时用
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
+    /**
+     * Get 数据库名称，不支持修改，dlc侧创建函数保存时用 
+     * @return DbName 数据库名称，不支持修改，dlc侧创建函数保存时用
+     */
+    public String getDbName() {
+        return this.DbName;
+    }
+
+    /**
+     * Set 数据库名称，不支持修改，dlc侧创建函数保存时用
+     * @param DbName 数据库名称，不支持修改，dlc侧创建函数保存时用
+     */
+    public void setDbName(String DbName) {
+        this.DbName = DbName;
+    }
+
+    /**
+     * Get 函数名称，不支持修改，dlc侧创建函数保存时用 
+     * @return Name 函数名称，不支持修改，dlc侧创建函数保存时用
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 函数名称，不支持修改，dlc侧创建函数保存时用
+     * @param Name 函数名称，不支持修改，dlc侧创建函数保存时用
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
     public SaveCustomFunctionRequest() {
     }
 
@@ -293,6 +363,15 @@ public class SaveCustomFunctionRequest extends AbstractModel{
         if (source.Example != null) {
             this.Example = new String(source.Example);
         }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
+        if (source.DbName != null) {
+            this.DbName = new String(source.DbName);
+        }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
     }
 
 
@@ -310,6 +389,9 @@ public class SaveCustomFunctionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ParamDesc", this.ParamDesc);
         this.setParamSimple(map, prefix + "ReturnDesc", this.ReturnDesc);
         this.setParamSimple(map, prefix + "Example", this.Example);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "DbName", this.DbName);
+        this.setParamSimple(map, prefix + "Name", this.Name);
 
     }
 }

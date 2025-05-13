@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OpenDBExtranetAccessRequest extends AbstractModel{
+public class OpenDBExtranetAccessRequest extends AbstractModel {
 
     /**
     * 待开放外网访问的实例ID。形如：tdsql-ow728lmc，可以通过 DescribeDBInstances 查询实例详情获得。
@@ -30,7 +31,7 @@ public class OpenDBExtranetAccessRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 是否IPv6，默认0
+    * 是否为IPV6网络类型实例，0:否，1:是，不传默认为0表示实例为IPV4网络类型
     */
     @SerializedName("Ipv6Flag")
     @Expose
@@ -53,16 +54,16 @@ public class OpenDBExtranetAccessRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否IPv6，默认0 
-     * @return Ipv6Flag 是否IPv6，默认0
+     * Get 是否为IPV6网络类型实例，0:否，1:是，不传默认为0表示实例为IPV4网络类型 
+     * @return Ipv6Flag 是否为IPV6网络类型实例，0:否，1:是，不传默认为0表示实例为IPV4网络类型
      */
     public Long getIpv6Flag() {
         return this.Ipv6Flag;
     }
 
     /**
-     * Set 是否IPv6，默认0
-     * @param Ipv6Flag 是否IPv6，默认0
+     * Set 是否为IPV6网络类型实例，0:否，1:是，不传默认为0表示实例为IPV4网络类型
+     * @param Ipv6Flag 是否为IPV6网络类型实例，0:否，1:是，不传默认为0表示实例为IPV4网络类型
      */
     public void setIpv6Flag(Long Ipv6Flag) {
         this.Ipv6Flag = Ipv6Flag;

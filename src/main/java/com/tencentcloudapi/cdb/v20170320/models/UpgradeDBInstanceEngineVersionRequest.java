@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeDBInstanceEngineVersionRequest extends AbstractModel{
+public class UpgradeDBInstanceEngineVersionRequest extends AbstractModel {
 
     /**
     * 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同，可使用 [查询实例列表](https://cloud.tencent.com/document/api/236/15872) 接口获取，其值为输出参数中字段 InstanceId 的值。
@@ -56,6 +57,20 @@ public class UpgradeDBInstanceEngineVersionRequest extends AbstractModel{
     @SerializedName("MaxDelayTime")
     @Expose
     private Long MaxDelayTime;
+
+    /**
+    * 5.7升级8.0是否忽略关键字错误，取值范围[0,1]，1表示忽略，0表示不忽略
+    */
+    @SerializedName("IgnoreErrKeyword")
+    @Expose
+    private Long IgnoreErrKeyword;
+
+    /**
+    * 版本升级支持指定参数
+    */
+    @SerializedName("ParamList")
+    @Expose
+    private UpgradeEngineVersionParams [] ParamList;
 
     /**
      * Get 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同，可使用 [查询实例列表](https://cloud.tencent.com/document/api/236/15872) 接口获取，其值为输出参数中字段 InstanceId 的值。 
@@ -137,6 +152,38 @@ public class UpgradeDBInstanceEngineVersionRequest extends AbstractModel{
         this.MaxDelayTime = MaxDelayTime;
     }
 
+    /**
+     * Get 5.7升级8.0是否忽略关键字错误，取值范围[0,1]，1表示忽略，0表示不忽略 
+     * @return IgnoreErrKeyword 5.7升级8.0是否忽略关键字错误，取值范围[0,1]，1表示忽略，0表示不忽略
+     */
+    public Long getIgnoreErrKeyword() {
+        return this.IgnoreErrKeyword;
+    }
+
+    /**
+     * Set 5.7升级8.0是否忽略关键字错误，取值范围[0,1]，1表示忽略，0表示不忽略
+     * @param IgnoreErrKeyword 5.7升级8.0是否忽略关键字错误，取值范围[0,1]，1表示忽略，0表示不忽略
+     */
+    public void setIgnoreErrKeyword(Long IgnoreErrKeyword) {
+        this.IgnoreErrKeyword = IgnoreErrKeyword;
+    }
+
+    /**
+     * Get 版本升级支持指定参数 
+     * @return ParamList 版本升级支持指定参数
+     */
+    public UpgradeEngineVersionParams [] getParamList() {
+        return this.ParamList;
+    }
+
+    /**
+     * Set 版本升级支持指定参数
+     * @param ParamList 版本升级支持指定参数
+     */
+    public void setParamList(UpgradeEngineVersionParams [] ParamList) {
+        this.ParamList = ParamList;
+    }
+
     public UpgradeDBInstanceEngineVersionRequest() {
     }
 
@@ -160,6 +207,15 @@ public class UpgradeDBInstanceEngineVersionRequest extends AbstractModel{
         if (source.MaxDelayTime != null) {
             this.MaxDelayTime = new Long(source.MaxDelayTime);
         }
+        if (source.IgnoreErrKeyword != null) {
+            this.IgnoreErrKeyword = new Long(source.IgnoreErrKeyword);
+        }
+        if (source.ParamList != null) {
+            this.ParamList = new UpgradeEngineVersionParams[source.ParamList.length];
+            for (int i = 0; i < source.ParamList.length; i++) {
+                this.ParamList[i] = new UpgradeEngineVersionParams(source.ParamList[i]);
+            }
+        }
     }
 
 
@@ -172,6 +228,8 @@ public class UpgradeDBInstanceEngineVersionRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "WaitSwitch", this.WaitSwitch);
         this.setParamSimple(map, prefix + "UpgradeSubversion", this.UpgradeSubversion);
         this.setParamSimple(map, prefix + "MaxDelayTime", this.MaxDelayTime);
+        this.setParamSimple(map, prefix + "IgnoreErrKeyword", this.IgnoreErrKeyword);
+        this.setParamArrayObj(map, prefix + "ParamList.", this.ParamList);
 
     }
 }

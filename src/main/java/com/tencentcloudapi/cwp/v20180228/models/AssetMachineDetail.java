@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssetMachineDetail extends AbstractModel{
+public class AssetMachineDetail extends AbstractModel {
 
     /**
     * 服务器Quuid
@@ -114,14 +115,14 @@ public class AssetMachineDetail extends AbstractModel{
     private Long CpuSize;
 
     /**
-    * Cpu使用率百分比
+    * Cpu负载
     */
     @SerializedName("CpuLoad")
     @Expose
     private String CpuLoad;
 
     /**
-    * 防护级别：0基础版，1专业版，2旗舰版，3普惠版
+    * 防护级别：0基础版，1专业版，2旗舰版，3轻量版
     */
     @SerializedName("ProtectLevel")
     @Expose
@@ -163,7 +164,7 @@ public class AssetMachineDetail extends AbstractModel{
     private String CoreVersion;
 
     /**
-    * linux/windows
+    * Linux/Windows
     */
     @SerializedName("OsType")
     @Expose
@@ -248,7 +249,6 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
     * 离线时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OfflineTime")
     @Expose
@@ -256,7 +256,6 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
     * 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -264,7 +263,6 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
     * 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -272,11 +270,24 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
     * 主机二外信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
     private MachineExtraInfo MachineExtraInfo;
+
+    /**
+    * CpuLoadVul
+    */
+    @SerializedName("CpuLoadVul")
+    @Expose
+    private String CpuLoadVul;
+
+    /**
+    * 时间
+    */
+    @SerializedName("FirstTime")
+    @Expose
+    private String FirstTime;
 
     /**
      * Get 服务器Quuid 
@@ -487,32 +498,32 @@ public class AssetMachineDetail extends AbstractModel{
     }
 
     /**
-     * Get Cpu使用率百分比 
-     * @return CpuLoad Cpu使用率百分比
+     * Get Cpu负载 
+     * @return CpuLoad Cpu负载
      */
     public String getCpuLoad() {
         return this.CpuLoad;
     }
 
     /**
-     * Set Cpu使用率百分比
-     * @param CpuLoad Cpu使用率百分比
+     * Set Cpu负载
+     * @param CpuLoad Cpu负载
      */
     public void setCpuLoad(String CpuLoad) {
         this.CpuLoad = CpuLoad;
     }
 
     /**
-     * Get 防护级别：0基础版，1专业版，2旗舰版，3普惠版 
-     * @return ProtectLevel 防护级别：0基础版，1专业版，2旗舰版，3普惠版
+     * Get 防护级别：0基础版，1专业版，2旗舰版，3轻量版 
+     * @return ProtectLevel 防护级别：0基础版，1专业版，2旗舰版，3轻量版
      */
     public Long getProtectLevel() {
         return this.ProtectLevel;
     }
 
     /**
-     * Set 防护级别：0基础版，1专业版，2旗舰版，3普惠版
-     * @param ProtectLevel 防护级别：0基础版，1专业版，2旗舰版，3普惠版
+     * Set 防护级别：0基础版，1专业版，2旗舰版，3轻量版
+     * @param ProtectLevel 防护级别：0基础版，1专业版，2旗舰版，3轻量版
      */
     public void setProtectLevel(Long ProtectLevel) {
         this.ProtectLevel = ProtectLevel;
@@ -599,16 +610,16 @@ public class AssetMachineDetail extends AbstractModel{
     }
 
     /**
-     * Get linux/windows 
-     * @return OsType linux/windows
+     * Get Linux/Windows 
+     * @return OsType Linux/Windows
      */
     public String getOsType() {
         return this.OsType;
     }
 
     /**
-     * Set linux/windows
-     * @param OsType linux/windows
+     * Set Linux/Windows
+     * @param OsType Linux/Windows
      */
     public void setOsType(String OsType) {
         this.OsType = OsType;
@@ -791,10 +802,8 @@ public class AssetMachineDetail extends AbstractModel{
     }
 
     /**
-     * Get 离线时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 离线时间 
      * @return OfflineTime 离线时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOfflineTime() {
         return this.OfflineTime;
@@ -802,19 +811,15 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
      * Set 离线时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OfflineTime 离线时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOfflineTime(String OfflineTime) {
         this.OfflineTime = OfflineTime;
     }
 
     /**
-     * Get 主机ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机ID 
      * @return InstanceId 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -822,19 +827,15 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
      * Set 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据更新时间 
      * @return UpdateTime 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -842,19 +843,15 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
      * Set 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 数据更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 主机二外信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机二外信息 
      * @return MachineExtraInfo 主机二外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -862,12 +859,42 @@ public class AssetMachineDetail extends AbstractModel{
 
     /**
      * Set 主机二外信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 主机二外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
+    }
+
+    /**
+     * Get CpuLoadVul 
+     * @return CpuLoadVul CpuLoadVul
+     */
+    public String getCpuLoadVul() {
+        return this.CpuLoadVul;
+    }
+
+    /**
+     * Set CpuLoadVul
+     * @param CpuLoadVul CpuLoadVul
+     */
+    public void setCpuLoadVul(String CpuLoadVul) {
+        this.CpuLoadVul = CpuLoadVul;
+    }
+
+    /**
+     * Get 时间 
+     * @return FirstTime 时间
+     */
+    public String getFirstTime() {
+        return this.FirstTime;
+    }
+
+    /**
+     * Set 时间
+     * @param FirstTime 时间
+     */
+    public void setFirstTime(String FirstTime) {
+        this.FirstTime = FirstTime;
     }
 
     public AssetMachineDetail() {
@@ -992,6 +1019,12 @@ public class AssetMachineDetail extends AbstractModel{
         if (source.MachineExtraInfo != null) {
             this.MachineExtraInfo = new MachineExtraInfo(source.MachineExtraInfo);
         }
+        if (source.CpuLoadVul != null) {
+            this.CpuLoadVul = new String(source.CpuLoadVul);
+        }
+        if (source.FirstTime != null) {
+            this.FirstTime = new String(source.FirstTime);
+        }
     }
 
 
@@ -1035,6 +1068,8 @@ public class AssetMachineDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
         this.setParamObj(map, prefix + "MachineExtraInfo.", this.MachineExtraInfo);
+        this.setParamSimple(map, prefix + "CpuLoadVul", this.CpuLoadVul);
+        this.setParamSimple(map, prefix + "FirstTime", this.FirstTime);
 
     }
 }

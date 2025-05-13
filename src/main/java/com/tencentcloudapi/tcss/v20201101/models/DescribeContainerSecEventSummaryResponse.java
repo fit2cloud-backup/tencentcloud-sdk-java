@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeContainerSecEventSummaryResponse extends AbstractModel{
+public class DescribeContainerSecEventSummaryResponse extends AbstractModel {
 
     /**
     * 未处理逃逸事件
@@ -73,14 +74,13 @@ public class DescribeContainerSecEventSummaryResponse extends AbstractModel{
 
     /**
     * 未处理k8sApi事件
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UnhandledK8sApiEventCnt")
     @Expose
     private Long UnhandledK8sApiEventCnt;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -199,10 +199,8 @@ public class DescribeContainerSecEventSummaryResponse extends AbstractModel{
     }
 
     /**
-     * Get 未处理k8sApi事件
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 未处理k8sApi事件 
      * @return UnhandledK8sApiEventCnt 未处理k8sApi事件
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUnhandledK8sApiEventCnt() {
         return this.UnhandledK8sApiEventCnt;
@@ -210,25 +208,23 @@ public class DescribeContainerSecEventSummaryResponse extends AbstractModel{
 
     /**
      * Set 未处理k8sApi事件
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UnhandledK8sApiEventCnt 未处理k8sApi事件
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnhandledK8sApiEventCnt(Long UnhandledK8sApiEventCnt) {
         this.UnhandledK8sApiEventCnt = UnhandledK8sApiEventCnt;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

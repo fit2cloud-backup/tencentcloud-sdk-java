@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AsrFullTextConfigureInfoForUpdate extends AbstractModel{
+public class AsrFullTextConfigureInfoForUpdate extends AbstractModel {
 
     /**
     * 语音全文识别任务开关，可选值：
@@ -58,6 +59,13 @@ public class AsrFullTextConfigureInfoForUpdate extends AbstractModel{
     @SerializedName("SrcLanguage")
     @Expose
     private String SrcLanguage;
+
+    /**
+    * 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示。
+    */
+    @SerializedName("SubtitleName")
+    @Expose
+    private String SubtitleName;
 
     /**
      * Get 语音全文识别任务开关，可选值：
@@ -159,6 +167,22 @@ public class AsrFullTextConfigureInfoForUpdate extends AbstractModel{
         this.SrcLanguage = SrcLanguage;
     }
 
+    /**
+     * Get 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示。 
+     * @return SubtitleName 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示。
+     */
+    public String getSubtitleName() {
+        return this.SubtitleName;
+    }
+
+    /**
+     * Set 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示。
+     * @param SubtitleName 指定字幕名称，长度限制：64 个字符。该值将用于播放器展示。
+     */
+    public void setSubtitleName(String SubtitleName) {
+        this.SubtitleName = SubtitleName;
+    }
+
     public AsrFullTextConfigureInfoForUpdate() {
     }
 
@@ -179,6 +203,9 @@ public class AsrFullTextConfigureInfoForUpdate extends AbstractModel{
         if (source.SrcLanguage != null) {
             this.SrcLanguage = new String(source.SrcLanguage);
         }
+        if (source.SubtitleName != null) {
+            this.SubtitleName = new String(source.SubtitleName);
+        }
     }
 
 
@@ -190,6 +217,7 @@ public class AsrFullTextConfigureInfoForUpdate extends AbstractModel{
         this.setParamObj(map, prefix + "SubtitleFormatsOperation.", this.SubtitleFormatsOperation);
         this.setParamSimple(map, prefix + "SubtitleFormat", this.SubtitleFormat);
         this.setParamSimple(map, prefix + "SrcLanguage", this.SrcLanguage);
+        this.setParamSimple(map, prefix + "SubtitleName", this.SubtitleName);
 
     }
 }

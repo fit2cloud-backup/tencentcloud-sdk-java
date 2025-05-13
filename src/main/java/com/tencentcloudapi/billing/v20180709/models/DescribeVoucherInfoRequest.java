@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVoucherInfoRequest extends AbstractModel{
+public class DescribeVoucherInfoRequest extends AbstractModel {
 
     /**
     * 一页多少条数据，默认是20条，最大不超过1000
@@ -126,6 +127,62 @@ public class DescribeVoucherInfoRequest extends AbstractModel{
     @SerializedName("Operator")
     @Expose
     private String Operator;
+
+    /**
+    * 代金券主类型 has_price 为有价现金券 no_price 为无价代金券
+    */
+    @SerializedName("VoucherMainType")
+    @Expose
+    private String VoucherMainType;
+
+    /**
+    * 代金券副类型 discount 为折扣券 deduct 为抵扣券
+    */
+    @SerializedName("VoucherSubType")
+    @Expose
+    private String VoucherSubType;
+
+    /**
+    * 券有效时间开始时间
+    */
+    @SerializedName("StartTimeFrom")
+    @Expose
+    private String StartTimeFrom;
+
+    /**
+    * 券有效时间结束时间
+    */
+    @SerializedName("StartTimeTo")
+    @Expose
+    private String StartTimeTo;
+
+    /**
+    * 券失效时间开始时间
+    */
+    @SerializedName("EndTimeFrom")
+    @Expose
+    private String EndTimeFrom;
+
+    /**
+    * 券失效时间结束时间
+    */
+    @SerializedName("EndTimeTo")
+    @Expose
+    private String EndTimeTo;
+
+    /**
+    * 发券时间开始时间
+    */
+    @SerializedName("CreateTimeFrom")
+    @Expose
+    private String CreateTimeFrom;
+
+    /**
+    * 发券时间结束时间
+    */
+    @SerializedName("CreateTimeTo")
+    @Expose
+    private String CreateTimeTo;
 
     /**
      * Get 一页多少条数据，默认是20条，最大不超过1000 
@@ -367,6 +424,134 @@ public class DescribeVoucherInfoRequest extends AbstractModel{
         this.Operator = Operator;
     }
 
+    /**
+     * Get 代金券主类型 has_price 为有价现金券 no_price 为无价代金券 
+     * @return VoucherMainType 代金券主类型 has_price 为有价现金券 no_price 为无价代金券
+     */
+    public String getVoucherMainType() {
+        return this.VoucherMainType;
+    }
+
+    /**
+     * Set 代金券主类型 has_price 为有价现金券 no_price 为无价代金券
+     * @param VoucherMainType 代金券主类型 has_price 为有价现金券 no_price 为无价代金券
+     */
+    public void setVoucherMainType(String VoucherMainType) {
+        this.VoucherMainType = VoucherMainType;
+    }
+
+    /**
+     * Get 代金券副类型 discount 为折扣券 deduct 为抵扣券 
+     * @return VoucherSubType 代金券副类型 discount 为折扣券 deduct 为抵扣券
+     */
+    public String getVoucherSubType() {
+        return this.VoucherSubType;
+    }
+
+    /**
+     * Set 代金券副类型 discount 为折扣券 deduct 为抵扣券
+     * @param VoucherSubType 代金券副类型 discount 为折扣券 deduct 为抵扣券
+     */
+    public void setVoucherSubType(String VoucherSubType) {
+        this.VoucherSubType = VoucherSubType;
+    }
+
+    /**
+     * Get 券有效时间开始时间 
+     * @return StartTimeFrom 券有效时间开始时间
+     */
+    public String getStartTimeFrom() {
+        return this.StartTimeFrom;
+    }
+
+    /**
+     * Set 券有效时间开始时间
+     * @param StartTimeFrom 券有效时间开始时间
+     */
+    public void setStartTimeFrom(String StartTimeFrom) {
+        this.StartTimeFrom = StartTimeFrom;
+    }
+
+    /**
+     * Get 券有效时间结束时间 
+     * @return StartTimeTo 券有效时间结束时间
+     */
+    public String getStartTimeTo() {
+        return this.StartTimeTo;
+    }
+
+    /**
+     * Set 券有效时间结束时间
+     * @param StartTimeTo 券有效时间结束时间
+     */
+    public void setStartTimeTo(String StartTimeTo) {
+        this.StartTimeTo = StartTimeTo;
+    }
+
+    /**
+     * Get 券失效时间开始时间 
+     * @return EndTimeFrom 券失效时间开始时间
+     */
+    public String getEndTimeFrom() {
+        return this.EndTimeFrom;
+    }
+
+    /**
+     * Set 券失效时间开始时间
+     * @param EndTimeFrom 券失效时间开始时间
+     */
+    public void setEndTimeFrom(String EndTimeFrom) {
+        this.EndTimeFrom = EndTimeFrom;
+    }
+
+    /**
+     * Get 券失效时间结束时间 
+     * @return EndTimeTo 券失效时间结束时间
+     */
+    public String getEndTimeTo() {
+        return this.EndTimeTo;
+    }
+
+    /**
+     * Set 券失效时间结束时间
+     * @param EndTimeTo 券失效时间结束时间
+     */
+    public void setEndTimeTo(String EndTimeTo) {
+        this.EndTimeTo = EndTimeTo;
+    }
+
+    /**
+     * Get 发券时间开始时间 
+     * @return CreateTimeFrom 发券时间开始时间
+     */
+    public String getCreateTimeFrom() {
+        return this.CreateTimeFrom;
+    }
+
+    /**
+     * Set 发券时间开始时间
+     * @param CreateTimeFrom 发券时间开始时间
+     */
+    public void setCreateTimeFrom(String CreateTimeFrom) {
+        this.CreateTimeFrom = CreateTimeFrom;
+    }
+
+    /**
+     * Get 发券时间结束时间 
+     * @return CreateTimeTo 发券时间结束时间
+     */
+    public String getCreateTimeTo() {
+        return this.CreateTimeTo;
+    }
+
+    /**
+     * Set 发券时间结束时间
+     * @param CreateTimeTo 发券时间结束时间
+     */
+    public void setCreateTimeTo(String CreateTimeTo) {
+        this.CreateTimeTo = CreateTimeTo;
+    }
+
     public DescribeVoucherInfoRequest() {
     }
 
@@ -420,6 +605,30 @@ public class DescribeVoucherInfoRequest extends AbstractModel{
         if (source.Operator != null) {
             this.Operator = new String(source.Operator);
         }
+        if (source.VoucherMainType != null) {
+            this.VoucherMainType = new String(source.VoucherMainType);
+        }
+        if (source.VoucherSubType != null) {
+            this.VoucherSubType = new String(source.VoucherSubType);
+        }
+        if (source.StartTimeFrom != null) {
+            this.StartTimeFrom = new String(source.StartTimeFrom);
+        }
+        if (source.StartTimeTo != null) {
+            this.StartTimeTo = new String(source.StartTimeTo);
+        }
+        if (source.EndTimeFrom != null) {
+            this.EndTimeFrom = new String(source.EndTimeFrom);
+        }
+        if (source.EndTimeTo != null) {
+            this.EndTimeTo = new String(source.EndTimeTo);
+        }
+        if (source.CreateTimeFrom != null) {
+            this.CreateTimeFrom = new String(source.CreateTimeFrom);
+        }
+        if (source.CreateTimeTo != null) {
+            this.CreateTimeTo = new String(source.CreateTimeTo);
+        }
     }
 
 
@@ -442,6 +651,14 @@ public class DescribeVoucherInfoRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "PayScene", this.PayScene);
         this.setParamSimple(map, prefix + "Operator", this.Operator);
+        this.setParamSimple(map, prefix + "VoucherMainType", this.VoucherMainType);
+        this.setParamSimple(map, prefix + "VoucherSubType", this.VoucherSubType);
+        this.setParamSimple(map, prefix + "StartTimeFrom", this.StartTimeFrom);
+        this.setParamSimple(map, prefix + "StartTimeTo", this.StartTimeTo);
+        this.setParamSimple(map, prefix + "EndTimeFrom", this.EndTimeFrom);
+        this.setParamSimple(map, prefix + "EndTimeTo", this.EndTimeTo);
+        this.setParamSimple(map, prefix + "CreateTimeFrom", this.CreateTimeFrom);
+        this.setParamSimple(map, prefix + "CreateTimeTo", this.CreateTimeTo);
 
     }
 }

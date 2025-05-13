@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyZoneRequest extends AbstractModel{
+public class ModifyZoneRequest extends AbstractModel {
 
     /**
     * 站点 ID。
@@ -31,8 +32,9 @@ public class ModifyZoneRequest extends AbstractModel{
 
     /**
     * 站点接入方式，取值有：
-<li> full：NS 接入；</li>
-<li> partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到CNAME接入。</li>不填写保持原有配置。
+<li>full：NS 接入；</li>
+<li>partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到 CNAME 接入；</li>
+<li>dnsPodAccess：DNSPod 托管接入，该接入模式要求您的域名已托管在 DNSPod 内。</li>不填写保持原有配置。
     */
     @SerializedName("Type")
     @Expose
@@ -46,7 +48,7 @@ public class ModifyZoneRequest extends AbstractModel{
     private VanityNameServers VanityNameServers;
 
     /**
-    * 站点别名。数字、英文、-和_组合，限制20个字符。
+    * 同名站点标识。限制输入数字、英文、"." 、"-" 和 "_"，长度 200 个字符以内。
     */
     @SerializedName("AliasZoneName")
     @Expose
@@ -87,11 +89,13 @@ public class ModifyZoneRequest extends AbstractModel{
 
     /**
      * Get 站点接入方式，取值有：
-<li> full：NS 接入；</li>
-<li> partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到CNAME接入。</li>不填写保持原有配置。 
+<li>full：NS 接入；</li>
+<li>partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到 CNAME 接入；</li>
+<li>dnsPodAccess：DNSPod 托管接入，该接入模式要求您的域名已托管在 DNSPod 内。</li>不填写保持原有配置。 
      * @return Type 站点接入方式，取值有：
-<li> full：NS 接入；</li>
-<li> partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到CNAME接入。</li>不填写保持原有配置。
+<li>full：NS 接入；</li>
+<li>partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到 CNAME 接入；</li>
+<li>dnsPodAccess：DNSPod 托管接入，该接入模式要求您的域名已托管在 DNSPod 内。</li>不填写保持原有配置。
      */
     public String getType() {
         return this.Type;
@@ -99,11 +103,13 @@ public class ModifyZoneRequest extends AbstractModel{
 
     /**
      * Set 站点接入方式，取值有：
-<li> full：NS 接入；</li>
-<li> partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到CNAME接入。</li>不填写保持原有配置。
+<li>full：NS 接入；</li>
+<li>partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到 CNAME 接入；</li>
+<li>dnsPodAccess：DNSPod 托管接入，该接入模式要求您的域名已托管在 DNSPod 内。</li>不填写保持原有配置。
      * @param Type 站点接入方式，取值有：
-<li> full：NS 接入；</li>
-<li> partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到CNAME接入。</li>不填写保持原有配置。
+<li>full：NS 接入；</li>
+<li>partial：CNAME 接入，如果站点当前是无域名接入，仅支持切换到 CNAME 接入；</li>
+<li>dnsPodAccess：DNSPod 托管接入，该接入模式要求您的域名已托管在 DNSPod 内。</li>不填写保持原有配置。
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -126,16 +132,16 @@ public class ModifyZoneRequest extends AbstractModel{
     }
 
     /**
-     * Get 站点别名。数字、英文、-和_组合，限制20个字符。 
-     * @return AliasZoneName 站点别名。数字、英文、-和_组合，限制20个字符。
+     * Get 同名站点标识。限制输入数字、英文、"." 、"-" 和 "_"，长度 200 个字符以内。 
+     * @return AliasZoneName 同名站点标识。限制输入数字、英文、"." 、"-" 和 "_"，长度 200 个字符以内。
      */
     public String getAliasZoneName() {
         return this.AliasZoneName;
     }
 
     /**
-     * Set 站点别名。数字、英文、-和_组合，限制20个字符。
-     * @param AliasZoneName 站点别名。数字、英文、-和_组合，限制20个字符。
+     * Set 同名站点标识。限制输入数字、英文、"." 、"-" 和 "_"，长度 200 个字符以内。
+     * @param AliasZoneName 同名站点标识。限制输入数字、英文、"." 、"-" 和 "_"，长度 200 个字符以内。
      */
     public void setAliasZoneName(String AliasZoneName) {
         this.AliasZoneName = AliasZoneName;

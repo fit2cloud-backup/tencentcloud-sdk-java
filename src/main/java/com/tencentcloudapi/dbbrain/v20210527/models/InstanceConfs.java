@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceConfs extends AbstractModel{
+public class InstanceConfs extends AbstractModel {
 
     /**
     * 数据库巡检开关, Yes/No。
@@ -38,11 +39,24 @@ public class InstanceConfs extends AbstractModel{
 
     /**
     * redis大key分析的自定义分割符，仅redis使用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KeyDelimiters")
     @Expose
     private String [] KeyDelimiters;
+
+    /**
+    * 分片节点数量。
+    */
+    @SerializedName("ShardNum")
+    @Expose
+    private String ShardNum;
+
+    /**
+    * 是否开启大key周期性分析，仅redis产品有效。
+    */
+    @SerializedName("AnalysisTopKey")
+    @Expose
+    private String AnalysisTopKey;
 
     /**
      * Get 数据库巡检开关, Yes/No。 
@@ -77,10 +91,8 @@ public class InstanceConfs extends AbstractModel{
     }
 
     /**
-     * Get redis大key分析的自定义分割符，仅redis使用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get redis大key分析的自定义分割符，仅redis使用 
      * @return KeyDelimiters redis大key分析的自定义分割符，仅redis使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKeyDelimiters() {
         return this.KeyDelimiters;
@@ -88,12 +100,42 @@ public class InstanceConfs extends AbstractModel{
 
     /**
      * Set redis大key分析的自定义分割符，仅redis使用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KeyDelimiters redis大key分析的自定义分割符，仅redis使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKeyDelimiters(String [] KeyDelimiters) {
         this.KeyDelimiters = KeyDelimiters;
+    }
+
+    /**
+     * Get 分片节点数量。 
+     * @return ShardNum 分片节点数量。
+     */
+    public String getShardNum() {
+        return this.ShardNum;
+    }
+
+    /**
+     * Set 分片节点数量。
+     * @param ShardNum 分片节点数量。
+     */
+    public void setShardNum(String ShardNum) {
+        this.ShardNum = ShardNum;
+    }
+
+    /**
+     * Get 是否开启大key周期性分析，仅redis产品有效。 
+     * @return AnalysisTopKey 是否开启大key周期性分析，仅redis产品有效。
+     */
+    public String getAnalysisTopKey() {
+        return this.AnalysisTopKey;
+    }
+
+    /**
+     * Set 是否开启大key周期性分析，仅redis产品有效。
+     * @param AnalysisTopKey 是否开启大key周期性分析，仅redis产品有效。
+     */
+    public void setAnalysisTopKey(String AnalysisTopKey) {
+        this.AnalysisTopKey = AnalysisTopKey;
     }
 
     public InstanceConfs() {
@@ -116,6 +158,12 @@ public class InstanceConfs extends AbstractModel{
                 this.KeyDelimiters[i] = new String(source.KeyDelimiters[i]);
             }
         }
+        if (source.ShardNum != null) {
+            this.ShardNum = new String(source.ShardNum);
+        }
+        if (source.AnalysisTopKey != null) {
+            this.AnalysisTopKey = new String(source.AnalysisTopKey);
+        }
     }
 
 
@@ -126,6 +174,8 @@ public class InstanceConfs extends AbstractModel{
         this.setParamSimple(map, prefix + "DailyInspection", this.DailyInspection);
         this.setParamSimple(map, prefix + "OverviewDisplay", this.OverviewDisplay);
         this.setParamArraySimple(map, prefix + "KeyDelimiters.", this.KeyDelimiters);
+        this.setParamSimple(map, prefix + "ShardNum", this.ShardNum);
+        this.setParamSimple(map, prefix + "AnalysisTopKey", this.AnalysisTopKey);
 
     }
 }

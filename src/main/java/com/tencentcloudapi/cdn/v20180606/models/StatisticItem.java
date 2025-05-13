@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StatisticItem extends AbstractModel{
+public class StatisticItem extends AbstractModel {
 
     /**
     * 封顶类型，累计用量total，瞬时用量moment
@@ -47,7 +48,7 @@ public class StatisticItem extends AbstractModel{
     private Long BpsThreshold;
 
     /**
-    * 关闭方式 返回404:RETURN_404, dns回源：RESOLVE_DNS_TO_ORIGIN
+    * 关闭方式 返回404:RETURN_404
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CounterMeasure")
@@ -159,9 +160,9 @@ off：关闭
     }
 
     /**
-     * Get 关闭方式 返回404:RETURN_404, dns回源：RESOLVE_DNS_TO_ORIGIN
+     * Get 关闭方式 返回404:RETURN_404
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CounterMeasure 关闭方式 返回404:RETURN_404, dns回源：RESOLVE_DNS_TO_ORIGIN
+     * @return CounterMeasure 关闭方式 返回404:RETURN_404
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCounterMeasure() {
@@ -169,9 +170,9 @@ off：关闭
     }
 
     /**
-     * Set 关闭方式 返回404:RETURN_404, dns回源：RESOLVE_DNS_TO_ORIGIN
+     * Set 关闭方式 返回404:RETURN_404
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param CounterMeasure 关闭方式 返回404:RETURN_404, dns回源：RESOLVE_DNS_TO_ORIGIN
+     * @param CounterMeasure 关闭方式 返回404:RETURN_404
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCounterMeasure(String CounterMeasure) {

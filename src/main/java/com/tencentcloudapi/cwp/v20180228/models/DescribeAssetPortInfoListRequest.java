@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetPortInfoListRequest extends AbstractModel{
+public class DescribeAssetPortInfoListRequest extends AbstractModel {
 
     /**
     * 查询指定Quuid主机的信息
@@ -32,7 +33,9 @@ public class DescribeAssetPortInfoListRequest extends AbstractModel{
     /**
     * 过滤条件。
 <li>Port - uint64 - 是否必填：否 - 端口</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>ProcessName - String - 是否必填：否 - 监听进程</li>
 <li>Pid - uint64 - 是否必填：否 - PID</li>
 <li>User - String - 是否必填：否 - 运行用户</li>
@@ -95,7 +98,9 @@ public class DescribeAssetPortInfoListRequest extends AbstractModel{
     /**
      * Get 过滤条件。
 <li>Port - uint64 - 是否必填：否 - 端口</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>ProcessName - String - 是否必填：否 - 监听进程</li>
 <li>Pid - uint64 - 是否必填：否 - PID</li>
 <li>User - String - 是否必填：否 - 运行用户</li>
@@ -108,7 +113,9 @@ public class DescribeAssetPortInfoListRequest extends AbstractModel{
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li> 
      * @return Filters 过滤条件。
 <li>Port - uint64 - 是否必填：否 - 端口</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>ProcessName - String - 是否必填：否 - 监听进程</li>
 <li>Pid - uint64 - 是否必填：否 - PID</li>
 <li>User - String - 是否必填：否 - 运行用户</li>
@@ -127,7 +134,9 @@ public class DescribeAssetPortInfoListRequest extends AbstractModel{
     /**
      * Set 过滤条件。
 <li>Port - uint64 - 是否必填：否 - 端口</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>ProcessName - String - 是否必填：否 - 监听进程</li>
 <li>Pid - uint64 - 是否必填：否 - PID</li>
 <li>User - String - 是否必填：否 - 运行用户</li>
@@ -140,7 +149,9 @@ public class DescribeAssetPortInfoListRequest extends AbstractModel{
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      * @param Filters 过滤条件。
 <li>Port - uint64 - 是否必填：否 - 端口</li>
-<li>Ip - String - 是否必填：否 - 绑定IP</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>ProcessName - String - 是否必填：否 - 监听进程</li>
 <li>Pid - uint64 - 是否必填：否 - PID</li>
 <li>User - String - 是否必填：否 - 运行用户</li>

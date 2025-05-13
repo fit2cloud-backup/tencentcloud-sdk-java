@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyOutputInfo extends AbstractModel{
+public class ModifyOutputInfo extends AbstractModel {
 
     /**
     * 需要修改的Output的Id。
@@ -44,11 +45,18 @@ public class ModifyOutputInfo extends AbstractModel{
     private String Description;
 
     /**
-    * 输出的转推协议，支持SRT|RTP|RTMP。
+    * 输出的转推协议，支持SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST。
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
+
+    /**
+    * 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+    */
+    @SerializedName("OutputKind")
+    @Expose
+    private String OutputKind;
 
     /**
     * 转推SRT的配置。
@@ -85,6 +93,41 @@ public class ModifyOutputInfo extends AbstractModel{
     @SerializedName("MaxConcurrent")
     @Expose
     private Long MaxConcurrent;
+
+    /**
+    * 绑定的安全组 ID。 仅支持关联一组安全组。	
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
+
+    /**
+    * 可用区
+    */
+    @SerializedName("Zones")
+    @Expose
+    private String [] Zones;
+
+    /**
+    * 转推RIST的配置。
+    */
+    @SerializedName("RISTSettings")
+    @Expose
+    private CreateOutputRistSettings RISTSettings;
+
+    /**
+    * 输出类型：Internet/TencentCSS/StreamLive
+    */
+    @SerializedName("OutputType")
+    @Expose
+    private String OutputType;
+
+    /**
+    * 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+    */
+    @SerializedName("PidSelector")
+    @Expose
+    private PidSelector PidSelector;
 
     /**
      * Get 需要修改的Output的Id。 
@@ -135,19 +178,35 @@ public class ModifyOutputInfo extends AbstractModel{
     }
 
     /**
-     * Get 输出的转推协议，支持SRT|RTP|RTMP。 
-     * @return Protocol 输出的转推协议，支持SRT|RTP|RTMP。
+     * Get 输出的转推协议，支持SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST。 
+     * @return Protocol 输出的转推协议，支持SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST。
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 输出的转推协议，支持SRT|RTP|RTMP。
-     * @param Protocol 输出的转推协议，支持SRT|RTP|RTMP。
+     * Set 输出的转推协议，支持SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST。
+     * @param Protocol 输出的转推协议，支持SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
+    }
+
+    /**
+     * Get 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。 
+     * @return OutputKind 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+     */
+    public String getOutputKind() {
+        return this.OutputKind;
+    }
+
+    /**
+     * Set 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+     * @param OutputKind 输出模块类型，包括Pinpoint（单点输出，最多支持四路并发输出）；MultiMesh（多路输出，支持大于四路的并发输出，目前可以达到200路）。默认类型为 Pinpoint 输出。对于单个 Flow 一个区域最多只能有一个 MultiMesh 输出。
+     */
+    public void setOutputKind(String OutputKind) {
+        this.OutputKind = OutputKind;
     }
 
     /**
@@ -234,6 +293,86 @@ public class ModifyOutputInfo extends AbstractModel{
         this.MaxConcurrent = MaxConcurrent;
     }
 
+    /**
+     * Get 绑定的安全组 ID。 仅支持关联一组安全组。	 
+     * @return SecurityGroupIds 绑定的安全组 ID。 仅支持关联一组安全组。	
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set 绑定的安全组 ID。 仅支持关联一组安全组。	
+     * @param SecurityGroupIds 绑定的安全组 ID。 仅支持关联一组安全组。	
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    /**
+     * Get 可用区 
+     * @return Zones 可用区
+     */
+    public String [] getZones() {
+        return this.Zones;
+    }
+
+    /**
+     * Set 可用区
+     * @param Zones 可用区
+     */
+    public void setZones(String [] Zones) {
+        this.Zones = Zones;
+    }
+
+    /**
+     * Get 转推RIST的配置。 
+     * @return RISTSettings 转推RIST的配置。
+     */
+    public CreateOutputRistSettings getRISTSettings() {
+        return this.RISTSettings;
+    }
+
+    /**
+     * Set 转推RIST的配置。
+     * @param RISTSettings 转推RIST的配置。
+     */
+    public void setRISTSettings(CreateOutputRistSettings RISTSettings) {
+        this.RISTSettings = RISTSettings;
+    }
+
+    /**
+     * Get 输出类型：Internet/TencentCSS/StreamLive 
+     * @return OutputType 输出类型：Internet/TencentCSS/StreamLive
+     */
+    public String getOutputType() {
+        return this.OutputType;
+    }
+
+    /**
+     * Set 输出类型：Internet/TencentCSS/StreamLive
+     * @param OutputType 输出类型：Internet/TencentCSS/StreamLive
+     */
+    public void setOutputType(String OutputType) {
+        this.OutputType = OutputType;
+    }
+
+    /**
+     * Get 对于含有多个音/视频轨的流，可以指定需要使用的轨道 
+     * @return PidSelector 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+     */
+    public PidSelector getPidSelector() {
+        return this.PidSelector;
+    }
+
+    /**
+     * Set 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+     * @param PidSelector 对于含有多个音/视频轨的流，可以指定需要使用的轨道
+     */
+    public void setPidSelector(PidSelector PidSelector) {
+        this.PidSelector = PidSelector;
+    }
+
     public ModifyOutputInfo() {
     }
 
@@ -254,6 +393,9 @@ public class ModifyOutputInfo extends AbstractModel{
         if (source.Protocol != null) {
             this.Protocol = new String(source.Protocol);
         }
+        if (source.OutputKind != null) {
+            this.OutputKind = new String(source.OutputKind);
+        }
         if (source.SRTSettings != null) {
             this.SRTSettings = new CreateOutputSRTSettings(source.SRTSettings);
         }
@@ -272,6 +414,27 @@ public class ModifyOutputInfo extends AbstractModel{
         if (source.MaxConcurrent != null) {
             this.MaxConcurrent = new Long(source.MaxConcurrent);
         }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.RISTSettings != null) {
+            this.RISTSettings = new CreateOutputRistSettings(source.RISTSettings);
+        }
+        if (source.OutputType != null) {
+            this.OutputType = new String(source.OutputType);
+        }
+        if (source.PidSelector != null) {
+            this.PidSelector = new PidSelector(source.PidSelector);
+        }
     }
 
 
@@ -283,11 +446,17 @@ public class ModifyOutputInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "OutputName", this.OutputName);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
+        this.setParamSimple(map, prefix + "OutputKind", this.OutputKind);
         this.setParamObj(map, prefix + "SRTSettings.", this.SRTSettings);
         this.setParamObj(map, prefix + "RTPSettings.", this.RTPSettings);
         this.setParamObj(map, prefix + "RTMPSettings.", this.RTMPSettings);
         this.setParamArraySimple(map, prefix + "AllowIpList.", this.AllowIpList);
         this.setParamSimple(map, prefix + "MaxConcurrent", this.MaxConcurrent);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
+        this.setParamObj(map, prefix + "RISTSettings.", this.RISTSettings);
+        this.setParamSimple(map, prefix + "OutputType", this.OutputType);
+        this.setParamObj(map, prefix + "PidSelector.", this.PidSelector);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20210527.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeMySqlProcessListResponse extends AbstractModel{
+public class DescribeMySqlProcessListResponse extends AbstractModel {
 
     /**
     * 实时线程列表。
@@ -30,7 +31,14 @@ public class DescribeMySqlProcessListResponse extends AbstractModel{
     private MySqlProcess [] ProcessList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * sql会话统计信息。
+    */
+    @SerializedName("Statistics")
+    @Expose
+    private StatisticInfo [] Statistics;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -53,16 +61,32 @@ public class DescribeMySqlProcessListResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get sql会话统计信息。 
+     * @return Statistics sql会话统计信息。
+     */
+    public StatisticInfo [] getStatistics() {
+        return this.Statistics;
+    }
+
+    /**
+     * Set sql会话统计信息。
+     * @param Statistics sql会话统计信息。
+     */
+    public void setStatistics(StatisticInfo [] Statistics) {
+        this.Statistics = Statistics;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -82,6 +106,12 @@ public class DescribeMySqlProcessListResponse extends AbstractModel{
                 this.ProcessList[i] = new MySqlProcess(source.ProcessList[i]);
             }
         }
+        if (source.Statistics != null) {
+            this.Statistics = new StatisticInfo[source.Statistics.length];
+            for (int i = 0; i < source.Statistics.length; i++) {
+                this.Statistics[i] = new StatisticInfo(source.Statistics[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -93,6 +123,7 @@ public class DescribeMySqlProcessListResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "ProcessList.", this.ProcessList);
+        this.setParamArrayObj(map, prefix + "Statistics.", this.Statistics);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

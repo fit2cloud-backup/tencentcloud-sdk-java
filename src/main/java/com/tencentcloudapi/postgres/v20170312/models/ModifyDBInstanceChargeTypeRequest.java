@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
+public class ModifyDBInstanceChargeTypeRequest extends AbstractModel {
 
     /**
     * 实例ID，形如postgres-6fego161
@@ -31,8 +32,8 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
     * 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
     */
     @SerializedName("InstanceChargeType")
@@ -41,8 +42,8 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
     * 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
     */
     @SerializedName("Period")
     @Expose
@@ -50,8 +51,8 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
     * 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
     */
     @SerializedName("AutoRenewFlag")
@@ -60,8 +61,8 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
     * 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
     */
     @SerializedName("AutoVoucher")
@@ -86,12 +87,12 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Get 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID 
      * @return InstanceChargeType 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
      */
     public String getInstanceChargeType() {
@@ -100,12 +101,12 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Set 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
      * @param InstanceChargeType 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
      */
     public void setInstanceChargeType(String InstanceChargeType) {
@@ -114,11 +115,11 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Get 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1 
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li> 
      * @return Period 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
      */
     public Long getPeriod() {
         return this.Period;
@@ -126,11 +127,11 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Set 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
      * @param Period 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
      */
     public void setPeriod(Long Period) {
         this.Period = Period;
@@ -138,12 +139,12 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Get 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0 
      * @return AutoRenewFlag 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
      */
     public Long getAutoRenewFlag() {
@@ -152,12 +153,12 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Set 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
      * @param AutoRenewFlag 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
      */
     public void setAutoRenewFlag(Long AutoRenewFlag) {
@@ -166,12 +167,12 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Get 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0 
      * @return AutoVoucher 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public Long getAutoVoucher() {
@@ -180,12 +181,12 @@ public class ModifyDBInstanceChargeTypeRequest extends AbstractModel{
 
     /**
      * Set 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      * @param AutoVoucher 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public void setAutoVoucher(Long AutoVoucher) {

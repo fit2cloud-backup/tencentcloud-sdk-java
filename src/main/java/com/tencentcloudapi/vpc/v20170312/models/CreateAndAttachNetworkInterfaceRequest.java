@@ -16,35 +16,36 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
+public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel {
 
     /**
-    * VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+    * VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
     */
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
 
     /**
-    * 弹性网卡名称，最大长度不能超过60个字节。
+    * 弹性网卡名称，最大长度不能超过60个字符。
     */
     @SerializedName("NetworkInterfaceName")
     @Expose
     private String NetworkInterfaceName;
 
     /**
-    * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
+    * 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
     */
     @SerializedName("SubnetId")
     @Expose
     private String SubnetId;
 
     /**
-    * 云服务器实例ID。
+    * 云服务器实例ID。可通过[DescribeInstances](https://cloud.tencent.com/document/product/213/15728)接口获取。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -65,14 +66,15 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
     private Long SecondaryPrivateIpAddressCount;
 
     /**
-    * IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+    * IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
     */
     @SerializedName("QosLevel")
     @Expose
     private String QosLevel;
 
     /**
-    * 指定绑定的安全组，例如：['sg-1dd51d']。
+    * 指定绑定的安全组，例如：['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
     */
     @SerializedName("SecurityGroupIds")
     @Expose
@@ -100,64 +102,78 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
     private Long AttachType;
 
     /**
-     * Get VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。 
-     * @return VpcId VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+    * 是否创建RDMA弹性网卡，true:创建rdma弹性网卡，false:普通弹性网卡。不填默认为false。
+    */
+    @SerializedName("IsRdma")
+    @Expose
+    private Boolean IsRdma;
+
+    /**
+    * 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。	
+    */
+    @SerializedName("ClientToken")
+    @Expose
+    private String ClientToken;
+
+    /**
+     * Get VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。 
+     * @return VpcId VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
-     * @param VpcId VPC实例ID。可通过DescribeVpcs接口返回值中的VpcId获取。
+     * Set VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
+     * @param VpcId VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/1108/43663)接口获取。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 弹性网卡名称，最大长度不能超过60个字节。 
-     * @return NetworkInterfaceName 弹性网卡名称，最大长度不能超过60个字节。
+     * Get 弹性网卡名称，最大长度不能超过60个字符。 
+     * @return NetworkInterfaceName 弹性网卡名称，最大长度不能超过60个字符。
      */
     public String getNetworkInterfaceName() {
         return this.NetworkInterfaceName;
     }
 
     /**
-     * Set 弹性网卡名称，最大长度不能超过60个字节。
-     * @param NetworkInterfaceName 弹性网卡名称，最大长度不能超过60个字节。
+     * Set 弹性网卡名称，最大长度不能超过60个字符。
+     * @param NetworkInterfaceName 弹性网卡名称，最大长度不能超过60个字符。
      */
     public void setNetworkInterfaceName(String NetworkInterfaceName) {
         this.NetworkInterfaceName = NetworkInterfaceName;
     }
 
     /**
-     * Get 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。 
-     * @return SubnetId 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
+     * Get 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。 
+     * @return SubnetId 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
      */
     public String getSubnetId() {
         return this.SubnetId;
     }
 
     /**
-     * Set 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
-     * @param SubnetId 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。
+     * Set 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
+     * @param SubnetId 弹性网卡所在的子网实例ID，例如：subnet-0ap8nwca。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
     }
 
     /**
-     * Get 云服务器实例ID。 
-     * @return InstanceId 云服务器实例ID。
+     * Get 云服务器实例ID。可通过[DescribeInstances](https://cloud.tencent.com/document/product/213/15728)接口获取。 
+     * @return InstanceId 云服务器实例ID。可通过[DescribeInstances](https://cloud.tencent.com/document/product/213/15728)接口获取。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 云服务器实例ID。
-     * @param InstanceId 云服务器实例ID。
+     * Set 云服务器实例ID。可通过[DescribeInstances](https://cloud.tencent.com/document/product/213/15728)接口获取。
+     * @param InstanceId 云服务器实例ID。可通过[DescribeInstances](https://cloud.tencent.com/document/product/213/15728)接口获取。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -196,32 +212,36 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
     }
 
     /**
-     * Get IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。 
-     * @return QosLevel IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+     * Get IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。 
+     * @return QosLevel IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
      */
     public String getQosLevel() {
         return this.QosLevel;
     }
 
     /**
-     * Set IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
-     * @param QosLevel IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+     * Set IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+     * @param QosLevel IP服务质量等级，和SecondaryPrivateIpAddressCount配合使用，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
      */
     public void setQosLevel(String QosLevel) {
         this.QosLevel = QosLevel;
     }
 
     /**
-     * Get 指定绑定的安全组，例如：['sg-1dd51d']。 
-     * @return SecurityGroupIds 指定绑定的安全组，例如：['sg-1dd51d']。
+     * Get 指定绑定的安全组，例如：['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+ 
+     * @return SecurityGroupIds 指定绑定的安全组，例如：['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
      */
     public String [] getSecurityGroupIds() {
         return this.SecurityGroupIds;
     }
 
     /**
-     * Set 指定绑定的安全组，例如：['sg-1dd51d']。
-     * @param SecurityGroupIds 指定绑定的安全组，例如：['sg-1dd51d']。
+     * Set 指定绑定的安全组，例如：['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
+     * @param SecurityGroupIds 指定绑定的安全组，例如：['sg-1dd51d']。可通过[DescribeSecurityGroups](https://cloud.tencent.com/document/product/215/15808)接口获取。
+
      */
     public void setSecurityGroupIds(String [] SecurityGroupIds) {
         this.SecurityGroupIds = SecurityGroupIds;
@@ -275,6 +295,38 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
         this.AttachType = AttachType;
     }
 
+    /**
+     * Get 是否创建RDMA弹性网卡，true:创建rdma弹性网卡，false:普通弹性网卡。不填默认为false。 
+     * @return IsRdma 是否创建RDMA弹性网卡，true:创建rdma弹性网卡，false:普通弹性网卡。不填默认为false。
+     */
+    public Boolean getIsRdma() {
+        return this.IsRdma;
+    }
+
+    /**
+     * Set 是否创建RDMA弹性网卡，true:创建rdma弹性网卡，false:普通弹性网卡。不填默认为false。
+     * @param IsRdma 是否创建RDMA弹性网卡，true:创建rdma弹性网卡，false:普通弹性网卡。不填默认为false。
+     */
+    public void setIsRdma(Boolean IsRdma) {
+        this.IsRdma = IsRdma;
+    }
+
+    /**
+     * Get 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。	 
+     * @return ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。	
+     */
+    public String getClientToken() {
+        return this.ClientToken;
+    }
+
+    /**
+     * Set 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。	
+     * @param ClientToken 用于保证请求幂等性的字符串。该字符串由客户生成，需保证不同请求之间唯一，最大值不超过64个ASCII字符。若不指定该参数，则无法保证请求的幂等性。	
+     */
+    public void setClientToken(String ClientToken) {
+        this.ClientToken = ClientToken;
+    }
+
     public CreateAndAttachNetworkInterfaceRequest() {
     }
 
@@ -325,6 +377,12 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
         if (source.AttachType != null) {
             this.AttachType = new Long(source.AttachType);
         }
+        if (source.IsRdma != null) {
+            this.IsRdma = new Boolean(source.IsRdma);
+        }
+        if (source.ClientToken != null) {
+            this.ClientToken = new String(source.ClientToken);
+        }
     }
 
 
@@ -343,6 +401,8 @@ public class CreateAndAttachNetworkInterfaceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "NetworkInterfaceDescription", this.NetworkInterfaceDescription);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "AttachType", this.AttachType);
+        this.setParamSimple(map, prefix + "IsRdma", this.IsRdma);
+        this.setParamSimple(map, prefix + "ClientToken", this.ClientToken);
 
     }
 }

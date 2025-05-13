@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
+public class CreateAsyncRecognitionTaskRequest extends AbstractModel {
 
     /**
     * 引擎模型类型。
@@ -34,6 +35,9 @@ public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
     */
     @SerializedName("EngineType")
     @Expose
@@ -68,7 +72,7 @@ public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
     private Long FilterDirty;
 
     /**
-    * 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
+    * 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
     */
     @SerializedName("FilterModal")
     @Expose
@@ -120,7 +124,10 @@ public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
 • 16k_pt：葡萄牙语；
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
-• 16k_es：西班牙语； 
+• 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语； 
      * @return EngineType 引擎模型类型。
 • 16k_zh：中文普通话通用；
 • 16k_en：英语；
@@ -132,6 +139,9 @@ public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
      */
     public String getEngineType() {
         return this.EngineType;
@@ -149,6 +159,9 @@ public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
      * @param EngineType 引擎模型类型。
 • 16k_zh：中文普通话通用；
 • 16k_en：英语；
@@ -160,6 +173,9 @@ public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
 • 16k_tr：土耳其语；
 • 16k_ar：阿拉伯语；
 • 16k_es：西班牙语；
+• 16k_hi：印地语；
+• 16k_fr：法语；
+• 16k_de：德语；
      */
     public void setEngineType(String EngineType) {
         this.EngineType = EngineType;
@@ -230,16 +246,16 @@ public class CreateAsyncRecognitionTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0 
-     * @return FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
+     * Get 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0 
+     * @return FilterModal 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
      */
     public Long getFilterModal() {
         return this.FilterModal;
     }
 
     /**
-     * Set 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
-     * @param FilterModal 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
+     * Set 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
+     * @param FilterModal 是否过滤语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0
      */
     public void setFilterModal(Long FilterModal) {
         this.FilterModal = FilterModal;

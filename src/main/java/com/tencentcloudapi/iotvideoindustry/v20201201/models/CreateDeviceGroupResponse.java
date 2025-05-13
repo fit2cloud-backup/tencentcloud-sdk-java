@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotvideoindustry.v20201201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDeviceGroupResponse extends AbstractModel{
+public class CreateDeviceGroupResponse extends AbstractModel {
 
     /**
     * 响应结果，“OK”为成功，其他为失败
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -32,24 +32,21 @@ public class CreateDeviceGroupResponse extends AbstractModel{
 
     /**
     * 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupId")
     @Expose
     private String GroupId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 响应结果，“OK”为成功，其他为失败
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 响应结果，“OK”为成功，其他为失败 
      * @return Status 响应结果，“OK”为成功，其他为失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -57,19 +54,15 @@ public class CreateDeviceGroupResponse extends AbstractModel{
 
     /**
      * Set 响应结果，“OK”为成功，其他为失败
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 响应结果，“OK”为成功，其他为失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 分组ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组ID 
      * @return GroupId 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupId() {
         return this.GroupId;
@@ -77,25 +70,23 @@ public class CreateDeviceGroupResponse extends AbstractModel{
 
     /**
      * Set 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupId 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVpnGatewayCcnRoutesRequest extends AbstractModel{
+public class ModifyVpnGatewayCcnRoutesRequest extends AbstractModel {
 
     /**
     * VPN网关实例ID。
@@ -30,7 +31,7 @@ public class ModifyVpnGatewayCcnRoutesRequest extends AbstractModel{
     private String VpnGatewayId;
 
     /**
-    * 云联网路由（IDC网段）列表。
+    * 云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
     */
     @SerializedName("Routes")
     @Expose
@@ -53,16 +54,16 @@ public class ModifyVpnGatewayCcnRoutesRequest extends AbstractModel{
     }
 
     /**
-     * Get 云联网路由（IDC网段）列表。 
-     * @return Routes 云联网路由（IDC网段）列表。
+     * Get 云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。  
+     * @return Routes 云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
      */
     public VpngwCcnRoutes [] getRoutes() {
         return this.Routes;
     }
 
     /**
-     * Set 云联网路由（IDC网段）列表。
-     * @param Routes 云联网路由（IDC网段）列表。
+     * Set 云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
+     * @param Routes 云联网路由（IDC网段）列表。其中RouteId可通过[DescribeVpnGatewayCcnRoutes](https://cloud.tencent.com/document/product/215/43514)接口获取。 
      */
     public void setRoutes(VpngwCcnRoutes [] Routes) {
         this.Routes = Routes;

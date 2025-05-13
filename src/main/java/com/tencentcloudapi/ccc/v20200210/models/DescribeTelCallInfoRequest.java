@@ -16,21 +16,22 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTelCallInfoRequest extends AbstractModel{
+public class DescribeTelCallInfoRequest extends AbstractModel {
 
     /**
-    * 起始时间戳，Unix 时间戳
+    * 起始时间戳，Unix 时间戳(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
     */
     @SerializedName("StartTimeStamp")
     @Expose
     private Long StartTimeStamp;
 
     /**
-    * 结束时间戳，Unix 时间戳，查询时间范围最大为90天
+    * 结束时间戳，Unix 时间戳，查询时间范围最大为90天(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
     */
     @SerializedName("EndTimeStamp")
     @Expose
@@ -44,32 +45,32 @@ public class DescribeTelCallInfoRequest extends AbstractModel{
     private Long [] SdkAppIdList;
 
     /**
-     * Get 起始时间戳，Unix 时间戳 
-     * @return StartTimeStamp 起始时间戳，Unix 时间戳
+     * Get 起始时间戳，Unix 时间戳(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳) 
+     * @return StartTimeStamp 起始时间戳，Unix 时间戳(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
      */
     public Long getStartTimeStamp() {
         return this.StartTimeStamp;
     }
 
     /**
-     * Set 起始时间戳，Unix 时间戳
-     * @param StartTimeStamp 起始时间戳，Unix 时间戳
+     * Set 起始时间戳，Unix 时间戳(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
+     * @param StartTimeStamp 起始时间戳，Unix 时间戳(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
      */
     public void setStartTimeStamp(Long StartTimeStamp) {
         this.StartTimeStamp = StartTimeStamp;
     }
 
     /**
-     * Get 结束时间戳，Unix 时间戳，查询时间范围最大为90天 
-     * @return EndTimeStamp 结束时间戳，Unix 时间戳，查询时间范围最大为90天
+     * Get 结束时间戳，Unix 时间戳，查询时间范围最大为90天(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳) 
+     * @return EndTimeStamp 结束时间戳，Unix 时间戳，查询时间范围最大为90天(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
      */
     public Long getEndTimeStamp() {
         return this.EndTimeStamp;
     }
 
     /**
-     * Set 结束时间戳，Unix 时间戳，查询时间范围最大为90天
-     * @param EndTimeStamp 结束时间戳，Unix 时间戳，查询时间范围最大为90天
+     * Set 结束时间戳，Unix 时间戳，查询时间范围最大为90天(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
+     * @param EndTimeStamp 结束时间戳，Unix 时间戳，查询时间范围最大为90天(查询维度仅支持天，例如查询5月1日应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-01 23:59:59"的时间戳,查5月1日和5月2日的应该传startTime:"2023-05-01 00:00:00","endTime":"2023-05-02 23:59:59"的时间戳)
      */
     public void setEndTimeStamp(Long EndTimeStamp) {
         this.EndTimeStamp = EndTimeStamp;

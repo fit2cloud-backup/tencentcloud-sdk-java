@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20191016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SchemaSpaceData extends AbstractModel{
+public class SchemaSpaceData extends AbstractModel {
 
     /**
     * 库名。
@@ -73,7 +74,6 @@ public class SchemaSpaceData extends AbstractModel{
 
     /**
     * 库中所有表对应的独立物理文件大小加和（MB）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PhysicalFileSize")
     @Expose
@@ -192,10 +192,8 @@ public class SchemaSpaceData extends AbstractModel{
     }
 
     /**
-     * Get 库中所有表对应的独立物理文件大小加和（MB）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 库中所有表对应的独立物理文件大小加和（MB）。 
      * @return PhysicalFileSize 库中所有表对应的独立物理文件大小加和（MB）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getPhysicalFileSize() {
         return this.PhysicalFileSize;
@@ -203,9 +201,7 @@ public class SchemaSpaceData extends AbstractModel{
 
     /**
      * Set 库中所有表对应的独立物理文件大小加和（MB）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PhysicalFileSize 库中所有表对应的独立物理文件大小加和（MB）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPhysicalFileSize(Float PhysicalFileSize) {
         this.PhysicalFileSize = PhysicalFileSize;

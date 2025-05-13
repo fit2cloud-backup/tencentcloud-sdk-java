@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInput extends AbstractModel{
+public class CreateInput extends AbstractModel {
 
     /**
     * 输入名称，可填大小写、数字和下划线，长度为[1, 32]。
@@ -30,7 +31,7 @@ public class CreateInput extends AbstractModel{
     private String InputName;
 
     /**
-    * 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL]。
+    * 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。
     */
     @SerializedName("Protocol")
     @Expose
@@ -100,6 +101,34 @@ public class CreateInput extends AbstractModel{
     private ResilientStreamConf ResilientStream;
 
     /**
+    * 绑定的输入安全组 ID。 
+    */
+    @SerializedName("SecurityGroupIds")
+    @Expose
+    private String [] SecurityGroupIds;
+
+    /**
+    * 可用区，非必填，如果开启容灾必须输入两个不同的可用区，否则最多只允许输入一个可用区。	
+    */
+    @SerializedName("Zones")
+    @Expose
+    private String [] Zones;
+
+    /**
+    * 输入的RIST配置信息。
+    */
+    @SerializedName("RISTSettings")
+    @Expose
+    private CreateInputRISTSettings RISTSettings;
+
+    /**
+    * 输入节点的地区
+    */
+    @SerializedName("InputRegion")
+    @Expose
+    private String InputRegion;
+
+    /**
      * Get 输入名称，可填大小写、数字和下划线，长度为[1, 32]。 
      * @return InputName 输入名称，可填大小写、数字和下划线，长度为[1, 32]。
      */
@@ -116,16 +145,16 @@ public class CreateInput extends AbstractModel{
     }
 
     /**
-     * Get 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL]。 
-     * @return Protocol 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL]。
+     * Get 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。 
+     * @return Protocol 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL]。
-     * @param Protocol 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL]。
+     * Set 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。
+     * @param Protocol 输入的协议，可选[SRT|RTP|RTMP|RTMP_PULL|RTSP_PULL|RIST]。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -275,6 +304,70 @@ public class CreateInput extends AbstractModel{
         this.ResilientStream = ResilientStream;
     }
 
+    /**
+     * Get 绑定的输入安全组 ID。  
+     * @return SecurityGroupIds 绑定的输入安全组 ID。 
+     */
+    public String [] getSecurityGroupIds() {
+        return this.SecurityGroupIds;
+    }
+
+    /**
+     * Set 绑定的输入安全组 ID。 
+     * @param SecurityGroupIds 绑定的输入安全组 ID。 
+     */
+    public void setSecurityGroupIds(String [] SecurityGroupIds) {
+        this.SecurityGroupIds = SecurityGroupIds;
+    }
+
+    /**
+     * Get 可用区，非必填，如果开启容灾必须输入两个不同的可用区，否则最多只允许输入一个可用区。	 
+     * @return Zones 可用区，非必填，如果开启容灾必须输入两个不同的可用区，否则最多只允许输入一个可用区。	
+     */
+    public String [] getZones() {
+        return this.Zones;
+    }
+
+    /**
+     * Set 可用区，非必填，如果开启容灾必须输入两个不同的可用区，否则最多只允许输入一个可用区。	
+     * @param Zones 可用区，非必填，如果开启容灾必须输入两个不同的可用区，否则最多只允许输入一个可用区。	
+     */
+    public void setZones(String [] Zones) {
+        this.Zones = Zones;
+    }
+
+    /**
+     * Get 输入的RIST配置信息。 
+     * @return RISTSettings 输入的RIST配置信息。
+     */
+    public CreateInputRISTSettings getRISTSettings() {
+        return this.RISTSettings;
+    }
+
+    /**
+     * Set 输入的RIST配置信息。
+     * @param RISTSettings 输入的RIST配置信息。
+     */
+    public void setRISTSettings(CreateInputRISTSettings RISTSettings) {
+        this.RISTSettings = RISTSettings;
+    }
+
+    /**
+     * Get 输入节点的地区 
+     * @return InputRegion 输入节点的地区
+     */
+    public String getInputRegion() {
+        return this.InputRegion;
+    }
+
+    /**
+     * Set 输入节点的地区
+     * @param InputRegion 输入节点的地区
+     */
+    public void setInputRegion(String InputRegion) {
+        this.InputRegion = InputRegion;
+    }
+
     public CreateInput() {
     }
 
@@ -319,6 +412,24 @@ public class CreateInput extends AbstractModel{
         if (source.ResilientStream != null) {
             this.ResilientStream = new ResilientStreamConf(source.ResilientStream);
         }
+        if (source.SecurityGroupIds != null) {
+            this.SecurityGroupIds = new String[source.SecurityGroupIds.length];
+            for (int i = 0; i < source.SecurityGroupIds.length; i++) {
+                this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
+            }
+        }
+        if (source.Zones != null) {
+            this.Zones = new String[source.Zones.length];
+            for (int i = 0; i < source.Zones.length; i++) {
+                this.Zones[i] = new String(source.Zones[i]);
+            }
+        }
+        if (source.RISTSettings != null) {
+            this.RISTSettings = new CreateInputRISTSettings(source.RISTSettings);
+        }
+        if (source.InputRegion != null) {
+            this.InputRegion = new String(source.InputRegion);
+        }
     }
 
 
@@ -337,6 +448,10 @@ public class CreateInput extends AbstractModel{
         this.setParamObj(map, prefix + "RTSPPullSettings.", this.RTSPPullSettings);
         this.setParamObj(map, prefix + "HLSPullSettings.", this.HLSPullSettings);
         this.setParamObj(map, prefix + "ResilientStream.", this.ResilientStream);
+        this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
+        this.setParamObj(map, prefix + "RISTSettings.", this.RISTSettings);
+        this.setParamSimple(map, prefix + "InputRegion", this.InputRegion);
 
     }
 }

@@ -16,25 +16,23 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostVolumeContext extends AbstractModel{
+public class HostVolumeContext extends AbstractModel {
 
     /**
     * Pod挂载宿主机的目录。资源对宿主机的挂载点，指定的挂载点对应了宿主机的路径，该挂载点在Pod中作为数据存储目录使用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VolumePath")
     @Expose
     private String VolumePath;
 
     /**
-     * Get Pod挂载宿主机的目录。资源对宿主机的挂载点，指定的挂载点对应了宿主机的路径，该挂载点在Pod中作为数据存储目录使用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Pod挂载宿主机的目录。资源对宿主机的挂载点，指定的挂载点对应了宿主机的路径，该挂载点在Pod中作为数据存储目录使用 
      * @return VolumePath Pod挂载宿主机的目录。资源对宿主机的挂载点，指定的挂载点对应了宿主机的路径，该挂载点在Pod中作为数据存储目录使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVolumePath() {
         return this.VolumePath;
@@ -42,9 +40,7 @@ public class HostVolumeContext extends AbstractModel{
 
     /**
      * Set Pod挂载宿主机的目录。资源对宿主机的挂载点，指定的挂载点对应了宿主机的路径，该挂载点在Pod中作为数据存储目录使用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VolumePath Pod挂载宿主机的目录。资源对宿主机的挂载点，指定的挂载点对应了宿主机的路径，该挂载点在Pod中作为数据存储目录使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVolumePath(String VolumePath) {
         this.VolumePath = VolumePath;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegionSummaryOverviewItem extends AbstractModel{
+public class RegionSummaryOverviewItem extends AbstractModel {
 
     /**
     * 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionId")
     @Expose
@@ -94,10 +94,8 @@ public class RegionSummaryOverviewItem extends AbstractModel{
     private String TotalCost;
 
     /**
-     * Get 地域ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域ID 
      * @return RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionId() {
         return this.RegionId;
@@ -105,9 +103,7 @@ public class RegionSummaryOverviewItem extends AbstractModel{
 
     /**
      * Set 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionId(String RegionId) {
         this.RegionId = RegionId;

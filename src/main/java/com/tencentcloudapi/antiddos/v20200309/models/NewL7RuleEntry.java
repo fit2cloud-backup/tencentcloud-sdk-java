@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NewL7RuleEntry extends AbstractModel{
+public class NewL7RuleEntry extends AbstractModel {
 
     /**
     * 转发协议，取值[http, https]
@@ -156,11 +157,20 @@ public class NewL7RuleEntry extends AbstractModel{
     private Long CCEnable;
 
     /**
-    * HTTPS协议的CC防护阈值
+    * HTTPS协议的CC防护阈值（已废弃）
     */
     @SerializedName("CCThreshold")
     @Expose
     private Long CCThreshold;
+
+    /**
+    * HTTPS协议的CC防护阈值 -1：默认防御阈值
+0: 关闭
+大于0：自定义防护阈值
+    */
+    @SerializedName("CCThresholdNew")
+    @Expose
+    private Long CCThresholdNew;
 
     /**
     * HTTPS协议的CC防护等级
@@ -185,7 +195,6 @@ public class NewL7RuleEntry extends AbstractModel{
 
     /**
     * 接入端口值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VirtualPort")
     @Expose
@@ -207,7 +216,6 @@ public class NewL7RuleEntry extends AbstractModel{
 
     /**
     * 版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
@@ -518,19 +526,43 @@ public class NewL7RuleEntry extends AbstractModel{
     }
 
     /**
-     * Get HTTPS协议的CC防护阈值 
-     * @return CCThreshold HTTPS协议的CC防护阈值
+     * Get HTTPS协议的CC防护阈值（已废弃） 
+     * @return CCThreshold HTTPS协议的CC防护阈值（已废弃）
      */
     public Long getCCThreshold() {
         return this.CCThreshold;
     }
 
     /**
-     * Set HTTPS协议的CC防护阈值
-     * @param CCThreshold HTTPS协议的CC防护阈值
+     * Set HTTPS协议的CC防护阈值（已废弃）
+     * @param CCThreshold HTTPS协议的CC防护阈值（已废弃）
      */
     public void setCCThreshold(Long CCThreshold) {
         this.CCThreshold = CCThreshold;
+    }
+
+    /**
+     * Get HTTPS协议的CC防护阈值 -1：默认防御阈值
+0: 关闭
+大于0：自定义防护阈值 
+     * @return CCThresholdNew HTTPS协议的CC防护阈值 -1：默认防御阈值
+0: 关闭
+大于0：自定义防护阈值
+     */
+    public Long getCCThresholdNew() {
+        return this.CCThresholdNew;
+    }
+
+    /**
+     * Set HTTPS协议的CC防护阈值 -1：默认防御阈值
+0: 关闭
+大于0：自定义防护阈值
+     * @param CCThresholdNew HTTPS协议的CC防护阈值 -1：默认防御阈值
+0: 关闭
+大于0：自定义防护阈值
+     */
+    public void setCCThresholdNew(Long CCThresholdNew) {
+        this.CCThresholdNew = CCThresholdNew;
     }
 
     /**
@@ -582,10 +614,8 @@ public class NewL7RuleEntry extends AbstractModel{
     }
 
     /**
-     * Get 接入端口值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 接入端口值 
      * @return VirtualPort 接入端口值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVirtualPort() {
         return this.VirtualPort;
@@ -593,9 +623,7 @@ public class NewL7RuleEntry extends AbstractModel{
 
     /**
      * Set 接入端口值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VirtualPort 接入端口值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVirtualPort(Long VirtualPort) {
         this.VirtualPort = VirtualPort;
@@ -634,10 +662,8 @@ public class NewL7RuleEntry extends AbstractModel{
     }
 
     /**
-     * Get 版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本 
      * @return Version 版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVersion() {
         return this.Version;
@@ -645,9 +671,7 @@ public class NewL7RuleEntry extends AbstractModel{
 
     /**
      * Set 版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(Long Version) {
         this.Version = Version;
@@ -724,6 +748,9 @@ public class NewL7RuleEntry extends AbstractModel{
         if (source.CCThreshold != null) {
             this.CCThreshold = new Long(source.CCThreshold);
         }
+        if (source.CCThresholdNew != null) {
+            this.CCThresholdNew = new Long(source.CCThresholdNew);
+        }
         if (source.CCLevel != null) {
             this.CCLevel = new String(source.CCLevel);
         }
@@ -772,6 +799,7 @@ public class NewL7RuleEntry extends AbstractModel{
         this.setParamSimple(map, prefix + "CCStatus", this.CCStatus);
         this.setParamSimple(map, prefix + "CCEnable", this.CCEnable);
         this.setParamSimple(map, prefix + "CCThreshold", this.CCThreshold);
+        this.setParamSimple(map, prefix + "CCThresholdNew", this.CCThresholdNew);
         this.setParamSimple(map, prefix + "CCLevel", this.CCLevel);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
         this.setParamSimple(map, prefix + "HttpsToHttpEnable", this.HttpsToHttpEnable);

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyParamItem extends AbstractModel{
+public class ModifyParamItem extends AbstractModel {
 
     /**
     * 参数名
@@ -38,11 +39,17 @@ public class ModifyParamItem extends AbstractModel{
 
     /**
     * 参数旧值（只在出参时有用）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OldValue")
     @Expose
     private String OldValue;
+
+    /**
+    * libra组件类型
+    */
+    @SerializedName("Component")
+    @Expose
+    private String Component;
 
     /**
      * Get 参数名 
@@ -77,10 +84,8 @@ public class ModifyParamItem extends AbstractModel{
     }
 
     /**
-     * Get 参数旧值（只在出参时有用）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数旧值（只在出参时有用） 
      * @return OldValue 参数旧值（只在出参时有用）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOldValue() {
         return this.OldValue;
@@ -88,12 +93,26 @@ public class ModifyParamItem extends AbstractModel{
 
     /**
      * Set 参数旧值（只在出参时有用）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OldValue 参数旧值（只在出参时有用）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOldValue(String OldValue) {
         this.OldValue = OldValue;
+    }
+
+    /**
+     * Get libra组件类型 
+     * @return Component libra组件类型
+     */
+    public String getComponent() {
+        return this.Component;
+    }
+
+    /**
+     * Set libra组件类型
+     * @param Component libra组件类型
+     */
+    public void setComponent(String Component) {
+        this.Component = Component;
     }
 
     public ModifyParamItem() {
@@ -113,6 +132,9 @@ public class ModifyParamItem extends AbstractModel{
         if (source.OldValue != null) {
             this.OldValue = new String(source.OldValue);
         }
+        if (source.Component != null) {
+            this.Component = new String(source.Component);
+        }
     }
 
 
@@ -123,6 +145,7 @@ public class ModifyParamItem extends AbstractModel{
         this.setParamSimple(map, prefix + "ParamName", this.ParamName);
         this.setParamSimple(map, prefix + "CurrentValue", this.CurrentValue);
         this.setParamSimple(map, prefix + "OldValue", this.OldValue);
+        this.setParamSimple(map, prefix + "Component", this.Component);
 
     }
 }

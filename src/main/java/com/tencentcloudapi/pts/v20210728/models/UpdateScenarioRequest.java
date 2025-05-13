@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateScenarioRequest extends AbstractModel{
+public class UpdateScenarioRequest extends AbstractModel {
 
     /**
     * 场景ID
@@ -30,7 +31,7 @@ public class UpdateScenarioRequest extends AbstractModel{
     private String ScenarioId;
 
     /**
-    * 场景名
+    * 场景名；调用该接口时，请将 Scenario 中不需要修改的字段保持原样也作为接口的入参，否则场景可能会不可用。
     */
     @SerializedName("Name")
     @Expose
@@ -44,7 +45,7 @@ public class UpdateScenarioRequest extends AbstractModel{
     private String Description;
 
     /**
-    * 压测引擎类型
+    * 压测场景的模式类型。取值范围：pts-http 代表简单模式，pts-js 代表脚本模式，pts-jmeter 代表 JMeter 模式。
     */
     @SerializedName("Type")
     @Expose
@@ -170,6 +171,13 @@ public class UpdateScenarioRequest extends AbstractModel{
     private String Owner;
 
     /**
+    * 环境ID
+    */
+    @SerializedName("EnvId")
+    @Expose
+    private String EnvId;
+
+    /**
      * Get 场景ID 
      * @return ScenarioId 场景ID
      */
@@ -186,16 +194,16 @@ public class UpdateScenarioRequest extends AbstractModel{
     }
 
     /**
-     * Get 场景名 
-     * @return Name 场景名
+     * Get 场景名；调用该接口时，请将 Scenario 中不需要修改的字段保持原样也作为接口的入参，否则场景可能会不可用。 
+     * @return Name 场景名；调用该接口时，请将 Scenario 中不需要修改的字段保持原样也作为接口的入参，否则场景可能会不可用。
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 场景名
-     * @param Name 场景名
+     * Set 场景名；调用该接口时，请将 Scenario 中不需要修改的字段保持原样也作为接口的入参，否则场景可能会不可用。
+     * @param Name 场景名；调用该接口时，请将 Scenario 中不需要修改的字段保持原样也作为接口的入参，否则场景可能会不可用。
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -218,16 +226,16 @@ public class UpdateScenarioRequest extends AbstractModel{
     }
 
     /**
-     * Get 压测引擎类型 
-     * @return Type 压测引擎类型
+     * Get 压测场景的模式类型。取值范围：pts-http 代表简单模式，pts-js 代表脚本模式，pts-jmeter 代表 JMeter 模式。 
+     * @return Type 压测场景的模式类型。取值范围：pts-http 代表简单模式，pts-js 代表脚本模式，pts-jmeter 代表 JMeter 模式。
      */
     public String getType() {
         return this.Type;
     }
 
     /**
-     * Set 压测引擎类型
-     * @param Type 压测引擎类型
+     * Set 压测场景的模式类型。取值范围：pts-http 代表简单模式，pts-js 代表脚本模式，pts-jmeter 代表 JMeter 模式。
+     * @param Type 压测场景的模式类型。取值范围：pts-http 代表简单模式，pts-js 代表脚本模式，pts-jmeter 代表 JMeter 模式。
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -505,6 +513,22 @@ public class UpdateScenarioRequest extends AbstractModel{
         this.Owner = Owner;
     }
 
+    /**
+     * Get 环境ID 
+     * @return EnvId 环境ID
+     */
+    public String getEnvId() {
+        return this.EnvId;
+    }
+
+    /**
+     * Set 环境ID
+     * @param EnvId 环境ID
+     */
+    public void setEnvId(String EnvId) {
+        this.EnvId = EnvId;
+    }
+
     public UpdateScenarioRequest() {
     }
 
@@ -600,6 +624,9 @@ public class UpdateScenarioRequest extends AbstractModel{
         if (source.Owner != null) {
             this.Owner = new String(source.Owner);
         }
+        if (source.EnvId != null) {
+            this.EnvId = new String(source.EnvId);
+        }
     }
 
 
@@ -628,6 +655,7 @@ public class UpdateScenarioRequest extends AbstractModel{
         this.setParamObj(map, prefix + "DomainNameConfig.", this.DomainNameConfig);
         this.setParamArrayObj(map, prefix + "NotificationHooks.", this.NotificationHooks);
         this.setParamSimple(map, prefix + "Owner", this.Owner);
+        this.setParamSimple(map, prefix + "EnvId", this.EnvId);
 
     }
 }

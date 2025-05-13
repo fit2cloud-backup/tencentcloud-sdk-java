@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResetAccountPasswordRequest extends AbstractModel{
+public class ResetAccountPasswordRequest extends AbstractModel {
 
     /**
     * 实例 ID，形如：tdsql-ow728lmc，可以通过 DescribeDBInstances 查询实例详情获得。
@@ -44,11 +45,18 @@ public class ResetAccountPasswordRequest extends AbstractModel{
     private String Host;
 
     /**
-    * 新密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
+    * 密码需要 8\~32 个字符，不能以 '/' 开头，并且至少包含字母、数字和特殊字符 ()~!@#$%^&*-+=_|{}[]:<>,.?/ 中的两项
     */
     @SerializedName("Password")
     @Expose
     private String Password;
+
+    /**
+    * 使用GetPublicKey返回的RSA2048公钥加密后的密码
+    */
+    @SerializedName("EncryptedPassword")
+    @Expose
+    private String EncryptedPassword;
 
     /**
      * Get 实例 ID，形如：tdsql-ow728lmc，可以通过 DescribeDBInstances 查询实例详情获得。 
@@ -99,19 +107,35 @@ public class ResetAccountPasswordRequest extends AbstractModel{
     }
 
     /**
-     * Get 新密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。 
-     * @return Password 新密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
+     * Get 密码需要 8\~32 个字符，不能以 '/' 开头，并且至少包含字母、数字和特殊字符 ()~!@#$%^&*-+=_|{}[]:<>,.?/ 中的两项 
+     * @return Password 密码需要 8\~32 个字符，不能以 '/' 开头，并且至少包含字母、数字和特殊字符 ()~!@#$%^&*-+=_|{}[]:<>,.?/ 中的两项
      */
     public String getPassword() {
         return this.Password;
     }
 
     /**
-     * Set 新密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
-     * @param Password 新密码，由字母、数字或常见符号组成，不能包含分号、单引号和双引号，长度为6~32位。
+     * Set 密码需要 8\~32 个字符，不能以 '/' 开头，并且至少包含字母、数字和特殊字符 ()~!@#$%^&*-+=_|{}[]:<>,.?/ 中的两项
+     * @param Password 密码需要 8\~32 个字符，不能以 '/' 开头，并且至少包含字母、数字和特殊字符 ()~!@#$%^&*-+=_|{}[]:<>,.?/ 中的两项
      */
     public void setPassword(String Password) {
         this.Password = Password;
+    }
+
+    /**
+     * Get 使用GetPublicKey返回的RSA2048公钥加密后的密码 
+     * @return EncryptedPassword 使用GetPublicKey返回的RSA2048公钥加密后的密码
+     */
+    public String getEncryptedPassword() {
+        return this.EncryptedPassword;
+    }
+
+    /**
+     * Set 使用GetPublicKey返回的RSA2048公钥加密后的密码
+     * @param EncryptedPassword 使用GetPublicKey返回的RSA2048公钥加密后的密码
+     */
+    public void setEncryptedPassword(String EncryptedPassword) {
+        this.EncryptedPassword = EncryptedPassword;
     }
 
     public ResetAccountPasswordRequest() {
@@ -134,6 +158,9 @@ public class ResetAccountPasswordRequest extends AbstractModel{
         if (source.Password != null) {
             this.Password = new String(source.Password);
         }
+        if (source.EncryptedPassword != null) {
+            this.EncryptedPassword = new String(source.EncryptedPassword);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class ResetAccountPasswordRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "UserName", this.UserName);
         this.setParamSimple(map, prefix + "Host", this.Host);
         this.setParamSimple(map, prefix + "Password", this.Password);
+        this.setParamSimple(map, prefix + "EncryptedPassword", this.EncryptedPassword);
 
     }
 }

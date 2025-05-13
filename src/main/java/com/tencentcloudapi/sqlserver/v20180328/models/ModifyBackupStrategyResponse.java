@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyBackupStrategyResponse extends AbstractModel{
+public class ModifyBackupStrategyResponse extends AbstractModel {
 
     /**
     * 返回错误码
@@ -37,7 +38,14 @@ public class ModifyBackupStrategyResponse extends AbstractModel{
     private String Msg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 返回错误码
+    */
+    @SerializedName("Code")
+    @Expose
+    private Long Code;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -46,7 +54,9 @@ public class ModifyBackupStrategyResponse extends AbstractModel{
     /**
      * Get 返回错误码 
      * @return Errno 返回错误码
+     * @deprecated
      */
+    @Deprecated
     public Long getErrno() {
         return this.Errno;
     }
@@ -54,7 +64,9 @@ public class ModifyBackupStrategyResponse extends AbstractModel{
     /**
      * Set 返回错误码
      * @param Errno 返回错误码
+     * @deprecated
      */
+    @Deprecated
     public void setErrno(Long Errno) {
         this.Errno = Errno;
     }
@@ -76,16 +88,32 @@ public class ModifyBackupStrategyResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 返回错误码 
+     * @return Code 返回错误码
+     */
+    public Long getCode() {
+        return this.Code;
+    }
+
+    /**
+     * Set 返回错误码
+     * @param Code 返回错误码
+     */
+    public void setCode(Long Code) {
+        this.Code = Code;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -105,6 +133,9 @@ public class ModifyBackupStrategyResponse extends AbstractModel{
         if (source.Msg != null) {
             this.Msg = new String(source.Msg);
         }
+        if (source.Code != null) {
+            this.Code = new Long(source.Code);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -117,6 +148,7 @@ public class ModifyBackupStrategyResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Errno", this.Errno);
         this.setParamSimple(map, prefix + "Msg", this.Msg);
+        this.setParamSimple(map, prefix + "Code", this.Code);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

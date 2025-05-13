@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceAuditRule extends AbstractModel{
+public class InstanceAuditRule extends AbstractModel {
 
     /**
     * 实例ID。
@@ -31,7 +32,6 @@ public class InstanceAuditRule extends AbstractModel{
 
     /**
     * 是否是规则审计。true-规则审计，false-全审计。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuditRule")
     @Expose
@@ -39,11 +39,24 @@ public class InstanceAuditRule extends AbstractModel{
 
     /**
     * 审计规则详情。仅当AuditRule=true时有效。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuditRuleFilters")
     @Expose
     private AuditRuleFilters [] AuditRuleFilters;
+
+    /**
+    * 是否是审计策略
+    */
+    @SerializedName("OldRule")
+    @Expose
+    private Boolean OldRule;
+
+    /**
+    * 实例应用的规则模板详情
+    */
+    @SerializedName("RuleTemplates")
+    @Expose
+    private RuleTemplateInfo [] RuleTemplates;
 
     /**
      * Get 实例ID。 
@@ -62,10 +75,8 @@ public class InstanceAuditRule extends AbstractModel{
     }
 
     /**
-     * Get 是否是规则审计。true-规则审计，false-全审计。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否是规则审计。true-规则审计，false-全审计。 
      * @return AuditRule 是否是规则审计。true-规则审计，false-全审计。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAuditRule() {
         return this.AuditRule;
@@ -73,19 +84,15 @@ public class InstanceAuditRule extends AbstractModel{
 
     /**
      * Set 是否是规则审计。true-规则审计，false-全审计。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuditRule 是否是规则审计。true-规则审计，false-全审计。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuditRule(Boolean AuditRule) {
         this.AuditRule = AuditRule;
     }
 
     /**
-     * Get 审计规则详情。仅当AuditRule=true时有效。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审计规则详情。仅当AuditRule=true时有效。 
      * @return AuditRuleFilters 审计规则详情。仅当AuditRule=true时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AuditRuleFilters [] getAuditRuleFilters() {
         return this.AuditRuleFilters;
@@ -93,12 +100,42 @@ public class InstanceAuditRule extends AbstractModel{
 
     /**
      * Set 审计规则详情。仅当AuditRule=true时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuditRuleFilters 审计规则详情。仅当AuditRule=true时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuditRuleFilters(AuditRuleFilters [] AuditRuleFilters) {
         this.AuditRuleFilters = AuditRuleFilters;
+    }
+
+    /**
+     * Get 是否是审计策略 
+     * @return OldRule 是否是审计策略
+     */
+    public Boolean getOldRule() {
+        return this.OldRule;
+    }
+
+    /**
+     * Set 是否是审计策略
+     * @param OldRule 是否是审计策略
+     */
+    public void setOldRule(Boolean OldRule) {
+        this.OldRule = OldRule;
+    }
+
+    /**
+     * Get 实例应用的规则模板详情 
+     * @return RuleTemplates 实例应用的规则模板详情
+     */
+    public RuleTemplateInfo [] getRuleTemplates() {
+        return this.RuleTemplates;
+    }
+
+    /**
+     * Set 实例应用的规则模板详情
+     * @param RuleTemplates 实例应用的规则模板详情
+     */
+    public void setRuleTemplates(RuleTemplateInfo [] RuleTemplates) {
+        this.RuleTemplates = RuleTemplates;
     }
 
     public InstanceAuditRule() {
@@ -121,6 +158,15 @@ public class InstanceAuditRule extends AbstractModel{
                 this.AuditRuleFilters[i] = new AuditRuleFilters(source.AuditRuleFilters[i]);
             }
         }
+        if (source.OldRule != null) {
+            this.OldRule = new Boolean(source.OldRule);
+        }
+        if (source.RuleTemplates != null) {
+            this.RuleTemplates = new RuleTemplateInfo[source.RuleTemplates.length];
+            for (int i = 0; i < source.RuleTemplates.length; i++) {
+                this.RuleTemplates[i] = new RuleTemplateInfo(source.RuleTemplates[i]);
+            }
+        }
     }
 
 
@@ -131,6 +177,8 @@ public class InstanceAuditRule extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "AuditRule", this.AuditRule);
         this.setParamArrayObj(map, prefix + "AuditRuleFilters.", this.AuditRuleFilters);
+        this.setParamSimple(map, prefix + "OldRule", this.OldRule);
+        this.setParamArrayObj(map, prefix + "RuleTemplates.", this.RuleTemplates);
 
     }
 }

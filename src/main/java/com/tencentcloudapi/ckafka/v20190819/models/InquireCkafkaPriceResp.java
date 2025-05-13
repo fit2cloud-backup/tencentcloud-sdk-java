@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquireCkafkaPriceResp extends AbstractModel{
+public class InquireCkafkaPriceResp extends AbstractModel {
 
     /**
     * 实例价格
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstancePrice")
     @Expose
@@ -39,10 +39,8 @@ public class InquireCkafkaPriceResp extends AbstractModel{
     private InquiryPrice PublicNetworkBandwidthPrice;
 
     /**
-     * Get 实例价格
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例价格 
      * @return InstancePrice 实例价格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public InquiryPrice getInstancePrice() {
         return this.InstancePrice;
@@ -50,9 +48,7 @@ public class InquireCkafkaPriceResp extends AbstractModel{
 
     /**
      * Set 实例价格
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstancePrice 实例价格
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstancePrice(InquiryPrice InstancePrice) {
         this.InstancePrice = InstancePrice;

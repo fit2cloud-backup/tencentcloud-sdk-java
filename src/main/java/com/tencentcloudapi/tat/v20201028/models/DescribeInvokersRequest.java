@@ -16,14 +16,20 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInvokersRequest extends AbstractModel{
+public class DescribeInvokersRequest extends AbstractModel {
 
     /**
-    * 执行器ID列表。
+    * 执行器 ID 列表。
+
+每次请求的上限为 100。
+
+参数不支持同时指定 `InvokerIds ` 和 `Filters ` 。
+
     */
     @SerializedName("InvokerIds")
     @Expose
@@ -32,9 +38,11 @@ public class DescribeInvokersRequest extends AbstractModel{
     /**
     * 过滤条件：
 
-<li> invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
-<li> command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。
-<li> type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。
+- invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
+- command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+- invoker-type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。目前仅支持 SCHEDULE 一种。
+
+每次请求的 `Filters` 的上限为 10，`Filter.Values` 的上限为 5。参数不支持同时指定 `InvokerIds` 和 `Filters` 。
     */
     @SerializedName("Filters")
     @Expose
@@ -55,16 +63,36 @@ public class DescribeInvokersRequest extends AbstractModel{
     private Long Offset;
 
     /**
-     * Get 执行器ID列表。 
-     * @return InvokerIds 执行器ID列表。
+     * Get 执行器 ID 列表。
+
+每次请求的上限为 100。
+
+参数不支持同时指定 `InvokerIds ` 和 `Filters ` 。
+ 
+     * @return InvokerIds 执行器 ID 列表。
+
+每次请求的上限为 100。
+
+参数不支持同时指定 `InvokerIds ` 和 `Filters ` 。
+
      */
     public String [] getInvokerIds() {
         return this.InvokerIds;
     }
 
     /**
-     * Set 执行器ID列表。
-     * @param InvokerIds 执行器ID列表。
+     * Set 执行器 ID 列表。
+
+每次请求的上限为 100。
+
+参数不支持同时指定 `InvokerIds ` 和 `Filters ` 。
+
+     * @param InvokerIds 执行器 ID 列表。
+
+每次请求的上限为 100。
+
+参数不支持同时指定 `InvokerIds ` 和 `Filters ` 。
+
      */
     public void setInvokerIds(String [] InvokerIds) {
         this.InvokerIds = InvokerIds;
@@ -73,14 +101,18 @@ public class DescribeInvokersRequest extends AbstractModel{
     /**
      * Get 过滤条件：
 
-<li> invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
-<li> command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。
-<li> type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。 
+- invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
+- command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+- invoker-type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。目前仅支持 SCHEDULE 一种。
+
+每次请求的 `Filters` 的上限为 10，`Filter.Values` 的上限为 5。参数不支持同时指定 `InvokerIds` 和 `Filters` 。 
      * @return Filters 过滤条件：
 
-<li> invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
-<li> command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。
-<li> type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。
+- invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
+- command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+- invoker-type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。目前仅支持 SCHEDULE 一种。
+
+每次请求的 `Filters` 的上限为 10，`Filter.Values` 的上限为 5。参数不支持同时指定 `InvokerIds` 和 `Filters` 。
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -89,14 +121,18 @@ public class DescribeInvokersRequest extends AbstractModel{
     /**
      * Set 过滤条件：
 
-<li> invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
-<li> command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。
-<li> type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。
+- invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
+- command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+- invoker-type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。目前仅支持 SCHEDULE 一种。
+
+每次请求的 `Filters` 的上限为 10，`Filter.Values` 的上限为 5。参数不支持同时指定 `InvokerIds` 和 `Filters` 。
      * @param Filters 过滤条件：
 
-<li> invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
-<li> command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。
-<li> type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。
+- invoker-id - String - 是否必填：否 - （过滤条件）按执行器ID过滤。
+- command-id - String - 是否必填：否 - （过滤条件）按命令ID过滤。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+- invoker-type - String - 是否必填：否 - （过滤条件）按执行器类型过滤。目前仅支持 SCHEDULE 一种。
+
+每次请求的 `Filters` 的上限为 10，`Filter.Values` 的上限为 5。参数不支持同时指定 `InvokerIds` 和 `Filters` 。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

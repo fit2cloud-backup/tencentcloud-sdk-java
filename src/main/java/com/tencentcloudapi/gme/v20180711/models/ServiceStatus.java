@@ -16,15 +16,15 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceStatus extends AbstractModel{
+public class ServiceStatus extends AbstractModel {
 
     /**
     * 实时语音服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealTimeSpeech")
     @Expose
@@ -32,7 +32,6 @@ public class ServiceStatus extends AbstractModel{
 
     /**
     * 语音消息服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VoiceMessage")
     @Expose
@@ -40,7 +39,6 @@ public class ServiceStatus extends AbstractModel{
 
     /**
     * 语音内容安全服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Porn")
     @Expose
@@ -48,7 +46,6 @@ public class ServiceStatus extends AbstractModel{
 
     /**
     * 语音录制服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Live")
     @Expose
@@ -56,7 +53,6 @@ public class ServiceStatus extends AbstractModel{
 
     /**
     * 语音转文本服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealTimeAsr")
     @Expose
@@ -64,17 +60,14 @@ public class ServiceStatus extends AbstractModel{
 
     /**
     * 文本翻译服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TextTranslate")
     @Expose
     private StatusInfo TextTranslate;
 
     /**
-     * Get 实时语音服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实时语音服务开关状态 
      * @return RealTimeSpeech 实时语音服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StatusInfo getRealTimeSpeech() {
         return this.RealTimeSpeech;
@@ -82,19 +75,15 @@ public class ServiceStatus extends AbstractModel{
 
     /**
      * Set 实时语音服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealTimeSpeech 实时语音服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealTimeSpeech(StatusInfo RealTimeSpeech) {
         this.RealTimeSpeech = RealTimeSpeech;
     }
 
     /**
-     * Get 语音消息服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语音消息服务开关状态 
      * @return VoiceMessage 语音消息服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StatusInfo getVoiceMessage() {
         return this.VoiceMessage;
@@ -102,19 +91,15 @@ public class ServiceStatus extends AbstractModel{
 
     /**
      * Set 语音消息服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VoiceMessage 语音消息服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVoiceMessage(StatusInfo VoiceMessage) {
         this.VoiceMessage = VoiceMessage;
     }
 
     /**
-     * Get 语音内容安全服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语音内容安全服务开关状态 
      * @return Porn 语音内容安全服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StatusInfo getPorn() {
         return this.Porn;
@@ -122,19 +107,15 @@ public class ServiceStatus extends AbstractModel{
 
     /**
      * Set 语音内容安全服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Porn 语音内容安全服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPorn(StatusInfo Porn) {
         this.Porn = Porn;
     }
 
     /**
-     * Get 语音录制服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语音录制服务开关状态 
      * @return Live 语音录制服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StatusInfo getLive() {
         return this.Live;
@@ -142,19 +123,15 @@ public class ServiceStatus extends AbstractModel{
 
     /**
      * Set 语音录制服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Live 语音录制服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLive(StatusInfo Live) {
         this.Live = Live;
     }
 
     /**
-     * Get 语音转文本服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 语音转文本服务开关状态 
      * @return RealTimeAsr 语音转文本服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StatusInfo getRealTimeAsr() {
         return this.RealTimeAsr;
@@ -162,19 +139,15 @@ public class ServiceStatus extends AbstractModel{
 
     /**
      * Set 语音转文本服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealTimeAsr 语音转文本服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealTimeAsr(StatusInfo RealTimeAsr) {
         this.RealTimeAsr = RealTimeAsr;
     }
 
     /**
-     * Get 文本翻译服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文本翻译服务开关状态 
      * @return TextTranslate 文本翻译服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StatusInfo getTextTranslate() {
         return this.TextTranslate;
@@ -182,9 +155,7 @@ public class ServiceStatus extends AbstractModel{
 
     /**
      * Set 文本翻译服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TextTranslate 文本翻译服务开关状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTextTranslate(StatusInfo TextTranslate) {
         this.TextTranslate = TextTranslate;

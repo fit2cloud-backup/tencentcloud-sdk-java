@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiRecognitionTaskSegmentResult extends AbstractModel{
+public class AiRecognitionTaskSegmentResult extends AbstractModel {
 
     /**
     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -52,7 +53,6 @@ public class AiRecognitionTaskSegmentResult extends AbstractModel{
 
     /**
     * 视频拆条任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Input")
     @Expose
@@ -60,7 +60,6 @@ public class AiRecognitionTaskSegmentResult extends AbstractModel{
 
     /**
     * 视频拆条任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
     @Expose
@@ -152,10 +151,8 @@ public class AiRecognitionTaskSegmentResult extends AbstractModel{
     }
 
     /**
-     * Get 视频拆条任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频拆条任务输入信息。 
      * @return Input 视频拆条任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiRecognitionTaskSegmentResultInput getInput() {
         return this.Input;
@@ -163,19 +160,15 @@ public class AiRecognitionTaskSegmentResult extends AbstractModel{
 
     /**
      * Set 视频拆条任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Input 视频拆条任务输入信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInput(AiRecognitionTaskSegmentResultInput Input) {
         this.Input = Input;
     }
 
     /**
-     * Get 视频拆条任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 视频拆条任务输出信息。 
      * @return Output 视频拆条任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiRecognitionTaskSegmentResultOutput getOutput() {
         return this.Output;
@@ -183,9 +176,7 @@ public class AiRecognitionTaskSegmentResult extends AbstractModel{
 
     /**
      * Set 视频拆条任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Output 视频拆条任务输出信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(AiRecognitionTaskSegmentResultOutput Output) {
         this.Output = Output;

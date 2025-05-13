@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RuleExecResult extends AbstractModel{
+public class RuleExecResult extends AbstractModel {
 
     /**
     * 规则执行ID
@@ -189,6 +190,14 @@ public class RuleExecResult extends AbstractModel{
     @SerializedName("AlarmLevel")
     @Expose
     private Long AlarmLevel;
+
+    /**
+    * 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TriggerCondition")
+    @Expose
+    private String TriggerCondition;
 
     /**
      * Get 规则执行ID
@@ -610,6 +619,26 @@ public class RuleExecResult extends AbstractModel{
         this.AlarmLevel = AlarmLevel;
     }
 
+    /**
+     * Get 触发条件
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TriggerCondition 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getTriggerCondition() {
+        return this.TriggerCondition;
+    }
+
+    /**
+     * Set 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TriggerCondition 触发条件
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTriggerCondition(String TriggerCondition) {
+        this.TriggerCondition = TriggerCondition;
+    }
+
     public RuleExecResult() {
     }
 
@@ -681,6 +710,9 @@ public class RuleExecResult extends AbstractModel{
         if (source.AlarmLevel != null) {
             this.AlarmLevel = new Long(source.AlarmLevel);
         }
+        if (source.TriggerCondition != null) {
+            this.TriggerCondition = new String(source.TriggerCondition);
+        }
     }
 
 
@@ -709,6 +741,7 @@ public class RuleExecResult extends AbstractModel{
         this.setParamSimple(map, prefix + "RelConditionExpr", this.RelConditionExpr);
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "AlarmLevel", this.AlarmLevel);
+        this.setParamSimple(map, prefix + "TriggerCondition", this.TriggerCondition);
 
     }
 }

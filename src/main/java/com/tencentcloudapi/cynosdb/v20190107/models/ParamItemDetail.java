@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParamItemDetail extends AbstractModel{
+public class ParamItemDetail extends AbstractModel {
 
     /**
     * 当前值
@@ -94,7 +95,6 @@ public class ParamItemDetail extends AbstractModel{
 
     /**
     * 类型是否为公式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsFunc")
     @Expose
@@ -102,11 +102,17 @@ public class ParamItemDetail extends AbstractModel{
 
     /**
     * 参数配置公式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Func")
     @Expose
     private String Func;
+
+    /**
+    * 支持公式的参数的默认公式样式
+    */
+    @SerializedName("FuncPattern")
+    @Expose
+    private String FuncPattern;
 
     /**
      * Get 当前值 
@@ -269,10 +275,8 @@ public class ParamItemDetail extends AbstractModel{
     }
 
     /**
-     * Get 类型是否为公式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 类型是否为公式 
      * @return IsFunc 类型是否为公式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsFunc() {
         return this.IsFunc;
@@ -280,19 +284,15 @@ public class ParamItemDetail extends AbstractModel{
 
     /**
      * Set 类型是否为公式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsFunc 类型是否为公式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsFunc(Boolean IsFunc) {
         this.IsFunc = IsFunc;
     }
 
     /**
-     * Get 参数配置公式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数配置公式 
      * @return Func 参数配置公式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFunc() {
         return this.Func;
@@ -300,12 +300,26 @@ public class ParamItemDetail extends AbstractModel{
 
     /**
      * Set 参数配置公式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Func 参数配置公式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFunc(String Func) {
         this.Func = Func;
+    }
+
+    /**
+     * Get 支持公式的参数的默认公式样式 
+     * @return FuncPattern 支持公式的参数的默认公式样式
+     */
+    public String getFuncPattern() {
+        return this.FuncPattern;
+    }
+
+    /**
+     * Set 支持公式的参数的默认公式样式
+     * @param FuncPattern 支持公式的参数的默认公式样式
+     */
+    public void setFuncPattern(String FuncPattern) {
+        this.FuncPattern = FuncPattern;
     }
 
     public ParamItemDetail() {
@@ -355,6 +369,9 @@ public class ParamItemDetail extends AbstractModel{
         if (source.Func != null) {
             this.Func = new String(source.Func);
         }
+        if (source.FuncPattern != null) {
+            this.FuncPattern = new String(source.FuncPattern);
+        }
     }
 
 
@@ -374,6 +391,7 @@ public class ParamItemDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "IsFunc", this.IsFunc);
         this.setParamSimple(map, prefix + "Func", this.Func);
+        this.setParamSimple(map, prefix + "FuncPattern", this.FuncPattern);
 
     }
 }

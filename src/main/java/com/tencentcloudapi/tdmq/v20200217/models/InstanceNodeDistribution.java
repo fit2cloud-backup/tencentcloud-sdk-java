@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceNodeDistribution extends AbstractModel{
+public class InstanceNodeDistribution extends AbstractModel {
 
     /**
     * 可用区
@@ -42,6 +43,21 @@ public class InstanceNodeDistribution extends AbstractModel{
     @SerializedName("NodeCount")
     @Expose
     private Long NodeCount;
+
+    /**
+    * 有调度任务且没有切回的可用区，此标识为true
+    */
+    @SerializedName("NodePermWipeFlag")
+    @Expose
+    private Boolean NodePermWipeFlag;
+
+    /**
+    * 可用区状态
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ZoneStatus")
+    @Expose
+    private String ZoneStatus;
 
     /**
      * Get 可用区 
@@ -91,6 +107,42 @@ public class InstanceNodeDistribution extends AbstractModel{
         this.NodeCount = NodeCount;
     }
 
+    /**
+     * Get 有调度任务且没有切回的可用区，此标识为true 
+     * @return NodePermWipeFlag 有调度任务且没有切回的可用区，此标识为true
+     */
+    public Boolean getNodePermWipeFlag() {
+        return this.NodePermWipeFlag;
+    }
+
+    /**
+     * Set 有调度任务且没有切回的可用区，此标识为true
+     * @param NodePermWipeFlag 有调度任务且没有切回的可用区，此标识为true
+     */
+    public void setNodePermWipeFlag(Boolean NodePermWipeFlag) {
+        this.NodePermWipeFlag = NodePermWipeFlag;
+    }
+
+    /**
+     * Get 可用区状态
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ZoneStatus 可用区状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getZoneStatus() {
+        return this.ZoneStatus;
+    }
+
+    /**
+     * Set 可用区状态
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ZoneStatus 可用区状态
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setZoneStatus(String ZoneStatus) {
+        this.ZoneStatus = ZoneStatus;
+    }
+
     public InstanceNodeDistribution() {
     }
 
@@ -108,6 +160,12 @@ public class InstanceNodeDistribution extends AbstractModel{
         if (source.NodeCount != null) {
             this.NodeCount = new Long(source.NodeCount);
         }
+        if (source.NodePermWipeFlag != null) {
+            this.NodePermWipeFlag = new Boolean(source.NodePermWipeFlag);
+        }
+        if (source.ZoneStatus != null) {
+            this.ZoneStatus = new String(source.ZoneStatus);
+        }
     }
 
 
@@ -118,6 +176,8 @@ public class InstanceNodeDistribution extends AbstractModel{
         this.setParamSimple(map, prefix + "ZoneName", this.ZoneName);
         this.setParamSimple(map, prefix + "ZoneId", this.ZoneId);
         this.setParamSimple(map, prefix + "NodeCount", this.NodeCount);
+        this.setParamSimple(map, prefix + "NodePermWipeFlag", this.NodePermWipeFlag);
+        this.setParamSimple(map, prefix + "ZoneStatus", this.ZoneStatus);
 
     }
 }

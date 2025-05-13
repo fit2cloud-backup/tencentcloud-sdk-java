@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ContainGroupResult extends AbstractModel{
+public class ContainGroupResult extends AbstractModel {
 
     /**
     * 部署组列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
@@ -38,10 +38,8 @@ public class ContainGroupResult extends AbstractModel{
     private Long TotalCount;
 
     /**
-     * Get 部署组列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组列表 
      * @return Content 部署组列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ContainGroup [] getContent() {
         return this.Content;
@@ -49,9 +47,7 @@ public class ContainGroupResult extends AbstractModel{
 
     /**
      * Set 部署组列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content 部署组列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(ContainGroup [] Content) {
         this.Content = Content;

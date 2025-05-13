@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVpcInstancesRequest extends AbstractModel{
+public class DescribeVpcInstancesRequest extends AbstractModel {
 
     /**
-    * 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+    * <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
     */
@@ -47,12 +47,10 @@ public class DescribeVpcInstancesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+     * Get <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li> 
-     * @return Filters 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+     * @return Filters <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
      */
@@ -61,12 +59,10 @@ public class DescribeVpcInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Set 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+     * Set <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
-     * @param Filters 过滤条件，参数不支持同时指定RouteTableIds和Filters。
-<li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
+     * @param Filters <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-f49l6u0z。</li>
 <li>instance-id - String - （过滤条件）云主机实例ID。</li>
 <li>instance-name - String - （过滤条件）云主机名称。</li>
      */

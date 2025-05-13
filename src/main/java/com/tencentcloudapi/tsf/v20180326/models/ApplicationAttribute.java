@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApplicationAttribute extends AbstractModel{
+public class ApplicationAttribute extends AbstractModel {
 
     /**
     * 总实例个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceCount")
     @Expose
@@ -32,7 +32,6 @@ public class ApplicationAttribute extends AbstractModel{
 
     /**
     * 运行实例个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RunInstanceCount")
     @Expose
@@ -40,17 +39,28 @@ public class ApplicationAttribute extends AbstractModel{
 
     /**
     * 应用下部署组个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupCount")
     @Expose
     private Long GroupCount;
 
     /**
-     * Get 总实例个数
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 运行中部署组个数
+    */
+    @SerializedName("RunningGroupCount")
+    @Expose
+    private String RunningGroupCount;
+
+    /**
+    * 异常部署组个数
+    */
+    @SerializedName("AbnormalCount")
+    @Expose
+    private String AbnormalCount;
+
+    /**
+     * Get 总实例个数 
      * @return InstanceCount 总实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceCount() {
         return this.InstanceCount;
@@ -58,19 +68,15 @@ public class ApplicationAttribute extends AbstractModel{
 
     /**
      * Set 总实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceCount 总实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceCount(Long InstanceCount) {
         this.InstanceCount = InstanceCount;
     }
 
     /**
-     * Get 运行实例个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 运行实例个数 
      * @return RunInstanceCount 运行实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRunInstanceCount() {
         return this.RunInstanceCount;
@@ -78,19 +84,15 @@ public class ApplicationAttribute extends AbstractModel{
 
     /**
      * Set 运行实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RunInstanceCount 运行实例个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRunInstanceCount(Long RunInstanceCount) {
         this.RunInstanceCount = RunInstanceCount;
     }
 
     /**
-     * Get 应用下部署组个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用下部署组个数 
      * @return GroupCount 应用下部署组个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGroupCount() {
         return this.GroupCount;
@@ -98,12 +100,42 @@ public class ApplicationAttribute extends AbstractModel{
 
     /**
      * Set 应用下部署组个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupCount 应用下部署组个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupCount(Long GroupCount) {
         this.GroupCount = GroupCount;
+    }
+
+    /**
+     * Get 运行中部署组个数 
+     * @return RunningGroupCount 运行中部署组个数
+     */
+    public String getRunningGroupCount() {
+        return this.RunningGroupCount;
+    }
+
+    /**
+     * Set 运行中部署组个数
+     * @param RunningGroupCount 运行中部署组个数
+     */
+    public void setRunningGroupCount(String RunningGroupCount) {
+        this.RunningGroupCount = RunningGroupCount;
+    }
+
+    /**
+     * Get 异常部署组个数 
+     * @return AbnormalCount 异常部署组个数
+     */
+    public String getAbnormalCount() {
+        return this.AbnormalCount;
+    }
+
+    /**
+     * Set 异常部署组个数
+     * @param AbnormalCount 异常部署组个数
+     */
+    public void setAbnormalCount(String AbnormalCount) {
+        this.AbnormalCount = AbnormalCount;
     }
 
     public ApplicationAttribute() {
@@ -123,6 +155,12 @@ public class ApplicationAttribute extends AbstractModel{
         if (source.GroupCount != null) {
             this.GroupCount = new Long(source.GroupCount);
         }
+        if (source.RunningGroupCount != null) {
+            this.RunningGroupCount = new String(source.RunningGroupCount);
+        }
+        if (source.AbnormalCount != null) {
+            this.AbnormalCount = new String(source.AbnormalCount);
+        }
     }
 
 
@@ -133,6 +171,8 @@ public class ApplicationAttribute extends AbstractModel{
         this.setParamSimple(map, prefix + "InstanceCount", this.InstanceCount);
         this.setParamSimple(map, prefix + "RunInstanceCount", this.RunInstanceCount);
         this.setParamSimple(map, prefix + "GroupCount", this.GroupCount);
+        this.setParamSimple(map, prefix + "RunningGroupCount", this.RunningGroupCount);
+        this.setParamSimple(map, prefix + "AbnormalCount", this.AbnormalCount);
 
     }
 }

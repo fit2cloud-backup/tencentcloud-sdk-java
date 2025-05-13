@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceConfig extends AbstractModel{
+public class ServiceConfig extends AbstractModel {
 
     /**
     * 服务名
@@ -38,7 +39,6 @@ public class ServiceConfig extends AbstractModel{
 
     /**
     * 健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HealthCheck")
     @Expose
@@ -77,10 +77,8 @@ public class ServiceConfig extends AbstractModel{
     }
 
     /**
-     * Get 健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 健康检查配置 
      * @return HealthCheck 健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public HealthCheckConfig getHealthCheck() {
         return this.HealthCheck;
@@ -88,9 +86,7 @@ public class ServiceConfig extends AbstractModel{
 
     /**
      * Set 健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HealthCheck 健康检查配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHealthCheck(HealthCheckConfig HealthCheck) {
         this.HealthCheck = HealthCheck;

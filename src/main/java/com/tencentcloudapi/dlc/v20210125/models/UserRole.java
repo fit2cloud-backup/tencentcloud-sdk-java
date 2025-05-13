@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UserRole extends AbstractModel{
+public class UserRole extends AbstractModel {
 
     /**
     * 角色ID
@@ -66,7 +67,6 @@ public class UserRole extends AbstractModel{
 
     /**
     * 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RoleName")
     @Expose
@@ -74,7 +74,6 @@ public class UserRole extends AbstractModel{
 
     /**
     * 创建者UIN
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Creator")
     @Expose
@@ -82,7 +81,6 @@ public class UserRole extends AbstractModel{
 
     /**
     * cos授权路径列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CosPermissionList")
     @Expose
@@ -90,11 +88,17 @@ public class UserRole extends AbstractModel{
 
     /**
     * cam策略json
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PermissionJson")
     @Expose
     private String PermissionJson;
+
+    /**
+    * 是否设置为常驻：1非常驻（默认）、2常驻（仅能设置一个常驻）
+    */
+    @SerializedName("IsDefault")
+    @Expose
+    private Long IsDefault;
 
     /**
      * Get 角色ID 
@@ -193,10 +197,8 @@ public class UserRole extends AbstractModel{
     }
 
     /**
-     * Get 角色名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 角色名称 
      * @return RoleName 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRoleName() {
         return this.RoleName;
@@ -204,19 +206,15 @@ public class UserRole extends AbstractModel{
 
     /**
      * Set 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RoleName 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRoleName(String RoleName) {
         this.RoleName = RoleName;
     }
 
     /**
-     * Get 创建者UIN
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建者UIN 
      * @return Creator 创建者UIN
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreator() {
         return this.Creator;
@@ -224,19 +222,15 @@ public class UserRole extends AbstractModel{
 
     /**
      * Set 创建者UIN
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Creator 创建者UIN
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreator(String Creator) {
         this.Creator = Creator;
     }
 
     /**
-     * Get cos授权路径列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cos授权路径列表 
      * @return CosPermissionList cos授权路径列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CosPermission [] getCosPermissionList() {
         return this.CosPermissionList;
@@ -244,19 +238,15 @@ public class UserRole extends AbstractModel{
 
     /**
      * Set cos授权路径列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CosPermissionList cos授权路径列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCosPermissionList(CosPermission [] CosPermissionList) {
         this.CosPermissionList = CosPermissionList;
     }
 
     /**
-     * Get cam策略json
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cam策略json 
      * @return PermissionJson cam策略json
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPermissionJson() {
         return this.PermissionJson;
@@ -264,12 +254,26 @@ public class UserRole extends AbstractModel{
 
     /**
      * Set cam策略json
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PermissionJson cam策略json
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPermissionJson(String PermissionJson) {
         this.PermissionJson = PermissionJson;
+    }
+
+    /**
+     * Get 是否设置为常驻：1非常驻（默认）、2常驻（仅能设置一个常驻） 
+     * @return IsDefault 是否设置为常驻：1非常驻（默认）、2常驻（仅能设置一个常驻）
+     */
+    public Long getIsDefault() {
+        return this.IsDefault;
+    }
+
+    /**
+     * Set 是否设置为常驻：1非常驻（默认）、2常驻（仅能设置一个常驻）
+     * @param IsDefault 是否设置为常驻：1非常驻（默认）、2常驻（仅能设置一个常驻）
+     */
+    public void setIsDefault(Long IsDefault) {
+        this.IsDefault = IsDefault;
     }
 
     public UserRole() {
@@ -313,6 +317,9 @@ public class UserRole extends AbstractModel{
         if (source.PermissionJson != null) {
             this.PermissionJson = new String(source.PermissionJson);
         }
+        if (source.IsDefault != null) {
+            this.IsDefault = new Long(source.IsDefault);
+        }
     }
 
 
@@ -330,6 +337,7 @@ public class UserRole extends AbstractModel{
         this.setParamSimple(map, prefix + "Creator", this.Creator);
         this.setParamArrayObj(map, prefix + "CosPermissionList.", this.CosPermissionList);
         this.setParamSimple(map, prefix + "PermissionJson", this.PermissionJson);
+        this.setParamSimple(map, prefix + "IsDefault", this.IsDefault);
 
     }
 }

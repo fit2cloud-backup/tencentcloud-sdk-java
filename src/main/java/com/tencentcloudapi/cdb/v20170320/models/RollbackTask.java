@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RollbackTask extends AbstractModel{
+public class RollbackTask extends AbstractModel {
 
     /**
     * 任务执行信息描述。
@@ -59,7 +60,6 @@ public class RollbackTask extends AbstractModel{
 
     /**
     * 回档任务详情。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Detail")
     @Expose
@@ -146,10 +146,8 @@ public class RollbackTask extends AbstractModel{
     }
 
     /**
-     * Get 回档任务详情。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 回档任务详情。 
      * @return Detail 回档任务详情。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RollbackInstancesInfo [] getDetail() {
         return this.Detail;
@@ -157,9 +155,7 @@ public class RollbackTask extends AbstractModel{
 
     /**
      * Set 回档任务详情。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Detail 回档任务详情。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDetail(RollbackInstancesInfo [] Detail) {
         this.Detail = Detail;

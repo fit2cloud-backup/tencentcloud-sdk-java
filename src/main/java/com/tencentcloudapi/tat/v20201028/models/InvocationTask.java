@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tat.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InvocationTask extends AbstractModel{
+public class InvocationTask extends AbstractModel {
 
     /**
     * 执行活动ID。
@@ -45,19 +46,20 @@ public class InvocationTask extends AbstractModel{
 
     /**
     * 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
     */
     @SerializedName("TaskStatus")
     @Expose
@@ -78,28 +80,30 @@ public class InvocationTask extends AbstractModel{
     private TaskResult TaskResult;
 
     /**
-    * 执行任务开始时间。
+    * 执行任务开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 执行任务结束时间。
+    * 执行任务结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
     private String EndTime;
 
     /**
-    * 创建时间。
+    * 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
     */
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
 
     /**
-    * 更新时间。
+    * 更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
     */
     @SerializedName("UpdatedTime")
     @Expose
@@ -121,6 +125,9 @@ public class InvocationTask extends AbstractModel{
 
     /**
     * 调用来源。
+
+- USER：来源于用户调用。
+- INVOKER：来源于定时执行。
     */
     @SerializedName("InvocationSource")
     @Expose
@@ -176,33 +183,35 @@ public class InvocationTask extends AbstractModel{
 
     /**
      * Get 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消） 
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消） 
      * @return TaskStatus 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
      */
     public String getTaskStatus() {
         return this.TaskStatus;
@@ -210,33 +219,35 @@ public class InvocationTask extends AbstractModel{
 
     /**
      * Set 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
      * @param TaskStatus 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
      */
     public void setTaskStatus(String TaskStatus) {
         this.TaskStatus = TaskStatus;
@@ -275,64 +286,72 @@ public class InvocationTask extends AbstractModel{
     }
 
     /**
-     * Get 执行任务开始时间。 
-     * @return StartTime 执行任务开始时间。
+     * Get 执行任务开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return StartTime 执行任务开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 执行任务开始时间。
-     * @param StartTime 执行任务开始时间。
+     * Set 执行任务开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param StartTime 执行任务开始时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 执行任务结束时间。 
-     * @return EndTime 执行任务结束时间。
+     * Get 执行任务结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EndTime 执行任务结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 执行任务结束时间。
-     * @param EndTime 执行任务结束时间。
+     * Set 执行任务结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EndTime 执行任务结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 创建时间。 
-     * @return CreatedTime 创建时间。
+     * Get 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ 
+     * @return CreatedTime 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public String getCreatedTime() {
         return this.CreatedTime;
     }
 
     /**
-     * Set 创建时间。
-     * @param CreatedTime 创建时间。
+     * Set 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
+     * @param CreatedTime 创建时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
     }
 
     /**
-     * Get 更新时间。 
-     * @return UpdatedTime 更新时间。
+     * Get 更新时间。格式为：YYYY-MM-DDThh:mm:ssZ 
+     * @return UpdatedTime 更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public String getUpdatedTime() {
         return this.UpdatedTime;
     }
 
     /**
-     * Set 更新时间。
-     * @param UpdatedTime 更新时间。
+     * Set 更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
+     * @param UpdatedTime 更新时间。格式为：YYYY-MM-DDThh:mm:ssZ
      */
     public void setUpdatedTime(String UpdatedTime) {
         this.UpdatedTime = UpdatedTime;
@@ -371,8 +390,14 @@ public class InvocationTask extends AbstractModel{
     }
 
     /**
-     * Get 调用来源。 
+     * Get 调用来源。
+
+- USER：来源于用户调用。
+- INVOKER：来源于定时执行。 
      * @return InvocationSource 调用来源。
+
+- USER：来源于用户调用。
+- INVOKER：来源于定时执行。
      */
     public String getInvocationSource() {
         return this.InvocationSource;
@@ -380,7 +405,13 @@ public class InvocationTask extends AbstractModel{
 
     /**
      * Set 调用来源。
+
+- USER：来源于用户调用。
+- INVOKER：来源于定时执行。
      * @param InvocationSource 调用来源。
+
+- USER：来源于用户调用。
+- INVOKER：来源于定时执行。
      */
     public void setInvocationSource(String InvocationSource) {
         this.InvocationSource = InvocationSource;

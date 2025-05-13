@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CovidItemsInfo extends AbstractModel{
+public class CovidItemsInfo extends AbstractModel {
 
     /**
     * 核酸报告结论
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CovidItems")
     @Expose
@@ -32,17 +32,21 @@ public class CovidItemsInfo extends AbstractModel{
 
     /**
     * 版本号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
     private String Version;
 
     /**
-     * Get 核酸报告结论
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 核酸报告结论 
      * @return CovidItems 核酸报告结论
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CovidItem [] getCovidItems() {
         return this.CovidItems;
@@ -50,19 +54,15 @@ public class CovidItemsInfo extends AbstractModel{
 
     /**
      * Set 核酸报告结论
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CovidItems 核酸报告结论
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCovidItems(CovidItem [] CovidItems) {
         this.CovidItems = CovidItems;
     }
 
     /**
-     * Get 版本号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本号 
      * @return Version 版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVersion() {
         return this.Version;
@@ -70,12 +70,26 @@ public class CovidItemsInfo extends AbstractModel{
 
     /**
      * Set 版本号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(String Version) {
         this.Version = Version;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public CovidItemsInfo() {
@@ -95,6 +109,9 @@ public class CovidItemsInfo extends AbstractModel{
         if (source.Version != null) {
             this.Version = new String(source.Version);
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -104,6 +121,7 @@ public class CovidItemsInfo extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "CovidItems.", this.CovidItems);
         this.setParamSimple(map, prefix + "Version", this.Version);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

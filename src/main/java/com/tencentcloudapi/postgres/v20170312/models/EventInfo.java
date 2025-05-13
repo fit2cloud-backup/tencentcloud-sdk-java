@@ -16,15 +16,15 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EventInfo extends AbstractModel{
+public class EventInfo extends AbstractModel {
 
     /**
     * 参数名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParamName")
     @Expose
@@ -32,7 +32,6 @@ public class EventInfo extends AbstractModel{
 
     /**
     * 原参数值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OldValue")
     @Expose
@@ -40,7 +39,6 @@ public class EventInfo extends AbstractModel{
 
     /**
     * 本次修改期望参数值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NewValue")
     @Expose
@@ -48,7 +46,6 @@ public class EventInfo extends AbstractModel{
 
     /**
     * 后台参数修改开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModifyTime")
     @Expose
@@ -56,7 +53,6 @@ public class EventInfo extends AbstractModel{
 
     /**
     * 后台参数生效开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EffectiveTime")
     @Expose
@@ -64,7 +60,6 @@ public class EventInfo extends AbstractModel{
 
     /**
     * 修改状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("State")
     @Expose
@@ -72,7 +67,6 @@ public class EventInfo extends AbstractModel{
 
     /**
     * 操作者（一般为用户sub UIN）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Operator")
     @Expose
@@ -80,17 +74,14 @@ public class EventInfo extends AbstractModel{
 
     /**
     * 时间日志。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EventLog")
     @Expose
     private String EventLog;
 
     /**
-     * Get 参数名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参数名 
      * @return ParamName 参数名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParamName() {
         return this.ParamName;
@@ -98,19 +89,15 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 参数名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParamName 参数名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParamName(String ParamName) {
         this.ParamName = ParamName;
     }
 
     /**
-     * Get 原参数值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原参数值 
      * @return OldValue 原参数值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOldValue() {
         return this.OldValue;
@@ -118,19 +105,15 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 原参数值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OldValue 原参数值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOldValue(String OldValue) {
         this.OldValue = OldValue;
     }
 
     /**
-     * Get 本次修改期望参数值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 本次修改期望参数值 
      * @return NewValue 本次修改期望参数值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNewValue() {
         return this.NewValue;
@@ -138,19 +121,15 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 本次修改期望参数值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NewValue 本次修改期望参数值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNewValue(String NewValue) {
         this.NewValue = NewValue;
     }
 
     /**
-     * Get 后台参数修改开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后台参数修改开始时间 
      * @return ModifyTime 后台参数修改开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModifyTime() {
         return this.ModifyTime;
@@ -158,19 +137,15 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 后台参数修改开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModifyTime 后台参数修改开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;
     }
 
     /**
-     * Get 后台参数生效开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后台参数生效开始时间 
      * @return EffectiveTime 后台参数生效开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEffectiveTime() {
         return this.EffectiveTime;
@@ -178,19 +153,15 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 后台参数生效开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EffectiveTime 后台参数生效开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEffectiveTime(String EffectiveTime) {
         this.EffectiveTime = EffectiveTime;
     }
 
     /**
-     * Get 修改状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修改状态 
      * @return State 修改状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getState() {
         return this.State;
@@ -198,19 +169,15 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 修改状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param State 修改状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setState(String State) {
         this.State = State;
     }
 
     /**
-     * Get 操作者（一般为用户sub UIN）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作者（一般为用户sub UIN） 
      * @return Operator 操作者（一般为用户sub UIN）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperator() {
         return this.Operator;
@@ -218,19 +185,15 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 操作者（一般为用户sub UIN）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Operator 操作者（一般为用户sub UIN）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperator(String Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 时间日志。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时间日志。 
      * @return EventLog 时间日志。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEventLog() {
         return this.EventLog;
@@ -238,9 +201,7 @@ public class EventInfo extends AbstractModel{
 
     /**
      * Set 时间日志。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EventLog 时间日志。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEventLog(String EventLog) {
         this.EventLog = EventLog;

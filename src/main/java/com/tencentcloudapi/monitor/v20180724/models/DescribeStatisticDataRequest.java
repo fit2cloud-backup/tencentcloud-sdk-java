@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeStatisticDataRequest extends AbstractModel{
+public class DescribeStatisticDataRequest extends AbstractModel {
 
     /**
     * 所属模块，固定值，为monitor
@@ -30,21 +31,21 @@ public class DescribeStatisticDataRequest extends AbstractModel{
     private String Module;
 
     /**
-    * 命名空间，目前只支持QCE/TKE2
+    * 命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
     */
     @SerializedName("Namespace")
     @Expose
     private String Namespace;
 
     /**
-    * 指标名列表
+    * 指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
     */
     @SerializedName("MetricNames")
     @Expose
     private String [] MetricNames;
 
     /**
-    * 维度条件，操作符支持=、in
+    * 维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
     */
     @SerializedName("Conditions")
     @Expose
@@ -100,48 +101,48 @@ public class DescribeStatisticDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 命名空间，目前只支持QCE/TKE2 
-     * @return Namespace 命名空间，目前只支持QCE/TKE2
+     * Get 命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP 
+     * @return Namespace 命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
      */
     public String getNamespace() {
         return this.Namespace;
     }
 
     /**
-     * Set 命名空间，目前只支持QCE/TKE2
-     * @param Namespace 命名空间，目前只支持QCE/TKE2
+     * Set 命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
+     * @param Namespace 命名空间，目前支持QCE/TKE2(Conditions必填),QCE/KEEWIDB,QCE/CAMP
      */
     public void setNamespace(String Namespace) {
         this.Namespace = Namespace;
     }
 
     /**
-     * Get 指标名列表 
-     * @return MetricNames 指标名列表
+     * Get 指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458) 
+     * @return MetricNames 指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
      */
     public String [] getMetricNames() {
         return this.MetricNames;
     }
 
     /**
-     * Set 指标名列表
-     * @param MetricNames 指标名列表
+     * Set 指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
+     * @param MetricNames 指标名列表，相关指标信息可参考对应 [云产品指标文档](https://cloud.tencent.com/document/product/248/62458)
      */
     public void setMetricNames(String [] MetricNames) {
         this.MetricNames = MetricNames;
     }
 
     /**
-     * Get 维度条件，操作符支持=、in 
-     * @return Conditions 维度条件，操作符支持=、in
+     * Get 维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821) 
+     * @return Conditions 维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
      */
     public MidQueryCondition [] getConditions() {
         return this.Conditions;
     }
 
     /**
-     * Set 维度条件，操作符支持=、in
-     * @param Conditions 维度条件，操作符支持=、in
+     * Set 维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
+     * @param Conditions 维度条件，操作符支持=、in，详情请参考对应 [指标维度信息](https://cloud.tencent.com/document/product/248/53821)
      */
     public void setConditions(MidQueryCondition [] Conditions) {
         this.Conditions = Conditions;

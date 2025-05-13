@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeClusterReleaseRequest extends AbstractModel{
+public class UpgradeClusterReleaseRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -58,14 +59,14 @@ public class UpgradeClusterReleaseRequest extends AbstractModel{
     private ReleaseValues Values;
 
     /**
-    * 制品来源，范围：tke-market 或 other
+    * 制品来源，范围：tke-market 或 other 默认值：tke-market，示例值：tke-market
     */
     @SerializedName("ChartFrom")
     @Expose
     private String ChartFrom;
 
     /**
-    * 制品版本( 从第三安装时，不传这个参数）
+    * 制品版本( 从第三方安装时，不传这个参数）
     */
     @SerializedName("ChartVersion")
     @Expose
@@ -93,14 +94,14 @@ public class UpgradeClusterReleaseRequest extends AbstractModel{
     private String Password;
 
     /**
-    * 制品命名空间
+    * 制品命名空间，ChartFrom为tke-market时ChartNamespace不为空，值为DescribeProducts接口反馈的Namespace
     */
     @SerializedName("ChartNamespace")
     @Expose
     private String ChartNamespace;
 
     /**
-    * 集群类型，支持传 tke, eks, tkeedge, exernal(注册集群）
+    * 集群类型，支持传 tke, eks, tkeedge, external(注册集群）
     */
     @SerializedName("ClusterType")
     @Expose
@@ -187,32 +188,32 @@ public class UpgradeClusterReleaseRequest extends AbstractModel{
     }
 
     /**
-     * Get 制品来源，范围：tke-market 或 other 
-     * @return ChartFrom 制品来源，范围：tke-market 或 other
+     * Get 制品来源，范围：tke-market 或 other 默认值：tke-market，示例值：tke-market 
+     * @return ChartFrom 制品来源，范围：tke-market 或 other 默认值：tke-market，示例值：tke-market
      */
     public String getChartFrom() {
         return this.ChartFrom;
     }
 
     /**
-     * Set 制品来源，范围：tke-market 或 other
-     * @param ChartFrom 制品来源，范围：tke-market 或 other
+     * Set 制品来源，范围：tke-market 或 other 默认值：tke-market，示例值：tke-market
+     * @param ChartFrom 制品来源，范围：tke-market 或 other 默认值：tke-market，示例值：tke-market
      */
     public void setChartFrom(String ChartFrom) {
         this.ChartFrom = ChartFrom;
     }
 
     /**
-     * Get 制品版本( 从第三安装时，不传这个参数） 
-     * @return ChartVersion 制品版本( 从第三安装时，不传这个参数）
+     * Get 制品版本( 从第三方安装时，不传这个参数） 
+     * @return ChartVersion 制品版本( 从第三方安装时，不传这个参数）
      */
     public String getChartVersion() {
         return this.ChartVersion;
     }
 
     /**
-     * Set 制品版本( 从第三安装时，不传这个参数）
-     * @param ChartVersion 制品版本( 从第三安装时，不传这个参数）
+     * Set 制品版本( 从第三方安装时，不传这个参数）
+     * @param ChartVersion 制品版本( 从第三方安装时，不传这个参数）
      */
     public void setChartVersion(String ChartVersion) {
         this.ChartVersion = ChartVersion;
@@ -267,32 +268,32 @@ public class UpgradeClusterReleaseRequest extends AbstractModel{
     }
 
     /**
-     * Get 制品命名空间 
-     * @return ChartNamespace 制品命名空间
+     * Get 制品命名空间，ChartFrom为tke-market时ChartNamespace不为空，值为DescribeProducts接口反馈的Namespace 
+     * @return ChartNamespace 制品命名空间，ChartFrom为tke-market时ChartNamespace不为空，值为DescribeProducts接口反馈的Namespace
      */
     public String getChartNamespace() {
         return this.ChartNamespace;
     }
 
     /**
-     * Set 制品命名空间
-     * @param ChartNamespace 制品命名空间
+     * Set 制品命名空间，ChartFrom为tke-market时ChartNamespace不为空，值为DescribeProducts接口反馈的Namespace
+     * @param ChartNamespace 制品命名空间，ChartFrom为tke-market时ChartNamespace不为空，值为DescribeProducts接口反馈的Namespace
      */
     public void setChartNamespace(String ChartNamespace) {
         this.ChartNamespace = ChartNamespace;
     }
 
     /**
-     * Get 集群类型，支持传 tke, eks, tkeedge, exernal(注册集群） 
-     * @return ClusterType 集群类型，支持传 tke, eks, tkeedge, exernal(注册集群）
+     * Get 集群类型，支持传 tke, eks, tkeedge, external(注册集群） 
+     * @return ClusterType 集群类型，支持传 tke, eks, tkeedge, external(注册集群）
      */
     public String getClusterType() {
         return this.ClusterType;
     }
 
     /**
-     * Set 集群类型，支持传 tke, eks, tkeedge, exernal(注册集群）
-     * @param ClusterType 集群类型，支持传 tke, eks, tkeedge, exernal(注册集群）
+     * Set 集群类型，支持传 tke, eks, tkeedge, external(注册集群）
+     * @param ClusterType 集群类型，支持传 tke, eks, tkeedge, external(注册集群）
      */
     public void setClusterType(String ClusterType) {
         this.ClusterType = ClusterType;

@@ -16,23 +16,24 @@
 package com.tencentcloudapi.captcha.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCaptchaMiniResultResponse extends AbstractModel{
+public class DescribeCaptchaMiniResultResponse extends AbstractModel {
 
     /**
-    * 1       ticket verification succeeded     票据验证成功
-7       CaptchaAppId does not match     票据与验证码应用APPID不匹配
-8       ticket expired     票据超时
-10     ticket format error     票据格式不正确
-15     ticket decryption failed     票据解密失败
-16     CaptchaAppId wrong format     检查验证码应用APPID错误
-21     ticket error     票据验证错误
-25     invalid ticket     无效票据
-26     system internal error     系统内部错误
-31 	   UnauthorizedOperation.Unauthorized	无有效套餐包/账户已欠费
+    * 1     ticket verification succeeded     票据验证成功
+7     CaptchaAppId does not match     票据与验证码应用APPID不匹配
+8     ticket expired     票据超时
+10    ticket format error     票据格式不正确
+15    ticket decryption failed     票据解密失败
+16    CaptchaAppId wrong format     检查验证码应用APPID错误
+21    (1)ticket error     票据验证错误 (2)diff 一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理
+25    invalid ticket     无效票据
+26    system internal error     系统内部错误
+31    UnauthorizedOperation.Unauthorized   无有效套餐包/账户已欠费
 100   param err     参数校验错误
     */
     @SerializedName("CaptchaCode")
@@ -41,41 +42,40 @@ public class DescribeCaptchaMiniResultResponse extends AbstractModel{
 
     /**
     * 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CaptchaMsg")
     @Expose
     private String CaptchaMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 1       ticket verification succeeded     票据验证成功
-7       CaptchaAppId does not match     票据与验证码应用APPID不匹配
-8       ticket expired     票据超时
-10     ticket format error     票据格式不正确
-15     ticket decryption failed     票据解密失败
-16     CaptchaAppId wrong format     检查验证码应用APPID错误
-21     ticket error     票据验证错误
-25     invalid ticket     无效票据
-26     system internal error     系统内部错误
-31 	   UnauthorizedOperation.Unauthorized	无有效套餐包/账户已欠费
+     * Get 1     ticket verification succeeded     票据验证成功
+7     CaptchaAppId does not match     票据与验证码应用APPID不匹配
+8     ticket expired     票据超时
+10    ticket format error     票据格式不正确
+15    ticket decryption failed     票据解密失败
+16    CaptchaAppId wrong format     检查验证码应用APPID错误
+21    (1)ticket error     票据验证错误 (2)diff 一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理
+25    invalid ticket     无效票据
+26    system internal error     系统内部错误
+31    UnauthorizedOperation.Unauthorized   无有效套餐包/账户已欠费
 100   param err     参数校验错误 
-     * @return CaptchaCode 1       ticket verification succeeded     票据验证成功
-7       CaptchaAppId does not match     票据与验证码应用APPID不匹配
-8       ticket expired     票据超时
-10     ticket format error     票据格式不正确
-15     ticket decryption failed     票据解密失败
-16     CaptchaAppId wrong format     检查验证码应用APPID错误
-21     ticket error     票据验证错误
-25     invalid ticket     无效票据
-26     system internal error     系统内部错误
-31 	   UnauthorizedOperation.Unauthorized	无有效套餐包/账户已欠费
+     * @return CaptchaCode 1     ticket verification succeeded     票据验证成功
+7     CaptchaAppId does not match     票据与验证码应用APPID不匹配
+8     ticket expired     票据超时
+10    ticket format error     票据格式不正确
+15    ticket decryption failed     票据解密失败
+16    CaptchaAppId wrong format     检查验证码应用APPID错误
+21    (1)ticket error     票据验证错误 (2)diff 一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理
+25    invalid ticket     无效票据
+26    system internal error     系统内部错误
+31    UnauthorizedOperation.Unauthorized   无有效套餐包/账户已欠费
 100   param err     参数校验错误
      */
     public Long getCaptchaCode() {
@@ -83,27 +83,27 @@ public class DescribeCaptchaMiniResultResponse extends AbstractModel{
     }
 
     /**
-     * Set 1       ticket verification succeeded     票据验证成功
-7       CaptchaAppId does not match     票据与验证码应用APPID不匹配
-8       ticket expired     票据超时
-10     ticket format error     票据格式不正确
-15     ticket decryption failed     票据解密失败
-16     CaptchaAppId wrong format     检查验证码应用APPID错误
-21     ticket error     票据验证错误
-25     invalid ticket     无效票据
-26     system internal error     系统内部错误
-31 	   UnauthorizedOperation.Unauthorized	无有效套餐包/账户已欠费
+     * Set 1     ticket verification succeeded     票据验证成功
+7     CaptchaAppId does not match     票据与验证码应用APPID不匹配
+8     ticket expired     票据超时
+10    ticket format error     票据格式不正确
+15    ticket decryption failed     票据解密失败
+16    CaptchaAppId wrong format     检查验证码应用APPID错误
+21    (1)ticket error     票据验证错误 (2)diff 一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理
+25    invalid ticket     无效票据
+26    system internal error     系统内部错误
+31    UnauthorizedOperation.Unauthorized   无有效套餐包/账户已欠费
 100   param err     参数校验错误
-     * @param CaptchaCode 1       ticket verification succeeded     票据验证成功
-7       CaptchaAppId does not match     票据与验证码应用APPID不匹配
-8       ticket expired     票据超时
-10     ticket format error     票据格式不正确
-15     ticket decryption failed     票据解密失败
-16     CaptchaAppId wrong format     检查验证码应用APPID错误
-21     ticket error     票据验证错误
-25     invalid ticket     无效票据
-26     system internal error     系统内部错误
-31 	   UnauthorizedOperation.Unauthorized	无有效套餐包/账户已欠费
+     * @param CaptchaCode 1     ticket verification succeeded     票据验证成功
+7     CaptchaAppId does not match     票据与验证码应用APPID不匹配
+8     ticket expired     票据超时
+10    ticket format error     票据格式不正确
+15    ticket decryption failed     票据解密失败
+16    CaptchaAppId wrong format     检查验证码应用APPID错误
+21    (1)ticket error     票据验证错误 (2)diff 一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理
+25    invalid ticket     无效票据
+26    system internal error     系统内部错误
+31    UnauthorizedOperation.Unauthorized   无有效套餐包/账户已欠费
 100   param err     参数校验错误
      */
     public void setCaptchaCode(Long CaptchaCode) {
@@ -111,10 +111,8 @@ public class DescribeCaptchaMiniResultResponse extends AbstractModel{
     }
 
     /**
-     * Get 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态描述及验证错误信息 
      * @return CaptchaMsg 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCaptchaMsg() {
         return this.CaptchaMsg;
@@ -122,25 +120,23 @@ public class DescribeCaptchaMiniResultResponse extends AbstractModel{
 
     /**
      * Set 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CaptchaMsg 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCaptchaMsg(String CaptchaMsg) {
         this.CaptchaMsg = CaptchaMsg;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

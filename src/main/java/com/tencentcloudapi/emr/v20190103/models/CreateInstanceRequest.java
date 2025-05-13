@@ -16,26 +16,29 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInstanceRequest extends AbstractModel{
+public class CreateInstanceRequest extends AbstractModel {
 
     /**
     * 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
-<li>16：表示EMR-V2.3.0。</li>
-<li>20：表示EMR-V2.5.0。</li>
-<li>25：表示EMR-V3.1.0。</li>
-<li>27：表示KAFKA-V1.0.0。</li>
-<li>30：表示EMR-V2.6.0。</li>
-<li>33 :   表示EMR-V3.2.1。</li>
-<li>34 :   表示EMR-V3.3.0。</li>
-<li>36 :   表示STARROCKS-V1.0.0。</li>
-<li>37 :   表示EMR-V3.4.0。</li>
-<li>38 :   表示EMR-V2.7.0。</li>
-<li>39 :   表示STARROCKS-V1.1.0。</li>
-<li>41 :   表示DRUID-V1.1.0。</li>
+51:表示STARROCKS-V1.4.0
+54:表示STARROCKS-V2.0.0
+27:表示KAFKA-V1.0.0
+50:表示KAFKA-V2.0.0
+16:表示EMR-V2.3.0
+20:表示EMR-V2.5.0
+30:表示EMR-V2.6.0
+38:表示EMR-V2.7.0
+25:表示EMR-V3.1.0
+33:表示EMR-V3.2.1
+34:表示EMR-V3.3.0
+37:表示EMR-V3.4.0
+44:表示EMR-V3.5.0
+53:表示EMR-V3.6.0
     */
     @SerializedName("ProductId")
     @Expose
@@ -155,7 +158,7 @@ public class CreateInstanceRequest extends AbstractModel{
     private Long AutoRenew;
 
     /**
-    * 客户端Token。
+    * 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
     */
     @SerializedName("ClientToken")
     @Expose
@@ -215,8 +218,8 @@ public class CreateInstanceRequest extends AbstractModel{
 
     /**
     * hive共享元数据库类型。取值范围：
-<li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_DEFAULT_META：表示集群默认创建</li>
+<li>EMR_EXIST_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
     */
     @SerializedName("MetaType")
@@ -284,32 +287,43 @@ Hadoop-Hbase
     private MultiZoneSetting [] MultiZoneSettings;
 
     /**
+    * cos桶路径，创建StarRocks存算分离集群时用到
+    */
+    @SerializedName("CosBucket")
+    @Expose
+    private String CosBucket;
+
+    /**
      * Get 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
-<li>16：表示EMR-V2.3.0。</li>
-<li>20：表示EMR-V2.5.0。</li>
-<li>25：表示EMR-V3.1.0。</li>
-<li>27：表示KAFKA-V1.0.0。</li>
-<li>30：表示EMR-V2.6.0。</li>
-<li>33 :   表示EMR-V3.2.1。</li>
-<li>34 :   表示EMR-V3.3.0。</li>
-<li>36 :   表示STARROCKS-V1.0.0。</li>
-<li>37 :   表示EMR-V3.4.0。</li>
-<li>38 :   表示EMR-V2.7.0。</li>
-<li>39 :   表示STARROCKS-V1.1.0。</li>
-<li>41 :   表示DRUID-V1.1.0。</li> 
+51:表示STARROCKS-V1.4.0
+54:表示STARROCKS-V2.0.0
+27:表示KAFKA-V1.0.0
+50:表示KAFKA-V2.0.0
+16:表示EMR-V2.3.0
+20:表示EMR-V2.5.0
+30:表示EMR-V2.6.0
+38:表示EMR-V2.7.0
+25:表示EMR-V3.1.0
+33:表示EMR-V3.2.1
+34:表示EMR-V3.3.0
+37:表示EMR-V3.4.0
+44:表示EMR-V3.5.0
+53:表示EMR-V3.6.0 
      * @return ProductId 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
-<li>16：表示EMR-V2.3.0。</li>
-<li>20：表示EMR-V2.5.0。</li>
-<li>25：表示EMR-V3.1.0。</li>
-<li>27：表示KAFKA-V1.0.0。</li>
-<li>30：表示EMR-V2.6.0。</li>
-<li>33 :   表示EMR-V3.2.1。</li>
-<li>34 :   表示EMR-V3.3.0。</li>
-<li>36 :   表示STARROCKS-V1.0.0。</li>
-<li>37 :   表示EMR-V3.4.0。</li>
-<li>38 :   表示EMR-V2.7.0。</li>
-<li>39 :   表示STARROCKS-V1.1.0。</li>
-<li>41 :   表示DRUID-V1.1.0。</li>
+51:表示STARROCKS-V1.4.0
+54:表示STARROCKS-V2.0.0
+27:表示KAFKA-V1.0.0
+50:表示KAFKA-V2.0.0
+16:表示EMR-V2.3.0
+20:表示EMR-V2.5.0
+30:表示EMR-V2.6.0
+38:表示EMR-V2.7.0
+25:表示EMR-V3.1.0
+33:表示EMR-V3.2.1
+34:表示EMR-V3.3.0
+37:表示EMR-V3.4.0
+44:表示EMR-V3.5.0
+53:表示EMR-V3.6.0
      */
     public Long getProductId() {
         return this.ProductId;
@@ -317,31 +331,35 @@ Hadoop-Hbase
 
     /**
      * Set 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
-<li>16：表示EMR-V2.3.0。</li>
-<li>20：表示EMR-V2.5.0。</li>
-<li>25：表示EMR-V3.1.0。</li>
-<li>27：表示KAFKA-V1.0.0。</li>
-<li>30：表示EMR-V2.6.0。</li>
-<li>33 :   表示EMR-V3.2.1。</li>
-<li>34 :   表示EMR-V3.3.0。</li>
-<li>36 :   表示STARROCKS-V1.0.0。</li>
-<li>37 :   表示EMR-V3.4.0。</li>
-<li>38 :   表示EMR-V2.7.0。</li>
-<li>39 :   表示STARROCKS-V1.1.0。</li>
-<li>41 :   表示DRUID-V1.1.0。</li>
+51:表示STARROCKS-V1.4.0
+54:表示STARROCKS-V2.0.0
+27:表示KAFKA-V1.0.0
+50:表示KAFKA-V2.0.0
+16:表示EMR-V2.3.0
+20:表示EMR-V2.5.0
+30:表示EMR-V2.6.0
+38:表示EMR-V2.7.0
+25:表示EMR-V3.1.0
+33:表示EMR-V3.2.1
+34:表示EMR-V3.3.0
+37:表示EMR-V3.4.0
+44:表示EMR-V3.5.0
+53:表示EMR-V3.6.0
      * @param ProductId 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
-<li>16：表示EMR-V2.3.0。</li>
-<li>20：表示EMR-V2.5.0。</li>
-<li>25：表示EMR-V3.1.0。</li>
-<li>27：表示KAFKA-V1.0.0。</li>
-<li>30：表示EMR-V2.6.0。</li>
-<li>33 :   表示EMR-V3.2.1。</li>
-<li>34 :   表示EMR-V3.3.0。</li>
-<li>36 :   表示STARROCKS-V1.0.0。</li>
-<li>37 :   表示EMR-V3.4.0。</li>
-<li>38 :   表示EMR-V2.7.0。</li>
-<li>39 :   表示STARROCKS-V1.1.0。</li>
-<li>41 :   表示DRUID-V1.1.0。</li>
+51:表示STARROCKS-V1.4.0
+54:表示STARROCKS-V2.0.0
+27:表示KAFKA-V1.0.0
+50:表示KAFKA-V2.0.0
+16:表示EMR-V2.3.0
+20:表示EMR-V2.5.0
+30:表示EMR-V2.6.0
+38:表示EMR-V2.7.0
+25:表示EMR-V3.1.0
+33:表示EMR-V3.2.1
+34:表示EMR-V3.3.0
+37:表示EMR-V3.4.0
+44:表示EMR-V3.5.0
+53:表示EMR-V3.6.0
      */
     public void setProductId(Long ProductId) {
         this.ProductId = ProductId;
@@ -632,16 +650,16 @@ Hadoop-Hbase
     }
 
     /**
-     * Get 客户端Token。 
-     * @return ClientToken 客户端Token。
+     * Get 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280 
+     * @return ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
      */
     public String getClientToken() {
         return this.ClientToken;
     }
 
     /**
-     * Set 客户端Token。
-     * @param ClientToken 客户端Token。
+     * Set 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
+     * @param ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
      */
     public void setClientToken(String ClientToken) {
         this.ClientToken = ClientToken;
@@ -773,12 +791,12 @@ Hadoop-Hbase
 
     /**
      * Get hive共享元数据库类型。取值范围：
-<li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_DEFAULT_META：表示集群默认创建</li>
+<li>EMR_EXIST_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li> 
      * @return MetaType hive共享元数据库类型。取值范围：
-<li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_DEFAULT_META：表示集群默认创建</li>
+<li>EMR_EXIST_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
      */
     public String getMetaType() {
@@ -787,12 +805,12 @@ Hadoop-Hbase
 
     /**
      * Set hive共享元数据库类型。取值范围：
-<li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_DEFAULT_META：表示集群默认创建</li>
+<li>EMR_EXIST_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
      * @param MetaType hive共享元数据库类型。取值范围：
-<li>EMR_NEW_META：表示集群默认创建</li>
-<li>EMR_EXIT_META：表示集群使用指定EMR-MetaDB。</li>
+<li>EMR_DEFAULT_META：表示集群默认创建</li>
+<li>EMR_EXIST_META：表示集群使用指定EMR-MetaDB。</li>
 <li>USER_CUSTOM_META：表示集群使用自定义MetaDB。</li>
      */
     public void setMetaType(String MetaType) {
@@ -943,6 +961,22 @@ Hadoop-Hbase
         this.MultiZoneSettings = MultiZoneSettings;
     }
 
+    /**
+     * Get cos桶路径，创建StarRocks存算分离集群时用到 
+     * @return CosBucket cos桶路径，创建StarRocks存算分离集群时用到
+     */
+    public String getCosBucket() {
+        return this.CosBucket;
+    }
+
+    /**
+     * Set cos桶路径，创建StarRocks存算分离集群时用到
+     * @param CosBucket cos桶路径，创建StarRocks存算分离集群时用到
+     */
+    public void setCosBucket(String CosBucket) {
+        this.CosBucket = CosBucket;
+    }
+
     public CreateInstanceRequest() {
     }
 
@@ -1065,6 +1099,9 @@ Hadoop-Hbase
                 this.MultiZoneSettings[i] = new MultiZoneSetting(source.MultiZoneSettings[i]);
             }
         }
+        if (source.CosBucket != null) {
+            this.CosBucket = new String(source.CosBucket);
+        }
     }
 
 
@@ -1104,6 +1141,7 @@ Hadoop-Hbase
         this.setParamSimple(map, prefix + "VersionID", this.VersionID);
         this.setParamSimple(map, prefix + "MultiZone", this.MultiZone);
         this.setParamArrayObj(map, prefix + "MultiZoneSettings.", this.MultiZoneSettings);
+        this.setParamSimple(map, prefix + "CosBucket", this.CosBucket);
 
     }
 }

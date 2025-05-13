@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateWhitelistRequest extends AbstractModel{
+public class CreateWhitelistRequest extends AbstractModel {
 
     /**
     * 实例ID：taw-123
@@ -30,7 +31,7 @@ public class CreateWhitelistRequest extends AbstractModel{
     private String InstanceID;
 
     /**
-    * 备注
+    * 备注（暂未作字节数限制）
     */
     @SerializedName("Remark")
     @Expose
@@ -67,16 +68,16 @@ public class CreateWhitelistRequest extends AbstractModel{
     }
 
     /**
-     * Get 备注 
-     * @return Remark 备注
+     * Get 备注（暂未作字节数限制） 
+     * @return Remark 备注（暂未作字节数限制）
      */
     public String getRemark() {
         return this.Remark;
     }
 
     /**
-     * Set 备注
-     * @param Remark 备注
+     * Set 备注（暂未作字节数限制）
+     * @param Remark 备注（暂未作字节数限制）
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Task extends AbstractModel{
+public class Task extends AbstractModel {
 
     /**
     * 任务 ID。
@@ -28,13 +29,6 @@ public class Task extends AbstractModel{
     @SerializedName("JobId")
     @Expose
     private String JobId;
-
-    /**
-    * 状态。
-    */
-    @SerializedName("Status")
-    @Expose
-    private String Status;
 
     /**
     * 资源。
@@ -49,6 +43,27 @@ public class Task extends AbstractModel{
     @SerializedName("Type")
     @Expose
     private String Type;
+
+    /**
+    * 节点缓存清除方法，取值有：
+<li>invalidate：标记过期，用户请求时触发回源校验，即发送带有 If-None-Match 和 If-Modified-Since 头部的 HTTP 条件请求。若源站响应 200，则节点会回源拉取新的资源并更新缓存；若源站响应 304，则节点不会更新缓存；</li>
+<li>delete：直接删除节点缓存，用户请求时触发回源拉取资源。</li>
+    */
+    @SerializedName("Method")
+    @Expose
+    private String Method;
+
+    /**
+    * 状态。取值有：
+<li>processing：处理中；</li>
+<li>success：成功；</li>
+<li> failed：失败；</li>
+<li>timeout：超时；</li>
+<li>canceled：已取消。</li>
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
 
     /**
     * 任务创建时间。
@@ -81,22 +96,6 @@ public class Task extends AbstractModel{
     }
 
     /**
-     * Get 状态。 
-     * @return Status 状态。
-     */
-    public String getStatus() {
-        return this.Status;
-    }
-
-    /**
-     * Set 状态。
-     * @param Status 状态。
-     */
-    public void setStatus(String Status) {
-        this.Status = Status;
-    }
-
-    /**
      * Get 资源。 
      * @return Target 资源。
      */
@@ -126,6 +125,66 @@ public class Task extends AbstractModel{
      */
     public void setType(String Type) {
         this.Type = Type;
+    }
+
+    /**
+     * Get 节点缓存清除方法，取值有：
+<li>invalidate：标记过期，用户请求时触发回源校验，即发送带有 If-None-Match 和 If-Modified-Since 头部的 HTTP 条件请求。若源站响应 200，则节点会回源拉取新的资源并更新缓存；若源站响应 304，则节点不会更新缓存；</li>
+<li>delete：直接删除节点缓存，用户请求时触发回源拉取资源。</li> 
+     * @return Method 节点缓存清除方法，取值有：
+<li>invalidate：标记过期，用户请求时触发回源校验，即发送带有 If-None-Match 和 If-Modified-Since 头部的 HTTP 条件请求。若源站响应 200，则节点会回源拉取新的资源并更新缓存；若源站响应 304，则节点不会更新缓存；</li>
+<li>delete：直接删除节点缓存，用户请求时触发回源拉取资源。</li>
+     */
+    public String getMethod() {
+        return this.Method;
+    }
+
+    /**
+     * Set 节点缓存清除方法，取值有：
+<li>invalidate：标记过期，用户请求时触发回源校验，即发送带有 If-None-Match 和 If-Modified-Since 头部的 HTTP 条件请求。若源站响应 200，则节点会回源拉取新的资源并更新缓存；若源站响应 304，则节点不会更新缓存；</li>
+<li>delete：直接删除节点缓存，用户请求时触发回源拉取资源。</li>
+     * @param Method 节点缓存清除方法，取值有：
+<li>invalidate：标记过期，用户请求时触发回源校验，即发送带有 If-None-Match 和 If-Modified-Since 头部的 HTTP 条件请求。若源站响应 200，则节点会回源拉取新的资源并更新缓存；若源站响应 304，则节点不会更新缓存；</li>
+<li>delete：直接删除节点缓存，用户请求时触发回源拉取资源。</li>
+     */
+    public void setMethod(String Method) {
+        this.Method = Method;
+    }
+
+    /**
+     * Get 状态。取值有：
+<li>processing：处理中；</li>
+<li>success：成功；</li>
+<li> failed：失败；</li>
+<li>timeout：超时；</li>
+<li>canceled：已取消。</li> 
+     * @return Status 状态。取值有：
+<li>processing：处理中；</li>
+<li>success：成功；</li>
+<li> failed：失败；</li>
+<li>timeout：超时；</li>
+<li>canceled：已取消。</li>
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 状态。取值有：
+<li>processing：处理中；</li>
+<li>success：成功；</li>
+<li> failed：失败；</li>
+<li>timeout：超时；</li>
+<li>canceled：已取消。</li>
+     * @param Status 状态。取值有：
+<li>processing：处理中；</li>
+<li>success：成功；</li>
+<li> failed：失败；</li>
+<li>timeout：超时；</li>
+<li>canceled：已取消。</li>
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     /**
@@ -171,14 +230,17 @@ public class Task extends AbstractModel{
         if (source.JobId != null) {
             this.JobId = new String(source.JobId);
         }
-        if (source.Status != null) {
-            this.Status = new String(source.Status);
-        }
         if (source.Target != null) {
             this.Target = new String(source.Target);
         }
         if (source.Type != null) {
             this.Type = new String(source.Type);
+        }
+        if (source.Method != null) {
+            this.Method = new String(source.Method);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
         }
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
@@ -194,9 +256,10 @@ public class Task extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "JobId", this.JobId);
-        this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Target", this.Target);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Method", this.Method);
+        this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
 

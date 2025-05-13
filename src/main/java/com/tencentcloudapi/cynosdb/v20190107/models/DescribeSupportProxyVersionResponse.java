@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSupportProxyVersionResponse extends AbstractModel{
+public class DescribeSupportProxyVersionResponse extends AbstractModel {
 
     /**
     * 支持的数据库代理版本集合
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SupportProxyVersions")
     @Expose
@@ -32,24 +32,28 @@ public class DescribeSupportProxyVersionResponse extends AbstractModel{
 
     /**
     * 当前proxy版本号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CurrentProxyVersion")
     @Expose
     private String CurrentProxyVersion;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 代理版本详情
+    */
+    @SerializedName("SupportProxyVersionDetail")
+    @Expose
+    private ProxyVersionInfo [] SupportProxyVersionDetail;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 支持的数据库代理版本集合
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 支持的数据库代理版本集合 
      * @return SupportProxyVersions 支持的数据库代理版本集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSupportProxyVersions() {
         return this.SupportProxyVersions;
@@ -57,19 +61,15 @@ public class DescribeSupportProxyVersionResponse extends AbstractModel{
 
     /**
      * Set 支持的数据库代理版本集合
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SupportProxyVersions 支持的数据库代理版本集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupportProxyVersions(String [] SupportProxyVersions) {
         this.SupportProxyVersions = SupportProxyVersions;
     }
 
     /**
-     * Get 当前proxy版本号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 当前proxy版本号 
      * @return CurrentProxyVersion 当前proxy版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCurrentProxyVersion() {
         return this.CurrentProxyVersion;
@@ -77,25 +77,39 @@ public class DescribeSupportProxyVersionResponse extends AbstractModel{
 
     /**
      * Set 当前proxy版本号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CurrentProxyVersion 当前proxy版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCurrentProxyVersion(String CurrentProxyVersion) {
         this.CurrentProxyVersion = CurrentProxyVersion;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 代理版本详情 
+     * @return SupportProxyVersionDetail 代理版本详情
+     */
+    public ProxyVersionInfo [] getSupportProxyVersionDetail() {
+        return this.SupportProxyVersionDetail;
+    }
+
+    /**
+     * Set 代理版本详情
+     * @param SupportProxyVersionDetail 代理版本详情
+     */
+    public void setSupportProxyVersionDetail(ProxyVersionInfo [] SupportProxyVersionDetail) {
+        this.SupportProxyVersionDetail = SupportProxyVersionDetail;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -118,6 +132,12 @@ public class DescribeSupportProxyVersionResponse extends AbstractModel{
         if (source.CurrentProxyVersion != null) {
             this.CurrentProxyVersion = new String(source.CurrentProxyVersion);
         }
+        if (source.SupportProxyVersionDetail != null) {
+            this.SupportProxyVersionDetail = new ProxyVersionInfo[source.SupportProxyVersionDetail.length];
+            for (int i = 0; i < source.SupportProxyVersionDetail.length; i++) {
+                this.SupportProxyVersionDetail[i] = new ProxyVersionInfo(source.SupportProxyVersionDetail[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -130,6 +150,7 @@ public class DescribeSupportProxyVersionResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "SupportProxyVersions.", this.SupportProxyVersions);
         this.setParamSimple(map, prefix + "CurrentProxyVersion", this.CurrentProxyVersion);
+        this.setParamArrayObj(map, prefix + "SupportProxyVersionDetail.", this.SupportProxyVersionDetail);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

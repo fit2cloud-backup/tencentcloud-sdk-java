@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AppearIndexPair extends AbstractModel{
+public class AppearIndexPair extends AbstractModel {
 
     /**
     * 出现信息，取值范围为[1，3]
@@ -30,7 +31,7 @@ public class AppearIndexPair extends AbstractModel{
     private Long AppearIndex;
 
     /**
-    * AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
+    * AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
     */
     @SerializedName("Index")
     @Expose
@@ -53,16 +54,16 @@ public class AppearIndexPair extends AbstractModel{
     }
 
     /**
-     * Get AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术 
-     * @return Index AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
+     * Get AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数 
+     * @return Index AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
      */
     public Long getIndex() {
         return this.Index;
     }
 
     /**
-     * Set AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
-     * @param Index AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
+     * Set AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
+     * @param Index AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
      */
     public void setIndex(Long Index) {
         this.Index = Index;

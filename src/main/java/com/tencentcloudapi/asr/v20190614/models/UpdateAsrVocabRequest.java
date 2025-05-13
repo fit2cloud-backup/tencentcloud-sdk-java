@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateAsrVocabRequest extends AbstractModel{
+public class UpdateAsrVocabRequest extends AbstractModel {
 
     /**
     * 热词表ID
@@ -37,7 +38,7 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10，权重为[1,10]之间整数，数组长度不大于128
+    * 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10个汉字或30个英文字符，权重为[1,11]之间整数或100，数组长度不大于1000 (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
     */
     @SerializedName("WordWeights")
     @Expose
@@ -46,6 +47,7 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     /**
     * 词权重文件（纯文本文件）的二进制base64编码，以行分隔，每行的格式为word|weight，即以英文符号|为分割，左边为词，右边为权重，如：你好|5。
 当用户传此参数（参数长度大于0），即以此参数解析词权重，WordWeights会被忽略
+ (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
     */
     @SerializedName("WordWeightStr")
     @Expose
@@ -91,16 +93,16 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     }
 
     /**
-     * Get 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10，权重为[1,10]之间整数，数组长度不大于128 
-     * @return WordWeights 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10，权重为[1,10]之间整数，数组长度不大于128
+     * Get 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10个汉字或30个英文字符，权重为[1,11]之间整数或100，数组长度不大于1000 (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数） 
+     * @return WordWeights 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10个汉字或30个英文字符，权重为[1,11]之间整数或100，数组长度不大于1000 (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
      */
     public HotWord [] getWordWeights() {
         return this.WordWeights;
     }
 
     /**
-     * Set 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10，权重为[1,10]之间整数，数组长度不大于128
-     * @param WordWeights 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10，权重为[1,10]之间整数，数组长度不大于128
+     * Set 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10个汉字或30个英文字符，权重为[1,11]之间整数或100，数组长度不大于1000 (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
+     * @param WordWeights 词权重数组，包含全部的热词和对应的权重。每个热词的长度不大于10个汉字或30个英文字符，权重为[1,11]之间整数或100，数组长度不大于1000 (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
      */
     public void setWordWeights(HotWord [] WordWeights) {
         this.WordWeights = WordWeights;
@@ -108,9 +110,11 @@ public class UpdateAsrVocabRequest extends AbstractModel{
 
     /**
      * Get 词权重文件（纯文本文件）的二进制base64编码，以行分隔，每行的格式为word|weight，即以英文符号|为分割，左边为词，右边为权重，如：你好|5。
-当用户传此参数（参数长度大于0），即以此参数解析词权重，WordWeights会被忽略 
+当用户传此参数（参数长度大于0），即以此参数解析词权重，WordWeights会被忽略
+ (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数） 
      * @return WordWeightStr 词权重文件（纯文本文件）的二进制base64编码，以行分隔，每行的格式为word|weight，即以英文符号|为分割，左边为词，右边为权重，如：你好|5。
 当用户传此参数（参数长度大于0），即以此参数解析词权重，WordWeights会被忽略
+ (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
      */
     public String getWordWeightStr() {
         return this.WordWeightStr;
@@ -119,8 +123,10 @@ public class UpdateAsrVocabRequest extends AbstractModel{
     /**
      * Set 词权重文件（纯文本文件）的二进制base64编码，以行分隔，每行的格式为word|weight，即以英文符号|为分割，左边为词，右边为权重，如：你好|5。
 当用户传此参数（参数长度大于0），即以此参数解析词权重，WordWeights会被忽略
+ (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
      * @param WordWeightStr 词权重文件（纯文本文件）的二进制base64编码，以行分隔，每行的格式为word|weight，即以英文符号|为分割，左边为词，右边为权重，如：你好|5。
 当用户传此参数（参数长度大于0），即以此参数解析词权重，WordWeights会被忽略
+ (注意：如果仅更新热词表名称或者描述字段，请求不用带本参数）
      */
     public void setWordWeightStr(String WordWeightStr) {
         this.WordWeightStr = WordWeightStr;

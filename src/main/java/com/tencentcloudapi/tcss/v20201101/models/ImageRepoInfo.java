@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageRepoInfo extends AbstractModel{
+public class ImageRepoInfo extends AbstractModel {
 
     /**
     * 镜像Digest
@@ -122,7 +123,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 木马扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanVirusError")
     @Expose
@@ -130,7 +130,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 漏洞扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanVulError")
     @Expose
@@ -159,7 +158,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 高危扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanRiskError")
     @Expose
@@ -167,7 +165,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 敏感信息扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanVirusProgress")
     @Expose
@@ -175,7 +172,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanVulProgress")
     @Expose
@@ -183,7 +179,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 漏洞扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanRiskProgress")
     @Expose
@@ -191,7 +186,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 剩余扫描时间秒
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanRemainTime")
     @Expose
@@ -199,7 +193,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * cve扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CveStatus")
     @Expose
@@ -207,7 +200,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 高危扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskStatus")
     @Expose
@@ -215,7 +207,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 木马扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VirusStatus")
     @Expose
@@ -223,7 +214,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 总进度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Progress")
     @Expose
@@ -252,7 +242,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 镜像Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageId")
     @Expose
@@ -260,7 +249,6 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 镜像创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageCreateTime")
     @Expose
@@ -268,11 +256,80 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
     * 是否为镜像的最新版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsLatestImage")
     @Expose
     private Boolean IsLatestImage;
+
+    /**
+    * low级别漏洞个数
+    */
+    @SerializedName("LowLevelVulCnt")
+    @Expose
+    private Long LowLevelVulCnt;
+
+    /**
+    * medium级别漏洞个数
+    */
+    @SerializedName("MediumLevelVulCnt")
+    @Expose
+    private Long MediumLevelVulCnt;
+
+    /**
+    * high级别漏洞个数
+    */
+    @SerializedName("HighLevelVulCnt")
+    @Expose
+    private Long HighLevelVulCnt;
+
+    /**
+    * critical级别漏洞个数
+    */
+    @SerializedName("CriticalLevelVulCnt")
+    @Expose
+    private Long CriticalLevelVulCnt;
+
+    /**
+    * 关联容器数
+    */
+    @SerializedName("ContainerCnt")
+    @Expose
+    private Long ContainerCnt;
+
+    /**
+    * 组件数
+    */
+    @SerializedName("ComponentCnt")
+    @Expose
+    private Long ComponentCnt;
+
+    /**
+    * 是否运行中
+    */
+    @SerializedName("IsRunning")
+    @Expose
+    private Boolean IsRunning;
+
+    /**
+    * 是否存在必修漏洞
+    */
+    @SerializedName("HasNeedFixVul")
+    @Expose
+    private Boolean HasNeedFixVul;
+
+    /**
+    * 敏感信息
+    */
+    @SerializedName("SensitiveInfoCnt")
+    @Expose
+    private Long SensitiveInfoCnt;
+
+    /**
+    * 是否推荐处置
+    */
+    @SerializedName("RecommendedFix")
+    @Expose
+    private Boolean RecommendedFix;
 
     /**
      * Get 镜像Digest 
@@ -453,7 +510,9 @@ public class ImageRepoInfo extends AbstractModel{
     /**
      * Get 敏感信息数 
      * @return SentiveInfoCnt 敏感信息数
+     * @deprecated
      */
+    @Deprecated
     public Long getSentiveInfoCnt() {
         return this.SentiveInfoCnt;
     }
@@ -461,7 +520,9 @@ public class ImageRepoInfo extends AbstractModel{
     /**
      * Set 敏感信息数
      * @param SentiveInfoCnt 敏感信息数
+     * @deprecated
      */
+    @Deprecated
     public void setSentiveInfoCnt(Long SentiveInfoCnt) {
         this.SentiveInfoCnt = SentiveInfoCnt;
     }
@@ -499,10 +560,8 @@ public class ImageRepoInfo extends AbstractModel{
     }
 
     /**
-     * Get 木马扫描错误
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 木马扫描错误 
      * @return ScanVirusError 木马扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanVirusError() {
         return this.ScanVirusError;
@@ -510,19 +569,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 木马扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanVirusError 木马扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanVirusError(String ScanVirusError) {
         this.ScanVirusError = ScanVirusError;
     }
 
     /**
-     * Get 漏洞扫描错误
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞扫描错误 
      * @return ScanVulError 漏洞扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanVulError() {
         return this.ScanVulError;
@@ -530,9 +585,7 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 漏洞扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanVulError 漏洞扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanVulError(String ScanVulError) {
         this.ScanVulError = ScanVulError;
@@ -587,10 +640,8 @@ public class ImageRepoInfo extends AbstractModel{
     }
 
     /**
-     * Get 高危扫描错误
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 高危扫描错误 
      * @return ScanRiskError 高危扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanRiskError() {
         return this.ScanRiskError;
@@ -598,19 +649,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 高危扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanRiskError 高危扫描错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanRiskError(String ScanRiskError) {
         this.ScanRiskError = ScanRiskError;
     }
 
     /**
-     * Get 敏感信息扫描进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 敏感信息扫描进度 
      * @return ScanVirusProgress 敏感信息扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanVirusProgress() {
         return this.ScanVirusProgress;
@@ -618,19 +665,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 敏感信息扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanVirusProgress 敏感信息扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanVirusProgress(Long ScanVirusProgress) {
         this.ScanVirusProgress = ScanVirusProgress;
     }
 
     /**
-     * Get 木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 木马扫描进度 
      * @return ScanVulProgress 木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanVulProgress() {
         return this.ScanVulProgress;
@@ -638,19 +681,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanVulProgress 木马扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanVulProgress(Long ScanVulProgress) {
         this.ScanVulProgress = ScanVulProgress;
     }
 
     /**
-     * Get 漏洞扫描进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞扫描进度 
      * @return ScanRiskProgress 漏洞扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanRiskProgress() {
         return this.ScanRiskProgress;
@@ -658,19 +697,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 漏洞扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanRiskProgress 漏洞扫描进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanRiskProgress(Long ScanRiskProgress) {
         this.ScanRiskProgress = ScanRiskProgress;
     }
 
     /**
-     * Get 剩余扫描时间秒
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 剩余扫描时间秒 
      * @return ScanRemainTime 剩余扫描时间秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScanRemainTime() {
         return this.ScanRemainTime;
@@ -678,19 +713,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 剩余扫描时间秒
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanRemainTime 剩余扫描时间秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanRemainTime(Long ScanRemainTime) {
         this.ScanRemainTime = ScanRemainTime;
     }
 
     /**
-     * Get cve扫描状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cve扫描状态 
      * @return CveStatus cve扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCveStatus() {
         return this.CveStatus;
@@ -698,19 +729,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set cve扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CveStatus cve扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCveStatus(String CveStatus) {
         this.CveStatus = CveStatus;
     }
 
     /**
-     * Get 高危扫描状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 高危扫描状态 
      * @return RiskStatus 高危扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskStatus() {
         return this.RiskStatus;
@@ -718,19 +745,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 高危扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskStatus 高危扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskStatus(String RiskStatus) {
         this.RiskStatus = RiskStatus;
     }
 
     /**
-     * Get 木马扫描状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 木马扫描状态 
      * @return VirusStatus 木马扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVirusStatus() {
         return this.VirusStatus;
@@ -738,19 +761,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 木马扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VirusStatus 木马扫描状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVirusStatus(String VirusStatus) {
         this.VirusStatus = VirusStatus;
     }
 
     /**
-     * Get 总进度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总进度 
      * @return Progress 总进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProgress() {
         return this.Progress;
@@ -758,9 +777,7 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 总进度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Progress 总进度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProgress(Long Progress) {
         this.Progress = Progress;
@@ -815,10 +832,8 @@ public class ImageRepoInfo extends AbstractModel{
     }
 
     /**
-     * Get 镜像Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像Id 
      * @return ImageId 镜像Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageId() {
         return this.ImageId;
@@ -826,19 +841,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 镜像Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageId 镜像Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
     }
 
     /**
-     * Get 镜像创建的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像创建的时间 
      * @return ImageCreateTime 镜像创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageCreateTime() {
         return this.ImageCreateTime;
@@ -846,19 +857,15 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 镜像创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageCreateTime 镜像创建的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageCreateTime(String ImageCreateTime) {
         this.ImageCreateTime = ImageCreateTime;
     }
 
     /**
-     * Get 是否为镜像的最新版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否为镜像的最新版本 
      * @return IsLatestImage 是否为镜像的最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsLatestImage() {
         return this.IsLatestImage;
@@ -866,12 +873,170 @@ public class ImageRepoInfo extends AbstractModel{
 
     /**
      * Set 是否为镜像的最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsLatestImage 是否为镜像的最新版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsLatestImage(Boolean IsLatestImage) {
         this.IsLatestImage = IsLatestImage;
+    }
+
+    /**
+     * Get low级别漏洞个数 
+     * @return LowLevelVulCnt low级别漏洞个数
+     */
+    public Long getLowLevelVulCnt() {
+        return this.LowLevelVulCnt;
+    }
+
+    /**
+     * Set low级别漏洞个数
+     * @param LowLevelVulCnt low级别漏洞个数
+     */
+    public void setLowLevelVulCnt(Long LowLevelVulCnt) {
+        this.LowLevelVulCnt = LowLevelVulCnt;
+    }
+
+    /**
+     * Get medium级别漏洞个数 
+     * @return MediumLevelVulCnt medium级别漏洞个数
+     */
+    public Long getMediumLevelVulCnt() {
+        return this.MediumLevelVulCnt;
+    }
+
+    /**
+     * Set medium级别漏洞个数
+     * @param MediumLevelVulCnt medium级别漏洞个数
+     */
+    public void setMediumLevelVulCnt(Long MediumLevelVulCnt) {
+        this.MediumLevelVulCnt = MediumLevelVulCnt;
+    }
+
+    /**
+     * Get high级别漏洞个数 
+     * @return HighLevelVulCnt high级别漏洞个数
+     */
+    public Long getHighLevelVulCnt() {
+        return this.HighLevelVulCnt;
+    }
+
+    /**
+     * Set high级别漏洞个数
+     * @param HighLevelVulCnt high级别漏洞个数
+     */
+    public void setHighLevelVulCnt(Long HighLevelVulCnt) {
+        this.HighLevelVulCnt = HighLevelVulCnt;
+    }
+
+    /**
+     * Get critical级别漏洞个数 
+     * @return CriticalLevelVulCnt critical级别漏洞个数
+     */
+    public Long getCriticalLevelVulCnt() {
+        return this.CriticalLevelVulCnt;
+    }
+
+    /**
+     * Set critical级别漏洞个数
+     * @param CriticalLevelVulCnt critical级别漏洞个数
+     */
+    public void setCriticalLevelVulCnt(Long CriticalLevelVulCnt) {
+        this.CriticalLevelVulCnt = CriticalLevelVulCnt;
+    }
+
+    /**
+     * Get 关联容器数 
+     * @return ContainerCnt 关联容器数
+     */
+    public Long getContainerCnt() {
+        return this.ContainerCnt;
+    }
+
+    /**
+     * Set 关联容器数
+     * @param ContainerCnt 关联容器数
+     */
+    public void setContainerCnt(Long ContainerCnt) {
+        this.ContainerCnt = ContainerCnt;
+    }
+
+    /**
+     * Get 组件数 
+     * @return ComponentCnt 组件数
+     */
+    public Long getComponentCnt() {
+        return this.ComponentCnt;
+    }
+
+    /**
+     * Set 组件数
+     * @param ComponentCnt 组件数
+     */
+    public void setComponentCnt(Long ComponentCnt) {
+        this.ComponentCnt = ComponentCnt;
+    }
+
+    /**
+     * Get 是否运行中 
+     * @return IsRunning 是否运行中
+     */
+    public Boolean getIsRunning() {
+        return this.IsRunning;
+    }
+
+    /**
+     * Set 是否运行中
+     * @param IsRunning 是否运行中
+     */
+    public void setIsRunning(Boolean IsRunning) {
+        this.IsRunning = IsRunning;
+    }
+
+    /**
+     * Get 是否存在必修漏洞 
+     * @return HasNeedFixVul 是否存在必修漏洞
+     */
+    public Boolean getHasNeedFixVul() {
+        return this.HasNeedFixVul;
+    }
+
+    /**
+     * Set 是否存在必修漏洞
+     * @param HasNeedFixVul 是否存在必修漏洞
+     */
+    public void setHasNeedFixVul(Boolean HasNeedFixVul) {
+        this.HasNeedFixVul = HasNeedFixVul;
+    }
+
+    /**
+     * Get 敏感信息 
+     * @return SensitiveInfoCnt 敏感信息
+     */
+    public Long getSensitiveInfoCnt() {
+        return this.SensitiveInfoCnt;
+    }
+
+    /**
+     * Set 敏感信息
+     * @param SensitiveInfoCnt 敏感信息
+     */
+    public void setSensitiveInfoCnt(Long SensitiveInfoCnt) {
+        this.SensitiveInfoCnt = SensitiveInfoCnt;
+    }
+
+    /**
+     * Get 是否推荐处置 
+     * @return RecommendedFix 是否推荐处置
+     */
+    public Boolean getRecommendedFix() {
+        return this.RecommendedFix;
+    }
+
+    /**
+     * Set 是否推荐处置
+     * @param RecommendedFix 是否推荐处置
+     */
+    public void setRecommendedFix(Boolean RecommendedFix) {
+        this.RecommendedFix = RecommendedFix;
     }
 
     public ImageRepoInfo() {
@@ -984,6 +1149,36 @@ public class ImageRepoInfo extends AbstractModel{
         if (source.IsLatestImage != null) {
             this.IsLatestImage = new Boolean(source.IsLatestImage);
         }
+        if (source.LowLevelVulCnt != null) {
+            this.LowLevelVulCnt = new Long(source.LowLevelVulCnt);
+        }
+        if (source.MediumLevelVulCnt != null) {
+            this.MediumLevelVulCnt = new Long(source.MediumLevelVulCnt);
+        }
+        if (source.HighLevelVulCnt != null) {
+            this.HighLevelVulCnt = new Long(source.HighLevelVulCnt);
+        }
+        if (source.CriticalLevelVulCnt != null) {
+            this.CriticalLevelVulCnt = new Long(source.CriticalLevelVulCnt);
+        }
+        if (source.ContainerCnt != null) {
+            this.ContainerCnt = new Long(source.ContainerCnt);
+        }
+        if (source.ComponentCnt != null) {
+            this.ComponentCnt = new Long(source.ComponentCnt);
+        }
+        if (source.IsRunning != null) {
+            this.IsRunning = new Boolean(source.IsRunning);
+        }
+        if (source.HasNeedFixVul != null) {
+            this.HasNeedFixVul = new Boolean(source.HasNeedFixVul);
+        }
+        if (source.SensitiveInfoCnt != null) {
+            this.SensitiveInfoCnt = new Long(source.SensitiveInfoCnt);
+        }
+        if (source.RecommendedFix != null) {
+            this.RecommendedFix = new Boolean(source.RecommendedFix);
+        }
     }
 
 
@@ -1025,6 +1220,16 @@ public class ImageRepoInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageId", this.ImageId);
         this.setParamSimple(map, prefix + "ImageCreateTime", this.ImageCreateTime);
         this.setParamSimple(map, prefix + "IsLatestImage", this.IsLatestImage);
+        this.setParamSimple(map, prefix + "LowLevelVulCnt", this.LowLevelVulCnt);
+        this.setParamSimple(map, prefix + "MediumLevelVulCnt", this.MediumLevelVulCnt);
+        this.setParamSimple(map, prefix + "HighLevelVulCnt", this.HighLevelVulCnt);
+        this.setParamSimple(map, prefix + "CriticalLevelVulCnt", this.CriticalLevelVulCnt);
+        this.setParamSimple(map, prefix + "ContainerCnt", this.ContainerCnt);
+        this.setParamSimple(map, prefix + "ComponentCnt", this.ComponentCnt);
+        this.setParamSimple(map, prefix + "IsRunning", this.IsRunning);
+        this.setParamSimple(map, prefix + "HasNeedFixVul", this.HasNeedFixVul);
+        this.setParamSimple(map, prefix + "SensitiveInfoCnt", this.SensitiveInfoCnt);
+        this.setParamSimple(map, prefix + "RecommendedFix", this.RecommendedFix);
 
     }
 }

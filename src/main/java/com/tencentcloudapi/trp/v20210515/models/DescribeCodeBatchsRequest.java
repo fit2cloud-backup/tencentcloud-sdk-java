@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCodeBatchsRequest extends AbstractModel{
+public class DescribeCodeBatchsRequest extends AbstractModel {
 
     /**
     * 查询商户ID
@@ -70,6 +71,13 @@ public class DescribeCodeBatchsRequest extends AbstractModel{
     @SerializedName("CorpId")
     @Expose
     private Long CorpId;
+
+    /**
+    * 批次状态
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
 
     /**
      * Get 查询商户ID 
@@ -183,6 +191,22 @@ public class DescribeCodeBatchsRequest extends AbstractModel{
         this.CorpId = CorpId;
     }
 
+    /**
+     * Get 批次状态 
+     * @return Status 批次状态
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 批次状态
+     * @param Status 批次状态
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
     public DescribeCodeBatchsRequest() {
     }
 
@@ -212,6 +236,9 @@ public class DescribeCodeBatchsRequest extends AbstractModel{
         if (source.CorpId != null) {
             this.CorpId = new Long(source.CorpId);
         }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
     }
 
 
@@ -226,6 +253,7 @@ public class DescribeCodeBatchsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PageNumber", this.PageNumber);
         this.setParamSimple(map, prefix + "BatchType", this.BatchType);
         this.setParamSimple(map, prefix + "CorpId", this.CorpId);
+        this.setParamSimple(map, prefix + "Status", this.Status);
 
     }
 }

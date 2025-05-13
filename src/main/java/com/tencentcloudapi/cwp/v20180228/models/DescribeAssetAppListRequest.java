@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetAppListRequest extends AbstractModel{
+public class DescribeAssetAppListRequest extends AbstractModel {
 
     /**
     * 查询指定Quuid主机的信息
@@ -32,7 +33,9 @@ public class DescribeAssetAppListRequest extends AbstractModel{
     /**
     * 过滤条件。
 <li>AppName- string - 是否必填：否 - 应用名搜索</li>
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Type - int - 是否必填：否 - 类型	: 仅linux
 0: 全部
 1: 运维
@@ -97,7 +100,9 @@ public class DescribeAssetAppListRequest extends AbstractModel{
     /**
      * Get 过滤条件。
 <li>AppName- string - 是否必填：否 - 应用名搜索</li>
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Type - int - 是否必填：否 - 类型	: 仅linux
 0: 全部
 1: 运维
@@ -112,7 +117,9 @@ public class DescribeAssetAppListRequest extends AbstractModel{
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li> 
      * @return Filters 过滤条件。
 <li>AppName- string - 是否必填：否 - 应用名搜索</li>
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Type - int - 是否必填：否 - 类型	: 仅linux
 0: 全部
 1: 运维
@@ -133,7 +140,9 @@ public class DescribeAssetAppListRequest extends AbstractModel{
     /**
      * Set 过滤条件。
 <li>AppName- string - 是否必填：否 - 应用名搜索</li>
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Type - int - 是否必填：否 - 类型	: 仅linux
 0: 全部
 1: 运维
@@ -148,7 +157,9 @@ public class DescribeAssetAppListRequest extends AbstractModel{
 <li>Os -String 是否必填: 否 - 操作系统( DescribeMachineOsList 接口 值 )</li>
      * @param Filters 过滤条件。
 <li>AppName- string - 是否必填：否 - 应用名搜索</li>
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Type - int - 是否必填：否 - 类型	: 仅linux
 0: 全部
 1: 运维

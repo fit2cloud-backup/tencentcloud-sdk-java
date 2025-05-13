@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BackupInfo extends AbstractModel{
+public class BackupInfo extends AbstractModel {
 
     /**
     * 备份文件名
@@ -142,7 +143,7 @@ public class BackupInfo extends AbstractModel{
     private RemoteBackupInfo [] RemoteInfo;
 
     /**
-    * 存储方式，0-常规存储，1-归档存储，默认为0
+    * 存储方式，0-常规存储，1-归档存储，2-标准存储，默认为0
     */
     @SerializedName("CosStorageType")
     @Expose
@@ -157,11 +158,24 @@ public class BackupInfo extends AbstractModel{
 
     /**
     * 备份文件是否加密， on-加密， off-未加密
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EncryptionFlag")
     @Expose
     private String EncryptionFlag;
+
+    /**
+    * 备份GTID点位
+    */
+    @SerializedName("ExecutedGTIDSet")
+    @Expose
+    private String ExecutedGTIDSet;
+
+    /**
+    * 备份文件MD5值
+    */
+    @SerializedName("MD5")
+    @Expose
+    private String MD5;
 
     /**
      * Get 备份文件名 
@@ -436,16 +450,16 @@ public class BackupInfo extends AbstractModel{
     }
 
     /**
-     * Get 存储方式，0-常规存储，1-归档存储，默认为0 
-     * @return CosStorageType 存储方式，0-常规存储，1-归档存储，默认为0
+     * Get 存储方式，0-常规存储，1-归档存储，2-标准存储，默认为0 
+     * @return CosStorageType 存储方式，0-常规存储，1-归档存储，2-标准存储，默认为0
      */
     public Long getCosStorageType() {
         return this.CosStorageType;
     }
 
     /**
-     * Set 存储方式，0-常规存储，1-归档存储，默认为0
-     * @param CosStorageType 存储方式，0-常规存储，1-归档存储，默认为0
+     * Set 存储方式，0-常规存储，1-归档存储，2-标准存储，默认为0
+     * @param CosStorageType 存储方式，0-常规存储，1-归档存储，2-标准存储，默认为0
      */
     public void setCosStorageType(Long CosStorageType) {
         this.CosStorageType = CosStorageType;
@@ -468,10 +482,8 @@ public class BackupInfo extends AbstractModel{
     }
 
     /**
-     * Get 备份文件是否加密， on-加密， off-未加密
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份文件是否加密， on-加密， off-未加密 
      * @return EncryptionFlag 备份文件是否加密， on-加密， off-未加密
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEncryptionFlag() {
         return this.EncryptionFlag;
@@ -479,12 +491,42 @@ public class BackupInfo extends AbstractModel{
 
     /**
      * Set 备份文件是否加密， on-加密， off-未加密
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EncryptionFlag 备份文件是否加密， on-加密， off-未加密
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEncryptionFlag(String EncryptionFlag) {
         this.EncryptionFlag = EncryptionFlag;
+    }
+
+    /**
+     * Get 备份GTID点位 
+     * @return ExecutedGTIDSet 备份GTID点位
+     */
+    public String getExecutedGTIDSet() {
+        return this.ExecutedGTIDSet;
+    }
+
+    /**
+     * Set 备份GTID点位
+     * @param ExecutedGTIDSet 备份GTID点位
+     */
+    public void setExecutedGTIDSet(String ExecutedGTIDSet) {
+        this.ExecutedGTIDSet = ExecutedGTIDSet;
+    }
+
+    /**
+     * Get 备份文件MD5值 
+     * @return MD5 备份文件MD5值
+     */
+    public String getMD5() {
+        return this.MD5;
+    }
+
+    /**
+     * Set 备份文件MD5值
+     * @param MD5 备份文件MD5值
+     */
+    public void setMD5(String MD5) {
+        this.MD5 = MD5;
     }
 
     public BackupInfo() {
@@ -558,6 +600,12 @@ public class BackupInfo extends AbstractModel{
         if (source.EncryptionFlag != null) {
             this.EncryptionFlag = new String(source.EncryptionFlag);
         }
+        if (source.ExecutedGTIDSet != null) {
+            this.ExecutedGTIDSet = new String(source.ExecutedGTIDSet);
+        }
+        if (source.MD5 != null) {
+            this.MD5 = new String(source.MD5);
+        }
     }
 
 
@@ -585,6 +633,8 @@ public class BackupInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "CosStorageType", this.CosStorageType);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
         this.setParamSimple(map, prefix + "EncryptionFlag", this.EncryptionFlag);
+        this.setParamSimple(map, prefix + "ExecutedGTIDSet", this.ExecutedGTIDSet);
+        this.setParamSimple(map, prefix + "MD5", this.MD5);
 
     }
 }

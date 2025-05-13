@@ -16,54 +16,72 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StaffInfo extends AbstractModel{
+public class StaffInfo extends AbstractModel {
 
     /**
-    * 坐席名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席名称
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 坐席邮箱
+    * 座席邮箱
     */
     @SerializedName("Mail")
     @Expose
     private String Mail;
 
     /**
-    * 坐席电话号码
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席电话号码
     */
     @SerializedName("Phone")
     @Expose
     private String Phone;
 
     /**
-    * 坐席昵称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席昵称
     */
     @SerializedName("Nick")
     @Expose
     private String Nick;
 
     /**
-    * 坐席工号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席工号
     */
     @SerializedName("StaffNumber")
     @Expose
     private String StaffNumber;
 
     /**
+    * 用户角色id
+一个用户绑定了多个角色时以RoleIdList为准
+    */
+    @SerializedName("RoleId")
+    @Expose
+    private Long RoleId;
+
+    /**
+    * 用户角色id列表
+    */
+    @SerializedName("RoleIdList")
+    @Expose
+    private Long RoleIdList;
+
+    /**
+    * 用户角色id列表
+    */
+    @SerializedName("RoleList")
+    @Expose
+    private Long [] RoleList;
+
+    /**
     * 所属技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SkillGroupList")
     @Expose
@@ -71,113 +89,161 @@ public class StaffInfo extends AbstractModel{
 
     /**
     * 最后修改时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastModifyTimestamp")
     @Expose
     private Long LastModifyTimestamp;
 
     /**
-     * Get 坐席名称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Name 坐席名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 座席分机号（1 到 8 打头，4 - 6 位）
+    */
+    @SerializedName("ExtensionNumber")
+    @Expose
+    private String ExtensionNumber;
+
+    /**
+     * Get 座席名称 
+     * @return Name 座席名称
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 坐席名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Name 坐席名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 座席名称
+     * @param Name 座席名称
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 坐席邮箱 
-     * @return Mail 坐席邮箱
+     * Get 座席邮箱 
+     * @return Mail 座席邮箱
      */
     public String getMail() {
         return this.Mail;
     }
 
     /**
-     * Set 坐席邮箱
-     * @param Mail 坐席邮箱
+     * Set 座席邮箱
+     * @param Mail 座席邮箱
      */
     public void setMail(String Mail) {
         this.Mail = Mail;
     }
 
     /**
-     * Get 坐席电话号码
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Phone 坐席电话号码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 座席电话号码 
+     * @return Phone 座席电话号码
      */
     public String getPhone() {
         return this.Phone;
     }
 
     /**
-     * Set 坐席电话号码
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Phone 坐席电话号码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 座席电话号码
+     * @param Phone 座席电话号码
      */
     public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 
     /**
-     * Get 坐席昵称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Nick 坐席昵称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 座席昵称 
+     * @return Nick 座席昵称
      */
     public String getNick() {
         return this.Nick;
     }
 
     /**
-     * Set 坐席昵称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Nick 坐席昵称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 座席昵称
+     * @param Nick 座席昵称
      */
     public void setNick(String Nick) {
         this.Nick = Nick;
     }
 
     /**
-     * Get 坐席工号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return StaffNumber 坐席工号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 座席工号 
+     * @return StaffNumber 座席工号
      */
     public String getStaffNumber() {
         return this.StaffNumber;
     }
 
     /**
-     * Set 坐席工号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param StaffNumber 坐席工号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 座席工号
+     * @param StaffNumber 座席工号
      */
     public void setStaffNumber(String StaffNumber) {
         this.StaffNumber = StaffNumber;
     }
 
     /**
-     * Get 所属技能组列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户角色id
+一个用户绑定了多个角色时以RoleIdList为准 
+     * @return RoleId 用户角色id
+一个用户绑定了多个角色时以RoleIdList为准
+     * @deprecated
+     */
+    @Deprecated
+    public Long getRoleId() {
+        return this.RoleId;
+    }
+
+    /**
+     * Set 用户角色id
+一个用户绑定了多个角色时以RoleIdList为准
+     * @param RoleId 用户角色id
+一个用户绑定了多个角色时以RoleIdList为准
+     * @deprecated
+     */
+    @Deprecated
+    public void setRoleId(Long RoleId) {
+        this.RoleId = RoleId;
+    }
+
+    /**
+     * Get 用户角色id列表 
+     * @return RoleIdList 用户角色id列表
+     * @deprecated
+     */
+    @Deprecated
+    public Long getRoleIdList() {
+        return this.RoleIdList;
+    }
+
+    /**
+     * Set 用户角色id列表
+     * @param RoleIdList 用户角色id列表
+     * @deprecated
+     */
+    @Deprecated
+    public void setRoleIdList(Long RoleIdList) {
+        this.RoleIdList = RoleIdList;
+    }
+
+    /**
+     * Get 用户角色id列表 
+     * @return RoleList 用户角色id列表
+     */
+    public Long [] getRoleList() {
+        return this.RoleList;
+    }
+
+    /**
+     * Set 用户角色id列表
+     * @param RoleList 用户角色id列表
+     */
+    public void setRoleList(Long [] RoleList) {
+        this.RoleList = RoleList;
+    }
+
+    /**
+     * Get 所属技能组列表 
      * @return SkillGroupList 所属技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SkillGroupItem [] getSkillGroupList() {
         return this.SkillGroupList;
@@ -185,19 +251,15 @@ public class StaffInfo extends AbstractModel{
 
     /**
      * Set 所属技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SkillGroupList 所属技能组列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSkillGroupList(SkillGroupItem [] SkillGroupList) {
         this.SkillGroupList = SkillGroupList;
     }
 
     /**
-     * Get 最后修改时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最后修改时间 
      * @return LastModifyTimestamp 最后修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLastModifyTimestamp() {
         return this.LastModifyTimestamp;
@@ -205,12 +267,26 @@ public class StaffInfo extends AbstractModel{
 
     /**
      * Set 最后修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastModifyTimestamp 最后修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastModifyTimestamp(Long LastModifyTimestamp) {
         this.LastModifyTimestamp = LastModifyTimestamp;
+    }
+
+    /**
+     * Get 座席分机号（1 到 8 打头，4 - 6 位） 
+     * @return ExtensionNumber 座席分机号（1 到 8 打头，4 - 6 位）
+     */
+    public String getExtensionNumber() {
+        return this.ExtensionNumber;
+    }
+
+    /**
+     * Set 座席分机号（1 到 8 打头，4 - 6 位）
+     * @param ExtensionNumber 座席分机号（1 到 8 打头，4 - 6 位）
+     */
+    public void setExtensionNumber(String ExtensionNumber) {
+        this.ExtensionNumber = ExtensionNumber;
     }
 
     public StaffInfo() {
@@ -236,6 +312,18 @@ public class StaffInfo extends AbstractModel{
         if (source.StaffNumber != null) {
             this.StaffNumber = new String(source.StaffNumber);
         }
+        if (source.RoleId != null) {
+            this.RoleId = new Long(source.RoleId);
+        }
+        if (source.RoleIdList != null) {
+            this.RoleIdList = new Long(source.RoleIdList);
+        }
+        if (source.RoleList != null) {
+            this.RoleList = new Long[source.RoleList.length];
+            for (int i = 0; i < source.RoleList.length; i++) {
+                this.RoleList[i] = new Long(source.RoleList[i]);
+            }
+        }
         if (source.SkillGroupList != null) {
             this.SkillGroupList = new SkillGroupItem[source.SkillGroupList.length];
             for (int i = 0; i < source.SkillGroupList.length; i++) {
@@ -244,6 +332,9 @@ public class StaffInfo extends AbstractModel{
         }
         if (source.LastModifyTimestamp != null) {
             this.LastModifyTimestamp = new Long(source.LastModifyTimestamp);
+        }
+        if (source.ExtensionNumber != null) {
+            this.ExtensionNumber = new String(source.ExtensionNumber);
         }
     }
 
@@ -257,8 +348,12 @@ public class StaffInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Phone", this.Phone);
         this.setParamSimple(map, prefix + "Nick", this.Nick);
         this.setParamSimple(map, prefix + "StaffNumber", this.StaffNumber);
+        this.setParamSimple(map, prefix + "RoleId", this.RoleId);
+        this.setParamSimple(map, prefix + "RoleIdList", this.RoleIdList);
+        this.setParamArraySimple(map, prefix + "RoleList.", this.RoleList);
         this.setParamArrayObj(map, prefix + "SkillGroupList.", this.SkillGroupList);
         this.setParamSimple(map, prefix + "LastModifyTimestamp", this.LastModifyTimestamp);
+        this.setParamSimple(map, prefix + "ExtensionNumber", this.ExtensionNumber);
 
     }
 }

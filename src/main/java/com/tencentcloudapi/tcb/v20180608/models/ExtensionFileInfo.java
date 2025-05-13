@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExtensionFileInfo extends AbstractModel{
+public class ExtensionFileInfo extends AbstractModel {
 
     /**
     * 模板里使用的地址
@@ -37,7 +38,9 @@ public class ExtensionFileInfo extends AbstractModel{
     private String UploadUrl;
 
     /**
-    * 自定义密钥。如果为空，则表示不需要加密
+    * 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
     */
     @SerializedName("CustomKey")
     @Expose
@@ -83,16 +86,24 @@ public class ExtensionFileInfo extends AbstractModel{
     }
 
     /**
-     * Get 自定义密钥。如果为空，则表示不需要加密 
-     * @return CustomKey 自定义密钥。如果为空，则表示不需要加密
+     * Get 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728 
+     * @return CustomKey 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
      */
     public String getCustomKey() {
         return this.CustomKey;
     }
 
     /**
-     * Set 自定义密钥。如果为空，则表示不需要加密
-     * @param CustomKey 自定义密钥。如果为空，则表示不需要加密
+     * Set 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
+     * @param CustomKey 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
      */
     public void setCustomKey(String CustomKey) {
         this.CustomKey = CustomKey;

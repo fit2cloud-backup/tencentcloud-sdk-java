@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ApproverOption extends AbstractModel{
+public class ApproverOption extends AbstractModel {
 
     /**
     * 签署方是否可以拒签
@@ -41,6 +42,51 @@ public class ApproverOption extends AbstractModel{
     @SerializedName("NoTransfer")
     @Expose
     private Boolean NoTransfer;
+
+    /**
+    * 允许编辑签署人信息（嵌入式使用） 默认true-可以编辑 false-不可以编辑
+    */
+    @SerializedName("CanEditApprover")
+    @Expose
+    private Boolean CanEditApprover;
+
+    /**
+    * 签署人信息补充类型，默认无需补充。
+
+<ul><li> **1** :  动态签署人（可发起合同后再补充签署人信息）注：`企业自动签不支持动态补充`</li></ul>
+
+注：
+`使用动态签署人能力前，需登陆腾讯电子签控制台打开服务开关`
+    */
+    @SerializedName("FillType")
+    @Expose
+    private Long FillType;
+
+    /**
+    * 签署人阅读合同限制参数
+ <br/>取值：
+<ul>
+<li> LimitReadTimeAndBottom，阅读合同必须限制阅读时长并且必须阅读到底</li>
+<li> LimitReadTime，阅读合同仅限制阅读时长</li>
+<li> LimitBottom，阅读合同仅限制必须阅读到底</li>
+<li> NoReadTimeAndBottom，阅读合同不限制阅读时长且不限制阅读到底（白名单功能，请联系客户经理开白使用）</li>
+</ul>
+    */
+    @SerializedName("FlowReadLimit")
+    @Expose
+    private String FlowReadLimit;
+
+    /**
+    * 禁止在签署过程中添加签署日期控件
+ <br/>前置条件：文件发起合同时，指定SignBeanTag=1（可以在签署过程中添加签署控件）：
+<ul>
+<li> 默认值：false，在开启：签署过程中添加签署控件时，添加签署控件会默认自带签署日期控件</li>
+<li> 可选值：true，在开启：签署过程中添加签署控件时，添加签署控件不会自带签署日期控件</li>
+</ul>
+    */
+    @SerializedName("ForbidAddSignDate")
+    @Expose
+    private Boolean ForbidAddSignDate;
 
     /**
      * Get 签署方是否可以拒签
@@ -98,6 +144,138 @@ public class ApproverOption extends AbstractModel{
         this.NoTransfer = NoTransfer;
     }
 
+    /**
+     * Get 允许编辑签署人信息（嵌入式使用） 默认true-可以编辑 false-不可以编辑 
+     * @return CanEditApprover 允许编辑签署人信息（嵌入式使用） 默认true-可以编辑 false-不可以编辑
+     */
+    public Boolean getCanEditApprover() {
+        return this.CanEditApprover;
+    }
+
+    /**
+     * Set 允许编辑签署人信息（嵌入式使用） 默认true-可以编辑 false-不可以编辑
+     * @param CanEditApprover 允许编辑签署人信息（嵌入式使用） 默认true-可以编辑 false-不可以编辑
+     */
+    public void setCanEditApprover(Boolean CanEditApprover) {
+        this.CanEditApprover = CanEditApprover;
+    }
+
+    /**
+     * Get 签署人信息补充类型，默认无需补充。
+
+<ul><li> **1** :  动态签署人（可发起合同后再补充签署人信息）注：`企业自动签不支持动态补充`</li></ul>
+
+注：
+`使用动态签署人能力前，需登陆腾讯电子签控制台打开服务开关` 
+     * @return FillType 签署人信息补充类型，默认无需补充。
+
+<ul><li> **1** :  动态签署人（可发起合同后再补充签署人信息）注：`企业自动签不支持动态补充`</li></ul>
+
+注：
+`使用动态签署人能力前，需登陆腾讯电子签控制台打开服务开关`
+     */
+    public Long getFillType() {
+        return this.FillType;
+    }
+
+    /**
+     * Set 签署人信息补充类型，默认无需补充。
+
+<ul><li> **1** :  动态签署人（可发起合同后再补充签署人信息）注：`企业自动签不支持动态补充`</li></ul>
+
+注：
+`使用动态签署人能力前，需登陆腾讯电子签控制台打开服务开关`
+     * @param FillType 签署人信息补充类型，默认无需补充。
+
+<ul><li> **1** :  动态签署人（可发起合同后再补充签署人信息）注：`企业自动签不支持动态补充`</li></ul>
+
+注：
+`使用动态签署人能力前，需登陆腾讯电子签控制台打开服务开关`
+     */
+    public void setFillType(Long FillType) {
+        this.FillType = FillType;
+    }
+
+    /**
+     * Get 签署人阅读合同限制参数
+ <br/>取值：
+<ul>
+<li> LimitReadTimeAndBottom，阅读合同必须限制阅读时长并且必须阅读到底</li>
+<li> LimitReadTime，阅读合同仅限制阅读时长</li>
+<li> LimitBottom，阅读合同仅限制必须阅读到底</li>
+<li> NoReadTimeAndBottom，阅读合同不限制阅读时长且不限制阅读到底（白名单功能，请联系客户经理开白使用）</li>
+</ul> 
+     * @return FlowReadLimit 签署人阅读合同限制参数
+ <br/>取值：
+<ul>
+<li> LimitReadTimeAndBottom，阅读合同必须限制阅读时长并且必须阅读到底</li>
+<li> LimitReadTime，阅读合同仅限制阅读时长</li>
+<li> LimitBottom，阅读合同仅限制必须阅读到底</li>
+<li> NoReadTimeAndBottom，阅读合同不限制阅读时长且不限制阅读到底（白名单功能，请联系客户经理开白使用）</li>
+</ul>
+     */
+    public String getFlowReadLimit() {
+        return this.FlowReadLimit;
+    }
+
+    /**
+     * Set 签署人阅读合同限制参数
+ <br/>取值：
+<ul>
+<li> LimitReadTimeAndBottom，阅读合同必须限制阅读时长并且必须阅读到底</li>
+<li> LimitReadTime，阅读合同仅限制阅读时长</li>
+<li> LimitBottom，阅读合同仅限制必须阅读到底</li>
+<li> NoReadTimeAndBottom，阅读合同不限制阅读时长且不限制阅读到底（白名单功能，请联系客户经理开白使用）</li>
+</ul>
+     * @param FlowReadLimit 签署人阅读合同限制参数
+ <br/>取值：
+<ul>
+<li> LimitReadTimeAndBottom，阅读合同必须限制阅读时长并且必须阅读到底</li>
+<li> LimitReadTime，阅读合同仅限制阅读时长</li>
+<li> LimitBottom，阅读合同仅限制必须阅读到底</li>
+<li> NoReadTimeAndBottom，阅读合同不限制阅读时长且不限制阅读到底（白名单功能，请联系客户经理开白使用）</li>
+</ul>
+     */
+    public void setFlowReadLimit(String FlowReadLimit) {
+        this.FlowReadLimit = FlowReadLimit;
+    }
+
+    /**
+     * Get 禁止在签署过程中添加签署日期控件
+ <br/>前置条件：文件发起合同时，指定SignBeanTag=1（可以在签署过程中添加签署控件）：
+<ul>
+<li> 默认值：false，在开启：签署过程中添加签署控件时，添加签署控件会默认自带签署日期控件</li>
+<li> 可选值：true，在开启：签署过程中添加签署控件时，添加签署控件不会自带签署日期控件</li>
+</ul> 
+     * @return ForbidAddSignDate 禁止在签署过程中添加签署日期控件
+ <br/>前置条件：文件发起合同时，指定SignBeanTag=1（可以在签署过程中添加签署控件）：
+<ul>
+<li> 默认值：false，在开启：签署过程中添加签署控件时，添加签署控件会默认自带签署日期控件</li>
+<li> 可选值：true，在开启：签署过程中添加签署控件时，添加签署控件不会自带签署日期控件</li>
+</ul>
+     */
+    public Boolean getForbidAddSignDate() {
+        return this.ForbidAddSignDate;
+    }
+
+    /**
+     * Set 禁止在签署过程中添加签署日期控件
+ <br/>前置条件：文件发起合同时，指定SignBeanTag=1（可以在签署过程中添加签署控件）：
+<ul>
+<li> 默认值：false，在开启：签署过程中添加签署控件时，添加签署控件会默认自带签署日期控件</li>
+<li> 可选值：true，在开启：签署过程中添加签署控件时，添加签署控件不会自带签署日期控件</li>
+</ul>
+     * @param ForbidAddSignDate 禁止在签署过程中添加签署日期控件
+ <br/>前置条件：文件发起合同时，指定SignBeanTag=1（可以在签署过程中添加签署控件）：
+<ul>
+<li> 默认值：false，在开启：签署过程中添加签署控件时，添加签署控件会默认自带签署日期控件</li>
+<li> 可选值：true，在开启：签署过程中添加签署控件时，添加签署控件不会自带签署日期控件</li>
+</ul>
+     */
+    public void setForbidAddSignDate(Boolean ForbidAddSignDate) {
+        this.ForbidAddSignDate = ForbidAddSignDate;
+    }
+
     public ApproverOption() {
     }
 
@@ -112,6 +290,18 @@ public class ApproverOption extends AbstractModel{
         if (source.NoTransfer != null) {
             this.NoTransfer = new Boolean(source.NoTransfer);
         }
+        if (source.CanEditApprover != null) {
+            this.CanEditApprover = new Boolean(source.CanEditApprover);
+        }
+        if (source.FillType != null) {
+            this.FillType = new Long(source.FillType);
+        }
+        if (source.FlowReadLimit != null) {
+            this.FlowReadLimit = new String(source.FlowReadLimit);
+        }
+        if (source.ForbidAddSignDate != null) {
+            this.ForbidAddSignDate = new Boolean(source.ForbidAddSignDate);
+        }
     }
 
 
@@ -121,6 +311,10 @@ public class ApproverOption extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "NoRefuse", this.NoRefuse);
         this.setParamSimple(map, prefix + "NoTransfer", this.NoTransfer);
+        this.setParamSimple(map, prefix + "CanEditApprover", this.CanEditApprover);
+        this.setParamSimple(map, prefix + "FillType", this.FillType);
+        this.setParamSimple(map, prefix + "FlowReadLimit", this.FlowReadLimit);
+        this.setParamSimple(map, prefix + "ForbidAddSignDate", this.ForbidAddSignDate);
 
     }
 }

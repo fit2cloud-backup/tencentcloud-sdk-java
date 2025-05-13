@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCurveDataRequest extends AbstractModel{
+public class DescribeCurveDataRequest extends AbstractModel {
 
     /**
     * 环境ID
@@ -42,8 +43,8 @@ public class DescribeCurveDataRequest extends AbstractModel{
 <li> FunctionDuration: 云函数运行时间, 单位毫秒 </li>
 <li> DbRead: 数据库读请求数 </li>
 <li> DbWrite: 数据库写请求数 </li>
-<li> DbCostTime10ms: 数据库耗时在10ms~50ms请求数 </li>
-<li> DbCostTime50ms: 数据库耗时在50ms~100ms请求数 </li>
+<li> DbCostTime10ms: 数据库耗时在10ms-50ms请求数 </li>
+<li> DbCostTime50ms: 数据库耗时在50ms-100ms请求数 </li>
 <li> DbCostTime100ms: 数据库耗时在100ms以上请求数 </li>
 <li> TkeCpuRatio: 容器CPU占用率 </li>
 <li> TkeMemRatio: 容器内存占用率 </li>
@@ -61,14 +62,14 @@ public class DescribeCurveDataRequest extends AbstractModel{
     private String MetricName;
 
     /**
-    * 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟).
+    * 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
     */
     @SerializedName("StartTime")
     @Expose
     private String StartTime;
 
     /**
-    * 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)..
+    * 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
     */
     @SerializedName("EndTime")
     @Expose
@@ -110,8 +111,8 @@ public class DescribeCurveDataRequest extends AbstractModel{
 <li> FunctionDuration: 云函数运行时间, 单位毫秒 </li>
 <li> DbRead: 数据库读请求数 </li>
 <li> DbWrite: 数据库写请求数 </li>
-<li> DbCostTime10ms: 数据库耗时在10ms~50ms请求数 </li>
-<li> DbCostTime50ms: 数据库耗时在50ms~100ms请求数 </li>
+<li> DbCostTime10ms: 数据库耗时在10ms-50ms请求数 </li>
+<li> DbCostTime50ms: 数据库耗时在50ms-100ms请求数 </li>
 <li> DbCostTime100ms: 数据库耗时在100ms以上请求数 </li>
 <li> TkeCpuRatio: 容器CPU占用率 </li>
 <li> TkeMemRatio: 容器内存占用率 </li>
@@ -135,8 +136,8 @@ public class DescribeCurveDataRequest extends AbstractModel{
 <li> FunctionDuration: 云函数运行时间, 单位毫秒 </li>
 <li> DbRead: 数据库读请求数 </li>
 <li> DbWrite: 数据库写请求数 </li>
-<li> DbCostTime10ms: 数据库耗时在10ms~50ms请求数 </li>
-<li> DbCostTime50ms: 数据库耗时在50ms~100ms请求数 </li>
+<li> DbCostTime10ms: 数据库耗时在10ms-50ms请求数 </li>
+<li> DbCostTime50ms: 数据库耗时在50ms-100ms请求数 </li>
 <li> DbCostTime100ms: 数据库耗时在100ms以上请求数 </li>
 <li> TkeCpuRatio: 容器CPU占用率 </li>
 <li> TkeMemRatio: 容器内存占用率 </li>
@@ -166,8 +167,8 @@ public class DescribeCurveDataRequest extends AbstractModel{
 <li> FunctionDuration: 云函数运行时间, 单位毫秒 </li>
 <li> DbRead: 数据库读请求数 </li>
 <li> DbWrite: 数据库写请求数 </li>
-<li> DbCostTime10ms: 数据库耗时在10ms~50ms请求数 </li>
-<li> DbCostTime50ms: 数据库耗时在50ms~100ms请求数 </li>
+<li> DbCostTime10ms: 数据库耗时在10ms-50ms请求数 </li>
+<li> DbCostTime50ms: 数据库耗时在50ms-100ms请求数 </li>
 <li> DbCostTime100ms: 数据库耗时在100ms以上请求数 </li>
 <li> TkeCpuRatio: 容器CPU占用率 </li>
 <li> TkeMemRatio: 容器内存占用率 </li>
@@ -191,8 +192,8 @@ public class DescribeCurveDataRequest extends AbstractModel{
 <li> FunctionDuration: 云函数运行时间, 单位毫秒 </li>
 <li> DbRead: 数据库读请求数 </li>
 <li> DbWrite: 数据库写请求数 </li>
-<li> DbCostTime10ms: 数据库耗时在10ms~50ms请求数 </li>
-<li> DbCostTime50ms: 数据库耗时在50ms~100ms请求数 </li>
+<li> DbCostTime10ms: 数据库耗时在10ms-50ms请求数 </li>
+<li> DbCostTime50ms: 数据库耗时在50ms-100ms请求数 </li>
 <li> DbCostTime100ms: 数据库耗时在100ms以上请求数 </li>
 <li> TkeCpuRatio: 容器CPU占用率 </li>
 <li> TkeMemRatio: 容器内存占用率 </li>
@@ -210,32 +211,32 @@ public class DescribeCurveDataRequest extends AbstractModel{
     }
 
     /**
-     * Get 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟). 
-     * @return StartTime 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟).
+     * Get 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟) 
+     * @return StartTime 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
      */
     public String getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟).
-     * @param StartTime 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟).
+     * Set 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
+     * @param StartTime 开始时间，如2018-08-24 10:50:00, 开始时间需要早于结束时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟).. 
-     * @return EndTime 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)..
+     * Get 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟) 
+     * @return EndTime 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
      */
     public String getEndTime() {
         return this.EndTime;
     }
 
     /**
-     * Set 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)..
-     * @param EndTime 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)..
+     * Set 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
+     * @param EndTime 结束时间，如2018-08-24 10:50:00, 结束时间需要晚于开始时间至少五分钟(原因是因为目前统计粒度最小是5分钟)
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;

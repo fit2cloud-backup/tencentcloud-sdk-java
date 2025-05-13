@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRollbackTimeRangeResponse extends AbstractModel{
+public class DescribeRollbackTimeRangeResponse extends AbstractModel {
 
     /**
     * 有效回归时间范围开始时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeRangeStart")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeRollbackTimeRangeResponse extends AbstractModel{
 
     /**
     * 有效回归时间范围结束时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeRangeEnd")
     @Expose
@@ -46,17 +45,15 @@ public class DescribeRollbackTimeRangeResponse extends AbstractModel{
     private RollbackTimeRange [] RollbackTimeRanges;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 有效回归时间范围开始时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 有效回归时间范围开始时间点（已废弃） 
      * @return TimeRangeStart 有效回归时间范围开始时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimeRangeStart() {
         return this.TimeRangeStart;
@@ -64,19 +61,15 @@ public class DescribeRollbackTimeRangeResponse extends AbstractModel{
 
     /**
      * Set 有效回归时间范围开始时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeRangeStart 有效回归时间范围开始时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeRangeStart(String TimeRangeStart) {
         this.TimeRangeStart = TimeRangeStart;
     }
 
     /**
-     * Get 有效回归时间范围结束时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 有效回归时间范围结束时间点（已废弃） 
      * @return TimeRangeEnd 有效回归时间范围结束时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimeRangeEnd() {
         return this.TimeRangeEnd;
@@ -84,9 +77,7 @@ public class DescribeRollbackTimeRangeResponse extends AbstractModel{
 
     /**
      * Set 有效回归时间范围结束时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeRangeEnd 有效回归时间范围结束时间点（已废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeRangeEnd(String TimeRangeEnd) {
         this.TimeRangeEnd = TimeRangeEnd;
@@ -109,16 +100,16 @@ public class DescribeRollbackTimeRangeResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

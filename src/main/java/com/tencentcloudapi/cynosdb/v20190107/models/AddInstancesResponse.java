@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddInstancesResponse extends AbstractModel{
+public class AddInstancesResponse extends AbstractModel {
 
     /**
     * 冻结流水，一次开通一个冻结流水。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TranId")
     @Expose
@@ -32,7 +32,6 @@ public class AddInstancesResponse extends AbstractModel{
 
     /**
     * 后付费订单号。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DealNames")
     @Expose
@@ -40,7 +39,6 @@ public class AddInstancesResponse extends AbstractModel{
 
     /**
     * 发货资源id列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceIds")
     @Expose
@@ -48,24 +46,21 @@ public class AddInstancesResponse extends AbstractModel{
 
     /**
     * 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BigDealIds")
     @Expose
     private String [] BigDealIds;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 冻结流水，一次开通一个冻结流水。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 冻结流水，一次开通一个冻结流水。 
      * @return TranId 冻结流水，一次开通一个冻结流水。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTranId() {
         return this.TranId;
@@ -73,19 +68,15 @@ public class AddInstancesResponse extends AbstractModel{
 
     /**
      * Set 冻结流水，一次开通一个冻结流水。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TranId 冻结流水，一次开通一个冻结流水。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTranId(String TranId) {
         this.TranId = TranId;
     }
 
     /**
-     * Get 后付费订单号。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 后付费订单号。 
      * @return DealNames 后付费订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getDealNames() {
         return this.DealNames;
@@ -93,19 +84,15 @@ public class AddInstancesResponse extends AbstractModel{
 
     /**
      * Set 后付费订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DealNames 后付费订单号。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDealNames(String [] DealNames) {
         this.DealNames = DealNames;
     }
 
     /**
-     * Get 发货资源id列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 发货资源id列表。 
      * @return ResourceIds 发货资源id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getResourceIds() {
         return this.ResourceIds;
@@ -113,19 +100,15 @@ public class AddInstancesResponse extends AbstractModel{
 
     /**
      * Set 发货资源id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceIds 发货资源id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceIds(String [] ResourceIds) {
         this.ResourceIds = ResourceIds;
     }
 
     /**
-     * Get 大订单号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 大订单号 
      * @return BigDealIds 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getBigDealIds() {
         return this.BigDealIds;
@@ -133,25 +116,23 @@ public class AddInstancesResponse extends AbstractModel{
 
     /**
      * Set 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BigDealIds 大订单号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBigDealIds(String [] BigDealIds) {
         this.BigDealIds = BigDealIds;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

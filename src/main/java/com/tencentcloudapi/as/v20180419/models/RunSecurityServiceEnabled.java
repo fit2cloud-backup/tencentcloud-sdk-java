@@ -16,35 +16,46 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RunSecurityServiceEnabled extends AbstractModel{
+public class RunSecurityServiceEnabled extends AbstractModel {
 
     /**
-    * 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：<br><li>TRUE：表示开启云安全服务<br><li>FALSE：表示不开启云安全服务<br><br>默认取值：TRUE。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：
+<li>TRUE：表示开启云安全服务</li>
+<li>FALSE：表示不开启云安全服务</li>
+默认取值：TRUE。
     */
     @SerializedName("Enabled")
     @Expose
     private Boolean Enabled;
 
     /**
-     * Get 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：<br><li>TRUE：表示开启云安全服务<br><li>FALSE：表示不开启云安全服务<br><br>默认取值：TRUE。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Enabled 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：<br><li>TRUE：表示开启云安全服务<br><li>FALSE：表示不开启云安全服务<br><br>默认取值：TRUE。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：
+<li>TRUE：表示开启云安全服务</li>
+<li>FALSE：表示不开启云安全服务</li>
+默认取值：TRUE。 
+     * @return Enabled 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：
+<li>TRUE：表示开启云安全服务</li>
+<li>FALSE：表示不开启云安全服务</li>
+默认取值：TRUE。
      */
     public Boolean getEnabled() {
         return this.Enabled;
     }
 
     /**
-     * Set 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：<br><li>TRUE：表示开启云安全服务<br><li>FALSE：表示不开启云安全服务<br><br>默认取值：TRUE。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Enabled 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：<br><li>TRUE：表示开启云安全服务<br><li>FALSE：表示不开启云安全服务<br><br>默认取值：TRUE。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：
+<li>TRUE：表示开启云安全服务</li>
+<li>FALSE：表示不开启云安全服务</li>
+默认取值：TRUE。
+     * @param Enabled 是否开启[云安全](https://cloud.tencent.com/document/product/296)服务。取值范围：
+<li>TRUE：表示开启云安全服务</li>
+<li>FALSE：表示不开启云安全服务</li>
+默认取值：TRUE。
      */
     public void setEnabled(Boolean Enabled) {
         this.Enabled = Enabled;

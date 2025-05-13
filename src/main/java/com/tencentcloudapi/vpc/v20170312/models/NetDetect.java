@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NetDetect extends AbstractModel{
+public class NetDetect extends AbstractModel {
 
     /**
     * `VPC`实例`ID`。形如：`vpc-12345678`
@@ -100,7 +101,7 @@ NONEXTHOP：无下一跳；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
 下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
-下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测；
+下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测，添加和修改时，不需要指定值，查询时值为空字符串；
     */
     @SerializedName("NextHopDestination")
     @Expose
@@ -108,7 +109,6 @@ NONEXTHOP：无下一跳；
 
     /**
     * 下一跳网关名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NextHopName")
     @Expose
@@ -116,7 +116,6 @@ NONEXTHOP：无下一跳；
 
     /**
     * 网络探测描述。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetDetectDescription")
     @Expose
@@ -124,11 +123,17 @@ NONEXTHOP：无下一跳；
 
     /**
     * 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
+
+    /**
+    * 标签键值对。	
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get `VPC`实例`ID`。形如：`vpc-12345678` 
@@ -310,7 +315,7 @@ NONEXTHOP：无下一跳；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
 下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
-下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测； 
+下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测，添加和修改时，不需要指定值，查询时值为空字符串； 
      * @return NextHopDestination 下一跳目的网关，取值与“下一跳类型”相关：
 下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
 下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
@@ -318,7 +323,7 @@ NONEXTHOP：无下一跳；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
 下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
-下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测；
+下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测，添加和修改时，不需要指定值，查询时值为空字符串；
      */
     public String getNextHopDestination() {
         return this.NextHopDestination;
@@ -332,7 +337,7 @@ NONEXTHOP：无下一跳；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
 下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
-下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测；
+下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测，添加和修改时，不需要指定值，查询时值为空字符串；
      * @param NextHopDestination 下一跳目的网关，取值与“下一跳类型”相关：
 下一跳类型为VPN，取值VPN网关ID，形如：vpngw-12345678；
 下一跳类型为DIRECTCONNECT，取值专线网关ID，形如：dcg-12345678；
@@ -340,17 +345,15 @@ NONEXTHOP：无下一跳；
 下一跳类型为NAT，取值Nat网关，形如：nat-12345678；
 下一跳类型为NORMAL_CVM，取值云服务器IPv4地址，形如：10.0.0.12；
 下一跳类型为CCN，取值云联网ID，形如：ccn-12345678；
-下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测；
+下一跳类型为NONEXTHOP，指定网络探测为无下一跳的网络探测，添加和修改时，不需要指定值，查询时值为空字符串；
      */
     public void setNextHopDestination(String NextHopDestination) {
         this.NextHopDestination = NextHopDestination;
     }
 
     /**
-     * Get 下一跳网关名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下一跳网关名称。 
      * @return NextHopName 下一跳网关名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNextHopName() {
         return this.NextHopName;
@@ -358,19 +361,15 @@ NONEXTHOP：无下一跳；
 
     /**
      * Set 下一跳网关名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NextHopName 下一跳网关名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNextHopName(String NextHopName) {
         this.NextHopName = NextHopName;
     }
 
     /**
-     * Get 网络探测描述。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网络探测描述。 
      * @return NetDetectDescription 网络探测描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNetDetectDescription() {
         return this.NetDetectDescription;
@@ -378,19 +377,15 @@ NONEXTHOP：无下一跳；
 
     /**
      * Set 网络探测描述。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NetDetectDescription 网络探测描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetDetectDescription(String NetDetectDescription) {
         this.NetDetectDescription = NetDetectDescription;
     }
 
     /**
-     * Get 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间。 
      * @return CreateTime 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -398,12 +393,26 @@ NONEXTHOP：无下一跳；
 
     /**
      * Set 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 标签键值对。	 
+     * @return TagSet 标签键值对。	
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。	
+     * @param TagSet 标签键值对。	
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
     }
 
     public NetDetect() {
@@ -459,6 +468,12 @@ NONEXTHOP：无下一跳；
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
     }
 
 
@@ -479,6 +494,7 @@ NONEXTHOP：无下一跳；
         this.setParamSimple(map, prefix + "NextHopName", this.NextHopName);
         this.setParamSimple(map, prefix + "NetDetectDescription", this.NetDetectDescription);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

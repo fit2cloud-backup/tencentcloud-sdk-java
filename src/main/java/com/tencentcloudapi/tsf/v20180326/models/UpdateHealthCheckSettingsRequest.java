@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateHealthCheckSettingsRequest extends AbstractModel{
+public class UpdateHealthCheckSettingsRequest extends AbstractModel {
 
     /**
     * 部署组ID
@@ -30,7 +31,7 @@ public class UpdateHealthCheckSettingsRequest extends AbstractModel{
     private String GroupId;
 
     /**
-    * 是否能使健康检查
+    * 是否开启健康检查
     */
     @SerializedName("EnableHealthCheck")
     @Expose
@@ -60,16 +61,16 @@ public class UpdateHealthCheckSettingsRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否能使健康检查 
-     * @return EnableHealthCheck 是否能使健康检查
+     * Get 是否开启健康检查 
+     * @return EnableHealthCheck 是否开启健康检查
      */
     public Boolean getEnableHealthCheck() {
         return this.EnableHealthCheck;
     }
 
     /**
-     * Set 是否能使健康检查
-     * @param EnableHealthCheck 是否能使健康检查
+     * Set 是否开启健康检查
+     * @param EnableHealthCheck 是否开启健康检查
      */
     public void setEnableHealthCheck(Boolean EnableHealthCheck) {
         this.EnableHealthCheck = EnableHealthCheck;

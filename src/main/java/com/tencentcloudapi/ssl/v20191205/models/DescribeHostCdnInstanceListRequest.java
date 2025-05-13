@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostCdnInstanceListRequest extends AbstractModel{
+public class DescribeHostCdnInstanceListRequest extends AbstractModel {
 
     /**
     * 待部署的证书ID
@@ -28,13 +29,6 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
     @SerializedName("CertificateId")
     @Expose
     private String CertificateId;
-
-    /**
-    * 部署资源类型
-    */
-    @SerializedName("ResourceType")
-    @Expose
-    private String ResourceType;
 
     /**
     * 是否查询缓存，1：是； 0：否， 默认为查询缓存，缓存半小时
@@ -51,6 +45,13 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
+    * 部署资源类型cdn
+    */
+    @SerializedName("ResourceType")
+    @Expose
+    private String ResourceType;
+
+    /**
     * 原证书ID
     */
     @SerializedName("OldCertificateId")
@@ -58,21 +59,21 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
     private String OldCertificateId;
 
     /**
-    * 分页偏移量，从0开始。	
+    * 分页偏移量，默认值为0。	
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 每页数量，默认10。	
+    * 每页数量，默认10，最大值为200。	
     */
     @SerializedName("Limit")
     @Expose
     private Long Limit;
 
     /**
-    * 是否异步
+    * 是否异步,0表示否，1表示是，默认为0
     */
     @SerializedName("AsyncCache")
     @Expose
@@ -92,22 +93,6 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
      */
     public void setCertificateId(String CertificateId) {
         this.CertificateId = CertificateId;
-    }
-
-    /**
-     * Get 部署资源类型 
-     * @return ResourceType 部署资源类型
-     */
-    public String getResourceType() {
-        return this.ResourceType;
-    }
-
-    /**
-     * Set 部署资源类型
-     * @param ResourceType 部署资源类型
-     */
-    public void setResourceType(String ResourceType) {
-        this.ResourceType = ResourceType;
     }
 
     /**
@@ -143,6 +128,26 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
     }
 
     /**
+     * Get 部署资源类型cdn 
+     * @return ResourceType 部署资源类型cdn
+     * @deprecated
+     */
+    @Deprecated
+    public String getResourceType() {
+        return this.ResourceType;
+    }
+
+    /**
+     * Set 部署资源类型cdn
+     * @param ResourceType 部署资源类型cdn
+     * @deprecated
+     */
+    @Deprecated
+    public void setResourceType(String ResourceType) {
+        this.ResourceType = ResourceType;
+    }
+
+    /**
      * Get 原证书ID 
      * @return OldCertificateId 原证书ID
      */
@@ -159,48 +164,48 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页偏移量，从0开始。	 
-     * @return Offset 分页偏移量，从0开始。	
+     * Get 分页偏移量，默认值为0。	 
+     * @return Offset 分页偏移量，默认值为0。	
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 分页偏移量，从0开始。	
-     * @param Offset 分页偏移量，从0开始。	
+     * Set 分页偏移量，默认值为0。	
+     * @param Offset 分页偏移量，默认值为0。	
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 每页数量，默认10。	 
-     * @return Limit 每页数量，默认10。	
+     * Get 每页数量，默认10，最大值为200。	 
+     * @return Limit 每页数量，默认10，最大值为200。	
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页数量，默认10。	
-     * @param Limit 每页数量，默认10。	
+     * Set 每页数量，默认10，最大值为200。	
+     * @param Limit 每页数量，默认10，最大值为200。	
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
 
     /**
-     * Get 是否异步 
-     * @return AsyncCache 是否异步
+     * Get 是否异步,0表示否，1表示是，默认为0 
+     * @return AsyncCache 是否异步,0表示否，1表示是，默认为0
      */
     public Long getAsyncCache() {
         return this.AsyncCache;
     }
 
     /**
-     * Set 是否异步
-     * @param AsyncCache 是否异步
+     * Set 是否异步,0表示否，1表示是，默认为0
+     * @param AsyncCache 是否异步,0表示否，1表示是，默认为0
      */
     public void setAsyncCache(Long AsyncCache) {
         this.AsyncCache = AsyncCache;
@@ -217,9 +222,6 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
         if (source.CertificateId != null) {
             this.CertificateId = new String(source.CertificateId);
         }
-        if (source.ResourceType != null) {
-            this.ResourceType = new String(source.ResourceType);
-        }
         if (source.IsCache != null) {
             this.IsCache = new Long(source.IsCache);
         }
@@ -228,6 +230,9 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
             for (int i = 0; i < source.Filters.length; i++) {
                 this.Filters[i] = new Filter(source.Filters[i]);
             }
+        }
+        if (source.ResourceType != null) {
+            this.ResourceType = new String(source.ResourceType);
         }
         if (source.OldCertificateId != null) {
             this.OldCertificateId = new String(source.OldCertificateId);
@@ -249,9 +254,9 @@ public class DescribeHostCdnInstanceListRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "CertificateId", this.CertificateId);
-        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "IsCache", this.IsCache);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
+        this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
         this.setParamSimple(map, prefix + "OldCertificateId", this.OldCertificateId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);

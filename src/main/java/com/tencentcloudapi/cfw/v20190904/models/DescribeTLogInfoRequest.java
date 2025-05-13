@@ -16,18 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTLogInfoRequest extends AbstractModel{
-
-    /**
-    * 开始时间
-    */
-    @SerializedName("StartTime")
-    @Expose
-    private String StartTime;
+public class DescribeTLogInfoRequest extends AbstractModel {
 
     /**
     * 结束时间
@@ -44,27 +38,18 @@ public class DescribeTLogInfoRequest extends AbstractModel{
     private String QueryType;
 
     /**
+    * 开始时间
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private String StartTime;
+
+    /**
     * 查询条件
     */
     @SerializedName("SearchValue")
     @Expose
     private String SearchValue;
-
-    /**
-     * Get 开始时间 
-     * @return StartTime 开始时间
-     */
-    public String getStartTime() {
-        return this.StartTime;
-    }
-
-    /**
-     * Set 开始时间
-     * @param StartTime 开始时间
-     */
-    public void setStartTime(String StartTime) {
-        this.StartTime = StartTime;
-    }
 
     /**
      * Get 结束时间 
@@ -99,6 +84,22 @@ public class DescribeTLogInfoRequest extends AbstractModel{
     }
 
     /**
+     * Get 开始时间 
+     * @return StartTime 开始时间
+     */
+    public String getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 开始时间
+     * @param StartTime 开始时间
+     */
+    public void setStartTime(String StartTime) {
+        this.StartTime = StartTime;
+    }
+
+    /**
      * Get 查询条件 
      * @return SearchValue 查询条件
      */
@@ -122,14 +123,14 @@ public class DescribeTLogInfoRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeTLogInfoRequest(DescribeTLogInfoRequest source) {
-        if (source.StartTime != null) {
-            this.StartTime = new String(source.StartTime);
-        }
         if (source.EndTime != null) {
             this.EndTime = new String(source.EndTime);
         }
         if (source.QueryType != null) {
             this.QueryType = new String(source.QueryType);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
         }
         if (source.SearchValue != null) {
             this.SearchValue = new String(source.SearchValue);
@@ -141,9 +142,9 @@ public class DescribeTLogInfoRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "QueryType", this.QueryType);
+        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "SearchValue", this.SearchValue);
 
     }

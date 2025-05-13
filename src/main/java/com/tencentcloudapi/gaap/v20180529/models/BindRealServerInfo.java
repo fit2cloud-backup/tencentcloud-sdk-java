@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BindRealServerInfo extends AbstractModel{
+public class BindRealServerInfo extends AbstractModel {
 
     /**
     * 源站的IP或域名
@@ -52,7 +53,6 @@ public class BindRealServerInfo extends AbstractModel{
 
     /**
     * 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagSet")
     @Expose
@@ -123,10 +123,8 @@ public class BindRealServerInfo extends AbstractModel{
     }
 
     /**
-     * Get 标签列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签列表 
      * @return TagSet 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagPair [] getTagSet() {
         return this.TagSet;
@@ -134,9 +132,7 @@ public class BindRealServerInfo extends AbstractModel{
 
     /**
      * Set 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagSet 标签列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagSet(TagPair [] TagSet) {
         this.TagSet = TagSet;

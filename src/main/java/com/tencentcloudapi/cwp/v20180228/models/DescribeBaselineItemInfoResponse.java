@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBaselineItemInfoResponse extends AbstractModel{
+public class DescribeBaselineItemInfoResponse extends AbstractModel {
 
     /**
     * 结果列表
@@ -37,7 +38,14 @@ public class DescribeBaselineItemInfoResponse extends AbstractModel{
     private Long Total;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 基线分类列表
+    */
+    @SerializedName("CategoryList")
+    @Expose
+    private BaselineItemsCategory [] CategoryList;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -76,16 +84,32 @@ public class DescribeBaselineItemInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 基线分类列表 
+     * @return CategoryList 基线分类列表
+     */
+    public BaselineItemsCategory [] getCategoryList() {
+        return this.CategoryList;
+    }
+
+    /**
+     * Set 基线分类列表
+     * @param CategoryList 基线分类列表
+     */
+    public void setCategoryList(BaselineItemsCategory [] CategoryList) {
+        this.CategoryList = CategoryList;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -108,6 +132,12 @@ public class DescribeBaselineItemInfoResponse extends AbstractModel{
         if (source.Total != null) {
             this.Total = new Long(source.Total);
         }
+        if (source.CategoryList != null) {
+            this.CategoryList = new BaselineItemsCategory[source.CategoryList.length];
+            for (int i = 0; i < source.CategoryList.length; i++) {
+                this.CategoryList[i] = new BaselineItemsCategory(source.CategoryList[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +150,7 @@ public class DescribeBaselineItemInfoResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "List.", this.List);
         this.setParamSimple(map, prefix + "Total", this.Total);
+        this.setParamArrayObj(map, prefix + "CategoryList.", this.CategoryList);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChainData extends AbstractModel{
+public class ChainData extends AbstractModel {
 
     /**
     * 区块hash
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BlockHash")
     @Expose
@@ -32,7 +32,6 @@ public class ChainData extends AbstractModel{
 
     /**
     * 区块高度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BlockHeight")
     @Expose
@@ -40,17 +39,14 @@ public class ChainData extends AbstractModel{
 
     /**
     * 区块时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BlockTime")
     @Expose
     private String BlockTime;
 
     /**
-     * Get 区块hash
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区块hash 
      * @return BlockHash 区块hash
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBlockHash() {
         return this.BlockHash;
@@ -58,19 +54,15 @@ public class ChainData extends AbstractModel{
 
     /**
      * Set 区块hash
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BlockHash 区块hash
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBlockHash(String BlockHash) {
         this.BlockHash = BlockHash;
     }
 
     /**
-     * Get 区块高度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区块高度 
      * @return BlockHeight 区块高度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBlockHeight() {
         return this.BlockHeight;
@@ -78,19 +70,15 @@ public class ChainData extends AbstractModel{
 
     /**
      * Set 区块高度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BlockHeight 区块高度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBlockHeight(String BlockHeight) {
         this.BlockHeight = BlockHeight;
     }
 
     /**
-     * Get 区块时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区块时间 
      * @return BlockTime 区块时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBlockTime() {
         return this.BlockTime;
@@ -98,9 +86,7 @@ public class ChainData extends AbstractModel{
 
     /**
      * Set 区块时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BlockTime 区块时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBlockTime(String BlockTime) {
         this.BlockTime = BlockTime;

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeLicenseListRequest extends AbstractModel{
+public class DescribeLicenseListRequest extends AbstractModel {
 
     /**
-    * 多个条件筛选时 LicenseStatus,DeadlineStatus,ResourceId,Keywords 取交集
+    * 多个条件筛选时取交集
 <li> LicenseStatus 授权状态信息,0 未使用,1 部分使用, 2 已用完, 3 不可用  4 可使用</li>
 <li> BuyTime 购买时间</li>
 <li> LicenseType  授权类型, 0 专业版-按量计费, 1专业版-包年包月 , 2 旗舰版-包年包月</li>
@@ -32,6 +33,7 @@ public class DescribeLicenseListRequest extends AbstractModel{
 <li>Keywords IP筛选</li>
 <li>PayMode 付费模式 0 按量计费 , 1 包年包月</li>
 <li>OrderStatus 订单状态 1 正常 2 隔离 3 销毁</li>
+<li>DealNames 子订单号,最大长度10个,超出会失败</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -59,16 +61,21 @@ public class DescribeLicenseListRequest extends AbstractModel{
     private Tags [] Tags;
 
     /**
-     * Get 多个条件筛选时 LicenseStatus,DeadlineStatus,ResourceId,Keywords 取交集
-<li> LicenseStatus 授权状态信息,0 未使用,1 部分使用, 2 已用完, 3 不可用  4 可使用</li>
-<li> BuyTime 购买时间</li>
-<li> LicenseType  授权类型, 0 专业版-按量计费, 1专业版-包年包月 , 2 旗舰版-包年包月</li>
-<li>DeadlineStatus 到期状态 NotExpired 未过期, Expire 已过期(包含已销毁) NearExpiry 即将到期</li>
-<li>ResourceId 资源ID</li>
-<li>Keywords IP筛选</li>
-<li>PayMode 付费模式 0 按量计费 , 1 包年包月</li>
-<li>OrderStatus 订单状态 1 正常 2 隔离 3 销毁</li> 
-     * @return Filters 多个条件筛选时 LicenseStatus,DeadlineStatus,ResourceId,Keywords 取交集
+    * ASC 正序,  DESC 倒序
+    */
+    @SerializedName("Order")
+    @Expose
+    private String Order;
+
+    /**
+    * LicenseCnt 授权数量
+    */
+    @SerializedName("By")
+    @Expose
+    private String By;
+
+    /**
+     * Get 多个条件筛选时取交集
 <li> LicenseStatus 授权状态信息,0 未使用,1 部分使用, 2 已用完, 3 不可用  4 可使用</li>
 <li> BuyTime 购买时间</li>
 <li> LicenseType  授权类型, 0 专业版-按量计费, 1专业版-包年包月 , 2 旗舰版-包年包月</li>
@@ -77,13 +84,24 @@ public class DescribeLicenseListRequest extends AbstractModel{
 <li>Keywords IP筛选</li>
 <li>PayMode 付费模式 0 按量计费 , 1 包年包月</li>
 <li>OrderStatus 订单状态 1 正常 2 隔离 3 销毁</li>
+<li>DealNames 子订单号,最大长度10个,超出会失败</li> 
+     * @return Filters 多个条件筛选时取交集
+<li> LicenseStatus 授权状态信息,0 未使用,1 部分使用, 2 已用完, 3 不可用  4 可使用</li>
+<li> BuyTime 购买时间</li>
+<li> LicenseType  授权类型, 0 专业版-按量计费, 1专业版-包年包月 , 2 旗舰版-包年包月</li>
+<li>DeadlineStatus 到期状态 NotExpired 未过期, Expire 已过期(包含已销毁) NearExpiry 即将到期</li>
+<li>ResourceId 资源ID</li>
+<li>Keywords IP筛选</li>
+<li>PayMode 付费模式 0 按量计费 , 1 包年包月</li>
+<li>OrderStatus 订单状态 1 正常 2 隔离 3 销毁</li>
+<li>DealNames 子订单号,最大长度10个,超出会失败</li>
      */
     public Filters [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 多个条件筛选时 LicenseStatus,DeadlineStatus,ResourceId,Keywords 取交集
+     * Set 多个条件筛选时取交集
 <li> LicenseStatus 授权状态信息,0 未使用,1 部分使用, 2 已用完, 3 不可用  4 可使用</li>
 <li> BuyTime 购买时间</li>
 <li> LicenseType  授权类型, 0 专业版-按量计费, 1专业版-包年包月 , 2 旗舰版-包年包月</li>
@@ -92,7 +110,8 @@ public class DescribeLicenseListRequest extends AbstractModel{
 <li>Keywords IP筛选</li>
 <li>PayMode 付费模式 0 按量计费 , 1 包年包月</li>
 <li>OrderStatus 订单状态 1 正常 2 隔离 3 销毁</li>
-     * @param Filters 多个条件筛选时 LicenseStatus,DeadlineStatus,ResourceId,Keywords 取交集
+<li>DealNames 子订单号,最大长度10个,超出会失败</li>
+     * @param Filters 多个条件筛选时取交集
 <li> LicenseStatus 授权状态信息,0 未使用,1 部分使用, 2 已用完, 3 不可用  4 可使用</li>
 <li> BuyTime 购买时间</li>
 <li> LicenseType  授权类型, 0 专业版-按量计费, 1专业版-包年包月 , 2 旗舰版-包年包月</li>
@@ -101,6 +120,7 @@ public class DescribeLicenseListRequest extends AbstractModel{
 <li>Keywords IP筛选</li>
 <li>PayMode 付费模式 0 按量计费 , 1 包年包月</li>
 <li>OrderStatus 订单状态 1 正常 2 隔离 3 销毁</li>
+<li>DealNames 子订单号,最大长度10个,超出会失败</li>
      */
     public void setFilters(Filters [] Filters) {
         this.Filters = Filters;
@@ -154,6 +174,38 @@ public class DescribeLicenseListRequest extends AbstractModel{
         this.Tags = Tags;
     }
 
+    /**
+     * Get ASC 正序,  DESC 倒序 
+     * @return Order ASC 正序,  DESC 倒序
+     */
+    public String getOrder() {
+        return this.Order;
+    }
+
+    /**
+     * Set ASC 正序,  DESC 倒序
+     * @param Order ASC 正序,  DESC 倒序
+     */
+    public void setOrder(String Order) {
+        this.Order = Order;
+    }
+
+    /**
+     * Get LicenseCnt 授权数量 
+     * @return By LicenseCnt 授权数量
+     */
+    public String getBy() {
+        return this.By;
+    }
+
+    /**
+     * Set LicenseCnt 授权数量
+     * @param By LicenseCnt 授权数量
+     */
+    public void setBy(String By) {
+        this.By = By;
+    }
+
     public DescribeLicenseListRequest() {
     }
 
@@ -180,6 +232,12 @@ public class DescribeLicenseListRequest extends AbstractModel{
                 this.Tags[i] = new Tags(source.Tags[i]);
             }
         }
+        if (source.Order != null) {
+            this.Order = new String(source.Order);
+        }
+        if (source.By != null) {
+            this.By = new String(source.By);
+        }
     }
 
 
@@ -191,6 +249,8 @@ public class DescribeLicenseListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "Order", this.Order);
+        this.setParamSimple(map, prefix + "By", this.By);
 
     }
 }

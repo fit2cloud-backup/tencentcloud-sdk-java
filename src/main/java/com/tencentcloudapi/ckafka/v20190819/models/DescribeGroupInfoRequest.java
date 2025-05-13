@@ -16,53 +16,54 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGroupInfoRequest extends AbstractModel{
+public class DescribeGroupInfoRequest extends AbstractModel {
 
     /**
-    * （过滤条件）按照实例 ID 过滤。
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * Kafka 消费分组，Consumer-group，这里是数组形式，格式：GroupList.0=xxx&GroupList.1=yyy。
+    * Kafka 消费分组列表
     */
     @SerializedName("GroupList")
     @Expose
     private String [] GroupList;
 
     /**
-     * Get （过滤条件）按照实例 ID 过滤。 
-     * @return InstanceId （过滤条件）按照实例 ID 过滤。
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set （过滤条件）按照实例 ID 过滤。
-     * @param InstanceId （过滤条件）按照实例 ID 过滤。
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get Kafka 消费分组，Consumer-group，这里是数组形式，格式：GroupList.0=xxx&GroupList.1=yyy。 
-     * @return GroupList Kafka 消费分组，Consumer-group，这里是数组形式，格式：GroupList.0=xxx&GroupList.1=yyy。
+     * Get Kafka 消费分组列表 
+     * @return GroupList Kafka 消费分组列表
      */
     public String [] getGroupList() {
         return this.GroupList;
     }
 
     /**
-     * Set Kafka 消费分组，Consumer-group，这里是数组形式，格式：GroupList.0=xxx&GroupList.1=yyy。
-     * @param GroupList Kafka 消费分组，Consumer-group，这里是数组形式，格式：GroupList.0=xxx&GroupList.1=yyy。
+     * Set Kafka 消费分组列表
+     * @param GroupList Kafka 消费分组列表
      */
     public void setGroupList(String [] GroupList) {
         this.GroupList = GroupList;

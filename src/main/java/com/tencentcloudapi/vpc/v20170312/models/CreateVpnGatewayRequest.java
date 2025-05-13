@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateVpnGatewayRequest extends AbstractModel{
+public class CreateVpnGatewayRequest extends AbstractModel {
 
     /**
     * VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。
@@ -91,6 +92,13 @@ public class CreateVpnGatewayRequest extends AbstractModel{
     @SerializedName("MaxConnection")
     @Expose
     private Long MaxConnection;
+
+    /**
+    * BGP ASN。
+    */
+    @SerializedName("BgpAsn")
+    @Expose
+    private Long BgpAsn;
 
     /**
      * Get VPC实例ID。可通过[DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)接口返回值中的VpcId获取。 
@@ -252,6 +260,22 @@ public class CreateVpnGatewayRequest extends AbstractModel{
         this.MaxConnection = MaxConnection;
     }
 
+    /**
+     * Get BGP ASN。 
+     * @return BgpAsn BGP ASN。
+     */
+    public Long getBgpAsn() {
+        return this.BgpAsn;
+    }
+
+    /**
+     * Set BGP ASN。
+     * @param BgpAsn BGP ASN。
+     */
+    public void setBgpAsn(Long BgpAsn) {
+        this.BgpAsn = BgpAsn;
+    }
+
     public CreateVpnGatewayRequest() {
     }
 
@@ -293,6 +317,9 @@ public class CreateVpnGatewayRequest extends AbstractModel{
         if (source.MaxConnection != null) {
             this.MaxConnection = new Long(source.MaxConnection);
         }
+        if (source.BgpAsn != null) {
+            this.BgpAsn = new Long(source.BgpAsn);
+        }
     }
 
 
@@ -310,6 +337,7 @@ public class CreateVpnGatewayRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "CdcId", this.CdcId);
         this.setParamSimple(map, prefix + "MaxConnection", this.MaxConnection);
+        this.setParamSimple(map, prefix + "BgpAsn", this.BgpAsn);
 
     }
 }

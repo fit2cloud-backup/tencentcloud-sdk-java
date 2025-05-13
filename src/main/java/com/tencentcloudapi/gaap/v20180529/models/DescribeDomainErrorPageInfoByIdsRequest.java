@@ -16,30 +16,31 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDomainErrorPageInfoByIdsRequest extends AbstractModel{
+public class DescribeDomainErrorPageInfoByIdsRequest extends AbstractModel {
 
     /**
-    * 定制错误ID列表,最多支持10个
+    * 定制错误ID列表，最多支持10个
     */
     @SerializedName("ErrorPageIds")
     @Expose
     private String [] ErrorPageIds;
 
     /**
-     * Get 定制错误ID列表,最多支持10个 
-     * @return ErrorPageIds 定制错误ID列表,最多支持10个
+     * Get 定制错误ID列表，最多支持10个 
+     * @return ErrorPageIds 定制错误ID列表，最多支持10个
      */
     public String [] getErrorPageIds() {
         return this.ErrorPageIds;
     }
 
     /**
-     * Set 定制错误ID列表,最多支持10个
-     * @param ErrorPageIds 定制错误ID列表,最多支持10个
+     * Set 定制错误ID列表，最多支持10个
+     * @param ErrorPageIds 定制错误ID列表，最多支持10个
      */
     public void setErrorPageIds(String [] ErrorPageIds) {
         this.ErrorPageIds = ErrorPageIds;

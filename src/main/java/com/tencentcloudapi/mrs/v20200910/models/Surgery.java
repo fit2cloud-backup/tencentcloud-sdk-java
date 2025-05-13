@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Surgery extends AbstractModel{
+public class Surgery extends AbstractModel {
 
     /**
     * 手术史
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SurgeryHistory")
     @Expose
@@ -32,17 +32,21 @@ public class Surgery extends AbstractModel{
 
     /**
     * 其他信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OtherInfo")
     @Expose
     private OtherInfo OtherInfo;
 
     /**
-     * Get 手术史
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 手术史 
      * @return SurgeryHistory 手术史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryHistory getSurgeryHistory() {
         return this.SurgeryHistory;
@@ -50,19 +54,15 @@ public class Surgery extends AbstractModel{
 
     /**
      * Set 手术史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SurgeryHistory 手术史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSurgeryHistory(SurgeryHistory SurgeryHistory) {
         this.SurgeryHistory = SurgeryHistory;
     }
 
     /**
-     * Get 其他信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 其他信息 
      * @return OtherInfo 其他信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OtherInfo getOtherInfo() {
         return this.OtherInfo;
@@ -70,12 +70,26 @@ public class Surgery extends AbstractModel{
 
     /**
      * Set 其他信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OtherInfo 其他信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOtherInfo(OtherInfo OtherInfo) {
         this.OtherInfo = OtherInfo;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public Surgery() {
@@ -92,6 +106,9 @@ public class Surgery extends AbstractModel{
         if (source.OtherInfo != null) {
             this.OtherInfo = new OtherInfo(source.OtherInfo);
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -101,6 +118,7 @@ public class Surgery extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "SurgeryHistory.", this.SurgeryHistory);
         this.setParamObj(map, prefix + "OtherInfo.", this.OtherInfo);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

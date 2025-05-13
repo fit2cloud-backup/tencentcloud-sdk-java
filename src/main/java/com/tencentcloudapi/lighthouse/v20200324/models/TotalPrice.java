@@ -16,15 +16,15 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TotalPrice extends AbstractModel{
+public class TotalPrice extends AbstractModel {
 
     /**
     * 原始总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OriginalPrice")
     @Expose
@@ -32,17 +32,14 @@ public class TotalPrice extends AbstractModel{
 
     /**
     * 折扣总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DiscountPrice")
     @Expose
     private Float DiscountPrice;
 
     /**
-     * Get 原始总计价格。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原始总计价格。 
      * @return OriginalPrice 原始总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getOriginalPrice() {
         return this.OriginalPrice;
@@ -50,19 +47,15 @@ public class TotalPrice extends AbstractModel{
 
     /**
      * Set 原始总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OriginalPrice 原始总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOriginalPrice(Float OriginalPrice) {
         this.OriginalPrice = OriginalPrice;
     }
 
     /**
-     * Get 折扣总计价格。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 折扣总计价格。 
      * @return DiscountPrice 折扣总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getDiscountPrice() {
         return this.DiscountPrice;
@@ -70,9 +63,7 @@ public class TotalPrice extends AbstractModel{
 
     /**
      * Set 折扣总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DiscountPrice 折扣总计价格。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiscountPrice(Float DiscountPrice) {
         this.DiscountPrice = DiscountPrice;

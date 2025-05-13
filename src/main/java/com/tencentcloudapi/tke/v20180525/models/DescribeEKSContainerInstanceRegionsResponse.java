@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeEKSContainerInstanceRegionsResponse extends AbstractModel{
+public class DescribeEKSContainerInstanceRegionsResponse extends AbstractModel {
 
     /**
     * EKS Container Instance支持的地域信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Regions")
     @Expose
@@ -38,17 +38,15 @@ public class DescribeEKSContainerInstanceRegionsResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get EKS Container Instance支持的地域信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get EKS Container Instance支持的地域信息 
      * @return Regions EKS Container Instance支持的地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EksCiRegionInfo [] getRegions() {
         return this.Regions;
@@ -56,9 +54,7 @@ public class DescribeEKSContainerInstanceRegionsResponse extends AbstractModel{
 
     /**
      * Set EKS Container Instance支持的地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Regions EKS Container Instance支持的地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegions(EksCiRegionInfo [] Regions) {
         this.Regions = Regions;
@@ -81,16 +77,16 @@ public class DescribeEKSContainerInstanceRegionsResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

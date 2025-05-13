@@ -16,53 +16,54 @@
 package com.tencentcloudapi.facefusion.v20181201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MetaData extends AbstractModel{
+public class MetaData extends AbstractModel {
 
     /**
-    * MetaData的Key
+    * MetaData的Key，长度不能超过32。
     */
     @SerializedName("MetaKey")
     @Expose
     private String MetaKey;
 
     /**
-    * MetaData的Value
+    * MetaData的Value，长度不能超过256。
     */
     @SerializedName("MetaValue")
     @Expose
     private String MetaValue;
 
     /**
-     * Get MetaData的Key 
-     * @return MetaKey MetaData的Key
+     * Get MetaData的Key，长度不能超过32。 
+     * @return MetaKey MetaData的Key，长度不能超过32。
      */
     public String getMetaKey() {
         return this.MetaKey;
     }
 
     /**
-     * Set MetaData的Key
-     * @param MetaKey MetaData的Key
+     * Set MetaData的Key，长度不能超过32。
+     * @param MetaKey MetaData的Key，长度不能超过32。
      */
     public void setMetaKey(String MetaKey) {
         this.MetaKey = MetaKey;
     }
 
     /**
-     * Get MetaData的Value 
-     * @return MetaValue MetaData的Value
+     * Get MetaData的Value，长度不能超过256。 
+     * @return MetaValue MetaData的Value，长度不能超过256。
      */
     public String getMetaValue() {
         return this.MetaValue;
     }
 
     /**
-     * Set MetaData的Value
-     * @param MetaValue MetaData的Value
+     * Set MetaData的Value，长度不能超过256。
+     * @param MetaValue MetaData的Value，长度不能超过256。
      */
     public void setMetaValue(String MetaValue) {
         this.MetaValue = MetaValue;

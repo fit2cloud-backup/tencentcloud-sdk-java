@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WorkloadStatus extends AbstractModel{
+public class WorkloadStatus extends AbstractModel {
 
     /**
     * 当前实例数
@@ -210,7 +211,9 @@ Stopping 停止中
     /**
      * Get 工作负载的状况信息 
      * @return StatefulSetCondition 工作负载的状况信息
+     * @deprecated
      */
+    @Deprecated
     public StatefulSetCondition [] getStatefulSetCondition() {
         return this.StatefulSetCondition;
     }
@@ -218,7 +221,9 @@ Stopping 停止中
     /**
      * Set 工作负载的状况信息
      * @param StatefulSetCondition 工作负载的状况信息
+     * @deprecated
      */
+    @Deprecated
     public void setStatefulSetCondition(StatefulSetCondition [] StatefulSetCondition) {
         this.StatefulSetCondition = StatefulSetCondition;
     }

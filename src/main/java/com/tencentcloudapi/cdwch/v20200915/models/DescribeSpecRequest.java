@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSpecRequest extends AbstractModel{
+public class DescribeSpecRequest extends AbstractModel {
 
     /**
     * 地域信息，例如"ap-guangzhou-1"
@@ -42,6 +43,13 @@ public class DescribeSpecRequest extends AbstractModel{
     @SerializedName("IsElastic")
     @Expose
     private Boolean IsElastic;
+
+    /**
+    * 是否是购买页面需要的spec
+    */
+    @SerializedName("CaseType")
+    @Expose
+    private Long CaseType;
 
     /**
      * Get 地域信息，例如"ap-guangzhou-1" 
@@ -91,6 +99,22 @@ public class DescribeSpecRequest extends AbstractModel{
         this.IsElastic = IsElastic;
     }
 
+    /**
+     * Get 是否是购买页面需要的spec 
+     * @return CaseType 是否是购买页面需要的spec
+     */
+    public Long getCaseType() {
+        return this.CaseType;
+    }
+
+    /**
+     * Set 是否是购买页面需要的spec
+     * @param CaseType 是否是购买页面需要的spec
+     */
+    public void setCaseType(Long CaseType) {
+        this.CaseType = CaseType;
+    }
+
     public DescribeSpecRequest() {
     }
 
@@ -108,6 +132,9 @@ public class DescribeSpecRequest extends AbstractModel{
         if (source.IsElastic != null) {
             this.IsElastic = new Boolean(source.IsElastic);
         }
+        if (source.CaseType != null) {
+            this.CaseType = new Long(source.CaseType);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class DescribeSpecRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "IsElastic", this.IsElastic);
+        this.setParamSimple(map, prefix + "CaseType", this.CaseType);
 
     }
 }

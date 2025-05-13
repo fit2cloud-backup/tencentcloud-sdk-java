@@ -16,28 +16,29 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyRuleRequest extends AbstractModel{
+public class ModifyRuleRequest extends AbstractModel {
 
     /**
-    * 负载均衡实例 ID。
+    * 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
     */
     @SerializedName("LoadBalancerId")
     @Expose
     private String LoadBalancerId;
 
     /**
-    * 负载均衡监听器 ID。
+    * 负载均衡监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
     */
     @SerializedName("ListenerId")
     @Expose
     private String ListenerId;
 
     /**
-    * 要修改的转发规则的 ID。
+    * 要修改的转发规则的 ID， 可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
     */
     @SerializedName("LocationId")
     @Expose
@@ -66,14 +67,15 @@ public class ModifyRuleRequest extends AbstractModel{
     private String Scheduler;
 
     /**
-    * 会话保持时间。
+    * 会话保持时间。取值范围0或30-86400（单位：秒）。
+默认为0。
     */
     @SerializedName("SessionExpireTime")
     @Expose
     private Long SessionExpireTime;
 
     /**
-    * 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、TRPC。
+    * 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、GRPC。仅HTTPS监听器该参数有效。
     */
     @SerializedName("ForwardType")
     @Expose
@@ -94,48 +96,55 @@ public class ModifyRuleRequest extends AbstractModel{
     private String TrpcFunc;
 
     /**
-     * Get 负载均衡实例 ID。 
-     * @return LoadBalancerId 负载均衡实例 ID。
+    * OAuth配置信息。
+    */
+    @SerializedName("OAuth")
+    @Expose
+    private OAuth OAuth;
+
+    /**
+     * Get 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。 
+     * @return LoadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
      */
     public String getLoadBalancerId() {
         return this.LoadBalancerId;
     }
 
     /**
-     * Set 负载均衡实例 ID。
-     * @param LoadBalancerId 负载均衡实例 ID。
+     * Set 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
+     * @param LoadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
      */
     public void setLoadBalancerId(String LoadBalancerId) {
         this.LoadBalancerId = LoadBalancerId;
     }
 
     /**
-     * Get 负载均衡监听器 ID。 
-     * @return ListenerId 负载均衡监听器 ID。
+     * Get 负载均衡监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。 
+     * @return ListenerId 负载均衡监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
      */
     public String getListenerId() {
         return this.ListenerId;
     }
 
     /**
-     * Set 负载均衡监听器 ID。
-     * @param ListenerId 负载均衡监听器 ID。
+     * Set 负载均衡监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
+     * @param ListenerId 负载均衡监听器 ID，可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
      */
     public void setListenerId(String ListenerId) {
         this.ListenerId = ListenerId;
     }
 
     /**
-     * Get 要修改的转发规则的 ID。 
-     * @return LocationId 要修改的转发规则的 ID。
+     * Get 要修改的转发规则的 ID， 可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。 
+     * @return LocationId 要修改的转发规则的 ID， 可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
      */
     public String getLocationId() {
         return this.LocationId;
     }
 
     /**
-     * Set 要修改的转发规则的 ID。
-     * @param LocationId 要修改的转发规则的 ID。
+     * Set 要修改的转发规则的 ID， 可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
+     * @param LocationId 要修改的转发规则的 ID， 可以通过 [DescribeListeners](https://cloud.tencent.com/document/product/214/30686) 接口获取。
      */
     public void setLocationId(String LocationId) {
         this.LocationId = LocationId;
@@ -194,32 +203,36 @@ public class ModifyRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 会话保持时间。 
-     * @return SessionExpireTime 会话保持时间。
+     * Get 会话保持时间。取值范围0或30-86400（单位：秒）。
+默认为0。 
+     * @return SessionExpireTime 会话保持时间。取值范围0或30-86400（单位：秒）。
+默认为0。
      */
     public Long getSessionExpireTime() {
         return this.SessionExpireTime;
     }
 
     /**
-     * Set 会话保持时间。
-     * @param SessionExpireTime 会话保持时间。
+     * Set 会话保持时间。取值范围0或30-86400（单位：秒）。
+默认为0。
+     * @param SessionExpireTime 会话保持时间。取值范围0或30-86400（单位：秒）。
+默认为0。
      */
     public void setSessionExpireTime(Long SessionExpireTime) {
         this.SessionExpireTime = SessionExpireTime;
     }
 
     /**
-     * Get 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、TRPC。 
-     * @return ForwardType 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、TRPC。
+     * Get 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、GRPC。仅HTTPS监听器该参数有效。 
+     * @return ForwardType 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、GRPC。仅HTTPS监听器该参数有效。
      */
     public String getForwardType() {
         return this.ForwardType;
     }
 
     /**
-     * Set 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、TRPC。
-     * @param ForwardType 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、TRPC。
+     * Set 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、GRPC。仅HTTPS监听器该参数有效。
+     * @param ForwardType 负载均衡实例与后端服务之间的转发协议，默认HTTP，可取值：HTTP、HTTPS、GRPC。仅HTTPS监听器该参数有效。
      */
     public void setForwardType(String ForwardType) {
         this.ForwardType = ForwardType;
@@ -255,6 +268,22 @@ public class ModifyRuleRequest extends AbstractModel{
      */
     public void setTrpcFunc(String TrpcFunc) {
         this.TrpcFunc = TrpcFunc;
+    }
+
+    /**
+     * Get OAuth配置信息。 
+     * @return OAuth OAuth配置信息。
+     */
+    public OAuth getOAuth() {
+        return this.OAuth;
+    }
+
+    /**
+     * Set OAuth配置信息。
+     * @param OAuth OAuth配置信息。
+     */
+    public void setOAuth(OAuth OAuth) {
+        this.OAuth = OAuth;
     }
 
     public ModifyRuleRequest() {
@@ -295,6 +324,9 @@ public class ModifyRuleRequest extends AbstractModel{
         if (source.TrpcFunc != null) {
             this.TrpcFunc = new String(source.TrpcFunc);
         }
+        if (source.OAuth != null) {
+            this.OAuth = new OAuth(source.OAuth);
+        }
     }
 
 
@@ -312,6 +344,7 @@ public class ModifyRuleRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ForwardType", this.ForwardType);
         this.setParamSimple(map, prefix + "TrpcCallee", this.TrpcCallee);
         this.setParamSimple(map, prefix + "TrpcFunc", this.TrpcFunc);
+        this.setParamObj(map, prefix + "OAuth.", this.OAuth);
 
     }
 }

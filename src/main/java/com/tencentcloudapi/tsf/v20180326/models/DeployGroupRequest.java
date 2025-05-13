@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeployGroupRequest extends AbstractModel{
+public class DeployGroupRequest extends AbstractModel {
 
     /**
     * 部署组ID
@@ -93,7 +94,7 @@ public class DeployGroupRequest extends AbstractModel{
     private Float [] DeployBatch;
 
     /**
-    * 滚动发布的执行方式
+    * 滚动发布的执行方式，auto表示自动， manual表示手动
     */
     @SerializedName("DeployExeMode")
     @Expose
@@ -135,7 +136,8 @@ public class DeployGroupRequest extends AbstractModel{
     private String JdkName;
 
     /**
-    * JDK版本: 8或11 (openJDK只支持8)
+    * konaJDK版本：8、11和17
+openJDK版本：8、17
     */
     @SerializedName("JdkVersion")
     @Expose
@@ -323,16 +325,16 @@ public class DeployGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 滚动发布的执行方式 
-     * @return DeployExeMode 滚动发布的执行方式
+     * Get 滚动发布的执行方式，auto表示自动， manual表示手动 
+     * @return DeployExeMode 滚动发布的执行方式，auto表示自动， manual表示手动
      */
     public String getDeployExeMode() {
         return this.DeployExeMode;
     }
 
     /**
-     * Set 滚动发布的执行方式
-     * @param DeployExeMode 滚动发布的执行方式
+     * Set 滚动发布的执行方式，auto表示自动， manual表示手动
+     * @param DeployExeMode 滚动发布的执行方式，auto表示自动， manual表示手动
      */
     public void setDeployExeMode(String DeployExeMode) {
         this.DeployExeMode = DeployExeMode;
@@ -419,16 +421,20 @@ public class DeployGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get JDK版本: 8或11 (openJDK只支持8) 
-     * @return JdkVersion JDK版本: 8或11 (openJDK只支持8)
+     * Get konaJDK版本：8、11和17
+openJDK版本：8、17 
+     * @return JdkVersion konaJDK版本：8、11和17
+openJDK版本：8、17
      */
     public String getJdkVersion() {
         return this.JdkVersion;
     }
 
     /**
-     * Set JDK版本: 8或11 (openJDK只支持8)
-     * @param JdkVersion JDK版本: 8或11 (openJDK只支持8)
+     * Set konaJDK版本：8、11和17
+openJDK版本：8、17
+     * @param JdkVersion konaJDK版本：8、11和17
+openJDK版本：8、17
      */
     public void setJdkVersion(String JdkVersion) {
         this.JdkVersion = JdkVersion;

@@ -16,16 +16,16 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StrategyConfig extends AbstractModel{
+public class StrategyConfig extends AbstractModel {
 
     /**
     * 0:关闭滚动重启
 1:开启滚动启动
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RollingRestartSwitch")
     @Expose
@@ -33,7 +33,6 @@ public class StrategyConfig extends AbstractModel{
 
     /**
     * 滚动重启每批次的重启数量，最大重启台数为 99999 台
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BatchSize")
     @Expose
@@ -41,7 +40,6 @@ public class StrategyConfig extends AbstractModel{
 
     /**
     * 滚动重启每批停止等待时间 ,最大间隔为 5 分钟 单位是秒
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeWait")
     @Expose
@@ -49,19 +47,24 @@ public class StrategyConfig extends AbstractModel{
 
     /**
     * 操作失败处理策略，0:失败阻塞, 1:失败自动跳过
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DealOnFail")
     @Expose
     private Long DealOnFail;
 
     /**
+    * 指令需要指定的参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Args")
+    @Expose
+    private Arg [] Args;
+
+    /**
      * Get 0:关闭滚动重启
-1:开启滚动启动
-注意：此字段可能返回 null，表示取不到有效值。 
+1:开启滚动启动 
      * @return RollingRestartSwitch 0:关闭滚动重启
 1:开启滚动启动
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRollingRestartSwitch() {
         return this.RollingRestartSwitch;
@@ -70,20 +73,16 @@ public class StrategyConfig extends AbstractModel{
     /**
      * Set 0:关闭滚动重启
 1:开启滚动启动
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RollingRestartSwitch 0:关闭滚动重启
 1:开启滚动启动
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRollingRestartSwitch(Long RollingRestartSwitch) {
         this.RollingRestartSwitch = RollingRestartSwitch;
     }
 
     /**
-     * Get 滚动重启每批次的重启数量，最大重启台数为 99999 台
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 滚动重启每批次的重启数量，最大重启台数为 99999 台 
      * @return BatchSize 滚动重启每批次的重启数量，最大重启台数为 99999 台
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBatchSize() {
         return this.BatchSize;
@@ -91,19 +90,15 @@ public class StrategyConfig extends AbstractModel{
 
     /**
      * Set 滚动重启每批次的重启数量，最大重启台数为 99999 台
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BatchSize 滚动重启每批次的重启数量，最大重启台数为 99999 台
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBatchSize(Long BatchSize) {
         this.BatchSize = BatchSize;
     }
 
     /**
-     * Get 滚动重启每批停止等待时间 ,最大间隔为 5 分钟 单位是秒
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 滚动重启每批停止等待时间 ,最大间隔为 5 分钟 单位是秒 
      * @return TimeWait 滚动重启每批停止等待时间 ,最大间隔为 5 分钟 单位是秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTimeWait() {
         return this.TimeWait;
@@ -111,19 +106,15 @@ public class StrategyConfig extends AbstractModel{
 
     /**
      * Set 滚动重启每批停止等待时间 ,最大间隔为 5 分钟 单位是秒
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeWait 滚动重启每批停止等待时间 ,最大间隔为 5 分钟 单位是秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeWait(Long TimeWait) {
         this.TimeWait = TimeWait;
     }
 
     /**
-     * Get 操作失败处理策略，0:失败阻塞, 1:失败自动跳过
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作失败处理策略，0:失败阻塞, 1:失败自动跳过 
      * @return DealOnFail 操作失败处理策略，0:失败阻塞, 1:失败自动跳过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDealOnFail() {
         return this.DealOnFail;
@@ -131,12 +122,30 @@ public class StrategyConfig extends AbstractModel{
 
     /**
      * Set 操作失败处理策略，0:失败阻塞, 1:失败自动跳过
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DealOnFail 操作失败处理策略，0:失败阻塞, 1:失败自动跳过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDealOnFail(Long DealOnFail) {
         this.DealOnFail = DealOnFail;
+    }
+
+    /**
+     * Get 指令需要指定的参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Args 指令需要指定的参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Arg [] getArgs() {
+        return this.Args;
+    }
+
+    /**
+     * Set 指令需要指定的参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Args 指令需要指定的参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setArgs(Arg [] Args) {
+        this.Args = Args;
     }
 
     public StrategyConfig() {
@@ -159,6 +168,12 @@ public class StrategyConfig extends AbstractModel{
         if (source.DealOnFail != null) {
             this.DealOnFail = new Long(source.DealOnFail);
         }
+        if (source.Args != null) {
+            this.Args = new Arg[source.Args.length];
+            for (int i = 0; i < source.Args.length; i++) {
+                this.Args[i] = new Arg(source.Args[i]);
+            }
+        }
     }
 
 
@@ -170,6 +185,7 @@ public class StrategyConfig extends AbstractModel{
         this.setParamSimple(map, prefix + "BatchSize", this.BatchSize);
         this.setParamSimple(map, prefix + "TimeWait", this.TimeWait);
         this.setParamSimple(map, prefix + "DealOnFail", this.DealOnFail);
+        this.setParamArrayObj(map, prefix + "Args.", this.Args);
 
     }
 }

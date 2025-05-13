@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BackupStorageLocation extends AbstractModel{
+public class BackupStorageLocation extends AbstractModel {
 
     /**
     * 备份仓库名称	
@@ -38,7 +39,6 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
     * 存储服务提供方，默认腾讯云	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Provider")
     @Expose
@@ -46,7 +46,6 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
     * 对象存储桶名称，如果是COS必须是tke-backup-前缀开头	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Bucket")
     @Expose
@@ -54,7 +53,6 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
     * 对象存储桶路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Path")
     @Expose
@@ -62,7 +60,6 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
     * 存储仓库状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("State")
     @Expose
@@ -70,7 +67,6 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
     * 详细状态信息	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -78,7 +74,6 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
     * 最后一次检查时间	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastValidationTime")
     @Expose
@@ -117,10 +112,8 @@ public class BackupStorageLocation extends AbstractModel{
     }
 
     /**
-     * Get 存储服务提供方，默认腾讯云	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储服务提供方，默认腾讯云	 
      * @return Provider 存储服务提供方，默认腾讯云	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProvider() {
         return this.Provider;
@@ -128,19 +121,15 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
      * Set 存储服务提供方，默认腾讯云	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Provider 存储服务提供方，默认腾讯云	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProvider(String Provider) {
         this.Provider = Provider;
     }
 
     /**
-     * Get 对象存储桶名称，如果是COS必须是tke-backup-前缀开头	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对象存储桶名称，如果是COS必须是tke-backup-前缀开头	 
      * @return Bucket 对象存储桶名称，如果是COS必须是tke-backup-前缀开头	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucket() {
         return this.Bucket;
@@ -148,19 +137,15 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
      * Set 对象存储桶名称，如果是COS必须是tke-backup-前缀开头	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Bucket 对象存储桶名称，如果是COS必须是tke-backup-前缀开头	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucket(String Bucket) {
         this.Bucket = Bucket;
     }
 
     /**
-     * Get 对象存储桶路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对象存储桶路径 
      * @return Path 对象存储桶路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPath() {
         return this.Path;
@@ -168,19 +153,15 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
      * Set 对象存储桶路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Path 对象存储桶路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPath(String Path) {
         this.Path = Path;
     }
 
     /**
-     * Get 存储仓库状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储仓库状态 
      * @return State 存储仓库状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getState() {
         return this.State;
@@ -188,19 +169,15 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
      * Set 存储仓库状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param State 存储仓库状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setState(String State) {
         this.State = State;
     }
 
     /**
-     * Get 详细状态信息	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 详细状态信息	 
      * @return Message 详细状态信息	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -208,19 +185,15 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
      * Set 详细状态信息	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message 详细状态信息	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;
     }
 
     /**
-     * Get 最后一次检查时间	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最后一次检查时间	 
      * @return LastValidationTime 最后一次检查时间	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastValidationTime() {
         return this.LastValidationTime;
@@ -228,9 +201,7 @@ public class BackupStorageLocation extends AbstractModel{
 
     /**
      * Set 最后一次检查时间	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastValidationTime 最后一次检查时间	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastValidationTime(String LastValidationTime) {
         this.LastValidationTime = LastValidationTime;

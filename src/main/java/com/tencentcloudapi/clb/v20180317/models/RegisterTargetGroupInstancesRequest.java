@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegisterTargetGroupInstancesRequest extends AbstractModel{
+public class RegisterTargetGroupInstancesRequest extends AbstractModel {
 
     /**
     * 目标组ID
@@ -30,7 +31,7 @@ public class RegisterTargetGroupInstancesRequest extends AbstractModel{
     private String TargetGroupId;
 
     /**
-    * 服务器实例数组
+    * 服务器实例数组，服务器和目标组的 VPC 需相同。
     */
     @SerializedName("TargetGroupInstances")
     @Expose
@@ -53,16 +54,16 @@ public class RegisterTargetGroupInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 服务器实例数组 
-     * @return TargetGroupInstances 服务器实例数组
+     * Get 服务器实例数组，服务器和目标组的 VPC 需相同。 
+     * @return TargetGroupInstances 服务器实例数组，服务器和目标组的 VPC 需相同。
      */
     public TargetGroupInstance [] getTargetGroupInstances() {
         return this.TargetGroupInstances;
     }
 
     /**
-     * Set 服务器实例数组
-     * @param TargetGroupInstances 服务器实例数组
+     * Set 服务器实例数组，服务器和目标组的 VPC 需相同。
+     * @param TargetGroupInstances 服务器实例数组，服务器和目标组的 VPC 需相同。
      */
     public void setTargetGroupInstances(TargetGroupInstance [] TargetGroupInstances) {
         this.TargetGroupInstances = TargetGroupInstances;

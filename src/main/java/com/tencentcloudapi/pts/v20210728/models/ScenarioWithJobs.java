@@ -16,15 +16,15 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScenarioWithJobs extends AbstractModel{
+public class ScenarioWithJobs extends AbstractModel {
 
     /**
     * scecario结果
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Scenario")
     @Expose
@@ -39,10 +39,8 @@ public class ScenarioWithJobs extends AbstractModel{
     private Job [] Jobs;
 
     /**
-     * Get scecario结果
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get scecario结果 
      * @return Scenario scecario结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Scenario getScenario() {
         return this.Scenario;
@@ -50,9 +48,7 @@ public class ScenarioWithJobs extends AbstractModel{
 
     /**
      * Set scecario结果
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Scenario scecario结果
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScenario(Scenario Scenario) {
         this.Scenario = Scenario;

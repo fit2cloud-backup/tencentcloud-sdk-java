@@ -16,17 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExportBaselineItemDetectListRequest extends AbstractModel{
+public class ExportBaselineItemDetectListRequest extends AbstractModel {
 
     /**
-    * <li>HostId - string - 是否必填：否 - 主机Id</i>
-<li>RuleId - int64 - 是否必填：否 - 规则Id</i>
-<li>IsPassed - int - 是否必填：否 - 是否通过</li>
-<li>RiskTier - int - 是否必填：否 - 风险等级</li>
+    * <li>HostId - string - 是否必填：否 - 主机Id</li><li>RuleId - int64 - 是否必填：否 - 规则Id</li><li>IsPassed - int - 是否必填：否 - 是否通过</li><li>RiskTier - int - 是否必填：否 - 风险等级</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -40,28 +38,23 @@ public class ExportBaselineItemDetectListRequest extends AbstractModel{
     private Long ExportAll;
 
     /**
-     * Get <li>HostId - string - 是否必填：否 - 主机Id</i>
-<li>RuleId - int64 - 是否必填：否 - 规则Id</i>
-<li>IsPassed - int - 是否必填：否 - 是否通过</li>
-<li>RiskTier - int - 是否必填：否 - 风险等级</li> 
-     * @return Filters <li>HostId - string - 是否必填：否 - 主机Id</i>
-<li>RuleId - int64 - 是否必填：否 - 规则Id</i>
-<li>IsPassed - int - 是否必填：否 - 是否通过</li>
-<li>RiskTier - int - 是否必填：否 - 风险等级</li>
+    * 0:导出界面展示；1:导出全部结果事件
+    */
+    @SerializedName("IsExportDetail")
+    @Expose
+    private Long IsExportDetail;
+
+    /**
+     * Get <li>HostId - string - 是否必填：否 - 主机Id</li><li>RuleId - int64 - 是否必填：否 - 规则Id</li><li>IsPassed - int - 是否必填：否 - 是否通过</li><li>RiskTier - int - 是否必填：否 - 风险等级</li> 
+     * @return Filters <li>HostId - string - 是否必填：否 - 主机Id</li><li>RuleId - int64 - 是否必填：否 - 规则Id</li><li>IsPassed - int - 是否必填：否 - 是否通过</li><li>RiskTier - int - 是否必填：否 - 风险等级</li>
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set <li>HostId - string - 是否必填：否 - 主机Id</i>
-<li>RuleId - int64 - 是否必填：否 - 规则Id</i>
-<li>IsPassed - int - 是否必填：否 - 是否通过</li>
-<li>RiskTier - int - 是否必填：否 - 风险等级</li>
-     * @param Filters <li>HostId - string - 是否必填：否 - 主机Id</i>
-<li>RuleId - int64 - 是否必填：否 - 规则Id</i>
-<li>IsPassed - int - 是否必填：否 - 是否通过</li>
-<li>RiskTier - int - 是否必填：否 - 风险等级</li>
+     * Set <li>HostId - string - 是否必填：否 - 主机Id</li><li>RuleId - int64 - 是否必填：否 - 规则Id</li><li>IsPassed - int - 是否必填：否 - 是否通过</li><li>RiskTier - int - 是否必填：否 - 风险等级</li>
+     * @param Filters <li>HostId - string - 是否必填：否 - 主机Id</li><li>RuleId - int64 - 是否必填：否 - 规则Id</li><li>IsPassed - int - 是否必填：否 - 是否通过</li><li>RiskTier - int - 是否必填：否 - 风险等级</li>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;
@@ -83,6 +76,22 @@ public class ExportBaselineItemDetectListRequest extends AbstractModel{
         this.ExportAll = ExportAll;
     }
 
+    /**
+     * Get 0:导出界面展示；1:导出全部结果事件 
+     * @return IsExportDetail 0:导出界面展示；1:导出全部结果事件
+     */
+    public Long getIsExportDetail() {
+        return this.IsExportDetail;
+    }
+
+    /**
+     * Set 0:导出界面展示；1:导出全部结果事件
+     * @param IsExportDetail 0:导出界面展示；1:导出全部结果事件
+     */
+    public void setIsExportDetail(Long IsExportDetail) {
+        this.IsExportDetail = IsExportDetail;
+    }
+
     public ExportBaselineItemDetectListRequest() {
     }
 
@@ -100,6 +109,9 @@ public class ExportBaselineItemDetectListRequest extends AbstractModel{
         if (source.ExportAll != null) {
             this.ExportAll = new Long(source.ExportAll);
         }
+        if (source.IsExportDetail != null) {
+            this.IsExportDetail = new Long(source.IsExportDetail);
+        }
     }
 
 
@@ -109,6 +121,7 @@ public class ExportBaselineItemDetectListRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "ExportAll", this.ExportAll);
+        this.setParamSimple(map, prefix + "IsExportDetail", this.IsExportDetail);
 
     }
 }

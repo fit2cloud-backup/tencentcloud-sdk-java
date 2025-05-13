@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iotvideoindustry.v20201201.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GroupItem extends AbstractModel{
+public class GroupItem extends AbstractModel {
 
     /**
     * 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
     @Expose
@@ -32,7 +32,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 父分组ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParentId")
     @Expose
@@ -40,7 +39,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupId")
     @Expose
@@ -48,7 +46,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 分组路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupPath")
     @Expose
@@ -56,7 +53,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 分组描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupDescribe")
     @Expose
@@ -64,7 +60,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 分组绑定设备数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeviceNum")
     @Expose
@@ -72,7 +67,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 子分组数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubGroupNum")
     @Expose
@@ -80,7 +74,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 分组附加信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtraInformation")
     @Expose
@@ -88,7 +81,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 分组类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupType")
     @Expose
@@ -96,7 +88,6 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -104,17 +95,14 @@ public class GroupItem extends AbstractModel{
 
     /**
     * 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupStatus")
     @Expose
     private Long GroupStatus;
 
     /**
-     * Get 分组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组名称 
      * @return GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
         return this.GroupName;
@@ -122,19 +110,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;
     }
 
     /**
-     * Get 父分组ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 父分组ID 
      * @return ParentId 父分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParentId() {
         return this.ParentId;
@@ -142,19 +126,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 父分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParentId 父分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParentId(String ParentId) {
         this.ParentId = ParentId;
     }
 
     /**
-     * Get 分组ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组ID 
      * @return GroupId 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupId() {
         return this.GroupId;
@@ -162,19 +142,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupId 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
     }
 
     /**
-     * Get 分组路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组路径 
      * @return GroupPath 分组路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupPath() {
         return this.GroupPath;
@@ -182,19 +158,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupPath 分组路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupPath(String GroupPath) {
         this.GroupPath = GroupPath;
     }
 
     /**
-     * Get 分组描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组描述 
      * @return GroupDescribe 分组描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupDescribe() {
         return this.GroupDescribe;
@@ -202,19 +174,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupDescribe 分组描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupDescribe(String GroupDescribe) {
         this.GroupDescribe = GroupDescribe;
     }
 
     /**
-     * Get 分组绑定设备数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组绑定设备数 
      * @return DeviceNum 分组绑定设备数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDeviceNum() {
         return this.DeviceNum;
@@ -222,19 +190,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组绑定设备数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeviceNum 分组绑定设备数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeviceNum(Long DeviceNum) {
         this.DeviceNum = DeviceNum;
     }
 
     /**
-     * Get 子分组数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子分组数量 
      * @return SubGroupNum 子分组数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSubGroupNum() {
         return this.SubGroupNum;
@@ -242,19 +206,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 子分组数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubGroupNum 子分组数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubGroupNum(Long SubGroupNum) {
         this.SubGroupNum = SubGroupNum;
     }
 
     /**
-     * Get 分组附加信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组附加信息 
      * @return ExtraInformation 分组附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExtraInformation() {
         return this.ExtraInformation;
@@ -262,19 +222,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtraInformation 分组附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtraInformation(String ExtraInformation) {
         this.ExtraInformation = ExtraInformation;
     }
 
     /**
-     * Get 分组类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组类型 
      * @return GroupType 分组类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupType() {
         return this.GroupType;
@@ -282,19 +238,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupType 分组类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupType(String GroupType) {
         this.GroupType = GroupType;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCreateTime() {
         return this.CreateTime;
@@ -302,19 +254,15 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(Long CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 分组状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组状态 
      * @return GroupStatus 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGroupStatus() {
         return this.GroupStatus;
@@ -322,9 +270,7 @@ public class GroupItem extends AbstractModel{
 
     /**
      * Set 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupStatus 分组状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupStatus(Long GroupStatus) {
         this.GroupStatus = GroupStatus;

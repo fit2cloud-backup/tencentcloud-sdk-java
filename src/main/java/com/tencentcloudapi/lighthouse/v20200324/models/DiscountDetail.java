@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DiscountDetail extends AbstractModel{
+public class DiscountDetail extends AbstractModel {
 
     /**
     * 计费时长。
@@ -30,7 +31,10 @@ public class DiscountDetail extends AbstractModel{
     private Long TimeSpan;
 
     /**
-    * 计费单元。
+    * 时间单位。
+取值为：
+- m - 月
+- d - 日
     */
     @SerializedName("TimeUnit")
     @Expose
@@ -81,16 +85,28 @@ public class DiscountDetail extends AbstractModel{
     }
 
     /**
-     * Get 计费单元。 
-     * @return TimeUnit 计费单元。
+     * Get 时间单位。
+取值为：
+- m - 月
+- d - 日 
+     * @return TimeUnit 时间单位。
+取值为：
+- m - 月
+- d - 日
      */
     public String getTimeUnit() {
         return this.TimeUnit;
     }
 
     /**
-     * Set 计费单元。
-     * @param TimeUnit 计费单元。
+     * Set 时间单位。
+取值为：
+- m - 月
+- d - 日
+     * @param TimeUnit 时间单位。
+取值为：
+- m - 月
+- d - 日
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;

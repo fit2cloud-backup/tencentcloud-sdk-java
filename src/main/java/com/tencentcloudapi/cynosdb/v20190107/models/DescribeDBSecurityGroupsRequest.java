@@ -16,33 +16,61 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDBSecurityGroupsRequest extends AbstractModel{
+public class DescribeDBSecurityGroupsRequest extends AbstractModel {
 
     /**
-    * 实例组ID
+    * 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-     * Get 实例组ID 
-     * @return InstanceId 实例组ID
+    * 实例组ID（InstanceId与InstanceGroupId必须任选一个传入）
+    */
+    @SerializedName("InstanceGroupId")
+    @Expose
+    private String InstanceGroupId;
+
+    /**
+     * Get 实例ID（InstanceId与InstanceGroupId必须任选一个传入） 
+     * @return InstanceId 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+     * @deprecated
      */
+    @Deprecated
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例组ID
-     * @param InstanceId 实例组ID
+     * Set 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+     * @param InstanceId 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 实例组ID（InstanceId与InstanceGroupId必须任选一个传入） 
+     * @return InstanceGroupId 实例组ID（InstanceId与InstanceGroupId必须任选一个传入）
+     */
+    public String getInstanceGroupId() {
+        return this.InstanceGroupId;
+    }
+
+    /**
+     * Set 实例组ID（InstanceId与InstanceGroupId必须任选一个传入）
+     * @param InstanceGroupId 实例组ID（InstanceId与InstanceGroupId必须任选一个传入）
+     */
+    public void setInstanceGroupId(String InstanceGroupId) {
+        this.InstanceGroupId = InstanceGroupId;
     }
 
     public DescribeDBSecurityGroupsRequest() {
@@ -56,6 +84,9 @@ public class DescribeDBSecurityGroupsRequest extends AbstractModel{
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
         }
+        if (source.InstanceGroupId != null) {
+            this.InstanceGroupId = new String(source.InstanceGroupId);
+        }
     }
 
 
@@ -64,6 +95,7 @@ public class DescribeDBSecurityGroupsRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "InstanceGroupId", this.InstanceGroupId);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.as.v20180419.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateLaunchConfigurationRequest extends AbstractModel{
+public class CreateLaunchConfigurationRequest extends AbstractModel {
 
     /**
     * 启动配置显示名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
@@ -30,7 +31,7 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     private String LaunchConfigurationName;
 
     /**
-    * 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
+    * 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像Id与镜像族名称，二者必填一个且只能填写一个。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
     */
     @SerializedName("ImageId")
     @Expose
@@ -103,9 +104,10 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
     * 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -135,8 +137,8 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
     * 实例类型校验策略，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li>
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li>
 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
@@ -183,8 +185,8 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
     * 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+<li>ORIGINAL：使用设置的云盘类型</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型</li>
     */
     @SerializedName("DiskTypePolicy")
     @Expose
@@ -213,6 +215,27 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     private String [] DisasterRecoverGroupIds;
 
     /**
+    * 镜像族名称。镜像Id与镜像族名称，二者必填一个且只能填写一个。
+    */
+    @SerializedName("ImageFamily")
+    @Expose
+    private String ImageFamily;
+
+    /**
+    * 本地专用集群ID。
+    */
+    @SerializedName("DedicatedClusterId")
+    @Expose
+    private String DedicatedClusterId;
+
+    /**
+    * 自定义metadata。
+    */
+    @SerializedName("Metadata")
+    @Expose
+    private Metadata Metadata;
+
+    /**
      * Get 启动配置显示名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。 
      * @return LaunchConfigurationName 启动配置显示名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
      */
@@ -229,16 +252,16 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li> 
-     * @return ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
+     * Get 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像Id与镜像族名称，二者必填一个且只能填写一个。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li> 
+     * @return ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像Id与镜像族名称，二者必填一个且只能填写一个。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
      */
     public String getImageId() {
         return this.ImageId;
     }
 
     /**
-     * Set 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
-     * @param ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
+     * Set 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像Id与镜像族名称，二者必填一个且只能填写一个。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
+     * @param ImageId 指定有效的[镜像](https://cloud.tencent.com/document/product/213/4940)ID，格式形如`img-8toqc6s3`。镜像Id与镜像族名称，二者必填一个且只能填写一个。镜像类型分为四种：<br/><li>公共镜像</li><li>自定义镜像</li><li>共享镜像</li><li>服务市场镜像</li><br/>可通过以下方式获取可用的镜像ID：<br/><li>`公共镜像`、`自定义镜像`、`共享镜像`的镜像ID可通过登录[控制台](https://console.cloud.tencent.com/cvm/image?rid=1&imageType=PUBLIC_IMAGE)查询；`服务镜像市场`的镜像ID可通过[云市场](https://market.cloud.tencent.com/list)查询。</li><li>通过调用接口 [DescribeImages](https://cloud.tencent.com/document/api/213/15715) ，取返回信息中的`ImageId`字段。</li>
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
@@ -398,13 +421,15 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
      * Get 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月 
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li> 
      * @return InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
@@ -412,13 +437,15 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
      * Set 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
      * @param InstanceChargeType 实例计费类型，CVM默认值按照POSTPAID_BY_HOUR处理。
-<br><li>POSTPAID_BY_HOUR：按小时后付费
-<br><li>SPOTPAID：竞价付费
-<br><li>PREPAID：预付费，即包年包月
+<li>POSTPAID_BY_HOUR：按小时后付费</li>
+<li>SPOTPAID：竞价付费</li>
+<li>PREPAID：预付费，即包年包月</li>
+<li>CDCPAID：专用集群付费</li>
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
@@ -478,14 +505,14 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
      * Get 实例类型校验策略，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li>
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li>
 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。 
      * @return InstanceTypesCheckPolicy 实例类型校验策略，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li>
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li>
 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
@@ -496,14 +523,14 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
      * Set 实例类型校验策略，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li>
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li>
 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
      * @param InstanceTypesCheckPolicy 实例类型校验策略，取值包括 ALL 和 ANY，默认取值为ANY。
-<br><li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。
-<br><li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。
+<li> ALL，所有实例类型（InstanceType）都可用则通过校验，否则校验报错。</li>
+<li> ANY，存在任何一个实例类型（InstanceType）可用则通过校验，否则校验报错。</li>
 
 实例类型不可用的常见原因包括该实例类型售罄、对应云盘售罄等。
 如果 InstanceTypes 中一款机型不存在或者已下线，则无论 InstanceTypesCheckPolicy 采用何种取值，都会校验报错。
@@ -598,11 +625,11 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
      * Get 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型 
+<li>ORIGINAL：使用设置的云盘类型</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型</li> 
      * @return DiskTypePolicy 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+<li>ORIGINAL：使用设置的云盘类型</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型</li>
      */
     public String getDiskTypePolicy() {
         return this.DiskTypePolicy;
@@ -610,11 +637,11 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
 
     /**
      * Set 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+<li>ORIGINAL：使用设置的云盘类型</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型</li>
      * @param DiskTypePolicy 云盘类型选择策略，默认取值 ORIGINAL，取值范围：
-<br><li>ORIGINAL：使用设置的云盘类型
-<br><li>AUTOMATIC：自动选择当前可用的云盘类型
+<li>ORIGINAL：使用设置的云盘类型</li>
+<li>AUTOMATIC：自动选择当前可用的云盘类型</li>
      */
     public void setDiskTypePolicy(String DiskTypePolicy) {
         this.DiskTypePolicy = DiskTypePolicy;
@@ -670,6 +697,54 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
      */
     public void setDisasterRecoverGroupIds(String [] DisasterRecoverGroupIds) {
         this.DisasterRecoverGroupIds = DisasterRecoverGroupIds;
+    }
+
+    /**
+     * Get 镜像族名称。镜像Id与镜像族名称，二者必填一个且只能填写一个。 
+     * @return ImageFamily 镜像族名称。镜像Id与镜像族名称，二者必填一个且只能填写一个。
+     */
+    public String getImageFamily() {
+        return this.ImageFamily;
+    }
+
+    /**
+     * Set 镜像族名称。镜像Id与镜像族名称，二者必填一个且只能填写一个。
+     * @param ImageFamily 镜像族名称。镜像Id与镜像族名称，二者必填一个且只能填写一个。
+     */
+    public void setImageFamily(String ImageFamily) {
+        this.ImageFamily = ImageFamily;
+    }
+
+    /**
+     * Get 本地专用集群ID。 
+     * @return DedicatedClusterId 本地专用集群ID。
+     */
+    public String getDedicatedClusterId() {
+        return this.DedicatedClusterId;
+    }
+
+    /**
+     * Set 本地专用集群ID。
+     * @param DedicatedClusterId 本地专用集群ID。
+     */
+    public void setDedicatedClusterId(String DedicatedClusterId) {
+        this.DedicatedClusterId = DedicatedClusterId;
+    }
+
+    /**
+     * Get 自定义metadata。 
+     * @return Metadata 自定义metadata。
+     */
+    public Metadata getMetadata() {
+        return this.Metadata;
+    }
+
+    /**
+     * Set 自定义metadata。
+     * @param Metadata 自定义metadata。
+     */
+    public void setMetadata(Metadata Metadata) {
+        this.Metadata = Metadata;
     }
 
     public CreateLaunchConfigurationRequest() {
@@ -773,6 +848,15 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
                 this.DisasterRecoverGroupIds[i] = new String(source.DisasterRecoverGroupIds[i]);
             }
         }
+        if (source.ImageFamily != null) {
+            this.ImageFamily = new String(source.ImageFamily);
+        }
+        if (source.DedicatedClusterId != null) {
+            this.DedicatedClusterId = new String(source.DedicatedClusterId);
+        }
+        if (source.Metadata != null) {
+            this.Metadata = new Metadata(source.Metadata);
+        }
     }
 
 
@@ -805,6 +889,9 @@ public class CreateLaunchConfigurationRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "HpcClusterId", this.HpcClusterId);
         this.setParamObj(map, prefix + "IPv6InternetAccessible.", this.IPv6InternetAccessible);
         this.setParamArraySimple(map, prefix + "DisasterRecoverGroupIds.", this.DisasterRecoverGroupIds);
+        this.setParamSimple(map, prefix + "ImageFamily", this.ImageFamily);
+        this.setParamSimple(map, prefix + "DedicatedClusterId", this.DedicatedClusterId);
+        this.setParamObj(map, prefix + "Metadata.", this.Metadata);
 
     }
 }

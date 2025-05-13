@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Condition extends AbstractModel{
+public class Condition extends AbstractModel {
 
     /**
     * 告警通知频率
@@ -116,6 +117,22 @@ public class Condition extends AbstractModel{
     @SerializedName("ProductId")
     @Expose
     private String ProductId;
+
+    /**
+    * 告警分级阈值配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HierarchicalValue")
+    @Expose
+    private AlarmHierarchicalValue HierarchicalValue;
+
+    /**
+    * 指标类型，用于区分动态指标
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuleType")
+    @Expose
+    private String RuleType;
 
     /**
      * Get 告警通知频率 
@@ -341,6 +358,46 @@ public class Condition extends AbstractModel{
         this.ProductId = ProductId;
     }
 
+    /**
+     * Get 告警分级阈值配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HierarchicalValue 告警分级阈值配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AlarmHierarchicalValue getHierarchicalValue() {
+        return this.HierarchicalValue;
+    }
+
+    /**
+     * Set 告警分级阈值配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HierarchicalValue 告警分级阈值配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHierarchicalValue(AlarmHierarchicalValue HierarchicalValue) {
+        this.HierarchicalValue = HierarchicalValue;
+    }
+
+    /**
+     * Get 指标类型，用于区分动态指标
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RuleType 指标类型，用于区分动态指标
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRuleType() {
+        return this.RuleType;
+    }
+
+    /**
+     * Set 指标类型，用于区分动态指标
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuleType 指标类型，用于区分动态指标
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuleType(String RuleType) {
+        this.RuleType = RuleType;
+    }
+
     public Condition() {
     }
 
@@ -388,6 +445,12 @@ public class Condition extends AbstractModel{
         if (source.ProductId != null) {
             this.ProductId = new String(source.ProductId);
         }
+        if (source.HierarchicalValue != null) {
+            this.HierarchicalValue = new AlarmHierarchicalValue(source.HierarchicalValue);
+        }
+        if (source.RuleType != null) {
+            this.RuleType = new String(source.RuleType);
+        }
     }
 
 
@@ -408,6 +471,8 @@ public class Condition extends AbstractModel{
         this.setParamSimple(map, prefix + "IsAdvanced", this.IsAdvanced);
         this.setParamSimple(map, prefix + "IsOpen", this.IsOpen);
         this.setParamSimple(map, prefix + "ProductId", this.ProductId);
+        this.setParamObj(map, prefix + "HierarchicalValue.", this.HierarchicalValue);
+        this.setParamSimple(map, prefix + "RuleType", this.RuleType);
 
     }
 }

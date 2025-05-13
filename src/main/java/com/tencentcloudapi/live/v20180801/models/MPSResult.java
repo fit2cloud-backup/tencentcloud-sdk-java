@@ -16,66 +16,80 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MPSResult extends AbstractModel{
+public class MPSResult extends AbstractModel {
 
     /**
-    * 智能语音识别结果
-注意：此字段可能返回 null，表示取不到有效值。
+    * 智能语音识别结果。
     */
     @SerializedName("AiAsrResults")
     @Expose
     private String [] AiAsrResults;
 
     /**
-    * 智能文字识别结果
-注意：此字段可能返回 null，表示取不到有效值。
+    * 智能文字识别结果。
     */
     @SerializedName("AiOcrResults")
     @Expose
     private String [] AiOcrResults;
 
     /**
-     * Get 智能语音识别结果
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AiAsrResults 智能语音识别结果
-注意：此字段可能返回 null，表示取不到有效值。
+    * 内容质检结果。
+    */
+    @SerializedName("StreamQuaCtrlResults")
+    @Expose
+    private String [] StreamQuaCtrlResults;
+
+    /**
+     * Get 智能语音识别结果。 
+     * @return AiAsrResults 智能语音识别结果。
      */
     public String [] getAiAsrResults() {
         return this.AiAsrResults;
     }
 
     /**
-     * Set 智能语音识别结果
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AiAsrResults 智能语音识别结果
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 智能语音识别结果。
+     * @param AiAsrResults 智能语音识别结果。
      */
     public void setAiAsrResults(String [] AiAsrResults) {
         this.AiAsrResults = AiAsrResults;
     }
 
     /**
-     * Get 智能文字识别结果
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AiOcrResults 智能文字识别结果
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 智能文字识别结果。 
+     * @return AiOcrResults 智能文字识别结果。
      */
     public String [] getAiOcrResults() {
         return this.AiOcrResults;
     }
 
     /**
-     * Set 智能文字识别结果
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AiOcrResults 智能文字识别结果
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 智能文字识别结果。
+     * @param AiOcrResults 智能文字识别结果。
      */
     public void setAiOcrResults(String [] AiOcrResults) {
         this.AiOcrResults = AiOcrResults;
+    }
+
+    /**
+     * Get 内容质检结果。 
+     * @return StreamQuaCtrlResults 内容质检结果。
+     */
+    public String [] getStreamQuaCtrlResults() {
+        return this.StreamQuaCtrlResults;
+    }
+
+    /**
+     * Set 内容质检结果。
+     * @param StreamQuaCtrlResults 内容质检结果。
+     */
+    public void setStreamQuaCtrlResults(String [] StreamQuaCtrlResults) {
+        this.StreamQuaCtrlResults = StreamQuaCtrlResults;
     }
 
     public MPSResult() {
@@ -98,6 +112,12 @@ public class MPSResult extends AbstractModel{
                 this.AiOcrResults[i] = new String(source.AiOcrResults[i]);
             }
         }
+        if (source.StreamQuaCtrlResults != null) {
+            this.StreamQuaCtrlResults = new String[source.StreamQuaCtrlResults.length];
+            for (int i = 0; i < source.StreamQuaCtrlResults.length; i++) {
+                this.StreamQuaCtrlResults[i] = new String(source.StreamQuaCtrlResults[i]);
+            }
+        }
     }
 
 
@@ -107,6 +127,7 @@ public class MPSResult extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArraySimple(map, prefix + "AiAsrResults.", this.AiAsrResults);
         this.setParamArraySimple(map, prefix + "AiOcrResults.", this.AiOcrResults);
+        this.setParamArraySimple(map, prefix + "StreamQuaCtrlResults.", this.StreamQuaCtrlResults);
 
     }
 }

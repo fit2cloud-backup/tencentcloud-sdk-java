@@ -16,16 +16,17 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyDBInstanceSecurityGroupsRequest extends AbstractModel{
+public class ModifyDBInstanceSecurityGroupsRequest extends AbstractModel {
 
     /**
     * 实例或只读组要绑定的安全组列表。
 安全组信息可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来查询。
-
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
     */
     @SerializedName("SecurityGroupIdSet")
     @Expose
@@ -48,10 +49,10 @@ public class ModifyDBInstanceSecurityGroupsRequest extends AbstractModel{
     /**
      * Get 实例或只读组要绑定的安全组列表。
 安全组信息可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来查询。
- 
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。 
      * @return SecurityGroupIdSet 实例或只读组要绑定的安全组列表。
 安全组信息可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来查询。
-
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      */
     public String [] getSecurityGroupIdSet() {
         return this.SecurityGroupIdSet;
@@ -60,10 +61,10 @@ public class ModifyDBInstanceSecurityGroupsRequest extends AbstractModel{
     /**
      * Set 实例或只读组要绑定的安全组列表。
 安全组信息可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来查询。
-
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      * @param SecurityGroupIdSet 实例或只读组要绑定的安全组列表。
 安全组信息可以通过调用 [DescribeSecurityGroups](https://cloud.tencent.com/document/api/215/15808) 的返回值中的sgId字段来查询。
-
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      */
     public void setSecurityGroupIdSet(String [] SecurityGroupIdSet) {
         this.SecurityGroupIdSet = SecurityGroupIdSet;

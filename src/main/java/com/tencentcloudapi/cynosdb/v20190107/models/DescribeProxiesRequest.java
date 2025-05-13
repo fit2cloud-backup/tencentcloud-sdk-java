@@ -16,14 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeProxiesRequest extends AbstractModel{
+public class DescribeProxiesRequest extends AbstractModel {
 
     /**
-    * 集群ID
+    * 集群 ID（该参数必传，例如 cynosdbmysql-2u2mh111）。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -69,16 +70,16 @@ public class DescribeProxiesRequest extends AbstractModel{
     private QueryParamFilter [] Filters;
 
     /**
-     * Get 集群ID 
-     * @return ClusterId 集群ID
+     * Get 集群 ID（该参数必传，例如 cynosdbmysql-2u2mh111）。 
+     * @return ClusterId 集群 ID（该参数必传，例如 cynosdbmysql-2u2mh111）。
      */
     public String getClusterId() {
         return this.ClusterId;
     }
 
     /**
-     * Set 集群ID
-     * @param ClusterId 集群ID
+     * Set 集群 ID（该参数必传，例如 cynosdbmysql-2u2mh111）。
+     * @param ClusterId 集群 ID（该参数必传，例如 cynosdbmysql-2u2mh111）。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;

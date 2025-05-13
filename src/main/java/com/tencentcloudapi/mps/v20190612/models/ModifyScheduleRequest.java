@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyScheduleRequest extends AbstractModel{
+public class ModifyScheduleRequest extends AbstractModel {
 
     /**
     * 编排唯一标识。
@@ -72,6 +73,13 @@ public class ModifyScheduleRequest extends AbstractModel{
     @SerializedName("TaskNotifyConfig")
     @Expose
     private TaskNotifyConfig TaskNotifyConfig;
+
+    /**
+    * 资源ID，需要保证对应资源是开启状态。
+    */
+    @SerializedName("ResourceId")
+    @Expose
+    private String ResourceId;
 
     /**
      * Get 编排唯一标识。 
@@ -193,6 +201,22 @@ public class ModifyScheduleRequest extends AbstractModel{
         this.TaskNotifyConfig = TaskNotifyConfig;
     }
 
+    /**
+     * Get 资源ID，需要保证对应资源是开启状态。 
+     * @return ResourceId 资源ID，需要保证对应资源是开启状态。
+     */
+    public String getResourceId() {
+        return this.ResourceId;
+    }
+
+    /**
+     * Set 资源ID，需要保证对应资源是开启状态。
+     * @param ResourceId 资源ID，需要保证对应资源是开启状态。
+     */
+    public void setResourceId(String ResourceId) {
+        this.ResourceId = ResourceId;
+    }
+
     public ModifyScheduleRequest() {
     }
 
@@ -225,6 +249,9 @@ public class ModifyScheduleRequest extends AbstractModel{
         if (source.TaskNotifyConfig != null) {
             this.TaskNotifyConfig = new TaskNotifyConfig(source.TaskNotifyConfig);
         }
+        if (source.ResourceId != null) {
+            this.ResourceId = new String(source.ResourceId);
+        }
     }
 
 
@@ -239,6 +266,7 @@ public class ModifyScheduleRequest extends AbstractModel{
         this.setParamObj(map, prefix + "OutputStorage.", this.OutputStorage);
         this.setParamSimple(map, prefix + "OutputDir", this.OutputDir);
         this.setParamObj(map, prefix + "TaskNotifyConfig.", this.TaskNotifyConfig);
+        this.setParamSimple(map, prefix + "ResourceId", this.ResourceId);
 
     }
 }

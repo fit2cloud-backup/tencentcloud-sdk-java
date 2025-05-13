@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OperationInfoDetail extends AbstractModel{
+public class OperationInfoDetail extends AbstractModel {
 
     /**
     * 不显示的原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DisabledReason")
     @Expose
@@ -32,7 +32,6 @@ public class OperationInfoDetail extends AbstractModel{
 
     /**
     * 该按钮是否可点击
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Enabled")
     @Expose
@@ -40,17 +39,14 @@ public class OperationInfoDetail extends AbstractModel{
 
     /**
     * 是否显示该按钮
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Supported")
     @Expose
     private Boolean Supported;
 
     /**
-     * Get 不显示的原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 不显示的原因 
      * @return DisabledReason 不显示的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDisabledReason() {
         return this.DisabledReason;
@@ -58,19 +54,15 @@ public class OperationInfoDetail extends AbstractModel{
 
     /**
      * Set 不显示的原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DisabledReason 不显示的原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDisabledReason(String DisabledReason) {
         this.DisabledReason = DisabledReason;
     }
 
     /**
-     * Get 该按钮是否可点击
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该按钮是否可点击 
      * @return Enabled 该按钮是否可点击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnabled() {
         return this.Enabled;
@@ -78,19 +70,15 @@ public class OperationInfoDetail extends AbstractModel{
 
     /**
      * Set 该按钮是否可点击
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Enabled 该按钮是否可点击
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnabled(Boolean Enabled) {
         this.Enabled = Enabled;
     }
 
     /**
-     * Get 是否显示该按钮
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否显示该按钮 
      * @return Supported 是否显示该按钮
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getSupported() {
         return this.Supported;
@@ -98,9 +86,7 @@ public class OperationInfoDetail extends AbstractModel{
 
     /**
      * Set 是否显示该按钮
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Supported 是否显示该按钮
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSupported(Boolean Supported) {
         this.Supported = Supported;

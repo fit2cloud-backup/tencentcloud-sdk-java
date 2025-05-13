@@ -16,11 +16,12 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class JobView extends AbstractModel{
+public class JobView extends AbstractModel {
 
     /**
     * 作业ID
@@ -52,7 +53,6 @@ public class JobView extends AbstractModel{
 
     /**
     * 位置信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Placement")
     @Expose
@@ -67,7 +67,6 @@ public class JobView extends AbstractModel{
 
     /**
     * 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -82,7 +81,6 @@ public class JobView extends AbstractModel{
 
     /**
     * 作业绑定的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -153,10 +151,8 @@ public class JobView extends AbstractModel{
     }
 
     /**
-     * Get 位置信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 位置信息 
      * @return Placement 位置信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Placement getPlacement() {
         return this.Placement;
@@ -164,9 +160,7 @@ public class JobView extends AbstractModel{
 
     /**
      * Set 位置信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Placement 位置信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPlacement(Placement Placement) {
         this.Placement = Placement;
@@ -189,10 +183,8 @@ public class JobView extends AbstractModel{
     }
 
     /**
-     * Get 结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间 
      * @return EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -200,9 +192,7 @@ public class JobView extends AbstractModel{
 
     /**
      * Set 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -225,10 +215,8 @@ public class JobView extends AbstractModel{
     }
 
     /**
-     * Get 作业绑定的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 作业绑定的标签列表。 
      * @return Tags 作业绑定的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -236,9 +224,7 @@ public class JobView extends AbstractModel{
 
     /**
      * Set 作业绑定的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 作业绑定的标签列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;

@@ -16,14 +16,16 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePrefetchTaskRequest extends AbstractModel{
+public class CreatePrefetchTaskRequest extends AbstractModel {
 
     /**
     * 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
     */
     @SerializedName("ZoneId")
     @Expose
@@ -31,7 +33,7 @@ public class CreatePrefetchTaskRequest extends AbstractModel{
 
     /**
     * 要预热的资源列表，每个元素格式类似如下:
-http://www.example.com/example.txt。
+http://www.example.com/example.txt。参数值当前必填。
 注意：提交任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。
     */
     @SerializedName("Targets")
@@ -53,8 +55,10 @@ http://www.example.com/example.txt。
     private Header [] Headers;
 
     /**
-     * Get 站点 ID。 
+     * Get 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。 
      * @return ZoneId 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
      */
     public String getZoneId() {
         return this.ZoneId;
@@ -62,7 +66,9 @@ http://www.example.com/example.txt。
 
     /**
      * Set 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
      * @param ZoneId 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
      */
     public void setZoneId(String ZoneId) {
         this.ZoneId = ZoneId;
@@ -70,10 +76,10 @@ http://www.example.com/example.txt。
 
     /**
      * Get 要预热的资源列表，每个元素格式类似如下:
-http://www.example.com/example.txt。
+http://www.example.com/example.txt。参数值当前必填。
 注意：提交任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。 
      * @return Targets 要预热的资源列表，每个元素格式类似如下:
-http://www.example.com/example.txt。
+http://www.example.com/example.txt。参数值当前必填。
 注意：提交任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。
      */
     public String [] getTargets() {
@@ -82,10 +88,10 @@ http://www.example.com/example.txt。
 
     /**
      * Set 要预热的资源列表，每个元素格式类似如下:
-http://www.example.com/example.txt。
+http://www.example.com/example.txt。参数值当前必填。
 注意：提交任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。
      * @param Targets 要预热的资源列表，每个元素格式类似如下:
-http://www.example.com/example.txt。
+http://www.example.com/example.txt。参数值当前必填。
 注意：提交任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。
      */
     public void setTargets(String [] Targets) {
@@ -95,7 +101,9 @@ http://www.example.com/example.txt。
     /**
      * Get 是否对url进行encode，若内容含有非 ASCII 字符集的字符，请开启此开关进行编码转换（编码规则遵循 RFC3986）。 
      * @return EncodeUrl 是否对url进行encode，若内容含有非 ASCII 字符集的字符，请开启此开关进行编码转换（编码规则遵循 RFC3986）。
+     * @deprecated
      */
+    @Deprecated
     public Boolean getEncodeUrl() {
         return this.EncodeUrl;
     }
@@ -103,7 +111,9 @@ http://www.example.com/example.txt。
     /**
      * Set 是否对url进行encode，若内容含有非 ASCII 字符集的字符，请开启此开关进行编码转换（编码规则遵循 RFC3986）。
      * @param EncodeUrl 是否对url进行encode，若内容含有非 ASCII 字符集的字符，请开启此开关进行编码转换（编码规则遵循 RFC3986）。
+     * @deprecated
      */
+    @Deprecated
     public void setEncodeUrl(Boolean EncodeUrl) {
         this.EncodeUrl = EncodeUrl;
     }

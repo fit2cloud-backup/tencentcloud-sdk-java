@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FollowOrigin extends AbstractModel{
+public class FollowOrigin extends AbstractModel {
 
     /**
     * 遵循源站配置开关，取值有：
@@ -32,28 +33,29 @@ public class FollowOrigin extends AbstractModel{
     private String Switch;
 
     /**
-    * 源站未返回 Cache-Control 头时, 设置默认的缓存时间
-注意：此字段可能返回 null，表示取不到有效值。
-    */
-    @SerializedName("DefaultCacheTime")
-    @Expose
-    private Long DefaultCacheTime;
-
-    /**
-    * 源站未返回 Cache-Control 头时, 设置缓存/不缓存
-注意：此字段可能返回 null，表示取不到有效值。
+    * 源站未返回 Cache-Control 头时，缓存/不缓存开关。当 Switch 为 on 时，此字段必填，当 Switch 为 off 时，无需填写此字段，若填写则不生效。取值有：
+<li>on：缓存；</li>
+<li>off：不缓存。</li>
     */
     @SerializedName("DefaultCache")
     @Expose
     private String DefaultCache;
 
     /**
-    * 源站未返回 Cache-Control 头时, 使用/不使用默认缓存策略
-注意：此字段可能返回 null，表示取不到有效值。
+    * 源站未返回 Cache-Control 头时，使用/不使用默认缓存策略开关。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheTime 不为 0 时，此字段必须为 off。取值有：
+<li>on：使用默认缓存策略；</li>
+<li>off：不使用默认缓存策略。</li>
     */
     @SerializedName("DefaultCacheStrategy")
     @Expose
     private String DefaultCacheStrategy;
+
+    /**
+    * 源站未返回 Cache-Control 头时，表示默认的缓存时间，单位为秒，取值：0-315360000。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheStrategy 为 on 时， 此字段必须为 0。
+    */
+    @SerializedName("DefaultCacheTime")
+    @Expose
+    private Long DefaultCacheTime;
 
     /**
      * Get 遵循源站配置开关，取值有：
@@ -80,63 +82,67 @@ public class FollowOrigin extends AbstractModel{
     }
 
     /**
-     * Get 源站未返回 Cache-Control 头时, 设置默认的缓存时间
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultCacheTime 源站未返回 Cache-Control 头时, 设置默认的缓存时间
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public Long getDefaultCacheTime() {
-        return this.DefaultCacheTime;
-    }
-
-    /**
-     * Set 源站未返回 Cache-Control 头时, 设置默认的缓存时间
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultCacheTime 源站未返回 Cache-Control 头时, 设置默认的缓存时间
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public void setDefaultCacheTime(Long DefaultCacheTime) {
-        this.DefaultCacheTime = DefaultCacheTime;
-    }
-
-    /**
-     * Get 源站未返回 Cache-Control 头时, 设置缓存/不缓存
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultCache 源站未返回 Cache-Control 头时, 设置缓存/不缓存
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 源站未返回 Cache-Control 头时，缓存/不缓存开关。当 Switch 为 on 时，此字段必填，当 Switch 为 off 时，无需填写此字段，若填写则不生效。取值有：
+<li>on：缓存；</li>
+<li>off：不缓存。</li> 
+     * @return DefaultCache 源站未返回 Cache-Control 头时，缓存/不缓存开关。当 Switch 为 on 时，此字段必填，当 Switch 为 off 时，无需填写此字段，若填写则不生效。取值有：
+<li>on：缓存；</li>
+<li>off：不缓存。</li>
      */
     public String getDefaultCache() {
         return this.DefaultCache;
     }
 
     /**
-     * Set 源站未返回 Cache-Control 头时, 设置缓存/不缓存
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultCache 源站未返回 Cache-Control 头时, 设置缓存/不缓存
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 源站未返回 Cache-Control 头时，缓存/不缓存开关。当 Switch 为 on 时，此字段必填，当 Switch 为 off 时，无需填写此字段，若填写则不生效。取值有：
+<li>on：缓存；</li>
+<li>off：不缓存。</li>
+     * @param DefaultCache 源站未返回 Cache-Control 头时，缓存/不缓存开关。当 Switch 为 on 时，此字段必填，当 Switch 为 off 时，无需填写此字段，若填写则不生效。取值有：
+<li>on：缓存；</li>
+<li>off：不缓存。</li>
      */
     public void setDefaultCache(String DefaultCache) {
         this.DefaultCache = DefaultCache;
     }
 
     /**
-     * Get 源站未返回 Cache-Control 头时, 使用/不使用默认缓存策略
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DefaultCacheStrategy 源站未返回 Cache-Control 头时, 使用/不使用默认缓存策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 源站未返回 Cache-Control 头时，使用/不使用默认缓存策略开关。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheTime 不为 0 时，此字段必须为 off。取值有：
+<li>on：使用默认缓存策略；</li>
+<li>off：不使用默认缓存策略。</li> 
+     * @return DefaultCacheStrategy 源站未返回 Cache-Control 头时，使用/不使用默认缓存策略开关。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheTime 不为 0 时，此字段必须为 off。取值有：
+<li>on：使用默认缓存策略；</li>
+<li>off：不使用默认缓存策略。</li>
      */
     public String getDefaultCacheStrategy() {
         return this.DefaultCacheStrategy;
     }
 
     /**
-     * Set 源站未返回 Cache-Control 头时, 使用/不使用默认缓存策略
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DefaultCacheStrategy 源站未返回 Cache-Control 头时, 使用/不使用默认缓存策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 源站未返回 Cache-Control 头时，使用/不使用默认缓存策略开关。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheTime 不为 0 时，此字段必须为 off。取值有：
+<li>on：使用默认缓存策略；</li>
+<li>off：不使用默认缓存策略。</li>
+     * @param DefaultCacheStrategy 源站未返回 Cache-Control 头时，使用/不使用默认缓存策略开关。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheTime 不为 0 时，此字段必须为 off。取值有：
+<li>on：使用默认缓存策略；</li>
+<li>off：不使用默认缓存策略。</li>
      */
     public void setDefaultCacheStrategy(String DefaultCacheStrategy) {
         this.DefaultCacheStrategy = DefaultCacheStrategy;
+    }
+
+    /**
+     * Get 源站未返回 Cache-Control 头时，表示默认的缓存时间，单位为秒，取值：0-315360000。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheStrategy 为 on 时， 此字段必须为 0。 
+     * @return DefaultCacheTime 源站未返回 Cache-Control 头时，表示默认的缓存时间，单位为秒，取值：0-315360000。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheStrategy 为 on 时， 此字段必须为 0。
+     */
+    public Long getDefaultCacheTime() {
+        return this.DefaultCacheTime;
+    }
+
+    /**
+     * Set 源站未返回 Cache-Control 头时，表示默认的缓存时间，单位为秒，取值：0-315360000。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheStrategy 为 on 时， 此字段必须为 0。
+     * @param DefaultCacheTime 源站未返回 Cache-Control 头时，表示默认的缓存时间，单位为秒，取值：0-315360000。当 DefaultCache 为 on 时，此字段必填，否则此字段不生效；当 DefaultCacheStrategy 为 on 时， 此字段必须为 0。
+     */
+    public void setDefaultCacheTime(Long DefaultCacheTime) {
+        this.DefaultCacheTime = DefaultCacheTime;
     }
 
     public FollowOrigin() {
@@ -150,14 +156,14 @@ public class FollowOrigin extends AbstractModel{
         if (source.Switch != null) {
             this.Switch = new String(source.Switch);
         }
-        if (source.DefaultCacheTime != null) {
-            this.DefaultCacheTime = new Long(source.DefaultCacheTime);
-        }
         if (source.DefaultCache != null) {
             this.DefaultCache = new String(source.DefaultCache);
         }
         if (source.DefaultCacheStrategy != null) {
             this.DefaultCacheStrategy = new String(source.DefaultCacheStrategy);
+        }
+        if (source.DefaultCacheTime != null) {
+            this.DefaultCacheTime = new Long(source.DefaultCacheTime);
         }
     }
 
@@ -167,9 +173,9 @@ public class FollowOrigin extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Switch", this.Switch);
-        this.setParamSimple(map, prefix + "DefaultCacheTime", this.DefaultCacheTime);
         this.setParamSimple(map, prefix + "DefaultCache", this.DefaultCache);
         this.setParamSimple(map, prefix + "DefaultCacheStrategy", this.DefaultCacheStrategy);
+        this.setParamSimple(map, prefix + "DefaultCacheTime", this.DefaultCacheTime);
 
     }
 }

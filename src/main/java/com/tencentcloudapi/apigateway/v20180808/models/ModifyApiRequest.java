@@ -16,11 +16,12 @@
 package com.tencentcloudapi.apigateway.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyApiRequest extends AbstractModel{
+public class ModifyApiRequest extends AbstractModel {
 
     /**
     * API 所在的服务唯一 ID。
@@ -93,7 +94,7 @@ public class ModifyApiRequest extends AbstractModel{
     private Long ServiceTimeout;
 
     /**
-    * API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
+    * API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
     */
     @SerializedName("Protocol")
     @Expose
@@ -373,6 +374,13 @@ public class ModifyApiRequest extends AbstractModel{
     private String ServiceScfFunctionType;
 
     /**
+    * 是否开启SCF Event异步调用。
+    */
+    @SerializedName("ServiceScfEventIsAsyncCall")
+    @Expose
+    private Boolean ServiceScfEventIsAsyncCall;
+
+    /**
     * EIAM应用类型。
     */
     @SerializedName("EIAMAppType")
@@ -561,16 +569,16 @@ public class ModifyApiRequest extends AbstractModel{
     }
 
     /**
-     * Get API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。 
-     * @return Protocol API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
+     * Get API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填 
+     * @return Protocol API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
-     * @param Protocol API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。
+     * Set API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
+     * @param Protocol API 的前端请求类型，如 HTTP 或 HTTPS 或者 HTTP 和 HTTPS。修改api时推荐必填
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -1201,6 +1209,22 @@ public class ModifyApiRequest extends AbstractModel{
     }
 
     /**
+     * Get 是否开启SCF Event异步调用。 
+     * @return ServiceScfEventIsAsyncCall 是否开启SCF Event异步调用。
+     */
+    public Boolean getServiceScfEventIsAsyncCall() {
+        return this.ServiceScfEventIsAsyncCall;
+    }
+
+    /**
+     * Set 是否开启SCF Event异步调用。
+     * @param ServiceScfEventIsAsyncCall 是否开启SCF Event异步调用。
+     */
+    public void setServiceScfEventIsAsyncCall(Boolean ServiceScfEventIsAsyncCall) {
+        this.ServiceScfEventIsAsyncCall = ServiceScfEventIsAsyncCall;
+    }
+
+    /**
      * Get EIAM应用类型。 
      * @return EIAMAppType EIAM应用类型。
      */
@@ -1440,6 +1464,9 @@ public class ModifyApiRequest extends AbstractModel{
         if (source.ServiceScfFunctionType != null) {
             this.ServiceScfFunctionType = new String(source.ServiceScfFunctionType);
         }
+        if (source.ServiceScfEventIsAsyncCall != null) {
+            this.ServiceScfEventIsAsyncCall = new Boolean(source.ServiceScfEventIsAsyncCall);
+        }
         if (source.EIAMAppType != null) {
             this.EIAMAppType = new String(source.EIAMAppType);
         }
@@ -1509,6 +1536,7 @@ public class ModifyApiRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "Base64EncodedTriggerRules.", this.Base64EncodedTriggerRules);
         this.setParamSimple(map, prefix + "EventBusId", this.EventBusId);
         this.setParamSimple(map, prefix + "ServiceScfFunctionType", this.ServiceScfFunctionType);
+        this.setParamSimple(map, prefix + "ServiceScfEventIsAsyncCall", this.ServiceScfEventIsAsyncCall);
         this.setParamSimple(map, prefix + "EIAMAppType", this.EIAMAppType);
         this.setParamSimple(map, prefix + "EIAMAuthType", this.EIAMAuthType);
         this.setParamSimple(map, prefix + "EIAMAppId", this.EIAMAppId);

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dnspod.v20210323.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WhoisInfo extends AbstractModel{
+public class WhoisInfo extends AbstractModel {
 
     /**
     * 联系信息
@@ -55,7 +56,7 @@ public class WhoisInfo extends AbstractModel{
     private Boolean IsQcloud;
 
     /**
-    * 是否当前操作帐号注册的域名
+    * 是否当前操作账号注册的域名
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsQcloudOwner")
@@ -101,6 +102,14 @@ public class WhoisInfo extends AbstractModel{
     @SerializedName("UpdatedDate")
     @Expose
     private String UpdatedDate;
+
+    /**
+    * dnssec
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Dnssec")
+    @Expose
+    private String Dnssec;
 
     /**
      * Get 联系信息
@@ -183,9 +192,9 @@ public class WhoisInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否当前操作帐号注册的域名
+     * Get 是否当前操作账号注册的域名
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return IsQcloudOwner 是否当前操作帐号注册的域名
+     * @return IsQcloudOwner 是否当前操作账号注册的域名
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsQcloudOwner() {
@@ -193,9 +202,9 @@ public class WhoisInfo extends AbstractModel{
     }
 
     /**
-     * Set 是否当前操作帐号注册的域名
+     * Set 是否当前操作账号注册的域名
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param IsQcloudOwner 是否当前操作帐号注册的域名
+     * @param IsQcloudOwner 是否当前操作账号注册的域名
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsQcloudOwner(Boolean IsQcloudOwner) {
@@ -302,6 +311,26 @@ public class WhoisInfo extends AbstractModel{
         this.UpdatedDate = UpdatedDate;
     }
 
+    /**
+     * Get dnssec
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Dnssec dnssec
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDnssec() {
+        return this.Dnssec;
+    }
+
+    /**
+     * Set dnssec
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Dnssec dnssec
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDnssec(String Dnssec) {
+        this.Dnssec = Dnssec;
+    }
+
     public WhoisInfo() {
     }
 
@@ -352,6 +381,9 @@ public class WhoisInfo extends AbstractModel{
         if (source.UpdatedDate != null) {
             this.UpdatedDate = new String(source.UpdatedDate);
         }
+        if (source.Dnssec != null) {
+            this.Dnssec = new String(source.Dnssec);
+        }
     }
 
 
@@ -369,6 +401,7 @@ public class WhoisInfo extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Registrar.", this.Registrar);
         this.setParamArraySimple(map, prefix + "Status.", this.Status);
         this.setParamSimple(map, prefix + "UpdatedDate", this.UpdatedDate);
+        this.setParamSimple(map, prefix + "Dnssec", this.Dnssec);
 
     }
 }

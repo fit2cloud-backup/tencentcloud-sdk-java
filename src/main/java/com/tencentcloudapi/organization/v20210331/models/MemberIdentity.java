@@ -16,15 +16,15 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MemberIdentity extends AbstractModel{
+public class MemberIdentity extends AbstractModel {
 
     /**
     * 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IdentityId")
     @Expose
@@ -32,17 +32,14 @@ public class MemberIdentity extends AbstractModel{
 
     /**
     * 身份名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IdentityAliasName")
     @Expose
     private String IdentityAliasName;
 
     /**
-     * Get 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 身份ID。 
      * @return IdentityId 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIdentityId() {
         return this.IdentityId;
@@ -50,19 +47,15 @@ public class MemberIdentity extends AbstractModel{
 
     /**
      * Set 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IdentityId 身份ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdentityId(Long IdentityId) {
         this.IdentityId = IdentityId;
     }
 
     /**
-     * Get 身份名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 身份名称。 
      * @return IdentityAliasName 身份名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIdentityAliasName() {
         return this.IdentityAliasName;
@@ -70,9 +63,7 @@ public class MemberIdentity extends AbstractModel{
 
     /**
      * Set 身份名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IdentityAliasName 身份名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIdentityAliasName(String IdentityAliasName) {
         this.IdentityAliasName = IdentityAliasName;

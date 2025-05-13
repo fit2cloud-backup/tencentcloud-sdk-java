@@ -16,15 +16,15 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RoomItem extends AbstractModel{
+public class RoomItem extends AbstractModel {
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,15 +32,13 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 房间ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RoomId")
     @Expose
     private Long RoomId;
 
     /**
-    * 房间状态。0 未开始 ；1进行中  ；2 已结束
-注意：此字段可能返回 null，表示取不到有效值。
+    * 房间状态。0 未开始 ；1进行中  ；2 已结束；3已过期
     */
     @SerializedName("Status")
     @Expose
@@ -48,7 +46,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -56,7 +53,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -64,7 +60,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 实际开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealStartTime")
     @Expose
@@ -72,25 +67,23 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 实际结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealEndTime")
     @Expose
     private Long RealEndTime;
 
     /**
-    * 分辨率。1 标清
+    * 头像区域，摄像头视频画面的分辨率。可以有如下取值：
+1 标清
 2 高清
 3 全高清
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resolution")
     @Expose
     private Long Resolution;
 
     /**
-    * 最大允许连麦人数
-注意：此字段可能返回 null，表示取不到有效值。
+    * 最大允许连麦人数。已废弃，使用字段 MaxMicNumber
     */
     @SerializedName("MaxRTCMember")
     @Expose
@@ -98,7 +91,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 房间录制地址。已废弃，使用新字段 RecordUrl
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReplayUrl")
     @Expose
@@ -106,15 +98,13 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 录制地址（协议为https)。仅在房间结束后存在。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RecordUrl")
     @Expose
     private String RecordUrl;
 
     /**
-    * 最高房间内人数（包括老师），0表示不限制，默认为0
-注意：此字段可能返回 null，表示取不到有效值。
+    * 课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
     */
     @SerializedName("MaxMicNumber")
     @Expose
@@ -122,7 +112,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 打开学生麦克风/摄像头的授权开关 
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableDirectControl")
     @Expose
@@ -130,7 +119,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 开启专注模式。 0 收看全部角色音视频(默认) 1 只看老师和助教
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InteractionMode")
     @Expose
@@ -138,7 +126,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VideoOrientation")
     @Expose
@@ -146,7 +133,6 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 开启课后评分。 0：不开启(默认)  1：开启
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsGradingRequiredPostClass")
     @Expose
@@ -154,17 +140,78 @@ public class RoomItem extends AbstractModel{
 
     /**
     * 房间类型。0:小班课（默认值）；1:大班课；2:1V1（后续扩展）
-注意：此字段可能返回 null，表示取不到有效值。
+注：大班课的布局(layout)只有三分屏
     */
     @SerializedName("RoomType")
     @Expose
     private Long RoomType;
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+    */
+    @SerializedName("EndDelayTime")
+    @Expose
+    private Long EndDelayTime;
+
+    /**
+    * 直播类型：0 常规（默认）1 伪直播
+    */
+    @SerializedName("LiveType")
+    @Expose
+    private Long LiveType;
+
+    /**
+    * 伪直播回放链接	
+    */
+    @SerializedName("RecordLiveUrl")
+    @Expose
+    private String RecordLiveUrl;
+
+    /**
+    * 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效	
+    */
+    @SerializedName("EnableAutoStart")
+    @Expose
+    private Long EnableAutoStart;
+
+    /**
+    * 录制文件背景图片，支持png、jpg、jpeg、bmp格式，暂不支持透明通道
+    */
+    @SerializedName("RecordBackground")
+    @Expose
+    private String RecordBackground;
+
+    /**
+    * 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+    */
+    @SerializedName("RecordScene")
+    @Expose
+    private String RecordScene;
+
+    /**
+    * 录制自定义语言，仅recordlayout=9的时候此参数有效
+    */
+    @SerializedName("RecordLang")
+    @Expose
+    private String RecordLang;
+
+    /**
+    * 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+    */
+    @SerializedName("WhiteBoardSnapshotMode")
+    @Expose
+    private Long WhiteBoardSnapshotMode;
+
+    /**
+    * 字幕转写功能开关：0关闭，1开启，默认关闭
+    */
+    @SerializedName("SubtitlesTranscription")
+    @Expose
+    private Long SubtitlesTranscription;
+
+    /**
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -172,19 +219,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 房间ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 房间ID 
      * @return RoomId 房间ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRoomId() {
         return this.RoomId;
@@ -192,39 +235,31 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 房间ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RoomId 房间ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRoomId(Long RoomId) {
         this.RoomId = RoomId;
     }
 
     /**
-     * Get 房间状态。0 未开始 ；1进行中  ；2 已结束
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status 房间状态。0 未开始 ；1进行中  ；2 已结束
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 房间状态。0 未开始 ；1进行中  ；2 已结束；3已过期 
+     * @return Status 房间状态。0 未开始 ；1进行中  ；2 已结束；3已过期
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 房间状态。0 未开始 ；1进行中  ；2 已结束
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status 房间状态。0 未开始 ；1进行中  ；2 已结束
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 房间状态。0 未开始 ；1进行中  ；2 已结束；3已过期
+     * @param Status 房间状态。0 未开始 ；1进行中  ；2 已结束；3已过期
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始时间 
      * @return StartTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStartTime() {
         return this.StartTime;
@@ -232,19 +267,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(Long StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间 
      * @return EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEndTime() {
         return this.EndTime;
@@ -252,19 +283,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(Long EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 实际开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实际开始时间 
      * @return RealStartTime 实际开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRealStartTime() {
         return this.RealStartTime;
@@ -272,19 +299,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 实际开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealStartTime 实际开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealStartTime(Long RealStartTime) {
         this.RealStartTime = RealStartTime;
     }
 
     /**
-     * Get 实际结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实际结束时间 
      * @return RealEndTime 实际结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRealEndTime() {
         return this.RealEndTime;
@@ -292,67 +315,59 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 实际结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealEndTime 实际结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealEndTime(Long RealEndTime) {
         this.RealEndTime = RealEndTime;
     }
 
     /**
-     * Get 分辨率。1 标清
+     * Get 头像区域，摄像头视频画面的分辨率。可以有如下取值：
+1 标清
+2 高清
+3 全高清 
+     * @return Resolution 头像区域，摄像头视频画面的分辨率。可以有如下取值：
+1 标清
 2 高清
 3 全高清
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Resolution 分辨率。1 标清
-2 高清
-3 全高清
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getResolution() {
         return this.Resolution;
     }
 
     /**
-     * Set 分辨率。1 标清
+     * Set 头像区域，摄像头视频画面的分辨率。可以有如下取值：
+1 标清
 2 高清
 3 全高清
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Resolution 分辨率。1 标清
+     * @param Resolution 头像区域，摄像头视频画面的分辨率。可以有如下取值：
+1 标清
 2 高清
 3 全高清
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResolution(Long Resolution) {
         this.Resolution = Resolution;
     }
 
     /**
-     * Get 最大允许连麦人数
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxRTCMember 最大允许连麦人数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 最大允许连麦人数。已废弃，使用字段 MaxMicNumber 
+     * @return MaxRTCMember 最大允许连麦人数。已废弃，使用字段 MaxMicNumber
      */
     public Long getMaxRTCMember() {
         return this.MaxRTCMember;
     }
 
     /**
-     * Set 最大允许连麦人数
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxRTCMember 最大允许连麦人数
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 最大允许连麦人数。已废弃，使用字段 MaxMicNumber
+     * @param MaxRTCMember 最大允许连麦人数。已废弃，使用字段 MaxMicNumber
      */
     public void setMaxRTCMember(Long MaxRTCMember) {
         this.MaxRTCMember = MaxRTCMember;
     }
 
     /**
-     * Get 房间录制地址。已废弃，使用新字段 RecordUrl
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 房间录制地址。已废弃，使用新字段 RecordUrl 
      * @return ReplayUrl 房间录制地址。已废弃，使用新字段 RecordUrl
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReplayUrl() {
         return this.ReplayUrl;
@@ -360,19 +375,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 房间录制地址。已废弃，使用新字段 RecordUrl
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReplayUrl 房间录制地址。已废弃，使用新字段 RecordUrl
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReplayUrl(String ReplayUrl) {
         this.ReplayUrl = ReplayUrl;
     }
 
     /**
-     * Get 录制地址（协议为https)。仅在房间结束后存在。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 录制地址（协议为https)。仅在房间结束后存在。 
      * @return RecordUrl 录制地址（协议为https)。仅在房间结束后存在。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRecordUrl() {
         return this.RecordUrl;
@@ -380,39 +391,31 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 录制地址（协议为https)。仅在房间结束后存在。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RecordUrl 录制地址（协议为https)。仅在房间结束后存在。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRecordUrl(String RecordUrl) {
         this.RecordUrl = RecordUrl;
     }
 
     /**
-     * Get 最高房间内人数（包括老师），0表示不限制，默认为0
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return MaxMicNumber 最高房间内人数（包括老师），0表示不限制，默认为0
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。 
+     * @return MaxMicNumber 课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
      */
     public Long getMaxMicNumber() {
         return this.MaxMicNumber;
     }
 
     /**
-     * Set 最高房间内人数（包括老师），0表示不限制，默认为0
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param MaxMicNumber 最高房间内人数（包括老师），0表示不限制，默认为0
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
+     * @param MaxMicNumber 课堂同时最大可与老师进行连麦互动的人数，该参数支持正式上课/开播前调用修改房间修改。小班课取值范围[0,16]，大班课取值范围[0,1]，当取值为0时表示当前课堂/直播，不支持连麦互动。
      */
     public void setMaxMicNumber(Long MaxMicNumber) {
         this.MaxMicNumber = MaxMicNumber;
     }
 
     /**
-     * Get 打开学生麦克风/摄像头的授权开关 
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 打开学生麦克风/摄像头的授权开关  
      * @return EnableDirectControl 打开学生麦克风/摄像头的授权开关 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEnableDirectControl() {
         return this.EnableDirectControl;
@@ -420,19 +423,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 打开学生麦克风/摄像头的授权开关 
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableDirectControl 打开学生麦克风/摄像头的授权开关 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableDirectControl(Long EnableDirectControl) {
         this.EnableDirectControl = EnableDirectControl;
     }
 
     /**
-     * Get 开启专注模式。 0 收看全部角色音视频(默认) 1 只看老师和助教
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开启专注模式。 0 收看全部角色音视频(默认) 1 只看老师和助教 
      * @return InteractionMode 开启专注模式。 0 收看全部角色音视频(默认) 1 只看老师和助教
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInteractionMode() {
         return this.InteractionMode;
@@ -440,19 +439,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 开启专注模式。 0 收看全部角色音视频(默认) 1 只看老师和助教
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InteractionMode 开启专注模式。 0 收看全部角色音视频(默认) 1 只看老师和助教
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInteractionMode(Long InteractionMode) {
         this.InteractionMode = InteractionMode;
     }
 
     /**
-     * Get 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型 
      * @return VideoOrientation 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVideoOrientation() {
         return this.VideoOrientation;
@@ -460,19 +455,15 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VideoOrientation 横竖屏。0：横屏开播（默认值）; 1：竖屏开播，当前仅支持移动端的纯视频类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVideoOrientation(Long VideoOrientation) {
         this.VideoOrientation = VideoOrientation;
     }
 
     /**
-     * Get 开启课后评分。 0：不开启(默认)  1：开启
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开启课后评分。 0：不开启(默认)  1：开启 
      * @return IsGradingRequiredPostClass 开启课后评分。 0：不开启(默认)  1：开启
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsGradingRequiredPostClass() {
         return this.IsGradingRequiredPostClass;
@@ -480,9 +471,7 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 开启课后评分。 0：不开启(默认)  1：开启
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsGradingRequiredPostClass 开启课后评分。 0：不开启(默认)  1：开启
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsGradingRequiredPostClass(Long IsGradingRequiredPostClass) {
         this.IsGradingRequiredPostClass = IsGradingRequiredPostClass;
@@ -490,9 +479,9 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Get 房间类型。0:小班课（默认值）；1:大班课；2:1V1（后续扩展）
-注意：此字段可能返回 null，表示取不到有效值。 
+注：大班课的布局(layout)只有三分屏 
      * @return RoomType 房间类型。0:小班课（默认值）；1:大班课；2:1V1（后续扩展）
-注意：此字段可能返回 null，表示取不到有效值。
+注：大班课的布局(layout)只有三分屏
      */
     public Long getRoomType() {
         return this.RoomType;
@@ -500,12 +489,156 @@ public class RoomItem extends AbstractModel{
 
     /**
      * Set 房间类型。0:小班课（默认值）；1:大班课；2:1V1（后续扩展）
-注意：此字段可能返回 null，表示取不到有效值。
+注：大班课的布局(layout)只有三分屏
      * @param RoomType 房间类型。0:小班课（默认值）；1:大班课；2:1V1（后续扩展）
-注意：此字段可能返回 null，表示取不到有效值。
+注：大班课的布局(layout)只有三分屏
      */
     public void setRoomType(Long RoomType) {
         this.RoomType = RoomType;
+    }
+
+    /**
+     * Get 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟 
+     * @return EndDelayTime 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+     */
+    public Long getEndDelayTime() {
+        return this.EndDelayTime;
+    }
+
+    /**
+     * Set 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+     * @param EndDelayTime 拖堂时间：单位分钟，0为不限制(默认值), -1为不能拖堂，大于0为拖堂的时间，最大值120分钟
+     */
+    public void setEndDelayTime(Long EndDelayTime) {
+        this.EndDelayTime = EndDelayTime;
+    }
+
+    /**
+     * Get 直播类型：0 常规（默认）1 伪直播 
+     * @return LiveType 直播类型：0 常规（默认）1 伪直播
+     */
+    public Long getLiveType() {
+        return this.LiveType;
+    }
+
+    /**
+     * Set 直播类型：0 常规（默认）1 伪直播
+     * @param LiveType 直播类型：0 常规（默认）1 伪直播
+     */
+    public void setLiveType(Long LiveType) {
+        this.LiveType = LiveType;
+    }
+
+    /**
+     * Get 伪直播回放链接	 
+     * @return RecordLiveUrl 伪直播回放链接	
+     */
+    public String getRecordLiveUrl() {
+        return this.RecordLiveUrl;
+    }
+
+    /**
+     * Set 伪直播回放链接	
+     * @param RecordLiveUrl 伪直播回放链接	
+     */
+    public void setRecordLiveUrl(String RecordLiveUrl) {
+        this.RecordLiveUrl = RecordLiveUrl;
+    }
+
+    /**
+     * Get 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效	 
+     * @return EnableAutoStart 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效	
+     */
+    public Long getEnableAutoStart() {
+        return this.EnableAutoStart;
+    }
+
+    /**
+     * Set 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效	
+     * @param EnableAutoStart 是否自动开始上课：0 不自动上课（默认） 1 自动上课 live_type=1的时候有效	
+     */
+    public void setEnableAutoStart(Long EnableAutoStart) {
+        this.EnableAutoStart = EnableAutoStart;
+    }
+
+    /**
+     * Get 录制文件背景图片，支持png、jpg、jpeg、bmp格式，暂不支持透明通道 
+     * @return RecordBackground 录制文件背景图片，支持png、jpg、jpeg、bmp格式，暂不支持透明通道
+     */
+    public String getRecordBackground() {
+        return this.RecordBackground;
+    }
+
+    /**
+     * Set 录制文件背景图片，支持png、jpg、jpeg、bmp格式，暂不支持透明通道
+     * @param RecordBackground 录制文件背景图片，支持png、jpg、jpeg、bmp格式，暂不支持透明通道
+     */
+    public void setRecordBackground(String RecordBackground) {
+        this.RecordBackground = RecordBackground;
+    }
+
+    /**
+     * Get 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。 
+     * @return RecordScene 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+     */
+    public String getRecordScene() {
+        return this.RecordScene;
+    }
+
+    /**
+     * Set 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+     * @param RecordScene 录制自定义场景，仅recordlayout=9的时候此参数有效,数据内容为用户自定义场景参数，数据格式为json键值对方式，其中键值对的value为string类型。
+     */
+    public void setRecordScene(String RecordScene) {
+        this.RecordScene = RecordScene;
+    }
+
+    /**
+     * Get 录制自定义语言，仅recordlayout=9的时候此参数有效 
+     * @return RecordLang 录制自定义语言，仅recordlayout=9的时候此参数有效
+     */
+    public String getRecordLang() {
+        return this.RecordLang;
+    }
+
+    /**
+     * Set 录制自定义语言，仅recordlayout=9的时候此参数有效
+     * @param RecordLang 录制自定义语言，仅recordlayout=9的时候此参数有效
+     */
+    public void setRecordLang(String RecordLang) {
+        this.RecordLang = RecordLang;
+    }
+
+    /**
+     * Get 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式 
+     * @return WhiteBoardSnapshotMode 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+     */
+    public Long getWhiteBoardSnapshotMode() {
+        return this.WhiteBoardSnapshotMode;
+    }
+
+    /**
+     * Set 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+     * @param WhiteBoardSnapshotMode 板书截图生成类型。0 不生成板书；1 全量模式；2 单页去重模式
+     */
+    public void setWhiteBoardSnapshotMode(Long WhiteBoardSnapshotMode) {
+        this.WhiteBoardSnapshotMode = WhiteBoardSnapshotMode;
+    }
+
+    /**
+     * Get 字幕转写功能开关：0关闭，1开启，默认关闭 
+     * @return SubtitlesTranscription 字幕转写功能开关：0关闭，1开启，默认关闭
+     */
+    public Long getSubtitlesTranscription() {
+        return this.SubtitlesTranscription;
+    }
+
+    /**
+     * Set 字幕转写功能开关：0关闭，1开启，默认关闭
+     * @param SubtitlesTranscription 字幕转写功能开关：0关闭，1开启，默认关闭
+     */
+    public void setSubtitlesTranscription(Long SubtitlesTranscription) {
+        this.SubtitlesTranscription = SubtitlesTranscription;
     }
 
     public RoomItem() {
@@ -567,6 +700,33 @@ public class RoomItem extends AbstractModel{
         if (source.RoomType != null) {
             this.RoomType = new Long(source.RoomType);
         }
+        if (source.EndDelayTime != null) {
+            this.EndDelayTime = new Long(source.EndDelayTime);
+        }
+        if (source.LiveType != null) {
+            this.LiveType = new Long(source.LiveType);
+        }
+        if (source.RecordLiveUrl != null) {
+            this.RecordLiveUrl = new String(source.RecordLiveUrl);
+        }
+        if (source.EnableAutoStart != null) {
+            this.EnableAutoStart = new Long(source.EnableAutoStart);
+        }
+        if (source.RecordBackground != null) {
+            this.RecordBackground = new String(source.RecordBackground);
+        }
+        if (source.RecordScene != null) {
+            this.RecordScene = new String(source.RecordScene);
+        }
+        if (source.RecordLang != null) {
+            this.RecordLang = new String(source.RecordLang);
+        }
+        if (source.WhiteBoardSnapshotMode != null) {
+            this.WhiteBoardSnapshotMode = new Long(source.WhiteBoardSnapshotMode);
+        }
+        if (source.SubtitlesTranscription != null) {
+            this.SubtitlesTranscription = new Long(source.SubtitlesTranscription);
+        }
     }
 
 
@@ -591,6 +751,15 @@ public class RoomItem extends AbstractModel{
         this.setParamSimple(map, prefix + "VideoOrientation", this.VideoOrientation);
         this.setParamSimple(map, prefix + "IsGradingRequiredPostClass", this.IsGradingRequiredPostClass);
         this.setParamSimple(map, prefix + "RoomType", this.RoomType);
+        this.setParamSimple(map, prefix + "EndDelayTime", this.EndDelayTime);
+        this.setParamSimple(map, prefix + "LiveType", this.LiveType);
+        this.setParamSimple(map, prefix + "RecordLiveUrl", this.RecordLiveUrl);
+        this.setParamSimple(map, prefix + "EnableAutoStart", this.EnableAutoStart);
+        this.setParamSimple(map, prefix + "RecordBackground", this.RecordBackground);
+        this.setParamSimple(map, prefix + "RecordScene", this.RecordScene);
+        this.setParamSimple(map, prefix + "RecordLang", this.RecordLang);
+        this.setParamSimple(map, prefix + "WhiteBoardSnapshotMode", this.WhiteBoardSnapshotMode);
+        this.setParamSimple(map, prefix + "SubtitlesTranscription", this.SubtitlesTranscription);
 
     }
 }

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.mongodb.v20180408.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeDBInstanceHourRequest extends AbstractModel{
+public class UpgradeDBInstanceHourRequest extends AbstractModel {
 
     /**
-    * 实例ID，格式如：cmgo-p8vnipr5
+    * 实例ID，格式如：cmgo-iga0****
     */
     @SerializedName("InstanceId")
     @Expose
@@ -51,16 +52,16 @@ public class UpgradeDBInstanceHourRequest extends AbstractModel{
     private Long OplogSize;
 
     /**
-     * Get 实例ID，格式如：cmgo-p8vnipr5 
-     * @return InstanceId 实例ID，格式如：cmgo-p8vnipr5
+     * Get 实例ID，格式如：cmgo-iga0**** 
+     * @return InstanceId 实例ID，格式如：cmgo-iga0****
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID，格式如：cmgo-p8vnipr5
-     * @param InstanceId 实例ID，格式如：cmgo-p8vnipr5
+     * Set 实例ID，格式如：cmgo-iga0****
+     * @param InstanceId 实例ID，格式如：cmgo-iga0****
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20191016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceInfo extends AbstractModel{
+public class InstanceInfo extends AbstractModel {
 
     /**
     * 实例ID。
@@ -220,7 +221,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternalVip")
     @Expose
@@ -228,7 +228,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InternalVport")
     @Expose
@@ -243,7 +242,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -251,7 +249,6 @@ public class InstanceInfo extends AbstractModel{
 
     /**
     * 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterName")
     @Expose
@@ -706,10 +703,8 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内网vip。 
      * @return InternalVip 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInternalVip() {
         return this.InternalVip;
@@ -717,19 +712,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InternalVip 内网vip。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternalVip(String InternalVip) {
         this.InternalVip = InternalVip;
     }
 
     /**
-     * Get 内网port。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内网port。 
      * @return InternalVport 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInternalVport() {
         return this.InternalVport;
@@ -737,9 +728,7 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InternalVport 内网port。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInternalVport(Long InternalVport) {
         this.InternalVport = InternalVport;
@@ -762,10 +751,8 @@ public class InstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。 
      * @return ClusterId 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -773,19 +760,15 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 所属集群ID（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。 
      * @return ClusterName 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterName() {
         return this.ClusterName;
@@ -793,9 +776,7 @@ public class InstanceInfo extends AbstractModel{
 
     /**
      * Set 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterName 所属集群名称（仅对集群数据库产品该字段非空，如TDSQL-C）。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterName(String ClusterName) {
         this.ClusterName = ClusterName;

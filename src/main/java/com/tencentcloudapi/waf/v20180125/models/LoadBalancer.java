@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LoadBalancer extends AbstractModel{
+public class LoadBalancer extends AbstractModel {
 
     /**
     * 负载均衡LD的ID
@@ -51,13 +52,6 @@ public class LoadBalancer extends AbstractModel{
     private String ListenerName;
 
     /**
-    * 负载均衡实例的IP
-    */
-    @SerializedName("Vip")
-    @Expose
-    private String Vip;
-
-    /**
     * 负载均衡实例的端口
     */
     @SerializedName("Vport")
@@ -86,20 +80,32 @@ public class LoadBalancer extends AbstractModel{
     private String Zone;
 
     /**
+    * 负载均衡实例的IP。域名化CLB VIP可填空。
+    */
+    @SerializedName("Vip")
+    @Expose
+    private String Vip;
+
+    /**
     * 负载均衡的VPCID，公网为-1，内网按实际填写
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NumericalVpcId")
     @Expose
     private Long NumericalVpcId;
 
     /**
-    * 负载均衡的网络类型
-注意：此字段可能返回 null，表示取不到有效值。
+    * 负载均衡的网络类型。OPEN： 公网 INTERNAL ：内网
     */
     @SerializedName("LoadBalancerType")
     @Expose
     private String LoadBalancerType;
+
+    /**
+    * 负载均衡的域名
+    */
+    @SerializedName("LoadBalancerDomain")
+    @Expose
+    private String LoadBalancerDomain;
 
     /**
      * Get 负载均衡LD的ID 
@@ -163,22 +169,6 @@ public class LoadBalancer extends AbstractModel{
      */
     public void setListenerName(String ListenerName) {
         this.ListenerName = ListenerName;
-    }
-
-    /**
-     * Get 负载均衡实例的IP 
-     * @return Vip 负载均衡实例的IP
-     */
-    public String getVip() {
-        return this.Vip;
-    }
-
-    /**
-     * Set 负载均衡实例的IP
-     * @param Vip 负载均衡实例的IP
-     */
-    public void setVip(String Vip) {
-        this.Vip = Vip;
     }
 
     /**
@@ -246,10 +236,24 @@ public class LoadBalancer extends AbstractModel{
     }
 
     /**
-     * Get 负载均衡的VPCID，公网为-1，内网按实际填写
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 负载均衡实例的IP。域名化CLB VIP可填空。 
+     * @return Vip 负载均衡实例的IP。域名化CLB VIP可填空。
+     */
+    public String getVip() {
+        return this.Vip;
+    }
+
+    /**
+     * Set 负载均衡实例的IP。域名化CLB VIP可填空。
+     * @param Vip 负载均衡实例的IP。域名化CLB VIP可填空。
+     */
+    public void setVip(String Vip) {
+        this.Vip = Vip;
+    }
+
+    /**
+     * Get 负载均衡的VPCID，公网为-1，内网按实际填写 
      * @return NumericalVpcId 负载均衡的VPCID，公网为-1，内网按实际填写
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNumericalVpcId() {
         return this.NumericalVpcId;
@@ -257,32 +261,42 @@ public class LoadBalancer extends AbstractModel{
 
     /**
      * Set 负载均衡的VPCID，公网为-1，内网按实际填写
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NumericalVpcId 负载均衡的VPCID，公网为-1，内网按实际填写
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNumericalVpcId(Long NumericalVpcId) {
         this.NumericalVpcId = NumericalVpcId;
     }
 
     /**
-     * Get 负载均衡的网络类型
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LoadBalancerType 负载均衡的网络类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 负载均衡的网络类型。OPEN： 公网 INTERNAL ：内网 
+     * @return LoadBalancerType 负载均衡的网络类型。OPEN： 公网 INTERNAL ：内网
      */
     public String getLoadBalancerType() {
         return this.LoadBalancerType;
     }
 
     /**
-     * Set 负载均衡的网络类型
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param LoadBalancerType 负载均衡的网络类型
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 负载均衡的网络类型。OPEN： 公网 INTERNAL ：内网
+     * @param LoadBalancerType 负载均衡的网络类型。OPEN： 公网 INTERNAL ：内网
      */
     public void setLoadBalancerType(String LoadBalancerType) {
         this.LoadBalancerType = LoadBalancerType;
+    }
+
+    /**
+     * Get 负载均衡的域名 
+     * @return LoadBalancerDomain 负载均衡的域名
+     */
+    public String getLoadBalancerDomain() {
+        return this.LoadBalancerDomain;
+    }
+
+    /**
+     * Set 负载均衡的域名
+     * @param LoadBalancerDomain 负载均衡的域名
+     */
+    public void setLoadBalancerDomain(String LoadBalancerDomain) {
+        this.LoadBalancerDomain = LoadBalancerDomain;
     }
 
     public LoadBalancer() {
@@ -305,9 +319,6 @@ public class LoadBalancer extends AbstractModel{
         if (source.ListenerName != null) {
             this.ListenerName = new String(source.ListenerName);
         }
-        if (source.Vip != null) {
-            this.Vip = new String(source.Vip);
-        }
         if (source.Vport != null) {
             this.Vport = new Long(source.Vport);
         }
@@ -320,11 +331,17 @@ public class LoadBalancer extends AbstractModel{
         if (source.Zone != null) {
             this.Zone = new String(source.Zone);
         }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
         if (source.NumericalVpcId != null) {
             this.NumericalVpcId = new Long(source.NumericalVpcId);
         }
         if (source.LoadBalancerType != null) {
             this.LoadBalancerType = new String(source.LoadBalancerType);
+        }
+        if (source.LoadBalancerDomain != null) {
+            this.LoadBalancerDomain = new String(source.LoadBalancerDomain);
         }
     }
 
@@ -337,13 +354,14 @@ public class LoadBalancer extends AbstractModel{
         this.setParamSimple(map, prefix + "LoadBalancerName", this.LoadBalancerName);
         this.setParamSimple(map, prefix + "ListenerId", this.ListenerId);
         this.setParamSimple(map, prefix + "ListenerName", this.ListenerName);
-        this.setParamSimple(map, prefix + "Vip", this.Vip);
         this.setParamSimple(map, prefix + "Vport", this.Vport);
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
         this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamSimple(map, prefix + "Vip", this.Vip);
         this.setParamSimple(map, prefix + "NumericalVpcId", this.NumericalVpcId);
         this.setParamSimple(map, prefix + "LoadBalancerType", this.LoadBalancerType);
+        this.setParamSimple(map, prefix + "LoadBalancerDomain", this.LoadBalancerDomain);
 
     }
 }

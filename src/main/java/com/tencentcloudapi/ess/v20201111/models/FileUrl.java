@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FileUrl extends AbstractModel{
+public class FileUrl extends AbstractModel {
 
     /**
     * 下载文件的URL，有效期为输入的UrlTtl，默认5分钟
@@ -31,7 +32,6 @@ public class FileUrl extends AbstractModel{
 
     /**
     * 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Option")
     @Expose
@@ -54,10 +54,8 @@ public class FileUrl extends AbstractModel{
     }
 
     /**
-     * Get 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽 
      * @return Option 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOption() {
         return this.Option;
@@ -65,9 +63,7 @@ public class FileUrl extends AbstractModel{
 
     /**
      * Set 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Option 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOption(String Option) {
         this.Option = Option;

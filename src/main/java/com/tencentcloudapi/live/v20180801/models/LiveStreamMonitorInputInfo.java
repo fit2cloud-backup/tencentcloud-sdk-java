@@ -16,15 +16,15 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LiveStreamMonitorInputInfo extends AbstractModel{
+public class LiveStreamMonitorInputInfo extends AbstractModel {
 
     /**
     * 待监播的输入流名称。256字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputStreamName")
     @Expose
@@ -32,7 +32,6 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
     * 待监播的输入流推流域名。128字节以内，只允许填处于启用状态的推流域名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputDomain")
     @Expose
@@ -40,7 +39,6 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
     * 待监播的输入流推流路径。32字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputApp")
     @Expose
@@ -48,7 +46,6 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
     * 待监播的输入流推流url。一般场景下，无需该参数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InputUrl")
     @Expose
@@ -56,17 +53,35 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
     * 描述。256字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-     * Get 待监播的输入流名称。256字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 导播台输入源索引（10000 pvw， 10001 pgm， 其余代表输入下标）
+    */
+    @SerializedName("CasterInputIndex")
+    @Expose
+    private Long CasterInputIndex;
+
+    /**
+    * 该输入源是否正在监播
+    */
+    @SerializedName("NeedMonitor")
+    @Expose
+    private Boolean NeedMonitor;
+
+    /**
+    * 导播台pvw pgm的cdn流id
+    */
+    @SerializedName("CdnStreamId")
+    @Expose
+    private String CdnStreamId;
+
+    /**
+     * Get 待监播的输入流名称。256字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。 
      * @return InputStreamName 待监播的输入流名称。256字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputStreamName() {
         return this.InputStreamName;
@@ -74,19 +89,15 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
      * Set 待监播的输入流名称。256字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputStreamName 待监播的输入流名称。256字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputStreamName(String InputStreamName) {
         this.InputStreamName = InputStreamName;
     }
 
     /**
-     * Get 待监播的输入流推流域名。128字节以内，只允许填处于启用状态的推流域名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 待监播的输入流推流域名。128字节以内，只允许填处于启用状态的推流域名。 
      * @return InputDomain 待监播的输入流推流域名。128字节以内，只允许填处于启用状态的推流域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputDomain() {
         return this.InputDomain;
@@ -94,19 +105,15 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
      * Set 待监播的输入流推流域名。128字节以内，只允许填处于启用状态的推流域名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputDomain 待监播的输入流推流域名。128字节以内，只允许填处于启用状态的推流域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputDomain(String InputDomain) {
         this.InputDomain = InputDomain;
     }
 
     /**
-     * Get 待监播的输入流推流路径。32字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 待监播的输入流推流路径。32字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。 
      * @return InputApp 待监播的输入流推流路径。32字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputApp() {
         return this.InputApp;
@@ -114,19 +121,15 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
      * Set 待监播的输入流推流路径。32字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputApp 待监播的输入流推流路径。32字节以内，只允许包含字母、数字、‘-’，‘_’，'.'字符。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputApp(String InputApp) {
         this.InputApp = InputApp;
     }
 
     /**
-     * Get 待监播的输入流推流url。一般场景下，无需该参数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 待监播的输入流推流url。一般场景下，无需该参数。 
      * @return InputUrl 待监播的输入流推流url。一般场景下，无需该参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInputUrl() {
         return this.InputUrl;
@@ -134,19 +137,15 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
      * Set 待监播的输入流推流url。一般场景下，无需该参数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InputUrl 待监播的输入流推流url。一般场景下，无需该参数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInputUrl(String InputUrl) {
         this.InputUrl = InputUrl;
     }
 
     /**
-     * Get 描述。256字节以内。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 描述。256字节以内。 
      * @return Description 描述。256字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -154,12 +153,58 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
 
     /**
      * Set 描述。256字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 描述。256字节以内。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
+    }
+
+    /**
+     * Get 导播台输入源索引（10000 pvw， 10001 pgm， 其余代表输入下标） 
+     * @return CasterInputIndex 导播台输入源索引（10000 pvw， 10001 pgm， 其余代表输入下标）
+     */
+    public Long getCasterInputIndex() {
+        return this.CasterInputIndex;
+    }
+
+    /**
+     * Set 导播台输入源索引（10000 pvw， 10001 pgm， 其余代表输入下标）
+     * @param CasterInputIndex 导播台输入源索引（10000 pvw， 10001 pgm， 其余代表输入下标）
+     */
+    public void setCasterInputIndex(Long CasterInputIndex) {
+        this.CasterInputIndex = CasterInputIndex;
+    }
+
+    /**
+     * Get 该输入源是否正在监播 
+     * @return NeedMonitor 该输入源是否正在监播
+     */
+    public Boolean getNeedMonitor() {
+        return this.NeedMonitor;
+    }
+
+    /**
+     * Set 该输入源是否正在监播
+     * @param NeedMonitor 该输入源是否正在监播
+     */
+    public void setNeedMonitor(Boolean NeedMonitor) {
+        this.NeedMonitor = NeedMonitor;
+    }
+
+    /**
+     * Get 导播台pvw pgm的cdn流id 
+     * @return CdnStreamId 导播台pvw pgm的cdn流id
+     */
+    public String getCdnStreamId() {
+        return this.CdnStreamId;
+    }
+
+    /**
+     * Set 导播台pvw pgm的cdn流id
+     * @param CdnStreamId 导播台pvw pgm的cdn流id
+     */
+    public void setCdnStreamId(String CdnStreamId) {
+        this.CdnStreamId = CdnStreamId;
     }
 
     public LiveStreamMonitorInputInfo() {
@@ -185,6 +230,15 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.CasterInputIndex != null) {
+            this.CasterInputIndex = new Long(source.CasterInputIndex);
+        }
+        if (source.NeedMonitor != null) {
+            this.NeedMonitor = new Boolean(source.NeedMonitor);
+        }
+        if (source.CdnStreamId != null) {
+            this.CdnStreamId = new String(source.CdnStreamId);
+        }
     }
 
 
@@ -197,6 +251,9 @@ public class LiveStreamMonitorInputInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "InputApp", this.InputApp);
         this.setParamSimple(map, prefix + "InputUrl", this.InputUrl);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "CasterInputIndex", this.CasterInputIndex);
+        this.setParamSimple(map, prefix + "NeedMonitor", this.NeedMonitor);
+        this.setParamSimple(map, prefix + "CdnStreamId", this.CdnStreamId);
 
     }
 }

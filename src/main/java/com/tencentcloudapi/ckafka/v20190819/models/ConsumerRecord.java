@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConsumerRecord extends AbstractModel{
+public class ConsumerRecord extends AbstractModel {
 
     /**
     * 主题名
@@ -61,7 +62,6 @@ public class ConsumerRecord extends AbstractModel{
 
     /**
     * 消息时间戳
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Timestamp")
     @Expose
@@ -164,10 +164,8 @@ public class ConsumerRecord extends AbstractModel{
     }
 
     /**
-     * Get 消息时间戳
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 消息时间戳 
      * @return Timestamp 消息时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTimestamp() {
         return this.Timestamp;
@@ -175,9 +173,7 @@ public class ConsumerRecord extends AbstractModel{
 
     /**
      * Set 消息时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Timestamp 消息时间戳
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimestamp(Long Timestamp) {
         this.Timestamp = Timestamp;

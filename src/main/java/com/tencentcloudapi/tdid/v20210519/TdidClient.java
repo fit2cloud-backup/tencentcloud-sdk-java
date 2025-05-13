@@ -39,303 +39,204 @@ public class TdidClient extends AbstractClient{
     }
 
     /**
-     *该接口不再使用
-
-检查区块链信息
-     * @param req CheckChainRequest
-     * @return CheckChainResponse
+     *根据披露策略创建选择性披露凭证
+     * @param req CreateDisclosedCredentialRequest
+     * @return CreateDisclosedCredentialResponse
      * @throws TencentCloudSDKException
      */
-    public CheckChainResponse CheckChain(CheckChainRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CheckChainResponse> rsp = null;
-        String rspStr = "";
+    public CreateDisclosedCredentialResponse CreateDisclosedCredential(CreateDisclosedCredentialRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CheckChainResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CheckChain");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDisclosedCredential", CreateDisclosedCredentialResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-创建凭证
-     * @param req CreateCredentialRequest
-     * @return CreateCredentialResponse
+     *创建凭证持有人的可验证表达
+     * @param req CreatePresentationRequest
+     * @return CreatePresentationResponse
      * @throws TencentCloudSDKException
      */
-    public CreateCredentialResponse CreateCredential(CreateCredentialRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCredentialResponse> rsp = null;
-        String rspStr = "";
+    public CreatePresentationResponse CreatePresentation(CreatePresentationRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCredentialResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCredential");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreatePresentation", CreatePresentationResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-创建选择性批露凭证
-     * @param req CreateSelectiveCredentialRequest
-     * @return CreateSelectiveCredentialResponse
+     *自动生成公私钥对托管在DID平台，并注册DID标识
+     * @param req CreateTDidByHostRequest
+     * @return CreateTDidByHostResponse
      * @throws TencentCloudSDKException
      */
-    public CreateSelectiveCredentialResponse CreateSelectiveCredential(CreateSelectiveCredentialRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSelectiveCredentialResponse> rsp = null;
-        String rspStr = "";
+    public CreateTDidByHostResponse CreateTDidByHost(CreateTDidByHostRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSelectiveCredentialResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSelectiveCredential");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateTDidByHost", CreateTDidByHostResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-创建机构DID
-     * @param req CreateTDidRequest
-     * @return CreateTDidResponse
+     *使用导入的公钥文件注册DID标识
+     * @param req CreateTDidByPubKeyRequest
+     * @return CreateTDidByPubKeyResponse
      * @throws TencentCloudSDKException
      */
-    public CreateTDidResponse CreateTDid(CreateTDidRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateTDidResponse> rsp = null;
-        String rspStr = "";
+    public CreateTDidByPubKeyResponse CreateTDidByPubKey(CreateTDidByPubKeyRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateTDidResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateTDid");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateTDidByPubKey", CreateTDidByPubKeyResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-新建DID根据私钥生成Tdid
-     * @param req CreateTDidByPrivateKeyRequest
-     * @return CreateTDidByPrivateKeyResponse
+     *更新DID标识的禁用状态
+     * @param req DeactivateTDidRequest
+     * @return DeactivateTDidResponse
      * @throws TencentCloudSDKException
      */
-    public CreateTDidByPrivateKeyResponse CreateTDidByPrivateKey(CreateTDidByPrivateKeyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateTDidByPrivateKeyResponse> rsp = null;
-        String rspStr = "";
+    public DeactivateTDidResponse DeactivateTDid(DeactivateTDidRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateTDidByPrivateKeyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateTDidByPrivateKey");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeactivateTDid", DeactivateTDidResponse.class);
     }
 
     /**
-     *该接口不再使用
-
- 新建DID根据公钥生成Tdid
-     * @param req CreateTDidByPublicKeyRequest
-     * @return CreateTDidByPublicKeyResponse
+     *获取某个应用关键指标统计数据
+     * @param req GetAppSummaryRequest
+     * @return GetAppSummaryResponse
      * @throws TencentCloudSDKException
      */
-    public CreateTDidByPublicKeyResponse CreateTDidByPublicKey(CreateTDidByPublicKeyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateTDidByPublicKeyResponse> rsp = null;
-        String rspStr = "";
+    public GetAppSummaryResponse GetAppSummary(GetAppSummaryRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateTDidByPublicKeyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateTDidByPublicKey");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetAppSummary", GetAppSummaryResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-获取权威机构信息
-     * @param req GetAuthorityIssuerRequest
-     * @return GetAuthorityIssuerResponse
+     *获取凭证链上状态信息
+     * @param req GetCredentialStateRequest
+     * @return GetCredentialStateResponse
      * @throws TencentCloudSDKException
      */
-    public GetAuthorityIssuerResponse GetAuthorityIssuer(GetAuthorityIssuerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetAuthorityIssuerResponse> rsp = null;
-        String rspStr = "";
+    public GetCredentialStateResponse GetCredentialState(GetCredentialStateRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetAuthorityIssuerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetAuthorityIssuer");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetCredentialState", GetCredentialStateResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-凭证模版详情
-     * @param req GetCptInfoRequest
-     * @return GetCptInfoResponse
+     *获取某个应用关键指标统计数据
+     * @param req GetOverSummaryRequest
+     * @return GetOverSummaryResponse
      * @throws TencentCloudSDKException
      */
-    public GetCptInfoResponse GetCptInfo(GetCptInfoRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetCptInfoResponse> rsp = null;
-        String rspStr = "";
+    public GetOverSummaryResponse GetOverSummary(GetOverSummaryRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetCptInfoResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetCptInfo");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetOverSummary", GetOverSummaryResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-获取凭证链上状态信息
-     * @param req GetCredentialStatusRequest
-     * @return GetCredentialStatusResponse
+     *通过业务层绑定的对象ID获取DID标识
+     * @param req GetTDidByObjectIdRequest
+     * @return GetTDidByObjectIdResponse
      * @throws TencentCloudSDKException
      */
-    public GetCredentialStatusResponse GetCredentialStatus(GetCredentialStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetCredentialStatusResponse> rsp = null;
-        String rspStr = "";
+    public GetTDidByObjectIdResponse GetTDidByObjectId(GetTDidByObjectIdRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetCredentialStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetCredentialStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetTDidByObjectId", GetTDidByObjectIdResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-查看DID文档
-
-     * @param req GetDidDocumentRequest
-     * @return GetDidDocumentResponse
+     *获取DID标识的文档
+     * @param req GetTDidDocumentRequest
+     * @return GetTDidDocumentResponse
      * @throws TencentCloudSDKException
      */
-    public GetDidDocumentResponse GetDidDocument(GetDidDocumentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetDidDocumentResponse> rsp = null;
-        String rspStr = "";
+    public GetTDidDocumentResponse GetTDidDocument(GetTDidDocumentRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetDidDocumentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetDidDocument");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetTDidDocument", GetTDidDocumentResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-凭证模版新建
-     * @param req RegisterCptRequest
-     * @return RegisterCptResponse
+     *查询DID标识的认证公钥
+     * @param req GetTDidPubKeyRequest
+     * @return GetTDidPubKeyResponse
      * @throws TencentCloudSDKException
      */
-    public RegisterCptResponse RegisterCpt(RegisterCptRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RegisterCptResponse> rsp = null;
-        String rspStr = "";
+    public GetTDidPubKeyResponse GetTDidPubKey(GetTDidPubKeyRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RegisterCptResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RegisterCpt");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetTDidPubKey", GetTDidPubKeyResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-设置凭证链上状态
-     * @param req SetCredentialStatusRequest
-     * @return SetCredentialStatusResponse
+     *颁发可验证凭证
+     * @param req IssueCredentialRequest
+     * @return IssueCredentialResponse
      * @throws TencentCloudSDKException
      */
-    public SetCredentialStatusResponse SetCredentialStatus(SetCredentialStatusRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SetCredentialStatusResponse> rsp = null;
-        String rspStr = "";
+    public IssueCredentialResponse IssueCredential(IssueCredentialRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SetCredentialStatusResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SetCredentialStatus");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "IssueCredential", IssueCredentialResponse.class);
     }
 
     /**
-     *该接口不再使用
-
-验证凭证
-     * @param req VerifyCredentialRequest
-     * @return VerifyCredentialResponse
+     *查询权威机构信息
+     * @param req QueryAuthorityInfoRequest
+     * @return QueryAuthorityInfoResponse
      * @throws TencentCloudSDKException
      */
-    public VerifyCredentialResponse VerifyCredential(VerifyCredentialRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<VerifyCredentialResponse> rsp = null;
-        String rspStr = "";
+    public QueryAuthorityInfoResponse QueryAuthorityInfo(QueryAuthorityInfoRequest req) throws TencentCloudSDKException{
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<VerifyCredentialResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "VerifyCredential");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "QueryAuthorityInfo", QueryAuthorityInfoResponse.class);
+    }
+
+    /**
+     *查询凭证模板内容
+     * @param req QueryCPTRequest
+     * @return QueryCPTResponse
+     * @throws TencentCloudSDKException
+     */
+    public QueryCPTResponse QueryCPT(QueryCPTRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "QueryCPT", QueryCPTResponse.class);
+    }
+
+    /**
+     *设置DID文档的自定义属性
+     * @param req SetTDidAttributeRequest
+     * @return SetTDidAttributeResponse
+     * @throws TencentCloudSDKException
+     */
+    public SetTDidAttributeResponse SetTDidAttribute(SetTDidAttributeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "SetTDidAttribute", SetTDidAttributeResponse.class);
+    }
+
+    /**
+     *1. 首次更新凭证状态基于不同场景参数有所差异，分以下两种场景：
+(1)  颁发凭证的DID是本腾讯云账号创建
+(2) 颁发凭证的DID是非本腾讯云账号创建(此调用方式也适用于场景1)
+2. 首次更新过凭证状态后，凭证状态已绑定该账号的链上用户，后续更新凭证状态只需参数CredentialStatus即可, OperateCredential和OriginCredential参数均不需要
+     * @param req UpdateCredentialStateRequest
+     * @return UpdateCredentialStateResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateCredentialStateResponse UpdateCredentialState(UpdateCredentialStateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdateCredentialState", UpdateCredentialStateResponse.class);
+    }
+
+    /**
+     *验证已签名的可验证凭证
+     * @param req VerifyCredentialsRequest
+     * @return VerifyCredentialsResponse
+     * @throws TencentCloudSDKException
+     */
+    public VerifyCredentialsResponse VerifyCredentials(VerifyCredentialsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "VerifyCredentials", VerifyCredentialsResponse.class);
+    }
+
+    /**
+     *验证可验证表达的内容
+     * @param req VerifyPresentationRequest
+     * @return VerifyPresentationResponse
+     * @throws TencentCloudSDKException
+     */
+    public VerifyPresentationResponse VerifyPresentation(VerifyPresentationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "VerifyPresentation", VerifyPresentationResponse.class);
     }
 
 }

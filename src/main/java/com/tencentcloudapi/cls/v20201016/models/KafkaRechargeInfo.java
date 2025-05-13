@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KafkaRechargeInfo extends AbstractModel{
+public class KafkaRechargeInfo extends AbstractModel {
 
     /**
-    * 主键ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * Kafka数据订阅配置的ID。
     */
     @SerializedName("Id")
     @Expose
@@ -32,7 +32,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicId")
     @Expose
@@ -40,7 +39,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * Kafka导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -48,7 +46,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 导入Kafka类型，0: 腾讯云CKafka，1: 用户自建Kafka
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KafkaType")
     @Expose
@@ -56,7 +53,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 腾讯云CKafka实例ID，KafkaType为0时必填
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KafkaInstance")
     @Expose
@@ -64,7 +60,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 服务地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServerAddr")
     @Expose
@@ -72,7 +67,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * ServerAddr是否为加密连接	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsEncryptionAddr")
     @Expose
@@ -87,7 +81,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 用户需要导入的Kafka相关topic列表，多个topic之间使用半角逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserKafkaTopics")
     @Expose
@@ -95,15 +88,13 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 用户Kafka消费组名称	
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConsumerGroupName")
     @Expose
     private String ConsumerGroupName;
 
     /**
-    * 状态   status 1: 运行中, 2: 暂停 ...
-注意：此字段可能返回 null，表示取不到有效值。
+    * 状态 ，1：运行中；2：暂停。
     */
     @SerializedName("Status")
     @Expose
@@ -111,7 +102,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 导入数据位置，-2:最早（默认），-1：最晚
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Offset")
     @Expose
@@ -119,7 +109,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -127,7 +116,6 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -135,37 +123,30 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
     * 日志导入规则
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogRechargeRule")
     @Expose
     private LogRechargeRuleInfo LogRechargeRule;
 
     /**
-     * Get 主键ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Id 主键ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get Kafka数据订阅配置的ID。 
+     * @return Id Kafka数据订阅配置的ID。
      */
     public String getId() {
         return this.Id;
     }
 
     /**
-     * Set 主键ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Id 主键ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set Kafka数据订阅配置的ID。
+     * @param Id Kafka数据订阅配置的ID。
      */
     public void setId(String Id) {
         this.Id = Id;
     }
 
     /**
-     * Get 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志主题ID 
      * @return TopicId 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTopicId() {
         return this.TopicId;
@@ -173,19 +154,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicId 日志主题ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicId(String TopicId) {
         this.TopicId = TopicId;
     }
 
     /**
-     * Get Kafka导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Kafka导入任务名称 
      * @return Name Kafka导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -193,19 +170,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set Kafka导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name Kafka导入任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 导入Kafka类型，0: 腾讯云CKafka，1: 用户自建Kafka
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 导入Kafka类型，0: 腾讯云CKafka，1: 用户自建Kafka 
      * @return KafkaType 导入Kafka类型，0: 腾讯云CKafka，1: 用户自建Kafka
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getKafkaType() {
         return this.KafkaType;
@@ -213,19 +186,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 导入Kafka类型，0: 腾讯云CKafka，1: 用户自建Kafka
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KafkaType 导入Kafka类型，0: 腾讯云CKafka，1: 用户自建Kafka
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKafkaType(Long KafkaType) {
         this.KafkaType = KafkaType;
     }
 
     /**
-     * Get 腾讯云CKafka实例ID，KafkaType为0时必填
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 腾讯云CKafka实例ID，KafkaType为0时必填 
      * @return KafkaInstance 腾讯云CKafka实例ID，KafkaType为0时必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getKafkaInstance() {
         return this.KafkaInstance;
@@ -233,19 +202,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 腾讯云CKafka实例ID，KafkaType为0时必填
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KafkaInstance 腾讯云CKafka实例ID，KafkaType为0时必填
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKafkaInstance(String KafkaInstance) {
         this.KafkaInstance = KafkaInstance;
     }
 
     /**
-     * Get 服务地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务地址 
      * @return ServerAddr 服务地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServerAddr() {
         return this.ServerAddr;
@@ -253,19 +218,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 服务地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServerAddr 服务地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServerAddr(String ServerAddr) {
         this.ServerAddr = ServerAddr;
     }
 
     /**
-     * Get ServerAddr是否为加密连接	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ServerAddr是否为加密连接	 
      * @return IsEncryptionAddr ServerAddr是否为加密连接	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsEncryptionAddr() {
         return this.IsEncryptionAddr;
@@ -273,9 +234,7 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set ServerAddr是否为加密连接	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsEncryptionAddr ServerAddr是否为加密连接	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsEncryptionAddr(Boolean IsEncryptionAddr) {
         this.IsEncryptionAddr = IsEncryptionAddr;
@@ -298,10 +257,8 @@ public class KafkaRechargeInfo extends AbstractModel{
     }
 
     /**
-     * Get 用户需要导入的Kafka相关topic列表，多个topic之间使用半角逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户需要导入的Kafka相关topic列表，多个topic之间使用半角逗号隔开 
      * @return UserKafkaTopics 用户需要导入的Kafka相关topic列表，多个topic之间使用半角逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserKafkaTopics() {
         return this.UserKafkaTopics;
@@ -309,19 +266,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 用户需要导入的Kafka相关topic列表，多个topic之间使用半角逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserKafkaTopics 用户需要导入的Kafka相关topic列表，多个topic之间使用半角逗号隔开
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserKafkaTopics(String UserKafkaTopics) {
         this.UserKafkaTopics = UserKafkaTopics;
     }
 
     /**
-     * Get 用户Kafka消费组名称	
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户Kafka消费组名称	 
      * @return ConsumerGroupName 用户Kafka消费组名称	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConsumerGroupName() {
         return this.ConsumerGroupName;
@@ -329,39 +282,31 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 用户Kafka消费组名称	
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConsumerGroupName 用户Kafka消费组名称	
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConsumerGroupName(String ConsumerGroupName) {
         this.ConsumerGroupName = ConsumerGroupName;
     }
 
     /**
-     * Get 状态   status 1: 运行中, 2: 暂停 ...
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status 状态   status 1: 运行中, 2: 暂停 ...
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 状态 ，1：运行中；2：暂停。 
+     * @return Status 状态 ，1：运行中；2：暂停。
      */
     public Long getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 状态   status 1: 运行中, 2: 暂停 ...
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status 状态   status 1: 运行中, 2: 暂停 ...
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 状态 ，1：运行中；2：暂停。
+     * @param Status 状态 ，1：运行中；2：暂停。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 导入数据位置，-2:最早（默认），-1：最晚
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 导入数据位置，-2:最早（默认），-1：最晚 
      * @return Offset 导入数据位置，-2:最早（默认），-1：最晚
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOffset() {
         return this.Offset;
@@ -369,19 +314,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 导入数据位置，-2:最早（默认），-1：最晚
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Offset 导入数据位置，-2:最早（默认），-1：最晚
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -389,19 +330,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -409,19 +346,15 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 日志导入规则
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志导入规则 
      * @return LogRechargeRule 日志导入规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public LogRechargeRuleInfo getLogRechargeRule() {
         return this.LogRechargeRule;
@@ -429,9 +362,7 @@ public class KafkaRechargeInfo extends AbstractModel{
 
     /**
      * Set 日志导入规则
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogRechargeRule 日志导入规则
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogRechargeRule(LogRechargeRuleInfo LogRechargeRule) {
         this.LogRechargeRule = LogRechargeRule;

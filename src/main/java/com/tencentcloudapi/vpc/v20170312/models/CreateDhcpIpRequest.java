@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDhcpIpRequest extends AbstractModel{
+public class CreateDhcpIpRequest extends AbstractModel {
 
     /**
     * 私有网络`ID`。
@@ -49,6 +50,13 @@ public class CreateDhcpIpRequest extends AbstractModel{
     @SerializedName("SecondaryPrivateIpAddressCount")
     @Expose
     private Long SecondaryPrivateIpAddressCount;
+
+    /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 私有网络`ID`。 
@@ -114,6 +122,22 @@ public class CreateDhcpIpRequest extends AbstractModel{
         this.SecondaryPrivateIpAddressCount = SecondaryPrivateIpAddressCount;
     }
 
+    /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CreateDhcpIpRequest() {
     }
 
@@ -134,6 +158,12 @@ public class CreateDhcpIpRequest extends AbstractModel{
         if (source.SecondaryPrivateIpAddressCount != null) {
             this.SecondaryPrivateIpAddressCount = new Long(source.SecondaryPrivateIpAddressCount);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -145,6 +175,7 @@ public class CreateDhcpIpRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "DhcpIpName", this.DhcpIpName);
         this.setParamSimple(map, prefix + "SecondaryPrivateIpAddressCount", this.SecondaryPrivateIpAddressCount);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

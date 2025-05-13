@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GatewayApiGroupVo extends AbstractModel{
+public class GatewayApiGroupVo extends AbstractModel {
 
     /**
     * 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupId")
     @Expose
@@ -32,7 +32,6 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
     * 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
     @Expose
@@ -40,7 +39,6 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
     * 分组下API个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupApiCount")
     @Expose
@@ -48,7 +46,6 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
     * 分组API列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupApis")
     @Expose
@@ -56,7 +53,6 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
     * 网关实例的类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GatewayInstanceType")
     @Expose
@@ -64,17 +60,14 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
     * 网关实例ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GatewayInstanceId")
     @Expose
     private String GatewayInstanceId;
 
     /**
-     * Get 分组ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组ID 
      * @return GroupId 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupId() {
         return this.GroupId;
@@ -82,19 +75,15 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
      * Set 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupId 分组ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
     }
 
     /**
-     * Get 分组名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组名称 
      * @return GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
         return this.GroupName;
@@ -102,19 +91,15 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
      * Set 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupName 分组名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;
     }
 
     /**
-     * Get 分组下API个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组下API个数 
      * @return GroupApiCount 分组下API个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGroupApiCount() {
         return this.GroupApiCount;
@@ -122,19 +107,15 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
      * Set 分组下API个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupApiCount 分组下API个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupApiCount(Long GroupApiCount) {
         this.GroupApiCount = GroupApiCount;
     }
 
     /**
-     * Get 分组API列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分组API列表 
      * @return GroupApis 分组API列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public GatewayGroupApiVo [] getGroupApis() {
         return this.GroupApis;
@@ -142,19 +123,15 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
      * Set 分组API列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupApis 分组API列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupApis(GatewayGroupApiVo [] GroupApis) {
         this.GroupApis = GroupApis;
     }
 
     /**
-     * Get 网关实例的类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网关实例的类型 
      * @return GatewayInstanceType 网关实例的类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGatewayInstanceType() {
         return this.GatewayInstanceType;
@@ -162,19 +139,15 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
      * Set 网关实例的类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GatewayInstanceType 网关实例的类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGatewayInstanceType(String GatewayInstanceType) {
         this.GatewayInstanceType = GatewayInstanceType;
     }
 
     /**
-     * Get 网关实例ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 网关实例ID 
      * @return GatewayInstanceId 网关实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGatewayInstanceId() {
         return this.GatewayInstanceId;
@@ -182,9 +155,7 @@ public class GatewayApiGroupVo extends AbstractModel{
 
     /**
      * Set 网关实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GatewayInstanceId 网关实例ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGatewayInstanceId(String GatewayInstanceId) {
         this.GatewayInstanceId = GatewayInstanceId;

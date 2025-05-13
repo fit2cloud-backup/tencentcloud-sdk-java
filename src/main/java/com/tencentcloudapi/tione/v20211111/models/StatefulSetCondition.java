@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StatefulSetCondition extends AbstractModel{
+public class StatefulSetCondition extends AbstractModel {
 
     /**
     * 信息
@@ -61,6 +62,14 @@ public class StatefulSetCondition extends AbstractModel{
     @SerializedName("LastTransitionTime")
     @Expose
     private String LastTransitionTime;
+
+    /**
+    * 上次更新的时间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("LastUpdateTime")
+    @Expose
+    private String LastUpdateTime;
 
     /**
      * Get 信息
@@ -162,6 +171,26 @@ public class StatefulSetCondition extends AbstractModel{
         this.LastTransitionTime = LastTransitionTime;
     }
 
+    /**
+     * Get 上次更新的时间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return LastUpdateTime 上次更新的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getLastUpdateTime() {
+        return this.LastUpdateTime;
+    }
+
+    /**
+     * Set 上次更新的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param LastUpdateTime 上次更新的时间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setLastUpdateTime(String LastUpdateTime) {
+        this.LastUpdateTime = LastUpdateTime;
+    }
+
     public StatefulSetCondition() {
     }
 
@@ -185,6 +214,9 @@ public class StatefulSetCondition extends AbstractModel{
         if (source.LastTransitionTime != null) {
             this.LastTransitionTime = new String(source.LastTransitionTime);
         }
+        if (source.LastUpdateTime != null) {
+            this.LastUpdateTime = new String(source.LastUpdateTime);
+        }
     }
 
 
@@ -197,6 +229,7 @@ public class StatefulSetCondition extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "LastTransitionTime", this.LastTransitionTime);
+        this.setParamSimple(map, prefix + "LastUpdateTime", this.LastUpdateTime);
 
     }
 }

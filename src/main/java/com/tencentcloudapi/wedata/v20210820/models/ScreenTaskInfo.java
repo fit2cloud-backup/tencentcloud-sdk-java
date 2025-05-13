@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScreenTaskInfo extends AbstractModel{
+public class ScreenTaskInfo extends AbstractModel {
 
     /**
     * 统计标示 0：全部、1：当前天、2：昨天
@@ -68,6 +69,14 @@ public class ScreenTaskInfo extends AbstractModel{
     @SerializedName("FrozenNum")
     @Expose
     private Long FrozenNum;
+
+    /**
+    * 无效任务数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("InvalidNum")
+    @Expose
+    private Long InvalidNum;
 
     /**
     * 年任务
@@ -234,6 +243,26 @@ public class ScreenTaskInfo extends AbstractModel{
     }
 
     /**
+     * Get 无效任务数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return InvalidNum 无效任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getInvalidNum() {
+        return this.InvalidNum;
+    }
+
+    /**
+     * Set 无效任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param InvalidNum 无效任务数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setInvalidNum(Long InvalidNum) {
+        this.InvalidNum = InvalidNum;
+    }
+
+    /**
      * Get 年任务
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return YearNum 年任务
@@ -379,6 +408,9 @@ public class ScreenTaskInfo extends AbstractModel{
         if (source.FrozenNum != null) {
             this.FrozenNum = new Long(source.FrozenNum);
         }
+        if (source.InvalidNum != null) {
+            this.InvalidNum = new Long(source.InvalidNum);
+        }
         if (source.YearNum != null) {
             this.YearNum = new Long(source.YearNum);
         }
@@ -410,6 +442,7 @@ public class ScreenTaskInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "StoppingNum", this.StoppingNum);
         this.setParamSimple(map, prefix + "StoppedNum", this.StoppedNum);
         this.setParamSimple(map, prefix + "FrozenNum", this.FrozenNum);
+        this.setParamSimple(map, prefix + "InvalidNum", this.InvalidNum);
         this.setParamSimple(map, prefix + "YearNum", this.YearNum);
         this.setParamSimple(map, prefix + "MonthNum", this.MonthNum);
         this.setParamSimple(map, prefix + "WeekNum", this.WeekNum);

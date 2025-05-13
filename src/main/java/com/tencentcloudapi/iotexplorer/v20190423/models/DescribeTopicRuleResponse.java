@@ -16,32 +16,37 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTopicRuleResponse extends AbstractModel{
+public class DescribeTopicRuleResponse extends AbstractModel {
 
     /**
     * 规则描述。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Rule")
     @Expose
     private TopicRule Rule;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 规则绑定的标签
+    */
+    @SerializedName("CamTag")
+    @Expose
+    private CamTag [] CamTag;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 规则描述。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则描述。 
      * @return Rule 规则描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TopicRule getRule() {
         return this.Rule;
@@ -49,25 +54,39 @@ public class DescribeTopicRuleResponse extends AbstractModel{
 
     /**
      * Set 规则描述。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Rule 规则描述。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRule(TopicRule Rule) {
         this.Rule = Rule;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 规则绑定的标签 
+     * @return CamTag 规则绑定的标签
+     */
+    public CamTag [] getCamTag() {
+        return this.CamTag;
+    }
+
+    /**
+     * Set 规则绑定的标签
+     * @param CamTag 规则绑定的标签
+     */
+    public void setCamTag(CamTag [] CamTag) {
+        this.CamTag = CamTag;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -84,6 +103,12 @@ public class DescribeTopicRuleResponse extends AbstractModel{
         if (source.Rule != null) {
             this.Rule = new TopicRule(source.Rule);
         }
+        if (source.CamTag != null) {
+            this.CamTag = new CamTag[source.CamTag.length];
+            for (int i = 0; i < source.CamTag.length; i++) {
+                this.CamTag[i] = new CamTag(source.CamTag[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -95,6 +120,7 @@ public class DescribeTopicRuleResponse extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "Rule.", this.Rule);
+        this.setParamArrayObj(map, prefix + "CamTag.", this.CamTag);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

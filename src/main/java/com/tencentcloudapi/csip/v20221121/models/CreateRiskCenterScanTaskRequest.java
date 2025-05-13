@@ -16,11 +16,12 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateRiskCenterScanTaskRequest extends AbstractModel{
+public class CreateRiskCenterScanTaskRequest extends AbstractModel {
 
     /**
     * 任务名称
@@ -51,6 +52,13 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
     private Long ScanPlanType;
 
     /**
+    * 集团账号的成员id
+    */
+    @SerializedName("MemberId")
+    @Expose
+    private String [] MemberId;
+
+    /**
     * 扫描资产信息列表
     */
     @SerializedName("Assets")
@@ -72,6 +80,13 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
     private String [] SelfDefiningAssets;
 
     /**
+    * 请求发起源，vss表示漏洞扫描服务，云安全中心的用户请填充csip，默认csip
+    */
+    @SerializedName("ScanFrom")
+    @Expose
+    private String ScanFrom;
+
+    /**
     * 高级配置
     */
     @SerializedName("TaskAdvanceCFG")
@@ -84,6 +99,20 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
     @SerializedName("TaskMode")
     @Expose
     private Long TaskMode;
+
+    /**
+    * 资产标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private AssetTag Tags;
+
+    /**
+    * 任务完成回调webhook地址
+    */
+    @SerializedName("FinishWebHook")
+    @Expose
+    private String FinishWebHook;
 
     /**
      * Get 任务名称 
@@ -150,6 +179,22 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
     }
 
     /**
+     * Get 集团账号的成员id 
+     * @return MemberId 集团账号的成员id
+     */
+    public String [] getMemberId() {
+        return this.MemberId;
+    }
+
+    /**
+     * Set 集团账号的成员id
+     * @param MemberId 集团账号的成员id
+     */
+    public void setMemberId(String [] MemberId) {
+        this.MemberId = MemberId;
+    }
+
+    /**
      * Get 扫描资产信息列表 
      * @return Assets 扫描资产信息列表
      */
@@ -198,6 +243,22 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
     }
 
     /**
+     * Get 请求发起源，vss表示漏洞扫描服务，云安全中心的用户请填充csip，默认csip 
+     * @return ScanFrom 请求发起源，vss表示漏洞扫描服务，云安全中心的用户请填充csip，默认csip
+     */
+    public String getScanFrom() {
+        return this.ScanFrom;
+    }
+
+    /**
+     * Set 请求发起源，vss表示漏洞扫描服务，云安全中心的用户请填充csip，默认csip
+     * @param ScanFrom 请求发起源，vss表示漏洞扫描服务，云安全中心的用户请填充csip，默认csip
+     */
+    public void setScanFrom(String ScanFrom) {
+        this.ScanFrom = ScanFrom;
+    }
+
+    /**
      * Get 高级配置 
      * @return TaskAdvanceCFG 高级配置
      */
@@ -229,6 +290,38 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
         this.TaskMode = TaskMode;
     }
 
+    /**
+     * Get 资产标签 
+     * @return Tags 资产标签
+     */
+    public AssetTag getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 资产标签
+     * @param Tags 资产标签
+     */
+    public void setTags(AssetTag Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 任务完成回调webhook地址 
+     * @return FinishWebHook 任务完成回调webhook地址
+     */
+    public String getFinishWebHook() {
+        return this.FinishWebHook;
+    }
+
+    /**
+     * Set 任务完成回调webhook地址
+     * @param FinishWebHook 任务完成回调webhook地址
+     */
+    public void setFinishWebHook(String FinishWebHook) {
+        this.FinishWebHook = FinishWebHook;
+    }
+
     public CreateRiskCenterScanTaskRequest() {
     }
 
@@ -252,6 +345,12 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
         if (source.ScanPlanType != null) {
             this.ScanPlanType = new Long(source.ScanPlanType);
         }
+        if (source.MemberId != null) {
+            this.MemberId = new String[source.MemberId.length];
+            for (int i = 0; i < source.MemberId.length; i++) {
+                this.MemberId[i] = new String(source.MemberId[i]);
+            }
+        }
         if (source.Assets != null) {
             this.Assets = new TaskAssetObject[source.Assets.length];
             for (int i = 0; i < source.Assets.length; i++) {
@@ -267,11 +366,20 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
                 this.SelfDefiningAssets[i] = new String(source.SelfDefiningAssets[i]);
             }
         }
+        if (source.ScanFrom != null) {
+            this.ScanFrom = new String(source.ScanFrom);
+        }
         if (source.TaskAdvanceCFG != null) {
             this.TaskAdvanceCFG = new TaskAdvanceCFG(source.TaskAdvanceCFG);
         }
         if (source.TaskMode != null) {
             this.TaskMode = new Long(source.TaskMode);
+        }
+        if (source.Tags != null) {
+            this.Tags = new AssetTag(source.Tags);
+        }
+        if (source.FinishWebHook != null) {
+            this.FinishWebHook = new String(source.FinishWebHook);
         }
     }
 
@@ -284,11 +392,15 @@ public class CreateRiskCenterScanTaskRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ScanAssetType", this.ScanAssetType);
         this.setParamArraySimple(map, prefix + "ScanItem.", this.ScanItem);
         this.setParamSimple(map, prefix + "ScanPlanType", this.ScanPlanType);
+        this.setParamArraySimple(map, prefix + "MemberId.", this.MemberId);
         this.setParamArrayObj(map, prefix + "Assets.", this.Assets);
         this.setParamSimple(map, prefix + "ScanPlanContent", this.ScanPlanContent);
         this.setParamArraySimple(map, prefix + "SelfDefiningAssets.", this.SelfDefiningAssets);
+        this.setParamSimple(map, prefix + "ScanFrom", this.ScanFrom);
         this.setParamObj(map, prefix + "TaskAdvanceCFG.", this.TaskAdvanceCFG);
         this.setParamSimple(map, prefix + "TaskMode", this.TaskMode);
+        this.setParamObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "FinishWebHook", this.FinishWebHook);
 
     }
 }

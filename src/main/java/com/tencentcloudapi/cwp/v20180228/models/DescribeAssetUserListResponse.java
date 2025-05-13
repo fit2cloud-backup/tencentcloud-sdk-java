@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAssetUserListResponse extends AbstractModel{
+public class DescribeAssetUserListResponse extends AbstractModel {
 
     /**
     * 记录总数
@@ -31,14 +32,13 @@ public class DescribeAssetUserListResponse extends AbstractModel{
 
     /**
     * 账号列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Users")
     @Expose
     private AssetUserBaseInfo [] Users;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -61,10 +61,8 @@ public class DescribeAssetUserListResponse extends AbstractModel{
     }
 
     /**
-     * Get 账号列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 账号列表 
      * @return Users 账号列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AssetUserBaseInfo [] getUsers() {
         return this.Users;
@@ -72,25 +70,23 @@ public class DescribeAssetUserListResponse extends AbstractModel{
 
     /**
      * Set 账号列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Users 账号列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsers(AssetUserBaseInfo [] Users) {
         this.Users = Users;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

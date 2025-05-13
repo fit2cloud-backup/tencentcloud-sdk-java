@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchDescribeDocumentRequest extends AbstractModel{
+public class BatchDescribeDocumentRequest extends AbstractModel {
 
     /**
     * 低代码互动课堂的SdkAppId。
@@ -37,7 +38,7 @@ public class BatchDescribeDocumentRequest extends AbstractModel{
     private Long Page;
 
     /**
-    * 每页数据量，最大1000
+    * 每页数据量，最大200
     */
     @SerializedName("Limit")
     @Expose
@@ -104,16 +105,16 @@ public class BatchDescribeDocumentRequest extends AbstractModel{
     }
 
     /**
-     * Get 每页数据量，最大1000 
-     * @return Limit 每页数据量，最大1000
+     * Get 每页数据量，最大200 
+     * @return Limit 每页数据量，最大200
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页数据量，最大1000
-     * @param Limit 每页数据量，最大1000
+     * Set 每页数据量，最大200
+     * @param Limit 每页数据量，最大200
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

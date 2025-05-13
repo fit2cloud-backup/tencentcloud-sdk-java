@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RoundPlayListItemInfo extends AbstractModel{
+public class RoundPlayListItemInfo extends AbstractModel {
 
     /**
     * 媒体文件标识。
@@ -40,7 +41,14 @@ Type 对应的格式必须为 HLS 格式。
     private String AudioVideoType;
 
     /**
-    * 指定播放的转码模版，当 AudioVideoType 为 Transcode 时必须指定。
+    * 播放节目的 ID，由系统分配。
+    */
+    @SerializedName("ItemId")
+    @Expose
+    private String ItemId;
+
+    /**
+    * 指定播放的转码模板，当 AudioVideoType 为 Transcode 时必须指定。
     */
     @SerializedName("Definition")
     @Expose
@@ -91,16 +99,32 @@ Type 对应的格式必须为 HLS 格式。
     }
 
     /**
-     * Get 指定播放的转码模版，当 AudioVideoType 为 Transcode 时必须指定。 
-     * @return Definition 指定播放的转码模版，当 AudioVideoType 为 Transcode 时必须指定。
+     * Get 播放节目的 ID，由系统分配。 
+     * @return ItemId 播放节目的 ID，由系统分配。
+     */
+    public String getItemId() {
+        return this.ItemId;
+    }
+
+    /**
+     * Set 播放节目的 ID，由系统分配。
+     * @param ItemId 播放节目的 ID，由系统分配。
+     */
+    public void setItemId(String ItemId) {
+        this.ItemId = ItemId;
+    }
+
+    /**
+     * Get 指定播放的转码模板，当 AudioVideoType 为 Transcode 时必须指定。 
+     * @return Definition 指定播放的转码模板，当 AudioVideoType 为 Transcode 时必须指定。
      */
     public Long getDefinition() {
         return this.Definition;
     }
 
     /**
-     * Set 指定播放的转码模版，当 AudioVideoType 为 Transcode 时必须指定。
-     * @param Definition 指定播放的转码模版，当 AudioVideoType 为 Transcode 时必须指定。
+     * Set 指定播放的转码模板，当 AudioVideoType 为 Transcode 时必须指定。
+     * @param Definition 指定播放的转码模板，当 AudioVideoType 为 Transcode 时必须指定。
      */
     public void setDefinition(Long Definition) {
         this.Definition = Definition;
@@ -120,6 +144,9 @@ Type 对应的格式必须为 HLS 格式。
         if (source.AudioVideoType != null) {
             this.AudioVideoType = new String(source.AudioVideoType);
         }
+        if (source.ItemId != null) {
+            this.ItemId = new String(source.ItemId);
+        }
         if (source.Definition != null) {
             this.Definition = new Long(source.Definition);
         }
@@ -132,6 +159,7 @@ Type 对应的格式必须为 HLS 格式。
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FileId", this.FileId);
         this.setParamSimple(map, prefix + "AudioVideoType", this.AudioVideoType);
+        this.setParamSimple(map, prefix + "ItemId", this.ItemId);
         this.setParamSimple(map, prefix + "Definition", this.Definition);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dnspod.v20210323.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRecordFilterListRequest extends AbstractModel{
+public class DescribeRecordFilterListRequest extends AbstractModel {
 
     /**
     * 要获取的解析记录所属的域名。
@@ -95,7 +96,7 @@ UPDATED_ON：解析记录更新时间
     private String SortType;
 
     /**
-    * 偏移量，默认值为0。
+    * 偏移量，默认值为0。如果入参携带"Domain","ffset","Limit" 这3个以外的参数，记录结果限制最大3000条
     */
     @SerializedName("Offset")
     @Expose
@@ -382,16 +383,16 @@ UPDATED_ON：解析记录更新时间
     }
 
     /**
-     * Get 偏移量，默认值为0。 
-     * @return Offset 偏移量，默认值为0。
+     * Get 偏移量，默认值为0。如果入参携带"Domain","ffset","Limit" 这3个以外的参数，记录结果限制最大3000条 
+     * @return Offset 偏移量，默认值为0。如果入参携带"Domain","ffset","Limit" 这3个以外的参数，记录结果限制最大3000条
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量，默认值为0。
-     * @param Offset 偏移量，默认值为0。
+     * Set 偏移量，默认值为0。如果入参携带"Domain","ffset","Limit" 这3个以外的参数，记录结果限制最大3000条
+     * @param Offset 偏移量，默认值为0。如果入参携带"Domain","ffset","Limit" 这3个以外的参数，记录结果限制最大3000条
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;

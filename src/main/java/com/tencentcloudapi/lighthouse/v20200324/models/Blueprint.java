@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Blueprint extends AbstractModel{
+public class Blueprint extends AbstractModel {
 
     /**
     * 镜像 ID  ，是 Blueprint 的唯一标识。
@@ -73,7 +74,7 @@ public class Blueprint extends AbstractModel{
     private String PlatformType;
 
     /**
-    * 镜像类型，如 APP_OS、PURE_OS、PRIVATE。
+    * 镜像类型，如 APP_OS（应用镜像）, PURE_OS（系统镜像）, DOCKER（容器）, PRIVATE（私有镜像）, SHARED（共享镜像）, GAME_PORTAL（游戏专区镜像）。
     */
     @SerializedName("BlueprintType")
     @Expose
@@ -94,7 +95,7 @@ public class Blueprint extends AbstractModel{
     private Long RequiredSystemDiskSize;
 
     /**
-    * 镜像状态。
+    * 镜像状态，镜镜像状态，NORMAL（正常）、SYNCING（同步中）、OFFLINE（下线）、ISOLATED（已隔离）、CREATEFAILED（创建失败）、SYNCING_FAILED（目的地域同步失败）、ISOLATING（隔离中）、ISOLATED（已隔离）、DELETING（删除中）、DESTROYING（销毁中）。
     */
     @SerializedName("BlueprintState")
     @Expose
@@ -132,7 +133,6 @@ public class Blueprint extends AbstractModel{
 
     /**
     * CVM镜像共享到轻量应用服务器轻量应用服务器后的CVM镜像ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageId")
     @Expose
@@ -154,7 +154,6 @@ public class Blueprint extends AbstractModel{
 
     /**
     * 镜像关联使用场景Id列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SceneIdSet")
     @Expose
@@ -167,6 +166,13 @@ public class Blueprint extends AbstractModel{
     @SerializedName("DockerVersion")
     @Expose
     private String DockerVersion;
+
+    /**
+    * 镜像是否已共享。
+    */
+    @SerializedName("BlueprintShared")
+    @Expose
+    private Boolean BlueprintShared;
 
     /**
      * Get 镜像 ID  ，是 Blueprint 的唯一标识。 
@@ -285,16 +291,16 @@ public class Blueprint extends AbstractModel{
     }
 
     /**
-     * Get 镜像类型，如 APP_OS、PURE_OS、PRIVATE。 
-     * @return BlueprintType 镜像类型，如 APP_OS、PURE_OS、PRIVATE。
+     * Get 镜像类型，如 APP_OS（应用镜像）, PURE_OS（系统镜像）, DOCKER（容器）, PRIVATE（私有镜像）, SHARED（共享镜像）, GAME_PORTAL（游戏专区镜像）。 
+     * @return BlueprintType 镜像类型，如 APP_OS（应用镜像）, PURE_OS（系统镜像）, DOCKER（容器）, PRIVATE（私有镜像）, SHARED（共享镜像）, GAME_PORTAL（游戏专区镜像）。
      */
     public String getBlueprintType() {
         return this.BlueprintType;
     }
 
     /**
-     * Set 镜像类型，如 APP_OS、PURE_OS、PRIVATE。
-     * @param BlueprintType 镜像类型，如 APP_OS、PURE_OS、PRIVATE。
+     * Set 镜像类型，如 APP_OS（应用镜像）, PURE_OS（系统镜像）, DOCKER（容器）, PRIVATE（私有镜像）, SHARED（共享镜像）, GAME_PORTAL（游戏专区镜像）。
+     * @param BlueprintType 镜像类型，如 APP_OS（应用镜像）, PURE_OS（系统镜像）, DOCKER（容器）, PRIVATE（私有镜像）, SHARED（共享镜像）, GAME_PORTAL（游戏专区镜像）。
      */
     public void setBlueprintType(String BlueprintType) {
         this.BlueprintType = BlueprintType;
@@ -333,16 +339,16 @@ public class Blueprint extends AbstractModel{
     }
 
     /**
-     * Get 镜像状态。 
-     * @return BlueprintState 镜像状态。
+     * Get 镜像状态，镜镜像状态，NORMAL（正常）、SYNCING（同步中）、OFFLINE（下线）、ISOLATED（已隔离）、CREATEFAILED（创建失败）、SYNCING_FAILED（目的地域同步失败）、ISOLATING（隔离中）、ISOLATED（已隔离）、DELETING（删除中）、DESTROYING（销毁中）。 
+     * @return BlueprintState 镜像状态，镜镜像状态，NORMAL（正常）、SYNCING（同步中）、OFFLINE（下线）、ISOLATED（已隔离）、CREATEFAILED（创建失败）、SYNCING_FAILED（目的地域同步失败）、ISOLATING（隔离中）、ISOLATED（已隔离）、DELETING（删除中）、DESTROYING（销毁中）。
      */
     public String getBlueprintState() {
         return this.BlueprintState;
     }
 
     /**
-     * Set 镜像状态。
-     * @param BlueprintState 镜像状态。
+     * Set 镜像状态，镜镜像状态，NORMAL（正常）、SYNCING（同步中）、OFFLINE（下线）、ISOLATED（已隔离）、CREATEFAILED（创建失败）、SYNCING_FAILED（目的地域同步失败）、ISOLATING（隔离中）、ISOLATED（已隔离）、DELETING（删除中）、DESTROYING（销毁中）。
+     * @param BlueprintState 镜像状态，镜镜像状态，NORMAL（正常）、SYNCING（同步中）、OFFLINE（下线）、ISOLATED（已隔离）、CREATEFAILED（创建失败）、SYNCING_FAILED（目的地域同步失败）、ISOLATING（隔离中）、ISOLATED（已隔离）、DELETING（删除中）、DESTROYING（销毁中）。
      */
     public void setBlueprintState(String BlueprintState) {
         this.BlueprintState = BlueprintState;
@@ -421,10 +427,8 @@ public class Blueprint extends AbstractModel{
     }
 
     /**
-     * Get CVM镜像共享到轻量应用服务器轻量应用服务器后的CVM镜像ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CVM镜像共享到轻量应用服务器轻量应用服务器后的CVM镜像ID。 
      * @return ImageId CVM镜像共享到轻量应用服务器轻量应用服务器后的CVM镜像ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageId() {
         return this.ImageId;
@@ -432,9 +436,7 @@ public class Blueprint extends AbstractModel{
 
     /**
      * Set CVM镜像共享到轻量应用服务器轻量应用服务器后的CVM镜像ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageId CVM镜像共享到轻量应用服务器轻量应用服务器后的CVM镜像ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
@@ -473,10 +475,8 @@ public class Blueprint extends AbstractModel{
     }
 
     /**
-     * Get 镜像关联使用场景Id列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像关联使用场景Id列表。 
      * @return SceneIdSet 镜像关联使用场景Id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSceneIdSet() {
         return this.SceneIdSet;
@@ -484,9 +484,7 @@ public class Blueprint extends AbstractModel{
 
     /**
      * Set 镜像关联使用场景Id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SceneIdSet 镜像关联使用场景Id列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSceneIdSet(String [] SceneIdSet) {
         this.SceneIdSet = SceneIdSet;
@@ -510,6 +508,22 @@ public class Blueprint extends AbstractModel{
      */
     public void setDockerVersion(String DockerVersion) {
         this.DockerVersion = DockerVersion;
+    }
+
+    /**
+     * Get 镜像是否已共享。 
+     * @return BlueprintShared 镜像是否已共享。
+     */
+    public Boolean getBlueprintShared() {
+        return this.BlueprintShared;
+    }
+
+    /**
+     * Set 镜像是否已共享。
+     * @param BlueprintShared 镜像是否已共享。
+     */
+    public void setBlueprintShared(Boolean BlueprintShared) {
+        this.BlueprintShared = BlueprintShared;
     }
 
     public Blueprint() {
@@ -583,6 +597,9 @@ public class Blueprint extends AbstractModel{
         if (source.DockerVersion != null) {
             this.DockerVersion = new String(source.DockerVersion);
         }
+        if (source.BlueprintShared != null) {
+            this.BlueprintShared = new Boolean(source.BlueprintShared);
+        }
     }
 
 
@@ -610,6 +627,7 @@ public class Blueprint extends AbstractModel{
         this.setParamSimple(map, prefix + "GuideUrl", this.GuideUrl);
         this.setParamArraySimple(map, prefix + "SceneIdSet.", this.SceneIdSet);
         this.setParamSimple(map, prefix + "DockerVersion", this.DockerVersion);
+        this.setParamSimple(map, prefix + "BlueprintShared", this.BlueprintShared);
 
     }
 }

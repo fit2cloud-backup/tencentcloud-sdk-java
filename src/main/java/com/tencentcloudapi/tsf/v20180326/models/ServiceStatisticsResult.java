@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ServiceStatisticsResult extends AbstractModel{
+public class ServiceStatisticsResult extends AbstractModel {
 
     /**
-    * 请求模版路径:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
+    * 请求模板路径:type为接口时返回，服务时不返回
     */
     @SerializedName("Path")
     @Expose
@@ -32,7 +32,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 请求方法:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Method")
     @Expose
@@ -82,7 +81,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 实例id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -90,7 +88,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 实例name
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -98,7 +95,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupId")
     @Expose
@@ -106,7 +102,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 部署组name
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
     @Expose
@@ -114,7 +109,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 部署组类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterType")
     @Expose
@@ -122,7 +116,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 部署组是否存在
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupExist")
     @Expose
@@ -130,7 +123,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 实例是否存在，仅限cvm
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceExist")
     @Expose
@@ -138,7 +130,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 应用id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationId")
     @Expose
@@ -146,7 +137,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 微服务类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MicroserviceType")
     @Expose
@@ -154,7 +144,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * cpu使用率
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CpuPercent")
     @Expose
@@ -162,7 +151,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 已用堆大小,单位KB
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HeapUsed")
     @Expose
@@ -170,7 +158,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 数据库
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DbName")
     @Expose
@@ -178,7 +165,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * Script值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Script")
     @Expose
@@ -186,7 +172,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 数据库类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DbType")
     @Expose
@@ -194,7 +179,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * Apdex值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Apdex")
     @Expose
@@ -202,7 +186,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * Qps值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Qps")
     @Expose
@@ -210,7 +193,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 实例在线数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceOnlineCount")
     @Expose
@@ -218,7 +200,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceTotalCount")
     @Expose
@@ -226,7 +207,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * normal/error
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -234,7 +214,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorRateLevel")
     @Expose
@@ -242,7 +221,6 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AvgTimeConsumingLevel")
     @Expose
@@ -250,37 +228,30 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
     * normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApdexLevel")
     @Expose
     private String ApdexLevel;
 
     /**
-     * Get 请求模版路径:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Path 请求模版路径:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 请求模板路径:type为接口时返回，服务时不返回 
+     * @return Path 请求模板路径:type为接口时返回，服务时不返回
      */
     public String getPath() {
         return this.Path;
     }
 
     /**
-     * Set 请求模版路径:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Path 请求模版路径:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 请求模板路径:type为接口时返回，服务时不返回
+     * @param Path 请求模板路径:type为接口时返回，服务时不返回
      */
     public void setPath(String Path) {
         this.Path = Path;
     }
 
     /**
-     * Get 请求方法:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 请求方法:type为接口时返回，服务时不返回 
      * @return Method 请求方法:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMethod() {
         return this.Method;
@@ -288,9 +259,7 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 请求方法:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Method 请求方法:type为接口时返回，服务时不返回
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMethod(String Method) {
         this.Method = Method;
@@ -393,10 +362,8 @@ public class ServiceStatisticsResult extends AbstractModel{
     }
 
     /**
-     * Get 实例id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例id 
      * @return InstanceId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -404,19 +371,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 实例name
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例name 
      * @return InstanceName 实例name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -424,19 +387,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 实例name
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 实例name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 部署组id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组id 
      * @return GroupId 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupId() {
         return this.GroupId;
@@ -444,19 +403,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupId 部署组id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
     }
 
     /**
-     * Get 部署组name
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组name 
      * @return GroupName 部署组name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
         return this.GroupName;
@@ -464,19 +419,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 部署组name
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupName 部署组name
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;
     }
 
     /**
-     * Get 部署组类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组类型 
      * @return ClusterType 部署组类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterType() {
         return this.ClusterType;
@@ -484,19 +435,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 部署组类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterType 部署组类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterType(String ClusterType) {
         this.ClusterType = ClusterType;
     }
 
     /**
-     * Get 部署组是否存在
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 部署组是否存在 
      * @return GroupExist 部署组是否存在
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGroupExist() {
         return this.GroupExist;
@@ -504,19 +451,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 部署组是否存在
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupExist 部署组是否存在
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupExist(Long GroupExist) {
         this.GroupExist = GroupExist;
     }
 
     /**
-     * Get 实例是否存在，仅限cvm
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例是否存在，仅限cvm 
      * @return InstanceExist 实例是否存在，仅限cvm
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceExist() {
         return this.InstanceExist;
@@ -524,19 +467,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 实例是否存在，仅限cvm
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceExist 实例是否存在，仅限cvm
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceExist(Long InstanceExist) {
         this.InstanceExist = InstanceExist;
     }
 
     /**
-     * Get 应用id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用id 
      * @return ApplicationId 应用id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationId() {
         return this.ApplicationId;
@@ -544,19 +483,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 应用id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationId 应用id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
     }
 
     /**
-     * Get 微服务类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 微服务类型 
      * @return MicroserviceType 微服务类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMicroserviceType() {
         return this.MicroserviceType;
@@ -564,19 +499,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 微服务类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MicroserviceType 微服务类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMicroserviceType(String MicroserviceType) {
         this.MicroserviceType = MicroserviceType;
     }
 
     /**
-     * Get cpu使用率
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get cpu使用率 
      * @return CpuPercent cpu使用率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCpuPercent() {
         return this.CpuPercent;
@@ -584,19 +515,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set cpu使用率
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CpuPercent cpu使用率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCpuPercent(Long CpuPercent) {
         this.CpuPercent = CpuPercent;
     }
 
     /**
-     * Get 已用堆大小,单位KB
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已用堆大小,单位KB 
      * @return HeapUsed 已用堆大小,单位KB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHeapUsed() {
         return this.HeapUsed;
@@ -604,19 +531,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 已用堆大小,单位KB
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HeapUsed 已用堆大小,单位KB
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHeapUsed(Long HeapUsed) {
         this.HeapUsed = HeapUsed;
     }
 
     /**
-     * Get 数据库
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库 
      * @return DbName 数据库
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDbName() {
         return this.DbName;
@@ -624,19 +547,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 数据库
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DbName 数据库
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDbName(String DbName) {
         this.DbName = DbName;
     }
 
     /**
-     * Get Script值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Script值 
      * @return Script Script值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScript() {
         return this.Script;
@@ -644,19 +563,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set Script值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Script Script值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScript(String Script) {
         this.Script = Script;
     }
 
     /**
-     * Get 数据库类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库类型 
      * @return DbType 数据库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDbType() {
         return this.DbType;
@@ -664,19 +579,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 数据库类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DbType 数据库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDbType(String DbType) {
         this.DbType = DbType;
     }
 
     /**
-     * Get Apdex值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Apdex值 
      * @return Apdex Apdex值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getApdex() {
         return this.Apdex;
@@ -684,19 +595,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set Apdex值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Apdex Apdex值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApdex(Float Apdex) {
         this.Apdex = Apdex;
     }
 
     /**
-     * Get Qps值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Qps值 
      * @return Qps Qps值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getQps() {
         return this.Qps;
@@ -704,19 +611,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set Qps值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Qps Qps值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQps(Float Qps) {
         this.Qps = Qps;
     }
 
     /**
-     * Get 实例在线数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例在线数 
      * @return InstanceOnlineCount 实例在线数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceOnlineCount() {
         return this.InstanceOnlineCount;
@@ -724,19 +627,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 实例在线数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceOnlineCount 实例在线数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceOnlineCount(Long InstanceOnlineCount) {
         this.InstanceOnlineCount = InstanceOnlineCount;
     }
 
     /**
-     * Get 实例总数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例总数 
      * @return InstanceTotalCount 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceTotalCount() {
         return this.InstanceTotalCount;
@@ -744,19 +643,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceTotalCount 实例总数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceTotalCount(Long InstanceTotalCount) {
         this.InstanceTotalCount = InstanceTotalCount;
     }
 
     /**
-     * Get normal/error
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get normal/error 
      * @return Status normal/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -764,19 +659,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set normal/error
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status normal/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get normal/warn/error 
      * @return ErrorRateLevel normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorRateLevel() {
         return this.ErrorRateLevel;
@@ -784,19 +675,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorRateLevel normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorRateLevel(String ErrorRateLevel) {
         this.ErrorRateLevel = ErrorRateLevel;
     }
 
     /**
-     * Get normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get normal/warn/error 
      * @return AvgTimeConsumingLevel normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAvgTimeConsumingLevel() {
         return this.AvgTimeConsumingLevel;
@@ -804,19 +691,15 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AvgTimeConsumingLevel normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvgTimeConsumingLevel(String AvgTimeConsumingLevel) {
         this.AvgTimeConsumingLevel = AvgTimeConsumingLevel;
     }
 
     /**
-     * Get normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get normal/warn/error 
      * @return ApdexLevel normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApdexLevel() {
         return this.ApdexLevel;
@@ -824,9 +707,7 @@ public class ServiceStatisticsResult extends AbstractModel{
 
     /**
      * Set normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApdexLevel normal/warn/error
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApdexLevel(String ApdexLevel) {
         this.ApdexLevel = ApdexLevel;

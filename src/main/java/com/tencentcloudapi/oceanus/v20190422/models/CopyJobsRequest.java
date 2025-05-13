@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CopyJobsRequest extends AbstractModel{
+public class CopyJobsRequest extends AbstractModel {
 
     /**
     * 复制明细列表
@@ -35,6 +36,13 @@ public class CopyJobsRequest extends AbstractModel{
     @SerializedName("WorkSpaceId")
     @Expose
     private String WorkSpaceId;
+
+    /**
+    * 目标工作空间 SerialId
+    */
+    @SerializedName("TargetWorkspaceId")
+    @Expose
+    private String TargetWorkspaceId;
 
     /**
      * Get 复制明细列表 
@@ -68,6 +76,22 @@ public class CopyJobsRequest extends AbstractModel{
         this.WorkSpaceId = WorkSpaceId;
     }
 
+    /**
+     * Get 目标工作空间 SerialId 
+     * @return TargetWorkspaceId 目标工作空间 SerialId
+     */
+    public String getTargetWorkspaceId() {
+        return this.TargetWorkspaceId;
+    }
+
+    /**
+     * Set 目标工作空间 SerialId
+     * @param TargetWorkspaceId 目标工作空间 SerialId
+     */
+    public void setTargetWorkspaceId(String TargetWorkspaceId) {
+        this.TargetWorkspaceId = TargetWorkspaceId;
+    }
+
     public CopyJobsRequest() {
     }
 
@@ -85,6 +109,9 @@ public class CopyJobsRequest extends AbstractModel{
         if (source.WorkSpaceId != null) {
             this.WorkSpaceId = new String(source.WorkSpaceId);
         }
+        if (source.TargetWorkspaceId != null) {
+            this.TargetWorkspaceId = new String(source.TargetWorkspaceId);
+        }
     }
 
 
@@ -94,6 +121,7 @@ public class CopyJobsRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "JobItems.", this.JobItems);
         this.setParamSimple(map, prefix + "WorkSpaceId", this.WorkSpaceId);
+        this.setParamSimple(map, prefix + "TargetWorkspaceId", this.TargetWorkspaceId);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterCondition extends AbstractModel{
+public class ClusterCondition extends AbstractModel {
 
     /**
     * 集群创建过程类型
@@ -38,7 +39,6 @@ public class ClusterCondition extends AbstractModel{
 
     /**
     * 最后一次探测到该状态的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastProbeTime")
     @Expose
@@ -46,7 +46,6 @@ public class ClusterCondition extends AbstractModel{
 
     /**
     * 最后一次转换到该过程的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastTransitionTime")
     @Expose
@@ -54,7 +53,6 @@ public class ClusterCondition extends AbstractModel{
 
     /**
     * 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Reason")
     @Expose
@@ -62,7 +60,6 @@ public class ClusterCondition extends AbstractModel{
 
     /**
     * 转换到该过程的更多信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -101,10 +98,8 @@ public class ClusterCondition extends AbstractModel{
     }
 
     /**
-     * Get 最后一次探测到该状态的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最后一次探测到该状态的时间 
      * @return LastProbeTime 最后一次探测到该状态的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastProbeTime() {
         return this.LastProbeTime;
@@ -112,19 +107,15 @@ public class ClusterCondition extends AbstractModel{
 
     /**
      * Set 最后一次探测到该状态的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastProbeTime 最后一次探测到该状态的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastProbeTime(String LastProbeTime) {
         this.LastProbeTime = LastProbeTime;
     }
 
     /**
-     * Get 最后一次转换到该过程的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最后一次转换到该过程的时间 
      * @return LastTransitionTime 最后一次转换到该过程的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastTransitionTime() {
         return this.LastTransitionTime;
@@ -132,19 +123,15 @@ public class ClusterCondition extends AbstractModel{
 
     /**
      * Set 最后一次转换到该过程的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastTransitionTime 最后一次转换到该过程的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastTransitionTime(String LastTransitionTime) {
         this.LastTransitionTime = LastTransitionTime;
     }
 
     /**
-     * Get 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转换到该过程的简明原因 
      * @return Reason 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReason() {
         return this.Reason;
@@ -152,19 +139,15 @@ public class ClusterCondition extends AbstractModel{
 
     /**
      * Set 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Reason 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReason(String Reason) {
         this.Reason = Reason;
     }
 
     /**
-     * Get 转换到该过程的更多信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转换到该过程的更多信息 
      * @return Message 转换到该过程的更多信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -172,9 +155,7 @@ public class ClusterCondition extends AbstractModel{
 
     /**
      * Set 转换到该过程的更多信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message 转换到该过程的更多信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;

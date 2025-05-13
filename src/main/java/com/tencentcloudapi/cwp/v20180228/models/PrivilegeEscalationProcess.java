@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PrivilegeEscalationProcess extends AbstractModel{
+public class PrivilegeEscalationProcess extends AbstractModel {
 
     /**
     * 数据ID
@@ -150,7 +151,6 @@ public class PrivilegeEscalationProcess extends AbstractModel{
 
     /**
     * 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
@@ -158,7 +158,6 @@ public class PrivilegeEscalationProcess extends AbstractModel{
 
     /**
     * 进程id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Pid")
     @Expose
@@ -453,10 +452,8 @@ public class PrivilegeEscalationProcess extends AbstractModel{
     }
 
     /**
-     * Get 附加信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 附加信息 
      * @return MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -464,19 +461,15 @@ public class PrivilegeEscalationProcess extends AbstractModel{
 
     /**
      * Set 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 附加信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;
     }
 
     /**
-     * Get 进程id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 进程id 
      * @return Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPid() {
         return this.Pid;
@@ -484,9 +477,7 @@ public class PrivilegeEscalationProcess extends AbstractModel{
 
     /**
      * Set 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Pid 进程id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPid(Long Pid) {
         this.Pid = Pid;

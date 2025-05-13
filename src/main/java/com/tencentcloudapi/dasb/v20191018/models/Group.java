@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Group extends AbstractModel{
+public class Group extends AbstractModel {
 
     /**
     * 组ID
@@ -38,7 +39,6 @@ public class Group extends AbstractModel{
 
     /**
     * 所属部门信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Department")
     @Expose
@@ -46,7 +46,6 @@ public class Group extends AbstractModel{
 
     /**
     * 个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Count")
     @Expose
@@ -85,10 +84,8 @@ public class Group extends AbstractModel{
     }
 
     /**
-     * Get 所属部门信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属部门信息 
      * @return Department 所属部门信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Department getDepartment() {
         return this.Department;
@@ -96,19 +93,15 @@ public class Group extends AbstractModel{
 
     /**
      * Set 所属部门信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Department 所属部门信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDepartment(Department Department) {
         this.Department = Department;
     }
 
     /**
-     * Get 个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 个数 
      * @return Count 个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCount() {
         return this.Count;
@@ -116,9 +109,7 @@ public class Group extends AbstractModel{
 
     /**
      * Set 个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Count 个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCount(Long Count) {
         this.Count = Count;

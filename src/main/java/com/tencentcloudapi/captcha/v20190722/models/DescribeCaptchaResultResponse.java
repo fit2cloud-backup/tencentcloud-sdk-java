@@ -16,11 +16,12 @@
 package com.tencentcloudapi.captcha.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCaptchaResultResponse extends AbstractModel{
+public class DescribeCaptchaResultResponse extends AbstractModel {
 
     /**
     * 1 OK 验证通过
@@ -29,7 +30,7 @@ public class DescribeCaptchaResultResponse extends AbstractModel{
 9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验
 15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致
 16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】->【基础配置】中获取
-21 diff 票据校验异常，可能的原因是（1）若Ticket包含terror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含terror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
+21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
 100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】>【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成
     */
     @SerializedName("CaptchaCode")
@@ -38,7 +39,6 @@ public class DescribeCaptchaResultResponse extends AbstractModel{
 
     /**
     * 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CaptchaMsg")
     @Expose
@@ -48,7 +48,6 @@ public class DescribeCaptchaResultResponse extends AbstractModel{
     * 无感验证模式下，该参数返回验证结果：
 EvilLevel=0 请求无恶意
 EvilLevel=100 请求有恶意
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EvilLevel")
     @Expose
@@ -56,7 +55,6 @@ EvilLevel=100 请求有恶意
 
     /**
     * 前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GetCaptchaTime")
     @Expose
@@ -78,7 +76,15 @@ EvilLevel=100 请求有恶意
     private Long SubmitCaptchaTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 设备风险大类
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeviceRiskCategory")
+    @Expose
+    private String DeviceRiskCategory;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -91,7 +97,7 @@ EvilLevel=100 请求有恶意
 9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验
 15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致
 16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】->【基础配置】中获取
-21 diff 票据校验异常，可能的原因是（1）若Ticket包含terror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含terror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
+21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
 100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】>【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成 
      * @return CaptchaCode 1 OK 验证通过
 7 captcha no match 传入的Randstr不合法，请检查Randstr是否与前端返回的Randstr一致
@@ -99,7 +105,7 @@ EvilLevel=100 请求有恶意
 9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验
 15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致
 16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】->【基础配置】中获取
-21 diff 票据校验异常，可能的原因是（1）若Ticket包含terror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含terror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
+21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
 100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】>【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成
      */
     public Long getCaptchaCode() {
@@ -113,7 +119,7 @@ EvilLevel=100 请求有恶意
 9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验
 15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致
 16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】->【基础配置】中获取
-21 diff 票据校验异常，可能的原因是（1）若Ticket包含terror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含terror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
+21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
 100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】>【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成
      * @param CaptchaCode 1 OK 验证通过
 7 captcha no match 传入的Randstr不合法，请检查Randstr是否与前端返回的Randstr一致
@@ -121,7 +127,7 @@ EvilLevel=100 请求有恶意
 9 ticket reused 传入的Ticket被重复使用，请重新生成Ticket、Randstr进行校验
 15 decrypt fail 传入的Ticket不合法，请检查Ticket是否与前端返回的Ticket一致
 16 appid-ticket mismatch 传入的CaptchaAppId错误，请检查CaptchaAppId是否与前端传入的CaptchaAppId一致，并且保障CaptchaAppId是从验证码控制台【验证管理】->【基础配置】中获取
-21 diff 票据校验异常，可能的原因是（1）若Ticket包含terror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含terror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
+21 diff 票据校验异常，可能的原因是（1）若Ticket包含trerror前缀，一般是由于用户网络较差，导致前端自动容灾，而生成了容灾票据，业务侧可根据需要进行跳过或二次处理。（2）若Ticket不包含trerror前缀，则是由于验证码风控系统发现请求有安全风险，业务侧可根据需要进行拦截。
 100 appid-secretkey-ticket mismatch 参数校验错误，（1）请检查CaptchaAppId与AppSecretKey是否正确，CaptchaAppId、AppSecretKey需要在验证码控制台【验证管理】>【基础配置】中获取（2）请检查传入的Ticket是否由传入的CaptchaAppId生成
      */
     public void setCaptchaCode(Long CaptchaCode) {
@@ -129,10 +135,8 @@ EvilLevel=100 请求有恶意
     }
 
     /**
-     * Get 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态描述及验证错误信息 
      * @return CaptchaMsg 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCaptchaMsg() {
         return this.CaptchaMsg;
@@ -140,9 +144,7 @@ EvilLevel=100 请求有恶意
 
     /**
      * Set 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CaptchaMsg 状态描述及验证错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCaptchaMsg(String CaptchaMsg) {
         this.CaptchaMsg = CaptchaMsg;
@@ -151,12 +153,10 @@ EvilLevel=100 请求有恶意
     /**
      * Get 无感验证模式下，该参数返回验证结果：
 EvilLevel=0 请求无恶意
-EvilLevel=100 请求有恶意
-注意：此字段可能返回 null，表示取不到有效值。 
+EvilLevel=100 请求有恶意 
      * @return EvilLevel 无感验证模式下，该参数返回验证结果：
 EvilLevel=0 请求无恶意
 EvilLevel=100 请求有恶意
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEvilLevel() {
         return this.EvilLevel;
@@ -166,21 +166,17 @@ EvilLevel=100 请求有恶意
      * Set 无感验证模式下，该参数返回验证结果：
 EvilLevel=0 请求无恶意
 EvilLevel=100 请求有恶意
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EvilLevel 无感验证模式下，该参数返回验证结果：
 EvilLevel=0 请求无恶意
 EvilLevel=100 请求有恶意
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEvilLevel(Long EvilLevel) {
         this.EvilLevel = EvilLevel;
     }
 
     /**
-     * Get 前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 前端获取验证码时间，时间戳格式 
      * @return GetCaptchaTime 前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGetCaptchaTime() {
         return this.GetCaptchaTime;
@@ -188,9 +184,7 @@ EvilLevel=100 请求有恶意
 
     /**
      * Set 前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GetCaptchaTime 前端获取验证码时间，时间戳格式
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGetCaptchaTime(Long GetCaptchaTime) {
         this.GetCaptchaTime = GetCaptchaTime;
@@ -233,16 +227,36 @@ EvilLevel=100 请求有恶意
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 设备风险大类
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeviceRiskCategory 设备风险大类
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeviceRiskCategory() {
+        return this.DeviceRiskCategory;
+    }
+
+    /**
+     * Set 设备风险大类
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeviceRiskCategory 设备风险大类
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeviceRiskCategory(String DeviceRiskCategory) {
+        this.DeviceRiskCategory = DeviceRiskCategory;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -274,6 +288,9 @@ EvilLevel=100 请求有恶意
         if (source.SubmitCaptchaTime != null) {
             this.SubmitCaptchaTime = new Long(source.SubmitCaptchaTime);
         }
+        if (source.DeviceRiskCategory != null) {
+            this.DeviceRiskCategory = new String(source.DeviceRiskCategory);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -290,6 +307,7 @@ EvilLevel=100 请求有恶意
         this.setParamSimple(map, prefix + "GetCaptchaTime", this.GetCaptchaTime);
         this.setParamSimple(map, prefix + "EvilBitmap", this.EvilBitmap);
         this.setParamSimple(map, prefix + "SubmitCaptchaTime", this.SubmitCaptchaTime);
+        this.setParamSimple(map, prefix + "DeviceRiskCategory", this.DeviceRiskCategory);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

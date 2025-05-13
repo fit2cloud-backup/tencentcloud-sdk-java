@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SmokeHistoryBlock extends AbstractModel{
+public class SmokeHistoryBlock extends AbstractModel {
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -40,7 +39,6 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
     * 时间单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeUnit")
     @Expose
@@ -48,7 +46,6 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
     * 时间归一化
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimeNorm")
     @Expose
@@ -56,7 +53,6 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
     * 吸烟量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Amount")
     @Expose
@@ -64,7 +60,6 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
     * 戒烟状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("QuitState")
     @Expose
@@ -72,7 +67,6 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
     * 是否吸烟
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("State")
     @Expose
@@ -80,17 +74,14 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
     * 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
     private String Value;
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -98,19 +89,15 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -118,19 +105,15 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get 时间单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时间单位 
      * @return TimeUnit 时间单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimeUnit() {
         return this.TimeUnit;
@@ -138,19 +121,15 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 时间单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeUnit 时间单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeUnit(String TimeUnit) {
         this.TimeUnit = TimeUnit;
     }
 
     /**
-     * Get 时间归一化
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时间归一化 
      * @return TimeNorm 时间归一化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimeNorm() {
         return this.TimeNorm;
@@ -158,19 +137,15 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 时间归一化
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimeNorm 时间归一化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimeNorm(String TimeNorm) {
         this.TimeNorm = TimeNorm;
     }
 
     /**
-     * Get 吸烟量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 吸烟量 
      * @return Amount 吸烟量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAmount() {
         return this.Amount;
@@ -178,19 +153,15 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 吸烟量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Amount 吸烟量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAmount(String Amount) {
         this.Amount = Amount;
     }
 
     /**
-     * Get 戒烟状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 戒烟状态 
      * @return QuitState 戒烟状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getQuitState() {
         return this.QuitState;
@@ -198,19 +169,15 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 戒烟状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param QuitState 戒烟状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQuitState(Boolean QuitState) {
         this.QuitState = QuitState;
     }
 
     /**
-     * Get 是否吸烟
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否吸烟 
      * @return State 是否吸烟
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getState() {
         return this.State;
@@ -218,19 +185,15 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 是否吸烟
-注意：此字段可能返回 null，表示取不到有效值。
      * @param State 是否吸烟
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setState(Boolean State) {
         this.State = State;
     }
 
     /**
-     * Get 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对外输出值 
      * @return Value 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -238,9 +201,7 @@ public class SmokeHistoryBlock extends AbstractModel{
 
     /**
      * Set 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

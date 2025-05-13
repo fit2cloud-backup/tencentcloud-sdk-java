@@ -16,14 +16,15 @@
 package com.tencentcloudapi.dcdb.v20180411.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDCDBInstanceRequest extends AbstractModel{
+public class CreateDCDBInstanceRequest extends AbstractModel {
 
     /**
-    * 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+    * 分片节点可用区分布，可填写多个可用区。
 注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
     */
     @SerializedName("Zones")
@@ -181,9 +182,23 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
     private String [] SecurityGroupIds;
 
     /**
-     * Get 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+    * DCN同步模式，0：异步， 1：强同步 
+    */
+    @SerializedName("DcnSyncMode")
+    @Expose
+    private Long DcnSyncMode;
+
+    /**
+    * Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+    */
+    @SerializedName("CpuType")
+    @Expose
+    private String CpuType;
+
+    /**
+     * Get 分片节点可用区分布，可填写多个可用区。
 注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。 
-     * @return Zones 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+     * @return Zones 分片节点可用区分布，可填写多个可用区。
 注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
      */
     public String [] getZones() {
@@ -191,9 +206,9 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Set 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+     * Set 分片节点可用区分布，可填写多个可用区。
 注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
-     * @param Zones 分片节点可用区分布，最多可填两个可用区。当分片规格为一主两从时，其中两个节点在第一个可用区。
+     * @param Zones 分片节点可用区分布，可填写多个可用区。
 注意当前可售卖的可用区需要通过DescribeDCDBSaleInfo接口拉取。
      */
     public void setZones(String [] Zones) {
@@ -548,6 +563,38 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
         this.SecurityGroupIds = SecurityGroupIds;
     }
 
+    /**
+     * Get DCN同步模式，0：异步， 1：强同步  
+     * @return DcnSyncMode DCN同步模式，0：异步， 1：强同步 
+     */
+    public Long getDcnSyncMode() {
+        return this.DcnSyncMode;
+    }
+
+    /**
+     * Set DCN同步模式，0：异步， 1：强同步 
+     * @param DcnSyncMode DCN同步模式，0：异步， 1：强同步 
+     */
+    public void setDcnSyncMode(Long DcnSyncMode) {
+        this.DcnSyncMode = DcnSyncMode;
+    }
+
+    /**
+     * Get Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD 
+     * @return CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public String getCpuType() {
+        return this.CpuType;
+    }
+
+    /**
+     * Set Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     * @param CpuType Cpu类型，如：英特尔：Intel/AMD，海光：Hygon，默认Intel/AMD
+     */
+    public void setCpuType(String CpuType) {
+        this.CpuType = CpuType;
+    }
+
     public CreateDCDBInstanceRequest() {
     }
 
@@ -637,6 +684,12 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
                 this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
             }
         }
+        if (source.DcnSyncMode != null) {
+            this.DcnSyncMode = new Long(source.DcnSyncMode);
+        }
+        if (source.CpuType != null) {
+            this.CpuType = new String(source.CpuType);
+        }
     }
 
 
@@ -666,6 +719,8 @@ public class CreateDCDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "DcnInstanceId", this.DcnInstanceId);
         this.setParamSimple(map, prefix + "AutoRenewFlag", this.AutoRenewFlag);
         this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamSimple(map, prefix + "DcnSyncMode", this.DcnSyncMode);
+        this.setParamSimple(map, prefix + "CpuType", this.CpuType);
 
     }
 }

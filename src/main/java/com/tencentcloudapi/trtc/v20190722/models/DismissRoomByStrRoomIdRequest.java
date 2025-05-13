@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DismissRoomByStrRoomIdRequest extends AbstractModel{
+public class DismissRoomByStrRoomIdRequest extends AbstractModel {
 
     /**
     * TRTC的SDKAppId。
@@ -30,7 +31,8 @@ public class DismissRoomByStrRoomIdRequest extends AbstractModel{
     private Long SdkAppId;
 
     /**
-    * 房间号。
+    * 字符串类型房间号。
+本接口仅支持解散字符串类型房间号，如需解散数字类型房间号，请使用：DismissRoom
     */
     @SerializedName("RoomId")
     @Expose
@@ -53,16 +55,20 @@ public class DismissRoomByStrRoomIdRequest extends AbstractModel{
     }
 
     /**
-     * Get 房间号。 
-     * @return RoomId 房间号。
+     * Get 字符串类型房间号。
+本接口仅支持解散字符串类型房间号，如需解散数字类型房间号，请使用：DismissRoom 
+     * @return RoomId 字符串类型房间号。
+本接口仅支持解散字符串类型房间号，如需解散数字类型房间号，请使用：DismissRoom
      */
     public String getRoomId() {
         return this.RoomId;
     }
 
     /**
-     * Set 房间号。
-     * @param RoomId 房间号。
+     * Set 字符串类型房间号。
+本接口仅支持解散字符串类型房间号，如需解散数字类型房间号，请使用：DismissRoom
+     * @param RoomId 字符串类型房间号。
+本接口仅支持解散字符串类型房间号，如需解散数字类型房间号，请使用：DismissRoom
      */
     public void setRoomId(String RoomId) {
         this.RoomId = RoomId;

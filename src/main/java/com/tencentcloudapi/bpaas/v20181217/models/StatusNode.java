@@ -16,11 +16,12 @@
 package com.tencentcloudapi.bpaas.v20181217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StatusNode extends AbstractModel{
+public class StatusNode extends AbstractModel {
 
     /**
     * 节点id
@@ -52,7 +53,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 审批意见模型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Opinion")
     @Expose
@@ -60,7 +60,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * scf函数名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScfName")
     @Expose
@@ -68,7 +67,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 状态（0：待审批，1：审批通过，2：拒绝，3：scf执行失败，4：scf执行成功）18: 外部审批中
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubStatus")
     @Expose
@@ -76,7 +74,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 审批节点审批人
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApprovedUin")
     @Expose
@@ -84,7 +81,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 审批时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -92,7 +88,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 审批意见信息 审批节点:审批人意见  执行节点:scf函数执行日志
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Msg")
     @Expose
@@ -100,7 +95,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 有权限审批该节点的uin
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Users")
     @Expose
@@ -108,7 +102,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 是否有权限审批该节点
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsApprove")
     @Expose
@@ -116,7 +109,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 审批id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveId")
     @Expose
@@ -124,7 +116,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 审批方式 0或签 1会签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveMethod")
     @Expose
@@ -132,7 +123,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 审批节点审批类型，1人工审批 2自动通过 3自动决绝 4外部审批scf
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApproveType")
     @Expose
@@ -140,7 +130,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 外部审批类型 scf:0或null ; CKafka:1
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CallMethod")
     @Expose
@@ -148,7 +137,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * CKafka - 接入资源ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataHubId")
     @Expose
@@ -156,7 +144,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * CKafka - 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskName")
     @Expose
@@ -164,7 +151,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * CKafka - 地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CKafkaRegion")
     @Expose
@@ -172,7 +158,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 外部审批Url
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExternalUrl")
     @Expose
@@ -180,7 +165,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 并行节点 3-4
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParallelNodes")
     @Expose
@@ -188,7 +172,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * scf拒绝时返回信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RejectedCloudFunctionMsg")
     @Expose
@@ -196,7 +179,6 @@ public class StatusNode extends AbstractModel{
 
     /**
     * 上一个节点
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PrevNode")
     @Expose
@@ -267,10 +249,8 @@ public class StatusNode extends AbstractModel{
     }
 
     /**
-     * Get 审批意见模型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审批意见模型 
      * @return Opinion 审批意见模型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ApproveOpinion getOpinion() {
         return this.Opinion;
@@ -278,19 +258,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 审批意见模型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Opinion 审批意见模型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOpinion(ApproveOpinion Opinion) {
         this.Opinion = Opinion;
     }
 
     /**
-     * Get scf函数名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get scf函数名称 
      * @return ScfName scf函数名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScfName() {
         return this.ScfName;
@@ -298,19 +274,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set scf函数名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScfName scf函数名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScfName(String ScfName) {
         this.ScfName = ScfName;
     }
 
     /**
-     * Get 状态（0：待审批，1：审批通过，2：拒绝，3：scf执行失败，4：scf执行成功）18: 外部审批中
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态（0：待审批，1：审批通过，2：拒绝，3：scf执行失败，4：scf执行成功）18: 外部审批中 
      * @return SubStatus 状态（0：待审批，1：审批通过，2：拒绝，3：scf执行失败，4：scf执行成功）18: 外部审批中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSubStatus() {
         return this.SubStatus;
@@ -318,19 +290,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 状态（0：待审批，1：审批通过，2：拒绝，3：scf执行失败，4：scf执行成功）18: 外部审批中
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubStatus 状态（0：待审批，1：审批通过，2：拒绝，3：scf执行失败，4：scf执行成功）18: 外部审批中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubStatus(Long SubStatus) {
         this.SubStatus = SubStatus;
     }
 
     /**
-     * Get 审批节点审批人
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审批节点审批人 
      * @return ApprovedUin 审批节点审批人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getApprovedUin() {
         return this.ApprovedUin;
@@ -338,19 +306,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 审批节点审批人
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApprovedUin 审批节点审批人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApprovedUin(Long [] ApprovedUin) {
         this.ApprovedUin = ApprovedUin;
     }
 
     /**
-     * Get 审批时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审批时间 
      * @return CreateTime 审批时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -358,19 +322,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 审批时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 审批时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 审批意见信息 审批节点:审批人意见  执行节点:scf函数执行日志
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审批意见信息 审批节点:审批人意见  执行节点:scf函数执行日志 
      * @return Msg 审批意见信息 审批节点:审批人意见  执行节点:scf函数执行日志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMsg() {
         return this.Msg;
@@ -378,19 +338,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 审批意见信息 审批节点:审批人意见  执行节点:scf函数执行日志
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Msg 审批意见信息 审批节点:审批人意见  执行节点:scf函数执行日志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMsg(String Msg) {
         this.Msg = Msg;
     }
 
     /**
-     * Get 有权限审批该节点的uin
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 有权限审批该节点的uin 
      * @return Users 有权限审批该节点的uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ApproveUser getUsers() {
         return this.Users;
@@ -398,19 +354,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 有权限审批该节点的uin
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Users 有权限审批该节点的uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsers(ApproveUser Users) {
         this.Users = Users;
     }
 
     /**
-     * Get 是否有权限审批该节点
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否有权限审批该节点 
      * @return IsApprove 是否有权限审批该节点
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsApprove() {
         return this.IsApprove;
@@ -418,19 +370,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 是否有权限审批该节点
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsApprove 是否有权限审批该节点
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsApprove(Boolean IsApprove) {
         this.IsApprove = IsApprove;
     }
 
     /**
-     * Get 审批id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审批id 
      * @return ApproveId 审批id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApproveId() {
         return this.ApproveId;
@@ -438,19 +386,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 审批id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApproveId 审批id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveId(String ApproveId) {
         this.ApproveId = ApproveId;
     }
 
     /**
-     * Get 审批方式 0或签 1会签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审批方式 0或签 1会签 
      * @return ApproveMethod 审批方式 0或签 1会签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getApproveMethod() {
         return this.ApproveMethod;
@@ -458,19 +402,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 审批方式 0或签 1会签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApproveMethod 审批方式 0或签 1会签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveMethod(Long ApproveMethod) {
         this.ApproveMethod = ApproveMethod;
     }
 
     /**
-     * Get 审批节点审批类型，1人工审批 2自动通过 3自动决绝 4外部审批scf
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审批节点审批类型，1人工审批 2自动通过 3自动决绝 4外部审批scf 
      * @return ApproveType 审批节点审批类型，1人工审批 2自动通过 3自动决绝 4外部审批scf
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getApproveType() {
         return this.ApproveType;
@@ -478,19 +418,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 审批节点审批类型，1人工审批 2自动通过 3自动决绝 4外部审批scf
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApproveType 审批节点审批类型，1人工审批 2自动通过 3自动决绝 4外部审批scf
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApproveType(Long ApproveType) {
         this.ApproveType = ApproveType;
     }
 
     /**
-     * Get 外部审批类型 scf:0或null ; CKafka:1
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外部审批类型 scf:0或null ; CKafka:1 
      * @return CallMethod 外部审批类型 scf:0或null ; CKafka:1
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCallMethod() {
         return this.CallMethod;
@@ -498,19 +434,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 外部审批类型 scf:0或null ; CKafka:1
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CallMethod 外部审批类型 scf:0或null ; CKafka:1
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCallMethod(Long CallMethod) {
         this.CallMethod = CallMethod;
     }
 
     /**
-     * Get CKafka - 接入资源ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CKafka - 接入资源ID 
      * @return DataHubId CKafka - 接入资源ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDataHubId() {
         return this.DataHubId;
@@ -518,19 +450,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set CKafka - 接入资源ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataHubId CKafka - 接入资源ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataHubId(String DataHubId) {
         this.DataHubId = DataHubId;
     }
 
     /**
-     * Get CKafka - 任务名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CKafka - 任务名称 
      * @return TaskName CKafka - 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTaskName() {
         return this.TaskName;
@@ -538,19 +466,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set CKafka - 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskName CKafka - 任务名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskName(String TaskName) {
         this.TaskName = TaskName;
     }
 
     /**
-     * Get CKafka - 地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CKafka - 地域 
      * @return CKafkaRegion CKafka - 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCKafkaRegion() {
         return this.CKafkaRegion;
@@ -558,19 +482,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set CKafka - 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CKafkaRegion CKafka - 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCKafkaRegion(String CKafkaRegion) {
         this.CKafkaRegion = CKafkaRegion;
     }
 
     /**
-     * Get 外部审批Url
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外部审批Url 
      * @return ExternalUrl 外部审批Url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExternalUrl() {
         return this.ExternalUrl;
@@ -578,19 +498,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 外部审批Url
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExternalUrl 外部审批Url
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExternalUrl(String ExternalUrl) {
         this.ExternalUrl = ExternalUrl;
     }
 
     /**
-     * Get 并行节点 3-4
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 并行节点 3-4 
      * @return ParallelNodes 并行节点 3-4
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getParallelNodes() {
         return this.ParallelNodes;
@@ -598,19 +514,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 并行节点 3-4
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParallelNodes 并行节点 3-4
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParallelNodes(String ParallelNodes) {
         this.ParallelNodes = ParallelNodes;
     }
 
     /**
-     * Get scf拒绝时返回信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get scf拒绝时返回信息 
      * @return RejectedCloudFunctionMsg scf拒绝时返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRejectedCloudFunctionMsg() {
         return this.RejectedCloudFunctionMsg;
@@ -618,19 +530,15 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set scf拒绝时返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RejectedCloudFunctionMsg scf拒绝时返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRejectedCloudFunctionMsg(String RejectedCloudFunctionMsg) {
         this.RejectedCloudFunctionMsg = RejectedCloudFunctionMsg;
     }
 
     /**
-     * Get 上一个节点
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 上一个节点 
      * @return PrevNode 上一个节点
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPrevNode() {
         return this.PrevNode;
@@ -638,9 +546,7 @@ public class StatusNode extends AbstractModel{
 
     /**
      * Set 上一个节点
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PrevNode 上一个节点
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPrevNode(String PrevNode) {
         this.PrevNode = PrevNode;

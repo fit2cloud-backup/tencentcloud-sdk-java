@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetCcnRegionBandwidthLimitsResponse extends AbstractModel{
+public class GetCcnRegionBandwidthLimitsResponse extends AbstractModel {
 
     /**
     * 云联网（CCN）各地域出带宽详情。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CcnBandwidthSet")
     @Expose
@@ -32,24 +32,21 @@ public class GetCcnRegionBandwidthLimitsResponse extends AbstractModel{
 
     /**
     * 符合条件的对象数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 云联网（CCN）各地域出带宽详情。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云联网（CCN）各地域出带宽详情。 
      * @return CcnBandwidthSet 云联网（CCN）各地域出带宽详情。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CcnBandwidthInfo [] getCcnBandwidthSet() {
         return this.CcnBandwidthSet;
@@ -57,19 +54,15 @@ public class GetCcnRegionBandwidthLimitsResponse extends AbstractModel{
 
     /**
      * Set 云联网（CCN）各地域出带宽详情。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CcnBandwidthSet 云联网（CCN）各地域出带宽详情。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCcnBandwidthSet(CcnBandwidthInfo [] CcnBandwidthSet) {
         this.CcnBandwidthSet = CcnBandwidthSet;
     }
 
     /**
-     * Get 符合条件的对象数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 符合条件的对象数。 
      * @return TotalCount 符合条件的对象数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCount() {
         return this.TotalCount;
@@ -77,25 +70,23 @@ public class GetCcnRegionBandwidthLimitsResponse extends AbstractModel{
 
     /**
      * Set 符合条件的对象数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCount 符合条件的对象数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

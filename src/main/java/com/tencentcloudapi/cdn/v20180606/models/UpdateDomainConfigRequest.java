@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdn.v20180606.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateDomainConfigRequest extends AbstractModel{
+public class UpdateDomainConfigRequest extends AbstractModel {
 
     /**
     * 域名
@@ -372,6 +373,13 @@ global：全球加速
     @SerializedName("HttpsBilling")
     @Expose
     private HttpsBilling HttpsBilling;
+
+    /**
+    * 参数黑名单
+    */
+    @SerializedName("ParamFilter")
+    @Expose
+    private ParamFilter ParamFilter;
 
     /**
      * Get 域名 
@@ -1189,6 +1197,22 @@ global：全球加速
         this.HttpsBilling = HttpsBilling;
     }
 
+    /**
+     * Get 参数黑名单 
+     * @return ParamFilter 参数黑名单
+     */
+    public ParamFilter getParamFilter() {
+        return this.ParamFilter;
+    }
+
+    /**
+     * Set 参数黑名单
+     * @param ParamFilter 参数黑名单
+     */
+    public void setParamFilter(ParamFilter ParamFilter) {
+        this.ParamFilter = ParamFilter;
+    }
+
     public UpdateDomainConfigRequest() {
     }
 
@@ -1347,6 +1371,9 @@ global：全球加速
         if (source.HttpsBilling != null) {
             this.HttpsBilling = new HttpsBilling(source.HttpsBilling);
         }
+        if (source.ParamFilter != null) {
+            this.ParamFilter = new ParamFilter(source.ParamFilter);
+        }
     }
 
 
@@ -1403,6 +1430,7 @@ global：全球加速
         this.setParamObj(map, prefix + "QnPrivateAccess.", this.QnPrivateAccess);
         this.setParamObj(map, prefix + "OthersPrivateAccess.", this.OthersPrivateAccess);
         this.setParamObj(map, prefix + "HttpsBilling.", this.HttpsBilling);
+        this.setParamObj(map, prefix + "ParamFilter.", this.ParamFilter);
 
     }
 }

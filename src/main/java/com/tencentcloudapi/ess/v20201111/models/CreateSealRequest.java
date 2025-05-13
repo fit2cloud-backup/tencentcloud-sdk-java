@@ -16,57 +16,68 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSealRequest extends AbstractModel{
+public class CreateSealRequest extends AbstractModel {
 
     /**
-    * 操作人信息
+    * 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
     */
     @SerializedName("Operator")
     @Expose
     private UserInfo Operator;
 
     /**
-    * 电子印章名字
+    * 电子印章名字，1-50个中文字符
+注:`同一企业下电子印章名字不能相同`
     */
     @SerializedName("SealName")
     @Expose
     private String SealName;
 
     /**
-    * 应用相关信息
+    * 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 本接口支持上传图片印章及系统直接生成印章；如果要使用系统生成印章，此值传：SealGenerateSourceSystem；如果要使用图片上传请传字段 Image
+    * 电子印章生成方式
+<ul>
+<li><strong>空值</strong>:(默认)使用上传的图片生成印章, 此时需要上传SealImage图片</li>
+<li><strong>SealGenerateSourceSystem</strong>: 系统生成印章, 无需上传SealImage图片</li>
+</ul>
     */
     @SerializedName("GenerateSource")
     @Expose
     private String GenerateSource;
 
     /**
-    * 电子印章类型，OFFICIAL-公章,CONTRACT-合同专用章
+    * 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: (默认)公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**OTHER**: 其他</li></ul>注: 同企业下只能有<font color="red">一个</font>公章, 重复创建会报错
     */
     @SerializedName("SealType")
     @Expose
     private String SealType;
 
     /**
-    * 电子印章图片文件名称
+    * 电子印章图片文件名称，1-50个中文字符。
     */
     @SerializedName("FileName")
     @Expose
     private String FileName;
 
     /**
-    * 电子印章图片base64编码
-参数Image,FileToken或GenerateSource=SealGenerateSourceSystem三选一。
+    * 电子印章图片base64编码，大小不超过10M（原始图片不超过5M），只支持PNG或JPG图片格式
+
+注: `通过图片创建的电子印章，需电子签平台人工审核`
+
+
     */
     @SerializedName("Image")
     @Expose
@@ -98,7 +109,11 @@ public class CreateSealRequest extends AbstractModel{
     private String Color;
 
     /**
-    * 暂时不支持横向文字设置
+    * 企业印章横向文字，最多可填15个汉字  (若超过印章最大宽度，优先压缩字间距，其次缩小字号)
+横向文字的位置如下图中的"印章横向文字在这里"
+
+![image](https://dyn.ess.tencent.cn/guide/capi/CreateSealByImage2.png)
+
     */
     @SerializedName("SealHorizontalText")
     @Expose
@@ -127,116 +142,184 @@ public class CreateSealRequest extends AbstractModel{
     private String FileToken;
 
     /**
-     * Get 操作人信息 
-     * @return Operator 操作人信息
+    * 印章样式, 可以选择的样式如下: 
+<ul><li>**circle**:(默认)圆形印章</li>
+<li>**ellipse**:椭圆印章</li></ul>
+    */
+    @SerializedName("SealStyle")
+    @Expose
+    private String SealStyle;
+
+    /**
+    * 印章尺寸取值描述, 可以选择的尺寸如下: <ul><li> **38_38**: 圆形企业公章直径38mm, 当SealStyle是圆形的时候才有效</li> <li> **40_40**: 圆形企业公章直径40mm, 当SealStyle是圆形的时候才有效</li> <li> **42_42**（默认）: 圆形企业公章直径42mm, 当SealStyle是圆形的时候才有效</li> <li> **45_45**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **50_50**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **58_58**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li>  <li> **40_30**: 椭圆形印章40mm x 30mm, 当SealStyle是椭圆的时候才有效</li> <li> **45_30**: 椭圆形印章45mm x 30mm, 当SealStyle是椭圆的时候才有效</li> </ul>
+    */
+    @SerializedName("SealSize")
+    @Expose
+    private String SealSize;
+
+    /**
+    * 企业税号
+注:
+<ul>
+<li>1.印章类型SealType是INVOICE类型时，此参数才会生效</li>
+<li>2.印章类型SealType是INVOICE类型，且该字段没有传入值或传入空时，会取该企业对应的统一社会信用代码作为默认的企业税号（<font color="red">如果是通过授权书授权方式认证的企业，此参数必传不能为空</font>）</li>
+</ul>
+    */
+    @SerializedName("TaxIdentifyCode")
+    @Expose
+    private String TaxIdentifyCode;
+
+    /**
+     * Get 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。` 
+     * @return Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public UserInfo getOperator() {
         return this.Operator;
     }
 
     /**
-     * Set 操作人信息
-     * @param Operator 操作人信息
+     * Set 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
+     * @param Operator 执行本接口操作的员工信息。
+注: `在调用此接口时，请确保指定的员工已获得所需的接口调用权限，并具备接口传入的相应资源的数据权限。`
      */
     public void setOperator(UserInfo Operator) {
         this.Operator = Operator;
     }
 
     /**
-     * Get 电子印章名字 
-     * @return SealName 电子印章名字
+     * Get 电子印章名字，1-50个中文字符
+注:`同一企业下电子印章名字不能相同` 
+     * @return SealName 电子印章名字，1-50个中文字符
+注:`同一企业下电子印章名字不能相同`
      */
     public String getSealName() {
         return this.SealName;
     }
 
     /**
-     * Set 电子印章名字
-     * @param SealName 电子印章名字
+     * Set 电子印章名字，1-50个中文字符
+注:`同一企业下电子印章名字不能相同`
+     * @param SealName 电子印章名字，1-50个中文字符
+注:`同一企业下电子印章名字不能相同`
      */
     public void setSealName(String SealName) {
         this.SealName = SealName;
     }
 
     /**
-     * Get 应用相关信息 
-     * @return Agent 应用相关信息
+     * Get 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。 
+     * @return Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息
-     * @param Agent 应用相关信息
+     * Set 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
+     * @param Agent 代理企业和员工的信息。
+在集团企业代理子企业操作的场景中，需设置此参数。在此情境下，ProxyOrganizationId（子企业的组织ID）为必填项。
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 本接口支持上传图片印章及系统直接生成印章；如果要使用系统生成印章，此值传：SealGenerateSourceSystem；如果要使用图片上传请传字段 Image 
-     * @return GenerateSource 本接口支持上传图片印章及系统直接生成印章；如果要使用系统生成印章，此值传：SealGenerateSourceSystem；如果要使用图片上传请传字段 Image
+     * Get 电子印章生成方式
+<ul>
+<li><strong>空值</strong>:(默认)使用上传的图片生成印章, 此时需要上传SealImage图片</li>
+<li><strong>SealGenerateSourceSystem</strong>: 系统生成印章, 无需上传SealImage图片</li>
+</ul> 
+     * @return GenerateSource 电子印章生成方式
+<ul>
+<li><strong>空值</strong>:(默认)使用上传的图片生成印章, 此时需要上传SealImage图片</li>
+<li><strong>SealGenerateSourceSystem</strong>: 系统生成印章, 无需上传SealImage图片</li>
+</ul>
      */
     public String getGenerateSource() {
         return this.GenerateSource;
     }
 
     /**
-     * Set 本接口支持上传图片印章及系统直接生成印章；如果要使用系统生成印章，此值传：SealGenerateSourceSystem；如果要使用图片上传请传字段 Image
-     * @param GenerateSource 本接口支持上传图片印章及系统直接生成印章；如果要使用系统生成印章，此值传：SealGenerateSourceSystem；如果要使用图片上传请传字段 Image
+     * Set 电子印章生成方式
+<ul>
+<li><strong>空值</strong>:(默认)使用上传的图片生成印章, 此时需要上传SealImage图片</li>
+<li><strong>SealGenerateSourceSystem</strong>: 系统生成印章, 无需上传SealImage图片</li>
+</ul>
+     * @param GenerateSource 电子印章生成方式
+<ul>
+<li><strong>空值</strong>:(默认)使用上传的图片生成印章, 此时需要上传SealImage图片</li>
+<li><strong>SealGenerateSourceSystem</strong>: 系统生成印章, 无需上传SealImage图片</li>
+</ul>
      */
     public void setGenerateSource(String GenerateSource) {
         this.GenerateSource = GenerateSource;
     }
 
     /**
-     * Get 电子印章类型，OFFICIAL-公章,CONTRACT-合同专用章 
-     * @return SealType 电子印章类型，OFFICIAL-公章,CONTRACT-合同专用章
+     * Get 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: (默认)公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**OTHER**: 其他</li></ul>注: 同企业下只能有<font color="red">一个</font>公章, 重复创建会报错 
+     * @return SealType 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: (默认)公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**OTHER**: 其他</li></ul>注: 同企业下只能有<font color="red">一个</font>公章, 重复创建会报错
      */
     public String getSealType() {
         return this.SealType;
     }
 
     /**
-     * Set 电子印章类型，OFFICIAL-公章,CONTRACT-合同专用章
-     * @param SealType 电子印章类型，OFFICIAL-公章,CONTRACT-合同专用章
+     * Set 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: (默认)公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**OTHER**: 其他</li></ul>注: 同企业下只能有<font color="red">一个</font>公章, 重复创建会报错
+     * @param SealType 电子印章类型 , 可选类型如下: <ul><li>**OFFICIAL**: (默认)公章</li><li>**CONTRACT**: 合同专用章;</li><li>**FINANCE**: 财务专用章;</li><li>**PERSONNEL**: 人事专用章</li><li>**INVOICE**: 发票专用章</li><li>**OTHER**: 其他</li></ul>注: 同企业下只能有<font color="red">一个</font>公章, 重复创建会报错
      */
     public void setSealType(String SealType) {
         this.SealType = SealType;
     }
 
     /**
-     * Get 电子印章图片文件名称 
-     * @return FileName 电子印章图片文件名称
+     * Get 电子印章图片文件名称，1-50个中文字符。 
+     * @return FileName 电子印章图片文件名称，1-50个中文字符。
      */
     public String getFileName() {
         return this.FileName;
     }
 
     /**
-     * Set 电子印章图片文件名称
-     * @param FileName 电子印章图片文件名称
+     * Set 电子印章图片文件名称，1-50个中文字符。
+     * @param FileName 电子印章图片文件名称，1-50个中文字符。
      */
     public void setFileName(String FileName) {
         this.FileName = FileName;
     }
 
     /**
-     * Get 电子印章图片base64编码
-参数Image,FileToken或GenerateSource=SealGenerateSourceSystem三选一。 
-     * @return Image 电子印章图片base64编码
-参数Image,FileToken或GenerateSource=SealGenerateSourceSystem三选一。
+     * Get 电子印章图片base64编码，大小不超过10M（原始图片不超过5M），只支持PNG或JPG图片格式
+
+注: `通过图片创建的电子印章，需电子签平台人工审核`
+
+ 
+     * @return Image 电子印章图片base64编码，大小不超过10M（原始图片不超过5M），只支持PNG或JPG图片格式
+
+注: `通过图片创建的电子印章，需电子签平台人工审核`
+
+
      */
     public String getImage() {
         return this.Image;
     }
 
     /**
-     * Set 电子印章图片base64编码
-参数Image,FileToken或GenerateSource=SealGenerateSourceSystem三选一。
-     * @param Image 电子印章图片base64编码
-参数Image,FileToken或GenerateSource=SealGenerateSourceSystem三选一。
+     * Set 电子印章图片base64编码，大小不超过10M（原始图片不超过5M），只支持PNG或JPG图片格式
+
+注: `通过图片创建的电子印章，需电子签平台人工审核`
+
+
+     * @param Image 电子印章图片base64编码，大小不超过10M（原始图片不超过5M），只支持PNG或JPG图片格式
+
+注: `通过图片创建的电子印章，需电子签平台人工审核`
+
+
      */
     public void setImage(String Image) {
         this.Image = Image;
@@ -307,16 +390,32 @@ public class CreateSealRequest extends AbstractModel{
     }
 
     /**
-     * Get 暂时不支持横向文字设置 
-     * @return SealHorizontalText 暂时不支持横向文字设置
+     * Get 企业印章横向文字，最多可填15个汉字  (若超过印章最大宽度，优先压缩字间距，其次缩小字号)
+横向文字的位置如下图中的"印章横向文字在这里"
+
+![image](https://dyn.ess.tencent.cn/guide/capi/CreateSealByImage2.png)
+ 
+     * @return SealHorizontalText 企业印章横向文字，最多可填15个汉字  (若超过印章最大宽度，优先压缩字间距，其次缩小字号)
+横向文字的位置如下图中的"印章横向文字在这里"
+
+![image](https://dyn.ess.tencent.cn/guide/capi/CreateSealByImage2.png)
+
      */
     public String getSealHorizontalText() {
         return this.SealHorizontalText;
     }
 
     /**
-     * Set 暂时不支持横向文字设置
-     * @param SealHorizontalText 暂时不支持横向文字设置
+     * Set 企业印章横向文字，最多可填15个汉字  (若超过印章最大宽度，优先压缩字间距，其次缩小字号)
+横向文字的位置如下图中的"印章横向文字在这里"
+
+![image](https://dyn.ess.tencent.cn/guide/capi/CreateSealByImage2.png)
+
+     * @param SealHorizontalText 企业印章横向文字，最多可填15个汉字  (若超过印章最大宽度，优先压缩字间距，其次缩小字号)
+横向文字的位置如下图中的"印章横向文字在这里"
+
+![image](https://dyn.ess.tencent.cn/guide/capi/CreateSealByImage2.png)
+
      */
     public void setSealHorizontalText(String SealHorizontalText) {
         this.SealHorizontalText = SealHorizontalText;
@@ -374,6 +473,82 @@ public class CreateSealRequest extends AbstractModel{
         this.FileToken = FileToken;
     }
 
+    /**
+     * Get 印章样式, 可以选择的样式如下: 
+<ul><li>**circle**:(默认)圆形印章</li>
+<li>**ellipse**:椭圆印章</li></ul> 
+     * @return SealStyle 印章样式, 可以选择的样式如下: 
+<ul><li>**circle**:(默认)圆形印章</li>
+<li>**ellipse**:椭圆印章</li></ul>
+     */
+    public String getSealStyle() {
+        return this.SealStyle;
+    }
+
+    /**
+     * Set 印章样式, 可以选择的样式如下: 
+<ul><li>**circle**:(默认)圆形印章</li>
+<li>**ellipse**:椭圆印章</li></ul>
+     * @param SealStyle 印章样式, 可以选择的样式如下: 
+<ul><li>**circle**:(默认)圆形印章</li>
+<li>**ellipse**:椭圆印章</li></ul>
+     */
+    public void setSealStyle(String SealStyle) {
+        this.SealStyle = SealStyle;
+    }
+
+    /**
+     * Get 印章尺寸取值描述, 可以选择的尺寸如下: <ul><li> **38_38**: 圆形企业公章直径38mm, 当SealStyle是圆形的时候才有效</li> <li> **40_40**: 圆形企业公章直径40mm, 当SealStyle是圆形的时候才有效</li> <li> **42_42**（默认）: 圆形企业公章直径42mm, 当SealStyle是圆形的时候才有效</li> <li> **45_45**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **50_50**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **58_58**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li>  <li> **40_30**: 椭圆形印章40mm x 30mm, 当SealStyle是椭圆的时候才有效</li> <li> **45_30**: 椭圆形印章45mm x 30mm, 当SealStyle是椭圆的时候才有效</li> </ul> 
+     * @return SealSize 印章尺寸取值描述, 可以选择的尺寸如下: <ul><li> **38_38**: 圆形企业公章直径38mm, 当SealStyle是圆形的时候才有效</li> <li> **40_40**: 圆形企业公章直径40mm, 当SealStyle是圆形的时候才有效</li> <li> **42_42**（默认）: 圆形企业公章直径42mm, 当SealStyle是圆形的时候才有效</li> <li> **45_45**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **50_50**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **58_58**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li>  <li> **40_30**: 椭圆形印章40mm x 30mm, 当SealStyle是椭圆的时候才有效</li> <li> **45_30**: 椭圆形印章45mm x 30mm, 当SealStyle是椭圆的时候才有效</li> </ul>
+     */
+    public String getSealSize() {
+        return this.SealSize;
+    }
+
+    /**
+     * Set 印章尺寸取值描述, 可以选择的尺寸如下: <ul><li> **38_38**: 圆形企业公章直径38mm, 当SealStyle是圆形的时候才有效</li> <li> **40_40**: 圆形企业公章直径40mm, 当SealStyle是圆形的时候才有效</li> <li> **42_42**（默认）: 圆形企业公章直径42mm, 当SealStyle是圆形的时候才有效</li> <li> **45_45**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **50_50**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **58_58**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li>  <li> **40_30**: 椭圆形印章40mm x 30mm, 当SealStyle是椭圆的时候才有效</li> <li> **45_30**: 椭圆形印章45mm x 30mm, 当SealStyle是椭圆的时候才有效</li> </ul>
+     * @param SealSize 印章尺寸取值描述, 可以选择的尺寸如下: <ul><li> **38_38**: 圆形企业公章直径38mm, 当SealStyle是圆形的时候才有效</li> <li> **40_40**: 圆形企业公章直径40mm, 当SealStyle是圆形的时候才有效</li> <li> **42_42**（默认）: 圆形企业公章直径42mm, 当SealStyle是圆形的时候才有效</li> <li> **45_45**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **50_50**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li> <li> **58_58**: 圆形企业印章直径45mm, 当SealStyle是圆形的时候才有效</li>  <li> **40_30**: 椭圆形印章40mm x 30mm, 当SealStyle是椭圆的时候才有效</li> <li> **45_30**: 椭圆形印章45mm x 30mm, 当SealStyle是椭圆的时候才有效</li> </ul>
+     */
+    public void setSealSize(String SealSize) {
+        this.SealSize = SealSize;
+    }
+
+    /**
+     * Get 企业税号
+注:
+<ul>
+<li>1.印章类型SealType是INVOICE类型时，此参数才会生效</li>
+<li>2.印章类型SealType是INVOICE类型，且该字段没有传入值或传入空时，会取该企业对应的统一社会信用代码作为默认的企业税号（<font color="red">如果是通过授权书授权方式认证的企业，此参数必传不能为空</font>）</li>
+</ul> 
+     * @return TaxIdentifyCode 企业税号
+注:
+<ul>
+<li>1.印章类型SealType是INVOICE类型时，此参数才会生效</li>
+<li>2.印章类型SealType是INVOICE类型，且该字段没有传入值或传入空时，会取该企业对应的统一社会信用代码作为默认的企业税号（<font color="red">如果是通过授权书授权方式认证的企业，此参数必传不能为空</font>）</li>
+</ul>
+     */
+    public String getTaxIdentifyCode() {
+        return this.TaxIdentifyCode;
+    }
+
+    /**
+     * Set 企业税号
+注:
+<ul>
+<li>1.印章类型SealType是INVOICE类型时，此参数才会生效</li>
+<li>2.印章类型SealType是INVOICE类型，且该字段没有传入值或传入空时，会取该企业对应的统一社会信用代码作为默认的企业税号（<font color="red">如果是通过授权书授权方式认证的企业，此参数必传不能为空</font>）</li>
+</ul>
+     * @param TaxIdentifyCode 企业税号
+注:
+<ul>
+<li>1.印章类型SealType是INVOICE类型时，此参数才会生效</li>
+<li>2.印章类型SealType是INVOICE类型，且该字段没有传入值或传入空时，会取该企业对应的统一社会信用代码作为默认的企业税号（<font color="red">如果是通过授权书授权方式认证的企业，此参数必传不能为空</font>）</li>
+</ul>
+     */
+    public void setTaxIdentifyCode(String TaxIdentifyCode) {
+        this.TaxIdentifyCode = TaxIdentifyCode;
+    }
+
     public CreateSealRequest() {
     }
 
@@ -424,6 +599,15 @@ public class CreateSealRequest extends AbstractModel{
         if (source.FileToken != null) {
             this.FileToken = new String(source.FileToken);
         }
+        if (source.SealStyle != null) {
+            this.SealStyle = new String(source.SealStyle);
+        }
+        if (source.SealSize != null) {
+            this.SealSize = new String(source.SealSize);
+        }
+        if (source.TaxIdentifyCode != null) {
+            this.TaxIdentifyCode = new String(source.TaxIdentifyCode);
+        }
     }
 
 
@@ -445,6 +629,9 @@ public class CreateSealRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "SealChordText", this.SealChordText);
         this.setParamSimple(map, prefix + "SealCentralType", this.SealCentralType);
         this.setParamSimple(map, prefix + "FileToken", this.FileToken);
+        this.setParamSimple(map, prefix + "SealStyle", this.SealStyle);
+        this.setParamSimple(map, prefix + "SealSize", this.SealSize);
+        this.setParamSimple(map, prefix + "TaxIdentifyCode", this.TaxIdentifyCode);
 
     }
 }

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateImageCacheRequest extends AbstractModel{
+public class UpdateImageCacheRequest extends AbstractModel {
 
     /**
-    * 镜像缓存Id
+    * 镜像缓存ID
     */
     @SerializedName("ImageCacheId")
     @Expose
@@ -72,16 +73,16 @@ public class UpdateImageCacheRequest extends AbstractModel{
     private String [] SecurityGroupIds;
 
     /**
-     * Get 镜像缓存Id 
-     * @return ImageCacheId 镜像缓存Id
+     * Get 镜像缓存ID 
+     * @return ImageCacheId 镜像缓存ID
      */
     public String getImageCacheId() {
         return this.ImageCacheId;
     }
 
     /**
-     * Set 镜像缓存Id
-     * @param ImageCacheId 镜像缓存Id
+     * Set 镜像缓存ID
+     * @param ImageCacheId 镜像缓存ID
      */
     public void setImageCacheId(String ImageCacheId) {
         this.ImageCacheId = ImageCacheId;

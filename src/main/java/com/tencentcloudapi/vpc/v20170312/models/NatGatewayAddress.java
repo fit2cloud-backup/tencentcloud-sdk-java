@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NatGatewayAddress extends AbstractModel{
+public class NatGatewayAddress extends AbstractModel {
 
     /**
     * 弹性公网IP（EIP）的唯一 ID，形如：`eip-11112222`。
@@ -42,6 +43,13 @@ public class NatGatewayAddress extends AbstractModel{
     @SerializedName("IsBlocked")
     @Expose
     private Boolean IsBlocked;
+
+    /**
+    * 资源封堵类型。NORMAL表示未封禁，SECURITY表示安全封禁，USER表示用户封禁，OTHER表示其他封禁，多个原因封禁时用&连接，比如：SECURITY&USER&OTHER。
+    */
+    @SerializedName("BlockType")
+    @Expose
+    private String BlockType;
 
     /**
      * Get 弹性公网IP（EIP）的唯一 ID，形如：`eip-11112222`。 
@@ -91,6 +99,22 @@ public class NatGatewayAddress extends AbstractModel{
         this.IsBlocked = IsBlocked;
     }
 
+    /**
+     * Get 资源封堵类型。NORMAL表示未封禁，SECURITY表示安全封禁，USER表示用户封禁，OTHER表示其他封禁，多个原因封禁时用&连接，比如：SECURITY&USER&OTHER。 
+     * @return BlockType 资源封堵类型。NORMAL表示未封禁，SECURITY表示安全封禁，USER表示用户封禁，OTHER表示其他封禁，多个原因封禁时用&连接，比如：SECURITY&USER&OTHER。
+     */
+    public String getBlockType() {
+        return this.BlockType;
+    }
+
+    /**
+     * Set 资源封堵类型。NORMAL表示未封禁，SECURITY表示安全封禁，USER表示用户封禁，OTHER表示其他封禁，多个原因封禁时用&连接，比如：SECURITY&USER&OTHER。
+     * @param BlockType 资源封堵类型。NORMAL表示未封禁，SECURITY表示安全封禁，USER表示用户封禁，OTHER表示其他封禁，多个原因封禁时用&连接，比如：SECURITY&USER&OTHER。
+     */
+    public void setBlockType(String BlockType) {
+        this.BlockType = BlockType;
+    }
+
     public NatGatewayAddress() {
     }
 
@@ -108,6 +132,9 @@ public class NatGatewayAddress extends AbstractModel{
         if (source.IsBlocked != null) {
             this.IsBlocked = new Boolean(source.IsBlocked);
         }
+        if (source.BlockType != null) {
+            this.BlockType = new String(source.BlockType);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class NatGatewayAddress extends AbstractModel{
         this.setParamSimple(map, prefix + "AddressId", this.AddressId);
         this.setParamSimple(map, prefix + "PublicIpAddress", this.PublicIpAddress);
         this.setParamSimple(map, prefix + "IsBlocked", this.IsBlocked);
+        this.setParamSimple(map, prefix + "BlockType", this.BlockType);
 
     }
 }

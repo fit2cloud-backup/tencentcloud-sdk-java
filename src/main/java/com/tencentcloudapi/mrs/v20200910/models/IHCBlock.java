@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class IHCBlock extends AbstractModel{
+public class IHCBlock extends AbstractModel {
 
     /**
     * 索引
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Index")
     @Expose
@@ -32,7 +32,6 @@ public class IHCBlock extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -40,7 +39,6 @@ public class IHCBlock extends AbstractModel{
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -48,7 +46,6 @@ public class IHCBlock extends AbstractModel{
 
     /**
     * 具体值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -56,17 +53,14 @@ public class IHCBlock extends AbstractModel{
 
     /**
     * 坐标
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Coords")
     @Expose
     private Coord [] Coords;
 
     /**
-     * Get 索引
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 索引 
      * @return Index 索引
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getIndex() {
         return this.Index;
@@ -74,19 +68,15 @@ public class IHCBlock extends AbstractModel{
 
     /**
      * Set 索引
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Index 索引
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndex(Long [] Index) {
         this.Index = Index;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -94,19 +84,15 @@ public class IHCBlock extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -114,19 +100,15 @@ public class IHCBlock extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 具体值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 具体值 
      * @return Value 具体值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ValueBlock getValue() {
         return this.Value;
@@ -134,19 +116,15 @@ public class IHCBlock extends AbstractModel{
 
     /**
      * Set 具体值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 具体值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(ValueBlock Value) {
         this.Value = Value;
     }
 
     /**
-     * Get 坐标
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 坐标 
      * @return Coords 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Coord [] getCoords() {
         return this.Coords;
@@ -154,9 +132,7 @@ public class IHCBlock extends AbstractModel{
 
     /**
      * Set 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Coords 坐标
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCoords(Coord [] Coords) {
         this.Coords = Coords;

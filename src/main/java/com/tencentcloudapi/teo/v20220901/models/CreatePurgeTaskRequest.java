@@ -16,14 +16,16 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePurgeTaskRequest extends AbstractModel{
+public class CreatePurgeTaskRequest extends AbstractModel {
 
     /**
     * 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
     */
     @SerializedName("ZoneId")
     @Expose
@@ -42,14 +44,14 @@ public class CreatePurgeTaskRequest extends AbstractModel{
     private String Type;
 
     /**
-    * 节点缓存清除方法，仅对目录刷新类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>注意：使用目录刷新时，默认值： invalidate。
+    * 节点缓存清除方法，针对目录刷新、Hostname 刷新以及刷新全部缓存类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>默认值： invalidate。
     */
     @SerializedName("Method")
     @Expose
     private String Method;
 
     /**
-    * 要清除缓存的资源列表。每个元素格式依据清除缓存类型而定，可参考接口示例。<li>EO 默认针对内容含有非 ASCII 字符集的字符进行转义，编码规则遵循 RFC3986；</li><li>单次提交的任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
+    * 需清除缓存的资源列表，如 https://www.example.com/example.jpg，必须携带协议信息。更多元素格式依据清除缓存类型而定，可参考下方接口调用示例。<li>单次提交的任务数受计费套餐配额限制，请查看 [EO 计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
     */
     @SerializedName("Targets")
     @Expose
@@ -64,8 +66,17 @@ public class CreatePurgeTaskRequest extends AbstractModel{
     private Boolean EncodeUrl;
 
     /**
-     * Get 站点 ID。 
+    * 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
+    */
+    @SerializedName("CacheTag")
+    @Expose
+    private CacheTag CacheTag;
+
+    /**
+     * Get 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。 
      * @return ZoneId 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
      */
     public String getZoneId() {
         return this.ZoneId;
@@ -73,7 +84,9 @@ public class CreatePurgeTaskRequest extends AbstractModel{
 
     /**
      * Set 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
      * @param ZoneId 站点 ID。
+若您希望快速提交不同站点下的 Targets Url，可以将其填写为 *，但前提是调用该 API 的账号必须具备主账号下全部站点资源的权限。
      */
     public void setZoneId(String ZoneId) {
         this.ZoneId = ZoneId;
@@ -116,32 +129,32 @@ public class CreatePurgeTaskRequest extends AbstractModel{
     }
 
     /**
-     * Get 节点缓存清除方法，仅对目录刷新类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>注意：使用目录刷新时，默认值： invalidate。 
-     * @return Method 节点缓存清除方法，仅对目录刷新类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>注意：使用目录刷新时，默认值： invalidate。
+     * Get 节点缓存清除方法，针对目录刷新、Hostname 刷新以及刷新全部缓存类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>默认值： invalidate。 
+     * @return Method 节点缓存清除方法，针对目录刷新、Hostname 刷新以及刷新全部缓存类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>默认值： invalidate。
      */
     public String getMethod() {
         return this.Method;
     }
 
     /**
-     * Set 节点缓存清除方法，仅对目录刷新类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>注意：使用目录刷新时，默认值： invalidate。
-     * @param Method 节点缓存清除方法，仅对目录刷新类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>注意：使用目录刷新时，默认值： invalidate。
+     * Set 节点缓存清除方法，针对目录刷新、Hostname 刷新以及刷新全部缓存类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>默认值： invalidate。
+     * @param Method 节点缓存清除方法，针对目录刷新、Hostname 刷新以及刷新全部缓存类型有效，取值有：<li> invalidate：仅刷新目录下产生了更新的资源；</li><li> delete：无论目录下资源是否更新都刷新节点资源。</li>默认值： invalidate。
      */
     public void setMethod(String Method) {
         this.Method = Method;
     }
 
     /**
-     * Get 要清除缓存的资源列表。每个元素格式依据清除缓存类型而定，可参考接口示例。<li>EO 默认针对内容含有非 ASCII 字符集的字符进行转义，编码规则遵循 RFC3986；</li><li>单次提交的任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li> 
-     * @return Targets 要清除缓存的资源列表。每个元素格式依据清除缓存类型而定，可参考接口示例。<li>EO 默认针对内容含有非 ASCII 字符集的字符进行转义，编码规则遵循 RFC3986；</li><li>单次提交的任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
+     * Get 需清除缓存的资源列表，如 https://www.example.com/example.jpg，必须携带协议信息。更多元素格式依据清除缓存类型而定，可参考下方接口调用示例。<li>单次提交的任务数受计费套餐配额限制，请查看 [EO 计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li> 
+     * @return Targets 需清除缓存的资源列表，如 https://www.example.com/example.jpg，必须携带协议信息。更多元素格式依据清除缓存类型而定，可参考下方接口调用示例。<li>单次提交的任务数受计费套餐配额限制，请查看 [EO 计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
      */
     public String [] getTargets() {
         return this.Targets;
     }
 
     /**
-     * Set 要清除缓存的资源列表。每个元素格式依据清除缓存类型而定，可参考接口示例。<li>EO 默认针对内容含有非 ASCII 字符集的字符进行转义，编码规则遵循 RFC3986；</li><li>单次提交的任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
-     * @param Targets 要清除缓存的资源列表。每个元素格式依据清除缓存类型而定，可参考接口示例。<li>EO 默认针对内容含有非 ASCII 字符集的字符进行转义，编码规则遵循 RFC3986；</li><li>单次提交的任务数受计费套餐配额限制，请查看 [EO计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
+     * Set 需清除缓存的资源列表，如 https://www.example.com/example.jpg，必须携带协议信息。更多元素格式依据清除缓存类型而定，可参考下方接口调用示例。<li>单次提交的任务数受计费套餐配额限制，请查看 [EO 计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
+     * @param Targets 需清除缓存的资源列表，如 https://www.example.com/example.jpg，必须携带协议信息。更多元素格式依据清除缓存类型而定，可参考下方接口调用示例。<li>单次提交的任务数受计费套餐配额限制，请查看 [EO 计费套餐](https://cloud.tencent.com/document/product/1552/77380)。</li>
      */
     public void setTargets(String [] Targets) {
         this.Targets = Targets;
@@ -171,6 +184,22 @@ public class CreatePurgeTaskRequest extends AbstractModel{
         this.EncodeUrl = EncodeUrl;
     }
 
+    /**
+     * Get 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。 
+     * @return CacheTag 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
+     */
+    public CacheTag getCacheTag() {
+        return this.CacheTag;
+    }
+
+    /**
+     * Set 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
+     * @param CacheTag 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
+     */
+    public void setCacheTag(CacheTag CacheTag) {
+        this.CacheTag = CacheTag;
+    }
+
     public CreatePurgeTaskRequest() {
     }
 
@@ -197,6 +226,9 @@ public class CreatePurgeTaskRequest extends AbstractModel{
         if (source.EncodeUrl != null) {
             this.EncodeUrl = new Boolean(source.EncodeUrl);
         }
+        if (source.CacheTag != null) {
+            this.CacheTag = new CacheTag(source.CacheTag);
+        }
     }
 
 
@@ -209,6 +241,7 @@ public class CreatePurgeTaskRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Method", this.Method);
         this.setParamArraySimple(map, prefix + "Targets.", this.Targets);
         this.setParamSimple(map, prefix + "EncodeUrl", this.EncodeUrl);
+        this.setParamObj(map, prefix + "CacheTag.", this.CacheTag);
 
     }
 }

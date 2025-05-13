@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateLiveTranscodeRuleRequest extends AbstractModel{
+public class CreateLiveTranscodeRuleRequest extends AbstractModel {
 
     /**
     * 播放域名。
@@ -37,7 +38,7 @@ public class CreateLiveTranscodeRuleRequest extends AbstractModel{
     private String AppName;
 
     /**
-    * 流名称。如果只绑定域名或路径，则此处填空。
+    * 流名称。已废弃该字段，请传入空字符串。
     */
     @SerializedName("StreamName")
     @Expose
@@ -83,16 +84,16 @@ public class CreateLiveTranscodeRuleRequest extends AbstractModel{
     }
 
     /**
-     * Get 流名称。如果只绑定域名或路径，则此处填空。 
-     * @return StreamName 流名称。如果只绑定域名或路径，则此处填空。
+     * Get 流名称。已废弃该字段，请传入空字符串。 
+     * @return StreamName 流名称。已废弃该字段，请传入空字符串。
      */
     public String getStreamName() {
         return this.StreamName;
     }
 
     /**
-     * Set 流名称。如果只绑定域名或路径，则此处填空。
-     * @param StreamName 流名称。如果只绑定域名或路径，则此处填空。
+     * Set 流名称。已废弃该字段，请传入空字符串。
+     * @param StreamName 流名称。已废弃该字段，请传入空字符串。
      */
     public void setStreamName(String StreamName) {
         this.StreamName = StreamName;

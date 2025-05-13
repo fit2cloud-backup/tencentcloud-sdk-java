@@ -16,14 +16,15 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOriginProtectionRequest extends AbstractModel{
+public class DescribeOriginProtectionRequest extends AbstractModel {
 
     /**
-    * 查询的站点集合，不填默认查询所有站点。
+    * 查询的站点ID集合。该参数必填。
     */
     @SerializedName("ZoneIds")
     @Expose
@@ -53,16 +54,16 @@ public class DescribeOriginProtectionRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 查询的站点集合，不填默认查询所有站点。 
-     * @return ZoneIds 查询的站点集合，不填默认查询所有站点。
+     * Get 查询的站点ID集合。该参数必填。 
+     * @return ZoneIds 查询的站点ID集合。该参数必填。
      */
     public String [] getZoneIds() {
         return this.ZoneIds;
     }
 
     /**
-     * Set 查询的站点集合，不填默认查询所有站点。
-     * @param ZoneIds 查询的站点集合，不填默认查询所有站点。
+     * Set 查询的站点ID集合。该参数必填。
+     * @param ZoneIds 查询的站点ID集合。该参数必填。
      */
     public void setZoneIds(String [] ZoneIds) {
         this.ZoneIds = ZoneIds;

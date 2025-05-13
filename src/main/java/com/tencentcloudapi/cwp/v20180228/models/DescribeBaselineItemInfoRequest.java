@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBaselineItemInfoRequest extends AbstractModel{
+public class DescribeBaselineItemInfoRequest extends AbstractModel {
 
     /**
-    * <li>ItemId - int64 - 是否必填：否 - 项Id</i>
-<li>PolicyId - int64 - 是否必填：否 - 项Id</i>
+    * <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>Level - int - 是否必填：否 - 风险等级</li>
 <li>ItemName - string - 是否必填：否 - 检测项名字</li>
 <li>RuleId - int - 是否必填：否 - 规则Id</li>
@@ -62,13 +62,11 @@ public class DescribeBaselineItemInfoRequest extends AbstractModel{
     private String By;
 
     /**
-     * Get <li>ItemId - int64 - 是否必填：否 - 项Id</i>
-<li>PolicyId - int64 - 是否必填：否 - 项Id</i>
+     * Get <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>Level - int - 是否必填：否 - 风险等级</li>
 <li>ItemName - string - 是否必填：否 - 检测项名字</li>
 <li>RuleId - int - 是否必填：否 - 规则Id</li> 
-     * @return Filters <li>ItemId - int64 - 是否必填：否 - 项Id</i>
-<li>PolicyId - int64 - 是否必填：否 - 项Id</i>
+     * @return Filters <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>Level - int - 是否必填：否 - 风险等级</li>
 <li>ItemName - string - 是否必填：否 - 检测项名字</li>
 <li>RuleId - int - 是否必填：否 - 规则Id</li>
@@ -78,13 +76,11 @@ public class DescribeBaselineItemInfoRequest extends AbstractModel{
     }
 
     /**
-     * Set <li>ItemId - int64 - 是否必填：否 - 项Id</i>
-<li>PolicyId - int64 - 是否必填：否 - 项Id</i>
+     * Set <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>Level - int - 是否必填：否 - 风险等级</li>
 <li>ItemName - string - 是否必填：否 - 检测项名字</li>
 <li>RuleId - int - 是否必填：否 - 规则Id</li>
-     * @param Filters <li>ItemId - int64 - 是否必填：否 - 项Id</i>
-<li>PolicyId - int64 - 是否必填：否 - 项Id</i>
+     * @param Filters <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>Level - int - 是否必填：否 - 风险等级</li>
 <li>ItemName - string - 是否必填：否 - 检测项名字</li>
 <li>RuleId - int - 是否必填：否 - 规则Id</li>

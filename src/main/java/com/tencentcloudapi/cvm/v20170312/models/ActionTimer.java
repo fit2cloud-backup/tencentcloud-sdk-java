@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ActionTimer extends AbstractModel{
+public class ActionTimer extends AbstractModel {
 
     /**
     * 定时器动作，目前仅支持销毁一个值：TerminateInstances。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TimerAction")
     @Expose
@@ -32,25 +32,42 @@ public class ActionTimer extends AbstractModel{
 
     /**
     * 执行时间，按照ISO8601标准表示，并且使用UTC时间。格式为 YYYY-MM-DDThh:mm:ssZ。例如 2018-05-29T11:26:40Z，执行时间必须大于当前时间5分钟。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActionTime")
     @Expose
     private String ActionTime;
 
     /**
-    * 扩展数据
-注意：此字段可能返回 null，表示取不到有效值。
+    * 扩展数据。仅做出参使用。
     */
     @SerializedName("Externals")
     @Expose
     private Externals Externals;
 
     /**
-     * Get 定时器动作，目前仅支持销毁一个值：TerminateInstances。
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 定时器ID。仅做出参使用。
+    */
+    @SerializedName("ActionTimerId")
+    @Expose
+    private String ActionTimerId;
+
+    /**
+    * 定时器状态，仅做出参使用。取值范围：<br><li>UNDO：未执行</li> <li>DOING：正在执行</li><li>DONE：执行完成。</li>
+    */
+    @SerializedName("Status")
+    @Expose
+    private String Status;
+
+    /**
+    * 定时器对应的实例ID。仅做出参使用。
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+     * Get 定时器动作，目前仅支持销毁一个值：TerminateInstances。 
      * @return TimerAction 定时器动作，目前仅支持销毁一个值：TerminateInstances。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTimerAction() {
         return this.TimerAction;
@@ -58,19 +75,15 @@ public class ActionTimer extends AbstractModel{
 
     /**
      * Set 定时器动作，目前仅支持销毁一个值：TerminateInstances。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TimerAction 定时器动作，目前仅支持销毁一个值：TerminateInstances。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTimerAction(String TimerAction) {
         this.TimerAction = TimerAction;
     }
 
     /**
-     * Get 执行时间，按照ISO8601标准表示，并且使用UTC时间。格式为 YYYY-MM-DDThh:mm:ssZ。例如 2018-05-29T11:26:40Z，执行时间必须大于当前时间5分钟。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 执行时间，按照ISO8601标准表示，并且使用UTC时间。格式为 YYYY-MM-DDThh:mm:ssZ。例如 2018-05-29T11:26:40Z，执行时间必须大于当前时间5分钟。 
      * @return ActionTime 执行时间，按照ISO8601标准表示，并且使用UTC时间。格式为 YYYY-MM-DDThh:mm:ssZ。例如 2018-05-29T11:26:40Z，执行时间必须大于当前时间5分钟。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getActionTime() {
         return this.ActionTime;
@@ -78,32 +91,74 @@ public class ActionTimer extends AbstractModel{
 
     /**
      * Set 执行时间，按照ISO8601标准表示，并且使用UTC时间。格式为 YYYY-MM-DDThh:mm:ssZ。例如 2018-05-29T11:26:40Z，执行时间必须大于当前时间5分钟。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ActionTime 执行时间，按照ISO8601标准表示，并且使用UTC时间。格式为 YYYY-MM-DDThh:mm:ssZ。例如 2018-05-29T11:26:40Z，执行时间必须大于当前时间5分钟。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setActionTime(String ActionTime) {
         this.ActionTime = ActionTime;
     }
 
     /**
-     * Get 扩展数据
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Externals 扩展数据
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 扩展数据。仅做出参使用。 
+     * @return Externals 扩展数据。仅做出参使用。
      */
     public Externals getExternals() {
         return this.Externals;
     }
 
     /**
-     * Set 扩展数据
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Externals 扩展数据
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 扩展数据。仅做出参使用。
+     * @param Externals 扩展数据。仅做出参使用。
      */
     public void setExternals(Externals Externals) {
         this.Externals = Externals;
+    }
+
+    /**
+     * Get 定时器ID。仅做出参使用。 
+     * @return ActionTimerId 定时器ID。仅做出参使用。
+     */
+    public String getActionTimerId() {
+        return this.ActionTimerId;
+    }
+
+    /**
+     * Set 定时器ID。仅做出参使用。
+     * @param ActionTimerId 定时器ID。仅做出参使用。
+     */
+    public void setActionTimerId(String ActionTimerId) {
+        this.ActionTimerId = ActionTimerId;
+    }
+
+    /**
+     * Get 定时器状态，仅做出参使用。取值范围：<br><li>UNDO：未执行</li> <li>DOING：正在执行</li><li>DONE：执行完成。</li> 
+     * @return Status 定时器状态，仅做出参使用。取值范围：<br><li>UNDO：未执行</li> <li>DOING：正在执行</li><li>DONE：执行完成。</li>
+     */
+    public String getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 定时器状态，仅做出参使用。取值范围：<br><li>UNDO：未执行</li> <li>DOING：正在执行</li><li>DONE：执行完成。</li>
+     * @param Status 定时器状态，仅做出参使用。取值范围：<br><li>UNDO：未执行</li> <li>DOING：正在执行</li><li>DONE：执行完成。</li>
+     */
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 定时器对应的实例ID。仅做出参使用。 
+     * @return InstanceId 定时器对应的实例ID。仅做出参使用。
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 定时器对应的实例ID。仅做出参使用。
+     * @param InstanceId 定时器对应的实例ID。仅做出参使用。
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
     }
 
     public ActionTimer() {
@@ -123,6 +178,15 @@ public class ActionTimer extends AbstractModel{
         if (source.Externals != null) {
             this.Externals = new Externals(source.Externals);
         }
+        if (source.ActionTimerId != null) {
+            this.ActionTimerId = new String(source.ActionTimerId);
+        }
+        if (source.Status != null) {
+            this.Status = new String(source.Status);
+        }
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
     }
 
 
@@ -133,6 +197,9 @@ public class ActionTimer extends AbstractModel{
         this.setParamSimple(map, prefix + "TimerAction", this.TimerAction);
         this.setParamSimple(map, prefix + "ActionTime", this.ActionTime);
         this.setParamObj(map, prefix + "Externals.", this.Externals);
+        this.setParamSimple(map, prefix + "ActionTimerId", this.ActionTimerId);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
 
     }
 }

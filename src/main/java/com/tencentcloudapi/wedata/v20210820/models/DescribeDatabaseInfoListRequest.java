@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDatabaseInfoListRequest extends AbstractModel{
+public class DescribeDatabaseInfoListRequest extends AbstractModel {
 
     /**
     * 过滤参数
@@ -30,7 +31,7 @@ public class DescribeDatabaseInfoListRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-    * 如果是hive这里写rpc，如果是其他类型不传
+    * 连接类型
     */
     @SerializedName("ConnectionType")
     @Expose
@@ -53,16 +54,16 @@ public class DescribeDatabaseInfoListRequest extends AbstractModel{
     }
 
     /**
-     * Get 如果是hive这里写rpc，如果是其他类型不传 
-     * @return ConnectionType 如果是hive这里写rpc，如果是其他类型不传
+     * Get 连接类型 
+     * @return ConnectionType 连接类型
      */
     public String getConnectionType() {
         return this.ConnectionType;
     }
 
     /**
-     * Set 如果是hive这里写rpc，如果是其他类型不传
-     * @param ConnectionType 如果是hive这里写rpc，如果是其他类型不传
+     * Set 连接类型
+     * @param ConnectionType 连接类型
      */
     public void setConnectionType(String ConnectionType) {
         this.ConnectionType = ConnectionType;

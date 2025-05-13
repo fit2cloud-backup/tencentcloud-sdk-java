@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchDeleteIntegrationTasksRequest extends AbstractModel{
+public class BatchDeleteIntegrationTasksRequest extends AbstractModel {
 
     /**
     * 任务id
@@ -30,7 +31,7 @@ public class BatchDeleteIntegrationTasksRequest extends AbstractModel{
     private String [] TaskIds;
 
     /**
-    * 任务类型
+    * 任务类型，201为实时任务，202为离线任务
     */
     @SerializedName("TaskType")
     @Expose
@@ -51,6 +52,20 @@ public class BatchDeleteIntegrationTasksRequest extends AbstractModel{
     private Long DeleteKFFlag;
 
     /**
+    * 操作名称
+    */
+    @SerializedName("Name")
+    @Expose
+    private String Name;
+
+    /**
+    * 本次批量操作涉及任务，用于审计
+    */
+    @SerializedName("TaskNames")
+    @Expose
+    private String [] TaskNames;
+
+    /**
      * Get 任务id 
      * @return TaskIds 任务id
      */
@@ -67,16 +82,16 @@ public class BatchDeleteIntegrationTasksRequest extends AbstractModel{
     }
 
     /**
-     * Get 任务类型 
-     * @return TaskType 任务类型
+     * Get 任务类型，201为实时任务，202为离线任务 
+     * @return TaskType 任务类型，201为实时任务，202为离线任务
      */
     public Long getTaskType() {
         return this.TaskType;
     }
 
     /**
-     * Set 任务类型
-     * @param TaskType 任务类型
+     * Set 任务类型，201为实时任务，202为离线任务
+     * @param TaskType 任务类型，201为实时任务，202为离线任务
      */
     public void setTaskType(Long TaskType) {
         this.TaskType = TaskType;
@@ -114,6 +129,38 @@ public class BatchDeleteIntegrationTasksRequest extends AbstractModel{
         this.DeleteKFFlag = DeleteKFFlag;
     }
 
+    /**
+     * Get 操作名称 
+     * @return Name 操作名称
+     */
+    public String getName() {
+        return this.Name;
+    }
+
+    /**
+     * Set 操作名称
+     * @param Name 操作名称
+     */
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    /**
+     * Get 本次批量操作涉及任务，用于审计 
+     * @return TaskNames 本次批量操作涉及任务，用于审计
+     */
+    public String [] getTaskNames() {
+        return this.TaskNames;
+    }
+
+    /**
+     * Set 本次批量操作涉及任务，用于审计
+     * @param TaskNames 本次批量操作涉及任务，用于审计
+     */
+    public void setTaskNames(String [] TaskNames) {
+        this.TaskNames = TaskNames;
+    }
+
     public BatchDeleteIntegrationTasksRequest() {
     }
 
@@ -137,6 +184,15 @@ public class BatchDeleteIntegrationTasksRequest extends AbstractModel{
         if (source.DeleteKFFlag != null) {
             this.DeleteKFFlag = new Long(source.DeleteKFFlag);
         }
+        if (source.Name != null) {
+            this.Name = new String(source.Name);
+        }
+        if (source.TaskNames != null) {
+            this.TaskNames = new String[source.TaskNames.length];
+            for (int i = 0; i < source.TaskNames.length; i++) {
+                this.TaskNames[i] = new String(source.TaskNames[i]);
+            }
+        }
     }
 
 
@@ -148,6 +204,8 @@ public class BatchDeleteIntegrationTasksRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "DeleteKFFlag", this.DeleteKFFlag);
+        this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamArraySimple(map, prefix + "TaskNames.", this.TaskNames);
 
     }
 }

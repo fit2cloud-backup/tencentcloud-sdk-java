@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NotebookDetail extends AbstractModel{
+public class NotebookDetail extends AbstractModel {
 
     /**
     * notebook  ID
@@ -309,6 +310,58 @@ public class NotebookDetail extends AbstractModel{
     @SerializedName("ImageType")
     @Expose
     private String ImageType;
+
+    /**
+    * SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SSHConfig")
+    @Expose
+    private SSHConfig SSHConfig;
+
+    /**
+    * GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("VolumeSourceGooseFS")
+    @Expose
+    private GooseFS VolumeSourceGooseFS;
+
+    /**
+    * 子用户ID
+    */
+    @SerializedName("SubUin")
+    @Expose
+    private String SubUin;
+
+    /**
+    * 调度节点ID
+    */
+    @SerializedName("ResourceGroupInstanceId")
+    @Expose
+    private String ResourceGroupInstanceId;
+
+    /**
+    * 子用户名称
+    */
+    @SerializedName("SubUinName")
+    @Expose
+    private String SubUinName;
+
+    /**
+    * 任务实例创建时间
+    */
+    @SerializedName("JobCreateTime")
+    @Expose
+    private String JobCreateTime;
+
+    /**
+    * Appid
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AppId")
+    @Expose
+    private String AppId;
 
     /**
      * Get notebook  ID 
@@ -1018,6 +1071,130 @@ public class NotebookDetail extends AbstractModel{
         this.ImageType = ImageType;
     }
 
+    /**
+     * Get SSH配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SSHConfig SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SSHConfig getSSHConfig() {
+        return this.SSHConfig;
+    }
+
+    /**
+     * Set SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SSHConfig SSH配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSSHConfig(SSHConfig SSHConfig) {
+        this.SSHConfig = SSHConfig;
+    }
+
+    /**
+     * Get GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return VolumeSourceGooseFS GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public GooseFS getVolumeSourceGooseFS() {
+        return this.VolumeSourceGooseFS;
+    }
+
+    /**
+     * Set GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param VolumeSourceGooseFS GooseFS存储配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setVolumeSourceGooseFS(GooseFS VolumeSourceGooseFS) {
+        this.VolumeSourceGooseFS = VolumeSourceGooseFS;
+    }
+
+    /**
+     * Get 子用户ID 
+     * @return SubUin 子用户ID
+     */
+    public String getSubUin() {
+        return this.SubUin;
+    }
+
+    /**
+     * Set 子用户ID
+     * @param SubUin 子用户ID
+     */
+    public void setSubUin(String SubUin) {
+        this.SubUin = SubUin;
+    }
+
+    /**
+     * Get 调度节点ID 
+     * @return ResourceGroupInstanceId 调度节点ID
+     */
+    public String getResourceGroupInstanceId() {
+        return this.ResourceGroupInstanceId;
+    }
+
+    /**
+     * Set 调度节点ID
+     * @param ResourceGroupInstanceId 调度节点ID
+     */
+    public void setResourceGroupInstanceId(String ResourceGroupInstanceId) {
+        this.ResourceGroupInstanceId = ResourceGroupInstanceId;
+    }
+
+    /**
+     * Get 子用户名称 
+     * @return SubUinName 子用户名称
+     */
+    public String getSubUinName() {
+        return this.SubUinName;
+    }
+
+    /**
+     * Set 子用户名称
+     * @param SubUinName 子用户名称
+     */
+    public void setSubUinName(String SubUinName) {
+        this.SubUinName = SubUinName;
+    }
+
+    /**
+     * Get 任务实例创建时间 
+     * @return JobCreateTime 任务实例创建时间
+     */
+    public String getJobCreateTime() {
+        return this.JobCreateTime;
+    }
+
+    /**
+     * Set 任务实例创建时间
+     * @param JobCreateTime 任务实例创建时间
+     */
+    public void setJobCreateTime(String JobCreateTime) {
+        this.JobCreateTime = JobCreateTime;
+    }
+
+    /**
+     * Get Appid
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AppId Appid
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getAppId() {
+        return this.AppId;
+    }
+
+    /**
+     * Set Appid
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AppId Appid
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAppId(String AppId) {
+        this.AppId = AppId;
+    }
+
     public NotebookDetail() {
     }
 
@@ -1149,6 +1326,27 @@ public class NotebookDetail extends AbstractModel{
         if (source.ImageType != null) {
             this.ImageType = new String(source.ImageType);
         }
+        if (source.SSHConfig != null) {
+            this.SSHConfig = new SSHConfig(source.SSHConfig);
+        }
+        if (source.VolumeSourceGooseFS != null) {
+            this.VolumeSourceGooseFS = new GooseFS(source.VolumeSourceGooseFS);
+        }
+        if (source.SubUin != null) {
+            this.SubUin = new String(source.SubUin);
+        }
+        if (source.ResourceGroupInstanceId != null) {
+            this.ResourceGroupInstanceId = new String(source.ResourceGroupInstanceId);
+        }
+        if (source.SubUinName != null) {
+            this.SubUinName = new String(source.SubUinName);
+        }
+        if (source.JobCreateTime != null) {
+            this.JobCreateTime = new String(source.JobCreateTime);
+        }
+        if (source.AppId != null) {
+            this.AppId = new String(source.AppId);
+        }
     }
 
 
@@ -1193,6 +1391,13 @@ public class NotebookDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "DataSource", this.DataSource);
         this.setParamObj(map, prefix + "ImageInfo.", this.ImageInfo);
         this.setParamSimple(map, prefix + "ImageType", this.ImageType);
+        this.setParamObj(map, prefix + "SSHConfig.", this.SSHConfig);
+        this.setParamObj(map, prefix + "VolumeSourceGooseFS.", this.VolumeSourceGooseFS);
+        this.setParamSimple(map, prefix + "SubUin", this.SubUin);
+        this.setParamSimple(map, prefix + "ResourceGroupInstanceId", this.ResourceGroupInstanceId);
+        this.setParamSimple(map, prefix + "SubUinName", this.SubUinName);
+        this.setParamSimple(map, prefix + "JobCreateTime", this.JobCreateTime);
+        this.setParamSimple(map, prefix + "AppId", this.AppId);
 
     }
 }

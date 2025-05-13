@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BaselineItemInfo extends AbstractModel{
+public class BaselineItemInfo extends AbstractModel {
 
     /**
     * 基线检测项ID
@@ -38,7 +39,6 @@ public class BaselineItemInfo extends AbstractModel{
 
     /**
     * 检测项所属规则的ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleId")
     @Expose
@@ -74,7 +74,6 @@ public class BaselineItemInfo extends AbstractModel{
 
     /**
     * 系统规则ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SysRuleId")
     @Expose
@@ -82,7 +81,6 @@ public class BaselineItemInfo extends AbstractModel{
 
     /**
     * 被引自定义规则信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RelatedCustomRuleInfo")
     @Expose
@@ -121,10 +119,8 @@ public class BaselineItemInfo extends AbstractModel{
     }
 
     /**
-     * Get 检测项所属规则的ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测项所属规则的ID 
      * @return RuleId 检测项所属规则的ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRuleId() {
         return this.RuleId;
@@ -132,9 +128,7 @@ public class BaselineItemInfo extends AbstractModel{
 
     /**
      * Set 检测项所属规则的ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleId 检测项所属规则的ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleId(Long RuleId) {
         this.RuleId = RuleId;
@@ -205,10 +199,8 @@ public class BaselineItemInfo extends AbstractModel{
     }
 
     /**
-     * Get 系统规则ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 系统规则ID 
      * @return SysRuleId 系统规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSysRuleId() {
         return this.SysRuleId;
@@ -216,19 +208,15 @@ public class BaselineItemInfo extends AbstractModel{
 
     /**
      * Set 系统规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SysRuleId 系统规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSysRuleId(Long SysRuleId) {
         this.SysRuleId = SysRuleId;
     }
 
     /**
-     * Get 被引自定义规则信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 被引自定义规则信息 
      * @return RelatedCustomRuleInfo 被引自定义规则信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BaselineCustomRuleIdName [] getRelatedCustomRuleInfo() {
         return this.RelatedCustomRuleInfo;
@@ -236,9 +224,7 @@ public class BaselineItemInfo extends AbstractModel{
 
     /**
      * Set 被引自定义规则信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RelatedCustomRuleInfo 被引自定义规则信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRelatedCustomRuleInfo(BaselineCustomRuleIdName [] RelatedCustomRuleInfo) {
         this.RelatedCustomRuleInfo = RelatedCustomRuleInfo;

@@ -16,14 +16,16 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRunGroupsRequest extends AbstractModel{
+public class DescribeRunGroupsRequest extends AbstractModel {
 
     /**
     * 项目ID。
+（不填使用指定地域下的默认项目）
     */
     @SerializedName("ProjectId")
     @Expose
@@ -48,14 +50,18 @@ public class DescribeRunGroupsRequest extends AbstractModel{
 - Name：任务批次名称
 - RunGroupId：任务批次ID
 - Status：任务批次状态
+- ApplicationId：应用ID
+- Type：类型（支持WDL，NEXTFLOW）
     */
     @SerializedName("Filters")
     @Expose
     private Filter [] Filters;
 
     /**
-     * Get 项目ID。 
+     * Get 项目ID。
+（不填使用指定地域下的默认项目） 
      * @return ProjectId 项目ID。
+（不填使用指定地域下的默认项目）
      */
     public String getProjectId() {
         return this.ProjectId;
@@ -63,7 +69,9 @@ public class DescribeRunGroupsRequest extends AbstractModel{
 
     /**
      * Set 项目ID。
+（不填使用指定地域下的默认项目）
      * @param ProjectId 项目ID。
+（不填使用指定地域下的默认项目）
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
@@ -105,11 +113,15 @@ public class DescribeRunGroupsRequest extends AbstractModel{
      * Get 过滤器，支持过滤字段：
 - Name：任务批次名称
 - RunGroupId：任务批次ID
-- Status：任务批次状态 
+- Status：任务批次状态
+- ApplicationId：应用ID
+- Type：类型（支持WDL，NEXTFLOW） 
      * @return Filters 过滤器，支持过滤字段：
 - Name：任务批次名称
 - RunGroupId：任务批次ID
 - Status：任务批次状态
+- ApplicationId：应用ID
+- Type：类型（支持WDL，NEXTFLOW）
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -120,10 +132,14 @@ public class DescribeRunGroupsRequest extends AbstractModel{
 - Name：任务批次名称
 - RunGroupId：任务批次ID
 - Status：任务批次状态
+- ApplicationId：应用ID
+- Type：类型（支持WDL，NEXTFLOW）
      * @param Filters 过滤器，支持过滤字段：
 - Name：任务批次名称
 - RunGroupId：任务批次ID
 - Status：任务批次状态
+- ApplicationId：应用ID
+- Type：类型（支持WDL，NEXTFLOW）
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

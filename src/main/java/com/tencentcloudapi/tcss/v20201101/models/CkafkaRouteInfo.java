@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CkafkaRouteInfo extends AbstractModel{
+public class CkafkaRouteInfo extends AbstractModel {
 
     /**
     * 路由ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RouteID")
     @Expose
@@ -32,7 +32,6 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
     * 域名名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domain")
     @Expose
@@ -40,7 +39,6 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
     * 域名端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DomainPort")
     @Expose
@@ -48,7 +46,6 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
     * 虚拟ip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vip")
     @Expose
@@ -56,7 +53,6 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
     * 虚拟ip类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VipType")
     @Expose
@@ -68,17 +64,14 @@ public class CkafkaRouteInfo extends AbstractModel{
 	// 1：SASL_PLAINTEXT（明文方式，不过在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
 	// 2：SSL（SSL加密通信，没有带用户信息，老版本及社区版本都支持）
 	// 3：SASL_SSL（SSL加密通信，在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AccessType")
     @Expose
     private Long AccessType;
 
     /**
-     * Get 路由ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 路由ID 
      * @return RouteID 路由ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRouteID() {
         return this.RouteID;
@@ -86,19 +79,15 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
      * Set 路由ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RouteID 路由ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRouteID(Long RouteID) {
         this.RouteID = RouteID;
     }
 
     /**
-     * Get 域名名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 域名名称 
      * @return Domain 域名名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDomain() {
         return this.Domain;
@@ -106,19 +95,15 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
      * Set 域名名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domain 域名名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
     }
 
     /**
-     * Get 域名端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 域名端口 
      * @return DomainPort 域名端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDomainPort() {
         return this.DomainPort;
@@ -126,19 +111,15 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
      * Set 域名端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DomainPort 域名端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomainPort(Long DomainPort) {
         this.DomainPort = DomainPort;
     }
 
     /**
-     * Get 虚拟ip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 虚拟ip 
      * @return Vip 虚拟ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVip() {
         return this.Vip;
@@ -146,19 +127,15 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
      * Set 虚拟ip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vip 虚拟ip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
     }
 
     /**
-     * Get 虚拟ip类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 虚拟ip类型 
      * @return VipType 虚拟ip类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVipType() {
         return this.VipType;
@@ -166,9 +143,7 @@ public class CkafkaRouteInfo extends AbstractModel{
 
     /**
      * Set 虚拟ip类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VipType 虚拟ip类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVipType(Long VipType) {
         this.VipType = VipType;
@@ -179,14 +154,12 @@ public class CkafkaRouteInfo extends AbstractModel{
 // 0：PLAINTEXT (明文方式，没有带用户信息老版本及社区版本都支持)
 	// 1：SASL_PLAINTEXT（明文方式，不过在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
 	// 2：SSL（SSL加密通信，没有带用户信息，老版本及社区版本都支持）
-	// 3：SASL_SSL（SSL加密通信，在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
-注意：此字段可能返回 null，表示取不到有效值。 
+	// 3：SASL_SSL（SSL加密通信，在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持） 
      * @return AccessType 接入类型
 // 0：PLAINTEXT (明文方式，没有带用户信息老版本及社区版本都支持)
 	// 1：SASL_PLAINTEXT（明文方式，不过在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
 	// 2：SSL（SSL加密通信，没有带用户信息，老版本及社区版本都支持）
 	// 3：SASL_SSL（SSL加密通信，在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAccessType() {
         return this.AccessType;
@@ -198,13 +171,11 @@ public class CkafkaRouteInfo extends AbstractModel{
 	// 1：SASL_PLAINTEXT（明文方式，不过在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
 	// 2：SSL（SSL加密通信，没有带用户信息，老版本及社区版本都支持）
 	// 3：SASL_SSL（SSL加密通信，在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AccessType 接入类型
 // 0：PLAINTEXT (明文方式，没有带用户信息老版本及社区版本都支持)
 	// 1：SASL_PLAINTEXT（明文方式，不过在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
 	// 2：SSL（SSL加密通信，没有带用户信息，老版本及社区版本都支持）
 	// 3：SASL_SSL（SSL加密通信，在数据开始时，会通过SASL方式登录鉴权，仅社区版本支持）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccessType(Long AccessType) {
         this.AccessType = AccessType;

@@ -16,21 +16,24 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MigratePrivateIpAddressRequest extends AbstractModel{
+public class MigratePrivateIpAddressRequest extends AbstractModel {
 
     /**
-    * 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。
+    * 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
     */
     @SerializedName("SourceNetworkInterfaceId")
     @Expose
     private String SourceNetworkInterfaceId;
 
     /**
-    * 待迁移的目的弹性网卡实例ID。
+    * 待迁移的目的弹性网卡实例ID。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
     */
     @SerializedName("DestinationNetworkInterfaceId")
     @Expose
@@ -44,32 +47,40 @@ public class MigratePrivateIpAddressRequest extends AbstractModel{
     private String PrivateIpAddress;
 
     /**
-     * Get 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。 
-     * @return SourceNetworkInterfaceId 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。
+     * Get 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+ 
+     * @return SourceNetworkInterfaceId 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public String getSourceNetworkInterfaceId() {
         return this.SourceNetworkInterfaceId;
     }
 
     /**
-     * Set 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。
-     * @param SourceNetworkInterfaceId 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。
+     * Set 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+     * @param SourceNetworkInterfaceId 当内网IP绑定的弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public void setSourceNetworkInterfaceId(String SourceNetworkInterfaceId) {
         this.SourceNetworkInterfaceId = SourceNetworkInterfaceId;
     }
 
     /**
-     * Get 待迁移的目的弹性网卡实例ID。 
-     * @return DestinationNetworkInterfaceId 待迁移的目的弹性网卡实例ID。
+     * Get 待迁移的目的弹性网卡实例ID。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+ 
+     * @return DestinationNetworkInterfaceId 待迁移的目的弹性网卡实例ID。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public String getDestinationNetworkInterfaceId() {
         return this.DestinationNetworkInterfaceId;
     }
 
     /**
-     * Set 待迁移的目的弹性网卡实例ID。
-     * @param DestinationNetworkInterfaceId 待迁移的目的弹性网卡实例ID。
+     * Set 待迁移的目的弹性网卡实例ID。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+     * @param DestinationNetworkInterfaceId 待迁移的目的弹性网卡实例ID。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public void setDestinationNetworkInterfaceId(String DestinationNetworkInterfaceId) {
         this.DestinationNetworkInterfaceId = DestinationNetworkInterfaceId;

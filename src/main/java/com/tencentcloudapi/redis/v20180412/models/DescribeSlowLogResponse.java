@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSlowLogResponse extends AbstractModel{
+public class DescribeSlowLogResponse extends AbstractModel {
 
     /**
     * 慢查询总数。
@@ -30,14 +31,21 @@ public class DescribeSlowLogResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 慢查询详情。
+    * 已废弃，该参数存在命名不规范问题，后续用参数InstanceSlowLogDetail取代。慢查询详情。
     */
     @SerializedName("InstanceSlowlogDetail")
     @Expose
     private InstanceSlowlogDetail [] InstanceSlowlogDetail;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 慢查询详情。
+    */
+    @SerializedName("InstanceSlowLogDetail")
+    @Expose
+    private InstanceSlowlogDetail [] InstanceSlowLogDetail;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -60,32 +68,52 @@ public class DescribeSlowLogResponse extends AbstractModel{
     }
 
     /**
-     * Get 慢查询详情。 
-     * @return InstanceSlowlogDetail 慢查询详情。
+     * Get 已废弃，该参数存在命名不规范问题，后续用参数InstanceSlowLogDetail取代。慢查询详情。 
+     * @return InstanceSlowlogDetail 已废弃，该参数存在命名不规范问题，后续用参数InstanceSlowLogDetail取代。慢查询详情。
+     * @deprecated
      */
+    @Deprecated
     public InstanceSlowlogDetail [] getInstanceSlowlogDetail() {
         return this.InstanceSlowlogDetail;
     }
 
     /**
-     * Set 慢查询详情。
-     * @param InstanceSlowlogDetail 慢查询详情。
+     * Set 已废弃，该参数存在命名不规范问题，后续用参数InstanceSlowLogDetail取代。慢查询详情。
+     * @param InstanceSlowlogDetail 已废弃，该参数存在命名不规范问题，后续用参数InstanceSlowLogDetail取代。慢查询详情。
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceSlowlogDetail(InstanceSlowlogDetail [] InstanceSlowlogDetail) {
         this.InstanceSlowlogDetail = InstanceSlowlogDetail;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 慢查询详情。 
+     * @return InstanceSlowLogDetail 慢查询详情。
+     */
+    public InstanceSlowlogDetail [] getInstanceSlowLogDetail() {
+        return this.InstanceSlowLogDetail;
+    }
+
+    /**
+     * Set 慢查询详情。
+     * @param InstanceSlowLogDetail 慢查询详情。
+     */
+    public void setInstanceSlowLogDetail(InstanceSlowlogDetail [] InstanceSlowLogDetail) {
+        this.InstanceSlowLogDetail = InstanceSlowLogDetail;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -108,6 +136,12 @@ public class DescribeSlowLogResponse extends AbstractModel{
                 this.InstanceSlowlogDetail[i] = new InstanceSlowlogDetail(source.InstanceSlowlogDetail[i]);
             }
         }
+        if (source.InstanceSlowLogDetail != null) {
+            this.InstanceSlowLogDetail = new InstanceSlowlogDetail[source.InstanceSlowLogDetail.length];
+            for (int i = 0; i < source.InstanceSlowLogDetail.length; i++) {
+                this.InstanceSlowLogDetail[i] = new InstanceSlowlogDetail(source.InstanceSlowLogDetail[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +154,7 @@ public class DescribeSlowLogResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "InstanceSlowlogDetail.", this.InstanceSlowlogDetail);
+        this.setParamArrayObj(map, prefix + "InstanceSlowLogDetail.", this.InstanceSlowLogDetail);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,119 +16,120 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KafkaProtocolInfo extends AbstractModel{
+public class KafkaProtocolInfo extends AbstractModel {
 
     /**
-    * 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证
-注意：此字段可能返回 null，表示取不到有效值。
+    * 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证。
+入参必填
     */
     @SerializedName("Protocol")
     @Expose
     private String Protocol;
 
     /**
-    * 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512
-注意：此字段可能返回 null，表示取不到有效值。
+    * 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512。
+当Protocol为sasl_plaintext或sasl_ssl时必填
     */
     @SerializedName("Mechanism")
     @Expose
     private String Mechanism;
 
     /**
-    * 用户名
-注意：此字段可能返回 null，表示取不到有效值。
+    * 用户名。
+当Protocol为sasl_plaintext或sasl_ssl时必填
     */
     @SerializedName("UserName")
     @Expose
     private String UserName;
 
     /**
-    * 用户密码
-注意：此字段可能返回 null，表示取不到有效值。
+    * 用户密码。
+当Protocol为sasl_plaintext或sasl_ssl时必填
     */
     @SerializedName("Password")
     @Expose
     private String Password;
 
     /**
-     * Get 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Protocol 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证。
+入参必填 
+     * @return Protocol 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证。
+入参必填
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Protocol 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证。
+入参必填
+     * @param Protocol 协议类型，支持的协议类型包括 plaintext、sasl_plaintext 或 sasl_ssl。建议使用 sasl_ssl，此协议会进行连接加密同时需要用户认证。
+入参必填
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
     }
 
     /**
-     * Get 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Mechanism 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512。
+当Protocol为sasl_plaintext或sasl_ssl时必填 
+     * @return Mechanism 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512。
+当Protocol为sasl_plaintext或sasl_ssl时必填
      */
     public String getMechanism() {
         return this.Mechanism;
     }
 
     /**
-     * Set 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Mechanism 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512。
+当Protocol为sasl_plaintext或sasl_ssl时必填
+     * @param Mechanism 加密类型，支持 PLAIN、SCRAM-SHA-256 或 SCRAM-SHA-512。
+当Protocol为sasl_plaintext或sasl_ssl时必填
      */
     public void setMechanism(String Mechanism) {
         this.Mechanism = Mechanism;
     }
 
     /**
-     * Get 用户名
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UserName 用户名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 用户名。
+当Protocol为sasl_plaintext或sasl_ssl时必填 
+     * @return UserName 用户名。
+当Protocol为sasl_plaintext或sasl_ssl时必填
      */
     public String getUserName() {
         return this.UserName;
     }
 
     /**
-     * Set 用户名
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UserName 用户名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 用户名。
+当Protocol为sasl_plaintext或sasl_ssl时必填
+     * @param UserName 用户名。
+当Protocol为sasl_plaintext或sasl_ssl时必填
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
     }
 
     /**
-     * Get 用户密码
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Password 用户密码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 用户密码。
+当Protocol为sasl_plaintext或sasl_ssl时必填 
+     * @return Password 用户密码。
+当Protocol为sasl_plaintext或sasl_ssl时必填
      */
     public String getPassword() {
         return this.Password;
     }
 
     /**
-     * Set 用户密码
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Password 用户密码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 用户密码。
+当Protocol为sasl_plaintext或sasl_ssl时必填
+     * @param Password 用户密码。
+当Protocol为sasl_plaintext或sasl_ssl时必填
      */
     public void setPassword(String Password) {
         this.Password = Password;

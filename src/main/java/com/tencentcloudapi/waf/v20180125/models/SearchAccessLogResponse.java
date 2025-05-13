@@ -16,11 +16,12 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchAccessLogResponse extends AbstractModel{
+public class SearchAccessLogResponse extends AbstractModel {
 
     /**
     * 新接口此字段失效，默认返回空字符串
@@ -46,7 +47,6 @@ public class SearchAccessLogResponse extends AbstractModel{
     /**
     * 如果Analysis为True，则返回分析结果的列名，否则为空
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ColNames")
     @Expose
@@ -55,7 +55,6 @@ public class SearchAccessLogResponse extends AbstractModel{
     /**
     * 日志查询结果；当Analysis为True时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Results")
     @Expose
@@ -64,14 +63,13 @@ public class SearchAccessLogResponse extends AbstractModel{
     /**
     * 日志分析结果；当Analysis为False时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AnalysisResults")
     @Expose
     private AccessLogItems [] AnalysisResults;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -127,12 +125,12 @@ public class SearchAccessLogResponse extends AbstractModel{
 
     /**
      * Get 如果Analysis为True，则返回分析结果的列名，否则为空
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ColNames 如果Analysis为True，则返回分析结果的列名，否则为空
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public String [] getColNames() {
         return this.ColNames;
     }
@@ -140,22 +138,20 @@ public class SearchAccessLogResponse extends AbstractModel{
     /**
      * Set 如果Analysis为True，则返回分析结果的列名，否则为空
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ColNames 如果Analysis为True，则返回分析结果的列名，否则为空
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setColNames(String [] ColNames) {
         this.ColNames = ColNames;
     }
 
     /**
      * Get 日志查询结果；当Analysis为True时，可能返回为null
-注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。 
+注意：此字段可能返回 null，表示取不到有效值 
      * @return Results 日志查询结果；当Analysis为True时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AccessLogInfo [] getResults() {
         return this.Results;
@@ -164,10 +160,8 @@ public class SearchAccessLogResponse extends AbstractModel{
     /**
      * Set 日志查询结果；当Analysis为True时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Results 日志查询结果；当Analysis为True时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResults(AccessLogInfo [] Results) {
         this.Results = Results;
@@ -175,12 +169,12 @@ public class SearchAccessLogResponse extends AbstractModel{
 
     /**
      * Get 日志分析结果；当Analysis为False时，可能返回为null
-注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。 
+注意：此字段可能返回 null，表示取不到有效值 
      * @return AnalysisResults 日志分析结果；当Analysis为False时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public AccessLogItems [] getAnalysisResults() {
         return this.AnalysisResults;
     }
@@ -188,26 +182,26 @@ public class SearchAccessLogResponse extends AbstractModel{
     /**
      * Set 日志分析结果；当Analysis为False时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AnalysisResults 日志分析结果；当Analysis为False时，可能返回为null
 注意：此字段可能返回 null，表示取不到有效值
-注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setAnalysisResults(AccessLogItems [] AnalysisResults) {
         this.AnalysisResults = AnalysisResults;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

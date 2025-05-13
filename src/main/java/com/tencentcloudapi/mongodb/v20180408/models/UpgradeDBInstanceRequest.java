@@ -16,14 +16,15 @@
 package com.tencentcloudapi.mongodb.v20180408.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeDBInstanceRequest extends AbstractModel{
+public class UpgradeDBInstanceRequest extends AbstractModel {
 
     /**
-    * 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+    * 实例ID，格式如：cmgo-iga0****。与云数据库控制台页面中显示的实例ID相同
     */
     @SerializedName("InstanceId")
     @Expose
@@ -51,16 +52,16 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
     private Long OplogSize;
 
     /**
-     * Get 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同 
-     * @return InstanceId 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+     * Get 实例ID，格式如：cmgo-iga0****。与云数据库控制台页面中显示的实例ID相同 
+     * @return InstanceId 实例ID，格式如：cmgo-iga0****。与云数据库控制台页面中显示的实例ID相同
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
-     * @param InstanceId 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+     * Set 实例ID，格式如：cmgo-iga0****。与云数据库控制台页面中显示的实例ID相同
+     * @param InstanceId 实例ID，格式如：cmgo-iga0****。与云数据库控制台页面中显示的实例ID相同
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;

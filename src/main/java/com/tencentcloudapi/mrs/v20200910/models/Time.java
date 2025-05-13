@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Time extends AbstractModel{
+public class Time extends AbstractModel {
 
     /**
     * 具体时间类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,17 +32,14 @@ public class Time extends AbstractModel{
 
     /**
     * 时间值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
     private String Value;
 
     /**
-     * Get 具体时间类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 具体时间类型 
      * @return Name 具体时间类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -50,19 +47,15 @@ public class Time extends AbstractModel{
 
     /**
      * Set 具体时间类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 具体时间类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 时间值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时间值 
      * @return Value 时间值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -70,9 +63,7 @@ public class Time extends AbstractModel{
 
     /**
      * Set 时间值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 时间值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

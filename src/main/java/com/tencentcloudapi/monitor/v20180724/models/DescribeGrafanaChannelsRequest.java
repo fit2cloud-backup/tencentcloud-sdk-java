@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGrafanaChannelsRequest extends AbstractModel{
+public class DescribeGrafanaChannelsRequest extends AbstractModel {
 
     /**
     * Grafana 实例 ID，例如：grafana-12345678
@@ -58,7 +59,7 @@ public class DescribeGrafanaChannelsRequest extends AbstractModel{
     private String [] ChannelIds;
 
     /**
-    * 告警通道状态
+    * 告警通道状态(不用填写，目前只有可用和删除状态，默认只能查询可用的告警通道)
     */
     @SerializedName("ChannelState")
     @Expose
@@ -145,16 +146,16 @@ public class DescribeGrafanaChannelsRequest extends AbstractModel{
     }
 
     /**
-     * Get 告警通道状态 
-     * @return ChannelState 告警通道状态
+     * Get 告警通道状态(不用填写，目前只有可用和删除状态，默认只能查询可用的告警通道) 
+     * @return ChannelState 告警通道状态(不用填写，目前只有可用和删除状态，默认只能查询可用的告警通道)
      */
     public Long getChannelState() {
         return this.ChannelState;
     }
 
     /**
-     * Set 告警通道状态
-     * @param ChannelState 告警通道状态
+     * Set 告警通道状态(不用填写，目前只有可用和删除状态，默认只能查询可用的告警通道)
+     * @param ChannelState 告警通道状态(不用填写，目前只有可用和删除状态，默认只能查询可用的告警通道)
      */
     public void setChannelState(Long ChannelState) {
         this.ChannelState = ChannelState;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlarmIndicatorInfo extends AbstractModel{
+public class AlarmIndicatorInfo extends AbstractModel {
 
     /**
     * 指标id
@@ -31,7 +32,7 @@ public class AlarmIndicatorInfo extends AbstractModel{
     private String Id;
 
     /**
-    * 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+    * 告警指标,0任务失败,1任务运行超时,2任务停止,3任务暂停, 4读取速度,5写入速度,6读取吞吐 7写入吞吐, 8脏数据字节数,9脏数据条数,10任务异常,11任务检测异常, 12重启次数, 13任务延时, 14近20分内的重启次数 15传输延迟,16业务延迟, 50离线包CPU使用率, 51离线包内存使用率, 52离线包并行度使用率, 53离线包排队中的实例数, 54实时包资源使用率, 55实时包运行中的任务数
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AlarmIndicator")
@@ -63,7 +64,7 @@ public class AlarmIndicatorInfo extends AbstractModel{
     private Long EstimatedTime;
 
     /**
-    * 实时任务告警需要的参数
+    * 告警阈值的算子,1 大于,2 小于
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Operator")
@@ -86,7 +87,7 @@ public class AlarmIndicatorInfo extends AbstractModel{
     private Long Duration;
 
     /**
-    * 告警周期单位
+    * 告警周期单位:hour,minute,day
     */
     @SerializedName("DurationUnit")
     @Expose
@@ -98,6 +99,30 @@ public class AlarmIndicatorInfo extends AbstractModel{
     @SerializedName("MaxTimes")
     @Expose
     private Long MaxTimes;
+
+    /**
+    * 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Threshold")
+    @Expose
+    private Float Threshold;
+
+    /**
+    * 时间范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndicatorTimeRangeUnit")
+    @Expose
+    private String IndicatorTimeRangeUnit;
+
+    /**
+    * 时间范围值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndicatorTimeRangeValue")
+    @Expose
+    private Long IndicatorTimeRangeValue;
 
     /**
      * Get 指标id
@@ -120,9 +145,9 @@ public class AlarmIndicatorInfo extends AbstractModel{
     }
 
     /**
-     * Get 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+     * Get 告警指标,0任务失败,1任务运行超时,2任务停止,3任务暂停, 4读取速度,5写入速度,6读取吞吐 7写入吞吐, 8脏数据字节数,9脏数据条数,10任务异常,11任务检测异常, 12重启次数, 13任务延时, 14近20分内的重启次数 15传输延迟,16业务延迟, 50离线包CPU使用率, 51离线包内存使用率, 52离线包并行度使用率, 53离线包排队中的实例数, 54实时包资源使用率, 55实时包运行中的任务数
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AlarmIndicator 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+     * @return AlarmIndicator 告警指标,0任务失败,1任务运行超时,2任务停止,3任务暂停, 4读取速度,5写入速度,6读取吞吐 7写入吞吐, 8脏数据字节数,9脏数据条数,10任务异常,11任务检测异常, 12重启次数, 13任务延时, 14近20分内的重启次数 15传输延迟,16业务延迟, 50离线包CPU使用率, 51离线包内存使用率, 52离线包并行度使用率, 53离线包排队中的实例数, 54实时包资源使用率, 55实时包运行中的任务数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAlarmIndicator() {
@@ -130,9 +155,9 @@ public class AlarmIndicatorInfo extends AbstractModel{
     }
 
     /**
-     * Set 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+     * Set 告警指标,0任务失败,1任务运行超时,2任务停止,3任务暂停, 4读取速度,5写入速度,6读取吞吐 7写入吞吐, 8脏数据字节数,9脏数据条数,10任务异常,11任务检测异常, 12重启次数, 13任务延时, 14近20分内的重启次数 15传输延迟,16业务延迟, 50离线包CPU使用率, 51离线包内存使用率, 52离线包并行度使用率, 53离线包排队中的实例数, 54实时包资源使用率, 55实时包运行中的任务数
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AlarmIndicator 告警指标,0表示任务失败，1表示任务运行超时，2表示任务停止，3表示任务暂停
+     * @param AlarmIndicator 告警指标,0任务失败,1任务运行超时,2任务停止,3任务暂停, 4读取速度,5写入速度,6读取吞吐 7写入吞吐, 8脏数据字节数,9脏数据条数,10任务异常,11任务检测异常, 12重启次数, 13任务延时, 14近20分内的重启次数 15传输延迟,16业务延迟, 50离线包CPU使用率, 51离线包内存使用率, 52离线包并行度使用率, 53离线包排队中的实例数, 54实时包资源使用率, 55实时包运行中的任务数
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAlarmIndicator(Long AlarmIndicator) {
@@ -200,9 +225,9 @@ public class AlarmIndicatorInfo extends AbstractModel{
     }
 
     /**
-     * Get 实时任务告警需要的参数
+     * Get 告警阈值的算子,1 大于,2 小于
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Operator 实时任务告警需要的参数
+     * @return Operator 告警阈值的算子,1 大于,2 小于
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getOperator() {
@@ -210,9 +235,9 @@ public class AlarmIndicatorInfo extends AbstractModel{
     }
 
     /**
-     * Set 实时任务告警需要的参数
+     * Set 告警阈值的算子,1 大于,2 小于
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Operator 实时任务告警需要的参数
+     * @param Operator 告警阈值的算子,1 大于,2 小于
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperator(Long Operator) {
@@ -256,16 +281,16 @@ public class AlarmIndicatorInfo extends AbstractModel{
     }
 
     /**
-     * Get 告警周期单位 
-     * @return DurationUnit 告警周期单位
+     * Get 告警周期单位:hour,minute,day 
+     * @return DurationUnit 告警周期单位:hour,minute,day
      */
     public String getDurationUnit() {
         return this.DurationUnit;
     }
 
     /**
-     * Set 告警周期单位
-     * @param DurationUnit 告警周期单位
+     * Set 告警周期单位:hour,minute,day
+     * @param DurationUnit 告警周期单位:hour,minute,day
      */
     public void setDurationUnit(String DurationUnit) {
         this.DurationUnit = DurationUnit;
@@ -285,6 +310,66 @@ public class AlarmIndicatorInfo extends AbstractModel{
      */
     public void setMaxTimes(Long MaxTimes) {
         this.MaxTimes = MaxTimes;
+    }
+
+    /**
+     * Get 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Threshold 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getThreshold() {
+        return this.Threshold;
+    }
+
+    /**
+     * Set 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Threshold 指标阈值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setThreshold(Float Threshold) {
+        this.Threshold = Threshold;
+    }
+
+    /**
+     * Get 时间范围单位
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndicatorTimeRangeUnit 时间范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIndicatorTimeRangeUnit() {
+        return this.IndicatorTimeRangeUnit;
+    }
+
+    /**
+     * Set 时间范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndicatorTimeRangeUnit 时间范围单位
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndicatorTimeRangeUnit(String IndicatorTimeRangeUnit) {
+        this.IndicatorTimeRangeUnit = IndicatorTimeRangeUnit;
+    }
+
+    /**
+     * Get 时间范围值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndicatorTimeRangeValue 时间范围值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getIndicatorTimeRangeValue() {
+        return this.IndicatorTimeRangeValue;
+    }
+
+    /**
+     * Set 时间范围值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndicatorTimeRangeValue 时间范围值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndicatorTimeRangeValue(Long IndicatorTimeRangeValue) {
+        this.IndicatorTimeRangeValue = IndicatorTimeRangeValue;
     }
 
     public AlarmIndicatorInfo() {
@@ -325,6 +410,15 @@ public class AlarmIndicatorInfo extends AbstractModel{
         if (source.MaxTimes != null) {
             this.MaxTimes = new Long(source.MaxTimes);
         }
+        if (source.Threshold != null) {
+            this.Threshold = new Float(source.Threshold);
+        }
+        if (source.IndicatorTimeRangeUnit != null) {
+            this.IndicatorTimeRangeUnit = new String(source.IndicatorTimeRangeUnit);
+        }
+        if (source.IndicatorTimeRangeValue != null) {
+            this.IndicatorTimeRangeValue = new Long(source.IndicatorTimeRangeValue);
+        }
     }
 
 
@@ -342,6 +436,9 @@ public class AlarmIndicatorInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Duration", this.Duration);
         this.setParamSimple(map, prefix + "DurationUnit", this.DurationUnit);
         this.setParamSimple(map, prefix + "MaxTimes", this.MaxTimes);
+        this.setParamSimple(map, prefix + "Threshold", this.Threshold);
+        this.setParamSimple(map, prefix + "IndicatorTimeRangeUnit", this.IndicatorTimeRangeUnit);
+        this.setParamSimple(map, prefix + "IndicatorTimeRangeValue", this.IndicatorTimeRangeValue);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BizLicenseOCRRequest extends AbstractModel{
+public class BizLicenseOCRRequest extends AbstractModel {
 
     /**
     * 图片的 Base64 值。
@@ -44,11 +45,18 @@ public class BizLicenseOCRRequest extends AbstractModel{
     private String ImageUrl;
 
     /**
-    * 是否返回黑白复印件告警码，默认为false
+    * 是否返回告警码，默认为false
     */
     @SerializedName("EnableCopyWarn")
     @Expose
     private Boolean EnableCopyWarn;
+
+    /**
+    * 是否返回自动拼接的有效期，默认为true
+    */
+    @SerializedName("EnablePeriodComplete")
+    @Expose
+    private Boolean EnablePeriodComplete;
 
     /**
      * Get 图片的 Base64 值。
@@ -111,19 +119,35 @@ public class BizLicenseOCRRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否返回黑白复印件告警码，默认为false 
-     * @return EnableCopyWarn 是否返回黑白复印件告警码，默认为false
+     * Get 是否返回告警码，默认为false 
+     * @return EnableCopyWarn 是否返回告警码，默认为false
      */
     public Boolean getEnableCopyWarn() {
         return this.EnableCopyWarn;
     }
 
     /**
-     * Set 是否返回黑白复印件告警码，默认为false
-     * @param EnableCopyWarn 是否返回黑白复印件告警码，默认为false
+     * Set 是否返回告警码，默认为false
+     * @param EnableCopyWarn 是否返回告警码，默认为false
      */
     public void setEnableCopyWarn(Boolean EnableCopyWarn) {
         this.EnableCopyWarn = EnableCopyWarn;
+    }
+
+    /**
+     * Get 是否返回自动拼接的有效期，默认为true 
+     * @return EnablePeriodComplete 是否返回自动拼接的有效期，默认为true
+     */
+    public Boolean getEnablePeriodComplete() {
+        return this.EnablePeriodComplete;
+    }
+
+    /**
+     * Set 是否返回自动拼接的有效期，默认为true
+     * @param EnablePeriodComplete 是否返回自动拼接的有效期，默认为true
+     */
+    public void setEnablePeriodComplete(Boolean EnablePeriodComplete) {
+        this.EnablePeriodComplete = EnablePeriodComplete;
     }
 
     public BizLicenseOCRRequest() {
@@ -143,6 +167,9 @@ public class BizLicenseOCRRequest extends AbstractModel{
         if (source.EnableCopyWarn != null) {
             this.EnableCopyWarn = new Boolean(source.EnableCopyWarn);
         }
+        if (source.EnablePeriodComplete != null) {
+            this.EnablePeriodComplete = new Boolean(source.EnablePeriodComplete);
+        }
     }
 
 
@@ -153,6 +180,7 @@ public class BizLicenseOCRRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ImageBase64", this.ImageBase64);
         this.setParamSimple(map, prefix + "ImageUrl", this.ImageUrl);
         this.setParamSimple(map, prefix + "EnableCopyWarn", this.EnableCopyWarn);
+        this.setParamSimple(map, prefix + "EnablePeriodComplete", this.EnablePeriodComplete);
 
     }
 }

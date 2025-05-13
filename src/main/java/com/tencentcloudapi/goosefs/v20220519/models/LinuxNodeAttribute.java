@@ -16,11 +16,12 @@
 package com.tencentcloudapi.goosefs.v20220519.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LinuxNodeAttribute extends AbstractModel{
+public class LinuxNodeAttribute extends AbstractModel {
 
     /**
     * cvmId
@@ -49,6 +50,13 @@ public class LinuxNodeAttribute extends AbstractModel{
     @SerializedName("LinuxClientNodeIp")
     @Expose
     private String LinuxClientNodeIp;
+
+    /**
+    * 自定义挂载点
+    */
+    @SerializedName("MountPoint")
+    @Expose
+    private String MountPoint;
 
     /**
      * Get cvmId 
@@ -114,6 +122,22 @@ public class LinuxNodeAttribute extends AbstractModel{
         this.LinuxClientNodeIp = LinuxClientNodeIp;
     }
 
+    /**
+     * Get 自定义挂载点 
+     * @return MountPoint 自定义挂载点
+     */
+    public String getMountPoint() {
+        return this.MountPoint;
+    }
+
+    /**
+     * Set 自定义挂载点
+     * @param MountPoint 自定义挂载点
+     */
+    public void setMountPoint(String MountPoint) {
+        this.MountPoint = MountPoint;
+    }
+
     public LinuxNodeAttribute() {
     }
 
@@ -134,6 +158,9 @@ public class LinuxNodeAttribute extends AbstractModel{
         if (source.LinuxClientNodeIp != null) {
             this.LinuxClientNodeIp = new String(source.LinuxClientNodeIp);
         }
+        if (source.MountPoint != null) {
+            this.MountPoint = new String(source.MountPoint);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class LinuxNodeAttribute extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
         this.setParamSimple(map, prefix + "LinuxClientNodeIp", this.LinuxClientNodeIp);
+        this.setParamSimple(map, prefix + "MountPoint", this.MountPoint);
 
     }
 }

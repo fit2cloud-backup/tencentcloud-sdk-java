@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NatInstanceInfo extends AbstractModel{
+public class NatInstanceInfo extends AbstractModel {
 
     /**
     * nat实例id
@@ -80,7 +81,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 公网ip数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EipAddress")
     @Expose
@@ -88,7 +88,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 内外使用ip数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcIp")
     @Expose
@@ -96,7 +95,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 实例关联子网数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Subnets")
     @Expose
@@ -104,7 +102,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 0 :正常 1：正在初始化
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -112,7 +109,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 地域区域信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionDetail")
     @Expose
@@ -120,7 +116,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneZh")
     @Expose
@@ -128,7 +123,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneZhBak")
     @Expose
@@ -136,7 +130,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 已使用规则数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleUsed")
     @Expose
@@ -144,7 +137,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 实例的规则限制最大规格数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleMax")
     @Expose
@@ -152,7 +144,6 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 实例引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EngineVersion")
     @Expose
@@ -160,11 +151,84 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
     * 引擎是否可升级：0，不可升级；1，可升级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateEnable")
     @Expose
     private Long UpdateEnable;
+
+    /**
+    * 是的需要升级引擎 支持 nat拨测 1需要 0不需要
+    */
+    @SerializedName("NeedProbeEngineUpdate")
+    @Expose
+    private Long NeedProbeEngineUpdate;
+
+    /**
+    * 引擎运行模式，Normal:正常, OnlyRoute:透明模式
+    */
+    @SerializedName("TrafficMode")
+    @Expose
+    private String TrafficMode;
+
+    /**
+    * 实例主所在可用区
+    */
+    @SerializedName("Zone")
+    @Expose
+    private String Zone;
+
+    /**
+    * 实例备所在可用区
+    */
+    @SerializedName("ZoneBak")
+    @Expose
+    private String ZoneBak;
+
+    /**
+    * 引擎预约升级时间
+    */
+    @SerializedName("ReserveTime")
+    @Expose
+    private String ReserveTime;
+
+    /**
+    * 引擎预约升级版本
+    */
+    @SerializedName("ReserveVersion")
+    @Expose
+    private String ReserveVersion;
+
+    /**
+    * 引擎预约升级版本状态 stable:稳定版；previewed:预览版
+    */
+    @SerializedName("ReserveVersionState")
+    @Expose
+    private String ReserveVersionState;
+
+    /**
+    * 弹性开关
+1 打开
+0 关闭
+    */
+    @SerializedName("ElasticSwitch")
+    @Expose
+    private Long ElasticSwitch;
+
+    /**
+    * 弹性带宽，单位Mbps
+    */
+    @SerializedName("ElasticBandwidth")
+    @Expose
+    private Long ElasticBandwidth;
+
+    /**
+    * 是否首次开通按量付费
+1 是
+0 不是
+    */
+    @SerializedName("IsFirstAfterPay")
+    @Expose
+    private Long IsFirstAfterPay;
 
     /**
      * Get nat实例id 
@@ -295,10 +359,8 @@ public class NatInstanceInfo extends AbstractModel{
     }
 
     /**
-     * Get 公网ip数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 公网ip数组 
      * @return EipAddress 公网ip数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getEipAddress() {
         return this.EipAddress;
@@ -306,19 +368,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 公网ip数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EipAddress 公网ip数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEipAddress(String [] EipAddress) {
         this.EipAddress = EipAddress;
     }
 
     /**
-     * Get 内外使用ip数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 内外使用ip数组 
      * @return VpcIp 内外使用ip数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getVpcIp() {
         return this.VpcIp;
@@ -326,19 +384,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 内外使用ip数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcIp 内外使用ip数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcIp(String [] VpcIp) {
         this.VpcIp = VpcIp;
     }
 
     /**
-     * Get 实例关联子网数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例关联子网数组 
      * @return Subnets 实例关联子网数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getSubnets() {
         return this.Subnets;
@@ -346,19 +400,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例关联子网数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Subnets 实例关联子网数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnets(String [] Subnets) {
         this.Subnets = Subnets;
     }
 
     /**
-     * Get 0 :正常 1：正在初始化
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0 :正常 1：正在初始化 
      * @return Status 0 :正常 1：正在初始化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -366,19 +416,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 0 :正常 1：正在初始化
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 0 :正常 1：正在初始化
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 地域区域信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域区域信息 
      * @return RegionDetail 地域区域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionDetail() {
         return this.RegionDetail;
@@ -386,19 +432,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 地域区域信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionDetail 地域区域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionDetail(String RegionDetail) {
         this.RegionDetail = RegionDetail;
     }
 
     /**
-     * Get 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在可用区 
      * @return ZoneZh 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZoneZh() {
         return this.ZoneZh;
@@ -406,19 +448,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneZh 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneZh(String ZoneZh) {
         this.ZoneZh = ZoneZh;
     }
 
     /**
-     * Get 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所在可用区 
      * @return ZoneZhBak 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZoneZhBak() {
         return this.ZoneZhBak;
@@ -426,19 +464,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneZhBak 实例所在可用区
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneZhBak(String ZoneZhBak) {
         this.ZoneZhBak = ZoneZhBak;
     }
 
     /**
-     * Get 已使用规则数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 已使用规则数 
      * @return RuleUsed 已使用规则数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRuleUsed() {
         return this.RuleUsed;
@@ -446,19 +480,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 已使用规则数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleUsed 已使用规则数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleUsed(Long RuleUsed) {
         this.RuleUsed = RuleUsed;
     }
 
     /**
-     * Get 实例的规则限制最大规格数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例的规则限制最大规格数 
      * @return RuleMax 实例的规则限制最大规格数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRuleMax() {
         return this.RuleMax;
@@ -466,19 +496,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例的规则限制最大规格数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleMax 实例的规则限制最大规格数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleMax(Long RuleMax) {
         this.RuleMax = RuleMax;
     }
 
     /**
-     * Get 实例引擎版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例引擎版本 
      * @return EngineVersion 实例引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEngineVersion() {
         return this.EngineVersion;
@@ -486,19 +512,15 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 实例引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EngineVersion 实例引擎版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEngineVersion(String EngineVersion) {
         this.EngineVersion = EngineVersion;
     }
 
     /**
-     * Get 引擎是否可升级：0，不可升级；1，可升级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 引擎是否可升级：0，不可升级；1，可升级 
      * @return UpdateEnable 引擎是否可升级：0，不可升级；1，可升级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUpdateEnable() {
         return this.UpdateEnable;
@@ -506,12 +528,186 @@ public class NatInstanceInfo extends AbstractModel{
 
     /**
      * Set 引擎是否可升级：0，不可升级；1，可升级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateEnable 引擎是否可升级：0，不可升级；1，可升级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateEnable(Long UpdateEnable) {
         this.UpdateEnable = UpdateEnable;
+    }
+
+    /**
+     * Get 是的需要升级引擎 支持 nat拨测 1需要 0不需要 
+     * @return NeedProbeEngineUpdate 是的需要升级引擎 支持 nat拨测 1需要 0不需要
+     */
+    public Long getNeedProbeEngineUpdate() {
+        return this.NeedProbeEngineUpdate;
+    }
+
+    /**
+     * Set 是的需要升级引擎 支持 nat拨测 1需要 0不需要
+     * @param NeedProbeEngineUpdate 是的需要升级引擎 支持 nat拨测 1需要 0不需要
+     */
+    public void setNeedProbeEngineUpdate(Long NeedProbeEngineUpdate) {
+        this.NeedProbeEngineUpdate = NeedProbeEngineUpdate;
+    }
+
+    /**
+     * Get 引擎运行模式，Normal:正常, OnlyRoute:透明模式 
+     * @return TrafficMode 引擎运行模式，Normal:正常, OnlyRoute:透明模式
+     */
+    public String getTrafficMode() {
+        return this.TrafficMode;
+    }
+
+    /**
+     * Set 引擎运行模式，Normal:正常, OnlyRoute:透明模式
+     * @param TrafficMode 引擎运行模式，Normal:正常, OnlyRoute:透明模式
+     */
+    public void setTrafficMode(String TrafficMode) {
+        this.TrafficMode = TrafficMode;
+    }
+
+    /**
+     * Get 实例主所在可用区 
+     * @return Zone 实例主所在可用区
+     */
+    public String getZone() {
+        return this.Zone;
+    }
+
+    /**
+     * Set 实例主所在可用区
+     * @param Zone 实例主所在可用区
+     */
+    public void setZone(String Zone) {
+        this.Zone = Zone;
+    }
+
+    /**
+     * Get 实例备所在可用区 
+     * @return ZoneBak 实例备所在可用区
+     */
+    public String getZoneBak() {
+        return this.ZoneBak;
+    }
+
+    /**
+     * Set 实例备所在可用区
+     * @param ZoneBak 实例备所在可用区
+     */
+    public void setZoneBak(String ZoneBak) {
+        this.ZoneBak = ZoneBak;
+    }
+
+    /**
+     * Get 引擎预约升级时间 
+     * @return ReserveTime 引擎预约升级时间
+     */
+    public String getReserveTime() {
+        return this.ReserveTime;
+    }
+
+    /**
+     * Set 引擎预约升级时间
+     * @param ReserveTime 引擎预约升级时间
+     */
+    public void setReserveTime(String ReserveTime) {
+        this.ReserveTime = ReserveTime;
+    }
+
+    /**
+     * Get 引擎预约升级版本 
+     * @return ReserveVersion 引擎预约升级版本
+     */
+    public String getReserveVersion() {
+        return this.ReserveVersion;
+    }
+
+    /**
+     * Set 引擎预约升级版本
+     * @param ReserveVersion 引擎预约升级版本
+     */
+    public void setReserveVersion(String ReserveVersion) {
+        this.ReserveVersion = ReserveVersion;
+    }
+
+    /**
+     * Get 引擎预约升级版本状态 stable:稳定版；previewed:预览版 
+     * @return ReserveVersionState 引擎预约升级版本状态 stable:稳定版；previewed:预览版
+     */
+    public String getReserveVersionState() {
+        return this.ReserveVersionState;
+    }
+
+    /**
+     * Set 引擎预约升级版本状态 stable:稳定版；previewed:预览版
+     * @param ReserveVersionState 引擎预约升级版本状态 stable:稳定版；previewed:预览版
+     */
+    public void setReserveVersionState(String ReserveVersionState) {
+        this.ReserveVersionState = ReserveVersionState;
+    }
+
+    /**
+     * Get 弹性开关
+1 打开
+0 关闭 
+     * @return ElasticSwitch 弹性开关
+1 打开
+0 关闭
+     */
+    public Long getElasticSwitch() {
+        return this.ElasticSwitch;
+    }
+
+    /**
+     * Set 弹性开关
+1 打开
+0 关闭
+     * @param ElasticSwitch 弹性开关
+1 打开
+0 关闭
+     */
+    public void setElasticSwitch(Long ElasticSwitch) {
+        this.ElasticSwitch = ElasticSwitch;
+    }
+
+    /**
+     * Get 弹性带宽，单位Mbps 
+     * @return ElasticBandwidth 弹性带宽，单位Mbps
+     */
+    public Long getElasticBandwidth() {
+        return this.ElasticBandwidth;
+    }
+
+    /**
+     * Set 弹性带宽，单位Mbps
+     * @param ElasticBandwidth 弹性带宽，单位Mbps
+     */
+    public void setElasticBandwidth(Long ElasticBandwidth) {
+        this.ElasticBandwidth = ElasticBandwidth;
+    }
+
+    /**
+     * Get 是否首次开通按量付费
+1 是
+0 不是 
+     * @return IsFirstAfterPay 是否首次开通按量付费
+1 是
+0 不是
+     */
+    public Long getIsFirstAfterPay() {
+        return this.IsFirstAfterPay;
+    }
+
+    /**
+     * Set 是否首次开通按量付费
+1 是
+0 不是
+     * @param IsFirstAfterPay 是否首次开通按量付费
+1 是
+0 不是
+     */
+    public void setIsFirstAfterPay(Long IsFirstAfterPay) {
+        this.IsFirstAfterPay = IsFirstAfterPay;
     }
 
     public NatInstanceInfo() {
@@ -588,6 +784,36 @@ public class NatInstanceInfo extends AbstractModel{
         if (source.UpdateEnable != null) {
             this.UpdateEnable = new Long(source.UpdateEnable);
         }
+        if (source.NeedProbeEngineUpdate != null) {
+            this.NeedProbeEngineUpdate = new Long(source.NeedProbeEngineUpdate);
+        }
+        if (source.TrafficMode != null) {
+            this.TrafficMode = new String(source.TrafficMode);
+        }
+        if (source.Zone != null) {
+            this.Zone = new String(source.Zone);
+        }
+        if (source.ZoneBak != null) {
+            this.ZoneBak = new String(source.ZoneBak);
+        }
+        if (source.ReserveTime != null) {
+            this.ReserveTime = new String(source.ReserveTime);
+        }
+        if (source.ReserveVersion != null) {
+            this.ReserveVersion = new String(source.ReserveVersion);
+        }
+        if (source.ReserveVersionState != null) {
+            this.ReserveVersionState = new String(source.ReserveVersionState);
+        }
+        if (source.ElasticSwitch != null) {
+            this.ElasticSwitch = new Long(source.ElasticSwitch);
+        }
+        if (source.ElasticBandwidth != null) {
+            this.ElasticBandwidth = new Long(source.ElasticBandwidth);
+        }
+        if (source.IsFirstAfterPay != null) {
+            this.IsFirstAfterPay = new Long(source.IsFirstAfterPay);
+        }
     }
 
 
@@ -614,6 +840,16 @@ public class NatInstanceInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "RuleMax", this.RuleMax);
         this.setParamSimple(map, prefix + "EngineVersion", this.EngineVersion);
         this.setParamSimple(map, prefix + "UpdateEnable", this.UpdateEnable);
+        this.setParamSimple(map, prefix + "NeedProbeEngineUpdate", this.NeedProbeEngineUpdate);
+        this.setParamSimple(map, prefix + "TrafficMode", this.TrafficMode);
+        this.setParamSimple(map, prefix + "Zone", this.Zone);
+        this.setParamSimple(map, prefix + "ZoneBak", this.ZoneBak);
+        this.setParamSimple(map, prefix + "ReserveTime", this.ReserveTime);
+        this.setParamSimple(map, prefix + "ReserveVersion", this.ReserveVersion);
+        this.setParamSimple(map, prefix + "ReserveVersionState", this.ReserveVersionState);
+        this.setParamSimple(map, prefix + "ElasticSwitch", this.ElasticSwitch);
+        this.setParamSimple(map, prefix + "ElasticBandwidth", this.ElasticBandwidth);
+        this.setParamSimple(map, prefix + "IsFirstAfterPay", this.IsFirstAfterPay);
 
     }
 }

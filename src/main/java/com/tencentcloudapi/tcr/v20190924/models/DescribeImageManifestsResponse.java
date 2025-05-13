@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeImageManifestsResponse extends AbstractModel{
+public class DescribeImageManifestsResponse extends AbstractModel {
 
     /**
     * 镜像的Manifest信息
@@ -37,7 +38,21 @@ public class DescribeImageManifestsResponse extends AbstractModel{
     private String Config;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 镜像的Labels信息
+    */
+    @SerializedName("Labels")
+    @Expose
+    private KeyValueString [] Labels;
+
+    /**
+    * 镜像大小，单位：byte
+    */
+    @SerializedName("Size")
+    @Expose
+    private Long Size;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -76,16 +91,48 @@ public class DescribeImageManifestsResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 镜像的Labels信息 
+     * @return Labels 镜像的Labels信息
+     */
+    public KeyValueString [] getLabels() {
+        return this.Labels;
+    }
+
+    /**
+     * Set 镜像的Labels信息
+     * @param Labels 镜像的Labels信息
+     */
+    public void setLabels(KeyValueString [] Labels) {
+        this.Labels = Labels;
+    }
+
+    /**
+     * Get 镜像大小，单位：byte 
+     * @return Size 镜像大小，单位：byte
+     */
+    public Long getSize() {
+        return this.Size;
+    }
+
+    /**
+     * Set 镜像大小，单位：byte
+     * @param Size 镜像大小，单位：byte
+     */
+    public void setSize(Long Size) {
+        this.Size = Size;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -105,6 +152,15 @@ public class DescribeImageManifestsResponse extends AbstractModel{
         if (source.Config != null) {
             this.Config = new String(source.Config);
         }
+        if (source.Labels != null) {
+            this.Labels = new KeyValueString[source.Labels.length];
+            for (int i = 0; i < source.Labels.length; i++) {
+                this.Labels[i] = new KeyValueString(source.Labels[i]);
+            }
+        }
+        if (source.Size != null) {
+            this.Size = new Long(source.Size);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -117,6 +173,8 @@ public class DescribeImageManifestsResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Manifest", this.Manifest);
         this.setParamSimple(map, prefix + "Config", this.Config);
+        this.setParamArrayObj(map, prefix + "Labels.", this.Labels);
+        this.setParamSimple(map, prefix + "Size", this.Size);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cat.v20180409.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDetailedSingleProbeDataRequest extends AbstractModel{
+public class DescribeDetailedSingleProbeDataRequest extends AbstractModel {
 
     /**
     * 开始时间戳（毫秒级）
@@ -65,7 +66,7 @@ AnalyzeTaskType_MediaStream：音视频体验
     private Boolean Ascending;
 
     /**
-    * 选中字段
+    * 选中字段，如ProbeTime、TransferTime、TransferSize等。
     */
     @SerializedName("SelectedFields")
     @Expose
@@ -110,7 +111,7 @@ AnalyzeTaskType_MediaStream：音视频体验
 	
 这里实际按拨测结果中的地区来填写即可
 
-国内一般是省级单位，如广东、广西、中国香港、新疆；直辖市则填北京、上海
+国内一般是省级单位，如广东、广西、中国香港；直辖市则填北京、上海
 
 境外一般是国家名，如澳大利亚、新加坡
     */
@@ -139,6 +140,20 @@ AnalyzeTaskType_MediaStream：音视频体验
     @SerializedName("City")
     @Expose
     private String [] City;
+
+    /**
+    * es scroll查询id
+    */
+    @SerializedName("ScrollID")
+    @Expose
+    private String ScrollID;
+
+    /**
+    * 详情数据下载
+    */
+    @SerializedName("QueryFlag")
+    @Expose
+    private String QueryFlag;
 
     /**
      * Get 开始时间戳（毫秒级） 
@@ -249,16 +264,16 @@ AnalyzeTaskType_MediaStream：音视频体验
     }
 
     /**
-     * Get 选中字段 
-     * @return SelectedFields 选中字段
+     * Get 选中字段，如ProbeTime、TransferTime、TransferSize等。 
+     * @return SelectedFields 选中字段，如ProbeTime、TransferTime、TransferSize等。
      */
     public String [] getSelectedFields() {
         return this.SelectedFields;
     }
 
     /**
-     * Set 选中字段
-     * @param SelectedFields 选中字段
+     * Set 选中字段，如ProbeTime、TransferTime、TransferSize等。
+     * @param SelectedFields 选中字段，如ProbeTime、TransferTime、TransferSize等。
      */
     public void setSelectedFields(String [] SelectedFields) {
         this.SelectedFields = SelectedFields;
@@ -357,14 +372,14 @@ AnalyzeTaskType_MediaStream：音视频体验
 	
 这里实际按拨测结果中的地区来填写即可
 
-国内一般是省级单位，如广东、广西、中国香港、新疆；直辖市则填北京、上海
+国内一般是省级单位，如广东、广西、中国香港；直辖市则填北京、上海
 
 境外一般是国家名，如澳大利亚、新加坡 
      * @return Districts 拨测点地区
 	
 这里实际按拨测结果中的地区来填写即可
 
-国内一般是省级单位，如广东、广西、中国香港、新疆；直辖市则填北京、上海
+国内一般是省级单位，如广东、广西、中国香港；直辖市则填北京、上海
 
 境外一般是国家名，如澳大利亚、新加坡
      */
@@ -377,14 +392,14 @@ AnalyzeTaskType_MediaStream：音视频体验
 	
 这里实际按拨测结果中的地区来填写即可
 
-国内一般是省级单位，如广东、广西、中国香港、新疆；直辖市则填北京、上海
+国内一般是省级单位，如广东、广西、中国香港；直辖市则填北京、上海
 
 境外一般是国家名，如澳大利亚、新加坡
      * @param Districts 拨测点地区
 	
 这里实际按拨测结果中的地区来填写即可
 
-国内一般是省级单位，如广东、广西、中国香港、新疆；直辖市则填北京、上海
+国内一般是省级单位，如广东、广西、中国香港；直辖市则填北京、上海
 
 境外一般是国家名，如澳大利亚、新加坡
      */
@@ -456,6 +471,38 @@ AnalyzeTaskType_MediaStream：音视频体验
         this.City = City;
     }
 
+    /**
+     * Get es scroll查询id 
+     * @return ScrollID es scroll查询id
+     */
+    public String getScrollID() {
+        return this.ScrollID;
+    }
+
+    /**
+     * Set es scroll查询id
+     * @param ScrollID es scroll查询id
+     */
+    public void setScrollID(String ScrollID) {
+        this.ScrollID = ScrollID;
+    }
+
+    /**
+     * Get 详情数据下载 
+     * @return QueryFlag 详情数据下载
+     */
+    public String getQueryFlag() {
+        return this.QueryFlag;
+    }
+
+    /**
+     * Set 详情数据下载
+     * @param QueryFlag 详情数据下载
+     */
+    public void setQueryFlag(String QueryFlag) {
+        this.QueryFlag = QueryFlag;
+    }
+
     public DescribeDetailedSingleProbeDataRequest() {
     }
 
@@ -521,6 +568,12 @@ AnalyzeTaskType_MediaStream：音视频体验
                 this.City[i] = new String(source.City[i]);
             }
         }
+        if (source.ScrollID != null) {
+            this.ScrollID = new String(source.ScrollID);
+        }
+        if (source.QueryFlag != null) {
+            this.QueryFlag = new String(source.QueryFlag);
+        }
     }
 
 
@@ -541,6 +594,8 @@ AnalyzeTaskType_MediaStream：音视频体验
         this.setParamArraySimple(map, prefix + "Districts.", this.Districts);
         this.setParamArraySimple(map, prefix + "ErrorTypes.", this.ErrorTypes);
         this.setParamArraySimple(map, prefix + "City.", this.City);
+        this.setParamSimple(map, prefix + "ScrollID", this.ScrollID);
+        this.setParamSimple(map, prefix + "QueryFlag", this.QueryFlag);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateMigrationTaskRequest extends AbstractModel{
+public class CreateMigrationTaskRequest extends AbstractModel {
 
     /**
     * 迁移任务名称
@@ -126,6 +127,13 @@ public class CreateMigrationTaskRequest extends AbstractModel{
     @SerializedName("BucketPath")
     @Expose
     private String BucketPath;
+
+    /**
+    * 迁移方向。0: 对象存储迁移至文件系统，1: 文件系统迁移至对象存储。默认 0
+    */
+    @SerializedName("Direction")
+    @Expose
+    private Long Direction;
 
     /**
      * Get 迁移任务名称 
@@ -367,6 +375,22 @@ public class CreateMigrationTaskRequest extends AbstractModel{
         this.BucketPath = BucketPath;
     }
 
+    /**
+     * Get 迁移方向。0: 对象存储迁移至文件系统，1: 文件系统迁移至对象存储。默认 0 
+     * @return Direction 迁移方向。0: 对象存储迁移至文件系统，1: 文件系统迁移至对象存储。默认 0
+     */
+    public Long getDirection() {
+        return this.Direction;
+    }
+
+    /**
+     * Set 迁移方向。0: 对象存储迁移至文件系统，1: 文件系统迁移至对象存储。默认 0
+     * @param Direction 迁移方向。0: 对象存储迁移至文件系统，1: 文件系统迁移至对象存储。默认 0
+     */
+    public void setDirection(Long Direction) {
+        this.Direction = Direction;
+    }
+
     public CreateMigrationTaskRequest() {
     }
 
@@ -420,6 +444,9 @@ public class CreateMigrationTaskRequest extends AbstractModel{
         if (source.BucketPath != null) {
             this.BucketPath = new String(source.BucketPath);
         }
+        if (source.Direction != null) {
+            this.Direction = new Long(source.Direction);
+        }
     }
 
 
@@ -442,6 +469,7 @@ public class CreateMigrationTaskRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ListAddress", this.ListAddress);
         this.setParamSimple(map, prefix + "FsName", this.FsName);
         this.setParamSimple(map, prefix + "BucketPath", this.BucketPath);
+        this.setParamSimple(map, prefix + "Direction", this.Direction);
 
     }
 }

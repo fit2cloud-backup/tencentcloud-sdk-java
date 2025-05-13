@@ -16,15 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InquirePriceCreateDirectConnectGatewayResponse extends AbstractModel{
+public class InquirePriceCreateDirectConnectGatewayResponse extends AbstractModel {
 
     /**
     * 专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TotalCost")
     @Expose
@@ -32,24 +32,21 @@ public class InquirePriceCreateDirectConnectGatewayResponse extends AbstractMode
 
     /**
     * 专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RealTotalCost")
     @Expose
     private Long RealTotalCost;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专线网关标准接入费用 
      * @return TotalCost 专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTotalCost() {
         return this.TotalCost;
@@ -57,19 +54,15 @@ public class InquirePriceCreateDirectConnectGatewayResponse extends AbstractMode
 
     /**
      * Set 专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TotalCost 专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTotalCost(Long TotalCost) {
         this.TotalCost = TotalCost;
     }
 
     /**
-     * Get 专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专线网关真实接入费用 
      * @return RealTotalCost 专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRealTotalCost() {
         return this.RealTotalCost;
@@ -77,25 +70,23 @@ public class InquirePriceCreateDirectConnectGatewayResponse extends AbstractMode
 
     /**
      * Set 专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RealTotalCost 专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRealTotalCost(Long RealTotalCost) {
         this.RealTotalCost = RealTotalCost;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

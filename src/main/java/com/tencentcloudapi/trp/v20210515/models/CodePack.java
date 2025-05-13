@@ -16,15 +16,15 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CodePack extends AbstractModel{
+public class CodePack extends AbstractModel {
 
     /**
     * 码id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackId")
     @Expose
@@ -32,7 +32,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 企业id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CorpId")
     @Expose
@@ -40,7 +39,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 商户id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MerchantId")
     @Expose
@@ -48,7 +46,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -56,7 +53,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -64,7 +60,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 制码状态 init: 初始化, pending: 执行中, done: 完成, error: 失败
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -72,7 +67,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 执行日志
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Log")
     @Expose
@@ -80,7 +74,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 创建人
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateUser")
     @Expose
@@ -88,7 +81,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 码数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Amount")
     @Expose
@@ -96,7 +88,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 防伪码长度
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CodeLength")
     @Expose
@@ -104,7 +95,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 码类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CodeType")
     @Expose
@@ -112,7 +102,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 是否暗码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Cipher")
     @Expose
@@ -120,7 +109,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * [弃用] 文字码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TextUrl")
     @Expose
@@ -128,7 +116,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * [弃用] 二维码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackUrl")
     @Expose
@@ -136,7 +123,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 商户名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MerchantName")
     @Expose
@@ -144,7 +130,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 码规则类型 0: 默认, 1: 自定义
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleType")
     @Expose
@@ -152,7 +137,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 自定义码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomId")
     @Expose
@@ -160,7 +144,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 码包类型 0: 普通码包 1: 层级码包
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackType")
     @Expose
@@ -168,7 +151,6 @@ public class CodePack extends AbstractModel{
 
     /**
     * 生码层级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackLevel")
     @Expose
@@ -176,17 +158,78 @@ public class CodePack extends AbstractModel{
 
     /**
     * 层级码配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PackSpec")
     @Expose
     private PackSpec [] PackSpec;
 
     /**
-     * Get 码id
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 商品名称
+    */
+    @SerializedName("ProductName")
+    @Expose
+    private String ProductName;
+
+    /**
+    * 商品规格
+    */
+    @SerializedName("ProductSpecification")
+    @Expose
+    private String ProductSpecification;
+
+    /**
+    * 商品ID
+    */
+    @SerializedName("ProductId")
+    @Expose
+    private String ProductId;
+
+    /**
+    * 码关系是否预关联
+0:否, 1:是
+    */
+    @SerializedName("RelateType")
+    @Expose
+    private Long RelateType;
+
+    /**
+    * 场景码
+    */
+    @SerializedName("SceneCode")
+    @Expose
+    private Long SceneCode;
+
+    /**
+    * 码规则
+    */
+    @SerializedName("CodeRule")
+    @Expose
+    private String CodeRule;
+
+    /**
+    * 已使用码数
+    */
+    @SerializedName("UsedAmount")
+    @Expose
+    private Long UsedAmount;
+
+    /**
+    * 开始流水号
+    */
+    @SerializedName("SerialStart")
+    @Expose
+    private Long SerialStart;
+
+    /**
+    * 结束流水号
+    */
+    @SerializedName("SerialEnd")
+    @Expose
+    private Long SerialEnd;
+
+    /**
+     * Get 码id 
      * @return PackId 码id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackId() {
         return this.PackId;
@@ -194,19 +237,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 码id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackId 码id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackId(String PackId) {
         this.PackId = PackId;
     }
 
     /**
-     * Get 企业id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 企业id 
      * @return CorpId 企业id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCorpId() {
         return this.CorpId;
@@ -214,19 +253,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 企业id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CorpId 企业id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCorpId(Long CorpId) {
         this.CorpId = CorpId;
     }
 
     /**
-     * Get 商户id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商户id 
      * @return MerchantId 商户id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMerchantId() {
         return this.MerchantId;
@@ -234,19 +269,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 商户id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MerchantId 商户id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMerchantId(String MerchantId) {
         this.MerchantId = MerchantId;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -254,19 +285,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -274,19 +301,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 制码状态 init: 初始化, pending: 执行中, done: 完成, error: 失败
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 制码状态 init: 初始化, pending: 执行中, done: 完成, error: 失败 
      * @return Status 制码状态 init: 初始化, pending: 执行中, done: 完成, error: 失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -294,19 +317,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 制码状态 init: 初始化, pending: 执行中, done: 完成, error: 失败
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 制码状态 init: 初始化, pending: 执行中, done: 完成, error: 失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 执行日志
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 执行日志 
      * @return Log 执行日志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLog() {
         return this.Log;
@@ -314,19 +333,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 执行日志
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Log 执行日志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLog(String Log) {
         this.Log = Log;
     }
 
     /**
-     * Get 创建人
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建人 
      * @return CreateUser 创建人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateUser() {
         return this.CreateUser;
@@ -334,19 +349,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 创建人
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateUser 创建人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateUser(String CreateUser) {
         this.CreateUser = CreateUser;
     }
 
     /**
-     * Get 码数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码数 
      * @return Amount 码数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAmount() {
         return this.Amount;
@@ -354,19 +365,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 码数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Amount 码数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAmount(Long Amount) {
         this.Amount = Amount;
     }
 
     /**
-     * Get 防伪码长度
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 防伪码长度 
      * @return CodeLength 防伪码长度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCodeLength() {
         return this.CodeLength;
@@ -374,19 +381,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 防伪码长度
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CodeLength 防伪码长度
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCodeLength(Long CodeLength) {
         this.CodeLength = CodeLength;
     }
 
     /**
-     * Get 码类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码类型 
      * @return CodeType 码类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCodeType() {
         return this.CodeType;
@@ -394,19 +397,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 码类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CodeType 码类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCodeType(String CodeType) {
         this.CodeType = CodeType;
     }
 
     /**
-     * Get 是否暗码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否暗码 
      * @return Cipher 是否暗码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCipher() {
         return this.Cipher;
@@ -414,19 +413,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 是否暗码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Cipher 是否暗码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCipher(Long Cipher) {
         this.Cipher = Cipher;
     }
 
     /**
-     * Get [弃用] 文字码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get [弃用] 文字码地址，通过另一个接口查 
      * @return TextUrl [弃用] 文字码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTextUrl() {
         return this.TextUrl;
@@ -434,19 +429,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set [弃用] 文字码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TextUrl [弃用] 文字码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTextUrl(String TextUrl) {
         this.TextUrl = TextUrl;
     }
 
     /**
-     * Get [弃用] 二维码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get [弃用] 二维码地址，通过另一个接口查 
      * @return PackUrl [弃用] 二维码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPackUrl() {
         return this.PackUrl;
@@ -454,19 +445,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set [弃用] 二维码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackUrl [弃用] 二维码地址，通过另一个接口查
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackUrl(String PackUrl) {
         this.PackUrl = PackUrl;
     }
 
     /**
-     * Get 商户名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 商户名 
      * @return MerchantName 商户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMerchantName() {
         return this.MerchantName;
@@ -474,19 +461,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 商户名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MerchantName 商户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMerchantName(String MerchantName) {
         this.MerchantName = MerchantName;
     }
 
     /**
-     * Get 码规则类型 0: 默认, 1: 自定义
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码规则类型 0: 默认, 1: 自定义 
      * @return RuleType 码规则类型 0: 默认, 1: 自定义
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRuleType() {
         return this.RuleType;
@@ -494,19 +477,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 码规则类型 0: 默认, 1: 自定义
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleType 码规则类型 0: 默认, 1: 自定义
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleType(Long RuleType) {
         this.RuleType = RuleType;
     }
 
     /**
-     * Get 自定义码规则ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自定义码规则ID 
      * @return CustomId 自定义码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomId() {
         return this.CustomId;
@@ -514,19 +493,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 自定义码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomId 自定义码规则ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomId(String CustomId) {
         this.CustomId = CustomId;
     }
 
     /**
-     * Get 码包类型 0: 普通码包 1: 层级码包
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 码包类型 0: 普通码包 1: 层级码包 
      * @return PackType 码包类型 0: 普通码包 1: 层级码包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPackType() {
         return this.PackType;
@@ -534,19 +509,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 码包类型 0: 普通码包 1: 层级码包
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackType 码包类型 0: 普通码包 1: 层级码包
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackType(Long PackType) {
         this.PackType = PackType;
     }
 
     /**
-     * Get 生码层级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 生码层级 
      * @return PackLevel 生码层级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPackLevel() {
         return this.PackLevel;
@@ -554,19 +525,15 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 生码层级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackLevel 生码层级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackLevel(Long PackLevel) {
         this.PackLevel = PackLevel;
     }
 
     /**
-     * Get 层级码配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 层级码配置 
      * @return PackSpec 层级码配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public PackSpec [] getPackSpec() {
         return this.PackSpec;
@@ -574,12 +541,158 @@ public class CodePack extends AbstractModel{
 
     /**
      * Set 层级码配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PackSpec 层级码配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPackSpec(PackSpec [] PackSpec) {
         this.PackSpec = PackSpec;
+    }
+
+    /**
+     * Get 商品名称 
+     * @return ProductName 商品名称
+     */
+    public String getProductName() {
+        return this.ProductName;
+    }
+
+    /**
+     * Set 商品名称
+     * @param ProductName 商品名称
+     */
+    public void setProductName(String ProductName) {
+        this.ProductName = ProductName;
+    }
+
+    /**
+     * Get 商品规格 
+     * @return ProductSpecification 商品规格
+     */
+    public String getProductSpecification() {
+        return this.ProductSpecification;
+    }
+
+    /**
+     * Set 商品规格
+     * @param ProductSpecification 商品规格
+     */
+    public void setProductSpecification(String ProductSpecification) {
+        this.ProductSpecification = ProductSpecification;
+    }
+
+    /**
+     * Get 商品ID 
+     * @return ProductId 商品ID
+     */
+    public String getProductId() {
+        return this.ProductId;
+    }
+
+    /**
+     * Set 商品ID
+     * @param ProductId 商品ID
+     */
+    public void setProductId(String ProductId) {
+        this.ProductId = ProductId;
+    }
+
+    /**
+     * Get 码关系是否预关联
+0:否, 1:是 
+     * @return RelateType 码关系是否预关联
+0:否, 1:是
+     */
+    public Long getRelateType() {
+        return this.RelateType;
+    }
+
+    /**
+     * Set 码关系是否预关联
+0:否, 1:是
+     * @param RelateType 码关系是否预关联
+0:否, 1:是
+     */
+    public void setRelateType(Long RelateType) {
+        this.RelateType = RelateType;
+    }
+
+    /**
+     * Get 场景码 
+     * @return SceneCode 场景码
+     */
+    public Long getSceneCode() {
+        return this.SceneCode;
+    }
+
+    /**
+     * Set 场景码
+     * @param SceneCode 场景码
+     */
+    public void setSceneCode(Long SceneCode) {
+        this.SceneCode = SceneCode;
+    }
+
+    /**
+     * Get 码规则 
+     * @return CodeRule 码规则
+     */
+    public String getCodeRule() {
+        return this.CodeRule;
+    }
+
+    /**
+     * Set 码规则
+     * @param CodeRule 码规则
+     */
+    public void setCodeRule(String CodeRule) {
+        this.CodeRule = CodeRule;
+    }
+
+    /**
+     * Get 已使用码数 
+     * @return UsedAmount 已使用码数
+     */
+    public Long getUsedAmount() {
+        return this.UsedAmount;
+    }
+
+    /**
+     * Set 已使用码数
+     * @param UsedAmount 已使用码数
+     */
+    public void setUsedAmount(Long UsedAmount) {
+        this.UsedAmount = UsedAmount;
+    }
+
+    /**
+     * Get 开始流水号 
+     * @return SerialStart 开始流水号
+     */
+    public Long getSerialStart() {
+        return this.SerialStart;
+    }
+
+    /**
+     * Set 开始流水号
+     * @param SerialStart 开始流水号
+     */
+    public void setSerialStart(Long SerialStart) {
+        this.SerialStart = SerialStart;
+    }
+
+    /**
+     * Get 结束流水号 
+     * @return SerialEnd 结束流水号
+     */
+    public Long getSerialEnd() {
+        return this.SerialEnd;
+    }
+
+    /**
+     * Set 结束流水号
+     * @param SerialEnd 结束流水号
+     */
+    public void setSerialEnd(Long SerialEnd) {
+        this.SerialEnd = SerialEnd;
     }
 
     public CodePack() {
@@ -653,6 +766,33 @@ public class CodePack extends AbstractModel{
                 this.PackSpec[i] = new PackSpec(source.PackSpec[i]);
             }
         }
+        if (source.ProductName != null) {
+            this.ProductName = new String(source.ProductName);
+        }
+        if (source.ProductSpecification != null) {
+            this.ProductSpecification = new String(source.ProductSpecification);
+        }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.RelateType != null) {
+            this.RelateType = new Long(source.RelateType);
+        }
+        if (source.SceneCode != null) {
+            this.SceneCode = new Long(source.SceneCode);
+        }
+        if (source.CodeRule != null) {
+            this.CodeRule = new String(source.CodeRule);
+        }
+        if (source.UsedAmount != null) {
+            this.UsedAmount = new Long(source.UsedAmount);
+        }
+        if (source.SerialStart != null) {
+            this.SerialStart = new Long(source.SerialStart);
+        }
+        if (source.SerialEnd != null) {
+            this.SerialEnd = new Long(source.SerialEnd);
+        }
     }
 
 
@@ -680,6 +820,15 @@ public class CodePack extends AbstractModel{
         this.setParamSimple(map, prefix + "PackType", this.PackType);
         this.setParamSimple(map, prefix + "PackLevel", this.PackLevel);
         this.setParamArrayObj(map, prefix + "PackSpec.", this.PackSpec);
+        this.setParamSimple(map, prefix + "ProductName", this.ProductName);
+        this.setParamSimple(map, prefix + "ProductSpecification", this.ProductSpecification);
+        this.setParamSimple(map, prefix + "ProductId", this.ProductId);
+        this.setParamSimple(map, prefix + "RelateType", this.RelateType);
+        this.setParamSimple(map, prefix + "SceneCode", this.SceneCode);
+        this.setParamSimple(map, prefix + "CodeRule", this.CodeRule);
+        this.setParamSimple(map, prefix + "UsedAmount", this.UsedAmount);
+        this.setParamSimple(map, prefix + "SerialStart", this.SerialStart);
+        this.setParamSimple(map, prefix + "SerialEnd", this.SerialEnd);
 
     }
 }

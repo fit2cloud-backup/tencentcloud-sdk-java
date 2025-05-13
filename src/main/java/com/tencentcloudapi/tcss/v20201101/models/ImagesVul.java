@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImagesVul extends AbstractModel{
+public class ImagesVul extends AbstractModel {
 
     /**
     * 漏洞id
@@ -129,7 +130,6 @@ public class ImagesVul extends AbstractModel{
 
     /**
     * 修复版本号
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FixedVersions")
     @Expose
@@ -137,11 +137,17 @@ public class ImagesVul extends AbstractModel{
 
     /**
     * 漏洞标签:"CanBeFixed","DynamicLevelPoc","DynamicLevelExp"
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
     @Expose
     private String [] Tag;
+
+    /**
+    * 攻击热度
+    */
+    @SerializedName("AttackLevel")
+    @Expose
+    private Long AttackLevel;
 
     /**
      * Get 漏洞id 
@@ -384,10 +390,8 @@ public class ImagesVul extends AbstractModel{
     }
 
     /**
-     * Get 修复版本号
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修复版本号 
      * @return FixedVersions 修复版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFixedVersions() {
         return this.FixedVersions;
@@ -395,19 +399,15 @@ public class ImagesVul extends AbstractModel{
 
     /**
      * Set 修复版本号
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FixedVersions 修复版本号
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFixedVersions(String FixedVersions) {
         this.FixedVersions = FixedVersions;
     }
 
     /**
-     * Get 漏洞标签:"CanBeFixed","DynamicLevelPoc","DynamicLevelExp"
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 漏洞标签:"CanBeFixed","DynamicLevelPoc","DynamicLevelExp" 
      * @return Tag 漏洞标签:"CanBeFixed","DynamicLevelPoc","DynamicLevelExp"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTag() {
         return this.Tag;
@@ -415,12 +415,26 @@ public class ImagesVul extends AbstractModel{
 
     /**
      * Set 漏洞标签:"CanBeFixed","DynamicLevelPoc","DynamicLevelExp"
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tag 漏洞标签:"CanBeFixed","DynamicLevelPoc","DynamicLevelExp"
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(String [] Tag) {
         this.Tag = Tag;
+    }
+
+    /**
+     * Get 攻击热度 
+     * @return AttackLevel 攻击热度
+     */
+    public Long getAttackLevel() {
+        return this.AttackLevel;
+    }
+
+    /**
+     * Set 攻击热度
+     * @param AttackLevel 攻击热度
+     */
+    public void setAttackLevel(Long AttackLevel) {
+        this.AttackLevel = AttackLevel;
     }
 
     public ImagesVul() {
@@ -485,6 +499,9 @@ public class ImagesVul extends AbstractModel{
                 this.Tag[i] = new String(source.Tag[i]);
             }
         }
+        if (source.AttackLevel != null) {
+            this.AttackLevel = new Long(source.AttackLevel);
+        }
     }
 
 
@@ -509,6 +526,7 @@ public class ImagesVul extends AbstractModel{
         this.setParamSimple(map, prefix + "IsSuggest", this.IsSuggest);
         this.setParamSimple(map, prefix + "FixedVersions", this.FixedVersions);
         this.setParamArraySimple(map, prefix + "Tag.", this.Tag);
+        this.setParamSimple(map, prefix + "AttackLevel", this.AttackLevel);
 
     }
 }

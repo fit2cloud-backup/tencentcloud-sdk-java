@@ -16,16 +16,18 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRocketMQVipInstancesRequest extends AbstractModel{
+public class DescribeRocketMQVipInstancesRequest extends AbstractModel {
 
     /**
     * 查询条件过滤器，支持的查询条件如下：
 instanceIds - 实例ID
 instanceName - 实例名称
+status - 实例状态
     */
     @SerializedName("Filters")
     @Expose
@@ -48,10 +50,12 @@ instanceName - 实例名称
     /**
      * Get 查询条件过滤器，支持的查询条件如下：
 instanceIds - 实例ID
-instanceName - 实例名称 
+instanceName - 实例名称
+status - 实例状态 
      * @return Filters 查询条件过滤器，支持的查询条件如下：
 instanceIds - 实例ID
 instanceName - 实例名称
+status - 实例状态
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -61,9 +65,11 @@ instanceName - 实例名称
      * Set 查询条件过滤器，支持的查询条件如下：
 instanceIds - 实例ID
 instanceName - 实例名称
+status - 实例状态
      * @param Filters 查询条件过滤器，支持的查询条件如下：
 instanceIds - 实例ID
 instanceName - 实例名称
+status - 实例状态
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

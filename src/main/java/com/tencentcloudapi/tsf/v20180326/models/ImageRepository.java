@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageRepository extends AbstractModel{
+public class ImageRepository extends AbstractModel {
 
     /**
     * 仓库名,含命名空间,如tsf/nginx
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Reponame")
     @Expose
@@ -32,7 +32,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Repotype")
     @Expose
@@ -40,7 +39,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 镜像版本数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagCount")
     @Expose
@@ -48,7 +46,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsPublic")
     @Expose
@@ -56,7 +53,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 是否被用户收藏。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsUserFavor")
     @Expose
@@ -64,7 +60,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 是否是腾讯云官方仓库。 是否是腾讯云官方仓库。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsQcloudOfficial")
     @Expose
@@ -72,7 +67,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 被所有用户收藏次数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FavorCount")
     @Expose
@@ -80,7 +74,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 拉取次数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PullCount")
     @Expose
@@ -88,7 +81,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 描述内容
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -96,7 +88,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreationTime")
     @Expose
@@ -104,7 +95,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -112,7 +102,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TcrRepoInfo")
     @Expose
@@ -120,7 +109,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * TcrBindingId值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TcrBindingId")
     @Expose
@@ -128,7 +116,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * applicationid值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationId")
     @Expose
@@ -136,7 +123,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * ApplicationName值（废弃）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationName")
     @Expose
@@ -144,7 +130,6 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * ApplicationName值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplicationNameReal")
     @Expose
@@ -152,17 +137,35 @@ public class ImageRepository extends AbstractModel{
 
     /**
     * 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Public")
     @Expose
     private Long Public;
 
     /**
-     * Get 仓库名,含命名空间,如tsf/nginx
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 创建方式：manual | automatic
+    */
+    @SerializedName("CreateMode")
+    @Expose
+    private String CreateMode;
+
+    /**
+    * 仓库名，等同reponame字段
+    */
+    @SerializedName("RepoName")
+    @Expose
+    private String RepoName;
+
+    /**
+    * 仓库类型
+    */
+    @SerializedName("RepoType")
+    @Expose
+    private String RepoType;
+
+    /**
+     * Get 仓库名,含命名空间,如tsf/nginx 
      * @return Reponame 仓库名,含命名空间,如tsf/nginx
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReponame() {
         return this.Reponame;
@@ -170,19 +173,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 仓库名,含命名空间,如tsf/nginx
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Reponame 仓库名,含命名空间,如tsf/nginx
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReponame(String Reponame) {
         this.Reponame = Reponame;
     }
 
     /**
-     * Get 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库类型 
      * @return Repotype 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepotype() {
         return this.Repotype;
@@ -190,19 +189,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Repotype 仓库类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepotype(String Repotype) {
         this.Repotype = Repotype;
     }
 
     /**
-     * Get 镜像版本数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像版本数 
      * @return TagCount 镜像版本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTagCount() {
         return this.TagCount;
@@ -210,19 +205,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 镜像版本数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagCount 镜像版本数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagCount(Long TagCount) {
         this.TagCount = TagCount;
     }
 
     /**
-     * Get 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否公共,1:公有,0:私有 
      * @return IsPublic 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsPublic() {
         return this.IsPublic;
@@ -230,19 +221,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsPublic 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsPublic(Long IsPublic) {
         this.IsPublic = IsPublic;
     }
 
     /**
-     * Get 是否被用户收藏。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否被用户收藏。true：是，false：否 
      * @return IsUserFavor 是否被用户收藏。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsUserFavor() {
         return this.IsUserFavor;
@@ -250,19 +237,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 是否被用户收藏。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsUserFavor 是否被用户收藏。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsUserFavor(Boolean IsUserFavor) {
         this.IsUserFavor = IsUserFavor;
     }
 
     /**
-     * Get 是否是腾讯云官方仓库。 是否是腾讯云官方仓库。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否是腾讯云官方仓库。 是否是腾讯云官方仓库。true：是，false：否 
      * @return IsQcloudOfficial 是否是腾讯云官方仓库。 是否是腾讯云官方仓库。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsQcloudOfficial() {
         return this.IsQcloudOfficial;
@@ -270,19 +253,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 是否是腾讯云官方仓库。 是否是腾讯云官方仓库。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsQcloudOfficial 是否是腾讯云官方仓库。 是否是腾讯云官方仓库。true：是，false：否
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsQcloudOfficial(Boolean IsQcloudOfficial) {
         this.IsQcloudOfficial = IsQcloudOfficial;
     }
 
     /**
-     * Get 被所有用户收藏次数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 被所有用户收藏次数 
      * @return FavorCount 被所有用户收藏次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFavorCount() {
         return this.FavorCount;
@@ -290,19 +269,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 被所有用户收藏次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FavorCount 被所有用户收藏次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFavorCount(Long FavorCount) {
         this.FavorCount = FavorCount;
     }
 
     /**
-     * Get 拉取次数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 拉取次数 
      * @return PullCount 拉取次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPullCount() {
         return this.PullCount;
@@ -310,19 +285,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 拉取次数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PullCount 拉取次数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPullCount(Long PullCount) {
         this.PullCount = PullCount;
     }
 
     /**
-     * Get 描述内容
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 描述内容 
      * @return Description 描述内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -330,19 +301,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 描述内容
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 描述内容
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreationTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreationTime() {
         return this.CreationTime;
@@ -350,19 +317,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreationTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreationTime(String CreationTime) {
         this.CreationTime = CreationTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -370,19 +333,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TcrRepoInfo值 
      * @return TcrRepoInfo TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TcrRepoInfo getTcrRepoInfo() {
         return this.TcrRepoInfo;
@@ -390,19 +349,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TcrRepoInfo TcrRepoInfo值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTcrRepoInfo(TcrRepoInfo TcrRepoInfo) {
         this.TcrRepoInfo = TcrRepoInfo;
     }
 
     /**
-     * Get TcrBindingId值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get TcrBindingId值 
      * @return TcrBindingId TcrBindingId值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTcrBindingId() {
         return this.TcrBindingId;
@@ -410,19 +365,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set TcrBindingId值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TcrBindingId TcrBindingId值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTcrBindingId(Long TcrBindingId) {
         this.TcrBindingId = TcrBindingId;
     }
 
     /**
-     * Get applicationid值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get applicationid值 
      * @return ApplicationId applicationid值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationId() {
         return this.ApplicationId;
@@ -430,19 +381,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set applicationid值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationId applicationid值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
     }
 
     /**
-     * Get ApplicationName值（废弃）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ApplicationName值（废弃） 
      * @return ApplicationName ApplicationName值（废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ScalableRule getApplicationName() {
         return this.ApplicationName;
@@ -450,19 +397,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set ApplicationName值（废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationName ApplicationName值（废弃）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationName(ScalableRule ApplicationName) {
         this.ApplicationName = ApplicationName;
     }
 
     /**
-     * Get ApplicationName值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ApplicationName值 
      * @return ApplicationNameReal ApplicationName值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplicationNameReal() {
         return this.ApplicationNameReal;
@@ -470,19 +413,15 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set ApplicationName值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplicationNameReal ApplicationName值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplicationNameReal(String ApplicationNameReal) {
         this.ApplicationNameReal = ApplicationNameReal;
     }
 
     /**
-     * Get 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否公共,1:公有,0:私有 
      * @return Public 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPublic() {
         return this.Public;
@@ -490,12 +429,58 @@ public class ImageRepository extends AbstractModel{
 
     /**
      * Set 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Public 是否公共,1:公有,0:私有
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPublic(Long Public) {
         this.Public = Public;
+    }
+
+    /**
+     * Get 创建方式：manual | automatic 
+     * @return CreateMode 创建方式：manual | automatic
+     */
+    public String getCreateMode() {
+        return this.CreateMode;
+    }
+
+    /**
+     * Set 创建方式：manual | automatic
+     * @param CreateMode 创建方式：manual | automatic
+     */
+    public void setCreateMode(String CreateMode) {
+        this.CreateMode = CreateMode;
+    }
+
+    /**
+     * Get 仓库名，等同reponame字段 
+     * @return RepoName 仓库名，等同reponame字段
+     */
+    public String getRepoName() {
+        return this.RepoName;
+    }
+
+    /**
+     * Set 仓库名，等同reponame字段
+     * @param RepoName 仓库名，等同reponame字段
+     */
+    public void setRepoName(String RepoName) {
+        this.RepoName = RepoName;
+    }
+
+    /**
+     * Get 仓库类型 
+     * @return RepoType 仓库类型
+     */
+    public String getRepoType() {
+        return this.RepoType;
+    }
+
+    /**
+     * Set 仓库类型
+     * @param RepoType 仓库类型
+     */
+    public void setRepoType(String RepoType) {
+        this.RepoType = RepoType;
     }
 
     public ImageRepository() {
@@ -557,6 +542,15 @@ public class ImageRepository extends AbstractModel{
         if (source.Public != null) {
             this.Public = new Long(source.Public);
         }
+        if (source.CreateMode != null) {
+            this.CreateMode = new String(source.CreateMode);
+        }
+        if (source.RepoName != null) {
+            this.RepoName = new String(source.RepoName);
+        }
+        if (source.RepoType != null) {
+            this.RepoType = new String(source.RepoType);
+        }
     }
 
 
@@ -581,6 +575,9 @@ public class ImageRepository extends AbstractModel{
         this.setParamObj(map, prefix + "ApplicationName.", this.ApplicationName);
         this.setParamSimple(map, prefix + "ApplicationNameReal", this.ApplicationNameReal);
         this.setParamSimple(map, prefix + "Public", this.Public);
+        this.setParamSimple(map, prefix + "CreateMode", this.CreateMode);
+        this.setParamSimple(map, prefix + "RepoName", this.RepoName);
+        this.setParamSimple(map, prefix + "RepoType", this.RepoType);
 
     }
 }

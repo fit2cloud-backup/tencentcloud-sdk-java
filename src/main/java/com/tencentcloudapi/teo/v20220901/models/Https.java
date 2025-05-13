@@ -16,17 +16,17 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Https extends AbstractModel{
+public class Https extends AbstractModel {
 
     /**
     * http2 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Http2")
     @Expose
@@ -36,7 +36,6 @@ public class Https extends AbstractModel{
     * OCSP 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OcspStapling")
     @Expose
@@ -48,7 +47,6 @@ public class Https extends AbstractModel{
 <li>TLSV1.1：TLSv1.1版本；</li>
 <li>TLSV1.2：TLSv1.2版本；</li>
 <li>TLSv1.3：TLSv1.3版本。</li>修改时必须开启连续的版本。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TlsVersion")
     @Expose
@@ -74,7 +72,6 @@ public class Https extends AbstractModel{
     * 申请类型，取值有：
 <li>apply：托管EdgeOne；</li>
 <li>none：不托管EdgeOne。</li>不填，默认取值为none。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApplyType")
     @Expose
@@ -82,10 +79,9 @@ public class Https extends AbstractModel{
 
     /**
     * 密码套件，取值有：
-<li>loose-v2023：提供最高的兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
-<li>general-v2023：提供较高的兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
-<li>strict-v2023：提供最高的安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。
-注意：此字段可能返回 null，表示取不到有效值。
+<li>loose-v2023：提供高兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
+<li>general-v2023：提供较高兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
+<li>strict-v2023：提供高安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。</li>
     */
     @SerializedName("CipherSuite")
     @Expose
@@ -94,12 +90,10 @@ public class Https extends AbstractModel{
     /**
      * Get http2 配置开关，取值有：
 <li>on：开启；</li>
-<li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>off：关闭。</li> 
      * @return Http2 http2 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHttp2() {
         return this.Http2;
@@ -109,11 +103,9 @@ public class Https extends AbstractModel{
      * Set http2 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Http2 http2 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHttp2(String Http2) {
         this.Http2 = Http2;
@@ -122,12 +114,10 @@ public class Https extends AbstractModel{
     /**
      * Get OCSP 配置开关，取值有：
 <li>on：开启；</li>
-<li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>off：关闭。</li> 
      * @return OcspStapling OCSP 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOcspStapling() {
         return this.OcspStapling;
@@ -137,11 +127,9 @@ public class Https extends AbstractModel{
      * Set OCSP 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OcspStapling OCSP 配置开关，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOcspStapling(String OcspStapling) {
         this.OcspStapling = OcspStapling;
@@ -152,14 +140,12 @@ public class Https extends AbstractModel{
 <li>TLSv1：TLSv1版本；</li>
 <li>TLSV1.1：TLSv1.1版本；</li>
 <li>TLSV1.2：TLSv1.2版本；</li>
-<li>TLSv1.3：TLSv1.3版本。</li>修改时必须开启连续的版本。
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>TLSv1.3：TLSv1.3版本。</li>修改时必须开启连续的版本。 
      * @return TlsVersion Tls 版本设置，取值有：
 <li>TLSv1：TLSv1版本；</li>
 <li>TLSV1.1：TLSv1.1版本；</li>
 <li>TLSV1.2：TLSv1.2版本；</li>
 <li>TLSv1.3：TLSv1.3版本。</li>修改时必须开启连续的版本。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTlsVersion() {
         return this.TlsVersion;
@@ -171,13 +157,11 @@ public class Https extends AbstractModel{
 <li>TLSV1.1：TLSv1.1版本；</li>
 <li>TLSV1.2：TLSv1.2版本；</li>
 <li>TLSv1.3：TLSv1.3版本。</li>修改时必须开启连续的版本。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TlsVersion Tls 版本设置，取值有：
 <li>TLSv1：TLSv1版本；</li>
 <li>TLSV1.1：TLSv1.1版本；</li>
 <li>TLSV1.2：TLSv1.2版本；</li>
 <li>TLSv1.3：TLSv1.3版本。</li>修改时必须开启连续的版本。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTlsVersion(String [] TlsVersion) {
         this.TlsVersion = TlsVersion;
@@ -226,12 +210,10 @@ public class Https extends AbstractModel{
     /**
      * Get 申请类型，取值有：
 <li>apply：托管EdgeOne；</li>
-<li>none：不托管EdgeOne。</li>不填，默认取值为none。
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>none：不托管EdgeOne。</li>不填，默认取值为none。 
      * @return ApplyType 申请类型，取值有：
 <li>apply：托管EdgeOne；</li>
 <li>none：不托管EdgeOne。</li>不填，默认取值为none。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApplyType() {
         return this.ApplyType;
@@ -241,11 +223,9 @@ public class Https extends AbstractModel{
      * Set 申请类型，取值有：
 <li>apply：托管EdgeOne；</li>
 <li>none：不托管EdgeOne。</li>不填，默认取值为none。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApplyType 申请类型，取值有：
 <li>apply：托管EdgeOne；</li>
 <li>none：不托管EdgeOne。</li>不填，默认取值为none。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApplyType(String ApplyType) {
         this.ApplyType = ApplyType;
@@ -253,15 +233,13 @@ public class Https extends AbstractModel{
 
     /**
      * Get 密码套件，取值有：
-<li>loose-v2023：提供最高的兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
-<li>general-v2023：提供较高的兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
-<li>strict-v2023：提供最高的安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。
-注意：此字段可能返回 null，表示取不到有效值。 
+<li>loose-v2023：提供高兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
+<li>general-v2023：提供较高兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
+<li>strict-v2023：提供高安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。</li> 
      * @return CipherSuite 密码套件，取值有：
-<li>loose-v2023：提供最高的兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
-<li>general-v2023：提供较高的兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
-<li>strict-v2023：提供最高的安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。
-注意：此字段可能返回 null，表示取不到有效值。
+<li>loose-v2023：提供高兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
+<li>general-v2023：提供较高兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
+<li>strict-v2023：提供高安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。</li>
      */
     public String getCipherSuite() {
         return this.CipherSuite;
@@ -269,15 +247,13 @@ public class Https extends AbstractModel{
 
     /**
      * Set 密码套件，取值有：
-<li>loose-v2023：提供最高的兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
-<li>general-v2023：提供较高的兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
-<li>strict-v2023：提供最高的安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。
-注意：此字段可能返回 null，表示取不到有效值。
+<li>loose-v2023：提供高兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
+<li>general-v2023：提供较高兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
+<li>strict-v2023：提供高安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。</li>
      * @param CipherSuite 密码套件，取值有：
-<li>loose-v2023：提供最高的兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
-<li>general-v2023：提供较高的兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
-<li>strict-v2023：提供最高的安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。
-注意：此字段可能返回 null，表示取不到有效值。
+<li>loose-v2023：提供高兼容性，安全性一般，支持 TLS 1.0-1.3 密码套件；</li>
+<li>general-v2023：提供较高兼容性，安全性中等，支持 TLS 1.2-1.3 密码套件；</li>
+<li>strict-v2023：提供高安全性能，禁用所有含不安全隐患的加密套件，支持 TLS 1.2-1.3 密码套件。</li>
      */
     public void setCipherSuite(String CipherSuite) {
         this.CipherSuite = CipherSuite;

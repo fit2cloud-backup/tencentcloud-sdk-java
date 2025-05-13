@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeLoginWhiteCombinedListRequest extends AbstractModel{
+public class DescribeLoginWhiteCombinedListRequest extends AbstractModel {
 
     /**
     * 需要返回的数量，默认为10，最大值为100
@@ -37,11 +38,7 @@ public class DescribeLoginWhiteCombinedListRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
-<li>UserName - String - 是否必填：否 - 用户名筛选</li>
-<li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li>
-<li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
+    * 过滤条件。<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li><li>UserName - String - 是否必填：否 - 用户名筛选</li><li>SrcIP - String - 是否必填：否 - 来源IP筛选</li><li>Location - String - 是否必填：否 - 登录地筛选</li><li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li><li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -80,32 +77,16 @@ public class DescribeLoginWhiteCombinedListRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
-<li>UserName - String - 是否必填：否 - 用户名筛选</li>
-<li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li>
-<li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li> 
-     * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
-<li>UserName - String - 是否必填：否 - 用户名筛选</li>
-<li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li>
-<li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
+     * Get 过滤条件。<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li><li>UserName - String - 是否必填：否 - 用户名筛选</li><li>SrcIP - String - 是否必填：否 - 来源IP筛选</li><li>Location - String - 是否必填：否 - 登录地筛选</li><li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li><li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li> 
+     * @return Filters 过滤条件。<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li><li>UserName - String - 是否必填：否 - 用户名筛选</li><li>SrcIP - String - 是否必填：否 - 来源IP筛选</li><li>Location - String - 是否必填：否 - 登录地筛选</li><li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li><li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
-<li>UserName - String - 是否必填：否 - 用户名筛选</li>
-<li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li>
-<li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
-     * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
-<li>UserName - String - 是否必填：否 - 用户名筛选</li>
-<li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li>
-<li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
+     * Set 过滤条件。<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li><li>UserName - String - 是否必填：否 - 用户名筛选</li><li>SrcIP - String - 是否必填：否 - 来源IP筛选</li><li>Location - String - 是否必填：否 - 登录地筛选</li><li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li><li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
+     * @param Filters 过滤条件。<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li><li>UserName - String - 是否必填：否 - 用户名筛选</li><li>SrcIP - String - 是否必填：否 - 来源IP筛选</li><li>Location - String - 是否必填：否 - 登录地筛选</li><li>ModifyBeginTime - String - 是否必填：否 - 按照修改时间段筛选，开始时间</li><li>ModifyEndTime - String - 是否必填：否 - 按照修改时间段筛选，结束时间</li>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

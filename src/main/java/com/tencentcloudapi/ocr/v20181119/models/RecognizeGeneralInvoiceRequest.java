@@ -16,30 +16,22 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RecognizeGeneralInvoiceRequest extends AbstractModel{
+public class RecognizeGeneralInvoiceRequest extends AbstractModel {
 
     /**
-    * 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+    * 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
     */
     @SerializedName("ImageBase64")
     @Expose
     private String ImageBase64;
 
     /**
-    * 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+    * 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
     */
     @SerializedName("ImageUrl")
     @Expose
@@ -62,6 +54,9 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
 15：非税发票
 16：全电发票
 17：医疗发票
+18：完税凭证
+19：海关缴款书
+20：银行回单
 -1：其他发票
     */
     @SerializedName("Types")
@@ -104,68 +99,39 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
     private Boolean EnableCutImage;
 
     /**
-     * Get 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。 
-     * @return ImageBase64 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+    * 是否打开字段坐标返回。默认为false。
+    */
+    @SerializedName("EnableItemPolygon")
+    @Expose
+    private Boolean EnableItemPolygon;
+
+    /**
+     * Get 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。 
+     * @return ImageBase64 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
      */
     public String getImageBase64() {
         return this.ImageBase64;
     }
 
     /**
-     * Set 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
-     * @param ImageBase64 图片的 Base64 值。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经Base64编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+     * Set 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+     * @param ImageBase64 图片的 Base64 值。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经Base64编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
      */
     public void setImageBase64(String ImageBase64) {
         this.ImageBase64 = ImageBase64;
     }
 
     /**
-     * Get 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。 
-     * @return ImageUrl 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+     * Get 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。 
+     * @return ImageUrl 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
     public String getImageUrl() {
         return this.ImageUrl;
     }
 
     /**
-     * Set 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
-     * @param ImageUrl 图片的 Url 地址。
-支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。
-支持的图片大小：所下载图片经 Base64 编码后不超过 8M。图片下载时间不超过 3 秒。
-支持的图片像素：单边介于20-10000px之间。
-图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
-非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+     * Set 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+     * @param ImageUrl 图片的 Url 地址。支持的图片格式：PNG、JPG、JPEG、PDF，暂不支持 GIF 格式。支持的图片大小：所下载图片经 Base64 编码后不超过 10M。图片下载时间不超过 3 秒。支持的图片像素：单边介于20-10000px之间。图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。非腾讯云存储的 Url 速度和稳定性可能受一定影响。
      */
     public void setImageUrl(String ImageUrl) {
         this.ImageUrl = ImageUrl;
@@ -188,6 +154,9 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
 15：非税发票
 16：全电发票
 17：医疗发票
+18：完税凭证
+19：海关缴款书
+20：银行回单
 -1：其他发票 
      * @return Types 需要识别的票据类型列表，为空或不填表示识别全部类型。当传入单个类型时，图片均采用该票类型进行处理。
 暂不支持多个参数进行局部控制。
@@ -205,6 +174,9 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
 15：非税发票
 16：全电发票
 17：医疗发票
+18：完税凭证
+19：海关缴款书
+20：银行回单
 -1：其他发票
      */
     public Long [] getTypes() {
@@ -228,6 +200,9 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
 15：非税发票
 16：全电发票
 17：医疗发票
+18：完税凭证
+19：海关缴款书
+20：银行回单
 -1：其他发票
      * @param Types 需要识别的票据类型列表，为空或不填表示识别全部类型。当传入单个类型时，图片均采用该票类型进行处理。
 暂不支持多个参数进行局部控制。
@@ -245,6 +220,9 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
 15：非税发票
 16：全电发票
 17：医疗发票
+18：完税凭证
+19：海关缴款书
+20：银行回单
 -1：其他发票
      */
     public void setTypes(Long [] Types) {
@@ -331,6 +309,22 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
         this.EnableCutImage = EnableCutImage;
     }
 
+    /**
+     * Get 是否打开字段坐标返回。默认为false。 
+     * @return EnableItemPolygon 是否打开字段坐标返回。默认为false。
+     */
+    public Boolean getEnableItemPolygon() {
+        return this.EnableItemPolygon;
+    }
+
+    /**
+     * Set 是否打开字段坐标返回。默认为false。
+     * @param EnableItemPolygon 是否打开字段坐标返回。默认为false。
+     */
+    public void setEnableItemPolygon(Boolean EnableItemPolygon) {
+        this.EnableItemPolygon = EnableItemPolygon;
+    }
+
     public RecognizeGeneralInvoiceRequest() {
     }
 
@@ -366,6 +360,9 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
         if (source.EnableCutImage != null) {
             this.EnableCutImage = new Boolean(source.EnableCutImage);
         }
+        if (source.EnableItemPolygon != null) {
+            this.EnableItemPolygon = new Boolean(source.EnableItemPolygon);
+        }
     }
 
 
@@ -381,6 +378,7 @@ public class RecognizeGeneralInvoiceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PdfPageNumber", this.PdfPageNumber);
         this.setParamSimple(map, prefix + "EnableMultiplePage", this.EnableMultiplePage);
         this.setParamSimple(map, prefix + "EnableCutImage", this.EnableCutImage);
+        this.setParamSimple(map, prefix + "EnableItemPolygon", this.EnableItemPolygon);
 
     }
 }

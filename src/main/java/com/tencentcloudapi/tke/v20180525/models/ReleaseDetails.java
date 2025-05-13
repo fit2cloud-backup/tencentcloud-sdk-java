@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReleaseDetails extends AbstractModel{
+public class ReleaseDetails extends AbstractModel {
 
     /**
     * 应用名称
@@ -38,7 +39,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Version")
     @Expose
@@ -46,7 +46,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -54,7 +53,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -62,7 +60,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用提示
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Notes")
     @Expose
@@ -70,7 +67,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 用户自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Config")
     @Expose
@@ -78,7 +74,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用资源详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Manifest")
     @Expose
@@ -86,7 +81,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用制品版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChartVersion")
     @Expose
@@ -94,7 +88,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用制品名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChartName")
     @Expose
@@ -102,7 +95,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用制品描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChartDescription")
     @Expose
@@ -110,7 +102,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用制品app版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppVersion")
     @Expose
@@ -118,7 +109,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用首次部署时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FirstDeployedTime")
     @Expose
@@ -126,7 +116,6 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用最近部署时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastDeployedTime")
     @Expose
@@ -134,11 +123,31 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
     * 应用参数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ComputedValues")
     @Expose
     private String ComputedValues;
+
+    /**
+    * chart 的来源， tke-market, others
+    */
+    @SerializedName("ChartFrom")
+    @Expose
+    private String ChartFrom;
+
+    /**
+    * 第三方chart 的安装地址
+    */
+    @SerializedName("ChartURL")
+    @Expose
+    private String ChartURL;
+
+    /**
+    * 通过chart 创建的资源
+    */
+    @SerializedName("Resources")
+    @Expose
+    private String Resources;
 
     /**
      * Get 应用名称 
@@ -173,10 +182,8 @@ public class ReleaseDetails extends AbstractModel{
     }
 
     /**
-     * Get 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用当前版本 
      * @return Version 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVersion() {
         return this.Version;
@@ -184,19 +191,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Version 应用当前版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVersion(Long Version) {
         this.Version = Version;
     }
 
     /**
-     * Get 应用状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用状态 
      * @return Status 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -204,19 +207,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 应用状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 应用描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用描述 
      * @return Description 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -224,19 +223,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 应用描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 应用提示
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用提示 
      * @return Notes 应用提示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNotes() {
         return this.Notes;
@@ -244,19 +239,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用提示
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Notes 应用提示
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNotes(String Notes) {
         this.Notes = Notes;
     }
 
     /**
-     * Get 用户自定义参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户自定义参数 
      * @return Config 用户自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConfig() {
         return this.Config;
@@ -264,19 +255,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 用户自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Config 用户自定义参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConfig(String Config) {
         this.Config = Config;
     }
 
     /**
-     * Get 应用资源详情
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用资源详情 
      * @return Manifest 应用资源详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getManifest() {
         return this.Manifest;
@@ -284,19 +271,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用资源详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Manifest 应用资源详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setManifest(String Manifest) {
         this.Manifest = Manifest;
     }
 
     /**
-     * Get 应用制品版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用制品版本 
      * @return ChartVersion 应用制品版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChartVersion() {
         return this.ChartVersion;
@@ -304,19 +287,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用制品版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChartVersion 应用制品版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChartVersion(String ChartVersion) {
         this.ChartVersion = ChartVersion;
     }
 
     /**
-     * Get 应用制品名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用制品名称 
      * @return ChartName 应用制品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChartName() {
         return this.ChartName;
@@ -324,19 +303,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用制品名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChartName 应用制品名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChartName(String ChartName) {
         this.ChartName = ChartName;
     }
 
     /**
-     * Get 应用制品描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用制品描述 
      * @return ChartDescription 应用制品描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChartDescription() {
         return this.ChartDescription;
@@ -344,19 +319,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用制品描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChartDescription 应用制品描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChartDescription(String ChartDescription) {
         this.ChartDescription = ChartDescription;
     }
 
     /**
-     * Get 应用制品app版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用制品app版本 
      * @return AppVersion 应用制品app版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAppVersion() {
         return this.AppVersion;
@@ -364,19 +335,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用制品app版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppVersion 应用制品app版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppVersion(String AppVersion) {
         this.AppVersion = AppVersion;
     }
 
     /**
-     * Get 应用首次部署时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用首次部署时间 
      * @return FirstDeployedTime 应用首次部署时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFirstDeployedTime() {
         return this.FirstDeployedTime;
@@ -384,19 +351,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用首次部署时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FirstDeployedTime 应用首次部署时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFirstDeployedTime(String FirstDeployedTime) {
         this.FirstDeployedTime = FirstDeployedTime;
     }
 
     /**
-     * Get 应用最近部署时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用最近部署时间 
      * @return LastDeployedTime 应用最近部署时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastDeployedTime() {
         return this.LastDeployedTime;
@@ -404,19 +367,15 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用最近部署时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastDeployedTime 应用最近部署时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastDeployedTime(String LastDeployedTime) {
         this.LastDeployedTime = LastDeployedTime;
     }
 
     /**
-     * Get 应用参数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 应用参数 
      * @return ComputedValues 应用参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getComputedValues() {
         return this.ComputedValues;
@@ -424,12 +383,58 @@ public class ReleaseDetails extends AbstractModel{
 
     /**
      * Set 应用参数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ComputedValues 应用参数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setComputedValues(String ComputedValues) {
         this.ComputedValues = ComputedValues;
+    }
+
+    /**
+     * Get chart 的来源， tke-market, others 
+     * @return ChartFrom chart 的来源， tke-market, others
+     */
+    public String getChartFrom() {
+        return this.ChartFrom;
+    }
+
+    /**
+     * Set chart 的来源， tke-market, others
+     * @param ChartFrom chart 的来源， tke-market, others
+     */
+    public void setChartFrom(String ChartFrom) {
+        this.ChartFrom = ChartFrom;
+    }
+
+    /**
+     * Get 第三方chart 的安装地址 
+     * @return ChartURL 第三方chart 的安装地址
+     */
+    public String getChartURL() {
+        return this.ChartURL;
+    }
+
+    /**
+     * Set 第三方chart 的安装地址
+     * @param ChartURL 第三方chart 的安装地址
+     */
+    public void setChartURL(String ChartURL) {
+        this.ChartURL = ChartURL;
+    }
+
+    /**
+     * Get 通过chart 创建的资源 
+     * @return Resources 通过chart 创建的资源
+     */
+    public String getResources() {
+        return this.Resources;
+    }
+
+    /**
+     * Set 通过chart 创建的资源
+     * @param Resources 通过chart 创建的资源
+     */
+    public void setResources(String Resources) {
+        this.Resources = Resources;
     }
 
     public ReleaseDetails() {
@@ -485,6 +490,15 @@ public class ReleaseDetails extends AbstractModel{
         if (source.ComputedValues != null) {
             this.ComputedValues = new String(source.ComputedValues);
         }
+        if (source.ChartFrom != null) {
+            this.ChartFrom = new String(source.ChartFrom);
+        }
+        if (source.ChartURL != null) {
+            this.ChartURL = new String(source.ChartURL);
+        }
+        if (source.Resources != null) {
+            this.Resources = new String(source.Resources);
+        }
     }
 
 
@@ -507,6 +521,9 @@ public class ReleaseDetails extends AbstractModel{
         this.setParamSimple(map, prefix + "FirstDeployedTime", this.FirstDeployedTime);
         this.setParamSimple(map, prefix + "LastDeployedTime", this.LastDeployedTime);
         this.setParamSimple(map, prefix + "ComputedValues", this.ComputedValues);
+        this.setParamSimple(map, prefix + "ChartFrom", this.ChartFrom);
+        this.setParamSimple(map, prefix + "ChartURL", this.ChartURL);
+        this.setParamSimple(map, prefix + "Resources", this.Resources);
 
     }
 }

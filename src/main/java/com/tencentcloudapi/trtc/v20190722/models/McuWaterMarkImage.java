@@ -16,14 +16,16 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class McuWaterMarkImage extends AbstractModel{
+public class McuWaterMarkImage extends AbstractModel {
 
     /**
     * 水印图片URL地址，支持png、jpg、jpeg格式。图片大小限制不超过5MB。
+注：您需要确保图片链接的可访问性，后台单次下载超时时间为10秒，最多重试3次，若最终图片下载失败，水印图片将不会生效。
     */
     @SerializedName("WaterMarkUrl")
     @Expose
@@ -65,8 +67,17 @@ public class McuWaterMarkImage extends AbstractModel{
     private Long ZOrder;
 
     /**
-     * Get 水印图片URL地址，支持png、jpg、jpeg格式。图片大小限制不超过5MB。 
+    * 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+    */
+    @SerializedName("DynamicPosType")
+    @Expose
+    private Long DynamicPosType;
+
+    /**
+     * Get 水印图片URL地址，支持png、jpg、jpeg格式。图片大小限制不超过5MB。
+注：您需要确保图片链接的可访问性，后台单次下载超时时间为10秒，最多重试3次，若最终图片下载失败，水印图片将不会生效。 
      * @return WaterMarkUrl 水印图片URL地址，支持png、jpg、jpeg格式。图片大小限制不超过5MB。
+注：您需要确保图片链接的可访问性，后台单次下载超时时间为10秒，最多重试3次，若最终图片下载失败，水印图片将不会生效。
      */
     public String getWaterMarkUrl() {
         return this.WaterMarkUrl;
@@ -74,7 +85,9 @@ public class McuWaterMarkImage extends AbstractModel{
 
     /**
      * Set 水印图片URL地址，支持png、jpg、jpeg格式。图片大小限制不超过5MB。
+注：您需要确保图片链接的可访问性，后台单次下载超时时间为10秒，最多重试3次，若最终图片下载失败，水印图片将不会生效。
      * @param WaterMarkUrl 水印图片URL地址，支持png、jpg、jpeg格式。图片大小限制不超过5MB。
+注：您需要确保图片链接的可访问性，后台单次下载超时时间为10秒，最多重试3次，若最终图片下载失败，水印图片将不会生效。
      */
     public void setWaterMarkUrl(String WaterMarkUrl) {
         this.WaterMarkUrl = WaterMarkUrl;
@@ -160,6 +173,22 @@ public class McuWaterMarkImage extends AbstractModel{
         this.ZOrder = ZOrder;
     }
 
+    /**
+     * Get 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。 
+     * @return DynamicPosType 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+     */
+    public Long getDynamicPosType() {
+        return this.DynamicPosType;
+    }
+
+    /**
+     * Set 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+     * @param DynamicPosType 动态水印类型，默认为0。0:关闭；1:随机位置，每秒变动一次；2:边界扫描反弹，每帧变动一次。
+     */
+    public void setDynamicPosType(Long DynamicPosType) {
+        this.DynamicPosType = DynamicPosType;
+    }
+
     public McuWaterMarkImage() {
     }
 
@@ -186,6 +215,9 @@ public class McuWaterMarkImage extends AbstractModel{
         if (source.ZOrder != null) {
             this.ZOrder = new Long(source.ZOrder);
         }
+        if (source.DynamicPosType != null) {
+            this.DynamicPosType = new Long(source.DynamicPosType);
+        }
     }
 
 
@@ -199,6 +231,7 @@ public class McuWaterMarkImage extends AbstractModel{
         this.setParamSimple(map, prefix + "LocationX", this.LocationX);
         this.setParamSimple(map, prefix + "LocationY", this.LocationY);
         this.setParamSimple(map, prefix + "ZOrder", this.ZOrder);
+        this.setParamSimple(map, prefix + "DynamicPosType", this.DynamicPosType);
 
     }
 }

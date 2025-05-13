@@ -16,23 +16,22 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Externals extends AbstractModel{
+public class Externals extends AbstractModel {
 
     /**
     * 释放地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReleaseAddress")
     @Expose
     private Boolean ReleaseAddress;
 
     /**
-    * 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
+    * 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
     */
     @SerializedName("UnsupportNetworks")
     @Expose
@@ -40,17 +39,14 @@ public class Externals extends AbstractModel{
 
     /**
     * HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StorageBlockAttr")
     @Expose
     private StorageBlock StorageBlockAttr;
 
     /**
-     * Get 释放地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 释放地址 
      * @return ReleaseAddress 释放地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getReleaseAddress() {
         return this.ReleaseAddress;
@@ -58,39 +54,31 @@ public class Externals extends AbstractModel{
 
     /**
      * Set 释放地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReleaseAddress 释放地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReleaseAddress(Boolean ReleaseAddress) {
         this.ReleaseAddress = ReleaseAddress;
     }
 
     /**
-     * Get 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li> 
+     * @return UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
      */
     public String [] getUnsupportNetworks() {
         return this.UnsupportNetworks;
     }
 
     /**
-     * Set 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
+     * @param UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
      */
     public void setUnsupportNetworks(String [] UnsupportNetworks) {
         this.UnsupportNetworks = UnsupportNetworks;
     }
 
     /**
-     * Get HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get HDD本地存储属性 
      * @return StorageBlockAttr HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StorageBlock getStorageBlockAttr() {
         return this.StorageBlockAttr;
@@ -98,9 +86,7 @@ public class Externals extends AbstractModel{
 
     /**
      * Set HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StorageBlockAttr HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStorageBlockAttr(StorageBlock StorageBlockAttr) {
         this.StorageBlockAttr = StorageBlockAttr;

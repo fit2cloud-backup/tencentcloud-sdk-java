@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateInstanceRequest extends AbstractModel{
+public class UpdateInstanceRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -263,6 +264,93 @@ CLOSE 关闭
     @SerializedName("KibanaAlteringPublicAccess")
     @Expose
     private String KibanaAlteringPublicAccess;
+
+    /**
+    * kibana内网自定义域名
+    */
+    @SerializedName("KibanaPrivateDomain")
+    @Expose
+    private String KibanaPrivateDomain;
+
+    /**
+    * cerebro内网自定义域名
+    */
+    @SerializedName("CerebroPrivateDomain")
+    @Expose
+    private String CerebroPrivateDomain;
+
+    /**
+    * 变更为https集群，默认是http
+    */
+    @SerializedName("Protocol")
+    @Expose
+    private String Protocol;
+
+    /**
+    * 节点出站访问详细信息
+
+    */
+    @SerializedName("OutboundPublicAcls")
+    @Expose
+    private OutboundPublicAcl [] OutboundPublicAcls;
+
+    /**
+    * 节点出站访问操作
+OPEN 开启
+CLOSE 关闭
+    */
+    @SerializedName("OutboundPublicAccess")
+    @Expose
+    private String OutboundPublicAccess;
+
+    /**
+    * cvm延迟上架参数
+    */
+    @SerializedName("CvmDelayOnlineTime")
+    @Expose
+    private Long CvmDelayOnlineTime;
+
+    /**
+    * 分片迁移并发数
+    */
+    @SerializedName("ShardAllocationConcurrents")
+    @Expose
+    private Long ShardAllocationConcurrents;
+
+    /**
+    * 分片迁移并发速度
+    */
+    @SerializedName("ShardAllocationBytes")
+    @Expose
+    private Long ShardAllocationBytes;
+
+    /**
+    * 读写分离模式：-1-不开启，1-本地读写分离，2-远端读写分离
+    */
+    @SerializedName("ReadWriteMode")
+    @Expose
+    private Long ReadWriteMode;
+
+    /**
+    * 是否开启置放群组异步任务
+    */
+    @SerializedName("EnableScheduleRecoverGroup")
+    @Expose
+    private Boolean EnableScheduleRecoverGroup;
+
+    /**
+    * 置放群组异步任务可维护时间段
+    */
+    @SerializedName("EnableScheduleOperationDuration")
+    @Expose
+    private EnableScheduleOperationDuration EnableScheduleOperationDuration;
+
+    /**
+    * 开启集群保护：OPEN-开启，CLOSE-关闭
+    */
+    @SerializedName("EnableDestroyProtection")
+    @Expose
+    private String EnableDestroyProtection;
 
     /**
      * Get 实例ID 
@@ -848,6 +936,210 @@ CLOSE 关闭
         this.KibanaAlteringPublicAccess = KibanaAlteringPublicAccess;
     }
 
+    /**
+     * Get kibana内网自定义域名 
+     * @return KibanaPrivateDomain kibana内网自定义域名
+     */
+    public String getKibanaPrivateDomain() {
+        return this.KibanaPrivateDomain;
+    }
+
+    /**
+     * Set kibana内网自定义域名
+     * @param KibanaPrivateDomain kibana内网自定义域名
+     */
+    public void setKibanaPrivateDomain(String KibanaPrivateDomain) {
+        this.KibanaPrivateDomain = KibanaPrivateDomain;
+    }
+
+    /**
+     * Get cerebro内网自定义域名 
+     * @return CerebroPrivateDomain cerebro内网自定义域名
+     */
+    public String getCerebroPrivateDomain() {
+        return this.CerebroPrivateDomain;
+    }
+
+    /**
+     * Set cerebro内网自定义域名
+     * @param CerebroPrivateDomain cerebro内网自定义域名
+     */
+    public void setCerebroPrivateDomain(String CerebroPrivateDomain) {
+        this.CerebroPrivateDomain = CerebroPrivateDomain;
+    }
+
+    /**
+     * Get 变更为https集群，默认是http 
+     * @return Protocol 变更为https集群，默认是http
+     */
+    public String getProtocol() {
+        return this.Protocol;
+    }
+
+    /**
+     * Set 变更为https集群，默认是http
+     * @param Protocol 变更为https集群，默认是http
+     */
+    public void setProtocol(String Protocol) {
+        this.Protocol = Protocol;
+    }
+
+    /**
+     * Get 节点出站访问详细信息
+ 
+     * @return OutboundPublicAcls 节点出站访问详细信息
+
+     */
+    public OutboundPublicAcl [] getOutboundPublicAcls() {
+        return this.OutboundPublicAcls;
+    }
+
+    /**
+     * Set 节点出站访问详细信息
+
+     * @param OutboundPublicAcls 节点出站访问详细信息
+
+     */
+    public void setOutboundPublicAcls(OutboundPublicAcl [] OutboundPublicAcls) {
+        this.OutboundPublicAcls = OutboundPublicAcls;
+    }
+
+    /**
+     * Get 节点出站访问操作
+OPEN 开启
+CLOSE 关闭 
+     * @return OutboundPublicAccess 节点出站访问操作
+OPEN 开启
+CLOSE 关闭
+     */
+    public String getOutboundPublicAccess() {
+        return this.OutboundPublicAccess;
+    }
+
+    /**
+     * Set 节点出站访问操作
+OPEN 开启
+CLOSE 关闭
+     * @param OutboundPublicAccess 节点出站访问操作
+OPEN 开启
+CLOSE 关闭
+     */
+    public void setOutboundPublicAccess(String OutboundPublicAccess) {
+        this.OutboundPublicAccess = OutboundPublicAccess;
+    }
+
+    /**
+     * Get cvm延迟上架参数 
+     * @return CvmDelayOnlineTime cvm延迟上架参数
+     */
+    public Long getCvmDelayOnlineTime() {
+        return this.CvmDelayOnlineTime;
+    }
+
+    /**
+     * Set cvm延迟上架参数
+     * @param CvmDelayOnlineTime cvm延迟上架参数
+     */
+    public void setCvmDelayOnlineTime(Long CvmDelayOnlineTime) {
+        this.CvmDelayOnlineTime = CvmDelayOnlineTime;
+    }
+
+    /**
+     * Get 分片迁移并发数 
+     * @return ShardAllocationConcurrents 分片迁移并发数
+     */
+    public Long getShardAllocationConcurrents() {
+        return this.ShardAllocationConcurrents;
+    }
+
+    /**
+     * Set 分片迁移并发数
+     * @param ShardAllocationConcurrents 分片迁移并发数
+     */
+    public void setShardAllocationConcurrents(Long ShardAllocationConcurrents) {
+        this.ShardAllocationConcurrents = ShardAllocationConcurrents;
+    }
+
+    /**
+     * Get 分片迁移并发速度 
+     * @return ShardAllocationBytes 分片迁移并发速度
+     */
+    public Long getShardAllocationBytes() {
+        return this.ShardAllocationBytes;
+    }
+
+    /**
+     * Set 分片迁移并发速度
+     * @param ShardAllocationBytes 分片迁移并发速度
+     */
+    public void setShardAllocationBytes(Long ShardAllocationBytes) {
+        this.ShardAllocationBytes = ShardAllocationBytes;
+    }
+
+    /**
+     * Get 读写分离模式：-1-不开启，1-本地读写分离，2-远端读写分离 
+     * @return ReadWriteMode 读写分离模式：-1-不开启，1-本地读写分离，2-远端读写分离
+     */
+    public Long getReadWriteMode() {
+        return this.ReadWriteMode;
+    }
+
+    /**
+     * Set 读写分离模式：-1-不开启，1-本地读写分离，2-远端读写分离
+     * @param ReadWriteMode 读写分离模式：-1-不开启，1-本地读写分离，2-远端读写分离
+     */
+    public void setReadWriteMode(Long ReadWriteMode) {
+        this.ReadWriteMode = ReadWriteMode;
+    }
+
+    /**
+     * Get 是否开启置放群组异步任务 
+     * @return EnableScheduleRecoverGroup 是否开启置放群组异步任务
+     */
+    public Boolean getEnableScheduleRecoverGroup() {
+        return this.EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Set 是否开启置放群组异步任务
+     * @param EnableScheduleRecoverGroup 是否开启置放群组异步任务
+     */
+    public void setEnableScheduleRecoverGroup(Boolean EnableScheduleRecoverGroup) {
+        this.EnableScheduleRecoverGroup = EnableScheduleRecoverGroup;
+    }
+
+    /**
+     * Get 置放群组异步任务可维护时间段 
+     * @return EnableScheduleOperationDuration 置放群组异步任务可维护时间段
+     */
+    public EnableScheduleOperationDuration getEnableScheduleOperationDuration() {
+        return this.EnableScheduleOperationDuration;
+    }
+
+    /**
+     * Set 置放群组异步任务可维护时间段
+     * @param EnableScheduleOperationDuration 置放群组异步任务可维护时间段
+     */
+    public void setEnableScheduleOperationDuration(EnableScheduleOperationDuration EnableScheduleOperationDuration) {
+        this.EnableScheduleOperationDuration = EnableScheduleOperationDuration;
+    }
+
+    /**
+     * Get 开启集群保护：OPEN-开启，CLOSE-关闭 
+     * @return EnableDestroyProtection 开启集群保护：OPEN-开启，CLOSE-关闭
+     */
+    public String getEnableDestroyProtection() {
+        return this.EnableDestroyProtection;
+    }
+
+    /**
+     * Set 开启集群保护：OPEN-开启，CLOSE-关闭
+     * @param EnableDestroyProtection 开启集群保护：OPEN-开启，CLOSE-关闭
+     */
+    public void setEnableDestroyProtection(String EnableDestroyProtection) {
+        this.EnableDestroyProtection = EnableDestroyProtection;
+    }
+
     public UpdateInstanceRequest() {
     }
 
@@ -958,6 +1250,45 @@ CLOSE 关闭
         if (source.KibanaAlteringPublicAccess != null) {
             this.KibanaAlteringPublicAccess = new String(source.KibanaAlteringPublicAccess);
         }
+        if (source.KibanaPrivateDomain != null) {
+            this.KibanaPrivateDomain = new String(source.KibanaPrivateDomain);
+        }
+        if (source.CerebroPrivateDomain != null) {
+            this.CerebroPrivateDomain = new String(source.CerebroPrivateDomain);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.OutboundPublicAcls != null) {
+            this.OutboundPublicAcls = new OutboundPublicAcl[source.OutboundPublicAcls.length];
+            for (int i = 0; i < source.OutboundPublicAcls.length; i++) {
+                this.OutboundPublicAcls[i] = new OutboundPublicAcl(source.OutboundPublicAcls[i]);
+            }
+        }
+        if (source.OutboundPublicAccess != null) {
+            this.OutboundPublicAccess = new String(source.OutboundPublicAccess);
+        }
+        if (source.CvmDelayOnlineTime != null) {
+            this.CvmDelayOnlineTime = new Long(source.CvmDelayOnlineTime);
+        }
+        if (source.ShardAllocationConcurrents != null) {
+            this.ShardAllocationConcurrents = new Long(source.ShardAllocationConcurrents);
+        }
+        if (source.ShardAllocationBytes != null) {
+            this.ShardAllocationBytes = new Long(source.ShardAllocationBytes);
+        }
+        if (source.ReadWriteMode != null) {
+            this.ReadWriteMode = new Long(source.ReadWriteMode);
+        }
+        if (source.EnableScheduleRecoverGroup != null) {
+            this.EnableScheduleRecoverGroup = new Boolean(source.EnableScheduleRecoverGroup);
+        }
+        if (source.EnableScheduleOperationDuration != null) {
+            this.EnableScheduleOperationDuration = new EnableScheduleOperationDuration(source.EnableScheduleOperationDuration);
+        }
+        if (source.EnableDestroyProtection != null) {
+            this.EnableDestroyProtection = new String(source.EnableDestroyProtection);
+        }
     }
 
 
@@ -997,6 +1328,18 @@ CLOSE 关闭
         this.setParamObj(map, prefix + "EsConfigSet.", this.EsConfigSet);
         this.setParamObj(map, prefix + "OperationDuration.", this.OperationDuration);
         this.setParamSimple(map, prefix + "KibanaAlteringPublicAccess", this.KibanaAlteringPublicAccess);
+        this.setParamSimple(map, prefix + "KibanaPrivateDomain", this.KibanaPrivateDomain);
+        this.setParamSimple(map, prefix + "CerebroPrivateDomain", this.CerebroPrivateDomain);
+        this.setParamSimple(map, prefix + "Protocol", this.Protocol);
+        this.setParamArrayObj(map, prefix + "OutboundPublicAcls.", this.OutboundPublicAcls);
+        this.setParamSimple(map, prefix + "OutboundPublicAccess", this.OutboundPublicAccess);
+        this.setParamSimple(map, prefix + "CvmDelayOnlineTime", this.CvmDelayOnlineTime);
+        this.setParamSimple(map, prefix + "ShardAllocationConcurrents", this.ShardAllocationConcurrents);
+        this.setParamSimple(map, prefix + "ShardAllocationBytes", this.ShardAllocationBytes);
+        this.setParamSimple(map, prefix + "ReadWriteMode", this.ReadWriteMode);
+        this.setParamSimple(map, prefix + "EnableScheduleRecoverGroup", this.EnableScheduleRecoverGroup);
+        this.setParamObj(map, prefix + "EnableScheduleOperationDuration.", this.EnableScheduleOperationDuration);
+        this.setParamSimple(map, prefix + "EnableDestroyProtection", this.EnableDestroyProtection);
 
     }
 }

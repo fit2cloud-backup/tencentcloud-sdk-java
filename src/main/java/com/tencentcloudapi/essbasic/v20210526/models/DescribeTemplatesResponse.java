@@ -16,28 +16,29 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTemplatesResponse extends AbstractModel{
+public class DescribeTemplatesResponse extends AbstractModel {
 
     /**
-    * 模板列表
+    * 模板详情列表数据
     */
     @SerializedName("Templates")
     @Expose
     private TemplateInfo [] Templates;
 
     /**
-    * 查询到的总数
+    * 查询到的模板总数
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 每页多少条数据
+    * 每页返回的数据条数
     */
     @SerializedName("Limit")
     @Expose
@@ -51,55 +52,55 @@ public class DescribeTemplatesResponse extends AbstractModel{
     private Long Offset;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 模板列表 
-     * @return Templates 模板列表
+     * Get 模板详情列表数据 
+     * @return Templates 模板详情列表数据
      */
     public TemplateInfo [] getTemplates() {
         return this.Templates;
     }
 
     /**
-     * Set 模板列表
-     * @param Templates 模板列表
+     * Set 模板详情列表数据
+     * @param Templates 模板详情列表数据
      */
     public void setTemplates(TemplateInfo [] Templates) {
         this.Templates = Templates;
     }
 
     /**
-     * Get 查询到的总数 
-     * @return TotalCount 查询到的总数
+     * Get 查询到的模板总数 
+     * @return TotalCount 查询到的模板总数
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 查询到的总数
-     * @param TotalCount 查询到的总数
+     * Set 查询到的模板总数
+     * @param TotalCount 查询到的模板总数
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 每页多少条数据 
-     * @return Limit 每页多少条数据
+     * Get 每页返回的数据条数 
+     * @return Limit 每页返回的数据条数
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 每页多少条数据
-     * @param Limit 每页多少条数据
+     * Set 每页返回的数据条数
+     * @param Limit 每页返回的数据条数
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -122,16 +123,16 @@ public class DescribeTemplatesResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

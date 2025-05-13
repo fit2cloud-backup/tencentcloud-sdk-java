@@ -16,17 +16,18 @@
 package com.tencentcloudapi.ams.v20201229.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TextResult extends AbstractModel{
+public class TextResult extends AbstractModel {
 
     /**
-    * 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告，Custom：自定义词库。
+    * 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告。
 以及其他令人反感、不安全或不适宜的内容类型。
 
-如音频中无复杂类型「TextResults」的返回则代表改音频中无相关违规内容；
+如音频中无复杂类型「TextResults」的返回则代表该音频中无相关违规内容；
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Label")
@@ -96,15 +97,22 @@ public class TextResult extends AbstractModel{
     private String SubLabel;
 
     /**
-     * Get 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告，Custom：自定义词库。
+    * 该字段用于返回违规文本命中信息
+    */
+    @SerializedName("HitInfos")
+    @Expose
+    private HitInfo [] HitInfos;
+
+    /**
+     * Get 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告。
 以及其他令人反感、不安全或不适宜的内容类型。
 
-如音频中无复杂类型「TextResults」的返回则代表改音频中无相关违规内容；
+如音频中无复杂类型「TextResults」的返回则代表该音频中无相关违规内容；
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Label 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告，Custom：自定义词库。
+     * @return Label 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告。
 以及其他令人反感、不安全或不适宜的内容类型。
 
-如音频中无复杂类型「TextResults」的返回则代表改音频中无相关违规内容；
+如音频中无复杂类型「TextResults」的返回则代表该音频中无相关违规内容；
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLabel() {
@@ -112,15 +120,15 @@ public class TextResult extends AbstractModel{
     }
 
     /**
-     * Set 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告，Custom：自定义词库。
+     * Set 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告。
 以及其他令人反感、不安全或不适宜的内容类型。
 
-如音频中无复杂类型「TextResults」的返回则代表改音频中无相关违规内容；
+如音频中无复杂类型「TextResults」的返回则代表该音频中无相关违规内容；
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Label 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告，Custom：自定义词库。
+     * @param Label 恶意标签，Normal：正常，Porn：色情，Abuse：谩骂，Ad：广告。
 以及其他令人反感、不安全或不适宜的内容类型。
 
-如音频中无复杂类型「TextResults」的返回则代表改音频中无相关违规内容；
+如音频中无复杂类型「TextResults」的返回则代表该音频中无相关违规内容；
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabel(String Label) {
@@ -291,6 +299,22 @@ public class TextResult extends AbstractModel{
         this.SubLabel = SubLabel;
     }
 
+    /**
+     * Get 该字段用于返回违规文本命中信息 
+     * @return HitInfos 该字段用于返回违规文本命中信息
+     */
+    public HitInfo [] getHitInfos() {
+        return this.HitInfos;
+    }
+
+    /**
+     * Set 该字段用于返回违规文本命中信息
+     * @param HitInfos 该字段用于返回违规文本命中信息
+     */
+    public void setHitInfos(HitInfo [] HitInfos) {
+        this.HitInfos = HitInfos;
+    }
+
     public TextResult() {
     }
 
@@ -326,6 +350,12 @@ public class TextResult extends AbstractModel{
         if (source.SubLabel != null) {
             this.SubLabel = new String(source.SubLabel);
         }
+        if (source.HitInfos != null) {
+            this.HitInfos = new HitInfo[source.HitInfos.length];
+            for (int i = 0; i < source.HitInfos.length; i++) {
+                this.HitInfos[i] = new HitInfo(source.HitInfos[i]);
+            }
+        }
     }
 
 
@@ -341,6 +371,7 @@ public class TextResult extends AbstractModel{
         this.setParamSimple(map, prefix + "Suggestion", this.Suggestion);
         this.setParamSimple(map, prefix + "LibType", this.LibType);
         this.setParamSimple(map, prefix + "SubLabel", this.SubLabel);
+        this.setParamArrayObj(map, prefix + "HitInfos.", this.HitInfos);
 
     }
 }

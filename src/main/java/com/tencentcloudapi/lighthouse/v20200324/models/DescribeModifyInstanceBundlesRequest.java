@@ -16,14 +16,15 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeModifyInstanceBundlesRequest extends AbstractModel{
+public class DescribeModifyInstanceBundlesRequest extends AbstractModel {
 
     /**
-    * 实例 ID。
+    * 实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -34,12 +35,13 @@ public class DescribeModifyInstanceBundlesRequest extends AbstractModel{
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -67,16 +69,16 @@ public class DescribeModifyInstanceBundlesRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 实例 ID。 
-     * @return InstanceId 实例 ID。
+     * Get 实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。 
+     * @return InstanceId 实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例 ID。
-     * @param InstanceId 实例 ID。
+     * Set 实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
+     * @param InstanceId 实例 ID。可通过 <a href="https://cloud.tencent.com/document/product/1207/47573">DescribeInstances</a> 接口返回值中的 InstanceId 获取。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -87,12 +89,13 @@ public class DescribeModifyInstanceBundlesRequest extends AbstractModel{
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -104,12 +107,13 @@ public class DescribeModifyInstanceBundlesRequest extends AbstractModel{
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -127,12 +131,13 @@ public class DescribeModifyInstanceBundlesRequest extends AbstractModel{
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。
@@ -144,12 +149,13 @@ public class DescribeModifyInstanceBundlesRequest extends AbstractModel{
 <li>bundle-id</li>按照【套餐 ID】进行过滤。
 类型：String
 必选：否
+可通过<a href="https://cloud.tencent.com/document/product/1207/47575"> DescribeBundles </a>接口返回值中的 BundleId 获取。
 <li>support-platform-type</li>按照【系统类型】进行过滤。
 取值： LINUX_UNIX（Linux/Unix系统）；WINDOWS（Windows 系统）
 类型：String
 必选：否
 <li>bundle-type</li>按照 【套餐类型进行过滤】。
-取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);
+取值：GENERAL_BUNDLE (通用型套餐); STORAGE_BUNDLE(存储型套餐);ENTERPRISE_BUNDLE( 企业型套餐);EXCLUSIVE_BUNDLE(专属型套餐);BEFAST_BUNDLE(蜂驰型套餐);STARTER_BUNDLE(入门型套餐);ECONOMY_BUNDLE(经济型套餐);RAZOR_SPEED_BUNDLE(锐驰型套餐)
 类型：String
 必选：否
 <li>bundle-state</li>按照【套餐状态】进行过滤。

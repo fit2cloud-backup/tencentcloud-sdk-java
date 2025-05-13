@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dbbrain.v20191016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SlowLogTopSqlItem extends AbstractModel{
+public class SlowLogTopSqlItem extends AbstractModel {
 
     /**
     * sql总锁等待时间
@@ -191,7 +192,7 @@ public class SlowLogTopSqlItem extends AbstractModel{
     private Float RowsExaminedAvg;
 
     /**
-    * SOL模板的MD5值
+    * SQL模板的MD5值
     */
     @SerializedName("Md5")
     @Expose
@@ -582,16 +583,16 @@ public class SlowLogTopSqlItem extends AbstractModel{
     }
 
     /**
-     * Get SOL模板的MD5值 
-     * @return Md5 SOL模板的MD5值
+     * Get SQL模板的MD5值 
+     * @return Md5 SQL模板的MD5值
      */
     public String getMd5() {
         return this.Md5;
     }
 
     /**
-     * Set SOL模板的MD5值
-     * @param Md5 SOL模板的MD5值
+     * Set SQL模板的MD5值
+     * @param Md5 SQL模板的MD5值
      */
     public void setMd5(String Md5) {
         this.Md5 = Md5;

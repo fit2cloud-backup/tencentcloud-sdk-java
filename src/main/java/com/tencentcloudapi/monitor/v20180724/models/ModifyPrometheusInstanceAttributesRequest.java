@@ -16,18 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyPrometheusInstanceAttributesRequest extends AbstractModel{
-
-    /**
-    * 实例名称
-    */
-    @SerializedName("InstanceName")
-    @Expose
-    private String InstanceName;
+public class ModifyPrometheusInstanceAttributesRequest extends AbstractModel {
 
     /**
     * 实例 ID
@@ -37,27 +31,18 @@ public class ModifyPrometheusInstanceAttributesRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 存储时长（取值为 15、30、45。此参数不适用于包年包月实例）
+    * 实例名称
+    */
+    @SerializedName("InstanceName")
+    @Expose
+    private String InstanceName;
+
+    /**
+    * 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
     */
     @SerializedName("DataRetentionTime")
     @Expose
     private Long DataRetentionTime;
-
-    /**
-     * Get 实例名称 
-     * @return InstanceName 实例名称
-     */
-    public String getInstanceName() {
-        return this.InstanceName;
-    }
-
-    /**
-     * Set 实例名称
-     * @param InstanceName 实例名称
-     */
-    public void setInstanceName(String InstanceName) {
-        this.InstanceName = InstanceName;
-    }
 
     /**
      * Get 实例 ID 
@@ -76,16 +61,32 @@ public class ModifyPrometheusInstanceAttributesRequest extends AbstractModel{
     }
 
     /**
-     * Get 存储时长（取值为 15、30、45。此参数不适用于包年包月实例） 
-     * @return DataRetentionTime 存储时长（取值为 15、30、45。此参数不适用于包年包月实例）
+     * Get 实例名称 
+     * @return InstanceName 实例名称
+     */
+    public String getInstanceName() {
+        return this.InstanceName;
+    }
+
+    /**
+     * Set 实例名称
+     * @param InstanceName 实例名称
+     */
+    public void setInstanceName(String InstanceName) {
+        this.InstanceName = InstanceName;
+    }
+
+    /**
+     * Get 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一 
+     * @return DataRetentionTime 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
      */
     public Long getDataRetentionTime() {
         return this.DataRetentionTime;
     }
 
     /**
-     * Set 存储时长（取值为 15、30、45。此参数不适用于包年包月实例）
-     * @param DataRetentionTime 存储时长（取值为 15、30、45。此参数不适用于包年包月实例）
+     * Set 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
+     * @param DataRetentionTime 数据存储时间（单位天），限制值为15, 30, 45, 90, 180, 365, 730之一
      */
     public void setDataRetentionTime(Long DataRetentionTime) {
         this.DataRetentionTime = DataRetentionTime;
@@ -99,11 +100,11 @@ public class ModifyPrometheusInstanceAttributesRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public ModifyPrometheusInstanceAttributesRequest(ModifyPrometheusInstanceAttributesRequest source) {
-        if (source.InstanceName != null) {
-            this.InstanceName = new String(source.InstanceName);
-        }
         if (source.InstanceId != null) {
             this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.InstanceName != null) {
+            this.InstanceName = new String(source.InstanceName);
         }
         if (source.DataRetentionTime != null) {
             this.DataRetentionTime = new Long(source.DataRetentionTime);
@@ -115,8 +116,8 @@ public class ModifyPrometheusInstanceAttributesRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
         this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "InstanceName", this.InstanceName);
         this.setParamSimple(map, prefix + "DataRetentionTime", this.DataRetentionTime);
 
     }

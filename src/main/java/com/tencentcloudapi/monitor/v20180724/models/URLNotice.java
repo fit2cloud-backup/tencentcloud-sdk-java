@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class URLNotice extends AbstractModel{
+public class URLNotice extends AbstractModel {
 
     /**
     * 回调 url（限长256字符）
@@ -69,6 +70,14 @@ public class URLNotice extends AbstractModel{
     @SerializedName("Weekday")
     @Expose
     private Long [] Weekday;
+
+    /**
+    * 组名
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GroupMembers")
+    @Expose
+    private String GroupMembers;
 
     /**
      * Get 回调 url（限长256字符）
@@ -190,6 +199,26 @@ public class URLNotice extends AbstractModel{
         this.Weekday = Weekday;
     }
 
+    /**
+     * Get 组名
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GroupMembers 组名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getGroupMembers() {
+        return this.GroupMembers;
+    }
+
+    /**
+     * Set 组名
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GroupMembers 组名
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGroupMembers(String GroupMembers) {
+        this.GroupMembers = GroupMembers;
+    }
+
     public URLNotice() {
     }
 
@@ -219,6 +248,9 @@ public class URLNotice extends AbstractModel{
                 this.Weekday[i] = new Long(source.Weekday[i]);
             }
         }
+        if (source.GroupMembers != null) {
+            this.GroupMembers = new String(source.GroupMembers);
+        }
     }
 
 
@@ -232,6 +264,7 @@ public class URLNotice extends AbstractModel{
         this.setParamSimple(map, prefix + "StartTime", this.StartTime);
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamArraySimple(map, prefix + "Weekday.", this.Weekday);
+        this.setParamSimple(map, prefix + "GroupMembers", this.GroupMembers);
 
     }
 }

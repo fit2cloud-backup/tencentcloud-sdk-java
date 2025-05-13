@@ -16,39 +16,37 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeServiceAccountsResponse extends AbstractModel{
+public class DescribeServiceAccountsResponse extends AbstractModel {
 
     /**
     * 服务级账号列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceAccounts")
     @Expose
     private ServiceAccount [] ServiceAccounts;
 
     /**
-    * 自定义账户数量
+    * 服务级账户数量
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 服务级账号列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务级账号列表 
      * @return ServiceAccounts 服务级账号列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ServiceAccount [] getServiceAccounts() {
         return this.ServiceAccounts;
@@ -56,41 +54,39 @@ public class DescribeServiceAccountsResponse extends AbstractModel{
 
     /**
      * Set 服务级账号列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceAccounts 服务级账号列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceAccounts(ServiceAccount [] ServiceAccounts) {
         this.ServiceAccounts = ServiceAccounts;
     }
 
     /**
-     * Get 自定义账户数量 
-     * @return TotalCount 自定义账户数量
+     * Get 服务级账户数量 
+     * @return TotalCount 服务级账户数量
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 自定义账户数量
-     * @param TotalCount 自定义账户数量
+     * Set 服务级账户数量
+     * @param TotalCount 服务级账户数量
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

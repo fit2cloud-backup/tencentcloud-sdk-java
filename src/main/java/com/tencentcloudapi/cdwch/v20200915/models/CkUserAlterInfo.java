@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CkUserAlterInfo extends AbstractModel{
+public class CkUserAlterInfo extends AbstractModel {
 
     /**
     * 集群实例id
@@ -37,7 +38,7 @@ public class CkUserAlterInfo extends AbstractModel{
     private String UserName;
 
     /**
-    * 密码
+    * base64加密后的密码
     */
     @SerializedName("PassWord")
     @Expose
@@ -83,16 +84,16 @@ public class CkUserAlterInfo extends AbstractModel{
     }
 
     /**
-     * Get 密码 
-     * @return PassWord 密码
+     * Get base64加密后的密码 
+     * @return PassWord base64加密后的密码
      */
     public String getPassWord() {
         return this.PassWord;
     }
 
     /**
-     * Set 密码
-     * @param PassWord 密码
+     * Set base64加密后的密码
+     * @param PassWord base64加密后的密码
      */
     public void setPassWord(String PassWord) {
         this.PassWord = PassWord;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.asr.v20190614.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SentenceDetail extends AbstractModel{
+public class SentenceDetail extends AbstractModel {
 
     /**
     * 单句最终识别结果
@@ -37,6 +38,14 @@ public class SentenceDetail extends AbstractModel{
     @SerializedName("SliceSentence")
     @Expose
     private String SliceSentence;
+
+    /**
+    * 口语转书面语结果，开启改功能才有值
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WrittenText")
+    @Expose
+    private String WrittenText;
 
     /**
     * 单句开始时间（毫秒）
@@ -80,6 +89,7 @@ public class SentenceDetail extends AbstractModel{
 
     /**
     * 声道或说话人 Id（请求中如果设置了 speaker_diarization或者ChannelNum为双声道，可区分说话人或声道）
+单声道话者分离时不同的值代表不同的说话人； 8k双声道话者分离时speakerId的值为0代表左声道，值为1代表右声道。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SpeakerId")
@@ -103,12 +113,20 @@ public class SentenceDetail extends AbstractModel{
     private Long SilenceTime;
 
     /**
-    * 情绪类型（可能为空）
+    * 情绪类型（可能为空，有2种情况 1、没有对应资源包；2、情绪跟语音效果相关，如果情绪不够强烈时可能无法识别）
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EmotionType")
     @Expose
     private String [] EmotionType;
+
+    /**
+    * 关键词识别结果列表
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("KeyWordResults")
+    @Expose
+    private KeyWordResult [] KeyWordResults;
 
     /**
      * Get 单句最终识别结果
@@ -148,6 +166,26 @@ public class SentenceDetail extends AbstractModel{
      */
     public void setSliceSentence(String SliceSentence) {
         this.SliceSentence = SliceSentence;
+    }
+
+    /**
+     * Get 口语转书面语结果，开启改功能才有值
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WrittenText 口语转书面语结果，开启改功能才有值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWrittenText() {
+        return this.WrittenText;
+    }
+
+    /**
+     * Set 口语转书面语结果，开启改功能才有值
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WrittenText 口语转书面语结果，开启改功能才有值
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWrittenText(String WrittenText) {
+        this.WrittenText = WrittenText;
     }
 
     /**
@@ -252,8 +290,10 @@ public class SentenceDetail extends AbstractModel{
 
     /**
      * Get 声道或说话人 Id（请求中如果设置了 speaker_diarization或者ChannelNum为双声道，可区分说话人或声道）
+单声道话者分离时不同的值代表不同的说话人； 8k双声道话者分离时speakerId的值为0代表左声道，值为1代表右声道。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return SpeakerId 声道或说话人 Id（请求中如果设置了 speaker_diarization或者ChannelNum为双声道，可区分说话人或声道）
+单声道话者分离时不同的值代表不同的说话人； 8k双声道话者分离时speakerId的值为0代表左声道，值为1代表右声道。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSpeakerId() {
@@ -262,8 +302,10 @@ public class SentenceDetail extends AbstractModel{
 
     /**
      * Set 声道或说话人 Id（请求中如果设置了 speaker_diarization或者ChannelNum为双声道，可区分说话人或声道）
+单声道话者分离时不同的值代表不同的说话人； 8k双声道话者分离时speakerId的值为0代表左声道，值为1代表右声道。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param SpeakerId 声道或说话人 Id（请求中如果设置了 speaker_diarization或者ChannelNum为双声道，可区分说话人或声道）
+单声道话者分离时不同的值代表不同的说话人； 8k双声道话者分离时speakerId的值为0代表左声道，值为1代表右声道。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSpeakerId(Long SpeakerId) {
@@ -311,9 +353,9 @@ public class SentenceDetail extends AbstractModel{
     }
 
     /**
-     * Get 情绪类型（可能为空）
+     * Get 情绪类型（可能为空，有2种情况 1、没有对应资源包；2、情绪跟语音效果相关，如果情绪不够强烈时可能无法识别）
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return EmotionType 情绪类型（可能为空）
+     * @return EmotionType 情绪类型（可能为空，有2种情况 1、没有对应资源包；2、情绪跟语音效果相关，如果情绪不够强烈时可能无法识别）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getEmotionType() {
@@ -321,13 +363,33 @@ public class SentenceDetail extends AbstractModel{
     }
 
     /**
-     * Set 情绪类型（可能为空）
+     * Set 情绪类型（可能为空，有2种情况 1、没有对应资源包；2、情绪跟语音效果相关，如果情绪不够强烈时可能无法识别）
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param EmotionType 情绪类型（可能为空）
+     * @param EmotionType 情绪类型（可能为空，有2种情况 1、没有对应资源包；2、情绪跟语音效果相关，如果情绪不够强烈时可能无法识别）
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEmotionType(String [] EmotionType) {
         this.EmotionType = EmotionType;
+    }
+
+    /**
+     * Get 关键词识别结果列表
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return KeyWordResults 关键词识别结果列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public KeyWordResult [] getKeyWordResults() {
+        return this.KeyWordResults;
+    }
+
+    /**
+     * Set 关键词识别结果列表
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param KeyWordResults 关键词识别结果列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setKeyWordResults(KeyWordResult [] KeyWordResults) {
+        this.KeyWordResults = KeyWordResults;
     }
 
     public SentenceDetail() {
@@ -343,6 +405,9 @@ public class SentenceDetail extends AbstractModel{
         }
         if (source.SliceSentence != null) {
             this.SliceSentence = new String(source.SliceSentence);
+        }
+        if (source.WrittenText != null) {
+            this.WrittenText = new String(source.WrittenText);
         }
         if (source.StartMs != null) {
             this.StartMs = new Long(source.StartMs);
@@ -377,6 +442,12 @@ public class SentenceDetail extends AbstractModel{
                 this.EmotionType[i] = new String(source.EmotionType[i]);
             }
         }
+        if (source.KeyWordResults != null) {
+            this.KeyWordResults = new KeyWordResult[source.KeyWordResults.length];
+            for (int i = 0; i < source.KeyWordResults.length; i++) {
+                this.KeyWordResults[i] = new KeyWordResult(source.KeyWordResults[i]);
+            }
+        }
     }
 
 
@@ -386,6 +457,7 @@ public class SentenceDetail extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FinalSentence", this.FinalSentence);
         this.setParamSimple(map, prefix + "SliceSentence", this.SliceSentence);
+        this.setParamSimple(map, prefix + "WrittenText", this.WrittenText);
         this.setParamSimple(map, prefix + "StartMs", this.StartMs);
         this.setParamSimple(map, prefix + "EndMs", this.EndMs);
         this.setParamSimple(map, prefix + "WordsNum", this.WordsNum);
@@ -395,6 +467,7 @@ public class SentenceDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "EmotionalEnergy", this.EmotionalEnergy);
         this.setParamSimple(map, prefix + "SilenceTime", this.SilenceTime);
         this.setParamArraySimple(map, prefix + "EmotionType.", this.EmotionType);
+        this.setParamArrayObj(map, prefix + "KeyWordResults.", this.KeyWordResults);
 
     }
 }

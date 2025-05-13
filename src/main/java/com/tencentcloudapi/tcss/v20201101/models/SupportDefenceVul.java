@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SupportDefenceVul extends AbstractModel{
+public class SupportDefenceVul extends AbstractModel {
 
     /**
     * 漏洞PocID
@@ -70,6 +71,20 @@ public class SupportDefenceVul extends AbstractModel{
     @SerializedName("SubmitTime")
     @Expose
     private String SubmitTime;
+
+    /**
+    * 漏洞id
+    */
+    @SerializedName("VulId")
+    @Expose
+    private Long VulId;
+
+    /**
+    * 状态，0:防御中，1：已加白，指的是在白名单列表中有这个漏洞的，不一定是全局型白名单
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
 
     /**
      * Get 漏洞PocID 
@@ -183,6 +198,38 @@ public class SupportDefenceVul extends AbstractModel{
         this.SubmitTime = SubmitTime;
     }
 
+    /**
+     * Get 漏洞id 
+     * @return VulId 漏洞id
+     */
+    public Long getVulId() {
+        return this.VulId;
+    }
+
+    /**
+     * Set 漏洞id
+     * @param VulId 漏洞id
+     */
+    public void setVulId(Long VulId) {
+        this.VulId = VulId;
+    }
+
+    /**
+     * Get 状态，0:防御中，1：已加白，指的是在白名单列表中有这个漏洞的，不一定是全局型白名单 
+     * @return Status 状态，0:防御中，1：已加白，指的是在白名单列表中有这个漏洞的，不一定是全局型白名单
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 状态，0:防御中，1：已加白，指的是在白名单列表中有这个漏洞的，不一定是全局型白名单
+     * @param Status 状态，0:防御中，1：已加白，指的是在白名单列表中有这个漏洞的，不一定是全局型白名单
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
     public SupportDefenceVul() {
     }
 
@@ -215,6 +262,12 @@ public class SupportDefenceVul extends AbstractModel{
         if (source.SubmitTime != null) {
             this.SubmitTime = new String(source.SubmitTime);
         }
+        if (source.VulId != null) {
+            this.VulId = new Long(source.VulId);
+        }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
     }
 
 
@@ -229,6 +282,8 @@ public class SupportDefenceVul extends AbstractModel{
         this.setParamSimple(map, prefix + "Level", this.Level);
         this.setParamSimple(map, prefix + "CVEID", this.CVEID);
         this.setParamSimple(map, prefix + "SubmitTime", this.SubmitTime);
+        this.setParamSimple(map, prefix + "VulId", this.VulId);
+        this.setParamSimple(map, prefix + "Status", this.Status);
 
     }
 }

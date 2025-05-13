@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EnvBillingInfoItem extends AbstractModel{
+public class EnvBillingInfoItem extends AbstractModel {
 
     /**
     * 环境ID
@@ -101,7 +102,6 @@ public class EnvBillingInfoItem extends AbstractModel{
     * 付费渠道。
 <li> miniapp：小程序</li>
 <li> qcloud：腾讯云</li>
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PaymentChannel")
     @Expose
@@ -109,7 +109,6 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
     * 最新的订单信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OrderInfo")
     @Expose
@@ -117,7 +116,6 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
     * 免费配额信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FreeQuota")
     @Expose
@@ -125,7 +123,6 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
     * 是否开启 `超过套餐额度部分转按量付费`
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnableOverrun")
     @Expose
@@ -133,11 +130,24 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
     * 环境套餐类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExtPackageType")
     @Expose
     private String ExtPackageType;
+
+    /**
+    * 是否付费期环境，可取值：yes/no。
+    */
+    @SerializedName("EnvCharged")
+    @Expose
+    private String EnvCharged;
+
+    /**
+    * 是否已激活，可取值：yes/no。
+    */
+    @SerializedName("EnvActivated")
+    @Expose
+    private String EnvActivated;
 
     /**
      * Get 环境ID 
@@ -322,12 +332,10 @@ public class EnvBillingInfoItem extends AbstractModel{
     /**
      * Get 付费渠道。
 <li> miniapp：小程序</li>
-<li> qcloud：腾讯云</li>
-注意：此字段可能返回 null，表示取不到有效值。 
+<li> qcloud：腾讯云</li> 
      * @return PaymentChannel 付费渠道。
 <li> miniapp：小程序</li>
 <li> qcloud：腾讯云</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPaymentChannel() {
         return this.PaymentChannel;
@@ -337,21 +345,17 @@ public class EnvBillingInfoItem extends AbstractModel{
      * Set 付费渠道。
 <li> miniapp：小程序</li>
 <li> qcloud：腾讯云</li>
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PaymentChannel 付费渠道。
 <li> miniapp：小程序</li>
 <li> qcloud：腾讯云</li>
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPaymentChannel(String PaymentChannel) {
         this.PaymentChannel = PaymentChannel;
     }
 
     /**
-     * Get 最新的订单信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最新的订单信息 
      * @return OrderInfo 最新的订单信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public OrderInfo getOrderInfo() {
         return this.OrderInfo;
@@ -359,19 +363,15 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
      * Set 最新的订单信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OrderInfo 最新的订单信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOrderInfo(OrderInfo OrderInfo) {
         this.OrderInfo = OrderInfo;
     }
 
     /**
-     * Get 免费配额信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 免费配额信息。 
      * @return FreeQuota 免费配额信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFreeQuota() {
         return this.FreeQuota;
@@ -379,19 +379,15 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
      * Set 免费配额信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FreeQuota 免费配额信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFreeQuota(String FreeQuota) {
         this.FreeQuota = FreeQuota;
     }
 
     /**
-     * Get 是否开启 `超过套餐额度部分转按量付费`
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启 `超过套餐额度部分转按量付费` 
      * @return EnableOverrun 是否开启 `超过套餐额度部分转按量付费`
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnableOverrun() {
         return this.EnableOverrun;
@@ -399,19 +395,15 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
      * Set 是否开启 `超过套餐额度部分转按量付费`
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnableOverrun 是否开启 `超过套餐额度部分转按量付费`
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnableOverrun(Boolean EnableOverrun) {
         this.EnableOverrun = EnableOverrun;
     }
 
     /**
-     * Get 环境套餐类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境套餐类型 
      * @return ExtPackageType 环境套餐类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExtPackageType() {
         return this.ExtPackageType;
@@ -419,12 +411,42 @@ public class EnvBillingInfoItem extends AbstractModel{
 
     /**
      * Set 环境套餐类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExtPackageType 环境套餐类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtPackageType(String ExtPackageType) {
         this.ExtPackageType = ExtPackageType;
+    }
+
+    /**
+     * Get 是否付费期环境，可取值：yes/no。 
+     * @return EnvCharged 是否付费期环境，可取值：yes/no。
+     */
+    public String getEnvCharged() {
+        return this.EnvCharged;
+    }
+
+    /**
+     * Set 是否付费期环境，可取值：yes/no。
+     * @param EnvCharged 是否付费期环境，可取值：yes/no。
+     */
+    public void setEnvCharged(String EnvCharged) {
+        this.EnvCharged = EnvCharged;
+    }
+
+    /**
+     * Get 是否已激活，可取值：yes/no。 
+     * @return EnvActivated 是否已激活，可取值：yes/no。
+     */
+    public String getEnvActivated() {
+        return this.EnvActivated;
+    }
+
+    /**
+     * Set 是否已激活，可取值：yes/no。
+     * @param EnvActivated 是否已激活，可取值：yes/no。
+     */
+    public void setEnvActivated(String EnvActivated) {
+        this.EnvActivated = EnvActivated;
     }
 
     public EnvBillingInfoItem() {
@@ -480,6 +502,12 @@ public class EnvBillingInfoItem extends AbstractModel{
         if (source.ExtPackageType != null) {
             this.ExtPackageType = new String(source.ExtPackageType);
         }
+        if (source.EnvCharged != null) {
+            this.EnvCharged = new String(source.EnvCharged);
+        }
+        if (source.EnvActivated != null) {
+            this.EnvActivated = new String(source.EnvActivated);
+        }
     }
 
 
@@ -502,6 +530,8 @@ public class EnvBillingInfoItem extends AbstractModel{
         this.setParamSimple(map, prefix + "FreeQuota", this.FreeQuota);
         this.setParamSimple(map, prefix + "EnableOverrun", this.EnableOverrun);
         this.setParamSimple(map, prefix + "ExtPackageType", this.ExtPackageType);
+        this.setParamSimple(map, prefix + "EnvCharged", this.EnvCharged);
+        this.setParamSimple(map, prefix + "EnvActivated", this.EnvActivated);
 
     }
 }

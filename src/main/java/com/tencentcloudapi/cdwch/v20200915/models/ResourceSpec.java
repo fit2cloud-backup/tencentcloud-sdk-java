@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ResourceSpec extends AbstractModel{
+public class ResourceSpec extends AbstractModel {
 
     /**
     * 规格名称，例如“SCH1"
@@ -73,7 +74,6 @@ public class ResourceSpec extends AbstractModel{
 
     /**
     * 是否可用，false代表售罄
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Available")
     @Expose
@@ -81,7 +81,6 @@ public class ResourceSpec extends AbstractModel{
 
     /**
     * 规格描述信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ComputeSpecDesc")
     @Expose
@@ -89,7 +88,6 @@ public class ResourceSpec extends AbstractModel{
 
     /**
     * 规格名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DisplayName")
     @Expose
@@ -97,7 +95,6 @@ public class ResourceSpec extends AbstractModel{
 
     /**
     * 库存数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceQuota")
     @Expose
@@ -216,10 +213,8 @@ public class ResourceSpec extends AbstractModel{
     }
 
     /**
-     * Get 是否可用，false代表售罄
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否可用，false代表售罄 
      * @return Available 是否可用，false代表售罄
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getAvailable() {
         return this.Available;
@@ -227,19 +222,15 @@ public class ResourceSpec extends AbstractModel{
 
     /**
      * Set 是否可用，false代表售罄
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Available 是否可用，false代表售罄
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvailable(Boolean Available) {
         this.Available = Available;
     }
 
     /**
-     * Get 规格描述信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规格描述信息 
      * @return ComputeSpecDesc 规格描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getComputeSpecDesc() {
         return this.ComputeSpecDesc;
@@ -247,19 +238,15 @@ public class ResourceSpec extends AbstractModel{
 
     /**
      * Set 规格描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ComputeSpecDesc 规格描述信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setComputeSpecDesc(String ComputeSpecDesc) {
         this.ComputeSpecDesc = ComputeSpecDesc;
     }
 
     /**
-     * Get 规格名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规格名 
      * @return DisplayName 规格名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDisplayName() {
         return this.DisplayName;
@@ -267,19 +254,15 @@ public class ResourceSpec extends AbstractModel{
 
     /**
      * Set 规格名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DisplayName 规格名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDisplayName(String DisplayName) {
         this.DisplayName = DisplayName;
     }
 
     /**
-     * Get 库存数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 库存数 
      * @return InstanceQuota 库存数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceQuota() {
         return this.InstanceQuota;
@@ -287,9 +270,7 @@ public class ResourceSpec extends AbstractModel{
 
     /**
      * Set 库存数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceQuota 库存数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceQuota(Long InstanceQuota) {
         this.InstanceQuota = InstanceQuota;

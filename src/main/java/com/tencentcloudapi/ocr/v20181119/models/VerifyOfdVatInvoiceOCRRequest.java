@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VerifyOfdVatInvoiceOCRRequest extends AbstractModel{
+public class VerifyOfdVatInvoiceOCRRequest extends AbstractModel {
 
     /**
     * OFD文件的 Url 地址。
@@ -30,12 +31,18 @@ public class VerifyOfdVatInvoiceOCRRequest extends AbstractModel{
     private String OfdFileUrl;
 
     /**
-    * OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
+    * OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
     */
     @SerializedName("OfdFileBase64")
     @Expose
     private String OfdFileBase64;
+
+    /**
+    * 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+    */
+    @SerializedName("OfdPageNumber")
+    @Expose
+    private Long OfdPageNumber;
 
     /**
      * Get OFD文件的 Url 地址。 
@@ -54,23 +61,35 @@ OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBa
     }
 
     /**
-     * Get OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。 
-     * @return OfdFileBase64 OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
+     * Get OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。 
+     * @return OfdFileBase64 OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
      */
     public String getOfdFileBase64() {
         return this.OfdFileBase64;
     }
 
     /**
-     * Set OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
-     * @param OfdFileBase64 OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
+     * Set OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
+     * @param OfdFileBase64 OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
      */
     public void setOfdFileBase64(String OfdFileBase64) {
         this.OfdFileBase64 = OfdFileBase64;
+    }
+
+    /**
+     * Get 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1 
+     * @return OfdPageNumber 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+     */
+    public Long getOfdPageNumber() {
+        return this.OfdPageNumber;
+    }
+
+    /**
+     * Set 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+     * @param OfdPageNumber 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+     */
+    public void setOfdPageNumber(Long OfdPageNumber) {
+        this.OfdPageNumber = OfdPageNumber;
     }
 
     public VerifyOfdVatInvoiceOCRRequest() {
@@ -87,6 +106,9 @@ OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBa
         if (source.OfdFileBase64 != null) {
             this.OfdFileBase64 = new String(source.OfdFileBase64);
         }
+        if (source.OfdPageNumber != null) {
+            this.OfdPageNumber = new Long(source.OfdPageNumber);
+        }
     }
 
 
@@ -96,6 +118,7 @@ OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBa
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "OfdFileUrl", this.OfdFileUrl);
         this.setParamSimple(map, prefix + "OfdFileBase64", this.OfdFileBase64);
+        this.setParamSimple(map, prefix + "OfdPageNumber", this.OfdPageNumber);
 
     }
 }

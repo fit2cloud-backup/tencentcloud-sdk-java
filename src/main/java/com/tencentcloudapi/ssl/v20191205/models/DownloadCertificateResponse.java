@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DownloadCertificateResponse extends AbstractModel{
+public class DownloadCertificateResponse extends AbstractModel {
 
     /**
     * ZIP base64 编码内容，base64 解码后可保存为 ZIP 文件。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Content")
     @Expose
@@ -32,24 +32,21 @@ public class DownloadCertificateResponse extends AbstractModel{
 
     /**
     * MIME 类型：application/zip = ZIP 压缩文件。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ContentType")
     @Expose
     private String ContentType;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get ZIP base64 编码内容，base64 解码后可保存为 ZIP 文件。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ZIP base64 编码内容，base64 解码后可保存为 ZIP 文件。 
      * @return Content ZIP base64 编码内容，base64 解码后可保存为 ZIP 文件。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContent() {
         return this.Content;
@@ -57,19 +54,15 @@ public class DownloadCertificateResponse extends AbstractModel{
 
     /**
      * Set ZIP base64 编码内容，base64 解码后可保存为 ZIP 文件。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Content ZIP base64 编码内容，base64 解码后可保存为 ZIP 文件。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContent(String Content) {
         this.Content = Content;
     }
 
     /**
-     * Get MIME 类型：application/zip = ZIP 压缩文件。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get MIME 类型：application/zip = ZIP 压缩文件。 
      * @return ContentType MIME 类型：application/zip = ZIP 压缩文件。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContentType() {
         return this.ContentType;
@@ -77,25 +70,23 @@ public class DownloadCertificateResponse extends AbstractModel{
 
     /**
      * Set MIME 类型：application/zip = ZIP 压缩文件。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ContentType MIME 类型：application/zip = ZIP 压缩文件。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContentType(String ContentType) {
         this.ContentType = ContentType;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCodePackRequest extends AbstractModel{
+public class CreateCodePackRequest extends AbstractModel {
 
     /**
     * 商户ID
@@ -91,6 +92,27 @@ public class CreateCodePackRequest extends AbstractModel{
     @SerializedName("SerialType")
     @Expose
     private Long SerialType;
+
+    /**
+    * 关联产品ID
+    */
+    @SerializedName("ProductId")
+    @Expose
+    private String ProductId;
+
+    /**
+    * 层级码时是否提前生成关联关系，默认为 1
+    */
+    @SerializedName("RelateType")
+    @Expose
+    private Long RelateType;
+
+    /**
+    * 场景值
+    */
+    @SerializedName("SceneCode")
+    @Expose
+    private Long SceneCode;
 
     /**
      * Get 商户ID 
@@ -252,6 +274,54 @@ public class CreateCodePackRequest extends AbstractModel{
         this.SerialType = SerialType;
     }
 
+    /**
+     * Get 关联产品ID 
+     * @return ProductId 关联产品ID
+     */
+    public String getProductId() {
+        return this.ProductId;
+    }
+
+    /**
+     * Set 关联产品ID
+     * @param ProductId 关联产品ID
+     */
+    public void setProductId(String ProductId) {
+        this.ProductId = ProductId;
+    }
+
+    /**
+     * Get 层级码时是否提前生成关联关系，默认为 1 
+     * @return RelateType 层级码时是否提前生成关联关系，默认为 1
+     */
+    public Long getRelateType() {
+        return this.RelateType;
+    }
+
+    /**
+     * Set 层级码时是否提前生成关联关系，默认为 1
+     * @param RelateType 层级码时是否提前生成关联关系，默认为 1
+     */
+    public void setRelateType(Long RelateType) {
+        this.RelateType = RelateType;
+    }
+
+    /**
+     * Get 场景值 
+     * @return SceneCode 场景值
+     */
+    public Long getSceneCode() {
+        return this.SceneCode;
+    }
+
+    /**
+     * Set 场景值
+     * @param SceneCode 场景值
+     */
+    public void setSceneCode(Long SceneCode) {
+        this.SceneCode = SceneCode;
+    }
+
     public CreateCodePackRequest() {
     }
 
@@ -293,6 +363,15 @@ public class CreateCodePackRequest extends AbstractModel{
         if (source.SerialType != null) {
             this.SerialType = new Long(source.SerialType);
         }
+        if (source.ProductId != null) {
+            this.ProductId = new String(source.ProductId);
+        }
+        if (source.RelateType != null) {
+            this.RelateType = new Long(source.RelateType);
+        }
+        if (source.SceneCode != null) {
+            this.SceneCode = new Long(source.SceneCode);
+        }
     }
 
 
@@ -310,6 +389,9 @@ public class CreateCodePackRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "PackSpec.", this.PackSpec);
         this.setParamSimple(map, prefix + "BatchId", this.BatchId);
         this.setParamSimple(map, prefix + "SerialType", this.SerialType);
+        this.setParamSimple(map, prefix + "ProductId", this.ProductId);
+        this.setParamSimple(map, prefix + "RelateType", this.RelateType);
+        this.setParamSimple(map, prefix + "SceneCode", this.SceneCode);
 
     }
 }

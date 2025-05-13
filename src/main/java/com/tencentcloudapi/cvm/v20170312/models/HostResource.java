@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cvm.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class HostResource extends AbstractModel{
+public class HostResource extends AbstractModel {
 
     /**
     * 专用宿主机实例总CPU核数
@@ -84,6 +85,13 @@ public class HostResource extends AbstractModel{
     @SerializedName("GpuAvailable")
     @Expose
     private Long GpuAvailable;
+
+    /**
+    * CDH owner
+    */
+    @SerializedName("ExclusiveOwner")
+    @Expose
+    private String ExclusiveOwner;
 
     /**
      * Get 专用宿主机实例总CPU核数 
@@ -229,6 +237,22 @@ public class HostResource extends AbstractModel{
         this.GpuAvailable = GpuAvailable;
     }
 
+    /**
+     * Get CDH owner 
+     * @return ExclusiveOwner CDH owner
+     */
+    public String getExclusiveOwner() {
+        return this.ExclusiveOwner;
+    }
+
+    /**
+     * Set CDH owner
+     * @param ExclusiveOwner CDH owner
+     */
+    public void setExclusiveOwner(String ExclusiveOwner) {
+        this.ExclusiveOwner = ExclusiveOwner;
+    }
+
     public HostResource() {
     }
 
@@ -264,6 +288,9 @@ public class HostResource extends AbstractModel{
         if (source.GpuAvailable != null) {
             this.GpuAvailable = new Long(source.GpuAvailable);
         }
+        if (source.ExclusiveOwner != null) {
+            this.ExclusiveOwner = new String(source.ExclusiveOwner);
+        }
     }
 
 
@@ -280,6 +307,7 @@ public class HostResource extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskType", this.DiskType);
         this.setParamSimple(map, prefix + "GpuTotal", this.GpuTotal);
         this.setParamSimple(map, prefix + "GpuAvailable", this.GpuAvailable);
+        this.setParamSimple(map, prefix + "ExclusiveOwner", this.ExclusiveOwner);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AirTransport extends AbstractModel{
+public class AirTransport extends AbstractModel {
 
     /**
     * 发票名称
@@ -163,7 +164,7 @@ public class AirTransport extends AbstractModel{
     private String DateStart;
 
     /**
-    * 有效截至日期
+    * 有效截止日期
     */
     @SerializedName("DateEnd")
     @Expose
@@ -189,6 +190,55 @@ public class AirTransport extends AbstractModel{
     @SerializedName("FlightItems")
     @Expose
     private FlightItem [] FlightItems;
+
+    /**
+    * 提示信息
+    */
+    @SerializedName("PromptInformation")
+    @Expose
+    private String PromptInformation;
+
+    /**
+    * 统一社会信用代码/纳税人识别号
+    */
+    @SerializedName("BuyerTaxID")
+    @Expose
+    private String BuyerTaxID;
+
+    /**
+    * 购买方名称
+    */
+    @SerializedName("Buyer")
+    @Expose
+    private String Buyer;
+
+    /**
+    * 发票号码
+    */
+    @SerializedName("ReceiptNumber")
+    @Expose
+    private String ReceiptNumber;
+
+    /**
+    * 开票状态
+    */
+    @SerializedName("InvoiceStatus")
+    @Expose
+    private String InvoiceStatus;
+
+    /**
+    * 增值税税率
+    */
+    @SerializedName("TaxRate")
+    @Expose
+    private String TaxRate;
+
+    /**
+    * 增值税税额
+    */
+    @SerializedName("TaxAmount")
+    @Expose
+    private String TaxAmount;
 
     /**
      * Get 发票名称 
@@ -511,16 +561,16 @@ public class AirTransport extends AbstractModel{
     }
 
     /**
-     * Get 有效截至日期 
-     * @return DateEnd 有效截至日期
+     * Get 有效截止日期 
+     * @return DateEnd 有效截止日期
      */
     public String getDateEnd() {
         return this.DateEnd;
     }
 
     /**
-     * Set 有效截至日期
-     * @param DateEnd 有效截至日期
+     * Set 有效截止日期
+     * @param DateEnd 有效截止日期
      */
     public void setDateEnd(String DateEnd) {
         this.DateEnd = DateEnd;
@@ -572,6 +622,118 @@ public class AirTransport extends AbstractModel{
      */
     public void setFlightItems(FlightItem [] FlightItems) {
         this.FlightItems = FlightItems;
+    }
+
+    /**
+     * Get 提示信息 
+     * @return PromptInformation 提示信息
+     */
+    public String getPromptInformation() {
+        return this.PromptInformation;
+    }
+
+    /**
+     * Set 提示信息
+     * @param PromptInformation 提示信息
+     */
+    public void setPromptInformation(String PromptInformation) {
+        this.PromptInformation = PromptInformation;
+    }
+
+    /**
+     * Get 统一社会信用代码/纳税人识别号 
+     * @return BuyerTaxID 统一社会信用代码/纳税人识别号
+     */
+    public String getBuyerTaxID() {
+        return this.BuyerTaxID;
+    }
+
+    /**
+     * Set 统一社会信用代码/纳税人识别号
+     * @param BuyerTaxID 统一社会信用代码/纳税人识别号
+     */
+    public void setBuyerTaxID(String BuyerTaxID) {
+        this.BuyerTaxID = BuyerTaxID;
+    }
+
+    /**
+     * Get 购买方名称 
+     * @return Buyer 购买方名称
+     */
+    public String getBuyer() {
+        return this.Buyer;
+    }
+
+    /**
+     * Set 购买方名称
+     * @param Buyer 购买方名称
+     */
+    public void setBuyer(String Buyer) {
+        this.Buyer = Buyer;
+    }
+
+    /**
+     * Get 发票号码 
+     * @return ReceiptNumber 发票号码
+     */
+    public String getReceiptNumber() {
+        return this.ReceiptNumber;
+    }
+
+    /**
+     * Set 发票号码
+     * @param ReceiptNumber 发票号码
+     */
+    public void setReceiptNumber(String ReceiptNumber) {
+        this.ReceiptNumber = ReceiptNumber;
+    }
+
+    /**
+     * Get 开票状态 
+     * @return InvoiceStatus 开票状态
+     */
+    public String getInvoiceStatus() {
+        return this.InvoiceStatus;
+    }
+
+    /**
+     * Set 开票状态
+     * @param InvoiceStatus 开票状态
+     */
+    public void setInvoiceStatus(String InvoiceStatus) {
+        this.InvoiceStatus = InvoiceStatus;
+    }
+
+    /**
+     * Get 增值税税率 
+     * @return TaxRate 增值税税率
+     */
+    public String getTaxRate() {
+        return this.TaxRate;
+    }
+
+    /**
+     * Set 增值税税率
+     * @param TaxRate 增值税税率
+     */
+    public void setTaxRate(String TaxRate) {
+        this.TaxRate = TaxRate;
+    }
+
+    /**
+     * Get 增值税税额 
+     * @return TaxAmount 增值税税额
+     */
+    public String getTaxAmount() {
+        return this.TaxAmount;
+    }
+
+    /**
+     * Set 增值税税额
+     * @param TaxAmount 增值税税额
+     */
+    public void setTaxAmount(String TaxAmount) {
+        this.TaxAmount = TaxAmount;
     }
 
     public AirTransport() {
@@ -657,6 +819,27 @@ public class AirTransport extends AbstractModel{
                 this.FlightItems[i] = new FlightItem(source.FlightItems[i]);
             }
         }
+        if (source.PromptInformation != null) {
+            this.PromptInformation = new String(source.PromptInformation);
+        }
+        if (source.BuyerTaxID != null) {
+            this.BuyerTaxID = new String(source.BuyerTaxID);
+        }
+        if (source.Buyer != null) {
+            this.Buyer = new String(source.Buyer);
+        }
+        if (source.ReceiptNumber != null) {
+            this.ReceiptNumber = new String(source.ReceiptNumber);
+        }
+        if (source.InvoiceStatus != null) {
+            this.InvoiceStatus = new String(source.InvoiceStatus);
+        }
+        if (source.TaxRate != null) {
+            this.TaxRate = new String(source.TaxRate);
+        }
+        if (source.TaxAmount != null) {
+            this.TaxAmount = new String(source.TaxAmount);
+        }
     }
 
 
@@ -688,6 +871,13 @@ public class AirTransport extends AbstractModel{
         this.setParamSimple(map, prefix + "Endorsement", this.Endorsement);
         this.setParamSimple(map, prefix + "QRCodeMark", this.QRCodeMark);
         this.setParamArrayObj(map, prefix + "FlightItems.", this.FlightItems);
+        this.setParamSimple(map, prefix + "PromptInformation", this.PromptInformation);
+        this.setParamSimple(map, prefix + "BuyerTaxID", this.BuyerTaxID);
+        this.setParamSimple(map, prefix + "Buyer", this.Buyer);
+        this.setParamSimple(map, prefix + "ReceiptNumber", this.ReceiptNumber);
+        this.setParamSimple(map, prefix + "InvoiceStatus", this.InvoiceStatus);
+        this.setParamSimple(map, prefix + "TaxRate", this.TaxRate);
+        this.setParamSimple(map, prefix + "TaxAmount", this.TaxAmount);
 
     }
 }

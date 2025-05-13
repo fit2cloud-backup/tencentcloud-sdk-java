@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ManagerInfo extends AbstractModel{
+public class ManagerInfo extends AbstractModel {
 
     /**
     * 状态: audit: 审核中 ok: 审核通过 invalid: 失效 expiring: 即将过期 expired: 已过期
@@ -131,6 +132,13 @@ public class ManagerInfo extends AbstractModel{
     @SerializedName("StatusInfo")
     @Expose
     private ManagerStatusInfo [] StatusInfo;
+
+    /**
+    * 标签
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tags [] Tags;
 
     /**
      * Get 状态: audit: 审核中 ok: 审核通过 invalid: 失效 expiring: 即将过期 expired: 已过期 
@@ -392,6 +400,22 @@ public class ManagerInfo extends AbstractModel{
         this.StatusInfo = StatusInfo;
     }
 
+    /**
+     * Get 标签 
+     * @return Tags 标签
+     */
+    public Tags [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签
+     * @param Tags 标签
+     */
+    public void setTags(Tags [] Tags) {
+        this.Tags = Tags;
+    }
+
     public ManagerInfo() {
     }
 
@@ -448,6 +472,12 @@ public class ManagerInfo extends AbstractModel{
                 this.StatusInfo[i] = new ManagerStatusInfo(source.StatusInfo[i]);
             }
         }
+        if (source.Tags != null) {
+            this.Tags = new Tags[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tags(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -470,6 +500,7 @@ public class ManagerInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "SubmitAuditTime", this.SubmitAuditTime);
         this.setParamSimple(map, prefix + "VerifyTime", this.VerifyTime);
         this.setParamArrayObj(map, prefix + "StatusInfo.", this.StatusInfo);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

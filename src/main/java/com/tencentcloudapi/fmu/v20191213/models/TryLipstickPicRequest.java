@@ -16,11 +16,12 @@
 package com.tencentcloudapi.fmu.v20191213.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TryLipstickPicRequest extends AbstractModel{
+public class TryLipstickPicRequest extends AbstractModel {
 
     /**
     * 唇色信息。 
@@ -33,6 +34,7 @@ public class TryLipstickPicRequest extends AbstractModel{
     /**
     * 图片 base64 数据，base64 编码后大小不可超过6M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
     */
     @SerializedName("Image")
     @Expose
@@ -44,6 +46,7 @@ public class TryLipstickPicRequest extends AbstractModel{
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
     */
     @SerializedName("Url")
     @Expose
@@ -78,9 +81,11 @@ public class TryLipstickPicRequest extends AbstractModel{
 
     /**
      * Get 图片 base64 数据，base64 编码后大小不可超过6M。 
-支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。 
      * @return Image 图片 base64 数据，base64 编码后大小不可超过6M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public String getImage() {
         return this.Image;
@@ -89,8 +94,10 @@ public class TryLipstickPicRequest extends AbstractModel{
     /**
      * Set 图片 base64 数据，base64 编码后大小不可超过6M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      * @param Image 图片 base64 数据，base64 编码后大小不可超过6M。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public void setImage(String Image) {
         this.Image = Image;
@@ -101,12 +108,14 @@ public class TryLipstickPicRequest extends AbstractModel{
 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。 
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
-支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。 
      * @return Url 图片的 Url ，对应图片 base64 编码后大小不可超过6M。 
 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。 
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public String getUrl() {
         return this.Url;
@@ -118,11 +127,13 @@ public class TryLipstickPicRequest extends AbstractModel{
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      * @param Url 图片的 Url ，对应图片 base64 编码后大小不可超过6M。 
 图片的 Url、Image必须提供一个，如果都提供，只使用 Url。 
 图片存储于腾讯云的 Url 可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
      */
     public void setUrl(String Url) {
         this.Url = Url;

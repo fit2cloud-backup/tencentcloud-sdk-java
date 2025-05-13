@@ -16,15 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CtsdbModifyConnectParam extends AbstractModel{
+public class CtsdbModifyConnectParam extends AbstractModel {
 
     /**
     * Ctsdb的连接port
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Port")
     @Expose
@@ -32,7 +32,6 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
     * Ctsdb连接源的实例vip
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ServiceVip")
     @Expose
@@ -40,7 +39,6 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
     * Ctsdb连接源的vpcId
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UniqVpcId")
     @Expose
@@ -48,7 +46,6 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
     * Ctsdb连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserName")
     @Expose
@@ -56,7 +53,6 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
     * Ctsdb连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Password")
     @Expose
@@ -64,17 +60,14 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
     * Ctsdb连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resource")
     @Expose
     private String Resource;
 
     /**
-     * Get Ctsdb的连接port
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Ctsdb的连接port 
      * @return Port Ctsdb的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPort() {
         return this.Port;
@@ -82,19 +75,15 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
      * Set Ctsdb的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Port Ctsdb的连接port
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get Ctsdb连接源的实例vip
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Ctsdb连接源的实例vip 
      * @return ServiceVip Ctsdb连接源的实例vip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getServiceVip() {
         return this.ServiceVip;
@@ -102,19 +91,15 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
      * Set Ctsdb连接源的实例vip
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ServiceVip Ctsdb连接源的实例vip
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setServiceVip(String ServiceVip) {
         this.ServiceVip = ServiceVip;
     }
 
     /**
-     * Get Ctsdb连接源的vpcId
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Ctsdb连接源的vpcId 
      * @return UniqVpcId Ctsdb连接源的vpcId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUniqVpcId() {
         return this.UniqVpcId;
@@ -122,19 +107,15 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
      * Set Ctsdb连接源的vpcId
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UniqVpcId Ctsdb连接源的vpcId
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUniqVpcId(String UniqVpcId) {
         this.UniqVpcId = UniqVpcId;
     }
 
     /**
-     * Get Ctsdb连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Ctsdb连接源的用户名 
      * @return UserName Ctsdb连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserName() {
         return this.UserName;
@@ -142,19 +123,15 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
      * Set Ctsdb连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserName Ctsdb连接源的用户名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserName(String UserName) {
         this.UserName = UserName;
     }
 
     /**
-     * Get Ctsdb连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Ctsdb连接源的密码 
      * @return Password Ctsdb连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getPassword() {
         return this.Password;
@@ -162,19 +139,15 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
      * Set Ctsdb连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Password Ctsdb连接源的密码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
     /**
-     * Get Ctsdb连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Ctsdb连接源的实例资源 
      * @return Resource Ctsdb连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResource() {
         return this.Resource;
@@ -182,9 +155,7 @@ public class CtsdbModifyConnectParam extends AbstractModel{
 
     /**
      * Set Ctsdb连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Resource Ctsdb连接源的实例资源
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResource(String Resource) {
         this.Resource = Resource;

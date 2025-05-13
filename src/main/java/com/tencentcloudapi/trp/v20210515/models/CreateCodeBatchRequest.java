@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trp.v20210515.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateCodeBatchRequest extends AbstractModel{
+public class CreateCodeBatchRequest extends AbstractModel {
 
     /**
     * 企业ID
@@ -65,7 +66,7 @@ public class CreateCodeBatchRequest extends AbstractModel{
     private String Remark;
 
     /**
-    * 模版ID，或者活动ID
+    * 模板ID，或者活动ID
     */
     @SerializedName("MpTpl")
     @Expose
@@ -196,16 +197,16 @@ public class CreateCodeBatchRequest extends AbstractModel{
     }
 
     /**
-     * Get 模版ID，或者活动ID 
-     * @return MpTpl 模版ID，或者活动ID
+     * Get 模板ID，或者活动ID 
+     * @return MpTpl 模板ID，或者活动ID
      */
     public String getMpTpl() {
         return this.MpTpl;
     }
 
     /**
-     * Set 模版ID，或者活动ID
-     * @param MpTpl 模版ID，或者活动ID
+     * Set 模板ID，或者活动ID
+     * @param MpTpl 模板ID，或者活动ID
      */
     public void setMpTpl(String MpTpl) {
         this.MpTpl = MpTpl;

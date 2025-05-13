@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateJobConfigRequest extends AbstractModel{
+public class CreateJobConfigRequest extends AbstractModel {
 
     /**
     * 作业Id
@@ -37,7 +38,7 @@ public class CreateJobConfigRequest extends AbstractModel{
     private String EntrypointClass;
 
     /**
-    * 主类入参
+    * 主类入参，需要区分下Sql作业配置，Jar作业配置，Python作业配置，具体参考下面的示例值
     */
     @SerializedName("ProgramArgs")
     @Expose
@@ -177,6 +178,83 @@ public class CreateJobConfigRequest extends AbstractModel{
     private ExpertModeConfiguration ExpertModeConfiguration;
 
     /**
+    * trace链路
+    */
+    @SerializedName("TraceModeOn")
+    @Expose
+    private Boolean TraceModeOn;
+
+    /**
+    * trace链路配置
+    */
+    @SerializedName("TraceModeConfiguration")
+    @Expose
+    private TraceModeConfiguration TraceModeConfiguration;
+
+    /**
+    * checkpoint保留个数
+    */
+    @SerializedName("CheckpointRetainedNum")
+    @Expose
+    private Long CheckpointRetainedNum;
+
+    /**
+    * 算子拓扑图
+    */
+    @SerializedName("JobGraph")
+    @Expose
+    private JobGraph JobGraph;
+
+    /**
+    * es索引名称
+    */
+    @SerializedName("EsServerlessIndex")
+    @Expose
+    private String EsServerlessIndex;
+
+    /**
+    * es索引空间
+    */
+    @SerializedName("EsServerlessSpace")
+    @Expose
+    private String EsServerlessSpace;
+
+    /**
+    * flink版本
+    */
+    @SerializedName("FlinkVersion")
+    @Expose
+    private String FlinkVersion;
+
+    /**
+    * JobManager cpu
+    */
+    @SerializedName("JobManagerCpu")
+    @Expose
+    private Float JobManagerCpu;
+
+    /**
+    * JobManager 内存
+    */
+    @SerializedName("JobManagerMem")
+    @Expose
+    private Float JobManagerMem;
+
+    /**
+    * TaskManager cpu
+    */
+    @SerializedName("TaskManagerCpu")
+    @Expose
+    private Float TaskManagerCpu;
+
+    /**
+    * TaskManager 内存
+    */
+    @SerializedName("TaskManagerMem")
+    @Expose
+    private Float TaskManagerMem;
+
+    /**
      * Get 作业Id 
      * @return JobId 作业Id
      */
@@ -209,16 +287,16 @@ public class CreateJobConfigRequest extends AbstractModel{
     }
 
     /**
-     * Get 主类入参 
-     * @return ProgramArgs 主类入参
+     * Get 主类入参，需要区分下Sql作业配置，Jar作业配置，Python作业配置，具体参考下面的示例值 
+     * @return ProgramArgs 主类入参，需要区分下Sql作业配置，Jar作业配置，Python作业配置，具体参考下面的示例值
      */
     public String getProgramArgs() {
         return this.ProgramArgs;
     }
 
     /**
-     * Set 主类入参
-     * @param ProgramArgs 主类入参
+     * Set 主类入参，需要区分下Sql作业配置，Jar作业配置，Python作业配置，具体参考下面的示例值
+     * @param ProgramArgs 主类入参，需要区分下Sql作业配置，Jar作业配置，Python作业配置，具体参考下面的示例值
      */
     public void setProgramArgs(String ProgramArgs) {
         this.ProgramArgs = ProgramArgs;
@@ -528,6 +606,182 @@ public class CreateJobConfigRequest extends AbstractModel{
         this.ExpertModeConfiguration = ExpertModeConfiguration;
     }
 
+    /**
+     * Get trace链路 
+     * @return TraceModeOn trace链路
+     */
+    public Boolean getTraceModeOn() {
+        return this.TraceModeOn;
+    }
+
+    /**
+     * Set trace链路
+     * @param TraceModeOn trace链路
+     */
+    public void setTraceModeOn(Boolean TraceModeOn) {
+        this.TraceModeOn = TraceModeOn;
+    }
+
+    /**
+     * Get trace链路配置 
+     * @return TraceModeConfiguration trace链路配置
+     */
+    public TraceModeConfiguration getTraceModeConfiguration() {
+        return this.TraceModeConfiguration;
+    }
+
+    /**
+     * Set trace链路配置
+     * @param TraceModeConfiguration trace链路配置
+     */
+    public void setTraceModeConfiguration(TraceModeConfiguration TraceModeConfiguration) {
+        this.TraceModeConfiguration = TraceModeConfiguration;
+    }
+
+    /**
+     * Get checkpoint保留个数 
+     * @return CheckpointRetainedNum checkpoint保留个数
+     */
+    public Long getCheckpointRetainedNum() {
+        return this.CheckpointRetainedNum;
+    }
+
+    /**
+     * Set checkpoint保留个数
+     * @param CheckpointRetainedNum checkpoint保留个数
+     */
+    public void setCheckpointRetainedNum(Long CheckpointRetainedNum) {
+        this.CheckpointRetainedNum = CheckpointRetainedNum;
+    }
+
+    /**
+     * Get 算子拓扑图 
+     * @return JobGraph 算子拓扑图
+     */
+    public JobGraph getJobGraph() {
+        return this.JobGraph;
+    }
+
+    /**
+     * Set 算子拓扑图
+     * @param JobGraph 算子拓扑图
+     */
+    public void setJobGraph(JobGraph JobGraph) {
+        this.JobGraph = JobGraph;
+    }
+
+    /**
+     * Get es索引名称 
+     * @return EsServerlessIndex es索引名称
+     */
+    public String getEsServerlessIndex() {
+        return this.EsServerlessIndex;
+    }
+
+    /**
+     * Set es索引名称
+     * @param EsServerlessIndex es索引名称
+     */
+    public void setEsServerlessIndex(String EsServerlessIndex) {
+        this.EsServerlessIndex = EsServerlessIndex;
+    }
+
+    /**
+     * Get es索引空间 
+     * @return EsServerlessSpace es索引空间
+     */
+    public String getEsServerlessSpace() {
+        return this.EsServerlessSpace;
+    }
+
+    /**
+     * Set es索引空间
+     * @param EsServerlessSpace es索引空间
+     */
+    public void setEsServerlessSpace(String EsServerlessSpace) {
+        this.EsServerlessSpace = EsServerlessSpace;
+    }
+
+    /**
+     * Get flink版本 
+     * @return FlinkVersion flink版本
+     */
+    public String getFlinkVersion() {
+        return this.FlinkVersion;
+    }
+
+    /**
+     * Set flink版本
+     * @param FlinkVersion flink版本
+     */
+    public void setFlinkVersion(String FlinkVersion) {
+        this.FlinkVersion = FlinkVersion;
+    }
+
+    /**
+     * Get JobManager cpu 
+     * @return JobManagerCpu JobManager cpu
+     */
+    public Float getJobManagerCpu() {
+        return this.JobManagerCpu;
+    }
+
+    /**
+     * Set JobManager cpu
+     * @param JobManagerCpu JobManager cpu
+     */
+    public void setJobManagerCpu(Float JobManagerCpu) {
+        this.JobManagerCpu = JobManagerCpu;
+    }
+
+    /**
+     * Get JobManager 内存 
+     * @return JobManagerMem JobManager 内存
+     */
+    public Float getJobManagerMem() {
+        return this.JobManagerMem;
+    }
+
+    /**
+     * Set JobManager 内存
+     * @param JobManagerMem JobManager 内存
+     */
+    public void setJobManagerMem(Float JobManagerMem) {
+        this.JobManagerMem = JobManagerMem;
+    }
+
+    /**
+     * Get TaskManager cpu 
+     * @return TaskManagerCpu TaskManager cpu
+     */
+    public Float getTaskManagerCpu() {
+        return this.TaskManagerCpu;
+    }
+
+    /**
+     * Set TaskManager cpu
+     * @param TaskManagerCpu TaskManager cpu
+     */
+    public void setTaskManagerCpu(Float TaskManagerCpu) {
+        this.TaskManagerCpu = TaskManagerCpu;
+    }
+
+    /**
+     * Get TaskManager 内存 
+     * @return TaskManagerMem TaskManager 内存
+     */
+    public Float getTaskManagerMem() {
+        return this.TaskManagerMem;
+    }
+
+    /**
+     * Set TaskManager 内存
+     * @param TaskManagerMem TaskManager 内存
+     */
+    public void setTaskManagerMem(Float TaskManagerMem) {
+        this.TaskManagerMem = TaskManagerMem;
+    }
+
     public CreateJobConfigRequest() {
     }
 
@@ -611,6 +865,39 @@ public class CreateJobConfigRequest extends AbstractModel{
         if (source.ExpertModeConfiguration != null) {
             this.ExpertModeConfiguration = new ExpertModeConfiguration(source.ExpertModeConfiguration);
         }
+        if (source.TraceModeOn != null) {
+            this.TraceModeOn = new Boolean(source.TraceModeOn);
+        }
+        if (source.TraceModeConfiguration != null) {
+            this.TraceModeConfiguration = new TraceModeConfiguration(source.TraceModeConfiguration);
+        }
+        if (source.CheckpointRetainedNum != null) {
+            this.CheckpointRetainedNum = new Long(source.CheckpointRetainedNum);
+        }
+        if (source.JobGraph != null) {
+            this.JobGraph = new JobGraph(source.JobGraph);
+        }
+        if (source.EsServerlessIndex != null) {
+            this.EsServerlessIndex = new String(source.EsServerlessIndex);
+        }
+        if (source.EsServerlessSpace != null) {
+            this.EsServerlessSpace = new String(source.EsServerlessSpace);
+        }
+        if (source.FlinkVersion != null) {
+            this.FlinkVersion = new String(source.FlinkVersion);
+        }
+        if (source.JobManagerCpu != null) {
+            this.JobManagerCpu = new Float(source.JobManagerCpu);
+        }
+        if (source.JobManagerMem != null) {
+            this.JobManagerMem = new Float(source.JobManagerMem);
+        }
+        if (source.TaskManagerCpu != null) {
+            this.TaskManagerCpu = new Float(source.TaskManagerCpu);
+        }
+        if (source.TaskManagerMem != null) {
+            this.TaskManagerMem = new Float(source.TaskManagerMem);
+        }
     }
 
 
@@ -640,6 +927,17 @@ public class CreateJobConfigRequest extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ClazzLevels.", this.ClazzLevels);
         this.setParamSimple(map, prefix + "ExpertModeOn", this.ExpertModeOn);
         this.setParamObj(map, prefix + "ExpertModeConfiguration.", this.ExpertModeConfiguration);
+        this.setParamSimple(map, prefix + "TraceModeOn", this.TraceModeOn);
+        this.setParamObj(map, prefix + "TraceModeConfiguration.", this.TraceModeConfiguration);
+        this.setParamSimple(map, prefix + "CheckpointRetainedNum", this.CheckpointRetainedNum);
+        this.setParamObj(map, prefix + "JobGraph.", this.JobGraph);
+        this.setParamSimple(map, prefix + "EsServerlessIndex", this.EsServerlessIndex);
+        this.setParamSimple(map, prefix + "EsServerlessSpace", this.EsServerlessSpace);
+        this.setParamSimple(map, prefix + "FlinkVersion", this.FlinkVersion);
+        this.setParamSimple(map, prefix + "JobManagerCpu", this.JobManagerCpu);
+        this.setParamSimple(map, prefix + "JobManagerMem", this.JobManagerMem);
+        this.setParamSimple(map, prefix + "TaskManagerCpu", this.TaskManagerCpu);
+        this.setParamSimple(map, prefix + "TaskManagerMem", this.TaskManagerMem);
 
     }
 }

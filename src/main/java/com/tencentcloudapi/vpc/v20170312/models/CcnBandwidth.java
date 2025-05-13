@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CcnBandwidth extends AbstractModel{
+public class CcnBandwidth extends AbstractModel {
 
     /**
     * 带宽所属的云联网ID。
@@ -31,7 +32,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 实例的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreatedTime")
     @Expose
@@ -39,7 +39,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 实例的过期时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ExpiredTime")
     @Expose
@@ -47,7 +46,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 带宽实例的唯一ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionFlowControlId")
     @Expose
@@ -55,7 +53,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 带宽是否自动续费的标记。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RenewFlag")
     @Expose
@@ -63,7 +60,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CcnRegionBandwidthLimit")
     @Expose
@@ -71,7 +67,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 云市场实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MarketId")
     @Expose
@@ -79,7 +74,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 实例所属用户主账号ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserAccountID")
     @Expose
@@ -87,7 +81,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 是否跨境，`true`表示跨境，反之不跨境。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsCrossBorder")
     @Expose
@@ -95,7 +88,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * `true`表示封禁，地域间流量不通，`false`解禁，地域间流量正常
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsSecurityLock")
     @Expose
@@ -103,7 +95,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * `POSTPAID`表示后付费，`PREPAID`表示预付费。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -111,7 +102,6 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
     * 实例更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -134,10 +124,8 @@ public class CcnBandwidth extends AbstractModel{
     }
 
     /**
-     * Get 实例的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例的创建时间。 
      * @return CreatedTime 实例的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreatedTime() {
         return this.CreatedTime;
@@ -145,19 +133,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 实例的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreatedTime 实例的创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreatedTime(String CreatedTime) {
         this.CreatedTime = CreatedTime;
     }
 
     /**
-     * Get 实例的过期时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例的过期时间 
      * @return ExpiredTime 实例的过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExpiredTime() {
         return this.ExpiredTime;
@@ -165,19 +149,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 实例的过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ExpiredTime 实例的过期时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExpiredTime(String ExpiredTime) {
         this.ExpiredTime = ExpiredTime;
     }
 
     /**
-     * Get 带宽实例的唯一ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带宽实例的唯一ID。 
      * @return RegionFlowControlId 带宽实例的唯一ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionFlowControlId() {
         return this.RegionFlowControlId;
@@ -185,19 +165,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 带宽实例的唯一ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionFlowControlId 带宽实例的唯一ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionFlowControlId(String RegionFlowControlId) {
         this.RegionFlowControlId = RegionFlowControlId;
     }
 
     /**
-     * Get 带宽是否自动续费的标记。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带宽是否自动续费的标记。 
      * @return RenewFlag 带宽是否自动续费的标记。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRenewFlag() {
         return this.RenewFlag;
@@ -205,19 +181,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 带宽是否自动续费的标记。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RenewFlag 带宽是否自动续费的标记。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRenewFlag(String RenewFlag) {
         this.RenewFlag = RenewFlag;
     }
 
     /**
-     * Get 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。 
      * @return CcnRegionBandwidthLimit 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public CcnRegionBandwidthLimitInfo getCcnRegionBandwidthLimit() {
         return this.CcnRegionBandwidthLimit;
@@ -225,19 +197,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CcnRegionBandwidthLimit 描述带宽的地域和限速上限信息。在地域间限速的情况下才会返回参数，出口限速模式不返回。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCcnRegionBandwidthLimit(CcnRegionBandwidthLimitInfo CcnRegionBandwidthLimit) {
         this.CcnRegionBandwidthLimit = CcnRegionBandwidthLimit;
     }
 
     /**
-     * Get 云市场实例ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 云市场实例ID。 
      * @return MarketId 云市场实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMarketId() {
         return this.MarketId;
@@ -245,19 +213,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 云市场实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MarketId 云市场实例ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMarketId(String MarketId) {
         this.MarketId = MarketId;
     }
 
     /**
-     * Get 实例所属用户主账号ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例所属用户主账号ID。 
      * @return UserAccountID 实例所属用户主账号ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserAccountID() {
         return this.UserAccountID;
@@ -265,19 +229,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 实例所属用户主账号ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserAccountID 实例所属用户主账号ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserAccountID(String UserAccountID) {
         this.UserAccountID = UserAccountID;
     }
 
     /**
-     * Get 是否跨境，`true`表示跨境，反之不跨境。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否跨境，`true`表示跨境，反之不跨境。 
      * @return IsCrossBorder 是否跨境，`true`表示跨境，反之不跨境。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsCrossBorder() {
         return this.IsCrossBorder;
@@ -285,19 +245,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 是否跨境，`true`表示跨境，反之不跨境。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsCrossBorder 是否跨境，`true`表示跨境，反之不跨境。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsCrossBorder(Boolean IsCrossBorder) {
         this.IsCrossBorder = IsCrossBorder;
     }
 
     /**
-     * Get `true`表示封禁，地域间流量不通，`false`解禁，地域间流量正常
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get `true`表示封禁，地域间流量不通，`false`解禁，地域间流量正常 
      * @return IsSecurityLock `true`表示封禁，地域间流量不通，`false`解禁，地域间流量正常
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsSecurityLock() {
         return this.IsSecurityLock;
@@ -305,19 +261,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set `true`表示封禁，地域间流量不通，`false`解禁，地域间流量正常
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsSecurityLock `true`表示封禁，地域间流量不通，`false`解禁，地域间流量正常
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsSecurityLock(Boolean IsSecurityLock) {
         this.IsSecurityLock = IsSecurityLock;
     }
 
     /**
-     * Get `POSTPAID`表示后付费，`PREPAID`表示预付费。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get `POSTPAID`表示后付费，`PREPAID`表示预付费。 
      * @return InstanceChargeType `POSTPAID`表示后付费，`PREPAID`表示预付费。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
@@ -325,19 +277,15 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set `POSTPAID`表示后付费，`PREPAID`表示预付费。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceChargeType `POSTPAID`表示后付费，`PREPAID`表示预付费。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
     }
 
     /**
-     * Get 实例更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例更新时间 
      * @return UpdateTime 实例更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -345,9 +293,7 @@ public class CcnBandwidth extends AbstractModel{
 
     /**
      * Set 实例更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 实例更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCertificateOperateLogsRequest extends AbstractModel{
+public class DescribeCertificateOperateLogsRequest extends AbstractModel {
 
     /**
     * 偏移量，默认为0。
@@ -30,7 +31,7 @@ public class DescribeCertificateOperateLogsRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 请求日志数量，默认为20。
+    * 请求日志数量，默认为20, 最大值为1000，如超过1000按照1000处理。
     */
     @SerializedName("Limit")
     @Expose
@@ -67,16 +68,16 @@ public class DescribeCertificateOperateLogsRequest extends AbstractModel{
     }
 
     /**
-     * Get 请求日志数量，默认为20。 
-     * @return Limit 请求日志数量，默认为20。
+     * Get 请求日志数量，默认为20, 最大值为1000，如超过1000按照1000处理。 
+     * @return Limit 请求日志数量，默认为20, 最大值为1000，如超过1000按照1000处理。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 请求日志数量，默认为20。
-     * @param Limit 请求日志数量，默认为20。
+     * Set 请求日志数量，默认为20, 最大值为1000，如超过1000按照1000处理。
+     * @param Limit 请求日志数量，默认为20, 最大值为1000，如超过1000按照1000处理。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;

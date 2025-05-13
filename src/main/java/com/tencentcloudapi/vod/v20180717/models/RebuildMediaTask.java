@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RebuildMediaTask extends AbstractModel{
+public class RebuildMediaTask extends AbstractModel {
 
     /**
     * 任务 ID。
@@ -71,7 +72,6 @@ public class RebuildMediaTask extends AbstractModel{
 
     /**
     * 音画质重生任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Input")
     @Expose
@@ -79,7 +79,6 @@ public class RebuildMediaTask extends AbstractModel{
 
     /**
     * 音画质重生任务的输出。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
     @Expose
@@ -87,7 +86,6 @@ public class RebuildMediaTask extends AbstractModel{
 
     /**
     * 音画质重生输出视频的元信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MetaData")
     @Expose
@@ -224,10 +222,8 @@ public class RebuildMediaTask extends AbstractModel{
     }
 
     /**
-     * Get 音画质重生任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音画质重生任务的输入。 
      * @return Input 音画质重生任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RebuildMediaTaskInput getInput() {
         return this.Input;
@@ -235,19 +231,15 @@ public class RebuildMediaTask extends AbstractModel{
 
     /**
      * Set 音画质重生任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Input 音画质重生任务的输入。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInput(RebuildMediaTaskInput Input) {
         this.Input = Input;
     }
 
     /**
-     * Get 音画质重生任务的输出。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音画质重生任务的输出。 
      * @return Output 音画质重生任务的输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RebuildMediaTaskOutput getOutput() {
         return this.Output;
@@ -255,19 +247,15 @@ public class RebuildMediaTask extends AbstractModel{
 
     /**
      * Set 音画质重生任务的输出。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Output 音画质重生任务的输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(RebuildMediaTaskOutput Output) {
         this.Output = Output;
     }
 
     /**
-     * Get 音画质重生输出视频的元信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音画质重生输出视频的元信息。 
      * @return MetaData 音画质重生输出视频的元信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MediaMetaData getMetaData() {
         return this.MetaData;
@@ -275,9 +263,7 @@ public class RebuildMediaTask extends AbstractModel{
 
     /**
      * Set 音画质重生输出视频的元信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MetaData 音画质重生输出视频的元信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetaData(MediaMetaData MetaData) {
         this.MetaData = MetaData;

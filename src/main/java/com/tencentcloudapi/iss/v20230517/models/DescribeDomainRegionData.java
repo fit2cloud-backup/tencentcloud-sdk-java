@@ -16,15 +16,15 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDomainRegionData extends AbstractModel{
+public class DescribeDomainRegionData extends AbstractModel {
 
     /**
     * 服务节点描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Label")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeDomainRegionData extends AbstractModel{
 
     /**
     * 服务节点 ID（对应为其他接口中所需的 ClusterId）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
@@ -40,17 +39,14 @@ public class DescribeDomainRegionData extends AbstractModel{
 
     /**
     * 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
     private String Region;
 
     /**
-     * Get 服务节点描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务节点描述 
      * @return Label 服务节点描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLabel() {
         return this.Label;
@@ -58,19 +54,15 @@ public class DescribeDomainRegionData extends AbstractModel{
 
     /**
      * Set 服务节点描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Label 服务节点描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabel(String Label) {
         this.Label = Label;
     }
 
     /**
-     * Get 服务节点 ID（对应为其他接口中所需的 ClusterId）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 服务节点 ID（对应为其他接口中所需的 ClusterId） 
      * @return Value 服务节点 ID（对应为其他接口中所需的 ClusterId）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -78,19 +70,15 @@ public class DescribeDomainRegionData extends AbstractModel{
 
     /**
      * Set 服务节点 ID（对应为其他接口中所需的 ClusterId）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 服务节点 ID（对应为其他接口中所需的 ClusterId）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;
     }
 
     /**
-     * Get 地域信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域信息 
      * @return Region 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -98,9 +86,7 @@ public class DescribeDomainRegionData extends AbstractModel{
 
     /**
      * Set 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;

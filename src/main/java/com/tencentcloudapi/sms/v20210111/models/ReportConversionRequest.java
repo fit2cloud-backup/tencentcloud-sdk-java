@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sms.v20210111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ReportConversionRequest extends AbstractModel{
+public class ReportConversionRequest extends AbstractModel {
 
     /**
     * 短信应用ID。在 [短信控制台](https://console.cloud.tencent.com/smsv2/app-manage)  添加应用后生成的实际 SdkAppId，示例如1400006666。
@@ -30,7 +31,7 @@ public class ReportConversionRequest extends AbstractModel{
     private String SmsSdkAppId;
 
     /**
-    * 发送短信返回的流水号。
+    * 发送短信返回的流水号。对应SendSms接口返回的SendStatusSet参数中的SerialNo字段。 
     */
     @SerializedName("SerialNo")
     @Expose
@@ -60,16 +61,16 @@ public class ReportConversionRequest extends AbstractModel{
     }
 
     /**
-     * Get 发送短信返回的流水号。 
-     * @return SerialNo 发送短信返回的流水号。
+     * Get 发送短信返回的流水号。对应SendSms接口返回的SendStatusSet参数中的SerialNo字段。  
+     * @return SerialNo 发送短信返回的流水号。对应SendSms接口返回的SendStatusSet参数中的SerialNo字段。 
      */
     public String getSerialNo() {
         return this.SerialNo;
     }
 
     /**
-     * Set 发送短信返回的流水号。
-     * @param SerialNo 发送短信返回的流水号。
+     * Set 发送短信返回的流水号。对应SendSms接口返回的SendStatusSet参数中的SerialNo字段。 
+     * @param SerialNo 发送短信返回的流水号。对应SendSms接口返回的SendStatusSet参数中的SerialNo字段。 
      */
     public void setSerialNo(String SerialNo) {
         this.SerialNo = SerialNo;

@@ -16,33 +16,32 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Admin extends AbstractModel{
+public class Admin extends AbstractModel {
 
     /**
     * 超管名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
     private String Name;
 
     /**
-    * 超管手机号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 超管手机号，打码显示
+示例值：138****1569
+
     */
     @SerializedName("Mobile")
     @Expose
     private String Mobile;
 
     /**
-     * Get 超管名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 超管名 
      * @return Name 超管名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -50,29 +49,31 @@ public class Admin extends AbstractModel{
 
     /**
      * Set 超管名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 超管名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 超管手机号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Mobile 超管手机号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 超管手机号，打码显示
+示例值：138****1569
+ 
+     * @return Mobile 超管手机号，打码显示
+示例值：138****1569
+
      */
     public String getMobile() {
         return this.Mobile;
     }
 
     /**
-     * Set 超管手机号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Mobile 超管手机号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 超管手机号，打码显示
+示例值：138****1569
+
+     * @param Mobile 超管手机号，打码显示
+示例值：138****1569
+
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;

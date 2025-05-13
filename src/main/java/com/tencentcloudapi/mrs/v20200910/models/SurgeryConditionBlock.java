@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SurgeryConditionBlock extends AbstractModel{
+public class SurgeryConditionBlock extends AbstractModel {
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class SurgeryConditionBlock extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -40,7 +39,6 @@ public class SurgeryConditionBlock extends AbstractModel{
 
     /**
     * 手术历史
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SurgeryList")
     @Expose
@@ -49,17 +47,14 @@ public class SurgeryConditionBlock extends AbstractModel{
     /**
     * 对外输出值
 
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
     private String Value;
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -67,19 +62,15 @@ public class SurgeryConditionBlock extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -87,19 +78,15 @@ public class SurgeryConditionBlock extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get 手术历史
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 手术历史 
      * @return SurgeryList 手术历史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SurgeryListBlock [] getSurgeryList() {
         return this.SurgeryList;
@@ -107,9 +94,7 @@ public class SurgeryConditionBlock extends AbstractModel{
 
     /**
      * Set 手术历史
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SurgeryList 手术历史
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSurgeryList(SurgeryListBlock [] SurgeryList) {
         this.SurgeryList = SurgeryList;
@@ -117,11 +102,9 @@ public class SurgeryConditionBlock extends AbstractModel{
 
     /**
      * Get 对外输出值
-
-注意：此字段可能返回 null，表示取不到有效值。 
+ 
      * @return Value 对外输出值
 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -130,10 +113,8 @@ public class SurgeryConditionBlock extends AbstractModel{
     /**
      * Set 对外输出值
 
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 对外输出值
 
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

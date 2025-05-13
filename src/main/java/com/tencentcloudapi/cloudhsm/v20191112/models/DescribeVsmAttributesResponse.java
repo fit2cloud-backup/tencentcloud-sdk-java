@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudhsm.v20191112.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVsmAttributesResponse extends AbstractModel{
+public class DescribeVsmAttributesResponse extends AbstractModel {
 
     /**
     * 资源Id
@@ -100,8 +101,7 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     private Long ExpireTime;
 
     /**
-    * 安全组详情信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 安全组详情信息,如果未配置字段返回null
     */
     @SerializedName("SgList")
     @Expose
@@ -109,7 +109,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 子网名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetName")
     @Expose
@@ -117,7 +116,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 地域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionName")
     @Expose
@@ -125,7 +123,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 区域名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneName")
     @Expose
@@ -133,7 +130,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 实例是否已经过期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Expired")
     @Expose
@@ -141,7 +137,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 为正数表示实例距离过期时间剩余秒数，为负数表示实例已经过期多少秒
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RemainSeconds")
     @Expose
@@ -149,7 +144,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 私有虚拟网络名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcName")
     @Expose
@@ -157,7 +151,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * VPC的IPv4 CIDR
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpcCidrBlock")
     @Expose
@@ -165,15 +158,13 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 子网的CIDR
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetCidrBlock")
     @Expose
     private String SubnetCidrBlock;
 
     /**
-    * 资源所关联的Tag
-注意：此字段可能返回 null，表示取不到有效值。
+    * 资源所关联的标签Tag
     */
     @SerializedName("Tags")
     @Expose
@@ -181,7 +172,6 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RenewFlag")
     @Expose
@@ -189,14 +179,13 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
     * 厂商
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Manufacturer")
     @Expose
     private String Manufacturer;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -379,30 +368,24 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
     }
 
     /**
-     * Get 安全组详情信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SgList 安全组详情信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 安全组详情信息,如果未配置字段返回null 
+     * @return SgList 安全组详情信息,如果未配置字段返回null
      */
     public UsgRuleDetail [] getSgList() {
         return this.SgList;
     }
 
     /**
-     * Set 安全组详情信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SgList 安全组详情信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 安全组详情信息,如果未配置字段返回null
+     * @param SgList 安全组详情信息,如果未配置字段返回null
      */
     public void setSgList(UsgRuleDetail [] SgList) {
         this.SgList = SgList;
     }
 
     /**
-     * Get 子网名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网名 
      * @return SubnetName 子网名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetName() {
         return this.SubnetName;
@@ -410,19 +393,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 子网名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetName 子网名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetName(String SubnetName) {
         this.SubnetName = SubnetName;
     }
 
     /**
-     * Get 地域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域名 
      * @return RegionName 地域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegionName() {
         return this.RegionName;
@@ -430,19 +409,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 地域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionName 地域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionName(String RegionName) {
         this.RegionName = RegionName;
     }
 
     /**
-     * Get 区域名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区域名 
      * @return ZoneName 区域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getZoneName() {
         return this.ZoneName;
@@ -450,19 +425,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 区域名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneName 区域名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneName(String ZoneName) {
         this.ZoneName = ZoneName;
     }
 
     /**
-     * Get 实例是否已经过期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例是否已经过期 
      * @return Expired 实例是否已经过期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getExpired() {
         return this.Expired;
@@ -470,19 +441,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 实例是否已经过期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Expired 实例是否已经过期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExpired(Boolean Expired) {
         this.Expired = Expired;
     }
 
     /**
-     * Get 为正数表示实例距离过期时间剩余秒数，为负数表示实例已经过期多少秒
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 为正数表示实例距离过期时间剩余秒数，为负数表示实例已经过期多少秒 
      * @return RemainSeconds 为正数表示实例距离过期时间剩余秒数，为负数表示实例已经过期多少秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRemainSeconds() {
         return this.RemainSeconds;
@@ -490,19 +457,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 为正数表示实例距离过期时间剩余秒数，为负数表示实例已经过期多少秒
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RemainSeconds 为正数表示实例距离过期时间剩余秒数，为负数表示实例已经过期多少秒
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemainSeconds(Long RemainSeconds) {
         this.RemainSeconds = RemainSeconds;
     }
 
     /**
-     * Get 私有虚拟网络名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 私有虚拟网络名称 
      * @return VpcName 私有虚拟网络名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcName() {
         return this.VpcName;
@@ -510,19 +473,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 私有虚拟网络名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcName 私有虚拟网络名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcName(String VpcName) {
         this.VpcName = VpcName;
     }
 
     /**
-     * Get VPC的IPv4 CIDR
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get VPC的IPv4 CIDR 
      * @return VpcCidrBlock VPC的IPv4 CIDR
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpcCidrBlock() {
         return this.VpcCidrBlock;
@@ -530,19 +489,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set VPC的IPv4 CIDR
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpcCidrBlock VPC的IPv4 CIDR
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpcCidrBlock(String VpcCidrBlock) {
         this.VpcCidrBlock = VpcCidrBlock;
     }
 
     /**
-     * Get 子网的CIDR
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 子网的CIDR 
      * @return SubnetCidrBlock 子网的CIDR
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSubnetCidrBlock() {
         return this.SubnetCidrBlock;
@@ -550,39 +505,31 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 子网的CIDR
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetCidrBlock 子网的CIDR
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetCidrBlock(String SubnetCidrBlock) {
         this.SubnetCidrBlock = SubnetCidrBlock;
     }
 
     /**
-     * Get 资源所关联的Tag
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Tags 资源所关联的Tag
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 资源所关联的标签Tag 
+     * @return Tags 资源所关联的标签Tag
      */
     public Tag [] getTags() {
         return this.Tags;
     }
 
     /**
-     * Set 资源所关联的Tag
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Tags 资源所关联的Tag
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 资源所关联的标签Tag
+     * @param Tags 资源所关联的标签Tag
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置) 
      * @return RenewFlag 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRenewFlag() {
         return this.RenewFlag;
@@ -590,19 +537,15 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RenewFlag 资源续费标识，0表示默认状态(用户未设置，即初始状态)， 1表示自动续费，2表示明确不自动续费(用户设置)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRenewFlag(Long RenewFlag) {
         this.RenewFlag = RenewFlag;
     }
 
     /**
-     * Get 厂商
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 厂商 
      * @return Manufacturer 厂商
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getManufacturer() {
         return this.Manufacturer;
@@ -610,25 +553,23 @@ public class DescribeVsmAttributesResponse extends AbstractModel{
 
     /**
      * Set 厂商
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Manufacturer 厂商
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setManufacturer(String Manufacturer) {
         this.Manufacturer = Manufacturer;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProcessImageRequest extends AbstractModel{
+public class ProcessImageRequest extends AbstractModel {
 
     /**
     * 媒体文件 ID，即该文件在云点播上的全局唯一标识符。本接口要求媒体文件必须是图片格式。
@@ -37,18 +38,18 @@ public class ProcessImageRequest extends AbstractModel{
     private String Operation;
 
     /**
+    * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+    */
+    @SerializedName("SubAppId")
+    @Expose
+    private Long SubAppId;
+
+    /**
     * 图片内容智能识别参数，当 Operation 为 ContentReview 时该字段有效。
     */
     @SerializedName("ContentReviewInput")
     @Expose
     private ImageContentReviewInput ContentReviewInput;
-
-    /**
-    * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-    */
-    @SerializedName("SubAppId")
-    @Expose
-    private Long SubAppId;
 
     /**
      * Get 媒体文件 ID，即该文件在云点播上的全局唯一标识符。本接口要求媒体文件必须是图片格式。 
@@ -83,6 +84,22 @@ public class ProcessImageRequest extends AbstractModel{
     }
 
     /**
+     * Get <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b> 
+     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public Long getSubAppId() {
+        return this.SubAppId;
+    }
+
+    /**
+     * Set <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     * @param SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+     */
+    public void setSubAppId(Long SubAppId) {
+        this.SubAppId = SubAppId;
+    }
+
+    /**
      * Get 图片内容智能识别参数，当 Operation 为 ContentReview 时该字段有效。 
      * @return ContentReviewInput 图片内容智能识别参数，当 Operation 为 ContentReview 时该字段有效。
      */
@@ -96,22 +113,6 @@ public class ProcessImageRequest extends AbstractModel{
      */
     public void setContentReviewInput(ImageContentReviewInput ContentReviewInput) {
         this.ContentReviewInput = ContentReviewInput;
-    }
-
-    /**
-     * Get 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 
-     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public Long getSubAppId() {
-        return this.SubAppId;
-    }
-
-    /**
-     * Set 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-     */
-    public void setSubAppId(Long SubAppId) {
-        this.SubAppId = SubAppId;
     }
 
     public ProcessImageRequest() {
@@ -128,11 +129,11 @@ public class ProcessImageRequest extends AbstractModel{
         if (source.Operation != null) {
             this.Operation = new String(source.Operation);
         }
-        if (source.ContentReviewInput != null) {
-            this.ContentReviewInput = new ImageContentReviewInput(source.ContentReviewInput);
-        }
         if (source.SubAppId != null) {
             this.SubAppId = new Long(source.SubAppId);
+        }
+        if (source.ContentReviewInput != null) {
+            this.ContentReviewInput = new ImageContentReviewInput(source.ContentReviewInput);
         }
     }
 
@@ -143,8 +144,8 @@ public class ProcessImageRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FileId", this.FileId);
         this.setParamSimple(map, prefix + "Operation", this.Operation);
-        this.setParamObj(map, prefix + "ContentReviewInput.", this.ContentReviewInput);
         this.setParamSimple(map, prefix + "SubAppId", this.SubAppId);
+        this.setParamObj(map, prefix + "ContentReviewInput.", this.ContentReviewInput);
 
     }
 }

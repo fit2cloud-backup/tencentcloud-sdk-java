@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchLogInfos extends AbstractModel{
+public class SearchLogInfos extends AbstractModel {
 
     /**
     * 日志主题ID
@@ -38,7 +39,6 @@ public class SearchLogInfos extends AbstractModel{
 
     /**
     * 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Context")
     @Expose
@@ -77,10 +77,8 @@ public class SearchLogInfos extends AbstractModel{
     }
 
     /**
-     * Get 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时 
      * @return Context 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getContext() {
         return this.Context;
@@ -88,9 +86,7 @@ public class SearchLogInfos extends AbstractModel{
 
     /**
      * Set 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Context 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setContext(String Context) {
         this.Context = Context;

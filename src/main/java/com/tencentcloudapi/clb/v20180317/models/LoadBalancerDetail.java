@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LoadBalancerDetail extends AbstractModel{
+public class LoadBalancerDetail extends AbstractModel {
 
     /**
     * 负载均衡实例 ID。
@@ -38,7 +39,7 @@ public class LoadBalancerDetail extends AbstractModel{
 
     /**
     * 负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerType")
@@ -95,7 +96,7 @@ Public：公网属性， Private：内网属性。
     private String Zone;
 
     /**
-    * 负载均衡实例IP地址所属的ISP。
+    * 负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AddressIsp")
@@ -127,7 +128,7 @@ Public：公网属性， Private：内网属性。
     private String CreateTime;
 
     /**
-    * 负载均衡实例的计费类型。
+    * 负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChargeType")
@@ -271,7 +272,7 @@ Public：公网属性， Private：内网属性。
     private String [] SecurityGroup;
 
     /**
-    * 负载均衡安全组上移特性是否开启标识。
+    * 负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerPassToTarget")
@@ -311,7 +312,7 @@ Public：公网属性， Private：内网属性。
     private String [] Zones;
 
     /**
-    * 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）。
+    * 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SniSwitch")
@@ -320,11 +321,42 @@ Public：公网属性， Private：内网属性。
 
     /**
     * 负载均衡实例的域名。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LoadBalancerDomain")
     @Expose
     private String LoadBalancerDomain;
+
+    /**
+    * 网络出口
+    */
+    @SerializedName("Egress")
+    @Expose
+    private String Egress;
+
+    /**
+    * 负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("AttributeFlags")
+    @Expose
+    private String [] AttributeFlags;
+
+    /**
+    * 负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SlaType")
+    @Expose
+    private String SlaType;
+
+    /**
+    * 0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Exclusive")
+    @Expose
+    private Long Exclusive;
 
     /**
      * Get 负载均衡实例 ID。 
@@ -360,10 +392,10 @@ Public：公网属性， Private：内网属性。
 
     /**
      * Get 负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return LoadBalancerType 负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLoadBalancerType() {
@@ -372,10 +404,10 @@ Public：公网属性， Private：内网属性。
 
     /**
      * Set 负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadBalancerType 负载均衡实例的网络类型：
-Public：公网属性， Private：内网属性。
+Public：公网属性，Private：内网属性；对于内网属性的负载均衡，可通过绑定EIP出公网，具体可参考EIP文档。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerType(String LoadBalancerType) {
@@ -507,9 +539,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Get 负载均衡实例IP地址所属的ISP。
+     * Get 负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AddressIsp 负载均衡实例IP地址所属的ISP。
+     * @return AddressIsp 负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAddressIsp() {
@@ -517,9 +549,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Set 负载均衡实例IP地址所属的ISP。
+     * Set 负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param AddressIsp 负载均衡实例IP地址所属的ISP。
+     * @param AddressIsp 负载均衡实例IP地址所属的ISP。取值范围：BGP（多线）、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、INTERNAL（内网）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddressIsp(String AddressIsp) {
@@ -587,9 +619,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Get 负载均衡实例的计费类型。
+     * Get 负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ChargeType 负载均衡实例的计费类型。
+     * @return ChargeType 负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChargeType() {
@@ -597,9 +629,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Set 负载均衡实例的计费类型。
+     * Set 负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ChargeType 负载均衡实例的计费类型。
+     * @param ChargeType 负载均衡实例的计费类型。取值范围：PREPAID预付费、POSTPAID_BY_HOUR按量付费。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChargeType(String ChargeType) {
@@ -947,9 +979,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Get 负载均衡安全组上移特性是否开启标识。
+     * Get 负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return LoadBalancerPassToTarget 负载均衡安全组上移特性是否开启标识。
+     * @return LoadBalancerPassToTarget 负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLoadBalancerPassToTarget() {
@@ -957,9 +989,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Set 负载均衡安全组上移特性是否开启标识。
+     * Set 负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param LoadBalancerPassToTarget 负载均衡安全组上移特性是否开启标识。
+     * @param LoadBalancerPassToTarget 负载均衡安全组上移特性是否开启标识。取值范围：1表示开启、0表示未开启。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerPassToTarget(Long LoadBalancerPassToTarget) {
@@ -1047,9 +1079,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Get 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）。
+     * Get 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SniSwitch 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）。
+     * @return SniSwitch 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSniSwitch() {
@@ -1057,9 +1089,9 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Set 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）。
+     * Set 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param SniSwitch 是否开启SNI特性（本参数仅对于HTTPS监听器有意义）。
+     * @param SniSwitch 是否开启SNI特性，1：表示开启，0：表示不开启（本参数仅对于HTTPS监听器有意义）。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSniSwitch(Long SniSwitch) {
@@ -1067,10 +1099,8 @@ Public：公网属性， Private：内网属性。
     }
 
     /**
-     * Get 负载均衡实例的域名。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 负载均衡实例的域名。 
      * @return LoadBalancerDomain 负载均衡实例的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLoadBalancerDomain() {
         return this.LoadBalancerDomain;
@@ -1078,12 +1108,90 @@ Public：公网属性， Private：内网属性。
 
     /**
      * Set 负载均衡实例的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LoadBalancerDomain 负载均衡实例的域名。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoadBalancerDomain(String LoadBalancerDomain) {
         this.LoadBalancerDomain = LoadBalancerDomain;
+    }
+
+    /**
+     * Get 网络出口 
+     * @return Egress 网络出口
+     */
+    public String getEgress() {
+        return this.Egress;
+    }
+
+    /**
+     * Set 网络出口
+     * @param Egress 网络出口
+     */
+    public void setEgress(String Egress) {
+        this.Egress = Egress;
+    }
+
+    /**
+     * Get 负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return AttributeFlags 负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String [] getAttributeFlags() {
+        return this.AttributeFlags;
+    }
+
+    /**
+     * Set 负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AttributeFlags 负载均衡的属性
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setAttributeFlags(String [] AttributeFlags) {
+        this.AttributeFlags = AttributeFlags;
+    }
+
+    /**
+     * Get 负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SlaType 负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSlaType() {
+        return this.SlaType;
+    }
+
+    /**
+     * Set 负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SlaType 负载均衡实例的规格类型信息<ul><li> clb.c1.small：简约型规格 </li><li>clb.c2.medium：标准型规格 </li><li> clb.c3.small：高阶型1规格 </li><li> clb.c3.medium：高阶型2规格 </li><li> clb.c4.small：超强型1规格 </li><li> clb.c4.medium：超强型2规格 </li><li> clb.c4.large：超强型3规格 </li><li> clb.c4.xlarge：超强型4规格 </li><li>""：非性能容量型实例</li></ul>
+
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSlaType(String SlaType) {
+        this.SlaType = SlaType;
+    }
+
+    /**
+     * Get 0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Exclusive 0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getExclusive() {
+        return this.Exclusive;
+    }
+
+    /**
+     * Set 0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Exclusive 0：表示非独占型实例，1：表示独占型态实例。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExclusive(Long Exclusive) {
+        this.Exclusive = Exclusive;
     }
 
     public LoadBalancerDetail() {
@@ -1220,6 +1328,21 @@ Public：公网属性， Private：内网属性。
         if (source.LoadBalancerDomain != null) {
             this.LoadBalancerDomain = new String(source.LoadBalancerDomain);
         }
+        if (source.Egress != null) {
+            this.Egress = new String(source.Egress);
+        }
+        if (source.AttributeFlags != null) {
+            this.AttributeFlags = new String[source.AttributeFlags.length];
+            for (int i = 0; i < source.AttributeFlags.length; i++) {
+                this.AttributeFlags[i] = new String(source.AttributeFlags[i]);
+            }
+        }
+        if (source.SlaType != null) {
+            this.SlaType = new String(source.SlaType);
+        }
+        if (source.Exclusive != null) {
+            this.Exclusive = new Long(source.Exclusive);
+        }
     }
 
 
@@ -1265,6 +1388,10 @@ Public：公网属性， Private：内网属性。
         this.setParamArraySimple(map, prefix + "Zones.", this.Zones);
         this.setParamSimple(map, prefix + "SniSwitch", this.SniSwitch);
         this.setParamSimple(map, prefix + "LoadBalancerDomain", this.LoadBalancerDomain);
+        this.setParamSimple(map, prefix + "Egress", this.Egress);
+        this.setParamArraySimple(map, prefix + "AttributeFlags.", this.AttributeFlags);
+        this.setParamSimple(map, prefix + "SlaType", this.SlaType);
+        this.setParamSimple(map, prefix + "Exclusive", this.Exclusive);
 
     }
 }

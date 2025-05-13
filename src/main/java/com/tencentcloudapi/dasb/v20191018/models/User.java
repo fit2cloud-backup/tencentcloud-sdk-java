@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class User extends AbstractModel{
+public class User extends AbstractModel {
 
     /**
     * 用户名, 3-20个字符 必须以英文字母开头，且不能包含字母、数字、.、_、-以外的字符
@@ -96,7 +97,6 @@ public class User extends AbstractModel{
 
     /**
     * 用户所属部门（用于出参）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Department")
     @Expose
@@ -104,7 +104,6 @@ public class User extends AbstractModel{
 
     /**
     * 用户所属部门（用于入参）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DepartmentId")
     @Expose
@@ -112,7 +111,6 @@ public class User extends AbstractModel{
 
     /**
     * 激活状态 0 - 未激活 1 - 激活
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActiveStatus")
     @Expose
@@ -120,19 +118,31 @@ public class User extends AbstractModel{
 
     /**
     * 锁定状态 0 - 未锁定 1 - 锁定
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LockStatus")
     @Expose
     private Long LockStatus;
 
     /**
+    * ukey绑定状态 0 - 未绑定 1 - 已绑定
+    */
+    @SerializedName("UKeyStatus")
+    @Expose
+    private Long UKeyStatus;
+
+    /**
     * 状态 与Filter中一致
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
     private String Status;
+
+    /**
+    * 权限版本
+    */
+    @SerializedName("AclVersion")
+    @Expose
+    private Long AclVersion;
 
     /**
      * Get 用户名, 3-20个字符 必须以英文字母开头，且不能包含字母、数字、.、_、-以外的字符 
@@ -303,10 +313,8 @@ public class User extends AbstractModel{
     }
 
     /**
-     * Get 用户所属部门（用于出参）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户所属部门（用于出参） 
      * @return Department 用户所属部门（用于出参）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Department getDepartment() {
         return this.Department;
@@ -314,19 +322,15 @@ public class User extends AbstractModel{
 
     /**
      * Set 用户所属部门（用于出参）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Department 用户所属部门（用于出参）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDepartment(Department Department) {
         this.Department = Department;
     }
 
     /**
-     * Get 用户所属部门（用于入参）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户所属部门（用于入参） 
      * @return DepartmentId 用户所属部门（用于入参）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDepartmentId() {
         return this.DepartmentId;
@@ -334,19 +338,15 @@ public class User extends AbstractModel{
 
     /**
      * Set 用户所属部门（用于入参）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DepartmentId 用户所属部门（用于入参）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDepartmentId(String DepartmentId) {
         this.DepartmentId = DepartmentId;
     }
 
     /**
-     * Get 激活状态 0 - 未激活 1 - 激活
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 激活状态 0 - 未激活 1 - 激活 
      * @return ActiveStatus 激活状态 0 - 未激活 1 - 激活
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getActiveStatus() {
         return this.ActiveStatus;
@@ -354,19 +354,15 @@ public class User extends AbstractModel{
 
     /**
      * Set 激活状态 0 - 未激活 1 - 激活
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ActiveStatus 激活状态 0 - 未激活 1 - 激活
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setActiveStatus(Long ActiveStatus) {
         this.ActiveStatus = ActiveStatus;
     }
 
     /**
-     * Get 锁定状态 0 - 未锁定 1 - 锁定
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 锁定状态 0 - 未锁定 1 - 锁定 
      * @return LockStatus 锁定状态 0 - 未锁定 1 - 锁定
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLockStatus() {
         return this.LockStatus;
@@ -374,19 +370,31 @@ public class User extends AbstractModel{
 
     /**
      * Set 锁定状态 0 - 未锁定 1 - 锁定
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LockStatus 锁定状态 0 - 未锁定 1 - 锁定
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLockStatus(Long LockStatus) {
         this.LockStatus = LockStatus;
     }
 
     /**
-     * Get 状态 与Filter中一致
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get ukey绑定状态 0 - 未绑定 1 - 已绑定 
+     * @return UKeyStatus ukey绑定状态 0 - 未绑定 1 - 已绑定
+     */
+    public Long getUKeyStatus() {
+        return this.UKeyStatus;
+    }
+
+    /**
+     * Set ukey绑定状态 0 - 未绑定 1 - 已绑定
+     * @param UKeyStatus ukey绑定状态 0 - 未绑定 1 - 已绑定
+     */
+    public void setUKeyStatus(Long UKeyStatus) {
+        this.UKeyStatus = UKeyStatus;
+    }
+
+    /**
+     * Get 状态 与Filter中一致 
      * @return Status 状态 与Filter中一致
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -394,12 +402,26 @@ public class User extends AbstractModel{
 
     /**
      * Set 状态 与Filter中一致
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态 与Filter中一致
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
+    }
+
+    /**
+     * Get 权限版本 
+     * @return AclVersion 权限版本
+     */
+    public Long getAclVersion() {
+        return this.AclVersion;
+    }
+
+    /**
+     * Set 权限版本
+     * @param AclVersion 权限版本
+     */
+    public void setAclVersion(Long AclVersion) {
+        this.AclVersion = AclVersion;
     }
 
     public User() {
@@ -455,8 +477,14 @@ public class User extends AbstractModel{
         if (source.LockStatus != null) {
             this.LockStatus = new Long(source.LockStatus);
         }
+        if (source.UKeyStatus != null) {
+            this.UKeyStatus = new Long(source.UKeyStatus);
+        }
         if (source.Status != null) {
             this.Status = new String(source.Status);
+        }
+        if (source.AclVersion != null) {
+            this.AclVersion = new Long(source.AclVersion);
         }
     }
 
@@ -479,7 +507,9 @@ public class User extends AbstractModel{
         this.setParamSimple(map, prefix + "DepartmentId", this.DepartmentId);
         this.setParamSimple(map, prefix + "ActiveStatus", this.ActiveStatus);
         this.setParamSimple(map, prefix + "LockStatus", this.LockStatus);
+        this.setParamSimple(map, prefix + "UKeyStatus", this.UKeyStatus);
         this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamSimple(map, prefix + "AclVersion", this.AclVersion);
 
     }
 }

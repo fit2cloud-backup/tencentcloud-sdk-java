@@ -16,76 +16,77 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAccelerationDomainsResponse extends AbstractModel{
+public class DescribeAccelerationDomainsResponse extends AbstractModel {
 
     /**
-    * 加速域名总数。
+    * 符合查询条件的加速域名个数。
     */
     @SerializedName("TotalCount")
     @Expose
     private Long TotalCount;
 
     /**
-    * 加速域名列表。
+    * 符合查询条件的所有加速域名的信息。
     */
     @SerializedName("AccelerationDomains")
     @Expose
     private AccelerationDomain [] AccelerationDomains;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 加速域名总数。 
-     * @return TotalCount 加速域名总数。
+     * Get 符合查询条件的加速域名个数。 
+     * @return TotalCount 符合查询条件的加速域名个数。
      */
     public Long getTotalCount() {
         return this.TotalCount;
     }
 
     /**
-     * Set 加速域名总数。
-     * @param TotalCount 加速域名总数。
+     * Set 符合查询条件的加速域名个数。
+     * @param TotalCount 符合查询条件的加速域名个数。
      */
     public void setTotalCount(Long TotalCount) {
         this.TotalCount = TotalCount;
     }
 
     /**
-     * Get 加速域名列表。 
-     * @return AccelerationDomains 加速域名列表。
+     * Get 符合查询条件的所有加速域名的信息。 
+     * @return AccelerationDomains 符合查询条件的所有加速域名的信息。
      */
     public AccelerationDomain [] getAccelerationDomains() {
         return this.AccelerationDomains;
     }
 
     /**
-     * Set 加速域名列表。
-     * @param AccelerationDomains 加速域名列表。
+     * Set 符合查询条件的所有加速域名的信息。
+     * @param AccelerationDomains 符合查询条件的所有加速域名的信息。
      */
     public void setAccelerationDomains(AccelerationDomain [] AccelerationDomains) {
         this.AccelerationDomains = AccelerationDomains;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

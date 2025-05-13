@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiAnalysisResult extends AbstractModel{
+public class AiAnalysisResult extends AbstractModel {
 
     /**
     * 任务的类型，可以取的值有：
@@ -29,6 +30,8 @@ public class AiAnalysisResult extends AbstractModel{
 <li>Tag：智能标签</li>
 <li>FrameTag：智能按帧标签</li>
 <li>Highlight：智能精彩集锦</li>
+<li>DeLogo：智能擦除</li>
+<li>Description：大模型摘要</li>
     */
     @SerializedName("Type")
     @Expose
@@ -75,18 +78,62 @@ public class AiAnalysisResult extends AbstractModel{
     private AiAnalysisTaskHighlightResult HighlightTask;
 
     /**
+    * 视频内容分析智能擦除任务的查询结果，当任务类型为 DeLogo 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DeLogoTask")
+    @Expose
+    private AiAnalysisTaskDelLogoResult DeLogoTask;
+
+    /**
+    * 视频内容分析拆条任务的查询结果，当任务类型为 SegmentRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SegmentTask")
+    @Expose
+    private AiAnalysisTaskSegmentResult SegmentTask;
+
+    /**
+    * 视频内容分析片头片尾任务的查询结果，当任务类型为 HeadTailRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HeadTailTask")
+    @Expose
+    private AiAnalysisTaskHeadTailResult HeadTailTask;
+
+    /**
+    * 视频内容分析摘要任务的查询结果，当任务类型为 Description 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DescriptionTask")
+    @Expose
+    private AiAnalysisTaskDescriptionResult DescriptionTask;
+
+    /**
+    * 视频内容分析横转竖任务的查询结果，当任务类型为 HorizontalToVertical 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("HorizontalToVerticalTask")
+    @Expose
+    private AiAnalysisTaskHorizontalToVerticalResult HorizontalToVerticalTask;
+
+    /**
      * Get 任务的类型，可以取的值有：
 <li>Classification：智能分类</li>
 <li>Cover：智能封面</li>
 <li>Tag：智能标签</li>
 <li>FrameTag：智能按帧标签</li>
-<li>Highlight：智能精彩集锦</li> 
+<li>Highlight：智能精彩集锦</li>
+<li>DeLogo：智能擦除</li>
+<li>Description：大模型摘要</li> 
      * @return Type 任务的类型，可以取的值有：
 <li>Classification：智能分类</li>
 <li>Cover：智能封面</li>
 <li>Tag：智能标签</li>
 <li>FrameTag：智能按帧标签</li>
 <li>Highlight：智能精彩集锦</li>
+<li>DeLogo：智能擦除</li>
+<li>Description：大模型摘要</li>
      */
     public String getType() {
         return this.Type;
@@ -99,12 +146,16 @@ public class AiAnalysisResult extends AbstractModel{
 <li>Tag：智能标签</li>
 <li>FrameTag：智能按帧标签</li>
 <li>Highlight：智能精彩集锦</li>
+<li>DeLogo：智能擦除</li>
+<li>Description：大模型摘要</li>
      * @param Type 任务的类型，可以取的值有：
 <li>Classification：智能分类</li>
 <li>Cover：智能封面</li>
 <li>Tag：智能标签</li>
 <li>FrameTag：智能按帧标签</li>
 <li>Highlight：智能精彩集锦</li>
+<li>DeLogo：智能擦除</li>
+<li>Description：大模型摘要</li>
      */
     public void setType(String Type) {
         this.Type = Type;
@@ -210,6 +261,106 @@ public class AiAnalysisResult extends AbstractModel{
         this.HighlightTask = HighlightTask;
     }
 
+    /**
+     * Get 视频内容分析智能擦除任务的查询结果，当任务类型为 DeLogo 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DeLogoTask 视频内容分析智能擦除任务的查询结果，当任务类型为 DeLogo 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AiAnalysisTaskDelLogoResult getDeLogoTask() {
+        return this.DeLogoTask;
+    }
+
+    /**
+     * Set 视频内容分析智能擦除任务的查询结果，当任务类型为 DeLogo 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DeLogoTask 视频内容分析智能擦除任务的查询结果，当任务类型为 DeLogo 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeLogoTask(AiAnalysisTaskDelLogoResult DeLogoTask) {
+        this.DeLogoTask = DeLogoTask;
+    }
+
+    /**
+     * Get 视频内容分析拆条任务的查询结果，当任务类型为 SegmentRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SegmentTask 视频内容分析拆条任务的查询结果，当任务类型为 SegmentRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AiAnalysisTaskSegmentResult getSegmentTask() {
+        return this.SegmentTask;
+    }
+
+    /**
+     * Set 视频内容分析拆条任务的查询结果，当任务类型为 SegmentRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SegmentTask 视频内容分析拆条任务的查询结果，当任务类型为 SegmentRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSegmentTask(AiAnalysisTaskSegmentResult SegmentTask) {
+        this.SegmentTask = SegmentTask;
+    }
+
+    /**
+     * Get 视频内容分析片头片尾任务的查询结果，当任务类型为 HeadTailRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HeadTailTask 视频内容分析片头片尾任务的查询结果，当任务类型为 HeadTailRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AiAnalysisTaskHeadTailResult getHeadTailTask() {
+        return this.HeadTailTask;
+    }
+
+    /**
+     * Set 视频内容分析片头片尾任务的查询结果，当任务类型为 HeadTailRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HeadTailTask 视频内容分析片头片尾任务的查询结果，当任务类型为 HeadTailRecognition 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHeadTailTask(AiAnalysisTaskHeadTailResult HeadTailTask) {
+        this.HeadTailTask = HeadTailTask;
+    }
+
+    /**
+     * Get 视频内容分析摘要任务的查询结果，当任务类型为 Description 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DescriptionTask 视频内容分析摘要任务的查询结果，当任务类型为 Description 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AiAnalysisTaskDescriptionResult getDescriptionTask() {
+        return this.DescriptionTask;
+    }
+
+    /**
+     * Set 视频内容分析摘要任务的查询结果，当任务类型为 Description 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DescriptionTask 视频内容分析摘要任务的查询结果，当任务类型为 Description 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDescriptionTask(AiAnalysisTaskDescriptionResult DescriptionTask) {
+        this.DescriptionTask = DescriptionTask;
+    }
+
+    /**
+     * Get 视频内容分析横转竖任务的查询结果，当任务类型为 HorizontalToVertical 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return HorizontalToVerticalTask 视频内容分析横转竖任务的查询结果，当任务类型为 HorizontalToVertical 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AiAnalysisTaskHorizontalToVerticalResult getHorizontalToVerticalTask() {
+        return this.HorizontalToVerticalTask;
+    }
+
+    /**
+     * Set 视频内容分析横转竖任务的查询结果，当任务类型为 HorizontalToVertical 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param HorizontalToVerticalTask 视频内容分析横转竖任务的查询结果，当任务类型为 HorizontalToVertical 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setHorizontalToVerticalTask(AiAnalysisTaskHorizontalToVerticalResult HorizontalToVerticalTask) {
+        this.HorizontalToVerticalTask = HorizontalToVerticalTask;
+    }
+
     public AiAnalysisResult() {
     }
 
@@ -236,6 +387,21 @@ public class AiAnalysisResult extends AbstractModel{
         if (source.HighlightTask != null) {
             this.HighlightTask = new AiAnalysisTaskHighlightResult(source.HighlightTask);
         }
+        if (source.DeLogoTask != null) {
+            this.DeLogoTask = new AiAnalysisTaskDelLogoResult(source.DeLogoTask);
+        }
+        if (source.SegmentTask != null) {
+            this.SegmentTask = new AiAnalysisTaskSegmentResult(source.SegmentTask);
+        }
+        if (source.HeadTailTask != null) {
+            this.HeadTailTask = new AiAnalysisTaskHeadTailResult(source.HeadTailTask);
+        }
+        if (source.DescriptionTask != null) {
+            this.DescriptionTask = new AiAnalysisTaskDescriptionResult(source.DescriptionTask);
+        }
+        if (source.HorizontalToVerticalTask != null) {
+            this.HorizontalToVerticalTask = new AiAnalysisTaskHorizontalToVerticalResult(source.HorizontalToVerticalTask);
+        }
     }
 
 
@@ -249,6 +415,11 @@ public class AiAnalysisResult extends AbstractModel{
         this.setParamObj(map, prefix + "TagTask.", this.TagTask);
         this.setParamObj(map, prefix + "FrameTagTask.", this.FrameTagTask);
         this.setParamObj(map, prefix + "HighlightTask.", this.HighlightTask);
+        this.setParamObj(map, prefix + "DeLogoTask.", this.DeLogoTask);
+        this.setParamObj(map, prefix + "SegmentTask.", this.SegmentTask);
+        this.setParamObj(map, prefix + "HeadTailTask.", this.HeadTailTask);
+        this.setParamObj(map, prefix + "DescriptionTask.", this.DescriptionTask);
+        this.setParamObj(map, prefix + "HorizontalToVerticalTask.", this.HorizontalToVerticalTask);
 
     }
 }

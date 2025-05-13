@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCfsFileSystemClientsRequest extends AbstractModel{
+public class DescribeCfsFileSystemClientsRequest extends AbstractModel {
 
     /**
     * 文件系统 ID。
@@ -28,6 +29,20 @@ public class DescribeCfsFileSystemClientsRequest extends AbstractModel{
     @SerializedName("FileSystemId")
     @Expose
     private String FileSystemId;
+
+    /**
+    * Offset 分页码
+    */
+    @SerializedName("Offset")
+    @Expose
+    private Long Offset;
+
+    /**
+    * Limit 页面大小
+    */
+    @SerializedName("Limit")
+    @Expose
+    private Long Limit;
 
     /**
      * Get 文件系统 ID。 
@@ -45,6 +60,38 @@ public class DescribeCfsFileSystemClientsRequest extends AbstractModel{
         this.FileSystemId = FileSystemId;
     }
 
+    /**
+     * Get Offset 分页码 
+     * @return Offset Offset 分页码
+     */
+    public Long getOffset() {
+        return this.Offset;
+    }
+
+    /**
+     * Set Offset 分页码
+     * @param Offset Offset 分页码
+     */
+    public void setOffset(Long Offset) {
+        this.Offset = Offset;
+    }
+
+    /**
+     * Get Limit 页面大小 
+     * @return Limit Limit 页面大小
+     */
+    public Long getLimit() {
+        return this.Limit;
+    }
+
+    /**
+     * Set Limit 页面大小
+     * @param Limit Limit 页面大小
+     */
+    public void setLimit(Long Limit) {
+        this.Limit = Limit;
+    }
+
     public DescribeCfsFileSystemClientsRequest() {
     }
 
@@ -56,6 +103,12 @@ public class DescribeCfsFileSystemClientsRequest extends AbstractModel{
         if (source.FileSystemId != null) {
             this.FileSystemId = new String(source.FileSystemId);
         }
+        if (source.Offset != null) {
+            this.Offset = new Long(source.Offset);
+        }
+        if (source.Limit != null) {
+            this.Limit = new Long(source.Limit);
+        }
     }
 
 
@@ -64,6 +117,8 @@ public class DescribeCfsFileSystemClientsRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FileSystemId", this.FileSystemId);
+        this.setParamSimple(map, prefix + "Offset", this.Offset);
+        this.setParamSimple(map, prefix + "Limit", this.Limit);
 
     }
 }

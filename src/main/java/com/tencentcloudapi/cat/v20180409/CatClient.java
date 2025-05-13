@@ -45,18 +45,8 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateProbeTasksResponse CreateProbeTasks(CreateProbeTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateProbeTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateProbeTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateProbeTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateProbeTasks", CreateProbeTasksResponse.class);
     }
 
     /**
@@ -66,18 +56,8 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteProbeTaskResponse DeleteProbeTask(DeleteProbeTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteProbeTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteProbeTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteProbeTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteProbeTask", DeleteProbeTaskResponse.class);
     }
 
     /**
@@ -87,18 +67,30 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDetailedSingleProbeDataResponse DescribeDetailedSingleProbeData(DescribeDetailedSingleProbeDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDetailedSingleProbeDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDetailedSingleProbeDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDetailedSingleProbeData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDetailedSingleProbeData", DescribeDetailedSingleProbeDataResponse.class);
+    }
+
+    /**
+     *获取历史即时拨测任务
+     * @param req DescribeInstantTasksRequest
+     * @return DescribeInstantTasksResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeInstantTasksResponse DescribeInstantTasks(DescribeInstantTasksRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeInstantTasks", DescribeInstantTasksResponse.class);
+    }
+
+    /**
+     *获取拨测点组（可用性拨测点组、高级拨测点组、我的拨测点组）
+     * @param req DescribeNodeGroupsRequest
+     * @return DescribeNodeGroupsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNodeGroupsResponse DescribeNodeGroups(DescribeNodeGroupsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeNodeGroups", DescribeNodeGroupsResponse.class);
     }
 
     /**
@@ -108,39 +100,31 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNodesResponse DescribeNodes(DescribeNodesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNodesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNodesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNodes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNodes", DescribeNodesResponse.class);
     }
 
     /**
      *查询云拨测指标数据，指标支持使用sum,avg,max,min聚合函数进行指标数据查询
+拨测频率与groupby聚合时间设置关联，如拨测频率为 30 分钟，则 grouby 聚合时间建议设置为大于30分钟，避免出现查询数据为空的情况
      * @param req DescribeProbeMetricDataRequest
      * @return DescribeProbeMetricDataResponse
      * @throws TencentCloudSDKException
      */
     public DescribeProbeMetricDataResponse DescribeProbeMetricData(DescribeProbeMetricDataRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProbeMetricDataResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProbeMetricDataResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProbeMetricData");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProbeMetricData", DescribeProbeMetricDataResponse.class);
+    }
+
+    /**
+     *查询同个任务类型下的维度标签值，包括查询用户任务信息，具体任务下的多个维度标签信息。（通过为DescribeProbeMetricData接口的Filters参数添加维度筛选条件，可实现多维数据分析）
+     * @param req DescribeProbeMetricTagValuesRequest
+     * @return DescribeProbeMetricTagValuesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeProbeMetricTagValuesResponse DescribeProbeMetricTagValues(DescribeProbeMetricTagValuesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeProbeMetricTagValues", DescribeProbeMetricTagValuesResponse.class);
     }
 
     /**
@@ -150,18 +134,8 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeProbeNodesResponse DescribeProbeNodes(DescribeProbeNodesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProbeNodesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProbeNodesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProbeNodes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProbeNodes", DescribeProbeNodesResponse.class);
     }
 
     /**
@@ -171,18 +145,8 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeProbeTasksResponse DescribeProbeTasks(DescribeProbeTasksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProbeTasksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProbeTasksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProbeTasks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProbeTasks", DescribeProbeTasksResponse.class);
     }
 
     /**
@@ -192,39 +156,19 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ResumeProbeTaskResponse ResumeProbeTask(ResumeProbeTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResumeProbeTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResumeProbeTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResumeProbeTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResumeProbeTask", ResumeProbeTaskResponse.class);
     }
 
     /**
-     *暂停拨测任务
+     *暂停任务
      * @param req SuspendProbeTaskRequest
      * @return SuspendProbeTaskResponse
      * @throws TencentCloudSDKException
      */
     public SuspendProbeTaskResponse SuspendProbeTask(SuspendProbeTaskRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SuspendProbeTaskResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SuspendProbeTaskResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SuspendProbeTask");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SuspendProbeTask", SuspendProbeTaskResponse.class);
     }
 
     /**
@@ -234,18 +178,8 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateProbeTaskAttributesResponse UpdateProbeTaskAttributes(UpdateProbeTaskAttributesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateProbeTaskAttributesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateProbeTaskAttributesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateProbeTaskAttributes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateProbeTaskAttributes", UpdateProbeTaskAttributesResponse.class);
     }
 
     /**
@@ -255,18 +189,8 @@ public class CatClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public UpdateProbeTaskConfigurationListResponse UpdateProbeTaskConfigurationList(UpdateProbeTaskConfigurationListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UpdateProbeTaskConfigurationListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UpdateProbeTaskConfigurationListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UpdateProbeTaskConfigurationList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UpdateProbeTaskConfigurationList", UpdateProbeTaskConfigurationListResponse.class);
     }
 
 }

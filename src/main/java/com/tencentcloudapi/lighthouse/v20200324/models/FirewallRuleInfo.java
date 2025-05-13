@@ -16,21 +16,22 @@
 package com.tencentcloudapi.lighthouse.v20200324.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FirewallRuleInfo extends AbstractModel{
+public class FirewallRuleInfo extends AbstractModel {
 
     /**
-    * 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，ALL。
+    * 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，Windows登录优化 (3389)，FTP (21)，Ping，Ping (IPv6)，ALL。
     */
     @SerializedName("AppType")
     @Expose
     private String AppType;
 
     /**
-    * 协议，取值：TCP，UDP，ICMP，ALL。
+    * 协议，取值：TCP，UDP，ICMP，ICMPv6，ALL。
     */
     @SerializedName("Protocol")
     @Expose
@@ -44,11 +45,24 @@ public class FirewallRuleInfo extends AbstractModel{
     private String Port;
 
     /**
-    * 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
+    * IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
     */
     @SerializedName("CidrBlock")
     @Expose
     private String CidrBlock;
+
+    /**
+    * IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+    */
+    @SerializedName("Ipv6CidrBlock")
+    @Expose
+    private String Ipv6CidrBlock;
 
     /**
     * 取值：ACCEPT，DROP。默认为 ACCEPT。
@@ -65,32 +79,32 @@ public class FirewallRuleInfo extends AbstractModel{
     private String FirewallRuleDescription;
 
     /**
-     * Get 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，ALL。 
-     * @return AppType 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，ALL。
+     * Get 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，Windows登录优化 (3389)，FTP (21)，Ping，Ping (IPv6)，ALL。 
+     * @return AppType 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，Windows登录优化 (3389)，FTP (21)，Ping，Ping (IPv6)，ALL。
      */
     public String getAppType() {
         return this.AppType;
     }
 
     /**
-     * Set 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，ALL。
-     * @param AppType 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，ALL。
+     * Set 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，Windows登录优化 (3389)，FTP (21)，Ping，Ping (IPv6)，ALL。
+     * @param AppType 应用类型，取值：自定义，HTTP(80)，HTTPS(443)，Linux登录(22)，Windows登录(3389)，MySQL(3306)，SQL Server(1433)，全部TCP，全部UDP，Ping-ICMP，Windows登录优化 (3389)，FTP (21)，Ping，Ping (IPv6)，ALL。
      */
     public void setAppType(String AppType) {
         this.AppType = AppType;
     }
 
     /**
-     * Get 协议，取值：TCP，UDP，ICMP，ALL。 
-     * @return Protocol 协议，取值：TCP，UDP，ICMP，ALL。
+     * Get 协议，取值：TCP，UDP，ICMP，ICMPv6，ALL。 
+     * @return Protocol 协议，取值：TCP，UDP，ICMP，ICMPv6，ALL。
      */
     public String getProtocol() {
         return this.Protocol;
     }
 
     /**
-     * Set 协议，取值：TCP，UDP，ICMP，ALL。
-     * @param Protocol 协议，取值：TCP，UDP，ICMP，ALL。
+     * Set 协议，取值：TCP，UDP，ICMP，ICMPv6，ALL。
+     * @param Protocol 协议，取值：TCP，UDP，ICMP，ICMPv6，ALL。
      */
     public void setProtocol(String Protocol) {
         this.Protocol = Protocol;
@@ -113,19 +127,59 @@ public class FirewallRuleInfo extends AbstractModel{
     }
 
     /**
-     * Get 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。 
-     * @return CidrBlock 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
+     * Get IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。 
+     * @return CidrBlock IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
      */
     public String getCidrBlock() {
         return this.CidrBlock;
     }
 
     /**
-     * Set 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
-     * @param CidrBlock 网段或 IP (互斥)。默认为 0.0.0.0/0，表示所有来源。
+     * Set IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
+     * @param CidrBlock IPv4网段或 IPv4地址(互斥)。
+示例值：0.0.0.0/0。
+
+和Ipv6CidrBlock互斥，两者都不指定时，如果Protocol不是ICMPv6，则取默认值0.0.0.0/0。
      */
     public void setCidrBlock(String CidrBlock) {
         this.CidrBlock = CidrBlock;
+    }
+
+    /**
+     * Get IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。 
+     * @return Ipv6CidrBlock IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+     */
+    public String getIpv6CidrBlock() {
+        return this.Ipv6CidrBlock;
+    }
+
+    /**
+     * Set IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+     * @param Ipv6CidrBlock IPv6网段或IPv6地址(互斥)。
+示例值：::/0。
+
+和CidrBlock互斥，两者都不指定时，如果Protocol是ICMPv6，则取默认值::/0。
+     */
+    public void setIpv6CidrBlock(String Ipv6CidrBlock) {
+        this.Ipv6CidrBlock = Ipv6CidrBlock;
     }
 
     /**
@@ -180,6 +234,9 @@ public class FirewallRuleInfo extends AbstractModel{
         if (source.CidrBlock != null) {
             this.CidrBlock = new String(source.CidrBlock);
         }
+        if (source.Ipv6CidrBlock != null) {
+            this.Ipv6CidrBlock = new String(source.Ipv6CidrBlock);
+        }
         if (source.Action != null) {
             this.Action = new String(source.Action);
         }
@@ -197,6 +254,7 @@ public class FirewallRuleInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Protocol", this.Protocol);
         this.setParamSimple(map, prefix + "Port", this.Port);
         this.setParamSimple(map, prefix + "CidrBlock", this.CidrBlock);
+        this.setParamSimple(map, prefix + "Ipv6CidrBlock", this.Ipv6CidrBlock);
         this.setParamSimple(map, prefix + "Action", this.Action);
         this.setParamSimple(map, prefix + "FirewallRuleDescription", this.FirewallRuleDescription);
 

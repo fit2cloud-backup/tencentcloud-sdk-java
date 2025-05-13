@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class KubeJarvisStateInspectionResult extends AbstractModel{
+public class KubeJarvisStateInspectionResult extends AbstractModel {
 
     /**
     * 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -32,7 +32,6 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
     * 诊断开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -40,7 +39,6 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
     * 诊断结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -48,7 +46,6 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
     * 诊断结果统计
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Statistics")
     @Expose
@@ -56,7 +53,6 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
     * 诊断结果详情
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Diagnostics")
     @Expose
@@ -64,17 +60,14 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
     * 查询巡检报告相关报错
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Error")
     @Expose
     private String Error;
 
     /**
-     * Get 集群ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群ID 
      * @return ClusterId 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -82,19 +75,15 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
      * Set 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
     }
 
     /**
-     * Get 诊断开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断开始时间 
      * @return StartTime 诊断开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -102,19 +91,15 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
      * Set 诊断开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 诊断开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
     }
 
     /**
-     * Get 诊断结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断结束时间 
      * @return EndTime 诊断结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -122,19 +107,15 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
      * Set 诊断结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 诊断结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 诊断结果统计
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断结果统计 
      * @return Statistics 诊断结果统计
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public KubeJarvisStateStatistic [] getStatistics() {
         return this.Statistics;
@@ -142,19 +123,15 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
      * Set 诊断结果统计
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Statistics 诊断结果统计
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatistics(KubeJarvisStateStatistic [] Statistics) {
         this.Statistics = Statistics;
     }
 
     /**
-     * Get 诊断结果详情
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 诊断结果详情 
      * @return Diagnostics 诊断结果详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public KubeJarvisStateDiagnostic [] getDiagnostics() {
         return this.Diagnostics;
@@ -162,19 +139,15 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
      * Set 诊断结果详情
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Diagnostics 诊断结果详情
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDiagnostics(KubeJarvisStateDiagnostic [] Diagnostics) {
         this.Diagnostics = Diagnostics;
     }
 
     /**
-     * Get 查询巡检报告相关报错
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 查询巡检报告相关报错 
      * @return Error 查询巡检报告相关报错
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getError() {
         return this.Error;
@@ -182,9 +155,7 @@ public class KubeJarvisStateInspectionResult extends AbstractModel{
 
     /**
      * Set 查询巡检报告相关报错
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Error 查询巡检报告相关报错
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setError(String Error) {
         this.Error = Error;

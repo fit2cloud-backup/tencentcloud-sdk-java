@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBaselineDetectOverviewResponse extends AbstractModel{
+public class DescribeBaselineDetectOverviewResponse extends AbstractModel {
 
     /**
     * 检测服务器数
@@ -52,7 +53,6 @@ public class DescribeBaselineDetectOverviewResponse extends AbstractModel{
 
     /**
     * 最近一次检测通过个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LatestPassCount")
     @Expose
@@ -60,14 +60,13 @@ public class DescribeBaselineDetectOverviewResponse extends AbstractModel{
 
     /**
     * 最近一次检测未通过个数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LatestNotPassCount")
     @Expose
     private Long LatestNotPassCount;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -138,10 +137,8 @@ public class DescribeBaselineDetectOverviewResponse extends AbstractModel{
     }
 
     /**
-     * Get 最近一次检测通过个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近一次检测通过个数 
      * @return LatestPassCount 最近一次检测通过个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLatestPassCount() {
         return this.LatestPassCount;
@@ -149,19 +146,15 @@ public class DescribeBaselineDetectOverviewResponse extends AbstractModel{
 
     /**
      * Set 最近一次检测通过个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LatestPassCount 最近一次检测通过个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLatestPassCount(Long LatestPassCount) {
         this.LatestPassCount = LatestPassCount;
     }
 
     /**
-     * Get 最近一次检测未通过个数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近一次检测未通过个数 
      * @return LatestNotPassCount 最近一次检测未通过个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLatestNotPassCount() {
         return this.LatestNotPassCount;
@@ -169,25 +162,23 @@ public class DescribeBaselineDetectOverviewResponse extends AbstractModel{
 
     /**
      * Set 最近一次检测未通过个数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LatestNotPassCount 最近一次检测未通过个数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLatestNotPassCount(Long LatestNotPassCount) {
         this.LatestNotPassCount = LatestNotPassCount;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

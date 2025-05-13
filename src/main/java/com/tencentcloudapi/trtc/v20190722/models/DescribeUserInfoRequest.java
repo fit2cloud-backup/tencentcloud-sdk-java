@@ -16,11 +16,12 @@
 package com.tencentcloudapi.trtc.v20190722.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUserInfoRequest extends AbstractModel{
+public class DescribeUserInfoRequest extends AbstractModel {
 
     /**
     * 通话 ID（唯一标识一次通话）： SdkAppId_RoomId（房间号）_ CreateTime（房间创建时间，unix时间戳，单位为s）例：1400xxxxxx_218695_1590065777。通过 DescribeRoomInfo（查询历史房间列表）接口获取（[查询历史房间列表](https://cloud.tencent.com/document/product/647/44050)）。
@@ -30,8 +31,7 @@ public class DescribeUserInfoRequest extends AbstractModel{
     private String CommId;
 
     /**
-    * 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）
-注意：支持查询14天内的数据
+    * 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）注意：最大支持查询14天内的数据
     */
     @SerializedName("StartTime")
     @Expose
@@ -93,20 +93,16 @@ public class DescribeUserInfoRequest extends AbstractModel{
     }
 
     /**
-     * Get 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）
-注意：支持查询14天内的数据 
-     * @return StartTime 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）
-注意：支持查询14天内的数据
+     * Get 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）注意：最大支持查询14天内的数据 
+     * @return StartTime 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）注意：最大支持查询14天内的数据
      */
     public Long getStartTime() {
         return this.StartTime;
     }
 
     /**
-     * Set 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）
-注意：支持查询14天内的数据
-     * @param StartTime 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）
-注意：支持查询14天内的数据
+     * Set 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）注意：最大支持查询14天内的数据
+     * @param StartTime 查询开始时间，本地unix时间戳，单位为秒（如：1590065777）注意：最大支持查询14天内的数据
      */
     public void setStartTime(Long StartTime) {
         this.StartTime = StartTime;

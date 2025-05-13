@@ -16,14 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SpartaProtectionPort extends AbstractModel{
+public class SpartaProtectionPort extends AbstractModel {
 
     /**
-    * nginx Id
+    * 分配的服务器id。首次接入的域名和端口该参数填0，已接入的域名和端口分配的id可以通过DescribeDomainDetailsSaas或DescribeDomains接口获取。
     */
     @SerializedName("NginxServerId")
     @Expose
@@ -58,16 +59,16 @@ public class SpartaProtectionPort extends AbstractModel{
     private String UpstreamProtocol;
 
     /**
-     * Get nginx Id 
-     * @return NginxServerId nginx Id
+     * Get 分配的服务器id。首次接入的域名和端口该参数填0，已接入的域名和端口分配的id可以通过DescribeDomainDetailsSaas或DescribeDomains接口获取。 
+     * @return NginxServerId 分配的服务器id。首次接入的域名和端口该参数填0，已接入的域名和端口分配的id可以通过DescribeDomainDetailsSaas或DescribeDomains接口获取。
      */
     public Long getNginxServerId() {
         return this.NginxServerId;
     }
 
     /**
-     * Set nginx Id
-     * @param NginxServerId nginx Id
+     * Set 分配的服务器id。首次接入的域名和端口该参数填0，已接入的域名和端口分配的id可以通过DescribeDomainDetailsSaas或DescribeDomains接口获取。
+     * @param NginxServerId 分配的服务器id。首次接入的域名和端口该参数填0，已接入的域名和端口分配的id可以通过DescribeDomainDetailsSaas或DescribeDomains接口获取。
      */
     public void setNginxServerId(Long NginxServerId) {
         this.NginxServerId = NginxServerId;

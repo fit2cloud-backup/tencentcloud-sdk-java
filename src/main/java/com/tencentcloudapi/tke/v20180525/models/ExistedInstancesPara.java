@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ExistedInstancesPara extends AbstractModel{
+public class ExistedInstancesPara extends AbstractModel {
 
     /**
     * 集群ID
@@ -30,7 +31,7 @@ public class ExistedInstancesPara extends AbstractModel{
     private String [] InstanceIds;
 
     /**
-    * 实例额外需要设置参数信息
+    * 实例额外需要设置参数信息（目前后端暂不支持此字段，我们将在未来的版本中实现）
     */
     @SerializedName("InstanceAdvancedSettings")
     @Expose
@@ -81,16 +82,16 @@ public class ExistedInstancesPara extends AbstractModel{
     }
 
     /**
-     * Get 实例额外需要设置参数信息 
-     * @return InstanceAdvancedSettings 实例额外需要设置参数信息
+     * Get 实例额外需要设置参数信息（目前后端暂不支持此字段，我们将在未来的版本中实现） 
+     * @return InstanceAdvancedSettings 实例额外需要设置参数信息（目前后端暂不支持此字段，我们将在未来的版本中实现）
      */
     public InstanceAdvancedSettings getInstanceAdvancedSettings() {
         return this.InstanceAdvancedSettings;
     }
 
     /**
-     * Set 实例额外需要设置参数信息
-     * @param InstanceAdvancedSettings 实例额外需要设置参数信息
+     * Set 实例额外需要设置参数信息（目前后端暂不支持此字段，我们将在未来的版本中实现）
+     * @param InstanceAdvancedSettings 实例额外需要设置参数信息（目前后端暂不支持此字段，我们将在未来的版本中实现）
      */
     public void setInstanceAdvancedSettings(InstanceAdvancedSettings InstanceAdvancedSettings) {
         this.InstanceAdvancedSettings = InstanceAdvancedSettings;

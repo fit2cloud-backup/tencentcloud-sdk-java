@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SnapshotPolicy extends AbstractModel{
+public class SnapshotPolicy extends AbstractModel {
 
     /**
     * 快照策略名称。
@@ -45,7 +46,6 @@ public class SnapshotPolicy extends AbstractModel{
 
     /**
     * 是否创建新的cos桶，默认为False。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateNewCos")
     @Expose
@@ -74,7 +74,6 @@ public class SnapshotPolicy extends AbstractModel{
 
     /**
     * 时间备份策略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupPolicies")
     @Expose
@@ -89,11 +88,17 @@ public class SnapshotPolicy extends AbstractModel{
 
     /**
     * 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
     private String CreateTime;
+
+    /**
+    * 标签键值对。	
+    */
+    @SerializedName("TagSet")
+    @Expose
+    private Tag [] TagSet;
 
     /**
      * Get 快照策略名称。 
@@ -144,10 +149,8 @@ public class SnapshotPolicy extends AbstractModel{
     }
 
     /**
-     * Get 是否创建新的cos桶，默认为False。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否创建新的cos桶，默认为False。 
      * @return CreateNewCos 是否创建新的cos桶，默认为False。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getCreateNewCos() {
         return this.CreateNewCos;
@@ -155,9 +158,7 @@ public class SnapshotPolicy extends AbstractModel{
 
     /**
      * Set 是否创建新的cos桶，默认为False。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateNewCos 是否创建新的cos桶，默认为False。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateNewCos(Boolean CreateNewCos) {
         this.CreateNewCos = CreateNewCos;
@@ -212,10 +213,8 @@ public class SnapshotPolicy extends AbstractModel{
     }
 
     /**
-     * Get 时间备份策略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 时间备份策略。 
      * @return BackupPolicies 时间备份策略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BackupPolicy [] getBackupPolicies() {
         return this.BackupPolicies;
@@ -223,9 +222,7 @@ public class SnapshotPolicy extends AbstractModel{
 
     /**
      * Set 时间备份策略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupPolicies 时间备份策略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupPolicies(BackupPolicy [] BackupPolicies) {
         this.BackupPolicies = BackupPolicies;
@@ -248,10 +245,8 @@ public class SnapshotPolicy extends AbstractModel{
     }
 
     /**
-     * Get 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间。 
      * @return CreateTime 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -259,12 +254,26 @@ public class SnapshotPolicy extends AbstractModel{
 
     /**
      * Set 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
+    }
+
+    /**
+     * Get 标签键值对。	 
+     * @return TagSet 标签键值对。	
+     */
+    public Tag [] getTagSet() {
+        return this.TagSet;
+    }
+
+    /**
+     * Set 标签键值对。	
+     * @param TagSet 标签键值对。	
+     */
+    public void setTagSet(Tag [] TagSet) {
+        this.TagSet = TagSet;
     }
 
     public SnapshotPolicy() {
@@ -308,6 +317,12 @@ public class SnapshotPolicy extends AbstractModel{
         if (source.CreateTime != null) {
             this.CreateTime = new String(source.CreateTime);
         }
+        if (source.TagSet != null) {
+            this.TagSet = new Tag[source.TagSet.length];
+            for (int i = 0; i < source.TagSet.length; i++) {
+                this.TagSet[i] = new Tag(source.TagSet[i]);
+            }
+        }
     }
 
 
@@ -325,6 +340,7 @@ public class SnapshotPolicy extends AbstractModel{
         this.setParamArrayObj(map, prefix + "BackupPolicies.", this.BackupPolicies);
         this.setParamSimple(map, prefix + "Enable", this.Enable);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
+        this.setParamArrayObj(map, prefix + "TagSet.", this.TagSet);
 
     }
 }

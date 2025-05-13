@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AccessPolicy extends AbstractModel{
+public class AccessPolicy extends AbstractModel {
 
     /**
     * 目的CIDR
@@ -59,7 +60,6 @@ public class AccessPolicy extends AbstractModel{
 
     /**
     * Remark
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -146,10 +146,8 @@ public class AccessPolicy extends AbstractModel{
     }
 
     /**
-     * Get Remark
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Remark 
      * @return Remark Remark
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -157,9 +155,7 @@ public class AccessPolicy extends AbstractModel{
 
     /**
      * Set Remark
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark Remark
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;

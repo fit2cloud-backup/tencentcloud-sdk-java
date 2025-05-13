@@ -16,15 +16,15 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LayerVersionInfo extends AbstractModel{
+public class LayerVersionInfo extends AbstractModel {
 
     /**
     * 版本适用的运行时
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CompatibleRuntimes")
     @Expose
@@ -39,7 +39,6 @@ public class LayerVersionInfo extends AbstractModel{
 
     /**
     * 版本描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -68,7 +67,7 @@ public class LayerVersionInfo extends AbstractModel{
     private String LayerName;
 
     /**
-    * 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.B1.82.EF.BC.88layer.EF.BC.89.E7.8A.B6.E6.80.81)
+    * 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/115197#.E5.B1.82.EF.BC.88Layer.EF.BC.89.E7.8A.B6.E6.80.81)
     */
     @SerializedName("Status")
     @Expose
@@ -76,17 +75,22 @@ public class LayerVersionInfo extends AbstractModel{
 
     /**
     * Stamp
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Stamp")
     @Expose
     private String Stamp;
 
     /**
-     * Get 版本适用的运行时
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CompatibleRuntimes 版本适用的运行时
+    * 返回层绑定的标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+     * Get 版本适用的运行时 
+     * @return CompatibleRuntimes 版本适用的运行时
      */
     public String [] getCompatibleRuntimes() {
         return this.CompatibleRuntimes;
@@ -94,9 +98,7 @@ public class LayerVersionInfo extends AbstractModel{
 
     /**
      * Set 版本适用的运行时
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CompatibleRuntimes 版本适用的运行时
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCompatibleRuntimes(String [] CompatibleRuntimes) {
         this.CompatibleRuntimes = CompatibleRuntimes;
@@ -119,10 +121,8 @@ public class LayerVersionInfo extends AbstractModel{
     }
 
     /**
-     * Get 版本描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 版本描述 
      * @return Description 版本描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -130,9 +130,7 @@ public class LayerVersionInfo extends AbstractModel{
 
     /**
      * Set 版本描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 版本描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -191,26 +189,24 @@ public class LayerVersionInfo extends AbstractModel{
     }
 
     /**
-     * Get 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.B1.82.EF.BC.88layer.EF.BC.89.E7.8A.B6.E6.80.81) 
-     * @return Status 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.B1.82.EF.BC.88layer.EF.BC.89.E7.8A.B6.E6.80.81)
+     * Get 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/115197#.E5.B1.82.EF.BC.88Layer.EF.BC.89.E7.8A.B6.E6.80.81) 
+     * @return Status 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/115197#.E5.B1.82.EF.BC.88Layer.EF.BC.89.E7.8A.B6.E6.80.81)
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.B1.82.EF.BC.88layer.EF.BC.89.E7.8A.B6.E6.80.81)
-     * @param Status 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/47175#.E5.B1.82.EF.BC.88layer.EF.BC.89.E7.8A.B6.E6.80.81)
+     * Set 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/115197#.E5.B1.82.EF.BC.88Layer.EF.BC.89.E7.8A.B6.E6.80.81)
+     * @param Status 层的具体版本当前状态，状态值[参考此处](https://cloud.tencent.com/document/product/583/115197#.E5.B1.82.EF.BC.88Layer.EF.BC.89.E7.8A.B6.E6.80.81)
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get Stamp
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Stamp 
      * @return Stamp Stamp
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStamp() {
         return this.Stamp;
@@ -218,12 +214,30 @@ public class LayerVersionInfo extends AbstractModel{
 
     /**
      * Set Stamp
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Stamp Stamp
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStamp(String Stamp) {
         this.Stamp = Stamp;
+    }
+
+    /**
+     * Get 返回层绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Tags 返回层绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 返回层绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Tags 返回层绑定的标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
     }
 
     public LayerVersionInfo() {
@@ -261,6 +275,12 @@ public class LayerVersionInfo extends AbstractModel{
         if (source.Stamp != null) {
             this.Stamp = new String(source.Stamp);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -276,6 +296,7 @@ public class LayerVersionInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "LayerName", this.LayerName);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "Stamp", this.Stamp);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

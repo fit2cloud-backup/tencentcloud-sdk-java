@@ -16,28 +16,51 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelCreateFlowSignUrlRequest extends AbstractModel{
+public class ChannelCreateFlowSignUrlRequest extends AbstractModel {
 
     /**
-    * 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+    * 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
     */
     @SerializedName("Agent")
     @Expose
     private Agent Agent;
 
     /**
-    * 流程编号
+    * 合同流程ID，为32位字符串。
+建议开发者妥善保存此流程ID，以便于顺利进行后续操作。
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
     */
     @SerializedName("FlowId")
     @Expose
     private String FlowId;
 
     /**
-    * 流程签署人，其中Name和Mobile必传，其他可不传，ApproverType目前只支持PERSON类型的签署人，如果不传默认为该值。还需注意签署人只能有手写签名和时间类型的签署控件，其他类型的填写控件和签署控件暂时都未支持。
+    * 流程签署人列表，其中结构体的ApproverType必传。
+若为个人签署方或saas企业签署方，则Name，Mobile必传。OrganizationName 传对应企业名称。
+若为子客企业签署方则需传OpenId、OrganizationOpenId，其他可不传。
+
+此结构体和发起接口参与方结构体复用，除了上述参数外，可传递的参数有：
+1. RecipientId: 发起合同会返回，可以直接用于指定需要生成链接的签署方。
+2. ApproverSignTypes: 指定签署方签署时候的认证方式，仅此链接生效。
+3. SignTypeSelector: 可以指定签署方签署合同的认证校验方式的选择模式。
+4. Intention: 指定H5签署视频核身的意图配置，仅视频签署需要使用。
+
+注:
+`1. 签署人只能有手写签名、时间类型、印章类型、签批类型的签署控件和内容填写控件，其他类型的签署控件暂时未支持。`
+`2. 生成发起方预览链接时，该字段（FlowApproverInfos）传空或者不传`
     */
     @SerializedName("FlowApproverInfos")
     @Expose
@@ -58,55 +81,156 @@ public class ChannelCreateFlowSignUrlRequest extends AbstractModel{
     private OrganizationInfo Organization;
 
     /**
-    * 签署完之后的H5页面的跳转链接，此链接支持http://和https://，最大长度1000个字符。
+    * 签署完之后的H5页面的跳转链接，最大长度1000个字符。链接类型请参考 <a href="https://qian.tencent.com/developers/company/openqianh5" target="_blank">跳转电子签H5</a>
+
     */
     @SerializedName("JumpUrl")
     @Expose
     private String JumpUrl;
 
     /**
-     * Get 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填 
-     * @return Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+    * 链接类型，支持指定以下类型
+<ul><li>0 : 签署链接 (默认值)</li>
+<li>1 : 预览链接</li></ul>
+注:
+`1. 当指定链接类型为1时，链接为预览链接，打开链接无法签署仅支持预览以及查看当前合同状态。`
+`2. 如需生成发起方预览链接，则签署方信息传空，即FlowApproverInfos传空或者不传。`
+    */
+    @SerializedName("UrlType")
+    @Expose
+    private Long UrlType;
+
+    /**
+     * Get 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证 
+     * @return Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public Agent getAgent() {
         return this.Agent;
     }
 
     /**
-     * Set 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
-     * @param Agent 应用相关信息。 此接口Agent.ProxyOrganizationOpenId、Agent. ProxyOperator.OpenId、Agent.AppId 必填
+     * Set 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
+     * @param Agent 关于渠道应用的相关信息，包括渠道应用标识、第三方平台子客企业标识及第三方平台子客企业中的员工标识等内容，您可以参阅开发者中心所提供的 Agent 结构体以获取详细定义。
+
+此接口下面信息必填。
+<ul>
+<li>渠道应用标识:  Agent.AppId</li>
+<li>第三方平台子客企业标识: Agent.ProxyOrganizationOpenId</li>
+<li>第三方平台子客企业中的员工标识: Agent. ProxyOperator.OpenId</li>
+</ul>
+第三方平台子客企业和员工必须已经经过实名认证
      */
     public void setAgent(Agent Agent) {
         this.Agent = Agent;
     }
 
     /**
-     * Get 流程编号 
-     * @return FlowId 流程编号
+     * Get 合同流程ID，为32位字符串。
+建议开发者妥善保存此流程ID，以便于顺利进行后续操作。
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。 
+     * @return FlowId 合同流程ID，为32位字符串。
+建议开发者妥善保存此流程ID，以便于顺利进行后续操作。
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
      */
     public String getFlowId() {
         return this.FlowId;
     }
 
     /**
-     * Set 流程编号
-     * @param FlowId 流程编号
+     * Set 合同流程ID，为32位字符串。
+建议开发者妥善保存此流程ID，以便于顺利进行后续操作。
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
+     * @param FlowId 合同流程ID，为32位字符串。
+建议开发者妥善保存此流程ID，以便于顺利进行后续操作。
+可登录腾讯电子签控制台，在 "合同"->"合同中心" 中查看某个合同的FlowId(在页面中展示为合同ID)。
      */
     public void setFlowId(String FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 流程签署人，其中Name和Mobile必传，其他可不传，ApproverType目前只支持PERSON类型的签署人，如果不传默认为该值。还需注意签署人只能有手写签名和时间类型的签署控件，其他类型的填写控件和签署控件暂时都未支持。 
-     * @return FlowApproverInfos 流程签署人，其中Name和Mobile必传，其他可不传，ApproverType目前只支持PERSON类型的签署人，如果不传默认为该值。还需注意签署人只能有手写签名和时间类型的签署控件，其他类型的填写控件和签署控件暂时都未支持。
+     * Get 流程签署人列表，其中结构体的ApproverType必传。
+若为个人签署方或saas企业签署方，则Name，Mobile必传。OrganizationName 传对应企业名称。
+若为子客企业签署方则需传OpenId、OrganizationOpenId，其他可不传。
+
+此结构体和发起接口参与方结构体复用，除了上述参数外，可传递的参数有：
+1. RecipientId: 发起合同会返回，可以直接用于指定需要生成链接的签署方。
+2. ApproverSignTypes: 指定签署方签署时候的认证方式，仅此链接生效。
+3. SignTypeSelector: 可以指定签署方签署合同的认证校验方式的选择模式。
+4. Intention: 指定H5签署视频核身的意图配置，仅视频签署需要使用。
+
+注:
+`1. 签署人只能有手写签名、时间类型、印章类型、签批类型的签署控件和内容填写控件，其他类型的签署控件暂时未支持。`
+`2. 生成发起方预览链接时，该字段（FlowApproverInfos）传空或者不传` 
+     * @return FlowApproverInfos 流程签署人列表，其中结构体的ApproverType必传。
+若为个人签署方或saas企业签署方，则Name，Mobile必传。OrganizationName 传对应企业名称。
+若为子客企业签署方则需传OpenId、OrganizationOpenId，其他可不传。
+
+此结构体和发起接口参与方结构体复用，除了上述参数外，可传递的参数有：
+1. RecipientId: 发起合同会返回，可以直接用于指定需要生成链接的签署方。
+2. ApproverSignTypes: 指定签署方签署时候的认证方式，仅此链接生效。
+3. SignTypeSelector: 可以指定签署方签署合同的认证校验方式的选择模式。
+4. Intention: 指定H5签署视频核身的意图配置，仅视频签署需要使用。
+
+注:
+`1. 签署人只能有手写签名、时间类型、印章类型、签批类型的签署控件和内容填写控件，其他类型的签署控件暂时未支持。`
+`2. 生成发起方预览链接时，该字段（FlowApproverInfos）传空或者不传`
      */
     public FlowApproverInfo [] getFlowApproverInfos() {
         return this.FlowApproverInfos;
     }
 
     /**
-     * Set 流程签署人，其中Name和Mobile必传，其他可不传，ApproverType目前只支持PERSON类型的签署人，如果不传默认为该值。还需注意签署人只能有手写签名和时间类型的签署控件，其他类型的填写控件和签署控件暂时都未支持。
-     * @param FlowApproverInfos 流程签署人，其中Name和Mobile必传，其他可不传，ApproverType目前只支持PERSON类型的签署人，如果不传默认为该值。还需注意签署人只能有手写签名和时间类型的签署控件，其他类型的填写控件和签署控件暂时都未支持。
+     * Set 流程签署人列表，其中结构体的ApproverType必传。
+若为个人签署方或saas企业签署方，则Name，Mobile必传。OrganizationName 传对应企业名称。
+若为子客企业签署方则需传OpenId、OrganizationOpenId，其他可不传。
+
+此结构体和发起接口参与方结构体复用，除了上述参数外，可传递的参数有：
+1. RecipientId: 发起合同会返回，可以直接用于指定需要生成链接的签署方。
+2. ApproverSignTypes: 指定签署方签署时候的认证方式，仅此链接生效。
+3. SignTypeSelector: 可以指定签署方签署合同的认证校验方式的选择模式。
+4. Intention: 指定H5签署视频核身的意图配置，仅视频签署需要使用。
+
+注:
+`1. 签署人只能有手写签名、时间类型、印章类型、签批类型的签署控件和内容填写控件，其他类型的签署控件暂时未支持。`
+`2. 生成发起方预览链接时，该字段（FlowApproverInfos）传空或者不传`
+     * @param FlowApproverInfos 流程签署人列表，其中结构体的ApproverType必传。
+若为个人签署方或saas企业签署方，则Name，Mobile必传。OrganizationName 传对应企业名称。
+若为子客企业签署方则需传OpenId、OrganizationOpenId，其他可不传。
+
+此结构体和发起接口参与方结构体复用，除了上述参数外，可传递的参数有：
+1. RecipientId: 发起合同会返回，可以直接用于指定需要生成链接的签署方。
+2. ApproverSignTypes: 指定签署方签署时候的认证方式，仅此链接生效。
+3. SignTypeSelector: 可以指定签署方签署合同的认证校验方式的选择模式。
+4. Intention: 指定H5签署视频核身的意图配置，仅视频签署需要使用。
+
+注:
+`1. 签署人只能有手写签名、时间类型、印章类型、签批类型的签署控件和内容填写控件，其他类型的签署控件暂时未支持。`
+`2. 生成发起方预览链接时，该字段（FlowApproverInfos）传空或者不传`
      */
     public void setFlowApproverInfos(FlowApproverInfo [] FlowApproverInfos) {
         this.FlowApproverInfos = FlowApproverInfos;
@@ -153,19 +277,59 @@ public class ChannelCreateFlowSignUrlRequest extends AbstractModel{
     }
 
     /**
-     * Get 签署完之后的H5页面的跳转链接，此链接支持http://和https://，最大长度1000个字符。 
-     * @return JumpUrl 签署完之后的H5页面的跳转链接，此链接支持http://和https://，最大长度1000个字符。
+     * Get 签署完之后的H5页面的跳转链接，最大长度1000个字符。链接类型请参考 <a href="https://qian.tencent.com/developers/company/openqianh5" target="_blank">跳转电子签H5</a>
+ 
+     * @return JumpUrl 签署完之后的H5页面的跳转链接，最大长度1000个字符。链接类型请参考 <a href="https://qian.tencent.com/developers/company/openqianh5" target="_blank">跳转电子签H5</a>
+
      */
     public String getJumpUrl() {
         return this.JumpUrl;
     }
 
     /**
-     * Set 签署完之后的H5页面的跳转链接，此链接支持http://和https://，最大长度1000个字符。
-     * @param JumpUrl 签署完之后的H5页面的跳转链接，此链接支持http://和https://，最大长度1000个字符。
+     * Set 签署完之后的H5页面的跳转链接，最大长度1000个字符。链接类型请参考 <a href="https://qian.tencent.com/developers/company/openqianh5" target="_blank">跳转电子签H5</a>
+
+     * @param JumpUrl 签署完之后的H5页面的跳转链接，最大长度1000个字符。链接类型请参考 <a href="https://qian.tencent.com/developers/company/openqianh5" target="_blank">跳转电子签H5</a>
+
      */
     public void setJumpUrl(String JumpUrl) {
         this.JumpUrl = JumpUrl;
+    }
+
+    /**
+     * Get 链接类型，支持指定以下类型
+<ul><li>0 : 签署链接 (默认值)</li>
+<li>1 : 预览链接</li></ul>
+注:
+`1. 当指定链接类型为1时，链接为预览链接，打开链接无法签署仅支持预览以及查看当前合同状态。`
+`2. 如需生成发起方预览链接，则签署方信息传空，即FlowApproverInfos传空或者不传。` 
+     * @return UrlType 链接类型，支持指定以下类型
+<ul><li>0 : 签署链接 (默认值)</li>
+<li>1 : 预览链接</li></ul>
+注:
+`1. 当指定链接类型为1时，链接为预览链接，打开链接无法签署仅支持预览以及查看当前合同状态。`
+`2. 如需生成发起方预览链接，则签署方信息传空，即FlowApproverInfos传空或者不传。`
+     */
+    public Long getUrlType() {
+        return this.UrlType;
+    }
+
+    /**
+     * Set 链接类型，支持指定以下类型
+<ul><li>0 : 签署链接 (默认值)</li>
+<li>1 : 预览链接</li></ul>
+注:
+`1. 当指定链接类型为1时，链接为预览链接，打开链接无法签署仅支持预览以及查看当前合同状态。`
+`2. 如需生成发起方预览链接，则签署方信息传空，即FlowApproverInfos传空或者不传。`
+     * @param UrlType 链接类型，支持指定以下类型
+<ul><li>0 : 签署链接 (默认值)</li>
+<li>1 : 预览链接</li></ul>
+注:
+`1. 当指定链接类型为1时，链接为预览链接，打开链接无法签署仅支持预览以及查看当前合同状态。`
+`2. 如需生成发起方预览链接，则签署方信息传空，即FlowApproverInfos传空或者不传。`
+     */
+    public void setUrlType(Long UrlType) {
+        this.UrlType = UrlType;
     }
 
     public ChannelCreateFlowSignUrlRequest() {
@@ -197,6 +361,9 @@ public class ChannelCreateFlowSignUrlRequest extends AbstractModel{
         if (source.JumpUrl != null) {
             this.JumpUrl = new String(source.JumpUrl);
         }
+        if (source.UrlType != null) {
+            this.UrlType = new Long(source.UrlType);
+        }
     }
 
 
@@ -210,6 +377,7 @@ public class ChannelCreateFlowSignUrlRequest extends AbstractModel{
         this.setParamObj(map, prefix + "Operator.", this.Operator);
         this.setParamObj(map, prefix + "Organization.", this.Organization);
         this.setParamSimple(map, prefix + "JumpUrl", this.JumpUrl);
+        this.setParamSimple(map, prefix + "UrlType", this.UrlType);
 
     }
 }

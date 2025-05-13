@@ -16,14 +16,15 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBackupUrlRequest extends AbstractModel{
+public class DescribeBackupUrlRequest extends AbstractModel {
 
     /**
-    * 实例 ID。
+    * 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -38,7 +39,6 @@ public class DescribeBackupUrlRequest extends AbstractModel{
 
     /**
     * 下载备份文件的网络限制类型，如果不配置该参数，则使用用户自定义的配置。
-
 - NoLimit：不限制，腾讯云内外网均可以下载备份文件。
 -  LimitOnlyIntranet：仅腾讯云自动分配的内网地址可下载备份文件。
 - Customize：指用户自定义的私有网络可下载备份文件。
@@ -56,7 +56,6 @@ public class DescribeBackupUrlRequest extends AbstractModel{
 
     /**
     * 标识自定义的 LimitIp 地址是否可下载备份文件。
-
 - In: 自定义的 IP 地址可以下载。默认为 In。
 - NotIn: 自定义的 IP 不可以下载。
     */
@@ -79,16 +78,16 @@ public class DescribeBackupUrlRequest extends AbstractModel{
     private String [] LimitIp;
 
     /**
-     * Get 实例 ID。 
-     * @return InstanceId 实例 ID。
+     * Get 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。 
+     * @return InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例 ID。
-     * @param InstanceId 实例 ID。
+     * Set 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+     * @param InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -112,12 +111,10 @@ public class DescribeBackupUrlRequest extends AbstractModel{
 
     /**
      * Get 下载备份文件的网络限制类型，如果不配置该参数，则使用用户自定义的配置。
-
 - NoLimit：不限制，腾讯云内外网均可以下载备份文件。
 -  LimitOnlyIntranet：仅腾讯云自动分配的内网地址可下载备份文件。
 - Customize：指用户自定义的私有网络可下载备份文件。 
      * @return LimitType 下载备份文件的网络限制类型，如果不配置该参数，则使用用户自定义的配置。
-
 - NoLimit：不限制，腾讯云内外网均可以下载备份文件。
 -  LimitOnlyIntranet：仅腾讯云自动分配的内网地址可下载备份文件。
 - Customize：指用户自定义的私有网络可下载备份文件。
@@ -128,12 +125,10 @@ public class DescribeBackupUrlRequest extends AbstractModel{
 
     /**
      * Set 下载备份文件的网络限制类型，如果不配置该参数，则使用用户自定义的配置。
-
 - NoLimit：不限制，腾讯云内外网均可以下载备份文件。
 -  LimitOnlyIntranet：仅腾讯云自动分配的内网地址可下载备份文件。
 - Customize：指用户自定义的私有网络可下载备份文件。
      * @param LimitType 下载备份文件的网络限制类型，如果不配置该参数，则使用用户自定义的配置。
-
 - NoLimit：不限制，腾讯云内外网均可以下载备份文件。
 -  LimitOnlyIntranet：仅腾讯云自动分配的内网地址可下载备份文件。
 - Customize：指用户自定义的私有网络可下载备份文件。
@@ -160,11 +155,9 @@ public class DescribeBackupUrlRequest extends AbstractModel{
 
     /**
      * Get 标识自定义的 LimitIp 地址是否可下载备份文件。
-
 - In: 自定义的 IP 地址可以下载。默认为 In。
 - NotIn: 自定义的 IP 不可以下载。 
      * @return IpComparisonSymbol 标识自定义的 LimitIp 地址是否可下载备份文件。
-
 - In: 自定义的 IP 地址可以下载。默认为 In。
 - NotIn: 自定义的 IP 不可以下载。
      */
@@ -174,11 +167,9 @@ public class DescribeBackupUrlRequest extends AbstractModel{
 
     /**
      * Set 标识自定义的 LimitIp 地址是否可下载备份文件。
-
 - In: 自定义的 IP 地址可以下载。默认为 In。
 - NotIn: 自定义的 IP 不可以下载。
      * @param IpComparisonSymbol 标识自定义的 LimitIp 地址是否可下载备份文件。
-
 - In: 自定义的 IP 地址可以下载。默认为 In。
 - NotIn: 自定义的 IP 不可以下载。
      */

@@ -16,15 +16,16 @@
 package com.tencentcloudapi.sms.v20190711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SendSmsRequest extends AbstractModel{
+public class SendSmsRequest extends AbstractModel {
 
     /**
-    * 下发手机号码，采用 e.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+    * 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
     */
     @SerializedName("PhoneNumberSet")
     @Expose
@@ -80,20 +81,20 @@ public class SendSmsRequest extends AbstractModel{
     private String SenderId;
 
     /**
-     * Get 下发手机号码，采用 e.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。 
-     * @return PhoneNumberSet 下发手机号码，采用 e.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+     * Get 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。 
+     * @return PhoneNumberSet 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
      */
     public String [] getPhoneNumberSet() {
         return this.PhoneNumberSet;
     }
 
     /**
-     * Set 下发手机号码，采用 e.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
-     * @param PhoneNumberSet 下发手机号码，采用 e.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
-例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号。
+     * Set 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
+     * @param PhoneNumberSet 下发手机号码，采用 E.164 标准，格式为+[国家或地区码][手机号]，单次请求最多支持200个手机号且要求全为境内手机号或全为境外手机号。
+例如：+8618501234444， 其中前面有一个+号 ，86为国家码，18501234444为手机号。
      */
     public void setPhoneNumberSet(String [] PhoneNumberSet) {
         this.PhoneNumberSet = PhoneNumberSet;

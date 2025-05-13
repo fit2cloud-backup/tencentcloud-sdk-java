@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AbnormalProcessEventDescription extends AbstractModel{
+public class AbnormalProcessEventDescription extends AbstractModel {
 
     /**
     * 事件规则
@@ -38,7 +39,6 @@ public class AbnormalProcessEventDescription extends AbstractModel{
 
     /**
     * 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -67,7 +67,6 @@ public class AbnormalProcessEventDescription extends AbstractModel{
 
     /**
     * 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OperationTime")
     @Expose
@@ -75,7 +74,6 @@ public class AbnormalProcessEventDescription extends AbstractModel{
 
     /**
     * 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
     @Expose
@@ -114,10 +112,8 @@ public class AbnormalProcessEventDescription extends AbstractModel{
     }
 
     /**
-     * Get 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件备注信息 
      * @return Remark 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -125,9 +121,7 @@ public class AbnormalProcessEventDescription extends AbstractModel{
 
     /**
      * Set 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
@@ -182,10 +176,8 @@ public class AbnormalProcessEventDescription extends AbstractModel{
     }
 
     /**
-     * Get 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件最后一次处理的时间 
      * @return OperationTime 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOperationTime() {
         return this.OperationTime;
@@ -193,19 +185,15 @@ public class AbnormalProcessEventDescription extends AbstractModel{
 
     /**
      * Set 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OperationTime 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOperationTime(String OperationTime) {
         this.OperationTime = OperationTime;
     }
 
     /**
-     * Get 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字 
      * @return GroupName 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
         return this.GroupName;
@@ -213,9 +201,7 @@ public class AbnormalProcessEventDescription extends AbstractModel{
 
     /**
      * Set 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupName 命中策略名称：SYSTEM_DEFINED_RULE （系统策略）或  用户自定义的策略名字
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;

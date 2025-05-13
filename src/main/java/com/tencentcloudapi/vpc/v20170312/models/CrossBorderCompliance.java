@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CrossBorderCompliance extends AbstractModel{
+public class CrossBorderCompliance extends AbstractModel {
 
     /**
     * 服务商，可选值：`UNICOM`。
@@ -175,6 +176,20 @@ public class CrossBorderCompliance extends AbstractModel{
     @SerializedName("CreatedTime")
     @Expose
     private String CreatedTime;
+
+    /**
+    * 法定代表人身份证号。
+    */
+    @SerializedName("LegalPersonId")
+    @Expose
+    private String LegalPersonId;
+
+    /**
+    * 法定代表人身份证。
+    */
+    @SerializedName("LegalPersonIdCard")
+    @Expose
+    private String LegalPersonIdCard;
 
     /**
      * Get 服务商，可选值：`UNICOM`。 
@@ -528,6 +543,38 @@ public class CrossBorderCompliance extends AbstractModel{
         this.CreatedTime = CreatedTime;
     }
 
+    /**
+     * Get 法定代表人身份证号。 
+     * @return LegalPersonId 法定代表人身份证号。
+     */
+    public String getLegalPersonId() {
+        return this.LegalPersonId;
+    }
+
+    /**
+     * Set 法定代表人身份证号。
+     * @param LegalPersonId 法定代表人身份证号。
+     */
+    public void setLegalPersonId(String LegalPersonId) {
+        this.LegalPersonId = LegalPersonId;
+    }
+
+    /**
+     * Get 法定代表人身份证。 
+     * @return LegalPersonIdCard 法定代表人身份证。
+     */
+    public String getLegalPersonIdCard() {
+        return this.LegalPersonIdCard;
+    }
+
+    /**
+     * Set 法定代表人身份证。
+     * @param LegalPersonIdCard 法定代表人身份证。
+     */
+    public void setLegalPersonIdCard(String LegalPersonIdCard) {
+        this.LegalPersonIdCard = LegalPersonIdCard;
+    }
+
     public CrossBorderCompliance() {
     }
 
@@ -602,6 +649,12 @@ public class CrossBorderCompliance extends AbstractModel{
         if (source.CreatedTime != null) {
             this.CreatedTime = new String(source.CreatedTime);
         }
+        if (source.LegalPersonId != null) {
+            this.LegalPersonId = new String(source.LegalPersonId);
+        }
+        if (source.LegalPersonIdCard != null) {
+            this.LegalPersonIdCard = new String(source.LegalPersonIdCard);
+        }
     }
 
 
@@ -631,6 +684,8 @@ public class CrossBorderCompliance extends AbstractModel{
         this.setParamSimple(map, prefix + "ServiceEndDate", this.ServiceEndDate);
         this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "CreatedTime", this.CreatedTime);
+        this.setParamSimple(map, prefix + "LegalPersonId", this.LegalPersonId);
+        this.setParamSimple(map, prefix + "LegalPersonIdCard", this.LegalPersonIdCard);
 
     }
 }

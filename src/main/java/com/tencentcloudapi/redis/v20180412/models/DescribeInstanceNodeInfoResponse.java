@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceNodeInfoResponse extends AbstractModel{
+public class DescribeInstanceNodeInfoResponse extends AbstractModel {
 
     /**
     * Proxy节点数量。
@@ -31,7 +32,6 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
 
     /**
     * Proxy节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Proxy")
     @Expose
@@ -46,7 +46,6 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
 
     /**
     * Redis节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Redis")
     @Expose
@@ -61,14 +60,13 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
 
     /**
     * 该参数不再使用，请忽略。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tendis")
     @Expose
     private TendisNodes [] Tendis;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -91,10 +89,8 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get Proxy节点信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Proxy节点信息。 
      * @return Proxy Proxy节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ProxyNodes [] getProxy() {
         return this.Proxy;
@@ -102,9 +98,7 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
 
     /**
      * Set Proxy节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Proxy Proxy节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProxy(ProxyNodes [] Proxy) {
         this.Proxy = Proxy;
@@ -127,10 +121,8 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get Redis节点信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Redis节点信息。 
      * @return Redis Redis节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public RedisNodes [] getRedis() {
         return this.Redis;
@@ -138,9 +130,7 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
 
     /**
      * Set Redis节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Redis Redis节点信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRedis(RedisNodes [] Redis) {
         this.Redis = Redis;
@@ -163,10 +153,8 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 该参数不再使用，请忽略。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 该参数不再使用，请忽略。 
      * @return Tendis 该参数不再使用，请忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TendisNodes [] getTendis() {
         return this.Tendis;
@@ -174,25 +162,23 @@ public class DescribeInstanceNodeInfoResponse extends AbstractModel{
 
     /**
      * Set 该参数不再使用，请忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tendis 该参数不再使用，请忽略。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTendis(TendisNodes [] Tendis) {
         this.Tendis = Tendis;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

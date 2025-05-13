@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tdmq.v20200217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeNamespaceBundlesOptRequest extends AbstractModel{
+public class DescribeNamespaceBundlesOptRequest extends AbstractModel {
 
     /**
     * 物理集群名
@@ -72,7 +73,7 @@ public class DescribeNamespaceBundlesOptRequest extends AbstractModel{
     private String Bundle;
 
     /**
-    * bundle 所属的 broker ip 地址，支持模糊查询
+    * bundle 所属的 broker IP 地址，支持模糊查询
     */
     @SerializedName("OwnerBroker")
     @Expose
@@ -191,16 +192,16 @@ public class DescribeNamespaceBundlesOptRequest extends AbstractModel{
     }
 
     /**
-     * Get bundle 所属的 broker ip 地址，支持模糊查询 
-     * @return OwnerBroker bundle 所属的 broker ip 地址，支持模糊查询
+     * Get bundle 所属的 broker IP 地址，支持模糊查询 
+     * @return OwnerBroker bundle 所属的 broker IP 地址，支持模糊查询
      */
     public String getOwnerBroker() {
         return this.OwnerBroker;
     }
 
     /**
-     * Set bundle 所属的 broker ip 地址，支持模糊查询
-     * @param OwnerBroker bundle 所属的 broker ip 地址，支持模糊查询
+     * Set bundle 所属的 broker IP 地址，支持模糊查询
+     * @param OwnerBroker bundle 所属的 broker IP 地址，支持模糊查询
      */
     public void setOwnerBroker(String OwnerBroker) {
         this.OwnerBroker = OwnerBroker;

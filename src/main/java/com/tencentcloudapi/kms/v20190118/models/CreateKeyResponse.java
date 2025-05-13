@@ -16,11 +16,12 @@
 package com.tencentcloudapi.kms.v20190118.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateKeyResponse extends AbstractModel{
+public class CreateKeyResponse extends AbstractModel {
 
     /**
     * CMK的全局唯一标识符
@@ -45,7 +46,6 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
     * CMK的描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -67,7 +67,6 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
     * 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagCode")
     @Expose
@@ -75,7 +74,6 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
     * 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagMsg")
     @Expose
@@ -83,14 +81,13 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
     * HSM 集群 ID（仅对 KMS 独占版/托管版服务实例有效）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HsmClusterId")
     @Expose
     private String HsmClusterId;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -145,10 +142,8 @@ public class CreateKeyResponse extends AbstractModel{
     }
 
     /**
-     * Get CMK的描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get CMK的描述 
      * @return Description CMK的描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -156,9 +151,7 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
      * Set CMK的描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description CMK的描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
@@ -197,10 +190,8 @@ public class CreateKeyResponse extends AbstractModel{
     }
 
     /**
-     * Get 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误 
      * @return TagCode 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTagCode() {
         return this.TagCode;
@@ -208,19 +199,15 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
      * Set 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagCode 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagCode(Long TagCode) {
         this.TagCode = TagCode;
     }
 
     /**
-     * Get 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签操作的返回信息 
      * @return TagMsg 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTagMsg() {
         return this.TagMsg;
@@ -228,19 +215,15 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
      * Set 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagMsg 标签操作的返回信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagMsg(String TagMsg) {
         this.TagMsg = TagMsg;
     }
 
     /**
-     * Get HSM 集群 ID（仅对 KMS 独占版/托管版服务实例有效）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get HSM 集群 ID（仅对 KMS 独占版/托管版服务实例有效） 
      * @return HsmClusterId HSM 集群 ID（仅对 KMS 独占版/托管版服务实例有效）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHsmClusterId() {
         return this.HsmClusterId;
@@ -248,25 +231,23 @@ public class CreateKeyResponse extends AbstractModel{
 
     /**
      * Set HSM 集群 ID（仅对 KMS 独占版/托管版服务实例有效）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HsmClusterId HSM 集群 ID（仅对 KMS 独占版/托管版服务实例有效）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHsmClusterId(String HsmClusterId) {
         this.HsmClusterId = HsmClusterId;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

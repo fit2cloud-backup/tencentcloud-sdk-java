@@ -16,11 +16,12 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
+public class DescribeDataLogUrlStatisticsRequest extends AbstractModel {
 
     /**
     * 开始时间
@@ -142,7 +143,7 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
     private String Device;
 
     /**
-    * 是否海外
+    * 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
     */
     @SerializedName("IsAbroad")
     @Expose
@@ -168,6 +169,13 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
     @SerializedName("Env")
     @Expose
     private String Env;
+
+    /**
+    * js异常信息
+    */
+    @SerializedName("ErrorMsg")
+    @Expose
+    private String ErrorMsg;
 
     /**
      * Get 开始时间 
@@ -442,16 +450,16 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否海外 
-     * @return IsAbroad 是否海外
+     * Get 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。 
+     * @return IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public String getIsAbroad() {
         return this.IsAbroad;
     }
 
     /**
-     * Set 是否海外
-     * @param IsAbroad 是否海外
+     * Set 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
+     * @param IsAbroad 显示是否海外,1表示海外，0表示非海外；默认值为空，查询所有。
      */
     public void setIsAbroad(String IsAbroad) {
         this.IsAbroad = IsAbroad;
@@ -503,6 +511,22 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
      */
     public void setEnv(String Env) {
         this.Env = Env;
+    }
+
+    /**
+     * Get js异常信息 
+     * @return ErrorMsg js异常信息
+     */
+    public String getErrorMsg() {
+        return this.ErrorMsg;
+    }
+
+    /**
+     * Set js异常信息
+     * @param ErrorMsg js异常信息
+     */
+    public void setErrorMsg(String ErrorMsg) {
+        this.ErrorMsg = ErrorMsg;
     }
 
     public DescribeDataLogUrlStatisticsRequest() {
@@ -576,6 +600,9 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
         if (source.Env != null) {
             this.Env = new String(source.Env);
         }
+        if (source.ErrorMsg != null) {
+            this.ErrorMsg = new String(source.ErrorMsg);
+        }
     }
 
 
@@ -604,6 +631,7 @@ public class DescribeDataLogUrlStatisticsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Os", this.Os);
         this.setParamSimple(map, prefix + "Browser", this.Browser);
         this.setParamSimple(map, prefix + "Env", this.Env);
+        this.setParamSimple(map, prefix + "ErrorMsg", this.ErrorMsg);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcb.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUserActivityInfoResponse extends AbstractModel{
+public class DescribeUserActivityInfoResponse extends AbstractModel {
 
     /**
     * 自定义标记，1元钱裂变需求中即代指`团id`
@@ -52,14 +53,13 @@ public class DescribeUserActivityInfoResponse extends AbstractModel{
 
     /**
     * 昵称列表,通过","拼接， 1元钱裂变活动中与Notes中uin一一对应
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NickNameList")
     @Expose
     private String NickNameList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -130,10 +130,8 @@ public class DescribeUserActivityInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 昵称列表,通过","拼接， 1元钱裂变活动中与Notes中uin一一对应
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 昵称列表,通过","拼接， 1元钱裂变活动中与Notes中uin一一对应 
      * @return NickNameList 昵称列表,通过","拼接， 1元钱裂变活动中与Notes中uin一一对应
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNickNameList() {
         return this.NickNameList;
@@ -141,25 +139,23 @@ public class DescribeUserActivityInfoResponse extends AbstractModel{
 
     /**
      * Set 昵称列表,通过","拼接， 1元钱裂变活动中与Notes中uin一一对应
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NickNameList 昵称列表,通过","拼接， 1元钱裂变活动中与Notes中uin一一对应
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNickNameList(String NickNameList) {
         this.NickNameList = NickNameList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

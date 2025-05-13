@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ivld.v20210903.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskRequest extends AbstractModel{
+public class DescribeTaskRequest extends AbstractModel {
 
     /**
-    * CreateTask返回的任务ID，最长32B
+    * CreateTask返回的任务ID
     */
     @SerializedName("TaskId")
     @Expose
     private String TaskId;
 
     /**
-     * Get CreateTask返回的任务ID，最长32B 
-     * @return TaskId CreateTask返回的任务ID，最长32B
+     * Get CreateTask返回的任务ID 
+     * @return TaskId CreateTask返回的任务ID
      */
     public String getTaskId() {
         return this.TaskId;
     }
 
     /**
-     * Set CreateTask返回的任务ID，最长32B
-     * @param TaskId CreateTask返回的任务ID，最长32B
+     * Set CreateTask返回的任务ID
+     * @param TaskId CreateTask返回的任务ID
      */
     public void setTaskId(String TaskId) {
         this.TaskId = TaskId;

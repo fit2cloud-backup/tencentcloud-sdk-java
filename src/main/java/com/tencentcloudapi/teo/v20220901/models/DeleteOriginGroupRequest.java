@@ -16,56 +16,57 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteOriginGroupRequest extends AbstractModel{
+public class DeleteOriginGroupRequest extends AbstractModel {
 
     /**
-    * 站点ID。
+    * 站点 ID
     */
     @SerializedName("ZoneId")
     @Expose
     private String ZoneId;
 
     /**
-    * 源站组ID。
+    * 源站组 ID，此参数必填。
     */
-    @SerializedName("OriginGroupId")
+    @SerializedName("GroupId")
     @Expose
-    private String OriginGroupId;
+    private String GroupId;
 
     /**
-     * Get 站点ID。 
-     * @return ZoneId 站点ID。
+     * Get 站点 ID 
+     * @return ZoneId 站点 ID
      */
     public String getZoneId() {
         return this.ZoneId;
     }
 
     /**
-     * Set 站点ID。
-     * @param ZoneId 站点ID。
+     * Set 站点 ID
+     * @param ZoneId 站点 ID
      */
     public void setZoneId(String ZoneId) {
         this.ZoneId = ZoneId;
     }
 
     /**
-     * Get 源站组ID。 
-     * @return OriginGroupId 源站组ID。
+     * Get 源站组 ID，此参数必填。 
+     * @return GroupId 源站组 ID，此参数必填。
      */
-    public String getOriginGroupId() {
-        return this.OriginGroupId;
+    public String getGroupId() {
+        return this.GroupId;
     }
 
     /**
-     * Set 源站组ID。
-     * @param OriginGroupId 源站组ID。
+     * Set 源站组 ID，此参数必填。
+     * @param GroupId 源站组 ID，此参数必填。
      */
-    public void setOriginGroupId(String OriginGroupId) {
-        this.OriginGroupId = OriginGroupId;
+    public void setGroupId(String GroupId) {
+        this.GroupId = GroupId;
     }
 
     public DeleteOriginGroupRequest() {
@@ -79,8 +80,8 @@ public class DeleteOriginGroupRequest extends AbstractModel{
         if (source.ZoneId != null) {
             this.ZoneId = new String(source.ZoneId);
         }
-        if (source.OriginGroupId != null) {
-            this.OriginGroupId = new String(source.OriginGroupId);
+        if (source.GroupId != null) {
+            this.GroupId = new String(source.GroupId);
         }
     }
 
@@ -90,7 +91,7 @@ public class DeleteOriginGroupRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ZoneId", this.ZoneId);
-        this.setParamSimple(map, prefix + "OriginGroupId", this.OriginGroupId);
+        this.setParamSimple(map, prefix + "GroupId", this.GroupId);
 
     }
 }

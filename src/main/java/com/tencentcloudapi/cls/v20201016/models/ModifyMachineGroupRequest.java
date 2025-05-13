@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyMachineGroupRequest extends AbstractModel{
+public class ModifyMachineGroupRequest extends AbstractModel {
 
     /**
     * 机器组ID
@@ -37,7 +38,7 @@ public class ModifyMachineGroupRequest extends AbstractModel{
     private String GroupName;
 
     /**
-    * 机器组类型
+    * 机器组类型。Type：ip，Values中为ip字符串列表机器组；Type：label，Values中为标签字符串列表机器组。
     */
     @SerializedName("MachineGroupType")
     @Expose
@@ -79,6 +80,13 @@ public class ModifyMachineGroupRequest extends AbstractModel{
     private Boolean ServiceLogging;
 
     /**
+    * 机器组中机器定期离线清理时间。单位：天
+    */
+    @SerializedName("DelayCleanupTime")
+    @Expose
+    private Long DelayCleanupTime;
+
+    /**
     * 机器组元数据信息列表
     */
     @SerializedName("MetaTags")
@@ -118,16 +126,16 @@ public class ModifyMachineGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 机器组类型 
-     * @return MachineGroupType 机器组类型
+     * Get 机器组类型。Type：ip，Values中为ip字符串列表机器组；Type：label，Values中为标签字符串列表机器组。 
+     * @return MachineGroupType 机器组类型。Type：ip，Values中为ip字符串列表机器组；Type：label，Values中为标签字符串列表机器组。
      */
     public MachineGroupTypeInfo getMachineGroupType() {
         return this.MachineGroupType;
     }
 
     /**
-     * Set 机器组类型
-     * @param MachineGroupType 机器组类型
+     * Set 机器组类型。Type：ip，Values中为ip字符串列表机器组；Type：label，Values中为标签字符串列表机器组。
+     * @param MachineGroupType 机器组类型。Type：ip，Values中为ip字符串列表机器组；Type：label，Values中为标签字符串列表机器组。
      */
     public void setMachineGroupType(MachineGroupTypeInfo MachineGroupType) {
         this.MachineGroupType = MachineGroupType;
@@ -214,6 +222,22 @@ public class ModifyMachineGroupRequest extends AbstractModel{
     }
 
     /**
+     * Get 机器组中机器定期离线清理时间。单位：天 
+     * @return DelayCleanupTime 机器组中机器定期离线清理时间。单位：天
+     */
+    public Long getDelayCleanupTime() {
+        return this.DelayCleanupTime;
+    }
+
+    /**
+     * Set 机器组中机器定期离线清理时间。单位：天
+     * @param DelayCleanupTime 机器组中机器定期离线清理时间。单位：天
+     */
+    public void setDelayCleanupTime(Long DelayCleanupTime) {
+        this.DelayCleanupTime = DelayCleanupTime;
+    }
+
+    /**
      * Get 机器组元数据信息列表 
      * @return MetaTags 机器组元数据信息列表
      */
@@ -264,6 +288,9 @@ public class ModifyMachineGroupRequest extends AbstractModel{
         if (source.ServiceLogging != null) {
             this.ServiceLogging = new Boolean(source.ServiceLogging);
         }
+        if (source.DelayCleanupTime != null) {
+            this.DelayCleanupTime = new Long(source.DelayCleanupTime);
+        }
         if (source.MetaTags != null) {
             this.MetaTags = new MetaTagInfo[source.MetaTags.length];
             for (int i = 0; i < source.MetaTags.length; i++) {
@@ -285,6 +312,7 @@ public class ModifyMachineGroupRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "UpdateStartTime", this.UpdateStartTime);
         this.setParamSimple(map, prefix + "UpdateEndTime", this.UpdateEndTime);
         this.setParamSimple(map, prefix + "ServiceLogging", this.ServiceLogging);
+        this.setParamSimple(map, prefix + "DelayCleanupTime", this.DelayCleanupTime);
         this.setParamArrayObj(map, prefix + "MetaTags.", this.MetaTags);
 
     }

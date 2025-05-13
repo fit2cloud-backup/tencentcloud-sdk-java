@@ -39,87 +39,58 @@ public class CarClient extends AbstractClient{
     }
 
     /**
-     *申请并发
+     *本接口用于申请并发。接口超时时间：20秒。
      * @param req ApplyConcurrentRequest
      * @return ApplyConcurrentResponse
      * @throws TencentCloudSDKException
      */
     public ApplyConcurrentResponse ApplyConcurrent(ApplyConcurrentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ApplyConcurrentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ApplyConcurrentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ApplyConcurrent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ApplyConcurrent", ApplyConcurrentResponse.class);
     }
 
     /**
-     *创建会话
+     *本接口用于创建会话。接口超时时间：5秒。
      * @param req CreateSessionRequest
      * @return CreateSessionResponse
      * @throws TencentCloudSDKException
      */
     public CreateSessionResponse CreateSession(CreateSessionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSessionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSessionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSession");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSession", CreateSessionResponse.class);
     }
 
     /**
-     *销毁会话
+     *销毁会话。如果该会话开启了云端推流，那么销毁会话时会结束云端推流。
      * @param req DestroySessionRequest
      * @return DestroySessionResponse
      * @throws TencentCloudSDKException
      */
     public DestroySessionResponse DestroySession(DestroySessionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DestroySessionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DestroySessionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DestroySession");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DestroySession", DestroySessionResponse.class);
     }
 
     /**
-     *开始云端推流
+     *开始云端推流。云端推流 codec 根据客户端（SDK）能力来自动选择，默认优先顺序为 H265、H264、VP8、VP9。
      * @param req StartPublishStreamRequest
      * @return StartPublishStreamResponse
      * @throws TencentCloudSDKException
      */
     public StartPublishStreamResponse StartPublishStream(StartPublishStreamRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StartPublishStreamResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StartPublishStreamResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StartPublishStream");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StartPublishStream", StartPublishStreamResponse.class);
+    }
+
+    /**
+     *开始云端推流到指定URL。云端推流 codec 根据客户端（SDK）能力来自动选择，默认优先顺序为 H265、H264、VP8、VP9。该推流方式需要单独计费，详细计费方式请查看[指定地址推流费用说明](https://cloud.tencent.com/document/product/1547/72168#98ac188a-d122-4caf-88be-05268ecefdf6)
+     * @param req StartPublishStreamWithURLRequest
+     * @return StartPublishStreamWithURLResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartPublishStreamWithURLResponse StartPublishStreamWithURL(StartPublishStreamWithURLRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StartPublishStreamWithURL", StartPublishStreamWithURLResponse.class);
     }
 
     /**
@@ -129,18 +100,8 @@ public class CarClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public StopPublishStreamResponse StopPublishStream(StopPublishStreamRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopPublishStreamResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopPublishStreamResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopPublishStream");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopPublishStream", StopPublishStreamResponse.class);
     }
 
 }

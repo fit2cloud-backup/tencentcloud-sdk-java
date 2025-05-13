@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDatahubTopicsResp extends AbstractModel{
+public class DescribeDatahubTopicsResp extends AbstractModel {
 
     /**
     * 总数
@@ -31,7 +32,6 @@ public class DescribeDatahubTopicsResp extends AbstractModel{
 
     /**
     * Topic列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicList")
     @Expose
@@ -54,10 +54,8 @@ public class DescribeDatahubTopicsResp extends AbstractModel{
     }
 
     /**
-     * Get Topic列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Topic列表 
      * @return TopicList Topic列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DatahubTopicDTO [] getTopicList() {
         return this.TopicList;
@@ -65,9 +63,7 @@ public class DescribeDatahubTopicsResp extends AbstractModel{
 
     /**
      * Set Topic列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicList Topic列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicList(DatahubTopicDTO [] TopicList) {
         this.TopicList = TopicList;

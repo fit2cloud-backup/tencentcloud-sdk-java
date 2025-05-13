@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModelInfo extends AbstractModel{
+public class ModelInfo extends AbstractModel {
 
     /**
     * 模型版本id, DescribeTrainingModelVersion查询模型接口时的id
@@ -66,6 +67,13 @@ public class ModelInfo extends AbstractModel{
     private CosPathInfo CosPathInfo;
 
     /**
+    * GooseFSx的配置，ModelSource为GooseFSx时有效
+    */
+    @SerializedName("GooseFSx")
+    @Expose
+    private GooseFSx GooseFSx;
+
+    /**
     * 模型对应的算法框架，预留
 注意：此字段可能返回 null，表示取不到有效值。
     */
@@ -88,6 +96,21 @@ public class ModelInfo extends AbstractModel{
     @SerializedName("ModelFormat")
     @Expose
     private String ModelFormat;
+
+    /**
+    * 是否为私有化大模型
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IsPrivateModel")
+    @Expose
+    private Boolean IsPrivateModel;
+
+    /**
+    * 模型的类别 多模态MultiModal, 文本大模型 LLM
+    */
+    @SerializedName("ModelCategory")
+    @Expose
+    private String ModelCategory;
 
     /**
      * Get 模型版本id, DescribeTrainingModelVersion查询模型接口时的id
@@ -190,6 +213,22 @@ public class ModelInfo extends AbstractModel{
     }
 
     /**
+     * Get GooseFSx的配置，ModelSource为GooseFSx时有效 
+     * @return GooseFSx GooseFSx的配置，ModelSource为GooseFSx时有效
+     */
+    public GooseFSx getGooseFSx() {
+        return this.GooseFSx;
+    }
+
+    /**
+     * Set GooseFSx的配置，ModelSource为GooseFSx时有效
+     * @param GooseFSx GooseFSx的配置，ModelSource为GooseFSx时有效
+     */
+    public void setGooseFSx(GooseFSx GooseFSx) {
+        this.GooseFSx = GooseFSx;
+    }
+
+    /**
      * Get 模型对应的算法框架，预留
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return AlgorithmFramework 模型对应的算法框架，预留
@@ -249,6 +288,42 @@ public class ModelInfo extends AbstractModel{
         this.ModelFormat = ModelFormat;
     }
 
+    /**
+     * Get 是否为私有化大模型
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IsPrivateModel 是否为私有化大模型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getIsPrivateModel() {
+        return this.IsPrivateModel;
+    }
+
+    /**
+     * Set 是否为私有化大模型
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IsPrivateModel 是否为私有化大模型
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIsPrivateModel(Boolean IsPrivateModel) {
+        this.IsPrivateModel = IsPrivateModel;
+    }
+
+    /**
+     * Get 模型的类别 多模态MultiModal, 文本大模型 LLM 
+     * @return ModelCategory 模型的类别 多模态MultiModal, 文本大模型 LLM
+     */
+    public String getModelCategory() {
+        return this.ModelCategory;
+    }
+
+    /**
+     * Set 模型的类别 多模态MultiModal, 文本大模型 LLM
+     * @param ModelCategory 模型的类别 多模态MultiModal, 文本大模型 LLM
+     */
+    public void setModelCategory(String ModelCategory) {
+        this.ModelCategory = ModelCategory;
+    }
+
     public ModelInfo() {
     }
 
@@ -275,6 +350,9 @@ public class ModelInfo extends AbstractModel{
         if (source.CosPathInfo != null) {
             this.CosPathInfo = new CosPathInfo(source.CosPathInfo);
         }
+        if (source.GooseFSx != null) {
+            this.GooseFSx = new GooseFSx(source.GooseFSx);
+        }
         if (source.AlgorithmFramework != null) {
             this.AlgorithmFramework = new String(source.AlgorithmFramework);
         }
@@ -283,6 +361,12 @@ public class ModelInfo extends AbstractModel{
         }
         if (source.ModelFormat != null) {
             this.ModelFormat = new String(source.ModelFormat);
+        }
+        if (source.IsPrivateModel != null) {
+            this.IsPrivateModel = new Boolean(source.IsPrivateModel);
+        }
+        if (source.ModelCategory != null) {
+            this.ModelCategory = new String(source.ModelCategory);
         }
     }
 
@@ -297,9 +381,12 @@ public class ModelInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "ModelVersion", this.ModelVersion);
         this.setParamSimple(map, prefix + "ModelSource", this.ModelSource);
         this.setParamObj(map, prefix + "CosPathInfo.", this.CosPathInfo);
+        this.setParamObj(map, prefix + "GooseFSx.", this.GooseFSx);
         this.setParamSimple(map, prefix + "AlgorithmFramework", this.AlgorithmFramework);
         this.setParamSimple(map, prefix + "ModelType", this.ModelType);
         this.setParamSimple(map, prefix + "ModelFormat", this.ModelFormat);
+        this.setParamSimple(map, prefix + "IsPrivateModel", this.IsPrivateModel);
+        this.setParamSimple(map, prefix + "ModelCategory", this.ModelCategory);
 
     }
 }

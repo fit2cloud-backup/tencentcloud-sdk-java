@@ -16,11 +16,12 @@
 package com.tencentcloudapi.kms.v20190118.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WhiteboxKeyInfo extends AbstractModel{
+public class WhiteboxKeyInfo extends AbstractModel {
 
     /**
     * 白盒密钥的全局唯一标识符
@@ -101,7 +102,6 @@ public class WhiteboxKeyInfo extends AbstractModel{
 
     /**
     * 是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeviceFingerprintBind")
     @Expose
@@ -284,10 +284,8 @@ public class WhiteboxKeyInfo extends AbstractModel{
     }
 
     /**
-     * Get 是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否有设备指纹与当前密钥绑定 
      * @return DeviceFingerprintBind 是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDeviceFingerprintBind() {
         return this.DeviceFingerprintBind;
@@ -295,9 +293,7 @@ public class WhiteboxKeyInfo extends AbstractModel{
 
     /**
      * Set 是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeviceFingerprintBind 是否有设备指纹与当前密钥绑定
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeviceFingerprintBind(Boolean DeviceFingerprintBind) {
         this.DeviceFingerprintBind = DeviceFingerprintBind;

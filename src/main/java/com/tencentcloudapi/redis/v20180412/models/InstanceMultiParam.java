@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceMultiParam extends AbstractModel{
+public class InstanceMultiParam extends AbstractModel {
 
     /**
     * 参数名称。
@@ -67,7 +68,7 @@ public class InstanceMultiParam extends AbstractModel{
     private String Tips;
 
     /**
-    * 参数说明。
+    * 参数枚举值。
     */
     @SerializedName("EnumValue")
     @Expose
@@ -187,16 +188,16 @@ public class InstanceMultiParam extends AbstractModel{
     }
 
     /**
-     * Get 参数说明。 
-     * @return EnumValue 参数说明。
+     * Get 参数枚举值。 
+     * @return EnumValue 参数枚举值。
      */
     public String [] getEnumValue() {
         return this.EnumValue;
     }
 
     /**
-     * Set 参数说明。
-     * @param EnumValue 参数说明。
+     * Set 参数枚举值。
+     * @param EnumValue 参数枚举值。
      */
     public void setEnumValue(String [] EnumValue) {
         this.EnumValue = EnumValue;

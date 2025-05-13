@@ -16,11 +16,12 @@
 package com.tencentcloudapi.chdfs.v20201112.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateFileSystemRequest extends AbstractModel{
+public class CreateFileSystemRequest extends AbstractModel {
 
     /**
     * 文件系统名称
@@ -28,13 +29,6 @@ public class CreateFileSystemRequest extends AbstractModel{
     @SerializedName("FileSystemName")
     @Expose
     private String FileSystemName;
-
-    /**
-    * 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
-    */
-    @SerializedName("CapacityQuota")
-    @Expose
-    private Long CapacityQuota;
 
     /**
     * 是否校验POSIX ACL
@@ -49,6 +43,13 @@ public class CreateFileSystemRequest extends AbstractModel{
     @SerializedName("Description")
     @Expose
     private String Description;
+
+    /**
+    * 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
+    */
+    @SerializedName("CapacityQuota")
+    @Expose
+    private Long CapacityQuota;
 
     /**
     * 超级用户名列表，默认为空数组
@@ -109,22 +110,6 @@ public class CreateFileSystemRequest extends AbstractModel{
     }
 
     /**
-     * Get 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍 
-     * @return CapacityQuota 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
-     */
-    public Long getCapacityQuota() {
-        return this.CapacityQuota;
-    }
-
-    /**
-     * Set 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
-     * @param CapacityQuota 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
-     */
-    public void setCapacityQuota(Long CapacityQuota) {
-        this.CapacityQuota = CapacityQuota;
-    }
-
-    /**
      * Get 是否校验POSIX ACL 
      * @return PosixAcl 是否校验POSIX ACL
      */
@@ -154,6 +139,22 @@ public class CreateFileSystemRequest extends AbstractModel{
      */
     public void setDescription(String Description) {
         this.Description = Description;
+    }
+
+    /**
+     * Get 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍 
+     * @return CapacityQuota 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
+     */
+    public Long getCapacityQuota() {
+        return this.CapacityQuota;
+    }
+
+    /**
+     * Set 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
+     * @param CapacityQuota 文件系统容量（byte），下限为1GB，上限为1PB，且必须是1GB的整数倍
+     */
+    public void setCapacityQuota(Long CapacityQuota) {
+        this.CapacityQuota = CapacityQuota;
     }
 
     /**
@@ -263,14 +264,14 @@ public class CreateFileSystemRequest extends AbstractModel{
         if (source.FileSystemName != null) {
             this.FileSystemName = new String(source.FileSystemName);
         }
-        if (source.CapacityQuota != null) {
-            this.CapacityQuota = new Long(source.CapacityQuota);
-        }
         if (source.PosixAcl != null) {
             this.PosixAcl = new Boolean(source.PosixAcl);
         }
         if (source.Description != null) {
             this.Description = new String(source.Description);
+        }
+        if (source.CapacityQuota != null) {
+            this.CapacityQuota = new Long(source.CapacityQuota);
         }
         if (source.SuperUsers != null) {
             this.SuperUsers = new String[source.SuperUsers.length];
@@ -307,9 +308,9 @@ public class CreateFileSystemRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "FileSystemName", this.FileSystemName);
-        this.setParamSimple(map, prefix + "CapacityQuota", this.CapacityQuota);
         this.setParamSimple(map, prefix + "PosixAcl", this.PosixAcl);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "CapacityQuota", this.CapacityQuota);
         this.setParamArraySimple(map, prefix + "SuperUsers.", this.SuperUsers);
         this.setParamSimple(map, prefix + "RootInodeUser", this.RootInodeUser);
         this.setParamSimple(map, prefix + "RootInodeGroup", this.RootInodeGroup);

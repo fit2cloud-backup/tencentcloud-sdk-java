@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeManagerDetailRequest extends AbstractModel{
+public class DescribeManagerDetailRequest extends AbstractModel {
 
     /**
-    * 管理人ID
+    * 管理人ID,可以从describeManagers接口获得
     */
     @SerializedName("ManagerId")
     @Expose
@@ -44,16 +45,16 @@ public class DescribeManagerDetailRequest extends AbstractModel{
     private Long Offset;
 
     /**
-     * Get 管理人ID 
-     * @return ManagerId 管理人ID
+     * Get 管理人ID,可以从describeManagers接口获得 
+     * @return ManagerId 管理人ID,可以从describeManagers接口获得
      */
     public Long getManagerId() {
         return this.ManagerId;
     }
 
     /**
-     * Set 管理人ID
-     * @param ManagerId 管理人ID
+     * Set 管理人ID,可以从describeManagers接口获得
+     * @param ManagerId 管理人ID,可以从describeManagers接口获得
      */
     public void setManagerId(Long ManagerId) {
         this.ManagerId = ManagerId;
@@ -62,7 +63,9 @@ public class DescribeManagerDetailRequest extends AbstractModel{
     /**
      * Get 分页每页数量 
      * @return Limit 分页每页数量
+     * @deprecated
      */
+    @Deprecated
     public Long getLimit() {
         return this.Limit;
     }
@@ -70,7 +73,9 @@ public class DescribeManagerDetailRequest extends AbstractModel{
     /**
      * Set 分页每页数量
      * @param Limit 分页每页数量
+     * @deprecated
      */
+    @Deprecated
     public void setLimit(Long Limit) {
         this.Limit = Limit;
     }
@@ -78,7 +83,9 @@ public class DescribeManagerDetailRequest extends AbstractModel{
     /**
      * Get 分页偏移量 
      * @return Offset 分页偏移量
+     * @deprecated
      */
+    @Deprecated
     public Long getOffset() {
         return this.Offset;
     }
@@ -86,7 +93,9 @@ public class DescribeManagerDetailRequest extends AbstractModel{
     /**
      * Set 分页偏移量
      * @param Offset 分页偏移量
+     * @deprecated
      */
+    @Deprecated
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }

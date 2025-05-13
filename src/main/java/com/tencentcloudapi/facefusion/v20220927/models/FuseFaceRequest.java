@@ -16,11 +16,12 @@
 package com.tencentcloudapi.facefusion.v20220927.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FuseFaceRequest extends AbstractModel{
+public class FuseFaceRequest extends AbstractModel {
 
     /**
     * 活动 ID，请在<a href="https://console.cloud.tencent.com/facefusion" target="_blank">人脸融合控制台</a>查看。
@@ -44,7 +45,10 @@ public class FuseFaceRequest extends AbstractModel{
     private String RspImgType;
 
     /**
-    * 用户人脸图片、素材模板图的人脸位置信息。
+    * 用户人脸图片、素材模板图的人脸位置信息。不能超过6个。
+●图片分辨率限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64，小于4096*4096（单边限制）。
+●图片大小限制：base64 编码后大小不可超过5M， url不超过10M。
+●支持图片格式：支持jpg或png
     */
     @SerializedName("MergeInfos")
     @Expose
@@ -141,16 +145,28 @@ public class FuseFaceRequest extends AbstractModel{
     }
 
     /**
-     * Get 用户人脸图片、素材模板图的人脸位置信息。 
-     * @return MergeInfos 用户人脸图片、素材模板图的人脸位置信息。
+     * Get 用户人脸图片、素材模板图的人脸位置信息。不能超过6个。
+●图片分辨率限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64，小于4096*4096（单边限制）。
+●图片大小限制：base64 编码后大小不可超过5M， url不超过10M。
+●支持图片格式：支持jpg或png 
+     * @return MergeInfos 用户人脸图片、素材模板图的人脸位置信息。不能超过6个。
+●图片分辨率限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64，小于4096*4096（单边限制）。
+●图片大小限制：base64 编码后大小不可超过5M， url不超过10M。
+●支持图片格式：支持jpg或png
      */
     public MergeInfo [] getMergeInfos() {
         return this.MergeInfos;
     }
 
     /**
-     * Set 用户人脸图片、素材模板图的人脸位置信息。
-     * @param MergeInfos 用户人脸图片、素材模板图的人脸位置信息。
+     * Set 用户人脸图片、素材模板图的人脸位置信息。不能超过6个。
+●图片分辨率限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64，小于4096*4096（单边限制）。
+●图片大小限制：base64 编码后大小不可超过5M， url不超过10M。
+●支持图片格式：支持jpg或png
+     * @param MergeInfos 用户人脸图片、素材模板图的人脸位置信息。不能超过6个。
+●图片分辨率限制：图片中面部尺寸大于34 * 34；图片尺寸大于64 * 64，小于4096*4096（单边限制）。
+●图片大小限制：base64 编码后大小不可超过5M， url不超过10M。
+●支持图片格式：支持jpg或png
      */
     public void setMergeInfos(MergeInfo [] MergeInfos) {
         this.MergeInfos = MergeInfos;

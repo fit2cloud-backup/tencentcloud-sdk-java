@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class VoiceFilterConf extends AbstractModel{
+public class VoiceFilterConf extends AbstractModel {
 
     /**
     * 语音过滤服务开关，取值：open/close
@@ -31,7 +32,6 @@ public class VoiceFilterConf extends AbstractModel{
 
     /**
     * 场景配置信息，如开关状态，回调地址。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SceneInfos")
     @Expose
@@ -54,10 +54,8 @@ public class VoiceFilterConf extends AbstractModel{
     }
 
     /**
-     * Get 场景配置信息，如开关状态，回调地址。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 场景配置信息，如开关状态，回调地址。 
      * @return SceneInfos 场景配置信息，如开关状态，回调地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public SceneInfo [] getSceneInfos() {
         return this.SceneInfos;
@@ -65,9 +63,7 @@ public class VoiceFilterConf extends AbstractModel{
 
     /**
      * Set 场景配置信息，如开关状态，回调地址。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SceneInfos 场景配置信息，如开关状态，回调地址。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSceneInfos(SceneInfo [] SceneInfos) {
         this.SceneInfos = SceneInfos;

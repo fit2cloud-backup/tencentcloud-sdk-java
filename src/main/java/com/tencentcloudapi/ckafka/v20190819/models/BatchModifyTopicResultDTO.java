@@ -16,114 +16,100 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BatchModifyTopicResultDTO extends AbstractModel{
+public class BatchModifyTopicResultDTO extends AbstractModel {
 
     /**
-    * 实例id
-注意：此字段可能返回 null，表示取不到有效值。
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
     private String InstanceId;
 
     /**
-    * topic名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 主题名
     */
     @SerializedName("TopicName")
     @Expose
     private String TopicName;
 
     /**
-    * 状态码
-注意：此字段可能返回 null，表示取不到有效值。
+    * 操作返回码
     */
     @SerializedName("ReturnCode")
     @Expose
     private String ReturnCode;
 
     /**
-    * 状态消息
+    * 操作返回信息
     */
     @SerializedName("Message")
     @Expose
     private String Message;
 
     /**
-     * Get 实例id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return InstanceId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param InstanceId 实例id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get topic名称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TopicName topic名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 主题名 
+     * @return TopicName 主题名
      */
     public String getTopicName() {
         return this.TopicName;
     }
 
     /**
-     * Set topic名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TopicName topic名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 主题名
+     * @param TopicName 主题名
      */
     public void setTopicName(String TopicName) {
         this.TopicName = TopicName;
     }
 
     /**
-     * Get 状态码
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ReturnCode 状态码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 操作返回码 
+     * @return ReturnCode 操作返回码
      */
     public String getReturnCode() {
         return this.ReturnCode;
     }
 
     /**
-     * Set 状态码
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ReturnCode 状态码
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 操作返回码
+     * @param ReturnCode 操作返回码
      */
     public void setReturnCode(String ReturnCode) {
         this.ReturnCode = ReturnCode;
     }
 
     /**
-     * Get 状态消息 
-     * @return Message 状态消息
+     * Get 操作返回信息 
+     * @return Message 操作返回信息
      */
     public String getMessage() {
         return this.Message;
     }
 
     /**
-     * Set 状态消息
-     * @param Message 状态消息
+     * Set 操作返回信息
+     * @param Message 操作返回信息
      */
     public void setMessage(String Message) {
         this.Message = Message;

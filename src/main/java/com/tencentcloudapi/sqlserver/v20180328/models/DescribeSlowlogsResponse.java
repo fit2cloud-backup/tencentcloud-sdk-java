@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSlowlogsResponse extends AbstractModel{
+public class DescribeSlowlogsResponse extends AbstractModel {
 
     /**
     * 查询总数
@@ -37,7 +38,14 @@ public class DescribeSlowlogsResponse extends AbstractModel{
     private SlowlogInfo [] Slowlogs;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 慢查询日志信息列表
+    */
+    @SerializedName("SlowLogs")
+    @Expose
+    private SlowLog [] SlowLogs;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -62,7 +70,9 @@ public class DescribeSlowlogsResponse extends AbstractModel{
     /**
      * Get 慢查询日志信息列表 
      * @return Slowlogs 慢查询日志信息列表
+     * @deprecated
      */
+    @Deprecated
     public SlowlogInfo [] getSlowlogs() {
         return this.Slowlogs;
     }
@@ -70,22 +80,40 @@ public class DescribeSlowlogsResponse extends AbstractModel{
     /**
      * Set 慢查询日志信息列表
      * @param Slowlogs 慢查询日志信息列表
+     * @deprecated
      */
+    @Deprecated
     public void setSlowlogs(SlowlogInfo [] Slowlogs) {
         this.Slowlogs = Slowlogs;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 慢查询日志信息列表 
+     * @return SlowLogs 慢查询日志信息列表
+     */
+    public SlowLog [] getSlowLogs() {
+        return this.SlowLogs;
+    }
+
+    /**
+     * Set 慢查询日志信息列表
+     * @param SlowLogs 慢查询日志信息列表
+     */
+    public void setSlowLogs(SlowLog [] SlowLogs) {
+        this.SlowLogs = SlowLogs;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -108,6 +136,12 @@ public class DescribeSlowlogsResponse extends AbstractModel{
                 this.Slowlogs[i] = new SlowlogInfo(source.Slowlogs[i]);
             }
         }
+        if (source.SlowLogs != null) {
+            this.SlowLogs = new SlowLog[source.SlowLogs.length];
+            for (int i = 0; i < source.SlowLogs.length; i++) {
+                this.SlowLogs[i] = new SlowLog(source.SlowLogs[i]);
+            }
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -120,6 +154,7 @@ public class DescribeSlowlogsResponse extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TotalCount", this.TotalCount);
         this.setParamArrayObj(map, prefix + "Slowlogs.", this.Slowlogs);
+        this.setParamArrayObj(map, prefix + "SlowLogs.", this.SlowLogs);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

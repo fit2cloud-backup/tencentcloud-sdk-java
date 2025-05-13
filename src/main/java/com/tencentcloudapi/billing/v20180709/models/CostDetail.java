@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CostDetail extends AbstractModel{
+public class CostDetail extends AbstractModel {
 
     /**
     * 支付者uin
@@ -87,7 +88,6 @@ public class CostDetail extends AbstractModel{
 
     /**
     * 类型名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActionTypeName")
     @Expose
@@ -280,10 +280,8 @@ public class CostDetail extends AbstractModel{
     }
 
     /**
-     * Get 类型名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 类型名称 
      * @return ActionTypeName 类型名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getActionTypeName() {
         return this.ActionTypeName;
@@ -291,9 +289,7 @@ public class CostDetail extends AbstractModel{
 
     /**
      * Set 类型名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ActionTypeName 类型名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setActionTypeName(String ActionTypeName) {
         this.ActionTypeName = ActionTypeName;

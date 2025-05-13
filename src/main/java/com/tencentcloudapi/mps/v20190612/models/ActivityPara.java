@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ActivityPara extends AbstractModel{
+public class ActivityPara extends AbstractModel {
 
     /**
     * 视频转码任务
@@ -93,6 +94,22 @@ public class ActivityPara extends AbstractModel{
     @SerializedName("AiRecognitionTask")
     @Expose
     private AiRecognitionTaskInput AiRecognitionTask;
+
+    /**
+    * 媒体质检任务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QualityControlTask")
+    @Expose
+    private AiQualityControlTaskInput QualityControlTask;
+
+    /**
+    * 智能字幕任务
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SmartSubtitlesTask")
+    @Expose
+    private SmartSubtitlesTaskInput SmartSubtitlesTask;
 
     /**
      * Get 视频转码任务
@@ -274,6 +291,46 @@ public class ActivityPara extends AbstractModel{
         this.AiRecognitionTask = AiRecognitionTask;
     }
 
+    /**
+     * Get 媒体质检任务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QualityControlTask 媒体质检任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public AiQualityControlTaskInput getQualityControlTask() {
+        return this.QualityControlTask;
+    }
+
+    /**
+     * Set 媒体质检任务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QualityControlTask 媒体质检任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQualityControlTask(AiQualityControlTaskInput QualityControlTask) {
+        this.QualityControlTask = QualityControlTask;
+    }
+
+    /**
+     * Get 智能字幕任务
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SmartSubtitlesTask 智能字幕任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public SmartSubtitlesTaskInput getSmartSubtitlesTask() {
+        return this.SmartSubtitlesTask;
+    }
+
+    /**
+     * Set 智能字幕任务
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SmartSubtitlesTask 智能字幕任务
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSmartSubtitlesTask(SmartSubtitlesTaskInput SmartSubtitlesTask) {
+        this.SmartSubtitlesTask = SmartSubtitlesTask;
+    }
+
     public ActivityPara() {
     }
 
@@ -309,6 +366,12 @@ public class ActivityPara extends AbstractModel{
         if (source.AiRecognitionTask != null) {
             this.AiRecognitionTask = new AiRecognitionTaskInput(source.AiRecognitionTask);
         }
+        if (source.QualityControlTask != null) {
+            this.QualityControlTask = new AiQualityControlTaskInput(source.QualityControlTask);
+        }
+        if (source.SmartSubtitlesTask != null) {
+            this.SmartSubtitlesTask = new SmartSubtitlesTaskInput(source.SmartSubtitlesTask);
+        }
     }
 
 
@@ -325,6 +388,8 @@ public class ActivityPara extends AbstractModel{
         this.setParamObj(map, prefix + "AiContentReviewTask.", this.AiContentReviewTask);
         this.setParamObj(map, prefix + "AiAnalysisTask.", this.AiAnalysisTask);
         this.setParamObj(map, prefix + "AiRecognitionTask.", this.AiRecognitionTask);
+        this.setParamObj(map, prefix + "QualityControlTask.", this.QualityControlTask);
+        this.setParamObj(map, prefix + "SmartSubtitlesTask.", this.SmartSubtitlesTask);
 
     }
 }

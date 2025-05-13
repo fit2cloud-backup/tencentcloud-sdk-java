@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CarrierPrivilegeNumberApplicant extends AbstractModel{
+public class CarrierPrivilegeNumberApplicant extends AbstractModel {
 
     /**
     * 实例Id
@@ -52,7 +53,6 @@ public class CarrierPrivilegeNumberApplicant extends AbstractModel{
 
     /**
     * 描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -144,10 +144,8 @@ public class CarrierPrivilegeNumberApplicant extends AbstractModel{
     }
 
     /**
-     * Get 描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 描述 
      * @return Description 描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -155,9 +153,7 @@ public class CarrierPrivilegeNumberApplicant extends AbstractModel{
 
     /**
      * Set 描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;

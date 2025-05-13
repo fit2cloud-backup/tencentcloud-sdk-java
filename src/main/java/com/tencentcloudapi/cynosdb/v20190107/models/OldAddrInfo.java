@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OldAddrInfo extends AbstractModel{
+public class OldAddrInfo extends AbstractModel {
 
     /**
     * IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vip")
     @Expose
@@ -32,7 +32,6 @@ public class OldAddrInfo extends AbstractModel{
 
     /**
     * 端口
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Vport")
     @Expose
@@ -40,17 +39,14 @@ public class OldAddrInfo extends AbstractModel{
 
     /**
     * 期望执行回收时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReturnTime")
     @Expose
     private String ReturnTime;
 
     /**
-     * Get IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get IP 
      * @return Vip IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVip() {
         return this.Vip;
@@ -58,19 +54,15 @@ public class OldAddrInfo extends AbstractModel{
 
     /**
      * Set IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vip IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVip(String Vip) {
         this.Vip = Vip;
     }
 
     /**
-     * Get 端口
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 端口 
      * @return Vport 端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getVport() {
         return this.Vport;
@@ -78,19 +70,15 @@ public class OldAddrInfo extends AbstractModel{
 
     /**
      * Set 端口
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Vport 端口
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVport(Long Vport) {
         this.Vport = Vport;
     }
 
     /**
-     * Get 期望执行回收时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 期望执行回收时间 
      * @return ReturnTime 期望执行回收时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReturnTime() {
         return this.ReturnTime;
@@ -98,9 +86,7 @@ public class OldAddrInfo extends AbstractModel{
 
     /**
      * Set 期望执行回收时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReturnTime 期望执行回收时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReturnTime(String ReturnTime) {
         this.ReturnTime = ReturnTime;

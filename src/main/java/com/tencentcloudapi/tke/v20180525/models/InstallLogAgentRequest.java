@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstallLogAgentRequest extends AbstractModel{
+public class InstallLogAgentRequest extends AbstractModel {
 
     /**
     * TKE集群ID
@@ -35,6 +36,13 @@ public class InstallLogAgentRequest extends AbstractModel{
     @SerializedName("KubeletRootDir")
     @Expose
     private String KubeletRootDir;
+
+    /**
+    * 集群类型 tke/eks，默认tke
+    */
+    @SerializedName("ClusterType")
+    @Expose
+    private String ClusterType;
 
     /**
      * Get TKE集群ID 
@@ -68,6 +76,22 @@ public class InstallLogAgentRequest extends AbstractModel{
         this.KubeletRootDir = KubeletRootDir;
     }
 
+    /**
+     * Get 集群类型 tke/eks，默认tke 
+     * @return ClusterType 集群类型 tke/eks，默认tke
+     */
+    public String getClusterType() {
+        return this.ClusterType;
+    }
+
+    /**
+     * Set 集群类型 tke/eks，默认tke
+     * @param ClusterType 集群类型 tke/eks，默认tke
+     */
+    public void setClusterType(String ClusterType) {
+        this.ClusterType = ClusterType;
+    }
+
     public InstallLogAgentRequest() {
     }
 
@@ -82,6 +106,9 @@ public class InstallLogAgentRequest extends AbstractModel{
         if (source.KubeletRootDir != null) {
             this.KubeletRootDir = new String(source.KubeletRootDir);
         }
+        if (source.ClusterType != null) {
+            this.ClusterType = new String(source.ClusterType);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class InstallLogAgentRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ClusterId", this.ClusterId);
         this.setParamSimple(map, prefix + "KubeletRootDir", this.KubeletRootDir);
+        this.setParamSimple(map, prefix + "ClusterType", this.ClusterType);
 
     }
 }

@@ -16,29 +16,15 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTaskDetailResponse extends AbstractModel{
+public class DescribeTaskDetailResponse extends AbstractModel {
 
     /**
-    * 任务类型，取值：
-<li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务；</li>
-<li>SplitMedia：视频拆条任务；</li>
-<li>ComposeMedia：制作媒体文件任务；</li>
-<li>WechatPublish：微信发布任务；</li>
-<li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务；</li>
-<li>FastClipMedia：快速剪辑任务；</li>
-<li>RemoveWatermarkTask：智能去除水印任务；</li>
-<li>DescribeFileAttributesTask：获取文件属性任务；</li>
-<li>RebuildMedia：音画质重生任务；</li>
-<li>ReviewAudioVideo：音视频审核任务；</li>
-<li>ExtractTraceWatermark：提取溯源水印任务；</li>
-<li>ExtractCopyRightWatermark：提取版权水印任务；</li>
-<li>QualityInspect：音画质检测任务。</li>
+    * 任务类型，取值：<li>Procedure：视频处理任务；</li><li>EditMedia：视频编辑任务；</li><li>SplitMedia：视频拆条任务；</li><li>ComposeMedia：制作媒体文件任务；</li><li>WechatPublish：微信发布任务；</li><li>WechatMiniProgramPublish：微信小程序视频发布任务；</li><li>PullUpload：拉取上传媒体文件任务；</li><li>FastClipMedia：快速剪辑任务；</li><li>RemoveWatermarkTask：智能去除水印任务；</li><li>DescribeFileAttributesTask：获取文件属性任务；</li><li>RebuildMedia：音画质重生任务（不推荐使用）；</li><li>ReviewAudioVideo：音视频审核任务；</li><li>ExtractTraceWatermark：提取溯源水印任务；</li><li>ExtractCopyRightWatermark：提取版权水印任务；</li><li>QualityInspect：音画质检测任务；</li><li>QualityEnhance：音画质重生任务；</li><li>ComplexAdaptiveDynamicStreaming：复杂自适应码流任务。</li>
     */
     @SerializedName("TaskType")
     @Expose
@@ -48,7 +34,8 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     * 任务状态，取值：
 <li>WAITING：等待中；</li>
 <li>PROCESSING：处理中；</li>
-<li>FINISH：已完成。</li>
+<li>FINISH：已完成；</li>
+<li>ABORTED：已终止。</li>
     */
     @SerializedName("Status")
     @Expose
@@ -236,83 +223,39 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     private QualityInspectTask QualityInspectTask;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 音画质重生任务信息，仅当 TaskType 为 QualityEnhance，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QualityEnhanceTask")
+    @Expose
+    private QualityEnhanceTask QualityEnhanceTask;
+
+    /**
+    * 复杂自适应码流任务信息，仅当 TaskType 为 ComplexAdaptiveDynamicStreaming，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ComplexAdaptiveDynamicStreamingTask")
+    @Expose
+    private ComplexAdaptiveDynamicStreamingTask ComplexAdaptiveDynamicStreamingTask;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 任务类型，取值：
-<li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务；</li>
-<li>SplitMedia：视频拆条任务；</li>
-<li>ComposeMedia：制作媒体文件任务；</li>
-<li>WechatPublish：微信发布任务；</li>
-<li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务；</li>
-<li>FastClipMedia：快速剪辑任务；</li>
-<li>RemoveWatermarkTask：智能去除水印任务；</li>
-<li>DescribeFileAttributesTask：获取文件属性任务；</li>
-<li>RebuildMedia：音画质重生任务；</li>
-<li>ReviewAudioVideo：音视频审核任务；</li>
-<li>ExtractTraceWatermark：提取溯源水印任务；</li>
-<li>ExtractCopyRightWatermark：提取版权水印任务；</li>
-<li>QualityInspect：音画质检测任务。</li> 
-     * @return TaskType 任务类型，取值：
-<li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务；</li>
-<li>SplitMedia：视频拆条任务；</li>
-<li>ComposeMedia：制作媒体文件任务；</li>
-<li>WechatPublish：微信发布任务；</li>
-<li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务；</li>
-<li>FastClipMedia：快速剪辑任务；</li>
-<li>RemoveWatermarkTask：智能去除水印任务；</li>
-<li>DescribeFileAttributesTask：获取文件属性任务；</li>
-<li>RebuildMedia：音画质重生任务；</li>
-<li>ReviewAudioVideo：音视频审核任务；</li>
-<li>ExtractTraceWatermark：提取溯源水印任务；</li>
-<li>ExtractCopyRightWatermark：提取版权水印任务；</li>
-<li>QualityInspect：音画质检测任务。</li>
+     * Get 任务类型，取值：<li>Procedure：视频处理任务；</li><li>EditMedia：视频编辑任务；</li><li>SplitMedia：视频拆条任务；</li><li>ComposeMedia：制作媒体文件任务；</li><li>WechatPublish：微信发布任务；</li><li>WechatMiniProgramPublish：微信小程序视频发布任务；</li><li>PullUpload：拉取上传媒体文件任务；</li><li>FastClipMedia：快速剪辑任务；</li><li>RemoveWatermarkTask：智能去除水印任务；</li><li>DescribeFileAttributesTask：获取文件属性任务；</li><li>RebuildMedia：音画质重生任务（不推荐使用）；</li><li>ReviewAudioVideo：音视频审核任务；</li><li>ExtractTraceWatermark：提取溯源水印任务；</li><li>ExtractCopyRightWatermark：提取版权水印任务；</li><li>QualityInspect：音画质检测任务；</li><li>QualityEnhance：音画质重生任务；</li><li>ComplexAdaptiveDynamicStreaming：复杂自适应码流任务。</li> 
+     * @return TaskType 任务类型，取值：<li>Procedure：视频处理任务；</li><li>EditMedia：视频编辑任务；</li><li>SplitMedia：视频拆条任务；</li><li>ComposeMedia：制作媒体文件任务；</li><li>WechatPublish：微信发布任务；</li><li>WechatMiniProgramPublish：微信小程序视频发布任务；</li><li>PullUpload：拉取上传媒体文件任务；</li><li>FastClipMedia：快速剪辑任务；</li><li>RemoveWatermarkTask：智能去除水印任务；</li><li>DescribeFileAttributesTask：获取文件属性任务；</li><li>RebuildMedia：音画质重生任务（不推荐使用）；</li><li>ReviewAudioVideo：音视频审核任务；</li><li>ExtractTraceWatermark：提取溯源水印任务；</li><li>ExtractCopyRightWatermark：提取版权水印任务；</li><li>QualityInspect：音画质检测任务；</li><li>QualityEnhance：音画质重生任务；</li><li>ComplexAdaptiveDynamicStreaming：复杂自适应码流任务。</li>
      */
     public String getTaskType() {
         return this.TaskType;
     }
 
     /**
-     * Set 任务类型，取值：
-<li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务；</li>
-<li>SplitMedia：视频拆条任务；</li>
-<li>ComposeMedia：制作媒体文件任务；</li>
-<li>WechatPublish：微信发布任务；</li>
-<li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务；</li>
-<li>FastClipMedia：快速剪辑任务；</li>
-<li>RemoveWatermarkTask：智能去除水印任务；</li>
-<li>DescribeFileAttributesTask：获取文件属性任务；</li>
-<li>RebuildMedia：音画质重生任务；</li>
-<li>ReviewAudioVideo：音视频审核任务；</li>
-<li>ExtractTraceWatermark：提取溯源水印任务；</li>
-<li>ExtractCopyRightWatermark：提取版权水印任务；</li>
-<li>QualityInspect：音画质检测任务。</li>
-     * @param TaskType 任务类型，取值：
-<li>Procedure：视频处理任务；</li>
-<li>EditMedia：视频编辑任务；</li>
-<li>SplitMedia：视频拆条任务；</li>
-<li>ComposeMedia：制作媒体文件任务；</li>
-<li>WechatPublish：微信发布任务；</li>
-<li>WechatMiniProgramPublish：微信小程序视频发布任务；</li>
-<li>PullUpload：拉取上传媒体文件任务；</li>
-<li>FastClipMedia：快速剪辑任务；</li>
-<li>RemoveWatermarkTask：智能去除水印任务；</li>
-<li>DescribeFileAttributesTask：获取文件属性任务；</li>
-<li>RebuildMedia：音画质重生任务；</li>
-<li>ReviewAudioVideo：音视频审核任务；</li>
-<li>ExtractTraceWatermark：提取溯源水印任务；</li>
-<li>ExtractCopyRightWatermark：提取版权水印任务；</li>
-<li>QualityInspect：音画质检测任务。</li>
+     * Set 任务类型，取值：<li>Procedure：视频处理任务；</li><li>EditMedia：视频编辑任务；</li><li>SplitMedia：视频拆条任务；</li><li>ComposeMedia：制作媒体文件任务；</li><li>WechatPublish：微信发布任务；</li><li>WechatMiniProgramPublish：微信小程序视频发布任务；</li><li>PullUpload：拉取上传媒体文件任务；</li><li>FastClipMedia：快速剪辑任务；</li><li>RemoveWatermarkTask：智能去除水印任务；</li><li>DescribeFileAttributesTask：获取文件属性任务；</li><li>RebuildMedia：音画质重生任务（不推荐使用）；</li><li>ReviewAudioVideo：音视频审核任务；</li><li>ExtractTraceWatermark：提取溯源水印任务；</li><li>ExtractCopyRightWatermark：提取版权水印任务；</li><li>QualityInspect：音画质检测任务；</li><li>QualityEnhance：音画质重生任务；</li><li>ComplexAdaptiveDynamicStreaming：复杂自适应码流任务。</li>
+     * @param TaskType 任务类型，取值：<li>Procedure：视频处理任务；</li><li>EditMedia：视频编辑任务；</li><li>SplitMedia：视频拆条任务；</li><li>ComposeMedia：制作媒体文件任务；</li><li>WechatPublish：微信发布任务；</li><li>WechatMiniProgramPublish：微信小程序视频发布任务；</li><li>PullUpload：拉取上传媒体文件任务；</li><li>FastClipMedia：快速剪辑任务；</li><li>RemoveWatermarkTask：智能去除水印任务；</li><li>DescribeFileAttributesTask：获取文件属性任务；</li><li>RebuildMedia：音画质重生任务（不推荐使用）；</li><li>ReviewAudioVideo：音视频审核任务；</li><li>ExtractTraceWatermark：提取溯源水印任务；</li><li>ExtractCopyRightWatermark：提取版权水印任务；</li><li>QualityInspect：音画质检测任务；</li><li>QualityEnhance：音画质重生任务；</li><li>ComplexAdaptiveDynamicStreaming：复杂自适应码流任务。</li>
      */
     public void setTaskType(String TaskType) {
         this.TaskType = TaskType;
@@ -322,11 +265,13 @@ public class DescribeTaskDetailResponse extends AbstractModel{
      * Get 任务状态，取值：
 <li>WAITING：等待中；</li>
 <li>PROCESSING：处理中；</li>
-<li>FINISH：已完成。</li> 
+<li>FINISH：已完成；</li>
+<li>ABORTED：已终止。</li> 
      * @return Status 任务状态，取值：
 <li>WAITING：等待中；</li>
 <li>PROCESSING：处理中；</li>
-<li>FINISH：已完成。</li>
+<li>FINISH：已完成；</li>
+<li>ABORTED：已终止。</li>
      */
     public String getStatus() {
         return this.Status;
@@ -336,11 +281,13 @@ public class DescribeTaskDetailResponse extends AbstractModel{
      * Set 任务状态，取值：
 <li>WAITING：等待中；</li>
 <li>PROCESSING：处理中；</li>
-<li>FINISH：已完成。</li>
+<li>FINISH：已完成；</li>
+<li>ABORTED：已终止。</li>
      * @param Status 任务状态，取值：
 <li>WAITING：等待中；</li>
 <li>PROCESSING：处理中；</li>
-<li>FINISH：已完成。</li>
+<li>FINISH：已完成；</li>
+<li>ABORTED：已终止。</li>
      */
     public void setStatus(String Status) {
         this.Status = Status;
@@ -795,16 +742,56 @@ public class DescribeTaskDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 音画质重生任务信息，仅当 TaskType 为 QualityEnhance，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QualityEnhanceTask 音画质重生任务信息，仅当 TaskType 为 QualityEnhance，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public QualityEnhanceTask getQualityEnhanceTask() {
+        return this.QualityEnhanceTask;
+    }
+
+    /**
+     * Set 音画质重生任务信息，仅当 TaskType 为 QualityEnhance，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QualityEnhanceTask 音画质重生任务信息，仅当 TaskType 为 QualityEnhance，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQualityEnhanceTask(QualityEnhanceTask QualityEnhanceTask) {
+        this.QualityEnhanceTask = QualityEnhanceTask;
+    }
+
+    /**
+     * Get 复杂自适应码流任务信息，仅当 TaskType 为 ComplexAdaptiveDynamicStreaming，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ComplexAdaptiveDynamicStreamingTask 复杂自适应码流任务信息，仅当 TaskType 为 ComplexAdaptiveDynamicStreaming，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ComplexAdaptiveDynamicStreamingTask getComplexAdaptiveDynamicStreamingTask() {
+        return this.ComplexAdaptiveDynamicStreamingTask;
+    }
+
+    /**
+     * Set 复杂自适应码流任务信息，仅当 TaskType 为 ComplexAdaptiveDynamicStreaming，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ComplexAdaptiveDynamicStreamingTask 复杂自适应码流任务信息，仅当 TaskType 为 ComplexAdaptiveDynamicStreaming，该字段有值。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setComplexAdaptiveDynamicStreamingTask(ComplexAdaptiveDynamicStreamingTask ComplexAdaptiveDynamicStreamingTask) {
+        this.ComplexAdaptiveDynamicStreamingTask = ComplexAdaptiveDynamicStreamingTask;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -893,6 +880,12 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         if (source.QualityInspectTask != null) {
             this.QualityInspectTask = new QualityInspectTask(source.QualityInspectTask);
         }
+        if (source.QualityEnhanceTask != null) {
+            this.QualityEnhanceTask = new QualityEnhanceTask(source.QualityEnhanceTask);
+        }
+        if (source.ComplexAdaptiveDynamicStreamingTask != null) {
+            this.ComplexAdaptiveDynamicStreamingTask = new ComplexAdaptiveDynamicStreamingTask(source.ComplexAdaptiveDynamicStreamingTask);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -928,6 +921,8 @@ public class DescribeTaskDetailResponse extends AbstractModel{
         this.setParamObj(map, prefix + "ReduceMediaBitrateTask.", this.ReduceMediaBitrateTask);
         this.setParamObj(map, prefix + "DescribeFileAttributesTask.", this.DescribeFileAttributesTask);
         this.setParamObj(map, prefix + "QualityInspectTask.", this.QualityInspectTask);
+        this.setParamObj(map, prefix + "QualityEnhanceTask.", this.QualityEnhanceTask);
+        this.setParamObj(map, prefix + "ComplexAdaptiveDynamicStreamingTask.", this.ComplexAdaptiveDynamicStreamingTask);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

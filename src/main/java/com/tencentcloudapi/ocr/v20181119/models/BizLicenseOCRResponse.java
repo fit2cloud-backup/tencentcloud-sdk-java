@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BizLicenseOCRResponse extends AbstractModel{
+public class BizLicenseOCRResponse extends AbstractModel {
 
     /**
     * 统一社会信用代码（三合一之前为注册号）
@@ -95,6 +96,7 @@ public class BizLicenseOCRResponse extends AbstractModel{
     /**
     * Code 告警码列表和释义：
 -9102 黑白复印件告警
+-9104 翻拍件告警
     */
     @SerializedName("RecognizeWarnCode")
     @Expose
@@ -103,6 +105,7 @@ public class BizLicenseOCRResponse extends AbstractModel{
     /**
     * 告警码说明：
 WARN_COPY_CARD 黑白复印件告警
+WARN_RESHOOT_CARD翻拍件告警
     */
     @SerializedName("RecognizeWarnMsg")
     @Expose
@@ -123,7 +126,65 @@ WARN_COPY_CARD 黑白复印件告警
     private String RegistrationDate;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    *  图片旋转角度(角度制)，文本的水平方向为0度；顺时针为正，角度范围是0-360度
+
+
+    */
+    @SerializedName("Angle")
+    @Expose
+    private Float Angle;
+
+    /**
+    * 是否有国徽。false为没有，true为有。
+    */
+    @SerializedName("NationalEmblem")
+    @Expose
+    private Boolean NationalEmblem;
+
+    /**
+    * 是否有二维码。false为没有，true为有。
+    */
+    @SerializedName("QRCode")
+    @Expose
+    private Boolean QRCode;
+
+    /**
+    * 是否有印章。false为没有，true为有。
+    */
+    @SerializedName("Seal")
+    @Expose
+    private Boolean Seal;
+
+    /**
+    * 标题
+    */
+    @SerializedName("Title")
+    @Expose
+    private String Title;
+
+    /**
+    * 编号
+    */
+    @SerializedName("SerialNumber")
+    @Expose
+    private String SerialNumber;
+
+    /**
+    * 登记机关
+    */
+    @SerializedName("RegistrationAuthority")
+    @Expose
+    private String RegistrationAuthority;
+
+    /**
+    * 是否是电子营业执照。false为没有，true为有。
+    */
+    @SerializedName("Electronic")
+    @Expose
+    private Boolean Electronic;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -291,9 +352,11 @@ WARN_COPY_CARD 黑白复印件告警
 
     /**
      * Get Code 告警码列表和释义：
--9102 黑白复印件告警 
+-9102 黑白复印件告警
+-9104 翻拍件告警 
      * @return RecognizeWarnCode Code 告警码列表和释义：
 -9102 黑白复印件告警
+-9104 翻拍件告警
      */
     public Long [] getRecognizeWarnCode() {
         return this.RecognizeWarnCode;
@@ -302,8 +365,10 @@ WARN_COPY_CARD 黑白复印件告警
     /**
      * Set Code 告警码列表和释义：
 -9102 黑白复印件告警
+-9104 翻拍件告警
      * @param RecognizeWarnCode Code 告警码列表和释义：
 -9102 黑白复印件告警
+-9104 翻拍件告警
      */
     public void setRecognizeWarnCode(Long [] RecognizeWarnCode) {
         this.RecognizeWarnCode = RecognizeWarnCode;
@@ -311,9 +376,11 @@ WARN_COPY_CARD 黑白复印件告警
 
     /**
      * Get 告警码说明：
-WARN_COPY_CARD 黑白复印件告警 
+WARN_COPY_CARD 黑白复印件告警
+WARN_RESHOOT_CARD翻拍件告警 
      * @return RecognizeWarnMsg 告警码说明：
 WARN_COPY_CARD 黑白复印件告警
+WARN_RESHOOT_CARD翻拍件告警
      */
     public String [] getRecognizeWarnMsg() {
         return this.RecognizeWarnMsg;
@@ -322,8 +389,10 @@ WARN_COPY_CARD 黑白复印件告警
     /**
      * Set 告警码说明：
 WARN_COPY_CARD 黑白复印件告警
+WARN_RESHOOT_CARD翻拍件告警
      * @param RecognizeWarnMsg 告警码说明：
 WARN_COPY_CARD 黑白复印件告警
+WARN_RESHOOT_CARD翻拍件告警
      */
     public void setRecognizeWarnMsg(String [] RecognizeWarnMsg) {
         this.RecognizeWarnMsg = RecognizeWarnMsg;
@@ -362,16 +431,152 @@ WARN_COPY_CARD 黑白复印件告警
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get  图片旋转角度(角度制)，文本的水平方向为0度；顺时针为正，角度范围是0-360度
+
+ 
+     * @return Angle  图片旋转角度(角度制)，文本的水平方向为0度；顺时针为正，角度范围是0-360度
+
+
+     */
+    public Float getAngle() {
+        return this.Angle;
+    }
+
+    /**
+     * Set  图片旋转角度(角度制)，文本的水平方向为0度；顺时针为正，角度范围是0-360度
+
+
+     * @param Angle  图片旋转角度(角度制)，文本的水平方向为0度；顺时针为正，角度范围是0-360度
+
+
+     */
+    public void setAngle(Float Angle) {
+        this.Angle = Angle;
+    }
+
+    /**
+     * Get 是否有国徽。false为没有，true为有。 
+     * @return NationalEmblem 是否有国徽。false为没有，true为有。
+     */
+    public Boolean getNationalEmblem() {
+        return this.NationalEmblem;
+    }
+
+    /**
+     * Set 是否有国徽。false为没有，true为有。
+     * @param NationalEmblem 是否有国徽。false为没有，true为有。
+     */
+    public void setNationalEmblem(Boolean NationalEmblem) {
+        this.NationalEmblem = NationalEmblem;
+    }
+
+    /**
+     * Get 是否有二维码。false为没有，true为有。 
+     * @return QRCode 是否有二维码。false为没有，true为有。
+     */
+    public Boolean getQRCode() {
+        return this.QRCode;
+    }
+
+    /**
+     * Set 是否有二维码。false为没有，true为有。
+     * @param QRCode 是否有二维码。false为没有，true为有。
+     */
+    public void setQRCode(Boolean QRCode) {
+        this.QRCode = QRCode;
+    }
+
+    /**
+     * Get 是否有印章。false为没有，true为有。 
+     * @return Seal 是否有印章。false为没有，true为有。
+     */
+    public Boolean getSeal() {
+        return this.Seal;
+    }
+
+    /**
+     * Set 是否有印章。false为没有，true为有。
+     * @param Seal 是否有印章。false为没有，true为有。
+     */
+    public void setSeal(Boolean Seal) {
+        this.Seal = Seal;
+    }
+
+    /**
+     * Get 标题 
+     * @return Title 标题
+     */
+    public String getTitle() {
+        return this.Title;
+    }
+
+    /**
+     * Set 标题
+     * @param Title 标题
+     */
+    public void setTitle(String Title) {
+        this.Title = Title;
+    }
+
+    /**
+     * Get 编号 
+     * @return SerialNumber 编号
+     */
+    public String getSerialNumber() {
+        return this.SerialNumber;
+    }
+
+    /**
+     * Set 编号
+     * @param SerialNumber 编号
+     */
+    public void setSerialNumber(String SerialNumber) {
+        this.SerialNumber = SerialNumber;
+    }
+
+    /**
+     * Get 登记机关 
+     * @return RegistrationAuthority 登记机关
+     */
+    public String getRegistrationAuthority() {
+        return this.RegistrationAuthority;
+    }
+
+    /**
+     * Set 登记机关
+     * @param RegistrationAuthority 登记机关
+     */
+    public void setRegistrationAuthority(String RegistrationAuthority) {
+        this.RegistrationAuthority = RegistrationAuthority;
+    }
+
+    /**
+     * Get 是否是电子营业执照。false为没有，true为有。 
+     * @return Electronic 是否是电子营业执照。false为没有，true为有。
+     */
+    public Boolean getElectronic() {
+        return this.Electronic;
+    }
+
+    /**
+     * Set 是否是电子营业执照。false为没有，true为有。
+     * @param Electronic 是否是电子营业执照。false为没有，true为有。
+     */
+    public void setElectronic(Boolean Electronic) {
+        this.Electronic = Electronic;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -433,6 +638,30 @@ WARN_COPY_CARD 黑白复印件告警
         if (source.RegistrationDate != null) {
             this.RegistrationDate = new String(source.RegistrationDate);
         }
+        if (source.Angle != null) {
+            this.Angle = new Float(source.Angle);
+        }
+        if (source.NationalEmblem != null) {
+            this.NationalEmblem = new Boolean(source.NationalEmblem);
+        }
+        if (source.QRCode != null) {
+            this.QRCode = new Boolean(source.QRCode);
+        }
+        if (source.Seal != null) {
+            this.Seal = new Boolean(source.Seal);
+        }
+        if (source.Title != null) {
+            this.Title = new String(source.Title);
+        }
+        if (source.SerialNumber != null) {
+            this.SerialNumber = new String(source.SerialNumber);
+        }
+        if (source.RegistrationAuthority != null) {
+            this.RegistrationAuthority = new String(source.RegistrationAuthority);
+        }
+        if (source.Electronic != null) {
+            this.Electronic = new Boolean(source.Electronic);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -457,6 +686,14 @@ WARN_COPY_CARD 黑白复印件告警
         this.setParamArraySimple(map, prefix + "RecognizeWarnMsg.", this.RecognizeWarnMsg);
         this.setParamSimple(map, prefix + "IsDuplication", this.IsDuplication);
         this.setParamSimple(map, prefix + "RegistrationDate", this.RegistrationDate);
+        this.setParamSimple(map, prefix + "Angle", this.Angle);
+        this.setParamSimple(map, prefix + "NationalEmblem", this.NationalEmblem);
+        this.setParamSimple(map, prefix + "QRCode", this.QRCode);
+        this.setParamSimple(map, prefix + "Seal", this.Seal);
+        this.setParamSimple(map, prefix + "Title", this.Title);
+        this.setParamSimple(map, prefix + "SerialNumber", this.SerialNumber);
+        this.setParamSimple(map, prefix + "RegistrationAuthority", this.RegistrationAuthority);
+        this.setParamSimple(map, prefix + "Electronic", this.Electronic);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

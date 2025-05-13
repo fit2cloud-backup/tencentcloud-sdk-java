@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyModelServiceRequest extends AbstractModel{
+public class ModifyModelServiceRequest extends AbstractModel {
 
     /**
     * 服务id
@@ -191,6 +192,69 @@ HYBRID_PAID:
     @SerializedName("ModelTurboEnable")
     @Expose
     private Boolean ModelTurboEnable;
+
+    /**
+    * 服务的启动命令，如遇特殊字符导致配置失败，可使用CommandBase64参数
+    */
+    @SerializedName("Command")
+    @Expose
+    private String Command;
+
+    /**
+    * 是否开启TIONE内网访问外部，此功能仅支持后付费机型与从TIONE平台购买的预付费机型；使用从CVM选择资源组时此配置不生效。
+    */
+    @SerializedName("ServiceEIP")
+    @Expose
+    private ServiceEIP ServiceEIP;
+
+    /**
+    * 服务的启动命令，以base64格式进行输入，与Command同时配置时，仅当前参数生效
+    */
+    @SerializedName("CommandBase64")
+    @Expose
+    private String CommandBase64;
+
+    /**
+    * 服务端口，仅在非内置镜像时生效，默认8501。不支持输入8501-8510,6006,9092
+    */
+    @SerializedName("ServicePort")
+    @Expose
+    private Long ServicePort;
+
+    /**
+    * 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+    */
+    @SerializedName("InstancePerReplicas")
+    @Expose
+    private Long InstancePerReplicas;
+
+    /**
+    * 30
+    */
+    @SerializedName("TerminationGracePeriodSeconds")
+    @Expose
+    private Long TerminationGracePeriodSeconds;
+
+    /**
+    * ["sleep","60"]
+    */
+    @SerializedName("PreStopCommand")
+    @Expose
+    private String [] PreStopCommand;
+
+    /**
+    * 是否启动grpc端口
+    */
+    @SerializedName("GrpcEnable")
+    @Expose
+    private Boolean GrpcEnable;
+
+    /**
+    * 健康探针
+    */
+    @SerializedName("HealthProbe")
+    @Expose
+    private HealthProbe HealthProbe;
 
     /**
      * Get 服务id 
@@ -620,6 +684,150 @@ HYBRID_PAID:
         this.ModelTurboEnable = ModelTurboEnable;
     }
 
+    /**
+     * Get 服务的启动命令，如遇特殊字符导致配置失败，可使用CommandBase64参数 
+     * @return Command 服务的启动命令，如遇特殊字符导致配置失败，可使用CommandBase64参数
+     */
+    public String getCommand() {
+        return this.Command;
+    }
+
+    /**
+     * Set 服务的启动命令，如遇特殊字符导致配置失败，可使用CommandBase64参数
+     * @param Command 服务的启动命令，如遇特殊字符导致配置失败，可使用CommandBase64参数
+     */
+    public void setCommand(String Command) {
+        this.Command = Command;
+    }
+
+    /**
+     * Get 是否开启TIONE内网访问外部，此功能仅支持后付费机型与从TIONE平台购买的预付费机型；使用从CVM选择资源组时此配置不生效。 
+     * @return ServiceEIP 是否开启TIONE内网访问外部，此功能仅支持后付费机型与从TIONE平台购买的预付费机型；使用从CVM选择资源组时此配置不生效。
+     */
+    public ServiceEIP getServiceEIP() {
+        return this.ServiceEIP;
+    }
+
+    /**
+     * Set 是否开启TIONE内网访问外部，此功能仅支持后付费机型与从TIONE平台购买的预付费机型；使用从CVM选择资源组时此配置不生效。
+     * @param ServiceEIP 是否开启TIONE内网访问外部，此功能仅支持后付费机型与从TIONE平台购买的预付费机型；使用从CVM选择资源组时此配置不生效。
+     */
+    public void setServiceEIP(ServiceEIP ServiceEIP) {
+        this.ServiceEIP = ServiceEIP;
+    }
+
+    /**
+     * Get 服务的启动命令，以base64格式进行输入，与Command同时配置时，仅当前参数生效 
+     * @return CommandBase64 服务的启动命令，以base64格式进行输入，与Command同时配置时，仅当前参数生效
+     */
+    public String getCommandBase64() {
+        return this.CommandBase64;
+    }
+
+    /**
+     * Set 服务的启动命令，以base64格式进行输入，与Command同时配置时，仅当前参数生效
+     * @param CommandBase64 服务的启动命令，以base64格式进行输入，与Command同时配置时，仅当前参数生效
+     */
+    public void setCommandBase64(String CommandBase64) {
+        this.CommandBase64 = CommandBase64;
+    }
+
+    /**
+     * Get 服务端口，仅在非内置镜像时生效，默认8501。不支持输入8501-8510,6006,9092 
+     * @return ServicePort 服务端口，仅在非内置镜像时生效，默认8501。不支持输入8501-8510,6006,9092
+     */
+    public Long getServicePort() {
+        return this.ServicePort;
+    }
+
+    /**
+     * Set 服务端口，仅在非内置镜像时生效，默认8501。不支持输入8501-8510,6006,9092
+     * @param ServicePort 服务端口，仅在非内置镜像时生效，默认8501。不支持输入8501-8510,6006,9092
+     */
+    public void setServicePort(Long ServicePort) {
+        this.ServicePort = ServicePort;
+    }
+
+    /**
+     * Get 单副本下的实例数，仅在部署类型为DIST时生效，默认1 
+     * @return InstancePerReplicas 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+     */
+    public Long getInstancePerReplicas() {
+        return this.InstancePerReplicas;
+    }
+
+    /**
+     * Set 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+     * @param InstancePerReplicas 单副本下的实例数，仅在部署类型为DIST时生效，默认1
+     */
+    public void setInstancePerReplicas(Long InstancePerReplicas) {
+        this.InstancePerReplicas = InstancePerReplicas;
+    }
+
+    /**
+     * Get 30 
+     * @return TerminationGracePeriodSeconds 30
+     */
+    public Long getTerminationGracePeriodSeconds() {
+        return this.TerminationGracePeriodSeconds;
+    }
+
+    /**
+     * Set 30
+     * @param TerminationGracePeriodSeconds 30
+     */
+    public void setTerminationGracePeriodSeconds(Long TerminationGracePeriodSeconds) {
+        this.TerminationGracePeriodSeconds = TerminationGracePeriodSeconds;
+    }
+
+    /**
+     * Get ["sleep","60"] 
+     * @return PreStopCommand ["sleep","60"]
+     */
+    public String [] getPreStopCommand() {
+        return this.PreStopCommand;
+    }
+
+    /**
+     * Set ["sleep","60"]
+     * @param PreStopCommand ["sleep","60"]
+     */
+    public void setPreStopCommand(String [] PreStopCommand) {
+        this.PreStopCommand = PreStopCommand;
+    }
+
+    /**
+     * Get 是否启动grpc端口 
+     * @return GrpcEnable 是否启动grpc端口
+     */
+    public Boolean getGrpcEnable() {
+        return this.GrpcEnable;
+    }
+
+    /**
+     * Set 是否启动grpc端口
+     * @param GrpcEnable 是否启动grpc端口
+     */
+    public void setGrpcEnable(Boolean GrpcEnable) {
+        this.GrpcEnable = GrpcEnable;
+    }
+
+    /**
+     * Get 健康探针 
+     * @return HealthProbe 健康探针
+     */
+    public HealthProbe getHealthProbe() {
+        return this.HealthProbe;
+    }
+
+    /**
+     * Set 健康探针
+     * @param HealthProbe 健康探针
+     */
+    public void setHealthProbe(HealthProbe HealthProbe) {
+        this.HealthProbe = HealthProbe;
+    }
+
     public ModifyModelServiceRequest() {
     }
 
@@ -697,6 +905,36 @@ HYBRID_PAID:
         if (source.ModelTurboEnable != null) {
             this.ModelTurboEnable = new Boolean(source.ModelTurboEnable);
         }
+        if (source.Command != null) {
+            this.Command = new String(source.Command);
+        }
+        if (source.ServiceEIP != null) {
+            this.ServiceEIP = new ServiceEIP(source.ServiceEIP);
+        }
+        if (source.CommandBase64 != null) {
+            this.CommandBase64 = new String(source.CommandBase64);
+        }
+        if (source.ServicePort != null) {
+            this.ServicePort = new Long(source.ServicePort);
+        }
+        if (source.InstancePerReplicas != null) {
+            this.InstancePerReplicas = new Long(source.InstancePerReplicas);
+        }
+        if (source.TerminationGracePeriodSeconds != null) {
+            this.TerminationGracePeriodSeconds = new Long(source.TerminationGracePeriodSeconds);
+        }
+        if (source.PreStopCommand != null) {
+            this.PreStopCommand = new String[source.PreStopCommand.length];
+            for (int i = 0; i < source.PreStopCommand.length; i++) {
+                this.PreStopCommand[i] = new String(source.PreStopCommand[i]);
+            }
+        }
+        if (source.GrpcEnable != null) {
+            this.GrpcEnable = new Boolean(source.GrpcEnable);
+        }
+        if (source.HealthProbe != null) {
+            this.HealthProbe = new HealthProbe(source.HealthProbe);
+        }
     }
 
 
@@ -725,6 +963,15 @@ HYBRID_PAID:
         this.setParamObj(map, prefix + "ServiceLimit.", this.ServiceLimit);
         this.setParamObj(map, prefix + "VolumeMount.", this.VolumeMount);
         this.setParamSimple(map, prefix + "ModelTurboEnable", this.ModelTurboEnable);
+        this.setParamSimple(map, prefix + "Command", this.Command);
+        this.setParamObj(map, prefix + "ServiceEIP.", this.ServiceEIP);
+        this.setParamSimple(map, prefix + "CommandBase64", this.CommandBase64);
+        this.setParamSimple(map, prefix + "ServicePort", this.ServicePort);
+        this.setParamSimple(map, prefix + "InstancePerReplicas", this.InstancePerReplicas);
+        this.setParamSimple(map, prefix + "TerminationGracePeriodSeconds", this.TerminationGracePeriodSeconds);
+        this.setParamArraySimple(map, prefix + "PreStopCommand.", this.PreStopCommand);
+        this.setParamSimple(map, prefix + "GrpcEnable", this.GrpcEnable);
+        this.setParamObj(map, prefix + "HealthProbe.", this.HealthProbe);
 
     }
 }

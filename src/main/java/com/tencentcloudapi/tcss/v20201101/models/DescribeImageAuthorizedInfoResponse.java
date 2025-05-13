@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeImageAuthorizedInfoResponse extends AbstractModel{
+public class DescribeImageAuthorizedInfoResponse extends AbstractModel {
 
     /**
     * 总共有效的镜像授权数
@@ -58,7 +59,56 @@ public class DescribeImageAuthorizedInfoResponse extends AbstractModel{
     private Long NotScannedLocalImageCnt;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 试用镜像授权数
+    */
+    @SerializedName("TrialAuthorizedCnt")
+    @Expose
+    private Long TrialAuthorizedCnt;
+
+    /**
+    * 已使用试用镜像授权数
+    */
+    @SerializedName("UsedTrialAuthorizedCnt")
+    @Expose
+    private Long UsedTrialAuthorizedCnt;
+
+    /**
+    * 已购镜像授权数
+    */
+    @SerializedName("PurchasedAuthorizedCnt")
+    @Expose
+    private Long PurchasedAuthorizedCnt;
+
+    /**
+    * 已使用已购镜像授权数
+    */
+    @SerializedName("UsedPurchasedAuthorizedCnt")
+    @Expose
+    private Long UsedPurchasedAuthorizedCnt;
+
+    /**
+    * 是否可免费领取镜像授权数
+    */
+    @SerializedName("CanApplyFreeImageAuthorize")
+    @Expose
+    private Boolean CanApplyFreeImageAuthorize;
+
+    /**
+    * 镜像扫描计费信息
+    */
+    @SerializedName("ImageScanInquireInfo")
+    @Expose
+    private ImageScanInquireInfo ImageScanInquireInfo;
+
+    /**
+    * 重复镜像数(本地镜像和仓库镜像)
+    */
+    @SerializedName("RepeatImageIdCnt")
+    @Expose
+    private Long RepeatImageIdCnt;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -145,16 +195,128 @@ public class DescribeImageAuthorizedInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 试用镜像授权数 
+     * @return TrialAuthorizedCnt 试用镜像授权数
+     */
+    public Long getTrialAuthorizedCnt() {
+        return this.TrialAuthorizedCnt;
+    }
+
+    /**
+     * Set 试用镜像授权数
+     * @param TrialAuthorizedCnt 试用镜像授权数
+     */
+    public void setTrialAuthorizedCnt(Long TrialAuthorizedCnt) {
+        this.TrialAuthorizedCnt = TrialAuthorizedCnt;
+    }
+
+    /**
+     * Get 已使用试用镜像授权数 
+     * @return UsedTrialAuthorizedCnt 已使用试用镜像授权数
+     */
+    public Long getUsedTrialAuthorizedCnt() {
+        return this.UsedTrialAuthorizedCnt;
+    }
+
+    /**
+     * Set 已使用试用镜像授权数
+     * @param UsedTrialAuthorizedCnt 已使用试用镜像授权数
+     */
+    public void setUsedTrialAuthorizedCnt(Long UsedTrialAuthorizedCnt) {
+        this.UsedTrialAuthorizedCnt = UsedTrialAuthorizedCnt;
+    }
+
+    /**
+     * Get 已购镜像授权数 
+     * @return PurchasedAuthorizedCnt 已购镜像授权数
+     */
+    public Long getPurchasedAuthorizedCnt() {
+        return this.PurchasedAuthorizedCnt;
+    }
+
+    /**
+     * Set 已购镜像授权数
+     * @param PurchasedAuthorizedCnt 已购镜像授权数
+     */
+    public void setPurchasedAuthorizedCnt(Long PurchasedAuthorizedCnt) {
+        this.PurchasedAuthorizedCnt = PurchasedAuthorizedCnt;
+    }
+
+    /**
+     * Get 已使用已购镜像授权数 
+     * @return UsedPurchasedAuthorizedCnt 已使用已购镜像授权数
+     */
+    public Long getUsedPurchasedAuthorizedCnt() {
+        return this.UsedPurchasedAuthorizedCnt;
+    }
+
+    /**
+     * Set 已使用已购镜像授权数
+     * @param UsedPurchasedAuthorizedCnt 已使用已购镜像授权数
+     */
+    public void setUsedPurchasedAuthorizedCnt(Long UsedPurchasedAuthorizedCnt) {
+        this.UsedPurchasedAuthorizedCnt = UsedPurchasedAuthorizedCnt;
+    }
+
+    /**
+     * Get 是否可免费领取镜像授权数 
+     * @return CanApplyFreeImageAuthorize 是否可免费领取镜像授权数
+     */
+    public Boolean getCanApplyFreeImageAuthorize() {
+        return this.CanApplyFreeImageAuthorize;
+    }
+
+    /**
+     * Set 是否可免费领取镜像授权数
+     * @param CanApplyFreeImageAuthorize 是否可免费领取镜像授权数
+     */
+    public void setCanApplyFreeImageAuthorize(Boolean CanApplyFreeImageAuthorize) {
+        this.CanApplyFreeImageAuthorize = CanApplyFreeImageAuthorize;
+    }
+
+    /**
+     * Get 镜像扫描计费信息 
+     * @return ImageScanInquireInfo 镜像扫描计费信息
+     */
+    public ImageScanInquireInfo getImageScanInquireInfo() {
+        return this.ImageScanInquireInfo;
+    }
+
+    /**
+     * Set 镜像扫描计费信息
+     * @param ImageScanInquireInfo 镜像扫描计费信息
+     */
+    public void setImageScanInquireInfo(ImageScanInquireInfo ImageScanInquireInfo) {
+        this.ImageScanInquireInfo = ImageScanInquireInfo;
+    }
+
+    /**
+     * Get 重复镜像数(本地镜像和仓库镜像) 
+     * @return RepeatImageIdCnt 重复镜像数(本地镜像和仓库镜像)
+     */
+    public Long getRepeatImageIdCnt() {
+        return this.RepeatImageIdCnt;
+    }
+
+    /**
+     * Set 重复镜像数(本地镜像和仓库镜像)
+     * @param RepeatImageIdCnt 重复镜像数(本地镜像和仓库镜像)
+     */
+    public void setRepeatImageIdCnt(Long RepeatImageIdCnt) {
+        this.RepeatImageIdCnt = RepeatImageIdCnt;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -183,6 +345,27 @@ public class DescribeImageAuthorizedInfoResponse extends AbstractModel{
         if (source.NotScannedLocalImageCnt != null) {
             this.NotScannedLocalImageCnt = new Long(source.NotScannedLocalImageCnt);
         }
+        if (source.TrialAuthorizedCnt != null) {
+            this.TrialAuthorizedCnt = new Long(source.TrialAuthorizedCnt);
+        }
+        if (source.UsedTrialAuthorizedCnt != null) {
+            this.UsedTrialAuthorizedCnt = new Long(source.UsedTrialAuthorizedCnt);
+        }
+        if (source.PurchasedAuthorizedCnt != null) {
+            this.PurchasedAuthorizedCnt = new Long(source.PurchasedAuthorizedCnt);
+        }
+        if (source.UsedPurchasedAuthorizedCnt != null) {
+            this.UsedPurchasedAuthorizedCnt = new Long(source.UsedPurchasedAuthorizedCnt);
+        }
+        if (source.CanApplyFreeImageAuthorize != null) {
+            this.CanApplyFreeImageAuthorize = new Boolean(source.CanApplyFreeImageAuthorize);
+        }
+        if (source.ImageScanInquireInfo != null) {
+            this.ImageScanInquireInfo = new ImageScanInquireInfo(source.ImageScanInquireInfo);
+        }
+        if (source.RepeatImageIdCnt != null) {
+            this.RepeatImageIdCnt = new Long(source.RepeatImageIdCnt);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -198,6 +381,13 @@ public class DescribeImageAuthorizedInfoResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ScannedImageCnt", this.ScannedImageCnt);
         this.setParamSimple(map, prefix + "NotScannedImageCnt", this.NotScannedImageCnt);
         this.setParamSimple(map, prefix + "NotScannedLocalImageCnt", this.NotScannedLocalImageCnt);
+        this.setParamSimple(map, prefix + "TrialAuthorizedCnt", this.TrialAuthorizedCnt);
+        this.setParamSimple(map, prefix + "UsedTrialAuthorizedCnt", this.UsedTrialAuthorizedCnt);
+        this.setParamSimple(map, prefix + "PurchasedAuthorizedCnt", this.PurchasedAuthorizedCnt);
+        this.setParamSimple(map, prefix + "UsedPurchasedAuthorizedCnt", this.UsedPurchasedAuthorizedCnt);
+        this.setParamSimple(map, prefix + "CanApplyFreeImageAuthorize", this.CanApplyFreeImageAuthorize);
+        this.setParamObj(map, prefix + "ImageScanInquireInfo.", this.ImageScanInquireInfo);
+        this.setParamSimple(map, prefix + "RepeatImageIdCnt", this.RepeatImageIdCnt);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

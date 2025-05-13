@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iotexplorer.v20190423.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetDeviceListRequest extends AbstractModel{
+public class GetDeviceListRequest extends AbstractModel {
 
     /**
     * 需要查看设备列表的产品ID, -1代表ProjectId来筛选
@@ -63,6 +64,13 @@ public class GetDeviceListRequest extends AbstractModel{
     @SerializedName("ProjectId")
     @Expose
     private String ProjectId;
+
+    /**
+    * 每次请求的Filters的上限为10，Filter.Values的上限为1。
+    */
+    @SerializedName("Filters")
+    @Expose
+    private Filter [] Filters;
 
     /**
      * Get 需要查看设备列表的产品ID, -1代表ProjectId来筛选 
@@ -160,6 +168,22 @@ public class GetDeviceListRequest extends AbstractModel{
         this.ProjectId = ProjectId;
     }
 
+    /**
+     * Get 每次请求的Filters的上限为10，Filter.Values的上限为1。 
+     * @return Filters 每次请求的Filters的上限为10，Filter.Values的上限为1。
+     */
+    public Filter [] getFilters() {
+        return this.Filters;
+    }
+
+    /**
+     * Set 每次请求的Filters的上限为10，Filter.Values的上限为1。
+     * @param Filters 每次请求的Filters的上限为10，Filter.Values的上限为1。
+     */
+    public void setFilters(Filter [] Filters) {
+        this.Filters = Filters;
+    }
+
     public GetDeviceListRequest() {
     }
 
@@ -186,6 +210,12 @@ public class GetDeviceListRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
+        if (source.Filters != null) {
+            this.Filters = new Filter[source.Filters.length];
+            for (int i = 0; i < source.Filters.length; i++) {
+                this.Filters[i] = new Filter(source.Filters[i]);
+            }
+        }
     }
 
 
@@ -199,6 +229,7 @@ public class GetDeviceListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "FirmwareVersion", this.FirmwareVersion);
         this.setParamSimple(map, prefix + "DeviceName", this.DeviceName);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NodePool extends AbstractModel{
+public class NodePool extends AbstractModel {
 
     /**
     * NodePoolId 资源池id
@@ -79,6 +80,13 @@ public class NodePool extends AbstractModel{
     private Taint [] Taints;
 
     /**
+    * 节点 Annotation 列表
+    */
+    @SerializedName("Annotations")
+    @Expose
+    private AnnotationValue [] Annotations;
+
+    /**
     * NodeCountSummary 节点列表
     */
     @SerializedName("NodeCountSummary")
@@ -87,7 +95,6 @@ public class NodePool extends AbstractModel{
 
     /**
     * 状态信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoscalingGroupStatus")
     @Expose
@@ -95,7 +102,6 @@ public class NodePool extends AbstractModel{
 
     /**
     * 最大节点数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxNodesNum")
     @Expose
@@ -103,7 +109,6 @@ public class NodePool extends AbstractModel{
 
     /**
     * 最小节点数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MinNodesNum")
     @Expose
@@ -111,15 +116,21 @@ public class NodePool extends AbstractModel{
 
     /**
     * 期望的节点数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DesiredNodesNum")
     @Expose
     private Long DesiredNodesNum;
 
     /**
-    * 节点池osName
+    * 运行时描述
 注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RuntimeConfig")
+    @Expose
+    private RuntimeConfig RuntimeConfig;
+
+    /**
+    * 节点池osName
     */
     @SerializedName("NodePoolOs")
     @Expose
@@ -127,7 +138,6 @@ public class NodePool extends AbstractModel{
 
     /**
     * 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OsCustomizeType")
     @Expose
@@ -135,7 +145,6 @@ public class NodePool extends AbstractModel{
 
     /**
     * 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ImageId")
     @Expose
@@ -143,7 +152,6 @@ public class NodePool extends AbstractModel{
 
     /**
     * 集群属于节点podCIDR大小自定义模式时，节点池需要带上pod数量属性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DesiredPodNum")
     @Expose
@@ -151,7 +159,6 @@ public class NodePool extends AbstractModel{
 
     /**
     * 用户自定义脚本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserScript")
     @Expose
@@ -167,11 +174,55 @@ public class NodePool extends AbstractModel{
 
     /**
     * 删除保护开关
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeletionProtection")
     @Expose
     private Boolean DeletionProtection;
+
+    /**
+    * 节点配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ExtraArgs")
+    @Expose
+    private InstanceExtraArgs ExtraArgs;
+
+    /**
+    * GPU驱动相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("GPUArgs")
+    @Expose
+    private GPUArgs GPUArgs;
+
+    /**
+    * dockerd --graph 指定值, 默认为 /var/lib/docker
+    */
+    @SerializedName("DockerGraphPath")
+    @Expose
+    private String DockerGraphPath;
+
+    /**
+    * 多盘数据盘挂载信息：新建节点时请确保购买CVM的参数传递了购买多个数据盘的信息，如CreateClusterInstances API的RunInstancesPara下的DataDisks也需要设置购买多个数据盘, 具体可以参考CreateClusterInstances接口的添加集群节点(多块数据盘)样例；添加已有节点时，请确保填写的分区信息在节点上真实存在
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("DataDisks")
+    @Expose
+    private DataDisk [] DataDisks;
+
+    /**
+    * 是否不可调度
+    */
+    @SerializedName("Unschedulable")
+    @Expose
+    private Long Unschedulable;
+
+    /**
+    * 用户自定义脚本,在UserScript前执行
+    */
+    @SerializedName("PreStartUserScript")
+    @Expose
+    private String PreStartUserScript;
 
     /**
      * Get NodePoolId 资源池id 
@@ -302,6 +353,22 @@ public class NodePool extends AbstractModel{
     }
 
     /**
+     * Get 节点 Annotation 列表 
+     * @return Annotations 节点 Annotation 列表
+     */
+    public AnnotationValue [] getAnnotations() {
+        return this.Annotations;
+    }
+
+    /**
+     * Set 节点 Annotation 列表
+     * @param Annotations 节点 Annotation 列表
+     */
+    public void setAnnotations(AnnotationValue [] Annotations) {
+        this.Annotations = Annotations;
+    }
+
+    /**
      * Get NodeCountSummary 节点列表 
      * @return NodeCountSummary NodeCountSummary 节点列表
      */
@@ -318,10 +385,8 @@ public class NodePool extends AbstractModel{
     }
 
     /**
-     * Get 状态信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态信息 
      * @return AutoscalingGroupStatus 状态信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAutoscalingGroupStatus() {
         return this.AutoscalingGroupStatus;
@@ -329,19 +394,15 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 状态信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoscalingGroupStatus 状态信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoscalingGroupStatus(String AutoscalingGroupStatus) {
         this.AutoscalingGroupStatus = AutoscalingGroupStatus;
     }
 
     /**
-     * Get 最大节点数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大节点数量 
      * @return MaxNodesNum 最大节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxNodesNum() {
         return this.MaxNodesNum;
@@ -349,19 +410,15 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 最大节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxNodesNum 最大节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxNodesNum(Long MaxNodesNum) {
         this.MaxNodesNum = MaxNodesNum;
     }
 
     /**
-     * Get 最小节点数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最小节点数量 
      * @return MinNodesNum 最小节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMinNodesNum() {
         return this.MinNodesNum;
@@ -369,19 +426,15 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 最小节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MinNodesNum 最小节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMinNodesNum(Long MinNodesNum) {
         this.MinNodesNum = MinNodesNum;
     }
 
     /**
-     * Get 期望的节点数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 期望的节点数量 
      * @return DesiredNodesNum 期望的节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDesiredNodesNum() {
         return this.DesiredNodesNum;
@@ -389,19 +442,35 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 期望的节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DesiredNodesNum 期望的节点数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDesiredNodesNum(Long DesiredNodesNum) {
         this.DesiredNodesNum = DesiredNodesNum;
     }
 
     /**
-     * Get 节点池osName
+     * Get 运行时描述
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return NodePoolOs 节点池osName
+     * @return RuntimeConfig 运行时描述
 注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public RuntimeConfig getRuntimeConfig() {
+        return this.RuntimeConfig;
+    }
+
+    /**
+     * Set 运行时描述
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RuntimeConfig 运行时描述
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRuntimeConfig(RuntimeConfig RuntimeConfig) {
+        this.RuntimeConfig = RuntimeConfig;
+    }
+
+    /**
+     * Get 节点池osName 
+     * @return NodePoolOs 节点池osName
      */
     public String getNodePoolOs() {
         return this.NodePoolOs;
@@ -409,19 +478,15 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 节点池osName
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodePoolOs 节点池osName
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodePoolOs(String NodePoolOs) {
         this.NodePoolOs = NodePoolOs;
     }
 
     /**
-     * Get 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值) 
      * @return OsCustomizeType 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOsCustomizeType() {
         return this.OsCustomizeType;
@@ -429,19 +494,15 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OsCustomizeType 容器的镜像版本，"DOCKER_CUSTOMIZE"(容器定制版),"GENERAL"(普通版本，默认值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOsCustomizeType(String OsCustomizeType) {
         this.OsCustomizeType = OsCustomizeType;
     }
 
     /**
-     * Get 镜像id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 镜像id 
      * @return ImageId 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getImageId() {
         return this.ImageId;
@@ -449,19 +510,15 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ImageId 镜像id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setImageId(String ImageId) {
         this.ImageId = ImageId;
     }
 
     /**
-     * Get 集群属于节点podCIDR大小自定义模式时，节点池需要带上pod数量属性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群属于节点podCIDR大小自定义模式时，节点池需要带上pod数量属性 
      * @return DesiredPodNum 集群属于节点podCIDR大小自定义模式时，节点池需要带上pod数量属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDesiredPodNum() {
         return this.DesiredPodNum;
@@ -469,19 +526,15 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 集群属于节点podCIDR大小自定义模式时，节点池需要带上pod数量属性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DesiredPodNum 集群属于节点podCIDR大小自定义模式时，节点池需要带上pod数量属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDesiredPodNum(Long DesiredPodNum) {
         this.DesiredPodNum = DesiredPodNum;
     }
 
     /**
-     * Get 用户自定义脚本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户自定义脚本 
      * @return UserScript 用户自定义脚本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserScript() {
         return this.UserScript;
@@ -489,9 +542,7 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 用户自定义脚本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserScript 用户自定义脚本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserScript(String UserScript) {
         this.UserScript = UserScript;
@@ -518,10 +569,8 @@ public class NodePool extends AbstractModel{
     }
 
     /**
-     * Get 删除保护开关
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 删除保护开关 
      * @return DeletionProtection 删除保护开关
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDeletionProtection() {
         return this.DeletionProtection;
@@ -529,12 +578,118 @@ public class NodePool extends AbstractModel{
 
     /**
      * Set 删除保护开关
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeletionProtection 删除保护开关
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeletionProtection(Boolean DeletionProtection) {
         this.DeletionProtection = DeletionProtection;
+    }
+
+    /**
+     * Get 节点配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ExtraArgs 节点配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public InstanceExtraArgs getExtraArgs() {
+        return this.ExtraArgs;
+    }
+
+    /**
+     * Set 节点配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ExtraArgs 节点配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setExtraArgs(InstanceExtraArgs ExtraArgs) {
+        this.ExtraArgs = ExtraArgs;
+    }
+
+    /**
+     * Get GPU驱动相关参数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return GPUArgs GPU驱动相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public GPUArgs getGPUArgs() {
+        return this.GPUArgs;
+    }
+
+    /**
+     * Set GPU驱动相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param GPUArgs GPU驱动相关参数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setGPUArgs(GPUArgs GPUArgs) {
+        this.GPUArgs = GPUArgs;
+    }
+
+    /**
+     * Get dockerd --graph 指定值, 默认为 /var/lib/docker 
+     * @return DockerGraphPath dockerd --graph 指定值, 默认为 /var/lib/docker
+     */
+    public String getDockerGraphPath() {
+        return this.DockerGraphPath;
+    }
+
+    /**
+     * Set dockerd --graph 指定值, 默认为 /var/lib/docker
+     * @param DockerGraphPath dockerd --graph 指定值, 默认为 /var/lib/docker
+     */
+    public void setDockerGraphPath(String DockerGraphPath) {
+        this.DockerGraphPath = DockerGraphPath;
+    }
+
+    /**
+     * Get 多盘数据盘挂载信息：新建节点时请确保购买CVM的参数传递了购买多个数据盘的信息，如CreateClusterInstances API的RunInstancesPara下的DataDisks也需要设置购买多个数据盘, 具体可以参考CreateClusterInstances接口的添加集群节点(多块数据盘)样例；添加已有节点时，请确保填写的分区信息在节点上真实存在
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return DataDisks 多盘数据盘挂载信息：新建节点时请确保购买CVM的参数传递了购买多个数据盘的信息，如CreateClusterInstances API的RunInstancesPara下的DataDisks也需要设置购买多个数据盘, 具体可以参考CreateClusterInstances接口的添加集群节点(多块数据盘)样例；添加已有节点时，请确保填写的分区信息在节点上真实存在
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public DataDisk [] getDataDisks() {
+        return this.DataDisks;
+    }
+
+    /**
+     * Set 多盘数据盘挂载信息：新建节点时请确保购买CVM的参数传递了购买多个数据盘的信息，如CreateClusterInstances API的RunInstancesPara下的DataDisks也需要设置购买多个数据盘, 具体可以参考CreateClusterInstances接口的添加集群节点(多块数据盘)样例；添加已有节点时，请确保填写的分区信息在节点上真实存在
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param DataDisks 多盘数据盘挂载信息：新建节点时请确保购买CVM的参数传递了购买多个数据盘的信息，如CreateClusterInstances API的RunInstancesPara下的DataDisks也需要设置购买多个数据盘, 具体可以参考CreateClusterInstances接口的添加集群节点(多块数据盘)样例；添加已有节点时，请确保填写的分区信息在节点上真实存在
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDataDisks(DataDisk [] DataDisks) {
+        this.DataDisks = DataDisks;
+    }
+
+    /**
+     * Get 是否不可调度 
+     * @return Unschedulable 是否不可调度
+     */
+    public Long getUnschedulable() {
+        return this.Unschedulable;
+    }
+
+    /**
+     * Set 是否不可调度
+     * @param Unschedulable 是否不可调度
+     */
+    public void setUnschedulable(Long Unschedulable) {
+        this.Unschedulable = Unschedulable;
+    }
+
+    /**
+     * Get 用户自定义脚本,在UserScript前执行 
+     * @return PreStartUserScript 用户自定义脚本,在UserScript前执行
+     */
+    public String getPreStartUserScript() {
+        return this.PreStartUserScript;
+    }
+
+    /**
+     * Set 用户自定义脚本,在UserScript前执行
+     * @param PreStartUserScript 用户自定义脚本,在UserScript前执行
+     */
+    public void setPreStartUserScript(String PreStartUserScript) {
+        this.PreStartUserScript = PreStartUserScript;
     }
 
     public NodePool() {
@@ -575,6 +730,12 @@ public class NodePool extends AbstractModel{
                 this.Taints[i] = new Taint(source.Taints[i]);
             }
         }
+        if (source.Annotations != null) {
+            this.Annotations = new AnnotationValue[source.Annotations.length];
+            for (int i = 0; i < source.Annotations.length; i++) {
+                this.Annotations[i] = new AnnotationValue(source.Annotations[i]);
+            }
+        }
         if (source.NodeCountSummary != null) {
             this.NodeCountSummary = new NodeCountSummary(source.NodeCountSummary);
         }
@@ -589,6 +750,9 @@ public class NodePool extends AbstractModel{
         }
         if (source.DesiredNodesNum != null) {
             this.DesiredNodesNum = new Long(source.DesiredNodesNum);
+        }
+        if (source.RuntimeConfig != null) {
+            this.RuntimeConfig = new RuntimeConfig(source.RuntimeConfig);
         }
         if (source.NodePoolOs != null) {
             this.NodePoolOs = new String(source.NodePoolOs);
@@ -614,6 +778,27 @@ public class NodePool extends AbstractModel{
         if (source.DeletionProtection != null) {
             this.DeletionProtection = new Boolean(source.DeletionProtection);
         }
+        if (source.ExtraArgs != null) {
+            this.ExtraArgs = new InstanceExtraArgs(source.ExtraArgs);
+        }
+        if (source.GPUArgs != null) {
+            this.GPUArgs = new GPUArgs(source.GPUArgs);
+        }
+        if (source.DockerGraphPath != null) {
+            this.DockerGraphPath = new String(source.DockerGraphPath);
+        }
+        if (source.DataDisks != null) {
+            this.DataDisks = new DataDisk[source.DataDisks.length];
+            for (int i = 0; i < source.DataDisks.length; i++) {
+                this.DataDisks[i] = new DataDisk(source.DataDisks[i]);
+            }
+        }
+        if (source.Unschedulable != null) {
+            this.Unschedulable = new Long(source.Unschedulable);
+        }
+        if (source.PreStartUserScript != null) {
+            this.PreStartUserScript = new String(source.PreStartUserScript);
+        }
     }
 
 
@@ -629,11 +814,13 @@ public class NodePool extends AbstractModel{
         this.setParamSimple(map, prefix + "AutoscalingGroupId", this.AutoscalingGroupId);
         this.setParamArrayObj(map, prefix + "Labels.", this.Labels);
         this.setParamArrayObj(map, prefix + "Taints.", this.Taints);
+        this.setParamArrayObj(map, prefix + "Annotations.", this.Annotations);
         this.setParamObj(map, prefix + "NodeCountSummary.", this.NodeCountSummary);
         this.setParamSimple(map, prefix + "AutoscalingGroupStatus", this.AutoscalingGroupStatus);
         this.setParamSimple(map, prefix + "MaxNodesNum", this.MaxNodesNum);
         this.setParamSimple(map, prefix + "MinNodesNum", this.MinNodesNum);
         this.setParamSimple(map, prefix + "DesiredNodesNum", this.DesiredNodesNum);
+        this.setParamObj(map, prefix + "RuntimeConfig.", this.RuntimeConfig);
         this.setParamSimple(map, prefix + "NodePoolOs", this.NodePoolOs);
         this.setParamSimple(map, prefix + "OsCustomizeType", this.OsCustomizeType);
         this.setParamSimple(map, prefix + "ImageId", this.ImageId);
@@ -641,6 +828,12 @@ public class NodePool extends AbstractModel{
         this.setParamSimple(map, prefix + "UserScript", this.UserScript);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamSimple(map, prefix + "DeletionProtection", this.DeletionProtection);
+        this.setParamObj(map, prefix + "ExtraArgs.", this.ExtraArgs);
+        this.setParamObj(map, prefix + "GPUArgs.", this.GPUArgs);
+        this.setParamSimple(map, prefix + "DockerGraphPath", this.DockerGraphPath);
+        this.setParamArrayObj(map, prefix + "DataDisks.", this.DataDisks);
+        this.setParamSimple(map, prefix + "Unschedulable", this.Unschedulable);
+        this.setParamSimple(map, prefix + "PreStartUserScript", this.PreStartUserScript);
 
     }
 }

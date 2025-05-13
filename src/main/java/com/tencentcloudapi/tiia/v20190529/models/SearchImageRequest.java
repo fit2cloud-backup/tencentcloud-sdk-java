@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tiia.v20190529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SearchImageRequest extends AbstractModel{
+public class SearchImageRequest extends AbstractModel {
 
     /**
     * 图库名称。
@@ -89,6 +90,7 @@ ImageUrl和ImageBase64必须提供一个，如果都提供，只使用ImageUrl�
     /**
     * 标签过滤条件。
 针对创建图片时提交的Tags信息进行条件过滤。支持>、>=、 <、 <=、=，!=，多个条件之间支持AND和OR进行连接。
+最大支持64字符。
     */
     @SerializedName("Filter")
     @Expose
@@ -314,9 +316,11 @@ ImageUrl和ImageBase64必须提供一个，如果都提供，只使用ImageUrl�
 
     /**
      * Get 标签过滤条件。
-针对创建图片时提交的Tags信息进行条件过滤。支持>、>=、 <、 <=、=，!=，多个条件之间支持AND和OR进行连接。 
+针对创建图片时提交的Tags信息进行条件过滤。支持>、>=、 <、 <=、=，!=，多个条件之间支持AND和OR进行连接。
+最大支持64字符。 
      * @return Filter 标签过滤条件。
 针对创建图片时提交的Tags信息进行条件过滤。支持>、>=、 <、 <=、=，!=，多个条件之间支持AND和OR进行连接。
+最大支持64字符。
      */
     public String getFilter() {
         return this.Filter;
@@ -325,8 +329,10 @@ ImageUrl和ImageBase64必须提供一个，如果都提供，只使用ImageUrl�
     /**
      * Set 标签过滤条件。
 针对创建图片时提交的Tags信息进行条件过滤。支持>、>=、 <、 <=、=，!=，多个条件之间支持AND和OR进行连接。
+最大支持64字符。
      * @param Filter 标签过滤条件。
 针对创建图片时提交的Tags信息进行条件过滤。支持>、>=、 <、 <=、=，!=，多个条件之间支持AND和OR进行连接。
+最大支持64字符。
      */
     public void setFilter(String Filter) {
         this.Filter = Filter;

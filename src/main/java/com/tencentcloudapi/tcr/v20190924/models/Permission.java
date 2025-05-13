@@ -16,33 +16,30 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Permission extends AbstractModel{
+public class Permission extends AbstractModel {
 
     /**
     * 资源路径，目前仅支持Namespace
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Resource")
     @Expose
     private String Resource;
 
     /**
-    * 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository
-注意：此字段可能返回 null，表示取不到有效值。
+    * 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository、tcr:CreateRepository、tcr:CreateHelmChart、tcr:DescribeHelmCharts
     */
     @SerializedName("Actions")
     @Expose
     private String [] Actions;
 
     /**
-     * Get 资源路径，目前仅支持Namespace
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源路径，目前仅支持Namespace 
      * @return Resource 资源路径，目前仅支持Namespace
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResource() {
         return this.Resource;
@@ -50,29 +47,23 @@ public class Permission extends AbstractModel{
 
     /**
      * Set 资源路径，目前仅支持Namespace
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Resource 资源路径，目前仅支持Namespace
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResource(String Resource) {
         this.Resource = Resource;
     }
 
     /**
-     * Get 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Actions 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository、tcr:CreateRepository、tcr:CreateHelmChart、tcr:DescribeHelmCharts 
+     * @return Actions 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository、tcr:CreateRepository、tcr:CreateHelmChart、tcr:DescribeHelmCharts
      */
     public String [] getActions() {
         return this.Actions;
     }
 
     /**
-     * Set 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Actions 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository、tcr:CreateRepository、tcr:CreateHelmChart、tcr:DescribeHelmCharts
+     * @param Actions 动作，目前仅支持：tcr:PushRepository、tcr:PullRepository、tcr:CreateRepository、tcr:CreateHelmChart、tcr:DescribeHelmCharts
      */
     public void setActions(String [] Actions) {
         this.Actions = Actions;

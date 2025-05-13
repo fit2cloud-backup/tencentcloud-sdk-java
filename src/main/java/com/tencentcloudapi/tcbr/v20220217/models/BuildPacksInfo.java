@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcbr.v20220217.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BuildPacksInfo extends AbstractModel{
+public class BuildPacksInfo extends AbstractModel {
 
     /**
     * 基础镜像
@@ -49,6 +50,13 @@ public class BuildPacksInfo extends AbstractModel{
     @SerializedName("UploadFilename")
     @Expose
     private String UploadFilename;
+
+    /**
+    * 语言版本
+    */
+    @SerializedName("LanguageVersion")
+    @Expose
+    private String LanguageVersion;
 
     /**
      * Get 基础镜像 
@@ -114,6 +122,22 @@ public class BuildPacksInfo extends AbstractModel{
         this.UploadFilename = UploadFilename;
     }
 
+    /**
+     * Get 语言版本 
+     * @return LanguageVersion 语言版本
+     */
+    public String getLanguageVersion() {
+        return this.LanguageVersion;
+    }
+
+    /**
+     * Set 语言版本
+     * @param LanguageVersion 语言版本
+     */
+    public void setLanguageVersion(String LanguageVersion) {
+        this.LanguageVersion = LanguageVersion;
+    }
+
     public BuildPacksInfo() {
     }
 
@@ -134,6 +158,9 @@ public class BuildPacksInfo extends AbstractModel{
         if (source.UploadFilename != null) {
             this.UploadFilename = new String(source.UploadFilename);
         }
+        if (source.LanguageVersion != null) {
+            this.LanguageVersion = new String(source.LanguageVersion);
+        }
     }
 
 
@@ -145,6 +172,7 @@ public class BuildPacksInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "EntryPoint", this.EntryPoint);
         this.setParamSimple(map, prefix + "RepoLanguage", this.RepoLanguage);
         this.setParamSimple(map, prefix + "UploadFilename", this.UploadFilename);
+        this.setParamSimple(map, prefix + "LanguageVersion", this.LanguageVersion);
 
     }
 }

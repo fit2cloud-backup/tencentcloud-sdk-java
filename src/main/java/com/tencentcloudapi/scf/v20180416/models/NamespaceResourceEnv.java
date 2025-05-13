@@ -16,11 +16,12 @@
 package com.tencentcloudapi.scf.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NamespaceResourceEnv extends AbstractModel{
+public class NamespaceResourceEnv extends AbstractModel {
 
     /**
     * 基于TKE集群的资源池
@@ -29,6 +30,13 @@ public class NamespaceResourceEnv extends AbstractModel{
     @SerializedName("TKE")
     @Expose
     private NamespaceResourceEnvTKE TKE;
+
+    /**
+    * 近离线计算类型的命名空间
+    */
+    @SerializedName("OFFLINE")
+    @Expose
+    private Boolean OFFLINE;
 
     /**
      * Get 基于TKE集群的资源池
@@ -50,6 +58,22 @@ public class NamespaceResourceEnv extends AbstractModel{
         this.TKE = TKE;
     }
 
+    /**
+     * Get 近离线计算类型的命名空间 
+     * @return OFFLINE 近离线计算类型的命名空间
+     */
+    public Boolean getOFFLINE() {
+        return this.OFFLINE;
+    }
+
+    /**
+     * Set 近离线计算类型的命名空间
+     * @param OFFLINE 近离线计算类型的命名空间
+     */
+    public void setOFFLINE(Boolean OFFLINE) {
+        this.OFFLINE = OFFLINE;
+    }
+
     public NamespaceResourceEnv() {
     }
 
@@ -61,6 +85,9 @@ public class NamespaceResourceEnv extends AbstractModel{
         if (source.TKE != null) {
             this.TKE = new NamespaceResourceEnvTKE(source.TKE);
         }
+        if (source.OFFLINE != null) {
+            this.OFFLINE = new Boolean(source.OFFLINE);
+        }
     }
 
 
@@ -69,6 +96,7 @@ public class NamespaceResourceEnv extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "TKE.", this.TKE);
+        this.setParamSimple(map, prefix + "OFFLINE", this.OFFLINE);
 
     }
 }

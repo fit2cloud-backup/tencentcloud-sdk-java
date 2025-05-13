@@ -16,11 +16,12 @@
 package com.tencentcloudapi.oceanus.v20190422.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class JobConfig extends AbstractModel{
+public class JobConfig extends AbstractModel {
 
     /**
     * 作业Id
@@ -210,6 +211,118 @@ public class JobConfig extends AbstractModel{
     @SerializedName("ExpertModeConfiguration")
     @Expose
     private ExpertModeConfiguration ExpertModeConfiguration;
+
+    /**
+    * trace链路
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TraceModeOn")
+    @Expose
+    private Boolean TraceModeOn;
+
+    /**
+    * trace链路配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TraceModeConfiguration")
+    @Expose
+    private TraceModeConfiguration TraceModeConfiguration;
+
+    /**
+    * checkpoint保留个数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("CheckpointRetainedNum")
+    @Expose
+    private Long CheckpointRetainedNum;
+
+    /**
+    * 算子拓扑图
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("JobGraph")
+    @Expose
+    private JobGraph JobGraph;
+
+    /**
+    * es索引
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EsServerlessIndex")
+    @Expose
+    private String EsServerlessIndex;
+
+    /**
+    * es空间
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("EsServerlessSpace")
+    @Expose
+    private String EsServerlessSpace;
+
+    /**
+    * es索引中文
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("IndexName")
+    @Expose
+    private String IndexName;
+
+    /**
+    * es空间中文
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("WorkspaceName")
+    @Expose
+    private String WorkspaceName;
+
+    /**
+    * flink 版本
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("FlinkVersion")
+    @Expose
+    private String FlinkVersion;
+
+    /**
+    * jm使用cpu数目
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("JobManagerCpu")
+    @Expose
+    private Float JobManagerCpu;
+
+    /**
+    * jm使用内存数目
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("JobManagerMem")
+    @Expose
+    private Float JobManagerMem;
+
+    /**
+    * tm使用cpu数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskManagerCpu")
+    @Expose
+    private Float TaskManagerCpu;
+
+    /**
+    * tm使用mem数
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("TaskManagerMem")
+    @Expose
+    private Float TaskManagerMem;
+
+    /**
+    * 运行中配置
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("JobConfigItem")
+    @Expose
+    private JobConfig JobConfigItem;
 
     /**
      * Get 作业Id 
@@ -679,6 +792,286 @@ public class JobConfig extends AbstractModel{
         this.ExpertModeConfiguration = ExpertModeConfiguration;
     }
 
+    /**
+     * Get trace链路
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TraceModeOn trace链路
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Boolean getTraceModeOn() {
+        return this.TraceModeOn;
+    }
+
+    /**
+     * Set trace链路
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TraceModeOn trace链路
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTraceModeOn(Boolean TraceModeOn) {
+        this.TraceModeOn = TraceModeOn;
+    }
+
+    /**
+     * Get trace链路配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TraceModeConfiguration trace链路配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public TraceModeConfiguration getTraceModeConfiguration() {
+        return this.TraceModeConfiguration;
+    }
+
+    /**
+     * Set trace链路配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TraceModeConfiguration trace链路配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTraceModeConfiguration(TraceModeConfiguration TraceModeConfiguration) {
+        this.TraceModeConfiguration = TraceModeConfiguration;
+    }
+
+    /**
+     * Get checkpoint保留个数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return CheckpointRetainedNum checkpoint保留个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Long getCheckpointRetainedNum() {
+        return this.CheckpointRetainedNum;
+    }
+
+    /**
+     * Set checkpoint保留个数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param CheckpointRetainedNum checkpoint保留个数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setCheckpointRetainedNum(Long CheckpointRetainedNum) {
+        this.CheckpointRetainedNum = CheckpointRetainedNum;
+    }
+
+    /**
+     * Get 算子拓扑图
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return JobGraph 算子拓扑图
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public JobGraph getJobGraph() {
+        return this.JobGraph;
+    }
+
+    /**
+     * Set 算子拓扑图
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param JobGraph 算子拓扑图
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setJobGraph(JobGraph JobGraph) {
+        this.JobGraph = JobGraph;
+    }
+
+    /**
+     * Get es索引
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EsServerlessIndex es索引
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEsServerlessIndex() {
+        return this.EsServerlessIndex;
+    }
+
+    /**
+     * Set es索引
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EsServerlessIndex es索引
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEsServerlessIndex(String EsServerlessIndex) {
+        this.EsServerlessIndex = EsServerlessIndex;
+    }
+
+    /**
+     * Get es空间
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return EsServerlessSpace es空间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getEsServerlessSpace() {
+        return this.EsServerlessSpace;
+    }
+
+    /**
+     * Set es空间
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param EsServerlessSpace es空间
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setEsServerlessSpace(String EsServerlessSpace) {
+        this.EsServerlessSpace = EsServerlessSpace;
+    }
+
+    /**
+     * Get es索引中文
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return IndexName es索引中文
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getIndexName() {
+        return this.IndexName;
+    }
+
+    /**
+     * Set es索引中文
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param IndexName es索引中文
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setIndexName(String IndexName) {
+        this.IndexName = IndexName;
+    }
+
+    /**
+     * Get es空间中文
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return WorkspaceName es空间中文
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getWorkspaceName() {
+        return this.WorkspaceName;
+    }
+
+    /**
+     * Set es空间中文
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param WorkspaceName es空间中文
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setWorkspaceName(String WorkspaceName) {
+        this.WorkspaceName = WorkspaceName;
+    }
+
+    /**
+     * Get flink 版本
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return FlinkVersion flink 版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getFlinkVersion() {
+        return this.FlinkVersion;
+    }
+
+    /**
+     * Set flink 版本
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param FlinkVersion flink 版本
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setFlinkVersion(String FlinkVersion) {
+        this.FlinkVersion = FlinkVersion;
+    }
+
+    /**
+     * Get jm使用cpu数目
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return JobManagerCpu jm使用cpu数目
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getJobManagerCpu() {
+        return this.JobManagerCpu;
+    }
+
+    /**
+     * Set jm使用cpu数目
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param JobManagerCpu jm使用cpu数目
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setJobManagerCpu(Float JobManagerCpu) {
+        this.JobManagerCpu = JobManagerCpu;
+    }
+
+    /**
+     * Get jm使用内存数目
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return JobManagerMem jm使用内存数目
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getJobManagerMem() {
+        return this.JobManagerMem;
+    }
+
+    /**
+     * Set jm使用内存数目
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param JobManagerMem jm使用内存数目
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setJobManagerMem(Float JobManagerMem) {
+        this.JobManagerMem = JobManagerMem;
+    }
+
+    /**
+     * Get tm使用cpu数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskManagerCpu tm使用cpu数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getTaskManagerCpu() {
+        return this.TaskManagerCpu;
+    }
+
+    /**
+     * Set tm使用cpu数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskManagerCpu tm使用cpu数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskManagerCpu(Float TaskManagerCpu) {
+        this.TaskManagerCpu = TaskManagerCpu;
+    }
+
+    /**
+     * Get tm使用mem数
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return TaskManagerMem tm使用mem数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public Float getTaskManagerMem() {
+        return this.TaskManagerMem;
+    }
+
+    /**
+     * Set tm使用mem数
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param TaskManagerMem tm使用mem数
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setTaskManagerMem(Float TaskManagerMem) {
+        this.TaskManagerMem = TaskManagerMem;
+    }
+
+    /**
+     * Get 运行中配置
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return JobConfigItem 运行中配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public JobConfig getJobConfigItem() {
+        return this.JobConfigItem;
+    }
+
+    /**
+     * Set 运行中配置
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param JobConfigItem 运行中配置
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setJobConfigItem(JobConfig JobConfigItem) {
+        this.JobConfigItem = JobConfigItem;
+    }
+
     public JobConfig() {
     }
 
@@ -768,6 +1161,48 @@ public class JobConfig extends AbstractModel{
         if (source.ExpertModeConfiguration != null) {
             this.ExpertModeConfiguration = new ExpertModeConfiguration(source.ExpertModeConfiguration);
         }
+        if (source.TraceModeOn != null) {
+            this.TraceModeOn = new Boolean(source.TraceModeOn);
+        }
+        if (source.TraceModeConfiguration != null) {
+            this.TraceModeConfiguration = new TraceModeConfiguration(source.TraceModeConfiguration);
+        }
+        if (source.CheckpointRetainedNum != null) {
+            this.CheckpointRetainedNum = new Long(source.CheckpointRetainedNum);
+        }
+        if (source.JobGraph != null) {
+            this.JobGraph = new JobGraph(source.JobGraph);
+        }
+        if (source.EsServerlessIndex != null) {
+            this.EsServerlessIndex = new String(source.EsServerlessIndex);
+        }
+        if (source.EsServerlessSpace != null) {
+            this.EsServerlessSpace = new String(source.EsServerlessSpace);
+        }
+        if (source.IndexName != null) {
+            this.IndexName = new String(source.IndexName);
+        }
+        if (source.WorkspaceName != null) {
+            this.WorkspaceName = new String(source.WorkspaceName);
+        }
+        if (source.FlinkVersion != null) {
+            this.FlinkVersion = new String(source.FlinkVersion);
+        }
+        if (source.JobManagerCpu != null) {
+            this.JobManagerCpu = new Float(source.JobManagerCpu);
+        }
+        if (source.JobManagerMem != null) {
+            this.JobManagerMem = new Float(source.JobManagerMem);
+        }
+        if (source.TaskManagerCpu != null) {
+            this.TaskManagerCpu = new Float(source.TaskManagerCpu);
+        }
+        if (source.TaskManagerMem != null) {
+            this.TaskManagerMem = new Float(source.TaskManagerMem);
+        }
+        if (source.JobConfigItem != null) {
+            this.JobConfigItem = new JobConfig(source.JobConfigItem);
+        }
     }
 
 
@@ -799,6 +1234,20 @@ public class JobConfig extends AbstractModel{
         this.setParamArrayObj(map, prefix + "ClazzLevels.", this.ClazzLevels);
         this.setParamSimple(map, prefix + "ExpertModeOn", this.ExpertModeOn);
         this.setParamObj(map, prefix + "ExpertModeConfiguration.", this.ExpertModeConfiguration);
+        this.setParamSimple(map, prefix + "TraceModeOn", this.TraceModeOn);
+        this.setParamObj(map, prefix + "TraceModeConfiguration.", this.TraceModeConfiguration);
+        this.setParamSimple(map, prefix + "CheckpointRetainedNum", this.CheckpointRetainedNum);
+        this.setParamObj(map, prefix + "JobGraph.", this.JobGraph);
+        this.setParamSimple(map, prefix + "EsServerlessIndex", this.EsServerlessIndex);
+        this.setParamSimple(map, prefix + "EsServerlessSpace", this.EsServerlessSpace);
+        this.setParamSimple(map, prefix + "IndexName", this.IndexName);
+        this.setParamSimple(map, prefix + "WorkspaceName", this.WorkspaceName);
+        this.setParamSimple(map, prefix + "FlinkVersion", this.FlinkVersion);
+        this.setParamSimple(map, prefix + "JobManagerCpu", this.JobManagerCpu);
+        this.setParamSimple(map, prefix + "JobManagerMem", this.JobManagerMem);
+        this.setParamSimple(map, prefix + "TaskManagerCpu", this.TaskManagerCpu);
+        this.setParamSimple(map, prefix + "TaskManagerMem", this.TaskManagerMem);
+        this.setParamObj(map, prefix + "JobConfigItem.", this.JobConfigItem);
 
     }
 }

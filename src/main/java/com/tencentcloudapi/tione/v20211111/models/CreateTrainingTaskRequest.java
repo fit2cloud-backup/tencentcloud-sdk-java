@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateTrainingTaskRequest extends AbstractModel{
+public class CreateTrainingTaskRequest extends AbstractModel {
 
     /**
     * 训练任务名称，不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头
@@ -43,34 +44,6 @@ POSTPAID_BY_HOUR 按量计费
     @SerializedName("ResourceConfigInfos")
     @Expose
     private ResourceConfigInfo [] ResourceConfigInfos;
-
-    /**
-    * COS代码包路径
-    */
-    @SerializedName("CodePackagePath")
-    @Expose
-    private CosPathInfo CodePackagePath;
-
-    /**
-    * 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
-    */
-    @SerializedName("TrainingMode")
-    @Expose
-    private String TrainingMode;
-
-    /**
-    * COS训练输出路径
-    */
-    @SerializedName("Output")
-    @Expose
-    private CosPathInfo Output;
-
-    /**
-    * 是否上报日志
-    */
-    @SerializedName("LogEnable")
-    @Expose
-    private Boolean LogEnable;
 
     /**
     * 训练框架名称，通过DescribeTrainingFrameworks接口查询，eg：SPARK、PYSPARK、TENSORFLOW、PYTORCH
@@ -115,14 +88,28 @@ POSTPAID_BY_HOUR 按量计费
     private ImageInfo ImageInfo;
 
     /**
-    * 启动命令信息，默认为sh start.sh
+    * COS代码包路径
+    */
+    @SerializedName("CodePackagePath")
+    @Expose
+    private CosPathInfo CodePackagePath;
+
+    /**
+    * 任务的启动命令，按任务训练模式输入，如遇特殊字符导致配置失败，可使用EncodedStartCmdInfo参数
     */
     @SerializedName("StartCmdInfo")
     @Expose
     private StartCmdInfo StartCmdInfo;
 
     /**
-    * 数据配置，依赖DataSource字段
+    * 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
+    */
+    @SerializedName("TrainingMode")
+    @Expose
+    private String TrainingMode;
+
+    /**
+    * 数据配置，依赖DataSource字段，数量不超过10个
     */
     @SerializedName("DataConfigs")
     @Expose
@@ -143,6 +130,13 @@ POSTPAID_BY_HOUR 按量计费
     private String SubnetId;
 
     /**
+    * COS训练输出路径
+    */
+    @SerializedName("Output")
+    @Expose
+    private CosPathInfo Output;
+
+    /**
     * CLS日志配置
     */
     @SerializedName("LogConfig")
@@ -150,21 +144,28 @@ POSTPAID_BY_HOUR 按量计费
     private LogConfig LogConfig;
 
     /**
-    * 调优参数
+    * 调优参数，不超过2048个字符
     */
     @SerializedName("TuningParameters")
     @Expose
     private String TuningParameters;
 
     /**
-    * 备注，最多500个字
+    * 是否上报日志
+    */
+    @SerializedName("LogEnable")
+    @Expose
+    private Boolean LogEnable;
+
+    /**
+    * 备注，不超过1024个字符
     */
     @SerializedName("Remark")
     @Expose
     private String Remark;
 
     /**
-    * 数据来源，eg：DATASET、COS、CFS、HDFS
+    * 数据来源，eg：DATASET、COS、CFS、CFSTurbo、HDFS、GooseFSx
     */
     @SerializedName("DataSource")
     @Expose
@@ -176,6 +177,20 @@ POSTPAID_BY_HOUR 按量计费
     @SerializedName("CallbackUrl")
     @Expose
     private String CallbackUrl;
+
+    /**
+    * 编码后的任务启动命令，与StartCmdInfo同时配置时，仅当前参数生效
+    */
+    @SerializedName("EncodedStartCmdInfo")
+    @Expose
+    private EncodedStartCmdInfo EncodedStartCmdInfo;
+
+    /**
+    * 代码仓库配置
+    */
+    @SerializedName("CodeRepos")
+    @Expose
+    private CodeRepoConfig [] CodeRepos;
 
     /**
      * Get 训练任务名称，不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头 
@@ -227,70 +242,6 @@ POSTPAID_BY_HOUR 按量计费
      */
     public void setResourceConfigInfos(ResourceConfigInfo [] ResourceConfigInfos) {
         this.ResourceConfigInfos = ResourceConfigInfos;
-    }
-
-    /**
-     * Get COS代码包路径 
-     * @return CodePackagePath COS代码包路径
-     */
-    public CosPathInfo getCodePackagePath() {
-        return this.CodePackagePath;
-    }
-
-    /**
-     * Set COS代码包路径
-     * @param CodePackagePath COS代码包路径
-     */
-    public void setCodePackagePath(CosPathInfo CodePackagePath) {
-        this.CodePackagePath = CodePackagePath;
-    }
-
-    /**
-     * Get 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD 
-     * @return TrainingMode 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
-     */
-    public String getTrainingMode() {
-        return this.TrainingMode;
-    }
-
-    /**
-     * Set 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
-     * @param TrainingMode 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
-     */
-    public void setTrainingMode(String TrainingMode) {
-        this.TrainingMode = TrainingMode;
-    }
-
-    /**
-     * Get COS训练输出路径 
-     * @return Output COS训练输出路径
-     */
-    public CosPathInfo getOutput() {
-        return this.Output;
-    }
-
-    /**
-     * Set COS训练输出路径
-     * @param Output COS训练输出路径
-     */
-    public void setOutput(CosPathInfo Output) {
-        this.Output = Output;
-    }
-
-    /**
-     * Get 是否上报日志 
-     * @return LogEnable 是否上报日志
-     */
-    public Boolean getLogEnable() {
-        return this.LogEnable;
-    }
-
-    /**
-     * Set 是否上报日志
-     * @param LogEnable 是否上报日志
-     */
-    public void setLogEnable(Boolean LogEnable) {
-        this.LogEnable = LogEnable;
     }
 
     /**
@@ -390,32 +341,64 @@ POSTPAID_BY_HOUR 按量计费
     }
 
     /**
-     * Get 启动命令信息，默认为sh start.sh 
-     * @return StartCmdInfo 启动命令信息，默认为sh start.sh
+     * Get COS代码包路径 
+     * @return CodePackagePath COS代码包路径
+     */
+    public CosPathInfo getCodePackagePath() {
+        return this.CodePackagePath;
+    }
+
+    /**
+     * Set COS代码包路径
+     * @param CodePackagePath COS代码包路径
+     */
+    public void setCodePackagePath(CosPathInfo CodePackagePath) {
+        this.CodePackagePath = CodePackagePath;
+    }
+
+    /**
+     * Get 任务的启动命令，按任务训练模式输入，如遇特殊字符导致配置失败，可使用EncodedStartCmdInfo参数 
+     * @return StartCmdInfo 任务的启动命令，按任务训练模式输入，如遇特殊字符导致配置失败，可使用EncodedStartCmdInfo参数
      */
     public StartCmdInfo getStartCmdInfo() {
         return this.StartCmdInfo;
     }
 
     /**
-     * Set 启动命令信息，默认为sh start.sh
-     * @param StartCmdInfo 启动命令信息，默认为sh start.sh
+     * Set 任务的启动命令，按任务训练模式输入，如遇特殊字符导致配置失败，可使用EncodedStartCmdInfo参数
+     * @param StartCmdInfo 任务的启动命令，按任务训练模式输入，如遇特殊字符导致配置失败，可使用EncodedStartCmdInfo参数
      */
     public void setStartCmdInfo(StartCmdInfo StartCmdInfo) {
         this.StartCmdInfo = StartCmdInfo;
     }
 
     /**
-     * Get 数据配置，依赖DataSource字段 
-     * @return DataConfigs 数据配置，依赖DataSource字段
+     * Get 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD 
+     * @return TrainingMode 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
+     */
+    public String getTrainingMode() {
+        return this.TrainingMode;
+    }
+
+    /**
+     * Set 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
+     * @param TrainingMode 训练模式，通过DescribeTrainingFrameworks接口查询，eg：PS_WORKER、DDP、MPI、HOROVOD
+     */
+    public void setTrainingMode(String TrainingMode) {
+        this.TrainingMode = TrainingMode;
+    }
+
+    /**
+     * Get 数据配置，依赖DataSource字段，数量不超过10个 
+     * @return DataConfigs 数据配置，依赖DataSource字段，数量不超过10个
      */
     public DataConfig [] getDataConfigs() {
         return this.DataConfigs;
     }
 
     /**
-     * Set 数据配置，依赖DataSource字段
-     * @param DataConfigs 数据配置，依赖DataSource字段
+     * Set 数据配置，依赖DataSource字段，数量不超过10个
+     * @param DataConfigs 数据配置，依赖DataSource字段，数量不超过10个
      */
     public void setDataConfigs(DataConfig [] DataConfigs) {
         this.DataConfigs = DataConfigs;
@@ -454,6 +437,22 @@ POSTPAID_BY_HOUR 按量计费
     }
 
     /**
+     * Get COS训练输出路径 
+     * @return Output COS训练输出路径
+     */
+    public CosPathInfo getOutput() {
+        return this.Output;
+    }
+
+    /**
+     * Set COS训练输出路径
+     * @param Output COS训练输出路径
+     */
+    public void setOutput(CosPathInfo Output) {
+        this.Output = Output;
+    }
+
+    /**
      * Get CLS日志配置 
      * @return LogConfig CLS日志配置
      */
@@ -470,48 +469,64 @@ POSTPAID_BY_HOUR 按量计费
     }
 
     /**
-     * Get 调优参数 
-     * @return TuningParameters 调优参数
+     * Get 调优参数，不超过2048个字符 
+     * @return TuningParameters 调优参数，不超过2048个字符
      */
     public String getTuningParameters() {
         return this.TuningParameters;
     }
 
     /**
-     * Set 调优参数
-     * @param TuningParameters 调优参数
+     * Set 调优参数，不超过2048个字符
+     * @param TuningParameters 调优参数，不超过2048个字符
      */
     public void setTuningParameters(String TuningParameters) {
         this.TuningParameters = TuningParameters;
     }
 
     /**
-     * Get 备注，最多500个字 
-     * @return Remark 备注，最多500个字
+     * Get 是否上报日志 
+     * @return LogEnable 是否上报日志
+     */
+    public Boolean getLogEnable() {
+        return this.LogEnable;
+    }
+
+    /**
+     * Set 是否上报日志
+     * @param LogEnable 是否上报日志
+     */
+    public void setLogEnable(Boolean LogEnable) {
+        this.LogEnable = LogEnable;
+    }
+
+    /**
+     * Get 备注，不超过1024个字符 
+     * @return Remark 备注，不超过1024个字符
      */
     public String getRemark() {
         return this.Remark;
     }
 
     /**
-     * Set 备注，最多500个字
-     * @param Remark 备注，最多500个字
+     * Set 备注，不超过1024个字符
+     * @param Remark 备注，不超过1024个字符
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get 数据来源，eg：DATASET、COS、CFS、HDFS 
-     * @return DataSource 数据来源，eg：DATASET、COS、CFS、HDFS
+     * Get 数据来源，eg：DATASET、COS、CFS、CFSTurbo、HDFS、GooseFSx 
+     * @return DataSource 数据来源，eg：DATASET、COS、CFS、CFSTurbo、HDFS、GooseFSx
      */
     public String getDataSource() {
         return this.DataSource;
     }
 
     /**
-     * Set 数据来源，eg：DATASET、COS、CFS、HDFS
-     * @param DataSource 数据来源，eg：DATASET、COS、CFS、HDFS
+     * Set 数据来源，eg：DATASET、COS、CFS、CFSTurbo、HDFS、GooseFSx
+     * @param DataSource 数据来源，eg：DATASET、COS、CFS、CFSTurbo、HDFS、GooseFSx
      */
     public void setDataSource(String DataSource) {
         this.DataSource = DataSource;
@@ -531,6 +546,38 @@ POSTPAID_BY_HOUR 按量计费
      */
     public void setCallbackUrl(String CallbackUrl) {
         this.CallbackUrl = CallbackUrl;
+    }
+
+    /**
+     * Get 编码后的任务启动命令，与StartCmdInfo同时配置时，仅当前参数生效 
+     * @return EncodedStartCmdInfo 编码后的任务启动命令，与StartCmdInfo同时配置时，仅当前参数生效
+     */
+    public EncodedStartCmdInfo getEncodedStartCmdInfo() {
+        return this.EncodedStartCmdInfo;
+    }
+
+    /**
+     * Set 编码后的任务启动命令，与StartCmdInfo同时配置时，仅当前参数生效
+     * @param EncodedStartCmdInfo 编码后的任务启动命令，与StartCmdInfo同时配置时，仅当前参数生效
+     */
+    public void setEncodedStartCmdInfo(EncodedStartCmdInfo EncodedStartCmdInfo) {
+        this.EncodedStartCmdInfo = EncodedStartCmdInfo;
+    }
+
+    /**
+     * Get 代码仓库配置 
+     * @return CodeRepos 代码仓库配置
+     */
+    public CodeRepoConfig [] getCodeRepos() {
+        return this.CodeRepos;
+    }
+
+    /**
+     * Set 代码仓库配置
+     * @param CodeRepos 代码仓库配置
+     */
+    public void setCodeRepos(CodeRepoConfig [] CodeRepos) {
+        this.CodeRepos = CodeRepos;
     }
 
     public CreateTrainingTaskRequest() {
@@ -553,18 +600,6 @@ POSTPAID_BY_HOUR 按量计费
                 this.ResourceConfigInfos[i] = new ResourceConfigInfo(source.ResourceConfigInfos[i]);
             }
         }
-        if (source.CodePackagePath != null) {
-            this.CodePackagePath = new CosPathInfo(source.CodePackagePath);
-        }
-        if (source.TrainingMode != null) {
-            this.TrainingMode = new String(source.TrainingMode);
-        }
-        if (source.Output != null) {
-            this.Output = new CosPathInfo(source.Output);
-        }
-        if (source.LogEnable != null) {
-            this.LogEnable = new Boolean(source.LogEnable);
-        }
         if (source.FrameworkName != null) {
             this.FrameworkName = new String(source.FrameworkName);
         }
@@ -586,8 +621,14 @@ POSTPAID_BY_HOUR 按量计费
         if (source.ImageInfo != null) {
             this.ImageInfo = new ImageInfo(source.ImageInfo);
         }
+        if (source.CodePackagePath != null) {
+            this.CodePackagePath = new CosPathInfo(source.CodePackagePath);
+        }
         if (source.StartCmdInfo != null) {
             this.StartCmdInfo = new StartCmdInfo(source.StartCmdInfo);
+        }
+        if (source.TrainingMode != null) {
+            this.TrainingMode = new String(source.TrainingMode);
         }
         if (source.DataConfigs != null) {
             this.DataConfigs = new DataConfig[source.DataConfigs.length];
@@ -601,11 +642,17 @@ POSTPAID_BY_HOUR 按量计费
         if (source.SubnetId != null) {
             this.SubnetId = new String(source.SubnetId);
         }
+        if (source.Output != null) {
+            this.Output = new CosPathInfo(source.Output);
+        }
         if (source.LogConfig != null) {
             this.LogConfig = new LogConfig(source.LogConfig);
         }
         if (source.TuningParameters != null) {
             this.TuningParameters = new String(source.TuningParameters);
+        }
+        if (source.LogEnable != null) {
+            this.LogEnable = new Boolean(source.LogEnable);
         }
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
@@ -615,6 +662,15 @@ POSTPAID_BY_HOUR 按量计费
         }
         if (source.CallbackUrl != null) {
             this.CallbackUrl = new String(source.CallbackUrl);
+        }
+        if (source.EncodedStartCmdInfo != null) {
+            this.EncodedStartCmdInfo = new EncodedStartCmdInfo(source.EncodedStartCmdInfo);
+        }
+        if (source.CodeRepos != null) {
+            this.CodeRepos = new CodeRepoConfig[source.CodeRepos.length];
+            for (int i = 0; i < source.CodeRepos.length; i++) {
+                this.CodeRepos[i] = new CodeRepoConfig(source.CodeRepos[i]);
+            }
         }
     }
 
@@ -626,25 +682,27 @@ POSTPAID_BY_HOUR 按量计费
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "ChargeType", this.ChargeType);
         this.setParamArrayObj(map, prefix + "ResourceConfigInfos.", this.ResourceConfigInfos);
-        this.setParamObj(map, prefix + "CodePackagePath.", this.CodePackagePath);
-        this.setParamSimple(map, prefix + "TrainingMode", this.TrainingMode);
-        this.setParamObj(map, prefix + "Output.", this.Output);
-        this.setParamSimple(map, prefix + "LogEnable", this.LogEnable);
         this.setParamSimple(map, prefix + "FrameworkName", this.FrameworkName);
         this.setParamSimple(map, prefix + "FrameworkVersion", this.FrameworkVersion);
         this.setParamSimple(map, prefix + "FrameworkEnvironment", this.FrameworkEnvironment);
         this.setParamSimple(map, prefix + "ResourceGroupId", this.ResourceGroupId);
         this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
         this.setParamObj(map, prefix + "ImageInfo.", this.ImageInfo);
+        this.setParamObj(map, prefix + "CodePackagePath.", this.CodePackagePath);
         this.setParamObj(map, prefix + "StartCmdInfo.", this.StartCmdInfo);
+        this.setParamSimple(map, prefix + "TrainingMode", this.TrainingMode);
         this.setParamArrayObj(map, prefix + "DataConfigs.", this.DataConfigs);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
+        this.setParamObj(map, prefix + "Output.", this.Output);
         this.setParamObj(map, prefix + "LogConfig.", this.LogConfig);
         this.setParamSimple(map, prefix + "TuningParameters", this.TuningParameters);
+        this.setParamSimple(map, prefix + "LogEnable", this.LogEnable);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "DataSource", this.DataSource);
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
+        this.setParamObj(map, prefix + "EncodedStartCmdInfo.", this.EncodedStartCmdInfo);
+        this.setParamArrayObj(map, prefix + "CodeRepos.", this.CodeRepos);
 
     }
 }

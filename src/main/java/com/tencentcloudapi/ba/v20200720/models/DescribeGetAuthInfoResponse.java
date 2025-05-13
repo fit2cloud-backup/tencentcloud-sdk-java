@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ba.v20200720.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGetAuthInfoResponse extends AbstractModel{
+public class DescribeGetAuthInfoResponse extends AbstractModel {
 
     /**
     * 实名认证状态：0未实名，1已实名
@@ -44,7 +45,17 @@ public class DescribeGetAuthInfoResponse extends AbstractModel{
     private String Type;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户
+    */
+    @SerializedName("Level")
+    @Expose
+    private String Level;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -99,16 +110,44 @@ public class DescribeGetAuthInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户 
+     * @return Level 大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户
+     */
+    public String getLevel() {
+        return this.Level;
+    }
+
+    /**
+     * Set 大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户
+     * @param Level 大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户
+     */
+    public void setLevel(String Level) {
+        this.Level = Level;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -131,6 +170,9 @@ public class DescribeGetAuthInfoResponse extends AbstractModel{
         if (source.Type != null) {
             this.Type = new String(source.Type);
         }
+        if (source.Level != null) {
+            this.Level = new String(source.Level);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -144,6 +186,7 @@ public class DescribeGetAuthInfoResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "IsTenPayMasked", this.IsTenPayMasked);
         this.setParamSimple(map, prefix + "IsAuthenticated", this.IsAuthenticated);
         this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Level", this.Level);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

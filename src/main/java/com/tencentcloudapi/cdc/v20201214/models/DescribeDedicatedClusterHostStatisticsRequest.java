@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDedicatedClusterHostStatisticsRequest extends AbstractModel{
+public class DescribeDedicatedClusterHostStatisticsRequest extends AbstractModel {
 
     /**
     * 查询的专用集群id
@@ -28,6 +29,34 @@ public class DescribeDedicatedClusterHostStatisticsRequest extends AbstractModel
     @SerializedName("DedicatedClusterId")
     @Expose
     private String DedicatedClusterId;
+
+    /**
+    * 宿主机id
+    */
+    @SerializedName("HostId")
+    @Expose
+    private String HostId;
+
+    /**
+    * 开始时间
+    */
+    @SerializedName("StartTime")
+    @Expose
+    private String StartTime;
+
+    /**
+    * 结束时间
+    */
+    @SerializedName("EndTime")
+    @Expose
+    private String EndTime;
+
+    /**
+    * 时间范围精度，1分钟(ONE_MINUTE)/5分钟(FIVE_MINUTE)
+    */
+    @SerializedName("Period")
+    @Expose
+    private String Period;
 
     /**
      * Get 查询的专用集群id 
@@ -45,6 +74,70 @@ public class DescribeDedicatedClusterHostStatisticsRequest extends AbstractModel
         this.DedicatedClusterId = DedicatedClusterId;
     }
 
+    /**
+     * Get 宿主机id 
+     * @return HostId 宿主机id
+     */
+    public String getHostId() {
+        return this.HostId;
+    }
+
+    /**
+     * Set 宿主机id
+     * @param HostId 宿主机id
+     */
+    public void setHostId(String HostId) {
+        this.HostId = HostId;
+    }
+
+    /**
+     * Get 开始时间 
+     * @return StartTime 开始时间
+     */
+    public String getStartTime() {
+        return this.StartTime;
+    }
+
+    /**
+     * Set 开始时间
+     * @param StartTime 开始时间
+     */
+    public void setStartTime(String StartTime) {
+        this.StartTime = StartTime;
+    }
+
+    /**
+     * Get 结束时间 
+     * @return EndTime 结束时间
+     */
+    public String getEndTime() {
+        return this.EndTime;
+    }
+
+    /**
+     * Set 结束时间
+     * @param EndTime 结束时间
+     */
+    public void setEndTime(String EndTime) {
+        this.EndTime = EndTime;
+    }
+
+    /**
+     * Get 时间范围精度，1分钟(ONE_MINUTE)/5分钟(FIVE_MINUTE) 
+     * @return Period 时间范围精度，1分钟(ONE_MINUTE)/5分钟(FIVE_MINUTE)
+     */
+    public String getPeriod() {
+        return this.Period;
+    }
+
+    /**
+     * Set 时间范围精度，1分钟(ONE_MINUTE)/5分钟(FIVE_MINUTE)
+     * @param Period 时间范围精度，1分钟(ONE_MINUTE)/5分钟(FIVE_MINUTE)
+     */
+    public void setPeriod(String Period) {
+        this.Period = Period;
+    }
+
     public DescribeDedicatedClusterHostStatisticsRequest() {
     }
 
@@ -56,6 +149,18 @@ public class DescribeDedicatedClusterHostStatisticsRequest extends AbstractModel
         if (source.DedicatedClusterId != null) {
             this.DedicatedClusterId = new String(source.DedicatedClusterId);
         }
+        if (source.HostId != null) {
+            this.HostId = new String(source.HostId);
+        }
+        if (source.StartTime != null) {
+            this.StartTime = new String(source.StartTime);
+        }
+        if (source.EndTime != null) {
+            this.EndTime = new String(source.EndTime);
+        }
+        if (source.Period != null) {
+            this.Period = new String(source.Period);
+        }
     }
 
 
@@ -64,6 +169,10 @@ public class DescribeDedicatedClusterHostStatisticsRequest extends AbstractModel
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DedicatedClusterId", this.DedicatedClusterId);
+        this.setParamSimple(map, prefix + "HostId", this.HostId);
+        this.setParamSimple(map, prefix + "StartTime", this.StartTime);
+        this.setParamSimple(map, prefix + "EndTime", this.EndTime);
+        this.setParamSimple(map, prefix + "Period", this.Period);
 
     }
 }

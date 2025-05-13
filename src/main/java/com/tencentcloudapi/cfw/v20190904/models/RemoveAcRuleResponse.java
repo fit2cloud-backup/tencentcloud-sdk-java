@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RemoveAcRuleResponse extends AbstractModel{
+public class RemoveAcRuleResponse extends AbstractModel {
 
     /**
     * 删除成功后返回被删除策略的uuid
@@ -31,7 +32,6 @@ public class RemoveAcRuleResponse extends AbstractModel{
 
     /**
     * 0代表成功，-1代表失败
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReturnCode")
     @Expose
@@ -39,14 +39,13 @@ public class RemoveAcRuleResponse extends AbstractModel{
 
     /**
     * success代表成功，failed代表失败
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReturnMsg")
     @Expose
     private String ReturnMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -69,10 +68,8 @@ public class RemoveAcRuleResponse extends AbstractModel{
     }
 
     /**
-     * Get 0代表成功，-1代表失败
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0代表成功，-1代表失败 
      * @return ReturnCode 0代表成功，-1代表失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getReturnCode() {
         return this.ReturnCode;
@@ -80,19 +77,15 @@ public class RemoveAcRuleResponse extends AbstractModel{
 
     /**
      * Set 0代表成功，-1代表失败
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReturnCode 0代表成功，-1代表失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReturnCode(Long ReturnCode) {
         this.ReturnCode = ReturnCode;
     }
 
     /**
-     * Get success代表成功，failed代表失败
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get success代表成功，failed代表失败 
      * @return ReturnMsg success代表成功，failed代表失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReturnMsg() {
         return this.ReturnMsg;
@@ -100,25 +93,23 @@ public class RemoveAcRuleResponse extends AbstractModel{
 
     /**
      * Set success代表成功，failed代表失败
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReturnMsg success代表成功，failed代表失败
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReturnMsg(String ReturnMsg) {
         this.ReturnMsg = ReturnMsg;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

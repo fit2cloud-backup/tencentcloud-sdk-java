@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DataGovernPolicy extends AbstractModel{
+public class DataGovernPolicy extends AbstractModel {
 
     /**
     * 治理规则类型，Customize: 自定义；Intelligence: 智能治理
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RuleType")
     @Expose
@@ -32,17 +32,14 @@ public class DataGovernPolicy extends AbstractModel{
 
     /**
     * 治理引擎
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GovernEngine")
     @Expose
     private String GovernEngine;
 
     /**
-     * Get 治理规则类型，Customize: 自定义；Intelligence: 智能治理
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 治理规则类型，Customize: 自定义；Intelligence: 智能治理 
      * @return RuleType 治理规则类型，Customize: 自定义；Intelligence: 智能治理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRuleType() {
         return this.RuleType;
@@ -50,19 +47,15 @@ public class DataGovernPolicy extends AbstractModel{
 
     /**
      * Set 治理规则类型，Customize: 自定义；Intelligence: 智能治理
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RuleType 治理规则类型，Customize: 自定义；Intelligence: 智能治理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRuleType(String RuleType) {
         this.RuleType = RuleType;
     }
 
     /**
-     * Get 治理引擎
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 治理引擎 
      * @return GovernEngine 治理引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGovernEngine() {
         return this.GovernEngine;
@@ -70,9 +63,7 @@ public class DataGovernPolicy extends AbstractModel{
 
     /**
      * Set 治理引擎
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GovernEngine 治理引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGovernEngine(String GovernEngine) {
         this.GovernEngine = GovernEngine;

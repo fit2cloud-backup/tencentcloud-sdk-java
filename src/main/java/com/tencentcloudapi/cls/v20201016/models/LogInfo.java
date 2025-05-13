@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class LogInfo extends AbstractModel{
+public class LogInfo extends AbstractModel {
 
     /**
     * 日志时间，单位ms
@@ -72,8 +73,14 @@ public class LogInfo extends AbstractModel{
     private String PkgLogId;
 
     /**
+    * 符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索	
+    */
+    @SerializedName("HighLights")
+    @Expose
+    private HighLightItem [] HighLights;
+
+    /**
     * 日志内容的Json序列化字符串
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LogJson")
     @Expose
@@ -81,7 +88,6 @@ public class LogInfo extends AbstractModel{
 
     /**
     * 日志来源主机名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostName")
     @Expose
@@ -89,7 +95,6 @@ public class LogInfo extends AbstractModel{
 
     /**
     * 原始日志(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RawLog")
     @Expose
@@ -97,7 +102,6 @@ public class LogInfo extends AbstractModel{
 
     /**
     * 日志创建索引异常原因(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IndexStatus")
     @Expose
@@ -216,10 +220,24 @@ public class LogInfo extends AbstractModel{
     }
 
     /**
-     * Get 日志内容的Json序列化字符串
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索	 
+     * @return HighLights 符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索	
+     */
+    public HighLightItem [] getHighLights() {
+        return this.HighLights;
+    }
+
+    /**
+     * Set 符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索	
+     * @param HighLights 符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索	
+     */
+    public void setHighLights(HighLightItem [] HighLights) {
+        this.HighLights = HighLights;
+    }
+
+    /**
+     * Get 日志内容的Json序列化字符串 
      * @return LogJson 日志内容的Json序列化字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLogJson() {
         return this.LogJson;
@@ -227,19 +245,15 @@ public class LogInfo extends AbstractModel{
 
     /**
      * Set 日志内容的Json序列化字符串
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LogJson 日志内容的Json序列化字符串
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLogJson(String LogJson) {
         this.LogJson = LogJson;
     }
 
     /**
-     * Get 日志来源主机名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志来源主机名称 
      * @return HostName 日志来源主机名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostName() {
         return this.HostName;
@@ -247,19 +261,15 @@ public class LogInfo extends AbstractModel{
 
     /**
      * Set 日志来源主机名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostName 日志来源主机名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostName(String HostName) {
         this.HostName = HostName;
     }
 
     /**
-     * Get 原始日志(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原始日志(仅在日志创建索引异常时有值) 
      * @return RawLog 原始日志(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRawLog() {
         return this.RawLog;
@@ -267,19 +277,15 @@ public class LogInfo extends AbstractModel{
 
     /**
      * Set 原始日志(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RawLog 原始日志(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRawLog(String RawLog) {
         this.RawLog = RawLog;
     }
 
     /**
-     * Get 日志创建索引异常原因(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 日志创建索引异常原因(仅在日志创建索引异常时有值) 
      * @return IndexStatus 日志创建索引异常原因(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIndexStatus() {
         return this.IndexStatus;
@@ -287,9 +293,7 @@ public class LogInfo extends AbstractModel{
 
     /**
      * Set 日志创建索引异常原因(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IndexStatus 日志创建索引异常原因(仅在日志创建索引异常时有值)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIndexStatus(String IndexStatus) {
         this.IndexStatus = IndexStatus;
@@ -324,6 +328,12 @@ public class LogInfo extends AbstractModel{
         if (source.PkgLogId != null) {
             this.PkgLogId = new String(source.PkgLogId);
         }
+        if (source.HighLights != null) {
+            this.HighLights = new HighLightItem[source.HighLights.length];
+            for (int i = 0; i < source.HighLights.length; i++) {
+                this.HighLights[i] = new HighLightItem(source.HighLights[i]);
+            }
+        }
         if (source.LogJson != null) {
             this.LogJson = new String(source.LogJson);
         }
@@ -350,6 +360,7 @@ public class LogInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "FileName", this.FileName);
         this.setParamSimple(map, prefix + "PkgId", this.PkgId);
         this.setParamSimple(map, prefix + "PkgLogId", this.PkgLogId);
+        this.setParamArrayObj(map, prefix + "HighLights.", this.HighLights);
         this.setParamSimple(map, prefix + "LogJson", this.LogJson);
         this.setParamSimple(map, prefix + "HostName", this.HostName);
         this.setParamSimple(map, prefix + "RawLog", this.RawLog);

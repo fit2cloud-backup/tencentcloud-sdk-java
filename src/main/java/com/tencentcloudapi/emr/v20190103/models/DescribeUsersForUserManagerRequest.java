@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUsersForUserManagerRequest extends AbstractModel{
+public class DescribeUsersForUserManagerRequest extends AbstractModel {
 
     /**
     * 集群实例ID
@@ -37,7 +38,8 @@ public class DescribeUsersForUserManagerRequest extends AbstractModel{
     private Long PageNo;
 
     /**
-    * 分页的大小
+    * 分页的大小。
+默认查询全部；PageNo和PageSize不合理的设置，都是查询全部
     */
     @SerializedName("PageSize")
     @Expose
@@ -90,16 +92,20 @@ public class DescribeUsersForUserManagerRequest extends AbstractModel{
     }
 
     /**
-     * Get 分页的大小 
-     * @return PageSize 分页的大小
+     * Get 分页的大小。
+默认查询全部；PageNo和PageSize不合理的设置，都是查询全部 
+     * @return PageSize 分页的大小。
+默认查询全部；PageNo和PageSize不合理的设置，都是查询全部
      */
     public Long getPageSize() {
         return this.PageSize;
     }
 
     /**
-     * Set 分页的大小
-     * @param PageSize 分页的大小
+     * Set 分页的大小。
+默认查询全部；PageNo和PageSize不合理的设置，都是查询全部
+     * @param PageSize 分页的大小。
+默认查询全部；PageNo和PageSize不合理的设置，都是查询全部
      */
     public void setPageSize(Long PageSize) {
         this.PageSize = PageSize;

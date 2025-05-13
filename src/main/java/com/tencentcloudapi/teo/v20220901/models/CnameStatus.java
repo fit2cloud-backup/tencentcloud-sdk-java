@@ -16,11 +16,12 @@
 package com.tencentcloudapi.teo.v20220901.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CnameStatus extends AbstractModel{
+public class CnameStatus extends AbstractModel {
 
     /**
     * 记录名称。
@@ -38,10 +39,9 @@ public class CnameStatus extends AbstractModel{
     private String Cname;
 
     /**
-    * Cname状态信息，取值有：
+    * CNAME 状态信息，取值有：
 <li>active：生效；</li>
-<li>moved：不生效。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>moved：不生效；</li>
     */
     @SerializedName("Status")
     @Expose
@@ -84,28 +84,24 @@ public class CnameStatus extends AbstractModel{
     }
 
     /**
-     * Get Cname状态信息，取值有：
+     * Get CNAME 状态信息，取值有：
 <li>active：生效；</li>
-<li>moved：不生效。</li>
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Status Cname状态信息，取值有：
+<li>moved：不生效；</li> 
+     * @return Status CNAME 状态信息，取值有：
 <li>active：生效；</li>
-<li>moved：不生效。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>moved：不生效；</li>
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set Cname状态信息，取值有：
+     * Set CNAME 状态信息，取值有：
 <li>active：生效；</li>
-<li>moved：不生效。</li>
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Status Cname状态信息，取值有：
+<li>moved：不生效；</li>
+     * @param Status CNAME 状态信息，取值有：
 <li>active：生效；</li>
-<li>moved：不生效。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>moved：不生效；</li>
      */
     public void setStatus(String Status) {
         this.Status = Status;

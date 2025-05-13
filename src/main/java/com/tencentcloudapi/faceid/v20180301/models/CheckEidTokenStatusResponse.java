@@ -16,73 +16,74 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CheckEidTokenStatusResponse extends AbstractModel{
+public class CheckEidTokenStatusResponse extends AbstractModel {
 
     /**
-    * 枚举：
-init：token未验证
-doing: 验证中
-finished: 验证完成
-timeout: token已超时
+    * 状态。
+- init：EidToken未验证。
+- doing: EidToken验证中。
+- finished: EidToken验证完成。
+- timeout: EidToken已超时。
     */
     @SerializedName("Status")
     @Expose
     private String Status;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 枚举：
-init：token未验证
-doing: 验证中
-finished: 验证完成
-timeout: token已超时 
-     * @return Status 枚举：
-init：token未验证
-doing: 验证中
-finished: 验证完成
-timeout: token已超时
+     * Get 状态。
+- init：EidToken未验证。
+- doing: EidToken验证中。
+- finished: EidToken验证完成。
+- timeout: EidToken已超时。 
+     * @return Status 状态。
+- init：EidToken未验证。
+- doing: EidToken验证中。
+- finished: EidToken验证完成。
+- timeout: EidToken已超时。
      */
     public String getStatus() {
         return this.Status;
     }
 
     /**
-     * Set 枚举：
-init：token未验证
-doing: 验证中
-finished: 验证完成
-timeout: token已超时
-     * @param Status 枚举：
-init：token未验证
-doing: 验证中
-finished: 验证完成
-timeout: token已超时
+     * Set 状态。
+- init：EidToken未验证。
+- doing: EidToken验证中。
+- finished: EidToken验证完成。
+- timeout: EidToken已超时。
+     * @param Status 状态。
+- init：EidToken未验证。
+- doing: EidToken验证中。
+- finished: EidToken验证完成。
+- timeout: EidToken已超时。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

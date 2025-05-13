@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AudioTransform extends AbstractModel{
+public class AudioTransform extends AbstractModel {
 
     /**
     * 音频操作类型，取值有：
@@ -32,7 +33,6 @@ public class AudioTransform extends AbstractModel{
 
     /**
     * 音量调节参数， 当 Type = Volume 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VolumeParam")
     @Expose
@@ -59,10 +59,8 @@ public class AudioTransform extends AbstractModel{
     }
 
     /**
-     * Get 音量调节参数， 当 Type = Volume 时有效。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 音量调节参数， 当 Type = Volume 时有效。 
      * @return VolumeParam 音量调节参数， 当 Type = Volume 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AudioVolumeParam getVolumeParam() {
         return this.VolumeParam;
@@ -70,9 +68,7 @@ public class AudioTransform extends AbstractModel{
 
     /**
      * Set 音量调节参数， 当 Type = Volume 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VolumeParam 音量调节参数， 当 Type = Volume 时有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVolumeParam(AudioVolumeParam VolumeParam) {
         this.VolumeParam = VolumeParam;

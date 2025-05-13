@@ -16,30 +16,31 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ParseNfcDataRequest extends AbstractModel{
+public class ParseNfcDataRequest extends AbstractModel {
 
     /**
-    * 前端SDK返回
+    * 前端SDK返回。
     */
     @SerializedName("ReqId")
     @Expose
     private String ReqId;
 
     /**
-     * Get 前端SDK返回 
-     * @return ReqId 前端SDK返回
+     * Get 前端SDK返回。 
+     * @return ReqId 前端SDK返回。
      */
     public String getReqId() {
         return this.ReqId;
     }
 
     /**
-     * Set 前端SDK返回
-     * @param ReqId 前端SDK返回
+     * Set 前端SDK返回。
+     * @param ReqId 前端SDK返回。
      */
     public void setReqId(String ReqId) {
         this.ReqId = ReqId;

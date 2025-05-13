@@ -16,11 +16,20 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeScheduleInstancesResponse extends AbstractModel{
+public class DescribeScheduleInstancesResponse extends AbstractModel {
+
+    /**
+    * 请求来源，WEB 前端；CLIENT 客户端
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("RequestFromSource")
+    @Expose
+    private String RequestFromSource;
 
     /**
     * 实例结果集
@@ -30,11 +39,31 @@ public class DescribeScheduleInstancesResponse extends AbstractModel{
     private CollectionInstanceOpsDto Data;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
+
+    /**
+     * Get 请求来源，WEB 前端；CLIENT 客户端
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return RequestFromSource 请求来源，WEB 前端；CLIENT 客户端
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRequestFromSource() {
+        return this.RequestFromSource;
+    }
+
+    /**
+     * Set 请求来源，WEB 前端；CLIENT 客户端
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param RequestFromSource 请求来源，WEB 前端；CLIENT 客户端
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRequestFromSource(String RequestFromSource) {
+        this.RequestFromSource = RequestFromSource;
+    }
 
     /**
      * Get 实例结果集 
@@ -53,16 +82,16 @@ public class DescribeScheduleInstancesResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -76,6 +105,9 @@ public class DescribeScheduleInstancesResponse extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeScheduleInstancesResponse(DescribeScheduleInstancesResponse source) {
+        if (source.RequestFromSource != null) {
+            this.RequestFromSource = new String(source.RequestFromSource);
+        }
         if (source.Data != null) {
             this.Data = new CollectionInstanceOpsDto(source.Data);
         }
@@ -89,6 +121,7 @@ public class DescribeScheduleInstancesResponse extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "RequestFromSource", this.RequestFromSource);
         this.setParamObj(map, prefix + "Data.", this.Data);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 

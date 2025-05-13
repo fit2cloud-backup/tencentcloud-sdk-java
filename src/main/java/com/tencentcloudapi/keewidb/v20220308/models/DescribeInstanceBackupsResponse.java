@@ -16,11 +16,12 @@
 package com.tencentcloudapi.keewidb.v20220308.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeInstanceBackupsResponse extends AbstractModel{
+public class DescribeInstanceBackupsResponse extends AbstractModel {
 
     /**
     * 备份文件总数。
@@ -31,7 +32,6 @@ public class DescribeInstanceBackupsResponse extends AbstractModel{
 
     /**
     * 废弃字段。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupSet")
     @Expose
@@ -45,7 +45,7 @@ public class DescribeInstanceBackupsResponse extends AbstractModel{
     private BackupInfo [] BackupRecord;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -68,21 +68,21 @@ public class DescribeInstanceBackupsResponse extends AbstractModel{
     }
 
     /**
-     * Get 废弃字段。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 废弃字段。 
      * @return BackupSet 废弃字段。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public BinlogInfo [] getBackupSet() {
         return this.BackupSet;
     }
 
     /**
      * Set 废弃字段。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupSet 废弃字段。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @deprecated
      */
+    @Deprecated
     public void setBackupSet(BinlogInfo [] BackupSet) {
         this.BackupSet = BackupSet;
     }
@@ -104,16 +104,16 @@ public class DescribeInstanceBackupsResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

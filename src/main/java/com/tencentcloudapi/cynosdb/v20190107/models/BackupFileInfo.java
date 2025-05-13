@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BackupFileInfo extends AbstractModel{
+public class BackupFileInfo extends AbstractModel {
 
     /**
     * 快照文件ID，已废弃，请使用BackupId
@@ -87,7 +88,6 @@ public class BackupFileInfo extends AbstractModel{
 
     /**
     * 备份ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupId")
     @Expose
@@ -95,7 +95,6 @@ public class BackupFileInfo extends AbstractModel{
 
     /**
     * 快照类型，可选值：full，全量；increment，增量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SnapShotType")
     @Expose
@@ -103,7 +102,6 @@ public class BackupFileInfo extends AbstractModel{
 
     /**
     * 备份文件备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupName")
     @Expose
@@ -254,10 +252,8 @@ public class BackupFileInfo extends AbstractModel{
     }
 
     /**
-     * Get 备份ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份ID 
      * @return BackupId 备份ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBackupId() {
         return this.BackupId;
@@ -265,19 +261,15 @@ public class BackupFileInfo extends AbstractModel{
 
     /**
      * Set 备份ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupId 备份ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupId(Long BackupId) {
         this.BackupId = BackupId;
     }
 
     /**
-     * Get 快照类型，可选值：full，全量；increment，增量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 快照类型，可选值：full，全量；increment，增量 
      * @return SnapShotType 快照类型，可选值：full，全量；increment，增量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSnapShotType() {
         return this.SnapShotType;
@@ -285,19 +277,15 @@ public class BackupFileInfo extends AbstractModel{
 
     /**
      * Set 快照类型，可选值：full，全量；increment，增量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SnapShotType 快照类型，可选值：full，全量；increment，增量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSnapShotType(String SnapShotType) {
         this.SnapShotType = SnapShotType;
     }
 
     /**
-     * Get 备份文件备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份文件备注 
      * @return BackupName 备份文件备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBackupName() {
         return this.BackupName;
@@ -305,9 +293,7 @@ public class BackupFileInfo extends AbstractModel{
 
     /**
      * Set 备份文件备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupName 备份文件备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupName(String BackupName) {
         this.BackupName = BackupName;

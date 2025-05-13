@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ocr.v20181119.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DriverLicenseOCRResponse extends AbstractModel{
+public class DriverLicenseOCRResponse extends AbstractModel {
 
     /**
-    * 姓名
+    * 驾驶证正页姓名
     */
     @SerializedName("Name")
     @Expose
@@ -87,7 +88,7 @@ public class DriverLicenseOCRResponse extends AbstractModel{
     private String EndDate;
 
     /**
-    * 证号
+    * 驾驶证正页证号
     */
     @SerializedName("CardCode")
     @Expose
@@ -111,6 +112,9 @@ public class DriverLicenseOCRResponse extends AbstractModel{
     * Code 告警码列表和释义：
 -9102  复印件告警
 -9103  翻拍件告警
+-9104  反光告警
+-9105  模糊告警
+-9106  边框不完整告警
 注：告警码可以同时存在多个
     */
     @SerializedName("RecognizeWarnCode")
@@ -121,6 +125,9 @@ public class DriverLicenseOCRResponse extends AbstractModel{
     * 告警码说明：
 WARN_DRIVER_LICENSE_COPY_CARD 复印件告警
 WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
+WARN_DRIVER_LICENSE_REFLECTION 反光告警
+WARN_DRIVER_LICENSE_BLUR 模糊告警
+WARN_DRIVER_LICENSE_BORDER_INCOMPLETE 边框不完整告警
 注：告警信息可以同时存在多个
     */
     @SerializedName("RecognizeWarnMsg")
@@ -149,23 +156,60 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
     private String CumulativeScore;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 当前时间（仅电子驾驶证支持返回该字段）
+    */
+    @SerializedName("CurrentTime")
+    @Expose
+    private String CurrentTime;
+
+    /**
+    * 生成时间（仅电子驾驶证支持返回该字段）
+    */
+    @SerializedName("GenerateTime")
+    @Expose
+    private String GenerateTime;
+
+    /**
+    * 驾驶证副页姓名
+    */
+    @SerializedName("BackPageName")
+    @Expose
+    private String BackPageName;
+
+    /**
+    * 驾驶证副页证号
+    */
+    @SerializedName("BackPageCardCode")
+    @Expose
+    private String BackPageCardCode;
+
+    /**
+    * 驾驶证类型
+电子驾驶证：Electronic
+普通驾驶证：Normal
+    */
+    @SerializedName("DriverLicenseType")
+    @Expose
+    private String DriverLicenseType;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 姓名 
-     * @return Name 姓名
+     * Get 驾驶证正页姓名 
+     * @return Name 驾驶证正页姓名
      */
     public String getName() {
         return this.Name;
     }
 
     /**
-     * Set 姓名
-     * @param Name 姓名
+     * Set 驾驶证正页姓名
+     * @param Name 驾驶证正页姓名
      */
     public void setName(String Name) {
         this.Name = Name;
@@ -305,16 +349,16 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
     }
 
     /**
-     * Get 证号 
-     * @return CardCode 证号
+     * Get 驾驶证正页证号 
+     * @return CardCode 驾驶证正页证号
      */
     public String getCardCode() {
         return this.CardCode;
     }
 
     /**
-     * Set 证号
-     * @param CardCode 证号
+     * Set 驾驶证正页证号
+     * @param CardCode 驾驶证正页证号
      */
     public void setCardCode(String CardCode) {
         this.CardCode = CardCode;
@@ -356,10 +400,16 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
      * Get Code 告警码列表和释义：
 -9102  复印件告警
 -9103  翻拍件告警
+-9104  反光告警
+-9105  模糊告警
+-9106  边框不完整告警
 注：告警码可以同时存在多个 
      * @return RecognizeWarnCode Code 告警码列表和释义：
 -9102  复印件告警
 -9103  翻拍件告警
+-9104  反光告警
+-9105  模糊告警
+-9106  边框不完整告警
 注：告警码可以同时存在多个
      */
     public Long [] getRecognizeWarnCode() {
@@ -370,10 +420,16 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
      * Set Code 告警码列表和释义：
 -9102  复印件告警
 -9103  翻拍件告警
+-9104  反光告警
+-9105  模糊告警
+-9106  边框不完整告警
 注：告警码可以同时存在多个
      * @param RecognizeWarnCode Code 告警码列表和释义：
 -9102  复印件告警
 -9103  翻拍件告警
+-9104  反光告警
+-9105  模糊告警
+-9106  边框不完整告警
 注：告警码可以同时存在多个
      */
     public void setRecognizeWarnCode(Long [] RecognizeWarnCode) {
@@ -384,10 +440,16 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
      * Get 告警码说明：
 WARN_DRIVER_LICENSE_COPY_CARD 复印件告警
 WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
+WARN_DRIVER_LICENSE_REFLECTION 反光告警
+WARN_DRIVER_LICENSE_BLUR 模糊告警
+WARN_DRIVER_LICENSE_BORDER_INCOMPLETE 边框不完整告警
 注：告警信息可以同时存在多个 
      * @return RecognizeWarnMsg 告警码说明：
 WARN_DRIVER_LICENSE_COPY_CARD 复印件告警
 WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
+WARN_DRIVER_LICENSE_REFLECTION 反光告警
+WARN_DRIVER_LICENSE_BLUR 模糊告警
+WARN_DRIVER_LICENSE_BORDER_INCOMPLETE 边框不完整告警
 注：告警信息可以同时存在多个
      */
     public String [] getRecognizeWarnMsg() {
@@ -398,10 +460,16 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
      * Set 告警码说明：
 WARN_DRIVER_LICENSE_COPY_CARD 复印件告警
 WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
+WARN_DRIVER_LICENSE_REFLECTION 反光告警
+WARN_DRIVER_LICENSE_BLUR 模糊告警
+WARN_DRIVER_LICENSE_BORDER_INCOMPLETE 边框不完整告警
 注：告警信息可以同时存在多个
      * @param RecognizeWarnMsg 告警码说明：
 WARN_DRIVER_LICENSE_COPY_CARD 复印件告警
 WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
+WARN_DRIVER_LICENSE_REFLECTION 反光告警
+WARN_DRIVER_LICENSE_BLUR 模糊告警
+WARN_DRIVER_LICENSE_BORDER_INCOMPLETE 边框不完整告警
 注：告警信息可以同时存在多个
      */
     public void setRecognizeWarnMsg(String [] RecognizeWarnMsg) {
@@ -457,16 +525,104 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 当前时间（仅电子驾驶证支持返回该字段） 
+     * @return CurrentTime 当前时间（仅电子驾驶证支持返回该字段）
+     */
+    public String getCurrentTime() {
+        return this.CurrentTime;
+    }
+
+    /**
+     * Set 当前时间（仅电子驾驶证支持返回该字段）
+     * @param CurrentTime 当前时间（仅电子驾驶证支持返回该字段）
+     */
+    public void setCurrentTime(String CurrentTime) {
+        this.CurrentTime = CurrentTime;
+    }
+
+    /**
+     * Get 生成时间（仅电子驾驶证支持返回该字段） 
+     * @return GenerateTime 生成时间（仅电子驾驶证支持返回该字段）
+     */
+    public String getGenerateTime() {
+        return this.GenerateTime;
+    }
+
+    /**
+     * Set 生成时间（仅电子驾驶证支持返回该字段）
+     * @param GenerateTime 生成时间（仅电子驾驶证支持返回该字段）
+     */
+    public void setGenerateTime(String GenerateTime) {
+        this.GenerateTime = GenerateTime;
+    }
+
+    /**
+     * Get 驾驶证副页姓名 
+     * @return BackPageName 驾驶证副页姓名
+     */
+    public String getBackPageName() {
+        return this.BackPageName;
+    }
+
+    /**
+     * Set 驾驶证副页姓名
+     * @param BackPageName 驾驶证副页姓名
+     */
+    public void setBackPageName(String BackPageName) {
+        this.BackPageName = BackPageName;
+    }
+
+    /**
+     * Get 驾驶证副页证号 
+     * @return BackPageCardCode 驾驶证副页证号
+     */
+    public String getBackPageCardCode() {
+        return this.BackPageCardCode;
+    }
+
+    /**
+     * Set 驾驶证副页证号
+     * @param BackPageCardCode 驾驶证副页证号
+     */
+    public void setBackPageCardCode(String BackPageCardCode) {
+        this.BackPageCardCode = BackPageCardCode;
+    }
+
+    /**
+     * Get 驾驶证类型
+电子驾驶证：Electronic
+普通驾驶证：Normal 
+     * @return DriverLicenseType 驾驶证类型
+电子驾驶证：Electronic
+普通驾驶证：Normal
+     */
+    public String getDriverLicenseType() {
+        return this.DriverLicenseType;
+    }
+
+    /**
+     * Set 驾驶证类型
+电子驾驶证：Electronic
+普通驾驶证：Normal
+     * @param DriverLicenseType 驾驶证类型
+电子驾驶证：Electronic
+普通驾驶证：Normal
+     */
+    public void setDriverLicenseType(String DriverLicenseType) {
+        this.DriverLicenseType = DriverLicenseType;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -537,6 +693,21 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
         if (source.CumulativeScore != null) {
             this.CumulativeScore = new String(source.CumulativeScore);
         }
+        if (source.CurrentTime != null) {
+            this.CurrentTime = new String(source.CurrentTime);
+        }
+        if (source.GenerateTime != null) {
+            this.GenerateTime = new String(source.GenerateTime);
+        }
+        if (source.BackPageName != null) {
+            this.BackPageName = new String(source.BackPageName);
+        }
+        if (source.BackPageCardCode != null) {
+            this.BackPageCardCode = new String(source.BackPageCardCode);
+        }
+        if (source.DriverLicenseType != null) {
+            this.DriverLicenseType = new String(source.DriverLicenseType);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -564,6 +735,11 @@ WARN_DRIVER_LICENSE_SCREENED_CARD 翻拍件告警
         this.setParamSimple(map, prefix + "IssuingAuthority", this.IssuingAuthority);
         this.setParamSimple(map, prefix + "State", this.State);
         this.setParamSimple(map, prefix + "CumulativeScore", this.CumulativeScore);
+        this.setParamSimple(map, prefix + "CurrentTime", this.CurrentTime);
+        this.setParamSimple(map, prefix + "GenerateTime", this.GenerateTime);
+        this.setParamSimple(map, prefix + "BackPageName", this.BackPageName);
+        this.setParamSimple(map, prefix + "BackPageCardCode", this.BackPageCardCode);
+        this.setParamSimple(map, prefix + "DriverLicenseType", this.DriverLicenseType);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

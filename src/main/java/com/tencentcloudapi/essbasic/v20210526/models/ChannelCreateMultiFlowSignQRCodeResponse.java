@@ -16,76 +16,77 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelCreateMultiFlowSignQRCodeResponse extends AbstractModel{
+public class ChannelCreateMultiFlowSignQRCodeResponse extends AbstractModel {
 
     /**
-    * 签署二维码对象
+    * 一码多签签署码的基本信息，用户可扫描该二维码进行签署操作。	
     */
     @SerializedName("QrCode")
     @Expose
     private SignQrCode QrCode;
 
     /**
-    * 签署链接对象
+    * 一码多签签署码链接信息，适用于客户系统整合二维码功能。通过链接，用户可直接访问电子签名小程序并签署合同。	
     */
     @SerializedName("SignUrls")
     @Expose
     private SignUrl SignUrls;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 签署二维码对象 
-     * @return QrCode 签署二维码对象
+     * Get 一码多签签署码的基本信息，用户可扫描该二维码进行签署操作。	 
+     * @return QrCode 一码多签签署码的基本信息，用户可扫描该二维码进行签署操作。	
      */
     public SignQrCode getQrCode() {
         return this.QrCode;
     }
 
     /**
-     * Set 签署二维码对象
-     * @param QrCode 签署二维码对象
+     * Set 一码多签签署码的基本信息，用户可扫描该二维码进行签署操作。	
+     * @param QrCode 一码多签签署码的基本信息，用户可扫描该二维码进行签署操作。	
      */
     public void setQrCode(SignQrCode QrCode) {
         this.QrCode = QrCode;
     }
 
     /**
-     * Get 签署链接对象 
-     * @return SignUrls 签署链接对象
+     * Get 一码多签签署码链接信息，适用于客户系统整合二维码功能。通过链接，用户可直接访问电子签名小程序并签署合同。	 
+     * @return SignUrls 一码多签签署码链接信息，适用于客户系统整合二维码功能。通过链接，用户可直接访问电子签名小程序并签署合同。	
      */
     public SignUrl getSignUrls() {
         return this.SignUrls;
     }
 
     /**
-     * Set 签署链接对象
-     * @param SignUrls 签署链接对象
+     * Set 一码多签签署码链接信息，适用于客户系统整合二维码功能。通过链接，用户可直接访问电子签名小程序并签署合同。	
+     * @param SignUrls 一码多签签署码链接信息，适用于客户系统整合二维码功能。通过链接，用户可直接访问电子签名小程序并签署合同。	
      */
     public void setSignUrls(SignUrl SignUrls) {
         this.SignUrls = SignUrls;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIgnoreHostAndItemConfigRequest extends AbstractModel{
+public class DescribeIgnoreHostAndItemConfigRequest extends AbstractModel {
 
     /**
-    * <li>ItemId - int64 - 是否必填：否 - 项Id</i>
+    * <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>RuleId - int64 - 是否必填：否 - 规则Id</li>
 <li>HostId - string - 是否必填：否 - 主机Id</li>
     */
@@ -32,10 +33,10 @@ public class DescribeIgnoreHostAndItemConfigRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-     * Get <li>ItemId - int64 - 是否必填：否 - 项Id</i>
+     * Get <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>RuleId - int64 - 是否必填：否 - 规则Id</li>
 <li>HostId - string - 是否必填：否 - 主机Id</li> 
-     * @return Filters <li>ItemId - int64 - 是否必填：否 - 项Id</i>
+     * @return Filters <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>RuleId - int64 - 是否必填：否 - 规则Id</li>
 <li>HostId - string - 是否必填：否 - 主机Id</li>
      */
@@ -44,10 +45,10 @@ public class DescribeIgnoreHostAndItemConfigRequest extends AbstractModel{
     }
 
     /**
-     * Set <li>ItemId - int64 - 是否必填：否 - 项Id</i>
+     * Set <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>RuleId - int64 - 是否必填：否 - 规则Id</li>
 <li>HostId - string - 是否必填：否 - 主机Id</li>
-     * @param Filters <li>ItemId - int64 - 是否必填：否 - 项Id</i>
+     * @param Filters <li>ItemId - int64 - 是否必填：否 - 项Id</li>
 <li>RuleId - int64 - 是否必填：否 - 规则Id</li>
 <li>HostId - string - 是否必填：否 - 主机Id</li>
      */

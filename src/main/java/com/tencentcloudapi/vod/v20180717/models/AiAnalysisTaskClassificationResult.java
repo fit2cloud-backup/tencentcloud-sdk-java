@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AiAnalysisTaskClassificationResult extends AbstractModel{
+public class AiAnalysisTaskClassificationResult extends AbstractModel {
 
     /**
     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -59,7 +60,6 @@ public class AiAnalysisTaskClassificationResult extends AbstractModel{
 
     /**
     * 智能分类任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
     @Expose
@@ -167,10 +167,8 @@ public class AiAnalysisTaskClassificationResult extends AbstractModel{
     }
 
     /**
-     * Get 智能分类任务输出。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 智能分类任务输出。 
      * @return Output 智能分类任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AiAnalysisTaskClassificationOutput getOutput() {
         return this.Output;
@@ -178,9 +176,7 @@ public class AiAnalysisTaskClassificationResult extends AbstractModel{
 
     /**
      * Set 智能分类任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Output 智能分类任务输出。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(AiAnalysisTaskClassificationOutput Output) {
         this.Output = Output;

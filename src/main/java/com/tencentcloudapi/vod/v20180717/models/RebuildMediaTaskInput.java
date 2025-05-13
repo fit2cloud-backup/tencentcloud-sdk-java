@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RebuildMediaTaskInput extends AbstractModel{
+public class RebuildMediaTaskInput extends AbstractModel {
 
     /**
     * 媒体文件 ID。
@@ -44,7 +45,7 @@ public class RebuildMediaTaskInput extends AbstractModel{
     private Float EndTimeOffset;
 
     /**
-    * 音画质重生模版号。
+    * 音画质重生模板号。
     */
     @SerializedName("Definition")
     @Expose
@@ -190,16 +191,16 @@ public class RebuildMediaTaskInput extends AbstractModel{
     }
 
     /**
-     * Get 音画质重生模版号。 
-     * @return Definition 音画质重生模版号。
+     * Get 音画质重生模板号。 
+     * @return Definition 音画质重生模板号。
      */
     public Long getDefinition() {
         return this.Definition;
     }
 
     /**
-     * Set 音画质重生模版号。
-     * @param Definition 音画质重生模版号。
+     * Set 音画质重生模板号。
+     * @param Definition 音画质重生模板号。
      */
     public void setDefinition(Long Definition) {
         this.Definition = Definition;

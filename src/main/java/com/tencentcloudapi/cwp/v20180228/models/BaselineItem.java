@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BaselineItem extends AbstractModel{
+public class BaselineItem extends AbstractModel {
 
     /**
     * 项Id
@@ -66,7 +67,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 检测结果描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DetectResultDesc")
     @Expose
@@ -74,7 +74,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 危险等级
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Level")
     @Expose
@@ -82,7 +81,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 检测状态：0 未通过，1：忽略，3：通过，5：检测中
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DetectStatus")
     @Expose
@@ -90,7 +88,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostId")
     @Expose
@@ -98,7 +95,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 主机名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostName")
     @Expose
@@ -106,7 +102,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HostIp")
     @Expose
@@ -114,7 +109,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("WanIp")
     @Expose
@@ -122,7 +116,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 第一次出现时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FirstTime")
     @Expose
@@ -130,7 +123,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 最近出现时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LastTime")
     @Expose
@@ -138,7 +130,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 是否可以修复
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CanBeFixed")
     @Expose
@@ -146,7 +137,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 主机安全uuid
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uuid")
     @Expose
@@ -154,7 +144,6 @@ public class BaselineItem extends AbstractModel{
 
     /**
     * 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineExtraInfo")
     @Expose
@@ -257,10 +246,8 @@ public class BaselineItem extends AbstractModel{
     }
 
     /**
-     * Get 检测结果描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测结果描述 
      * @return DetectResultDesc 检测结果描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDetectResultDesc() {
         return this.DetectResultDesc;
@@ -268,19 +255,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 检测结果描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DetectResultDesc 检测结果描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDetectResultDesc(String DetectResultDesc) {
         this.DetectResultDesc = DetectResultDesc;
     }
 
     /**
-     * Get 危险等级
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 危险等级 
      * @return Level 危险等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLevel() {
         return this.Level;
@@ -288,19 +271,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 危险等级
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Level 危险等级
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLevel(Long Level) {
         this.Level = Level;
     }
 
     /**
-     * Get 检测状态：0 未通过，1：忽略，3：通过，5：检测中
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 检测状态：0 未通过，1：忽略，3：通过，5：检测中 
      * @return DetectStatus 检测状态：0 未通过，1：忽略，3：通过，5：检测中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDetectStatus() {
         return this.DetectStatus;
@@ -308,19 +287,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 检测状态：0 未通过，1：忽略，3：通过，5：检测中
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DetectStatus 检测状态：0 未通过，1：忽略，3：通过，5：检测中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDetectStatus(Long DetectStatus) {
         this.DetectStatus = DetectStatus;
     }
 
     /**
-     * Get 主机ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机ID 
      * @return HostId 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostId() {
         return this.HostId;
@@ -328,19 +303,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostId 主机ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostId(String HostId) {
         this.HostId = HostId;
     }
 
     /**
-     * Get 主机名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机名 
      * @return HostName 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostName() {
         return this.HostName;
@@ -348,19 +319,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostName 主机名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostName(String HostName) {
         this.HostName = HostName;
     }
 
     /**
-     * Get 主机IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机IP 
      * @return HostIp 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHostIp() {
         return this.HostIp;
@@ -368,19 +335,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HostIp 主机IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHostIp(String HostIp) {
         this.HostIp = HostIp;
     }
 
     /**
-     * Get 外网IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 外网IP 
      * @return WanIp 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getWanIp() {
         return this.WanIp;
@@ -388,19 +351,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param WanIp 外网IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWanIp(String WanIp) {
         this.WanIp = WanIp;
     }
 
     /**
-     * Get 第一次出现时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 第一次出现时间 
      * @return FirstTime 第一次出现时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFirstTime() {
         return this.FirstTime;
@@ -408,19 +367,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 第一次出现时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FirstTime 第一次出现时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFirstTime(String FirstTime) {
         this.FirstTime = FirstTime;
     }
 
     /**
-     * Get 最近出现时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最近出现时间 
      * @return LastTime 最近出现时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLastTime() {
         return this.LastTime;
@@ -428,19 +383,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 最近出现时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LastTime 最近出现时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLastTime(String LastTime) {
         this.LastTime = LastTime;
     }
 
     /**
-     * Get 是否可以修复
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否可以修复 
      * @return CanBeFixed 是否可以修复
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getCanBeFixed() {
         return this.CanBeFixed;
@@ -448,19 +399,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 是否可以修复
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CanBeFixed 是否可以修复
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCanBeFixed(Long CanBeFixed) {
         this.CanBeFixed = CanBeFixed;
     }
 
     /**
-     * Get 主机安全uuid
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机安全uuid 
      * @return Uuid 主机安全uuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUuid() {
         return this.Uuid;
@@ -468,19 +415,15 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 主机安全uuid
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uuid 主机安全uuid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUuid(String Uuid) {
         this.Uuid = Uuid;
     }
 
     /**
-     * Get 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机额外信息 
      * @return MachineExtraInfo 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MachineExtraInfo getMachineExtraInfo() {
         return this.MachineExtraInfo;
@@ -488,9 +431,7 @@ public class BaselineItem extends AbstractModel{
 
     /**
      * Set 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineExtraInfo 主机额外信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineExtraInfo(MachineExtraInfo MachineExtraInfo) {
         this.MachineExtraInfo = MachineExtraInfo;

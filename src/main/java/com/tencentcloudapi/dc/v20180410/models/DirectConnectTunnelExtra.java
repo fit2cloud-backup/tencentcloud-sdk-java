@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dc.v20180410.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DirectConnectTunnelExtra extends AbstractModel{
+public class DirectConnectTunnelExtra extends AbstractModel {
 
     /**
     * 专用通道ID
@@ -265,7 +266,6 @@ REJECTED:拒绝
 
     /**
     * 是否开启IPv6
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IPv6Enable")
     @Expose
@@ -273,7 +273,6 @@ REJECTED:拒绝
 
     /**
     * 腾讯侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TencentIPv6Address")
     @Expose
@@ -281,7 +280,6 @@ REJECTED:拒绝
 
     /**
     * 腾讯侧备用互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TencentBackupIPv6Address")
     @Expose
@@ -289,7 +287,6 @@ REJECTED:拒绝
 
     /**
     * BGPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BgpIPv6Status")
     @Expose
@@ -297,7 +294,6 @@ REJECTED:拒绝
 
     /**
     * 用户侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CustomerIPv6Address")
     @Expose
@@ -305,7 +301,6 @@ REJECTED:拒绝
 
     /**
     * 专用通道是否支持巨帧。1 支持，0 不支持
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("JumboEnable")
     @Expose
@@ -313,7 +308,6 @@ REJECTED:拒绝
 
     /**
     * 专用通道是否支持高精度BFD。1支持，0不支持
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HighPrecisionBFDEnable")
     @Expose
@@ -888,10 +882,8 @@ REJECTED:拒绝
     }
 
     /**
-     * Get 是否开启IPv6
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启IPv6 
      * @return IPv6Enable 是否开启IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIPv6Enable() {
         return this.IPv6Enable;
@@ -899,19 +891,15 @@ REJECTED:拒绝
 
     /**
      * Set 是否开启IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IPv6Enable 是否开启IPv6
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIPv6Enable(Long IPv6Enable) {
         this.IPv6Enable = IPv6Enable;
     }
 
     /**
-     * Get 腾讯侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 腾讯侧互联IPv6地址 
      * @return TencentIPv6Address 腾讯侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTencentIPv6Address() {
         return this.TencentIPv6Address;
@@ -919,19 +907,15 @@ REJECTED:拒绝
 
     /**
      * Set 腾讯侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TencentIPv6Address 腾讯侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTencentIPv6Address(String TencentIPv6Address) {
         this.TencentIPv6Address = TencentIPv6Address;
     }
 
     /**
-     * Get 腾讯侧备用互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 腾讯侧备用互联IPv6地址 
      * @return TencentBackupIPv6Address 腾讯侧备用互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTencentBackupIPv6Address() {
         return this.TencentBackupIPv6Address;
@@ -939,19 +923,15 @@ REJECTED:拒绝
 
     /**
      * Set 腾讯侧备用互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TencentBackupIPv6Address 腾讯侧备用互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTencentBackupIPv6Address(String TencentBackupIPv6Address) {
         this.TencentBackupIPv6Address = TencentBackupIPv6Address;
     }
 
     /**
-     * Get BGPv6状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get BGPv6状态 
      * @return BgpIPv6Status BGPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BGPStatus getBgpIPv6Status() {
         return this.BgpIPv6Status;
@@ -959,19 +939,15 @@ REJECTED:拒绝
 
     /**
      * Set BGPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BgpIPv6Status BGPv6状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBgpIPv6Status(BGPStatus BgpIPv6Status) {
         this.BgpIPv6Status = BgpIPv6Status;
     }
 
     /**
-     * Get 用户侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户侧互联IPv6地址 
      * @return CustomerIPv6Address 用户侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCustomerIPv6Address() {
         return this.CustomerIPv6Address;
@@ -979,19 +955,15 @@ REJECTED:拒绝
 
     /**
      * Set 用户侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CustomerIPv6Address 用户侧互联IPv6地址
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCustomerIPv6Address(String CustomerIPv6Address) {
         this.CustomerIPv6Address = CustomerIPv6Address;
     }
 
     /**
-     * Get 专用通道是否支持巨帧。1 支持，0 不支持
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专用通道是否支持巨帧。1 支持，0 不支持 
      * @return JumboEnable 专用通道是否支持巨帧。1 支持，0 不支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getJumboEnable() {
         return this.JumboEnable;
@@ -999,19 +971,15 @@ REJECTED:拒绝
 
     /**
      * Set 专用通道是否支持巨帧。1 支持，0 不支持
-注意：此字段可能返回 null，表示取不到有效值。
      * @param JumboEnable 专用通道是否支持巨帧。1 支持，0 不支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setJumboEnable(Long JumboEnable) {
         this.JumboEnable = JumboEnable;
     }
 
     /**
-     * Get 专用通道是否支持高精度BFD。1支持，0不支持
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 专用通道是否支持高精度BFD。1支持，0不支持 
      * @return HighPrecisionBFDEnable 专用通道是否支持高精度BFD。1支持，0不支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHighPrecisionBFDEnable() {
         return this.HighPrecisionBFDEnable;
@@ -1019,9 +987,7 @@ REJECTED:拒绝
 
     /**
      * Set 专用通道是否支持高精度BFD。1支持，0不支持
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HighPrecisionBFDEnable 专用通道是否支持高精度BFD。1支持，0不支持
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHighPrecisionBFDEnable(Long HighPrecisionBFDEnable) {
         this.HighPrecisionBFDEnable = HighPrecisionBFDEnable;

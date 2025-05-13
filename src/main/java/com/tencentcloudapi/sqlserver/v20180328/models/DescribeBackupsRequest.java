@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBackupsRequest extends AbstractModel{
+public class DescribeBackupsRequest extends AbstractModel {
 
     /**
     * 开始时间(yyyy-MM-dd HH:mm:ss)
@@ -112,6 +113,13 @@ public class DescribeBackupsRequest extends AbstractModel{
     @SerializedName("BackupFormat")
     @Expose
     private String BackupFormat;
+
+    /**
+    * 备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
+    */
+    @SerializedName("StorageStrategy")
+    @Expose
+    private Long StorageStrategy;
 
     /**
      * Get 开始时间(yyyy-MM-dd HH:mm:ss) 
@@ -321,6 +329,22 @@ public class DescribeBackupsRequest extends AbstractModel{
         this.BackupFormat = BackupFormat;
     }
 
+    /**
+     * Get 备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0 
+     * @return StorageStrategy 备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
+     */
+    public Long getStorageStrategy() {
+        return this.StorageStrategy;
+    }
+
+    /**
+     * Set 备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
+     * @param StorageStrategy 备份存储策略 0-跟随自定义备份保留策略 1-跟随实例生命周期直到实例下线，默认取值0
+     */
+    public void setStorageStrategy(Long StorageStrategy) {
+        this.StorageStrategy = StorageStrategy;
+    }
+
     public DescribeBackupsRequest() {
     }
 
@@ -368,6 +392,9 @@ public class DescribeBackupsRequest extends AbstractModel{
         if (source.BackupFormat != null) {
             this.BackupFormat = new String(source.BackupFormat);
         }
+        if (source.StorageStrategy != null) {
+            this.StorageStrategy = new Long(source.StorageStrategy);
+        }
     }
 
 
@@ -388,6 +415,7 @@ public class DescribeBackupsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Group", this.Group);
         this.setParamSimple(map, prefix + "Type", this.Type);
         this.setParamSimple(map, prefix + "BackupFormat", this.BackupFormat);
+        this.setParamSimple(map, prefix + "StorageStrategy", this.StorageStrategy);
 
     }
 }

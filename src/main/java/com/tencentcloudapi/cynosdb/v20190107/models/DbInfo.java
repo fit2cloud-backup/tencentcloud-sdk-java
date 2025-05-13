@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DbInfo extends AbstractModel{
+public class DbInfo extends AbstractModel {
 
     /**
     * 数据库名称
@@ -52,7 +53,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 数据库备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -60,7 +60,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 用户权限
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserHostPrivileges")
     @Expose
@@ -68,7 +67,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 数据库ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DbId")
     @Expose
@@ -76,7 +74,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -84,7 +81,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
@@ -92,7 +88,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 用户appid
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AppId")
     @Expose
@@ -100,7 +95,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uin")
     @Expose
@@ -108,7 +102,6 @@ public class DbInfo extends AbstractModel{
 
     /**
     * 集群Id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -179,10 +172,8 @@ public class DbInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据库备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库备注 
      * @return Description 数据库备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -190,19 +181,15 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 数据库备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 数据库备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 用户权限
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户权限 
      * @return UserHostPrivileges 用户权限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public UserHostPrivilege [] getUserHostPrivileges() {
         return this.UserHostPrivileges;
@@ -210,19 +197,15 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 用户权限
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserHostPrivileges 用户权限
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserHostPrivileges(UserHostPrivilege [] UserHostPrivileges) {
         this.UserHostPrivileges = UserHostPrivileges;
     }
 
     /**
-     * Get 数据库ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库ID 
      * @return DbId 数据库ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDbId() {
         return this.DbId;
@@ -230,19 +213,15 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 数据库ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DbId 数据库ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDbId(Long DbId) {
         this.DbId = DbId;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -250,19 +229,15 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -270,19 +245,15 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
     }
 
     /**
-     * Get 用户appid
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户appid 
      * @return AppId 用户appid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAppId() {
         return this.AppId;
@@ -290,19 +261,15 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 用户appid
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AppId 用户appid
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAppId(Long AppId) {
         this.AppId = AppId;
     }
 
     /**
-     * Get 用户Uin
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户Uin 
      * @return Uin 用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUin() {
         return this.Uin;
@@ -310,19 +277,15 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uin 用户Uin
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUin(String Uin) {
         this.Uin = Uin;
     }
 
     /**
-     * Get 集群Id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 集群Id 
      * @return ClusterId 集群Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -330,9 +293,7 @@ public class DbInfo extends AbstractModel{
 
     /**
      * Set 集群Id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 集群Id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;

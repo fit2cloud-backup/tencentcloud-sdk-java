@@ -16,11 +16,12 @@
 package com.tencentcloudapi.goosefs.v20220519.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FSAttribute extends AbstractModel{
+public class FSAttribute extends AbstractModel {
 
     /**
     * 文件系统类型, 可填goosefs和goosefsx
@@ -45,7 +46,6 @@ public class FSAttribute extends AbstractModel{
 
     /**
     * GooseFSx文件系统属性
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GooseFSxAttribute")
     @Expose
@@ -95,7 +95,6 @@ public class FSAttribute extends AbstractModel{
 
     /**
     * Tag数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tag")
     @Expose
@@ -107,6 +106,13 @@ public class FSAttribute extends AbstractModel{
     @SerializedName("ModifyTime")
     @Expose
     private String ModifyTime;
+
+    /**
+    * 文件系统付费信息
+    */
+    @SerializedName("ChargeAttribute")
+    @Expose
+    private ChargeAttribute ChargeAttribute;
 
     /**
      * Get 文件系统类型, 可填goosefs和goosefsx 
@@ -157,10 +163,8 @@ public class FSAttribute extends AbstractModel{
     }
 
     /**
-     * Get GooseFSx文件系统属性
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get GooseFSx文件系统属性 
      * @return GooseFSxAttribute GooseFSx文件系统属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public GooseFSxAttribute getGooseFSxAttribute() {
         return this.GooseFSxAttribute;
@@ -168,9 +172,7 @@ public class FSAttribute extends AbstractModel{
 
     /**
      * Set GooseFSx文件系统属性
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GooseFSxAttribute GooseFSx文件系统属性
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGooseFSxAttribute(GooseFSxAttribute GooseFSxAttribute) {
         this.GooseFSxAttribute = GooseFSxAttribute;
@@ -273,10 +275,8 @@ public class FSAttribute extends AbstractModel{
     }
 
     /**
-     * Get Tag数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Tag数组 
      * @return Tag Tag数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTag() {
         return this.Tag;
@@ -284,9 +284,7 @@ public class FSAttribute extends AbstractModel{
 
     /**
      * Set Tag数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tag Tag数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTag(Tag [] Tag) {
         this.Tag = Tag;
@@ -306,6 +304,22 @@ public class FSAttribute extends AbstractModel{
      */
     public void setModifyTime(String ModifyTime) {
         this.ModifyTime = ModifyTime;
+    }
+
+    /**
+     * Get 文件系统付费信息 
+     * @return ChargeAttribute 文件系统付费信息
+     */
+    public ChargeAttribute getChargeAttribute() {
+        return this.ChargeAttribute;
+    }
+
+    /**
+     * Set 文件系统付费信息
+     * @param ChargeAttribute 文件系统付费信息
+     */
+    public void setChargeAttribute(ChargeAttribute ChargeAttribute) {
+        this.ChargeAttribute = ChargeAttribute;
     }
 
     public FSAttribute() {
@@ -355,6 +369,9 @@ public class FSAttribute extends AbstractModel{
         if (source.ModifyTime != null) {
             this.ModifyTime = new String(source.ModifyTime);
         }
+        if (source.ChargeAttribute != null) {
+            this.ChargeAttribute = new ChargeAttribute(source.ChargeAttribute);
+        }
     }
 
 
@@ -374,6 +391,7 @@ public class FSAttribute extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamArrayObj(map, prefix + "Tag.", this.Tag);
         this.setParamSimple(map, prefix + "ModifyTime", this.ModifyTime);
+        this.setParamObj(map, prefix + "ChargeAttribute.", this.ChargeAttribute);
 
     }
 }

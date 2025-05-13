@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyDataTransformRequest extends AbstractModel{
+public class ModifyDataTransformRequest extends AbstractModel {
 
     /**
     * 加工任务id
@@ -37,7 +38,12 @@ public class ModifyDataTransformRequest extends AbstractModel{
     private String Name;
 
     /**
-    * 加工语句
+    * 加工语句。 当FuncType为2时，EtlContent必须使用[log_auto_output](https://cloud.tencent.com/document/product/614/70733#b3c58797-4825-4807-bef4-68106e25024f) 
+
+其他参考文档：
+
+- [创建加工任务](https://cloud.tencent.com/document/product/614/63940) 
+-  [函数总览](https://cloud.tencent.com/document/product/614/70395)
     */
     @SerializedName("EtlContent")
     @Expose
@@ -56,6 +62,13 @@ public class ModifyDataTransformRequest extends AbstractModel{
     @SerializedName("DstResources")
     @Expose
     private DataTransformResouceInfo [] DstResources;
+
+    /**
+    * 是否开启投递服务日志。1关闭，2开启
+    */
+    @SerializedName("HasServicesLog")
+    @Expose
+    private Long HasServicesLog;
 
     /**
      * Get 加工任务id 
@@ -90,16 +103,36 @@ public class ModifyDataTransformRequest extends AbstractModel{
     }
 
     /**
-     * Get 加工语句 
-     * @return EtlContent 加工语句
+     * Get 加工语句。 当FuncType为2时，EtlContent必须使用[log_auto_output](https://cloud.tencent.com/document/product/614/70733#b3c58797-4825-4807-bef4-68106e25024f) 
+
+其他参考文档：
+
+- [创建加工任务](https://cloud.tencent.com/document/product/614/63940) 
+-  [函数总览](https://cloud.tencent.com/document/product/614/70395) 
+     * @return EtlContent 加工语句。 当FuncType为2时，EtlContent必须使用[log_auto_output](https://cloud.tencent.com/document/product/614/70733#b3c58797-4825-4807-bef4-68106e25024f) 
+
+其他参考文档：
+
+- [创建加工任务](https://cloud.tencent.com/document/product/614/63940) 
+-  [函数总览](https://cloud.tencent.com/document/product/614/70395)
      */
     public String getEtlContent() {
         return this.EtlContent;
     }
 
     /**
-     * Set 加工语句
-     * @param EtlContent 加工语句
+     * Set 加工语句。 当FuncType为2时，EtlContent必须使用[log_auto_output](https://cloud.tencent.com/document/product/614/70733#b3c58797-4825-4807-bef4-68106e25024f) 
+
+其他参考文档：
+
+- [创建加工任务](https://cloud.tencent.com/document/product/614/63940) 
+-  [函数总览](https://cloud.tencent.com/document/product/614/70395)
+     * @param EtlContent 加工语句。 当FuncType为2时，EtlContent必须使用[log_auto_output](https://cloud.tencent.com/document/product/614/70733#b3c58797-4825-4807-bef4-68106e25024f) 
+
+其他参考文档：
+
+- [创建加工任务](https://cloud.tencent.com/document/product/614/63940) 
+-  [函数总览](https://cloud.tencent.com/document/product/614/70395)
      */
     public void setEtlContent(String EtlContent) {
         this.EtlContent = EtlContent;
@@ -137,6 +170,22 @@ public class ModifyDataTransformRequest extends AbstractModel{
         this.DstResources = DstResources;
     }
 
+    /**
+     * Get 是否开启投递服务日志。1关闭，2开启 
+     * @return HasServicesLog 是否开启投递服务日志。1关闭，2开启
+     */
+    public Long getHasServicesLog() {
+        return this.HasServicesLog;
+    }
+
+    /**
+     * Set 是否开启投递服务日志。1关闭，2开启
+     * @param HasServicesLog 是否开启投递服务日志。1关闭，2开启
+     */
+    public void setHasServicesLog(Long HasServicesLog) {
+        this.HasServicesLog = HasServicesLog;
+    }
+
     public ModifyDataTransformRequest() {
     }
 
@@ -163,6 +212,9 @@ public class ModifyDataTransformRequest extends AbstractModel{
                 this.DstResources[i] = new DataTransformResouceInfo(source.DstResources[i]);
             }
         }
+        if (source.HasServicesLog != null) {
+            this.HasServicesLog = new Long(source.HasServicesLog);
+        }
     }
 
 
@@ -175,6 +227,7 @@ public class ModifyDataTransformRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EtlContent", this.EtlContent);
         this.setParamSimple(map, prefix + "EnableFlag", this.EnableFlag);
         this.setParamArrayObj(map, prefix + "DstResources.", this.DstResources);
+        this.setParamSimple(map, prefix + "HasServicesLog", this.HasServicesLog);
 
     }
 }

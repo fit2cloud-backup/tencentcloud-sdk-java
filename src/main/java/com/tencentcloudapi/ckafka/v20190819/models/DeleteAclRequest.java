@@ -16,14 +16,15 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteAclRequest extends AbstractModel{
+public class DeleteAclRequest extends AbstractModel {
 
     /**
-    * 实例id信息
+    * ckafka集群实例Id
     */
     @SerializedName("InstanceId")
     @Expose
@@ -51,7 +52,7 @@ public class DeleteAclRequest extends AbstractModel{
     private Long Operation;
 
     /**
-    * 权限类型，(2:DENY，3:ALLOW)，当前ckakfa支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
+    * 权限类型，(2:DENY，3:ALLOW)，当前ckafka支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
     */
     @SerializedName("PermissionType")
     @Expose
@@ -72,16 +73,16 @@ public class DeleteAclRequest extends AbstractModel{
     private String Principal;
 
     /**
-     * Get 实例id信息 
-     * @return InstanceId 实例id信息
+     * Get ckafka集群实例Id 
+     * @return InstanceId ckafka集群实例Id
      */
     public String getInstanceId() {
         return this.InstanceId;
     }
 
     /**
-     * Set 实例id信息
-     * @param InstanceId 实例id信息
+     * Set ckafka集群实例Id
+     * @param InstanceId ckafka集群实例Id
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
@@ -136,16 +137,16 @@ public class DeleteAclRequest extends AbstractModel{
     }
 
     /**
-     * Get 权限类型，(2:DENY，3:ALLOW)，当前ckakfa支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用 
-     * @return PermissionType 权限类型，(2:DENY，3:ALLOW)，当前ckakfa支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
+     * Get 权限类型，(2:DENY，3:ALLOW)，当前ckafka支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用 
+     * @return PermissionType 权限类型，(2:DENY，3:ALLOW)，当前ckafka支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
      */
     public Long getPermissionType() {
         return this.PermissionType;
     }
 
     /**
-     * Set 权限类型，(2:DENY，3:ALLOW)，当前ckakfa支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
-     * @param PermissionType 权限类型，(2:DENY，3:ALLOW)，当前ckakfa支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
+     * Set 权限类型，(2:DENY，3:ALLOW)，当前ckafka支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
+     * @param PermissionType 权限类型，(2:DENY，3:ALLOW)，当前ckafka支持ALLOW(相当于白名单)，其它用于后续兼容开源kafka的acl时使用
      */
     public void setPermissionType(Long PermissionType) {
         this.PermissionType = PermissionType;

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyResourceGroupRequest extends AbstractModel{
+public class ModifyResourceGroupRequest extends AbstractModel {
 
     /**
-    * 组id
+    * 资产组id
     */
     @SerializedName("GroupId")
     @Expose
@@ -37,23 +38,23 @@ public class ModifyResourceGroupRequest extends AbstractModel{
     private String GroupName;
 
     /**
-    * 上级组id
+    * 上级组资产组id
     */
     @SerializedName("ParentId")
     @Expose
     private String ParentId;
 
     /**
-     * Get 组id 
-     * @return GroupId 组id
+     * Get 资产组id 
+     * @return GroupId 资产组id
      */
     public String getGroupId() {
         return this.GroupId;
     }
 
     /**
-     * Set 组id
-     * @param GroupId 组id
+     * Set 资产组id
+     * @param GroupId 资产组id
      */
     public void setGroupId(String GroupId) {
         this.GroupId = GroupId;
@@ -76,16 +77,16 @@ public class ModifyResourceGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 上级组id 
-     * @return ParentId 上级组id
+     * Get 上级组资产组id 
+     * @return ParentId 上级组资产组id
      */
     public String getParentId() {
         return this.ParentId;
     }
 
     /**
-     * Set 上级组id
-     * @param ParentId 上级组id
+     * Set 上级组资产组id
+     * @param ParentId 上级组资产组id
      */
     public void setParentId(String ParentId) {
         this.ParentId = ParentId;

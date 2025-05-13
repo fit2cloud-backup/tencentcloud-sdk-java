@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UploadContentRequest extends AbstractModel{
+public class UploadContentRequest extends AbstractModel {
 
     /**
     * 脚本上传信息
@@ -28,6 +29,20 @@ public class UploadContentRequest extends AbstractModel{
     @SerializedName("ScriptRequestInfo")
     @Expose
     private ScriptRequestInfo ScriptRequestInfo;
+
+    /**
+    * 请求来源，WEB 前端；CLIENT 客户端
+    */
+    @SerializedName("RequestFromSource")
+    @Expose
+    private String RequestFromSource;
+
+    /**
+    * 项目id
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
 
     /**
      * Get 脚本上传信息 
@@ -45,6 +60,38 @@ public class UploadContentRequest extends AbstractModel{
         this.ScriptRequestInfo = ScriptRequestInfo;
     }
 
+    /**
+     * Get 请求来源，WEB 前端；CLIENT 客户端 
+     * @return RequestFromSource 请求来源，WEB 前端；CLIENT 客户端
+     */
+    public String getRequestFromSource() {
+        return this.RequestFromSource;
+    }
+
+    /**
+     * Set 请求来源，WEB 前端；CLIENT 客户端
+     * @param RequestFromSource 请求来源，WEB 前端；CLIENT 客户端
+     */
+    public void setRequestFromSource(String RequestFromSource) {
+        this.RequestFromSource = RequestFromSource;
+    }
+
+    /**
+     * Get 项目id 
+     * @return ProjectId 项目id
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 项目id
+     * @param ProjectId 项目id
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
     public UploadContentRequest() {
     }
 
@@ -56,6 +103,12 @@ public class UploadContentRequest extends AbstractModel{
         if (source.ScriptRequestInfo != null) {
             this.ScriptRequestInfo = new ScriptRequestInfo(source.ScriptRequestInfo);
         }
+        if (source.RequestFromSource != null) {
+            this.RequestFromSource = new String(source.RequestFromSource);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
     }
 
 
@@ -64,6 +117,8 @@ public class UploadContentRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamObj(map, prefix + "ScriptRequestInfo.", this.ScriptRequestInfo);
+        this.setParamSimple(map, prefix + "RequestFromSource", this.RequestFromSource);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

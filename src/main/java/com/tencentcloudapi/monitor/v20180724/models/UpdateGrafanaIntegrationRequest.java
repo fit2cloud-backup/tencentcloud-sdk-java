@@ -16,11 +16,12 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpdateGrafanaIntegrationRequest extends AbstractModel{
+public class UpdateGrafanaIntegrationRequest extends AbstractModel {
 
     /**
     * 集成 ID，可在实例详情-云产品集成-集成列表查看。例如：integration-abcd1234
@@ -44,7 +45,7 @@ public class UpdateGrafanaIntegrationRequest extends AbstractModel{
     private String Kind;
 
     /**
-    * 集成内容
+    * 集成内容，请查看示例
     */
     @SerializedName("Content")
     @Expose
@@ -99,16 +100,16 @@ public class UpdateGrafanaIntegrationRequest extends AbstractModel{
     }
 
     /**
-     * Get 集成内容 
-     * @return Content 集成内容
+     * Get 集成内容，请查看示例 
+     * @return Content 集成内容，请查看示例
      */
     public String getContent() {
         return this.Content;
     }
 
     /**
-     * Set 集成内容
-     * @param Content 集成内容
+     * Set 集成内容，请查看示例
+     * @param Content 集成内容，请查看示例
      */
     public void setContent(String Content) {
         this.Content = Content;

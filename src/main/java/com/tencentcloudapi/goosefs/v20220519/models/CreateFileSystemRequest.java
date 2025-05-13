@@ -16,11 +16,12 @@
 package com.tencentcloudapi.goosefs.v20220519.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateFileSystemRequest extends AbstractModel{
+public class CreateFileSystemRequest extends AbstractModel {
 
     /**
     * 文件系统类型, 可填goosefs和goosefsx
@@ -77,6 +78,20 @@ public class CreateFileSystemRequest extends AbstractModel{
     @SerializedName("GooseFSxBuildElements")
     @Expose
     private GooseFSxBuildElement GooseFSxBuildElements;
+
+    /**
+    * 客户端集群所属的安全组
+    */
+    @SerializedName("SecurityGroupId")
+    @Expose
+    private String SecurityGroupId;
+
+    /**
+    * 集群ssh通信端口，默认是22
+    */
+    @SerializedName("ClusterPort")
+    @Expose
+    private Long ClusterPort;
 
     /**
      * Get 文件系统类型, 可填goosefs和goosefsx 
@@ -206,6 +221,38 @@ public class CreateFileSystemRequest extends AbstractModel{
         this.GooseFSxBuildElements = GooseFSxBuildElements;
     }
 
+    /**
+     * Get 客户端集群所属的安全组 
+     * @return SecurityGroupId 客户端集群所属的安全组
+     */
+    public String getSecurityGroupId() {
+        return this.SecurityGroupId;
+    }
+
+    /**
+     * Set 客户端集群所属的安全组
+     * @param SecurityGroupId 客户端集群所属的安全组
+     */
+    public void setSecurityGroupId(String SecurityGroupId) {
+        this.SecurityGroupId = SecurityGroupId;
+    }
+
+    /**
+     * Get 集群ssh通信端口，默认是22 
+     * @return ClusterPort 集群ssh通信端口，默认是22
+     */
+    public Long getClusterPort() {
+        return this.ClusterPort;
+    }
+
+    /**
+     * Set 集群ssh通信端口，默认是22
+     * @param ClusterPort 集群ssh通信端口，默认是22
+     */
+    public void setClusterPort(Long ClusterPort) {
+        this.ClusterPort = ClusterPort;
+    }
+
     public CreateFileSystemRequest() {
     }
 
@@ -241,6 +288,12 @@ public class CreateFileSystemRequest extends AbstractModel{
         if (source.GooseFSxBuildElements != null) {
             this.GooseFSxBuildElements = new GooseFSxBuildElement(source.GooseFSxBuildElements);
         }
+        if (source.SecurityGroupId != null) {
+            this.SecurityGroupId = new String(source.SecurityGroupId);
+        }
+        if (source.ClusterPort != null) {
+            this.ClusterPort = new Long(source.ClusterPort);
+        }
     }
 
 
@@ -256,6 +309,8 @@ public class CreateFileSystemRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Zone", this.Zone);
         this.setParamArrayObj(map, prefix + "Tag.", this.Tag);
         this.setParamObj(map, prefix + "GooseFSxBuildElements.", this.GooseFSxBuildElements);
+        this.setParamSimple(map, prefix + "SecurityGroupId", this.SecurityGroupId);
+        this.setParamSimple(map, prefix + "ClusterPort", this.ClusterPort);
 
     }
 }

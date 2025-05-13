@@ -16,15 +16,15 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AlertChannel extends AbstractModel{
+public class AlertChannel extends AbstractModel {
 
     /**
     * 通知模板ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NoticeId")
     @Expose
@@ -32,17 +32,14 @@ public class AlertChannel extends AbstractModel{
 
     /**
     * AMP consumer ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AMPConsumerId")
     @Expose
     private String AMPConsumerId;
 
     /**
-     * Get 通知模板ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 通知模板ID 
      * @return NoticeId 通知模板ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNoticeId() {
         return this.NoticeId;
@@ -50,19 +47,15 @@ public class AlertChannel extends AbstractModel{
 
     /**
      * Set 通知模板ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NoticeId 通知模板ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNoticeId(String NoticeId) {
         this.NoticeId = NoticeId;
     }
 
     /**
-     * Get AMP consumer ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get AMP consumer ID 
      * @return AMPConsumerId AMP consumer ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAMPConsumerId() {
         return this.AMPConsumerId;
@@ -70,9 +63,7 @@ public class AlertChannel extends AbstractModel{
 
     /**
      * Set AMP consumer ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AMPConsumerId AMP consumer ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAMPConsumerId(String AMPConsumerId) {
         this.AMPConsumerId = AMPConsumerId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.privatedns.v20201028.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreatePrivateZoneRequest extends AbstractModel{
+public class CreatePrivateZoneRequest extends AbstractModel {
 
     /**
     * 域名，格式必须是标准的TLD
@@ -161,7 +162,9 @@ public class CreatePrivateZoneRequest extends AbstractModel{
     /**
      * Get 创建私有域的同时，将其关联至VPC 
      * @return Vpcs 创建私有域的同时，将其关联至VPC
+     * @deprecated
      */
+    @Deprecated
     public VpcInfo [] getVpcs() {
         return this.Vpcs;
     }
@@ -169,7 +172,9 @@ public class CreatePrivateZoneRequest extends AbstractModel{
     /**
      * Set 创建私有域的同时，将其关联至VPC
      * @param Vpcs 创建私有域的同时，将其关联至VPC
+     * @deprecated
      */
+    @Deprecated
     public void setVpcs(VpcInfo [] Vpcs) {
         this.Vpcs = Vpcs;
     }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeClusterEndpointStatusResponse extends AbstractModel{
+public class DescribeClusterEndpointStatusResponse extends AbstractModel {
 
     /**
     * 查询集群访问端口状态（Created 开启成功，Creating 开启中，NotFound 未开启）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -32,24 +32,21 @@ public class DescribeClusterEndpointStatusResponse extends AbstractModel{
 
     /**
     * 开启访问入口失败信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorMsg")
     @Expose
     private String ErrorMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 查询集群访问端口状态（Created 开启成功，Creating 开启中，NotFound 未开启）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 查询集群访问端口状态（Created 开启成功，Creating 开启中，NotFound 未开启） 
      * @return Status 查询集群访问端口状态（Created 开启成功，Creating 开启中，NotFound 未开启）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStatus() {
         return this.Status;
@@ -57,19 +54,15 @@ public class DescribeClusterEndpointStatusResponse extends AbstractModel{
 
     /**
      * Set 查询集群访问端口状态（Created 开启成功，Creating 开启中，NotFound 未开启）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 查询集群访问端口状态（Created 开启成功，Creating 开启中，NotFound 未开启）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(String Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 开启访问入口失败信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开启访问入口失败信息 
      * @return ErrorMsg 开启访问入口失败信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorMsg() {
         return this.ErrorMsg;
@@ -77,25 +70,23 @@ public class DescribeClusterEndpointStatusResponse extends AbstractModel{
 
     /**
      * Set 开启访问入口失败信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorMsg 开启访问入口失败信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorMsg(String ErrorMsg) {
         this.ErrorMsg = ErrorMsg;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

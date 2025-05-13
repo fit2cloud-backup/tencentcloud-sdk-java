@@ -16,11 +16,12 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Job extends AbstractModel{
+public class Job extends AbstractModel {
 
     /**
     * 任务的JobID
@@ -32,7 +33,6 @@ public class Job extends AbstractModel{
 
     /**
     * 任务的场景ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScenarioId")
     @Expose
@@ -40,7 +40,6 @@ public class Job extends AbstractModel{
 
     /**
     * 任务的施压配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Load")
     @Expose
@@ -74,7 +73,6 @@ public class Job extends AbstractModel{
     * 任务的运行状态, JobUnknown: 0,JobCreated:1,JobPending:2, JobPreparing:3,JobSelectClustering:4,JobCreateTasking:5,JobSyncTasking:6
 JobRunning:11,JobFinished:12,JobPrepareException:13,JobFinishException:14,JobAborting:15,JobAborted:16,JobAbortException:17,JobDeleted:18,
 JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -98,7 +96,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 任务的最大VU数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxVirtualUserCount")
     @Expose
@@ -106,7 +103,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 任务的备注信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Note")
     @Expose
@@ -114,7 +110,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 错误率百分比
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorRate")
     @Expose
@@ -122,7 +117,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 任务发起人
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("JobOwner")
     @Expose
@@ -138,7 +132,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 任务时长
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Duration")
     @Expose
@@ -146,7 +139,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 最大每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MaxRequestsPerSecond")
     @Expose
@@ -154,7 +146,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 总请求数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RequestTotal")
     @Expose
@@ -162,7 +153,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 平均每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RequestsPerSecond")
     @Expose
@@ -170,7 +160,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 平均响应时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResponseTimeAverage")
     @Expose
@@ -178,7 +167,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 响应时间第99百分位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResponseTimeP99")
     @Expose
@@ -186,7 +174,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 响应时间第95百分位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResponseTimeP95")
     @Expose
@@ -194,7 +181,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 响应时间第90百分位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResponseTimeP90")
     @Expose
@@ -210,7 +196,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 最大响应时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResponseTimeMax")
     @Expose
@@ -218,7 +203,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 最小响应时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResponseTimeMin")
     @Expose
@@ -266,7 +250,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 定时任务ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CronId")
     @Expose
@@ -274,7 +257,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 场景类型
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Type")
     @Expose
@@ -282,7 +264,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 域名绑定配置
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DomainNameConfig")
     @Expose
@@ -290,7 +271,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * false
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Debug")
     @Expose
@@ -298,7 +278,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 中断原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AbortReason")
     @Expose
@@ -314,7 +293,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 项目ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -330,7 +308,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 每秒接收字节数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetworkReceiveRate")
     @Expose
@@ -338,7 +315,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 每秒发送字节数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NetworkSendRate")
     @Expose
@@ -346,7 +322,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * 任务状态描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -354,7 +329,6 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * test-project
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectName")
     @Expose
@@ -362,11 +336,24 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
     * test-scenario
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScenarioName")
     @Expose
     private String ScenarioName;
+
+    /**
+    * 付费类型
+    */
+    @SerializedName("PayMode")
+    @Expose
+    private Long PayMode;
+
+    /**
+    * job VUM用量
+    */
+    @SerializedName("Usage")
+    @Expose
+    private Long Usage;
 
     /**
      * Get 任务的JobID
@@ -389,10 +376,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     }
 
     /**
-     * Get 任务的场景ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务的场景ID 
      * @return ScenarioId 任务的场景ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScenarioId() {
         return this.ScenarioId;
@@ -400,19 +385,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 任务的场景ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScenarioId 任务的场景ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScenarioId(String ScenarioId) {
         this.ScenarioId = ScenarioId;
     }
 
     /**
-     * Get 任务的施压配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务的施压配置 
      * @return Load 任务的施压配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Load getLoad() {
         return this.Load;
@@ -420,9 +401,7 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 任务的施压配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Load 任务的施压配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLoad(Load Load) {
         this.Load = Load;
@@ -491,12 +470,10 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     /**
      * Get 任务的运行状态, JobUnknown: 0,JobCreated:1,JobPending:2, JobPreparing:3,JobSelectClustering:4,JobCreateTasking:5,JobSyncTasking:6
 JobRunning:11,JobFinished:12,JobPrepareException:13,JobFinishException:14,JobAborting:15,JobAborted:16,JobAbortException:17,JobDeleted:18,
-JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
-注意：此字段可能返回 null，表示取不到有效值。 
+JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21 
      * @return Status 任务的运行状态, JobUnknown: 0,JobCreated:1,JobPending:2, JobPreparing:3,JobSelectClustering:4,JobCreateTasking:5,JobSyncTasking:6
 JobRunning:11,JobFinished:12,JobPrepareException:13,JobFinishException:14,JobAborting:15,JobAborted:16,JobAbortException:17,JobDeleted:18,
 JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -506,11 +483,9 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
      * Set 任务的运行状态, JobUnknown: 0,JobCreated:1,JobPending:2, JobPreparing:3,JobSelectClustering:4,JobCreateTasking:5,JobSyncTasking:6
 JobRunning:11,JobFinished:12,JobPrepareException:13,JobFinishException:14,JobAborting:15,JobAborted:16,JobAbortException:17,JobDeleted:18,
 JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 任务的运行状态, JobUnknown: 0,JobCreated:1,JobPending:2, JobPreparing:3,JobSelectClustering:4,JobCreateTasking:5,JobSyncTasking:6
 JobRunning:11,JobFinished:12,JobPrepareException:13,JobFinishException:14,JobAborting:15,JobAborted:16,JobAbortException:17,JobDeleted:18,
 JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
@@ -557,10 +532,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     }
 
     /**
-     * Get 任务的最大VU数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务的最大VU数 
      * @return MaxVirtualUserCount 任务的最大VU数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxVirtualUserCount() {
         return this.MaxVirtualUserCount;
@@ -568,19 +541,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 任务的最大VU数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxVirtualUserCount 任务的最大VU数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxVirtualUserCount(Long MaxVirtualUserCount) {
         this.MaxVirtualUserCount = MaxVirtualUserCount;
     }
 
     /**
-     * Get 任务的备注信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务的备注信息 
      * @return Note 任务的备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNote() {
         return this.Note;
@@ -588,19 +557,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 任务的备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Note 任务的备注信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNote(String Note) {
         this.Note = Note;
     }
 
     /**
-     * Get 错误率百分比
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误率百分比 
      * @return ErrorRate 错误率百分比
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getErrorRate() {
         return this.ErrorRate;
@@ -608,19 +573,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 错误率百分比
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorRate 错误率百分比
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorRate(Float ErrorRate) {
         this.ErrorRate = ErrorRate;
     }
 
     /**
-     * Get 任务发起人
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务发起人 
      * @return JobOwner 任务发起人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getJobOwner() {
         return this.JobOwner;
@@ -628,9 +589,7 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 任务发起人
-注意：此字段可能返回 null，表示取不到有效值。
      * @param JobOwner 任务发起人
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setJobOwner(String JobOwner) {
         this.JobOwner = JobOwner;
@@ -657,10 +616,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     }
 
     /**
-     * Get 任务时长
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务时长 
      * @return Duration 任务时长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDuration() {
         return this.Duration;
@@ -668,19 +625,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 任务时长
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Duration 任务时长
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDuration(Long Duration) {
         this.Duration = Duration;
     }
 
     /**
-     * Get 最大每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大每秒请求数 
      * @return MaxRequestsPerSecond 最大每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getMaxRequestsPerSecond() {
         return this.MaxRequestsPerSecond;
@@ -688,19 +641,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 最大每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MaxRequestsPerSecond 最大每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMaxRequestsPerSecond(Long MaxRequestsPerSecond) {
         this.MaxRequestsPerSecond = MaxRequestsPerSecond;
     }
 
     /**
-     * Get 总请求数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 总请求数 
      * @return RequestTotal 总请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getRequestTotal() {
         return this.RequestTotal;
@@ -708,19 +657,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 总请求数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RequestTotal 总请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRequestTotal(Float RequestTotal) {
         this.RequestTotal = RequestTotal;
     }
 
     /**
-     * Get 平均每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 平均每秒请求数 
      * @return RequestsPerSecond 平均每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getRequestsPerSecond() {
         return this.RequestsPerSecond;
@@ -728,19 +673,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 平均每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RequestsPerSecond 平均每秒请求数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRequestsPerSecond(Float RequestsPerSecond) {
         this.RequestsPerSecond = RequestsPerSecond;
     }
 
     /**
-     * Get 平均响应时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 平均响应时间 
      * @return ResponseTimeAverage 平均响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getResponseTimeAverage() {
         return this.ResponseTimeAverage;
@@ -748,19 +689,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 平均响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResponseTimeAverage 平均响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResponseTimeAverage(Float ResponseTimeAverage) {
         this.ResponseTimeAverage = ResponseTimeAverage;
     }
 
     /**
-     * Get 响应时间第99百分位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 响应时间第99百分位 
      * @return ResponseTimeP99 响应时间第99百分位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getResponseTimeP99() {
         return this.ResponseTimeP99;
@@ -768,19 +705,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 响应时间第99百分位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResponseTimeP99 响应时间第99百分位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResponseTimeP99(Float ResponseTimeP99) {
         this.ResponseTimeP99 = ResponseTimeP99;
     }
 
     /**
-     * Get 响应时间第95百分位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 响应时间第95百分位 
      * @return ResponseTimeP95 响应时间第95百分位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getResponseTimeP95() {
         return this.ResponseTimeP95;
@@ -788,19 +721,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 响应时间第95百分位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResponseTimeP95 响应时间第95百分位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResponseTimeP95(Float ResponseTimeP95) {
         this.ResponseTimeP95 = ResponseTimeP95;
     }
 
     /**
-     * Get 响应时间第90百分位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 响应时间第90百分位 
      * @return ResponseTimeP90 响应时间第90百分位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getResponseTimeP90() {
         return this.ResponseTimeP90;
@@ -808,9 +737,7 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 响应时间第90百分位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResponseTimeP90 响应时间第90百分位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResponseTimeP90(Float ResponseTimeP90) {
         this.ResponseTimeP90 = ResponseTimeP90;
@@ -837,10 +764,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     }
 
     /**
-     * Get 最大响应时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最大响应时间 
      * @return ResponseTimeMax 最大响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getResponseTimeMax() {
         return this.ResponseTimeMax;
@@ -848,19 +773,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 最大响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResponseTimeMax 最大响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResponseTimeMax(Float ResponseTimeMax) {
         this.ResponseTimeMax = ResponseTimeMax;
     }
 
     /**
-     * Get 最小响应时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 最小响应时间 
      * @return ResponseTimeMin 最小响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getResponseTimeMin() {
         return this.ResponseTimeMin;
@@ -868,9 +789,7 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 最小响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResponseTimeMin 最小响应时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResponseTimeMin(Float ResponseTimeMin) {
         this.ResponseTimeMin = ResponseTimeMin;
@@ -977,10 +896,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     }
 
     /**
-     * Get 定时任务ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 定时任务ID 
      * @return CronId 定时任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCronId() {
         return this.CronId;
@@ -988,19 +905,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 定时任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CronId 定时任务ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCronId(String CronId) {
         this.CronId = CronId;
     }
 
     /**
-     * Get 场景类型
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 场景类型 
      * @return Type 场景类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getType() {
         return this.Type;
@@ -1008,19 +921,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 场景类型
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Type 场景类型
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setType(String Type) {
         this.Type = Type;
     }
 
     /**
-     * Get 域名绑定配置
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 域名绑定配置 
      * @return DomainNameConfig 域名绑定配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DomainNameConfig getDomainNameConfig() {
         return this.DomainNameConfig;
@@ -1028,19 +937,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 域名绑定配置
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DomainNameConfig 域名绑定配置
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomainNameConfig(DomainNameConfig DomainNameConfig) {
         this.DomainNameConfig = DomainNameConfig;
     }
 
     /**
-     * Get false
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get false 
      * @return Debug false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getDebug() {
         return this.Debug;
@@ -1048,19 +953,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set false
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Debug false
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDebug(Boolean Debug) {
         this.Debug = Debug;
     }
 
     /**
-     * Get 中断原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 中断原因 
      * @return AbortReason 中断原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAbortReason() {
         return this.AbortReason;
@@ -1068,9 +969,7 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 中断原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AbortReason 中断原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAbortReason(Long AbortReason) {
         this.AbortReason = AbortReason;
@@ -1097,10 +996,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     }
 
     /**
-     * Get 项目ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 项目ID 
      * @return ProjectId 项目ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProjectId() {
         return this.ProjectId;
@@ -1108,9 +1005,7 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 项目ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectId 项目ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectId(String ProjectId) {
         this.ProjectId = ProjectId;
@@ -1137,10 +1032,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
     }
 
     /**
-     * Get 每秒接收字节数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 每秒接收字节数 
      * @return NetworkReceiveRate 每秒接收字节数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getNetworkReceiveRate() {
         return this.NetworkReceiveRate;
@@ -1148,19 +1041,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 每秒接收字节数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NetworkReceiveRate 每秒接收字节数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetworkReceiveRate(Float NetworkReceiveRate) {
         this.NetworkReceiveRate = NetworkReceiveRate;
     }
 
     /**
-     * Get 每秒发送字节数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 每秒发送字节数 
      * @return NetworkSendRate 每秒发送字节数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getNetworkSendRate() {
         return this.NetworkSendRate;
@@ -1168,19 +1057,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 每秒发送字节数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NetworkSendRate 每秒发送字节数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNetworkSendRate(Float NetworkSendRate) {
         this.NetworkSendRate = NetworkSendRate;
     }
 
     /**
-     * Get 任务状态描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务状态描述 
      * @return Message 任务状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -1188,19 +1073,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set 任务状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message 任务状态描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;
     }
 
     /**
-     * Get test-project
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get test-project 
      * @return ProjectName test-project
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getProjectName() {
         return this.ProjectName;
@@ -1208,19 +1089,15 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set test-project
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectName test-project
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectName(String ProjectName) {
         this.ProjectName = ProjectName;
     }
 
     /**
-     * Get test-scenario
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get test-scenario 
      * @return ScenarioName test-scenario
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScenarioName() {
         return this.ScenarioName;
@@ -1228,12 +1105,42 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
 
     /**
      * Set test-scenario
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScenarioName test-scenario
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScenarioName(String ScenarioName) {
         this.ScenarioName = ScenarioName;
+    }
+
+    /**
+     * Get 付费类型 
+     * @return PayMode 付费类型
+     */
+    public Long getPayMode() {
+        return this.PayMode;
+    }
+
+    /**
+     * Set 付费类型
+     * @param PayMode 付费类型
+     */
+    public void setPayMode(Long PayMode) {
+        this.PayMode = PayMode;
+    }
+
+    /**
+     * Get job VUM用量 
+     * @return Usage job VUM用量
+     */
+    public Long getUsage() {
+        return this.Usage;
+    }
+
+    /**
+     * Set job VUM用量
+     * @param Usage job VUM用量
+     */
+    public void setUsage(Long Usage) {
+        this.Usage = Usage;
     }
 
     public Job() {
@@ -1403,6 +1310,12 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
         if (source.ScenarioName != null) {
             this.ScenarioName = new String(source.ScenarioName);
         }
+        if (source.PayMode != null) {
+            this.PayMode = new Long(source.PayMode);
+        }
+        if (source.Usage != null) {
+            this.Usage = new Long(source.Usage);
+        }
     }
 
 
@@ -1453,6 +1366,8 @@ JobSelectClusterException:19,JobCreateTaskException:20,JobSyncTaskException:21
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamSimple(map, prefix + "ProjectName", this.ProjectName);
         this.setParamSimple(map, prefix + "ScenarioName", this.ScenarioName);
+        this.setParamSimple(map, prefix + "PayMode", this.PayMode);
+        this.setParamSimple(map, prefix + "Usage", this.Usage);
 
     }
 }

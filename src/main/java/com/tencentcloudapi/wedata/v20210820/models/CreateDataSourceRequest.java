@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateDataSourceRequest extends AbstractModel{
+public class CreateDataSourceRequest extends AbstractModel {
 
     /**
     * 数据源名称，在相同SpaceName下，数据源名称不能为空
@@ -140,6 +141,27 @@ public class CreateDataSourceRequest extends AbstractModel{
     @SerializedName("COSRegion")
     @Expose
     private String COSRegion;
+
+    /**
+    * 连接测试结果
+    */
+    @SerializedName("ConnectResult")
+    @Expose
+    private String ConnectResult;
+
+    /**
+    * 开发环境数据源配置
+    */
+    @SerializedName("DevelopmentParams")
+    @Expose
+    private String DevelopmentParams;
+
+    /**
+    * 新建数据源的项目ID
+    */
+    @SerializedName("ProjectId")
+    @Expose
+    private String ProjectId;
 
     /**
      * Get 数据源名称，在相同SpaceName下，数据源名称不能为空 
@@ -413,6 +435,54 @@ public class CreateDataSourceRequest extends AbstractModel{
         this.COSRegion = COSRegion;
     }
 
+    /**
+     * Get 连接测试结果 
+     * @return ConnectResult 连接测试结果
+     */
+    public String getConnectResult() {
+        return this.ConnectResult;
+    }
+
+    /**
+     * Set 连接测试结果
+     * @param ConnectResult 连接测试结果
+     */
+    public void setConnectResult(String ConnectResult) {
+        this.ConnectResult = ConnectResult;
+    }
+
+    /**
+     * Get 开发环境数据源配置 
+     * @return DevelopmentParams 开发环境数据源配置
+     */
+    public String getDevelopmentParams() {
+        return this.DevelopmentParams;
+    }
+
+    /**
+     * Set 开发环境数据源配置
+     * @param DevelopmentParams 开发环境数据源配置
+     */
+    public void setDevelopmentParams(String DevelopmentParams) {
+        this.DevelopmentParams = DevelopmentParams;
+    }
+
+    /**
+     * Get 新建数据源的项目ID 
+     * @return ProjectId 新建数据源的项目ID
+     */
+    public String getProjectId() {
+        return this.ProjectId;
+    }
+
+    /**
+     * Set 新建数据源的项目ID
+     * @param ProjectId 新建数据源的项目ID
+     */
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
+    }
+
     public CreateDataSourceRequest() {
     }
 
@@ -472,6 +542,15 @@ public class CreateDataSourceRequest extends AbstractModel{
         if (source.COSRegion != null) {
             this.COSRegion = new String(source.COSRegion);
         }
+        if (source.ConnectResult != null) {
+            this.ConnectResult = new String(source.ConnectResult);
+        }
+        if (source.DevelopmentParams != null) {
+            this.DevelopmentParams = new String(source.DevelopmentParams);
+        }
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
+        }
     }
 
 
@@ -496,6 +575,9 @@ public class CreateDataSourceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Collect", this.Collect);
         this.setParamSimple(map, prefix + "COSBucket", this.COSBucket);
         this.setParamSimple(map, prefix + "COSRegion", this.COSRegion);
+        this.setParamSimple(map, prefix + "ConnectResult", this.ConnectResult);
+        this.setParamSimple(map, prefix + "DevelopmentParams", this.DevelopmentParams);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
 
     }
 }

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SyncDBEndpointInfos extends AbstractModel{
+public class SyncDBEndpointInfos extends AbstractModel {
 
     /**
     * 数据库所在地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -32,7 +32,6 @@ public class SyncDBEndpointInfos extends AbstractModel{
 
     /**
     * 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AccessType")
     @Expose
@@ -40,14 +39,13 @@ public class SyncDBEndpointInfos extends AbstractModel{
 
     /**
     * 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DatabaseType")
     @Expose
     private String DatabaseType;
 
     /**
-    * 数据库信息
+    * 数据库信息。注意：如果数据库类型为tdsqlmysql，此处Endpoint数组的顺序应满足规则：proxy节点放在set节点之前。如果SrcConnectType选择proxy接入则只需要填写proxy节点即可。如果选择set接入，数组中第一个set节点必须是shardkey范围起始为0的分片
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Info")
@@ -55,10 +53,8 @@ public class SyncDBEndpointInfos extends AbstractModel{
     private Endpoint [] Info;
 
     /**
-     * Get 数据库所在地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库所在地域 
      * @return Region 数据库所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -66,19 +62,15 @@ public class SyncDBEndpointInfos extends AbstractModel{
 
     /**
      * Set 数据库所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 数据库所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路 
      * @return AccessType 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAccessType() {
         return this.AccessType;
@@ -86,19 +78,15 @@ public class SyncDBEndpointInfos extends AbstractModel{
 
     /**
      * Set 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AccessType 实例网络接入类型，如：extranet(外网)、ipv6(公网ipv6)、cvm(云主机自建)、dcg(专线接入)、vpncloud(vpn接入的实例)、cdb(云数据库)、ccn(云联网)、intranet(自研上云)、vpc(私有网络)等，注意具体可选值依赖当前链路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAccessType(String AccessType) {
         this.AccessType = AccessType;
     }
 
     /**
-     * Get 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等 
      * @return DatabaseType 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDatabaseType() {
         return this.DatabaseType;
@@ -106,18 +94,16 @@ public class SyncDBEndpointInfos extends AbstractModel{
 
     /**
      * Set 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DatabaseType 实例数据库类型，如：mysql,redis,mongodb,postgresql,mariadb,percona 等
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDatabaseType(String DatabaseType) {
         this.DatabaseType = DatabaseType;
     }
 
     /**
-     * Get 数据库信息
+     * Get 数据库信息。注意：如果数据库类型为tdsqlmysql，此处Endpoint数组的顺序应满足规则：proxy节点放在set节点之前。如果SrcConnectType选择proxy接入则只需要填写proxy节点即可。如果选择set接入，数组中第一个set节点必须是shardkey范围起始为0的分片
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Info 数据库信息
+     * @return Info 数据库信息。注意：如果数据库类型为tdsqlmysql，此处Endpoint数组的顺序应满足规则：proxy节点放在set节点之前。如果SrcConnectType选择proxy接入则只需要填写proxy节点即可。如果选择set接入，数组中第一个set节点必须是shardkey范围起始为0的分片
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public Endpoint [] getInfo() {
@@ -125,9 +111,9 @@ public class SyncDBEndpointInfos extends AbstractModel{
     }
 
     /**
-     * Set 数据库信息
+     * Set 数据库信息。注意：如果数据库类型为tdsqlmysql，此处Endpoint数组的顺序应满足规则：proxy节点放在set节点之前。如果SrcConnectType选择proxy接入则只需要填写proxy节点即可。如果选择set接入，数组中第一个set节点必须是shardkey范围起始为0的分片
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param Info 数据库信息
+     * @param Info 数据库信息。注意：如果数据库类型为tdsqlmysql，此处Endpoint数组的顺序应满足规则：proxy节点放在set节点之前。如果SrcConnectType选择proxy接入则只需要填写proxy节点即可。如果选择set接入，数组中第一个set节点必须是shardkey范围起始为0的分片
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInfo(Endpoint [] Info) {

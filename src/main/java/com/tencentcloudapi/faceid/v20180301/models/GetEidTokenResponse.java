@@ -16,81 +16,92 @@
 package com.tencentcloudapi.faceid.v20180301.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetEidTokenResponse extends AbstractModel{
+public class GetEidTokenResponse extends AbstractModel {
 
     /**
-    * 一次核身流程的标识，有效时间为600秒；
-完成核身后，可用该标识获取验证结果信息。
+    * 一次核身流程的标识。
+- 有效时间为600秒。
+- 完成核身后，可用该标识获取验证结果信息。
     */
     @SerializedName("EidToken")
     @Expose
     private String EidToken;
 
     /**
-    * 发起核身流程的URL，用于H5场景核身。
+    * 发起核身流程的URL。
+- 用于H5场景核身。
     */
     @SerializedName("Url")
     @Expose
     private String Url;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 一次核身流程的标识，有效时间为600秒；
-完成核身后，可用该标识获取验证结果信息。 
-     * @return EidToken 一次核身流程的标识，有效时间为600秒；
-完成核身后，可用该标识获取验证结果信息。
+     * Get 一次核身流程的标识。
+- 有效时间为600秒。
+- 完成核身后，可用该标识获取验证结果信息。 
+     * @return EidToken 一次核身流程的标识。
+- 有效时间为600秒。
+- 完成核身后，可用该标识获取验证结果信息。
      */
     public String getEidToken() {
         return this.EidToken;
     }
 
     /**
-     * Set 一次核身流程的标识，有效时间为600秒；
-完成核身后，可用该标识获取验证结果信息。
-     * @param EidToken 一次核身流程的标识，有效时间为600秒；
-完成核身后，可用该标识获取验证结果信息。
+     * Set 一次核身流程的标识。
+- 有效时间为600秒。
+- 完成核身后，可用该标识获取验证结果信息。
+     * @param EidToken 一次核身流程的标识。
+- 有效时间为600秒。
+- 完成核身后，可用该标识获取验证结果信息。
      */
     public void setEidToken(String EidToken) {
         this.EidToken = EidToken;
     }
 
     /**
-     * Get 发起核身流程的URL，用于H5场景核身。 
-     * @return Url 发起核身流程的URL，用于H5场景核身。
+     * Get 发起核身流程的URL。
+- 用于H5场景核身。 
+     * @return Url 发起核身流程的URL。
+- 用于H5场景核身。
      */
     public String getUrl() {
         return this.Url;
     }
 
     /**
-     * Set 发起核身流程的URL，用于H5场景核身。
-     * @param Url 发起核身流程的URL，用于H5场景核身。
+     * Set 发起核身流程的URL。
+- 用于H5场景核身。
+     * @param Url 发起核身流程的URL。
+- 用于H5场景核身。
      */
     public void setUrl(String Url) {
         this.Url = Url;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

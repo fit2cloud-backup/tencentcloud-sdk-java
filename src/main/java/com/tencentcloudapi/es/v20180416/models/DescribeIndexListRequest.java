@@ -16,11 +16,12 @@
 package com.tencentcloudapi.es.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeIndexListRequest extends AbstractModel{
+public class DescribeIndexListRequest extends AbstractModel {
 
     /**
     * 索引类型。auto：自治索引；normal：普通索引
@@ -86,7 +87,7 @@ public class DescribeIndexListRequest extends AbstractModel{
     private String [] IndexStatusList;
 
     /**
-    * 排序顺序，支持asc、desc
+    * 排序顺序，支持asc、desc，默认为desc 数据格式"asc","desc"
     */
     @SerializedName("Order")
     @Expose
@@ -237,16 +238,16 @@ public class DescribeIndexListRequest extends AbstractModel{
     }
 
     /**
-     * Get 排序顺序，支持asc、desc 
-     * @return Order 排序顺序，支持asc、desc
+     * Get 排序顺序，支持asc、desc，默认为desc 数据格式"asc","desc" 
+     * @return Order 排序顺序，支持asc、desc，默认为desc 数据格式"asc","desc"
      */
     public String getOrder() {
         return this.Order;
     }
 
     /**
-     * Set 排序顺序，支持asc、desc
-     * @param Order 排序顺序，支持asc、desc
+     * Set 排序顺序，支持asc、desc，默认为desc 数据格式"asc","desc"
+     * @param Order 排序顺序，支持asc、desc，默认为desc 数据格式"asc","desc"
      */
     public void setOrder(String Order) {
         this.Order = Order;

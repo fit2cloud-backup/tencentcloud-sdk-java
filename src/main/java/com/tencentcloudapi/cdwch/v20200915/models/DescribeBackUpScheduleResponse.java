@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdwch.v20200915.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBackUpScheduleResponse extends AbstractModel{
+public class DescribeBackUpScheduleResponse extends AbstractModel {
 
     /**
     * 备份是否开启
@@ -31,7 +32,6 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
     * 元数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MetaStrategy")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
     * 表数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataStrategy")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
     * 备份表列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackUpContents")
     @Expose
@@ -62,14 +60,13 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
     * 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ErrorMsg")
     @Expose
     private String ErrorMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -92,10 +89,8 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
     }
 
     /**
-     * Get 元数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 元数据备份策略 
      * @return MetaStrategy 元数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ScheduleStrategy getMetaStrategy() {
         return this.MetaStrategy;
@@ -103,19 +98,15 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
      * Set 元数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MetaStrategy 元数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMetaStrategy(ScheduleStrategy MetaStrategy) {
         this.MetaStrategy = MetaStrategy;
     }
 
     /**
-     * Get 表数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表数据备份策略 
      * @return DataStrategy 表数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ScheduleStrategy getDataStrategy() {
         return this.DataStrategy;
@@ -123,19 +114,15 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
      * Set 表数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataStrategy 表数据备份策略
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataStrategy(ScheduleStrategy DataStrategy) {
         this.DataStrategy = DataStrategy;
     }
 
     /**
-     * Get 备份表列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份表列表 
      * @return BackUpContents 备份表列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BackupTableContent [] getBackUpContents() {
         return this.BackUpContents;
@@ -143,9 +130,7 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
      * Set 备份表列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackUpContents 备份表列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackUpContents(BackupTableContent [] BackUpContents) {
         this.BackUpContents = BackUpContents;
@@ -168,10 +153,8 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
     }
 
     /**
-     * Get 错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误信息 
      * @return ErrorMsg 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getErrorMsg() {
         return this.ErrorMsg;
@@ -179,25 +162,23 @@ public class DescribeBackUpScheduleResponse extends AbstractModel{
 
     /**
      * Set 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ErrorMsg 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setErrorMsg(String ErrorMsg) {
         this.ErrorMsg = ErrorMsg;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

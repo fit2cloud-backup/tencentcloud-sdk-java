@@ -16,15 +16,15 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskInfoDetail extends AbstractModel{
+public class TaskInfoDetail extends AbstractModel {
 
     /**
     * 任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TaskId")
     @Expose
@@ -32,7 +32,6 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
     * 任务开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StartTime")
     @Expose
@@ -40,26 +39,61 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
     * 任务类型。
-- FLOW_CREATE：创建实例。
-- FLOW_MODIFYCONNECTIONCONFIG：调整带宽连接数。
-- FLOW_MODIFYINSTANCEPASSWORDFREE：免密变更流程。
-- FLOW_CLEARNETWORK：VPC退还中。
-- FLOW_SETPWD：设置访问密码。
-- FLOW_EXPORSHR：扩缩容流程。
-- FLOW_UpgradeArch：实例架构升级流程。
-- FLOW_MODIFYINSTANCEPARAMS：修改实例参数。
-- FLOW_MODIFYINSTACEREADONLY：只读变更流程。
-- FLOW_CLOSE：关闭实例。
-- FLOW_DELETE：删除实例。
-- FLOW_OPEN_WAN：开启外网。
-- FLOW_CLEAN：清空实例。      
-- FLOW_MODIFYINSTANCEACCOUNT：修改实例账号。
-- FLOW_ENABLEINSTANCE_REPLICATE：开启副本只读。
-- FLOW_DISABLEINSTANCE_REPLICATE: 关闭副本只读。
-- FLOW_SWITCHINSTANCEVIP：交换实例 VIP。
-- FLOW_CHANGE_REPLICA_TO_MSTER：副本节点升主节点。
-- FLOW_BACKUPINSTANCE：备份实例。
-注意：此字段可能返回 null，表示取不到有效值。
+- FLOW_CREATE: "001"，新建实例
+- FLOW_RESIZE ： "002"，配置变更
+- FLOW_CLOSE："003"，关闭实例
+- FLOW_CLEAN： "004"，清空实例
+- FLOW_STARTUP："005"，实例启用。
+- FLOW_DELETE："006"，删除实例。
+- FLOW_SETPWD："007"，重置密码。
+- FLOW_EXPORTBACKUP："009"，导出备份文件。
+- FLOW_RESTOREBACKUP："010"，恢复备份。
+- FLOW_BACKUPINSTANCE："012"，备份实例。
+- FLOW_MIGRATEINSTANCE："013"，迁移实例。
+- FLOW_DELBACKUP："014"，删除备份。
+- FLOW_EXCHANGEINSTANCE： "016"，切换实例流程。
+- FLOW_AUTOBACKUP："017"，自动备份实例。
+- FLOW_MIGRATECHECK： "022"，迁移参数校验。
+- FLOW_MIGRATETASK："023"，数据迁移中。
+- FLOW_CLEANDB："025"，清空某个数据库。
+- FLOW_CLONEBACKUP："026"，克隆备份。
+- FLOW_CHANGEVIP： "027"，改变vip地址。
+- FLOW_EXPORSHR ："028"，扩缩容。
+- FLOW_ADDNODES："029"，加（减）节点。
+- FLOW_CHANGENET："031"，改变网络类型。
+- FLOW_MODIFYINSTACEREADONLY："033"，只读策略变更。
+- FLOW_MODIFYINSTANCEPARAMS："034"，修改实例参数。
+- FLOW_MODIFYINSTANCEPASSWORDFREE："035"，设置免密。
+- FLOW_SWITCHINSTANCEVIP："036"，实例VIP切换。
+- FLOW_MODIFYINSTANCEACCOUNT："037"，实例帐号变更。
+- FLOW_MODIFYINSTANCEBANDWIDTH："038"，实例带宽变更。
+- FLOW_ENABLEINSTANCE_REPLICATE："039"，开启副本只读。
+- FLOW_DISABLEINSTANCE_REPLICATE："040"，关闭副本只读。
+- FLOW_UpgradeArch："041"，实例架构升级，主从升集群。
+- FLOW_DowngradeArch： "042"，实例架构降级，集群降主从。
+- FLOW_UpgradeVersion： "043"，版本升级。
+- FLOW_MODIFYCONNECTIONCONFIG："044"，带宽连接数调整。
+- FLOW_CLEARNETWORK："045"，更换网络，
+- FLOW_REMOVE_BACKUP_FILE："046"，删除备份。
+- FLOW_UPGRADE_SUPPORT_MULTI_AZ："047"，升级实例支持多可用区。
+- FLOW_SHUTDOWN_MASTER："048"，模拟故障。
+- FLOW_CHANGE_REPLICA_TO_MASTER："049"，手动提主。
+- FLOW_CODE_ADD_REPLICATION_INSTANCE："050"，新增复制组。
+- FLOW_OPEN_WAN："052"，开通外网。
+- FLOW_CLOSE_WAN："053"，关闭外网FLOW_UPDATE_WAN："054"，更新外网。
+- FLOW_CODE_DELETE_REPLICATION_INSTANCE："055"，解绑复制组。
+- FLOW_CODE_CHANGE_MASTER_INSTANCE："056"，复制组实例切主。
+- FLOW_CODE_CHANGE_INSTANCE_ROLE： "057"，更改复制组实例角色。
+- FLOW_MIGRATE_NODE："058"，迁移节点。
+- FLOW_SWITCH_NODE："059"，切换节点。
+- FLOW_UPGRADE_SMALL_VERSION："060"，升级 Redi s版本。
+- FLOW_UPGRADE_PROXY_VERSION："061"，升级 Proxy 版本。
+- FLOW_MODIFY_INSTANCE_NETWORK： "062"，实例修改网络。
+- FLOW_MIGRATE_PROXY_NODE："063"，迁移proxy节点。
+- FLOW_MIGRATION_INSTANCE_ZONE："066"，实例可用区迁移中。
+- FLOW_UPGRADE_INSTANCE_CACHE_AND_PROXY： "067"，实例版本升级中。
+- FLOW_MODIFY_PROXY_NUM："069"，加（减）Proxy 节点。
+- FLOW_MODIFYBACKUPMOD："070"，变更实例备份模式。
     */
     @SerializedName("TaskType")
     @Expose
@@ -67,7 +101,6 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
     * 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceName")
     @Expose
@@ -75,7 +108,6 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
     * 实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceId")
     @Expose
@@ -83,7 +115,6 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
     * 项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProjectId")
     @Expose
@@ -91,7 +122,6 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
     * 任务进度。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Progress")
     @Expose
@@ -99,7 +129,6 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
     * 任务执行结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -112,17 +141,14 @@ public class TaskInfoDetail extends AbstractModel{
 1：执行中。
 2：完成。
 4：失败。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Result")
     @Expose
     private Long Result;
 
     /**
-     * Get 任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务 ID。 
      * @return TaskId 任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTaskId() {
         return this.TaskId;
@@ -130,19 +156,15 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TaskId 任务 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTaskId(Long TaskId) {
         this.TaskId = TaskId;
     }
 
     /**
-     * Get 任务开始时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务开始时间。 
      * @return StartTime 任务开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStartTime() {
         return this.StartTime;
@@ -150,9 +172,7 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 任务开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StartTime 任务开始时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStartTime(String StartTime) {
         this.StartTime = StartTime;
@@ -160,47 +180,117 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Get 任务类型。
-- FLOW_CREATE：创建实例。
-- FLOW_MODIFYCONNECTIONCONFIG：调整带宽连接数。
-- FLOW_MODIFYINSTANCEPASSWORDFREE：免密变更流程。
-- FLOW_CLEARNETWORK：VPC退还中。
-- FLOW_SETPWD：设置访问密码。
-- FLOW_EXPORSHR：扩缩容流程。
-- FLOW_UpgradeArch：实例架构升级流程。
-- FLOW_MODIFYINSTANCEPARAMS：修改实例参数。
-- FLOW_MODIFYINSTACEREADONLY：只读变更流程。
-- FLOW_CLOSE：关闭实例。
-- FLOW_DELETE：删除实例。
-- FLOW_OPEN_WAN：开启外网。
-- FLOW_CLEAN：清空实例。      
-- FLOW_MODIFYINSTANCEACCOUNT：修改实例账号。
-- FLOW_ENABLEINSTANCE_REPLICATE：开启副本只读。
-- FLOW_DISABLEINSTANCE_REPLICATE: 关闭副本只读。
-- FLOW_SWITCHINSTANCEVIP：交换实例 VIP。
-- FLOW_CHANGE_REPLICA_TO_MSTER：副本节点升主节点。
-- FLOW_BACKUPINSTANCE：备份实例。
-注意：此字段可能返回 null，表示取不到有效值。 
+- FLOW_CREATE: "001"，新建实例
+- FLOW_RESIZE ： "002"，配置变更
+- FLOW_CLOSE："003"，关闭实例
+- FLOW_CLEAN： "004"，清空实例
+- FLOW_STARTUP："005"，实例启用。
+- FLOW_DELETE："006"，删除实例。
+- FLOW_SETPWD："007"，重置密码。
+- FLOW_EXPORTBACKUP："009"，导出备份文件。
+- FLOW_RESTOREBACKUP："010"，恢复备份。
+- FLOW_BACKUPINSTANCE："012"，备份实例。
+- FLOW_MIGRATEINSTANCE："013"，迁移实例。
+- FLOW_DELBACKUP："014"，删除备份。
+- FLOW_EXCHANGEINSTANCE： "016"，切换实例流程。
+- FLOW_AUTOBACKUP："017"，自动备份实例。
+- FLOW_MIGRATECHECK： "022"，迁移参数校验。
+- FLOW_MIGRATETASK："023"，数据迁移中。
+- FLOW_CLEANDB："025"，清空某个数据库。
+- FLOW_CLONEBACKUP："026"，克隆备份。
+- FLOW_CHANGEVIP： "027"，改变vip地址。
+- FLOW_EXPORSHR ："028"，扩缩容。
+- FLOW_ADDNODES："029"，加（减）节点。
+- FLOW_CHANGENET："031"，改变网络类型。
+- FLOW_MODIFYINSTACEREADONLY："033"，只读策略变更。
+- FLOW_MODIFYINSTANCEPARAMS："034"，修改实例参数。
+- FLOW_MODIFYINSTANCEPASSWORDFREE："035"，设置免密。
+- FLOW_SWITCHINSTANCEVIP："036"，实例VIP切换。
+- FLOW_MODIFYINSTANCEACCOUNT："037"，实例帐号变更。
+- FLOW_MODIFYINSTANCEBANDWIDTH："038"，实例带宽变更。
+- FLOW_ENABLEINSTANCE_REPLICATE："039"，开启副本只读。
+- FLOW_DISABLEINSTANCE_REPLICATE："040"，关闭副本只读。
+- FLOW_UpgradeArch："041"，实例架构升级，主从升集群。
+- FLOW_DowngradeArch： "042"，实例架构降级，集群降主从。
+- FLOW_UpgradeVersion： "043"，版本升级。
+- FLOW_MODIFYCONNECTIONCONFIG："044"，带宽连接数调整。
+- FLOW_CLEARNETWORK："045"，更换网络，
+- FLOW_REMOVE_BACKUP_FILE："046"，删除备份。
+- FLOW_UPGRADE_SUPPORT_MULTI_AZ："047"，升级实例支持多可用区。
+- FLOW_SHUTDOWN_MASTER："048"，模拟故障。
+- FLOW_CHANGE_REPLICA_TO_MASTER："049"，手动提主。
+- FLOW_CODE_ADD_REPLICATION_INSTANCE："050"，新增复制组。
+- FLOW_OPEN_WAN："052"，开通外网。
+- FLOW_CLOSE_WAN："053"，关闭外网FLOW_UPDATE_WAN："054"，更新外网。
+- FLOW_CODE_DELETE_REPLICATION_INSTANCE："055"，解绑复制组。
+- FLOW_CODE_CHANGE_MASTER_INSTANCE："056"，复制组实例切主。
+- FLOW_CODE_CHANGE_INSTANCE_ROLE： "057"，更改复制组实例角色。
+- FLOW_MIGRATE_NODE："058"，迁移节点。
+- FLOW_SWITCH_NODE："059"，切换节点。
+- FLOW_UPGRADE_SMALL_VERSION："060"，升级 Redi s版本。
+- FLOW_UPGRADE_PROXY_VERSION："061"，升级 Proxy 版本。
+- FLOW_MODIFY_INSTANCE_NETWORK： "062"，实例修改网络。
+- FLOW_MIGRATE_PROXY_NODE："063"，迁移proxy节点。
+- FLOW_MIGRATION_INSTANCE_ZONE："066"，实例可用区迁移中。
+- FLOW_UPGRADE_INSTANCE_CACHE_AND_PROXY： "067"，实例版本升级中。
+- FLOW_MODIFY_PROXY_NUM："069"，加（减）Proxy 节点。
+- FLOW_MODIFYBACKUPMOD："070"，变更实例备份模式。 
      * @return TaskType 任务类型。
-- FLOW_CREATE：创建实例。
-- FLOW_MODIFYCONNECTIONCONFIG：调整带宽连接数。
-- FLOW_MODIFYINSTANCEPASSWORDFREE：免密变更流程。
-- FLOW_CLEARNETWORK：VPC退还中。
-- FLOW_SETPWD：设置访问密码。
-- FLOW_EXPORSHR：扩缩容流程。
-- FLOW_UpgradeArch：实例架构升级流程。
-- FLOW_MODIFYINSTANCEPARAMS：修改实例参数。
-- FLOW_MODIFYINSTACEREADONLY：只读变更流程。
-- FLOW_CLOSE：关闭实例。
-- FLOW_DELETE：删除实例。
-- FLOW_OPEN_WAN：开启外网。
-- FLOW_CLEAN：清空实例。      
-- FLOW_MODIFYINSTANCEACCOUNT：修改实例账号。
-- FLOW_ENABLEINSTANCE_REPLICATE：开启副本只读。
-- FLOW_DISABLEINSTANCE_REPLICATE: 关闭副本只读。
-- FLOW_SWITCHINSTANCEVIP：交换实例 VIP。
-- FLOW_CHANGE_REPLICA_TO_MSTER：副本节点升主节点。
-- FLOW_BACKUPINSTANCE：备份实例。
-注意：此字段可能返回 null，表示取不到有效值。
+- FLOW_CREATE: "001"，新建实例
+- FLOW_RESIZE ： "002"，配置变更
+- FLOW_CLOSE："003"，关闭实例
+- FLOW_CLEAN： "004"，清空实例
+- FLOW_STARTUP："005"，实例启用。
+- FLOW_DELETE："006"，删除实例。
+- FLOW_SETPWD："007"，重置密码。
+- FLOW_EXPORTBACKUP："009"，导出备份文件。
+- FLOW_RESTOREBACKUP："010"，恢复备份。
+- FLOW_BACKUPINSTANCE："012"，备份实例。
+- FLOW_MIGRATEINSTANCE："013"，迁移实例。
+- FLOW_DELBACKUP："014"，删除备份。
+- FLOW_EXCHANGEINSTANCE： "016"，切换实例流程。
+- FLOW_AUTOBACKUP："017"，自动备份实例。
+- FLOW_MIGRATECHECK： "022"，迁移参数校验。
+- FLOW_MIGRATETASK："023"，数据迁移中。
+- FLOW_CLEANDB："025"，清空某个数据库。
+- FLOW_CLONEBACKUP："026"，克隆备份。
+- FLOW_CHANGEVIP： "027"，改变vip地址。
+- FLOW_EXPORSHR ："028"，扩缩容。
+- FLOW_ADDNODES："029"，加（减）节点。
+- FLOW_CHANGENET："031"，改变网络类型。
+- FLOW_MODIFYINSTACEREADONLY："033"，只读策略变更。
+- FLOW_MODIFYINSTANCEPARAMS："034"，修改实例参数。
+- FLOW_MODIFYINSTANCEPASSWORDFREE："035"，设置免密。
+- FLOW_SWITCHINSTANCEVIP："036"，实例VIP切换。
+- FLOW_MODIFYINSTANCEACCOUNT："037"，实例帐号变更。
+- FLOW_MODIFYINSTANCEBANDWIDTH："038"，实例带宽变更。
+- FLOW_ENABLEINSTANCE_REPLICATE："039"，开启副本只读。
+- FLOW_DISABLEINSTANCE_REPLICATE："040"，关闭副本只读。
+- FLOW_UpgradeArch："041"，实例架构升级，主从升集群。
+- FLOW_DowngradeArch： "042"，实例架构降级，集群降主从。
+- FLOW_UpgradeVersion： "043"，版本升级。
+- FLOW_MODIFYCONNECTIONCONFIG："044"，带宽连接数调整。
+- FLOW_CLEARNETWORK："045"，更换网络，
+- FLOW_REMOVE_BACKUP_FILE："046"，删除备份。
+- FLOW_UPGRADE_SUPPORT_MULTI_AZ："047"，升级实例支持多可用区。
+- FLOW_SHUTDOWN_MASTER："048"，模拟故障。
+- FLOW_CHANGE_REPLICA_TO_MASTER："049"，手动提主。
+- FLOW_CODE_ADD_REPLICATION_INSTANCE："050"，新增复制组。
+- FLOW_OPEN_WAN："052"，开通外网。
+- FLOW_CLOSE_WAN："053"，关闭外网FLOW_UPDATE_WAN："054"，更新外网。
+- FLOW_CODE_DELETE_REPLICATION_INSTANCE："055"，解绑复制组。
+- FLOW_CODE_CHANGE_MASTER_INSTANCE："056"，复制组实例切主。
+- FLOW_CODE_CHANGE_INSTANCE_ROLE： "057"，更改复制组实例角色。
+- FLOW_MIGRATE_NODE："058"，迁移节点。
+- FLOW_SWITCH_NODE："059"，切换节点。
+- FLOW_UPGRADE_SMALL_VERSION："060"，升级 Redi s版本。
+- FLOW_UPGRADE_PROXY_VERSION："061"，升级 Proxy 版本。
+- FLOW_MODIFY_INSTANCE_NETWORK： "062"，实例修改网络。
+- FLOW_MIGRATE_PROXY_NODE："063"，迁移proxy节点。
+- FLOW_MIGRATION_INSTANCE_ZONE："066"，实例可用区迁移中。
+- FLOW_UPGRADE_INSTANCE_CACHE_AND_PROXY： "067"，实例版本升级中。
+- FLOW_MODIFY_PROXY_NUM："069"，加（减）Proxy 节点。
+- FLOW_MODIFYBACKUPMOD："070"，变更实例备份模式。
      */
     public String getTaskType() {
         return this.TaskType;
@@ -208,57 +298,125 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 任务类型。
-- FLOW_CREATE：创建实例。
-- FLOW_MODIFYCONNECTIONCONFIG：调整带宽连接数。
-- FLOW_MODIFYINSTANCEPASSWORDFREE：免密变更流程。
-- FLOW_CLEARNETWORK：VPC退还中。
-- FLOW_SETPWD：设置访问密码。
-- FLOW_EXPORSHR：扩缩容流程。
-- FLOW_UpgradeArch：实例架构升级流程。
-- FLOW_MODIFYINSTANCEPARAMS：修改实例参数。
-- FLOW_MODIFYINSTACEREADONLY：只读变更流程。
-- FLOW_CLOSE：关闭实例。
-- FLOW_DELETE：删除实例。
-- FLOW_OPEN_WAN：开启外网。
-- FLOW_CLEAN：清空实例。      
-- FLOW_MODIFYINSTANCEACCOUNT：修改实例账号。
-- FLOW_ENABLEINSTANCE_REPLICATE：开启副本只读。
-- FLOW_DISABLEINSTANCE_REPLICATE: 关闭副本只读。
-- FLOW_SWITCHINSTANCEVIP：交换实例 VIP。
-- FLOW_CHANGE_REPLICA_TO_MSTER：副本节点升主节点。
-- FLOW_BACKUPINSTANCE：备份实例。
-注意：此字段可能返回 null，表示取不到有效值。
+- FLOW_CREATE: "001"，新建实例
+- FLOW_RESIZE ： "002"，配置变更
+- FLOW_CLOSE："003"，关闭实例
+- FLOW_CLEAN： "004"，清空实例
+- FLOW_STARTUP："005"，实例启用。
+- FLOW_DELETE："006"，删除实例。
+- FLOW_SETPWD："007"，重置密码。
+- FLOW_EXPORTBACKUP："009"，导出备份文件。
+- FLOW_RESTOREBACKUP："010"，恢复备份。
+- FLOW_BACKUPINSTANCE："012"，备份实例。
+- FLOW_MIGRATEINSTANCE："013"，迁移实例。
+- FLOW_DELBACKUP："014"，删除备份。
+- FLOW_EXCHANGEINSTANCE： "016"，切换实例流程。
+- FLOW_AUTOBACKUP："017"，自动备份实例。
+- FLOW_MIGRATECHECK： "022"，迁移参数校验。
+- FLOW_MIGRATETASK："023"，数据迁移中。
+- FLOW_CLEANDB："025"，清空某个数据库。
+- FLOW_CLONEBACKUP："026"，克隆备份。
+- FLOW_CHANGEVIP： "027"，改变vip地址。
+- FLOW_EXPORSHR ："028"，扩缩容。
+- FLOW_ADDNODES："029"，加（减）节点。
+- FLOW_CHANGENET："031"，改变网络类型。
+- FLOW_MODIFYINSTACEREADONLY："033"，只读策略变更。
+- FLOW_MODIFYINSTANCEPARAMS："034"，修改实例参数。
+- FLOW_MODIFYINSTANCEPASSWORDFREE："035"，设置免密。
+- FLOW_SWITCHINSTANCEVIP："036"，实例VIP切换。
+- FLOW_MODIFYINSTANCEACCOUNT："037"，实例帐号变更。
+- FLOW_MODIFYINSTANCEBANDWIDTH："038"，实例带宽变更。
+- FLOW_ENABLEINSTANCE_REPLICATE："039"，开启副本只读。
+- FLOW_DISABLEINSTANCE_REPLICATE："040"，关闭副本只读。
+- FLOW_UpgradeArch："041"，实例架构升级，主从升集群。
+- FLOW_DowngradeArch： "042"，实例架构降级，集群降主从。
+- FLOW_UpgradeVersion： "043"，版本升级。
+- FLOW_MODIFYCONNECTIONCONFIG："044"，带宽连接数调整。
+- FLOW_CLEARNETWORK："045"，更换网络，
+- FLOW_REMOVE_BACKUP_FILE："046"，删除备份。
+- FLOW_UPGRADE_SUPPORT_MULTI_AZ："047"，升级实例支持多可用区。
+- FLOW_SHUTDOWN_MASTER："048"，模拟故障。
+- FLOW_CHANGE_REPLICA_TO_MASTER："049"，手动提主。
+- FLOW_CODE_ADD_REPLICATION_INSTANCE："050"，新增复制组。
+- FLOW_OPEN_WAN："052"，开通外网。
+- FLOW_CLOSE_WAN："053"，关闭外网FLOW_UPDATE_WAN："054"，更新外网。
+- FLOW_CODE_DELETE_REPLICATION_INSTANCE："055"，解绑复制组。
+- FLOW_CODE_CHANGE_MASTER_INSTANCE："056"，复制组实例切主。
+- FLOW_CODE_CHANGE_INSTANCE_ROLE： "057"，更改复制组实例角色。
+- FLOW_MIGRATE_NODE："058"，迁移节点。
+- FLOW_SWITCH_NODE："059"，切换节点。
+- FLOW_UPGRADE_SMALL_VERSION："060"，升级 Redi s版本。
+- FLOW_UPGRADE_PROXY_VERSION："061"，升级 Proxy 版本。
+- FLOW_MODIFY_INSTANCE_NETWORK： "062"，实例修改网络。
+- FLOW_MIGRATE_PROXY_NODE："063"，迁移proxy节点。
+- FLOW_MIGRATION_INSTANCE_ZONE："066"，实例可用区迁移中。
+- FLOW_UPGRADE_INSTANCE_CACHE_AND_PROXY： "067"，实例版本升级中。
+- FLOW_MODIFY_PROXY_NUM："069"，加（减）Proxy 节点。
+- FLOW_MODIFYBACKUPMOD："070"，变更实例备份模式。
      * @param TaskType 任务类型。
-- FLOW_CREATE：创建实例。
-- FLOW_MODIFYCONNECTIONCONFIG：调整带宽连接数。
-- FLOW_MODIFYINSTANCEPASSWORDFREE：免密变更流程。
-- FLOW_CLEARNETWORK：VPC退还中。
-- FLOW_SETPWD：设置访问密码。
-- FLOW_EXPORSHR：扩缩容流程。
-- FLOW_UpgradeArch：实例架构升级流程。
-- FLOW_MODIFYINSTANCEPARAMS：修改实例参数。
-- FLOW_MODIFYINSTACEREADONLY：只读变更流程。
-- FLOW_CLOSE：关闭实例。
-- FLOW_DELETE：删除实例。
-- FLOW_OPEN_WAN：开启外网。
-- FLOW_CLEAN：清空实例。      
-- FLOW_MODIFYINSTANCEACCOUNT：修改实例账号。
-- FLOW_ENABLEINSTANCE_REPLICATE：开启副本只读。
-- FLOW_DISABLEINSTANCE_REPLICATE: 关闭副本只读。
-- FLOW_SWITCHINSTANCEVIP：交换实例 VIP。
-- FLOW_CHANGE_REPLICA_TO_MSTER：副本节点升主节点。
-- FLOW_BACKUPINSTANCE：备份实例。
-注意：此字段可能返回 null，表示取不到有效值。
+- FLOW_CREATE: "001"，新建实例
+- FLOW_RESIZE ： "002"，配置变更
+- FLOW_CLOSE："003"，关闭实例
+- FLOW_CLEAN： "004"，清空实例
+- FLOW_STARTUP："005"，实例启用。
+- FLOW_DELETE："006"，删除实例。
+- FLOW_SETPWD："007"，重置密码。
+- FLOW_EXPORTBACKUP："009"，导出备份文件。
+- FLOW_RESTOREBACKUP："010"，恢复备份。
+- FLOW_BACKUPINSTANCE："012"，备份实例。
+- FLOW_MIGRATEINSTANCE："013"，迁移实例。
+- FLOW_DELBACKUP："014"，删除备份。
+- FLOW_EXCHANGEINSTANCE： "016"，切换实例流程。
+- FLOW_AUTOBACKUP："017"，自动备份实例。
+- FLOW_MIGRATECHECK： "022"，迁移参数校验。
+- FLOW_MIGRATETASK："023"，数据迁移中。
+- FLOW_CLEANDB："025"，清空某个数据库。
+- FLOW_CLONEBACKUP："026"，克隆备份。
+- FLOW_CHANGEVIP： "027"，改变vip地址。
+- FLOW_EXPORSHR ："028"，扩缩容。
+- FLOW_ADDNODES："029"，加（减）节点。
+- FLOW_CHANGENET："031"，改变网络类型。
+- FLOW_MODIFYINSTACEREADONLY："033"，只读策略变更。
+- FLOW_MODIFYINSTANCEPARAMS："034"，修改实例参数。
+- FLOW_MODIFYINSTANCEPASSWORDFREE："035"，设置免密。
+- FLOW_SWITCHINSTANCEVIP："036"，实例VIP切换。
+- FLOW_MODIFYINSTANCEACCOUNT："037"，实例帐号变更。
+- FLOW_MODIFYINSTANCEBANDWIDTH："038"，实例带宽变更。
+- FLOW_ENABLEINSTANCE_REPLICATE："039"，开启副本只读。
+- FLOW_DISABLEINSTANCE_REPLICATE："040"，关闭副本只读。
+- FLOW_UpgradeArch："041"，实例架构升级，主从升集群。
+- FLOW_DowngradeArch： "042"，实例架构降级，集群降主从。
+- FLOW_UpgradeVersion： "043"，版本升级。
+- FLOW_MODIFYCONNECTIONCONFIG："044"，带宽连接数调整。
+- FLOW_CLEARNETWORK："045"，更换网络，
+- FLOW_REMOVE_BACKUP_FILE："046"，删除备份。
+- FLOW_UPGRADE_SUPPORT_MULTI_AZ："047"，升级实例支持多可用区。
+- FLOW_SHUTDOWN_MASTER："048"，模拟故障。
+- FLOW_CHANGE_REPLICA_TO_MASTER："049"，手动提主。
+- FLOW_CODE_ADD_REPLICATION_INSTANCE："050"，新增复制组。
+- FLOW_OPEN_WAN："052"，开通外网。
+- FLOW_CLOSE_WAN："053"，关闭外网FLOW_UPDATE_WAN："054"，更新外网。
+- FLOW_CODE_DELETE_REPLICATION_INSTANCE："055"，解绑复制组。
+- FLOW_CODE_CHANGE_MASTER_INSTANCE："056"，复制组实例切主。
+- FLOW_CODE_CHANGE_INSTANCE_ROLE： "057"，更改复制组实例角色。
+- FLOW_MIGRATE_NODE："058"，迁移节点。
+- FLOW_SWITCH_NODE："059"，切换节点。
+- FLOW_UPGRADE_SMALL_VERSION："060"，升级 Redi s版本。
+- FLOW_UPGRADE_PROXY_VERSION："061"，升级 Proxy 版本。
+- FLOW_MODIFY_INSTANCE_NETWORK： "062"，实例修改网络。
+- FLOW_MIGRATE_PROXY_NODE："063"，迁移proxy节点。
+- FLOW_MIGRATION_INSTANCE_ZONE："066"，实例可用区迁移中。
+- FLOW_UPGRADE_INSTANCE_CACHE_AND_PROXY： "067"，实例版本升级中。
+- FLOW_MODIFY_PROXY_NUM："069"，加（减）Proxy 节点。
+- FLOW_MODIFYBACKUPMOD："070"，变更实例备份模式。
      */
     public void setTaskType(String TaskType) {
         this.TaskType = TaskType;
     }
 
     /**
-     * Get 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例名称。 
      * @return InstanceName 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceName() {
         return this.InstanceName;
@@ -266,19 +424,15 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceName 实例名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例 ID。 
      * @return InstanceId 实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceId() {
         return this.InstanceId;
@@ -286,19 +440,15 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceId 实例 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceId(String InstanceId) {
         this.InstanceId = InstanceId;
     }
 
     /**
-     * Get 项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 项目 ID。 
      * @return ProjectId 项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProjectId() {
         return this.ProjectId;
@@ -306,19 +456,15 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProjectId 项目 ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProjectId(Long ProjectId) {
         this.ProjectId = ProjectId;
     }
 
     /**
-     * Get 任务进度。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务进度。 
      * @return Progress 任务进度。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Float getProgress() {
         return this.Progress;
@@ -326,19 +472,15 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 任务进度。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Progress 任务进度。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProgress(Float Progress) {
         this.Progress = Progress;
     }
 
     /**
-     * Get 任务执行结束时间。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 任务执行结束时间。 
      * @return EndTime 任务执行结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -346,9 +488,7 @@ public class TaskInfoDetail extends AbstractModel{
 
     /**
      * Set 任务执行结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 任务执行结束时间。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
@@ -360,15 +500,13 @@ public class TaskInfoDetail extends AbstractModel{
 0：任务初始化。
 1：执行中。
 2：完成。
-4：失败。
-注意：此字段可能返回 null，表示取不到有效值。 
+4：失败。 
      * @return Result 任务执行状态。
 
 0：任务初始化。
 1：执行中。
 2：完成。
 4：失败。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getResult() {
         return this.Result;
@@ -381,14 +519,12 @@ public class TaskInfoDetail extends AbstractModel{
 1：执行中。
 2：完成。
 4：失败。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Result 任务执行状态。
 
 0：任务初始化。
 1：执行中。
 2：完成。
 4：失败。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResult(Long Result) {
         this.Result = Result;

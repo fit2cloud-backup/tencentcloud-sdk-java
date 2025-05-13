@@ -16,25 +16,30 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Prescription extends AbstractModel{
+public class Prescription extends AbstractModel {
 
     /**
     * 药品列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MedicineList")
     @Expose
     private Medicine [] MedicineList;
 
     /**
-     * Get 药品列表
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 药品列表 
      * @return MedicineList 药品列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Medicine [] getMedicineList() {
         return this.MedicineList;
@@ -42,12 +47,26 @@ public class Prescription extends AbstractModel{
 
     /**
      * Set 药品列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MedicineList 药品列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMedicineList(Medicine [] MedicineList) {
         this.MedicineList = MedicineList;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public Prescription() {
@@ -64,6 +83,9 @@ public class Prescription extends AbstractModel{
                 this.MedicineList[i] = new Medicine(source.MedicineList[i]);
             }
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -72,6 +94,7 @@ public class Prescription extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamArrayObj(map, prefix + "MedicineList.", this.MedicineList);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

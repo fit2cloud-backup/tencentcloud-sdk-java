@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DropDMSPartitionsRequest extends AbstractModel{
+public class DropDMSPartitionsRequest extends AbstractModel {
 
     /**
     * 数据库名称
@@ -63,6 +64,13 @@ public class DropDMSPartitionsRequest extends AbstractModel{
     @SerializedName("DeleteData")
     @Expose
     private Boolean DeleteData;
+
+    /**
+    * 数据源连接名
+    */
+    @SerializedName("DatasourceConnectionName")
+    @Expose
+    private String DatasourceConnectionName;
 
     /**
      * Get 数据库名称 
@@ -160,6 +168,22 @@ public class DropDMSPartitionsRequest extends AbstractModel{
         this.DeleteData = DeleteData;
     }
 
+    /**
+     * Get 数据源连接名 
+     * @return DatasourceConnectionName 数据源连接名
+     */
+    public String getDatasourceConnectionName() {
+        return this.DatasourceConnectionName;
+    }
+
+    /**
+     * Set 数据源连接名
+     * @param DatasourceConnectionName 数据源连接名
+     */
+    public void setDatasourceConnectionName(String DatasourceConnectionName) {
+        this.DatasourceConnectionName = DatasourceConnectionName;
+    }
+
     public DropDMSPartitionsRequest() {
     }
 
@@ -189,6 +213,9 @@ public class DropDMSPartitionsRequest extends AbstractModel{
         if (source.DeleteData != null) {
             this.DeleteData = new Boolean(source.DeleteData);
         }
+        if (source.DatasourceConnectionName != null) {
+            this.DatasourceConnectionName = new String(source.DatasourceConnectionName);
+        }
     }
 
 
@@ -202,6 +229,7 @@ public class DropDMSPartitionsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamArraySimple(map, prefix + "Values.", this.Values);
         this.setParamSimple(map, prefix + "DeleteData", this.DeleteData);
+        this.setParamSimple(map, prefix + "DatasourceConnectionName", this.DatasourceConnectionName);
 
     }
 }

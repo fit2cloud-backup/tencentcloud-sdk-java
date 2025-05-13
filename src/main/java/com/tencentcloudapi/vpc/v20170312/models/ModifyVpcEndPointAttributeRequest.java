@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVpcEndPointAttributeRequest extends AbstractModel{
+public class ModifyVpcEndPointAttributeRequest extends AbstractModel {
 
     /**
     * 终端节点ID。
@@ -42,6 +43,13 @@ public class ModifyVpcEndPointAttributeRequest extends AbstractModel{
     @SerializedName("SecurityGroupIds")
     @Expose
     private String [] SecurityGroupIds;
+
+    /**
+    * 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+    */
+    @SerializedName("IpAddressType")
+    @Expose
+    private String IpAddressType;
 
     /**
      * Get 终端节点ID。 
@@ -91,6 +99,22 @@ public class ModifyVpcEndPointAttributeRequest extends AbstractModel{
         this.SecurityGroupIds = SecurityGroupIds;
     }
 
+    /**
+     * Get 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。 
+     * @return IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public String getIpAddressType() {
+        return this.IpAddressType;
+    }
+
+    /**
+     * Set 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     * @param IpAddressType 协议类型，支持 Ipv4，Ipv6，默认 Ipv4。
+     */
+    public void setIpAddressType(String IpAddressType) {
+        this.IpAddressType = IpAddressType;
+    }
+
     public ModifyVpcEndPointAttributeRequest() {
     }
 
@@ -111,6 +135,9 @@ public class ModifyVpcEndPointAttributeRequest extends AbstractModel{
                 this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
             }
         }
+        if (source.IpAddressType != null) {
+            this.IpAddressType = new String(source.IpAddressType);
+        }
     }
 
 
@@ -121,6 +148,7 @@ public class ModifyVpcEndPointAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndPointId", this.EndPointId);
         this.setParamSimple(map, prefix + "EndPointName", this.EndPointName);
         this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamSimple(map, prefix + "IpAddressType", this.IpAddressType);
 
     }
 }

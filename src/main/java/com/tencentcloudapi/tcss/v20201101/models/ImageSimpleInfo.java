@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageSimpleInfo extends AbstractModel{
+public class ImageSimpleInfo extends AbstractModel {
 
     /**
     * 镜像id
@@ -56,6 +57,13 @@ public class ImageSimpleInfo extends AbstractModel{
     @SerializedName("ContainerCnt")
     @Expose
     private Long ContainerCnt;
+
+    /**
+    * 关联主机数
+    */
+    @SerializedName("HostCnt")
+    @Expose
+    private Long HostCnt;
 
     /**
      * Get 镜像id 
@@ -137,6 +145,22 @@ public class ImageSimpleInfo extends AbstractModel{
         this.ContainerCnt = ContainerCnt;
     }
 
+    /**
+     * Get 关联主机数 
+     * @return HostCnt 关联主机数
+     */
+    public Long getHostCnt() {
+        return this.HostCnt;
+    }
+
+    /**
+     * Set 关联主机数
+     * @param HostCnt 关联主机数
+     */
+    public void setHostCnt(Long HostCnt) {
+        this.HostCnt = HostCnt;
+    }
+
     public ImageSimpleInfo() {
     }
 
@@ -160,6 +184,9 @@ public class ImageSimpleInfo extends AbstractModel{
         if (source.ContainerCnt != null) {
             this.ContainerCnt = new Long(source.ContainerCnt);
         }
+        if (source.HostCnt != null) {
+            this.HostCnt = new Long(source.HostCnt);
+        }
     }
 
 
@@ -172,6 +199,7 @@ public class ImageSimpleInfo extends AbstractModel{
         this.setParamSimple(map, prefix + "Size", this.Size);
         this.setParamSimple(map, prefix + "ImageType", this.ImageType);
         this.setParamSimple(map, prefix + "ContainerCnt", this.ContainerCnt);
+        this.setParamSimple(map, prefix + "HostCnt", this.HostCnt);
 
     }
 }

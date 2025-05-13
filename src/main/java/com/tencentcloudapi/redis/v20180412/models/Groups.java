@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Groups extends AbstractModel{
+public class Groups extends AbstractModel {
 
     /**
     * 用户 APPID。APPID是与账号ID有唯一对应关系的应用 ID，部分腾讯云产品会使用此 APPID。
@@ -34,7 +35,6 @@ public class Groups extends AbstractModel{
 - 1：广州 
 - 4：上海 
 - 5：中国香港 
-- 6：多伦多 
 - 7：上海金融 
 - 8：北京 
 - 9：新加坡
@@ -44,7 +44,6 @@ public class Groups extends AbstractModel{
 - 17：德国 
 - 18：韩国 
 - 19：重庆 
-- 21：印度 
 - 22：美东（弗吉尼亚）
 - 23：泰国 
 - 25：日本
@@ -62,7 +61,6 @@ public class Groups extends AbstractModel{
 
     /**
     * 复制组名称。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GroupName")
     @Expose
@@ -89,7 +87,6 @@ public class Groups extends AbstractModel{
 
     /**
     * 复制组中的实例信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Instances")
     @Expose
@@ -97,7 +94,6 @@ public class Groups extends AbstractModel{
 
     /**
     * 备注信息。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -124,7 +120,6 @@ public class Groups extends AbstractModel{
 - 1：广州 
 - 4：上海 
 - 5：中国香港 
-- 6：多伦多 
 - 7：上海金融 
 - 8：北京 
 - 9：新加坡
@@ -134,7 +129,6 @@ public class Groups extends AbstractModel{
 - 17：德国 
 - 18：韩国 
 - 19：重庆 
-- 21：印度 
 - 22：美东（弗吉尼亚）
 - 23：泰国 
 - 25：日本 
@@ -142,7 +136,6 @@ public class Groups extends AbstractModel{
 - 1：广州 
 - 4：上海 
 - 5：中国香港 
-- 6：多伦多 
 - 7：上海金融 
 - 8：北京 
 - 9：新加坡
@@ -152,7 +145,6 @@ public class Groups extends AbstractModel{
 - 17：德国 
 - 18：韩国 
 - 19：重庆 
-- 21：印度 
 - 22：美东（弗吉尼亚）
 - 23：泰国 
 - 25：日本
@@ -166,7 +158,6 @@ public class Groups extends AbstractModel{
 - 1：广州 
 - 4：上海 
 - 5：中国香港 
-- 6：多伦多 
 - 7：上海金融 
 - 8：北京 
 - 9：新加坡
@@ -176,7 +167,6 @@ public class Groups extends AbstractModel{
 - 17：德国 
 - 18：韩国 
 - 19：重庆 
-- 21：印度 
 - 22：美东（弗吉尼亚）
 - 23：泰国 
 - 25：日本
@@ -184,7 +174,6 @@ public class Groups extends AbstractModel{
 - 1：广州 
 - 4：上海 
 - 5：中国香港 
-- 6：多伦多 
 - 7：上海金融 
 - 8：北京 
 - 9：新加坡
@@ -194,7 +183,6 @@ public class Groups extends AbstractModel{
 - 17：德国 
 - 18：韩国 
 - 19：重庆 
-- 21：印度 
 - 22：美东（弗吉尼亚）
 - 23：泰国 
 - 25：日本
@@ -220,10 +208,8 @@ public class Groups extends AbstractModel{
     }
 
     /**
-     * Get 复制组名称。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 复制组名称。 
      * @return GroupName 复制组名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getGroupName() {
         return this.GroupName;
@@ -231,9 +217,7 @@ public class Groups extends AbstractModel{
 
     /**
      * Set 复制组名称。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GroupName 复制组名称。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGroupName(String GroupName) {
         this.GroupName = GroupName;
@@ -292,10 +276,8 @@ public class Groups extends AbstractModel{
     }
 
     /**
-     * Get 复制组中的实例信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 复制组中的实例信息。 
      * @return Instances 复制组中的实例信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Instances [] getInstances() {
         return this.Instances;
@@ -303,19 +285,15 @@ public class Groups extends AbstractModel{
 
     /**
      * Set 复制组中的实例信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Instances 复制组中的实例信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstances(Instances [] Instances) {
         this.Instances = Instances;
     }
 
     /**
-     * Get 备注信息。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注信息。 
      * @return Remark 备注信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -323,9 +301,7 @@ public class Groups extends AbstractModel{
 
     /**
      * Set 备注信息。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注信息。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;

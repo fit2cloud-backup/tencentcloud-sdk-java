@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cbs.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PrepayPrice extends AbstractModel{
+public class PrepayPrice extends AbstractModel {
 
     /**
     * 预付费云盘或快照预支费用的折扣价，单位：元。
@@ -31,7 +32,7 @@ public class PrepayPrice extends AbstractModel{
     private Float DiscountPrice;
 
     /**
-    * 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+    * 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChargeUnit")
@@ -96,7 +97,6 @@ public class PrepayPrice extends AbstractModel{
 
     /**
     * 计费项目明细列表。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DetailPrices")
     @Expose
@@ -123,9 +123,9 @@ public class PrepayPrice extends AbstractModel{
     }
 
     /**
-     * Get 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * Get 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * @return ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChargeUnit() {
@@ -133,9 +133,9 @@ public class PrepayPrice extends AbstractModel{
     }
 
     /**
-     * Set 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * Set 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。
+     * @param ChargeUnit 后付费云盘的计价单元，取值范围：<br><li>HOUR：表示后付费云盘的计价单元是按小时计算。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChargeUnit(String ChargeUnit) {
@@ -283,10 +283,8 @@ public class PrepayPrice extends AbstractModel{
     }
 
     /**
-     * Get 计费项目明细列表。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 计费项目明细列表。 
      * @return DetailPrices 计费项目明细列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DetailPrice [] getDetailPrices() {
         return this.DetailPrices;
@@ -294,9 +292,7 @@ public class PrepayPrice extends AbstractModel{
 
     /**
      * Set 计费项目明细列表。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DetailPrices 计费项目明细列表。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDetailPrices(DetailPrice [] DetailPrices) {
         this.DetailPrices = DetailPrices;

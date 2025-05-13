@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
+public class ConsumptionBusinessSummaryDataItem extends AbstractModel {
 
     /**
     * 产品名称代码
@@ -52,7 +53,6 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
     * 现金
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CashPayAmount")
     @Expose
@@ -60,7 +60,6 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
     * 赠送金
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IncentivePayAmount")
     @Expose
@@ -68,7 +67,6 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
     * 代金券
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VoucherPayAmount")
     @Expose
@@ -76,11 +74,17 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
     * 分成金
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TransferPayAmount")
     @Expose
     private String TransferPayAmount;
+
+    /**
+    * 地域名称（仅在地域汇总总展示）
+    */
+    @SerializedName("RegionName")
+    @Expose
+    private String RegionName;
 
     /**
      * Get 产品名称代码 
@@ -147,10 +151,8 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
     }
 
     /**
-     * Get 现金
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 现金 
      * @return CashPayAmount 现金
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCashPayAmount() {
         return this.CashPayAmount;
@@ -158,19 +160,15 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
      * Set 现金
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CashPayAmount 现金
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCashPayAmount(String CashPayAmount) {
         this.CashPayAmount = CashPayAmount;
     }
 
     /**
-     * Get 赠送金
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 赠送金 
      * @return IncentivePayAmount 赠送金
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIncentivePayAmount() {
         return this.IncentivePayAmount;
@@ -178,19 +176,15 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
      * Set 赠送金
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IncentivePayAmount 赠送金
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIncentivePayAmount(String IncentivePayAmount) {
         this.IncentivePayAmount = IncentivePayAmount;
     }
 
     /**
-     * Get 代金券
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 代金券 
      * @return VoucherPayAmount 代金券
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVoucherPayAmount() {
         return this.VoucherPayAmount;
@@ -198,19 +192,15 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
      * Set 代金券
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VoucherPayAmount 代金券
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVoucherPayAmount(String VoucherPayAmount) {
         this.VoucherPayAmount = VoucherPayAmount;
     }
 
     /**
-     * Get 分成金
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 分成金 
      * @return TransferPayAmount 分成金
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTransferPayAmount() {
         return this.TransferPayAmount;
@@ -218,12 +208,26 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
 
     /**
      * Set 分成金
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TransferPayAmount 分成金
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTransferPayAmount(String TransferPayAmount) {
         this.TransferPayAmount = TransferPayAmount;
+    }
+
+    /**
+     * Get 地域名称（仅在地域汇总总展示） 
+     * @return RegionName 地域名称（仅在地域汇总总展示）
+     */
+    public String getRegionName() {
+        return this.RegionName;
+    }
+
+    /**
+     * Set 地域名称（仅在地域汇总总展示）
+     * @param RegionName 地域名称（仅在地域汇总总展示）
+     */
+    public void setRegionName(String RegionName) {
+        this.RegionName = RegionName;
     }
 
     public ConsumptionBusinessSummaryDataItem() {
@@ -258,6 +262,9 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
         if (source.TransferPayAmount != null) {
             this.TransferPayAmount = new String(source.TransferPayAmount);
         }
+        if (source.RegionName != null) {
+            this.RegionName = new String(source.RegionName);
+        }
     }
 
 
@@ -273,6 +280,7 @@ public class ConsumptionBusinessSummaryDataItem extends AbstractModel{
         this.setParamSimple(map, prefix + "IncentivePayAmount", this.IncentivePayAmount);
         this.setParamSimple(map, prefix + "VoucherPayAmount", this.VoucherPayAmount);
         this.setParamSimple(map, prefix + "TransferPayAmount", this.TransferPayAmount);
+        this.setParamSimple(map, prefix + "RegionName", this.RegionName);
 
     }
 }

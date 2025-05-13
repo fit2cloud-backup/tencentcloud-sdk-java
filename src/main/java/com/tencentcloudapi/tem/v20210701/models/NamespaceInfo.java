@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class NamespaceInfo extends AbstractModel{
+public class NamespaceInfo extends AbstractModel {
 
     /**
     * ID 信息
@@ -73,7 +74,6 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
     * 环境名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvironmentName")
     @Expose
@@ -81,7 +81,6 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
     * APM 资源 ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ApmInstanceId")
     @Expose
@@ -89,7 +88,6 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
     * 环境是否上锁，1为上锁，0则未上锁
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Locked")
     @Expose
@@ -97,7 +95,6 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
     * 标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -105,7 +102,6 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
     * 环境类型：test、pre、prod
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EnvType")
     @Expose
@@ -224,10 +220,8 @@ public class NamespaceInfo extends AbstractModel{
     }
 
     /**
-     * Get 环境名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境名称 
      * @return EnvironmentName 环境名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvironmentName() {
         return this.EnvironmentName;
@@ -235,19 +229,15 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
      * Set 环境名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvironmentName 环境名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvironmentName(String EnvironmentName) {
         this.EnvironmentName = EnvironmentName;
     }
 
     /**
-     * Get APM 资源 ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get APM 资源 ID 
      * @return ApmInstanceId APM 资源 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getApmInstanceId() {
         return this.ApmInstanceId;
@@ -255,19 +245,15 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
      * Set APM 资源 ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ApmInstanceId APM 资源 ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setApmInstanceId(String ApmInstanceId) {
         this.ApmInstanceId = ApmInstanceId;
     }
 
     /**
-     * Get 环境是否上锁，1为上锁，0则未上锁
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境是否上锁，1为上锁，0则未上锁 
      * @return Locked 环境是否上锁，1为上锁，0则未上锁
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getLocked() {
         return this.Locked;
@@ -275,19 +261,15 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
      * Set 环境是否上锁，1为上锁，0则未上锁
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Locked 环境是否上锁，1为上锁，0则未上锁
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocked(Long Locked) {
         this.Locked = Locked;
     }
 
     /**
-     * Get 标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签 
      * @return Tags 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Tag [] getTags() {
         return this.Tags;
@@ -295,19 +277,15 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
      * Set 标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(Tag [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 环境类型：test、pre、prod
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 环境类型：test、pre、prod 
      * @return EnvType 环境类型：test、pre、prod
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEnvType() {
         return this.EnvType;
@@ -315,9 +293,7 @@ public class NamespaceInfo extends AbstractModel{
 
     /**
      * Set 环境类型：test、pre、prod
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EnvType 环境类型：test、pre、prod
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnvType(String EnvType) {
         this.EnvType = EnvType;

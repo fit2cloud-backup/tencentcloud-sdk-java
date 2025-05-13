@@ -16,11 +16,12 @@
 package com.tencentcloudapi.iss.v20230517.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OrganizationChannelInfo extends AbstractModel{
+public class OrganizationChannelInfo extends AbstractModel {
 
     /**
     * 设备通道所属的设备ID
@@ -31,7 +32,6 @@ public class OrganizationChannelInfo extends AbstractModel{
 
     /**
     * 设备通道所属的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DeviceName")
     @Expose
@@ -46,7 +46,6 @@ public class OrganizationChannelInfo extends AbstractModel{
 
     /**
     * 设备通道名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ChannelName")
     @Expose
@@ -76,10 +75,8 @@ public class OrganizationChannelInfo extends AbstractModel{
     }
 
     /**
-     * Get 设备通道所属的设备名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备通道所属的设备名称 
      * @return DeviceName 设备通道所属的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDeviceName() {
         return this.DeviceName;
@@ -87,9 +84,7 @@ public class OrganizationChannelInfo extends AbstractModel{
 
     /**
      * Set 设备通道所属的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DeviceName 设备通道所属的设备名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDeviceName(String DeviceName) {
         this.DeviceName = DeviceName;
@@ -112,10 +107,8 @@ public class OrganizationChannelInfo extends AbstractModel{
     }
 
     /**
-     * Get 设备通道名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 设备通道名称 
      * @return ChannelName 设备通道名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getChannelName() {
         return this.ChannelName;
@@ -123,9 +116,7 @@ public class OrganizationChannelInfo extends AbstractModel{
 
     /**
      * Set 设备通道名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ChannelName 设备通道名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setChannelName(String ChannelName) {
         this.ChannelName = ChannelName;

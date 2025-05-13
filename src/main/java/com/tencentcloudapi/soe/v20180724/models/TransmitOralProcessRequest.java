@@ -16,11 +16,12 @@
 package com.tencentcloudapi.soe.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TransmitOralProcessRequest extends AbstractModel{
+public class TransmitOralProcessRequest extends AbstractModel {
 
     /**
     * 流式数据包的序号，从1开始，当IsEnd字段为1后后续序号无意义，当IsLongLifeSession不为1且为非流式模式时无意义。
@@ -66,7 +67,8 @@ public class TransmitOralProcessRequest extends AbstractModel{
     private String UserVoiceData;
 
     /**
-    * 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
+    * 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。
+一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
     */
     @SerializedName("SessionId")
     @Expose
@@ -80,7 +82,7 @@ public class TransmitOralProcessRequest extends AbstractModel{
     private String SoeAppId;
 
     /**
-    * 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口调用时此项为1时，此项必填1才可生效。
+    * 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口和TransmitOralProcess接口的IsLongLifeSession均为1时，才可生效。
     */
     @SerializedName("IsLongLifeSession")
     @Expose
@@ -206,16 +208,20 @@ public class TransmitOralProcessRequest extends AbstractModel{
     }
 
     /**
-     * Get 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。 
-     * @return SessionId 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
+     * Get 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。
+一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。 
+     * @return SessionId 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。
+一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
      */
     public String getSessionId() {
         return this.SessionId;
     }
 
     /**
-     * Set 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
-     * @param SessionId 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
+     * Set 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。
+一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
+     * @param SessionId 语音段唯一标识，一段完整语音使用一个SessionId，不同语音段的评测需要使用不同的SessionId。
+一般使用uuid(通用唯一识别码)来作为它的值，要尽量保证SessionId的唯一性。
      */
     public void setSessionId(String SessionId) {
         this.SessionId = SessionId;
@@ -238,16 +244,16 @@ public class TransmitOralProcessRequest extends AbstractModel{
     }
 
     /**
-     * Get 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口调用时此项为1时，此项必填1才可生效。 
-     * @return IsLongLifeSession 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口调用时此项为1时，此项必填1才可生效。
+     * Get 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口和TransmitOralProcess接口的IsLongLifeSession均为1时，才可生效。 
+     * @return IsLongLifeSession 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口和TransmitOralProcess接口的IsLongLifeSession均为1时，才可生效。
      */
     public Long getIsLongLifeSession() {
         return this.IsLongLifeSession;
     }
 
     /**
-     * Set 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口调用时此项为1时，此项必填1才可生效。
-     * @param IsLongLifeSession 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口调用时此项为1时，此项必填1才可生效。
+     * Set 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口和TransmitOralProcess接口的IsLongLifeSession均为1时，才可生效。
+     * @param IsLongLifeSession 长效session标识，当该参数为1时，session的持续时间为300s，但会一定程度上影响第一个数据包的返回速度。当InitOralProcess接口和TransmitOralProcess接口的IsLongLifeSession均为1时，才可生效。
      */
     public void setIsLongLifeSession(Long IsLongLifeSession) {
         this.IsLongLifeSession = IsLongLifeSession;

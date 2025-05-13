@@ -16,11 +16,12 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDealsByCondRequest extends AbstractModel{
+public class DescribeDealsByCondRequest extends AbstractModel {
 
     /**
     * 开始时间 2016-01-01 00:00:00
@@ -70,7 +71,7 @@ public class DescribeDealsByCondRequest extends AbstractModel{
     private Long Status;
 
     /**
-    * 订单号
+    * 子订单号
     */
     @SerializedName("OrderId")
     @Expose
@@ -219,16 +220,16 @@ public class DescribeDealsByCondRequest extends AbstractModel{
     }
 
     /**
-     * Get 订单号 
-     * @return OrderId 订单号
+     * Get 子订单号 
+     * @return OrderId 子订单号
      */
     public String getOrderId() {
         return this.OrderId;
     }
 
     /**
-     * Set 订单号
-     * @param OrderId 订单号
+     * Set 子订单号
+     * @param OrderId 子订单号
      */
     public void setOrderId(String OrderId) {
         this.OrderId = OrderId;

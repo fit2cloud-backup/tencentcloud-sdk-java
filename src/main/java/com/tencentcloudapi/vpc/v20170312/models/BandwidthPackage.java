@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BandwidthPackage extends AbstractModel{
+public class BandwidthPackage extends AbstractModel {
 
     /**
     * 带宽包唯一标识Id
@@ -30,14 +31,26 @@ public class BandwidthPackage extends AbstractModel{
     private String BandwidthPackageId;
 
     /**
-    * 带宽包类型，包括'BGP','SINGLEISP','ANYCAST','SINGLEISP_CMCC','SINGLEISP_CTCC','SINGLEISP_CUCC'
+    * 带宽包类型，包括：
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
+<li>ANYCAST：公网加速带宽包</li>
+<li>SINGLEISP_CMCC: 中国移动共享带宽包</li>
+<li>SINGLEISP_CTCC: 中国电信共享带宽包</li>
+<li>SINGLEISP_CUCC: 中国联通共享带宽包</li>
     */
     @SerializedName("NetworkType")
     @Expose
     private String NetworkType;
 
     /**
-    * 带宽包计费类型，包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'
+    * 带宽包计费类型, 包括:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
     */
     @SerializedName("ChargeType")
     @Expose
@@ -79,6 +92,21 @@ public class BandwidthPackage extends AbstractModel{
     private Long Bandwidth;
 
     /**
+    * 网络出口
+    */
+    @SerializedName("Egress")
+    @Expose
+    private String Egress;
+
+    /**
+    * 带宽包到期时间，只有预付费会返回，按量计费返回为null
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Deadline")
+    @Expose
+    private String Deadline;
+
+    /**
      * Get 带宽包唯一标识Id 
      * @return BandwidthPackageId 带宽包唯一标识Id
      */
@@ -95,32 +123,80 @@ public class BandwidthPackage extends AbstractModel{
     }
 
     /**
-     * Get 带宽包类型，包括'BGP','SINGLEISP','ANYCAST','SINGLEISP_CMCC','SINGLEISP_CTCC','SINGLEISP_CUCC' 
-     * @return NetworkType 带宽包类型，包括'BGP','SINGLEISP','ANYCAST','SINGLEISP_CMCC','SINGLEISP_CTCC','SINGLEISP_CUCC'
+     * Get 带宽包类型，包括：
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
+<li>ANYCAST：公网加速带宽包</li>
+<li>SINGLEISP_CMCC: 中国移动共享带宽包</li>
+<li>SINGLEISP_CTCC: 中国电信共享带宽包</li>
+<li>SINGLEISP_CUCC: 中国联通共享带宽包</li> 
+     * @return NetworkType 带宽包类型，包括：
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
+<li>ANYCAST：公网加速带宽包</li>
+<li>SINGLEISP_CMCC: 中国移动共享带宽包</li>
+<li>SINGLEISP_CTCC: 中国电信共享带宽包</li>
+<li>SINGLEISP_CUCC: 中国联通共享带宽包</li>
      */
     public String getNetworkType() {
         return this.NetworkType;
     }
 
     /**
-     * Set 带宽包类型，包括'BGP','SINGLEISP','ANYCAST','SINGLEISP_CMCC','SINGLEISP_CTCC','SINGLEISP_CUCC'
-     * @param NetworkType 带宽包类型，包括'BGP','SINGLEISP','ANYCAST','SINGLEISP_CMCC','SINGLEISP_CTCC','SINGLEISP_CUCC'
+     * Set 带宽包类型，包括：
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
+<li>ANYCAST：公网加速带宽包</li>
+<li>SINGLEISP_CMCC: 中国移动共享带宽包</li>
+<li>SINGLEISP_CTCC: 中国电信共享带宽包</li>
+<li>SINGLEISP_CUCC: 中国联通共享带宽包</li>
+     * @param NetworkType 带宽包类型，包括：
+<li>BGP: 普通BGP共享带宽包</li>
+<li>HIGH_QUALITY_BGP: 精品BGP共享带宽包</li>
+<li>ANYCAST：公网加速带宽包</li>
+<li>SINGLEISP_CMCC: 中国移动共享带宽包</li>
+<li>SINGLEISP_CTCC: 中国电信共享带宽包</li>
+<li>SINGLEISP_CUCC: 中国联通共享带宽包</li>
      */
     public void setNetworkType(String NetworkType) {
         this.NetworkType = NetworkType;
     }
 
     /**
-     * Get 带宽包计费类型，包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH' 
-     * @return ChargeType 带宽包计费类型，包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'
+     * Get 带宽包计费类型, 包括:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li> 
+     * @return ChargeType 带宽包计费类型, 包括:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
      */
     public String getChargeType() {
         return this.ChargeType;
     }
 
     /**
-     * Set 带宽包计费类型，包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'
-     * @param ChargeType 带宽包计费类型，包括'TOP5_POSTPAID_BY_MONTH'和'PERCENT95_POSTPAID_BY_MONTH'
+     * Set 带宽包计费类型, 包括:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
+     * @param ChargeType 带宽包计费类型, 包括:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
      */
     public void setChargeType(String ChargeType) {
         this.ChargeType = ChargeType;
@@ -206,6 +282,42 @@ public class BandwidthPackage extends AbstractModel{
         this.Bandwidth = Bandwidth;
     }
 
+    /**
+     * Get 网络出口 
+     * @return Egress 网络出口
+     */
+    public String getEgress() {
+        return this.Egress;
+    }
+
+    /**
+     * Set 网络出口
+     * @param Egress 网络出口
+     */
+    public void setEgress(String Egress) {
+        this.Egress = Egress;
+    }
+
+    /**
+     * Get 带宽包到期时间，只有预付费会返回，按量计费返回为null
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Deadline 带宽包到期时间，只有预付费会返回，按量计费返回为null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getDeadline() {
+        return this.Deadline;
+    }
+
+    /**
+     * Set 带宽包到期时间，只有预付费会返回，按量计费返回为null
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Deadline 带宽包到期时间，只有预付费会返回，按量计费返回为null
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setDeadline(String Deadline) {
+        this.Deadline = Deadline;
+    }
+
     public BandwidthPackage() {
     }
 
@@ -241,6 +353,12 @@ public class BandwidthPackage extends AbstractModel{
         if (source.Bandwidth != null) {
             this.Bandwidth = new Long(source.Bandwidth);
         }
+        if (source.Egress != null) {
+            this.Egress = new String(source.Egress);
+        }
+        if (source.Deadline != null) {
+            this.Deadline = new String(source.Deadline);
+        }
     }
 
 
@@ -256,6 +374,8 @@ public class BandwidthPackage extends AbstractModel{
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamArrayObj(map, prefix + "ResourceSet.", this.ResourceSet);
         this.setParamSimple(map, prefix + "Bandwidth", this.Bandwidth);
+        this.setParamSimple(map, prefix + "Egress", this.Egress);
+        this.setParamSimple(map, prefix + "Deadline", this.Deadline);
 
     }
 }

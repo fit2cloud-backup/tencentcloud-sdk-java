@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeDBInstanceRequest extends AbstractModel{
+public class UpgradeDBInstanceRequest extends AbstractModel {
 
     /**
     * 实例ID，形如mssql-j8kv137v
@@ -91,6 +92,14 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
     @SerializedName("WaitSwitch")
     @Expose
     private Long WaitSwitch;
+
+    /**
+    * 多节点架构实例的备节点可用区，默认为空。如果需要在变配的同时修改指定备节点的可用区时必传，当MultiZones = MultiZones时主节点和备节点可用区不能全部相同。备机可用区集合最小为2个，最大不超过5个。
+
+    */
+    @SerializedName("DrZones")
+    @Expose
+    private DrZoneInfo [] DrZones;
 
     /**
      * Get 实例ID，形如mssql-j8kv137v 
@@ -252,6 +261,26 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
         this.WaitSwitch = WaitSwitch;
     }
 
+    /**
+     * Get 多节点架构实例的备节点可用区，默认为空。如果需要在变配的同时修改指定备节点的可用区时必传，当MultiZones = MultiZones时主节点和备节点可用区不能全部相同。备机可用区集合最小为2个，最大不超过5个。
+ 
+     * @return DrZones 多节点架构实例的备节点可用区，默认为空。如果需要在变配的同时修改指定备节点的可用区时必传，当MultiZones = MultiZones时主节点和备节点可用区不能全部相同。备机可用区集合最小为2个，最大不超过5个。
+
+     */
+    public DrZoneInfo [] getDrZones() {
+        return this.DrZones;
+    }
+
+    /**
+     * Set 多节点架构实例的备节点可用区，默认为空。如果需要在变配的同时修改指定备节点的可用区时必传，当MultiZones = MultiZones时主节点和备节点可用区不能全部相同。备机可用区集合最小为2个，最大不超过5个。
+
+     * @param DrZones 多节点架构实例的备节点可用区，默认为空。如果需要在变配的同时修改指定备节点的可用区时必传，当MultiZones = MultiZones时主节点和备节点可用区不能全部相同。备机可用区集合最小为2个，最大不超过5个。
+
+     */
+    public void setDrZones(DrZoneInfo [] DrZones) {
+        this.DrZones = DrZones;
+    }
+
     public UpgradeDBInstanceRequest() {
     }
 
@@ -293,6 +322,12 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
         if (source.WaitSwitch != null) {
             this.WaitSwitch = new Long(source.WaitSwitch);
         }
+        if (source.DrZones != null) {
+            this.DrZones = new DrZoneInfo[source.DrZones.length];
+            for (int i = 0; i < source.DrZones.length; i++) {
+                this.DrZones[i] = new DrZoneInfo(source.DrZones[i]);
+            }
+        }
     }
 
 
@@ -310,6 +345,7 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "HAType", this.HAType);
         this.setParamSimple(map, prefix + "MultiZones", this.MultiZones);
         this.setParamSimple(map, prefix + "WaitSwitch", this.WaitSwitch);
+        this.setParamArrayObj(map, prefix + "DrZones.", this.DrZones);
 
     }
 }

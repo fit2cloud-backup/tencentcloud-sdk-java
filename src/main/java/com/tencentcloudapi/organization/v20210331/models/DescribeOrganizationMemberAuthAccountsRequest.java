@@ -16,21 +16,22 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeOrganizationMemberAuthAccountsRequest extends AbstractModel{
+public class DescribeOrganizationMemberAuthAccountsRequest extends AbstractModel {
 
     /**
-    * 偏移量。
+    * 偏移量。取值是limit的整数倍。默认值 : 0。
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 限制数目。
+    * 限制数目。取值范围：1~50。默认值：10。
     */
     @SerializedName("Limit")
     @Expose
@@ -44,39 +45,39 @@ public class DescribeOrganizationMemberAuthAccountsRequest extends AbstractModel
     private Long MemberUin;
 
     /**
-    * 策略ID。
+    * 策略ID。可以通过[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
     */
     @SerializedName("PolicyId")
     @Expose
     private Long PolicyId;
 
     /**
-     * Get 偏移量。 
-     * @return Offset 偏移量。
+     * Get 偏移量。取值是limit的整数倍。默认值 : 0。 
+     * @return Offset 偏移量。取值是limit的整数倍。默认值 : 0。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 偏移量。
-     * @param Offset 偏移量。
+     * Set 偏移量。取值是limit的整数倍。默认值 : 0。
+     * @param Offset 偏移量。取值是limit的整数倍。默认值 : 0。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 限制数目。 
-     * @return Limit 限制数目。
+     * Get 限制数目。取值范围：1~50。默认值：10。 
+     * @return Limit 限制数目。取值范围：1~50。默认值：10。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 限制数目。
-     * @param Limit 限制数目。
+     * Set 限制数目。取值范围：1~50。默认值：10。
+     * @param Limit 限制数目。取值范围：1~50。默认值：10。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -99,16 +100,16 @@ public class DescribeOrganizationMemberAuthAccountsRequest extends AbstractModel
     }
 
     /**
-     * Get 策略ID。 
-     * @return PolicyId 策略ID。
+     * Get 策略ID。可以通过[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取 
+     * @return PolicyId 策略ID。可以通过[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
      */
     public Long getPolicyId() {
         return this.PolicyId;
     }
 
     /**
-     * Set 策略ID。
-     * @param PolicyId 策略ID。
+     * Set 策略ID。可以通过[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
+     * @param PolicyId 策略ID。可以通过[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
      */
     public void setPolicyId(Long PolicyId) {
         this.PolicyId = PolicyId;

@@ -16,23 +16,22 @@
 package com.tencentcloudapi.csip.v20221121.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDomainAssetsResponse extends AbstractModel{
+public class DescribeDomainAssetsResponse extends AbstractModel {
 
     /**
-    * -
-注意：此字段可能返回 null，表示取不到有效值。
+    * 总数
     */
     @SerializedName("Total")
     @Expose
     private Long Total;
 
     /**
-    * -
-注意：此字段可能返回 null，表示取不到有效值。
+    * 域名列表
     */
     @SerializedName("Data")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
     * 防护状态列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DefenseStatusList")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
     * 资产归属地列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AssetLocationList")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
     * 资产类型列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SourceTypeList")
     @Expose
@@ -64,64 +60,53 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
     * 地域列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RegionList")
     @Expose
     private FilterDataObject [] RegionList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get -
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Total -
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 总数 
+     * @return Total 总数
      */
     public Long getTotal() {
         return this.Total;
     }
 
     /**
-     * Set -
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Total -
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 总数
+     * @param Total 总数
      */
     public void setTotal(Long Total) {
         this.Total = Total;
     }
 
     /**
-     * Get -
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Data -
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 域名列表 
+     * @return Data 域名列表
      */
     public DomainAssetVO [] getData() {
         return this.Data;
     }
 
     /**
-     * Set -
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Data -
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 域名列表
+     * @param Data 域名列表
      */
     public void setData(DomainAssetVO [] Data) {
         this.Data = Data;
     }
 
     /**
-     * Get 防护状态列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 防护状态列表 
      * @return DefenseStatusList 防护状态列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getDefenseStatusList() {
         return this.DefenseStatusList;
@@ -129,19 +114,15 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
      * Set 防护状态列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DefenseStatusList 防护状态列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDefenseStatusList(FilterDataObject [] DefenseStatusList) {
         this.DefenseStatusList = DefenseStatusList;
     }
 
     /**
-     * Get 资产归属地列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产归属地列表 
      * @return AssetLocationList 资产归属地列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getAssetLocationList() {
         return this.AssetLocationList;
@@ -149,19 +130,15 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
      * Set 资产归属地列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AssetLocationList 资产归属地列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAssetLocationList(FilterDataObject [] AssetLocationList) {
         this.AssetLocationList = AssetLocationList;
     }
 
     /**
-     * Get 资产类型列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资产类型列表 
      * @return SourceTypeList 资产类型列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getSourceTypeList() {
         return this.SourceTypeList;
@@ -169,19 +146,15 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
      * Set 资产类型列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SourceTypeList 资产类型列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSourceTypeList(FilterDataObject [] SourceTypeList) {
         this.SourceTypeList = SourceTypeList;
     }
 
     /**
-     * Get 地域列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域列表 
      * @return RegionList 地域列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public FilterDataObject [] getRegionList() {
         return this.RegionList;
@@ -189,25 +162,23 @@ public class DescribeDomainAssetsResponse extends AbstractModel{
 
     /**
      * Set 地域列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RegionList 地域列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegionList(FilterDataObject [] RegionList) {
         this.RegionList = RegionList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfs.v20190719.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUserQuotaRequest extends AbstractModel{
+public class DescribeUserQuotaRequest extends AbstractModel {
 
     /**
     * 文件系统 ID
@@ -31,8 +32,8 @@ public class DescribeUserQuotaRequest extends AbstractModel{
 
     /**
     * 过滤条件。
-<br><li>UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid| Gid )
-<br><li>UserId - Array of String - 是否必填：否 -（过滤条件）按UID/GID过滤。
+UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid|Gid|Dir )
+UserId- Array of String - 是否必填：否 -（过滤条件）按id过滤。
     */
     @SerializedName("Filters")
     @Expose
@@ -70,11 +71,11 @@ public class DescribeUserQuotaRequest extends AbstractModel{
 
     /**
      * Get 过滤条件。
-<br><li>UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid| Gid )
-<br><li>UserId - Array of String - 是否必填：否 -（过滤条件）按UID/GID过滤。 
+UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid|Gid|Dir )
+UserId- Array of String - 是否必填：否 -（过滤条件）按id过滤。 
      * @return Filters 过滤条件。
-<br><li>UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid| Gid )
-<br><li>UserId - Array of String - 是否必填：否 -（过滤条件）按UID/GID过滤。
+UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid|Gid|Dir )
+UserId- Array of String - 是否必填：否 -（过滤条件）按id过滤。
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -82,11 +83,11 @@ public class DescribeUserQuotaRequest extends AbstractModel{
 
     /**
      * Set 过滤条件。
-<br><li>UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid| Gid )
-<br><li>UserId - Array of String - 是否必填：否 -（过滤条件）按UID/GID过滤。
+UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid|Gid|Dir )
+UserId- Array of String - 是否必填：否 -（过滤条件）按id过滤。
      * @param Filters 过滤条件。
-<br><li>UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid| Gid )
-<br><li>UserId - Array of String - 是否必填：否 -（过滤条件）按UID/GID过滤。
+UserType - Array of String - 是否必填：否 -（过滤条件）按配额类型过滤。(Uid|Gid|Dir )
+UserId- Array of String - 是否必填：否 -（过滤条件）按id过滤。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

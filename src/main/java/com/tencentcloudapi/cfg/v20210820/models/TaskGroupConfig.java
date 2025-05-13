@@ -16,14 +16,34 @@
 package com.tencentcloudapi.cfg.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskGroupConfig extends AbstractModel{
+public class TaskGroupConfig extends AbstractModel {
 
     /**
     * 动作组所关联的实例对象
+CVM ins-xxx
+MySQL cdb-xxx
+CLB lb-xxx
+Redis crs-xxx
+NAT网关 nat-xxx
+专线-独享专用通道 dcx-xxx
+标准集群普通节点 {"ClusterId":"cls-xxx","InstanceId":"ins-xxx","LanIP":"1.1.1.1"}
+标准集群Pod {"ClusterId":"cls-xxx","PodName":"podname","NodeName":"1.1.1.1","NameSpace":"ns","Workload":"workload"}
+TDSQL-MySQL(InnoDB) tdsqlshard-xxx
+TDSQL-C cynosdbmysql-xxx
+VPC子网 subnet-xxxx
+CKafka ckafka-xxx
+MariaDB tdsql-xxxx
+PostgreSQL postgres-xxx
+云原生网关 gateway-xxx
+标准集群超级节点 {"ClusterId":"cls-xxx","InstanceId":"eklet-xxx","LanIP":"1.1.1.1,"NodePoolId":"np-xxx"}
+Serverless集群超级节点 {"ClusterId":"cls-xxxx","InstanceId":"eklet-xxxx","LanIP":"1.1.1.1"}
+Elasticsearch集群 es-xxxx
+RabbitMQ amqp-xxxx
     */
     @SerializedName("TaskGroupInstances")
     @Expose
@@ -58,8 +78,46 @@ public class TaskGroupConfig extends AbstractModel{
     private TaskGroupActionConfig [] TaskGroupActionsConfig;
 
     /**
-     * Get 动作组所关联的实例对象 
+     * Get 动作组所关联的实例对象
+CVM ins-xxx
+MySQL cdb-xxx
+CLB lb-xxx
+Redis crs-xxx
+NAT网关 nat-xxx
+专线-独享专用通道 dcx-xxx
+标准集群普通节点 {"ClusterId":"cls-xxx","InstanceId":"ins-xxx","LanIP":"1.1.1.1"}
+标准集群Pod {"ClusterId":"cls-xxx","PodName":"podname","NodeName":"1.1.1.1","NameSpace":"ns","Workload":"workload"}
+TDSQL-MySQL(InnoDB) tdsqlshard-xxx
+TDSQL-C cynosdbmysql-xxx
+VPC子网 subnet-xxxx
+CKafka ckafka-xxx
+MariaDB tdsql-xxxx
+PostgreSQL postgres-xxx
+云原生网关 gateway-xxx
+标准集群超级节点 {"ClusterId":"cls-xxx","InstanceId":"eklet-xxx","LanIP":"1.1.1.1,"NodePoolId":"np-xxx"}
+Serverless集群超级节点 {"ClusterId":"cls-xxxx","InstanceId":"eklet-xxxx","LanIP":"1.1.1.1"}
+Elasticsearch集群 es-xxxx
+RabbitMQ amqp-xxxx 
      * @return TaskGroupInstances 动作组所关联的实例对象
+CVM ins-xxx
+MySQL cdb-xxx
+CLB lb-xxx
+Redis crs-xxx
+NAT网关 nat-xxx
+专线-独享专用通道 dcx-xxx
+标准集群普通节点 {"ClusterId":"cls-xxx","InstanceId":"ins-xxx","LanIP":"1.1.1.1"}
+标准集群Pod {"ClusterId":"cls-xxx","PodName":"podname","NodeName":"1.1.1.1","NameSpace":"ns","Workload":"workload"}
+TDSQL-MySQL(InnoDB) tdsqlshard-xxx
+TDSQL-C cynosdbmysql-xxx
+VPC子网 subnet-xxxx
+CKafka ckafka-xxx
+MariaDB tdsql-xxxx
+PostgreSQL postgres-xxx
+云原生网关 gateway-xxx
+标准集群超级节点 {"ClusterId":"cls-xxx","InstanceId":"eklet-xxx","LanIP":"1.1.1.1,"NodePoolId":"np-xxx"}
+Serverless集群超级节点 {"ClusterId":"cls-xxxx","InstanceId":"eklet-xxxx","LanIP":"1.1.1.1"}
+Elasticsearch集群 es-xxxx
+RabbitMQ amqp-xxxx
      */
     public String [] getTaskGroupInstances() {
         return this.TaskGroupInstances;
@@ -67,7 +125,45 @@ public class TaskGroupConfig extends AbstractModel{
 
     /**
      * Set 动作组所关联的实例对象
+CVM ins-xxx
+MySQL cdb-xxx
+CLB lb-xxx
+Redis crs-xxx
+NAT网关 nat-xxx
+专线-独享专用通道 dcx-xxx
+标准集群普通节点 {"ClusterId":"cls-xxx","InstanceId":"ins-xxx","LanIP":"1.1.1.1"}
+标准集群Pod {"ClusterId":"cls-xxx","PodName":"podname","NodeName":"1.1.1.1","NameSpace":"ns","Workload":"workload"}
+TDSQL-MySQL(InnoDB) tdsqlshard-xxx
+TDSQL-C cynosdbmysql-xxx
+VPC子网 subnet-xxxx
+CKafka ckafka-xxx
+MariaDB tdsql-xxxx
+PostgreSQL postgres-xxx
+云原生网关 gateway-xxx
+标准集群超级节点 {"ClusterId":"cls-xxx","InstanceId":"eklet-xxx","LanIP":"1.1.1.1,"NodePoolId":"np-xxx"}
+Serverless集群超级节点 {"ClusterId":"cls-xxxx","InstanceId":"eklet-xxxx","LanIP":"1.1.1.1"}
+Elasticsearch集群 es-xxxx
+RabbitMQ amqp-xxxx
      * @param TaskGroupInstances 动作组所关联的实例对象
+CVM ins-xxx
+MySQL cdb-xxx
+CLB lb-xxx
+Redis crs-xxx
+NAT网关 nat-xxx
+专线-独享专用通道 dcx-xxx
+标准集群普通节点 {"ClusterId":"cls-xxx","InstanceId":"ins-xxx","LanIP":"1.1.1.1"}
+标准集群Pod {"ClusterId":"cls-xxx","PodName":"podname","NodeName":"1.1.1.1","NameSpace":"ns","Workload":"workload"}
+TDSQL-MySQL(InnoDB) tdsqlshard-xxx
+TDSQL-C cynosdbmysql-xxx
+VPC子网 subnet-xxxx
+CKafka ckafka-xxx
+MariaDB tdsql-xxxx
+PostgreSQL postgres-xxx
+云原生网关 gateway-xxx
+标准集群超级节点 {"ClusterId":"cls-xxx","InstanceId":"eklet-xxx","LanIP":"1.1.1.1,"NodePoolId":"np-xxx"}
+Serverless集群超级节点 {"ClusterId":"cls-xxxx","InstanceId":"eklet-xxxx","LanIP":"1.1.1.1"}
+Elasticsearch集群 es-xxxx
+RabbitMQ amqp-xxxx
      */
     public void setTaskGroupInstances(String [] TaskGroupInstances) {
         this.TaskGroupInstances = TaskGroupInstances;

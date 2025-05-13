@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InvocationMetricScatterPlot extends AbstractModel{
+public class InvocationMetricScatterPlot extends AbstractModel {
 
     /**
     * 时间轴截止时间，GMT，精确到毫秒
@@ -45,7 +46,6 @@ public class InvocationMetricScatterPlot extends AbstractModel{
 
     /**
     * 多值数据点集合
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DataPoints")
     @Expose
@@ -100,10 +100,8 @@ public class InvocationMetricScatterPlot extends AbstractModel{
     }
 
     /**
-     * Get 多值数据点集合
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 多值数据点集合 
      * @return DataPoints 多值数据点集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public MultiValueDataPoints [] getDataPoints() {
         return this.DataPoints;
@@ -111,9 +109,7 @@ public class InvocationMetricScatterPlot extends AbstractModel{
 
     /**
      * Set 多值数据点集合
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DataPoints 多值数据点集合
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDataPoints(MultiValueDataPoints [] DataPoints) {
         this.DataPoints = DataPoints;

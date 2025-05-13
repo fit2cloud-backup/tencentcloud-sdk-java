@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vod.v20180717.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class EventContent extends AbstractModel{
+public class EventContent extends AbstractModel {
 
     /**
     * 事件句柄，调用方必须调用 ConfirmEvents 来确认消息已经收到，确认有效时间 30 秒。失效后，事件可重新被获取。
@@ -41,12 +42,15 @@ public class EventContent extends AbstractModel{
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
 <li>RemoveWatermark：智能去除水印完成。</li>
-<li>RebuildMediaComplete：音画质重生完成事件。</li>
+<li>RebuildMediaComplete：音画质重生完成事件（不推荐使用）。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
 <li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
-<li>QualityInspectComplete：音画质检测完成。</li>
+<li>QualityInspectComplete：音画质检测完成；</li>
+<li>QualityEnhanceComplete：音画质重生任务完成；</li>
+<li>PersistenceComplete：剪辑固化完成；</li>
+<li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -243,6 +247,38 @@ public class EventContent extends AbstractModel{
     private QualityInspectTask QualityInspectCompleteEvent;
 
     /**
+    * 音画质重生完成事件，当事件类型为 QualityEnhanceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("QualityEnhanceCompleteEvent")
+    @Expose
+    private QualityEnhanceTask QualityEnhanceCompleteEvent;
+
+    /**
+    * 媒体转推状态变化事件，当事件类型为 MediaCastStatusChanged 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("MediaCastStatusChangedEvent")
+    @Expose
+    private MediaCastEvent MediaCastStatusChangedEvent;
+
+    /**
+    * 剪辑固化完成事件，当事件类型为 PersistenceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("PersistenceCompleteEvent")
+    @Expose
+    private PersistenceCompleteTask PersistenceCompleteEvent;
+
+    /**
+    * 自适应码流任务信息，仅当 EventType 为ComplexAdaptiveDynamicStreamingComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("ComplexAdaptiveDynamicStreamingCompleteEvent")
+    @Expose
+    private ComplexAdaptiveDynamicStreamingTask ComplexAdaptiveDynamicStreamingCompleteEvent;
+
+    /**
      * Get 事件句柄，调用方必须调用 ConfirmEvents 来确认消息已经收到，确认有效时间 30 秒。失效后，事件可重新被获取。 
      * @return EventHandle 事件句柄，调用方必须调用 ConfirmEvents 来确认消息已经收到，确认有效时间 30 秒。失效后，事件可重新被获取。
      */
@@ -270,12 +306,15 @@ public class EventContent extends AbstractModel{
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
 <li>RemoveWatermark：智能去除水印完成。</li>
-<li>RebuildMediaComplete：音画质重生完成事件。</li>
+<li>RebuildMediaComplete：音画质重生完成事件（不推荐使用）。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
 <li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
-<li>QualityInspectComplete：音画质检测完成。</li>
+<li>QualityInspectComplete：音画质检测完成；</li>
+<li>QualityEnhanceComplete：音画质重生任务完成；</li>
+<li>PersistenceComplete：剪辑固化完成；</li>
+<li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -293,12 +332,15 @@ public class EventContent extends AbstractModel{
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
 <li>RemoveWatermark：智能去除水印完成。</li>
-<li>RebuildMediaComplete：音画质重生完成事件。</li>
+<li>RebuildMediaComplete：音画质重生完成事件（不推荐使用）。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
 <li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
-<li>QualityInspectComplete：音画质检测完成。</li>
+<li>QualityInspectComplete：音画质检测完成；</li>
+<li>QualityEnhanceComplete：音画质重生任务完成；</li>
+<li>PersistenceComplete：剪辑固化完成；</li>
+<li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -322,12 +364,15 @@ public class EventContent extends AbstractModel{
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
 <li>RemoveWatermark：智能去除水印完成。</li>
-<li>RebuildMediaComplete：音画质重生完成事件。</li>
+<li>RebuildMediaComplete：音画质重生完成事件（不推荐使用）。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
 <li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
-<li>QualityInspectComplete：音画质检测完成。</li>
+<li>QualityInspectComplete：音画质检测完成；</li>
+<li>QualityEnhanceComplete：音画质重生任务完成；</li>
+<li>PersistenceComplete：剪辑固化完成；</li>
+<li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -345,12 +390,15 @@ public class EventContent extends AbstractModel{
 <li>ComposeMediaComplete：制作媒体文件完成；</li>
 <li>WechatMiniProgramPublishComplete：微信小程序发布完成。</li>
 <li>RemoveWatermark：智能去除水印完成。</li>
-<li>RebuildMediaComplete：音画质重生完成事件。</li>
+<li>RebuildMediaComplete：音画质重生完成事件（不推荐使用）。</li>
 <li>ReviewAudioVideoComplete：音视频审核完成；</li>
 <li>ExtractTraceWatermarkComplete：提取溯源水印完成；</li>
 <li>ExtractCopyRightWatermarkComplete：提取版权水印完成；</li>
 <li>DescribeFileAttributesComplete：获取文件属性完成；</li>
-<li>QualityInspectComplete：音画质检测完成。</li>
+<li>QualityInspectComplete：音画质检测完成；</li>
+<li>QualityEnhanceComplete：音画质重生任务完成；</li>
+<li>PersistenceComplete：剪辑固化完成；</li>
+<li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -822,6 +870,86 @@ public class EventContent extends AbstractModel{
         this.QualityInspectCompleteEvent = QualityInspectCompleteEvent;
     }
 
+    /**
+     * Get 音画质重生完成事件，当事件类型为 QualityEnhanceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return QualityEnhanceCompleteEvent 音画质重生完成事件，当事件类型为 QualityEnhanceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public QualityEnhanceTask getQualityEnhanceCompleteEvent() {
+        return this.QualityEnhanceCompleteEvent;
+    }
+
+    /**
+     * Set 音画质重生完成事件，当事件类型为 QualityEnhanceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param QualityEnhanceCompleteEvent 音画质重生完成事件，当事件类型为 QualityEnhanceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setQualityEnhanceCompleteEvent(QualityEnhanceTask QualityEnhanceCompleteEvent) {
+        this.QualityEnhanceCompleteEvent = QualityEnhanceCompleteEvent;
+    }
+
+    /**
+     * Get 媒体转推状态变化事件，当事件类型为 MediaCastStatusChanged 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return MediaCastStatusChangedEvent 媒体转推状态变化事件，当事件类型为 MediaCastStatusChanged 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public MediaCastEvent getMediaCastStatusChangedEvent() {
+        return this.MediaCastStatusChangedEvent;
+    }
+
+    /**
+     * Set 媒体转推状态变化事件，当事件类型为 MediaCastStatusChanged 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param MediaCastStatusChangedEvent 媒体转推状态变化事件，当事件类型为 MediaCastStatusChanged 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setMediaCastStatusChangedEvent(MediaCastEvent MediaCastStatusChangedEvent) {
+        this.MediaCastStatusChangedEvent = MediaCastStatusChangedEvent;
+    }
+
+    /**
+     * Get 剪辑固化完成事件，当事件类型为 PersistenceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return PersistenceCompleteEvent 剪辑固化完成事件，当事件类型为 PersistenceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public PersistenceCompleteTask getPersistenceCompleteEvent() {
+        return this.PersistenceCompleteEvent;
+    }
+
+    /**
+     * Set 剪辑固化完成事件，当事件类型为 PersistenceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param PersistenceCompleteEvent 剪辑固化完成事件，当事件类型为 PersistenceComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setPersistenceCompleteEvent(PersistenceCompleteTask PersistenceCompleteEvent) {
+        this.PersistenceCompleteEvent = PersistenceCompleteEvent;
+    }
+
+    /**
+     * Get 自适应码流任务信息，仅当 EventType 为ComplexAdaptiveDynamicStreamingComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return ComplexAdaptiveDynamicStreamingCompleteEvent 自适应码流任务信息，仅当 EventType 为ComplexAdaptiveDynamicStreamingComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public ComplexAdaptiveDynamicStreamingTask getComplexAdaptiveDynamicStreamingCompleteEvent() {
+        return this.ComplexAdaptiveDynamicStreamingCompleteEvent;
+    }
+
+    /**
+     * Set 自适应码流任务信息，仅当 EventType 为ComplexAdaptiveDynamicStreamingComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param ComplexAdaptiveDynamicStreamingCompleteEvent 自适应码流任务信息，仅当 EventType 为ComplexAdaptiveDynamicStreamingComplete 时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setComplexAdaptiveDynamicStreamingCompleteEvent(ComplexAdaptiveDynamicStreamingTask ComplexAdaptiveDynamicStreamingCompleteEvent) {
+        this.ComplexAdaptiveDynamicStreamingCompleteEvent = ComplexAdaptiveDynamicStreamingCompleteEvent;
+    }
+
     public EventContent() {
     }
 
@@ -905,6 +1033,18 @@ public class EventContent extends AbstractModel{
         if (source.QualityInspectCompleteEvent != null) {
             this.QualityInspectCompleteEvent = new QualityInspectTask(source.QualityInspectCompleteEvent);
         }
+        if (source.QualityEnhanceCompleteEvent != null) {
+            this.QualityEnhanceCompleteEvent = new QualityEnhanceTask(source.QualityEnhanceCompleteEvent);
+        }
+        if (source.MediaCastStatusChangedEvent != null) {
+            this.MediaCastStatusChangedEvent = new MediaCastEvent(source.MediaCastStatusChangedEvent);
+        }
+        if (source.PersistenceCompleteEvent != null) {
+            this.PersistenceCompleteEvent = new PersistenceCompleteTask(source.PersistenceCompleteEvent);
+        }
+        if (source.ComplexAdaptiveDynamicStreamingCompleteEvent != null) {
+            this.ComplexAdaptiveDynamicStreamingCompleteEvent = new ComplexAdaptiveDynamicStreamingTask(source.ComplexAdaptiveDynamicStreamingCompleteEvent);
+        }
     }
 
 
@@ -937,6 +1077,10 @@ public class EventContent extends AbstractModel{
         this.setParamObj(map, prefix + "ReduceMediaBitrateCompleteEvent.", this.ReduceMediaBitrateCompleteEvent);
         this.setParamObj(map, prefix + "DescribeFileAttributesCompleteEvent.", this.DescribeFileAttributesCompleteEvent);
         this.setParamObj(map, prefix + "QualityInspectCompleteEvent.", this.QualityInspectCompleteEvent);
+        this.setParamObj(map, prefix + "QualityEnhanceCompleteEvent.", this.QualityEnhanceCompleteEvent);
+        this.setParamObj(map, prefix + "MediaCastStatusChangedEvent.", this.MediaCastStatusChangedEvent);
+        this.setParamObj(map, prefix + "PersistenceCompleteEvent.", this.PersistenceCompleteEvent);
+        this.setParamObj(map, prefix + "ComplexAdaptiveDynamicStreamingCompleteEvent.", this.ComplexAdaptiveDynamicStreamingCompleteEvent);
 
     }
 }

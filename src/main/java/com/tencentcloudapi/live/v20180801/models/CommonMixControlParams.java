@@ -16,11 +16,12 @@
 package com.tencentcloudapi.live.v20180801.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CommonMixControlParams extends AbstractModel{
+public class CommonMixControlParams extends AbstractModel {
 
     /**
     * 取值范围[0,1]。
@@ -45,6 +46,14 @@ public class CommonMixControlParams extends AbstractModel{
     @SerializedName("PassInputSei")
     @Expose
     private Long PassInputSei;
+
+    /**
+    * 取值范围[0,1]
+填1时，图片输入中的透明通道生效。
+    */
+    @SerializedName("UsePictureTransparent")
+    @Expose
+    private Long UsePictureTransparent;
 
     /**
      * Get 取值范围[0,1]。
@@ -106,6 +115,26 @@ public class CommonMixControlParams extends AbstractModel{
         this.PassInputSei = PassInputSei;
     }
 
+    /**
+     * Get 取值范围[0,1]
+填1时，图片输入中的透明通道生效。 
+     * @return UsePictureTransparent 取值范围[0,1]
+填1时，图片输入中的透明通道生效。
+     */
+    public Long getUsePictureTransparent() {
+        return this.UsePictureTransparent;
+    }
+
+    /**
+     * Set 取值范围[0,1]
+填1时，图片输入中的透明通道生效。
+     * @param UsePictureTransparent 取值范围[0,1]
+填1时，图片输入中的透明通道生效。
+     */
+    public void setUsePictureTransparent(Long UsePictureTransparent) {
+        this.UsePictureTransparent = UsePictureTransparent;
+    }
+
     public CommonMixControlParams() {
     }
 
@@ -123,6 +152,9 @@ public class CommonMixControlParams extends AbstractModel{
         if (source.PassInputSei != null) {
             this.PassInputSei = new Long(source.PassInputSei);
         }
+        if (source.UsePictureTransparent != null) {
+            this.UsePictureTransparent = new Long(source.UsePictureTransparent);
+        }
     }
 
 
@@ -133,6 +165,7 @@ public class CommonMixControlParams extends AbstractModel{
         this.setParamSimple(map, prefix + "UseMixCropCenter", this.UseMixCropCenter);
         this.setParamSimple(map, prefix + "AllowCopy", this.AllowCopy);
         this.setParamSimple(map, prefix + "PassInputSei", this.PassInputSei);
+        this.setParamSimple(map, prefix + "UsePictureTransparent", this.UsePictureTransparent);
 
     }
 }

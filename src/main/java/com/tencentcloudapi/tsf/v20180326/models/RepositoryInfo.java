@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RepositoryInfo extends AbstractModel{
+public class RepositoryInfo extends AbstractModel {
 
     /**
     * 仓库ID
@@ -31,7 +32,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepositoryName")
     @Expose
@@ -39,7 +39,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库类型（默认仓库：default，私有仓库：private）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepositoryType")
     @Expose
@@ -47,7 +46,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RepositoryDesc")
     @Expose
@@ -55,7 +53,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库是否正在被使用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsUsed")
     @Expose
@@ -63,7 +60,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -71,7 +67,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库桶名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BucketName")
     @Expose
@@ -79,7 +74,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BucketRegion")
     @Expose
@@ -87,7 +81,6 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
     * 仓库目录
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Directory")
     @Expose
@@ -110,10 +103,8 @@ public class RepositoryInfo extends AbstractModel{
     }
 
     /**
-     * Get 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库名称 
      * @return RepositoryName 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepositoryName() {
         return this.RepositoryName;
@@ -121,19 +112,15 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepositoryName 仓库名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepositoryName(String RepositoryName) {
         this.RepositoryName = RepositoryName;
     }
 
     /**
-     * Get 仓库类型（默认仓库：default，私有仓库：private）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库类型（默认仓库：default，私有仓库：private） 
      * @return RepositoryType 仓库类型（默认仓库：default，私有仓库：private）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepositoryType() {
         return this.RepositoryType;
@@ -141,19 +128,15 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库类型（默认仓库：default，私有仓库：private）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepositoryType 仓库类型（默认仓库：default，私有仓库：private）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepositoryType(String RepositoryType) {
         this.RepositoryType = RepositoryType;
     }
 
     /**
-     * Get 仓库描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库描述 
      * @return RepositoryDesc 仓库描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRepositoryDesc() {
         return this.RepositoryDesc;
@@ -161,19 +144,15 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RepositoryDesc 仓库描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRepositoryDesc(String RepositoryDesc) {
         this.RepositoryDesc = RepositoryDesc;
     }
 
     /**
-     * Get 仓库是否正在被使用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库是否正在被使用 
      * @return IsUsed 仓库是否正在被使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsUsed() {
         return this.IsUsed;
@@ -181,19 +160,15 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库是否正在被使用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsUsed 仓库是否正在被使用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsUsed(Boolean IsUsed) {
         this.IsUsed = IsUsed;
     }
 
     /**
-     * Get 仓库创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库创建时间 
      * @return CreateTime 仓库创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -201,19 +176,15 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 仓库创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 仓库桶名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库桶名称 
      * @return BucketName 仓库桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucketName() {
         return this.BucketName;
@@ -221,19 +192,15 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BucketName 仓库桶名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucketName(String BucketName) {
         this.BucketName = BucketName;
     }
 
     /**
-     * Get 仓库桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库桶所在地域 
      * @return BucketRegion 仓库桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBucketRegion() {
         return this.BucketRegion;
@@ -241,19 +208,15 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BucketRegion 仓库桶所在地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBucketRegion(String BucketRegion) {
         this.BucketRegion = BucketRegion;
     }
 
     /**
-     * Get 仓库目录
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 仓库目录 
      * @return Directory 仓库目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDirectory() {
         return this.Directory;
@@ -261,9 +224,7 @@ public class RepositoryInfo extends AbstractModel{
 
     /**
      * Set 仓库目录
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Directory 仓库目录
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDirectory(String Directory) {
         this.Directory = Directory;

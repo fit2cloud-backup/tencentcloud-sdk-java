@@ -51,42 +51,33 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public ApplyDiskBackupResponse ApplyDiskBackup(ApplyDiskBackupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ApplyDiskBackupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ApplyDiskBackupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ApplyDiskBackup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ApplyDiskBackup", ApplyDiskBackupResponse.class);
+    }
+
+    /**
+     *本接口 (ApplyFirewallTemplate) 用于应用防火墙模板到多个实例。
+     * @param req ApplyFirewallTemplateRequest
+     * @return ApplyFirewallTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public ApplyFirewallTemplateResponse ApplyFirewallTemplate(ApplyFirewallTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ApplyFirewallTemplate", ApplyFirewallTemplateResponse.class);
     }
 
     /**
      *本接口（ApplyInstanceSnapshot）用于回滚指定实例的系统盘快照。
-<li>仅支持回滚到原系统盘。</li>
-<li>用于回滚的快照必须处于 NORMAL 状态。快照状态可以通过 DescribeSnapshots 接口查询，见输出参数中 SnapshotState 字段解释。</li>
-<li>回滚快照时，实例的状态必须为 STOPPED 或 RUNNING，可通过 DescribeInstances 接口查询实例状态。处于 RUNNING 状态的实例会强制关机，然后回滚快照。</li>
+- 仅支持回滚到原系统盘。
+- 用于回滚的快照必须处于 NORMAL 状态。快照状态可以通过 [DescribeSnapshots](https://cloud.tencent.com/document/product/1207/54388) 接口查询，见输出参数中 SnapshotState 字段解释。
+- 回滚快照时，实例的状态必须为 STOPPED 或 RUNNING，可通过 [DescribeInstances](https://cloud.tencent.com/document/product/1207/47573) 接口查询实例状态。处于 RUNNING 状态的实例会强制关机，然后回滚快照。
      * @param req ApplyInstanceSnapshotRequest
      * @return ApplyInstanceSnapshotResponse
      * @throws TencentCloudSDKException
      */
     public ApplyInstanceSnapshotResponse ApplyInstanceSnapshot(ApplyInstanceSnapshotRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ApplyInstanceSnapshotResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ApplyInstanceSnapshotResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ApplyInstanceSnapshot");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ApplyInstanceSnapshot", ApplyInstanceSnapshotResponse.class);
     }
 
     /**
@@ -96,24 +87,14 @@ public class LighthouseClient extends AbstractClient{
 * 如果实例原来绑定过密钥，那么原来的密钥将失效。
 * 如果实例原来是通过密码登录，绑定密钥后无法使用密码登录。
 * 支持批量操作。每次请求批量实例的上限为 100。如果批量实例存在不允许操作的实例，操作会以特定错误码返回。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req AssociateInstancesKeyPairsRequest
      * @return AssociateInstancesKeyPairsResponse
      * @throws TencentCloudSDKException
      */
     public AssociateInstancesKeyPairsResponse AssociateInstancesKeyPairs(AssociateInstancesKeyPairsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssociateInstancesKeyPairsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssociateInstancesKeyPairsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssociateInstancesKeyPairs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssociateInstancesKeyPairs", AssociateInstancesKeyPairsResponse.class);
     }
 
     /**
@@ -123,39 +104,32 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AttachCcnResponse AttachCcn(AttachCcnRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AttachCcnResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AttachCcnResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AttachCcn");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AttachCcn", AttachCcnResponse.class);
     }
 
     /**
      *本接口（AttachDisks）用于挂载一个或多个云硬盘。
+<li>只能挂载磁盘状态（DiskState）处于待挂载（UNATTACHED）状态的云硬盘，磁盘状态可通过接口查询云硬盘（DescribeDisks）获取</li>
      * @param req AttachDisksRequest
      * @return AttachDisksResponse
      * @throws TencentCloudSDKException
      */
     public AttachDisksResponse AttachDisks(AttachDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AttachDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AttachDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AttachDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AttachDisks", AttachDisksResponse.class);
+    }
+
+    /**
+     *本接口（CancelShareBlueprintAcrossAccounts）用于取消镜像跨账号共享。
+指定的镜像ID必须为自定义镜像，且指定账号ID必须已进行共享。
+     * @param req CancelShareBlueprintAcrossAccountsRequest
+     * @return CancelShareBlueprintAcrossAccountsResponse
+     * @throws TencentCloudSDKException
+     */
+    public CancelShareBlueprintAcrossAccountsResponse CancelShareBlueprintAcrossAccounts(CancelShareBlueprintAcrossAccountsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CancelShareBlueprintAcrossAccounts", CancelShareBlueprintAcrossAccountsResponse.class);
     }
 
     /**
@@ -165,18 +139,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateBlueprintResponse CreateBlueprint(CreateBlueprintRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateBlueprintResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateBlueprintResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateBlueprint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateBlueprint", CreateBlueprintResponse.class);
     }
 
     /**
@@ -186,18 +150,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDiskBackupResponse CreateDiskBackup(CreateDiskBackupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDiskBackupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDiskBackupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDiskBackup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDiskBackup", CreateDiskBackupResponse.class);
     }
 
     /**
@@ -207,28 +161,18 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDisksResponse CreateDisks(CreateDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDisks", CreateDisksResponse.class);
     }
 
     /**
      *本接口（CreateFirewallRules）用于在实例上添加防火墙规则。
 
 
-* FirewallVersion 为防火墙版本号，用户每次更新防火墙规则版本会自动加1，防止您更新的规则已过期，不填不考虑冲突。
+* FirewallVersion 为防火墙版本号，用户每次更新防火墙规则版本会自动加1，防止您更新的规则已过期，不填不考虑冲突。FirewallVersion可通过[DescribeFirewallRules](https://cloud.tencent.com/document/api/1207/48252)接口返回值中的FirewallVersion获取。
 
 在 FirewallRules 参数中：
-* Protocol 字段支持输入 TCP，UDP，ICMP，ALL。
+* Protocol 字段支持输入 TCP，UDP，ICMP，ICMPv6，ALL。
 * Port 字段允许输入 ALL，或者一个单独的端口号，或者用逗号分隔的离散端口号，或者用减号分隔的两个端口号代表的端口范围。当 Port 为范围时，减号分隔的第一个端口号小于第二个端口号。当 Protocol 字段不是 TCP 或 UDP 时，Port 字段只能为空或 ALL。Port 字段长度不得超过 64。
 * CidrBlock 字段允许输入符合 cidr 格式标准的任意字符串。租户之间网络隔离规则优先于防火墙中的内网规则。
 * Action 字段只允许输入 ACCEPT 或 DROP。
@@ -238,18 +182,30 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateFirewallRulesResponse CreateFirewallRules(CreateFirewallRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateFirewallRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateFirewallRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateFirewallRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateFirewallRules", CreateFirewallRulesResponse.class);
+    }
+
+    /**
+     *本接口 (CreateFirewallTemplate) 用于创建防火墙模板。
+     * @param req CreateFirewallTemplateRequest
+     * @return CreateFirewallTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateFirewallTemplateResponse CreateFirewallTemplate(CreateFirewallTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateFirewallTemplate", CreateFirewallTemplateResponse.class);
+    }
+
+    /**
+     *本接口 (CreateFirewallTemplateRules) 用于创建防火墙模板规则。
+     * @param req CreateFirewallTemplateRulesRequest
+     * @return CreateFirewallTemplateRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateFirewallTemplateRulesResponse CreateFirewallTemplateRules(CreateFirewallTemplateRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateFirewallTemplateRules", CreateFirewallTemplateRulesResponse.class);
     }
 
     /**
@@ -259,39 +215,20 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateInstanceSnapshotResponse CreateInstanceSnapshot(CreateInstanceSnapshotRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateInstanceSnapshotResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateInstanceSnapshotResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateInstanceSnapshot");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateInstanceSnapshot", CreateInstanceSnapshotResponse.class);
     }
 
     /**
      *本接口(CreateInstances)用于创建一个或多个指定套餐的轻量应用服务器实例。
+*创建实例时，如指定实例访问域名信息时，本次创建请求，仅支持购买一台实例。
      * @param req CreateInstancesRequest
      * @return CreateInstancesResponse
      * @throws TencentCloudSDKException
      */
     public CreateInstancesResponse CreateInstances(CreateInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateInstances", CreateInstancesResponse.class);
     }
 
     /**
@@ -301,39 +238,21 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateKeyPairResponse CreateKeyPair(CreateKeyPairRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateKeyPairResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateKeyPairResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateKeyPair");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateKeyPair", CreateKeyPairResponse.class);
     }
 
     /**
-     *本接口 (DeleteBlueprints) 用于删除镜像。
+     *本接口 (DeleteBlueprints) 用于删除镜像。可删除的镜像应满足如下条件：
+1、删除镜像接口需要镜像状态为NORMAL（正常）、ISOLATED（已隔离）、CREATEFAILED（创建失败）、SYNCING_FAILED（目的地域同步失败），其他状态下的镜像不支持删除操作。镜像状态，可通过[DescribeBlueprints](https://cloud.tencent.com/document/product/1207/47689)接口返回值中的BlueprintState获取。
+2、仅支持删除自定义镜像。
      * @param req DeleteBlueprintsRequest
      * @return DeleteBlueprintsResponse
      * @throws TencentCloudSDKException
      */
     public DeleteBlueprintsResponse DeleteBlueprints(DeleteBlueprintsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteBlueprintsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteBlueprintsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteBlueprints");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteBlueprints", DeleteBlueprintsResponse.class);
     }
 
     /**
@@ -344,27 +263,17 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteDiskBackupsResponse DeleteDiskBackups(DeleteDiskBackupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteDiskBackupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteDiskBackupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteDiskBackups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteDiskBackups", DeleteDiskBackupsResponse.class);
     }
 
     /**
      *本接口（DeleteFirewallRules）用于删除实例的防火墙规则。
 
-* FirewallVersion 用于指定要操作的防火墙的版本。传入 FirewallVersion 版本号若不等于当前防火墙的最新版本，将返回失败；若不传 FirewallVersion 则直接删除指定的规则。
+* FirewallVersion 用于指定要操作的防火墙的版本。传入 FirewallVersion 版本号若不等于当前防火墙的最新版本，将返回失败；若不传 FirewallVersion 则直接删除指定的规则。FirewallVersion可通过[DescribeFirewallRules](https://cloud.tencent.com/document/api/1207/48252)接口返回值中的FirewallVersion获取。
 
 在 FirewallRules 参数中：
-* Protocol 字段支持输入 TCP，UDP，ICMP，ALL。
+* Protocol 字段支持输入 TCP，UDP，ICMP，ICMPv6，ALL。
 * Port 字段允许输入 ALL，或者一个单独的端口号，或者用逗号分隔的离散端口号，或者用减号分隔的两个端口号代表的端口范围。当 Port 为范围时，减号分隔的第一个端口号小于第二个端口号。当 Protocol 字段不是 TCP 或 UDP 时，Port 字段只能为空或 ALL。Port 字段长度不得超过 64。
 * CidrBlock 字段允许输入符合 cidr 格式标准的任意字符串。租户之间网络隔离规则优先于防火墙中的内网规则。
 * Action 字段只允许输入 ACCEPT 或 DROP。
@@ -374,61 +283,54 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteFirewallRulesResponse DeleteFirewallRules(DeleteFirewallRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteFirewallRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteFirewallRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteFirewallRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteFirewallRules", DeleteFirewallRulesResponse.class);
+    }
+
+    /**
+     *本接口 (DeleteFirewallTemplate) 用于删除防火墙模板。
+     * @param req DeleteFirewallTemplateRequest
+     * @return DeleteFirewallTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteFirewallTemplateResponse DeleteFirewallTemplate(DeleteFirewallTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteFirewallTemplate", DeleteFirewallTemplateResponse.class);
+    }
+
+    /**
+     *本接口 (DeleteFirewallTemplateRules) 用于删除防火墙模板规则。
+     * @param req DeleteFirewallTemplateRulesRequest
+     * @return DeleteFirewallTemplateRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteFirewallTemplateRulesResponse DeleteFirewallTemplateRules(DeleteFirewallTemplateRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteFirewallTemplateRules", DeleteFirewallTemplateRulesResponse.class);
     }
 
     /**
      *本接口（DeleteKeyPairs）用于删除密钥对。
+- 不能删除已被实例或镜像引用的密钥对，删除之前需要确保没有被任何实例和镜像引用。
      * @param req DeleteKeyPairsRequest
      * @return DeleteKeyPairsResponse
      * @throws TencentCloudSDKException
      */
     public DeleteKeyPairsResponse DeleteKeyPairs(DeleteKeyPairsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteKeyPairsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteKeyPairsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteKeyPairs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteKeyPairs", DeleteKeyPairsResponse.class);
     }
 
     /**
      *本接口（DeleteSnapshots）用于删除快照。
-快照必须处于 NORMAL 状态，快照状态可以通过 DescribeSnapshots 接口查询，见输出参数中 SnapshotState 字段解释。
+快照必须处于 NORMAL 状态，快照状态可以通过 <a href="https://cloud.tencent.com/document/product/1207/54388" target="_blank">DescribeSnapshots</a> 接口查询，见输出参数中 SnapshotState 字段解释。
      * @param req DeleteSnapshotsRequest
      * @return DeleteSnapshotsResponse
      * @throws TencentCloudSDKException
      */
     public DeleteSnapshotsResponse DeleteSnapshots(DeleteSnapshotsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSnapshotsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSnapshotsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSnapshots");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSnapshots", DeleteSnapshotsResponse.class);
     }
 
     /**
@@ -438,18 +340,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAllScenesResponse DescribeAllScenes(DescribeAllScenesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAllScenesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAllScenesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAllScenes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAllScenes", DescribeAllScenesResponse.class);
     }
 
     /**
@@ -459,39 +351,19 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBlueprintInstancesResponse DescribeBlueprintInstances(DescribeBlueprintInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBlueprintInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBlueprintInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBlueprintInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBlueprintInstances", DescribeBlueprintInstancesResponse.class);
     }
 
     /**
-     *本接口（DescribeBlueprints）用于查询镜像信息。
+     *本接口（DescribeBlueprints）用于查询镜像信息。该接口返回的镜像类型有：自定义镜像、共享镜像、公共镜像。
      * @param req DescribeBlueprintsRequest
      * @return DescribeBlueprintsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeBlueprintsResponse DescribeBlueprints(DescribeBlueprintsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBlueprintsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBlueprintsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBlueprints");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBlueprints", DescribeBlueprintsResponse.class);
     }
 
     /**
@@ -501,18 +373,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBundleDiscountResponse DescribeBundleDiscount(DescribeBundleDiscountRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBundleDiscountResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBundleDiscountResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBundleDiscount");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBundleDiscount", DescribeBundleDiscountResponse.class);
     }
 
     /**
@@ -522,18 +384,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBundlesResponse DescribeBundles(DescribeBundlesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBundlesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBundlesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBundles");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBundles", DescribeBundlesResponse.class);
     }
 
     /**
@@ -543,18 +395,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCcnAttachedInstancesResponse DescribeCcnAttachedInstances(DescribeCcnAttachedInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCcnAttachedInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCcnAttachedInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCcnAttachedInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCcnAttachedInstances", DescribeCcnAttachedInstancesResponse.class);
     }
 
     /**
@@ -564,18 +406,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDiskBackupsResponse DescribeDiskBackups(DescribeDiskBackupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDiskBackupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDiskBackupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDiskBackups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDiskBackups", DescribeDiskBackupsResponse.class);
     }
 
     /**
@@ -585,18 +417,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDiskBackupsDeniedActionsResponse DescribeDiskBackupsDeniedActions(DescribeDiskBackupsDeniedActionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDiskBackupsDeniedActionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDiskBackupsDeniedActionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDiskBackupsDeniedActions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDiskBackupsDeniedActions", DescribeDiskBackupsDeniedActionsResponse.class);
     }
 
     /**
@@ -606,18 +428,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDiskConfigsResponse DescribeDiskConfigs(DescribeDiskConfigsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDiskConfigsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDiskConfigsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDiskConfigs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDiskConfigs", DescribeDiskConfigsResponse.class);
     }
 
     /**
@@ -627,18 +439,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDiskDiscountResponse DescribeDiskDiscount(DescribeDiskDiscountRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDiskDiscountResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDiskDiscountResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDiskDiscount");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDiskDiscount", DescribeDiskDiscountResponse.class);
     }
 
     /**
@@ -648,18 +450,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDisksResponse DescribeDisks(DescribeDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDisks", DescribeDisksResponse.class);
     }
 
     /**
@@ -669,18 +461,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDisksDeniedActionsResponse DescribeDisksDeniedActions(DescribeDisksDeniedActionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDisksDeniedActionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDisksDeniedActionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDisksDeniedActions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDisksDeniedActions", DescribeDisksDeniedActionsResponse.class);
     }
 
     /**
@@ -690,18 +472,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDisksReturnableResponse DescribeDisksReturnable(DescribeDisksReturnableRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDisksReturnableResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDisksReturnableResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDisksReturnable");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDisksReturnable", DescribeDisksReturnableResponse.class);
     }
 
     /**
@@ -711,18 +483,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDockerActivitiesResponse DescribeDockerActivities(DescribeDockerActivitiesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDockerActivitiesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDockerActivitiesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDockerActivities");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDockerActivities", DescribeDockerActivitiesResponse.class);
     }
 
     /**
@@ -732,18 +494,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDockerContainerConfigurationResponse DescribeDockerContainerConfiguration(DescribeDockerContainerConfigurationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDockerContainerConfigurationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDockerContainerConfigurationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDockerContainerConfiguration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDockerContainerConfiguration", DescribeDockerContainerConfigurationResponse.class);
     }
 
     /**
@@ -753,18 +505,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDockerContainerDetailResponse DescribeDockerContainerDetail(DescribeDockerContainerDetailRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDockerContainerDetailResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDockerContainerDetailResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDockerContainerDetail");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDockerContainerDetail", DescribeDockerContainerDetailResponse.class);
     }
 
     /**
@@ -774,18 +516,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDockerContainersResponse DescribeDockerContainers(DescribeDockerContainersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDockerContainersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDockerContainersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDockerContainers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDockerContainers", DescribeDockerContainersResponse.class);
     }
 
     /**
@@ -795,18 +527,8 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeFirewallRulesResponse DescribeFirewallRules(DescribeFirewallRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeFirewallRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeFirewallRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeFirewallRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeFirewallRules", DescribeFirewallRulesResponse.class);
     }
 
     /**
@@ -816,18 +538,63 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeFirewallRulesTemplateResponse DescribeFirewallRulesTemplate(DescribeFirewallRulesTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeFirewallRulesTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeFirewallRulesTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeFirewallRulesTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeFirewallRulesTemplate", DescribeFirewallRulesTemplateResponse.class);
+    }
+
+    /**
+     *本接口 (DescribeFirewallTemplateApplyRecords) 用于查询防火墙模板应用记录列表。
+     * @param req DescribeFirewallTemplateApplyRecordsRequest
+     * @return DescribeFirewallTemplateApplyRecordsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFirewallTemplateApplyRecordsResponse DescribeFirewallTemplateApplyRecords(DescribeFirewallTemplateApplyRecordsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeFirewallTemplateApplyRecords", DescribeFirewallTemplateApplyRecordsResponse.class);
+    }
+
+    /**
+     *本接口 (DescribeFirewallTemplateQuota) 用于查询防火墙模板配额。
+     * @param req DescribeFirewallTemplateQuotaRequest
+     * @return DescribeFirewallTemplateQuotaResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFirewallTemplateQuotaResponse DescribeFirewallTemplateQuota(DescribeFirewallTemplateQuotaRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeFirewallTemplateQuota", DescribeFirewallTemplateQuotaResponse.class);
+    }
+
+    /**
+     *本接口 (DescribeFirewallTemplateRuleQuota) 用于查询防火墙模板规则配额。
+     * @param req DescribeFirewallTemplateRuleQuotaRequest
+     * @return DescribeFirewallTemplateRuleQuotaResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFirewallTemplateRuleQuotaResponse DescribeFirewallTemplateRuleQuota(DescribeFirewallTemplateRuleQuotaRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeFirewallTemplateRuleQuota", DescribeFirewallTemplateRuleQuotaResponse.class);
+    }
+
+    /**
+     *本接口 (DescribeFirewallTemplateRules) 用于查询防火墙模板规则列表。
+     * @param req DescribeFirewallTemplateRulesRequest
+     * @return DescribeFirewallTemplateRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFirewallTemplateRulesResponse DescribeFirewallTemplateRules(DescribeFirewallTemplateRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeFirewallTemplateRules", DescribeFirewallTemplateRulesResponse.class);
+    }
+
+    /**
+     *本接口 (DescribeFirewallTemplates) 用于查询防火墙模板列表。
+     * @param req DescribeFirewallTemplatesRequest
+     * @return DescribeFirewallTemplatesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeFirewallTemplatesResponse DescribeFirewallTemplates(DescribeFirewallTemplatesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeFirewallTemplates", DescribeFirewallTemplatesResponse.class);
     }
 
     /**
@@ -837,45 +604,14 @@ public class LighthouseClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGeneralResourceQuotasResponse DescribeGeneralResourceQuotas(DescribeGeneralResourceQuotasRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGeneralResourceQuotasResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGeneralResourceQuotasResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGeneralResourceQuotas");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用于查询实例默认登录密钥属性。
-     * @param req DescribeInstanceLoginKeyPairAttributeRequest
-     * @return DescribeInstanceLoginKeyPairAttributeResponse
-     * @throws TencentCloudSDKException
-     */
-    public DescribeInstanceLoginKeyPairAttributeResponse DescribeInstanceLoginKeyPairAttribute(DescribeInstanceLoginKeyPairAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstanceLoginKeyPairAttributeResponse> rsp = null;
-        String rspStr = "";
-        req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstanceLoginKeyPairAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstanceLoginKeyPairAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGeneralResourceQuotas", DescribeGeneralResourceQuotasResponse.class);
     }
 
     /**
      *本接口 ( DescribeInstanceVncUrl ) 用于查询实例管理终端地址，获取的地址可用于实例的 VNC 登录。
 
-* 处于 `STOPPED` 状态的机器无法使用此功能。
+* 仅处于 `RUNNING`，`RESCUE_MODE` 状态的机器，且当前机器无变更中操作，才可使用此功能。
 * 管理终端地址的有效期为 15 秒，调用接口成功后如果 15 秒内不使用该链接进行访问，管理终端地址自动失效，您需要重新查询。
 * 管理终端地址一旦被访问，将自动失效，您需要重新查询。
 * 如果连接断开，每分钟内重新连接的次数不能超过 30 次。
@@ -886,24 +622,13 @@ public class LighthouseClient extends AbstractClient{
 ```
 https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F%2Fbjvnc.qcloud.com%3A26789%2Fvnc%3Fs%3DaHpjWnRVMFNhYmxKdDM5MjRHNlVTSVQwajNUSW0wb2tBbmFtREFCTmFrcy8vUUNPMG0wSHZNOUUxRm5PMmUzWmFDcWlOdDJIbUJxSTZDL0RXcHZxYnZZMmRkWWZWcEZia2lyb09XMzdKNmM9
 ```
-
      * @param req DescribeInstanceVncUrlRequest
      * @return DescribeInstanceVncUrlResponse
      * @throws TencentCloudSDKException
      */
     public DescribeInstanceVncUrlResponse DescribeInstanceVncUrl(DescribeInstanceVncUrlRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstanceVncUrlResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstanceVncUrlResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstanceVncUrl");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstanceVncUrl", DescribeInstanceVncUrlResponse.class);
     }
 
     /**
@@ -918,18 +643,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeInstancesResponse DescribeInstances(DescribeInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstances", DescribeInstancesResponse.class);
     }
 
     /**
@@ -939,18 +654,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeInstancesDeniedActionsResponse DescribeInstancesDeniedActions(DescribeInstancesDeniedActionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstancesDeniedActionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstancesDeniedActionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstancesDeniedActions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstancesDeniedActions", DescribeInstancesDeniedActionsResponse.class);
     }
 
     /**
@@ -960,18 +665,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeInstancesDiskNumResponse DescribeInstancesDiskNum(DescribeInstancesDiskNumRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstancesDiskNumResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstancesDiskNumResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstancesDiskNum");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstancesDiskNum", DescribeInstancesDiskNumResponse.class);
     }
 
     /**
@@ -981,18 +676,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeInstancesReturnableResponse DescribeInstancesReturnable(DescribeInstancesReturnableRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstancesReturnableResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstancesReturnableResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstancesReturnable");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstancesReturnable", DescribeInstancesReturnableResponse.class);
     }
 
     /**
@@ -1002,18 +687,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeInstancesTrafficPackagesResponse DescribeInstancesTrafficPackages(DescribeInstancesTrafficPackagesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeInstancesTrafficPackagesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeInstancesTrafficPackagesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeInstancesTrafficPackages");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeInstancesTrafficPackages", DescribeInstancesTrafficPackagesResponse.class);
     }
 
     /**
@@ -1023,18 +698,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeKeyPairsResponse DescribeKeyPairs(DescribeKeyPairsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeKeyPairsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeKeyPairsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeKeyPairs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeKeyPairs", DescribeKeyPairsResponse.class);
     }
 
     /**
@@ -1044,18 +709,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeModifyInstanceBundlesResponse DescribeModifyInstanceBundles(DescribeModifyInstanceBundlesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeModifyInstanceBundlesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeModifyInstanceBundlesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeModifyInstanceBundles");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeModifyInstanceBundles", DescribeModifyInstanceBundlesResponse.class);
     }
 
     /**
@@ -1065,39 +720,19 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeRegionsResponse DescribeRegions(DescribeRegionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRegionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRegionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRegions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRegions", DescribeRegionsResponse.class);
     }
 
     /**
-     *本接口（DescribeResetInstanceBlueprints）查询重置实例的镜像信息。
+     *本接口（DescribeResetInstanceBlueprints）查询重置实例的镜像信息。对于游戏专区实例，该接口只会返回当前镜像，且不支持 Filters 参数。
      * @param req DescribeResetInstanceBlueprintsRequest
      * @return DescribeResetInstanceBlueprintsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeResetInstanceBlueprintsResponse DescribeResetInstanceBlueprints(DescribeResetInstanceBlueprintsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeResetInstanceBlueprintsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeResetInstanceBlueprintsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeResetInstanceBlueprints");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeResetInstanceBlueprints", DescribeResetInstanceBlueprintsResponse.class);
     }
 
     /**
@@ -1107,18 +742,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeScenesResponse DescribeScenes(DescribeScenesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeScenesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeScenesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeScenes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeScenes", DescribeScenesResponse.class);
     }
 
     /**
@@ -1128,18 +753,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeSnapshotsResponse DescribeSnapshots(DescribeSnapshotsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSnapshotsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSnapshots");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSnapshots", DescribeSnapshotsResponse.class);
     }
 
     /**
@@ -1149,18 +764,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeSnapshotsDeniedActionsResponse DescribeSnapshotsDeniedActions(DescribeSnapshotsDeniedActionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSnapshotsDeniedActionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotsDeniedActionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSnapshotsDeniedActions");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSnapshotsDeniedActions", DescribeSnapshotsDeniedActionsResponse.class);
     }
 
     /**
@@ -1170,18 +775,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DescribeZonesResponse DescribeZones(DescribeZonesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeZonesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeZonesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeZones");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeZones", DescribeZonesResponse.class);
     }
 
     /**
@@ -1191,39 +786,21 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public DetachCcnResponse DetachCcn(DetachCcnRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetachCcnResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetachCcnResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetachCcn");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetachCcn", DetachCcnResponse.class);
     }
 
     /**
-     *本接口（DetachDisks）用于卸载一个或多个云硬盘。
+     *本接口（DetachDisks）用于卸载一个或多个云硬盘。该操作目前仅支持云硬盘类型为数据盘的云硬盘。
+- 支持批量操作，卸载挂载在同一主机上的多块云硬盘。如果多块云硬盘中存在不允许卸载的云硬盘，则操作不执行，返回特定的错误码。
+- 本接口为异步接口，当请求成功返回时，云硬盘并未立即卸载，可通过接口[DescribeDisks](https://cloud.tencent.com/document/product/362/16315)来查询对应云硬盘的状态，如果云硬盘的状态由“ATTACHED”变为“UNATTACHED”，则为卸载成功。
      * @param req DetachDisksRequest
      * @return DetachDisksResponse
      * @throws TencentCloudSDKException
      */
     public DetachDisksResponse DetachDisks(DetachDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetachDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetachDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetachDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetachDisks", DetachDisksResponse.class);
     }
 
     /**
@@ -1231,26 +808,16 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 
 * 只支持 [RUNNING, STOPPED] 状态的 LINUX_UNIX 操作系统的实例。处于 RUNNING 状态的实例会强制关机，然后解绑。
 * 解绑密钥后，实例可以通过原来设置的密码登录。
-* 如果原来没有设置密码，解绑后将无法使用 SSH 登录。可以调用 ResetInstancesPassword 接口来设置登录密码。
+* 如果原来没有设置密码，解绑后将无法使用 SSH 登录。可以调用 <a href="https://cloud.tencent.com/document/product/1207/55546" target="_blank">ResetInstancesPassword</a> 接口来设置登录密码。
 * 支持批量操作。每次请求批量实例的上限为 100。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req DisassociateInstancesKeyPairsRequest
      * @return DisassociateInstancesKeyPairsResponse
      * @throws TencentCloudSDKException
      */
     public DisassociateInstancesKeyPairsResponse DisassociateInstancesKeyPairs(DisassociateInstancesKeyPairsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateInstancesKeyPairsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateInstancesKeyPairsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateInstancesKeyPairs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateInstancesKeyPairs", DisassociateInstancesKeyPairsResponse.class);
     }
 
     /**
@@ -1260,18 +827,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ImportKeyPairResponse ImportKeyPair(ImportKeyPairRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ImportKeyPairResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ImportKeyPairResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ImportKeyPair");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ImportKeyPair", ImportKeyPairResponse.class);
     }
 
     /**
@@ -1281,18 +838,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public InquirePriceCreateBlueprintResponse InquirePriceCreateBlueprint(InquirePriceCreateBlueprintRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceCreateBlueprintResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceCreateBlueprintResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceCreateBlueprint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceCreateBlueprint", InquirePriceCreateBlueprintResponse.class);
     }
 
     /**
@@ -1302,18 +849,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public InquirePriceCreateDisksResponse InquirePriceCreateDisks(InquirePriceCreateDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceCreateDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceCreateDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceCreateDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceCreateDisks", InquirePriceCreateDisksResponse.class);
     }
 
     /**
@@ -1323,18 +860,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public InquirePriceCreateInstancesResponse InquirePriceCreateInstances(InquirePriceCreateInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceCreateInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceCreateInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceCreateInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceCreateInstances", InquirePriceCreateInstancesResponse.class);
     }
 
     /**
@@ -1344,18 +871,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public InquirePriceRenewDisksResponse InquirePriceRenewDisks(InquirePriceRenewDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceRenewDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceRenewDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceRenewDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceRenewDisks", InquirePriceRenewDisksResponse.class);
     }
 
     /**
@@ -1365,18 +882,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public InquirePriceRenewInstancesResponse InquirePriceRenewInstances(InquirePriceRenewInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceRenewInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceRenewInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceRenewInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceRenewInstances", InquirePriceRenewInstancesResponse.class);
     }
 
     /**
@@ -1391,18 +898,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public IsolateDisksResponse IsolateDisks(IsolateDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<IsolateDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<IsolateDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "IsolateDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "IsolateDisks", IsolateDisksResponse.class);
     }
 
     /**
@@ -1410,24 +907,14 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 只有状态为 RUNNING 或 STOPPED 的实例才可以进行此操作。
 * 接口调用成功后，实例会进入SHUTDOWN 状态。
 * 支持批量操作。每次请求批量资源（包括实例与数据盘）的上限为 20。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req IsolateInstancesRequest
      * @return IsolateInstancesResponse
      * @throws TencentCloudSDKException
      */
     public IsolateInstancesResponse IsolateInstances(IsolateInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<IsolateInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<IsolateInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "IsolateInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "IsolateInstances", IsolateInstancesResponse.class);
     }
 
     /**
@@ -1437,18 +924,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ModifyBlueprintAttributeResponse ModifyBlueprintAttribute(ModifyBlueprintAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyBlueprintAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyBlueprintAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyBlueprintAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyBlueprintAttribute", ModifyBlueprintAttributeResponse.class);
     }
 
     /**
@@ -1458,91 +935,74 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ModifyDiskBackupsAttributeResponse ModifyDiskBackupsAttribute(ModifyDiskBackupsAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDiskBackupsAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDiskBackupsAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDiskBackupsAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDiskBackupsAttribute", ModifyDiskBackupsAttributeResponse.class);
     }
 
     /**
      *本接口(ModifyDisksAttribute)用于修改云硬盘属性。
+云硬盘必须处于以下状态:
+<li> ATTACHED（已挂载）</li>
+<li> UNATTACHED（待挂载）</li>
      * @param req ModifyDisksAttributeRequest
      * @return ModifyDisksAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyDisksAttributeResponse ModifyDisksAttribute(ModifyDisksAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDisksAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDisksAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDisksAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDisksAttribute", ModifyDisksAttributeResponse.class);
+    }
+
+    /**
+     *本接口(ModifyDisksBackupQuota)用于调整云硬盘备份点配额。
+该操作目前仅支持云硬盘类型为数据盘且状态是ATTACHED（已挂载）或 UNATTACHED（待挂载）的云硬盘。
+支持批量操作。每次批量请求云硬盘数量上限为15个。
+     * @param req ModifyDisksBackupQuotaRequest
+     * @return ModifyDisksBackupQuotaResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyDisksBackupQuotaResponse ModifyDisksBackupQuota(ModifyDisksBackupQuotaRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyDisksBackupQuota", ModifyDisksBackupQuotaResponse.class);
     }
 
     /**
      *本接口（ModifyDisksRenewFlag）用于修改云硬盘续费标识。
+云硬盘需要处于以下状态：
+<li> ATTACHED （已挂载）</li>
+<li> UNATTACHED （待挂载）</li>
+<li> ATTACHING （挂载中） </li>
+<li> DETACHING （卸载中）</li>
      * @param req ModifyDisksRenewFlagRequest
      * @return ModifyDisksRenewFlagResponse
      * @throws TencentCloudSDKException
      */
     public ModifyDisksRenewFlagResponse ModifyDisksRenewFlag(ModifyDisksRenewFlagRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDisksRenewFlagResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDisksRenewFlagResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDisksRenewFlag");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDisksRenewFlag", ModifyDisksRenewFlagResponse.class);
     }
 
     /**
-     *修改实例内的Docker容器，之后可以通过返回的ActivityId调用DescribeDockerActivities接口查询重建情况。
+     *修改实例内的Docker容器，之后可以通过返回的ActivityId调用<a href="https://cloud.tencent.com/document/product/1207/95476" target="_blank">DescribeDockerActivities</a>接口查询重建情况。
 请注意：本接口会重新创建并运行实例内的Docker容器。
      * @param req ModifyDockerContainerRequest
      * @return ModifyDockerContainerResponse
      * @throws TencentCloudSDKException
      */
     public ModifyDockerContainerResponse ModifyDockerContainer(ModifyDockerContainerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDockerContainerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDockerContainerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDockerContainer");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDockerContainer", ModifyDockerContainerResponse.class);
     }
 
     /**
      *本接口（ModifyFirewallRuleDescription）用于修改单条防火墙规则描述。
 
-* FirewallVersion 用于指定要操作的防火墙的版本。传入 FirewallVersion 版本号若不等于当前防火墙的最新版本，将返回失败；若不传 FirewallVersion 则直接修改防火墙规则备注。
+* FirewallVersion 用于指定要操作的防火墙的版本。传入 FirewallVersion 版本号若不等于当前防火墙的最新版本，将返回失败；若不传 FirewallVersion 则直接修改防火墙规则备注。FirewallVersion可通过[DescribeFirewallRules](https://cloud.tencent.com/document/api/1207/48252)接口返回值中的FirewallVersion获取。
+
+用FirewallRule参数来指定要修改的防火墙规则，使用其中的Protocol， Port， CidrBlock，Action字段来匹配要修改的防火墙规则。
 
 在 FirewallRule 参数中：
-* Protocol 字段支持输入 TCP，UDP，ICMP，ALL。
+* Protocol 字段支持输入 TCP，UDP，ICMP，ICMPv6，ALL。
 * Port 字段允许输入 ALL，或者一个单独的端口号，或者用逗号分隔的离散端口号，或者用减号分隔的两个端口号代表的端口范围。当 Port 为范围时，减号分隔的第一个端口号小于第二个端口号。当 Protocol 字段不是 TCP 或 UDP 时，Port 字段只能为空或 ALL。Port 字段长度不得超过 64。
 * CidrBlock 字段允许输入符合 cidr 格式标准的任意字符串。租户之间网络隔离规则优先于防火墙中的内网规则。
 * Action 字段只允许输入 ACCEPT 或 DROP。
@@ -1552,18 +1012,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ModifyFirewallRuleDescriptionResponse ModifyFirewallRuleDescription(ModifyFirewallRuleDescriptionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyFirewallRuleDescriptionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyFirewallRuleDescriptionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyFirewallRuleDescription");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyFirewallRuleDescription", ModifyFirewallRuleDescriptionResponse.class);
     }
 
     /**
@@ -1571,10 +1021,10 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 
 本接口先删除当前实例的所有防火墙规则，然后添加新的规则。
 
-* FirewallVersion 用于指定要操作的防火墙的版本。传入 FirewallVersion 版本号若不等于当前防火墙的最新版本，将返回失败；若不传 FirewallVersion 则直接重置防火墙规则。
+* FirewallVersion 用于指定要操作的防火墙的版本。传入 FirewallVersion 版本号若不等于当前防火墙的最新版本，将返回失败；若不传 FirewallVersion 则直接重置防火墙规则。可通过[DescribeFirewallRules](https://cloud.tencent.com/document/api/1207/48252)接口返回值中的FirewallVersion获取。
 
 在 FirewallRules 参数中：
-* Protocol 字段支持输入 TCP，UDP，ICMP，ALL。
+* Protocol 字段支持输入 TCP，UDP，ICMP，ICMPv6，ALL。
 * Port 字段允许输入 ALL，或者一个单独的端口号，或者用逗号分隔的离散端口号，或者用减号分隔的两个端口号代表的端口范围。当 Port 为范围时，减号分隔的第一个端口号小于第二个端口号。当 Protocol 字段不是 TCP 或 UDP 时，Port 字段只能为空或 ALL。Port 字段长度不得超过 64。
 * CidrBlock 字段允许输入符合 cidr 格式标准的任意字符串。租户之间网络隔离规则优先于防火墙中的内网规则。
 * Action 字段只允许输入 ACCEPT 或 DROP。
@@ -1584,18 +1034,19 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ModifyFirewallRulesResponse ModifyFirewallRules(ModifyFirewallRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyFirewallRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyFirewallRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyFirewallRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyFirewallRules", ModifyFirewallRulesResponse.class);
+    }
+
+    /**
+     *本接口 (ModifyFirewallTemplate) 用于修改防火墙模板。
+     * @param req ModifyFirewallTemplateRequest
+     * @return ModifyFirewallTemplateResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyFirewallTemplateResponse ModifyFirewallTemplate(ModifyFirewallTemplateRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyFirewallTemplate", ModifyFirewallTemplateResponse.class);
     }
 
     /**
@@ -1607,65 +1058,22 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ModifyInstancesAttributeResponse ModifyInstancesAttribute(ModifyInstancesAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyInstancesAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyInstancesAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyInstancesAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyInstancesAttribute", ModifyInstancesAttributeResponse.class);
     }
 
     /**
      *本接口(ModifyInstancesBundle)用于变更一个或多个轻量应用服务器实例套餐。
 * 只有状态为 RUNNING，STOPPED的实例才可以进行此操作。
 * 支持批量操作。每次请求批量实例的上限为 30。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req ModifyInstancesBundleRequest
      * @return ModifyInstancesBundleResponse
      * @throws TencentCloudSDKException
      */
     public ModifyInstancesBundleResponse ModifyInstancesBundle(ModifyInstancesBundleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyInstancesBundleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyInstancesBundleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyInstancesBundle");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
-    }
-
-    /**
-     *本接口用于设置实例默认登录密钥对属性。
-
-
-     * @param req ModifyInstancesLoginKeyPairAttributeRequest
-     * @return ModifyInstancesLoginKeyPairAttributeResponse
-     * @throws TencentCloudSDKException
-     */
-    public ModifyInstancesLoginKeyPairAttributeResponse ModifyInstancesLoginKeyPairAttribute(ModifyInstancesLoginKeyPairAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyInstancesLoginKeyPairAttributeResponse> rsp = null;
-        String rspStr = "";
-        req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyInstancesLoginKeyPairAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyInstancesLoginKeyPairAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyInstancesBundle", ModifyInstancesBundleResponse.class);
     }
 
     /**
@@ -1678,18 +1086,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ModifyInstancesRenewFlagResponse ModifyInstancesRenewFlag(ModifyInstancesRenewFlagRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyInstancesRenewFlagResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyInstancesRenewFlagResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyInstancesRenewFlag");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyInstancesRenewFlag", ModifyInstancesRenewFlagResponse.class);
     }
 
     /**
@@ -1700,18 +1098,8 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ModifySnapshotAttributeResponse ModifySnapshotAttribute(ModifySnapshotAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySnapshotAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySnapshotAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySnapshotAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySnapshotAttribute", ModifySnapshotAttributeResponse.class);
     }
 
     /**
@@ -1720,66 +1108,36 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 只有状态为 RUNNING 的实例才可以进行此操作。
 * 接口调用成功时，实例会进入 REBOOTING 状态；重启实例成功时，实例会进入 RUNNING 状态。
 * 支持批量操作，每次请求批量实例的上限为 100。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req RebootInstancesRequest
      * @return RebootInstancesResponse
      * @throws TencentCloudSDKException
      */
     public RebootInstancesResponse RebootInstances(RebootInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RebootInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RebootInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RebootInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RebootInstances", RebootInstancesResponse.class);
     }
 
     /**
-     *删除实例内的Docker容器，之后可以通过返回的ActivityId调用DescribeDockerActivities接口查询删除情况。
+     *删除实例内的Docker容器，之后可以通过返回的ActivityId调用[DescribeDockerActivities](https://cloud.tencent.com/document/product/1207/95476)接口查询删除情况。
      * @param req RemoveDockerContainersRequest
      * @return RemoveDockerContainersResponse
      * @throws TencentCloudSDKException
      */
     public RemoveDockerContainersResponse RemoveDockerContainers(RemoveDockerContainersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RemoveDockerContainersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RemoveDockerContainersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RemoveDockerContainers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RemoveDockerContainers", RemoveDockerContainersResponse.class);
     }
 
     /**
-     *重命名实例内的Docker容器，之后可以通过返回的ActivityId调用DescribeDockerActivities接口查询重命名情况。
+     *重命名实例内的Docker容器，之后可以通过返回的ActivityId调用[DescribeDockerActivities](https://cloud.tencent.com/document/product/1207/95476)接口查询重命名情况。
      * @param req RenameDockerContainerRequest
      * @return RenameDockerContainerResponse
      * @throws TencentCloudSDKException
      */
     public RenameDockerContainerResponse RenameDockerContainer(RenameDockerContainerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RenameDockerContainerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RenameDockerContainerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RenameDockerContainer");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RenameDockerContainer", RenameDockerContainerResponse.class);
     }
 
     /**
@@ -1793,63 +1151,44 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public RenewDisksResponse RenewDisks(RenewDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RenewDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RenewDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RenewDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RenewDisks", RenewDisksResponse.class);
     }
 
     /**
      *本接口(RenewInstances)用于续费一个或多个轻量应用服务器实例。
 * 只有状态为 RUNNING，STOPPED 或 SHUTDOWN 的实例才可以进行此操作。
 * 支持批量操作。每次请求批量实例的上限为 100。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req RenewInstancesRequest
      * @return RenewInstancesResponse
      * @throws TencentCloudSDKException
      */
     public RenewInstancesResponse RenewInstances(RenewInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RenewInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RenewInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RenewInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RenewInstances", RenewInstancesResponse.class);
     }
 
     /**
-     *重新创建并运行实例内的Docker容器，之后可以通过返回的ActivityId调用DescribeDockerActivities接口查询重建情况。
+     *本接口 (ReplaceFirewallTemplateRules) 用于替换防火墙模板规则。
+     * @param req ReplaceFirewallTemplateRuleRequest
+     * @return ReplaceFirewallTemplateRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReplaceFirewallTemplateRuleResponse ReplaceFirewallTemplateRule(ReplaceFirewallTemplateRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ReplaceFirewallTemplateRule", ReplaceFirewallTemplateRuleResponse.class);
+    }
+
+    /**
+     *重新创建并运行实例内的Docker容器，之后可以通过返回的ActivityId调用[DescribeDockerActivities](https://cloud.tencent.com/document/product/1207/95476)接口查询重建情况。
      * @param req RerunDockerContainerRequest
      * @return RerunDockerContainerResponse
      * @throws TencentCloudSDKException
      */
     public RerunDockerContainerResponse RerunDockerContainer(RerunDockerContainerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RerunDockerContainerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RerunDockerContainerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RerunDockerContainer");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RerunDockerContainer", RerunDockerContainerResponse.class);
     }
 
     /**
@@ -1859,133 +1198,110 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
      * @throws TencentCloudSDKException
      */
     public ResetAttachCcnResponse ResetAttachCcn(ResetAttachCcnRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetAttachCcnResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetAttachCcnResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetAttachCcn");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetAttachCcn", ResetAttachCcnResponse.class);
+    }
+
+    /**
+     *本接口 (ResetFirewallTemplateRules) 用于重置防火墙模板下所有规则。
+     * @param req ResetFirewallTemplateRulesRequest
+     * @return ResetFirewallTemplateRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResetFirewallTemplateRulesResponse ResetFirewallTemplateRules(ResetFirewallTemplateRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ResetFirewallTemplateRules", ResetFirewallTemplateRulesResponse.class);
     }
 
     /**
      *本接口（ResetInstance）用于重装指定实例上的镜像。
 
-* 如果指定了 BlueprintId 参数，则使用指定的镜像重装；否则按照当前实例使用的镜像进行重装。
-* 系统盘将会被格式化，并重置；请确保系统盘中无重要文件。
-* 目前不支持实例使用该接口实现 LINUX_UNIX 和 WINDOWS 操作系统切换。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 仅`RUNNING`，`STOPPED`状态的机器，且当前机器无变更中的操作，才支持重装系统。
+* 如果指定了 BlueprintId 参数，则使用指定的镜像重装，否则按照当前实例使用的镜像进行重装。
+* 非中国大陆地域的实例不支持使用该接口实现LIUNX_UNIX和WINDOWS操作系统切换。
+* 系统盘将会被格式化，并重置，请确保系统盘中无重要文件。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 对于游戏专区实例，仅支持重装当前镜像。
      * @param req ResetInstanceRequest
      * @return ResetInstanceResponse
      * @throws TencentCloudSDKException
      */
     public ResetInstanceResponse ResetInstance(ResetInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetInstance", ResetInstanceResponse.class);
     }
 
     /**
      *本接口（ResetInstancesPassword）用于将实例操作系统的密码重置为用户指定的密码。
-* 只修改管理员帐号的密码。实例的操作系统不同，管理员帐号也会不一样（Windows 为 Administrator，Ubuntu 为 ubuntu ，其它系统为 root）。
+* 只修改管理员账号的密码。实例的操作系统不同，管理员账号也会不一样（Windows 为 Administrator，Ubuntu 为 ubuntu ，其它系统为 root）。
 * 支持批量操作。将多个实例操作系统的密码重置为相同的密码。每次请求批量实例的上限为 100。
 * 建议对运行中的实例先手动关机，然后再进行密码重置。如实例处于运行中状态，本接口操作过程中会对实例进行关机操作，尝试正常关机失败后进行强制关机。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
 注意：强制关机的效果等同于关闭物理计算机的电源开关。强制关机可能会导致数据丢失或文件系统损坏。
      * @param req ResetInstancesPasswordRequest
      * @return ResetInstancesPasswordResponse
      * @throws TencentCloudSDKException
      */
     public ResetInstancesPasswordResponse ResetInstancesPassword(ResetInstancesPasswordRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetInstancesPasswordResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetInstancesPasswordResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetInstancesPassword");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetInstancesPassword", ResetInstancesPasswordResponse.class);
     }
 
     /**
-     *重启实例内的Docker容器，之后可以通过返回的ActivityId调用DescribeDockerActivities接口查询重启情况。
+     *本接口(ResizeDisks)用于扩容云硬盘。该操作目前仅支持云硬盘类型为数据盘的云硬盘。
+     * @param req ResizeDisksRequest
+     * @return ResizeDisksResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResizeDisksResponse ResizeDisks(ResizeDisksRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ResizeDisks", ResizeDisksResponse.class);
+    }
+
+    /**
+     *重启实例内的Docker容器，之后可以通过返回的ActivityId调用[DescribeDockerActivities](https://cloud.tencent.com/document/product/1207/95476)接口查询重启情况。
      * @param req RestartDockerContainersRequest
      * @return RestartDockerContainersResponse
      * @throws TencentCloudSDKException
      */
     public RestartDockerContainersResponse RestartDockerContainers(RestartDockerContainersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RestartDockerContainersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RestartDockerContainersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RestartDockerContainers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RestartDockerContainers", RestartDockerContainersResponse.class);
     }
 
     /**
-     *创建并运行多个Docker容器，之后可以通过返回的ActivityIds调用DescribeDockerActivities接口查询创建情况。
+     *创建并运行多个Docker容器，之后可以通过返回的ActivityIds调用<a href="https://cloud.tencent.com/document/product/1207/95476" target="_blank">DescribeDockerActivities</a>接口查询创建情况。
      * @param req RunDockerContainersRequest
      * @return RunDockerContainersResponse
      * @throws TencentCloudSDKException
      */
     public RunDockerContainersResponse RunDockerContainers(RunDockerContainersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RunDockerContainersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RunDockerContainersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RunDockerContainers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RunDockerContainers", RunDockerContainersResponse.class);
     }
 
     /**
-     *启动实例内的Docker容器，之后可以通过返回的ActivityId调用DescribeDockerActivities接口查询启动情况。
+     *本接口（ShareBlueprintAcrossAccounts）用于跨账号共享镜像。
+仅支持共享自定义镜像， 且用于共享的镜像状态必须为NORMAL。
+共享的账号必须为主账号。
+     * @param req ShareBlueprintAcrossAccountsRequest
+     * @return ShareBlueprintAcrossAccountsResponse
+     * @throws TencentCloudSDKException
+     */
+    public ShareBlueprintAcrossAccountsResponse ShareBlueprintAcrossAccounts(ShareBlueprintAcrossAccountsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ShareBlueprintAcrossAccounts", ShareBlueprintAcrossAccountsResponse.class);
+    }
+
+    /**
+     *启动实例内的Docker容器，之后可以通过返回的ActivityId调用[DescribeDockerActivities](https://cloud.tencent.com/document/product/1207/95476)接口查询启动情况。
      * @param req StartDockerContainersRequest
      * @return StartDockerContainersResponse
      * @throws TencentCloudSDKException
      */
     public StartDockerContainersResponse StartDockerContainers(StartDockerContainersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StartDockerContainersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StartDockerContainersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StartDockerContainers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StartDockerContainers", StartDockerContainersResponse.class);
     }
 
     /**
@@ -1994,45 +1310,25 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 只有状态为 STOPPED 的实例才可以进行此操作。
 * 接口调用成功时，实例会进入 STARTING 状态；启动实例成功时，实例会进入 RUNNING 状态。
 * 支持批量操作。每次请求批量实例的上限为 100。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req StartInstancesRequest
      * @return StartInstancesResponse
      * @throws TencentCloudSDKException
      */
     public StartInstancesResponse StartInstances(StartInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StartInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StartInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StartInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StartInstances", StartInstancesResponse.class);
     }
 
     /**
-     *停止实例内的Docker容器，之后可以通过返回的ActivityId调用DescribeDockerActivities接口查询停止情况。
+     *停止实例内的Docker容器，之后可以通过返回的ActivityId调用[DescribeDockerActivities](https://cloud.tencent.com/document/product/1207/95476)接口查询停止情况。
      * @param req StopDockerContainersRequest
      * @return StopDockerContainersResponse
      * @throws TencentCloudSDKException
      */
     public StopDockerContainersResponse StopDockerContainers(StopDockerContainersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopDockerContainersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopDockerContainersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopDockerContainers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopDockerContainers", StopDockerContainersResponse.class);
     }
 
     /**
@@ -2040,45 +1336,26 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 只有状态为 RUNNING 的实例才可以进行此操作。
 * 接口调用成功时，实例会进入 STOPPING 状态；关闭实例成功时，实例会进入 STOPPED 状态。
 * 支持批量操作。每次请求批量实例的上限为 100。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果实例的最新操作状态（LatestOperationState）为“SUCCESS”，则代表操作成功。
      * @param req StopInstancesRequest
      * @return StopInstancesResponse
      * @throws TencentCloudSDKException
      */
     public StopInstancesResponse StopInstances(StopInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<StopInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<StopInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "StopInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "StopInstances", StopInstancesResponse.class);
     }
 
     /**
      *本接口（TerminateDisks）用于销毁一个或多个云硬盘。
+云硬盘状态必须处于SHUTDOWN（已隔离）状态。
      * @param req TerminateDisksRequest
      * @return TerminateDisksResponse
      * @throws TencentCloudSDKException
      */
     public TerminateDisksResponse TerminateDisks(TerminateDisksRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TerminateDisksResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TerminateDisksResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TerminateDisks");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TerminateDisks", TerminateDisksResponse.class);
     }
 
     /**
@@ -2086,24 +1363,14 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 
 * 处于 SHUTDOWN 状态的实例，可通过本接口销毁，且不可恢复。
 * 支持批量操作，每次请求批量实例的上限为100。
-* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 DescribeInstances 接口查询，如果实例的最新操作状态 (LatestOperationState) 为“SUCCESS”，则代表操作成功。
+* 本接口为异步接口，请求发送成功后会返回一个 RequestId，此时操作并未立即完成。实例操作结果可以通过调用 <a href="https://cloud.tencent.com/document/product/1207/47573" target="_blank">DescribeInstances</a> 接口查询，如果返回列表中不存在该实例，则代表操作成功。
      * @param req TerminateInstancesRequest
      * @return TerminateInstancesResponse
      * @throws TencentCloudSDKException
      */
     public TerminateInstancesResponse TerminateInstances(TerminateInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TerminateInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TerminateInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TerminateInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TerminateInstances", TerminateInstancesResponse.class);
     }
 
 }

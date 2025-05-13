@@ -16,99 +16,166 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelDescribeUserAutoSignStatusResponse extends AbstractModel{
+public class ChannelDescribeUserAutoSignStatusResponse extends AbstractModel {
 
     /**
-    * 是否开通
+    * 查询用户是否已开通自动签
     */
     @SerializedName("IsOpen")
     @Expose
     private Boolean IsOpen;
 
     /**
-    * 自动签许可生效时间。当且仅当已开通自动签时有值。
+    * 自动签许可生效时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
     */
     @SerializedName("LicenseFrom")
     @Expose
     private Long LicenseFrom;
 
     /**
-    * 自动签许可到期时间。当且仅当已开通自动签时有值。
+    * 自动签许可到期时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
     */
     @SerializedName("LicenseTo")
     @Expose
     private Long LicenseTo;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 设置用户开通自动签时是否绑定个人自动签账号许可。<ul><li>**0**: 使用个人自动签账号许可进行开通，个人自动签账号许可有效期1年，注: `不可解绑释放更换他人`</li><li>**1**: 不绑定自动签账号许可开通，后续使用合同份额进行合同发起</li></ul>
+    */
+    @SerializedName("LicenseType")
+    @Expose
+    private Long LicenseType;
+
+    /**
+    * 用户开通自动签指定使用的印章，为空则未设置印章，需重新进入开通链接设置印章。
+    */
+    @SerializedName("SealId")
+    @Expose
+    private String SealId;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 是否开通 
-     * @return IsOpen 是否开通
+     * Get 查询用户是否已开通自动签 
+     * @return IsOpen 查询用户是否已开通自动签
      */
     public Boolean getIsOpen() {
         return this.IsOpen;
     }
 
     /**
-     * Set 是否开通
-     * @param IsOpen 是否开通
+     * Set 查询用户是否已开通自动签
+     * @param IsOpen 查询用户是否已开通自动签
      */
     public void setIsOpen(Boolean IsOpen) {
         this.IsOpen = IsOpen;
     }
 
     /**
-     * Get 自动签许可生效时间。当且仅当已开通自动签时有值。 
-     * @return LicenseFrom 自动签许可生效时间。当且仅当已开通自动签时有值。
+     * Get 自动签许可生效时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。 
+     * @return LicenseFrom 自动签许可生效时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
      */
     public Long getLicenseFrom() {
         return this.LicenseFrom;
     }
 
     /**
-     * Set 自动签许可生效时间。当且仅当已开通自动签时有值。
-     * @param LicenseFrom 自动签许可生效时间。当且仅当已开通自动签时有值。
+     * Set 自动签许可生效时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
+     * @param LicenseFrom 自动签许可生效时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
      */
     public void setLicenseFrom(Long LicenseFrom) {
         this.LicenseFrom = LicenseFrom;
     }
 
     /**
-     * Get 自动签许可到期时间。当且仅当已开通自动签时有值。 
-     * @return LicenseTo 自动签许可到期时间。当且仅当已开通自动签时有值。
+     * Get 自动签许可到期时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。 
+     * @return LicenseTo 自动签许可到期时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
      */
     public Long getLicenseTo() {
         return this.LicenseTo;
     }
 
     /**
-     * Set 自动签许可到期时间。当且仅当已开通自动签时有值。
-     * @param LicenseTo 自动签许可到期时间。当且仅当已开通自动签时有值。
+     * Set 自动签许可到期时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
+     * @param LicenseTo 自动签许可到期时间。当且仅当已通过许可开通自动签时有值。
+
+值为unix时间戳,单位为秒。
      */
     public void setLicenseTo(Long LicenseTo) {
         this.LicenseTo = LicenseTo;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 设置用户开通自动签时是否绑定个人自动签账号许可。<ul><li>**0**: 使用个人自动签账号许可进行开通，个人自动签账号许可有效期1年，注: `不可解绑释放更换他人`</li><li>**1**: 不绑定自动签账号许可开通，后续使用合同份额进行合同发起</li></ul> 
+     * @return LicenseType 设置用户开通自动签时是否绑定个人自动签账号许可。<ul><li>**0**: 使用个人自动签账号许可进行开通，个人自动签账号许可有效期1年，注: `不可解绑释放更换他人`</li><li>**1**: 不绑定自动签账号许可开通，后续使用合同份额进行合同发起</li></ul>
+     */
+    public Long getLicenseType() {
+        return this.LicenseType;
+    }
+
+    /**
+     * Set 设置用户开通自动签时是否绑定个人自动签账号许可。<ul><li>**0**: 使用个人自动签账号许可进行开通，个人自动签账号许可有效期1年，注: `不可解绑释放更换他人`</li><li>**1**: 不绑定自动签账号许可开通，后续使用合同份额进行合同发起</li></ul>
+     * @param LicenseType 设置用户开通自动签时是否绑定个人自动签账号许可。<ul><li>**0**: 使用个人自动签账号许可进行开通，个人自动签账号许可有效期1年，注: `不可解绑释放更换他人`</li><li>**1**: 不绑定自动签账号许可开通，后续使用合同份额进行合同发起</li></ul>
+     */
+    public void setLicenseType(Long LicenseType) {
+        this.LicenseType = LicenseType;
+    }
+
+    /**
+     * Get 用户开通自动签指定使用的印章，为空则未设置印章，需重新进入开通链接设置印章。 
+     * @return SealId 用户开通自动签指定使用的印章，为空则未设置印章，需重新进入开通链接设置印章。
+     */
+    public String getSealId() {
+        return this.SealId;
+    }
+
+    /**
+     * Set 用户开通自动签指定使用的印章，为空则未设置印章，需重新进入开通链接设置印章。
+     * @param SealId 用户开通自动签指定使用的印章，为空则未设置印章，需重新进入开通链接设置印章。
+     */
+    public void setSealId(String SealId) {
+        this.SealId = SealId;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -131,6 +198,12 @@ public class ChannelDescribeUserAutoSignStatusResponse extends AbstractModel{
         if (source.LicenseTo != null) {
             this.LicenseTo = new Long(source.LicenseTo);
         }
+        if (source.LicenseType != null) {
+            this.LicenseType = new Long(source.LicenseType);
+        }
+        if (source.SealId != null) {
+            this.SealId = new String(source.SealId);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -144,6 +217,8 @@ public class ChannelDescribeUserAutoSignStatusResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "IsOpen", this.IsOpen);
         this.setParamSimple(map, prefix + "LicenseFrom", this.LicenseFrom);
         this.setParamSimple(map, prefix + "LicenseTo", this.LicenseTo);
+        this.setParamSimple(map, prefix + "LicenseType", this.LicenseType);
+        this.setParamSimple(map, prefix + "SealId", this.SealId);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

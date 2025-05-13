@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ciam.v20220331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImportUser extends AbstractModel{
+public class ImportUser extends AbstractModel {
 
     /**
     * 用户名
@@ -105,6 +106,13 @@ public class ImportUser extends AbstractModel{
     @SerializedName("AlipayUserId")
     @Expose
     private String AlipayUserId;
+
+    /**
+    * 企业微信weComUserId
+    */
+    @SerializedName("WeComUserId")
+    @Expose
+    private String WeComUserId;
 
     /**
     * 描述
@@ -429,6 +437,22 @@ public class ImportUser extends AbstractModel{
      */
     public void setAlipayUserId(String AlipayUserId) {
         this.AlipayUserId = AlipayUserId;
+    }
+
+    /**
+     * Get 企业微信weComUserId 
+     * @return WeComUserId 企业微信weComUserId
+     */
+    public String getWeComUserId() {
+        return this.WeComUserId;
+    }
+
+    /**
+     * Set 企业微信weComUserId
+     * @param WeComUserId 企业微信weComUserId
+     */
+    public void setWeComUserId(String WeComUserId) {
+        this.WeComUserId = WeComUserId;
     }
 
     /**
@@ -782,6 +806,9 @@ public class ImportUser extends AbstractModel{
         if (source.AlipayUserId != null) {
             this.AlipayUserId = new String(source.AlipayUserId);
         }
+        if (source.WeComUserId != null) {
+            this.WeComUserId = new String(source.WeComUserId);
+        }
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
@@ -861,6 +888,7 @@ public class ImportUser extends AbstractModel{
         this.setParamSimple(map, prefix + "WechatOpenId", this.WechatOpenId);
         this.setParamSimple(map, prefix + "WechatUnionId", this.WechatUnionId);
         this.setParamSimple(map, prefix + "AlipayUserId", this.AlipayUserId);
+        this.setParamSimple(map, prefix + "WeComUserId", this.WeComUserId);
         this.setParamSimple(map, prefix + "Description", this.Description);
         this.setParamSimple(map, prefix + "Birthdate", this.Birthdate);
         this.setParamSimple(map, prefix + "Name", this.Name);

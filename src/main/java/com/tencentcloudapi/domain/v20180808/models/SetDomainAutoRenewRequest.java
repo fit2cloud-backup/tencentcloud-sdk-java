@@ -16,14 +16,16 @@
 package com.tencentcloudapi.domain.v20180808.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SetDomainAutoRenewRequest extends AbstractModel{
+public class SetDomainAutoRenewRequest extends AbstractModel {
 
     /**
-    * 域名ID 例如：domain-123abc
+    * 域名实例ID
+可通过DescribeDomainNameList接口获取(https://cloud.tencent.com/document/api/242/48941)
     */
     @SerializedName("DomainId")
     @Expose
@@ -40,16 +42,20 @@ public class SetDomainAutoRenewRequest extends AbstractModel{
     private Long AutoRenew;
 
     /**
-     * Get 域名ID 例如：domain-123abc 
-     * @return DomainId 域名ID 例如：domain-123abc
+     * Get 域名实例ID
+可通过DescribeDomainNameList接口获取(https://cloud.tencent.com/document/api/242/48941) 
+     * @return DomainId 域名实例ID
+可通过DescribeDomainNameList接口获取(https://cloud.tencent.com/document/api/242/48941)
      */
     public String getDomainId() {
         return this.DomainId;
     }
 
     /**
-     * Set 域名ID 例如：domain-123abc
-     * @param DomainId 域名ID 例如：domain-123abc
+     * Set 域名实例ID
+可通过DescribeDomainNameList接口获取(https://cloud.tencent.com/document/api/242/48941)
+     * @param DomainId 域名实例ID
+可通过DescribeDomainNameList接口获取(https://cloud.tencent.com/document/api/242/48941)
      */
     public void setDomainId(String DomainId) {
         this.DomainId = DomainId;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class UpgradeDBInstanceRequest extends AbstractModel{
+public class UpgradeDBInstanceRequest extends AbstractModel {
 
     /**
     * 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同，可使用 [查询实例列表](https://cloud.tencent.com/document/api/236/15872) 接口获取，其值为输出参数中字段 InstanceId 的值。
@@ -31,6 +32,7 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
 
     /**
     * 升级后的内存大小，单位：MB，为保证传入 Memory 值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可升级的内存规格。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
     */
     @SerializedName("Memory")
     @Expose
@@ -80,6 +82,7 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
 
     /**
     * 备库 2 的可用区信息，默认为空，升级主实例时可指定该参数，升级只读实例或者灾备实例时指定该参数无意义。
+备注：如您要将三节点降级至双节点，将该参数设置为空值即可实现。
     */
     @SerializedName("BackupZone")
     @Expose
@@ -101,6 +104,7 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
 
     /**
     * 升级后的实例cpu核数，如果不传将根据 Memory 指定的内存值自动填充最小允许规格的cpu值。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
     */
     @SerializedName("Cpu")
     @Expose
@@ -142,6 +146,33 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
     private String RoTransType;
 
     /**
+    * 集群版节点拓扑配置。
+    */
+    @SerializedName("ClusterTopology")
+    @Expose
+    private ClusterTopology ClusterTopology;
+
+    /**
+    * 检查原地升级是否需要重启，1 检查， 0 不检查。如果值为1，检查为原地升级需要重启，则会停止升级并进行返回提示，如果为原地升级不重启，则正常执行升级流程。
+    */
+    @SerializedName("CheckFastUpgradeReboot")
+    @Expose
+    private Long CheckFastUpgradeReboot;
+
+    /**
+    * 数据校验敏感度，非极速变配时使用此参数，敏感度根据当前实例规格计算迁移过程中的数据对比使用的cpu资源
+对应的选项为: "high"、"normal"、"low"，默认为空
+参数详解，：
+"high": 对应控制台中的高，数据库负载过高不建议使用
+"normal"：对应控制台中的标准
+"low"：对应控制台中的低
+
+    */
+    @SerializedName("DataCheckSensitive")
+    @Expose
+    private String DataCheckSensitive;
+
+    /**
      * Get 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同，可使用 [查询实例列表](https://cloud.tencent.com/document/api/236/15872) 接口获取，其值为输出参数中字段 InstanceId 的值。 
      * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同，可使用 [查询实例列表](https://cloud.tencent.com/document/api/236/15872) 接口获取，其值为输出参数中字段 InstanceId 的值。
      */
@@ -158,8 +189,10 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 升级后的内存大小，单位：MB，为保证传入 Memory 值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可升级的内存规格。 
+     * Get 升级后的内存大小，单位：MB，为保证传入 Memory 值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可升级的内存规格。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。 
      * @return Memory 升级后的内存大小，单位：MB，为保证传入 Memory 值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可升级的内存规格。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
      */
     public Long getMemory() {
         return this.Memory;
@@ -167,7 +200,9 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
 
     /**
      * Set 升级后的内存大小，单位：MB，为保证传入 Memory 值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可升级的内存规格。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
      * @param Memory 升级后的内存大小，单位：MB，为保证传入 Memory 值有效，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/product/236/17229) 接口获取可升级的内存规格。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
      */
     public void setMemory(Long Memory) {
         this.Memory = Memory;
@@ -270,8 +305,10 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 备库 2 的可用区信息，默认为空，升级主实例时可指定该参数，升级只读实例或者灾备实例时指定该参数无意义。 
+     * Get 备库 2 的可用区信息，默认为空，升级主实例时可指定该参数，升级只读实例或者灾备实例时指定该参数无意义。
+备注：如您要将三节点降级至双节点，将该参数设置为空值即可实现。 
      * @return BackupZone 备库 2 的可用区信息，默认为空，升级主实例时可指定该参数，升级只读实例或者灾备实例时指定该参数无意义。
+备注：如您要将三节点降级至双节点，将该参数设置为空值即可实现。
      */
     public String getBackupZone() {
         return this.BackupZone;
@@ -279,7 +316,9 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
 
     /**
      * Set 备库 2 的可用区信息，默认为空，升级主实例时可指定该参数，升级只读实例或者灾备实例时指定该参数无意义。
+备注：如您要将三节点降级至双节点，将该参数设置为空值即可实现。
      * @param BackupZone 备库 2 的可用区信息，默认为空，升级主实例时可指定该参数，升级只读实例或者灾备实例时指定该参数无意义。
+备注：如您要将三节点降级至双节点，将该参数设置为空值即可实现。
      */
     public void setBackupZone(String BackupZone) {
         this.BackupZone = BackupZone;
@@ -318,8 +357,10 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
     }
 
     /**
-     * Get 升级后的实例cpu核数，如果不传将根据 Memory 指定的内存值自动填充最小允许规格的cpu值。 
+     * Get 升级后的实例cpu核数，如果不传将根据 Memory 指定的内存值自动填充最小允许规格的cpu值。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。 
      * @return Cpu 升级后的实例cpu核数，如果不传将根据 Memory 指定的内存值自动填充最小允许规格的cpu值。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
      */
     public Long getCpu() {
         return this.Cpu;
@@ -327,7 +368,9 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
 
     /**
      * Set 升级后的实例cpu核数，如果不传将根据 Memory 指定的内存值自动填充最小允许规格的cpu值。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
      * @param Cpu 升级后的实例cpu核数，如果不传将根据 Memory 指定的内存值自动填充最小允许规格的cpu值。
+说明：如果进行迁移业务，请一定填写实例规格（CPU、内存），不然系统会默认以最小允许规格传参。
      */
     public void setCpu(Long Cpu) {
         this.Cpu = Cpu;
@@ -413,6 +456,78 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
         this.RoTransType = RoTransType;
     }
 
+    /**
+     * Get 集群版节点拓扑配置。 
+     * @return ClusterTopology 集群版节点拓扑配置。
+     */
+    public ClusterTopology getClusterTopology() {
+        return this.ClusterTopology;
+    }
+
+    /**
+     * Set 集群版节点拓扑配置。
+     * @param ClusterTopology 集群版节点拓扑配置。
+     */
+    public void setClusterTopology(ClusterTopology ClusterTopology) {
+        this.ClusterTopology = ClusterTopology;
+    }
+
+    /**
+     * Get 检查原地升级是否需要重启，1 检查， 0 不检查。如果值为1，检查为原地升级需要重启，则会停止升级并进行返回提示，如果为原地升级不重启，则正常执行升级流程。 
+     * @return CheckFastUpgradeReboot 检查原地升级是否需要重启，1 检查， 0 不检查。如果值为1，检查为原地升级需要重启，则会停止升级并进行返回提示，如果为原地升级不重启，则正常执行升级流程。
+     */
+    public Long getCheckFastUpgradeReboot() {
+        return this.CheckFastUpgradeReboot;
+    }
+
+    /**
+     * Set 检查原地升级是否需要重启，1 检查， 0 不检查。如果值为1，检查为原地升级需要重启，则会停止升级并进行返回提示，如果为原地升级不重启，则正常执行升级流程。
+     * @param CheckFastUpgradeReboot 检查原地升级是否需要重启，1 检查， 0 不检查。如果值为1，检查为原地升级需要重启，则会停止升级并进行返回提示，如果为原地升级不重启，则正常执行升级流程。
+     */
+    public void setCheckFastUpgradeReboot(Long CheckFastUpgradeReboot) {
+        this.CheckFastUpgradeReboot = CheckFastUpgradeReboot;
+    }
+
+    /**
+     * Get 数据校验敏感度，非极速变配时使用此参数，敏感度根据当前实例规格计算迁移过程中的数据对比使用的cpu资源
+对应的选项为: "high"、"normal"、"low"，默认为空
+参数详解，：
+"high": 对应控制台中的高，数据库负载过高不建议使用
+"normal"：对应控制台中的标准
+"low"：对应控制台中的低
+ 
+     * @return DataCheckSensitive 数据校验敏感度，非极速变配时使用此参数，敏感度根据当前实例规格计算迁移过程中的数据对比使用的cpu资源
+对应的选项为: "high"、"normal"、"low"，默认为空
+参数详解，：
+"high": 对应控制台中的高，数据库负载过高不建议使用
+"normal"：对应控制台中的标准
+"low"：对应控制台中的低
+
+     */
+    public String getDataCheckSensitive() {
+        return this.DataCheckSensitive;
+    }
+
+    /**
+     * Set 数据校验敏感度，非极速变配时使用此参数，敏感度根据当前实例规格计算迁移过程中的数据对比使用的cpu资源
+对应的选项为: "high"、"normal"、"low"，默认为空
+参数详解，：
+"high": 对应控制台中的高，数据库负载过高不建议使用
+"normal"：对应控制台中的标准
+"low"：对应控制台中的低
+
+     * @param DataCheckSensitive 数据校验敏感度，非极速变配时使用此参数，敏感度根据当前实例规格计算迁移过程中的数据对比使用的cpu资源
+对应的选项为: "high"、"normal"、"low"，默认为空
+参数详解，：
+"high": 对应控制台中的高，数据库负载过高不建议使用
+"normal"：对应控制台中的标准
+"low"：对应控制台中的低
+
+     */
+    public void setDataCheckSensitive(String DataCheckSensitive) {
+        this.DataCheckSensitive = DataCheckSensitive;
+    }
+
     public UpgradeDBInstanceRequest() {
     }
 
@@ -472,6 +587,15 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
         if (source.RoTransType != null) {
             this.RoTransType = new String(source.RoTransType);
         }
+        if (source.ClusterTopology != null) {
+            this.ClusterTopology = new ClusterTopology(source.ClusterTopology);
+        }
+        if (source.CheckFastUpgradeReboot != null) {
+            this.CheckFastUpgradeReboot = new Long(source.CheckFastUpgradeReboot);
+        }
+        if (source.DataCheckSensitive != null) {
+            this.DataCheckSensitive = new String(source.DataCheckSensitive);
+        }
     }
 
 
@@ -496,6 +620,9 @@ public class UpgradeDBInstanceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "CrossCluster", this.CrossCluster);
         this.setParamSimple(map, prefix + "ZoneId", this.ZoneId);
         this.setParamSimple(map, prefix + "RoTransType", this.RoTransType);
+        this.setParamObj(map, prefix + "ClusterTopology.", this.ClusterTopology);
+        this.setParamSimple(map, prefix + "CheckFastUpgradeReboot", this.CheckFastUpgradeReboot);
+        this.setParamSimple(map, prefix + "DataCheckSensitive", this.DataCheckSensitive);
 
     }
 }

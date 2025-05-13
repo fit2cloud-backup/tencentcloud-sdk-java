@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tbaas.v20180416.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChainMakerContractResult extends AbstractModel{
+public class ChainMakerContractResult extends AbstractModel {
 
     /**
     * 交易结果码
@@ -31,7 +32,6 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
     * 交易结果码含义
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CodeMessage")
     @Expose
@@ -39,7 +39,6 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
     * 交易ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TxId")
     @Expose
@@ -47,7 +46,6 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
     * Gas使用量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("GasUsed")
     @Expose
@@ -55,7 +53,6 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
     * 合约返回消息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Message")
     @Expose
@@ -63,7 +60,6 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
     * 合约函数返回，base64编码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Result")
     @Expose
@@ -86,10 +82,8 @@ public class ChainMakerContractResult extends AbstractModel{
     }
 
     /**
-     * Get 交易结果码含义
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 交易结果码含义 
      * @return CodeMessage 交易结果码含义
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCodeMessage() {
         return this.CodeMessage;
@@ -97,19 +91,15 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
      * Set 交易结果码含义
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CodeMessage 交易结果码含义
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCodeMessage(String CodeMessage) {
         this.CodeMessage = CodeMessage;
     }
 
     /**
-     * Get 交易ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 交易ID 
      * @return TxId 交易ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTxId() {
         return this.TxId;
@@ -117,19 +107,15 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
      * Set 交易ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TxId 交易ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTxId(String TxId) {
         this.TxId = TxId;
     }
 
     /**
-     * Get Gas使用量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get Gas使用量 
      * @return GasUsed Gas使用量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getGasUsed() {
         return this.GasUsed;
@@ -137,19 +123,15 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
      * Set Gas使用量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param GasUsed Gas使用量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setGasUsed(Long GasUsed) {
         this.GasUsed = GasUsed;
     }
 
     /**
-     * Get 合约返回消息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 合约返回消息 
      * @return Message 合约返回消息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMessage() {
         return this.Message;
@@ -157,19 +139,15 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
      * Set 合约返回消息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Message 合约返回消息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMessage(String Message) {
         this.Message = Message;
     }
 
     /**
-     * Get 合约函数返回，base64编码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 合约函数返回，base64编码 
      * @return Result 合约函数返回，base64编码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResult() {
         return this.Result;
@@ -177,9 +155,7 @@ public class ChainMakerContractResult extends AbstractModel{
 
     /**
      * Set 合约函数返回，base64编码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Result 合约函数返回，base64编码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResult(String Result) {
         this.Result = Result;

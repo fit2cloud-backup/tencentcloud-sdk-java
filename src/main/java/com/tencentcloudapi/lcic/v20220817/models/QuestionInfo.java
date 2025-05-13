@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class QuestionInfo extends AbstractModel{
+public class QuestionInfo extends AbstractModel {
 
     /**
     * 问题ID
@@ -52,7 +53,6 @@ public class QuestionInfo extends AbstractModel{
 
     /**
     * 每个选项答题人数统计
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AnswerStats")
     @Expose
@@ -123,10 +123,8 @@ public class QuestionInfo extends AbstractModel{
     }
 
     /**
-     * Get 每个选项答题人数统计
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 每个选项答题人数统计 
      * @return AnswerStats 每个选项答题人数统计
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AnswerStat [] getAnswerStats() {
         return this.AnswerStats;
@@ -134,9 +132,7 @@ public class QuestionInfo extends AbstractModel{
 
     /**
      * Set 每个选项答题人数统计
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AnswerStats 每个选项答题人数统计
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAnswerStats(AnswerStat [] AnswerStats) {
         this.AnswerStats = AnswerStats;

@@ -16,14 +16,15 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GetRoomEventResponse extends AbstractModel{
+public class GetRoomEventResponse extends AbstractModel {
 
     /**
-    * 该房间的事件总数，keyword搜索不影响该值。
+    * 该课堂的事件总数，keyword搜索不影响该值。
     */
     @SerializedName("Total")
     @Expose
@@ -31,40 +32,37 @@ public class GetRoomEventResponse extends AbstractModel{
 
     /**
     * 详细事件内容。包含相应的类型、发生的时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Events")
     @Expose
     private EventInfo [] Events;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 该房间的事件总数，keyword搜索不影响该值。 
-     * @return Total 该房间的事件总数，keyword搜索不影响该值。
+     * Get 该课堂的事件总数，keyword搜索不影响该值。 
+     * @return Total 该课堂的事件总数，keyword搜索不影响该值。
      */
     public Long getTotal() {
         return this.Total;
     }
 
     /**
-     * Set 该房间的事件总数，keyword搜索不影响该值。
-     * @param Total 该房间的事件总数，keyword搜索不影响该值。
+     * Set 该课堂的事件总数，keyword搜索不影响该值。
+     * @param Total 该课堂的事件总数，keyword搜索不影响该值。
      */
     public void setTotal(Long Total) {
         this.Total = Total;
     }
 
     /**
-     * Get 详细事件内容。包含相应的类型、发生的时间戳。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 详细事件内容。包含相应的类型、发生的时间戳。 
      * @return Events 详细事件内容。包含相应的类型、发生的时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EventInfo [] getEvents() {
         return this.Events;
@@ -72,25 +70,23 @@ public class GetRoomEventResponse extends AbstractModel{
 
     /**
      * Set 详细事件内容。包含相应的类型、发生的时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Events 详细事件内容。包含相应的类型、发生的时间戳。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEvents(EventInfo [] Events) {
         this.Events = Events;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

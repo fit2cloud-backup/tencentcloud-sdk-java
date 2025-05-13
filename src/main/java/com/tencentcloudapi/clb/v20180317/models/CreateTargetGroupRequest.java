@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateTargetGroupRequest extends AbstractModel{
+public class CreateTargetGroupRequest extends AbstractModel {
 
     /**
     * 目标组名称，限定50个字符
@@ -37,18 +38,73 @@ public class CreateTargetGroupRequest extends AbstractModel{
     private String VpcId;
 
     /**
-    * 目标组的默认端口， 后续添加服务器时可使用该默认端口
+    * 目标组的默认端口， 后续添加服务器时可使用该默认端口。全监听目标组不支持此参数，非全监听目标组Port和TargetGroupInstances.N中的port二者必填其一。
+
     */
     @SerializedName("Port")
     @Expose
     private Long Port;
 
     /**
-    * 目标组绑定的后端服务器
+    * 目标组绑定的后端服务器，单次最多支持50个。
     */
     @SerializedName("TargetGroupInstances")
     @Expose
     private TargetGroupInstance [] TargetGroupInstances;
+
+    /**
+    * 目标组类型，当前支持v1(旧版目标组), v2(新版目标组), 默认为v1(旧版目标组)。
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 目标组后端转发协议。v2新版目标组该项必填。目前支持tcp、udp。
+    */
+    @SerializedName("Protocol")
+    @Expose
+    private String Protocol;
+
+    /**
+    * 标签。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private TagInfo [] Tags;
+
+    /**
+    * 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li>
+</ul>
+v1 目标组类型不支持设置 Weight 参数。
+    */
+    @SerializedName("Weight")
+    @Expose
+    private Long Weight;
+
+    /**
+    * 全监听目标组标识，为true表示是全监听目标组，false表示不是全监听目标组。
+    */
+    @SerializedName("FullListenSwitch")
+    @Expose
+    private Boolean FullListenSwitch;
+
+    /**
+    * 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，0:关闭；1:开启， 默认关闭。
+    */
+    @SerializedName("KeepaliveEnable")
+    @Expose
+    private Boolean KeepaliveEnable;
+
+    /**
+    * 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+    */
+    @SerializedName("SessionExpireTime")
+    @Expose
+    private Long SessionExpireTime;
 
     /**
      * Get 目标组名称，限定50个字符 
@@ -83,35 +139,171 @@ public class CreateTargetGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 目标组的默认端口， 后续添加服务器时可使用该默认端口 
-     * @return Port 目标组的默认端口， 后续添加服务器时可使用该默认端口
+     * Get 目标组的默认端口， 后续添加服务器时可使用该默认端口。全监听目标组不支持此参数，非全监听目标组Port和TargetGroupInstances.N中的port二者必填其一。
+ 
+     * @return Port 目标组的默认端口， 后续添加服务器时可使用该默认端口。全监听目标组不支持此参数，非全监听目标组Port和TargetGroupInstances.N中的port二者必填其一。
+
      */
     public Long getPort() {
         return this.Port;
     }
 
     /**
-     * Set 目标组的默认端口， 后续添加服务器时可使用该默认端口
-     * @param Port 目标组的默认端口， 后续添加服务器时可使用该默认端口
+     * Set 目标组的默认端口， 后续添加服务器时可使用该默认端口。全监听目标组不支持此参数，非全监听目标组Port和TargetGroupInstances.N中的port二者必填其一。
+
+     * @param Port 目标组的默认端口， 后续添加服务器时可使用该默认端口。全监听目标组不支持此参数，非全监听目标组Port和TargetGroupInstances.N中的port二者必填其一。
+
      */
     public void setPort(Long Port) {
         this.Port = Port;
     }
 
     /**
-     * Get 目标组绑定的后端服务器 
-     * @return TargetGroupInstances 目标组绑定的后端服务器
+     * Get 目标组绑定的后端服务器，单次最多支持50个。 
+     * @return TargetGroupInstances 目标组绑定的后端服务器，单次最多支持50个。
      */
     public TargetGroupInstance [] getTargetGroupInstances() {
         return this.TargetGroupInstances;
     }
 
     /**
-     * Set 目标组绑定的后端服务器
-     * @param TargetGroupInstances 目标组绑定的后端服务器
+     * Set 目标组绑定的后端服务器，单次最多支持50个。
+     * @param TargetGroupInstances 目标组绑定的后端服务器，单次最多支持50个。
      */
     public void setTargetGroupInstances(TargetGroupInstance [] TargetGroupInstances) {
         this.TargetGroupInstances = TargetGroupInstances;
+    }
+
+    /**
+     * Get 目标组类型，当前支持v1(旧版目标组), v2(新版目标组), 默认为v1(旧版目标组)。 
+     * @return Type 目标组类型，当前支持v1(旧版目标组), v2(新版目标组), 默认为v1(旧版目标组)。
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 目标组类型，当前支持v1(旧版目标组), v2(新版目标组), 默认为v1(旧版目标组)。
+     * @param Type 目标组类型，当前支持v1(旧版目标组), v2(新版目标组), 默认为v1(旧版目标组)。
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 目标组后端转发协议。v2新版目标组该项必填。目前支持tcp、udp。 
+     * @return Protocol 目标组后端转发协议。v2新版目标组该项必填。目前支持tcp、udp。
+     */
+    public String getProtocol() {
+        return this.Protocol;
+    }
+
+    /**
+     * Set 目标组后端转发协议。v2新版目标组该项必填。目前支持tcp、udp。
+     * @param Protocol 目标组后端转发协议。v2新版目标组该项必填。目前支持tcp、udp。
+     */
+    public void setProtocol(String Protocol) {
+        this.Protocol = Protocol;
+    }
+
+    /**
+     * Get 标签。 
+     * @return Tags 标签。
+     */
+    public TagInfo [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 标签。
+     * @param Tags 标签。
+     */
+    public void setTags(TagInfo [] Tags) {
+        this.Tags = Tags;
+    }
+
+    /**
+     * Get 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li>
+</ul>
+v1 目标组类型不支持设置 Weight 参数。 
+     * @return Weight 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li>
+</ul>
+v1 目标组类型不支持设置 Weight 参数。
+     */
+    public Long getWeight() {
+        return this.Weight;
+    }
+
+    /**
+     * Set 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li>
+</ul>
+v1 目标组类型不支持设置 Weight 参数。
+     * @param Weight 后端服务默认权重。
+<ul>
+    <li>取值范围[0, 100]</li>
+    <li>设置该值后，添加后端服务到目标组时， 若后端服务不单独设置权重， 则使用这里的默认权重。 </li>
+</ul>
+v1 目标组类型不支持设置 Weight 参数。
+     */
+    public void setWeight(Long Weight) {
+        this.Weight = Weight;
+    }
+
+    /**
+     * Get 全监听目标组标识，为true表示是全监听目标组，false表示不是全监听目标组。 
+     * @return FullListenSwitch 全监听目标组标识，为true表示是全监听目标组，false表示不是全监听目标组。
+     */
+    public Boolean getFullListenSwitch() {
+        return this.FullListenSwitch;
+    }
+
+    /**
+     * Set 全监听目标组标识，为true表示是全监听目标组，false表示不是全监听目标组。
+     * @param FullListenSwitch 全监听目标组标识，为true表示是全监听目标组，false表示不是全监听目标组。
+     */
+    public void setFullListenSwitch(Boolean FullListenSwitch) {
+        this.FullListenSwitch = FullListenSwitch;
+    }
+
+    /**
+     * Get 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，0:关闭；1:开启， 默认关闭。 
+     * @return KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，0:关闭；1:开启， 默认关闭。
+     */
+    public Boolean getKeepaliveEnable() {
+        return this.KeepaliveEnable;
+    }
+
+    /**
+     * Set 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，0:关闭；1:开启， 默认关闭。
+     * @param KeepaliveEnable 是否开启长连接，此参数仅适用于HTTP/HTTPS目标组，0:关闭；1:开启， 默认关闭。
+     */
+    public void setKeepaliveEnable(Boolean KeepaliveEnable) {
+        this.KeepaliveEnable = KeepaliveEnable;
+    }
+
+    /**
+     * Get 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。 
+     * @return SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+     */
+    public Long getSessionExpireTime() {
+        return this.SessionExpireTime;
+    }
+
+    /**
+     * Set 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+     * @param SessionExpireTime 会话保持时间，单位：秒。可选值：30~3600，默认 0，表示不开启。TCP/UDP目标组不支持该参数。
+     */
+    public void setSessionExpireTime(Long SessionExpireTime) {
+        this.SessionExpireTime = SessionExpireTime;
     }
 
     public CreateTargetGroupRequest() {
@@ -137,6 +329,30 @@ public class CreateTargetGroupRequest extends AbstractModel{
                 this.TargetGroupInstances[i] = new TargetGroupInstance(source.TargetGroupInstances[i]);
             }
         }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.Protocol != null) {
+            this.Protocol = new String(source.Protocol);
+        }
+        if (source.Tags != null) {
+            this.Tags = new TagInfo[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new TagInfo(source.Tags[i]);
+            }
+        }
+        if (source.Weight != null) {
+            this.Weight = new Long(source.Weight);
+        }
+        if (source.FullListenSwitch != null) {
+            this.FullListenSwitch = new Boolean(source.FullListenSwitch);
+        }
+        if (source.KeepaliveEnable != null) {
+            this.KeepaliveEnable = new Boolean(source.KeepaliveEnable);
+        }
+        if (source.SessionExpireTime != null) {
+            this.SessionExpireTime = new Long(source.SessionExpireTime);
+        }
     }
 
 
@@ -148,6 +364,13 @@ public class CreateTargetGroupRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "Port", this.Port);
         this.setParamArrayObj(map, prefix + "TargetGroupInstances.", this.TargetGroupInstances);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "Protocol", this.Protocol);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
+        this.setParamSimple(map, prefix + "Weight", this.Weight);
+        this.setParamSimple(map, prefix + "FullListenSwitch", this.FullListenSwitch);
+        this.setParamSimple(map, prefix + "KeepaliveEnable", this.KeepaliveEnable);
+        this.setParamSimple(map, prefix + "SessionExpireTime", this.SessionExpireTime);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RunApplicationRequest extends AbstractModel{
+public class RunApplicationRequest extends AbstractModel {
 
     /**
     * 应用ID。
@@ -28,13 +29,6 @@ public class RunApplicationRequest extends AbstractModel{
     @SerializedName("ApplicationId")
     @Expose
     private String ApplicationId;
-
-    /**
-    * 项目ID。
-    */
-    @SerializedName("ProjectId")
-    @Expose
-    private String ProjectId;
 
     /**
     * 任务批次名称。
@@ -51,25 +45,11 @@ public class RunApplicationRequest extends AbstractModel{
     private String EnvironmentId;
 
     /**
-    * 任务输入JSON。需要进行base64编码。
+    * 项目ID。（不填使用指定地域下的默认项目）
     */
-    @SerializedName("InputBase64")
+    @SerializedName("ProjectId")
     @Expose
-    private String InputBase64;
-
-    /**
-    * 任务缓存清理时间。不填表示不清理。
-    */
-    @SerializedName("CacheClearDelay")
-    @Expose
-    private Long CacheClearDelay;
-
-    /**
-    * 运行选项。
-    */
-    @SerializedName("Option")
-    @Expose
-    private RunOption Option;
+    private String ProjectId;
 
     /**
     * 任务批次描述。
@@ -77,6 +57,20 @@ public class RunApplicationRequest extends AbstractModel{
     @SerializedName("Description")
     @Expose
     private String Description;
+
+    /**
+    * 任务输入COS地址。（InputBase64和InputCosUri必选其一）
+    */
+    @SerializedName("InputCosUri")
+    @Expose
+    private String InputCosUri;
+
+    /**
+    * 任务输入JSON。需要进行base64编码。（InputBase64和InputCosUri必选其一）
+    */
+    @SerializedName("InputBase64")
+    @Expose
+    private String InputBase64;
 
     /**
     * 批量投递表格ID，不填表示单例投递。
@@ -93,11 +87,55 @@ public class RunApplicationRequest extends AbstractModel{
     private String [] TableRowUuids;
 
     /**
+    * 任务缓存清理时间（小时）。不填或0表示不清理。
+    */
+    @SerializedName("CacheClearDelay")
+    @Expose
+    private Long CacheClearDelay;
+
+    /**
     * 应用版本ID。不填表示使用当前最新版本。
     */
     @SerializedName("ApplicationVersionId")
     @Expose
     private String ApplicationVersionId;
+
+    /**
+    * WDL运行选项。
+    */
+    @SerializedName("Option")
+    @Expose
+    private RunOption Option;
+
+    /**
+    * Nextflow运行选项。
+    */
+    @SerializedName("NFOption")
+    @Expose
+    private NFOption NFOption;
+
+    /**
+    * 工作目录，当前仅支持Nextflow。可填写指定缓存卷内的绝对路径或者COS路径，不填使用默认缓存卷内的默认路径。如果使用COS路径，NFOption中LaunchDir需填写指定缓存卷内的绝对路径作为启动路径。
+    */
+    @SerializedName("WorkDir")
+    @Expose
+    private String WorkDir;
+
+    /**
+    * 访问模式，不填默认私有。取值范围
+- PRIVATE：私有应用
+- PUBLIC：公共应用
+    */
+    @SerializedName("AccessMode")
+    @Expose
+    private String AccessMode;
+
+    /**
+    * 缓存卷ID，不填使用默认缓存卷，暂时仅支持Nextflow。
+    */
+    @SerializedName("VolumeIds")
+    @Expose
+    private String [] VolumeIds;
 
     /**
      * Get 应用ID。 
@@ -113,22 +151,6 @@ public class RunApplicationRequest extends AbstractModel{
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
-    }
-
-    /**
-     * Get 项目ID。 
-     * @return ProjectId 项目ID。
-     */
-    public String getProjectId() {
-        return this.ProjectId;
-    }
-
-    /**
-     * Set 项目ID。
-     * @param ProjectId 项目ID。
-     */
-    public void setProjectId(String ProjectId) {
-        this.ProjectId = ProjectId;
     }
 
     /**
@@ -164,51 +186,19 @@ public class RunApplicationRequest extends AbstractModel{
     }
 
     /**
-     * Get 任务输入JSON。需要进行base64编码。 
-     * @return InputBase64 任务输入JSON。需要进行base64编码。
+     * Get 项目ID。（不填使用指定地域下的默认项目） 
+     * @return ProjectId 项目ID。（不填使用指定地域下的默认项目）
      */
-    public String getInputBase64() {
-        return this.InputBase64;
+    public String getProjectId() {
+        return this.ProjectId;
     }
 
     /**
-     * Set 任务输入JSON。需要进行base64编码。
-     * @param InputBase64 任务输入JSON。需要进行base64编码。
+     * Set 项目ID。（不填使用指定地域下的默认项目）
+     * @param ProjectId 项目ID。（不填使用指定地域下的默认项目）
      */
-    public void setInputBase64(String InputBase64) {
-        this.InputBase64 = InputBase64;
-    }
-
-    /**
-     * Get 任务缓存清理时间。不填表示不清理。 
-     * @return CacheClearDelay 任务缓存清理时间。不填表示不清理。
-     */
-    public Long getCacheClearDelay() {
-        return this.CacheClearDelay;
-    }
-
-    /**
-     * Set 任务缓存清理时间。不填表示不清理。
-     * @param CacheClearDelay 任务缓存清理时间。不填表示不清理。
-     */
-    public void setCacheClearDelay(Long CacheClearDelay) {
-        this.CacheClearDelay = CacheClearDelay;
-    }
-
-    /**
-     * Get 运行选项。 
-     * @return Option 运行选项。
-     */
-    public RunOption getOption() {
-        return this.Option;
-    }
-
-    /**
-     * Set 运行选项。
-     * @param Option 运行选项。
-     */
-    public void setOption(RunOption Option) {
-        this.Option = Option;
+    public void setProjectId(String ProjectId) {
+        this.ProjectId = ProjectId;
     }
 
     /**
@@ -225,6 +215,38 @@ public class RunApplicationRequest extends AbstractModel{
      */
     public void setDescription(String Description) {
         this.Description = Description;
+    }
+
+    /**
+     * Get 任务输入COS地址。（InputBase64和InputCosUri必选其一） 
+     * @return InputCosUri 任务输入COS地址。（InputBase64和InputCosUri必选其一）
+     */
+    public String getInputCosUri() {
+        return this.InputCosUri;
+    }
+
+    /**
+     * Set 任务输入COS地址。（InputBase64和InputCosUri必选其一）
+     * @param InputCosUri 任务输入COS地址。（InputBase64和InputCosUri必选其一）
+     */
+    public void setInputCosUri(String InputCosUri) {
+        this.InputCosUri = InputCosUri;
+    }
+
+    /**
+     * Get 任务输入JSON。需要进行base64编码。（InputBase64和InputCosUri必选其一） 
+     * @return InputBase64 任务输入JSON。需要进行base64编码。（InputBase64和InputCosUri必选其一）
+     */
+    public String getInputBase64() {
+        return this.InputBase64;
+    }
+
+    /**
+     * Set 任务输入JSON。需要进行base64编码。（InputBase64和InputCosUri必选其一）
+     * @param InputBase64 任务输入JSON。需要进行base64编码。（InputBase64和InputCosUri必选其一）
+     */
+    public void setInputBase64(String InputBase64) {
+        this.InputBase64 = InputBase64;
     }
 
     /**
@@ -260,6 +282,22 @@ public class RunApplicationRequest extends AbstractModel{
     }
 
     /**
+     * Get 任务缓存清理时间（小时）。不填或0表示不清理。 
+     * @return CacheClearDelay 任务缓存清理时间（小时）。不填或0表示不清理。
+     */
+    public Long getCacheClearDelay() {
+        return this.CacheClearDelay;
+    }
+
+    /**
+     * Set 任务缓存清理时间（小时）。不填或0表示不清理。
+     * @param CacheClearDelay 任务缓存清理时间（小时）。不填或0表示不清理。
+     */
+    public void setCacheClearDelay(Long CacheClearDelay) {
+        this.CacheClearDelay = CacheClearDelay;
+    }
+
+    /**
      * Get 应用版本ID。不填表示使用当前最新版本。 
      * @return ApplicationVersionId 应用版本ID。不填表示使用当前最新版本。
      */
@@ -275,6 +313,94 @@ public class RunApplicationRequest extends AbstractModel{
         this.ApplicationVersionId = ApplicationVersionId;
     }
 
+    /**
+     * Get WDL运行选项。 
+     * @return Option WDL运行选项。
+     */
+    public RunOption getOption() {
+        return this.Option;
+    }
+
+    /**
+     * Set WDL运行选项。
+     * @param Option WDL运行选项。
+     */
+    public void setOption(RunOption Option) {
+        this.Option = Option;
+    }
+
+    /**
+     * Get Nextflow运行选项。 
+     * @return NFOption Nextflow运行选项。
+     */
+    public NFOption getNFOption() {
+        return this.NFOption;
+    }
+
+    /**
+     * Set Nextflow运行选项。
+     * @param NFOption Nextflow运行选项。
+     */
+    public void setNFOption(NFOption NFOption) {
+        this.NFOption = NFOption;
+    }
+
+    /**
+     * Get 工作目录，当前仅支持Nextflow。可填写指定缓存卷内的绝对路径或者COS路径，不填使用默认缓存卷内的默认路径。如果使用COS路径，NFOption中LaunchDir需填写指定缓存卷内的绝对路径作为启动路径。 
+     * @return WorkDir 工作目录，当前仅支持Nextflow。可填写指定缓存卷内的绝对路径或者COS路径，不填使用默认缓存卷内的默认路径。如果使用COS路径，NFOption中LaunchDir需填写指定缓存卷内的绝对路径作为启动路径。
+     */
+    public String getWorkDir() {
+        return this.WorkDir;
+    }
+
+    /**
+     * Set 工作目录，当前仅支持Nextflow。可填写指定缓存卷内的绝对路径或者COS路径，不填使用默认缓存卷内的默认路径。如果使用COS路径，NFOption中LaunchDir需填写指定缓存卷内的绝对路径作为启动路径。
+     * @param WorkDir 工作目录，当前仅支持Nextflow。可填写指定缓存卷内的绝对路径或者COS路径，不填使用默认缓存卷内的默认路径。如果使用COS路径，NFOption中LaunchDir需填写指定缓存卷内的绝对路径作为启动路径。
+     */
+    public void setWorkDir(String WorkDir) {
+        this.WorkDir = WorkDir;
+    }
+
+    /**
+     * Get 访问模式，不填默认私有。取值范围
+- PRIVATE：私有应用
+- PUBLIC：公共应用 
+     * @return AccessMode 访问模式，不填默认私有。取值范围
+- PRIVATE：私有应用
+- PUBLIC：公共应用
+     */
+    public String getAccessMode() {
+        return this.AccessMode;
+    }
+
+    /**
+     * Set 访问模式，不填默认私有。取值范围
+- PRIVATE：私有应用
+- PUBLIC：公共应用
+     * @param AccessMode 访问模式，不填默认私有。取值范围
+- PRIVATE：私有应用
+- PUBLIC：公共应用
+     */
+    public void setAccessMode(String AccessMode) {
+        this.AccessMode = AccessMode;
+    }
+
+    /**
+     * Get 缓存卷ID，不填使用默认缓存卷，暂时仅支持Nextflow。 
+     * @return VolumeIds 缓存卷ID，不填使用默认缓存卷，暂时仅支持Nextflow。
+     */
+    public String [] getVolumeIds() {
+        return this.VolumeIds;
+    }
+
+    /**
+     * Set 缓存卷ID，不填使用默认缓存卷，暂时仅支持Nextflow。
+     * @param VolumeIds 缓存卷ID，不填使用默认缓存卷，暂时仅支持Nextflow。
+     */
+    public void setVolumeIds(String [] VolumeIds) {
+        this.VolumeIds = VolumeIds;
+    }
+
     public RunApplicationRequest() {
     }
 
@@ -286,26 +412,23 @@ public class RunApplicationRequest extends AbstractModel{
         if (source.ApplicationId != null) {
             this.ApplicationId = new String(source.ApplicationId);
         }
-        if (source.ProjectId != null) {
-            this.ProjectId = new String(source.ProjectId);
-        }
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
         if (source.EnvironmentId != null) {
             this.EnvironmentId = new String(source.EnvironmentId);
         }
-        if (source.InputBase64 != null) {
-            this.InputBase64 = new String(source.InputBase64);
-        }
-        if (source.CacheClearDelay != null) {
-            this.CacheClearDelay = new Long(source.CacheClearDelay);
-        }
-        if (source.Option != null) {
-            this.Option = new RunOption(source.Option);
+        if (source.ProjectId != null) {
+            this.ProjectId = new String(source.ProjectId);
         }
         if (source.Description != null) {
             this.Description = new String(source.Description);
+        }
+        if (source.InputCosUri != null) {
+            this.InputCosUri = new String(source.InputCosUri);
+        }
+        if (source.InputBase64 != null) {
+            this.InputBase64 = new String(source.InputBase64);
         }
         if (source.TableId != null) {
             this.TableId = new String(source.TableId);
@@ -316,8 +439,29 @@ public class RunApplicationRequest extends AbstractModel{
                 this.TableRowUuids[i] = new String(source.TableRowUuids[i]);
             }
         }
+        if (source.CacheClearDelay != null) {
+            this.CacheClearDelay = new Long(source.CacheClearDelay);
+        }
         if (source.ApplicationVersionId != null) {
             this.ApplicationVersionId = new String(source.ApplicationVersionId);
+        }
+        if (source.Option != null) {
+            this.Option = new RunOption(source.Option);
+        }
+        if (source.NFOption != null) {
+            this.NFOption = new NFOption(source.NFOption);
+        }
+        if (source.WorkDir != null) {
+            this.WorkDir = new String(source.WorkDir);
+        }
+        if (source.AccessMode != null) {
+            this.AccessMode = new String(source.AccessMode);
+        }
+        if (source.VolumeIds != null) {
+            this.VolumeIds = new String[source.VolumeIds.length];
+            for (int i = 0; i < source.VolumeIds.length; i++) {
+                this.VolumeIds[i] = new String(source.VolumeIds[i]);
+            }
         }
     }
 
@@ -327,16 +471,21 @@ public class RunApplicationRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ApplicationId", this.ApplicationId);
-        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "EnvironmentId", this.EnvironmentId);
-        this.setParamSimple(map, prefix + "InputBase64", this.InputBase64);
-        this.setParamSimple(map, prefix + "CacheClearDelay", this.CacheClearDelay);
-        this.setParamObj(map, prefix + "Option.", this.Option);
+        this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "InputCosUri", this.InputCosUri);
+        this.setParamSimple(map, prefix + "InputBase64", this.InputBase64);
         this.setParamSimple(map, prefix + "TableId", this.TableId);
         this.setParamArraySimple(map, prefix + "TableRowUuids.", this.TableRowUuids);
+        this.setParamSimple(map, prefix + "CacheClearDelay", this.CacheClearDelay);
         this.setParamSimple(map, prefix + "ApplicationVersionId", this.ApplicationVersionId);
+        this.setParamObj(map, prefix + "Option.", this.Option);
+        this.setParamObj(map, prefix + "NFOption.", this.NFOption);
+        this.setParamSimple(map, prefix + "WorkDir", this.WorkDir);
+        this.setParamSimple(map, prefix + "AccessMode", this.AccessMode);
+        this.setParamArraySimple(map, prefix + "VolumeIds.", this.VolumeIds);
 
     }
 }

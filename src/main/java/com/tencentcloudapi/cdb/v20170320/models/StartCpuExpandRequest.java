@@ -16,11 +16,109 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StartCpuExpandRequest extends AbstractModel{
+public class StartCpuExpandRequest extends AbstractModel {
+
+    /**
+    * 实例 ID 。
+    */
+    @SerializedName("InstanceId")
+    @Expose
+    private String InstanceId;
+
+    /**
+    * 扩容类型。auto 自动  manual 立即生效 timeInterval 按时间段 period 按周期
+    */
+    @SerializedName("Type")
+    @Expose
+    private String Type;
+
+    /**
+    * 手动扩容时，扩容的 CPU 核心数。
+说明：1. Type 为 manual 时必传。2. 扩容的 CPU 核心数上限为当前实例 CPU 核心数，比如8核16G最大可手动扩容的 CPU 核心数为8，即范围为1 - 8。
+    */
+    @SerializedName("ExpandCpu")
+    @Expose
+    private Long ExpandCpu;
+
+    /**
+    * 自动扩容策略。Type 为 auto 时必传。
+    */
+    @SerializedName("AutoStrategy")
+    @Expose
+    private AutoStrategy AutoStrategy;
+
+    /**
+     * Get 实例 ID 。 
+     * @return InstanceId 实例 ID 。
+     */
+    public String getInstanceId() {
+        return this.InstanceId;
+    }
+
+    /**
+     * Set 实例 ID 。
+     * @param InstanceId 实例 ID 。
+     */
+    public void setInstanceId(String InstanceId) {
+        this.InstanceId = InstanceId;
+    }
+
+    /**
+     * Get 扩容类型。auto 自动  manual 立即生效 timeInterval 按时间段 period 按周期 
+     * @return Type 扩容类型。auto 自动  manual 立即生效 timeInterval 按时间段 period 按周期
+     */
+    public String getType() {
+        return this.Type;
+    }
+
+    /**
+     * Set 扩容类型。auto 自动  manual 立即生效 timeInterval 按时间段 period 按周期
+     * @param Type 扩容类型。auto 自动  manual 立即生效 timeInterval 按时间段 period 按周期
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * Get 手动扩容时，扩容的 CPU 核心数。
+说明：1. Type 为 manual 时必传。2. 扩容的 CPU 核心数上限为当前实例 CPU 核心数，比如8核16G最大可手动扩容的 CPU 核心数为8，即范围为1 - 8。 
+     * @return ExpandCpu 手动扩容时，扩容的 CPU 核心数。
+说明：1. Type 为 manual 时必传。2. 扩容的 CPU 核心数上限为当前实例 CPU 核心数，比如8核16G最大可手动扩容的 CPU 核心数为8，即范围为1 - 8。
+     */
+    public Long getExpandCpu() {
+        return this.ExpandCpu;
+    }
+
+    /**
+     * Set 手动扩容时，扩容的 CPU 核心数。
+说明：1. Type 为 manual 时必传。2. 扩容的 CPU 核心数上限为当前实例 CPU 核心数，比如8核16G最大可手动扩容的 CPU 核心数为8，即范围为1 - 8。
+     * @param ExpandCpu 手动扩容时，扩容的 CPU 核心数。
+说明：1. Type 为 manual 时必传。2. 扩容的 CPU 核心数上限为当前实例 CPU 核心数，比如8核16G最大可手动扩容的 CPU 核心数为8，即范围为1 - 8。
+     */
+    public void setExpandCpu(Long ExpandCpu) {
+        this.ExpandCpu = ExpandCpu;
+    }
+
+    /**
+     * Get 自动扩容策略。Type 为 auto 时必传。 
+     * @return AutoStrategy 自动扩容策略。Type 为 auto 时必传。
+     */
+    public AutoStrategy getAutoStrategy() {
+        return this.AutoStrategy;
+    }
+
+    /**
+     * Set 自动扩容策略。Type 为 auto 时必传。
+     * @param AutoStrategy 自动扩容策略。Type 为 auto 时必传。
+     */
+    public void setAutoStrategy(AutoStrategy AutoStrategy) {
+        this.AutoStrategy = AutoStrategy;
+    }
 
     public StartCpuExpandRequest() {
     }
@@ -30,6 +128,18 @@ public class StartCpuExpandRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public StartCpuExpandRequest(StartCpuExpandRequest source) {
+        if (source.InstanceId != null) {
+            this.InstanceId = new String(source.InstanceId);
+        }
+        if (source.Type != null) {
+            this.Type = new String(source.Type);
+        }
+        if (source.ExpandCpu != null) {
+            this.ExpandCpu = new Long(source.ExpandCpu);
+        }
+        if (source.AutoStrategy != null) {
+            this.AutoStrategy = new AutoStrategy(source.AutoStrategy);
+        }
     }
 
 
@@ -37,6 +147,10 @@ public class StartCpuExpandRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "InstanceId", this.InstanceId);
+        this.setParamSimple(map, prefix + "Type", this.Type);
+        this.setParamSimple(map, prefix + "ExpandCpu", this.ExpandCpu);
+        this.setParamObj(map, prefix + "AutoStrategy.", this.AutoStrategy);
 
     }
 }

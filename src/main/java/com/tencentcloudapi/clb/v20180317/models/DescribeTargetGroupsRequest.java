@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTargetGroupsRequest extends AbstractModel{
+public class DescribeTargetGroupsRequest extends AbstractModel {
 
     /**
     * 目标组ID，与Filters互斥。
@@ -44,7 +45,7 @@ public class DescribeTargetGroupsRequest extends AbstractModel{
     private Long Offset;
 
     /**
-    * 过滤条件数组，与TargetGroupIds互斥，支持TargetGroupVpcId和TargetGroupName。
+    * 过滤条件数组，与TargetGroupIds互斥，支持 TargetGroupVpcId（私有网络 ID）和 TargetGroupName（目标组名称）以及 Tag（标签）。
     */
     @SerializedName("Filters")
     @Expose
@@ -99,16 +100,16 @@ public class DescribeTargetGroupsRequest extends AbstractModel{
     }
 
     /**
-     * Get 过滤条件数组，与TargetGroupIds互斥，支持TargetGroupVpcId和TargetGroupName。 
-     * @return Filters 过滤条件数组，与TargetGroupIds互斥，支持TargetGroupVpcId和TargetGroupName。
+     * Get 过滤条件数组，与TargetGroupIds互斥，支持 TargetGroupVpcId（私有网络 ID）和 TargetGroupName（目标组名称）以及 Tag（标签）。 
+     * @return Filters 过滤条件数组，与TargetGroupIds互斥，支持 TargetGroupVpcId（私有网络 ID）和 TargetGroupName（目标组名称）以及 Tag（标签）。
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 过滤条件数组，与TargetGroupIds互斥，支持TargetGroupVpcId和TargetGroupName。
-     * @param Filters 过滤条件数组，与TargetGroupIds互斥，支持TargetGroupVpcId和TargetGroupName。
+     * Set 过滤条件数组，与TargetGroupIds互斥，支持 TargetGroupVpcId（私有网络 ID）和 TargetGroupName（目标组名称）以及 Tag（标签）。
+     * @param Filters 过滤条件数组，与TargetGroupIds互斥，支持 TargetGroupVpcId（私有网络 ID）和 TargetGroupName（目标组名称）以及 Tag（标签）。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

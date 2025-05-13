@@ -16,14 +16,15 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RenewAddressesRequest extends AbstractModel{
+public class RenewAddressesRequest extends AbstractModel {
 
     /**
-    * EIP唯一标识ID列表，形如'eip-xxxx'
+    * EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
     */
     @SerializedName("AddressIds")
     @Expose
@@ -37,16 +38,16 @@ public class RenewAddressesRequest extends AbstractModel{
     private AddressChargePrepaid AddressChargePrepaid;
 
     /**
-     * Get EIP唯一标识ID列表，形如'eip-xxxx' 
-     * @return AddressIds EIP唯一标识ID列表，形如'eip-xxxx'
+     * Get EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。 
+     * @return AddressIds EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
      */
     public String [] getAddressIds() {
         return this.AddressIds;
     }
 
     /**
-     * Set EIP唯一标识ID列表，形如'eip-xxxx'
-     * @param AddressIds EIP唯一标识ID列表，形如'eip-xxxx'
+     * Set EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
+     * @param AddressIds EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
      */
     public void setAddressIds(String [] AddressIds) {
         this.AddressIds = AddressIds;

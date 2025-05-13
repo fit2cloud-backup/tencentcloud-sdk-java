@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CronHorizontalAutoscalerSchedule extends AbstractModel{
+public class CronHorizontalAutoscalerSchedule extends AbstractModel {
 
     /**
     * 触发事件，小时分钟，用:分割
@@ -33,7 +34,6 @@ public class CronHorizontalAutoscalerSchedule extends AbstractModel{
 
     /**
     * 目标实例数（不大于50）
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TargetReplicas")
     @Expose
@@ -64,10 +64,8 @@ public class CronHorizontalAutoscalerSchedule extends AbstractModel{
     }
 
     /**
-     * Get 目标实例数（不大于50）
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 目标实例数（不大于50） 
      * @return TargetReplicas 目标实例数（不大于50）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTargetReplicas() {
         return this.TargetReplicas;
@@ -75,9 +73,7 @@ public class CronHorizontalAutoscalerSchedule extends AbstractModel{
 
     /**
      * Set 目标实例数（不大于50）
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TargetReplicas 目标实例数（不大于50）
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTargetReplicas(Long TargetReplicas) {
         this.TargetReplicas = TargetReplicas;

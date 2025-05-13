@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StorageConf extends AbstractModel{
+public class StorageConf extends AbstractModel {
 
     /**
     * 存储卷名称
@@ -38,7 +39,6 @@ public class StorageConf extends AbstractModel{
 
     /**
     * 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StorageVolIp")
     @Expose
@@ -77,10 +77,8 @@ public class StorageConf extends AbstractModel{
     }
 
     /**
-     * Get 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 存储卷IP 
      * @return StorageVolIp 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStorageVolIp() {
         return this.StorageVolIp;
@@ -88,9 +86,7 @@ public class StorageConf extends AbstractModel{
 
     /**
      * Set 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StorageVolIp 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStorageVolIp(String StorageVolIp) {
         this.StorageVolIp = StorageVolIp;

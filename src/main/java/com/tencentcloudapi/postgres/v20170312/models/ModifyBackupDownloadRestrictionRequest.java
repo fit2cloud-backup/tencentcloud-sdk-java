@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyBackupDownloadRestrictionRequest extends AbstractModel{
+public class ModifyBackupDownloadRestrictionRequest extends AbstractModel {
 
     /**
     * 备份文件下载限制类型，NONE 无限制，内外网都可以下载；INTRANET 只允许内网下载；CUSTOMIZE 自定义限制下载的vpc或ip。
@@ -38,6 +39,7 @@ public class ModifyBackupDownloadRestrictionRequest extends AbstractModel{
 
     /**
     * 允许或拒绝下载备份文件的vpcId列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
     */
     @SerializedName("VpcIdSet")
     @Expose
@@ -52,6 +54,7 @@ public class ModifyBackupDownloadRestrictionRequest extends AbstractModel{
 
     /**
     * 允许或拒绝下载备份文件的ip列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
     */
     @SerializedName("IpSet")
     @Expose
@@ -90,8 +93,10 @@ public class ModifyBackupDownloadRestrictionRequest extends AbstractModel{
     }
 
     /**
-     * Get 允许或拒绝下载备份文件的vpcId列表。 
+     * Get 允许或拒绝下载备份文件的vpcId列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。 
      * @return VpcIdSet 允许或拒绝下载备份文件的vpcId列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      */
     public String [] getVpcIdSet() {
         return this.VpcIdSet;
@@ -99,7 +104,9 @@ public class ModifyBackupDownloadRestrictionRequest extends AbstractModel{
 
     /**
      * Set 允许或拒绝下载备份文件的vpcId列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      * @param VpcIdSet 允许或拒绝下载备份文件的vpcId列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      */
     public void setVpcIdSet(String [] VpcIdSet) {
         this.VpcIdSet = VpcIdSet;
@@ -122,8 +129,10 @@ public class ModifyBackupDownloadRestrictionRequest extends AbstractModel{
     }
 
     /**
-     * Get 允许或拒绝下载备份文件的ip列表。 
+     * Get 允许或拒绝下载备份文件的ip列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。 
      * @return IpSet 允许或拒绝下载备份文件的ip列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      */
     public String [] getIpSet() {
         return this.IpSet;
@@ -131,7 +140,9 @@ public class ModifyBackupDownloadRestrictionRequest extends AbstractModel{
 
     /**
      * Set 允许或拒绝下载备份文件的ip列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      * @param IpSet 允许或拒绝下载备份文件的ip列表。
+**注意：**该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
      */
     public void setIpSet(String [] IpSet) {
         this.IpSet = IpSet;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeImmutableTagRulesResponse extends AbstractModel{
+public class DescribeImmutableTagRulesResponse extends AbstractModel {
 
     /**
     * 规则列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Rules")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeImmutableTagRulesResponse extends AbstractModel{
 
     /**
     * 未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EmptyNs")
     @Expose
@@ -46,17 +45,15 @@ public class DescribeImmutableTagRulesResponse extends AbstractModel{
     private Long Total;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 规则列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 规则列表 
      * @return Rules 规则列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ImmutableTagRule [] getRules() {
         return this.Rules;
@@ -64,19 +61,15 @@ public class DescribeImmutableTagRulesResponse extends AbstractModel{
 
     /**
      * Set 规则列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Rules 规则列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRules(ImmutableTagRule [] Rules) {
         this.Rules = Rules;
     }
 
     /**
-     * Get 未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 未创建规则的命名空间 
      * @return EmptyNs 未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getEmptyNs() {
         return this.EmptyNs;
@@ -84,9 +77,7 @@ public class DescribeImmutableTagRulesResponse extends AbstractModel{
 
     /**
      * Set 未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EmptyNs 未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEmptyNs(String [] EmptyNs) {
         this.EmptyNs = EmptyNs;
@@ -109,16 +100,16 @@ public class DescribeImmutableTagRulesResponse extends AbstractModel{
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

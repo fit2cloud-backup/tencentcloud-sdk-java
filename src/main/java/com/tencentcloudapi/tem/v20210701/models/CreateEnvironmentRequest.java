@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateEnvironmentRequest extends AbstractModel{
+public class CreateEnvironmentRequest extends AbstractModel {
 
     /**
     * 环境名称
@@ -65,7 +66,7 @@ public class CreateEnvironmentRequest extends AbstractModel{
     private Long SourceChannel;
 
     /**
-    * 是否开启tsw服务
+    * 是否开启tsw服务。默认值：false
     */
     @SerializedName("EnableTswTraceService")
     @Expose
@@ -79,7 +80,7 @@ public class CreateEnvironmentRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 环境类型：test、pre、prod
+    * 环境类型：test、pre、prod。默认值：prod
     */
     @SerializedName("EnvType")
     @Expose
@@ -93,14 +94,14 @@ public class CreateEnvironmentRequest extends AbstractModel{
     private String CreateRegion;
 
     /**
-    * 是否创建私有网络
+    * 是否创建私有网络.默认值:true
     */
     @SerializedName("SetupVpc")
     @Expose
     private Boolean SetupVpc;
 
     /**
-    * 是否创建 Prometheus 实例
+    * 是否创建 Prometheus 实例。默认值：false
     */
     @SerializedName("SetupPrometheus")
     @Expose
@@ -217,16 +218,16 @@ public class CreateEnvironmentRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否开启tsw服务 
-     * @return EnableTswTraceService 是否开启tsw服务
+     * Get 是否开启tsw服务。默认值：false 
+     * @return EnableTswTraceService 是否开启tsw服务。默认值：false
      */
     public Boolean getEnableTswTraceService() {
         return this.EnableTswTraceService;
     }
 
     /**
-     * Set 是否开启tsw服务
-     * @param EnableTswTraceService 是否开启tsw服务
+     * Set 是否开启tsw服务。默认值：false
+     * @param EnableTswTraceService 是否开启tsw服务。默认值：false
      */
     public void setEnableTswTraceService(Boolean EnableTswTraceService) {
         this.EnableTswTraceService = EnableTswTraceService;
@@ -249,16 +250,16 @@ public class CreateEnvironmentRequest extends AbstractModel{
     }
 
     /**
-     * Get 环境类型：test、pre、prod 
-     * @return EnvType 环境类型：test、pre、prod
+     * Get 环境类型：test、pre、prod。默认值：prod 
+     * @return EnvType 环境类型：test、pre、prod。默认值：prod
      */
     public String getEnvType() {
         return this.EnvType;
     }
 
     /**
-     * Set 环境类型：test、pre、prod
-     * @param EnvType 环境类型：test、pre、prod
+     * Set 环境类型：test、pre、prod。默认值：prod
+     * @param EnvType 环境类型：test、pre、prod。默认值：prod
      */
     public void setEnvType(String EnvType) {
         this.EnvType = EnvType;
@@ -281,32 +282,32 @@ public class CreateEnvironmentRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否创建私有网络 
-     * @return SetupVpc 是否创建私有网络
+     * Get 是否创建私有网络.默认值:true 
+     * @return SetupVpc 是否创建私有网络.默认值:true
      */
     public Boolean getSetupVpc() {
         return this.SetupVpc;
     }
 
     /**
-     * Set 是否创建私有网络
-     * @param SetupVpc 是否创建私有网络
+     * Set 是否创建私有网络.默认值:true
+     * @param SetupVpc 是否创建私有网络.默认值:true
      */
     public void setSetupVpc(Boolean SetupVpc) {
         this.SetupVpc = SetupVpc;
     }
 
     /**
-     * Get 是否创建 Prometheus 实例 
-     * @return SetupPrometheus 是否创建 Prometheus 实例
+     * Get 是否创建 Prometheus 实例。默认值：false 
+     * @return SetupPrometheus 是否创建 Prometheus 实例。默认值：false
      */
     public Boolean getSetupPrometheus() {
         return this.SetupPrometheus;
     }
 
     /**
-     * Set 是否创建 Prometheus 实例
-     * @param SetupPrometheus 是否创建 Prometheus 实例
+     * Set 是否创建 Prometheus 实例。默认值：false
+     * @param SetupPrometheus 是否创建 Prometheus 实例。默认值：false
      */
     public void setSetupPrometheus(Boolean SetupPrometheus) {
         this.SetupPrometheus = SetupPrometheus;

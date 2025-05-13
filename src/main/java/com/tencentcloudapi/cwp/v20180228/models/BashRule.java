@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BashRule extends AbstractModel{
+public class BashRule extends AbstractModel {
 
     /**
     * 规则ID
@@ -108,7 +109,6 @@ public class BashRule extends AbstractModel{
 
     /**
     * 生效服务器的uuid数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uuids")
     @Expose
@@ -116,7 +116,6 @@ public class BashRule extends AbstractModel{
 
     /**
     * 0=黑名单 1=白名单
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("White")
     @Expose
@@ -124,11 +123,17 @@ public class BashRule extends AbstractModel{
 
     /**
     * 是否处理之前的事件 0: 不处理 1:处理
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DealOldEvents")
     @Expose
     private Long DealOldEvents;
+
+    /**
+    * 规则描述
+    */
+    @SerializedName("Description")
+    @Expose
+    private String Description;
 
     /**
      * Get 规则ID 
@@ -213,7 +218,9 @@ public class BashRule extends AbstractModel{
     /**
      * Get 规则描述 
      * @return Decription 规则描述
+     * @deprecated
      */
+    @Deprecated
     public String getDecription() {
         return this.Decription;
     }
@@ -221,7 +228,9 @@ public class BashRule extends AbstractModel{
     /**
      * Set 规则描述
      * @param Decription 规则描述
+     * @deprecated
      */
+    @Deprecated
     public void setDecription(String Decription) {
         this.Decription = Decription;
     }
@@ -323,10 +332,8 @@ public class BashRule extends AbstractModel{
     }
 
     /**
-     * Get 生效服务器的uuid数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 生效服务器的uuid数组 
      * @return Uuids 生效服务器的uuid数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getUuids() {
         return this.Uuids;
@@ -334,19 +341,15 @@ public class BashRule extends AbstractModel{
 
     /**
      * Set 生效服务器的uuid数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uuids 生效服务器的uuid数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUuids(String [] Uuids) {
         this.Uuids = Uuids;
     }
 
     /**
-     * Get 0=黑名单 1=白名单
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 0=黑名单 1=白名单 
      * @return White 0=黑名单 1=白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getWhite() {
         return this.White;
@@ -354,19 +357,15 @@ public class BashRule extends AbstractModel{
 
     /**
      * Set 0=黑名单 1=白名单
-注意：此字段可能返回 null，表示取不到有效值。
      * @param White 0=黑名单 1=白名单
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setWhite(Long White) {
         this.White = White;
     }
 
     /**
-     * Get 是否处理之前的事件 0: 不处理 1:处理
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否处理之前的事件 0: 不处理 1:处理 
      * @return DealOldEvents 是否处理之前的事件 0: 不处理 1:处理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getDealOldEvents() {
         return this.DealOldEvents;
@@ -374,12 +373,26 @@ public class BashRule extends AbstractModel{
 
     /**
      * Set 是否处理之前的事件 0: 不处理 1:处理
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DealOldEvents 是否处理之前的事件 0: 不处理 1:处理
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDealOldEvents(Long DealOldEvents) {
         this.DealOldEvents = DealOldEvents;
+    }
+
+    /**
+     * Get 规则描述 
+     * @return Description 规则描述
+     */
+    public String getDescription() {
+        return this.Description;
+    }
+
+    /**
+     * Set 规则描述
+     * @param Description 规则描述
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
     public BashRule() {
@@ -438,6 +451,9 @@ public class BashRule extends AbstractModel{
         if (source.DealOldEvents != null) {
             this.DealOldEvents = new Long(source.DealOldEvents);
         }
+        if (source.Description != null) {
+            this.Description = new String(source.Description);
+        }
     }
 
 
@@ -460,6 +476,7 @@ public class BashRule extends AbstractModel{
         this.setParamArraySimple(map, prefix + "Uuids.", this.Uuids);
         this.setParamSimple(map, prefix + "White", this.White);
         this.setParamSimple(map, prefix + "DealOldEvents", this.DealOldEvents);
+        this.setParamSimple(map, prefix + "Description", this.Description);
 
     }
 }

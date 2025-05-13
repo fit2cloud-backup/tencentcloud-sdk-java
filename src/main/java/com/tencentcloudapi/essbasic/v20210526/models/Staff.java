@@ -16,11 +16,12 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Staff extends AbstractModel{
+public class Staff extends AbstractModel {
 
     /**
     * 员工在电子签平台的用户ID
@@ -31,6 +32,7 @@ public class Staff extends AbstractModel{
 
     /**
     * 显示的员工名
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
     */
     @SerializedName("DisplayName")
     @Expose
@@ -38,6 +40,7 @@ public class Staff extends AbstractModel{
 
     /**
     * 员工手机号
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
     */
     @SerializedName("Mobile")
     @Expose
@@ -45,7 +48,6 @@ public class Staff extends AbstractModel{
 
     /**
     * 员工邮箱
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Email")
     @Expose
@@ -53,7 +55,6 @@ public class Staff extends AbstractModel{
 
     /**
     * 员工在第三方应用平台的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("OpenId")
     @Expose
@@ -61,7 +62,6 @@ public class Staff extends AbstractModel{
 
     /**
     * 员工角色
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Roles")
     @Expose
@@ -69,7 +69,6 @@ public class Staff extends AbstractModel{
 
     /**
     * 员工部门
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Department")
     @Expose
@@ -120,8 +119,10 @@ public class Staff extends AbstractModel{
     }
 
     /**
-     * Get 显示的员工名 
+     * Get 显示的员工名
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息 
      * @return DisplayName 显示的员工名
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
      */
     public String getDisplayName() {
         return this.DisplayName;
@@ -129,15 +130,19 @@ public class Staff extends AbstractModel{
 
     /**
      * Set 显示的员工名
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
      * @param DisplayName 显示的员工名
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
      */
     public void setDisplayName(String DisplayName) {
         this.DisplayName = DisplayName;
     }
 
     /**
-     * Get 员工手机号 
+     * Get 员工手机号
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息 
      * @return Mobile 员工手机号
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
      */
     public String getMobile() {
         return this.Mobile;
@@ -145,17 +150,17 @@ public class Staff extends AbstractModel{
 
     /**
      * Set 员工手机号
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
      * @param Mobile 员工手机号
+注意：2024-07-08 及之后创建的应用号，该字段返回的是打码信息
      */
     public void setMobile(String Mobile) {
         this.Mobile = Mobile;
     }
 
     /**
-     * Get 员工邮箱
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 员工邮箱 
      * @return Email 员工邮箱
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEmail() {
         return this.Email;
@@ -163,19 +168,15 @@ public class Staff extends AbstractModel{
 
     /**
      * Set 员工邮箱
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Email 员工邮箱
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEmail(String Email) {
         this.Email = Email;
     }
 
     /**
-     * Get 员工在第三方应用平台的用户ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 员工在第三方应用平台的用户ID 
      * @return OpenId 员工在第三方应用平台的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOpenId() {
         return this.OpenId;
@@ -183,19 +184,15 @@ public class Staff extends AbstractModel{
 
     /**
      * Set 员工在第三方应用平台的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param OpenId 员工在第三方应用平台的用户ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOpenId(String OpenId) {
         this.OpenId = OpenId;
     }
 
     /**
-     * Get 员工角色
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 员工角色 
      * @return Roles 员工角色
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public StaffRole [] getRoles() {
         return this.Roles;
@@ -203,19 +200,15 @@ public class Staff extends AbstractModel{
 
     /**
      * Set 员工角色
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Roles 员工角色
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRoles(StaffRole [] Roles) {
         this.Roles = Roles;
     }
 
     /**
-     * Get 员工部门
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 员工部门 
      * @return Department 员工部门
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Department getDepartment() {
         return this.Department;
@@ -223,9 +216,7 @@ public class Staff extends AbstractModel{
 
     /**
      * Set 员工部门
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Department 员工部门
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDepartment(Department Department) {
         this.Department = Department;

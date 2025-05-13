@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdc.v20201214.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
+public class DescribeDedicatedClusterOverviewResponse extends AbstractModel {
 
     /**
     * 云服务器数量
@@ -38,7 +39,6 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
     * vpn通道状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpnConnectionState")
     @Expose
@@ -46,7 +46,6 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
     * vpn网关监控数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpngwBandwidthData")
     @Expose
@@ -54,7 +53,6 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
     * 本地网关信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("LocalNetInfo")
     @Expose
@@ -62,14 +60,34 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
     * vpn网关通道监控数据
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VpnConnectionBandwidthData")
     @Expose
     private VpngwBandwidthData [] VpnConnectionBandwidthData;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 宿主机资源概览信息
+    */
+    @SerializedName("HostDetailInfo")
+    @Expose
+    private HostDetailInfo [] HostDetailInfo;
+
+    /**
+    * 热备宿主机数量
+    */
+    @SerializedName("HostStandbyCount")
+    @Expose
+    private Long HostStandbyCount;
+
+    /**
+    * 普通宿主机数量
+    */
+    @SerializedName("HostNormalCount")
+    @Expose
+    private Long HostNormalCount;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -108,10 +126,8 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
     }
 
     /**
-     * Get vpn通道状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vpn通道状态 
      * @return VpnConnectionState vpn通道状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVpnConnectionState() {
         return this.VpnConnectionState;
@@ -119,19 +135,15 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
      * Set vpn通道状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpnConnectionState vpn通道状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpnConnectionState(String VpnConnectionState) {
         this.VpnConnectionState = VpnConnectionState;
     }
 
     /**
-     * Get vpn网关监控数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vpn网关监控数据 
      * @return VpngwBandwidthData vpn网关监控数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VpngwBandwidthData getVpngwBandwidthData() {
         return this.VpngwBandwidthData;
@@ -139,19 +151,15 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
      * Set vpn网关监控数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpngwBandwidthData vpn网关监控数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpngwBandwidthData(VpngwBandwidthData VpngwBandwidthData) {
         this.VpngwBandwidthData = VpngwBandwidthData;
     }
 
     /**
-     * Get 本地网关信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 本地网关信息 
      * @return LocalNetInfo 本地网关信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public LocalNetInfo getLocalNetInfo() {
         return this.LocalNetInfo;
@@ -159,19 +167,15 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
      * Set 本地网关信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param LocalNetInfo 本地网关信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocalNetInfo(LocalNetInfo LocalNetInfo) {
         this.LocalNetInfo = LocalNetInfo;
     }
 
     /**
-     * Get vpn网关通道监控数据
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get vpn网关通道监控数据 
      * @return VpnConnectionBandwidthData vpn网关通道监控数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public VpngwBandwidthData [] getVpnConnectionBandwidthData() {
         return this.VpnConnectionBandwidthData;
@@ -179,25 +183,71 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
 
     /**
      * Set vpn网关通道监控数据
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VpnConnectionBandwidthData vpn网关通道监控数据
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVpnConnectionBandwidthData(VpngwBandwidthData [] VpnConnectionBandwidthData) {
         this.VpnConnectionBandwidthData = VpnConnectionBandwidthData;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 宿主机资源概览信息 
+     * @return HostDetailInfo 宿主机资源概览信息
+     */
+    public HostDetailInfo [] getHostDetailInfo() {
+        return this.HostDetailInfo;
+    }
+
+    /**
+     * Set 宿主机资源概览信息
+     * @param HostDetailInfo 宿主机资源概览信息
+     */
+    public void setHostDetailInfo(HostDetailInfo [] HostDetailInfo) {
+        this.HostDetailInfo = HostDetailInfo;
+    }
+
+    /**
+     * Get 热备宿主机数量 
+     * @return HostStandbyCount 热备宿主机数量
+     */
+    public Long getHostStandbyCount() {
+        return this.HostStandbyCount;
+    }
+
+    /**
+     * Set 热备宿主机数量
+     * @param HostStandbyCount 热备宿主机数量
+     */
+    public void setHostStandbyCount(Long HostStandbyCount) {
+        this.HostStandbyCount = HostStandbyCount;
+    }
+
+    /**
+     * Get 普通宿主机数量 
+     * @return HostNormalCount 普通宿主机数量
+     */
+    public Long getHostNormalCount() {
+        return this.HostNormalCount;
+    }
+
+    /**
+     * Set 普通宿主机数量
+     * @param HostNormalCount 普通宿主机数量
+     */
+    public void setHostNormalCount(Long HostNormalCount) {
+        this.HostNormalCount = HostNormalCount;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -232,6 +282,18 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
                 this.VpnConnectionBandwidthData[i] = new VpngwBandwidthData(source.VpnConnectionBandwidthData[i]);
             }
         }
+        if (source.HostDetailInfo != null) {
+            this.HostDetailInfo = new HostDetailInfo[source.HostDetailInfo.length];
+            for (int i = 0; i < source.HostDetailInfo.length; i++) {
+                this.HostDetailInfo[i] = new HostDetailInfo(source.HostDetailInfo[i]);
+            }
+        }
+        if (source.HostStandbyCount != null) {
+            this.HostStandbyCount = new Long(source.HostStandbyCount);
+        }
+        if (source.HostNormalCount != null) {
+            this.HostNormalCount = new Long(source.HostNormalCount);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -248,6 +310,9 @@ public class DescribeDedicatedClusterOverviewResponse extends AbstractModel{
         this.setParamObj(map, prefix + "VpngwBandwidthData.", this.VpngwBandwidthData);
         this.setParamObj(map, prefix + "LocalNetInfo.", this.LocalNetInfo);
         this.setParamArrayObj(map, prefix + "VpnConnectionBandwidthData.", this.VpnConnectionBandwidthData);
+        this.setParamArrayObj(map, prefix + "HostDetailInfo.", this.HostDetailInfo);
+        this.setParamSimple(map, prefix + "HostStandbyCount", this.HostStandbyCount);
+        this.setParamSimple(map, prefix + "HostNormalCount", this.HostNormalCount);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

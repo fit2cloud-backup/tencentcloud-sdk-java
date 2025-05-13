@@ -16,30 +16,31 @@
 package com.tencentcloudapi.ssa.v20180608.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVulListRequest extends AbstractModel{
+public class DescribeVulListRequest extends AbstractModel {
 
     /**
-    * 查询过滤参数
+    * 查询过滤参数:(json序列化的结果）
     */
     @SerializedName("Params")
     @Expose
     private String Params;
 
     /**
-     * Get 查询过滤参数 
-     * @return Params 查询过滤参数
+     * Get 查询过滤参数:(json序列化的结果） 
+     * @return Params 查询过滤参数:(json序列化的结果）
      */
     public String getParams() {
         return this.Params;
     }
 
     /**
-     * Set 查询过滤参数
-     * @param Params 查询过滤参数
+     * Set 查询过滤参数:(json序列化的结果）
+     * @param Params 查询过滤参数:(json序列化的结果）
      */
     public void setParams(String Params) {
         this.Params = Params;

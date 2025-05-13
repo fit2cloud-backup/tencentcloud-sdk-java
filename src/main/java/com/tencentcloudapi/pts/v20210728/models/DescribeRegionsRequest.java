@@ -16,11 +16,35 @@
 package com.tencentcloudapi.pts.v20210728.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeRegionsRequest extends AbstractModel{
+public class DescribeRegionsRequest extends AbstractModel {
+
+    /**
+    * 通过该参数指定不同压测网络环境，在不同网络环境下，PTS可用的地域不一样
+    */
+    @SerializedName("LoadType")
+    @Expose
+    private Long LoadType;
+
+    /**
+     * Get 通过该参数指定不同压测网络环境，在不同网络环境下，PTS可用的地域不一样 
+     * @return LoadType 通过该参数指定不同压测网络环境，在不同网络环境下，PTS可用的地域不一样
+     */
+    public Long getLoadType() {
+        return this.LoadType;
+    }
+
+    /**
+     * Set 通过该参数指定不同压测网络环境，在不同网络环境下，PTS可用的地域不一样
+     * @param LoadType 通过该参数指定不同压测网络环境，在不同网络环境下，PTS可用的地域不一样
+     */
+    public void setLoadType(Long LoadType) {
+        this.LoadType = LoadType;
+    }
 
     public DescribeRegionsRequest() {
     }
@@ -30,6 +54,9 @@ public class DescribeRegionsRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeRegionsRequest(DescribeRegionsRequest source) {
+        if (source.LoadType != null) {
+            this.LoadType = new Long(source.LoadType);
+        }
     }
 
 
@@ -37,6 +64,7 @@ public class DescribeRegionsRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
+        this.setParamSimple(map, prefix + "LoadType", this.LoadType);
 
     }
 }

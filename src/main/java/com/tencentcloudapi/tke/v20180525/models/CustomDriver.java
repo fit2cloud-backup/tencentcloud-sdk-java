@@ -16,25 +16,23 @@
 package com.tencentcloudapi.tke.v20180525.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CustomDriver extends AbstractModel{
+public class CustomDriver extends AbstractModel {
 
     /**
     * 自定义GPU驱动地址链接
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Address")
     @Expose
     private String Address;
 
     /**
-     * Get 自定义GPU驱动地址链接
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 自定义GPU驱动地址链接 
      * @return Address 自定义GPU驱动地址链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAddress() {
         return this.Address;
@@ -42,9 +40,7 @@ public class CustomDriver extends AbstractModel{
 
     /**
      * Set 自定义GPU驱动地址链接
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Address 自定义GPU驱动地址链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddress(String Address) {
         this.Address = Address;

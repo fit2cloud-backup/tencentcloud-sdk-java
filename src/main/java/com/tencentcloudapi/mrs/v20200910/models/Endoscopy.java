@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Endoscopy extends AbstractModel{
+public class Endoscopy extends AbstractModel {
 
     /**
     * 活检部位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BiopsyPart")
     @Expose
@@ -32,7 +32,6 @@ public class Endoscopy extends AbstractModel{
 
     /**
     * 可见描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Desc")
     @Expose
@@ -40,17 +39,21 @@ public class Endoscopy extends AbstractModel{
 
     /**
     * 结论
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Summary")
     @Expose
     private Summary Summary;
 
     /**
-     * Get 活检部位
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 数据在原PDF文件中的第几页
+    */
+    @SerializedName("Page")
+    @Expose
+    private Long Page;
+
+    /**
+     * Get 活检部位 
      * @return BiopsyPart 活检部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public BiopsyPart getBiopsyPart() {
         return this.BiopsyPart;
@@ -58,19 +61,15 @@ public class Endoscopy extends AbstractModel{
 
     /**
      * Set 活检部位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BiopsyPart 活检部位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBiopsyPart(BiopsyPart BiopsyPart) {
         this.BiopsyPart = BiopsyPart;
     }
 
     /**
-     * Get 可见描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可见描述 
      * @return Desc 可见描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public EndoscopyDesc getDesc() {
         return this.Desc;
@@ -78,19 +77,15 @@ public class Endoscopy extends AbstractModel{
 
     /**
      * Set 可见描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Desc 可见描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDesc(EndoscopyDesc Desc) {
         this.Desc = Desc;
     }
 
     /**
-     * Get 结论
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结论 
      * @return Summary 结论
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Summary getSummary() {
         return this.Summary;
@@ -98,12 +93,26 @@ public class Endoscopy extends AbstractModel{
 
     /**
      * Set 结论
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Summary 结论
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSummary(Summary Summary) {
         this.Summary = Summary;
+    }
+
+    /**
+     * Get 数据在原PDF文件中的第几页 
+     * @return Page 数据在原PDF文件中的第几页
+     */
+    public Long getPage() {
+        return this.Page;
+    }
+
+    /**
+     * Set 数据在原PDF文件中的第几页
+     * @param Page 数据在原PDF文件中的第几页
+     */
+    public void setPage(Long Page) {
+        this.Page = Page;
     }
 
     public Endoscopy() {
@@ -123,6 +132,9 @@ public class Endoscopy extends AbstractModel{
         if (source.Summary != null) {
             this.Summary = new Summary(source.Summary);
         }
+        if (source.Page != null) {
+            this.Page = new Long(source.Page);
+        }
     }
 
 
@@ -133,6 +145,7 @@ public class Endoscopy extends AbstractModel{
         this.setParamObj(map, prefix + "BiopsyPart.", this.BiopsyPart);
         this.setParamObj(map, prefix + "Desc.", this.Desc);
         this.setParamObj(map, prefix + "Summary.", this.Summary);
+        this.setParamSimple(map, prefix + "Page", this.Page);
 
     }
 }

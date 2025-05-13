@@ -16,18 +16,12 @@
 package com.tencentcloudapi.ssl.v20191205.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeHostTkeInstanceListRequest extends AbstractModel{
-
-    /**
-    * 待部署的证书ID
-    */
-    @SerializedName("CertificateId")
-    @Expose
-    private String CertificateId;
+public class DescribeHostTkeInstanceListRequest extends AbstractModel {
 
     /**
     * 分页偏移量，从0开始。
@@ -44,6 +38,13 @@ public class DescribeHostTkeInstanceListRequest extends AbstractModel{
     private Long Limit;
 
     /**
+    * 待部署的证书ID
+    */
+    @SerializedName("CertificateId")
+    @Expose
+    private String CertificateId;
+
+    /**
     * 是否查询缓存，1：是； 0：否， 默认为查询缓存，缓存半小时
     */
     @SerializedName("IsCache")
@@ -58,7 +59,7 @@ public class DescribeHostTkeInstanceListRequest extends AbstractModel{
     private Filter [] Filters;
 
     /**
-    * 是否异步缓存
+    * 是否异步缓存，0表示否，1表示是，默认为0
     */
     @SerializedName("AsyncCache")
     @Expose
@@ -70,22 +71,6 @@ public class DescribeHostTkeInstanceListRequest extends AbstractModel{
     @SerializedName("OldCertificateId")
     @Expose
     private String OldCertificateId;
-
-    /**
-     * Get 待部署的证书ID 
-     * @return CertificateId 待部署的证书ID
-     */
-    public String getCertificateId() {
-        return this.CertificateId;
-    }
-
-    /**
-     * Set 待部署的证书ID
-     * @param CertificateId 待部署的证书ID
-     */
-    public void setCertificateId(String CertificateId) {
-        this.CertificateId = CertificateId;
-    }
 
     /**
      * Get 分页偏移量，从0开始。 
@@ -117,6 +102,22 @@ public class DescribeHostTkeInstanceListRequest extends AbstractModel{
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
+    }
+
+    /**
+     * Get 待部署的证书ID 
+     * @return CertificateId 待部署的证书ID
+     */
+    public String getCertificateId() {
+        return this.CertificateId;
+    }
+
+    /**
+     * Set 待部署的证书ID
+     * @param CertificateId 待部署的证书ID
+     */
+    public void setCertificateId(String CertificateId) {
+        this.CertificateId = CertificateId;
     }
 
     /**
@@ -152,16 +153,16 @@ public class DescribeHostTkeInstanceListRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否异步缓存 
-     * @return AsyncCache 是否异步缓存
+     * Get 是否异步缓存，0表示否，1表示是，默认为0 
+     * @return AsyncCache 是否异步缓存，0表示否，1表示是，默认为0
      */
     public Long getAsyncCache() {
         return this.AsyncCache;
     }
 
     /**
-     * Set 是否异步缓存
-     * @param AsyncCache 是否异步缓存
+     * Set 是否异步缓存，0表示否，1表示是，默认为0
+     * @param AsyncCache 是否异步缓存，0表示否，1表示是，默认为0
      */
     public void setAsyncCache(Long AsyncCache) {
         this.AsyncCache = AsyncCache;
@@ -191,14 +192,14 @@ public class DescribeHostTkeInstanceListRequest extends AbstractModel{
      *       and any explicit key, i.e Foo, set via .setFoo("value") will be a deep copy.
      */
     public DescribeHostTkeInstanceListRequest(DescribeHostTkeInstanceListRequest source) {
-        if (source.CertificateId != null) {
-            this.CertificateId = new String(source.CertificateId);
-        }
         if (source.Offset != null) {
             this.Offset = new Long(source.Offset);
         }
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
+        }
+        if (source.CertificateId != null) {
+            this.CertificateId = new String(source.CertificateId);
         }
         if (source.IsCache != null) {
             this.IsCache = new Long(source.IsCache);
@@ -222,9 +223,9 @@ public class DescribeHostTkeInstanceListRequest extends AbstractModel{
      * Internal implementation, normal users should not use it.
      */
     public void toMap(HashMap<String, String> map, String prefix) {
-        this.setParamSimple(map, prefix + "CertificateId", this.CertificateId);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
+        this.setParamSimple(map, prefix + "CertificateId", this.CertificateId);
         this.setParamSimple(map, prefix + "IsCache", this.IsCache);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamSimple(map, prefix + "AsyncCache", this.AsyncCache);

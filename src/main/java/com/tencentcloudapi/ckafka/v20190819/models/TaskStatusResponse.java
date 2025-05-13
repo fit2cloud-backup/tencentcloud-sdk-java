@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TaskStatusResponse extends AbstractModel{
+public class TaskStatusResponse extends AbstractModel {
 
     /**
     * 任务状态:
@@ -34,7 +35,6 @@ public class TaskStatusResponse extends AbstractModel{
 
     /**
     * 输出信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Output")
     @Expose
@@ -69,10 +69,8 @@ public class TaskStatusResponse extends AbstractModel{
     }
 
     /**
-     * Get 输出信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 输出信息 
      * @return Output 输出信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getOutput() {
         return this.Output;
@@ -80,9 +78,7 @@ public class TaskStatusResponse extends AbstractModel{
 
     /**
      * Set 输出信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Output 输出信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setOutput(String Output) {
         this.Output = Output;

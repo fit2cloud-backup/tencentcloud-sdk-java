@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class TrainingTaskDetail extends AbstractModel{
+public class TrainingTaskDetail extends AbstractModel {
 
     /**
     * 训练任务ID
@@ -49,6 +50,14 @@ public class TrainingTaskDetail extends AbstractModel{
     @SerializedName("SubUin")
     @Expose
     private String SubUin;
+
+    /**
+    * 创建者名称
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("SubUinName")
+    @Expose
+    private String SubUinName;
 
     /**
     * 地域
@@ -320,6 +329,13 @@ public class TrainingTaskDetail extends AbstractModel{
     private String CallbackUrl;
 
     /**
+    * 任务关联的代码仓库配置
+    */
+    @SerializedName("CodeRepos")
+    @Expose
+    private CodeRepoConfig [] CodeRepos;
+
+    /**
      * Get 训练任务ID 
      * @return Id 训练任务ID
      */
@@ -381,6 +397,26 @@ public class TrainingTaskDetail extends AbstractModel{
      */
     public void setSubUin(String SubUin) {
         this.SubUin = SubUin;
+    }
+
+    /**
+     * Get 创建者名称
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return SubUinName 创建者名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getSubUinName() {
+        return this.SubUinName;
+    }
+
+    /**
+     * Set 创建者名称
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param SubUinName 创建者名称
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setSubUinName(String SubUinName) {
+        this.SubUinName = SubUinName;
     }
 
     /**
@@ -1039,6 +1075,22 @@ public class TrainingTaskDetail extends AbstractModel{
         this.CallbackUrl = CallbackUrl;
     }
 
+    /**
+     * Get 任务关联的代码仓库配置 
+     * @return CodeRepos 任务关联的代码仓库配置
+     */
+    public CodeRepoConfig [] getCodeRepos() {
+        return this.CodeRepos;
+    }
+
+    /**
+     * Set 任务关联的代码仓库配置
+     * @param CodeRepos 任务关联的代码仓库配置
+     */
+    public void setCodeRepos(CodeRepoConfig [] CodeRepos) {
+        this.CodeRepos = CodeRepos;
+    }
+
     public TrainingTaskDetail() {
     }
 
@@ -1058,6 +1110,9 @@ public class TrainingTaskDetail extends AbstractModel{
         }
         if (source.SubUin != null) {
             this.SubUin = new String(source.SubUin);
+        }
+        if (source.SubUinName != null) {
+            this.SubUinName = new String(source.SubUinName);
         }
         if (source.Region != null) {
             this.Region = new String(source.Region);
@@ -1173,6 +1228,12 @@ public class TrainingTaskDetail extends AbstractModel{
         if (source.CallbackUrl != null) {
             this.CallbackUrl = new String(source.CallbackUrl);
         }
+        if (source.CodeRepos != null) {
+            this.CodeRepos = new CodeRepoConfig[source.CodeRepos.length];
+            for (int i = 0; i < source.CodeRepos.length; i++) {
+                this.CodeRepos[i] = new CodeRepoConfig(source.CodeRepos[i]);
+            }
+        }
     }
 
 
@@ -1184,6 +1245,7 @@ public class TrainingTaskDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "Uin", this.Uin);
         this.setParamSimple(map, prefix + "SubUin", this.SubUin);
+        this.setParamSimple(map, prefix + "SubUinName", this.SubUinName);
         this.setParamSimple(map, prefix + "Region", this.Region);
         this.setParamSimple(map, prefix + "FrameworkName", this.FrameworkName);
         this.setParamSimple(map, prefix + "FrameworkVersion", this.FrameworkVersion);
@@ -1219,6 +1281,7 @@ public class TrainingTaskDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "Message", this.Message);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "CallbackUrl", this.CallbackUrl);
+        this.setParamArrayObj(map, prefix + "CodeRepos.", this.CodeRepos);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cfw.v20190904.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateNatRuleItem extends AbstractModel{
+public class CreateNatRuleItem extends AbstractModel {
 
     /**
     * 访问源示例： net：IP/CIDR(192.168.0.2)
@@ -105,6 +106,27 @@ public class CreateNatRuleItem extends AbstractModel{
     @SerializedName("Description")
     @Expose
     private String Description;
+
+    /**
+    * 端口协议组ID
+    */
+    @SerializedName("ParamTemplateId")
+    @Expose
+    private String ParamTemplateId;
+
+    /**
+    * 内部id
+    */
+    @SerializedName("InternalUuid")
+    @Expose
+    private Long InternalUuid;
+
+    /**
+    * 规则生效的范围：ALL，全局生效；ap-guangzhou，生效的地域；cfwnat-xxx，生效基于实例维度
+    */
+    @SerializedName("Scope")
+    @Expose
+    private String Scope;
 
     /**
      * Get 访问源示例： net：IP/CIDR(192.168.0.2) 
@@ -298,6 +320,54 @@ public class CreateNatRuleItem extends AbstractModel{
         this.Description = Description;
     }
 
+    /**
+     * Get 端口协议组ID 
+     * @return ParamTemplateId 端口协议组ID
+     */
+    public String getParamTemplateId() {
+        return this.ParamTemplateId;
+    }
+
+    /**
+     * Set 端口协议组ID
+     * @param ParamTemplateId 端口协议组ID
+     */
+    public void setParamTemplateId(String ParamTemplateId) {
+        this.ParamTemplateId = ParamTemplateId;
+    }
+
+    /**
+     * Get 内部id 
+     * @return InternalUuid 内部id
+     */
+    public Long getInternalUuid() {
+        return this.InternalUuid;
+    }
+
+    /**
+     * Set 内部id
+     * @param InternalUuid 内部id
+     */
+    public void setInternalUuid(Long InternalUuid) {
+        this.InternalUuid = InternalUuid;
+    }
+
+    /**
+     * Get 规则生效的范围：ALL，全局生效；ap-guangzhou，生效的地域；cfwnat-xxx，生效基于实例维度 
+     * @return Scope 规则生效的范围：ALL，全局生效；ap-guangzhou，生效的地域；cfwnat-xxx，生效基于实例维度
+     */
+    public String getScope() {
+        return this.Scope;
+    }
+
+    /**
+     * Set 规则生效的范围：ALL，全局生效；ap-guangzhou，生效的地域；cfwnat-xxx，生效基于实例维度
+     * @param Scope 规则生效的范围：ALL，全局生效；ap-guangzhou，生效的地域；cfwnat-xxx，生效基于实例维度
+     */
+    public void setScope(String Scope) {
+        this.Scope = Scope;
+    }
+
     public CreateNatRuleItem() {
     }
 
@@ -342,6 +412,15 @@ public class CreateNatRuleItem extends AbstractModel{
         if (source.Description != null) {
             this.Description = new String(source.Description);
         }
+        if (source.ParamTemplateId != null) {
+            this.ParamTemplateId = new String(source.ParamTemplateId);
+        }
+        if (source.InternalUuid != null) {
+            this.InternalUuid = new Long(source.InternalUuid);
+        }
+        if (source.Scope != null) {
+            this.Scope = new String(source.Scope);
+        }
     }
 
 
@@ -361,6 +440,9 @@ public class CreateNatRuleItem extends AbstractModel{
         this.setParamSimple(map, prefix + "Enable", this.Enable);
         this.setParamSimple(map, prefix + "Uuid", this.Uuid);
         this.setParamSimple(map, prefix + "Description", this.Description);
+        this.setParamSimple(map, prefix + "ParamTemplateId", this.ParamTemplateId);
+        this.setParamSimple(map, prefix + "InternalUuid", this.InternalUuid);
+        this.setParamSimple(map, prefix + "Scope", this.Scope);
 
     }
 }

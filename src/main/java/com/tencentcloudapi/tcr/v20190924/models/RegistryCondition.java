@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcr.v20190924.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RegistryCondition extends AbstractModel{
+public class RegistryCondition extends AbstractModel {
 
     /**
     * 实例创建过程类型
@@ -38,7 +39,6 @@ public class RegistryCondition extends AbstractModel{
 
     /**
     * 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Reason")
     @Expose
@@ -77,10 +77,8 @@ public class RegistryCondition extends AbstractModel{
     }
 
     /**
-     * Get 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 转换到该过程的简明原因 
      * @return Reason 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReason() {
         return this.Reason;
@@ -88,9 +86,7 @@ public class RegistryCondition extends AbstractModel{
 
     /**
      * Set 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Reason 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReason(String Reason) {
         this.Reason = Reason;

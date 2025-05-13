@@ -16,15 +16,15 @@
 package com.tencentcloudapi.mrs.v20200910.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BodyTemperatureBlock extends AbstractModel{
+public class BodyTemperatureBlock extends AbstractModel {
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -32,7 +32,6 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
     * 原文
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Src")
     @Expose
@@ -40,7 +39,6 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
     * 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Norm")
     @Expose
@@ -48,7 +46,6 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
     * 单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Unit")
     @Expose
@@ -56,17 +53,14 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
     * 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Value")
     @Expose
     private String Value;
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -74,19 +68,15 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 原文
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 原文 
      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSrc() {
         return this.Src;
@@ -94,19 +84,15 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
      * Set 原文
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSrc(String Src) {
         this.Src = Src;
     }
 
     /**
-     * Get 归一化值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 归一化值 
      * @return Norm 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getNorm() {
         return this.Norm;
@@ -114,19 +100,15 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
      * Set 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Norm 归一化值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNorm(String Norm) {
         this.Norm = Norm;
     }
 
     /**
-     * Get 单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 单位 
      * @return Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnit() {
         return this.Unit;
@@ -134,19 +116,15 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
      * Set 单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Unit 单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnit(String Unit) {
         this.Unit = Unit;
     }
 
     /**
-     * Get 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 对外输出值 
      * @return Value 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getValue() {
         return this.Value;
@@ -154,9 +132,7 @@ public class BodyTemperatureBlock extends AbstractModel{
 
     /**
      * Set 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Value 对外输出值
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setValue(String Value) {
         this.Value = Value;

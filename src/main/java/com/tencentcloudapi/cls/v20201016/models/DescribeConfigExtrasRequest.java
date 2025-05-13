@@ -16,14 +16,32 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeConfigExtrasRequest extends AbstractModel{
+public class DescribeConfigExtrasRequest extends AbstractModel {
 
     /**
-    * 支持的key： topicId,name, configExtraId, machineGroupId
+    * 过滤器，支持如下选项：
+name
+- 按照【特殊采集配置名称】进行模糊匹配过滤。
+- 类型：String
+
+configExtraId
+- 按照【特殊采集配置ID】进行过滤。
+- 类型：String
+
+topicId
+- 按照【日志主题】进行过滤。
+- 类型：String
+
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+
+每次请求的Filters的上限为10，Filter.Values的上限为5。
     */
     @SerializedName("Filters")
     @Expose
@@ -44,16 +62,84 @@ public class DescribeConfigExtrasRequest extends AbstractModel{
     private Long Limit;
 
     /**
-     * Get 支持的key： topicId,name, configExtraId, machineGroupId 
-     * @return Filters 支持的key： topicId,name, configExtraId, machineGroupId
+     * Get 过滤器，支持如下选项：
+name
+- 按照【特殊采集配置名称】进行模糊匹配过滤。
+- 类型：String
+
+configExtraId
+- 按照【特殊采集配置ID】进行过滤。
+- 类型：String
+
+topicId
+- 按照【日志主题】进行过滤。
+- 类型：String
+
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+
+每次请求的Filters的上限为10，Filter.Values的上限为5。 
+     * @return Filters 过滤器，支持如下选项：
+name
+- 按照【特殊采集配置名称】进行模糊匹配过滤。
+- 类型：String
+
+configExtraId
+- 按照【特殊采集配置ID】进行过滤。
+- 类型：String
+
+topicId
+- 按照【日志主题】进行过滤。
+- 类型：String
+
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+
+每次请求的Filters的上限为10，Filter.Values的上限为5。
      */
     public Filter [] getFilters() {
         return this.Filters;
     }
 
     /**
-     * Set 支持的key： topicId,name, configExtraId, machineGroupId
-     * @param Filters 支持的key： topicId,name, configExtraId, machineGroupId
+     * Set 过滤器，支持如下选项：
+name
+- 按照【特殊采集配置名称】进行模糊匹配过滤。
+- 类型：String
+
+configExtraId
+- 按照【特殊采集配置ID】进行过滤。
+- 类型：String
+
+topicId
+- 按照【日志主题】进行过滤。
+- 类型：String
+
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+
+每次请求的Filters的上限为10，Filter.Values的上限为5。
+     * @param Filters 过滤器，支持如下选项：
+name
+- 按照【特殊采集配置名称】进行模糊匹配过滤。
+- 类型：String
+
+configExtraId
+- 按照【特殊采集配置ID】进行过滤。
+- 类型：String
+
+topicId
+- 按照【日志主题】进行过滤。
+- 类型：String
+
+machineGroupId
+- 按照【机器组ID】进行过滤。
+- 类型：String
+
+每次请求的Filters的上限为10，Filter.Values的上限为5。
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

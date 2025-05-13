@@ -16,14 +16,15 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChatCompletionResponse extends AbstractModel{
+public class ChatCompletionResponse extends AbstractModel {
 
     /**
-    * 部署好的服务Id
+    * 对话的模型服务组ID
     */
     @SerializedName("Model")
     @Expose
@@ -38,7 +39,6 @@ public class ChatCompletionResponse extends AbstractModel{
 
     /**
     * 会话Id。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Id")
     @Expose
@@ -46,30 +46,29 @@ public class ChatCompletionResponse extends AbstractModel{
 
     /**
     * token统计
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Usage")
     @Expose
     private Usage Usage;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 部署好的服务Id 
-     * @return Model 部署好的服务Id
+     * Get 对话的模型服务组ID 
+     * @return Model 对话的模型服务组ID
      */
     public String getModel() {
         return this.Model;
     }
 
     /**
-     * Set 部署好的服务Id
-     * @param Model 部署好的服务Id
+     * Set 对话的模型服务组ID
+     * @param Model 对话的模型服务组ID
      */
     public void setModel(String Model) {
         this.Model = Model;
@@ -92,10 +91,8 @@ public class ChatCompletionResponse extends AbstractModel{
     }
 
     /**
-     * Get 会话Id。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 会话Id。 
      * @return Id 会话Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getId() {
         return this.Id;
@@ -103,19 +100,15 @@ public class ChatCompletionResponse extends AbstractModel{
 
     /**
      * Set 会话Id。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Id 会话Id。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setId(String Id) {
         this.Id = Id;
     }
 
     /**
-     * Get token统计
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get token统计 
      * @return Usage token统计
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Usage getUsage() {
         return this.Usage;
@@ -123,25 +116,23 @@ public class ChatCompletionResponse extends AbstractModel{
 
     /**
      * Set token统计
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Usage token统计
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsage(Usage Usage) {
         this.Usage = Usage;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

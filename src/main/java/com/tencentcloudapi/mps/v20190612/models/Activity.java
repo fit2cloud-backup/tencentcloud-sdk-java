@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mps.v20190612.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Activity extends AbstractModel{
+public class Activity extends AbstractModel {
 
     /**
     * 原子任务类型：
@@ -35,6 +36,11 @@ public class Activity extends AbstractModel{
 <li>action-image-sprite：雪碧图</li>
 <li>action-snapshotByTimeOffset: 时间点截图</li>
 <li>action-adaptive-substream：自适应码流</li>
+<li>action-AIQualityControl：媒体质检</li>
+<li>action-SmartSubtitles：智能字幕</li>
+
+
+
 注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ActivityType")
@@ -70,6 +76,11 @@ public class Activity extends AbstractModel{
 <li>action-image-sprite：雪碧图</li>
 <li>action-snapshotByTimeOffset: 时间点截图</li>
 <li>action-adaptive-substream：自适应码流</li>
+<li>action-AIQualityControl：媒体质检</li>
+<li>action-SmartSubtitles：智能字幕</li>
+
+
+
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return ActivityType 原子任务类型：
 <li>input: 起始节点</li>
@@ -83,6 +94,11 @@ public class Activity extends AbstractModel{
 <li>action-image-sprite：雪碧图</li>
 <li>action-snapshotByTimeOffset: 时间点截图</li>
 <li>action-adaptive-substream：自适应码流</li>
+<li>action-AIQualityControl：媒体质检</li>
+<li>action-SmartSubtitles：智能字幕</li>
+
+
+
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getActivityType() {
@@ -102,6 +118,11 @@ public class Activity extends AbstractModel{
 <li>action-image-sprite：雪碧图</li>
 <li>action-snapshotByTimeOffset: 时间点截图</li>
 <li>action-adaptive-substream：自适应码流</li>
+<li>action-AIQualityControl：媒体质检</li>
+<li>action-SmartSubtitles：智能字幕</li>
+
+
+
 注意：此字段可能返回 null，表示取不到有效值。
      * @param ActivityType 原子任务类型：
 <li>input: 起始节点</li>
@@ -115,6 +136,11 @@ public class Activity extends AbstractModel{
 <li>action-image-sprite：雪碧图</li>
 <li>action-snapshotByTimeOffset: 时间点截图</li>
 <li>action-adaptive-substream：自适应码流</li>
+<li>action-AIQualityControl：媒体质检</li>
+<li>action-SmartSubtitles：智能字幕</li>
+
+
+
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setActivityType(String ActivityType) {

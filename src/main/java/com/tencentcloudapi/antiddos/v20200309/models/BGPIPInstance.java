@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class BGPIPInstance extends AbstractModel{
+public class BGPIPInstance extends AbstractModel {
 
     /**
     * 资产实例的详细信息
@@ -104,7 +105,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 区分高防IP境外线路
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ZoneId")
     @Expose
@@ -112,7 +112,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 区分集群
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tgw")
     @Expose
@@ -120,7 +119,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 高防弹性公网IP状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)。只对高防弹性公网IP实例有效。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EipAddressStatus")
     @Expose
@@ -128,7 +126,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 是否高防弹性公网IP实例，是为1，否为0。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EipFlag")
     @Expose
@@ -154,7 +151,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 建议客户接入的域名，客户可使用域名接入。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Domain")
     @Expose
@@ -169,7 +165,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 是否Ipv6版本的IP, 是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("V6Flag")
     @Expose
@@ -177,7 +172,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 是否渠道版高防IP，是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BGPIPChannelFlag")
     @Expose
@@ -185,7 +179,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 资源关联标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TagInfoList")
     @Expose
@@ -202,7 +195,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 资源实例版本
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceVersion")
     @Expose
@@ -210,7 +202,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 重保实例
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ConvoyId")
     @Expose
@@ -218,7 +209,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 带宽后付费
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ElasticBandwidth")
     @Expose
@@ -226,7 +216,6 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
     * 是否为EO代播的ip: 1是，0不是
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EOFlag")
     @Expose
@@ -433,10 +422,8 @@ public class BGPIPInstance extends AbstractModel{
     }
 
     /**
-     * Get 区分高防IP境外线路
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区分高防IP境外线路 
      * @return ZoneId 区分高防IP境外线路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getZoneId() {
         return this.ZoneId;
@@ -444,19 +431,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 区分高防IP境外线路
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ZoneId 区分高防IP境外线路
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;
     }
 
     /**
-     * Get 区分集群
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 区分集群 
      * @return Tgw 区分集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getTgw() {
         return this.Tgw;
@@ -464,19 +447,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 区分集群
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tgw 区分集群
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTgw(Long Tgw) {
         this.Tgw = Tgw;
     }
 
     /**
-     * Get 高防弹性公网IP状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)。只对高防弹性公网IP实例有效。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 高防弹性公网IP状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)。只对高防弹性公网IP实例有效。 
      * @return EipAddressStatus 高防弹性公网IP状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)。只对高防弹性公网IP实例有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEipAddressStatus() {
         return this.EipAddressStatus;
@@ -484,19 +463,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 高防弹性公网IP状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)。只对高防弹性公网IP实例有效。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EipAddressStatus 高防弹性公网IP状态，包含'CREATING'(创建中),'BINDING'(绑定中),'BIND'(已绑定),'UNBINDING'(解绑中),'UNBIND'(已解绑),'OFFLINING'(释放中),'BIND_ENI'(绑定悬空弹性网卡)。只对高防弹性公网IP实例有效。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEipAddressStatus(String EipAddressStatus) {
         this.EipAddressStatus = EipAddressStatus;
     }
 
     /**
-     * Get 是否高防弹性公网IP实例，是为1，否为0。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否高防弹性公网IP实例，是为1，否为0。 
      * @return EipFlag 是否高防弹性公网IP实例，是为1，否为0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEipFlag() {
         return this.EipFlag;
@@ -504,9 +479,7 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 是否高防弹性公网IP实例，是为1，否为0。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EipFlag 是否高防弹性公网IP实例，是为1，否为0。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEipFlag(Long EipFlag) {
         this.EipFlag = EipFlag;
@@ -561,10 +534,8 @@ public class BGPIPInstance extends AbstractModel{
     }
 
     /**
-     * Get 建议客户接入的域名，客户可使用域名接入。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 建议客户接入的域名，客户可使用域名接入。 
      * @return Domain 建议客户接入的域名，客户可使用域名接入。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDomain() {
         return this.Domain;
@@ -572,9 +543,7 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 建议客户接入的域名，客户可使用域名接入。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Domain 建议客户接入的域名，客户可使用域名接入。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDomain(String Domain) {
         this.Domain = Domain;
@@ -597,10 +566,8 @@ public class BGPIPInstance extends AbstractModel{
     }
 
     /**
-     * Get 是否Ipv6版本的IP, 是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否Ipv6版本的IP, 是为1，否为0 
      * @return V6Flag 是否Ipv6版本的IP, 是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getV6Flag() {
         return this.V6Flag;
@@ -608,19 +575,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 是否Ipv6版本的IP, 是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
      * @param V6Flag 是否Ipv6版本的IP, 是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setV6Flag(Long V6Flag) {
         this.V6Flag = V6Flag;
     }
 
     /**
-     * Get 是否渠道版高防IP，是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否渠道版高防IP，是为1，否为0 
      * @return BGPIPChannelFlag 是否渠道版高防IP，是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBGPIPChannelFlag() {
         return this.BGPIPChannelFlag;
@@ -628,19 +591,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 是否渠道版高防IP，是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BGPIPChannelFlag 是否渠道版高防IP，是为1，否为0
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBGPIPChannelFlag(Long BGPIPChannelFlag) {
         this.BGPIPChannelFlag = BGPIPChannelFlag;
     }
 
     /**
-     * Get 资源关联标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源关联标签 
      * @return TagInfoList 资源关联标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagInfo [] getTagInfoList() {
         return this.TagInfoList;
@@ -648,9 +607,7 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 资源关联标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TagInfoList 资源关联标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTagInfoList(TagInfo [] TagInfoList) {
         this.TagInfoList = TagInfoList;
@@ -681,10 +638,8 @@ public class BGPIPInstance extends AbstractModel{
     }
 
     /**
-     * Get 资源实例版本
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源实例版本 
      * @return InstanceVersion 资源实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInstanceVersion() {
         return this.InstanceVersion;
@@ -692,19 +647,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 资源实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceVersion 资源实例版本
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceVersion(Long InstanceVersion) {
         this.InstanceVersion = InstanceVersion;
     }
 
     /**
-     * Get 重保实例
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 重保实例 
      * @return ConvoyId 重保实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getConvoyId() {
         return this.ConvoyId;
@@ -712,19 +663,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 重保实例
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ConvoyId 重保实例
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setConvoyId(String ConvoyId) {
         this.ConvoyId = ConvoyId;
     }
 
     /**
-     * Get 带宽后付费
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 带宽后付费 
      * @return ElasticBandwidth 带宽后付费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getElasticBandwidth() {
         return this.ElasticBandwidth;
@@ -732,19 +679,15 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 带宽后付费
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ElasticBandwidth 带宽后付费
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setElasticBandwidth(Long ElasticBandwidth) {
         this.ElasticBandwidth = ElasticBandwidth;
     }
 
     /**
-     * Get 是否为EO代播的ip: 1是，0不是
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否为EO代播的ip: 1是，0不是 
      * @return EOFlag 是否为EO代播的ip: 1是，0不是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getEOFlag() {
         return this.EOFlag;
@@ -752,9 +695,7 @@ public class BGPIPInstance extends AbstractModel{
 
     /**
      * Set 是否为EO代播的ip: 1是，0不是
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EOFlag 是否为EO代播的ip: 1是，0不是
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEOFlag(Long EOFlag) {
         this.EOFlag = EOFlag;

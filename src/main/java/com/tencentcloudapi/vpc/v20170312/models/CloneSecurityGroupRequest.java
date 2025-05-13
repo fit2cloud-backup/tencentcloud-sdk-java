@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CloneSecurityGroupRequest extends AbstractModel{
+public class CloneSecurityGroupRequest extends AbstractModel {
 
     /**
     * 安全组实例ID，例如sg-33ocnj9n，可通过<a href="https://cloud.tencent.com/document/product/215/15808">DescribeSecurityGroups</a>获取。
@@ -56,6 +57,14 @@ public class CloneSecurityGroupRequest extends AbstractModel{
     @SerializedName("RemoteRegion")
     @Expose
     private String RemoteRegion;
+
+    /**
+    * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+若指定Tags入参且指定IsCloneTags为true，会合并源安全组的标签和新增的标签。
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
 
     /**
      * Get 安全组实例ID，例如sg-33ocnj9n，可通过<a href="https://cloud.tencent.com/document/product/215/15808">DescribeSecurityGroups</a>获取。 
@@ -137,6 +146,26 @@ public class CloneSecurityGroupRequest extends AbstractModel{
         this.RemoteRegion = RemoteRegion;
     }
 
+    /**
+     * Get 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+若指定Tags入参且指定IsCloneTags为true，会合并源安全组的标签和新增的标签。 
+     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+若指定Tags入参且指定IsCloneTags为true，会合并源安全组的标签和新增的标签。
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+若指定Tags入参且指定IsCloneTags为true，会合并源安全组的标签和新增的标签。
+     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+若指定Tags入参且指定IsCloneTags为true，会合并源安全组的标签和新增的标签。
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
+    }
+
     public CloneSecurityGroupRequest() {
     }
 
@@ -160,6 +189,12 @@ public class CloneSecurityGroupRequest extends AbstractModel{
         if (source.RemoteRegion != null) {
             this.RemoteRegion = new String(source.RemoteRegion);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -172,6 +207,7 @@ public class CloneSecurityGroupRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "GroupDescription", this.GroupDescription);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
         this.setParamSimple(map, prefix + "RemoteRegion", this.RemoteRegion);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

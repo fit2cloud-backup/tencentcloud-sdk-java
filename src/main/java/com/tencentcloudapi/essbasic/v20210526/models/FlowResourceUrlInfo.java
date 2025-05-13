@@ -16,63 +16,54 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FlowResourceUrlInfo extends AbstractModel{
+public class FlowResourceUrlInfo extends AbstractModel {
 
     /**
-    * 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 合同流程的ID
     */
     @SerializedName("FlowId")
     @Expose
     private String FlowId;
 
     /**
-    * 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
+    * 对应的合同流程的PDF下载链接
     */
     @SerializedName("ResourceUrlInfos")
     @Expose
     private ResourceUrlInfo [] ResourceUrlInfos;
 
     /**
-     * Get 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FlowId 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 合同流程的ID 
+     * @return FlowId 合同流程的ID
      */
     public String getFlowId() {
         return this.FlowId;
     }
 
     /**
-     * Set 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param FlowId 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 合同流程的ID
+     * @param FlowId 合同流程的ID
      */
     public void setFlowId(String FlowId) {
         this.FlowId = FlowId;
     }
 
     /**
-     * Get 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ResourceUrlInfos 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 对应的合同流程的PDF下载链接 
+     * @return ResourceUrlInfos 对应的合同流程的PDF下载链接
      */
     public ResourceUrlInfo [] getResourceUrlInfos() {
         return this.ResourceUrlInfos;
     }
 
     /**
-     * Set 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ResourceUrlInfos 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 对应的合同流程的PDF下载链接
+     * @param ResourceUrlInfos 对应的合同流程的PDF下载链接
      */
     public void setResourceUrlInfos(ResourceUrlInfo [] ResourceUrlInfos) {
         this.ResourceUrlInfos = ResourceUrlInfos;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.emr.v20190103.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteUserManagerUserListRequest extends AbstractModel{
+public class DeleteUserManagerUserListRequest extends AbstractModel {
 
     /**
     * 集群实例ID
@@ -56,6 +57,13 @@ public class DeleteUserManagerUserListRequest extends AbstractModel{
     @SerializedName("UserGroupList")
     @Expose
     private UserAndGroup [] UserGroupList;
+
+    /**
+    * 是否删除家目录，只针对cvm集群
+    */
+    @SerializedName("DeleteHomeDir")
+    @Expose
+    private Boolean DeleteHomeDir;
 
     /**
      * Get 集群实例ID 
@@ -137,6 +145,22 @@ public class DeleteUserManagerUserListRequest extends AbstractModel{
         this.UserGroupList = UserGroupList;
     }
 
+    /**
+     * Get 是否删除家目录，只针对cvm集群 
+     * @return DeleteHomeDir 是否删除家目录，只针对cvm集群
+     */
+    public Boolean getDeleteHomeDir() {
+        return this.DeleteHomeDir;
+    }
+
+    /**
+     * Set 是否删除家目录，只针对cvm集群
+     * @param DeleteHomeDir 是否删除家目录，只针对cvm集群
+     */
+    public void setDeleteHomeDir(Boolean DeleteHomeDir) {
+        this.DeleteHomeDir = DeleteHomeDir;
+    }
+
     public DeleteUserManagerUserListRequest() {
     }
 
@@ -166,6 +190,9 @@ public class DeleteUserManagerUserListRequest extends AbstractModel{
                 this.UserGroupList[i] = new UserAndGroup(source.UserGroupList[i]);
             }
         }
+        if (source.DeleteHomeDir != null) {
+            this.DeleteHomeDir = new Boolean(source.DeleteHomeDir);
+        }
     }
 
 
@@ -178,6 +205,7 @@ public class DeleteUserManagerUserListRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TkeClusterId", this.TkeClusterId);
         this.setParamSimple(map, prefix + "DisplayStrategy", this.DisplayStrategy);
         this.setParamArrayObj(map, prefix + "UserGroupList.", this.UserGroupList);
+        this.setParamSimple(map, prefix + "DeleteHomeDir", this.DeleteHomeDir);
 
     }
 }

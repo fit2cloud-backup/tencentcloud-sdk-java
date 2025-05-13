@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cdb.v20170320.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBackupOverviewResponse extends AbstractModel{
+public class DescribeBackupOverviewResponse extends AbstractModel {
 
     /**
     * 用户在当前地域备份的总个数（包含数据备份和日志备份）。
@@ -52,7 +53,6 @@ public class DescribeBackupOverviewResponse extends AbstractModel{
 
     /**
     * 用户在当前地域的异地备份总容量。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RemoteBackupVolume")
     @Expose
@@ -60,7 +60,6 @@ public class DescribeBackupOverviewResponse extends AbstractModel{
 
     /**
     * 归档备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupArchiveVolume")
     @Expose
@@ -68,14 +67,13 @@ public class DescribeBackupOverviewResponse extends AbstractModel{
 
     /**
     * 标准存储备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupStandbyVolume")
     @Expose
     private Long BackupStandbyVolume;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -146,10 +144,8 @@ public class DescribeBackupOverviewResponse extends AbstractModel{
     }
 
     /**
-     * Get 用户在当前地域的异地备份总容量。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户在当前地域的异地备份总容量。 
      * @return RemoteBackupVolume 用户在当前地域的异地备份总容量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRemoteBackupVolume() {
         return this.RemoteBackupVolume;
@@ -157,19 +153,15 @@ public class DescribeBackupOverviewResponse extends AbstractModel{
 
     /**
      * Set 用户在当前地域的异地备份总容量。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RemoteBackupVolume 用户在当前地域的异地备份总容量。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemoteBackupVolume(Long RemoteBackupVolume) {
         this.RemoteBackupVolume = RemoteBackupVolume;
     }
 
     /**
-     * Get 归档备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 归档备份容量，包含数据备份以及日志备份。 
      * @return BackupArchiveVolume 归档备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBackupArchiveVolume() {
         return this.BackupArchiveVolume;
@@ -177,19 +169,15 @@ public class DescribeBackupOverviewResponse extends AbstractModel{
 
     /**
      * Set 归档备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupArchiveVolume 归档备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupArchiveVolume(Long BackupArchiveVolume) {
         this.BackupArchiveVolume = BackupArchiveVolume;
     }
 
     /**
-     * Get 标准存储备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标准存储备份容量，包含数据备份以及日志备份。 
      * @return BackupStandbyVolume 标准存储备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getBackupStandbyVolume() {
         return this.BackupStandbyVolume;
@@ -197,25 +185,23 @@ public class DescribeBackupOverviewResponse extends AbstractModel{
 
     /**
      * Set 标准存储备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupStandbyVolume 标准存储备份容量，包含数据备份以及日志备份。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupStandbyVolume(Long BackupStandbyVolume) {
         this.BackupStandbyVolume = BackupStandbyVolume;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

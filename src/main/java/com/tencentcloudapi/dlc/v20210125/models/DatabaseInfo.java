@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DatabaseInfo extends AbstractModel{
+public class DatabaseInfo extends AbstractModel {
 
     /**
     * 数据库名称，长度0~128，支持数字、字母下划线，不允许数字大头，统一转换为小写。
@@ -47,7 +48,6 @@ public class DatabaseInfo extends AbstractModel{
 
     /**
     * 数据库cos路径
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Location")
     @Expose
@@ -110,10 +110,8 @@ public class DatabaseInfo extends AbstractModel{
     }
 
     /**
-     * Get 数据库cos路径
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 数据库cos路径 
      * @return Location 数据库cos路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLocation() {
         return this.Location;
@@ -121,9 +119,7 @@ public class DatabaseInfo extends AbstractModel{
 
     /**
      * Set 数据库cos路径
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Location 数据库cos路径
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLocation(String Location) {
         this.Location = Location;

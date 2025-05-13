@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AssistantCidr extends AbstractModel{
+public class AssistantCidr extends AbstractModel {
 
     /**
     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
@@ -45,7 +46,6 @@ public class AssistantCidr extends AbstractModel{
 
     /**
     * 辅助CIDR拆分的子网。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SubnetSet")
     @Expose
@@ -100,10 +100,8 @@ public class AssistantCidr extends AbstractModel{
     }
 
     /**
-     * Get 辅助CIDR拆分的子网。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 辅助CIDR拆分的子网。 
      * @return SubnetSet 辅助CIDR拆分的子网。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Subnet [] getSubnetSet() {
         return this.SubnetSet;
@@ -111,9 +109,7 @@ public class AssistantCidr extends AbstractModel{
 
     /**
      * Set 辅助CIDR拆分的子网。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SubnetSet 辅助CIDR拆分的子网。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSubnetSet(Subnet [] SubnetSet) {
         this.SubnetSet = SubnetSet;

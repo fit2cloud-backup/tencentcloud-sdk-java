@@ -16,17 +16,17 @@
 package com.tencentcloudapi.vm.v20210922.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ImageResult extends AbstractModel{
+public class ImageResult extends AbstractModel {
 
     /**
     * 违规标志
 0 未命中
 1 命中
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HitFlag")
     @Expose
@@ -41,7 +41,6 @@ Illegal 违法
 Abuse 谩骂
 Terror 暴恐
 Ad 广告
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Label")
     @Expose
@@ -52,7 +51,6 @@ Ad 广告
 Pass 通过，
 Review 建议人审，
 Block 确认违规
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Suggestion")
     @Expose
@@ -60,7 +58,6 @@ Block 确认违规
 
     /**
     * 得分
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Score")
     @Expose
@@ -68,15 +65,13 @@ Block 确认违规
 
     /**
     * 画面截帧图片结果集
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Results")
     @Expose
     private ImageResultResult [] Results;
 
     /**
-    * 图片URL地址
-注意：此字段可能返回 null，表示取不到有效值。
+    * 该字段用于返回审核结果的访问链接（URL）。<br>备注：链接默认有效期为12小时。如果您需要更长时效的链接，请使用[COS预签名](https://cloud.tencent.com/document/product/1265/104001)功能更新签名时效。
     */
     @SerializedName("Url")
     @Expose
@@ -84,21 +79,32 @@ Block 确认违规
 
     /**
     * 附加字段
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Extra")
     @Expose
     private String Extra;
 
     /**
+    * 二级标签
+    */
+    @SerializedName("SubLabel")
+    @Expose
+    private String SubLabel;
+
+    /**
+    * 场景结果
+    */
+    @SerializedName("RecognitionResults")
+    @Expose
+    private RecognitionResult [] RecognitionResults;
+
+    /**
      * Get 违规标志
 0 未命中
-1 命中
-注意：此字段可能返回 null，表示取不到有效值。 
+1 命中 
      * @return HitFlag 违规标志
 0 未命中
 1 命中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getHitFlag() {
         return this.HitFlag;
@@ -108,11 +114,9 @@ Block 确认违规
      * Set 违规标志
 0 未命中
 1 命中
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HitFlag 违规标志
 0 未命中
 1 命中
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHitFlag(Long HitFlag) {
         this.HitFlag = HitFlag;
@@ -126,8 +130,7 @@ Polity 政治
 Illegal 违法
 Abuse 谩骂
 Terror 暴恐
-Ad 广告
-注意：此字段可能返回 null，表示取不到有效值。 
+Ad 广告 
      * @return Label 命中的标签
 Porn 色情
 Sexy 性感
@@ -136,7 +139,6 @@ Illegal 违法
 Abuse 谩骂
 Terror 暴恐
 Ad 广告
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getLabel() {
         return this.Label;
@@ -151,7 +153,6 @@ Illegal 违法
 Abuse 谩骂
 Terror 暴恐
 Ad 广告
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Label 命中的标签
 Porn 色情
 Sexy 性感
@@ -160,7 +161,6 @@ Illegal 违法
 Abuse 谩骂
 Terror 暴恐
 Ad 广告
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setLabel(String Label) {
         this.Label = Label;
@@ -170,13 +170,11 @@ Ad 广告
      * Get 审核建议，可选值：
 Pass 通过，
 Review 建议人审，
-Block 确认违规
-注意：此字段可能返回 null，表示取不到有效值。 
+Block 确认违规 
      * @return Suggestion 审核建议，可选值：
 Pass 通过，
 Review 建议人审，
 Block 确认违规
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSuggestion() {
         return this.Suggestion;
@@ -187,22 +185,18 @@ Block 确认违规
 Pass 通过，
 Review 建议人审，
 Block 确认违规
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Suggestion 审核建议，可选值：
 Pass 通过，
 Review 建议人审，
 Block 确认违规
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSuggestion(String Suggestion) {
         this.Suggestion = Suggestion;
     }
 
     /**
-     * Get 得分
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 得分 
      * @return Score 得分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getScore() {
         return this.Score;
@@ -210,19 +204,15 @@ Block 确认违规
 
     /**
      * Set 得分
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Score 得分
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScore(Long Score) {
         this.Score = Score;
     }
 
     /**
-     * Get 画面截帧图片结果集
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 画面截帧图片结果集 
      * @return Results 画面截帧图片结果集
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ImageResultResult [] getResults() {
         return this.Results;
@@ -230,39 +220,31 @@ Block 确认违规
 
     /**
      * Set 画面截帧图片结果集
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Results 画面截帧图片结果集
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResults(ImageResultResult [] Results) {
         this.Results = Results;
     }
 
     /**
-     * Get 图片URL地址
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Url 图片URL地址
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 该字段用于返回审核结果的访问链接（URL）。<br>备注：链接默认有效期为12小时。如果您需要更长时效的链接，请使用[COS预签名](https://cloud.tencent.com/document/product/1265/104001)功能更新签名时效。 
+     * @return Url 该字段用于返回审核结果的访问链接（URL）。<br>备注：链接默认有效期为12小时。如果您需要更长时效的链接，请使用[COS预签名](https://cloud.tencent.com/document/product/1265/104001)功能更新签名时效。
      */
     public String getUrl() {
         return this.Url;
     }
 
     /**
-     * Set 图片URL地址
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Url 图片URL地址
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 该字段用于返回审核结果的访问链接（URL）。<br>备注：链接默认有效期为12小时。如果您需要更长时效的链接，请使用[COS预签名](https://cloud.tencent.com/document/product/1265/104001)功能更新签名时效。
+     * @param Url 该字段用于返回审核结果的访问链接（URL）。<br>备注：链接默认有效期为12小时。如果您需要更长时效的链接，请使用[COS预签名](https://cloud.tencent.com/document/product/1265/104001)功能更新签名时效。
      */
     public void setUrl(String Url) {
         this.Url = Url;
     }
 
     /**
-     * Get 附加字段
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 附加字段 
      * @return Extra 附加字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getExtra() {
         return this.Extra;
@@ -270,12 +252,42 @@ Block 确认违规
 
     /**
      * Set 附加字段
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Extra 附加字段
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setExtra(String Extra) {
         this.Extra = Extra;
+    }
+
+    /**
+     * Get 二级标签 
+     * @return SubLabel 二级标签
+     */
+    public String getSubLabel() {
+        return this.SubLabel;
+    }
+
+    /**
+     * Set 二级标签
+     * @param SubLabel 二级标签
+     */
+    public void setSubLabel(String SubLabel) {
+        this.SubLabel = SubLabel;
+    }
+
+    /**
+     * Get 场景结果 
+     * @return RecognitionResults 场景结果
+     */
+    public RecognitionResult [] getRecognitionResults() {
+        return this.RecognitionResults;
+    }
+
+    /**
+     * Set 场景结果
+     * @param RecognitionResults 场景结果
+     */
+    public void setRecognitionResults(RecognitionResult [] RecognitionResults) {
+        this.RecognitionResults = RecognitionResults;
     }
 
     public ImageResult() {
@@ -310,6 +322,15 @@ Block 确认违规
         if (source.Extra != null) {
             this.Extra = new String(source.Extra);
         }
+        if (source.SubLabel != null) {
+            this.SubLabel = new String(source.SubLabel);
+        }
+        if (source.RecognitionResults != null) {
+            this.RecognitionResults = new RecognitionResult[source.RecognitionResults.length];
+            for (int i = 0; i < source.RecognitionResults.length; i++) {
+                this.RecognitionResults[i] = new RecognitionResult(source.RecognitionResults[i]);
+            }
+        }
     }
 
 
@@ -324,6 +345,8 @@ Block 确认违规
         this.setParamArrayObj(map, prefix + "Results.", this.Results);
         this.setParamSimple(map, prefix + "Url", this.Url);
         this.setParamSimple(map, prefix + "Extra", this.Extra);
+        this.setParamSimple(map, prefix + "SubLabel", this.SubLabel);
+        this.setParamArrayObj(map, prefix + "RecognitionResults.", this.RecognitionResults);
 
     }
 }

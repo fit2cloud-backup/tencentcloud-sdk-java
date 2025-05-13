@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyVpnGatewayAttributeRequest extends AbstractModel{
+public class ModifyVpnGatewayAttributeRequest extends AbstractModel {
 
     /**
     * VPN网关实例ID。
@@ -42,6 +43,20 @@ public class ModifyVpnGatewayAttributeRequest extends AbstractModel{
     @SerializedName("InstanceChargeType")
     @Expose
     private String InstanceChargeType;
+
+    /**
+    * BGP ASN。ASN取值范围为1- 4294967295，默认值64551，其中139341、45090和58835不可用。
+    */
+    @SerializedName("BgpAsn")
+    @Expose
+    private Long BgpAsn;
+
+    /**
+    * 服务端最大连接数个数。
+    */
+    @SerializedName("MaxConnection")
+    @Expose
+    private Long MaxConnection;
 
     /**
      * Get VPN网关实例ID。 
@@ -91,6 +106,38 @@ public class ModifyVpnGatewayAttributeRequest extends AbstractModel{
         this.InstanceChargeType = InstanceChargeType;
     }
 
+    /**
+     * Get BGP ASN。ASN取值范围为1- 4294967295，默认值64551，其中139341、45090和58835不可用。 
+     * @return BgpAsn BGP ASN。ASN取值范围为1- 4294967295，默认值64551，其中139341、45090和58835不可用。
+     */
+    public Long getBgpAsn() {
+        return this.BgpAsn;
+    }
+
+    /**
+     * Set BGP ASN。ASN取值范围为1- 4294967295，默认值64551，其中139341、45090和58835不可用。
+     * @param BgpAsn BGP ASN。ASN取值范围为1- 4294967295，默认值64551，其中139341、45090和58835不可用。
+     */
+    public void setBgpAsn(Long BgpAsn) {
+        this.BgpAsn = BgpAsn;
+    }
+
+    /**
+     * Get 服务端最大连接数个数。 
+     * @return MaxConnection 服务端最大连接数个数。
+     */
+    public Long getMaxConnection() {
+        return this.MaxConnection;
+    }
+
+    /**
+     * Set 服务端最大连接数个数。
+     * @param MaxConnection 服务端最大连接数个数。
+     */
+    public void setMaxConnection(Long MaxConnection) {
+        this.MaxConnection = MaxConnection;
+    }
+
     public ModifyVpnGatewayAttributeRequest() {
     }
 
@@ -108,6 +155,12 @@ public class ModifyVpnGatewayAttributeRequest extends AbstractModel{
         if (source.InstanceChargeType != null) {
             this.InstanceChargeType = new String(source.InstanceChargeType);
         }
+        if (source.BgpAsn != null) {
+            this.BgpAsn = new Long(source.BgpAsn);
+        }
+        if (source.MaxConnection != null) {
+            this.MaxConnection = new Long(source.MaxConnection);
+        }
     }
 
 
@@ -118,6 +171,8 @@ public class ModifyVpnGatewayAttributeRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VpnGatewayId", this.VpnGatewayId);
         this.setParamSimple(map, prefix + "VpnGatewayName", this.VpnGatewayName);
         this.setParamSimple(map, prefix + "InstanceChargeType", this.InstanceChargeType);
+        this.setParamSimple(map, prefix + "BgpAsn", this.BgpAsn);
+        this.setParamSimple(map, prefix + "MaxConnection", this.MaxConnection);
 
     }
 }

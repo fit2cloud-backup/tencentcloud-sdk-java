@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ccc.v20200210.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateSDKLoginTokenRequest extends AbstractModel{
+public class CreateSDKLoginTokenRequest extends AbstractModel {
 
     /**
     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
@@ -35,6 +36,13 @@ public class CreateSDKLoginTokenRequest extends AbstractModel{
     @SerializedName("SeatUserId")
     @Expose
     private String SeatUserId;
+
+    /**
+    * 生成的token是否一次性校验
+    */
+    @SerializedName("OnlyOnce")
+    @Expose
+    private Boolean OnlyOnce;
 
     /**
      * Get 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc 
@@ -68,6 +76,22 @@ public class CreateSDKLoginTokenRequest extends AbstractModel{
         this.SeatUserId = SeatUserId;
     }
 
+    /**
+     * Get 生成的token是否一次性校验 
+     * @return OnlyOnce 生成的token是否一次性校验
+     */
+    public Boolean getOnlyOnce() {
+        return this.OnlyOnce;
+    }
+
+    /**
+     * Set 生成的token是否一次性校验
+     * @param OnlyOnce 生成的token是否一次性校验
+     */
+    public void setOnlyOnce(Boolean OnlyOnce) {
+        this.OnlyOnce = OnlyOnce;
+    }
+
     public CreateSDKLoginTokenRequest() {
     }
 
@@ -82,6 +106,9 @@ public class CreateSDKLoginTokenRequest extends AbstractModel{
         if (source.SeatUserId != null) {
             this.SeatUserId = new String(source.SeatUserId);
         }
+        if (source.OnlyOnce != null) {
+            this.OnlyOnce = new Boolean(source.OnlyOnce);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class CreateSDKLoginTokenRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SdkAppId", this.SdkAppId);
         this.setParamSimple(map, prefix + "SeatUserId", this.SeatUserId);
+        this.setParamSimple(map, prefix + "OnlyOnce", this.OnlyOnce);
 
     }
 }

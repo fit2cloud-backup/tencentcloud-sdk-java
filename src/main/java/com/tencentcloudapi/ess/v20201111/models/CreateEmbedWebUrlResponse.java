@@ -16,22 +16,25 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateEmbedWebUrlResponse extends AbstractModel{
+public class CreateEmbedWebUrlResponse extends AbstractModel {
 
     /**
     * 嵌入的web链接，有效期：5分钟
-EmbedType=PREVIEW_CC_FLOW，该url为h5链接
+链接仅能使用一次
+建议：每次都用接口生成链接，保证链接的有效性
+<br/>EmbedType=PREVIEW_CC_FLOW，该url为h5链接
     */
     @SerializedName("WebUrl")
     @Expose
     private String WebUrl;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -39,9 +42,13 @@ EmbedType=PREVIEW_CC_FLOW，该url为h5链接
 
     /**
      * Get 嵌入的web链接，有效期：5分钟
-EmbedType=PREVIEW_CC_FLOW，该url为h5链接 
+链接仅能使用一次
+建议：每次都用接口生成链接，保证链接的有效性
+<br/>EmbedType=PREVIEW_CC_FLOW，该url为h5链接 
      * @return WebUrl 嵌入的web链接，有效期：5分钟
-EmbedType=PREVIEW_CC_FLOW，该url为h5链接
+链接仅能使用一次
+建议：每次都用接口生成链接，保证链接的有效性
+<br/>EmbedType=PREVIEW_CC_FLOW，该url为h5链接
      */
     public String getWebUrl() {
         return this.WebUrl;
@@ -49,25 +56,29 @@ EmbedType=PREVIEW_CC_FLOW，该url为h5链接
 
     /**
      * Set 嵌入的web链接，有效期：5分钟
-EmbedType=PREVIEW_CC_FLOW，该url为h5链接
+链接仅能使用一次
+建议：每次都用接口生成链接，保证链接的有效性
+<br/>EmbedType=PREVIEW_CC_FLOW，该url为h5链接
      * @param WebUrl 嵌入的web链接，有效期：5分钟
-EmbedType=PREVIEW_CC_FLOW，该url为h5链接
+链接仅能使用一次
+建议：每次都用接口生成链接，保证链接的有效性
+<br/>EmbedType=PREVIEW_CC_FLOW，该url为h5链接
      */
     public void setWebUrl(String WebUrl) {
         this.WebUrl = WebUrl;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

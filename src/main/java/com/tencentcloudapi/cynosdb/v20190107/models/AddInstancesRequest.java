@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddInstancesRequest extends AbstractModel{
+public class AddInstancesRequest extends AbstractModel {
 
     /**
     * 集群ID
@@ -44,14 +45,21 @@ public class AddInstancesRequest extends AbstractModel{
     private Long Memory;
 
     /**
-    * 新增只读实例数，取值范围为[0,4]
+    * 新增只读实例数，取值范围为(0,15]
     */
     @SerializedName("ReadOnlyCount")
     @Expose
     private Long ReadOnlyCount;
 
     /**
-    * 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。当前版本已废弃。
+    * 实例机器类型
+    */
+    @SerializedName("DeviceType")
+    @Expose
+    private String DeviceType;
+
+    /**
+    * 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。
     */
     @SerializedName("InstanceGrpId")
     @Expose
@@ -136,6 +144,13 @@ public class AddInstancesRequest extends AbstractModel{
     private String [] SecurityGroupIds;
 
     /**
+    * proxy同步升级
+    */
+    @SerializedName("UpgradeProxy")
+    @Expose
+    private UpgradeProxy UpgradeProxy;
+
+    /**
      * Get 集群ID 
      * @return ClusterId 集群ID
      */
@@ -184,33 +199,53 @@ public class AddInstancesRequest extends AbstractModel{
     }
 
     /**
-     * Get 新增只读实例数，取值范围为[0,4] 
-     * @return ReadOnlyCount 新增只读实例数，取值范围为[0,4]
+     * Get 新增只读实例数，取值范围为(0,15] 
+     * @return ReadOnlyCount 新增只读实例数，取值范围为(0,15]
      */
     public Long getReadOnlyCount() {
         return this.ReadOnlyCount;
     }
 
     /**
-     * Set 新增只读实例数，取值范围为[0,4]
-     * @param ReadOnlyCount 新增只读实例数，取值范围为[0,4]
+     * Set 新增只读实例数，取值范围为(0,15]
+     * @param ReadOnlyCount 新增只读实例数，取值范围为(0,15]
      */
     public void setReadOnlyCount(Long ReadOnlyCount) {
         this.ReadOnlyCount = ReadOnlyCount;
     }
 
     /**
-     * Get 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。当前版本已废弃。 
-     * @return InstanceGrpId 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。当前版本已废弃。
+     * Get 实例机器类型 
+     * @return DeviceType 实例机器类型
      */
+    public String getDeviceType() {
+        return this.DeviceType;
+    }
+
+    /**
+     * Set 实例机器类型
+     * @param DeviceType 实例机器类型
+     */
+    public void setDeviceType(String DeviceType) {
+        this.DeviceType = DeviceType;
+    }
+
+    /**
+     * Get 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。 
+     * @return InstanceGrpId 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。
+     * @deprecated
+     */
+    @Deprecated
     public String getInstanceGrpId() {
         return this.InstanceGrpId;
     }
 
     /**
-     * Set 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。当前版本已废弃。
-     * @param InstanceGrpId 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。当前版本已废弃。
+     * Set 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。
+     * @param InstanceGrpId 实例组ID，在已有RO组中新增实例时使用，不传则新增RO组。当前版本不建议传输该值。
+     * @deprecated
      */
+    @Deprecated
     public void setInstanceGrpId(String InstanceGrpId) {
         this.InstanceGrpId = InstanceGrpId;
     }
@@ -395,6 +430,22 @@ public class AddInstancesRequest extends AbstractModel{
         this.SecurityGroupIds = SecurityGroupIds;
     }
 
+    /**
+     * Get proxy同步升级 
+     * @return UpgradeProxy proxy同步升级
+     */
+    public UpgradeProxy getUpgradeProxy() {
+        return this.UpgradeProxy;
+    }
+
+    /**
+     * Set proxy同步升级
+     * @param UpgradeProxy proxy同步升级
+     */
+    public void setUpgradeProxy(UpgradeProxy UpgradeProxy) {
+        this.UpgradeProxy = UpgradeProxy;
+    }
+
     public AddInstancesRequest() {
     }
 
@@ -414,6 +465,9 @@ public class AddInstancesRequest extends AbstractModel{
         }
         if (source.ReadOnlyCount != null) {
             this.ReadOnlyCount = new Long(source.ReadOnlyCount);
+        }
+        if (source.DeviceType != null) {
+            this.DeviceType = new String(source.DeviceType);
         }
         if (source.InstanceGrpId != null) {
             this.InstanceGrpId = new String(source.InstanceGrpId);
@@ -457,6 +511,9 @@ public class AddInstancesRequest extends AbstractModel{
                 this.SecurityGroupIds[i] = new String(source.SecurityGroupIds[i]);
             }
         }
+        if (source.UpgradeProxy != null) {
+            this.UpgradeProxy = new UpgradeProxy(source.UpgradeProxy);
+        }
     }
 
 
@@ -468,6 +525,7 @@ public class AddInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Cpu", this.Cpu);
         this.setParamSimple(map, prefix + "Memory", this.Memory);
         this.setParamSimple(map, prefix + "ReadOnlyCount", this.ReadOnlyCount);
+        this.setParamSimple(map, prefix + "DeviceType", this.DeviceType);
         this.setParamSimple(map, prefix + "InstanceGrpId", this.InstanceGrpId);
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "SubnetId", this.SubnetId);
@@ -480,6 +538,7 @@ public class AddInstancesRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ParamTemplateId", this.ParamTemplateId);
         this.setParamArrayObj(map, prefix + "InstanceParams.", this.InstanceParams);
         this.setParamArraySimple(map, prefix + "SecurityGroupIds.", this.SecurityGroupIds);
+        this.setParamObj(map, prefix + "UpgradeProxy.", this.UpgradeProxy);
 
     }
 }

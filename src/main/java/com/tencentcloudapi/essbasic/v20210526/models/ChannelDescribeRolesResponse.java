@@ -16,21 +16,22 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelDescribeRolesResponse extends AbstractModel{
+public class ChannelDescribeRolesResponse extends AbstractModel {
 
     /**
-    * 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大2000
+    * 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用，最大2000条。
     */
     @SerializedName("Offset")
     @Expose
     private Long Offset;
 
     /**
-    * 指定每页多少条数据，单页最大200
+    * 指定每页返回的数据条数，和Offset参数配合使用，单页最大200。
     */
     @SerializedName("Limit")
     @Expose
@@ -44,47 +45,46 @@ public class ChannelDescribeRolesResponse extends AbstractModel{
     private Long TotalCount;
 
     /**
-    * 角色信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 查询的角色信息列表
     */
     @SerializedName("ChannelRoles")
     @Expose
     private ChannelRole [] ChannelRoles;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大2000 
-     * @return Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大2000
+     * Get 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用，最大2000条。 
+     * @return Offset 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用，最大2000条。
      */
     public Long getOffset() {
         return this.Offset;
     }
 
     /**
-     * Set 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大2000
-     * @param Offset 查询结果分页返回，此处指定第几页，如果不传默认从第一页返回。页码从 0 开始，即首页为 0，最大2000
+     * Set 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用，最大2000条。
+     * @param Offset 查询结果分页返回，指定从第几页返回数据，和Limit参数配合使用，最大2000条。
      */
     public void setOffset(Long Offset) {
         this.Offset = Offset;
     }
 
     /**
-     * Get 指定每页多少条数据，单页最大200 
-     * @return Limit 指定每页多少条数据，单页最大200
+     * Get 指定每页返回的数据条数，和Offset参数配合使用，单页最大200。 
+     * @return Limit 指定每页返回的数据条数，和Offset参数配合使用，单页最大200。
      */
     public Long getLimit() {
         return this.Limit;
     }
 
     /**
-     * Set 指定每页多少条数据，单页最大200
-     * @param Limit 指定每页多少条数据，单页最大200
+     * Set 指定每页返回的数据条数，和Offset参数配合使用，单页最大200。
+     * @param Limit 指定每页返回的数据条数，和Offset参数配合使用，单页最大200。
      */
     public void setLimit(Long Limit) {
         this.Limit = Limit;
@@ -107,36 +107,32 @@ public class ChannelDescribeRolesResponse extends AbstractModel{
     }
 
     /**
-     * Get 角色信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ChannelRoles 角色信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 查询的角色信息列表 
+     * @return ChannelRoles 查询的角色信息列表
      */
     public ChannelRole [] getChannelRoles() {
         return this.ChannelRoles;
     }
 
     /**
-     * Set 角色信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ChannelRoles 角色信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 查询的角色信息列表
+     * @param ChannelRoles 查询的角色信息列表
      */
     public void setChannelRoles(ChannelRole [] ChannelRoles) {
         this.ChannelRoles = ChannelRoles;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

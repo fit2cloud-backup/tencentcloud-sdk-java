@@ -16,11 +16,12 @@
 package com.tencentcloudapi.car.v20220110.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StartPublishStreamRequest extends AbstractModel{
+public class StartPublishStreamRequest extends AbstractModel {
 
     /**
     * 唯一用户身份标识，由业务方自定义，平台不予理解。（UserId将作为StreamId进行推流，比如绑定推流域名为abc.livepush.myqcloud.com，那么推流地址为rtmp://abc.livepush.myqcloud.com/live/UserId?txSecret=xxx&txTime=xxx）
@@ -28,6 +29,13 @@ public class StartPublishStreamRequest extends AbstractModel{
     @SerializedName("UserId")
     @Expose
     private String UserId;
+
+    /**
+    * 推流参数，推流时携带自定义参数。
+    */
+    @SerializedName("PublishStreamArgs")
+    @Expose
+    private String PublishStreamArgs;
 
     /**
      * Get 唯一用户身份标识，由业务方自定义，平台不予理解。（UserId将作为StreamId进行推流，比如绑定推流域名为abc.livepush.myqcloud.com，那么推流地址为rtmp://abc.livepush.myqcloud.com/live/UserId?txSecret=xxx&txTime=xxx） 
@@ -45,6 +53,22 @@ public class StartPublishStreamRequest extends AbstractModel{
         this.UserId = UserId;
     }
 
+    /**
+     * Get 推流参数，推流时携带自定义参数。 
+     * @return PublishStreamArgs 推流参数，推流时携带自定义参数。
+     */
+    public String getPublishStreamArgs() {
+        return this.PublishStreamArgs;
+    }
+
+    /**
+     * Set 推流参数，推流时携带自定义参数。
+     * @param PublishStreamArgs 推流参数，推流时携带自定义参数。
+     */
+    public void setPublishStreamArgs(String PublishStreamArgs) {
+        this.PublishStreamArgs = PublishStreamArgs;
+    }
+
     public StartPublishStreamRequest() {
     }
 
@@ -56,6 +80,9 @@ public class StartPublishStreamRequest extends AbstractModel{
         if (source.UserId != null) {
             this.UserId = new String(source.UserId);
         }
+        if (source.PublishStreamArgs != null) {
+            this.PublishStreamArgs = new String(source.PublishStreamArgs);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class StartPublishStreamRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "UserId", this.UserId);
+        this.setParamSimple(map, prefix + "PublishStreamArgs", this.PublishStreamArgs);
 
     }
 }

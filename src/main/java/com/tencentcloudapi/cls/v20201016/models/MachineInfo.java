@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cls.v20201016.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class MachineInfo extends AbstractModel{
+public class MachineInfo extends AbstractModel {
 
     /**
     * 机器的IP
@@ -28,6 +29,13 @@ public class MachineInfo extends AbstractModel{
     @SerializedName("Ip")
     @Expose
     private String Ip;
+
+    /**
+    * 机器实例ID
+    */
+    @SerializedName("InstanceID")
+    @Expose
+    private String InstanceID;
 
     /**
     * 机器状态，0:异常，1:正常
@@ -58,7 +66,7 @@ public class MachineInfo extends AbstractModel{
     private String Version;
 
     /**
-    * 机器升级功能状态。
+    * 机器升级功能状态。 0：升级成功；1：升级中；-1：升级失败。
     */
     @SerializedName("UpdateStatus")
     @Expose
@@ -66,6 +74,7 @@ public class MachineInfo extends AbstractModel{
 
     /**
     * 机器升级结果标识。
+0：成功；1200：升级成功；其他值表示异常。
     */
     @SerializedName("ErrCode")
     @Expose
@@ -73,6 +82,7 @@ public class MachineInfo extends AbstractModel{
 
     /**
     * 机器升级结果信息。
+“ok”：成功；“update success”：升级成功；其他值为失败原因。
     */
     @SerializedName("ErrMsg")
     @Expose
@@ -92,6 +102,22 @@ public class MachineInfo extends AbstractModel{
      */
     public void setIp(String Ip) {
         this.Ip = Ip;
+    }
+
+    /**
+     * Get 机器实例ID 
+     * @return InstanceID 机器实例ID
+     */
+    public String getInstanceID() {
+        return this.InstanceID;
+    }
+
+    /**
+     * Set 机器实例ID
+     * @param InstanceID 机器实例ID
+     */
+    public void setInstanceID(String InstanceID) {
+        this.InstanceID = InstanceID;
     }
 
     /**
@@ -159,24 +185,26 @@ public class MachineInfo extends AbstractModel{
     }
 
     /**
-     * Get 机器升级功能状态。 
-     * @return UpdateStatus 机器升级功能状态。
+     * Get 机器升级功能状态。 0：升级成功；1：升级中；-1：升级失败。 
+     * @return UpdateStatus 机器升级功能状态。 0：升级成功；1：升级中；-1：升级失败。
      */
     public Long getUpdateStatus() {
         return this.UpdateStatus;
     }
 
     /**
-     * Set 机器升级功能状态。
-     * @param UpdateStatus 机器升级功能状态。
+     * Set 机器升级功能状态。 0：升级成功；1：升级中；-1：升级失败。
+     * @param UpdateStatus 机器升级功能状态。 0：升级成功；1：升级中；-1：升级失败。
      */
     public void setUpdateStatus(Long UpdateStatus) {
         this.UpdateStatus = UpdateStatus;
     }
 
     /**
-     * Get 机器升级结果标识。 
+     * Get 机器升级结果标识。
+0：成功；1200：升级成功；其他值表示异常。 
      * @return ErrCode 机器升级结果标识。
+0：成功；1200：升级成功；其他值表示异常。
      */
     public Long getErrCode() {
         return this.ErrCode;
@@ -184,15 +212,19 @@ public class MachineInfo extends AbstractModel{
 
     /**
      * Set 机器升级结果标识。
+0：成功；1200：升级成功；其他值表示异常。
      * @param ErrCode 机器升级结果标识。
+0：成功；1200：升级成功；其他值表示异常。
      */
     public void setErrCode(Long ErrCode) {
         this.ErrCode = ErrCode;
     }
 
     /**
-     * Get 机器升级结果信息。 
+     * Get 机器升级结果信息。
+“ok”：成功；“update success”：升级成功；其他值为失败原因。 
      * @return ErrMsg 机器升级结果信息。
+“ok”：成功；“update success”：升级成功；其他值为失败原因。
      */
     public String getErrMsg() {
         return this.ErrMsg;
@@ -200,7 +232,9 @@ public class MachineInfo extends AbstractModel{
 
     /**
      * Set 机器升级结果信息。
+“ok”：成功；“update success”：升级成功；其他值为失败原因。
      * @param ErrMsg 机器升级结果信息。
+“ok”：成功；“update success”：升级成功；其他值为失败原因。
      */
     public void setErrMsg(String ErrMsg) {
         this.ErrMsg = ErrMsg;
@@ -216,6 +250,9 @@ public class MachineInfo extends AbstractModel{
     public MachineInfo(MachineInfo source) {
         if (source.Ip != null) {
             this.Ip = new String(source.Ip);
+        }
+        if (source.InstanceID != null) {
+            this.InstanceID = new String(source.InstanceID);
         }
         if (source.Status != null) {
             this.Status = new Long(source.Status);
@@ -246,6 +283,7 @@ public class MachineInfo extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Ip", this.Ip);
+        this.setParamSimple(map, prefix + "InstanceID", this.InstanceID);
         this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamSimple(map, prefix + "OfflineTime", this.OfflineTime);
         this.setParamSimple(map, prefix + "AutoUpdate", this.AutoUpdate);

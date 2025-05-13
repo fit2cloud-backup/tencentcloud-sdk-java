@@ -16,71 +16,171 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WebThemeConfig extends AbstractModel{
+public class WebThemeConfig extends AbstractModel {
 
     /**
-    * 页面底部是否显示电子签logo
-<br/>true：允许在页面底部隐藏电子签logo 
-<br/>默认false，不允许允许在页面底部隐藏电子签logo
+    * 是否显示页面底部电子签logo，取值如下：
+<ul><li> **true**：页面底部显示电子签logo</li>
+<li> **false**：页面底部不显示电子签logo（默认）</li></ul>
     */
     @SerializedName("DisplaySignBrandLogo")
     @Expose
     private Boolean DisplaySignBrandLogo;
 
     /**
-    * 嵌入式主题颜色
-<br/>支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+    * 主题颜色：
+支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+<br/>
     */
     @SerializedName("WebEmbedThemeColor")
     @Expose
     private String WebEmbedThemeColor;
 
     /**
-     * Get 页面底部是否显示电子签logo
-<br/>true：允许在页面底部隐藏电子签logo 
-<br/>默认false，不允许允许在页面底部隐藏电子签logo 
-     * @return DisplaySignBrandLogo 页面底部是否显示电子签logo
-<br/>true：允许在页面底部隐藏电子签logo 
-<br/>默认false，不允许允许在页面底部隐藏电子签logo
+    * 企业认证页背景图（base64图片）
+
+    */
+    @SerializedName("AuthenticateBackground")
+    @Expose
+    private String AuthenticateBackground;
+
+    /**
+    * 隐藏企业认证页面导航栏，取值如下：
+<ul><li> **true**：隐藏企业认证页面导航栏</li>
+<li> **false**：显示企业认证页面导航栏（默认）</li></ul>
+    */
+    @SerializedName("HideAuthenticateNavigationBar")
+    @Expose
+    private Boolean HideAuthenticateNavigationBar;
+
+    /**
+    * 隐藏企业认证顶部logo，取值如下：
+<ul><li> **true**：隐藏企业认证顶部logo</li>
+<li> **false**：显示企业认证顶部logo（默认）</li></ul>
+    */
+    @SerializedName("HideAuthenticateTopLogo")
+    @Expose
+    private Boolean HideAuthenticateTopLogo;
+
+    /**
+     * Get 是否显示页面底部电子签logo，取值如下：
+<ul><li> **true**：页面底部显示电子签logo</li>
+<li> **false**：页面底部不显示电子签logo（默认）</li></ul> 
+     * @return DisplaySignBrandLogo 是否显示页面底部电子签logo，取值如下：
+<ul><li> **true**：页面底部显示电子签logo</li>
+<li> **false**：页面底部不显示电子签logo（默认）</li></ul>
      */
     public Boolean getDisplaySignBrandLogo() {
         return this.DisplaySignBrandLogo;
     }
 
     /**
-     * Set 页面底部是否显示电子签logo
-<br/>true：允许在页面底部隐藏电子签logo 
-<br/>默认false，不允许允许在页面底部隐藏电子签logo
-     * @param DisplaySignBrandLogo 页面底部是否显示电子签logo
-<br/>true：允许在页面底部隐藏电子签logo 
-<br/>默认false，不允许允许在页面底部隐藏电子签logo
+     * Set 是否显示页面底部电子签logo，取值如下：
+<ul><li> **true**：页面底部显示电子签logo</li>
+<li> **false**：页面底部不显示电子签logo（默认）</li></ul>
+     * @param DisplaySignBrandLogo 是否显示页面底部电子签logo，取值如下：
+<ul><li> **true**：页面底部显示电子签logo</li>
+<li> **false**：页面底部不显示电子签logo（默认）</li></ul>
      */
     public void setDisplaySignBrandLogo(Boolean DisplaySignBrandLogo) {
         this.DisplaySignBrandLogo = DisplaySignBrandLogo;
     }
 
     /**
-     * Get 嵌入式主题颜色
-<br/>支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65) 
-     * @return WebEmbedThemeColor 嵌入式主题颜色
-<br/>支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+     * Get 主题颜色：
+支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+<br/> 
+     * @return WebEmbedThemeColor 主题颜色：
+支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+<br/>
      */
     public String getWebEmbedThemeColor() {
         return this.WebEmbedThemeColor;
     }
 
     /**
-     * Set 嵌入式主题颜色
-<br/>支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
-     * @param WebEmbedThemeColor 嵌入式主题颜色
-<br/>支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+     * Set 主题颜色：
+支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+<br/>
+     * @param WebEmbedThemeColor 主题颜色：
+支持十六进制颜色值以及RGB格式颜色值，例如：#D54941，rgb(213, 73, 65)
+<br/>
      */
     public void setWebEmbedThemeColor(String WebEmbedThemeColor) {
         this.WebEmbedThemeColor = WebEmbedThemeColor;
+    }
+
+    /**
+     * Get 企业认证页背景图（base64图片）
+ 
+     * @return AuthenticateBackground 企业认证页背景图（base64图片）
+
+     */
+    public String getAuthenticateBackground() {
+        return this.AuthenticateBackground;
+    }
+
+    /**
+     * Set 企业认证页背景图（base64图片）
+
+     * @param AuthenticateBackground 企业认证页背景图（base64图片）
+
+     */
+    public void setAuthenticateBackground(String AuthenticateBackground) {
+        this.AuthenticateBackground = AuthenticateBackground;
+    }
+
+    /**
+     * Get 隐藏企业认证页面导航栏，取值如下：
+<ul><li> **true**：隐藏企业认证页面导航栏</li>
+<li> **false**：显示企业认证页面导航栏（默认）</li></ul> 
+     * @return HideAuthenticateNavigationBar 隐藏企业认证页面导航栏，取值如下：
+<ul><li> **true**：隐藏企业认证页面导航栏</li>
+<li> **false**：显示企业认证页面导航栏（默认）</li></ul>
+     */
+    public Boolean getHideAuthenticateNavigationBar() {
+        return this.HideAuthenticateNavigationBar;
+    }
+
+    /**
+     * Set 隐藏企业认证页面导航栏，取值如下：
+<ul><li> **true**：隐藏企业认证页面导航栏</li>
+<li> **false**：显示企业认证页面导航栏（默认）</li></ul>
+     * @param HideAuthenticateNavigationBar 隐藏企业认证页面导航栏，取值如下：
+<ul><li> **true**：隐藏企业认证页面导航栏</li>
+<li> **false**：显示企业认证页面导航栏（默认）</li></ul>
+     */
+    public void setHideAuthenticateNavigationBar(Boolean HideAuthenticateNavigationBar) {
+        this.HideAuthenticateNavigationBar = HideAuthenticateNavigationBar;
+    }
+
+    /**
+     * Get 隐藏企业认证顶部logo，取值如下：
+<ul><li> **true**：隐藏企业认证顶部logo</li>
+<li> **false**：显示企业认证顶部logo（默认）</li></ul> 
+     * @return HideAuthenticateTopLogo 隐藏企业认证顶部logo，取值如下：
+<ul><li> **true**：隐藏企业认证顶部logo</li>
+<li> **false**：显示企业认证顶部logo（默认）</li></ul>
+     */
+    public Boolean getHideAuthenticateTopLogo() {
+        return this.HideAuthenticateTopLogo;
+    }
+
+    /**
+     * Set 隐藏企业认证顶部logo，取值如下：
+<ul><li> **true**：隐藏企业认证顶部logo</li>
+<li> **false**：显示企业认证顶部logo（默认）</li></ul>
+     * @param HideAuthenticateTopLogo 隐藏企业认证顶部logo，取值如下：
+<ul><li> **true**：隐藏企业认证顶部logo</li>
+<li> **false**：显示企业认证顶部logo（默认）</li></ul>
+     */
+    public void setHideAuthenticateTopLogo(Boolean HideAuthenticateTopLogo) {
+        this.HideAuthenticateTopLogo = HideAuthenticateTopLogo;
     }
 
     public WebThemeConfig() {
@@ -97,6 +197,15 @@ public class WebThemeConfig extends AbstractModel{
         if (source.WebEmbedThemeColor != null) {
             this.WebEmbedThemeColor = new String(source.WebEmbedThemeColor);
         }
+        if (source.AuthenticateBackground != null) {
+            this.AuthenticateBackground = new String(source.AuthenticateBackground);
+        }
+        if (source.HideAuthenticateNavigationBar != null) {
+            this.HideAuthenticateNavigationBar = new Boolean(source.HideAuthenticateNavigationBar);
+        }
+        if (source.HideAuthenticateTopLogo != null) {
+            this.HideAuthenticateTopLogo = new Boolean(source.HideAuthenticateTopLogo);
+        }
     }
 
 
@@ -106,6 +215,9 @@ public class WebThemeConfig extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "DisplaySignBrandLogo", this.DisplaySignBrandLogo);
         this.setParamSimple(map, prefix + "WebEmbedThemeColor", this.WebEmbedThemeColor);
+        this.setParamSimple(map, prefix + "AuthenticateBackground", this.AuthenticateBackground);
+        this.setParamSimple(map, prefix + "HideAuthenticateNavigationBar", this.HideAuthenticateNavigationBar);
+        this.setParamSimple(map, prefix + "HideAuthenticateTopLogo", this.HideAuthenticateTopLogo);
 
     }
 }

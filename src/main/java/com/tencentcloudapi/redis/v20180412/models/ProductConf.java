@@ -16,11 +16,12 @@
 package com.tencentcloudapi.redis.v20180412.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ProductConf extends AbstractModel{
+public class ProductConf extends AbstractModel {
 
     /**
     * 产品类型。
@@ -70,7 +71,7 @@ public class ProductConf extends AbstractModel{
     private Boolean Saleout;
 
     /**
-    * 产品引擎。包括：腾讯云 CKV与社区版 Redis。
+    * 产品引擎。Redis 或者 CKV。
     */
     @SerializedName("Engine")
     @Expose
@@ -121,13 +122,22 @@ public class ProductConf extends AbstractModel{
     private String PayMode;
 
     /**
-    * 是否支持副本只读。
+    * 该参数名因存在拼写不规范的问题，建议使用**EnableReplicaReadOnly**参数取代。其含义为是否支持副本只读。
 - true：支持副本只读。
 - false：不支持。
     */
     @SerializedName("EnableRepicaReadOnly")
     @Expose
     private Boolean EnableRepicaReadOnly;
+
+    /**
+    * 是否支持副本只读。
+- true：支持副本只读。
+- false：不支持。
+    */
+    @SerializedName("EnableReplicaReadOnly")
+    @Expose
+    private Boolean EnableReplicaReadOnly;
 
     /**
      * Get 产品类型。
@@ -258,16 +268,16 @@ public class ProductConf extends AbstractModel{
     }
 
     /**
-     * Get 产品引擎。包括：腾讯云 CKV与社区版 Redis。 
-     * @return Engine 产品引擎。包括：腾讯云 CKV与社区版 Redis。
+     * Get 产品引擎。Redis 或者 CKV。 
+     * @return Engine 产品引擎。Redis 或者 CKV。
      */
     public String getEngine() {
         return this.Engine;
     }
 
     /**
-     * Set 产品引擎。包括：腾讯云 CKV与社区版 Redis。
-     * @param Engine 产品引擎。包括：腾讯云 CKV与社区版 Redis。
+     * Set 产品引擎。Redis 或者 CKV。
+     * @param Engine 产品引擎。Redis 或者 CKV。
      */
     public void setEngine(String Engine) {
         this.Engine = Engine;
@@ -378,27 +388,55 @@ public class ProductConf extends AbstractModel{
     }
 
     /**
+     * Get 该参数名因存在拼写不规范的问题，建议使用**EnableReplicaReadOnly**参数取代。其含义为是否支持副本只读。
+- true：支持副本只读。
+- false：不支持。 
+     * @return EnableRepicaReadOnly 该参数名因存在拼写不规范的问题，建议使用**EnableReplicaReadOnly**参数取代。其含义为是否支持副本只读。
+- true：支持副本只读。
+- false：不支持。
+     * @deprecated
+     */
+    @Deprecated
+    public Boolean getEnableRepicaReadOnly() {
+        return this.EnableRepicaReadOnly;
+    }
+
+    /**
+     * Set 该参数名因存在拼写不规范的问题，建议使用**EnableReplicaReadOnly**参数取代。其含义为是否支持副本只读。
+- true：支持副本只读。
+- false：不支持。
+     * @param EnableRepicaReadOnly 该参数名因存在拼写不规范的问题，建议使用**EnableReplicaReadOnly**参数取代。其含义为是否支持副本只读。
+- true：支持副本只读。
+- false：不支持。
+     * @deprecated
+     */
+    @Deprecated
+    public void setEnableRepicaReadOnly(Boolean EnableRepicaReadOnly) {
+        this.EnableRepicaReadOnly = EnableRepicaReadOnly;
+    }
+
+    /**
      * Get 是否支持副本只读。
 - true：支持副本只读。
 - false：不支持。 
-     * @return EnableRepicaReadOnly 是否支持副本只读。
+     * @return EnableReplicaReadOnly 是否支持副本只读。
 - true：支持副本只读。
 - false：不支持。
      */
-    public Boolean getEnableRepicaReadOnly() {
-        return this.EnableRepicaReadOnly;
+    public Boolean getEnableReplicaReadOnly() {
+        return this.EnableReplicaReadOnly;
     }
 
     /**
      * Set 是否支持副本只读。
 - true：支持副本只读。
 - false：不支持。
-     * @param EnableRepicaReadOnly 是否支持副本只读。
+     * @param EnableReplicaReadOnly 是否支持副本只读。
 - true：支持副本只读。
 - false：不支持。
      */
-    public void setEnableRepicaReadOnly(Boolean EnableRepicaReadOnly) {
-        this.EnableRepicaReadOnly = EnableRepicaReadOnly;
+    public void setEnableReplicaReadOnly(Boolean EnableReplicaReadOnly) {
+        this.EnableReplicaReadOnly = EnableReplicaReadOnly;
     }
 
     public ProductConf() {
@@ -460,6 +498,9 @@ public class ProductConf extends AbstractModel{
         if (source.EnableRepicaReadOnly != null) {
             this.EnableRepicaReadOnly = new Boolean(source.EnableRepicaReadOnly);
         }
+        if (source.EnableReplicaReadOnly != null) {
+            this.EnableReplicaReadOnly = new Boolean(source.EnableReplicaReadOnly);
+        }
     }
 
 
@@ -480,6 +521,7 @@ public class ProductConf extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ShardNum.", this.ShardNum);
         this.setParamSimple(map, prefix + "PayMode", this.PayMode);
         this.setParamSimple(map, prefix + "EnableRepicaReadOnly", this.EnableRepicaReadOnly);
+        this.setParamSimple(map, prefix + "EnableReplicaReadOnly", this.EnableReplicaReadOnly);
 
     }
 }

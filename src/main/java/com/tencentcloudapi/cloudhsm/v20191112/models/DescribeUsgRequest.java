@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudhsm.v20191112.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeUsgRequest extends AbstractModel{
+public class DescribeUsgRequest extends AbstractModel {
 
     /**
     * 偏移量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
@@ -37,7 +38,7 @@ public class DescribeUsgRequest extends AbstractModel{
     private Long Limit;
 
     /**
-    * 搜索关键字
+    * 过滤条件，支持安全组id
     */
     @SerializedName("SearchWord")
     @Expose
@@ -76,16 +77,16 @@ public class DescribeUsgRequest extends AbstractModel{
     }
 
     /**
-     * Get 搜索关键字 
-     * @return SearchWord 搜索关键字
+     * Get 过滤条件，支持安全组id 
+     * @return SearchWord 过滤条件，支持安全组id
      */
     public String getSearchWord() {
         return this.SearchWord;
     }
 
     /**
-     * Set 搜索关键字
-     * @param SearchWord 搜索关键字
+     * Set 过滤条件，支持安全组id
+     * @param SearchWord 过滤条件，支持安全组id
      */
     public void setSearchWord(String SearchWord) {
         this.SearchWord = SearchWord;

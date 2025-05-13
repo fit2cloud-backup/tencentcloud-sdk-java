@@ -16,76 +16,77 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateOrganizationBatchSignUrlResponse extends AbstractModel{
+public class CreateOrganizationBatchSignUrlResponse extends AbstractModel {
 
     /**
-    * 批量签署入口链接
+    * 批量签署入口链接，用户可使用这个链接跳转到控制台页面对合同进行签署操作。
     */
     @SerializedName("SignUrl")
     @Expose
     private String SignUrl;
 
     /**
-    * 链接过期时间戳
+    * 链接过期截止时间，格式为Unix标准时间戳（秒），默认为7天后截止。
     */
     @SerializedName("ExpiredTime")
     @Expose
     private Long ExpiredTime;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 批量签署入口链接 
-     * @return SignUrl 批量签署入口链接
+     * Get 批量签署入口链接，用户可使用这个链接跳转到控制台页面对合同进行签署操作。 
+     * @return SignUrl 批量签署入口链接，用户可使用这个链接跳转到控制台页面对合同进行签署操作。
      */
     public String getSignUrl() {
         return this.SignUrl;
     }
 
     /**
-     * Set 批量签署入口链接
-     * @param SignUrl 批量签署入口链接
+     * Set 批量签署入口链接，用户可使用这个链接跳转到控制台页面对合同进行签署操作。
+     * @param SignUrl 批量签署入口链接，用户可使用这个链接跳转到控制台页面对合同进行签署操作。
      */
     public void setSignUrl(String SignUrl) {
         this.SignUrl = SignUrl;
     }
 
     /**
-     * Get 链接过期时间戳 
-     * @return ExpiredTime 链接过期时间戳
+     * Get 链接过期截止时间，格式为Unix标准时间戳（秒），默认为7天后截止。 
+     * @return ExpiredTime 链接过期截止时间，格式为Unix标准时间戳（秒），默认为7天后截止。
      */
     public Long getExpiredTime() {
         return this.ExpiredTime;
     }
 
     /**
-     * Set 链接过期时间戳
-     * @param ExpiredTime 链接过期时间戳
+     * Set 链接过期截止时间，格式为Unix标准时间戳（秒），默认为7天后截止。
+     * @param ExpiredTime 链接过期截止时间，格式为Unix标准时间戳（秒），默认为7天后截止。
      */
     public void setExpiredTime(Long ExpiredTime) {
         this.ExpiredTime = ExpiredTime;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

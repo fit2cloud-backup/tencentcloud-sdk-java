@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScanVulSettingRequest extends AbstractModel{
+public class ScanVulSettingRequest extends AbstractModel {
 
     /**
     * 定期检测间隔时间（天）
@@ -79,11 +80,18 @@ public class ScanVulSettingRequest extends AbstractModel{
     private Long EnableScan;
 
     /**
-    * 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
+    * 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
     */
     @SerializedName("Uuids")
     @Expose
     private String [] Uuids;
+
+    /**
+    * 0版本比对，2版本比对+poc
+    */
+    @SerializedName("ScanMethod")
+    @Expose
+    private Long ScanMethod;
 
     /**
      * Get 定期检测间隔时间（天） 
@@ -214,19 +222,35 @@ public class ScanVulSettingRequest extends AbstractModel{
     }
 
     /**
-     * Get 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机 
-     * @return Uuids 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
+     * Get 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机 
+     * @return Uuids 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
      */
     public String [] getUuids() {
         return this.Uuids;
     }
 
     /**
-     * Set 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
-     * @param Uuids 为空默认扫描全部专业版、旗舰版、普惠版主机，不为空只扫描选中主机
+     * Set 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
+     * @param Uuids 为空默认扫描全部专业版、旗舰版、轻量版主机，不为空只扫描选中主机
      */
     public void setUuids(String [] Uuids) {
         this.Uuids = Uuids;
+    }
+
+    /**
+     * Get 0版本比对，2版本比对+poc 
+     * @return ScanMethod 0版本比对，2版本比对+poc
+     */
+    public Long getScanMethod() {
+        return this.ScanMethod;
+    }
+
+    /**
+     * Set 0版本比对，2版本比对+poc
+     * @param ScanMethod 0版本比对，2版本比对+poc
+     */
+    public void setScanMethod(Long ScanMethod) {
+        this.ScanMethod = ScanMethod;
     }
 
     public ScanVulSettingRequest() {
@@ -273,6 +297,9 @@ public class ScanVulSettingRequest extends AbstractModel{
                 this.Uuids[i] = new String(source.Uuids[i]);
             }
         }
+        if (source.ScanMethod != null) {
+            this.ScanMethod = new Long(source.ScanMethod);
+        }
     }
 
 
@@ -289,6 +316,7 @@ public class ScanVulSettingRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "EndTime", this.EndTime);
         this.setParamSimple(map, prefix + "EnableScan", this.EnableScan);
         this.setParamArraySimple(map, prefix + "Uuids.", this.Uuids);
+        this.setParamSimple(map, prefix + "ScanMethod", this.ScanMethod);
 
     }
 }

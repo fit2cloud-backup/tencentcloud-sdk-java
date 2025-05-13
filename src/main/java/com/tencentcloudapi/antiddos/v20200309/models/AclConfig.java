@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AclConfig extends AbstractModel{
+public class AclConfig extends AbstractModel {
 
     /**
     * 协议类型, 可取值tcp, udp, all
@@ -66,7 +67,6 @@ public class AclConfig extends AbstractModel{
 
     /**
     * 策略优先级，数字越小，级别越高，该规则越靠前匹配，取值1-1000
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Priority")
     @Expose
@@ -169,10 +169,8 @@ public class AclConfig extends AbstractModel{
     }
 
     /**
-     * Get 策略优先级，数字越小，级别越高，该规则越靠前匹配，取值1-1000
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略优先级，数字越小，级别越高，该规则越靠前匹配，取值1-1000 
      * @return Priority 策略优先级，数字越小，级别越高，该规则越靠前匹配，取值1-1000
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPriority() {
         return this.Priority;
@@ -180,9 +178,7 @@ public class AclConfig extends AbstractModel{
 
     /**
      * Set 策略优先级，数字越小，级别越高，该规则越靠前匹配，取值1-1000
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Priority 策略优先级，数字越小，级别越高，该规则越靠前匹配，取值1-1000
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPriority(Long Priority) {
         this.Priority = Priority;

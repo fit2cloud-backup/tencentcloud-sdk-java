@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Migration extends AbstractModel{
+public class Migration extends AbstractModel {
 
     /**
     * 备份导入任务ID 或 增量导入任务ID
@@ -31,7 +32,6 @@ public class Migration extends AbstractModel{
 
     /**
     * 备份导入名称，增量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MigrationName")
     @Expose
@@ -130,7 +130,6 @@ public class Migration extends AbstractModel{
 
     /**
     * 是否是最终恢复，全量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsRecovery")
     @Expose
@@ -161,10 +160,8 @@ public class Migration extends AbstractModel{
     }
 
     /**
-     * Get 备份导入名称，增量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份导入名称，增量导入任务该字段为空 
      * @return MigrationName 备份导入名称，增量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMigrationName() {
         return this.MigrationName;
@@ -172,9 +169,7 @@ public class Migration extends AbstractModel{
 
     /**
      * Set 备份导入名称，增量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MigrationName 备份导入名称，增量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMigrationName(String MigrationName) {
         this.MigrationName = MigrationName;
@@ -389,10 +384,8 @@ public class Migration extends AbstractModel{
     }
 
     /**
-     * Get 是否是最终恢复，全量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否是最终恢复，全量导入任务该字段为空 
      * @return IsRecovery 是否是最终恢复，全量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getIsRecovery() {
         return this.IsRecovery;
@@ -400,9 +393,7 @@ public class Migration extends AbstractModel{
 
     /**
      * Set 是否是最终恢复，全量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsRecovery 是否是最终恢复，全量导入任务该字段为空
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsRecovery(String IsRecovery) {
         this.IsRecovery = IsRecovery;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gme.v20180711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class RoomUser extends AbstractModel{
+public class RoomUser extends AbstractModel {
 
     /**
     * 房间id
@@ -31,7 +32,6 @@ public class RoomUser extends AbstractModel{
 
     /**
     * 房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Uins")
     @Expose
@@ -39,7 +39,6 @@ public class RoomUser extends AbstractModel{
 
     /**
     * 字符串房间id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StrRoomId")
     @Expose
@@ -47,7 +46,6 @@ public class RoomUser extends AbstractModel{
 
     /**
     * 房间里用户字符串uin列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StrUins")
     @Expose
@@ -70,10 +68,8 @@ public class RoomUser extends AbstractModel{
     }
 
     /**
-     * Get 房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 房间里用户uin列表 
      * @return Uins 房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long [] getUins() {
         return this.Uins;
@@ -81,19 +77,15 @@ public class RoomUser extends AbstractModel{
 
     /**
      * Set 房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Uins 房间里用户uin列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUins(Long [] Uins) {
         this.Uins = Uins;
     }
 
     /**
-     * Get 字符串房间id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 字符串房间id 
      * @return StrRoomId 字符串房间id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStrRoomId() {
         return this.StrRoomId;
@@ -101,19 +93,15 @@ public class RoomUser extends AbstractModel{
 
     /**
      * Set 字符串房间id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StrRoomId 字符串房间id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStrRoomId(String StrRoomId) {
         this.StrRoomId = StrRoomId;
     }
 
     /**
-     * Get 房间里用户字符串uin列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 房间里用户字符串uin列表 
      * @return StrUins 房间里用户字符串uin列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getStrUins() {
         return this.StrUins;
@@ -121,9 +109,7 @@ public class RoomUser extends AbstractModel{
 
     /**
      * Set 房间里用户字符串uin列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StrUins 房间里用户字符串uin列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStrUins(String [] StrUins) {
         this.StrUins = StrUins;

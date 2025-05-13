@@ -39,24 +39,16 @@ public class TanClient extends AbstractClient{
     }
 
     /**
-     *推送节点数据
+     *产品下线
+
+推送节点数据
      * @param req CreateBlockNodeRecordsRequest
      * @return CreateBlockNodeRecordsResponse
      * @throws TencentCloudSDKException
      */
     public CreateBlockNodeRecordsResponse CreateBlockNodeRecords(CreateBlockNodeRecordsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateBlockNodeRecordsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateBlockNodeRecordsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateBlockNodeRecords");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateBlockNodeRecords", CreateBlockNodeRecordsResponse.class);
     }
 
 }

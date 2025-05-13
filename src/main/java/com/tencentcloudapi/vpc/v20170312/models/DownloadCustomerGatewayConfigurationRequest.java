@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DownloadCustomerGatewayConfigurationRequest extends AbstractModel{
+public class DownloadCustomerGatewayConfigurationRequest extends AbstractModel {
 
     /**
     * VPN网关实例ID。
@@ -37,7 +38,7 @@ public class DownloadCustomerGatewayConfigurationRequest extends AbstractModel{
     private String VpnConnectionId;
 
     /**
-    * 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17513)获取。
+    * 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
     */
     @SerializedName("CustomerGatewayVendor")
     @Expose
@@ -83,16 +84,16 @@ public class DownloadCustomerGatewayConfigurationRequest extends AbstractModel{
     }
 
     /**
-     * Get 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17513)获取。 
-     * @return CustomerGatewayVendor 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17513)获取。
+     * Get 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。 
+     * @return CustomerGatewayVendor 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
      */
     public CustomerGatewayVendor getCustomerGatewayVendor() {
         return this.CustomerGatewayVendor;
     }
 
     /**
-     * Set 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17513)获取。
-     * @param CustomerGatewayVendor 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17513)获取。
+     * Set 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
+     * @param CustomerGatewayVendor 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
      */
     public void setCustomerGatewayVendor(CustomerGatewayVendor CustomerGatewayVendor) {
         this.CustomerGatewayVendor = CustomerGatewayVendor;

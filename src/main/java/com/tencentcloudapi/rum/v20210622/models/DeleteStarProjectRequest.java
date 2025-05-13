@@ -16,14 +16,15 @@
 package com.tencentcloudapi.rum.v20210622.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteStarProjectRequest extends AbstractModel{
+public class DeleteStarProjectRequest extends AbstractModel {
 
     /**
-    * 实例ID：taw-123
+    * 实例ID：****-1792
     */
     @SerializedName("InstanceID")
     @Expose
@@ -37,16 +38,16 @@ public class DeleteStarProjectRequest extends AbstractModel{
     private Long ID;
 
     /**
-     * Get 实例ID：taw-123 
-     * @return InstanceID 实例ID：taw-123
+     * Get 实例ID：****-1792 
+     * @return InstanceID 实例ID：****-1792
      */
     public String getInstanceID() {
         return this.InstanceID;
     }
 
     /**
-     * Set 实例ID：taw-123
-     * @param InstanceID 实例ID：taw-123
+     * Set 实例ID：****-1792
+     * @param InstanceID 实例ID：****-1792
      */
     public void setInstanceID(String InstanceID) {
         this.InstanceID = InstanceID;

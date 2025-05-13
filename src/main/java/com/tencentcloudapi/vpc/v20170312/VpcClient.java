@@ -45,18 +45,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AcceptAttachCcnInstancesResponse AcceptAttachCcnInstances(AcceptAttachCcnInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AcceptAttachCcnInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AcceptAttachCcnInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AcceptAttachCcnInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AcceptAttachCcnInstances", AcceptAttachCcnInstancesResponse.class);
     }
 
     /**
@@ -66,18 +56,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AcceptVpcPeeringConnectionResponse AcceptVpcPeeringConnection(AcceptVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AcceptVpcPeeringConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AcceptVpcPeeringConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AcceptVpcPeeringConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AcceptVpcPeeringConnection", AcceptVpcPeeringConnectionResponse.class);
     }
 
     /**
@@ -87,18 +67,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AddBandwidthPackageResourcesResponse AddBandwidthPackageResources(AddBandwidthPackageResourcesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AddBandwidthPackageResourcesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AddBandwidthPackageResourcesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AddBandwidthPackageResources");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AddBandwidthPackageResources", AddBandwidthPackageResourcesResponse.class);
     }
 
     /**
@@ -110,39 +80,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AddIp6RulesResponse AddIp6Rules(AddIp6RulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AddIp6RulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AddIp6RulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AddIp6Rules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AddIp6Rules", AddIp6RulesResponse.class);
     }
 
     /**
-     *增加模板对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
+     *增加模板对象中的IP地址、协议端口、IP地址组、协议端口组。
      * @param req AddTemplateMemberRequest
      * @return AddTemplateMemberResponse
      * @throws TencentCloudSDKException
      */
     public AddTemplateMemberResponse AddTemplateMember(AddTemplateMemberRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AddTemplateMemberResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AddTemplateMemberResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AddTemplateMember");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AddTemplateMember", AddTemplateMemberResponse.class);
     }
 
     /**
@@ -152,68 +102,56 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AdjustPublicAddressResponse AdjustPublicAddress(AdjustPublicAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AdjustPublicAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AdjustPublicAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AdjustPublicAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AdjustPublicAddress", AdjustPublicAddressResponse.class);
     }
 
     /**
      *本接口 (AllocateAddresses) 用于申请一个或多个[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)（简称 EIP）。
 * EIP 是专为动态云计算设计的静态 IP 地址。借助 EIP，您可以快速将 EIP 重新映射到您的另一个实例上，从而屏蔽实例故障。
 * 您的 EIP 与腾讯云账户相关联，而不是与某个实例相关联。在您选择显式释放该地址，或欠费超过24小时之前，它会一直与您的腾讯云账户保持关联。
-* 一个腾讯云账户在每个地域能申请的 EIP 最大配额有所限制，可参见 [EIP 产品简介](https://cloud.tencent.com/document/product/213/5733)，上述配额可通过 DescribeAddressQuota 接口获取。
+* 一个腾讯云账户在每个地域能申请的 EIP 最大配额有所限制，可参见 [EIP 产品简介](https://cloud.tencent.com/document/product/213/5733)，上述配额可通过 [DescribeAddressQuota](https://cloud.tencent.com/document/product/215/16701) 接口获取。
      * @param req AllocateAddressesRequest
      * @return AllocateAddressesResponse
      * @throws TencentCloudSDKException
      */
     public AllocateAddressesResponse AllocateAddresses(AllocateAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AllocateAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AllocateAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AllocateAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AllocateAddresses", AllocateAddressesResponse.class);
     }
 
     /**
-     *该接口用于给IPv6地址初次分配公网带宽
+     *本接口（AllocateIPv6Addresses）用于申请一个或多个弹性公网IPv6（简称EIPv6）实例。
+
+- EIPv6 是您在腾讯云某个地域可以独立申请和持有的，固定不变的公网 IPv6 地址，提供与弹性公网 IPv4 一致的产品体验。
+- 通过弹性公网 IPv6，您可以快速将 EIPv6 实例绑定到云资源的内网 IPv6 地址上，实现为云资源快速开通 IPv6 公网带宽。
+- 您还可以按需将 EIPv6 实例绑定到其他云资源上，从而屏蔽实例故障。
+     * @param req AllocateIPv6AddressesRequest
+     * @return AllocateIPv6AddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public AllocateIPv6AddressesResponse AllocateIPv6Addresses(AllocateIPv6AddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "AllocateIPv6Addresses", AllocateIPv6AddressesResponse.class);
+    }
+
+    /**
+     *本接口（AllocateIp6AddressesBandwidth）用于为传统弹性公网 IPv6 地址开通 IPv6 公网带宽。
+
+- 传统弹性公网 IPv6 地址默认仅具备内网通信能力，需通过控制台或 API 接口为其分配公网带宽后，才能具备 IPv6 公网通信能力、并于传统弹性公网 IPv6 列表页可见。
+- 支持为一个或多个传统弹性公网 IPv6 实例开通公网带宽。
      * @param req AllocateIp6AddressesBandwidthRequest
      * @return AllocateIp6AddressesBandwidthResponse
      * @throws TencentCloudSDKException
      */
     public AllocateIp6AddressesBandwidthResponse AllocateIp6AddressesBandwidth(AllocateIp6AddressesBandwidthRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AllocateIp6AddressesBandwidthResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AllocateIp6AddressesBandwidthResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AllocateIp6AddressesBandwidth");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AllocateIp6AddressesBandwidth", AllocateIp6AddressesBandwidthResponse.class);
     }
 
     /**
      *本接口（AssignIpv6Addresses）用于弹性网卡申请`IPv6`地址。<br />
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037)接口。
 * 一个弹性网卡支持绑定的IP地址是有限制的，更多资源限制信息详见<a href="/document/product/576/18527">弹性网卡使用限制</a>。
 * 可以指定`IPv6`地址申请，地址类型不能为主`IP`，`IPv6`地址暂时只支持作为辅助`IP`。
 * 地址必须要在弹性网卡所在子网内，而且不能被占用。
@@ -223,18 +161,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssignIpv6AddressesResponse AssignIpv6Addresses(AssignIpv6AddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssignIpv6AddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssignIpv6AddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssignIpv6Addresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssignIpv6Addresses", AssignIpv6AddressesResponse.class);
     }
 
     /**
@@ -246,18 +174,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssignIpv6CidrBlockResponse AssignIpv6CidrBlock(AssignIpv6CidrBlockRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssignIpv6CidrBlockResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssignIpv6CidrBlockResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssignIpv6CidrBlock");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssignIpv6CidrBlock", AssignIpv6CidrBlockResponse.class);
     }
 
     /**
@@ -269,24 +187,14 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssignIpv6SubnetCidrBlockResponse AssignIpv6SubnetCidrBlock(AssignIpv6SubnetCidrBlockRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssignIpv6SubnetCidrBlockResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssignIpv6SubnetCidrBlockResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssignIpv6SubnetCidrBlock");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssignIpv6SubnetCidrBlock", AssignIpv6SubnetCidrBlockResponse.class);
     }
 
     /**
      *本接口（AssignPrivateIpAddresses）用于弹性网卡申请内网 IP。
 * 一个弹性网卡支持绑定的IP地址是有限制的，更多资源限制信息详见<a href="/document/product/576/18527">弹性网卡使用限制</a>。
-* 可以指定内网IP地址申请，内网IP地址类型不能为主IP，主IP已存在，不能修改，内网IP必须要弹性网卡所在子网内，而且不能被占用。
+* 可以指定内网IP地址申请，内网IP地址类型不能为主IP，主IP已存在，不能修改，内网IP必须要在弹性网卡所在子网内，而且不能被占用。
 * 在弹性网卡上申请一个到多个辅助内网IP，接口会在弹性网卡所在子网网段内返回指定数量的辅助内网IP。
 >?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
 >
@@ -295,27 +203,17 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssignPrivateIpAddressesResponse AssignPrivateIpAddresses(AssignPrivateIpAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssignPrivateIpAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssignPrivateIpAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssignPrivateIpAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssignPrivateIpAddresses", AssignPrivateIpAddressesResponse.class);
     }
 
     /**
      *本接口 (AssociateAddress) 用于将[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)（简称 EIP）绑定到实例或弹性网卡的指定内网 IP 上。
 * 将 EIP 绑定到实例（CVM）上，其本质是将 EIP 绑定到实例上主网卡的主内网 IP 上。
-* 将 EIP 绑定到主网卡的主内网IP上，绑定过程会把其上绑定的普通公网 IP 自动解绑并释放。
+* 将 EIP 绑定到主网卡的主内网IP时，如主内网IP已绑定普通公网IP，必须先退还才能绑定EIP。
 * 将 EIP 绑定到指定网卡的内网 IP上（非主网卡的主内网IP），则必须先解绑该 EIP，才能再绑定新的。
-* 将 EIP 绑定到内网型CLB实例的功能处于内测阶段，如需使用，请提交内测申请。
-* 将 EIP 绑定到NAT网关，请使用接口[AssociateNatGatewayAddress](https://cloud.tencent.com/document/product/215/36722)
+* 将 EIP 绑定到内网型CLB实例的功能处于内测阶段，如需使用，请提交[内测申请](https://cloud.tencent.com/apply/p/4kxj7picqci)。
+* 将 EIP 绑定到NAT网关，请使用接口[AssociateNatGatewayAddress](https://cloud.tencent.com/document/product/215/36722)。
 * EIP 如果欠费或被封堵，则不能被绑定。
 * 只有状态为 UNBIND 的 EIP 才能够被绑定。
      * @param req AssociateAddressRequest
@@ -323,18 +221,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssociateAddressResponse AssociateAddress(AssociateAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssociateAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssociateAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssociateAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssociateAddress", AssociateAddressResponse.class);
     }
 
     /**
@@ -346,18 +234,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssociateDhcpIpWithAddressIpResponse AssociateDhcpIpWithAddressIp(AssociateDhcpIpWithAddressIpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssociateDhcpIpWithAddressIpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssociateDhcpIpWithAddressIpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssociateDhcpIpWithAddressIp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssociateDhcpIpWithAddressIp", AssociateDhcpIpWithAddressIpResponse.class);
     }
 
     /**
@@ -367,18 +245,33 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssociateDirectConnectGatewayNatGatewayResponse AssociateDirectConnectGatewayNatGateway(AssociateDirectConnectGatewayNatGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssociateDirectConnectGatewayNatGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssociateDirectConnectGatewayNatGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssociateDirectConnectGatewayNatGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssociateDirectConnectGatewayNatGateway", AssociateDirectConnectGatewayNatGatewayResponse.class);
+    }
+
+    /**
+     *本接口（AssociateIPv6Address）用于将弹性公网IPv6（简称EIPv6）实例绑定到 CVM 或弹性网卡配置的内网 IPv6 地址上。
+
+- 将 EIPv6 绑定到 CVM 上，其本质是将 EIPv6 绑定到 CVM 弹性网卡所配置的内网 IPv6 地址上。
+- 将 EIPv6 绑定到指定网卡的内网 IPv6 时，需确保该内网 IPv6 地址为未绑定状态，才能执行绑定操作。
+     * @param req AssociateIPv6AddressRequest
+     * @return AssociateIPv6AddressResponse
+     * @throws TencentCloudSDKException
+     */
+    public AssociateIPv6AddressResponse AssociateIPv6Address(AssociateIPv6AddressRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "AssociateIPv6Address", AssociateIPv6AddressResponse.class);
+    }
+
+    /**
+     *本接口（AssociateInstancesToCcnRouteTable）用于将指定的云联网实例关联到指定的云联网路由表。
+     * @param req AssociateInstancesToCcnRouteTableRequest
+     * @return AssociateInstancesToCcnRouteTableResponse
+     * @throws TencentCloudSDKException
+     */
+    public AssociateInstancesToCcnRouteTableResponse AssociateInstancesToCcnRouteTable(AssociateInstancesToCcnRouteTableRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "AssociateInstancesToCcnRouteTable", AssociateInstancesToCcnRouteTableResponse.class);
     }
 
     /**
@@ -388,18 +281,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssociateNatGatewayAddressResponse AssociateNatGatewayAddress(AssociateNatGatewayAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssociateNatGatewayAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssociateNatGatewayAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssociateNatGatewayAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssociateNatGatewayAddress", AssociateNatGatewayAddressResponse.class);
     }
 
     /**
@@ -409,18 +292,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssociateNetworkAclSubnetsResponse AssociateNetworkAclSubnets(AssociateNetworkAclSubnetsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssociateNetworkAclSubnetsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssociateNetworkAclSubnetsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssociateNetworkAclSubnets");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssociateNetworkAclSubnets", AssociateNetworkAclSubnetsResponse.class);
     }
 
     /**
@@ -430,18 +303,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AssociateNetworkInterfaceSecurityGroupsResponse AssociateNetworkInterfaceSecurityGroups(AssociateNetworkInterfaceSecurityGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AssociateNetworkInterfaceSecurityGroupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AssociateNetworkInterfaceSecurityGroupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AssociateNetworkInterfaceSecurityGroups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AssociateNetworkInterfaceSecurityGroups", AssociateNetworkInterfaceSecurityGroupsResponse.class);
     }
 
     /**
@@ -452,18 +315,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AttachCcnInstancesResponse AttachCcnInstances(AttachCcnInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AttachCcnInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AttachCcnInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AttachCcnInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AttachCcnInstances", AttachCcnInstancesResponse.class);
     }
 
     /**
@@ -477,18 +330,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AttachClassicLinkVpcResponse AttachClassicLinkVpc(AttachClassicLinkVpcRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AttachClassicLinkVpcResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AttachClassicLinkVpcResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AttachClassicLinkVpc");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AttachClassicLinkVpc", AttachClassicLinkVpcResponse.class);
     }
 
     /**
@@ -499,24 +342,15 @@ public class VpcClient extends AbstractClient{
 * 只有运行中或者已关机状态的云服务器才能绑定弹性网卡，查看云服务器状态详见<a href="https://cloud.tencent.com/document/api/213/9452#InstanceStatus">腾讯云服务器信息</a>。
 * 弹性网卡绑定的云服务器必须是私有网络的，而且云服务器所在可用区必须和弹性网卡子网的可用区相同。
 
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037)
+接口。
      * @param req AttachNetworkInterfaceRequest
      * @return AttachNetworkInterfaceResponse
      * @throws TencentCloudSDKException
      */
     public AttachNetworkInterfaceResponse AttachNetworkInterface(AttachNetworkInterfaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AttachNetworkInterfaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AttachNetworkInterfaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AttachNetworkInterface");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AttachNetworkInterface", AttachNetworkInterfaceResponse.class);
     }
 
     /**
@@ -526,18 +360,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AttachSnapshotInstancesResponse AttachSnapshotInstances(AttachSnapshotInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AttachSnapshotInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AttachSnapshotInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AttachSnapshotInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AttachSnapshotInstances", AttachSnapshotInstancesResponse.class);
     }
 
     /**
@@ -549,18 +373,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public AuditCrossBorderComplianceResponse AuditCrossBorderCompliance(AuditCrossBorderComplianceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<AuditCrossBorderComplianceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<AuditCrossBorderComplianceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "AuditCrossBorderCompliance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "AuditCrossBorderCompliance", AuditCrossBorderComplianceResponse.class);
     }
 
     /**
@@ -573,18 +387,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CheckAssistantCidrResponse CheckAssistantCidr(CheckAssistantCidrRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CheckAssistantCidrResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CheckAssistantCidrResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CheckAssistantCidr");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CheckAssistantCidr", CheckAssistantCidrResponse.class);
     }
 
     /**
@@ -594,18 +398,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CheckDefaultSubnetResponse CheckDefaultSubnet(CheckDefaultSubnetRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CheckDefaultSubnetResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CheckDefaultSubnetResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CheckDefaultSubnet");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CheckDefaultSubnet", CheckDefaultSubnetResponse.class);
+    }
+
+    /**
+     *本接口（CheckGatewayFlowMonitor）用于查询网关是否启用流量监控。
+     * @param req CheckGatewayFlowMonitorRequest
+     * @return CheckGatewayFlowMonitorResponse
+     * @throws TencentCloudSDKException
+     */
+    public CheckGatewayFlowMonitorResponse CheckGatewayFlowMonitor(CheckGatewayFlowMonitorRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CheckGatewayFlowMonitor", CheckGatewayFlowMonitorResponse.class);
     }
 
     /**
@@ -615,39 +420,41 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CheckNetDetectStateResponse CheckNetDetectState(CheckNetDetectStateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CheckNetDetectStateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CheckNetDetectStateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CheckNetDetectState");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CheckNetDetectState", CheckNetDetectStateResponse.class);
     }
 
     /**
-     *本接口（CloneSecurityGroup）用于根据存量的安全组，克隆创建出同样规则配置的安全组。仅克隆安全组及其规则信息，不会克隆安全组标签信息。
+     *检查流量镜像的采集端接收端（公网IP类型）
+     * @param req CheckTrafficMirrorRequest
+     * @return CheckTrafficMirrorResponse
+     * @throws TencentCloudSDKException
+     */
+    public CheckTrafficMirrorResponse CheckTrafficMirror(CheckTrafficMirrorRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CheckTrafficMirror", CheckTrafficMirrorResponse.class);
+    }
+
+    /**
+     *本接口（ClearRouteTableSelectionPolicies）用于清空指定云联网的路由表选择策略。
+     * @param req ClearRouteTableSelectionPoliciesRequest
+     * @return ClearRouteTableSelectionPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ClearRouteTableSelectionPoliciesResponse ClearRouteTableSelectionPolicies(ClearRouteTableSelectionPoliciesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ClearRouteTableSelectionPolicies", ClearRouteTableSelectionPoliciesResponse.class);
+    }
+
+    /**
+     *本接口（CloneSecurityGroup）用于根据存量的安全组，克隆创建出同样规则配置的安全组。默认仅克隆安全组及其规则信息，可通过入参开启克隆安全组标签信息。
      * @param req CloneSecurityGroupRequest
      * @return CloneSecurityGroupResponse
      * @throws TencentCloudSDKException
      */
     public CloneSecurityGroupResponse CloneSecurityGroup(CloneSecurityGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CloneSecurityGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CloneSecurityGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CloneSecurityGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CloneSecurityGroup", CloneSecurityGroupResponse.class);
     }
 
     /**
@@ -657,18 +464,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAddressTemplateResponse CreateAddressTemplate(CreateAddressTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAddressTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAddressTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAddressTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAddressTemplate", CreateAddressTemplateResponse.class);
     }
 
     /**
@@ -678,18 +475,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAddressTemplateGroupResponse CreateAddressTemplateGroup(CreateAddressTemplateGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAddressTemplateGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAddressTemplateGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAddressTemplateGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAddressTemplateGroup", CreateAddressTemplateGroupResponse.class);
     }
 
     /**
@@ -706,18 +493,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAndAttachNetworkInterfaceResponse CreateAndAttachNetworkInterface(CreateAndAttachNetworkInterfaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAndAttachNetworkInterfaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAndAttachNetworkInterfaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAndAttachNetworkInterface");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAndAttachNetworkInterface", CreateAndAttachNetworkInterfaceResponse.class);
     }
 
     /**
@@ -727,18 +504,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateAssistantCidrResponse CreateAssistantCidr(CreateAssistantCidrRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateAssistantCidrResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateAssistantCidrResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateAssistantCidr");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateAssistantCidr", CreateAssistantCidrResponse.class);
     }
 
     /**
@@ -748,18 +515,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateBandwidthPackageResponse CreateBandwidthPackage(CreateBandwidthPackageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateBandwidthPackageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateBandwidthPackageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateBandwidthPackage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateBandwidthPackage", CreateBandwidthPackageResponse.class);
     }
 
     /**
@@ -771,18 +528,41 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateCcnResponse CreateCcn(CreateCcnRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCcnResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCcnResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCcn");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCcn", CreateCcnResponse.class);
+    }
+
+    /**
+     *本接口（CreateCcnRouteTables）用于给指定的云联网实例新建路由表。
+     * @param req CreateCcnRouteTablesRequest
+     * @return CreateCcnRouteTablesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCcnRouteTablesResponse CreateCcnRouteTables(CreateCcnRouteTablesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateCcnRouteTables", CreateCcnRouteTablesResponse.class);
+    }
+
+    /**
+     *创建 IDC 通道
+     * @param req CreateCdcLDCXListRequest
+     * @return CreateCdcLDCXListResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCdcLDCXListResponse CreateCdcLDCXList(CreateCdcLDCXListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateCdcLDCXList", CreateCdcLDCXListResponse.class);
+    }
+
+    /**
+     *创建虚拟连接，用于支持 CDC 多租户模式
+     * @param req CreateCdcNetPlanesRequest
+     * @return CreateCdcNetPlanesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateCdcNetPlanesResponse CreateCdcNetPlanes(CreateCdcNetPlanesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateCdcNetPlanes", CreateCdcNetPlanesResponse.class);
     }
 
     /**
@@ -792,18 +572,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateCustomerGatewayResponse CreateCustomerGateway(CreateCustomerGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateCustomerGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateCustomerGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateCustomerGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateCustomerGateway", CreateCustomerGatewayResponse.class);
     }
 
     /**
@@ -816,18 +586,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDefaultSecurityGroupResponse CreateDefaultSecurityGroup(CreateDefaultSecurityGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDefaultSecurityGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDefaultSecurityGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDefaultSecurityGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDefaultSecurityGroup", CreateDefaultSecurityGroupResponse.class);
     }
 
     /**
@@ -845,18 +605,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDefaultVpcResponse CreateDefaultVpc(CreateDefaultVpcRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDefaultVpcResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDefaultVpcResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDefaultVpc");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDefaultVpc", CreateDefaultVpcResponse.class);
     }
 
     /**
@@ -866,18 +616,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDhcpIpResponse CreateDhcpIp(CreateDhcpIpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDhcpIpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDhcpIpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDhcpIp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDhcpIp", CreateDhcpIpResponse.class);
     }
 
     /**
@@ -887,18 +627,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDirectConnectGatewayResponse CreateDirectConnectGateway(CreateDirectConnectGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDirectConnectGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDirectConnectGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDirectConnectGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDirectConnectGateway", CreateDirectConnectGatewayResponse.class);
     }
 
     /**
@@ -908,18 +638,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateDirectConnectGatewayCcnRoutesResponse CreateDirectConnectGatewayCcnRoutes(CreateDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateDirectConnectGatewayCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateDirectConnectGatewayCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateDirectConnectGatewayCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateDirectConnectGatewayCcnRoutes", CreateDirectConnectGatewayCcnRoutesResponse.class);
     }
 
     /**
@@ -929,18 +649,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateFlowLogResponse CreateFlowLog(CreateFlowLogRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateFlowLogResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateFlowLogResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateFlowLog");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateFlowLog", CreateFlowLogResponse.class);
+    }
+
+    /**
+     *本接口（CreateGlobalRoutes）用于创建全局路由。
+     * @param req CreateGlobalRoutesRequest
+     * @return CreateGlobalRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateGlobalRoutesResponse CreateGlobalRoutes(CreateGlobalRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateGlobalRoutes", CreateGlobalRoutesResponse.class);
     }
 
     /**
@@ -950,18 +671,30 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateHaVipResponse CreateHaVip(CreateHaVipRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateHaVipResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateHaVipResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateHaVip");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateHaVip", CreateHaVipResponse.class);
+    }
+
+    /**
+     *高优路由表创建
+     * @param req CreateHighPriorityRouteTableRequest
+     * @return CreateHighPriorityRouteTableResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateHighPriorityRouteTableResponse CreateHighPriorityRouteTable(CreateHighPriorityRouteTableRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateHighPriorityRouteTable", CreateHighPriorityRouteTableResponse.class);
+    }
+
+    /**
+     *创建高优路由表条目。
+     * @param req CreateHighPriorityRoutesRequest
+     * @return CreateHighPriorityRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateHighPriorityRoutesResponse CreateHighPriorityRoutes(CreateHighPriorityRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateHighPriorityRoutes", CreateHighPriorityRoutesResponse.class);
     }
 
     /**
@@ -972,18 +705,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateIp6TranslatorsResponse CreateIp6Translators(CreateIp6TranslatorsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateIp6TranslatorsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateIp6TranslatorsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateIp6Translators");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateIp6Translators", CreateIp6TranslatorsResponse.class);
     }
 
     /**
@@ -993,18 +716,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateLocalGatewayResponse CreateLocalGateway(CreateLocalGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateLocalGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateLocalGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateLocalGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateLocalGateway", CreateLocalGatewayResponse.class);
     }
 
     /**
@@ -1015,18 +728,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateNatGatewayResponse CreateNatGateway(CreateNatGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateNatGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateNatGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateNatGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNatGateway", CreateNatGatewayResponse.class);
     }
 
     /**
@@ -1036,18 +739,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateNatGatewayDestinationIpPortTranslationNatRuleResponse CreateNatGatewayDestinationIpPortTranslationNatRule(CreateNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateNatGatewayDestinationIpPortTranslationNatRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateNatGatewayDestinationIpPortTranslationNatRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateNatGatewayDestinationIpPortTranslationNatRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNatGatewayDestinationIpPortTranslationNatRule", CreateNatGatewayDestinationIpPortTranslationNatRuleResponse.class);
     }
 
     /**
@@ -1057,18 +750,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateNatGatewaySourceIpTranslationNatRuleResponse CreateNatGatewaySourceIpTranslationNatRule(CreateNatGatewaySourceIpTranslationNatRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateNatGatewaySourceIpTranslationNatRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateNatGatewaySourceIpTranslationNatRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateNatGatewaySourceIpTranslationNatRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNatGatewaySourceIpTranslationNatRule", CreateNatGatewaySourceIpTranslationNatRuleResponse.class);
     }
 
     /**
@@ -1078,18 +761,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateNetDetectResponse CreateNetDetect(CreateNetDetectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateNetDetectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateNetDetectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateNetDetect");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNetDetect", CreateNetDetectResponse.class);
     }
 
     /**
@@ -1100,18 +773,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateNetworkAclResponse CreateNetworkAcl(CreateNetworkAclRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateNetworkAclResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateNetworkAclResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateNetworkAcl");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNetworkAcl", CreateNetworkAclResponse.class);
+    }
+
+    /**
+     *本接口（CreateNetworkAclEntries）用于增量添加网络ACL三元组的入站规则和出站规则。
+     * @param req CreateNetworkAclEntriesRequest
+     * @return CreateNetworkAclEntriesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateNetworkAclEntriesResponse CreateNetworkAclEntries(CreateNetworkAclEntriesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateNetworkAclEntries", CreateNetworkAclEntriesResponse.class);
     }
 
     /**
@@ -1121,18 +795,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateNetworkAclQuintupleEntriesResponse CreateNetworkAclQuintupleEntries(CreateNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateNetworkAclQuintupleEntriesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateNetworkAclQuintupleEntriesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateNetworkAclQuintupleEntries");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNetworkAclQuintupleEntries", CreateNetworkAclQuintupleEntriesResponse.class);
     }
 
     /**
@@ -1141,7 +805,7 @@ public class VpcClient extends AbstractClient{
 * 创建弹性网卡时可以指定需要申请的内网IP数量，系统会随机生成内网IP地址。
 * 一个弹性网卡支持绑定的IP地址是有限制的，更多资源限制信息详见<a href="/document/product/576/18527">弹性网卡使用限制</a>。
 * 创建弹性网卡同时可以绑定已有安全组。
-* 创建弹性网卡同时可以绑定标签, 应答里的标签列表代表添加成功的标签。
+* 创建弹性网卡同时可以绑定标签, 响应里的标签列表代表添加成功的标签。
 >?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
 >
      * @param req CreateNetworkInterfaceRequest
@@ -1149,18 +813,63 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateNetworkInterfaceResponse CreateNetworkInterface(CreateNetworkInterfaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateNetworkInterfaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateNetworkInterfaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateNetworkInterface");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateNetworkInterface", CreateNetworkInterfaceResponse.class);
+    }
+
+    /**
+     *本接口（CreatePrivateNatGateway）用于创建私网NAT网关。
+     * @param req CreatePrivateNatGatewayRequest
+     * @return CreatePrivateNatGatewayResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePrivateNatGatewayResponse CreatePrivateNatGateway(CreatePrivateNatGatewayRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreatePrivateNatGateway", CreatePrivateNatGatewayResponse.class);
+    }
+
+    /**
+     *本接口（CreatePrivateNatGatewayDestinationIpPortTranslationNatRule）用于创建私网NAT网关目的端口转换规则
+     * @param req CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest
+     * @return CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse CreatePrivateNatGatewayDestinationIpPortTranslationNatRule(CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreatePrivateNatGatewayDestinationIpPortTranslationNatRule", CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse.class);
+    }
+
+    /**
+     *本接口（ CreatePrivateNatGatewayTranslationAclRule）用于创建私网NAT网关源端转换访问控制规则
+     * @param req CreatePrivateNatGatewayTranslationAclRuleRequest
+     * @return CreatePrivateNatGatewayTranslationAclRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePrivateNatGatewayTranslationAclRuleResponse CreatePrivateNatGatewayTranslationAclRule(CreatePrivateNatGatewayTranslationAclRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreatePrivateNatGatewayTranslationAclRule", CreatePrivateNatGatewayTranslationAclRuleResponse.class);
+    }
+
+    /**
+     *本接口（CreatePrivateNatGatewayTranslationNatRule）用于创建私网NAT网关源端转换规则。
+     * @param req CreatePrivateNatGatewayTranslationNatRuleRequest
+     * @return CreatePrivateNatGatewayTranslationNatRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreatePrivateNatGatewayTranslationNatRuleResponse CreatePrivateNatGatewayTranslationNatRule(CreatePrivateNatGatewayTranslationNatRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreatePrivateNatGatewayTranslationNatRule", CreatePrivateNatGatewayTranslationNatRuleResponse.class);
+    }
+
+    /**
+     *创建内网保留IP
+     * @param req CreateReserveIpAddressesRequest
+     * @return CreateReserveIpAddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateReserveIpAddressesResponse CreateReserveIpAddresses(CreateReserveIpAddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateReserveIpAddresses", CreateReserveIpAddressesResponse.class);
     }
 
     /**
@@ -1172,18 +881,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateRouteTableResponse CreateRouteTable(CreateRouteTableRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateRouteTableResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateRouteTableResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateRouteTable");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateRouteTable", CreateRouteTableResponse.class);
     }
 
     /**
@@ -1194,18 +893,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateRoutesResponse CreateRoutes(CreateRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateRoutes", CreateRoutesResponse.class);
     }
 
     /**
@@ -1218,18 +907,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSecurityGroupResponse CreateSecurityGroup(CreateSecurityGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSecurityGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSecurityGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSecurityGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSecurityGroup", CreateSecurityGroupResponse.class);
     }
 
     /**
@@ -1243,7 +922,7 @@ public class VpcClient extends AbstractClient{
 <li>CidrBlock 字段允许输入符合cidr格式标准的任意字符串。在基础网络中，如果 CidrBlock 包含您的账户内的云服务器之外的设备在腾讯云的内网 IP，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。</li>
 <li>Ipv6CidrBlock 字段允许输入符合IPv6 cidr格式标准的任意字符串。在基础网络中，如果Ipv6CidrBlock 包含您的账户内的云服务器之外的设备在腾讯云的内网 IPv6，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。</li>
 <li>SecurityGroupId 字段允许输入与待修改的安全组位于相同项目中的安全组 ID，包括这个安全组 ID 本身，代表安全组下所有云服务器的内网 IP。使用这个字段时，这条规则用来匹配网络报文的过程中会随着被使用的这个 ID 所关联的云服务器变化而变化，不需要重新修改。</li>
-<li>Port 字段允许输入一个单独端口号，或者用减号分隔的两个端口号代表端口范围，例如80或8000-8010。只有当 Protocol 字段是 TCP 或 UDP 时，Port 字段才被接受，即 Protocol 字段不是 TCP 或 UDP 时，Protocol 和 Port 排他关系，不允许同时输入，否则会接口报错。</li>
+<li>Port 字段允许输入一个单独端口号，或者用减号分隔的两个端口号代表端口范围，例如80或8000-8010。只有当 Protocol 字段是 TCP 或 UDP 时，Port 字段才被接受，即 Protocol 字段不是 TCP 或 UDP 时，Protocol 和 Port 是排他关系，不允许同时输入，否则会接口报错。</li>
 <li>Action 字段只允许输入 ACCEPT 或 DROP。</li>
 <li>CidrBlock, Ipv6CidrBlock, SecurityGroupId, AddressTemplate 四者是排他关系，不允许同时输入，Protocol + Port 和 ServiceTemplate 二者是排他关系，不允许同时输入。IPv6CidrBlock和ICMP是排他关系，如需使用，请输入ICMPV6。</li>
 <li>一次请求中只能创建单个方向的规则, 如果需要指定索引（PolicyIndex）参数, 多条规则的索引必须一致。如想在规则最前面插入一条，则填0即可，如果想在最后追加，该字段可不填。</li>
@@ -1253,18 +932,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSecurityGroupPoliciesResponse CreateSecurityGroupPolicies(CreateSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSecurityGroupPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSecurityGroupPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSecurityGroupPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSecurityGroupPolicies", CreateSecurityGroupPoliciesResponse.class);
     }
 
     /**
@@ -1282,24 +951,14 @@ public class VpcClient extends AbstractClient{
 * Port字段允许输入一个单独端口号，或者用减号分隔的两个端口号代表端口范围，例如80或8000-8010。只有当Protocol字段是TCP或UDP时，Port字段才被接受，即Protocol字段不是TCP或UDP时，Protocol和Port是排他关系，不允许同时输入，否则会接口报错。
 * Action字段只允许输入ACCEPT或DROP。
 * CidrBlock, Ipv6CidrBlock, SecurityGroupId, AddressTemplate四者是排他关系，不允许同时输入，Protocol + Port和ServiceTemplate二者是排他关系，不允许同时输入。
-* 一次请求中只能创建单个方向的规则, 如果需要指定索引（PolicyIndex）参数, 多条规则的索引必须一致。
+* 请求中可以同时指定入站和出站两个方向的规则, 如果需要指定索引（PolicyIndex）参数, 多条规则的索引必须一致。
      * @param req CreateSecurityGroupWithPoliciesRequest
      * @return CreateSecurityGroupWithPoliciesResponse
      * @throws TencentCloudSDKException
      */
     public CreateSecurityGroupWithPoliciesResponse CreateSecurityGroupWithPolicies(CreateSecurityGroupWithPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSecurityGroupWithPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSecurityGroupWithPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSecurityGroupWithPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSecurityGroupWithPolicies", CreateSecurityGroupWithPoliciesResponse.class);
     }
 
     /**
@@ -1309,18 +968,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateServiceTemplateResponse CreateServiceTemplate(CreateServiceTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateServiceTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateServiceTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateServiceTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateServiceTemplate", CreateServiceTemplateResponse.class);
     }
 
     /**
@@ -1330,18 +979,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateServiceTemplateGroupResponse CreateServiceTemplateGroup(CreateServiceTemplateGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateServiceTemplateGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateServiceTemplateGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateServiceTemplateGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateServiceTemplateGroup", CreateServiceTemplateGroupResponse.class);
     }
 
     /**
@@ -1351,18 +990,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSnapshotPoliciesResponse CreateSnapshotPolicies(CreateSnapshotPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSnapshotPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSnapshotPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSnapshotPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSnapshotPolicies", CreateSnapshotPoliciesResponse.class);
     }
 
     /**
@@ -1378,18 +1007,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSubnetResponse CreateSubnet(CreateSubnetRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSubnetResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSubnetResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSubnet");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSubnet", CreateSubnetResponse.class);
     }
 
     /**
@@ -1405,18 +1024,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateSubnetsResponse CreateSubnets(CreateSubnetsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateSubnetsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateSubnetsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateSubnets");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateSubnets", CreateSubnetsResponse.class);
+    }
+
+    /**
+     *本接口（CreateTrafficMirror）用于创建流量镜像实例。
+     * @param req CreateTrafficMirrorRequest
+     * @return CreateTrafficMirrorResponse
+     * @throws TencentCloudSDKException
+     */
+    public CreateTrafficMirrorResponse CreateTrafficMirror(CreateTrafficMirrorRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "CreateTrafficMirror", CreateTrafficMirrorResponse.class);
     }
 
     /**
@@ -1426,18 +1046,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateTrafficPackagesResponse CreateTrafficPackages(CreateTrafficPackagesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateTrafficPackagesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateTrafficPackagesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateTrafficPackages");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateTrafficPackages", CreateTrafficPackagesResponse.class);
     }
 
     /**
@@ -1450,18 +1060,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpcResponse CreateVpc(CreateVpcRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpcResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpcResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpc");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpc", CreateVpcResponse.class);
     }
 
     /**
@@ -1471,18 +1071,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpcEndPointResponse CreateVpcEndPoint(CreateVpcEndPointRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpcEndPointResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpcEndPointResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpcEndPoint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpcEndPoint", CreateVpcEndPointResponse.class);
     }
 
     /**
@@ -1492,18 +1082,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpcEndPointServiceResponse CreateVpcEndPointService(CreateVpcEndPointServiceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpcEndPointServiceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpcEndPointServiceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpcEndPointService");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpcEndPointService", CreateVpcEndPointServiceResponse.class);
     }
 
     /**
@@ -1513,18 +1093,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpcEndPointServiceWhiteListResponse CreateVpcEndPointServiceWhiteList(CreateVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpcEndPointServiceWhiteListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpcEndPointServiceWhiteListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpcEndPointServiceWhiteList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpcEndPointServiceWhiteList", CreateVpcEndPointServiceWhiteListResponse.class);
     }
 
     /**
@@ -1534,18 +1104,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpcPeeringConnectionResponse CreateVpcPeeringConnection(CreateVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpcPeeringConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpcPeeringConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpcPeeringConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpcPeeringConnection", CreateVpcPeeringConnectionResponse.class);
     }
 
     /**
@@ -1557,18 +1117,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpnConnectionResponse CreateVpnConnection(CreateVpnConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpnConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpnConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpnConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpnConnection", CreateVpnConnectionResponse.class);
     }
 
     /**
@@ -1578,18 +1128,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpnGatewayResponse CreateVpnGateway(CreateVpnGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpnGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpnGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpnGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpnGateway", CreateVpnGatewayResponse.class);
     }
 
     /**
@@ -1599,18 +1139,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpnGatewayRoutesResponse CreateVpnGatewayRoutes(CreateVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpnGatewayRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpnGatewayRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpnGatewayRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpnGatewayRoutes", CreateVpnGatewayRoutesResponse.class);
     }
 
     /**
@@ -1620,18 +1150,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpnGatewaySslClientResponse CreateVpnGatewaySslClient(CreateVpnGatewaySslClientRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpnGatewaySslClientResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpnGatewaySslClientResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpnGatewaySslClient");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpnGatewaySslClient", CreateVpnGatewaySslClientResponse.class);
     }
 
     /**
@@ -1641,60 +1161,34 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public CreateVpnGatewaySslServerResponse CreateVpnGatewaySslServer(CreateVpnGatewaySslServerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<CreateVpnGatewaySslServerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<CreateVpnGatewaySslServerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "CreateVpnGatewaySslServer");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "CreateVpnGatewaySslServer", CreateVpnGatewaySslServerResponse.class);
     }
 
     /**
      *本接口（DeleteAddressTemplate）用于删除IP地址模板。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req DeleteAddressTemplateRequest
      * @return DeleteAddressTemplateResponse
      * @throws TencentCloudSDKException
      */
     public DeleteAddressTemplateResponse DeleteAddressTemplate(DeleteAddressTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAddressTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAddressTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAddressTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAddressTemplate", DeleteAddressTemplateResponse.class);
     }
 
     /**
      *本接口（DeleteAddressTemplateGroup）用于删除IP地址模板集合。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req DeleteAddressTemplateGroupRequest
      * @return DeleteAddressTemplateGroupResponse
      * @throws TencentCloudSDKException
      */
     public DeleteAddressTemplateGroupResponse DeleteAddressTemplateGroup(DeleteAddressTemplateGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAddressTemplateGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAddressTemplateGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAddressTemplateGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAddressTemplateGroup", DeleteAddressTemplateGroupResponse.class);
     }
 
     /**
@@ -1704,39 +1198,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteAssistantCidrResponse DeleteAssistantCidr(DeleteAssistantCidrRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteAssistantCidrResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteAssistantCidrResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteAssistantCidr");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteAssistantCidr", DeleteAssistantCidrResponse.class);
     }
 
     /**
-     *接口支持删除共享带宽包，包括[设备带宽包](https://cloud.tencent.com/document/product/684/15246#.E8.AE.BE.E5.A4.87.E5.B8.A6.E5.AE.BD.E5.8C.85)和[IP带宽包](https://cloud.tencent.com/document/product/684/15246#ip-.E5.B8.A6.E5.AE.BD.E5.8C.85)
+     *接口支持删除共享带宽包，包括[设备带宽包](https://cloud.tencent.com/document/product/684/15245#bwptype)和[IP带宽包](https://cloud.tencent.com/document/product/684/15245#bwptype)
      * @param req DeleteBandwidthPackageRequest
      * @return DeleteBandwidthPackageResponse
      * @throws TencentCloudSDKException
      */
     public DeleteBandwidthPackageResponse DeleteBandwidthPackage(DeleteBandwidthPackageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteBandwidthPackageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteBandwidthPackageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteBandwidthPackage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteBandwidthPackage", DeleteBandwidthPackageResponse.class);
     }
 
     /**
@@ -1748,18 +1222,41 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteCcnResponse DeleteCcn(DeleteCcnRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteCcnResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteCcnResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteCcn");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteCcn", DeleteCcnResponse.class);
+    }
+
+    /**
+     *本接口（DeleteCcnRouteTables）用于删除云联网路由表。
+     * @param req DeleteCcnRouteTablesRequest
+     * @return DeleteCcnRouteTablesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCcnRouteTablesResponse DeleteCcnRouteTables(DeleteCcnRouteTablesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteCcnRouteTables", DeleteCcnRouteTablesResponse.class);
+    }
+
+    /**
+     *删除 IDC通道
+     * @param req DeleteCdcLDCXListRequest
+     * @return DeleteCdcLDCXListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCdcLDCXListResponse DeleteCdcLDCXList(DeleteCdcLDCXListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteCdcLDCXList", DeleteCdcLDCXListResponse.class);
+    }
+
+    /**
+     *删除虚拟连接
+     * @param req DeleteCdcNetPlanesRequest
+     * @return DeleteCdcNetPlanesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteCdcNetPlanesResponse DeleteCdcNetPlanes(DeleteCdcNetPlanesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteCdcNetPlanes", DeleteCdcNetPlanesResponse.class);
     }
 
     /**
@@ -1769,18 +1266,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteCustomerGatewayResponse DeleteCustomerGateway(DeleteCustomerGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteCustomerGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteCustomerGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteCustomerGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteCustomerGateway", DeleteCustomerGatewayResponse.class);
     }
 
     /**
@@ -1792,18 +1279,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteDhcpIpResponse DeleteDhcpIp(DeleteDhcpIpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteDhcpIpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteDhcpIpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteDhcpIp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteDhcpIp", DeleteDhcpIpResponse.class);
     }
 
     /**
@@ -1816,18 +1293,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteDirectConnectGatewayResponse DeleteDirectConnectGateway(DeleteDirectConnectGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteDirectConnectGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteDirectConnectGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteDirectConnectGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteDirectConnectGateway", DeleteDirectConnectGatewayResponse.class);
     }
 
     /**
@@ -1837,18 +1304,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteDirectConnectGatewayCcnRoutesResponse DeleteDirectConnectGatewayCcnRoutes(DeleteDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteDirectConnectGatewayCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteDirectConnectGatewayCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteDirectConnectGatewayCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteDirectConnectGatewayCcnRoutes", DeleteDirectConnectGatewayCcnRoutesResponse.class);
     }
 
     /**
@@ -1858,18 +1315,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteFlowLogResponse DeleteFlowLog(DeleteFlowLogRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteFlowLogResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteFlowLogResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteFlowLog");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteFlowLog", DeleteFlowLogResponse.class);
+    }
+
+    /**
+     *删除全局路由。
+     * @param req DeleteGlobalRoutesRequest
+     * @return DeleteGlobalRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteGlobalRoutesResponse DeleteGlobalRoutes(DeleteGlobalRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteGlobalRoutes", DeleteGlobalRoutesResponse.class);
     }
 
     /**
@@ -1880,18 +1338,30 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteHaVipResponse DeleteHaVip(DeleteHaVipRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteHaVipResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteHaVipResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteHaVip");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteHaVip", DeleteHaVipResponse.class);
+    }
+
+    /**
+     *删除高优路由表
+     * @param req DeleteHighPriorityRouteTablesRequest
+     * @return DeleteHighPriorityRouteTablesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteHighPriorityRouteTablesResponse DeleteHighPriorityRouteTables(DeleteHighPriorityRouteTablesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteHighPriorityRouteTables", DeleteHighPriorityRouteTablesResponse.class);
+    }
+
+    /**
+     *删除高优路由表的路由条目。
+     * @param req DeleteHighPriorityRoutesRequest
+     * @return DeleteHighPriorityRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteHighPriorityRoutesResponse DeleteHighPriorityRoutes(DeleteHighPriorityRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteHighPriorityRoutes", DeleteHighPriorityRoutesResponse.class);
     }
 
     /**
@@ -1902,18 +1372,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteIp6TranslatorsResponse DeleteIp6Translators(DeleteIp6TranslatorsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteIp6TranslatorsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteIp6TranslatorsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteIp6Translators");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteIp6Translators", DeleteIp6TranslatorsResponse.class);
     }
 
     /**
@@ -1923,18 +1383,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteLocalGatewayResponse DeleteLocalGateway(DeleteLocalGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteLocalGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteLocalGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteLocalGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteLocalGateway", DeleteLocalGatewayResponse.class);
     }
 
     /**
@@ -1945,18 +1395,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteNatGatewayResponse DeleteNatGateway(DeleteNatGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteNatGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteNatGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteNatGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNatGateway", DeleteNatGatewayResponse.class);
     }
 
     /**
@@ -1966,18 +1406,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse DeleteNatGatewayDestinationIpPortTranslationNatRule(DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteNatGatewayDestinationIpPortTranslationNatRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNatGatewayDestinationIpPortTranslationNatRule", DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse.class);
     }
 
     /**
@@ -1987,18 +1417,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteNatGatewaySourceIpTranslationNatRuleResponse DeleteNatGatewaySourceIpTranslationNatRule(DeleteNatGatewaySourceIpTranslationNatRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteNatGatewaySourceIpTranslationNatRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteNatGatewaySourceIpTranslationNatRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteNatGatewaySourceIpTranslationNatRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNatGatewaySourceIpTranslationNatRule", DeleteNatGatewaySourceIpTranslationNatRuleResponse.class);
     }
 
     /**
@@ -2008,18 +1428,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteNetDetectResponse DeleteNetDetect(DeleteNetDetectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteNetDetectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteNetDetectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteNetDetect");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNetDetect", DeleteNetDetectResponse.class);
     }
 
     /**
@@ -2029,18 +1439,21 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteNetworkAclResponse DeleteNetworkAcl(DeleteNetworkAclRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteNetworkAclResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteNetworkAclResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteNetworkAcl");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNetworkAcl", DeleteNetworkAclResponse.class);
+    }
+
+    /**
+     *本接口（DeleteNetworkAclEntries）用于删除三元组网络ACL的入站规则和出站规则。在NetworkAclEntrySet参数中：
+* 删除IPv4规则，需要传入NetworkAclIpv4EntryId。
+* 删除IPv6规则，需要传入NetworkAclIpv6EntryId。
+     * @param req DeleteNetworkAclEntriesRequest
+     * @return DeleteNetworkAclEntriesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteNetworkAclEntriesResponse DeleteNetworkAclEntries(DeleteNetworkAclEntriesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteNetworkAclEntries", DeleteNetworkAclEntriesResponse.class);
     }
 
     /**
@@ -2050,18 +1463,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteNetworkAclQuintupleEntriesResponse DeleteNetworkAclQuintupleEntries(DeleteNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteNetworkAclQuintupleEntriesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteNetworkAclQuintupleEntriesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteNetworkAclQuintupleEntries");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNetworkAclQuintupleEntries", DeleteNetworkAclQuintupleEntriesResponse.class);
     }
 
     /**
@@ -2069,24 +1472,70 @@ public class VpcClient extends AbstractClient{
 * 弹性网卡上绑定了云服务器时，不能被删除。
 * 删除指定弹性网卡，弹性网卡必须先和子机解绑才能删除。删除之后弹性网卡上所有内网IP都将被退还。
 
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 
+接口。
      * @param req DeleteNetworkInterfaceRequest
      * @return DeleteNetworkInterfaceResponse
      * @throws TencentCloudSDKException
      */
     public DeleteNetworkInterfaceResponse DeleteNetworkInterface(DeleteNetworkInterfaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteNetworkInterfaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteNetworkInterfaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteNetworkInterface");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteNetworkInterface", DeleteNetworkInterfaceResponse.class);
+    }
+
+    /**
+     *本接口（DeletePrivateNatGateway）用于删除私网NAT网关。
+     * @param req DeletePrivateNatGatewayRequest
+     * @return DeletePrivateNatGatewayResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeletePrivateNatGatewayResponse DeletePrivateNatGateway(DeletePrivateNatGatewayRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeletePrivateNatGateway", DeletePrivateNatGatewayResponse.class);
+    }
+
+    /**
+     *本接口（DeletePrivateNatGatewayDestinationIpPortTranslationNatRule）用于删除私网NAT网关目的端口转换规则
+     * @param req DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest
+     * @return DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse DeletePrivateNatGatewayDestinationIpPortTranslationNatRule(DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeletePrivateNatGatewayDestinationIpPortTranslationNatRule", DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse.class);
+    }
+
+    /**
+     *本接口（DeletePrivateNatGatewayTranslationAclRule）用于删除私网NAT网关源端转换访问控制规则
+     * @param req DeletePrivateNatGatewayTranslationAclRuleRequest
+     * @return DeletePrivateNatGatewayTranslationAclRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeletePrivateNatGatewayTranslationAclRuleResponse DeletePrivateNatGatewayTranslationAclRule(DeletePrivateNatGatewayTranslationAclRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeletePrivateNatGatewayTranslationAclRule", DeletePrivateNatGatewayTranslationAclRuleResponse.class);
+    }
+
+    /**
+     *本接口（DeletePrivateNatGatewayTranslationNatRule）用于删除私网NAT网关源端转换规则
+     * @param req DeletePrivateNatGatewayTranslationNatRuleRequest
+     * @return DeletePrivateNatGatewayTranslationNatRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeletePrivateNatGatewayTranslationNatRuleResponse DeletePrivateNatGatewayTranslationNatRule(DeletePrivateNatGatewayTranslationNatRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeletePrivateNatGatewayTranslationNatRule", DeletePrivateNatGatewayTranslationNatRuleResponse.class);
+    }
+
+    /**
+     *删除内网保留IP
+     * @param req DeleteReserveIpAddressesRequest
+     * @return DeleteReserveIpAddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteReserveIpAddressesResponse DeleteReserveIpAddresses(DeleteReserveIpAddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteReserveIpAddresses", DeleteReserveIpAddressesResponse.class);
     }
 
     /**
@@ -2096,18 +1545,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteRouteTableResponse DeleteRouteTable(DeleteRouteTableRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteRouteTableResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteRouteTableResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteRouteTable");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteRouteTable", DeleteRouteTableResponse.class);
     }
 
     /**
@@ -2117,18 +1556,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteRoutesResponse DeleteRoutes(DeleteRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteRoutes", DeleteRoutesResponse.class);
     }
 
     /**
@@ -2141,18 +1570,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSecurityGroupResponse DeleteSecurityGroup(DeleteSecurityGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSecurityGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSecurityGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSecurityGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSecurityGroup", DeleteSecurityGroupResponse.class);
     }
 
     /**
@@ -2163,60 +1582,34 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSecurityGroupPoliciesResponse DeleteSecurityGroupPolicies(DeleteSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSecurityGroupPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSecurityGroupPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSecurityGroupPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSecurityGroupPolicies", DeleteSecurityGroupPoliciesResponse.class);
     }
 
     /**
      *本接口（DeleteServiceTemplate）用于删除协议端口模板。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req DeleteServiceTemplateRequest
      * @return DeleteServiceTemplateResponse
      * @throws TencentCloudSDKException
      */
     public DeleteServiceTemplateResponse DeleteServiceTemplate(DeleteServiceTemplateRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteServiceTemplateResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteServiceTemplateResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteServiceTemplate");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteServiceTemplate", DeleteServiceTemplateResponse.class);
     }
 
     /**
      *本接口（DeleteServiceTemplateGroup）用于删除协议端口模板集合。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req DeleteServiceTemplateGroupRequest
      * @return DeleteServiceTemplateGroupResponse
      * @throws TencentCloudSDKException
      */
     public DeleteServiceTemplateGroupResponse DeleteServiceTemplateGroup(DeleteServiceTemplateGroupRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteServiceTemplateGroupResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteServiceTemplateGroupResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteServiceTemplateGroup");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteServiceTemplateGroup", DeleteServiceTemplateGroupResponse.class);
     }
 
     /**
@@ -2226,18 +1619,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSnapshotPoliciesResponse DeleteSnapshotPolicies(DeleteSnapshotPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSnapshotPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSnapshotPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSnapshotPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSnapshotPolicies", DeleteSnapshotPoliciesResponse.class);
     }
 
     /**
@@ -2248,39 +1631,30 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteSubnetResponse DeleteSubnet(DeleteSubnetRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteSubnetResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteSubnetResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteSubnet");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteSubnet", DeleteSubnetResponse.class);
     }
 
     /**
-     *删除模板对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
+     *删除模板对象中的IP地址、协议端口、IP地址组、协议端口组。
      * @param req DeleteTemplateMemberRequest
      * @return DeleteTemplateMemberResponse
      * @throws TencentCloudSDKException
      */
     public DeleteTemplateMemberResponse DeleteTemplateMember(DeleteTemplateMemberRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteTemplateMemberResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteTemplateMemberResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteTemplateMember");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteTemplateMember", DeleteTemplateMemberResponse.class);
+    }
+
+    /**
+     *本接口（DeleteTrafficMirror）用于删除流量镜像实例。
+     * @param req DeleteTrafficMirrorRequest
+     * @return DeleteTrafficMirrorResponse
+     * @throws TencentCloudSDKException
+     */
+    public DeleteTrafficMirrorResponse DeleteTrafficMirror(DeleteTrafficMirrorRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DeleteTrafficMirror", DeleteTrafficMirrorResponse.class);
     }
 
     /**
@@ -2290,18 +1664,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteTrafficPackagesResponse DeleteTrafficPackages(DeleteTrafficPackagesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteTrafficPackagesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteTrafficPackagesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteTrafficPackages");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteTrafficPackages", DeleteTrafficPackagesResponse.class);
     }
 
     /**
@@ -2313,18 +1677,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpcResponse DeleteVpc(DeleteVpcRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpcResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpcResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpc");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpc", DeleteVpcResponse.class);
     }
 
     /**
@@ -2334,18 +1688,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpcEndPointResponse DeleteVpcEndPoint(DeleteVpcEndPointRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpcEndPointResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpcEndPointResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpcEndPoint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpcEndPoint", DeleteVpcEndPointResponse.class);
     }
 
     /**
@@ -2355,18 +1699,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpcEndPointServiceResponse DeleteVpcEndPointService(DeleteVpcEndPointServiceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpcEndPointServiceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpcEndPointServiceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpcEndPointService");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpcEndPointService", DeleteVpcEndPointServiceResponse.class);
     }
 
     /**
@@ -2376,18 +1710,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpcEndPointServiceWhiteListResponse DeleteVpcEndPointServiceWhiteList(DeleteVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpcEndPointServiceWhiteListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpcEndPointServiceWhiteListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpcEndPointServiceWhiteList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpcEndPointServiceWhiteList", DeleteVpcEndPointServiceWhiteListResponse.class);
     }
 
     /**
@@ -2397,60 +1721,32 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpcPeeringConnectionResponse DeleteVpcPeeringConnection(DeleteVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpcPeeringConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpcPeeringConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpcPeeringConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpcPeeringConnection", DeleteVpcPeeringConnectionResponse.class);
     }
 
     /**
      *本接口（DeleteVpnConnection）用于删除VPN通道。
+>?本接口为异步接口
+>
      * @param req DeleteVpnConnectionRequest
      * @return DeleteVpnConnectionResponse
      * @throws TencentCloudSDKException
      */
     public DeleteVpnConnectionResponse DeleteVpnConnection(DeleteVpnConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpnConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpnConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpnConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpnConnection", DeleteVpnConnectionResponse.class);
     }
 
     /**
-     *本接口（DeleteVpnGateway）用于删除VPN网关。目前只支持删除运行中的按量计费的IPSEC网关实例。
+     *本接口（DeleteVpnGateway）用于删除VPN网关。
      * @param req DeleteVpnGatewayRequest
      * @return DeleteVpnGatewayResponse
      * @throws TencentCloudSDKException
      */
     public DeleteVpnGatewayResponse DeleteVpnGateway(DeleteVpnGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpnGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpnGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpnGateway", DeleteVpnGatewayResponse.class);
     }
 
     /**
@@ -2460,18 +1756,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpnGatewayRoutesResponse DeleteVpnGatewayRoutes(DeleteVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpnGatewayRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewayRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpnGatewayRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpnGatewayRoutes", DeleteVpnGatewayRoutesResponse.class);
     }
 
     /**
@@ -2481,18 +1767,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpnGatewaySslClientResponse DeleteVpnGatewaySslClient(DeleteVpnGatewaySslClientRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpnGatewaySslClientResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewaySslClientResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpnGatewaySslClient");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpnGatewaySslClient", DeleteVpnGatewaySslClientResponse.class);
     }
 
     /**
@@ -2502,18 +1778,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DeleteVpnGatewaySslServerResponse DeleteVpnGatewaySslServer(DeleteVpnGatewaySslServerRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DeleteVpnGatewaySslServerResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DeleteVpnGatewaySslServerResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DeleteVpnGatewaySslServer");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DeleteVpnGatewaySslServer", DeleteVpnGatewaySslServerResponse.class);
     }
 
     /**
@@ -2523,18 +1789,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAccountAttributesResponse DescribeAccountAttributes(DescribeAccountAttributesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAccountAttributesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAccountAttributesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAccountAttributes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAccountAttributes", DescribeAccountAttributesResponse.class);
+    }
+
+    /**
+     *本接口（DescribeAddressBandwidthRange）用于查询指定EIP的带宽上下限范围。
+     * @param req DescribeAddressBandwidthRangeRequest
+     * @return DescribeAddressBandwidthRangeResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeAddressBandwidthRangeResponse DescribeAddressBandwidthRange(DescribeAddressBandwidthRangeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeAddressBandwidthRange", DescribeAddressBandwidthRangeResponse.class);
     }
 
     /**
@@ -2544,18 +1811,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAddressQuotaResponse DescribeAddressQuota(DescribeAddressQuotaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAddressQuotaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAddressQuotaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAddressQuota");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAddressQuota", DescribeAddressQuotaResponse.class);
     }
 
     /**
@@ -2565,18 +1822,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAddressTemplateGroupsResponse DescribeAddressTemplateGroups(DescribeAddressTemplateGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAddressTemplateGroupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAddressTemplateGroupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAddressTemplateGroups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAddressTemplateGroups", DescribeAddressTemplateGroupsResponse.class);
     }
 
     /**
@@ -2586,18 +1833,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAddressTemplatesResponse DescribeAddressTemplates(DescribeAddressTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAddressTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAddressTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAddressTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAddressTemplates", DescribeAddressTemplatesResponse.class);
     }
 
     /**
@@ -2608,18 +1845,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAddressesResponse DescribeAddresses(DescribeAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAddresses", DescribeAddressesResponse.class);
     }
 
     /**
@@ -2629,18 +1856,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeAssistantCidrResponse DescribeAssistantCidr(DescribeAssistantCidrRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeAssistantCidrResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeAssistantCidrResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeAssistantCidr");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeAssistantCidr", DescribeAssistantCidrResponse.class);
+    }
+
+    /**
+     *查询指定带宽包的带宽上下限范围
+     * @param req DescribeBandwidthPackageBandwidthRangeRequest
+     * @return DescribeBandwidthPackageBandwidthRangeResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeBandwidthPackageBandwidthRangeResponse DescribeBandwidthPackageBandwidthRange(DescribeBandwidthPackageBandwidthRangeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeBandwidthPackageBandwidthRange", DescribeBandwidthPackageBandwidthRangeResponse.class);
     }
 
     /**
@@ -2650,18 +1878,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBandwidthPackageBillUsageResponse DescribeBandwidthPackageBillUsage(DescribeBandwidthPackageBillUsageRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBandwidthPackageBillUsageResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackageBillUsageResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBandwidthPackageBillUsage");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBandwidthPackageBillUsage", DescribeBandwidthPackageBillUsageResponse.class);
     }
 
     /**
@@ -2671,18 +1889,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBandwidthPackageQuotaResponse DescribeBandwidthPackageQuota(DescribeBandwidthPackageQuotaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBandwidthPackageQuotaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackageQuotaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBandwidthPackageQuota");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBandwidthPackageQuota", DescribeBandwidthPackageQuotaResponse.class);
     }
 
     /**
@@ -2692,18 +1900,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBandwidthPackageResourcesResponse DescribeBandwidthPackageResources(DescribeBandwidthPackageResourcesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBandwidthPackageResourcesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackageResourcesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBandwidthPackageResources");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBandwidthPackageResources", DescribeBandwidthPackageResourcesResponse.class);
     }
 
     /**
@@ -2713,18 +1911,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeBandwidthPackagesResponse DescribeBandwidthPackages(DescribeBandwidthPackagesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeBandwidthPackagesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeBandwidthPackagesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeBandwidthPackages");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeBandwidthPackages", DescribeBandwidthPackagesResponse.class);
     }
 
     /**
@@ -2734,18 +1922,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCcnAttachedInstancesResponse DescribeCcnAttachedInstances(DescribeCcnAttachedInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCcnAttachedInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCcnAttachedInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCcnAttachedInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCcnAttachedInstances", DescribeCcnAttachedInstancesResponse.class);
     }
 
     /**
@@ -2755,18 +1933,41 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCcnRegionBandwidthLimitsResponse DescribeCcnRegionBandwidthLimits(DescribeCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCcnRegionBandwidthLimitsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCcnRegionBandwidthLimitsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCcnRegionBandwidthLimits");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCcnRegionBandwidthLimits", DescribeCcnRegionBandwidthLimitsResponse.class);
+    }
+
+    /**
+     *本接口(DescribeCcnRouteTableBroadcastPolicys)用于查询指定云联网路由表的路由传播策略。
+     * @param req DescribeCcnRouteTableBroadcastPolicysRequest
+     * @return DescribeCcnRouteTableBroadcastPolicysResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCcnRouteTableBroadcastPolicysResponse DescribeCcnRouteTableBroadcastPolicys(DescribeCcnRouteTableBroadcastPolicysRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCcnRouteTableBroadcastPolicys", DescribeCcnRouteTableBroadcastPolicysResponse.class);
+    }
+
+    /**
+     *本接口(DescribeCcnRouteTableInputPolicys)用于查询指定云联网路由表的路由接收策略。
+     * @param req DescribeCcnRouteTableInputPolicysRequest
+     * @return DescribeCcnRouteTableInputPolicysResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCcnRouteTableInputPolicysResponse DescribeCcnRouteTableInputPolicys(DescribeCcnRouteTableInputPolicysRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCcnRouteTableInputPolicys", DescribeCcnRouteTableInputPolicysResponse.class);
+    }
+
+    /**
+     *该接口用于查询指定的云联网实例的路由表信息。
+     * @param req DescribeCcnRouteTablesRequest
+     * @return DescribeCcnRouteTablesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCcnRouteTablesResponse DescribeCcnRouteTables(DescribeCcnRouteTablesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCcnRouteTables", DescribeCcnRouteTablesResponse.class);
     }
 
     /**
@@ -2776,18 +1977,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCcnRoutesResponse DescribeCcnRoutes(DescribeCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCcnRoutes", DescribeCcnRoutesResponse.class);
     }
 
     /**
@@ -2797,18 +1988,41 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCcnsResponse DescribeCcns(DescribeCcnsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCcnsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCcnsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCcns");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCcns", DescribeCcnsResponse.class);
+    }
+
+    /**
+     *查询 IDC通道信息
+     * @param req DescribeCdcLDCXListRequest
+     * @return DescribeCdcLDCXListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCdcLDCXListResponse DescribeCdcLDCXList(DescribeCdcLDCXListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCdcLDCXList", DescribeCdcLDCXListResponse.class);
+    }
+
+    /**
+     *查询虚拟连接
+     * @param req DescribeCdcNetPlanesRequest
+     * @return DescribeCdcNetPlanesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCdcNetPlanesResponse DescribeCdcNetPlanes(DescribeCdcNetPlanesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCdcNetPlanes", DescribeCdcNetPlanesResponse.class);
+    }
+
+    /**
+     *查询IDC使用的 VLAN
+     * @param req DescribeCdcUsedIdcVlanRequest
+     * @return DescribeCdcUsedIdcVlanResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeCdcUsedIdcVlanResponse DescribeCdcUsedIdcVlan(DescribeCdcUsedIdcVlanRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeCdcUsedIdcVlan", DescribeCdcUsedIdcVlanResponse.class);
     }
 
     /**
@@ -2818,18 +2032,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeClassicLinkInstancesResponse DescribeClassicLinkInstances(DescribeClassicLinkInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeClassicLinkInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeClassicLinkInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeClassicLinkInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeClassicLinkInstances", DescribeClassicLinkInstancesResponse.class);
     }
 
     /**
@@ -2841,18 +2045,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCrossBorderCcnRegionBandwidthLimitsResponse DescribeCrossBorderCcnRegionBandwidthLimits(DescribeCrossBorderCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCrossBorderCcnRegionBandwidthLimitsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCrossBorderCcnRegionBandwidthLimitsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCrossBorderCcnRegionBandwidthLimits");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCrossBorderCcnRegionBandwidthLimits", DescribeCrossBorderCcnRegionBandwidthLimitsResponse.class);
     }
 
     /**
@@ -2863,18 +2057,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCrossBorderComplianceResponse DescribeCrossBorderCompliance(DescribeCrossBorderComplianceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCrossBorderComplianceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCrossBorderComplianceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCrossBorderCompliance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCrossBorderCompliance", DescribeCrossBorderComplianceResponse.class);
     }
 
     /**
@@ -2884,18 +2068,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCrossBorderFlowMonitorResponse DescribeCrossBorderFlowMonitor(DescribeCrossBorderFlowMonitorRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCrossBorderFlowMonitorResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCrossBorderFlowMonitorResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCrossBorderFlowMonitor");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCrossBorderFlowMonitor", DescribeCrossBorderFlowMonitorResponse.class);
     }
 
     /**
@@ -2905,18 +2079,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCustomerGatewayVendorsResponse DescribeCustomerGatewayVendors(DescribeCustomerGatewayVendorsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCustomerGatewayVendorsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCustomerGatewayVendorsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCustomerGatewayVendors");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCustomerGatewayVendors", DescribeCustomerGatewayVendorsResponse.class);
     }
 
     /**
@@ -2926,18 +2090,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeCustomerGatewaysResponse DescribeCustomerGateways(DescribeCustomerGatewaysRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeCustomerGatewaysResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeCustomerGatewaysResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeCustomerGateways");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeCustomerGateways", DescribeCustomerGatewaysResponse.class);
     }
 
     /**
@@ -2947,18 +2101,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDhcpIpsResponse DescribeDhcpIps(DescribeDhcpIpsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDhcpIpsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDhcpIpsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDhcpIps");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDhcpIps", DescribeDhcpIpsResponse.class);
     }
 
     /**
@@ -2968,18 +2112,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDirectConnectGatewayCcnRoutesResponse DescribeDirectConnectGatewayCcnRoutes(DescribeDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDirectConnectGatewayCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDirectConnectGatewayCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDirectConnectGatewayCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDirectConnectGatewayCcnRoutes", DescribeDirectConnectGatewayCcnRoutesResponse.class);
     }
 
     /**
@@ -2989,39 +2123,20 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeDirectConnectGatewaysResponse DescribeDirectConnectGateways(DescribeDirectConnectGatewaysRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeDirectConnectGatewaysResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeDirectConnectGatewaysResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeDirectConnectGateways");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeDirectConnectGateways", DescribeDirectConnectGatewaysResponse.class);
     }
 
     /**
-     *本接口（DescribeFlowLog）用于查询流日志实例信息。
+     *本接口（DescribeFlowLog）用于查询VPC流日志实例信息。
+该接口只支持VPC流日志（即将下线）。云联网以及VPC流日志，通过[DescribeFlowLogs](https://cloud.tencent.com/document/product/215/35012)接口获取。
      * @param req DescribeFlowLogRequest
      * @return DescribeFlowLogResponse
      * @throws TencentCloudSDKException
      */
     public DescribeFlowLogResponse DescribeFlowLog(DescribeFlowLogRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeFlowLogResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeFlowLogResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeFlowLog");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeFlowLog", DescribeFlowLogResponse.class);
     }
 
     /**
@@ -3031,18 +2146,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeFlowLogsResponse DescribeFlowLogs(DescribeFlowLogsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeFlowLogsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeFlowLogsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeFlowLogs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeFlowLogs", DescribeFlowLogsResponse.class);
     }
 
     /**
@@ -3054,18 +2159,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGatewayFlowMonitorDetailResponse DescribeGatewayFlowMonitorDetail(DescribeGatewayFlowMonitorDetailRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGatewayFlowMonitorDetailResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGatewayFlowMonitorDetailResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGatewayFlowMonitorDetail");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGatewayFlowMonitorDetail", DescribeGatewayFlowMonitorDetailResponse.class);
     }
 
     /**
@@ -3075,18 +2170,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeGatewayFlowQosResponse DescribeGatewayFlowQos(DescribeGatewayFlowQosRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeGatewayFlowQosResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeGatewayFlowQosResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeGatewayFlowQos");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeGatewayFlowQos", DescribeGatewayFlowQosResponse.class);
+    }
+
+    /**
+     *查询全局路由列表。
+     * @param req DescribeGlobalRoutesRequest
+     * @return DescribeGlobalRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeGlobalRoutesResponse DescribeGlobalRoutes(DescribeGlobalRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeGlobalRoutes", DescribeGlobalRoutesResponse.class);
     }
 
     /**
@@ -3096,39 +2192,69 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeHaVipsResponse DescribeHaVips(DescribeHaVipsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeHaVipsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeHaVipsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeHaVips");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeHaVips", DescribeHaVipsResponse.class);
     }
 
     /**
-     *该接口用于查询IPV6地址信息
+     *查询高优路由表。
+     * @param req DescribeHighPriorityRouteTablesRequest
+     * @return DescribeHighPriorityRouteTablesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeHighPriorityRouteTablesResponse DescribeHighPriorityRouteTables(DescribeHighPriorityRouteTablesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeHighPriorityRouteTables", DescribeHighPriorityRouteTablesResponse.class);
+    }
+
+    /**
+     *查询高优路由表条目信息。
+     * @param req DescribeHighPriorityRoutesRequest
+     * @return DescribeHighPriorityRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeHighPriorityRoutesResponse DescribeHighPriorityRoutes(DescribeHighPriorityRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeHighPriorityRoutes", DescribeHighPriorityRoutesResponse.class);
+    }
+
+    /**
+     *本接口（DescribeIPv6Addresses）用于查询一个或多个弹性公网 IPv6（简称 EIPv6）实例的详细信息。
+
+- 支持查询您在指定地域的弹性公网 IPv6 和传统弹性公网 IPv6 实例信息
+- 如果参数为空，返回当前用户一定数量（Limit所指定的数量，默认为20）的 EIPv6。
+     * @param req DescribeIPv6AddressesRequest
+     * @return DescribeIPv6AddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeIPv6AddressesResponse DescribeIPv6Addresses(DescribeIPv6AddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeIPv6Addresses", DescribeIPv6AddressesResponse.class);
+    }
+
+    /**
+     *本接口用于检查云服务器是否支持巨帧。
+使用限制：
+1. 需要CAM策略授权该接口的操作权限，并且授权对应实例的读取权限(该接口会访问CVM实例，所以会校验是否有实例的CAM权限)。例如：CAM action放通vpc:DescribeInstanceJumbo；resourc放通qcs::cvm:ap-guangzhou:uin/2126195383:instance/*。
+2. 实例迁移前后，可能会出现该接口返回的巨帧状态前后不一致（需要检查迁移前后实例所在的宿主机是否都支持巨帧，一种可能的原因为实例迁移到了不支持巨帧的宿主机）。
+     * @param req DescribeInstanceJumboRequest
+     * @return DescribeInstanceJumboResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeInstanceJumboResponse DescribeInstanceJumbo(DescribeInstanceJumboRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeInstanceJumbo", DescribeInstanceJumboResponse.class);
+    }
+
+    /**
+     *本接口（DescribeIp6Addresses）用于查询一个或多个传统弹性公网 IPv6 实例的详细信息。
      * @param req DescribeIp6AddressesRequest
      * @return DescribeIp6AddressesResponse
      * @throws TencentCloudSDKException
      */
     public DescribeIp6AddressesResponse DescribeIp6Addresses(DescribeIp6AddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeIp6AddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeIp6AddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeIp6Addresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeIp6Addresses", DescribeIp6AddressesResponse.class);
     }
 
     /**
@@ -3138,18 +2264,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeIp6TranslatorQuotaResponse DescribeIp6TranslatorQuota(DescribeIp6TranslatorQuotaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeIp6TranslatorQuotaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeIp6TranslatorQuotaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeIp6TranslatorQuota");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeIp6TranslatorQuota", DescribeIp6TranslatorQuotaResponse.class);
     }
 
     /**
@@ -3160,18 +2276,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeIp6TranslatorsResponse DescribeIp6Translators(DescribeIp6TranslatorsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeIp6TranslatorsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeIp6TranslatorsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeIp6Translators");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeIp6Translators", DescribeIp6TranslatorsResponse.class);
     }
 
     /**
@@ -3182,18 +2288,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeIpGeolocationDatabaseUrlResponse DescribeIpGeolocationDatabaseUrl(DescribeIpGeolocationDatabaseUrlRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeIpGeolocationDatabaseUrlResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeIpGeolocationDatabaseUrlResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeIpGeolocationDatabaseUrl");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeIpGeolocationDatabaseUrl", DescribeIpGeolocationDatabaseUrlResponse.class);
     }
 
     /**
@@ -3204,18 +2300,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeIpGeolocationInfosResponse DescribeIpGeolocationInfos(DescribeIpGeolocationInfosRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeIpGeolocationInfosResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeIpGeolocationInfosResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeIpGeolocationInfos");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeIpGeolocationInfos", DescribeIpGeolocationInfosResponse.class);
     }
 
     /**
@@ -3225,18 +2311,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeLocalGatewayResponse DescribeLocalGateway(DescribeLocalGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeLocalGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeLocalGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeLocalGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeLocalGateway", DescribeLocalGatewayResponse.class);
     }
 
     /**
@@ -3246,18 +2322,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse DescribeNatGatewayDestinationIpPortTranslationNatRules(DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNatGatewayDestinationIpPortTranslationNatRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNatGatewayDestinationIpPortTranslationNatRules", DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse.class);
     }
 
     /**
@@ -3267,18 +2333,22 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNatGatewayDirectConnectGatewayRouteResponse DescribeNatGatewayDirectConnectGatewayRoute(DescribeNatGatewayDirectConnectGatewayRouteRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNatGatewayDirectConnectGatewayRouteResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNatGatewayDirectConnectGatewayRouteResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNatGatewayDirectConnectGatewayRoute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNatGatewayDirectConnectGatewayRoute", DescribeNatGatewayDirectConnectGatewayRouteResponse.class);
+    }
+
+    /**
+     *本接口（DescribeNatGatewayFlowMonitorDetail）用于查询NAT网关流量监控明细。
+
+- 只支持单个网关实例查询。即入参 `NatGatewayId` 最多只支持传一个，且必须传一个。
+- 如果网关有流量，但调用本接口没有返回数据，请在控制台对应网关详情页确认是否开启网关流量监控。
+     * @param req DescribeNatGatewayFlowMonitorDetailRequest
+     * @return DescribeNatGatewayFlowMonitorDetailResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeNatGatewayFlowMonitorDetailResponse DescribeNatGatewayFlowMonitorDetail(DescribeNatGatewayFlowMonitorDetailRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeNatGatewayFlowMonitorDetail", DescribeNatGatewayFlowMonitorDetailResponse.class);
     }
 
     /**
@@ -3288,18 +2358,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNatGatewaySourceIpTranslationNatRulesResponse DescribeNatGatewaySourceIpTranslationNatRules(DescribeNatGatewaySourceIpTranslationNatRulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNatGatewaySourceIpTranslationNatRulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNatGatewaySourceIpTranslationNatRulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNatGatewaySourceIpTranslationNatRules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNatGatewaySourceIpTranslationNatRules", DescribeNatGatewaySourceIpTranslationNatRulesResponse.class);
     }
 
     /**
@@ -3309,18 +2369,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNatGatewaysResponse DescribeNatGateways(DescribeNatGatewaysRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNatGatewaysResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNatGatewaysResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNatGateways");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNatGateways", DescribeNatGatewaysResponse.class);
     }
 
     /**
@@ -3330,18 +2380,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNetDetectStatesResponse DescribeNetDetectStates(DescribeNetDetectStatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNetDetectStatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNetDetectStatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNetDetectStates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNetDetectStates", DescribeNetDetectStatesResponse.class);
     }
 
     /**
@@ -3351,18 +2391,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNetDetectsResponse DescribeNetDetects(DescribeNetDetectsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNetDetectsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNetDetectsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNetDetects");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNetDetects", DescribeNetDetectsResponse.class);
     }
 
     /**
@@ -3372,18 +2402,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNetworkAccountTypeResponse DescribeNetworkAccountType(DescribeNetworkAccountTypeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNetworkAccountTypeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNetworkAccountTypeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNetworkAccountType");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNetworkAccountType", DescribeNetworkAccountTypeResponse.class);
     }
 
     /**
@@ -3393,18 +2413,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNetworkAclQuintupleEntriesResponse DescribeNetworkAclQuintupleEntries(DescribeNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNetworkAclQuintupleEntriesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNetworkAclQuintupleEntriesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNetworkAclQuintupleEntries");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNetworkAclQuintupleEntries", DescribeNetworkAclQuintupleEntriesResponse.class);
     }
 
     /**
@@ -3414,18 +2424,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNetworkAclsResponse DescribeNetworkAcls(DescribeNetworkAclsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNetworkAclsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNetworkAclsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNetworkAcls");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNetworkAcls", DescribeNetworkAclsResponse.class);
     }
 
     /**
@@ -3435,18 +2435,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNetworkInterfaceLimitResponse DescribeNetworkInterfaceLimit(DescribeNetworkInterfaceLimitRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNetworkInterfaceLimitResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNetworkInterfaceLimitResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNetworkInterfaceLimit");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNetworkInterfaceLimit", DescribeNetworkInterfaceLimitResponse.class);
     }
 
     /**
@@ -3456,18 +2446,74 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeNetworkInterfacesResponse DescribeNetworkInterfaces(DescribeNetworkInterfacesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeNetworkInterfacesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeNetworkInterfacesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeNetworkInterfaces");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeNetworkInterfaces", DescribeNetworkInterfacesResponse.class);
+    }
+
+    /**
+     *本接口（DescribePrivateNatGatewayDestinationIpPortTranslationNatRules）用于查询私网NAT网关目的端口转换规则
+     * @param req DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesRequest
+     * @return DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesResponse DescribePrivateNatGatewayDestinationIpPortTranslationNatRules(DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrivateNatGatewayDestinationIpPortTranslationNatRules", DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesResponse.class);
+    }
+
+    /**
+     *本接口（DescribePrivateNatGatewayLimits）用于查询可创建的私网NAT网关配额数量
+     * @param req DescribePrivateNatGatewayLimitsRequest
+     * @return DescribePrivateNatGatewayLimitsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrivateNatGatewayLimitsResponse DescribePrivateNatGatewayLimits(DescribePrivateNatGatewayLimitsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrivateNatGatewayLimits", DescribePrivateNatGatewayLimitsResponse.class);
+    }
+
+    /**
+     *本接口（DescribePrivateNatGatewayRegions）用于查询查询私网NAT网关可支持地域
+     * @param req DescribePrivateNatGatewayRegionsRequest
+     * @return DescribePrivateNatGatewayRegionsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrivateNatGatewayRegionsResponse DescribePrivateNatGatewayRegions(DescribePrivateNatGatewayRegionsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrivateNatGatewayRegions", DescribePrivateNatGatewayRegionsResponse.class);
+    }
+
+    /**
+     *本接口（DescribePrivateNatGatewayTranslationAclRules）用于查询私网NAT网关源端转换访问控制规则
+     * @param req DescribePrivateNatGatewayTranslationAclRulesRequest
+     * @return DescribePrivateNatGatewayTranslationAclRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrivateNatGatewayTranslationAclRulesResponse DescribePrivateNatGatewayTranslationAclRules(DescribePrivateNatGatewayTranslationAclRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrivateNatGatewayTranslationAclRules", DescribePrivateNatGatewayTranslationAclRulesResponse.class);
+    }
+
+    /**
+     *本接口（DescribePrivateNatGatewayTranslationNatRules）用于查询私网NAT网关源端转换规则
+     * @param req DescribePrivateNatGatewayTranslationNatRulesRequest
+     * @return DescribePrivateNatGatewayTranslationNatRulesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrivateNatGatewayTranslationNatRulesResponse DescribePrivateNatGatewayTranslationNatRules(DescribePrivateNatGatewayTranslationNatRulesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrivateNatGatewayTranslationNatRules", DescribePrivateNatGatewayTranslationNatRulesResponse.class);
+    }
+
+    /**
+     *本接口（DescribePrivateNatGateways）用于查询私网NAT网关
+     * @param req DescribePrivateNatGatewaysRequest
+     * @return DescribePrivateNatGatewaysResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribePrivateNatGatewaysResponse DescribePrivateNatGateways(DescribePrivateNatGatewaysRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribePrivateNatGateways", DescribePrivateNatGatewaysResponse.class);
     }
 
     /**
@@ -3477,18 +2523,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeProductQuotaResponse DescribeProductQuota(DescribeProductQuotaRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeProductQuotaResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeProductQuotaResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeProductQuota");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeProductQuota", DescribeProductQuotaResponse.class);
+    }
+
+    /**
+     *查询内网保留 IP
+     * @param req DescribeReserveIpAddressesRequest
+     * @return DescribeReserveIpAddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeReserveIpAddressesResponse DescribeReserveIpAddresses(DescribeReserveIpAddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeReserveIpAddresses", DescribeReserveIpAddressesResponse.class);
     }
 
     /**
@@ -3498,18 +2545,41 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRouteConflictsResponse DescribeRouteConflicts(DescribeRouteConflictsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRouteConflictsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRouteConflictsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRouteConflicts");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRouteConflicts", DescribeRouteConflictsResponse.class);
+    }
+
+    /**
+     *本接口（DescribeRouteList）用于查询路由条目列表。
+     * @param req DescribeRouteListRequest
+     * @return DescribeRouteListResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRouteListResponse DescribeRouteList(DescribeRouteListRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeRouteList", DescribeRouteListResponse.class);
+    }
+
+    /**
+     *本接口（DescribeRouteTableAssociatedInstances）用于查询指定的云联网关联的实例所绑定的路由表信息。
+     * @param req DescribeRouteTableAssociatedInstancesRequest
+     * @return DescribeRouteTableAssociatedInstancesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRouteTableAssociatedInstancesResponse DescribeRouteTableAssociatedInstances(DescribeRouteTableAssociatedInstancesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeRouteTableAssociatedInstances", DescribeRouteTableAssociatedInstancesResponse.class);
+    }
+
+    /**
+     *本接口（DescribeRouteTableSelectionPolicies）用于查询云联网路由表选择策略。
+     * @param req DescribeRouteTableSelectionPoliciesRequest
+     * @return DescribeRouteTableSelectionPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRouteTableSelectionPoliciesResponse DescribeRouteTableSelectionPolicies(DescribeRouteTableSelectionPoliciesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeRouteTableSelectionPolicies", DescribeRouteTableSelectionPoliciesResponse.class);
     }
 
     /**
@@ -3519,18 +2589,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeRouteTablesResponse DescribeRouteTables(DescribeRouteTablesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeRouteTablesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeRouteTablesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeRouteTables");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeRouteTables", DescribeRouteTablesResponse.class);
+    }
+
+    /**
+     *本接口（DescribeRoutes）用于查询路由列表。
+     * @param req DescribeRoutesRequest
+     * @return DescribeRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeRoutesResponse DescribeRoutes(DescribeRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeRoutes", DescribeRoutesResponse.class);
     }
 
     /**
@@ -3540,18 +2611,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSecurityGroupAssociationStatisticsResponse DescribeSecurityGroupAssociationStatistics(DescribeSecurityGroupAssociationStatisticsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSecurityGroupAssociationStatisticsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupAssociationStatisticsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSecurityGroupAssociationStatistics");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSecurityGroupAssociationStatistics", DescribeSecurityGroupAssociationStatisticsResponse.class);
     }
 
     /**
@@ -3561,18 +2622,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSecurityGroupLimitsResponse DescribeSecurityGroupLimits(DescribeSecurityGroupLimitsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSecurityGroupLimitsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupLimitsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSecurityGroupLimits");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSecurityGroupLimits", DescribeSecurityGroupLimitsResponse.class);
     }
 
     /**
@@ -3582,18 +2633,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSecurityGroupPoliciesResponse DescribeSecurityGroupPolicies(DescribeSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSecurityGroupPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSecurityGroupPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSecurityGroupPolicies", DescribeSecurityGroupPoliciesResponse.class);
     }
 
     /**
@@ -3603,18 +2644,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSecurityGroupReferencesResponse DescribeSecurityGroupReferences(DescribeSecurityGroupReferencesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSecurityGroupReferencesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupReferencesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSecurityGroupReferences");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSecurityGroupReferences", DescribeSecurityGroupReferencesResponse.class);
     }
 
     /**
@@ -3624,18 +2655,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSecurityGroupsResponse DescribeSecurityGroups(DescribeSecurityGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSecurityGroupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSecurityGroupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSecurityGroups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSecurityGroups", DescribeSecurityGroupsResponse.class);
     }
 
     /**
@@ -3645,18 +2666,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeServiceTemplateGroupsResponse DescribeServiceTemplateGroups(DescribeServiceTemplateGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeServiceTemplateGroupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeServiceTemplateGroupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeServiceTemplateGroups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeServiceTemplateGroups", DescribeServiceTemplateGroupsResponse.class);
     }
 
     /**
@@ -3666,18 +2677,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeServiceTemplatesResponse DescribeServiceTemplates(DescribeServiceTemplatesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeServiceTemplatesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeServiceTemplatesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeServiceTemplates");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeServiceTemplates", DescribeServiceTemplatesResponse.class);
     }
 
     /**
@@ -3687,18 +2688,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSgSnapshotFileContentResponse DescribeSgSnapshotFileContent(DescribeSgSnapshotFileContentRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSgSnapshotFileContentResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSgSnapshotFileContentResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSgSnapshotFileContent");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSgSnapshotFileContent", DescribeSgSnapshotFileContentResponse.class);
     }
 
     /**
@@ -3708,18 +2699,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSnapshotAttachedInstancesResponse DescribeSnapshotAttachedInstances(DescribeSnapshotAttachedInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSnapshotAttachedInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotAttachedInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSnapshotAttachedInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSnapshotAttachedInstances", DescribeSnapshotAttachedInstancesResponse.class);
     }
 
     /**
@@ -3729,18 +2710,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSnapshotFilesResponse DescribeSnapshotFiles(DescribeSnapshotFilesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSnapshotFilesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotFilesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSnapshotFiles");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSnapshotFiles", DescribeSnapshotFilesResponse.class);
     }
 
     /**
@@ -3750,18 +2721,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSnapshotPoliciesResponse DescribeSnapshotPolicies(DescribeSnapshotPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSnapshotPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSnapshotPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSnapshotPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSnapshotPolicies", DescribeSnapshotPoliciesResponse.class);
     }
 
     /**
@@ -3771,18 +2732,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSpecificTrafficPackageUsedDetailsResponse DescribeSpecificTrafficPackageUsedDetails(DescribeSpecificTrafficPackageUsedDetailsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSpecificTrafficPackageUsedDetailsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSpecificTrafficPackageUsedDetailsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSpecificTrafficPackageUsedDetails");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSpecificTrafficPackageUsedDetails", DescribeSpecificTrafficPackageUsedDetailsResponse.class);
     }
 
     /**
@@ -3792,18 +2743,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSubnetResourceDashboardResponse DescribeSubnetResourceDashboard(DescribeSubnetResourceDashboardRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSubnetResourceDashboardResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSubnetResourceDashboardResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSubnetResourceDashboard");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSubnetResourceDashboard", DescribeSubnetResourceDashboardResponse.class);
     }
 
     /**
@@ -3813,39 +2754,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeSubnetsResponse DescribeSubnets(DescribeSubnetsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeSubnetsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeSubnetsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeSubnets");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeSubnets", DescribeSubnetsResponse.class);
     }
 
     /**
-     *查询EIP异步任务执行结果
+     *本接口（DescribeTaskResult）用于查询EIP异步任务执行结果。
      * @param req DescribeTaskResultRequest
      * @return DescribeTaskResultResponse
      * @throws TencentCloudSDKException
      */
     public DescribeTaskResultResponse DescribeTaskResult(DescribeTaskResultRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTaskResultResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTaskResultResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTaskResult");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTaskResult", DescribeTaskResultResponse.class);
     }
 
     /**
@@ -3855,18 +2776,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTemplateLimitsResponse DescribeTemplateLimits(DescribeTemplateLimitsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTemplateLimitsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTemplateLimitsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTemplateLimits");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTemplateLimits", DescribeTemplateLimitsResponse.class);
     }
 
     /**
@@ -3878,18 +2789,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTenantCcnsResponse DescribeTenantCcns(DescribeTenantCcnsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTenantCcnsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTenantCcnsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTenantCcns");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTenantCcns", DescribeTenantCcnsResponse.class);
+    }
+
+    /**
+     *本接口（DescribeTrafficMirrors）用于查询流量镜像实例信息。
+     * @param req DescribeTrafficMirrorsRequest
+     * @return DescribeTrafficMirrorsResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTrafficMirrorsResponse DescribeTrafficMirrors(DescribeTrafficMirrorsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTrafficMirrors", DescribeTrafficMirrorsResponse.class);
     }
 
     /**
@@ -3899,18 +2811,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeTrafficPackagesResponse DescribeTrafficPackages(DescribeTrafficPackagesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeTrafficPackagesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeTrafficPackagesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeTrafficPackages");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeTrafficPackages", DescribeTrafficPackagesResponse.class);
+    }
+
+    /**
+     *查询流量调度规则
+     * @param req DescribeTrafficQosPolicyRequest
+     * @return DescribeTrafficQosPolicyResponse
+     * @throws TencentCloudSDKException
+     */
+    public DescribeTrafficQosPolicyResponse DescribeTrafficQosPolicy(DescribeTrafficQosPolicyRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DescribeTrafficQosPolicy", DescribeTrafficQosPolicyResponse.class);
     }
 
     /**
@@ -3921,18 +2834,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeUsedIpAddressResponse DescribeUsedIpAddress(DescribeUsedIpAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeUsedIpAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeUsedIpAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeUsedIpAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeUsedIpAddress", DescribeUsedIpAddressResponse.class);
     }
 
     /**
@@ -3942,39 +2845,19 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeVpcEndPointResponse DescribeVpcEndPoint(DescribeVpcEndPointRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcEndPointResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcEndPointResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcEndPoint");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcEndPoint", DescribeVpcEndPointResponse.class);
     }
 
     /**
-     *查询终端节点服务列表。
+     *本接口（DescribeVpcEndPointService）用于查询终端节点服务列表。
      * @param req DescribeVpcEndPointServiceRequest
      * @return DescribeVpcEndPointServiceResponse
      * @throws TencentCloudSDKException
      */
     public DescribeVpcEndPointServiceResponse DescribeVpcEndPointService(DescribeVpcEndPointServiceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcEndPointServiceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcEndPointServiceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcEndPointService");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcEndPointService", DescribeVpcEndPointServiceResponse.class);
     }
 
     /**
@@ -3984,18 +2867,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeVpcEndPointServiceWhiteListResponse DescribeVpcEndPointServiceWhiteList(DescribeVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcEndPointServiceWhiteListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcEndPointServiceWhiteListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcEndPointServiceWhiteList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcEndPointServiceWhiteList", DescribeVpcEndPointServiceWhiteListResponse.class);
     }
 
     /**
@@ -4005,18 +2878,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeVpcInstancesResponse DescribeVpcInstances(DescribeVpcInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcInstances", DescribeVpcInstancesResponse.class);
     }
 
     /**
@@ -4027,18 +2890,8 @@ public class VpcClient extends AbstractClient{
      * @throws TencentCloudSDKException
      */
     public DescribeVpcIpv6AddressesResponse DescribeVpcIpv6Addresses(DescribeVpcIpv6AddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcIpv6AddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcIpv6AddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcIpv6Addresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcIpv6Addresses", DescribeVpcIpv6AddressesResponse.class);
     }
 
     /**
@@ -4074,23 +2927,19 @@ LimitTypes取值范围：
 * vpc-max-assistant_cidrs（每个VPC可分配的辅助CIDR数）。
 * appid-max-end-point-services （每个开发商每个地域可创建的终端节点服务个数）。
 * appid-max-end-point-service-white-lists （每个开发商每个地域可创建的终端节点服务白名单个数）。
+* vpc-max-cmcc-ipv6-cidrs （每个VPC可创建的移动IPv6 CIDR个数）。
+* vpc-max-ctcc-ipv6-cidrs （每个VPC可创建的电信IPv6 CIDR个数）。
+* vpc-max-cucc-ipv6-cidrs （每个VPC可创建的联调IPv6 CIDR个数）。
+* vpc-max-bgp-ipv6-cidrs （每个VPC可创建的默认IPv6 CIDR个数）。
+* vpc-max-custom-ipv6-cidrs （每个VPC可创建的自定义IPv6 CIDR个数）。
+* vpc-max-ula-ipv6-cidrs （每个VPC可创建的ULA IPv6 CIDR个数）。
      * @param req DescribeVpcLimitsRequest
      * @return DescribeVpcLimitsResponse
      * @throws TencentCloudSDKException
      */
     public DescribeVpcLimitsResponse DescribeVpcLimits(DescribeVpcLimitsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcLimitsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcLimitsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcLimits");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcLimits", DescribeVpcLimitsResponse.class);
     }
 
     /**
@@ -4100,18 +2949,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpcPeeringConnectionsResponse DescribeVpcPeeringConnections(DescribeVpcPeeringConnectionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcPeeringConnectionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcPeeringConnectionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcPeeringConnections");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcPeeringConnections", DescribeVpcPeeringConnectionsResponse.class);
     }
 
     /**
@@ -4122,18 +2961,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpcPrivateIpAddressesResponse DescribeVpcPrivateIpAddresses(DescribeVpcPrivateIpAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcPrivateIpAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcPrivateIpAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcPrivateIpAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcPrivateIpAddresses", DescribeVpcPrivateIpAddressesResponse.class);
     }
 
     /**
@@ -4143,18 +2972,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpcResourceDashboardResponse DescribeVpcResourceDashboard(DescribeVpcResourceDashboardRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcResourceDashboardResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcResourceDashboardResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcResourceDashboard");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcResourceDashboard", DescribeVpcResourceDashboardResponse.class);
     }
 
     /**
@@ -4164,18 +2983,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpcTaskResultResponse DescribeVpcTaskResult(DescribeVpcTaskResultRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcTaskResultResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcTaskResultResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcTaskResult");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcTaskResult", DescribeVpcTaskResultResponse.class);
     }
 
     /**
@@ -4185,18 +2994,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpcsResponse DescribeVpcs(DescribeVpcsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpcsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpcsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpcs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpcs", DescribeVpcsResponse.class);
     }
 
     /**
@@ -4206,18 +3005,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpnConnectionsResponse DescribeVpnConnections(DescribeVpnConnectionsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpnConnectionsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpnConnectionsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpnConnections");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpnConnections", DescribeVpnConnectionsResponse.class);
     }
 
     /**
@@ -4227,18 +3016,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpnGatewayCcnRoutesResponse DescribeVpnGatewayCcnRoutes(DescribeVpnGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpnGatewayCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewayCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpnGatewayCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpnGatewayCcnRoutes", DescribeVpnGatewayCcnRoutesResponse.class);
     }
 
     /**
@@ -4248,18 +3027,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpnGatewayRoutesResponse DescribeVpnGatewayRoutes(DescribeVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpnGatewayRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewayRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpnGatewayRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpnGatewayRoutes", DescribeVpnGatewayRoutesResponse.class);
     }
 
     /**
@@ -4269,18 +3038,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpnGatewaySslClientsResponse DescribeVpnGatewaySslClients(DescribeVpnGatewaySslClientsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpnGatewaySslClientsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaySslClientsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpnGatewaySslClients");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpnGatewaySslClients", DescribeVpnGatewaySslClientsResponse.class);
     }
 
     /**
@@ -4290,18 +3049,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpnGatewaySslServersResponse DescribeVpnGatewaySslServers(DescribeVpnGatewaySslServersRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpnGatewaySslServersResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaySslServersResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpnGatewaySslServers");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpnGatewaySslServers", DescribeVpnGatewaySslServersResponse.class);
     }
 
     /**
@@ -4311,18 +3060,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DescribeVpnGatewaysResponse DescribeVpnGateways(DescribeVpnGatewaysRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DescribeVpnGatewaysResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DescribeVpnGatewaysResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DescribeVpnGateways");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DescribeVpnGateways", DescribeVpnGatewaysResponse.class);
     }
 
     /**
@@ -4333,18 +3072,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DetachCcnInstancesResponse DetachCcnInstances(DetachCcnInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetachCcnInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetachCcnInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetachCcnInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetachCcnInstances", DetachCcnInstancesResponse.class);
     }
 
     /**
@@ -4356,40 +3085,21 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DetachClassicLinkVpcResponse DetachClassicLinkVpc(DetachClassicLinkVpcRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetachClassicLinkVpcResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetachClassicLinkVpcResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetachClassicLinkVpc");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetachClassicLinkVpc", DetachClassicLinkVpcResponse.class);
     }
 
     /**
      *本接口（DetachNetworkInterface）用于弹性网卡解绑云服务器。
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037)
+接口。
      * @param req DetachNetworkInterfaceRequest
      * @return DetachNetworkInterfaceResponse
      * @throws TencentCloudSDKException
      */
     public DetachNetworkInterfaceResponse DetachNetworkInterface(DetachNetworkInterfaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetachNetworkInterfaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetachNetworkInterfaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetachNetworkInterface");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetachNetworkInterface", DetachNetworkInterfaceResponse.class);
     }
 
     /**
@@ -4399,18 +3109,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DetachSnapshotInstancesResponse DetachSnapshotInstances(DetachSnapshotInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DetachSnapshotInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DetachSnapshotInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DetachSnapshotInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DetachSnapshotInstances", DetachSnapshotInstancesResponse.class);
     }
 
     /**
@@ -4420,18 +3120,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisableCcnRoutesResponse DisableCcnRoutes(DisableCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableCcnRoutes", DisableCcnRoutesResponse.class);
     }
 
     /**
@@ -4441,18 +3131,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisableFlowLogsResponse DisableFlowLogs(DisableFlowLogsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableFlowLogsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableFlowLogsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableFlowLogs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableFlowLogs", DisableFlowLogsResponse.class);
     }
 
     /**
@@ -4462,18 +3142,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisableGatewayFlowMonitorResponse DisableGatewayFlowMonitor(DisableGatewayFlowMonitorRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableGatewayFlowMonitorResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableGatewayFlowMonitorResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableGatewayFlowMonitor");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableGatewayFlowMonitor", DisableGatewayFlowMonitorResponse.class);
     }
 
     /**
@@ -4483,18 +3153,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisableRoutesResponse DisableRoutes(DisableRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableRoutes", DisableRoutesResponse.class);
     }
 
     /**
@@ -4504,18 +3164,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisableSnapshotPoliciesResponse DisableSnapshotPolicies(DisableSnapshotPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableSnapshotPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableSnapshotPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableSnapshotPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableSnapshotPolicies", DisableSnapshotPoliciesResponse.class);
     }
 
     /**
@@ -4525,43 +3175,22 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisableVpnGatewaySslClientCertResponse DisableVpnGatewaySslClientCert(DisableVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisableVpnGatewaySslClientCertResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisableVpnGatewaySslClientCertResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisableVpnGatewaySslClientCert");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisableVpnGatewaySslClientCert", DisableVpnGatewaySslClientCertResponse.class);
     }
 
     /**
      *本接口 (DisassociateAddress) 用于解绑[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)（简称 EIP）。
-* 支持CVM实例，弹性网卡上的EIP解绑
-* 不支持NAT上的EIP解绑。NAT上的EIP解绑请参考[DisassociateNatGatewayAddress](https://cloud.tencent.com/document/api/215/36716)
+* 支持CVM实例，弹性网卡上的EIP解绑。
+* 不支持NAT上的EIP解绑。NAT上的EIP解绑请参考[DisassociateNatGatewayAddress](https://cloud.tencent.com/document/api/215/36716)。
 * 只有状态为 BIND 和 BIND_ENI 的 EIP 才能进行解绑定操作。
-* EIP 如果被封堵，则不能进行解绑定操作。
      * @param req DisassociateAddressRequest
      * @return DisassociateAddressResponse
      * @throws TencentCloudSDKException
      */
     public DisassociateAddressResponse DisassociateAddress(DisassociateAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateAddress", DisassociateAddressResponse.class);
     }
 
     /**
@@ -4573,18 +3202,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisassociateDhcpIpWithAddressIpResponse DisassociateDhcpIpWithAddressIp(DisassociateDhcpIpWithAddressIpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateDhcpIpWithAddressIpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateDhcpIpWithAddressIpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateDhcpIpWithAddressIp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateDhcpIpWithAddressIp", DisassociateDhcpIpWithAddressIpResponse.class);
     }
 
     /**
@@ -4594,18 +3213,22 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisassociateDirectConnectGatewayNatGatewayResponse DisassociateDirectConnectGatewayNatGateway(DisassociateDirectConnectGatewayNatGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateDirectConnectGatewayNatGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateDirectConnectGatewayNatGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateDirectConnectGatewayNatGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateDirectConnectGatewayNatGateway", DisassociateDirectConnectGatewayNatGatewayResponse.class);
+    }
+
+    /**
+     *本接口（DisassociateIPv6Address）用于解绑弹性公网 IPv6（简称EIPv6）实例。
+
+- 支持对 CVM、弹性网卡绑定的 EIPv6 实例进行解绑操作。
+- 只有状态为 BIND 和 BIND_ENI 的 EIPv6 实例才能进行解绑操作。
+     * @param req DisassociateIPv6AddressRequest
+     * @return DisassociateIPv6AddressResponse
+     * @throws TencentCloudSDKException
+     */
+    public DisassociateIPv6AddressResponse DisassociateIPv6Address(DisassociateIPv6AddressRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "DisassociateIPv6Address", DisassociateIPv6AddressResponse.class);
     }
 
     /**
@@ -4615,18 +3238,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisassociateNatGatewayAddressResponse DisassociateNatGatewayAddress(DisassociateNatGatewayAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateNatGatewayAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateNatGatewayAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateNatGatewayAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateNatGatewayAddress", DisassociateNatGatewayAddressResponse.class);
     }
 
     /**
@@ -4636,18 +3249,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisassociateNetworkAclSubnetsResponse DisassociateNetworkAclSubnets(DisassociateNetworkAclSubnetsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateNetworkAclSubnetsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateNetworkAclSubnetsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateNetworkAclSubnets");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateNetworkAclSubnets", DisassociateNetworkAclSubnetsResponse.class);
     }
 
     /**
@@ -4657,18 +3260,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisassociateNetworkInterfaceSecurityGroupsResponse DisassociateNetworkInterfaceSecurityGroups(DisassociateNetworkInterfaceSecurityGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateNetworkInterfaceSecurityGroupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateNetworkInterfaceSecurityGroupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateNetworkInterfaceSecurityGroups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateNetworkInterfaceSecurityGroups", DisassociateNetworkInterfaceSecurityGroupsResponse.class);
     }
 
     /**
@@ -4678,18 +3271,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DisassociateVpcEndPointSecurityGroupsResponse DisassociateVpcEndPointSecurityGroups(DisassociateVpcEndPointSecurityGroupsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DisassociateVpcEndPointSecurityGroupsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DisassociateVpcEndPointSecurityGroupsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DisassociateVpcEndPointSecurityGroups");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DisassociateVpcEndPointSecurityGroups", DisassociateVpcEndPointSecurityGroupsResponse.class);
     }
 
     /**
@@ -4699,18 +3282,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DownloadCustomerGatewayConfigurationResponse DownloadCustomerGatewayConfiguration(DownloadCustomerGatewayConfigurationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DownloadCustomerGatewayConfigurationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DownloadCustomerGatewayConfigurationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DownloadCustomerGatewayConfiguration");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DownloadCustomerGatewayConfiguration", DownloadCustomerGatewayConfigurationResponse.class);
     }
 
     /**
@@ -4720,18 +3293,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public DownloadVpnGatewaySslClientCertResponse DownloadVpnGatewaySslClientCert(DownloadVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<DownloadVpnGatewaySslClientCertResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<DownloadVpnGatewaySslClientCertResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "DownloadVpnGatewaySslClientCert");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "DownloadVpnGatewaySslClientCert", DownloadVpnGatewaySslClientCertResponse.class);
     }
 
     /**
@@ -4742,18 +3305,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public EnableCcnRoutesResponse EnableCcnRoutes(EnableCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableCcnRoutes", EnableCcnRoutesResponse.class);
     }
 
     /**
@@ -4763,18 +3316,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public EnableFlowLogsResponse EnableFlowLogs(EnableFlowLogsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableFlowLogsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableFlowLogsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableFlowLogs");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableFlowLogs", EnableFlowLogsResponse.class);
     }
 
     /**
@@ -4784,18 +3327,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public EnableGatewayFlowMonitorResponse EnableGatewayFlowMonitor(EnableGatewayFlowMonitorRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableGatewayFlowMonitorResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableGatewayFlowMonitorResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableGatewayFlowMonitor");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableGatewayFlowMonitor", EnableGatewayFlowMonitorResponse.class);
     }
 
     /**
@@ -4806,18 +3339,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public EnableRoutesResponse EnableRoutes(EnableRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableRoutes", EnableRoutesResponse.class);
     }
 
     /**
@@ -4827,18 +3350,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public EnableSnapshotPoliciesResponse EnableSnapshotPolicies(EnableSnapshotPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableSnapshotPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableSnapshotPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableSnapshotPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableSnapshotPolicies", EnableSnapshotPoliciesResponse.class);
     }
 
     /**
@@ -4848,18 +3361,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public EnableVpcEndPointConnectResponse EnableVpcEndPointConnect(EnableVpcEndPointConnectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableVpcEndPointConnectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableVpcEndPointConnectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableVpcEndPointConnect");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableVpcEndPointConnect", EnableVpcEndPointConnectResponse.class);
     }
 
     /**
@@ -4869,18 +3372,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public EnableVpnGatewaySslClientCertResponse EnableVpnGatewaySslClientCert(EnableVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<EnableVpnGatewaySslClientCertResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<EnableVpnGatewaySslClientCertResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "EnableVpnGatewaySslClientCert");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "EnableVpnGatewaySslClientCert", EnableVpnGatewaySslClientCertResponse.class);
     }
 
     /**
@@ -4890,18 +3383,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public GenerateVpnConnectionDefaultHealthCheckIpResponse GenerateVpnConnectionDefaultHealthCheckIp(GenerateVpnConnectionDefaultHealthCheckIpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GenerateVpnConnectionDefaultHealthCheckIpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GenerateVpnConnectionDefaultHealthCheckIpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GenerateVpnConnectionDefaultHealthCheckIp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GenerateVpnConnectionDefaultHealthCheckIp", GenerateVpnConnectionDefaultHealthCheckIpResponse.class);
     }
 
     /**
@@ -4911,18 +3394,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public GetCcnRegionBandwidthLimitsResponse GetCcnRegionBandwidthLimits(GetCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<GetCcnRegionBandwidthLimitsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<GetCcnRegionBandwidthLimitsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "GetCcnRegionBandwidthLimits");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "GetCcnRegionBandwidthLimits", GetCcnRegionBandwidthLimitsResponse.class);
     }
 
     /**
@@ -4933,18 +3406,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public HaVipAssociateAddressIpResponse HaVipAssociateAddressIp(HaVipAssociateAddressIpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<HaVipAssociateAddressIpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<HaVipAssociateAddressIpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "HaVipAssociateAddressIp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "HaVipAssociateAddressIp", HaVipAssociateAddressIpResponse.class);
     }
 
     /**
@@ -4955,18 +3418,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public HaVipDisassociateAddressIpResponse HaVipDisassociateAddressIp(HaVipDisassociateAddressIpRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<HaVipDisassociateAddressIpResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<HaVipDisassociateAddressIpResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "HaVipDisassociateAddressIp");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "HaVipDisassociateAddressIp", HaVipDisassociateAddressIpResponse.class);
     }
 
     /**
@@ -4976,18 +3429,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public InquirePriceCreateDirectConnectGatewayResponse InquirePriceCreateDirectConnectGateway(InquirePriceCreateDirectConnectGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquirePriceCreateDirectConnectGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquirePriceCreateDirectConnectGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquirePriceCreateDirectConnectGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquirePriceCreateDirectConnectGateway", InquirePriceCreateDirectConnectGatewayResponse.class);
+    }
+
+    /**
+     *本接口（InquiryPriceAllocateAddresses）用于新购弹性公网IP询价。
+     * @param req InquiryPriceAllocateAddressesRequest
+     * @return InquiryPriceAllocateAddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public InquiryPriceAllocateAddressesResponse InquiryPriceAllocateAddresses(InquiryPriceAllocateAddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "InquiryPriceAllocateAddresses", InquiryPriceAllocateAddressesResponse.class);
     }
 
     /**
@@ -4997,18 +3451,30 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public InquiryPriceCreateVpnGatewayResponse InquiryPriceCreateVpnGateway(InquiryPriceCreateVpnGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquiryPriceCreateVpnGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquiryPriceCreateVpnGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquiryPriceCreateVpnGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquiryPriceCreateVpnGateway", InquiryPriceCreateVpnGatewayResponse.class);
+    }
+
+    /**
+     *本接口（InquiryPriceModifyAddressesBandwidth）用于EIP修改带宽询价。
+     * @param req InquiryPriceModifyAddressesBandwidthRequest
+     * @return InquiryPriceModifyAddressesBandwidthResponse
+     * @throws TencentCloudSDKException
+     */
+    public InquiryPriceModifyAddressesBandwidthResponse InquiryPriceModifyAddressesBandwidth(InquiryPriceModifyAddressesBandwidthRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "InquiryPriceModifyAddressesBandwidth", InquiryPriceModifyAddressesBandwidthResponse.class);
+    }
+
+    /**
+     *本接口（InquiryPriceRenewAddresses）用于续费预付费弹性公网IP询价，只支持包月按带宽预付费的计费模式。
+     * @param req InquiryPriceRenewAddressesRequest
+     * @return InquiryPriceRenewAddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public InquiryPriceRenewAddressesResponse InquiryPriceRenewAddresses(InquiryPriceRenewAddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "InquiryPriceRenewAddresses", InquiryPriceRenewAddressesResponse.class);
     }
 
     /**
@@ -5018,39 +3484,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public InquiryPriceRenewVpnGatewayResponse InquiryPriceRenewVpnGateway(InquiryPriceRenewVpnGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquiryPriceRenewVpnGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquiryPriceRenewVpnGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquiryPriceRenewVpnGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquiryPriceRenewVpnGateway", InquiryPriceRenewVpnGatewayResponse.class);
     }
 
     /**
-     *本接口（InquiryPriceResetVpnGatewayInternetMaxBandwidth）调整VPN网关带宽上限询价。
+     *本接口（InquiryPriceResetVpnGatewayInternetMaxBandwidth）用于调整VPN网关带宽上限询价。
      * @param req InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest
      * @return InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse
      * @throws TencentCloudSDKException
      */
     public InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse InquiryPriceResetVpnGatewayInternetMaxBandwidth(InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "InquiryPriceResetVpnGatewayInternetMaxBandwidth");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "InquiryPriceResetVpnGatewayInternetMaxBandwidth", InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse.class);
     }
 
     /**
@@ -5062,18 +3508,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public LockCcnBandwidthsResponse LockCcnBandwidths(LockCcnBandwidthsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<LockCcnBandwidthsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<LockCcnBandwidthsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "LockCcnBandwidths");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "LockCcnBandwidths", LockCcnBandwidthsResponse.class);
     }
 
     /**
@@ -5082,47 +3518,36 @@ LimitTypes取值范围：
 该接口一般用来封禁出口限速的云联网实例, 目前联通内部运营系统通过云API调用, 因为出口限速无法按地域间封禁, 只能按更粗的云联网实例粒度封禁, 如果是地域间限速, 一般可以通过更细的限速实例粒度封禁（LockCcnBandwidths）
 
 如有需要, 可以封禁任意限速实例, 可接入到内部运营系统
-
-
      * @param req LockCcnsRequest
      * @return LockCcnsResponse
      * @throws TencentCloudSDKException
      */
     public LockCcnsResponse LockCcns(LockCcnsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<LockCcnsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<LockCcnsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "LockCcns");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "LockCcns", LockCcnsResponse.class);
+    }
+
+    /**
+     *本接口 (MigrateBandwidthPackageResources) 用于共享带宽包之间迁移资源
+     * @param req MigrateBandwidthPackageResourcesRequest
+     * @return MigrateBandwidthPackageResourcesResponse
+     * @throws TencentCloudSDKException
+     */
+    public MigrateBandwidthPackageResourcesResponse MigrateBandwidthPackageResources(MigrateBandwidthPackageResourcesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "MigrateBandwidthPackageResources", MigrateBandwidthPackageResourcesResponse.class);
     }
 
     /**
      *本接口（MigrateNetworkInterface）用于弹性网卡迁移。
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) `接口。
      * @param req MigrateNetworkInterfaceRequest
      * @return MigrateNetworkInterfaceResponse
      * @throws TencentCloudSDKException
      */
     public MigrateNetworkInterfaceResponse MigrateNetworkInterface(MigrateNetworkInterfaceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<MigrateNetworkInterfaceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<MigrateNetworkInterfaceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "MigrateNetworkInterface");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "MigrateNetworkInterface", MigrateNetworkInterfaceResponse.class);
     }
 
     /**
@@ -5130,24 +3555,14 @@ LimitTypes取值范围：
 * 该接口用于将一个内网IP从一个弹性网卡上迁移到另外一个弹性网卡，主IP地址不支持迁移。
 * 迁移前后的弹性网卡必须在同一个子网内。  
 
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口。
      * @param req MigratePrivateIpAddressRequest
      * @return MigratePrivateIpAddressResponse
      * @throws TencentCloudSDKException
      */
     public MigratePrivateIpAddressResponse MigratePrivateIpAddress(MigratePrivateIpAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<MigratePrivateIpAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<MigratePrivateIpAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "MigratePrivateIpAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "MigratePrivateIpAddress", MigratePrivateIpAddressResponse.class);
     }
 
     /**
@@ -5157,83 +3572,47 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyAddressAttributeResponse ModifyAddressAttribute(ModifyAddressAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAddressAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAddressAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAddressAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAddressAttribute", ModifyAddressAttributeResponse.class);
     }
 
     /**
      *该接口用于调整具有带宽属性弹性公网IP的网络计费模式
-* 支持BANDWIDTH_PREPAID_BY_MONTH和TRAFFIC_POSTPAID_BY_HOUR两种网络计费模式之间的切换。
+* 支持BANDWIDTH_PREPAID_BY_MONTH（包月按带宽预付费）和TRAFFIC_POSTPAID_BY_HOUR（流量按小时后付费）两种网络计费模式之间的切换。
 * 每个弹性公网IP支持调整两次，次数超出则无法调整。
      * @param req ModifyAddressInternetChargeTypeRequest
      * @return ModifyAddressInternetChargeTypeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyAddressInternetChargeTypeResponse ModifyAddressInternetChargeType(ModifyAddressInternetChargeTypeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAddressInternetChargeTypeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAddressInternetChargeTypeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAddressInternetChargeType");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAddressInternetChargeType", ModifyAddressInternetChargeTypeResponse.class);
     }
 
     /**
      *本接口（ModifyAddressTemplateAttribute）用于修改IP地址模板。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req ModifyAddressTemplateAttributeRequest
      * @return ModifyAddressTemplateAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyAddressTemplateAttributeResponse ModifyAddressTemplateAttribute(ModifyAddressTemplateAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAddressTemplateAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAddressTemplateAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAddressTemplateAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAddressTemplateAttribute", ModifyAddressTemplateAttributeResponse.class);
     }
 
     /**
      *本接口（ModifyAddressTemplateGroupAttribute）用于修改IP地址模板集合。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req ModifyAddressTemplateGroupAttributeRequest
      * @return ModifyAddressTemplateGroupAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyAddressTemplateGroupAttributeResponse ModifyAddressTemplateGroupAttribute(ModifyAddressTemplateGroupAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAddressTemplateGroupAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAddressTemplateGroupAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAddressTemplateGroupAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAddressTemplateGroupAttribute", ModifyAddressTemplateGroupAttributeResponse.class);
     }
 
     /**
@@ -5243,18 +3622,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyAddressesBandwidthResponse ModifyAddressesBandwidth(ModifyAddressesBandwidthRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAddressesBandwidthResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAddressesBandwidthResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAddressesBandwidth");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAddressesBandwidth", ModifyAddressesBandwidthResponse.class);
+    }
+
+    /**
+     *本接口（ModifyAddressesRenewFlag）用于调整EIP续费标识。
+     * @param req ModifyAddressesRenewFlagRequest
+     * @return ModifyAddressesRenewFlagResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyAddressesRenewFlagResponse ModifyAddressesRenewFlag(ModifyAddressesRenewFlagRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyAddressesRenewFlag", ModifyAddressesRenewFlagResponse.class);
     }
 
     /**
@@ -5264,39 +3644,30 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyAssistantCidrResponse ModifyAssistantCidr(ModifyAssistantCidrRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyAssistantCidrResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyAssistantCidrResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyAssistantCidr");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyAssistantCidr", ModifyAssistantCidrResponse.class);
     }
 
     /**
-     *接口用于修改带宽包属性，包括带宽包名字等
+     *接口用于修改带宽包属性，包括带宽包名称和计费模式
      * @param req ModifyBandwidthPackageAttributeRequest
      * @return ModifyBandwidthPackageAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyBandwidthPackageAttributeResponse ModifyBandwidthPackageAttribute(ModifyBandwidthPackageAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyBandwidthPackageAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyBandwidthPackageAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyBandwidthPackageAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyBandwidthPackageAttribute", ModifyBandwidthPackageAttributeResponse.class);
+    }
+
+    /**
+     *接口用于调整[共享带宽包](https://cloud.tencent.com/document/product/684/15245)(BWP)带宽
+     * @param req ModifyBandwidthPackageBandwidthRequest
+     * @return ModifyBandwidthPackageBandwidthResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyBandwidthPackageBandwidthResponse ModifyBandwidthPackageBandwidth(ModifyBandwidthPackageBandwidthRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyBandwidthPackageBandwidth", ModifyBandwidthPackageBandwidthResponse.class);
     }
 
     /**
@@ -5306,18 +3677,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyCcnAttachedInstancesAttributeResponse ModifyCcnAttachedInstancesAttribute(ModifyCcnAttachedInstancesAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCcnAttachedInstancesAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCcnAttachedInstancesAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCcnAttachedInstancesAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCcnAttachedInstancesAttribute", ModifyCcnAttachedInstancesAttributeResponse.class);
     }
 
     /**
@@ -5327,18 +3688,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyCcnAttributeResponse ModifyCcnAttribute(ModifyCcnAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCcnAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCcnAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCcnAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCcnAttribute", ModifyCcnAttributeResponse.class);
     }
 
     /**
@@ -5348,18 +3699,41 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyCcnRegionBandwidthLimitsTypeResponse ModifyCcnRegionBandwidthLimitsType(ModifyCcnRegionBandwidthLimitsTypeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCcnRegionBandwidthLimitsTypeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCcnRegionBandwidthLimitsTypeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCcnRegionBandwidthLimitsType");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCcnRegionBandwidthLimitsType", ModifyCcnRegionBandwidthLimitsTypeResponse.class);
+    }
+
+    /**
+     *该接口用于修改云联网路由表名称和备注。
+     * @param req ModifyCcnRouteTablesRequest
+     * @return ModifyCcnRouteTablesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCcnRouteTablesResponse ModifyCcnRouteTables(ModifyCcnRouteTablesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyCcnRouteTables", ModifyCcnRouteTablesResponse.class);
+    }
+
+    /**
+     *修改 IDC通道信息
+     * @param req ModifyCdcLDCXAttributeRequest
+     * @return ModifyCdcLDCXAttributeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCdcLDCXAttributeResponse ModifyCdcLDCXAttribute(ModifyCdcLDCXAttributeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyCdcLDCXAttribute", ModifyCdcLDCXAttributeResponse.class);
+    }
+
+    /**
+     *修改虚拟连接
+     * @param req ModifyCdcNetPlaneAttributeRequest
+     * @return ModifyCdcNetPlaneAttributeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyCdcNetPlaneAttributeResponse ModifyCdcNetPlaneAttribute(ModifyCdcNetPlaneAttributeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyCdcNetPlaneAttribute", ModifyCdcNetPlaneAttributeResponse.class);
     }
 
     /**
@@ -5369,18 +3743,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyCustomerGatewayAttributeResponse ModifyCustomerGatewayAttribute(ModifyCustomerGatewayAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyCustomerGatewayAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyCustomerGatewayAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyCustomerGatewayAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyCustomerGatewayAttribute", ModifyCustomerGatewayAttributeResponse.class);
     }
 
     /**
@@ -5390,40 +3754,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyDhcpIpAttributeResponse ModifyDhcpIpAttribute(ModifyDhcpIpAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDhcpIpAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDhcpIpAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDhcpIpAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDhcpIpAttribute", ModifyDhcpIpAttributeResponse.class);
     }
 
     /**
      *本接口（ModifyDirectConnectGatewayAttribute）用于修改专线网关属性
-
      * @param req ModifyDirectConnectGatewayAttributeRequest
      * @return ModifyDirectConnectGatewayAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyDirectConnectGatewayAttributeResponse ModifyDirectConnectGatewayAttribute(ModifyDirectConnectGatewayAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyDirectConnectGatewayAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyDirectConnectGatewayAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyDirectConnectGatewayAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyDirectConnectGatewayAttribute", ModifyDirectConnectGatewayAttributeResponse.class);
     }
 
     /**
@@ -5433,18 +3776,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyFlowLogAttributeResponse ModifyFlowLogAttribute(ModifyFlowLogAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyFlowLogAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyFlowLogAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyFlowLogAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyFlowLogAttribute", ModifyFlowLogAttributeResponse.class);
     }
 
     /**
@@ -5454,18 +3787,30 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyGatewayFlowQosResponse ModifyGatewayFlowQos(ModifyGatewayFlowQosRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyGatewayFlowQosResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyGatewayFlowQosResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyGatewayFlowQos");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyGatewayFlowQos", ModifyGatewayFlowQosResponse.class);
+    }
+
+    /**
+     *修改全局路由表ECMP算法 HASH 策略。
+     * @param req ModifyGlobalRouteECMPAlgorithmRequest
+     * @return ModifyGlobalRouteECMPAlgorithmResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyGlobalRouteECMPAlgorithmResponse ModifyGlobalRouteECMPAlgorithm(ModifyGlobalRouteECMPAlgorithmRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyGlobalRouteECMPAlgorithm", ModifyGlobalRouteECMPAlgorithmResponse.class);
+    }
+
+    /**
+     *修改全局路由。
+     * @param req ModifyGlobalRoutesRequest
+     * @return ModifyGlobalRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyGlobalRoutesResponse ModifyGlobalRoutes(ModifyGlobalRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyGlobalRoutes", ModifyGlobalRoutesResponse.class);
     }
 
     /**
@@ -5475,39 +3820,79 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyHaVipAttributeResponse ModifyHaVipAttribute(ModifyHaVipAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyHaVipAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyHaVipAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyHaVipAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyHaVipAttribute", ModifyHaVipAttributeResponse.class);
     }
 
     /**
-     *该接口用于修改IPV6地址访问internet的带宽
+     *修改高优路由表条目属性。
+     * @param req ModifyHighPriorityRouteAttributeRequest
+     * @return ModifyHighPriorityRouteAttributeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyHighPriorityRouteAttributeResponse ModifyHighPriorityRouteAttribute(ModifyHighPriorityRouteAttributeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyHighPriorityRouteAttribute", ModifyHighPriorityRouteAttributeResponse.class);
+    }
+
+    /**
+     *修改高优路由表 HASH 策略。
+     * @param req ModifyHighPriorityRouteECMPAlgorithmRequest
+     * @return ModifyHighPriorityRouteECMPAlgorithmResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyHighPriorityRouteECMPAlgorithmResponse ModifyHighPriorityRouteECMPAlgorithm(ModifyHighPriorityRouteECMPAlgorithmRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyHighPriorityRouteECMPAlgorithm", ModifyHighPriorityRouteECMPAlgorithmResponse.class);
+    }
+
+    /**
+     *修改高优路由表属性
+     * @param req ModifyHighPriorityRouteTableAttributeRequest
+     * @return ModifyHighPriorityRouteTableAttributeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyHighPriorityRouteTableAttributeResponse ModifyHighPriorityRouteTableAttribute(ModifyHighPriorityRouteTableAttributeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyHighPriorityRouteTableAttribute", ModifyHighPriorityRouteTableAttributeResponse.class);
+    }
+
+    /**
+     *本接口（ModifyIPv6AddressesAttributes）用于修改弹性公网 IPv6（简称EIPv6）实例名称。
+
+- 支持对弹性公网 IPv6 和传统弹性公网 IPv6 实例名称进行修改。
+     * @param req ModifyIPv6AddressesAttributesRequest
+     * @return ModifyIPv6AddressesAttributesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyIPv6AddressesAttributesResponse ModifyIPv6AddressesAttributes(ModifyIPv6AddressesAttributesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyIPv6AddressesAttributes", ModifyIPv6AddressesAttributesResponse.class);
+    }
+
+    /**
+     *本接口（ModifyIPv6AddressesBandwidth）用于调整弹性公网 IPv6（简称EIPv6）实例的带宽上限。
+     * @param req ModifyIPv6AddressesBandwidthRequest
+     * @return ModifyIPv6AddressesBandwidthResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyIPv6AddressesBandwidthResponse ModifyIPv6AddressesBandwidth(ModifyIPv6AddressesBandwidthRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyIPv6AddressesBandwidth", ModifyIPv6AddressesBandwidthResponse.class);
+    }
+
+    /**
+     *本接口（ModifyIp6AddressesBandwidth）用于调整传统弹性公网 IPv6 实例的带宽上限。
+
+- 仅支持对传统弹性公网 IPv6 实例的带宽上限进行调整。
+- 如需调整弹性公网 IPv6 实例的带宽上限，请使用 [ModifyIPv6AddressesBandwidth](https://cloud.tencent.com/document/product/215/113674) 接口。
      * @param req ModifyIp6AddressesBandwidthRequest
      * @return ModifyIp6AddressesBandwidthResponse
      * @throws TencentCloudSDKException
      */
     public ModifyIp6AddressesBandwidthResponse ModifyIp6AddressesBandwidth(ModifyIp6AddressesBandwidthRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyIp6AddressesBandwidthResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyIp6AddressesBandwidthResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyIp6AddressesBandwidth");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyIp6AddressesBandwidth", ModifyIp6AddressesBandwidthResponse.class);
     }
 
     /**
@@ -5517,18 +3902,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyIp6RuleResponse ModifyIp6Rule(ModifyIp6RuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyIp6RuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyIp6RuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyIp6Rule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyIp6Rule", ModifyIp6RuleResponse.class);
     }
 
     /**
@@ -5538,18 +3913,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyIp6TranslatorResponse ModifyIp6Translator(ModifyIp6TranslatorRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyIp6TranslatorResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyIp6TranslatorResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyIp6Translator");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyIp6Translator", ModifyIp6TranslatorResponse.class);
     }
 
     /**
@@ -5559,18 +3924,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyIpv6AddressesAttributeResponse ModifyIpv6AddressesAttribute(ModifyIpv6AddressesAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyIpv6AddressesAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyIpv6AddressesAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyIpv6AddressesAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyIpv6AddressesAttribute", ModifyIpv6AddressesAttributeResponse.class);
     }
 
     /**
@@ -5580,18 +3935,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyLocalGatewayResponse ModifyLocalGateway(ModifyLocalGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyLocalGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyLocalGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyLocalGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyLocalGateway", ModifyLocalGatewayResponse.class);
     }
 
     /**
@@ -5601,18 +3946,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNatGatewayAttributeResponse ModifyNatGatewayAttribute(ModifyNatGatewayAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNatGatewayAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNatGatewayAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNatGatewayAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNatGatewayAttribute", ModifyNatGatewayAttributeResponse.class);
     }
 
     /**
@@ -5622,18 +3957,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse ModifyNatGatewayDestinationIpPortTranslationNatRule(ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNatGatewayDestinationIpPortTranslationNatRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNatGatewayDestinationIpPortTranslationNatRule", ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse.class);
     }
 
     /**
@@ -5643,18 +3968,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNatGatewaySourceIpTranslationNatRuleResponse ModifyNatGatewaySourceIpTranslationNatRule(ModifyNatGatewaySourceIpTranslationNatRuleRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNatGatewaySourceIpTranslationNatRuleResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNatGatewaySourceIpTranslationNatRuleResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNatGatewaySourceIpTranslationNatRule");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNatGatewaySourceIpTranslationNatRule", ModifyNatGatewaySourceIpTranslationNatRuleResponse.class);
     }
 
     /**
@@ -5664,18 +3979,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNetDetectResponse ModifyNetDetect(ModifyNetDetectRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNetDetectResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNetDetectResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNetDetect");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNetDetect", ModifyNetDetectResponse.class);
     }
 
     /**
@@ -5685,18 +3990,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNetworkAclAttributeResponse ModifyNetworkAclAttribute(ModifyNetworkAclAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNetworkAclAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNetworkAclAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNetworkAclAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNetworkAclAttribute", ModifyNetworkAclAttributeResponse.class);
     }
 
     /**
@@ -5708,18 +4003,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNetworkAclEntriesResponse ModifyNetworkAclEntries(ModifyNetworkAclEntriesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNetworkAclEntriesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNetworkAclEntriesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNetworkAclEntries");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNetworkAclEntries", ModifyNetworkAclEntriesResponse.class);
     }
 
     /**
@@ -5729,18 +4014,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNetworkAclQuintupleEntriesResponse ModifyNetworkAclQuintupleEntries(ModifyNetworkAclQuintupleEntriesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNetworkAclQuintupleEntriesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNetworkAclQuintupleEntriesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNetworkAclQuintupleEntries");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNetworkAclQuintupleEntries", ModifyNetworkAclQuintupleEntriesResponse.class);
     }
 
     /**
@@ -5750,18 +4025,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNetworkInterfaceAttributeResponse ModifyNetworkInterfaceAttribute(ModifyNetworkInterfaceAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNetworkInterfaceAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNetworkInterfaceAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNetworkInterfaceAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNetworkInterfaceAttribute", ModifyNetworkInterfaceAttributeResponse.class);
     }
 
     /**
@@ -5771,18 +4036,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyNetworkInterfaceQosResponse ModifyNetworkInterfaceQos(ModifyNetworkInterfaceQosRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyNetworkInterfaceQosResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyNetworkInterfaceQosResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyNetworkInterfaceQos");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyNetworkInterfaceQos", ModifyNetworkInterfaceQosResponse.class);
     }
 
     /**
@@ -5792,18 +4047,63 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyPrivateIpAddressesAttributeResponse ModifyPrivateIpAddressesAttribute(ModifyPrivateIpAddressesAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyPrivateIpAddressesAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyPrivateIpAddressesAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyPrivateIpAddressesAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyPrivateIpAddressesAttribute", ModifyPrivateIpAddressesAttributeResponse.class);
+    }
+
+    /**
+     *本接口（ModifyPrivateNatGatewayAttribute）用于修改私网NAT网关属性
+     * @param req ModifyPrivateNatGatewayAttributeRequest
+     * @return ModifyPrivateNatGatewayAttributeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyPrivateNatGatewayAttributeResponse ModifyPrivateNatGatewayAttribute(ModifyPrivateNatGatewayAttributeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyPrivateNatGatewayAttribute", ModifyPrivateNatGatewayAttributeResponse.class);
+    }
+
+    /**
+     *本接口（ModifyPrivateNatGatewayDestinationIpPortTranslationNatRule）用于修改私网NAT网关目的端口转换规则
+     * @param req ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleRequest
+     * @return ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleResponse ModifyPrivateNatGatewayDestinationIpPortTranslationNatRule(ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyPrivateNatGatewayDestinationIpPortTranslationNatRule", ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleResponse.class);
+    }
+
+    /**
+     *本接口（ModifyPrivateNatGatewayTranslationAclRule）用于修改私网NAT网关源端转换访问控制规则
+     * @param req ModifyPrivateNatGatewayTranslationAclRuleRequest
+     * @return ModifyPrivateNatGatewayTranslationAclRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyPrivateNatGatewayTranslationAclRuleResponse ModifyPrivateNatGatewayTranslationAclRule(ModifyPrivateNatGatewayTranslationAclRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyPrivateNatGatewayTranslationAclRule", ModifyPrivateNatGatewayTranslationAclRuleResponse.class);
+    }
+
+    /**
+     *本接口（ModifyPrivateNatGatewayTranslationNatRule）用于修改私网NAT网关源端转换规则
+     * @param req ModifyPrivateNatGatewayTranslationNatRuleRequest
+     * @return ModifyPrivateNatGatewayTranslationNatRuleResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyPrivateNatGatewayTranslationNatRuleResponse ModifyPrivateNatGatewayTranslationNatRule(ModifyPrivateNatGatewayTranslationNatRuleRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyPrivateNatGatewayTranslationNatRule", ModifyPrivateNatGatewayTranslationNatRuleResponse.class);
+    }
+
+    /**
+     *修改内网保留 IP
+     * @param req ModifyReserveIpAddressRequest
+     * @return ModifyReserveIpAddressResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyReserveIpAddressResponse ModifyReserveIpAddress(ModifyReserveIpAddressRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyReserveIpAddress", ModifyReserveIpAddressResponse.class);
     }
 
     /**
@@ -5813,18 +4113,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyRouteTableAttributeResponse ModifyRouteTableAttribute(ModifyRouteTableAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyRouteTableAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyRouteTableAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyRouteTableAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyRouteTableAttribute", ModifyRouteTableAttributeResponse.class);
+    }
+
+    /**
+     *该接口用于编辑云联网路由表选择策略
+     * @param req ModifyRouteTableSelectionPoliciesRequest
+     * @return ModifyRouteTableSelectionPoliciesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyRouteTableSelectionPoliciesResponse ModifyRouteTableSelectionPolicies(ModifyRouteTableSelectionPoliciesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyRouteTableSelectionPolicies", ModifyRouteTableSelectionPoliciesResponse.class);
     }
 
     /**
@@ -5834,18 +4135,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifySecurityGroupAttributeResponse ModifySecurityGroupAttribute(ModifySecurityGroupAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySecurityGroupAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySecurityGroupAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySecurityGroupAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySecurityGroupAttribute", ModifySecurityGroupAttributeResponse.class);
     }
 
     /**
@@ -5857,8 +4148,8 @@ LimitTypes取值范围：
 	<li> 如果指定 SecurityGroupPolicySet.Version 为0, 表示清空所有规则，并忽略 Egress 和 Ingress。</li>
 	<li> 如果指定 SecurityGroupPolicySet.Version 不为0, 在添加出站和入站规则（Egress 和 Ingress）时：<ul>
 		<li>Protocol 字段支持输入 TCP, UDP, ICMP, ICMPV6, GRE, ALL。</li>
-		<li>CidrBlock 字段允许输入符合 cidr 格式标准的任意字符串。(展开)在基础网络中，如果 CidrBlock 包含您的账户内的云服务器之外的设备在腾讯云的内网 IP，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。</li>
-		<li>Ipv6CidrBlock 字段允许输入符合 IPv6 cidr 格式标准的任意字符串。(展开)在基础网络中，如果Ipv6CidrBlock 包含您的账户内的云服务器之外的设备在腾讯云的内网 IPv6，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。</li>
+		<li>CidrBlock 字段允许输入符合 cidr 格式标准的任意字符串。在基础网络中，如果 CidrBlock 包含您的账户内的云服务器之外的设备在腾讯云的内网 IP，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。</li>
+		<li>Ipv6CidrBlock 字段允许输入符合 IPv6 cidr 格式标准的任意字符串。在基础网络中，如果Ipv6CidrBlock 包含您的账户内的云服务器之外的设备在腾讯云的内网 IPv6，并不代表此规则允许您访问这些设备，租户之间网络隔离规则优先于安全组中的内网规则。</li>
 		<li>SecurityGroupId 字段允许输入与待修改的安全组位于相同项目中的安全组 ID，包括这个安全组 ID 本身，代表安全组下所有云服务器的内网 IP。使用这个字段时，这条规则用来匹配网络报文的过程中会随着被使用的这个ID所关联的云服务器变化而变化，不需要重新修改。</li>
 		<li>Port 字段允许输入一个单独端口号，或者用减号分隔的两个端口号代表端口范围，例如80或8000-8010。只有当 Protocol 字段是 TCP 或 UDP 时，Port 字段才被接受。</li>
 		<li>Action 字段只允许输入 ACCEPT 或 DROP。</li>
@@ -5870,60 +4161,34 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifySecurityGroupPoliciesResponse ModifySecurityGroupPolicies(ModifySecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySecurityGroupPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySecurityGroupPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySecurityGroupPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySecurityGroupPolicies", ModifySecurityGroupPoliciesResponse.class);
     }
 
     /**
      *本接口（ModifyServiceTemplateAttribute）用于修改协议端口模板。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req ModifyServiceTemplateAttributeRequest
      * @return ModifyServiceTemplateAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyServiceTemplateAttributeResponse ModifyServiceTemplateAttribute(ModifyServiceTemplateAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyServiceTemplateAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyServiceTemplateAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyServiceTemplateAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyServiceTemplateAttribute", ModifyServiceTemplateAttributeResponse.class);
     }
 
     /**
      *本接口（ModifyServiceTemplateGroupAttribute）用于修改协议端口模板集合。
+>?本接口为异步接口，可调用 [DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037) 接口查询任务执行结果，待任务执行成功后再进行其他操作。
+>
      * @param req ModifyServiceTemplateGroupAttributeRequest
      * @return ModifyServiceTemplateGroupAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyServiceTemplateGroupAttributeResponse ModifyServiceTemplateGroupAttribute(ModifyServiceTemplateGroupAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyServiceTemplateGroupAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyServiceTemplateGroupAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyServiceTemplateGroupAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyServiceTemplateGroupAttribute", ModifyServiceTemplateGroupAttributeResponse.class);
     }
 
     /**
@@ -5933,18 +4198,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifySnapshotPoliciesResponse ModifySnapshotPolicies(ModifySnapshotPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySnapshotPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySnapshotPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySnapshotPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySnapshotPolicies", ModifySnapshotPoliciesResponse.class);
     }
 
     /**
@@ -5954,39 +4209,31 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifySubnetAttributeResponse ModifySubnetAttribute(ModifySubnetAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifySubnetAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifySubnetAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifySubnetAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifySubnetAttribute", ModifySubnetAttributeResponse.class);
     }
 
     /**
-     *修改模板对象中的IP地址、协议端口、IP地址组、协议端口组。当前仅支持北京、泰国、北美地域请求。
+     *修改模板对象中的IP地址、协议端口、IP地址组、协议端口组。
      * @param req ModifyTemplateMemberRequest
      * @return ModifyTemplateMemberResponse
      * @throws TencentCloudSDKException
      */
     public ModifyTemplateMemberResponse ModifyTemplateMember(ModifyTemplateMemberRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyTemplateMemberResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyTemplateMemberResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyTemplateMember");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyTemplateMember", ModifyTemplateMemberResponse.class);
+    }
+
+    /**
+     *本接口（ModifyTrafficMirrorAttribute）用于修改流量镜像实例属性。
+注意：只支持修改名字和描述信息
+     * @param req ModifyTrafficMirrorAttributeRequest
+     * @return ModifyTrafficMirrorAttributeResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyTrafficMirrorAttributeResponse ModifyTrafficMirrorAttribute(ModifyTrafficMirrorAttributeRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyTrafficMirrorAttribute", ModifyTrafficMirrorAttributeResponse.class);
     }
 
     /**
@@ -5996,18 +4243,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpcAttributeResponse ModifyVpcAttribute(ModifyVpcAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpcAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpcAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpcAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpcAttribute", ModifyVpcAttributeResponse.class);
     }
 
     /**
@@ -6017,41 +4254,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpcEndPointAttributeResponse ModifyVpcEndPointAttribute(ModifyVpcEndPointAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpcEndPointAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpcEndPointAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpcEndPointAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpcEndPointAttribute", ModifyVpcEndPointAttributeResponse.class);
     }
 
     /**
      *本接口（ModifyVpcEndPointServiceAttribute）用于修改终端节点服务属性。
-
-
      * @param req ModifyVpcEndPointServiceAttributeRequest
      * @return ModifyVpcEndPointServiceAttributeResponse
      * @throws TencentCloudSDKException
      */
     public ModifyVpcEndPointServiceAttributeResponse ModifyVpcEndPointServiceAttribute(ModifyVpcEndPointServiceAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpcEndPointServiceAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpcEndPointServiceAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpcEndPointServiceAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpcEndPointServiceAttribute", ModifyVpcEndPointServiceAttributeResponse.class);
     }
 
     /**
@@ -6061,18 +4276,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpcEndPointServiceWhiteListResponse ModifyVpcEndPointServiceWhiteList(ModifyVpcEndPointServiceWhiteListRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpcEndPointServiceWhiteListResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpcEndPointServiceWhiteListResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpcEndPointServiceWhiteList");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpcEndPointServiceWhiteList", ModifyVpcEndPointServiceWhiteListResponse.class);
     }
 
     /**
@@ -6082,18 +4287,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpcPeeringConnectionResponse ModifyVpcPeeringConnection(ModifyVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpcPeeringConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpcPeeringConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpcPeeringConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpcPeeringConnection", ModifyVpcPeeringConnectionResponse.class);
     }
 
     /**
@@ -6103,18 +4298,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpnConnectionAttributeResponse ModifyVpnConnectionAttribute(ModifyVpnConnectionAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpnConnectionAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpnConnectionAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpnConnectionAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpnConnectionAttribute", ModifyVpnConnectionAttributeResponse.class);
     }
 
     /**
@@ -6124,18 +4309,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpnGatewayAttributeResponse ModifyVpnGatewayAttribute(ModifyVpnGatewayAttributeRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpnGatewayAttributeResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpnGatewayAttributeResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpnGatewayAttribute");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpnGatewayAttribute", ModifyVpnGatewayAttributeResponse.class);
     }
 
     /**
@@ -6145,18 +4320,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpnGatewayCcnRoutesResponse ModifyVpnGatewayCcnRoutes(ModifyVpnGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpnGatewayCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpnGatewayCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpnGatewayCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpnGatewayCcnRoutes", ModifyVpnGatewayCcnRoutesResponse.class);
     }
 
     /**
@@ -6166,18 +4331,30 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ModifyVpnGatewayRoutesResponse ModifyVpnGatewayRoutes(ModifyVpnGatewayRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ModifyVpnGatewayRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ModifyVpnGatewayRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ModifyVpnGatewayRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ModifyVpnGatewayRoutes", ModifyVpnGatewayRoutesResponse.class);
+    }
+
+    /**
+     *更新SslVpnClient证书
+     * @param req ModifyVpnGatewaySslClientCertRequest
+     * @return ModifyVpnGatewaySslClientCertResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyVpnGatewaySslClientCertResponse ModifyVpnGatewaySslClientCert(ModifyVpnGatewaySslClientCertRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyVpnGatewaySslClientCert", ModifyVpnGatewaySslClientCertResponse.class);
+    }
+
+    /**
+     *本接口用于修改 SSL-VPN 服务端属性
+     * @param req ModifyVpnGatewaySslServerRequest
+     * @return ModifyVpnGatewaySslServerResponse
+     * @throws TencentCloudSDKException
+     */
+    public ModifyVpnGatewaySslServerResponse ModifyVpnGatewaySslServer(ModifyVpnGatewaySslServerRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ModifyVpnGatewaySslServer", ModifyVpnGatewaySslServerResponse.class);
     }
 
     /**
@@ -6187,18 +4364,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public NotifyRoutesResponse NotifyRoutes(NotifyRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<NotifyRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<NotifyRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "NotifyRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "NotifyRoutes", NotifyRoutesResponse.class);
     }
 
     /**
@@ -6208,18 +4375,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public RefreshDirectConnectGatewayRouteToNatGatewayResponse RefreshDirectConnectGatewayRouteToNatGateway(RefreshDirectConnectGatewayRouteToNatGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RefreshDirectConnectGatewayRouteToNatGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RefreshDirectConnectGatewayRouteToNatGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RefreshDirectConnectGatewayRouteToNatGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RefreshDirectConnectGatewayRouteToNatGateway", RefreshDirectConnectGatewayRouteToNatGatewayResponse.class);
     }
 
     /**
@@ -6230,18 +4387,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public RejectAttachCcnInstancesResponse RejectAttachCcnInstances(RejectAttachCcnInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RejectAttachCcnInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RejectAttachCcnInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RejectAttachCcnInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RejectAttachCcnInstances", RejectAttachCcnInstancesResponse.class);
     }
 
     /**
@@ -6251,18 +4398,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public RejectVpcPeeringConnectionResponse RejectVpcPeeringConnection(RejectVpcPeeringConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RejectVpcPeeringConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RejectVpcPeeringConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RejectVpcPeeringConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RejectVpcPeeringConnection", RejectVpcPeeringConnectionResponse.class);
     }
 
     /**
@@ -6274,39 +4411,36 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ReleaseAddressesResponse ReleaseAddresses(ReleaseAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReleaseAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReleaseAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReleaseAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReleaseAddresses", ReleaseAddressesResponse.class);
     }
 
     /**
-     *该接口用于给弹性公网IPv6地址释放带宽。
+     *本接口（ReleaseIPv6Addresses）用于释放一个或多个弹性公网IPv6（简称EIPv6）实例。
+
+- 支持对已申请到的弹性公网 IPv6 实例进行释放操作，如需再次使用，请重新申请。
+- 只有状态为 UNBIND 的 EIPv6 实例才能进行释放操作。
+     * @param req ReleaseIPv6AddressesRequest
+     * @return ReleaseIPv6AddressesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReleaseIPv6AddressesResponse ReleaseIPv6Addresses(ReleaseIPv6AddressesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ReleaseIPv6Addresses", ReleaseIPv6AddressesResponse.class);
+    }
+
+    /**
+     *本接口（ReleaseIp6AddressesBandwidth）用于为传统弹性公网 IPv6 实例关闭 IPv6 公网带宽。
+
+- 传统弹性公网 IPv6 实例关闭公网带宽后，仍具备 IPv6 内网通信能力。
+- 如需再次开通 IPv6 公网带宽，请使用 [AllocateIp6AddressesBandwidth](https://cloud.tencent.com/document/product/215/40090) 接口进行开通。
      * @param req ReleaseIp6AddressesBandwidthRequest
      * @return ReleaseIp6AddressesBandwidthResponse
      * @throws TencentCloudSDKException
      */
     public ReleaseIp6AddressesBandwidthResponse ReleaseIp6AddressesBandwidth(ReleaseIp6AddressesBandwidthRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReleaseIp6AddressesBandwidthResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReleaseIp6AddressesBandwidthResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReleaseIp6AddressesBandwidth");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReleaseIp6AddressesBandwidth", ReleaseIp6AddressesBandwidthResponse.class);
     }
 
     /**
@@ -6316,18 +4450,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public RemoveBandwidthPackageResourcesResponse RemoveBandwidthPackageResources(RemoveBandwidthPackageResourcesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RemoveBandwidthPackageResourcesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RemoveBandwidthPackageResourcesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RemoveBandwidthPackageResources");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RemoveBandwidthPackageResources", RemoveBandwidthPackageResourcesResponse.class);
     }
 
     /**
@@ -6338,39 +4462,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public RemoveIp6RulesResponse RemoveIp6Rules(RemoveIp6RulesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RemoveIp6RulesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RemoveIp6RulesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RemoveIp6Rules");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RemoveIp6Rules", RemoveIp6RulesResponse.class);
     }
 
     /**
-     *该接口用于续费包月带宽计费模式的弹性公网IP
+     *本接口（RenewAddresses）用于续费包月带宽计费模式的弹性公网IP。
      * @param req RenewAddressesRequest
      * @return RenewAddressesResponse
      * @throws TencentCloudSDKException
      */
     public RenewAddressesResponse RenewAddresses(RenewAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RenewAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RenewAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RenewAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RenewAddresses", RenewAddressesResponse.class);
     }
 
     /**
@@ -6380,18 +4484,65 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public RenewVpnGatewayResponse RenewVpnGateway(RenewVpnGatewayRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<RenewVpnGatewayResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<RenewVpnGatewayResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "RenewVpnGateway");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "RenewVpnGateway", RenewVpnGatewayResponse.class);
+    }
+
+    /**
+     *本接口(ReplaceCcnRouteTableBroadcastPolicys)用于替换云联网路由表路由传播策略。
+> 特别注意：是全量覆盖，非增量添加
+
+**路由条件支持以下四种：**
+
+- 实例类型: `instance-type`，可选值：私有网络 `VPC`、专线网关 `DIRECTCONNECT`、VPN网关 `VPNGW`
+- 实例ID: `instance-id`，例如：`dcg-8zljkrft`、`vpc-jdevjrup`，暂不支持 `Edge` 实例
+- 实例地域: `instance-region`，例如：`ap-guangzhou`<br />产品支持的所有地域列表可通过接口 [DescribeRegions](https://cloud.tencent.com/document/product/1596/77930) 查询，其中参数 `Product` 设置为 `ccn`
+- 路由前缀: `cidr-block`，例如：`10.1.0.0/16`
+
+
+**传播条件支持以下三种：**
+
+- 实例类型: `instance-type`，格式同路由条件
+- 实例ID: `instance-id`，格式同路由条件
+- 实例地域: `instance-region`，格式同路由条件
+
+
+**使用限制：**
+- 一条策略内的单个条件类型，最大支持设置 `25` 个条件值
+- 一张路由表，最大支持 `100` 条路由传播策略
+- 路由条件类型中，只有 `cidr-block` 类型支持模糊匹配和精确匹配两种，其它类型只支持精确匹配一种模式
+     * @param req ReplaceCcnRouteTableBroadcastPolicysRequest
+     * @return ReplaceCcnRouteTableBroadcastPolicysResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReplaceCcnRouteTableBroadcastPolicysResponse ReplaceCcnRouteTableBroadcastPolicys(ReplaceCcnRouteTableBroadcastPolicysRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ReplaceCcnRouteTableBroadcastPolicys", ReplaceCcnRouteTableBroadcastPolicysResponse.class);
+    }
+
+    /**
+     *本接口(ReplaceRouteTableInputPolicys)用于替换云联网路由表路由接收策略。
+> 特别注意：是全量覆盖，非增量添加
+
+**路由条件支持以下四种：**
+
+- 实例类型: `instance-type`，可选值：私有网络 `VPC`、专线网关 `DIRECTCONNECT`、VPN网关 `VPNGW`
+- 实例ID: `instance-id`，例如：`dcg-8zljkrft`、`vpc-jdevjrup`，暂不支持 `Edge` 实例
+- 实例地域: `instance-region`，例如：`ap-guangzhou`<br />产品支持的所有地域列表可通过接口 [DescribeRegions](https://cloud.tencent.com/document/product/1596/77930) 查询，其中参数 `Product` 设置为 `ccn`
+- 路由前缀: `cidr-block`，例如：`10.1.0.0/16`
+
+
+**使用限制：**
+- 一条策略内的单个条件类型，最大支持设置 `25` 个条件值
+- 一张路由表，最大支持 `100` 条路由接收策略
+- 路由条件类型中，只有 `cidr-block` 类型支持模糊匹配和精确匹配两种，其它类型只支持精确匹配一种模式
+     * @param req ReplaceCcnRouteTableInputPolicysRequest
+     * @return ReplaceCcnRouteTableInputPolicysResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReplaceCcnRouteTableInputPolicysResponse ReplaceCcnRouteTableInputPolicys(ReplaceCcnRouteTableInputPolicysRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ReplaceCcnRouteTableInputPolicys", ReplaceCcnRouteTableInputPolicysResponse.class);
     }
 
     /**
@@ -6401,18 +4552,30 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ReplaceDirectConnectGatewayCcnRoutesResponse ReplaceDirectConnectGatewayCcnRoutes(ReplaceDirectConnectGatewayCcnRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReplaceDirectConnectGatewayCcnRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReplaceDirectConnectGatewayCcnRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReplaceDirectConnectGatewayCcnRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReplaceDirectConnectGatewayCcnRoutes", ReplaceDirectConnectGatewayCcnRoutesResponse.class);
+    }
+
+    /**
+     *替换高优路由表和子网绑定关系。
+     * @param req ReplaceHighPriorityRouteTableAssociationRequest
+     * @return ReplaceHighPriorityRouteTableAssociationResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReplaceHighPriorityRouteTableAssociationResponse ReplaceHighPriorityRouteTableAssociation(ReplaceHighPriorityRouteTableAssociationRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ReplaceHighPriorityRouteTableAssociation", ReplaceHighPriorityRouteTableAssociationResponse.class);
+    }
+
+    /**
+     *替换高优路由表条目信息。
+     * @param req ReplaceHighPriorityRoutesRequest
+     * @return ReplaceHighPriorityRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ReplaceHighPriorityRoutesResponse ReplaceHighPriorityRoutes(ReplaceHighPriorityRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ReplaceHighPriorityRoutes", ReplaceHighPriorityRoutesResponse.class);
     }
 
     /**
@@ -6423,18 +4586,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ReplaceRouteTableAssociationResponse ReplaceRouteTableAssociation(ReplaceRouteTableAssociationRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReplaceRouteTableAssociationResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReplaceRouteTableAssociationResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReplaceRouteTableAssociation");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReplaceRouteTableAssociation", ReplaceRouteTableAssociationResponse.class);
     }
 
     /**
@@ -6444,18 +4597,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ReplaceRoutesResponse ReplaceRoutes(ReplaceRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReplaceRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReplaceRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReplaceRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReplaceRoutes", ReplaceRoutesResponse.class);
     }
 
     /**
@@ -6466,18 +4609,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ReplaceSecurityGroupPoliciesResponse ReplaceSecurityGroupPolicies(ReplaceSecurityGroupPoliciesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReplaceSecurityGroupPoliciesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReplaceSecurityGroupPoliciesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReplaceSecurityGroupPolicies");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReplaceSecurityGroupPolicies", ReplaceSecurityGroupPoliciesResponse.class);
     }
 
     /**
@@ -6488,18 +4621,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ReplaceSecurityGroupPolicyResponse ReplaceSecurityGroupPolicy(ReplaceSecurityGroupPolicyRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReplaceSecurityGroupPolicyResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReplaceSecurityGroupPolicyResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReplaceSecurityGroupPolicy");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReplaceSecurityGroupPolicy", ReplaceSecurityGroupPolicyResponse.class);
     }
 
     /**
@@ -6509,18 +4632,19 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ResetAttachCcnInstancesResponse ResetAttachCcnInstances(ResetAttachCcnInstancesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetAttachCcnInstancesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetAttachCcnInstancesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetAttachCcnInstances");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetAttachCcnInstances", ResetAttachCcnInstancesResponse.class);
+    }
+
+    /**
+     *重置高优路由表。
+     * @param req ResetHighPriorityRoutesRequest
+     * @return ResetHighPriorityRoutesResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResetHighPriorityRoutesResponse ResetHighPriorityRoutes(ResetHighPriorityRoutesRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ResetHighPriorityRoutes", ResetHighPriorityRoutesResponse.class);
     }
 
     /**
@@ -6530,40 +4654,53 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ResetNatGatewayConnectionResponse ResetNatGatewayConnection(ResetNatGatewayConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetNatGatewayConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetNatGatewayConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetNatGatewayConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetNatGatewayConnection", ResetNatGatewayConnectionResponse.class);
     }
 
     /**
-     *本接口（ResetRoutes）用于对某个路由表名称和所有路由策略（Route）进行重新设置。<br />
-注意: 调用本接口是先删除当前路由表中所有路由策略, 再保存新提交的路由策略内容, 会引起网络中断。
+     *本接口（ResetRoutes）用于对某个路由表名称和所有路由策略（Route）进行重新设置。<br /> 注意: 调用本接口时先删除当前路由表中所有路由策略, 再保存新提交的路由策略内容, 会引起网络中断。
      * @param req ResetRoutesRequest
      * @return ResetRoutesResponse
      * @throws TencentCloudSDKException
      */
     public ResetRoutesResponse ResetRoutes(ResetRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetRoutes", ResetRoutesResponse.class);
+    }
+
+    /**
+     *本接口（ResetTrafficMirrorFilter）用于更新流量镜像实例过滤规则。
+注意：每一个流量镜像实例，不能同时支持按nat网关和五元组两种规则过滤
+     * @param req ResetTrafficMirrorFilterRequest
+     * @return ResetTrafficMirrorFilterResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResetTrafficMirrorFilterResponse ResetTrafficMirrorFilter(ResetTrafficMirrorFilterRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ResetTrafficMirrorFilter", ResetTrafficMirrorFilterResponse.class);
+    }
+
+    /**
+     *本接口（ResetTrafficMirrorSrcs）用于重置流量镜像实例采集对象。
+     * @param req ResetTrafficMirrorSrcsRequest
+     * @return ResetTrafficMirrorSrcsResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResetTrafficMirrorSrcsResponse ResetTrafficMirrorSrcs(ResetTrafficMirrorSrcsRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ResetTrafficMirrorSrcs", ResetTrafficMirrorSrcsResponse.class);
+    }
+
+    /**
+     *本接口（ResetTrafficMirrorTarget）用于更新流量镜像实例的接收目的信息。
+     * @param req ResetTrafficMirrorTargetRequest
+     * @return ResetTrafficMirrorTargetResponse
+     * @throws TencentCloudSDKException
+     */
+    public ResetTrafficMirrorTargetResponse ResetTrafficMirrorTarget(ResetTrafficMirrorTargetRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "ResetTrafficMirrorTarget", ResetTrafficMirrorTargetResponse.class);
     }
 
     /**
@@ -6573,18 +4710,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ResetVpnConnectionResponse ResetVpnConnection(ResetVpnConnectionRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetVpnConnectionResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetVpnConnectionResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetVpnConnection");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetVpnConnection", ResetVpnConnectionResponse.class);
     }
 
     /**
@@ -6594,18 +4721,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ResetVpnGatewayInternetMaxBandwidthResponse ResetVpnGatewayInternetMaxBandwidth(ResetVpnGatewayInternetMaxBandwidthRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResetVpnGatewayInternetMaxBandwidthResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResetVpnGatewayInternetMaxBandwidthResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResetVpnGatewayInternetMaxBandwidth");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResetVpnGatewayInternetMaxBandwidth", ResetVpnGatewayInternetMaxBandwidthResponse.class);
     }
 
     /**
@@ -6615,18 +4732,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ResumeSnapshotInstanceResponse ResumeSnapshotInstance(ResumeSnapshotInstanceRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ResumeSnapshotInstanceResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ResumeSnapshotInstanceResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ResumeSnapshotInstance");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ResumeSnapshotInstance", ResumeSnapshotInstanceResponse.class);
     }
 
     /**
@@ -6637,18 +4744,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public ReturnNormalAddressesResponse ReturnNormalAddresses(ReturnNormalAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<ReturnNormalAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<ReturnNormalAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "ReturnNormalAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "ReturnNormalAddresses", ReturnNormalAddressesResponse.class);
     }
 
     /**
@@ -6658,18 +4755,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public SetCcnRegionBandwidthLimitsResponse SetCcnRegionBandwidthLimits(SetCcnRegionBandwidthLimitsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SetCcnRegionBandwidthLimitsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SetCcnRegionBandwidthLimitsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SetCcnRegionBandwidthLimits");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SetCcnRegionBandwidthLimits", SetCcnRegionBandwidthLimitsResponse.class);
     }
 
     /**
@@ -6679,62 +4766,54 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public SetVpnGatewaysRenewFlagResponse SetVpnGatewaysRenewFlag(SetVpnGatewaysRenewFlagRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<SetVpnGatewaysRenewFlagResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<SetVpnGatewaysRenewFlagResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "SetVpnGatewaysRenewFlag");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "SetVpnGatewaysRenewFlag", SetVpnGatewaysRenewFlagResponse.class);
+    }
+
+    /**
+     *本接口（StartTrafficMirror）用于开启流量镜像实例。
+     * @param req StartTrafficMirrorRequest
+     * @return StartTrafficMirrorResponse
+     * @throws TencentCloudSDKException
+     */
+    public StartTrafficMirrorResponse StartTrafficMirror(StartTrafficMirrorRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StartTrafficMirror", StartTrafficMirrorResponse.class);
+    }
+
+    /**
+     *本接口（StopTrafficMirror）用于关闭流量镜像实例。
+     * @param req StopTrafficMirrorRequest
+     * @return StopTrafficMirrorResponse
+     * @throws TencentCloudSDKException
+     */
+    public StopTrafficMirrorResponse StopTrafficMirror(StopTrafficMirrorRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "StopTrafficMirror", StopTrafficMirrorResponse.class);
     }
 
     /**
      *本接口 (TransformAddress) 用于将实例的普通公网 IP 转换为[弹性公网IP](https://cloud.tencent.com/document/product/213/1941)（简称 EIP）。
-* 平台对用户每地域每日解绑 EIP 重新分配普通公网 IP 次数有所限制（可参见 [EIP 产品简介](/document/product/213/1941)）。上述配额可通过 [DescribeAddressQuota](https://cloud.tencent.com/document/api/213/1378) 接口获取。
+* 平台对用户单地域每日解绑 EIP 重新分配普通公网 IP 次数有所限制（可参见 [EIP 产品简介](/document/product/213/1941)）。上述配额可通过 [DescribeAddressQuota](https://cloud.tencent.com/document/product/215/16701) 接口获取。
      * @param req TransformAddressRequest
      * @return TransformAddressResponse
      * @throws TencentCloudSDKException
      */
     public TransformAddressResponse TransformAddress(TransformAddressRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<TransformAddressResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<TransformAddressResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "TransformAddress");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "TransformAddress", TransformAddressResponse.class);
     }
 
     /**
      *本接口（UnassignIpv6Addresses）用于释放弹性网卡`IPv6`地址。<br />
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037)接口。
      * @param req UnassignIpv6AddressesRequest
      * @return UnassignIpv6AddressesResponse
      * @throws TencentCloudSDKException
      */
     public UnassignIpv6AddressesResponse UnassignIpv6Addresses(UnassignIpv6AddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnassignIpv6AddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnassignIpv6AddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnassignIpv6Addresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnassignIpv6Addresses", UnassignIpv6AddressesResponse.class);
     }
 
     /**
@@ -6745,18 +4824,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public UnassignIpv6CidrBlockResponse UnassignIpv6CidrBlock(UnassignIpv6CidrBlockRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnassignIpv6CidrBlockResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnassignIpv6CidrBlockResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnassignIpv6CidrBlock");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnassignIpv6CidrBlock", UnassignIpv6CidrBlockResponse.class);
     }
 
     /**
@@ -6767,42 +4836,23 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public UnassignIpv6SubnetCidrBlockResponse UnassignIpv6SubnetCidrBlock(UnassignIpv6SubnetCidrBlockRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnassignIpv6SubnetCidrBlockResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnassignIpv6SubnetCidrBlockResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnassignIpv6SubnetCidrBlock");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnassignIpv6SubnetCidrBlock", UnassignIpv6SubnetCidrBlockResponse.class);
     }
 
     /**
      *本接口（UnassignPrivateIpAddresses）用于弹性网卡退还内网 IP。
-* 退还弹性网卡上的辅助内网IP，接口自动解关联弹性公网 IP。不能退还弹性网卡的主内网IP。
+* 退还弹性网卡上的辅助内网IP，接口自动解除关联弹性公网 IP。不能退还弹性网卡的主内网IP。
 
-本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询`DescribeVpcTaskResult`接口。
+本接口是异步完成，如需查询异步任务执行结果，请使用本接口返回的`RequestId`轮询[DescribeVpcTaskResult](https://cloud.tencent.com/document/api/215/59037)
+接口。
      * @param req UnassignPrivateIpAddressesRequest
      * @return UnassignPrivateIpAddressesResponse
      * @throws TencentCloudSDKException
      */
     public UnassignPrivateIpAddressesResponse UnassignPrivateIpAddresses(UnassignPrivateIpAddressesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnassignPrivateIpAddressesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnassignPrivateIpAddressesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnassignPrivateIpAddresses");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnassignPrivateIpAddresses", UnassignPrivateIpAddressesResponse.class);
     }
 
     /**
@@ -6814,18 +4864,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public UnlockCcnBandwidthsResponse UnlockCcnBandwidths(UnlockCcnBandwidthsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnlockCcnBandwidthsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnlockCcnBandwidthsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnlockCcnBandwidths");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnlockCcnBandwidths", UnlockCcnBandwidthsResponse.class);
     }
 
     /**
@@ -6834,25 +4874,35 @@ LimitTypes取值范围：
 该接口一般用来解封禁出口限速的云联网实例, 目前联通内部运营系统通过云API调用, 因为出口限速无法按地域间解封禁, 只能按更粗的云联网实例粒度解封禁, 如果是地域间限速, 一般可以通过更细的限速实例粒度解封禁（UnlockCcnBandwidths）
 
 如有需要, 可以封禁任意限速实例, 可接入到内部运营系统
-
-
      * @param req UnlockCcnsRequest
      * @return UnlockCcnsResponse
      * @throws TencentCloudSDKException
      */
     public UnlockCcnsResponse UnlockCcns(UnlockCcnsRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<UnlockCcnsResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<UnlockCcnsResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "UnlockCcns");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "UnlockCcns", UnlockCcnsResponse.class);
+    }
+
+    /**
+     *本接口（UpdateTrafficMirrorAllFilter）用于更新流量镜像实例的过滤规则或者采集对象。
+     * @param req UpdateTrafficMirrorAllFilterRequest
+     * @return UpdateTrafficMirrorAllFilterResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateTrafficMirrorAllFilterResponse UpdateTrafficMirrorAllFilter(UpdateTrafficMirrorAllFilterRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdateTrafficMirrorAllFilter", UpdateTrafficMirrorAllFilterResponse.class);
+    }
+
+    /**
+     *本接口（UpdateTrafficMirrorDirection）用于更新流量镜像实例的采集方向。
+     * @param req UpdateTrafficMirrorDirectionRequest
+     * @return UpdateTrafficMirrorDirectionResponse
+     * @throws TencentCloudSDKException
+     */
+    public UpdateTrafficMirrorDirectionResponse UpdateTrafficMirrorDirection(UpdateTrafficMirrorDirectionRequest req) throws TencentCloudSDKException{
+        req.setSkipSign(false);
+        return this.internalRequest(req, "UpdateTrafficMirrorDirection", UpdateTrafficMirrorDirectionResponse.class);
     }
 
     /**
@@ -6862,18 +4912,8 @@ LimitTypes取值范围：
      * @throws TencentCloudSDKException
      */
     public WithdrawNotifyRoutesResponse WithdrawNotifyRoutes(WithdrawNotifyRoutesRequest req) throws TencentCloudSDKException{
-        JsonResponseModel<WithdrawNotifyRoutesResponse> rsp = null;
-        String rspStr = "";
         req.setSkipSign(false);
-        try {
-                Type type = new TypeToken<JsonResponseModel<WithdrawNotifyRoutesResponse>>() {
-                }.getType();
-                rspStr = this.internalRequest(req, "WithdrawNotifyRoutes");
-                rsp  = gson.fromJson(rspStr, type);
-        } catch (JsonSyntaxException e) {
-            throw new TencentCloudSDKException("response message: " + rspStr + ".\n Error message: " + e.getMessage());
-        }
-        return rsp.response;
+        return this.internalRequest(req, "WithdrawNotifyRoutes", WithdrawNotifyRoutesResponse.class);
     }
 
 }

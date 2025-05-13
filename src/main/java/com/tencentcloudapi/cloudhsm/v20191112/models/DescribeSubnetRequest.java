@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudhsm.v20191112.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSubnetRequest extends AbstractModel{
+public class DescribeSubnetRequest extends AbstractModel {
 
     /**
     * 返回数量。Limit需要在[1, 100]之间。
@@ -44,7 +45,7 @@ public class DescribeSubnetRequest extends AbstractModel{
     private String VpcId;
 
     /**
-    * 查找关键字
+    * 过滤条件
     */
     @SerializedName("SearchWord")
     @Expose
@@ -99,16 +100,16 @@ public class DescribeSubnetRequest extends AbstractModel{
     }
 
     /**
-     * Get 查找关键字 
-     * @return SearchWord 查找关键字
+     * Get 过滤条件 
+     * @return SearchWord 过滤条件
      */
     public String getSearchWord() {
         return this.SearchWord;
     }
 
     /**
-     * Set 查找关键字
-     * @param SearchWord 查找关键字
+     * Set 过滤条件
+     * @param SearchWord 过滤条件
      */
     public void setSearchWord(String SearchWord) {
         this.SearchWord = SearchWord;

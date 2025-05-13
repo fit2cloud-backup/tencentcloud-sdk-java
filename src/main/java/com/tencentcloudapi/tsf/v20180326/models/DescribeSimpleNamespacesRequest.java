@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSimpleNamespacesRequest extends AbstractModel{
+public class DescribeSimpleNamespacesRequest extends AbstractModel {
 
     /**
     * 命名空间ID列表，不传入时查询全量
@@ -86,14 +87,14 @@ public class DescribeSimpleNamespacesRequest extends AbstractModel{
     private String NamespaceName;
 
     /**
-    * 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认，命名空间。1：非默认命名空间
+    * 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认命名空间。1：非默认命名空间
     */
     @SerializedName("IsDefault")
     @Expose
     private String IsDefault;
 
     /**
-    * 无
+    * 是否关闭鉴权查询
     */
     @SerializedName("DisableProgramAuthCheck")
     @Expose
@@ -244,32 +245,32 @@ public class DescribeSimpleNamespacesRequest extends AbstractModel{
     }
 
     /**
-     * Get 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认，命名空间。1：非默认命名空间 
-     * @return IsDefault 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认，命名空间。1：非默认命名空间
+     * Get 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认命名空间。1：非默认命名空间 
+     * @return IsDefault 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认命名空间。1：非默认命名空间
      */
     public String getIsDefault() {
         return this.IsDefault;
     }
 
     /**
-     * Set 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认，命名空间。1：非默认命名空间
-     * @param IsDefault 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认，命名空间。1：非默认命名空间
+     * Set 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认命名空间。1：非默认命名空间
+     * @param IsDefault 通过是否是默认命名空间过滤，不传表示拉取全部命名空间。0：默认命名空间。1：非默认命名空间
      */
     public void setIsDefault(String IsDefault) {
         this.IsDefault = IsDefault;
     }
 
     /**
-     * Get 无 
-     * @return DisableProgramAuthCheck 无
+     * Get 是否关闭鉴权查询 
+     * @return DisableProgramAuthCheck 是否关闭鉴权查询
      */
     public Boolean getDisableProgramAuthCheck() {
         return this.DisableProgramAuthCheck;
     }
 
     /**
-     * Set 无
-     * @param DisableProgramAuthCheck 无
+     * Set 是否关闭鉴权查询
+     * @param DisableProgramAuthCheck 是否关闭鉴权查询
      */
     public void setDisableProgramAuthCheck(Boolean DisableProgramAuthCheck) {
         this.DisableProgramAuthCheck = DisableProgramAuthCheck;

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.omics.v20221128.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Run extends AbstractModel{
+public class Run extends AbstractModel {
 
     /**
     * 任务UUID。
@@ -59,7 +60,6 @@ public class Run extends AbstractModel{
 
     /**
     * 用户定义ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UserDefinedId")
     @Expose
@@ -67,7 +67,6 @@ public class Run extends AbstractModel{
 
     /**
     * 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TableId")
     @Expose
@@ -75,7 +74,6 @@ public class Run extends AbstractModel{
 
     /**
     * 表格行UUID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TableRowUuid")
     @Expose
@@ -108,6 +106,13 @@ public class Run extends AbstractModel{
     @SerializedName("ExecutionTime")
     @Expose
     private ExecutionTime ExecutionTime;
+
+    /**
+    * 缓存信息。
+    */
+    @SerializedName("Cache")
+    @Expose
+    private CacheInfo Cache;
 
     /**
     * 错误信息。
@@ -211,10 +216,8 @@ public class Run extends AbstractModel{
     }
 
     /**
-     * Get 用户定义ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户定义ID，单例运行为空。 
      * @return UserDefinedId 用户定义ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUserDefinedId() {
         return this.UserDefinedId;
@@ -222,19 +225,15 @@ public class Run extends AbstractModel{
 
     /**
      * Set 用户定义ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UserDefinedId 用户定义ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUserDefinedId(String UserDefinedId) {
         this.UserDefinedId = UserDefinedId;
     }
 
     /**
-     * Get 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表格ID，单例运行为空。 
      * @return TableId 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTableId() {
         return this.TableId;
@@ -242,19 +241,15 @@ public class Run extends AbstractModel{
 
     /**
      * Set 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TableId 表格ID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTableId(String TableId) {
         this.TableId = TableId;
     }
 
     /**
-     * Get 表格行UUID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 表格行UUID，单例运行为空。 
      * @return TableRowUuid 表格行UUID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getTableRowUuid() {
         return this.TableRowUuid;
@@ -262,9 +257,7 @@ public class Run extends AbstractModel{
 
     /**
      * Set 表格行UUID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TableRowUuid 表格行UUID，单例运行为空。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTableRowUuid(String TableRowUuid) {
         this.TableRowUuid = TableRowUuid;
@@ -305,7 +298,9 @@ public class Run extends AbstractModel{
     /**
      * Get 运行选项。 
      * @return Option 运行选项。
+     * @deprecated
      */
+    @Deprecated
     public RunOption getOption() {
         return this.Option;
     }
@@ -313,7 +308,9 @@ public class Run extends AbstractModel{
     /**
      * Set 运行选项。
      * @param Option 运行选项。
+     * @deprecated
      */
+    @Deprecated
     public void setOption(RunOption Option) {
         this.Option = Option;
     }
@@ -332,6 +329,22 @@ public class Run extends AbstractModel{
      */
     public void setExecutionTime(ExecutionTime ExecutionTime) {
         this.ExecutionTime = ExecutionTime;
+    }
+
+    /**
+     * Get 缓存信息。 
+     * @return Cache 缓存信息。
+     */
+    public CacheInfo getCache() {
+        return this.Cache;
+    }
+
+    /**
+     * Set 缓存信息。
+     * @param Cache 缓存信息。
+     */
+    public void setCache(CacheInfo Cache) {
+        this.Cache = Cache;
     }
 
     /**
@@ -426,6 +439,9 @@ public class Run extends AbstractModel{
         if (source.ExecutionTime != null) {
             this.ExecutionTime = new ExecutionTime(source.ExecutionTime);
         }
+        if (source.Cache != null) {
+            this.Cache = new CacheInfo(source.Cache);
+        }
         if (source.ErrorMessage != null) {
             this.ErrorMessage = new String(source.ErrorMessage);
         }
@@ -454,6 +470,7 @@ public class Run extends AbstractModel{
         this.setParamSimple(map, prefix + "Input", this.Input);
         this.setParamObj(map, prefix + "Option.", this.Option);
         this.setParamObj(map, prefix + "ExecutionTime.", this.ExecutionTime);
+        this.setParamObj(map, prefix + "Cache.", this.Cache);
         this.setParamSimple(map, prefix + "ErrorMessage", this.ErrorMessage);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);

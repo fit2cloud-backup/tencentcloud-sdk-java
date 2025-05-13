@@ -16,14 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeProVersionInfoResponse extends AbstractModel{
+public class DescribeProVersionInfoResponse extends AbstractModel {
 
     /**
-    * 后付费昨日扣费
+    * 昨日【专业版-按量付费】扣费明细,(实际已账单为准)
     */
     @SerializedName("PostPayCost")
     @Expose
@@ -37,30 +38,30 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
     private Boolean IsAutoOpenProVersion;
 
     /**
-    * 开通专业版主机数
+    * 专业版主机数
     */
     @SerializedName("ProVersionNum")
     @Expose
     private Long ProVersionNum;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 后付费昨日扣费 
-     * @return PostPayCost 后付费昨日扣费
+     * Get 昨日【专业版-按量付费】扣费明细,(实际已账单为准) 
+     * @return PostPayCost 昨日【专业版-按量付费】扣费明细,(实际已账单为准)
      */
     public Long getPostPayCost() {
         return this.PostPayCost;
     }
 
     /**
-     * Set 后付费昨日扣费
-     * @param PostPayCost 后付费昨日扣费
+     * Set 昨日【专业版-按量付费】扣费明细,(实际已账单为准)
+     * @param PostPayCost 昨日【专业版-按量付费】扣费明细,(实际已账单为准)
      */
     public void setPostPayCost(Long PostPayCost) {
         this.PostPayCost = PostPayCost;
@@ -83,32 +84,32 @@ public class DescribeProVersionInfoResponse extends AbstractModel{
     }
 
     /**
-     * Get 开通专业版主机数 
-     * @return ProVersionNum 开通专业版主机数
+     * Get 专业版主机数 
+     * @return ProVersionNum 专业版主机数
      */
     public Long getProVersionNum() {
         return this.ProVersionNum;
     }
 
     /**
-     * Set 开通专业版主机数
-     * @param ProVersionNum 开通专业版主机数
+     * Set 专业版主机数
+     * @param ProVersionNum 专业版主机数
      */
     public void setProVersionNum(Long ProVersionNum) {
         this.ProVersionNum = ProVersionNum;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

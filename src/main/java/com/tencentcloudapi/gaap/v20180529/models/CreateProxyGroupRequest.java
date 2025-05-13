@@ -16,11 +16,12 @@
 package com.tencentcloudapi.gaap.v20180529.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateProxyGroupRequest extends AbstractModel{
+public class CreateProxyGroupRequest extends AbstractModel {
 
     /**
     * 通道组所属项目ID
@@ -37,7 +38,7 @@ public class CreateProxyGroupRequest extends AbstractModel{
     private String GroupName;
 
     /**
-    * 源站地域，参考接口DescribeDestRegions 返回参数RegionDetail中的RegionId
+    * 源站地域，参考接口 [https://cloud.tencent.com/document/api/608/36964] 返回参数RegionDetail中的RegionId
     */
     @SerializedName("RealServerRegion")
     @Expose
@@ -111,16 +112,16 @@ public class CreateProxyGroupRequest extends AbstractModel{
     }
 
     /**
-     * Get 源站地域，参考接口DescribeDestRegions 返回参数RegionDetail中的RegionId 
-     * @return RealServerRegion 源站地域，参考接口DescribeDestRegions 返回参数RegionDetail中的RegionId
+     * Get 源站地域，参考接口 [https://cloud.tencent.com/document/api/608/36964] 返回参数RegionDetail中的RegionId 
+     * @return RealServerRegion 源站地域，参考接口 [https://cloud.tencent.com/document/api/608/36964] 返回参数RegionDetail中的RegionId
      */
     public String getRealServerRegion() {
         return this.RealServerRegion;
     }
 
     /**
-     * Set 源站地域，参考接口DescribeDestRegions 返回参数RegionDetail中的RegionId
-     * @param RealServerRegion 源站地域，参考接口DescribeDestRegions 返回参数RegionDetail中的RegionId
+     * Set 源站地域，参考接口 [https://cloud.tencent.com/document/api/608/36964] 返回参数RegionDetail中的RegionId
+     * @param RealServerRegion 源站地域，参考接口 [https://cloud.tencent.com/document/api/608/36964] 返回参数RegionDetail中的RegionId
      */
     public void setRealServerRegion(String RealServerRegion) {
         this.RealServerRegion = RealServerRegion;

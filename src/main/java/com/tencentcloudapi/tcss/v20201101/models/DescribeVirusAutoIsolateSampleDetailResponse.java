@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
+public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel {
 
     /**
     * 文件Md5值
@@ -31,7 +32,6 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 文件大小(B)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Size")
     @Expose
@@ -39,7 +39,6 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 病毒名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("VirusName")
     @Expose
@@ -47,7 +46,6 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 风险等级 RISK_CRITICAL, RISK_HIGH, RISK_MEDIUM, RISK_LOW, RISK_NOTICE。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RiskLevel")
     @Expose
@@ -55,7 +53,6 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 查杀引擎
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("KillEngine")
     @Expose
@@ -63,7 +60,6 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 标签
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -71,7 +67,6 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("HarmDescribe")
     @Expose
@@ -79,7 +74,6 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 建议方案
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("SuggestScheme")
     @Expose
@@ -87,14 +81,13 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
     * 参考链接
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ReferenceLink")
     @Expose
     private String ReferenceLink;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -117,10 +110,8 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
     }
 
     /**
-     * Get 文件大小(B)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 文件大小(B) 
      * @return Size 文件大小(B)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getSize() {
         return this.Size;
@@ -128,19 +119,15 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 文件大小(B)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Size 文件大小(B)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSize(Long Size) {
         this.Size = Size;
     }
 
     /**
-     * Get 病毒名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 病毒名 
      * @return VirusName 病毒名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getVirusName() {
         return this.VirusName;
@@ -148,19 +135,15 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 病毒名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param VirusName 病毒名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setVirusName(String VirusName) {
         this.VirusName = VirusName;
     }
 
     /**
-     * Get 风险等级 RISK_CRITICAL, RISK_HIGH, RISK_MEDIUM, RISK_LOW, RISK_NOTICE。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 风险等级 RISK_CRITICAL, RISK_HIGH, RISK_MEDIUM, RISK_LOW, RISK_NOTICE。 
      * @return RiskLevel 风险等级 RISK_CRITICAL, RISK_HIGH, RISK_MEDIUM, RISK_LOW, RISK_NOTICE。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRiskLevel() {
         return this.RiskLevel;
@@ -168,19 +151,15 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 风险等级 RISK_CRITICAL, RISK_HIGH, RISK_MEDIUM, RISK_LOW, RISK_NOTICE。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RiskLevel 风险等级 RISK_CRITICAL, RISK_HIGH, RISK_MEDIUM, RISK_LOW, RISK_NOTICE。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRiskLevel(String RiskLevel) {
         this.RiskLevel = RiskLevel;
     }
 
     /**
-     * Get 查杀引擎
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 查杀引擎 
      * @return KillEngine 查杀引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getKillEngine() {
         return this.KillEngine;
@@ -188,19 +167,15 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 查杀引擎
-注意：此字段可能返回 null，表示取不到有效值。
      * @param KillEngine 查杀引擎
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setKillEngine(String [] KillEngine) {
         this.KillEngine = KillEngine;
     }
 
     /**
-     * Get 标签
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 标签 
      * @return Tags 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getTags() {
         return this.Tags;
@@ -208,19 +183,15 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 标签
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 标签
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(String [] Tags) {
         this.Tags = Tags;
     }
 
     /**
-     * Get 事件描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 事件描述 
      * @return HarmDescribe 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getHarmDescribe() {
         return this.HarmDescribe;
@@ -228,19 +199,15 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param HarmDescribe 事件描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setHarmDescribe(String HarmDescribe) {
         this.HarmDescribe = HarmDescribe;
     }
 
     /**
-     * Get 建议方案
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 建议方案 
      * @return SuggestScheme 建议方案
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getSuggestScheme() {
         return this.SuggestScheme;
@@ -248,19 +215,15 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 建议方案
-注意：此字段可能返回 null，表示取不到有效值。
      * @param SuggestScheme 建议方案
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setSuggestScheme(String SuggestScheme) {
         this.SuggestScheme = SuggestScheme;
     }
 
     /**
-     * Get 参考链接
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 参考链接 
      * @return ReferenceLink 参考链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getReferenceLink() {
         return this.ReferenceLink;
@@ -268,25 +231,23 @@ public class DescribeVirusAutoIsolateSampleDetailResponse extends AbstractModel{
 
     /**
      * Set 参考链接
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ReferenceLink 参考链接
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setReferenceLink(String ReferenceLink) {
         this.ReferenceLink = ReferenceLink;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

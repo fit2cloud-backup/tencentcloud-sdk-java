@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cynosdb.v20190107.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBackupConfigResponse extends AbstractModel{
+public class DescribeBackupConfigResponse extends AbstractModel {
 
     /**
     * 表示全备开始时间，[0-24*3600]， 如0:00, 1:00, 2:00 分别为 0，3600， 7200
@@ -45,7 +46,6 @@ public class DescribeBackupConfigResponse extends AbstractModel{
 
     /**
     * 备份频率，长度为7的数组，分别对应周一到周日的备份方式，full-全量备份，increment-增量备份
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupFreq")
     @Expose
@@ -53,14 +53,27 @@ public class DescribeBackupConfigResponse extends AbstractModel{
 
     /**
     * 备份方式，logic-逻辑备份，snapshot-快照备份
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BackupType")
     @Expose
     private String BackupType;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 跨地域逻辑备份配置修改时间
+    */
+    @SerializedName("LogicCrossRegionsConfigUpdateTime")
+    @Expose
+    private String LogicCrossRegionsConfigUpdateTime;
+
+    /**
+    * 自动逻辑备份配置
+    */
+    @SerializedName("LogicBackupConfig")
+    @Expose
+    private LogicBackupConfigInfo LogicBackupConfig;
+
+    /**
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -115,10 +128,8 @@ public class DescribeBackupConfigResponse extends AbstractModel{
     }
 
     /**
-     * Get 备份频率，长度为7的数组，分别对应周一到周日的备份方式，full-全量备份，increment-增量备份
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份频率，长度为7的数组，分别对应周一到周日的备份方式，full-全量备份，increment-增量备份 
      * @return BackupFreq 备份频率，长度为7的数组，分别对应周一到周日的备份方式，full-全量备份，increment-增量备份
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getBackupFreq() {
         return this.BackupFreq;
@@ -126,19 +137,15 @@ public class DescribeBackupConfigResponse extends AbstractModel{
 
     /**
      * Set 备份频率，长度为7的数组，分别对应周一到周日的备份方式，full-全量备份，increment-增量备份
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupFreq 备份频率，长度为7的数组，分别对应周一到周日的备份方式，full-全量备份，increment-增量备份
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupFreq(String [] BackupFreq) {
         this.BackupFreq = BackupFreq;
     }
 
     /**
-     * Get 备份方式，logic-逻辑备份，snapshot-快照备份
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备份方式，logic-逻辑备份，snapshot-快照备份 
      * @return BackupType 备份方式，logic-逻辑备份，snapshot-快照备份
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBackupType() {
         return this.BackupType;
@@ -146,25 +153,55 @@ public class DescribeBackupConfigResponse extends AbstractModel{
 
     /**
      * Set 备份方式，logic-逻辑备份，snapshot-快照备份
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BackupType 备份方式，logic-逻辑备份，snapshot-快照备份
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBackupType(String BackupType) {
         this.BackupType = BackupType;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 跨地域逻辑备份配置修改时间 
+     * @return LogicCrossRegionsConfigUpdateTime 跨地域逻辑备份配置修改时间
+     */
+    public String getLogicCrossRegionsConfigUpdateTime() {
+        return this.LogicCrossRegionsConfigUpdateTime;
+    }
+
+    /**
+     * Set 跨地域逻辑备份配置修改时间
+     * @param LogicCrossRegionsConfigUpdateTime 跨地域逻辑备份配置修改时间
+     */
+    public void setLogicCrossRegionsConfigUpdateTime(String LogicCrossRegionsConfigUpdateTime) {
+        this.LogicCrossRegionsConfigUpdateTime = LogicCrossRegionsConfigUpdateTime;
+    }
+
+    /**
+     * Get 自动逻辑备份配置 
+     * @return LogicBackupConfig 自动逻辑备份配置
+     */
+    public LogicBackupConfigInfo getLogicBackupConfig() {
+        return this.LogicBackupConfig;
+    }
+
+    /**
+     * Set 自动逻辑备份配置
+     * @param LogicBackupConfig 自动逻辑备份配置
+     */
+    public void setLogicBackupConfig(LogicBackupConfigInfo LogicBackupConfig) {
+        this.LogicBackupConfig = LogicBackupConfig;
+    }
+
+    /**
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;
@@ -196,6 +233,12 @@ public class DescribeBackupConfigResponse extends AbstractModel{
         if (source.BackupType != null) {
             this.BackupType = new String(source.BackupType);
         }
+        if (source.LogicCrossRegionsConfigUpdateTime != null) {
+            this.LogicCrossRegionsConfigUpdateTime = new String(source.LogicCrossRegionsConfigUpdateTime);
+        }
+        if (source.LogicBackupConfig != null) {
+            this.LogicBackupConfig = new LogicBackupConfigInfo(source.LogicBackupConfig);
+        }
         if (source.RequestId != null) {
             this.RequestId = new String(source.RequestId);
         }
@@ -211,6 +254,8 @@ public class DescribeBackupConfigResponse extends AbstractModel{
         this.setParamSimple(map, prefix + "ReserveDuration", this.ReserveDuration);
         this.setParamArraySimple(map, prefix + "BackupFreq.", this.BackupFreq);
         this.setParamSimple(map, prefix + "BackupType", this.BackupType);
+        this.setParamSimple(map, prefix + "LogicCrossRegionsConfigUpdateTime", this.LogicCrossRegionsConfigUpdateTime);
+        this.setParamObj(map, prefix + "LogicBackupConfig.", this.LogicBackupConfig);
         this.setParamSimple(map, prefix + "RequestId", this.RequestId);
 
     }

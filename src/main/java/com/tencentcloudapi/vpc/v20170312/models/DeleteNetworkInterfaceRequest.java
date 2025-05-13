@@ -16,30 +16,36 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteNetworkInterfaceRequest extends AbstractModel{
+public class DeleteNetworkInterfaceRequest extends AbstractModel {
 
     /**
-    * 弹性网卡实例ID，例如：eni-m6dyj72l。
+    * 弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
     */
     @SerializedName("NetworkInterfaceId")
     @Expose
     private String NetworkInterfaceId;
 
     /**
-     * Get 弹性网卡实例ID，例如：eni-m6dyj72l。 
-     * @return NetworkInterfaceId 弹性网卡实例ID，例如：eni-m6dyj72l。
+     * Get 弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+ 
+     * @return NetworkInterfaceId 弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public String getNetworkInterfaceId() {
         return this.NetworkInterfaceId;
     }
 
     /**
-     * Set 弹性网卡实例ID，例如：eni-m6dyj72l。
-     * @param NetworkInterfaceId 弹性网卡实例ID，例如：eni-m6dyj72l。
+     * Set 弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
+     * @param NetworkInterfaceId 弹性网卡实例ID，例如：eni-m6dyj72l。可通过[DescribeNetworkInterfaces](https://cloud.tencent.com/document/product/215/15817)接口获取。
+
      */
     public void setNetworkInterfaceId(String NetworkInterfaceId) {
         this.NetworkInterfaceId = NetworkInterfaceId;

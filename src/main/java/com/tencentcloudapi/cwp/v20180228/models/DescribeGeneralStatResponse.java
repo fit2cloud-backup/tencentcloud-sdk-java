@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeGeneralStatResponse extends AbstractModel{
+public class DescribeGeneralStatResponse extends AbstractModel {
 
     /**
     * 云主机总数
@@ -101,7 +102,6 @@ public class DescribeGeneralStatResponse extends AbstractModel{
 
     /**
     * 旗舰版主机数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FlagshipMachineCnt")
     @Expose
@@ -109,7 +109,6 @@ public class DescribeGeneralStatResponse extends AbstractModel{
 
     /**
     * 保护天数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ProtectDays")
     @Expose
@@ -117,14 +116,13 @@ public class DescribeGeneralStatResponse extends AbstractModel{
 
     /**
     * 15天内新增的主机数
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AddedOnTheFifteen")
     @Expose
     private Long AddedOnTheFifteen;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
@@ -307,10 +305,8 @@ public class DescribeGeneralStatResponse extends AbstractModel{
     }
 
     /**
-     * Get 旗舰版主机数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 旗舰版主机数 
      * @return FlagshipMachineCnt 旗舰版主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getFlagshipMachineCnt() {
         return this.FlagshipMachineCnt;
@@ -318,19 +314,15 @@ public class DescribeGeneralStatResponse extends AbstractModel{
 
     /**
      * Set 旗舰版主机数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FlagshipMachineCnt 旗舰版主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFlagshipMachineCnt(Long FlagshipMachineCnt) {
         this.FlagshipMachineCnt = FlagshipMachineCnt;
     }
 
     /**
-     * Get 保护天数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 保护天数 
      * @return ProtectDays 保护天数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getProtectDays() {
         return this.ProtectDays;
@@ -338,19 +330,15 @@ public class DescribeGeneralStatResponse extends AbstractModel{
 
     /**
      * Set 保护天数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ProtectDays 保护天数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setProtectDays(Long ProtectDays) {
         this.ProtectDays = ProtectDays;
     }
 
     /**
-     * Get 15天内新增的主机数
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 15天内新增的主机数 
      * @return AddedOnTheFifteen 15天内新增的主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getAddedOnTheFifteen() {
         return this.AddedOnTheFifteen;
@@ -358,25 +346,23 @@ public class DescribeGeneralStatResponse extends AbstractModel{
 
     /**
      * Set 15天内新增的主机数
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AddedOnTheFifteen 15天内新增的主机数
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAddedOnTheFifteen(Long AddedOnTheFifteen) {
         this.AddedOnTheFifteen = AddedOnTheFifteen;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

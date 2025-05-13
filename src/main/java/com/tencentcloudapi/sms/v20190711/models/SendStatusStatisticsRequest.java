@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sms.v20190711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SendStatusStatisticsRequest extends AbstractModel{
+public class SendStatusStatisticsRequest extends AbstractModel {
 
     /**
     * 拉取起始时间，yyyymmddhh 需要拉取的起始时间，精确到小时。
@@ -31,7 +32,7 @@ public class SendStatusStatisticsRequest extends AbstractModel{
 
     /**
     * 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
-注：EndDataTime 必须大于 StartDateTime。
+注：EndDataTime 必须大于等于 StartDateTime。
     */
     @SerializedName("EndDataTime")
     @Expose
@@ -78,9 +79,9 @@ public class SendStatusStatisticsRequest extends AbstractModel{
 
     /**
      * Get 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
-注：EndDataTime 必须大于 StartDateTime。 
+注：EndDataTime 必须大于等于 StartDateTime。 
      * @return EndDataTime 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
-注：EndDataTime 必须大于 StartDateTime。
+注：EndDataTime 必须大于等于 StartDateTime。
      */
     public Long getEndDataTime() {
         return this.EndDataTime;
@@ -88,9 +89,9 @@ public class SendStatusStatisticsRequest extends AbstractModel{
 
     /**
      * Set 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
-注：EndDataTime 必须大于 StartDateTime。
+注：EndDataTime 必须大于等于 StartDateTime。
      * @param EndDataTime 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
-注：EndDataTime 必须大于 StartDateTime。
+注：EndDataTime 必须大于等于 StartDateTime。
      */
     public void setEndDataTime(Long EndDataTime) {
         this.EndDataTime = EndDataTime;

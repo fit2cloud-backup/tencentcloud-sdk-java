@@ -16,15 +16,15 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBaselineStrategyDetailResponse extends AbstractModel{
+public class DescribeBaselineStrategyDetailResponse extends AbstractModel {
 
     /**
     * 策略扫描通过率
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("PassRate")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeBaselineStrategyDetailResponse extends AbstractModel{
 
     /**
     * 策略名
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("StrategyName")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeBaselineStrategyDetailResponse extends AbstractModel{
 
     /**
     * 策略扫描周期(天)
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanCycle")
     @Expose
@@ -48,7 +46,6 @@ public class DescribeBaselineStrategyDetailResponse extends AbstractModel{
 
     /**
     * 定期检测时间, 该时间下发扫描
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ScanAt")
     @Expose
@@ -56,7 +53,6 @@ public class DescribeBaselineStrategyDetailResponse extends AbstractModel{
 
     /**
     * 扫描范围是否全部服务器, 1:是  0:否, 为1则为全部专业版主机
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsGlobal")
     @Expose
@@ -69,7 +65,6 @@ bm：裸金属
 ecm：边缘计算主机
 lh: 轻量应用服务器
 ohter: 混合云机器
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("MachineType")
     @Expose
@@ -77,7 +72,6 @@ ohter: 混合云机器
 
     /**
     * 主机地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -85,7 +79,6 @@ ohter: 混合云机器
 
     /**
     * 用户该策略下的所有主机id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Quuids")
     @Expose
@@ -93,7 +86,6 @@ ohter: 混合云机器
 
     /**
     * 用户该策略下所有的基线id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CategoryIds")
     @Expose
@@ -101,24 +93,21 @@ ohter: 混合云机器
 
     /**
     * 1 表示扫描过, 0没扫描过
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IfScanned")
     @Expose
     private Long IfScanned;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 策略扫描通过率
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略扫描通过率 
      * @return PassRate 策略扫描通过率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getPassRate() {
         return this.PassRate;
@@ -126,19 +115,15 @@ ohter: 混合云机器
 
     /**
      * Set 策略扫描通过率
-注意：此字段可能返回 null，表示取不到有效值。
      * @param PassRate 策略扫描通过率
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setPassRate(Long PassRate) {
         this.PassRate = PassRate;
     }
 
     /**
-     * Get 策略名
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略名 
      * @return StrategyName 策略名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getStrategyName() {
         return this.StrategyName;
@@ -146,19 +131,15 @@ ohter: 混合云机器
 
     /**
      * Set 策略名
-注意：此字段可能返回 null，表示取不到有效值。
      * @param StrategyName 策略名
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStrategyName(String StrategyName) {
         this.StrategyName = StrategyName;
     }
 
     /**
-     * Get 策略扫描周期(天)
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 策略扫描周期(天) 
      * @return ScanCycle 策略扫描周期(天)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanCycle() {
         return this.ScanCycle;
@@ -166,19 +147,15 @@ ohter: 混合云机器
 
     /**
      * Set 策略扫描周期(天)
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanCycle 策略扫描周期(天)
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanCycle(String ScanCycle) {
         this.ScanCycle = ScanCycle;
     }
 
     /**
-     * Get 定期检测时间, 该时间下发扫描
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 定期检测时间, 该时间下发扫描 
      * @return ScanAt 定期检测时间, 该时间下发扫描
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getScanAt() {
         return this.ScanAt;
@@ -186,19 +163,15 @@ ohter: 混合云机器
 
     /**
      * Set 定期检测时间, 该时间下发扫描
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ScanAt 定期检测时间, 该时间下发扫描
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setScanAt(String ScanAt) {
         this.ScanAt = ScanAt;
     }
 
     /**
-     * Get 扫描范围是否全部服务器, 1:是  0:否, 为1则为全部专业版主机
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 扫描范围是否全部服务器, 1:是  0:否, 为1则为全部专业版主机 
      * @return IsGlobal 扫描范围是否全部服务器, 1:是  0:否, 为1则为全部专业版主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIsGlobal() {
         return this.IsGlobal;
@@ -206,9 +179,7 @@ ohter: 混合云机器
 
     /**
      * Set 扫描范围是否全部服务器, 1:是  0:否, 为1则为全部专业版主机
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsGlobal 扫描范围是否全部服务器, 1:是  0:否, 为1则为全部专业版主机
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsGlobal(Long IsGlobal) {
         this.IsGlobal = IsGlobal;
@@ -220,15 +191,13 @@ cvm：腾讯云服务器
 bm：裸金属
 ecm：边缘计算主机
 lh: 轻量应用服务器
-ohter: 混合云机器
-注意：此字段可能返回 null，表示取不到有效值。 
+ohter: 混合云机器 
      * @return MachineType 云服务器类型：
 cvm：腾讯云服务器
 bm：裸金属
 ecm：边缘计算主机
 lh: 轻量应用服务器
 ohter: 混合云机器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getMachineType() {
         return this.MachineType;
@@ -241,24 +210,20 @@ bm：裸金属
 ecm：边缘计算主机
 lh: 轻量应用服务器
 ohter: 混合云机器
-注意：此字段可能返回 null，表示取不到有效值。
      * @param MachineType 云服务器类型：
 cvm：腾讯云服务器
 bm：裸金属
 ecm：边缘计算主机
 lh: 轻量应用服务器
 ohter: 混合云机器
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setMachineType(String MachineType) {
         this.MachineType = MachineType;
     }
 
     /**
-     * Get 主机地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 主机地域 
      * @return Region 主机地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRegion() {
         return this.Region;
@@ -266,19 +231,15 @@ ohter: 混合云机器
 
     /**
      * Set 主机地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 主机地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(String Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 用户该策略下的所有主机id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户该策略下的所有主机id 
      * @return Quuids 用户该策略下的所有主机id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getQuuids() {
         return this.Quuids;
@@ -286,19 +247,15 @@ ohter: 混合云机器
 
     /**
      * Set 用户该策略下的所有主机id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Quuids 用户该策略下的所有主机id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setQuuids(String [] Quuids) {
         this.Quuids = Quuids;
     }
 
     /**
-     * Get 用户该策略下所有的基线id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用户该策略下所有的基线id 
      * @return CategoryIds 用户该策略下所有的基线id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String [] getCategoryIds() {
         return this.CategoryIds;
@@ -306,19 +263,15 @@ ohter: 混合云机器
 
     /**
      * Set 用户该策略下所有的基线id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CategoryIds 用户该策略下所有的基线id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCategoryIds(String [] CategoryIds) {
         this.CategoryIds = CategoryIds;
     }
 
     /**
-     * Get 1 表示扫描过, 0没扫描过
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 1 表示扫描过, 0没扫描过 
      * @return IfScanned 1 表示扫描过, 0没扫描过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getIfScanned() {
         return this.IfScanned;
@@ -326,25 +279,23 @@ ohter: 混合云机器
 
     /**
      * Set 1 表示扫描过, 0没扫描过
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IfScanned 1 表示扫描过, 0没扫描过
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIfScanned(Long IfScanned) {
         this.IfScanned = IfScanned;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

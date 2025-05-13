@@ -16,21 +16,30 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CertificateInput extends AbstractModel{
+public class CertificateInput extends AbstractModel {
 
     /**
-    * 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
+    * 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证。
+默认为 UNIDIRECTIONAL。
     */
     @SerializedName("SSLMode")
     @Expose
     private String SSLMode;
 
     /**
-    * 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent，CertKey，CertName。
+    * 双向认证时，是否开启客户端认证，ON:开启，OPTIONAL:自适应，默认ON。
+    */
+    @SerializedName("SSLVerifyClient")
+    @Expose
+    private String SSLVerifyClient;
+
+    /**
+    * 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent（服务端证书内容），CertKey（服务端证书密钥），CertName（服务端证书名称）。
     */
     @SerializedName("CertId")
     @Expose
@@ -65,46 +74,66 @@ public class CertificateInput extends AbstractModel{
     private String CertContent;
 
     /**
-    * 上传客户端 CA 证书的名称，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
+    * 上传客户端 CA 证书的名称，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
     */
     @SerializedName("CertCaName")
     @Expose
     private String CertCaName;
 
     /**
-    * 上传客户端证书的内容，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
+    * 上传客户端证书的内容，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
     */
     @SerializedName("CertCaContent")
     @Expose
     private String CertCaContent;
 
     /**
-     * Get 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证 
-     * @return SSLMode 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
+     * Get 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证。
+默认为 UNIDIRECTIONAL。 
+     * @return SSLMode 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证。
+默认为 UNIDIRECTIONAL。
      */
     public String getSSLMode() {
         return this.SSLMode;
     }
 
     /**
-     * Set 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
-     * @param SSLMode 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
+     * Set 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证。
+默认为 UNIDIRECTIONAL。
+     * @param SSLMode 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证。
+默认为 UNIDIRECTIONAL。
      */
     public void setSSLMode(String SSLMode) {
         this.SSLMode = SSLMode;
     }
 
     /**
-     * Get 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent，CertKey，CertName。 
-     * @return CertId 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent，CertKey，CertName。
+     * Get 双向认证时，是否开启客户端认证，ON:开启，OPTIONAL:自适应，默认ON。 
+     * @return SSLVerifyClient 双向认证时，是否开启客户端认证，ON:开启，OPTIONAL:自适应，默认ON。
+     */
+    public String getSSLVerifyClient() {
+        return this.SSLVerifyClient;
+    }
+
+    /**
+     * Set 双向认证时，是否开启客户端认证，ON:开启，OPTIONAL:自适应，默认ON。
+     * @param SSLVerifyClient 双向认证时，是否开启客户端认证，ON:开启，OPTIONAL:自适应，默认ON。
+     */
+    public void setSSLVerifyClient(String SSLVerifyClient) {
+        this.SSLVerifyClient = SSLVerifyClient;
+    }
+
+    /**
+     * Get 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent（服务端证书内容），CertKey（服务端证书密钥），CertName（服务端证书名称）。 
+     * @return CertId 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent（服务端证书内容），CertKey（服务端证书密钥），CertName（服务端证书名称）。
      */
     public String getCertId() {
         return this.CertId;
     }
 
     /**
-     * Set 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent，CertKey，CertName。
-     * @param CertId 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent，CertKey，CertName。
+     * Set 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent（服务端证书内容），CertKey（服务端证书密钥），CertName（服务端证书名称）。
+     * @param CertId 服务端证书的 ID，如果不填写此项则必须上传证书，包括 CertContent（服务端证书内容），CertKey（服务端证书密钥），CertName（服务端证书名称）。
      */
     public void setCertId(String CertId) {
         this.CertId = CertId;
@@ -175,32 +204,32 @@ public class CertificateInput extends AbstractModel{
     }
 
     /**
-     * Get 上传客户端 CA 证书的名称，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。 
-     * @return CertCaName 上传客户端 CA 证书的名称，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
+     * Get 上传客户端 CA 证书的名称，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。 
+     * @return CertCaName 上传客户端 CA 证书的名称，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
      */
     public String getCertCaName() {
         return this.CertCaName;
     }
 
     /**
-     * Set 上传客户端 CA 证书的名称，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
-     * @param CertCaName 上传客户端 CA 证书的名称，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
+     * Set 上传客户端 CA 证书的名称，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
+     * @param CertCaName 上传客户端 CA 证书的名称，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
      */
     public void setCertCaName(String CertCaName) {
         this.CertCaName = CertCaName;
     }
 
     /**
-     * Get 上传客户端证书的内容，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。 
-     * @return CertCaContent 上传客户端证书的内容，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
+     * Get 上传客户端证书的内容，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。 
+     * @return CertCaContent 上传客户端证书的内容，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
      */
     public String getCertCaContent() {
         return this.CertCaContent;
     }
 
     /**
-     * Set 上传客户端证书的内容，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
-     * @param CertCaContent 上传客户端证书的内容，如果 SSLMode=mutual，如果没有 CertCaId，则此项必传。
+     * Set 上传客户端证书的内容，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
+     * @param CertCaContent 上传客户端证书的内容，如果 SSLMode=MUTUAL，如果没有 CertCaId，则此项必传。
      */
     public void setCertCaContent(String CertCaContent) {
         this.CertCaContent = CertCaContent;
@@ -216,6 +245,9 @@ public class CertificateInput extends AbstractModel{
     public CertificateInput(CertificateInput source) {
         if (source.SSLMode != null) {
             this.SSLMode = new String(source.SSLMode);
+        }
+        if (source.SSLVerifyClient != null) {
+            this.SSLVerifyClient = new String(source.SSLVerifyClient);
         }
         if (source.CertId != null) {
             this.CertId = new String(source.CertId);
@@ -246,6 +278,7 @@ public class CertificateInput extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "SSLMode", this.SSLMode);
+        this.setParamSimple(map, prefix + "SSLVerifyClient", this.SSLVerifyClient);
         this.setParamSimple(map, prefix + "CertId", this.CertId);
         this.setParamSimple(map, prefix + "CertCaId", this.CertCaId);
         this.setParamSimple(map, prefix + "CertName", this.CertName);

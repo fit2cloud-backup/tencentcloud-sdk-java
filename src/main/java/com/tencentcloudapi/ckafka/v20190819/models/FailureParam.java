@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FailureParam extends AbstractModel{
+public class FailureParam extends AbstractModel {
 
     /**
     * 类型，DLQ死信队列，IGNORE_ERROR保留，DROP废弃
@@ -52,7 +53,6 @@ public class FailureParam extends AbstractModel{
 
     /**
     * DIP Topic类型死信队列
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TopicParam")
     @Expose
@@ -60,7 +60,6 @@ public class FailureParam extends AbstractModel{
 
     /**
     * 死信队列类型，CKAFKA，TOPIC
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DlqType")
     @Expose
@@ -131,10 +130,8 @@ public class FailureParam extends AbstractModel{
     }
 
     /**
-     * Get DIP Topic类型死信队列
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get DIP Topic类型死信队列 
      * @return TopicParam DIP Topic类型死信队列
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TopicParam getTopicParam() {
         return this.TopicParam;
@@ -142,19 +139,15 @@ public class FailureParam extends AbstractModel{
 
     /**
      * Set DIP Topic类型死信队列
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TopicParam DIP Topic类型死信队列
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTopicParam(TopicParam TopicParam) {
         this.TopicParam = TopicParam;
     }
 
     /**
-     * Get 死信队列类型，CKAFKA，TOPIC
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 死信队列类型，CKAFKA，TOPIC 
      * @return DlqType 死信队列类型，CKAFKA，TOPIC
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDlqType() {
         return this.DlqType;
@@ -162,9 +155,7 @@ public class FailureParam extends AbstractModel{
 
     /**
      * Set 死信队列类型，CKAFKA，TOPIC
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DlqType 死信队列类型，CKAFKA，TOPIC
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDlqType(String DlqType) {
         this.DlqType = DlqType;

@@ -16,91 +16,77 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ACTemplate extends AbstractModel{
+public class ACTemplate extends AbstractModel {
 
     /**
-    * 模版id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 模板id
     */
     @SerializedName("TemplateId")
     @Expose
     private String TemplateId;
 
     /**
-    * 模版名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 模板名称
     */
     @SerializedName("TemplateName")
     @Expose
     private String TemplateName;
 
     /**
-    * 模版描述
-注意：此字段可能返回 null，表示取不到有效值。
+    * 模板描述
     */
     @SerializedName("Description")
     @Expose
     private String Description;
 
     /**
-     * Get 模版id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TemplateId 模版id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 模板id 
+     * @return TemplateId 模板id
      */
     public String getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 模版id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TemplateId 模版id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 模板id
+     * @param TemplateId 模板id
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;
     }
 
     /**
-     * Get 模版名称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TemplateName 模版名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 模板名称 
+     * @return TemplateName 模板名称
      */
     public String getTemplateName() {
         return this.TemplateName;
     }
 
     /**
-     * Set 模版名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TemplateName 模版名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 模板名称
+     * @param TemplateName 模板名称
      */
     public void setTemplateName(String TemplateName) {
         this.TemplateName = TemplateName;
     }
 
     /**
-     * Get 模版描述
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Description 模版描述
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 模板描述 
+     * @return Description 模板描述
      */
     public String getDescription() {
         return this.Description;
     }
 
     /**
-     * Set 模版描述
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Description 模版描述
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 模板描述
+     * @param Description 模板描述
      */
     public void setDescription(String Description) {
         this.Description = Description;

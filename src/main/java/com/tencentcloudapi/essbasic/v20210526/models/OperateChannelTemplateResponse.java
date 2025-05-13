@@ -16,52 +16,50 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OperateChannelTemplateResponse extends AbstractModel{
+public class OperateChannelTemplateResponse extends AbstractModel {
 
     /**
-    * 腾讯电子签颁发给第三方应用平台的应用ID
-注意：此字段可能返回 null，表示取不到有效值。
+    * 第三方应用平台的应用ID
     */
     @SerializedName("AppId")
     @Expose
     private String AppId;
 
     /**
-    * 第三方应用平台模板库模板唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+    * 合同模板ID
     */
     @SerializedName("TemplateId")
     @Expose
     private String TemplateId;
 
     /**
-    * 描述模板可见性更改的结果，和参数中Available无关。
-全部成功-"all-success",
-部分成功-"part-success", 
-全部失败-"fail"，失败的会在FailMessageList中展示。
-注意：此字段可能返回 null，表示取不到有效值。
+    * 描述模板可见性更改的结果。
+<ul>
+<li>all-success: 全部成功</li>
+<li>part-success: 部分成功,失败的会在FailMessageList中展示</li>
+<li>fail:全部失败, 失败的会在FailMessageList中展示</li>
+</ul>
     */
     @SerializedName("OperateResult")
     @Expose
     private String OperateResult;
 
     /**
-    * 模板可见性, 
-全部可见-"all", 
-部分可见-"part"
-注意：此字段可能返回 null，表示取不到有效值。
+    * 模板可见范围:
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
     */
     @SerializedName("AuthTag")
     @Expose
     private String AuthTag;
 
     /**
-    * 合作企业方第三方机构唯一标识数据
-注意：此字段可能返回 null，表示取不到有效值。
+    * 第三方平台子客企业标识列表
     */
     @SerializedName("ProxyOrganizationOpenIds")
     @Expose
@@ -69,144 +67,129 @@ public class OperateChannelTemplateResponse extends AbstractModel{
 
     /**
     * 操作失败信息数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailMessageList")
     @Expose
     private AuthFailMessage [] FailMessageList;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 腾讯电子签颁发给第三方应用平台的应用ID
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AppId 腾讯电子签颁发给第三方应用平台的应用ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 第三方应用平台的应用ID 
+     * @return AppId 第三方应用平台的应用ID
      */
     public String getAppId() {
         return this.AppId;
     }
 
     /**
-     * Set 腾讯电子签颁发给第三方应用平台的应用ID
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AppId 腾讯电子签颁发给第三方应用平台的应用ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 第三方应用平台的应用ID
+     * @param AppId 第三方应用平台的应用ID
      */
     public void setAppId(String AppId) {
         this.AppId = AppId;
     }
 
     /**
-     * Get 第三方应用平台模板库模板唯一标识
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return TemplateId 第三方应用平台模板库模板唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 合同模板ID 
+     * @return TemplateId 合同模板ID
      */
     public String getTemplateId() {
         return this.TemplateId;
     }
 
     /**
-     * Set 第三方应用平台模板库模板唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param TemplateId 第三方应用平台模板库模板唯一标识
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 合同模板ID
+     * @param TemplateId 合同模板ID
      */
     public void setTemplateId(String TemplateId) {
         this.TemplateId = TemplateId;
     }
 
     /**
-     * Get 描述模板可见性更改的结果，和参数中Available无关。
-全部成功-"all-success",
-部分成功-"part-success", 
-全部失败-"fail"，失败的会在FailMessageList中展示。
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return OperateResult 描述模板可见性更改的结果，和参数中Available无关。
-全部成功-"all-success",
-部分成功-"part-success", 
-全部失败-"fail"，失败的会在FailMessageList中展示。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 描述模板可见性更改的结果。
+<ul>
+<li>all-success: 全部成功</li>
+<li>part-success: 部分成功,失败的会在FailMessageList中展示</li>
+<li>fail:全部失败, 失败的会在FailMessageList中展示</li>
+</ul> 
+     * @return OperateResult 描述模板可见性更改的结果。
+<ul>
+<li>all-success: 全部成功</li>
+<li>part-success: 部分成功,失败的会在FailMessageList中展示</li>
+<li>fail:全部失败, 失败的会在FailMessageList中展示</li>
+</ul>
      */
     public String getOperateResult() {
         return this.OperateResult;
     }
 
     /**
-     * Set 描述模板可见性更改的结果，和参数中Available无关。
-全部成功-"all-success",
-部分成功-"part-success", 
-全部失败-"fail"，失败的会在FailMessageList中展示。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param OperateResult 描述模板可见性更改的结果，和参数中Available无关。
-全部成功-"all-success",
-部分成功-"part-success", 
-全部失败-"fail"，失败的会在FailMessageList中展示。
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 描述模板可见性更改的结果。
+<ul>
+<li>all-success: 全部成功</li>
+<li>part-success: 部分成功,失败的会在FailMessageList中展示</li>
+<li>fail:全部失败, 失败的会在FailMessageList中展示</li>
+</ul>
+     * @param OperateResult 描述模板可见性更改的结果。
+<ul>
+<li>all-success: 全部成功</li>
+<li>part-success: 部分成功,失败的会在FailMessageList中展示</li>
+<li>fail:全部失败, 失败的会在FailMessageList中展示</li>
+</ul>
      */
     public void setOperateResult(String OperateResult) {
         this.OperateResult = OperateResult;
     }
 
     /**
-     * Get 模板可见性, 
-全部可见-"all", 
-部分可见-"part"
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return AuthTag 模板可见性, 
-全部可见-"all", 
-部分可见-"part"
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 模板可见范围:
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业 
+     * @return AuthTag 模板可见范围:
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
      */
     public String getAuthTag() {
         return this.AuthTag;
     }
 
     /**
-     * Set 模板可见性, 
-全部可见-"all", 
-部分可见-"part"
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param AuthTag 模板可见性, 
-全部可见-"all", 
-部分可见-"part"
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 模板可见范围:
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
+     * @param AuthTag 模板可见范围:
+**all**: 所有本第三方应用合作企业可见
+**part**: 指定的本第三方应用合作企业
      */
     public void setAuthTag(String AuthTag) {
         this.AuthTag = AuthTag;
     }
 
     /**
-     * Get 合作企业方第三方机构唯一标识数据
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 第三方平台子客企业标识列表 
+     * @return ProxyOrganizationOpenIds 第三方平台子客企业标识列表
      */
     public String [] getProxyOrganizationOpenIds() {
         return this.ProxyOrganizationOpenIds;
     }
 
     /**
-     * Set 合作企业方第三方机构唯一标识数据
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ProxyOrganizationOpenIds 合作企业方第三方机构唯一标识数据
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 第三方平台子客企业标识列表
+     * @param ProxyOrganizationOpenIds 第三方平台子客企业标识列表
      */
     public void setProxyOrganizationOpenIds(String [] ProxyOrganizationOpenIds) {
         this.ProxyOrganizationOpenIds = ProxyOrganizationOpenIds;
     }
 
     /**
-     * Get 操作失败信息数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 操作失败信息数组 
      * @return FailMessageList 操作失败信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AuthFailMessage [] getFailMessageList() {
         return this.FailMessageList;
@@ -214,25 +197,23 @@ public class OperateChannelTemplateResponse extends AbstractModel{
 
     /**
      * Set 操作失败信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailMessageList 操作失败信息数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailMessageList(AuthFailMessage [] FailMessageList) {
         this.FailMessageList = FailMessageList;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

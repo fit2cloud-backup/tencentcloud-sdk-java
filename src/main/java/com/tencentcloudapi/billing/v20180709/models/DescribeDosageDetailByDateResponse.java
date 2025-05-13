@@ -16,15 +16,15 @@
 package com.tencentcloudapi.billing.v20180709.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDosageDetailByDateResponse extends AbstractModel{
+public class DescribeDosageDetailByDateResponse extends AbstractModel {
 
     /**
     * 计量单位
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Unit")
     @Expose
@@ -32,7 +32,6 @@ public class DescribeDosageDetailByDateResponse extends AbstractModel{
 
     /**
     * 用量数组
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("DetailSets")
     @Expose
@@ -40,7 +39,6 @@ public class DescribeDosageDetailByDateResponse extends AbstractModel{
 
     /**
     * 错误码
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RetCode")
     @Expose
@@ -48,24 +46,21 @@ public class DescribeDosageDetailByDateResponse extends AbstractModel{
 
     /**
     * 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RetMsg")
     @Expose
     private String RetMsg;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 计量单位
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 计量单位 
      * @return Unit 计量单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUnit() {
         return this.Unit;
@@ -73,19 +68,15 @@ public class DescribeDosageDetailByDateResponse extends AbstractModel{
 
     /**
      * Set 计量单位
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Unit 计量单位
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUnit(String Unit) {
         this.Unit = Unit;
     }
 
     /**
-     * Get 用量数组
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 用量数组 
      * @return DetailSets 用量数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public DetailSet [] getDetailSets() {
         return this.DetailSets;
@@ -93,19 +84,15 @@ public class DescribeDosageDetailByDateResponse extends AbstractModel{
 
     /**
      * Set 用量数组
-注意：此字段可能返回 null，表示取不到有效值。
      * @param DetailSets 用量数组
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDetailSets(DetailSet [] DetailSets) {
         this.DetailSets = DetailSets;
     }
 
     /**
-     * Get 错误码
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误码 
      * @return RetCode 错误码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRetCode() {
         return this.RetCode;
@@ -113,19 +100,15 @@ public class DescribeDosageDetailByDateResponse extends AbstractModel{
 
     /**
      * Set 错误码
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RetCode 错误码
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRetCode(Long RetCode) {
         this.RetCode = RetCode;
     }
 
     /**
-     * Get 错误信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 错误信息 
      * @return RetMsg 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRetMsg() {
         return this.RetMsg;
@@ -133,25 +116,23 @@ public class DescribeDosageDetailByDateResponse extends AbstractModel{
 
     /**
      * Set 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RetMsg 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRetMsg(String RetMsg) {
         this.RetMsg = RetMsg;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

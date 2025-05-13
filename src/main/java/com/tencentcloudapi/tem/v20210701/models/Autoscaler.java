@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tem.v20210701.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Autoscaler extends AbstractModel{
+public class Autoscaler extends AbstractModel {
 
     /**
     * 弹性伸缩最小实例数
@@ -37,16 +38,14 @@ public class Autoscaler extends AbstractModel{
     private Long MaxReplicas;
 
     /**
-    * 指标弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
+    * 指标弹性伸缩策略(指标策略和定时策略必须填写一个)
     */
     @SerializedName("HorizontalAutoscaler")
     @Expose
     private HorizontalAutoscaler [] HorizontalAutoscaler;
 
     /**
-    * 定时弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
+    * 定时弹性伸缩策略(指标策略和定时策略必须填写一个)
     */
     @SerializedName("CronHorizontalAutoscaler")
     @Expose
@@ -54,7 +53,6 @@ public class Autoscaler extends AbstractModel{
 
     /**
     * 弹性伸缩ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoscalerId")
     @Expose
@@ -62,7 +60,6 @@ public class Autoscaler extends AbstractModel{
 
     /**
     * 弹性伸缩名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AutoscalerName")
     @Expose
@@ -70,7 +67,6 @@ public class Autoscaler extends AbstractModel{
 
     /**
     * 弹性伸缩描述
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Description")
     @Expose
@@ -78,7 +74,6 @@ public class Autoscaler extends AbstractModel{
 
     /**
     * 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateDate")
     @Expose
@@ -86,7 +81,6 @@ public class Autoscaler extends AbstractModel{
 
     /**
     * 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ModifyDate")
     @Expose
@@ -102,7 +96,6 @@ public class Autoscaler extends AbstractModel{
 
     /**
     * 是否启用
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Enabled")
     @Expose
@@ -141,50 +134,40 @@ public class Autoscaler extends AbstractModel{
     }
 
     /**
-     * Get 指标弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return HorizontalAutoscaler 指标弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 指标弹性伸缩策略(指标策略和定时策略必须填写一个) 
+     * @return HorizontalAutoscaler 指标弹性伸缩策略(指标策略和定时策略必须填写一个)
      */
     public HorizontalAutoscaler [] getHorizontalAutoscaler() {
         return this.HorizontalAutoscaler;
     }
 
     /**
-     * Set 指标弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param HorizontalAutoscaler 指标弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 指标弹性伸缩策略(指标策略和定时策略必须填写一个)
+     * @param HorizontalAutoscaler 指标弹性伸缩策略(指标策略和定时策略必须填写一个)
      */
     public void setHorizontalAutoscaler(HorizontalAutoscaler [] HorizontalAutoscaler) {
         this.HorizontalAutoscaler = HorizontalAutoscaler;
     }
 
     /**
-     * Get 定时弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return CronHorizontalAutoscaler 定时弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 定时弹性伸缩策略(指标策略和定时策略必须填写一个) 
+     * @return CronHorizontalAutoscaler 定时弹性伸缩策略(指标策略和定时策略必须填写一个)
      */
     public CronHorizontalAutoscaler [] getCronHorizontalAutoscaler() {
         return this.CronHorizontalAutoscaler;
     }
 
     /**
-     * Set 定时弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param CronHorizontalAutoscaler 定时弹性伸缩策略
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 定时弹性伸缩策略(指标策略和定时策略必须填写一个)
+     * @param CronHorizontalAutoscaler 定时弹性伸缩策略(指标策略和定时策略必须填写一个)
      */
     public void setCronHorizontalAutoscaler(CronHorizontalAutoscaler [] CronHorizontalAutoscaler) {
         this.CronHorizontalAutoscaler = CronHorizontalAutoscaler;
     }
 
     /**
-     * Get 弹性伸缩ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 弹性伸缩ID 
      * @return AutoscalerId 弹性伸缩ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAutoscalerId() {
         return this.AutoscalerId;
@@ -192,19 +175,15 @@ public class Autoscaler extends AbstractModel{
 
     /**
      * Set 弹性伸缩ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoscalerId 弹性伸缩ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoscalerId(String AutoscalerId) {
         this.AutoscalerId = AutoscalerId;
     }
 
     /**
-     * Get 弹性伸缩名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 弹性伸缩名称 
      * @return AutoscalerName 弹性伸缩名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getAutoscalerName() {
         return this.AutoscalerName;
@@ -212,19 +191,15 @@ public class Autoscaler extends AbstractModel{
 
     /**
      * Set 弹性伸缩名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AutoscalerName 弹性伸缩名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAutoscalerName(String AutoscalerName) {
         this.AutoscalerName = AutoscalerName;
     }
 
     /**
-     * Get 弹性伸缩描述
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 弹性伸缩描述 
      * @return Description 弹性伸缩描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getDescription() {
         return this.Description;
@@ -232,19 +207,15 @@ public class Autoscaler extends AbstractModel{
 
     /**
      * Set 弹性伸缩描述
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Description 弹性伸缩描述
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setDescription(String Description) {
         this.Description = Description;
     }
 
     /**
-     * Get 创建日期
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建日期 
      * @return CreateDate 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateDate() {
         return this.CreateDate;
@@ -252,19 +223,15 @@ public class Autoscaler extends AbstractModel{
 
     /**
      * Set 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateDate 创建日期
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateDate(String CreateDate) {
         this.CreateDate = CreateDate;
     }
 
     /**
-     * Get 修改时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 修改时间 
      * @return ModifyDate 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getModifyDate() {
         return this.ModifyDate;
@@ -272,9 +239,7 @@ public class Autoscaler extends AbstractModel{
 
     /**
      * Set 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ModifyDate 修改时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setModifyDate(String ModifyDate) {
         this.ModifyDate = ModifyDate;
@@ -301,10 +266,8 @@ public class Autoscaler extends AbstractModel{
     }
 
     /**
-     * Get 是否启用
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否启用 
      * @return Enabled 是否启用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getEnabled() {
         return this.Enabled;
@@ -312,9 +275,7 @@ public class Autoscaler extends AbstractModel{
 
     /**
      * Set 是否启用
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Enabled 是否启用
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEnabled(Boolean Enabled) {
         this.Enabled = Enabled;

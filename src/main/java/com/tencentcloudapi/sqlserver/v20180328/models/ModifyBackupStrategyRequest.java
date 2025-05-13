@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sqlserver.v20180328.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyBackupStrategyRequest extends AbstractModel{
+public class ModifyBackupStrategyRequest extends AbstractModel {
 
     /**
     * 实例ID
@@ -51,7 +52,7 @@ public class ModifyBackupStrategyRequest extends AbstractModel{
     private Long BackupDay;
 
     /**
-    * 备份模式，master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
+    * 备份模式（必填），master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
     */
     @SerializedName("BackupModel")
     @Expose
@@ -65,7 +66,7 @@ public class ModifyBackupStrategyRequest extends AbstractModel{
     private Long [] BackupCycle;
 
     /**
-    * 数据(日志)备份保留时间，取值[3-1830]天，默认7天
+    * 数据(日志)备份保留天数（必填），取值[3-1830]天，默认7天
     */
     @SerializedName("BackupSaveDays")
     @Expose
@@ -171,16 +172,16 @@ public class ModifyBackupStrategyRequest extends AbstractModel{
     }
 
     /**
-     * Get 备份模式，master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。 
-     * @return BackupModel 备份模式，master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
+     * Get 备份模式（必填），master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。 
+     * @return BackupModel 备份模式（必填），master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
      */
     public String getBackupModel() {
         return this.BackupModel;
     }
 
     /**
-     * Set 备份模式，master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
-     * @param BackupModel 备份模式，master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
+     * Set 备份模式（必填），master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
+     * @param BackupModel 备份模式（必填），master_pkg-主节点上打包备份文件；master_no_pkg-主节点单库备份文件；slave_pkg-从节点上打包备份文件；slave_no_pkg-从节点上单库备份文件，从节点上备份只有在always on容灾模式下支持。
      */
     public void setBackupModel(String BackupModel) {
         this.BackupModel = BackupModel;
@@ -203,16 +204,16 @@ public class ModifyBackupStrategyRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据(日志)备份保留时间，取值[3-1830]天，默认7天 
-     * @return BackupSaveDays 数据(日志)备份保留时间，取值[3-1830]天，默认7天
+     * Get 数据(日志)备份保留天数（必填），取值[3-1830]天，默认7天 
+     * @return BackupSaveDays 数据(日志)备份保留天数（必填），取值[3-1830]天，默认7天
      */
     public Long getBackupSaveDays() {
         return this.BackupSaveDays;
     }
 
     /**
-     * Set 数据(日志)备份保留时间，取值[3-1830]天，默认7天
-     * @param BackupSaveDays 数据(日志)备份保留时间，取值[3-1830]天，默认7天
+     * Set 数据(日志)备份保留天数（必填），取值[3-1830]天，默认7天
+     * @param BackupSaveDays 数据(日志)备份保留天数（必填），取值[3-1830]天，默认7天
      */
     public void setBackupSaveDays(Long BackupSaveDays) {
         this.BackupSaveDays = BackupSaveDays;

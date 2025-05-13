@@ -16,14 +16,19 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ScriptRequestInfo extends AbstractModel{
+public class ScriptRequestInfo extends AbstractModel {
 
     /**
     * 脚本路径
+项目区1470575647377821696项目，f1目录下：
+/datastudio/project/1470575647377821696/f1/sql1234.sql
+个人区：
+/datastudio/personal/sqlTTT.sql
     */
     @SerializedName("FilePath")
     @Expose
@@ -79,8 +84,16 @@ public class ScriptRequestInfo extends AbstractModel{
     private String FileExtensionType;
 
     /**
-     * Get 脚本路径 
+     * Get 脚本路径
+项目区1470575647377821696项目，f1目录下：
+/datastudio/project/1470575647377821696/f1/sql1234.sql
+个人区：
+/datastudio/personal/sqlTTT.sql 
      * @return FilePath 脚本路径
+项目区1470575647377821696项目，f1目录下：
+/datastudio/project/1470575647377821696/f1/sql1234.sql
+个人区：
+/datastudio/personal/sqlTTT.sql
      */
     public String getFilePath() {
         return this.FilePath;
@@ -88,7 +101,15 @@ public class ScriptRequestInfo extends AbstractModel{
 
     /**
      * Set 脚本路径
+项目区1470575647377821696项目，f1目录下：
+/datastudio/project/1470575647377821696/f1/sql1234.sql
+个人区：
+/datastudio/personal/sqlTTT.sql
      * @param FilePath 脚本路径
+项目区1470575647377821696项目，f1目录下：
+/datastudio/project/1470575647377821696/f1/sql1234.sql
+个人区：
+/datastudio/personal/sqlTTT.sql
      */
     public void setFilePath(String FilePath) {
         this.FilePath = FilePath;

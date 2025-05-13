@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class PrivateIpAddressSpecification extends AbstractModel{
+public class PrivateIpAddressSpecification extends AbstractModel {
 
     /**
     * 内网IP地址。
@@ -76,7 +77,7 @@ AVAILABLE：可用的
     private String State;
 
     /**
-    * IP服务质量等级，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+    * IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
     */
     @SerializedName("QosLevel")
     @Expose
@@ -211,16 +212,16 @@ AVAILABLE：可用的
     }
 
     /**
-     * Get IP服务质量等级，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。 
-     * @return QosLevel IP服务质量等级，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+     * Get IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。 
+     * @return QosLevel IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
      */
     public String getQosLevel() {
         return this.QosLevel;
     }
 
     /**
-     * Set IP服务质量等级，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
-     * @param QosLevel IP服务质量等级，可选值：PT、AU、AG、DEFAULT，分别代表云金、云银、云铜、默认四个等级。
+     * Set IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
+     * @param QosLevel IP服务质量等级，可选值：PT（云金）、AU（云银）、AG(云铜）、DEFAULT（默认）。
      */
     public void setQosLevel(String QosLevel) {
         this.QosLevel = QosLevel;

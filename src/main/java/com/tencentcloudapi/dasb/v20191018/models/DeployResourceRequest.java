@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dasb.v20191018.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeployResourceRequest extends AbstractModel{
+public class DeployResourceRequest extends AbstractModel {
 
     /**
     * 需要开通服务的资源ID
@@ -84,6 +85,13 @@ public class DeployResourceRequest extends AbstractModel{
     @SerializedName("SubnetName")
     @Expose
     private String SubnetName;
+
+    /**
+    * 需要开通实例所属的CDC集群ID
+    */
+    @SerializedName("CdcClusterId")
+    @Expose
+    private String CdcClusterId;
 
     /**
      * Get 需要开通服务的资源ID 
@@ -229,6 +237,22 @@ public class DeployResourceRequest extends AbstractModel{
         this.SubnetName = SubnetName;
     }
 
+    /**
+     * Get 需要开通实例所属的CDC集群ID 
+     * @return CdcClusterId 需要开通实例所属的CDC集群ID
+     */
+    public String getCdcClusterId() {
+        return this.CdcClusterId;
+    }
+
+    /**
+     * Set 需要开通实例所属的CDC集群ID
+     * @param CdcClusterId 需要开通实例所属的CDC集群ID
+     */
+    public void setCdcClusterId(String CdcClusterId) {
+        this.CdcClusterId = CdcClusterId;
+    }
+
     public DeployResourceRequest() {
     }
 
@@ -264,6 +288,9 @@ public class DeployResourceRequest extends AbstractModel{
         if (source.SubnetName != null) {
             this.SubnetName = new String(source.SubnetName);
         }
+        if (source.CdcClusterId != null) {
+            this.CdcClusterId = new String(source.CdcClusterId);
+        }
     }
 
 
@@ -280,6 +307,7 @@ public class DeployResourceRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcName", this.VpcName);
         this.setParamSimple(map, prefix + "VpcCidrBlock", this.VpcCidrBlock);
         this.setParamSimple(map, prefix + "SubnetName", this.SubnetName);
+        this.setParamSimple(map, prefix + "CdcClusterId", this.CdcClusterId);
 
     }
 }

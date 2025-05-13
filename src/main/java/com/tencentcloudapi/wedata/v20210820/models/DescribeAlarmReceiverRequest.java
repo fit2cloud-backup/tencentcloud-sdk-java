@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAlarmReceiverRequest extends AbstractModel{
+public class DescribeAlarmReceiverRequest extends AbstractModel {
 
     /**
     * 告警ID
@@ -51,13 +52,6 @@ public class DescribeAlarmReceiverRequest extends AbstractModel{
     private String ProjectId;
 
     /**
-    * 消息ID
-    */
-    @SerializedName("MessageId")
-    @Expose
-    private String MessageId;
-
-    /**
     * 类型
     */
     @SerializedName("TaskType")
@@ -84,6 +78,27 @@ public class DescribeAlarmReceiverRequest extends AbstractModel{
     @SerializedName("AlarmTime")
     @Expose
     private String AlarmTime;
+
+    /**
+    * 消息ID
+    */
+    @SerializedName("MessageId")
+    @Expose
+    private String MessageId;
+
+    /**
+    * 告警记录id
+    */
+    @SerializedName("RecordId")
+    @Expose
+    private Long RecordId;
+
+    /**
+    * 监控对象类型(1:所有任务,2:指定任务,3:指定责任人,4:指定资源组)
+    */
+    @SerializedName("MonitorType")
+    @Expose
+    private Long MonitorType;
 
     /**
      * Get 告警ID 
@@ -150,22 +165,6 @@ public class DescribeAlarmReceiverRequest extends AbstractModel{
     }
 
     /**
-     * Get 消息ID 
-     * @return MessageId 消息ID
-     */
-    public String getMessageId() {
-        return this.MessageId;
-    }
-
-    /**
-     * Set 消息ID
-     * @param MessageId 消息ID
-     */
-    public void setMessageId(String MessageId) {
-        this.MessageId = MessageId;
-    }
-
-    /**
      * Get 类型 
      * @return TaskType 类型
      */
@@ -229,6 +228,54 @@ public class DescribeAlarmReceiverRequest extends AbstractModel{
         this.AlarmTime = AlarmTime;
     }
 
+    /**
+     * Get 消息ID 
+     * @return MessageId 消息ID
+     */
+    public String getMessageId() {
+        return this.MessageId;
+    }
+
+    /**
+     * Set 消息ID
+     * @param MessageId 消息ID
+     */
+    public void setMessageId(String MessageId) {
+        this.MessageId = MessageId;
+    }
+
+    /**
+     * Get 告警记录id 
+     * @return RecordId 告警记录id
+     */
+    public Long getRecordId() {
+        return this.RecordId;
+    }
+
+    /**
+     * Set 告警记录id
+     * @param RecordId 告警记录id
+     */
+    public void setRecordId(Long RecordId) {
+        this.RecordId = RecordId;
+    }
+
+    /**
+     * Get 监控对象类型(1:所有任务,2:指定任务,3:指定责任人,4:指定资源组) 
+     * @return MonitorType 监控对象类型(1:所有任务,2:指定任务,3:指定责任人,4:指定资源组)
+     */
+    public Long getMonitorType() {
+        return this.MonitorType;
+    }
+
+    /**
+     * Set 监控对象类型(1:所有任务,2:指定任务,3:指定责任人,4:指定资源组)
+     * @param MonitorType 监控对象类型(1:所有任务,2:指定任务,3:指定责任人,4:指定资源组)
+     */
+    public void setMonitorType(Long MonitorType) {
+        this.MonitorType = MonitorType;
+    }
+
     public DescribeAlarmReceiverRequest() {
     }
 
@@ -249,9 +296,6 @@ public class DescribeAlarmReceiverRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
-        if (source.MessageId != null) {
-            this.MessageId = new String(source.MessageId);
-        }
         if (source.TaskType != null) {
             this.TaskType = new Long(source.TaskType);
         }
@@ -264,6 +308,15 @@ public class DescribeAlarmReceiverRequest extends AbstractModel{
         if (source.AlarmTime != null) {
             this.AlarmTime = new String(source.AlarmTime);
         }
+        if (source.MessageId != null) {
+            this.MessageId = new String(source.MessageId);
+        }
+        if (source.RecordId != null) {
+            this.RecordId = new Long(source.RecordId);
+        }
+        if (source.MonitorType != null) {
+            this.MonitorType = new Long(source.MonitorType);
+        }
     }
 
 
@@ -275,11 +328,13 @@ public class DescribeAlarmReceiverRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "PageNumber", this.PageNumber);
         this.setParamSimple(map, prefix + "PageSize", this.PageSize);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
-        this.setParamSimple(map, prefix + "MessageId", this.MessageId);
         this.setParamSimple(map, prefix + "TaskType", this.TaskType);
         this.setParamSimple(map, prefix + "AlarmRecipient", this.AlarmRecipient);
         this.setParamSimple(map, prefix + "AlarmRecipientName", this.AlarmRecipientName);
         this.setParamSimple(map, prefix + "AlarmTime", this.AlarmTime);
+        this.setParamSimple(map, prefix + "MessageId", this.MessageId);
+        this.setParamSimple(map, prefix + "RecordId", this.RecordId);
+        this.setParamSimple(map, prefix + "MonitorType", this.MonitorType);
 
     }
 }

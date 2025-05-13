@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeModelServiceCallInfoRequest extends AbstractModel{
+public class DescribeModelServiceCallInfoRequest extends AbstractModel {
 
     /**
     * 服务组id
@@ -28,6 +29,13 @@ public class DescribeModelServiceCallInfoRequest extends AbstractModel{
     @SerializedName("ServiceGroupId")
     @Expose
     private String ServiceGroupId;
+
+    /**
+    * 服务分类
+    */
+    @SerializedName("ServiceCategory")
+    @Expose
+    private String ServiceCategory;
 
     /**
      * Get 服务组id 
@@ -45,6 +53,22 @@ public class DescribeModelServiceCallInfoRequest extends AbstractModel{
         this.ServiceGroupId = ServiceGroupId;
     }
 
+    /**
+     * Get 服务分类 
+     * @return ServiceCategory 服务分类
+     */
+    public String getServiceCategory() {
+        return this.ServiceCategory;
+    }
+
+    /**
+     * Set 服务分类
+     * @param ServiceCategory 服务分类
+     */
+    public void setServiceCategory(String ServiceCategory) {
+        this.ServiceCategory = ServiceCategory;
+    }
+
     public DescribeModelServiceCallInfoRequest() {
     }
 
@@ -56,6 +80,9 @@ public class DescribeModelServiceCallInfoRequest extends AbstractModel{
         if (source.ServiceGroupId != null) {
             this.ServiceGroupId = new String(source.ServiceGroupId);
         }
+        if (source.ServiceCategory != null) {
+            this.ServiceCategory = new String(source.ServiceCategory);
+        }
     }
 
 
@@ -64,6 +91,7 @@ public class DescribeModelServiceCallInfoRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "ServiceGroupId", this.ServiceGroupId);
+        this.setParamSimple(map, prefix + "ServiceCategory", this.ServiceCategory);
 
     }
 }

@@ -16,21 +16,31 @@
 package com.tencentcloudapi.batch.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SystemDisk extends AbstractModel{
+public class SystemDisk extends AbstractModel {
 
     /**
-    * 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_BSSD：通用性SSD云硬盘<br><br>默认取值：当前有库存的硬盘类型。
+    * 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br>
+<li>LOCAL_BASIC：本地硬盘</li>
+<li>LOCAL_SSD：本地SSD硬盘</li>
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_BSSD：通用型SSD云硬盘</li>
+<li>CLOUD_HSSD：增强型SSD云硬盘</li>
+<li>CLOUD_TSSD：极速型SSD云硬盘</li><br>
+默认取值：当前有库存的硬盘类型。
     */
     @SerializedName("DiskType")
     @Expose
     private String DiskType;
 
     /**
-    * 系统盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID。暂时不支持该参数。
+    * 系统盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
     */
     @SerializedName("DiskId")
@@ -38,7 +48,7 @@ public class SystemDisk extends AbstractModel{
     private String DiskId;
 
     /**
-    * 系统盘大小，单位：GB。默认值为 50
+    * 系统盘大小，单位：GiB。默认值为 50
     */
     @SerializedName("DiskSize")
     @Expose
@@ -46,32 +56,74 @@ public class SystemDisk extends AbstractModel{
 
     /**
     * 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CdcId")
     @Expose
     private String CdcId;
 
     /**
-     * Get 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_BSSD：通用性SSD云硬盘<br><br>默认取值：当前有库存的硬盘类型。 
-     * @return DiskType 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_BSSD：通用性SSD云硬盘<br><br>默认取值：当前有库存的硬盘类型。
+    * 磁盘名称，长度不超过128 个字符。
+    */
+    @SerializedName("DiskName")
+    @Expose
+    private String DiskName;
+
+    /**
+     * Get 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br>
+<li>LOCAL_BASIC：本地硬盘</li>
+<li>LOCAL_SSD：本地SSD硬盘</li>
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_BSSD：通用型SSD云硬盘</li>
+<li>CLOUD_HSSD：增强型SSD云硬盘</li>
+<li>CLOUD_TSSD：极速型SSD云硬盘</li><br>
+默认取值：当前有库存的硬盘类型。 
+     * @return DiskType 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br>
+<li>LOCAL_BASIC：本地硬盘</li>
+<li>LOCAL_SSD：本地SSD硬盘</li>
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_BSSD：通用型SSD云硬盘</li>
+<li>CLOUD_HSSD：增强型SSD云硬盘</li>
+<li>CLOUD_TSSD：极速型SSD云硬盘</li><br>
+默认取值：当前有库存的硬盘类型。
      */
     public String getDiskType() {
         return this.DiskType;
     }
 
     /**
-     * Set 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_BSSD：通用性SSD云硬盘<br><br>默认取值：当前有库存的硬盘类型。
-     * @param DiskType 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br><li>LOCAL_BASIC：本地硬盘<br><li>LOCAL_SSD：本地SSD硬盘<br><li>CLOUD_BASIC：普通云硬盘<br><li>CLOUD_SSD：SSD云硬盘<br><li>CLOUD_PREMIUM：高性能云硬盘<br><li>CLOUD_BSSD：通用性SSD云硬盘<br><br>默认取值：当前有库存的硬盘类型。
+     * Set 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br>
+<li>LOCAL_BASIC：本地硬盘</li>
+<li>LOCAL_SSD：本地SSD硬盘</li>
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_BSSD：通用型SSD云硬盘</li>
+<li>CLOUD_HSSD：增强型SSD云硬盘</li>
+<li>CLOUD_TSSD：极速型SSD云硬盘</li><br>
+默认取值：当前有库存的硬盘类型。
+     * @param DiskType 系统盘类型。系统盘类型限制详见[存储概述](https://cloud.tencent.com/document/product/213/4952)。取值范围：<br>
+<li>LOCAL_BASIC：本地硬盘</li>
+<li>LOCAL_SSD：本地SSD硬盘</li>
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_BSSD：通用型SSD云硬盘</li>
+<li>CLOUD_HSSD：增强型SSD云硬盘</li>
+<li>CLOUD_TSSD：极速型SSD云硬盘</li><br>
+默认取值：当前有库存的硬盘类型。
      */
     public void setDiskType(String DiskType) {
         this.DiskType = DiskType;
     }
 
     /**
-     * Get 系统盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID。暂时不支持该参数。
+     * Get 系统盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。 
-     * @return DiskId 系统盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID。暂时不支持该参数。
+     * @return DiskId 系统盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
      */
     public String getDiskId() {
@@ -79,9 +131,9 @@ public class SystemDisk extends AbstractModel{
     }
 
     /**
-     * Set 系统盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID。暂时不支持该参数。
+     * Set 系统盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
-     * @param DiskId 系统盘ID。LOCAL_BASIC 和 LOCAL_SSD 类型没有ID。暂时不支持该参数。
+     * @param DiskId 系统盘ID。
 该参数目前仅用于`DescribeInstances`等查询类接口的返回参数，不可用于`RunInstances`等写接口的入参。
      */
     public void setDiskId(String DiskId) {
@@ -89,26 +141,24 @@ public class SystemDisk extends AbstractModel{
     }
 
     /**
-     * Get 系统盘大小，单位：GB。默认值为 50 
-     * @return DiskSize 系统盘大小，单位：GB。默认值为 50
+     * Get 系统盘大小，单位：GiB。默认值为 50 
+     * @return DiskSize 系统盘大小，单位：GiB。默认值为 50
      */
     public Long getDiskSize() {
         return this.DiskSize;
     }
 
     /**
-     * Set 系统盘大小，单位：GB。默认值为 50
-     * @param DiskSize 系统盘大小，单位：GB。默认值为 50
+     * Set 系统盘大小，单位：GiB。默认值为 50
+     * @param DiskSize 系统盘大小，单位：GiB。默认值为 50
      */
     public void setDiskSize(Long DiskSize) {
         this.DiskSize = DiskSize;
     }
 
     /**
-     * Get 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 所属的独享集群ID。 
      * @return CdcId 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCdcId() {
         return this.CdcId;
@@ -116,12 +166,26 @@ public class SystemDisk extends AbstractModel{
 
     /**
      * Set 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CdcId 所属的独享集群ID。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCdcId(String CdcId) {
         this.CdcId = CdcId;
+    }
+
+    /**
+     * Get 磁盘名称，长度不超过128 个字符。 
+     * @return DiskName 磁盘名称，长度不超过128 个字符。
+     */
+    public String getDiskName() {
+        return this.DiskName;
+    }
+
+    /**
+     * Set 磁盘名称，长度不超过128 个字符。
+     * @param DiskName 磁盘名称，长度不超过128 个字符。
+     */
+    public void setDiskName(String DiskName) {
+        this.DiskName = DiskName;
     }
 
     public SystemDisk() {
@@ -144,6 +208,9 @@ public class SystemDisk extends AbstractModel{
         if (source.CdcId != null) {
             this.CdcId = new String(source.CdcId);
         }
+        if (source.DiskName != null) {
+            this.DiskName = new String(source.DiskName);
+        }
     }
 
 
@@ -155,6 +222,7 @@ public class SystemDisk extends AbstractModel{
         this.setParamSimple(map, prefix + "DiskId", this.DiskId);
         this.setParamSimple(map, prefix + "DiskSize", this.DiskSize);
         this.setParamSimple(map, prefix + "CdcId", this.CdcId);
+        this.setParamSimple(map, prefix + "DiskName", this.DiskName);
 
     }
 }

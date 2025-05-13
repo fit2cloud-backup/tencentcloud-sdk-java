@@ -16,11 +16,12 @@
 package com.tencentcloudapi.vpc.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CCN extends AbstractModel{
+public class CCN extends AbstractModel {
 
     /**
     * 云联网唯一ID
@@ -73,7 +74,6 @@ public class CCN extends AbstractModel{
 
     /**
     * 付费类型，PREPAID为预付费，POSTPAID为后付费。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InstanceChargeType")
     @Expose
@@ -81,7 +81,6 @@ public class CCN extends AbstractModel{
 
     /**
     * 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BandwidthLimitType")
     @Expose
@@ -103,7 +102,6 @@ public class CCN extends AbstractModel{
 
     /**
     * 实例关联的路由表个数。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RouteTableCount")
     @Expose
@@ -111,7 +109,6 @@ public class CCN extends AbstractModel{
 
     /**
     * 是否开启云联网多路由表特性。`False`：未开启，`True`：开启。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RouteTableFlag")
     @Expose
@@ -119,7 +116,6 @@ public class CCN extends AbstractModel{
 
     /**
     * `true`：实例已被封禁，流量不通，`false`:解封禁。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("IsSecurityLock")
     @Expose
@@ -127,11 +123,66 @@ public class CCN extends AbstractModel{
 
     /**
     * 是否开启云联网路由传播策略。`False` 未开启，`True` 开启。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RouteBroadcastPolicyFlag")
     @Expose
     private Boolean RouteBroadcastPolicyFlag;
+
+    /**
+    * 是否开启等价路由功能。`False` 未开启，`True` 开启。
+    */
+    @SerializedName("RouteECMPFlag")
+    @Expose
+    private Boolean RouteECMPFlag;
+
+    /**
+    * 是否开启路由重叠功能。`False` 未开启，`True` 开启。
+    */
+    @SerializedName("RouteOverlapFlag")
+    @Expose
+    private Boolean RouteOverlapFlag;
+
+    /**
+    * 是否开启QOS。
+    */
+    @SerializedName("TrafficMarkingPolicyFlag")
+    @Expose
+    private Boolean TrafficMarkingPolicyFlag;
+
+    /**
+    * 是否开启路由表选择策略。
+    */
+    @SerializedName("RouteSelectPolicyFlag")
+    @Expose
+    private Boolean RouteSelectPolicyFlag;
+
+    /**
+    * 是否开启二层云联网通道。
+    */
+    @SerializedName("DirectConnectAccelerateChannelFlag")
+    @Expose
+    private Boolean DirectConnectAccelerateChannelFlag;
+
+    /**
+    * 是否支持ipv6路由表
+    */
+    @SerializedName("Ipv6Flag")
+    @Expose
+    private Boolean Ipv6Flag;
+
+    /**
+    * 是否支持路由表聚合策略
+    */
+    @SerializedName("MrtbAggregatePolicyFlag")
+    @Expose
+    private Boolean MrtbAggregatePolicyFlag;
+
+    /**
+    * 是否支持策略值
+    */
+    @SerializedName("MrtbPolicyValueFlag")
+    @Expose
+    private Boolean MrtbPolicyValueFlag;
 
     /**
      * Get 云联网唯一ID 
@@ -246,10 +297,8 @@ public class CCN extends AbstractModel{
     }
 
     /**
-     * Get 付费类型，PREPAID为预付费，POSTPAID为后付费。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 付费类型，PREPAID为预付费，POSTPAID为后付费。 
      * @return InstanceChargeType 付费类型，PREPAID为预付费，POSTPAID为后付费。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getInstanceChargeType() {
         return this.InstanceChargeType;
@@ -257,19 +306,15 @@ public class CCN extends AbstractModel{
 
     /**
      * Set 付费类型，PREPAID为预付费，POSTPAID为后付费。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InstanceChargeType 付费类型，PREPAID为预付费，POSTPAID为后付费。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInstanceChargeType(String InstanceChargeType) {
         this.InstanceChargeType = InstanceChargeType;
     }
 
     /**
-     * Get 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。 
      * @return BandwidthLimitType 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBandwidthLimitType() {
         return this.BandwidthLimitType;
@@ -277,9 +322,7 @@ public class CCN extends AbstractModel{
 
     /**
      * Set 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BandwidthLimitType 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBandwidthLimitType(String BandwidthLimitType) {
         this.BandwidthLimitType = BandwidthLimitType;
@@ -318,10 +361,8 @@ public class CCN extends AbstractModel{
     }
 
     /**
-     * Get 实例关联的路由表个数。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例关联的路由表个数。 
      * @return RouteTableCount 实例关联的路由表个数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRouteTableCount() {
         return this.RouteTableCount;
@@ -329,19 +370,15 @@ public class CCN extends AbstractModel{
 
     /**
      * Set 实例关联的路由表个数。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RouteTableCount 实例关联的路由表个数。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRouteTableCount(Long RouteTableCount) {
         this.RouteTableCount = RouteTableCount;
     }
 
     /**
-     * Get 是否开启云联网多路由表特性。`False`：未开启，`True`：开启。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启云联网多路由表特性。`False`：未开启，`True`：开启。 
      * @return RouteTableFlag 是否开启云联网多路由表特性。`False`：未开启，`True`：开启。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getRouteTableFlag() {
         return this.RouteTableFlag;
@@ -349,19 +386,15 @@ public class CCN extends AbstractModel{
 
     /**
      * Set 是否开启云联网多路由表特性。`False`：未开启，`True`：开启。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RouteTableFlag 是否开启云联网多路由表特性。`False`：未开启，`True`：开启。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRouteTableFlag(Boolean RouteTableFlag) {
         this.RouteTableFlag = RouteTableFlag;
     }
 
     /**
-     * Get `true`：实例已被封禁，流量不通，`false`:解封禁。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get `true`：实例已被封禁，流量不通，`false`:解封禁。 
      * @return IsSecurityLock `true`：实例已被封禁，流量不通，`false`:解封禁。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getIsSecurityLock() {
         return this.IsSecurityLock;
@@ -369,19 +402,15 @@ public class CCN extends AbstractModel{
 
     /**
      * Set `true`：实例已被封禁，流量不通，`false`:解封禁。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param IsSecurityLock `true`：实例已被封禁，流量不通，`false`:解封禁。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setIsSecurityLock(Boolean IsSecurityLock) {
         this.IsSecurityLock = IsSecurityLock;
     }
 
     /**
-     * Get 是否开启云联网路由传播策略。`False` 未开启，`True` 开启。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 是否开启云联网路由传播策略。`False` 未开启，`True` 开启。 
      * @return RouteBroadcastPolicyFlag 是否开启云联网路由传播策略。`False` 未开启，`True` 开启。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Boolean getRouteBroadcastPolicyFlag() {
         return this.RouteBroadcastPolicyFlag;
@@ -389,12 +418,138 @@ public class CCN extends AbstractModel{
 
     /**
      * Set 是否开启云联网路由传播策略。`False` 未开启，`True` 开启。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RouteBroadcastPolicyFlag 是否开启云联网路由传播策略。`False` 未开启，`True` 开启。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRouteBroadcastPolicyFlag(Boolean RouteBroadcastPolicyFlag) {
         this.RouteBroadcastPolicyFlag = RouteBroadcastPolicyFlag;
+    }
+
+    /**
+     * Get 是否开启等价路由功能。`False` 未开启，`True` 开启。 
+     * @return RouteECMPFlag 是否开启等价路由功能。`False` 未开启，`True` 开启。
+     */
+    public Boolean getRouteECMPFlag() {
+        return this.RouteECMPFlag;
+    }
+
+    /**
+     * Set 是否开启等价路由功能。`False` 未开启，`True` 开启。
+     * @param RouteECMPFlag 是否开启等价路由功能。`False` 未开启，`True` 开启。
+     */
+    public void setRouteECMPFlag(Boolean RouteECMPFlag) {
+        this.RouteECMPFlag = RouteECMPFlag;
+    }
+
+    /**
+     * Get 是否开启路由重叠功能。`False` 未开启，`True` 开启。 
+     * @return RouteOverlapFlag 是否开启路由重叠功能。`False` 未开启，`True` 开启。
+     */
+    public Boolean getRouteOverlapFlag() {
+        return this.RouteOverlapFlag;
+    }
+
+    /**
+     * Set 是否开启路由重叠功能。`False` 未开启，`True` 开启。
+     * @param RouteOverlapFlag 是否开启路由重叠功能。`False` 未开启，`True` 开启。
+     */
+    public void setRouteOverlapFlag(Boolean RouteOverlapFlag) {
+        this.RouteOverlapFlag = RouteOverlapFlag;
+    }
+
+    /**
+     * Get 是否开启QOS。 
+     * @return TrafficMarkingPolicyFlag 是否开启QOS。
+     */
+    public Boolean getTrafficMarkingPolicyFlag() {
+        return this.TrafficMarkingPolicyFlag;
+    }
+
+    /**
+     * Set 是否开启QOS。
+     * @param TrafficMarkingPolicyFlag 是否开启QOS。
+     */
+    public void setTrafficMarkingPolicyFlag(Boolean TrafficMarkingPolicyFlag) {
+        this.TrafficMarkingPolicyFlag = TrafficMarkingPolicyFlag;
+    }
+
+    /**
+     * Get 是否开启路由表选择策略。 
+     * @return RouteSelectPolicyFlag 是否开启路由表选择策略。
+     */
+    public Boolean getRouteSelectPolicyFlag() {
+        return this.RouteSelectPolicyFlag;
+    }
+
+    /**
+     * Set 是否开启路由表选择策略。
+     * @param RouteSelectPolicyFlag 是否开启路由表选择策略。
+     */
+    public void setRouteSelectPolicyFlag(Boolean RouteSelectPolicyFlag) {
+        this.RouteSelectPolicyFlag = RouteSelectPolicyFlag;
+    }
+
+    /**
+     * Get 是否开启二层云联网通道。 
+     * @return DirectConnectAccelerateChannelFlag 是否开启二层云联网通道。
+     */
+    public Boolean getDirectConnectAccelerateChannelFlag() {
+        return this.DirectConnectAccelerateChannelFlag;
+    }
+
+    /**
+     * Set 是否开启二层云联网通道。
+     * @param DirectConnectAccelerateChannelFlag 是否开启二层云联网通道。
+     */
+    public void setDirectConnectAccelerateChannelFlag(Boolean DirectConnectAccelerateChannelFlag) {
+        this.DirectConnectAccelerateChannelFlag = DirectConnectAccelerateChannelFlag;
+    }
+
+    /**
+     * Get 是否支持ipv6路由表 
+     * @return Ipv6Flag 是否支持ipv6路由表
+     */
+    public Boolean getIpv6Flag() {
+        return this.Ipv6Flag;
+    }
+
+    /**
+     * Set 是否支持ipv6路由表
+     * @param Ipv6Flag 是否支持ipv6路由表
+     */
+    public void setIpv6Flag(Boolean Ipv6Flag) {
+        this.Ipv6Flag = Ipv6Flag;
+    }
+
+    /**
+     * Get 是否支持路由表聚合策略 
+     * @return MrtbAggregatePolicyFlag 是否支持路由表聚合策略
+     */
+    public Boolean getMrtbAggregatePolicyFlag() {
+        return this.MrtbAggregatePolicyFlag;
+    }
+
+    /**
+     * Set 是否支持路由表聚合策略
+     * @param MrtbAggregatePolicyFlag 是否支持路由表聚合策略
+     */
+    public void setMrtbAggregatePolicyFlag(Boolean MrtbAggregatePolicyFlag) {
+        this.MrtbAggregatePolicyFlag = MrtbAggregatePolicyFlag;
+    }
+
+    /**
+     * Get 是否支持策略值 
+     * @return MrtbPolicyValueFlag 是否支持策略值
+     */
+    public Boolean getMrtbPolicyValueFlag() {
+        return this.MrtbPolicyValueFlag;
+    }
+
+    /**
+     * Set 是否支持策略值
+     * @param MrtbPolicyValueFlag 是否支持策略值
+     */
+    public void setMrtbPolicyValueFlag(Boolean MrtbPolicyValueFlag) {
+        this.MrtbPolicyValueFlag = MrtbPolicyValueFlag;
     }
 
     public CCN() {
@@ -453,6 +608,30 @@ public class CCN extends AbstractModel{
         if (source.RouteBroadcastPolicyFlag != null) {
             this.RouteBroadcastPolicyFlag = new Boolean(source.RouteBroadcastPolicyFlag);
         }
+        if (source.RouteECMPFlag != null) {
+            this.RouteECMPFlag = new Boolean(source.RouteECMPFlag);
+        }
+        if (source.RouteOverlapFlag != null) {
+            this.RouteOverlapFlag = new Boolean(source.RouteOverlapFlag);
+        }
+        if (source.TrafficMarkingPolicyFlag != null) {
+            this.TrafficMarkingPolicyFlag = new Boolean(source.TrafficMarkingPolicyFlag);
+        }
+        if (source.RouteSelectPolicyFlag != null) {
+            this.RouteSelectPolicyFlag = new Boolean(source.RouteSelectPolicyFlag);
+        }
+        if (source.DirectConnectAccelerateChannelFlag != null) {
+            this.DirectConnectAccelerateChannelFlag = new Boolean(source.DirectConnectAccelerateChannelFlag);
+        }
+        if (source.Ipv6Flag != null) {
+            this.Ipv6Flag = new Boolean(source.Ipv6Flag);
+        }
+        if (source.MrtbAggregatePolicyFlag != null) {
+            this.MrtbAggregatePolicyFlag = new Boolean(source.MrtbAggregatePolicyFlag);
+        }
+        if (source.MrtbPolicyValueFlag != null) {
+            this.MrtbPolicyValueFlag = new Boolean(source.MrtbPolicyValueFlag);
+        }
     }
 
 
@@ -475,6 +654,14 @@ public class CCN extends AbstractModel{
         this.setParamSimple(map, prefix + "RouteTableFlag", this.RouteTableFlag);
         this.setParamSimple(map, prefix + "IsSecurityLock", this.IsSecurityLock);
         this.setParamSimple(map, prefix + "RouteBroadcastPolicyFlag", this.RouteBroadcastPolicyFlag);
+        this.setParamSimple(map, prefix + "RouteECMPFlag", this.RouteECMPFlag);
+        this.setParamSimple(map, prefix + "RouteOverlapFlag", this.RouteOverlapFlag);
+        this.setParamSimple(map, prefix + "TrafficMarkingPolicyFlag", this.TrafficMarkingPolicyFlag);
+        this.setParamSimple(map, prefix + "RouteSelectPolicyFlag", this.RouteSelectPolicyFlag);
+        this.setParamSimple(map, prefix + "DirectConnectAccelerateChannelFlag", this.DirectConnectAccelerateChannelFlag);
+        this.setParamSimple(map, prefix + "Ipv6Flag", this.Ipv6Flag);
+        this.setParamSimple(map, prefix + "MrtbAggregatePolicyFlag", this.MrtbAggregatePolicyFlag);
+        this.setParamSimple(map, prefix + "MrtbPolicyValueFlag", this.MrtbPolicyValueFlag);
 
     }
 }

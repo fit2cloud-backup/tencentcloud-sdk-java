@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tse.v20201207.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeCloudNativeAPIGatewayCanaryRulesRequest extends AbstractModel{
+public class DescribeCloudNativeAPIGatewayCanaryRulesRequest extends AbstractModel {
 
     /**
     * 网关ID
@@ -35,6 +36,13 @@ public class DescribeCloudNativeAPIGatewayCanaryRulesRequest extends AbstractMod
     @SerializedName("ServiceId")
     @Expose
     private String ServiceId;
+
+    /**
+    * 灰度规则类别 Standard｜Lane
+    */
+    @SerializedName("RuleType")
+    @Expose
+    private String RuleType;
 
     /**
     * 列表数量
@@ -83,6 +91,22 @@ public class DescribeCloudNativeAPIGatewayCanaryRulesRequest extends AbstractMod
     }
 
     /**
+     * Get 灰度规则类别 Standard｜Lane 
+     * @return RuleType 灰度规则类别 Standard｜Lane
+     */
+    public String getRuleType() {
+        return this.RuleType;
+    }
+
+    /**
+     * Set 灰度规则类别 Standard｜Lane
+     * @param RuleType 灰度规则类别 Standard｜Lane
+     */
+    public void setRuleType(String RuleType) {
+        this.RuleType = RuleType;
+    }
+
+    /**
      * Get 列表数量 
      * @return Limit 列表数量
      */
@@ -128,6 +152,9 @@ public class DescribeCloudNativeAPIGatewayCanaryRulesRequest extends AbstractMod
         if (source.ServiceId != null) {
             this.ServiceId = new String(source.ServiceId);
         }
+        if (source.RuleType != null) {
+            this.RuleType = new String(source.RuleType);
+        }
         if (source.Limit != null) {
             this.Limit = new Long(source.Limit);
         }
@@ -143,6 +170,7 @@ public class DescribeCloudNativeAPIGatewayCanaryRulesRequest extends AbstractMod
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "GatewayId", this.GatewayId);
         this.setParamSimple(map, prefix + "ServiceId", this.ServiceId);
+        this.setParamSimple(map, prefix + "RuleType", this.RuleType);
         this.setParamSimple(map, prefix + "Limit", this.Limit);
         this.setParamSimple(map, prefix + "Offset", this.Offset);
 

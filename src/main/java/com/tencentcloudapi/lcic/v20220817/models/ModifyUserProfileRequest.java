@@ -16,11 +16,12 @@
 package com.tencentcloudapi.lcic.v20220817.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ModifyUserProfileRequest extends AbstractModel{
+public class ModifyUserProfileRequest extends AbstractModel {
 
     /**
     * 待修改用户ID
@@ -30,7 +31,7 @@ public class ModifyUserProfileRequest extends AbstractModel{
     private String UserId;
 
     /**
-    * 待修改的用户名
+    * 待修改的用户名。对应注册用户下“Name“字段，本次修改是对此内容进行修改。
     */
     @SerializedName("Nickname")
     @Expose
@@ -60,16 +61,16 @@ public class ModifyUserProfileRequest extends AbstractModel{
     }
 
     /**
-     * Get 待修改的用户名 
-     * @return Nickname 待修改的用户名
+     * Get 待修改的用户名。对应注册用户下“Name“字段，本次修改是对此内容进行修改。 
+     * @return Nickname 待修改的用户名。对应注册用户下“Name“字段，本次修改是对此内容进行修改。
      */
     public String getNickname() {
         return this.Nickname;
     }
 
     /**
-     * Set 待修改的用户名
-     * @param Nickname 待修改的用户名
+     * Set 待修改的用户名。对应注册用户下“Name“字段，本次修改是对此内容进行修改。
+     * @param Nickname 待修改的用户名。对应注册用户下“Name“字段，本次修改是对此内容进行修改。
      */
     public void setNickname(String Nickname) {
         this.Nickname = Nickname;

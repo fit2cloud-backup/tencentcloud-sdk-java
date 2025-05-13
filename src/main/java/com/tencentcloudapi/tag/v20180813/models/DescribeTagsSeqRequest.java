@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tag.v20180813.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeTagsSeqRequest extends AbstractModel{
+public class DescribeTagsSeqRequest extends AbstractModel {
 
     /**
     * 标签键,与标签值同时存在或同时不存在，不存在时表示查询该用户所有标签
@@ -65,7 +66,7 @@ public class DescribeTagsSeqRequest extends AbstractModel{
     private String [] TagKeys;
 
     /**
-    * 是否展现项目标签
+    * 是否展现项目标签。1:展示  0:不展示
     */
     @SerializedName("ShowProject")
     @Expose
@@ -168,16 +169,16 @@ public class DescribeTagsSeqRequest extends AbstractModel{
     }
 
     /**
-     * Get 是否展现项目标签 
-     * @return ShowProject 是否展现项目标签
+     * Get 是否展现项目标签。1:展示  0:不展示 
+     * @return ShowProject 是否展现项目标签。1:展示  0:不展示
      */
     public Long getShowProject() {
         return this.ShowProject;
     }
 
     /**
-     * Set 是否展现项目标签
-     * @param ShowProject 是否展现项目标签
+     * Set 是否展现项目标签。1:展示  0:不展示
+     * @param ShowProject 是否展现项目标签。1:展示  0:不展示
      */
     public void setShowProject(Long ShowProject) {
         this.ShowProject = ShowProject;

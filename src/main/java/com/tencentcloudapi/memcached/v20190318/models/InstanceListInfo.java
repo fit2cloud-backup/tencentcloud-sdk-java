@@ -16,11 +16,12 @@
 package com.tencentcloudapi.memcached.v20190318.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class InstanceListInfo extends AbstractModel{
+public class InstanceListInfo extends AbstractModel {
 
     /**
     * 实例修改时间
@@ -66,7 +67,6 @@ public class InstanceListInfo extends AbstractModel{
 
     /**
     * 实例关联的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Tags")
     @Expose
@@ -80,7 +80,7 @@ public class InstanceListInfo extends AbstractModel{
     private String InstanceId;
 
     /**
-    * 地域id 1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
+    * 地域id。1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 22--美东（弗吉尼亚）23--泰国   25--日本
     */
     @SerializedName("RegionId")
     @Expose
@@ -288,10 +288,8 @@ public class InstanceListInfo extends AbstractModel{
     }
 
     /**
-     * Get 实例关联的标签信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 实例关联的标签信息 
      * @return Tags 实例关联的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TagInfo [] getTags() {
         return this.Tags;
@@ -299,9 +297,7 @@ public class InstanceListInfo extends AbstractModel{
 
     /**
      * Set 实例关联的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Tags 实例关联的标签信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTags(TagInfo [] Tags) {
         this.Tags = Tags;
@@ -324,16 +320,16 @@ public class InstanceListInfo extends AbstractModel{
     }
 
     /**
-     * Get 地域id 1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本 
-     * @return RegionId 地域id 1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
+     * Get 地域id。1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 22--美东（弗吉尼亚）23--泰国   25--日本 
+     * @return RegionId 地域id。1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 22--美东（弗吉尼亚）23--泰国   25--日本
      */
     public Long getRegionId() {
         return this.RegionId;
     }
 
     /**
-     * Set 地域id 1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
-     * @param RegionId 地域id 1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 21--印度 22--美东（弗吉尼亚）23--泰国 24--俄罗斯 25--日本
+     * Set 地域id。1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 22--美东（弗吉尼亚）23--泰国   25--日本
+     * @param RegionId 地域id。1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷）16--成都 17--德国 18--韩国 19--重庆 22--美东（弗吉尼亚）23--泰国   25--日本
      */
     public void setRegionId(Long RegionId) {
         this.RegionId = RegionId;

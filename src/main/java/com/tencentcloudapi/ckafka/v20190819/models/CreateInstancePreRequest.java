@@ -16,21 +16,22 @@
 package com.tencentcloudapi.ckafka.v20190819.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInstancePreRequest extends AbstractModel{
+public class CreateInstancePreRequest extends AbstractModel {
 
     /**
-    * 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+    * ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
     */
     @SerializedName("InstanceName")
     @Expose
     private String InstanceName;
 
     /**
-    * 可用区。当购买多可用区实例时，当前参数为主可用区。需要保证传入的参数和 SubnetId 所在子网属于同一个可用区
+    * 可用区。当购买多可用区实例时，当前参数为主可用区。  [查看可用区](https://cloud.tencent.com/document/product/597/55246)
     */
     @SerializedName("ZoneId")
     @Expose
@@ -51,7 +52,7 @@ public class CreateInstancePreRequest extends AbstractModel{
     private Long InstanceType;
 
     /**
-    * vpcId，必填
+    * 私有网络Id，必填
     */
     @SerializedName("VpcId")
     @Expose
@@ -86,14 +87,14 @@ public class CreateInstancePreRequest extends AbstractModel{
     private Long RenewFlag;
 
     /**
-    * CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
+    * CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1、3.2.3], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
     */
     @SerializedName("KafkaVersion")
     @Expose
     private String KafkaVersion;
 
     /**
-    * 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession"
+    * 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession",[高级版实例]填写"premium"
     */
     @SerializedName("SpecificationsType")
     @Expose
@@ -107,7 +108,7 @@ public class CreateInstancePreRequest extends AbstractModel{
     private Long DiskSize;
 
     /**
-    * 带宽，如果跟控制台规格配比不相符，则无法创建成功
+    * 实例带宽,单位MB/s; 最小值:20MB/s, 高级版最大值:360MB/s,专业版最大值:100000MB/s  标准版固定带宽规格: 40MB/s, 100MB/s, 150MB/s
     */
     @SerializedName("BandWidth")
     @Expose
@@ -128,7 +129,7 @@ public class CreateInstancePreRequest extends AbstractModel{
     private Tag [] Tags;
 
     /**
-    * 专业版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
+    * 专业版/高级版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
     */
     @SerializedName("DiskType")
     @Expose
@@ -163,32 +164,46 @@ public class CreateInstancePreRequest extends AbstractModel{
     private Long InstanceNum;
 
     /**
-     * Get 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-) 
-     * @return InstanceName 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+    * 是否自动选择代金券:1-是;0否。默认为0
+    */
+    @SerializedName("AutoVoucher")
+    @Expose
+    private Long AutoVoucher;
+
+    /**
+    * 弹性带宽开关 0不开启  1开启（0默认）
+    */
+    @SerializedName("ElasticBandwidthSwitch")
+    @Expose
+    private Long ElasticBandwidthSwitch;
+
+    /**
+     * Get ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-) 
+     * @return InstanceName ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
      */
     public String getInstanceName() {
         return this.InstanceName;
     }
 
     /**
-     * Set 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
-     * @param InstanceName 实例名称，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+     * Set ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
+     * @param InstanceName ckafka集群实例Name，是一个不超过 64 个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)
      */
     public void setInstanceName(String InstanceName) {
         this.InstanceName = InstanceName;
     }
 
     /**
-     * Get 可用区。当购买多可用区实例时，当前参数为主可用区。需要保证传入的参数和 SubnetId 所在子网属于同一个可用区 
-     * @return ZoneId 可用区。当购买多可用区实例时，当前参数为主可用区。需要保证传入的参数和 SubnetId 所在子网属于同一个可用区
+     * Get 可用区。当购买多可用区实例时，当前参数为主可用区。  [查看可用区](https://cloud.tencent.com/document/product/597/55246) 
+     * @return ZoneId 可用区。当购买多可用区实例时，当前参数为主可用区。  [查看可用区](https://cloud.tencent.com/document/product/597/55246)
      */
     public Long getZoneId() {
         return this.ZoneId;
     }
 
     /**
-     * Set 可用区。当购买多可用区实例时，当前参数为主可用区。需要保证传入的参数和 SubnetId 所在子网属于同一个可用区
-     * @param ZoneId 可用区。当购买多可用区实例时，当前参数为主可用区。需要保证传入的参数和 SubnetId 所在子网属于同一个可用区
+     * Set 可用区。当购买多可用区实例时，当前参数为主可用区。  [查看可用区](https://cloud.tencent.com/document/product/597/55246)
+     * @param ZoneId 可用区。当购买多可用区实例时，当前参数为主可用区。  [查看可用区](https://cloud.tencent.com/document/product/597/55246)
      */
     public void setZoneId(Long ZoneId) {
         this.ZoneId = ZoneId;
@@ -227,16 +242,16 @@ public class CreateInstancePreRequest extends AbstractModel{
     }
 
     /**
-     * Get vpcId，必填 
-     * @return VpcId vpcId，必填
+     * Get 私有网络Id，必填 
+     * @return VpcId 私有网络Id，必填
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set vpcId，必填
-     * @param VpcId vpcId，必填
+     * Set 私有网络Id，必填
+     * @param VpcId 私有网络Id，必填
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
@@ -307,32 +322,32 @@ public class CreateInstancePreRequest extends AbstractModel{
     }
 
     /**
-     * Get CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。 
-     * @return KafkaVersion CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
+     * Get CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1、3.2.3], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。 
+     * @return KafkaVersion CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1、3.2.3], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
      */
     public String getKafkaVersion() {
         return this.KafkaVersion;
     }
 
     /**
-     * Set CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
-     * @param KafkaVersion CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
+     * Set CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1、3.2.3], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
+     * @param KafkaVersion CKafka版本号[0.10.2、1.1.1、2.4.1、2.4.2、2.8.1、3.2.3], 默认是1.1.1。2.4.1 与 2.4.2 属于同一个版本，传任意一个均可。
      */
     public void setKafkaVersion(String KafkaVersion) {
         this.KafkaVersion = KafkaVersion;
     }
 
     /**
-     * Get 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession" 
-     * @return SpecificationsType 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession"
+     * Get 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession",[高级版实例]填写"premium" 
+     * @return SpecificationsType 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession",[高级版实例]填写"premium"
      */
     public String getSpecificationsType() {
         return this.SpecificationsType;
     }
 
     /**
-     * Set 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession"
-     * @param SpecificationsType 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession"
+     * Set 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession",[高级版实例]填写"premium"
+     * @param SpecificationsType 实例类型: [标准版实例]填写 "standard" (默认), [专业版实例]填写 "profession",[高级版实例]填写"premium"
      */
     public void setSpecificationsType(String SpecificationsType) {
         this.SpecificationsType = SpecificationsType;
@@ -355,16 +370,16 @@ public class CreateInstancePreRequest extends AbstractModel{
     }
 
     /**
-     * Get 带宽，如果跟控制台规格配比不相符，则无法创建成功 
-     * @return BandWidth 带宽，如果跟控制台规格配比不相符，则无法创建成功
+     * Get 实例带宽,单位MB/s; 最小值:20MB/s, 高级版最大值:360MB/s,专业版最大值:100000MB/s  标准版固定带宽规格: 40MB/s, 100MB/s, 150MB/s 
+     * @return BandWidth 实例带宽,单位MB/s; 最小值:20MB/s, 高级版最大值:360MB/s,专业版最大值:100000MB/s  标准版固定带宽规格: 40MB/s, 100MB/s, 150MB/s
      */
     public Long getBandWidth() {
         return this.BandWidth;
     }
 
     /**
-     * Set 带宽，如果跟控制台规格配比不相符，则无法创建成功
-     * @param BandWidth 带宽，如果跟控制台规格配比不相符，则无法创建成功
+     * Set 实例带宽,单位MB/s; 最小值:20MB/s, 高级版最大值:360MB/s,专业版最大值:100000MB/s  标准版固定带宽规格: 40MB/s, 100MB/s, 150MB/s
+     * @param BandWidth 实例带宽,单位MB/s; 最小值:20MB/s, 高级版最大值:360MB/s,专业版最大值:100000MB/s  标准版固定带宽规格: 40MB/s, 100MB/s, 150MB/s
      */
     public void setBandWidth(Long BandWidth) {
         this.BandWidth = BandWidth;
@@ -403,16 +418,16 @@ public class CreateInstancePreRequest extends AbstractModel{
     }
 
     /**
-     * Get 专业版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC" 
-     * @return DiskType 专业版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
+     * Get 专业版/高级版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC" 
+     * @return DiskType 专业版/高级版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
      */
     public String getDiskType() {
         return this.DiskType;
     }
 
     /**
-     * Set 专业版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
-     * @param DiskType 专业版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
+     * Set 专业版/高级版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
+     * @param DiskType 专业版/高级版实例磁盘类型，标准版实例不需要填写。"CLOUD_SSD"：SSD云硬盘；"CLOUD_BASIC"：高性能云硬盘。不传默认为 "CLOUD_BASIC"
      */
     public void setDiskType(String DiskType) {
         this.DiskType = DiskType;
@@ -480,6 +495,38 @@ public class CreateInstancePreRequest extends AbstractModel{
      */
     public void setInstanceNum(Long InstanceNum) {
         this.InstanceNum = InstanceNum;
+    }
+
+    /**
+     * Get 是否自动选择代金券:1-是;0否。默认为0 
+     * @return AutoVoucher 是否自动选择代金券:1-是;0否。默认为0
+     */
+    public Long getAutoVoucher() {
+        return this.AutoVoucher;
+    }
+
+    /**
+     * Set 是否自动选择代金券:1-是;0否。默认为0
+     * @param AutoVoucher 是否自动选择代金券:1-是;0否。默认为0
+     */
+    public void setAutoVoucher(Long AutoVoucher) {
+        this.AutoVoucher = AutoVoucher;
+    }
+
+    /**
+     * Get 弹性带宽开关 0不开启  1开启（0默认） 
+     * @return ElasticBandwidthSwitch 弹性带宽开关 0不开启  1开启（0默认）
+     */
+    public Long getElasticBandwidthSwitch() {
+        return this.ElasticBandwidthSwitch;
+    }
+
+    /**
+     * Set 弹性带宽开关 0不开启  1开启（0默认）
+     * @param ElasticBandwidthSwitch 弹性带宽开关 0不开启  1开启（0默认）
+     */
+    public void setElasticBandwidthSwitch(Long ElasticBandwidthSwitch) {
+        this.ElasticBandwidthSwitch = ElasticBandwidthSwitch;
     }
 
     public CreateInstancePreRequest() {
@@ -556,6 +603,12 @@ public class CreateInstancePreRequest extends AbstractModel{
         if (source.InstanceNum != null) {
             this.InstanceNum = new Long(source.InstanceNum);
         }
+        if (source.AutoVoucher != null) {
+            this.AutoVoucher = new Long(source.AutoVoucher);
+        }
+        if (source.ElasticBandwidthSwitch != null) {
+            this.ElasticBandwidthSwitch = new Long(source.ElasticBandwidthSwitch);
+        }
     }
 
 
@@ -583,6 +636,8 @@ public class CreateInstancePreRequest extends AbstractModel{
         this.setParamArraySimple(map, prefix + "ZoneIds.", this.ZoneIds);
         this.setParamSimple(map, prefix + "PublicNetworkMonthly", this.PublicNetworkMonthly);
         this.setParamSimple(map, prefix + "InstanceNum", this.InstanceNum);
+        this.setParamSimple(map, prefix + "AutoVoucher", this.AutoVoucher);
+        this.setParamSimple(map, prefix + "ElasticBandwidthSwitch", this.ElasticBandwidthSwitch);
 
     }
 }

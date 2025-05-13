@@ -16,23 +16,22 @@
 package com.tencentcloudapi.dts.v20211206.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CompareOptions extends AbstractModel{
+public class CompareOptions extends AbstractModel {
 
     /**
-    * 对比类型：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比)
-注意：此字段可能返回 null，表示取不到有效值。
+    * 对比方式：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比), 默认为dataCheck
     */
     @SerializedName("Method")
     @Expose
     private String Method;
 
     /**
-    * 抽样比例;范围0,100
-注意：此字段可能返回 null，表示取不到有效值。
+    * 抽样比例;范围0,100。默认为100
     */
     @SerializedName("SampleRate")
     @Expose
@@ -40,57 +39,46 @@ public class CompareOptions extends AbstractModel{
 
     /**
     * 线程数，取值1-5，默认为1
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ThreadCount")
     @Expose
     private Long ThreadCount;
 
     /**
-     * Get 对比类型：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比)
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Method 对比类型：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比)
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 对比方式：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比), 默认为dataCheck 
+     * @return Method 对比方式：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比), 默认为dataCheck
      */
     public String getMethod() {
         return this.Method;
     }
 
     /**
-     * Set 对比类型：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比)
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Method 对比类型：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比)
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 对比方式：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比), 默认为dataCheck
+     * @param Method 对比方式：dataCheck(完整数据对比)、sampleDataCheck(抽样数据对比)、rowsCount(行数对比), 默认为dataCheck
      */
     public void setMethod(String Method) {
         this.Method = Method;
     }
 
     /**
-     * Get 抽样比例;范围0,100
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return SampleRate 抽样比例;范围0,100
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 抽样比例;范围0,100。默认为100 
+     * @return SampleRate 抽样比例;范围0,100。默认为100
      */
     public Long getSampleRate() {
         return this.SampleRate;
     }
 
     /**
-     * Set 抽样比例;范围0,100
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param SampleRate 抽样比例;范围0,100
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 抽样比例;范围0,100。默认为100
+     * @param SampleRate 抽样比例;范围0,100。默认为100
      */
     public void setSampleRate(Long SampleRate) {
         this.SampleRate = SampleRate;
     }
 
     /**
-     * Get 线程数，取值1-5，默认为1
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 线程数，取值1-5，默认为1 
      * @return ThreadCount 线程数，取值1-5，默认为1
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getThreadCount() {
         return this.ThreadCount;
@@ -98,9 +86,7 @@ public class CompareOptions extends AbstractModel{
 
     /**
      * Set 线程数，取值1-5，默认为1
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ThreadCount 线程数，取值1-5，默认为1
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setThreadCount(Long ThreadCount) {
         this.ThreadCount = ThreadCount;

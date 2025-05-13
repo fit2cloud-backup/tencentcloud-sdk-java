@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SuspendIntegrationTaskRequest extends AbstractModel{
+public class SuspendIntegrationTaskRequest extends AbstractModel {
 
     /**
     * 任务id
@@ -35,6 +36,13 @@ public class SuspendIntegrationTaskRequest extends AbstractModel{
     @SerializedName("ProjectId")
     @Expose
     private String ProjectId;
+
+    /**
+    * 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+    */
+    @SerializedName("Event")
+    @Expose
+    private String Event;
 
     /**
      * Get 任务id 
@@ -68,6 +76,22 @@ public class SuspendIntegrationTaskRequest extends AbstractModel{
         this.ProjectId = ProjectId;
     }
 
+    /**
+     * Get 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	 
+     * @return Event 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+     */
+    public String getEvent() {
+        return this.Event;
+    }
+
+    /**
+     * Set 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+     * @param Event 事件类型(START, STOP, SUSPEND, SUSPEND_WITHOUT_SP,RESUME, COMMIT, TIMESTAMP)	
+     */
+    public void setEvent(String Event) {
+        this.Event = Event;
+    }
+
     public SuspendIntegrationTaskRequest() {
     }
 
@@ -82,6 +106,9 @@ public class SuspendIntegrationTaskRequest extends AbstractModel{
         if (source.ProjectId != null) {
             this.ProjectId = new String(source.ProjectId);
         }
+        if (source.Event != null) {
+            this.Event = new String(source.Event);
+        }
     }
 
 
@@ -91,6 +118,7 @@ public class SuspendIntegrationTaskRequest extends AbstractModel{
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "TaskId", this.TaskId);
         this.setParamSimple(map, prefix + "ProjectId", this.ProjectId);
+        this.setParamSimple(map, prefix + "Event", this.Event);
 
     }
 }

@@ -16,160 +16,151 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeFlowDetailInfoResponse extends AbstractModel{
+public class DescribeFlowDetailInfoResponse extends AbstractModel {
 
     /**
-    * 第三方平台应用号Id
+    * 合同归属的第三方平台应用号ID
     */
     @SerializedName("ApplicationId")
     @Expose
     private String ApplicationId;
 
     /**
-    * 第三方平台子客企业OpenId
+    * 合同归属的第三方平台子客企业OpenId
     */
     @SerializedName("ProxyOrganizationOpenId")
     @Expose
     private String ProxyOrganizationOpenId;
 
     /**
-    * 合同(签署流程)的具体详细描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。
     */
     @SerializedName("FlowInfo")
     @Expose
     private FlowDetailInfo [] FlowInfo;
 
     /**
-    * 合同组编号
-注意：此字段可能返回 null，表示取不到有效值。
+    * 合同组ID，只有在查询合同组信息时才会返回。
     */
     @SerializedName("FlowGroupId")
     @Expose
     private String FlowGroupId;
 
     /**
-    * 合同组名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 合同组名称，只有在查询合同组信息时才会返回。
     */
     @SerializedName("FlowGroupName")
     @Expose
     private String FlowGroupName;
 
     /**
-    * 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+    * 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
     */
     @SerializedName("RequestId")
     @Expose
     private String RequestId;
 
     /**
-     * Get 第三方平台应用号Id 
-     * @return ApplicationId 第三方平台应用号Id
+     * Get 合同归属的第三方平台应用号ID 
+     * @return ApplicationId 合同归属的第三方平台应用号ID
      */
     public String getApplicationId() {
         return this.ApplicationId;
     }
 
     /**
-     * Set 第三方平台应用号Id
-     * @param ApplicationId 第三方平台应用号Id
+     * Set 合同归属的第三方平台应用号ID
+     * @param ApplicationId 合同归属的第三方平台应用号ID
      */
     public void setApplicationId(String ApplicationId) {
         this.ApplicationId = ApplicationId;
     }
 
     /**
-     * Get 第三方平台子客企业OpenId 
-     * @return ProxyOrganizationOpenId 第三方平台子客企业OpenId
+     * Get 合同归属的第三方平台子客企业OpenId 
+     * @return ProxyOrganizationOpenId 合同归属的第三方平台子客企业OpenId
      */
     public String getProxyOrganizationOpenId() {
         return this.ProxyOrganizationOpenId;
     }
 
     /**
-     * Set 第三方平台子客企业OpenId
-     * @param ProxyOrganizationOpenId 第三方平台子客企业OpenId
+     * Set 合同归属的第三方平台子客企业OpenId
+     * @param ProxyOrganizationOpenId 合同归属的第三方平台子客企业OpenId
      */
     public void setProxyOrganizationOpenId(String ProxyOrganizationOpenId) {
         this.ProxyOrganizationOpenId = ProxyOrganizationOpenId;
     }
 
     /**
-     * Get 合同(签署流程)的具体详细描述信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FlowInfo 合同(签署流程)的具体详细描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。 
+     * @return FlowInfo 合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。
      */
     public FlowDetailInfo [] getFlowInfo() {
         return this.FlowInfo;
     }
 
     /**
-     * Set 合同(签署流程)的具体详细描述信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param FlowInfo 合同(签署流程)的具体详细描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。
+     * @param FlowInfo 合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。
      */
     public void setFlowInfo(FlowDetailInfo [] FlowInfo) {
         this.FlowInfo = FlowInfo;
     }
 
     /**
-     * Get 合同组编号
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FlowGroupId 合同组编号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 合同组ID，只有在查询合同组信息时才会返回。 
+     * @return FlowGroupId 合同组ID，只有在查询合同组信息时才会返回。
      */
     public String getFlowGroupId() {
         return this.FlowGroupId;
     }
 
     /**
-     * Set 合同组编号
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param FlowGroupId 合同组编号
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 合同组ID，只有在查询合同组信息时才会返回。
+     * @param FlowGroupId 合同组ID，只有在查询合同组信息时才会返回。
      */
     public void setFlowGroupId(String FlowGroupId) {
         this.FlowGroupId = FlowGroupId;
     }
 
     /**
-     * Get 合同组名称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return FlowGroupName 合同组名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 合同组名称，只有在查询合同组信息时才会返回。 
+     * @return FlowGroupName 合同组名称，只有在查询合同组信息时才会返回。
      */
     public String getFlowGroupName() {
         return this.FlowGroupName;
     }
 
     /**
-     * Set 合同组名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param FlowGroupName 合同组名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 合同组名称，只有在查询合同组信息时才会返回。
+     * @param FlowGroupName 合同组名称，只有在查询合同组信息时才会返回。
      */
     public void setFlowGroupName(String FlowGroupName) {
         this.FlowGroupName = FlowGroupName;
     }
 
     /**
-     * Get 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 
-     * @return RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Get 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。 
+     * @return RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public String getRequestId() {
         return this.RequestId;
     }
 
     /**
-     * Set 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-     * @param RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * Set 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
+     * @param RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public void setRequestId(String RequestId) {
         this.RequestId = RequestId;

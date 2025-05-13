@@ -16,63 +16,54 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class StaffRole extends AbstractModel{
+public class StaffRole extends AbstractModel {
 
     /**
-    * 角色id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 角色ID。
     */
     @SerializedName("RoleId")
     @Expose
     private String RoleId;
 
     /**
-    * 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
+    * 角色名称。
     */
     @SerializedName("RoleName")
     @Expose
     private String RoleName;
 
     /**
-     * Get 角色id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RoleId 角色id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 角色ID。 
+     * @return RoleId 角色ID。
      */
     public String getRoleId() {
         return this.RoleId;
     }
 
     /**
-     * Set 角色id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RoleId 角色id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 角色ID。
+     * @param RoleId 角色ID。
      */
     public void setRoleId(String RoleId) {
         this.RoleId = RoleId;
     }
 
     /**
-     * Get 角色名称
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RoleName 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 角色名称。 
+     * @return RoleName 角色名称。
      */
     public String getRoleName() {
         return this.RoleName;
     }
 
     /**
-     * Set 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RoleName 角色名称
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 角色名称。
+     * @param RoleName 角色名称。
      */
     public void setRoleName(String RoleName) {
         this.RoleName = RoleName;

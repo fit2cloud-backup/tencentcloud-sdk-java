@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cloudaudit.v20190319.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateAuditTrackRequest extends AbstractModel{
+public class CreateAuditTrackRequest extends AbstractModel {
 
     /**
     * 跟踪集名称，仅支持大小写字母、数字、-以及_的组合，3-48个字符
@@ -28,6 +29,20 @@ public class CreateAuditTrackRequest extends AbstractModel{
     @SerializedName("Name")
     @Expose
     private String Name;
+
+    /**
+    * 跟踪集状态（未开启：0；开启：1）
+    */
+    @SerializedName("Status")
+    @Expose
+    private Long Status;
+
+    /**
+    * 数据投递存储（目前支持 cos、cls）
+    */
+    @SerializedName("Storage")
+    @Expose
+    private Storage Storage;
 
     /**
     * 跟踪事件类型（读：Read；写：Write；全部：*）
@@ -44,13 +59,6 @@ public class CreateAuditTrackRequest extends AbstractModel{
     private String ResourceType;
 
     /**
-    * 跟踪集状态（未开启：0；开启：1）
-    */
-    @SerializedName("Status")
-    @Expose
-    private Long Status;
-
-    /**
     * 跟踪事件接口名列表（ResourceType为 * 时，EventNames必须为全部：["*"]；指定ResourceType时，支持全部接口：["*"]；支持部分接口：["cos", "cls"]，接口列表上限10个）
     */
     @SerializedName("EventNames")
@@ -58,14 +66,7 @@ public class CreateAuditTrackRequest extends AbstractModel{
     private String [] EventNames;
 
     /**
-    * 数据投递存储（目前支持 cos、cls）
-    */
-    @SerializedName("Storage")
-    @Expose
-    private Storage Storage;
-
-    /**
-    * 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能)
+    * 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能) 
     */
     @SerializedName("TrackForAllMembers")
     @Expose
@@ -85,6 +86,38 @@ public class CreateAuditTrackRequest extends AbstractModel{
      */
     public void setName(String Name) {
         this.Name = Name;
+    }
+
+    /**
+     * Get 跟踪集状态（未开启：0；开启：1） 
+     * @return Status 跟踪集状态（未开启：0；开启：1）
+     */
+    public Long getStatus() {
+        return this.Status;
+    }
+
+    /**
+     * Set 跟踪集状态（未开启：0；开启：1）
+     * @param Status 跟踪集状态（未开启：0；开启：1）
+     */
+    public void setStatus(Long Status) {
+        this.Status = Status;
+    }
+
+    /**
+     * Get 数据投递存储（目前支持 cos、cls） 
+     * @return Storage 数据投递存储（目前支持 cos、cls）
+     */
+    public Storage getStorage() {
+        return this.Storage;
+    }
+
+    /**
+     * Set 数据投递存储（目前支持 cos、cls）
+     * @param Storage 数据投递存储（目前支持 cos、cls）
+     */
+    public void setStorage(Storage Storage) {
+        this.Storage = Storage;
     }
 
     /**
@@ -120,22 +153,6 @@ public class CreateAuditTrackRequest extends AbstractModel{
     }
 
     /**
-     * Get 跟踪集状态（未开启：0；开启：1） 
-     * @return Status 跟踪集状态（未开启：0；开启：1）
-     */
-    public Long getStatus() {
-        return this.Status;
-    }
-
-    /**
-     * Set 跟踪集状态（未开启：0；开启：1）
-     * @param Status 跟踪集状态（未开启：0；开启：1）
-     */
-    public void setStatus(Long Status) {
-        this.Status = Status;
-    }
-
-    /**
      * Get 跟踪事件接口名列表（ResourceType为 * 时，EventNames必须为全部：["*"]；指定ResourceType时，支持全部接口：["*"]；支持部分接口：["cos", "cls"]，接口列表上限10个） 
      * @return EventNames 跟踪事件接口名列表（ResourceType为 * 时，EventNames必须为全部：["*"]；指定ResourceType时，支持全部接口：["*"]；支持部分接口：["cos", "cls"]，接口列表上限10个）
      */
@@ -152,32 +169,16 @@ public class CreateAuditTrackRequest extends AbstractModel{
     }
 
     /**
-     * Get 数据投递存储（目前支持 cos、cls） 
-     * @return Storage 数据投递存储（目前支持 cos、cls）
-     */
-    public Storage getStorage() {
-        return this.Storage;
-    }
-
-    /**
-     * Set 数据投递存储（目前支持 cos、cls）
-     * @param Storage 数据投递存储（目前支持 cos、cls）
-     */
-    public void setStorage(Storage Storage) {
-        this.Storage = Storage;
-    }
-
-    /**
-     * Get 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能) 
-     * @return TrackForAllMembers 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能)
+     * Get 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能)  
+     * @return TrackForAllMembers 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能) 
      */
     public Long getTrackForAllMembers() {
         return this.TrackForAllMembers;
     }
 
     /**
-     * Set 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能)
-     * @param TrackForAllMembers 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能)
+     * Set 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能) 
+     * @param TrackForAllMembers 是否开启将集团成员操作日志投递到集团管理账号或者可信服务管理账号(0：未开启，1：开启，只能集团管理账号或者可信服务管理账号开启此项功能) 
      */
     public void setTrackForAllMembers(Long TrackForAllMembers) {
         this.TrackForAllMembers = TrackForAllMembers;
@@ -194,23 +195,23 @@ public class CreateAuditTrackRequest extends AbstractModel{
         if (source.Name != null) {
             this.Name = new String(source.Name);
         }
+        if (source.Status != null) {
+            this.Status = new Long(source.Status);
+        }
+        if (source.Storage != null) {
+            this.Storage = new Storage(source.Storage);
+        }
         if (source.ActionType != null) {
             this.ActionType = new String(source.ActionType);
         }
         if (source.ResourceType != null) {
             this.ResourceType = new String(source.ResourceType);
         }
-        if (source.Status != null) {
-            this.Status = new Long(source.Status);
-        }
         if (source.EventNames != null) {
             this.EventNames = new String[source.EventNames.length];
             for (int i = 0; i < source.EventNames.length; i++) {
                 this.EventNames[i] = new String(source.EventNames[i]);
             }
-        }
-        if (source.Storage != null) {
-            this.Storage = new Storage(source.Storage);
         }
         if (source.TrackForAllMembers != null) {
             this.TrackForAllMembers = new Long(source.TrackForAllMembers);
@@ -223,11 +224,11 @@ public class CreateAuditTrackRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Name", this.Name);
+        this.setParamSimple(map, prefix + "Status", this.Status);
+        this.setParamObj(map, prefix + "Storage.", this.Storage);
         this.setParamSimple(map, prefix + "ActionType", this.ActionType);
         this.setParamSimple(map, prefix + "ResourceType", this.ResourceType);
-        this.setParamSimple(map, prefix + "Status", this.Status);
         this.setParamArraySimple(map, prefix + "EventNames.", this.EventNames);
-        this.setParamObj(map, prefix + "Storage.", this.Storage);
         this.setParamSimple(map, prefix + "TrackForAllMembers", this.TrackForAllMembers);
 
     }

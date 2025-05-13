@@ -16,11 +16,12 @@
 package com.tencentcloudapi.clb.v20180317.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class Resource extends AbstractModel{
+public class Resource extends AbstractModel {
 
     /**
     * 运营商内具体资源信息，如"CMCC", "CUCC", "CTCC", "BGP", "INTERNAL"。
@@ -38,7 +39,6 @@ public class Resource extends AbstractModel{
 
     /**
     * 可用资源。
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AvailabilitySet")
     @Expose
@@ -46,7 +46,6 @@ public class Resource extends AbstractModel{
 
     /**
     * 运营商类型信息
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("TypeSet")
     @Expose
@@ -85,10 +84,8 @@ public class Resource extends AbstractModel{
     }
 
     /**
-     * Get 可用资源。
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 可用资源。 
      * @return AvailabilitySet 可用资源。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public ResourceAvailability [] getAvailabilitySet() {
         return this.AvailabilitySet;
@@ -96,19 +93,15 @@ public class Resource extends AbstractModel{
 
     /**
      * Set 可用资源。
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AvailabilitySet 可用资源。
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAvailabilitySet(ResourceAvailability [] AvailabilitySet) {
         this.AvailabilitySet = AvailabilitySet;
     }
 
     /**
-     * Get 运营商类型信息
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 运营商类型信息 
      * @return TypeSet 运营商类型信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public TypeInfo [] getTypeSet() {
         return this.TypeSet;
@@ -116,9 +109,7 @@ public class Resource extends AbstractModel{
 
     /**
      * Set 运营商类型信息
-注意：此字段可能返回 null，表示取不到有效值。
      * @param TypeSet 运营商类型信息
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setTypeSet(TypeInfo [] TypeSet) {
         this.TypeSet = TypeSet;

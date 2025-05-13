@@ -16,11 +16,12 @@
 package com.tencentcloudapi.antiddos.v20200309.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateBoundIPRequest extends AbstractModel{
+public class CreateBoundIPRequest extends AbstractModel {
 
     /**
     * DDoS防护子产品代号（bgp表示独享包；bgp-multip表示共享包）
@@ -58,7 +59,7 @@ public class CreateBoundIPRequest extends AbstractModel{
     private String CopyPolicy;
 
     /**
-    * 如果该资源实例为域名化资产则，该参数必填
+    * 如果该资源实例为域名化资产以及跨地域绑定则，该参数必填
     */
     @SerializedName("FilterRegion")
     @Expose
@@ -145,16 +146,16 @@ public class CreateBoundIPRequest extends AbstractModel{
     }
 
     /**
-     * Get 如果该资源实例为域名化资产则，该参数必填 
-     * @return FilterRegion 如果该资源实例为域名化资产则，该参数必填
+     * Get 如果该资源实例为域名化资产以及跨地域绑定则，该参数必填 
+     * @return FilterRegion 如果该资源实例为域名化资产以及跨地域绑定则，该参数必填
      */
     public String getFilterRegion() {
         return this.FilterRegion;
     }
 
     /**
-     * Set 如果该资源实例为域名化资产则，该参数必填
-     * @param FilterRegion 如果该资源实例为域名化资产则，该参数必填
+     * Set 如果该资源实例为域名化资产以及跨地域绑定则，该参数必填
+     * @param FilterRegion 如果该资源实例为域名化资产以及跨地域绑定则，该参数必填
      */
     public void setFilterRegion(String FilterRegion) {
         this.FilterRegion = FilterRegion;

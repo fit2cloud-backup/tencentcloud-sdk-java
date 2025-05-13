@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeAgentInstallCommandRequest extends AbstractModel{
+public class DescribeAgentInstallCommandRequest extends AbstractModel {
 
     /**
     * 是否是腾讯云
@@ -63,6 +64,13 @@ public class DescribeAgentInstallCommandRequest extends AbstractModel{
     @SerializedName("TagIds")
     @Expose
     private Long [] TagIds;
+
+    /**
+    * 虚拟ip
+    */
+    @SerializedName("Vip")
+    @Expose
+    private String Vip;
 
     /**
      * Get 是否是腾讯云 
@@ -160,6 +168,22 @@ public class DescribeAgentInstallCommandRequest extends AbstractModel{
         this.TagIds = TagIds;
     }
 
+    /**
+     * Get 虚拟ip 
+     * @return Vip 虚拟ip
+     */
+    public String getVip() {
+        return this.Vip;
+    }
+
+    /**
+     * Set 虚拟ip
+     * @param Vip 虚拟ip
+     */
+    public void setVip(String Vip) {
+        this.Vip = Vip;
+    }
+
     public DescribeAgentInstallCommandRequest() {
     }
 
@@ -189,6 +213,9 @@ public class DescribeAgentInstallCommandRequest extends AbstractModel{
                 this.TagIds[i] = new Long(source.TagIds[i]);
             }
         }
+        if (source.Vip != null) {
+            this.Vip = new String(source.Vip);
+        }
     }
 
 
@@ -202,6 +229,7 @@ public class DescribeAgentInstallCommandRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "VpcId", this.VpcId);
         this.setParamSimple(map, prefix + "ExpireDate", this.ExpireDate);
         this.setParamArraySimple(map, prefix + "TagIds.", this.TagIds);
+        this.setParamSimple(map, prefix + "Vip", this.Vip);
 
     }
 }

@@ -16,11 +16,12 @@
 package com.tencentcloudapi.wedata.v20210820.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class GenHiveTableDDLSqlRequest extends AbstractModel{
+public class GenHiveTableDDLSqlRequest extends AbstractModel {
 
     /**
     * 项目id
@@ -58,14 +59,14 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
     private String DatasourceId;
 
     /**
-    * 来源库
+    * 来源库名
     */
     @SerializedName("SourceDatabase")
     @Expose
     private String SourceDatabase;
 
     /**
-    * 来源表
+    * 来源表名
     */
     @SerializedName("TableName")
     @Expose
@@ -79,7 +80,7 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
     private String SinkType;
 
     /**
-    * schema名称
+    * 源端schema名称
     */
     @SerializedName("SchemaName")
     @Expose
@@ -184,6 +185,41 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
     private TableBaseInfo TableBaseInfo;
 
     /**
+    * 目标端schema名称
+    */
+    @SerializedName("SinkSchemaName")
+    @Expose
+    private String SinkSchemaName;
+
+    /**
+    * 获取源信息的环境
+    */
+    @SerializedName("Env")
+    @Expose
+    private String Env;
+
+    /**
+    * doris写入模式配置
+    */
+    @SerializedName("WriteMode")
+    @Expose
+    private String WriteMode;
+
+    /**
+    * 任务类型 201（实时）， 202（离线） 
+    */
+    @SerializedName("TaskType")
+    @Expose
+    private Long TaskType;
+
+    /**
+    * 目标端table名称
+    */
+    @SerializedName("SinkTableName")
+    @Expose
+    private String SinkTableName;
+
+    /**
      * Get 项目id 
      * @return ProjectId 项目id
      */
@@ -264,32 +300,32 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
     }
 
     /**
-     * Get 来源库 
-     * @return SourceDatabase 来源库
+     * Get 来源库名 
+     * @return SourceDatabase 来源库名
      */
     public String getSourceDatabase() {
         return this.SourceDatabase;
     }
 
     /**
-     * Set 来源库
-     * @param SourceDatabase 来源库
+     * Set 来源库名
+     * @param SourceDatabase 来源库名
      */
     public void setSourceDatabase(String SourceDatabase) {
         this.SourceDatabase = SourceDatabase;
     }
 
     /**
-     * Get 来源表 
-     * @return TableName 来源表
+     * Get 来源表名 
+     * @return TableName 来源表名
      */
     public String getTableName() {
         return this.TableName;
     }
 
     /**
-     * Set 来源表
-     * @param TableName 来源表
+     * Set 来源表名
+     * @param TableName 来源表名
      */
     public void setTableName(String TableName) {
         this.TableName = TableName;
@@ -312,16 +348,16 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
     }
 
     /**
-     * Get schema名称 
-     * @return SchemaName schema名称
+     * Get 源端schema名称 
+     * @return SchemaName 源端schema名称
      */
     public String getSchemaName() {
         return this.SchemaName;
     }
 
     /**
-     * Set schema名称
-     * @param SchemaName schema名称
+     * Set 源端schema名称
+     * @param SchemaName 源端schema名称
      */
     public void setSchemaName(String SchemaName) {
         this.SchemaName = SchemaName;
@@ -551,6 +587,86 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
         this.TableBaseInfo = TableBaseInfo;
     }
 
+    /**
+     * Get 目标端schema名称 
+     * @return SinkSchemaName 目标端schema名称
+     */
+    public String getSinkSchemaName() {
+        return this.SinkSchemaName;
+    }
+
+    /**
+     * Set 目标端schema名称
+     * @param SinkSchemaName 目标端schema名称
+     */
+    public void setSinkSchemaName(String SinkSchemaName) {
+        this.SinkSchemaName = SinkSchemaName;
+    }
+
+    /**
+     * Get 获取源信息的环境 
+     * @return Env 获取源信息的环境
+     */
+    public String getEnv() {
+        return this.Env;
+    }
+
+    /**
+     * Set 获取源信息的环境
+     * @param Env 获取源信息的环境
+     */
+    public void setEnv(String Env) {
+        this.Env = Env;
+    }
+
+    /**
+     * Get doris写入模式配置 
+     * @return WriteMode doris写入模式配置
+     */
+    public String getWriteMode() {
+        return this.WriteMode;
+    }
+
+    /**
+     * Set doris写入模式配置
+     * @param WriteMode doris写入模式配置
+     */
+    public void setWriteMode(String WriteMode) {
+        this.WriteMode = WriteMode;
+    }
+
+    /**
+     * Get 任务类型 201（实时）， 202（离线）  
+     * @return TaskType 任务类型 201（实时）， 202（离线） 
+     */
+    public Long getTaskType() {
+        return this.TaskType;
+    }
+
+    /**
+     * Set 任务类型 201（实时）， 202（离线） 
+     * @param TaskType 任务类型 201（实时）， 202（离线） 
+     */
+    public void setTaskType(Long TaskType) {
+        this.TaskType = TaskType;
+    }
+
+    /**
+     * Get 目标端table名称 
+     * @return SinkTableName 目标端table名称
+     */
+    public String getSinkTableName() {
+        return this.SinkTableName;
+    }
+
+    /**
+     * Set 目标端table名称
+     * @param SinkTableName 目标端table名称
+     */
+    public void setSinkTableName(String SinkTableName) {
+        this.SinkTableName = SinkTableName;
+    }
+
     public GenHiveTableDDLSqlRequest() {
     }
 
@@ -640,6 +756,21 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
         if (source.TableBaseInfo != null) {
             this.TableBaseInfo = new TableBaseInfo(source.TableBaseInfo);
         }
+        if (source.SinkSchemaName != null) {
+            this.SinkSchemaName = new String(source.SinkSchemaName);
+        }
+        if (source.Env != null) {
+            this.Env = new String(source.Env);
+        }
+        if (source.WriteMode != null) {
+            this.WriteMode = new String(source.WriteMode);
+        }
+        if (source.TaskType != null) {
+            this.TaskType = new Long(source.TaskType);
+        }
+        if (source.SinkTableName != null) {
+            this.SinkTableName = new String(source.SinkTableName);
+        }
     }
 
 
@@ -670,6 +801,11 @@ public class GenHiveTableDDLSqlRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "TargetDatasourceId", this.TargetDatasourceId);
         this.setParamArraySimple(map, prefix + "UpsertKeys.", this.UpsertKeys);
         this.setParamObj(map, prefix + "TableBaseInfo.", this.TableBaseInfo);
+        this.setParamSimple(map, prefix + "SinkSchemaName", this.SinkSchemaName);
+        this.setParamSimple(map, prefix + "Env", this.Env);
+        this.setParamSimple(map, prefix + "WriteMode", this.WriteMode);
+        this.setParamSimple(map, prefix + "TaskType", this.TaskType);
+        this.setParamSimple(map, prefix + "SinkTableName", this.SinkTableName);
 
     }
 }

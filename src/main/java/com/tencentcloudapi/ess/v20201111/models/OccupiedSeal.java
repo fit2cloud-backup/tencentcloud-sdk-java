@@ -16,11 +16,12 @@
 package com.tencentcloudapi.ess.v20201111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OccupiedSeal extends AbstractModel{
+public class OccupiedSeal extends AbstractModel {
 
     /**
     * 电子印章编号
@@ -66,7 +67,6 @@ public class OccupiedSeal extends AbstractModel{
 
     /**
     * 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("FailReason")
     @Expose
@@ -95,11 +95,17 @@ public class OccupiedSeal extends AbstractModel{
 
     /**
     * 授权人列表
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("AuthorizedUsers")
     @Expose
     private AuthorizedUser [] AuthorizedUsers;
+
+    /**
+    * 印章扩展数据信息
+    */
+    @SerializedName("ExtendScene")
+    @Expose
+    private ExtendScene ExtendScene;
 
     /**
      * Get 电子印章编号 
@@ -198,10 +204,8 @@ public class OccupiedSeal extends AbstractModel{
     }
 
     /**
-     * Get 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 审核失败原因 
      * @return FailReason 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getFailReason() {
         return this.FailReason;
@@ -209,9 +213,7 @@ public class OccupiedSeal extends AbstractModel{
 
     /**
      * Set 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      * @param FailReason 审核失败原因
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setFailReason(String FailReason) {
         this.FailReason = FailReason;
@@ -266,10 +268,8 @@ public class OccupiedSeal extends AbstractModel{
     }
 
     /**
-     * Get 授权人列表
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 授权人列表 
      * @return AuthorizedUsers 授权人列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public AuthorizedUser [] getAuthorizedUsers() {
         return this.AuthorizedUsers;
@@ -277,12 +277,26 @@ public class OccupiedSeal extends AbstractModel{
 
     /**
      * Set 授权人列表
-注意：此字段可能返回 null，表示取不到有效值。
      * @param AuthorizedUsers 授权人列表
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setAuthorizedUsers(AuthorizedUser [] AuthorizedUsers) {
         this.AuthorizedUsers = AuthorizedUsers;
+    }
+
+    /**
+     * Get 印章扩展数据信息 
+     * @return ExtendScene 印章扩展数据信息
+     */
+    public ExtendScene getExtendScene() {
+        return this.ExtendScene;
+    }
+
+    /**
+     * Set 印章扩展数据信息
+     * @param ExtendScene 印章扩展数据信息
+     */
+    public void setExtendScene(ExtendScene ExtendScene) {
+        this.ExtendScene = ExtendScene;
     }
 
     public OccupiedSeal() {
@@ -329,6 +343,9 @@ public class OccupiedSeal extends AbstractModel{
                 this.AuthorizedUsers[i] = new AuthorizedUser(source.AuthorizedUsers[i]);
             }
         }
+        if (source.ExtendScene != null) {
+            this.ExtendScene = new ExtendScene(source.ExtendScene);
+        }
     }
 
 
@@ -347,6 +364,7 @@ public class OccupiedSeal extends AbstractModel{
         this.setParamSimple(map, prefix + "SealType", this.SealType);
         this.setParamSimple(map, prefix + "IsAllTime", this.IsAllTime);
         this.setParamArrayObj(map, prefix + "AuthorizedUsers.", this.AuthorizedUsers);
+        this.setParamObj(map, prefix + "ExtendScene.", this.ExtendScene);
 
     }
 }

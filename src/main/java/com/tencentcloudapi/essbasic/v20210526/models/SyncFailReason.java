@@ -16,63 +16,54 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class SyncFailReason extends AbstractModel{
+public class SyncFailReason extends AbstractModel {
 
     /**
-    * 对应Agent-ProxyOperator-OpenId。第三方应用平台自定义，对子客企业员的唯一标识。一个OpenId在一个子客企业内唯一对应一个真实员工，不可在其他子客企业内重复使用。（例如，可以使用经办人企业名+员工身份证的hash值，需要第三方应用平台保存），最大64位字符串
+    * 企业员工标识(即OpenId)
     */
     @SerializedName("Id")
     @Expose
     private String Id;
 
     /**
-    * 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
+    * 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
     */
     @SerializedName("Message")
     @Expose
     private String Message;
 
     /**
-     * Get 对应Agent-ProxyOperator-OpenId。第三方应用平台自定义，对子客企业员的唯一标识。一个OpenId在一个子客企业内唯一对应一个真实员工，不可在其他子客企业内重复使用。（例如，可以使用经办人企业名+员工身份证的hash值，需要第三方应用平台保存），最大64位字符串 
-     * @return Id 对应Agent-ProxyOperator-OpenId。第三方应用平台自定义，对子客企业员的唯一标识。一个OpenId在一个子客企业内唯一对应一个真实员工，不可在其他子客企业内重复使用。（例如，可以使用经办人企业名+员工身份证的hash值，需要第三方应用平台保存），最大64位字符串
+     * Get 企业员工标识(即OpenId) 
+     * @return Id 企业员工标识(即OpenId)
      */
     public String getId() {
         return this.Id;
     }
 
     /**
-     * Set 对应Agent-ProxyOperator-OpenId。第三方应用平台自定义，对子客企业员的唯一标识。一个OpenId在一个子客企业内唯一对应一个真实员工，不可在其他子客企业内重复使用。（例如，可以使用经办人企业名+员工身份证的hash值，需要第三方应用平台保存），最大64位字符串
-     * @param Id 对应Agent-ProxyOperator-OpenId。第三方应用平台自定义，对子客企业员的唯一标识。一个OpenId在一个子客企业内唯一对应一个真实员工，不可在其他子客企业内重复使用。（例如，可以使用经办人企业名+员工身份证的hash值，需要第三方应用平台保存），最大64位字符串
+     * Set 企业员工标识(即OpenId)
+     * @param Id 企业员工标识(即OpenId)
      */
     public void setId(String Id) {
         this.Id = Id;
     }
 
     /**
-     * Get 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return Message 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因 
+     * @return Message 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
      */
     public String getMessage() {
         return this.Message;
     }
 
     /**
-     * Set 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param Message 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
+     * @param Message 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
      */
     public void setMessage(String Message) {
         this.Message = Message;

@@ -16,15 +16,15 @@
 package com.tencentcloudapi.tsf.v20180326.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ClusterV2 extends AbstractModel{
+public class ClusterV2 extends AbstractModel {
 
     /**
     * 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ClusterId")
     @Expose
@@ -311,10 +311,22 @@ public class ClusterV2 extends AbstractModel{
     private String KuberneteNativeSecret;
 
     /**
-     * Get 集群ID
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 是否开启cls日志功能
+    */
+    @SerializedName("EnableLogCollection")
+    @Expose
+    private Boolean EnableLogCollection;
+
+    /**
+    * 集群状态的原因
+    */
+    @SerializedName("Reason")
+    @Expose
+    private String Reason;
+
+    /**
+     * Get 集群ID 
      * @return ClusterId 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getClusterId() {
         return this.ClusterId;
@@ -322,9 +334,7 @@ public class ClusterV2 extends AbstractModel{
 
     /**
      * Set 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ClusterId 集群ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setClusterId(String ClusterId) {
         this.ClusterId = ClusterId;
@@ -1030,6 +1040,38 @@ public class ClusterV2 extends AbstractModel{
         this.KuberneteNativeSecret = KuberneteNativeSecret;
     }
 
+    /**
+     * Get 是否开启cls日志功能 
+     * @return EnableLogCollection 是否开启cls日志功能
+     */
+    public Boolean getEnableLogCollection() {
+        return this.EnableLogCollection;
+    }
+
+    /**
+     * Set 是否开启cls日志功能
+     * @param EnableLogCollection 是否开启cls日志功能
+     */
+    public void setEnableLogCollection(Boolean EnableLogCollection) {
+        this.EnableLogCollection = EnableLogCollection;
+    }
+
+    /**
+     * Get 集群状态的原因 
+     * @return Reason 集群状态的原因
+     */
+    public String getReason() {
+        return this.Reason;
+    }
+
+    /**
+     * Set 集群状态的原因
+     * @param Reason 集群状态的原因
+     */
+    public void setReason(String Reason) {
+        this.Reason = Reason;
+    }
+
     public ClusterV2() {
     }
 
@@ -1146,6 +1188,12 @@ public class ClusterV2 extends AbstractModel{
         if (source.KuberneteNativeSecret != null) {
             this.KuberneteNativeSecret = new String(source.KuberneteNativeSecret);
         }
+        if (source.EnableLogCollection != null) {
+            this.EnableLogCollection = new Boolean(source.EnableLogCollection);
+        }
+        if (source.Reason != null) {
+            this.Reason = new String(source.Reason);
+        }
     }
 
 
@@ -1189,6 +1237,8 @@ public class ClusterV2 extends AbstractModel{
         this.setParamSimple(map, prefix + "KuberneteApiServer", this.KuberneteApiServer);
         this.setParamSimple(map, prefix + "KuberneteNativeType", this.KuberneteNativeType);
         this.setParamSimple(map, prefix + "KuberneteNativeSecret", this.KuberneteNativeSecret);
+        this.setParamSimple(map, prefix + "EnableLogCollection", this.EnableLogCollection);
+        this.setParamSimple(map, prefix + "Reason", this.Reason);
 
     }
 }

@@ -16,36 +16,36 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FlowApproverDetail extends AbstractModel{
+public class FlowApproverDetail extends AbstractModel {
 
     /**
-    * 模板配置时候的签署人id,与控件绑定
+    * 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
     */
     @SerializedName("ReceiptId")
     @Expose
     private String ReceiptId;
 
     /**
-    * 平台企业的第三方id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 第三方平台子客企业的唯一标识，定义Agent中的ProxyOrganizationOpenId一样, 可以参考<a href="https://qian.tencent.com/developers/partnerApis/dataTypes/#agent" target="_blank">Agent结构体</a>
     */
     @SerializedName("ProxyOrganizationOpenId")
     @Expose
     private String ProxyOrganizationOpenId;
 
     /**
-    * 平台企业操作人的第三方id
+    * 第三方平台子客企业员工的唯一标识
     */
     @SerializedName("ProxyOperatorOpenId")
     @Expose
     private String ProxyOperatorOpenId;
 
     /**
-    * 平台企业名称
+    * 第三方平台子客企业名称，与企业营业执照中注册的名称一致。
     */
     @SerializedName("ProxyOrganizationName")
     @Expose
@@ -59,15 +59,15 @@ public class FlowApproverDetail extends AbstractModel{
     private String Mobile;
 
     /**
-    * 签署人签署顺序
+    * 签署顺序，如果是有序签署，签署顺序从小到大
     */
     @SerializedName("SignOrder")
     @Expose
     private Long SignOrder;
 
     /**
-    * 签署人姓名
-注意：此字段可能返回 null，表示取不到有效值。
+    * 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
     */
     @SerializedName("ApproveName")
     @Expose
@@ -75,28 +75,25 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 当前签署人的状态, 状态如下
-<br/>PENDING 待签署	
-<br/>FILLPENDING 待填写
-<br/>FILLACCEPT 填写完成	
-<br/>FILLREJECT 拒绝填写	
-<br/>WAITPICKUP 待领取	
-<br/>ACCEPT 已签署	
-<br/>REJECT 拒签 
-<br/>DEADLINE 过期没人处理 
-<br/>CANCEL 流程已撤回	
-<br/>FORWARD 已经转他人处理
-<br/>STOP 流程已终止	
-<br/>RELIEVED 解除协议（已解除）
-
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **PENDING** :待签署</li>
+<li> **FILLPENDING** :待填写</li>
+<li> **FILLACCEPT** :填写完成</li>
+<li> **FILLREJECT** :拒绝填写</li>
+<li> **WAITPICKUP** :待领取</li>
+<li> **ACCEPT** :已签署</li>
+<li> **REJECT** :拒签</li>
+<li> **DEADLINE** :过期没人处理</li>
+<li> **CANCEL** :流程已撤回</li>
+<li> **FORWARD** :已经转他人处理</li>
+<li> **STOP** :流程已终止</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
     */
     @SerializedName("ApproveStatus")
     @Expose
     private String ApproveStatus;
 
     /**
-    * 签署人自定义信息
-注意：此字段可能返回 null，表示取不到有效值。
+    * 签署人拒签等情况的时候填写的原因
     */
     @SerializedName("ApproveMessage")
     @Expose
@@ -111,77 +108,97 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
     * 参与者类型 
-<br/>ORGANIZATION：企业签署人
-<br/>PERSON：个人签署人
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **ORGANIZATION** :企业签署人</li>
+<li> **PERSON** :个人签署人</li></ul>
     */
     @SerializedName("ApproveType")
     @Expose
     private String ApproveType;
 
     /**
-     * Get 模板配置时候的签署人id,与控件绑定 
-     * @return ReceiptId 模板配置时候的签署人id,与控件绑定
+    * 自定义签署人的角色名, 如: 收款人、开具人、见证人等
+    */
+    @SerializedName("ApproverRoleName")
+    @Expose
+    private String ApproverRoleName;
+
+    /**
+    * 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点。
+    */
+    @SerializedName("SignId")
+    @Expose
+    private String SignId;
+
+    /**
+    * 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
+    */
+    @SerializedName("RecipientId")
+    @Expose
+    private String RecipientId;
+
+    /**
+     * Get 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色 
+     * @return ReceiptId 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
+     * @deprecated
      */
+    @Deprecated
     public String getReceiptId() {
         return this.ReceiptId;
     }
 
     /**
-     * Set 模板配置时候的签署人id,与控件绑定
-     * @param ReceiptId 模板配置时候的签署人id,与控件绑定
+     * Set 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
+     * @param ReceiptId 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
+     * @deprecated
      */
+    @Deprecated
     public void setReceiptId(String ReceiptId) {
         this.ReceiptId = ReceiptId;
     }
 
     /**
-     * Get 平台企业的第三方id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ProxyOrganizationOpenId 平台企业的第三方id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 第三方平台子客企业的唯一标识，定义Agent中的ProxyOrganizationOpenId一样, 可以参考<a href="https://qian.tencent.com/developers/partnerApis/dataTypes/#agent" target="_blank">Agent结构体</a> 
+     * @return ProxyOrganizationOpenId 第三方平台子客企业的唯一标识，定义Agent中的ProxyOrganizationOpenId一样, 可以参考<a href="https://qian.tencent.com/developers/partnerApis/dataTypes/#agent" target="_blank">Agent结构体</a>
      */
     public String getProxyOrganizationOpenId() {
         return this.ProxyOrganizationOpenId;
     }
 
     /**
-     * Set 平台企业的第三方id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ProxyOrganizationOpenId 平台企业的第三方id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 第三方平台子客企业的唯一标识，定义Agent中的ProxyOrganizationOpenId一样, 可以参考<a href="https://qian.tencent.com/developers/partnerApis/dataTypes/#agent" target="_blank">Agent结构体</a>
+     * @param ProxyOrganizationOpenId 第三方平台子客企业的唯一标识，定义Agent中的ProxyOrganizationOpenId一样, 可以参考<a href="https://qian.tencent.com/developers/partnerApis/dataTypes/#agent" target="_blank">Agent结构体</a>
      */
     public void setProxyOrganizationOpenId(String ProxyOrganizationOpenId) {
         this.ProxyOrganizationOpenId = ProxyOrganizationOpenId;
     }
 
     /**
-     * Get 平台企业操作人的第三方id 
-     * @return ProxyOperatorOpenId 平台企业操作人的第三方id
+     * Get 第三方平台子客企业员工的唯一标识 
+     * @return ProxyOperatorOpenId 第三方平台子客企业员工的唯一标识
      */
     public String getProxyOperatorOpenId() {
         return this.ProxyOperatorOpenId;
     }
 
     /**
-     * Set 平台企业操作人的第三方id
-     * @param ProxyOperatorOpenId 平台企业操作人的第三方id
+     * Set 第三方平台子客企业员工的唯一标识
+     * @param ProxyOperatorOpenId 第三方平台子客企业员工的唯一标识
      */
     public void setProxyOperatorOpenId(String ProxyOperatorOpenId) {
         this.ProxyOperatorOpenId = ProxyOperatorOpenId;
     }
 
     /**
-     * Get 平台企业名称 
-     * @return ProxyOrganizationName 平台企业名称
+     * Get 第三方平台子客企业名称，与企业营业执照中注册的名称一致。 
+     * @return ProxyOrganizationName 第三方平台子客企业名称，与企业营业执照中注册的名称一致。
      */
     public String getProxyOrganizationName() {
         return this.ProxyOrganizationName;
     }
 
     /**
-     * Set 平台企业名称
-     * @param ProxyOrganizationName 平台企业名称
+     * Set 第三方平台子客企业名称，与企业营业执照中注册的名称一致。
+     * @param ProxyOrganizationName 第三方平台子客企业名称，与企业营业执照中注册的名称一致。
      */
     public void setProxyOrganizationName(String ProxyOrganizationName) {
         this.ProxyOrganizationName = ProxyOrganizationName;
@@ -204,36 +221,36 @@ public class FlowApproverDetail extends AbstractModel{
     }
 
     /**
-     * Get 签署人签署顺序 
-     * @return SignOrder 签署人签署顺序
+     * Get 签署顺序，如果是有序签署，签署顺序从小到大 
+     * @return SignOrder 签署顺序，如果是有序签署，签署顺序从小到大
      */
     public Long getSignOrder() {
         return this.SignOrder;
     }
 
     /**
-     * Set 签署人签署顺序
-     * @param SignOrder 签署人签署顺序
+     * Set 签署顺序，如果是有序签署，签署顺序从小到大
+     * @param SignOrder 签署顺序，如果是有序签署，签署顺序从小到大
      */
     public void setSignOrder(Long SignOrder) {
         this.SignOrder = SignOrder;
     }
 
     /**
-     * Get 签署人姓名
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApproveName 签署人姓名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。 
+     * @return ApproveName 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
      */
     public String getApproveName() {
         return this.ApproveName;
     }
 
     /**
-     * Set 签署人姓名
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApproveName 签署人姓名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
+     * @param ApproveName 签署方经办人的姓名。
+经办人的姓名将用于身份认证和电子签名，请确保填写的姓名为签署方的真实姓名，而非昵称等代名。
      */
     public void setApproveName(String ApproveName) {
         this.ApproveName = ApproveName;
@@ -241,35 +258,31 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Get 当前签署人的状态, 状态如下
-<br/>PENDING 待签署	
-<br/>FILLPENDING 待填写
-<br/>FILLACCEPT 填写完成	
-<br/>FILLREJECT 拒绝填写	
-<br/>WAITPICKUP 待领取	
-<br/>ACCEPT 已签署	
-<br/>REJECT 拒签 
-<br/>DEADLINE 过期没人处理 
-<br/>CANCEL 流程已撤回	
-<br/>FORWARD 已经转他人处理
-<br/>STOP 流程已终止	
-<br/>RELIEVED 解除协议（已解除）
-
-注意：此字段可能返回 null，表示取不到有效值。 
+<ul><li> **PENDING** :待签署</li>
+<li> **FILLPENDING** :待填写</li>
+<li> **FILLACCEPT** :填写完成</li>
+<li> **FILLREJECT** :拒绝填写</li>
+<li> **WAITPICKUP** :待领取</li>
+<li> **ACCEPT** :已签署</li>
+<li> **REJECT** :拒签</li>
+<li> **DEADLINE** :过期没人处理</li>
+<li> **CANCEL** :流程已撤回</li>
+<li> **FORWARD** :已经转他人处理</li>
+<li> **STOP** :流程已终止</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul> 
      * @return ApproveStatus 当前签署人的状态, 状态如下
-<br/>PENDING 待签署	
-<br/>FILLPENDING 待填写
-<br/>FILLACCEPT 填写完成	
-<br/>FILLREJECT 拒绝填写	
-<br/>WAITPICKUP 待领取	
-<br/>ACCEPT 已签署	
-<br/>REJECT 拒签 
-<br/>DEADLINE 过期没人处理 
-<br/>CANCEL 流程已撤回	
-<br/>FORWARD 已经转他人处理
-<br/>STOP 流程已终止	
-<br/>RELIEVED 解除协议（已解除）
-
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **PENDING** :待签署</li>
+<li> **FILLPENDING** :待填写</li>
+<li> **FILLACCEPT** :填写完成</li>
+<li> **FILLREJECT** :拒绝填写</li>
+<li> **WAITPICKUP** :待领取</li>
+<li> **ACCEPT** :已签署</li>
+<li> **REJECT** :拒签</li>
+<li> **DEADLINE** :过期没人处理</li>
+<li> **CANCEL** :流程已撤回</li>
+<li> **FORWARD** :已经转他人处理</li>
+<li> **STOP** :流程已终止</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
      */
     public String getApproveStatus() {
         return this.ApproveStatus;
@@ -277,55 +290,47 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 当前签署人的状态, 状态如下
-<br/>PENDING 待签署	
-<br/>FILLPENDING 待填写
-<br/>FILLACCEPT 填写完成	
-<br/>FILLREJECT 拒绝填写	
-<br/>WAITPICKUP 待领取	
-<br/>ACCEPT 已签署	
-<br/>REJECT 拒签 
-<br/>DEADLINE 过期没人处理 
-<br/>CANCEL 流程已撤回	
-<br/>FORWARD 已经转他人处理
-<br/>STOP 流程已终止	
-<br/>RELIEVED 解除协议（已解除）
-
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **PENDING** :待签署</li>
+<li> **FILLPENDING** :待填写</li>
+<li> **FILLACCEPT** :填写完成</li>
+<li> **FILLREJECT** :拒绝填写</li>
+<li> **WAITPICKUP** :待领取</li>
+<li> **ACCEPT** :已签署</li>
+<li> **REJECT** :拒签</li>
+<li> **DEADLINE** :过期没人处理</li>
+<li> **CANCEL** :流程已撤回</li>
+<li> **FORWARD** :已经转他人处理</li>
+<li> **STOP** :流程已终止</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
      * @param ApproveStatus 当前签署人的状态, 状态如下
-<br/>PENDING 待签署	
-<br/>FILLPENDING 待填写
-<br/>FILLACCEPT 填写完成	
-<br/>FILLREJECT 拒绝填写	
-<br/>WAITPICKUP 待领取	
-<br/>ACCEPT 已签署	
-<br/>REJECT 拒签 
-<br/>DEADLINE 过期没人处理 
-<br/>CANCEL 流程已撤回	
-<br/>FORWARD 已经转他人处理
-<br/>STOP 流程已终止	
-<br/>RELIEVED 解除协议（已解除）
-
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **PENDING** :待签署</li>
+<li> **FILLPENDING** :待填写</li>
+<li> **FILLACCEPT** :填写完成</li>
+<li> **FILLREJECT** :拒绝填写</li>
+<li> **WAITPICKUP** :待领取</li>
+<li> **ACCEPT** :已签署</li>
+<li> **REJECT** :拒签</li>
+<li> **DEADLINE** :过期没人处理</li>
+<li> **CANCEL** :流程已撤回</li>
+<li> **FORWARD** :已经转他人处理</li>
+<li> **STOP** :流程已终止</li>
+<li> **RELIEVED** :解除协议（已解除）</li></ul>
      */
     public void setApproveStatus(String ApproveStatus) {
         this.ApproveStatus = ApproveStatus;
     }
 
     /**
-     * Get 签署人自定义信息
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return ApproveMessage 签署人自定义信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 签署人拒签等情况的时候填写的原因 
+     * @return ApproveMessage 签署人拒签等情况的时候填写的原因
      */
     public String getApproveMessage() {
         return this.ApproveMessage;
     }
 
     /**
-     * Set 签署人自定义信息
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ApproveMessage 签署人自定义信息
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 签署人拒签等情况的时候填写的原因
+     * @param ApproveMessage 签署人拒签等情况的时候填写的原因
      */
     public void setApproveMessage(String ApproveMessage) {
         this.ApproveMessage = ApproveMessage;
@@ -349,13 +354,11 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Get 参与者类型 
-<br/>ORGANIZATION：企业签署人
-<br/>PERSON：个人签署人
-注意：此字段可能返回 null，表示取不到有效值。 
+<ul><li> **ORGANIZATION** :企业签署人</li>
+<li> **PERSON** :个人签署人</li></ul> 
      * @return ApproveType 参与者类型 
-<br/>ORGANIZATION：企业签署人
-<br/>PERSON：个人签署人
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **ORGANIZATION** :企业签署人</li>
+<li> **PERSON** :个人签署人</li></ul>
      */
     public String getApproveType() {
         return this.ApproveType;
@@ -363,16 +366,62 @@ public class FlowApproverDetail extends AbstractModel{
 
     /**
      * Set 参与者类型 
-<br/>ORGANIZATION：企业签署人
-<br/>PERSON：个人签署人
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **ORGANIZATION** :企业签署人</li>
+<li> **PERSON** :个人签署人</li></ul>
      * @param ApproveType 参与者类型 
-<br/>ORGANIZATION：企业签署人
-<br/>PERSON：个人签署人
-注意：此字段可能返回 null，表示取不到有效值。
+<ul><li> **ORGANIZATION** :企业签署人</li>
+<li> **PERSON** :个人签署人</li></ul>
      */
     public void setApproveType(String ApproveType) {
         this.ApproveType = ApproveType;
+    }
+
+    /**
+     * Get 自定义签署人的角色名, 如: 收款人、开具人、见证人等 
+     * @return ApproverRoleName 自定义签署人的角色名, 如: 收款人、开具人、见证人等
+     */
+    public String getApproverRoleName() {
+        return this.ApproverRoleName;
+    }
+
+    /**
+     * Set 自定义签署人的角色名, 如: 收款人、开具人、见证人等
+     * @param ApproverRoleName 自定义签署人的角色名, 如: 收款人、开具人、见证人等
+     */
+    public void setApproverRoleName(String ApproverRoleName) {
+        this.ApproverRoleName = ApproverRoleName;
+    }
+
+    /**
+     * Get 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点。 
+     * @return SignId 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点。
+     */
+    public String getSignId() {
+        return this.SignId;
+    }
+
+    /**
+     * Set 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点。
+     * @param SignId 签署参与人在本流程中的编号ID（每个流程不同），可用此ID来定位签署参与人在本流程的签署节点。
+     */
+    public void setSignId(String SignId) {
+        this.SignId = SignId;
+    }
+
+    /**
+     * Get 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色 
+     * @return RecipientId 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
+     */
+    public String getRecipientId() {
+        return this.RecipientId;
+    }
+
+    /**
+     * Set 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
+     * @param RecipientId 模板配置时候的签署人角色ID(用PDF文件发起也可以指定,如果不指定则自动生成此角色ID), 所有的填写控件和签署控件都归属不同的角色
+     */
+    public void setRecipientId(String RecipientId) {
+        this.RecipientId = RecipientId;
     }
 
     public FlowApproverDetail() {
@@ -416,6 +465,15 @@ public class FlowApproverDetail extends AbstractModel{
         if (source.ApproveType != null) {
             this.ApproveType = new String(source.ApproveType);
         }
+        if (source.ApproverRoleName != null) {
+            this.ApproverRoleName = new String(source.ApproverRoleName);
+        }
+        if (source.SignId != null) {
+            this.SignId = new String(source.SignId);
+        }
+        if (source.RecipientId != null) {
+            this.RecipientId = new String(source.RecipientId);
+        }
     }
 
 
@@ -434,6 +492,9 @@ public class FlowApproverDetail extends AbstractModel{
         this.setParamSimple(map, prefix + "ApproveMessage", this.ApproveMessage);
         this.setParamSimple(map, prefix + "ApproveTime", this.ApproveTime);
         this.setParamSimple(map, prefix + "ApproveType", this.ApproveType);
+        this.setParamSimple(map, prefix + "ApproverRoleName", this.ApproverRoleName);
+        this.setParamSimple(map, prefix + "SignId", this.SignId);
+        this.setParamSimple(map, prefix + "RecipientId", this.RecipientId);
 
     }
 }

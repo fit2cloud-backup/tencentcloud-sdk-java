@@ -16,11 +16,12 @@
 package com.tencentcloudapi.cwp.v20180228.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeBashRulesRequest extends AbstractModel{
+public class DescribeBashRulesRequest extends AbstractModel {
 
     /**
     * 0-系统规则; 1-用户规则
@@ -45,7 +46,13 @@ public class DescribeBashRulesRequest extends AbstractModel{
 
     /**
     * 过滤条件。
-<li>Keywords - String - 是否必填：否 - 关键字(规则名称)</li>
+<li>Name - String - 是否必填：否 - 规则名称</li>
+<li>Rule - String - 是否必填：否 - 规则内容</li>
+<li>Level - Int - 是否必填：否 - 威胁等级</li>
+<li>White - Int - 是否必填：否 - 白名单类型</li>
+<li>RuleCategory - Int - 是否必填：否 - 策略类型</li>
+<li>BashAction - Int - 是否必填：否 - 操作动作</li>
+<li>Status - Int - 是否必填：否 - 生效状态</li>
     */
     @SerializedName("Filters")
     @Expose
@@ -101,9 +108,21 @@ public class DescribeBashRulesRequest extends AbstractModel{
 
     /**
      * Get 过滤条件。
-<li>Keywords - String - 是否必填：否 - 关键字(规则名称)</li> 
+<li>Name - String - 是否必填：否 - 规则名称</li>
+<li>Rule - String - 是否必填：否 - 规则内容</li>
+<li>Level - Int - 是否必填：否 - 威胁等级</li>
+<li>White - Int - 是否必填：否 - 白名单类型</li>
+<li>RuleCategory - Int - 是否必填：否 - 策略类型</li>
+<li>BashAction - Int - 是否必填：否 - 操作动作</li>
+<li>Status - Int - 是否必填：否 - 生效状态</li> 
      * @return Filters 过滤条件。
-<li>Keywords - String - 是否必填：否 - 关键字(规则名称)</li>
+<li>Name - String - 是否必填：否 - 规则名称</li>
+<li>Rule - String - 是否必填：否 - 规则内容</li>
+<li>Level - Int - 是否必填：否 - 威胁等级</li>
+<li>White - Int - 是否必填：否 - 白名单类型</li>
+<li>RuleCategory - Int - 是否必填：否 - 策略类型</li>
+<li>BashAction - Int - 是否必填：否 - 操作动作</li>
+<li>Status - Int - 是否必填：否 - 生效状态</li>
      */
     public Filter [] getFilters() {
         return this.Filters;
@@ -111,9 +130,21 @@ public class DescribeBashRulesRequest extends AbstractModel{
 
     /**
      * Set 过滤条件。
-<li>Keywords - String - 是否必填：否 - 关键字(规则名称)</li>
+<li>Name - String - 是否必填：否 - 规则名称</li>
+<li>Rule - String - 是否必填：否 - 规则内容</li>
+<li>Level - Int - 是否必填：否 - 威胁等级</li>
+<li>White - Int - 是否必填：否 - 白名单类型</li>
+<li>RuleCategory - Int - 是否必填：否 - 策略类型</li>
+<li>BashAction - Int - 是否必填：否 - 操作动作</li>
+<li>Status - Int - 是否必填：否 - 生效状态</li>
      * @param Filters 过滤条件。
-<li>Keywords - String - 是否必填：否 - 关键字(规则名称)</li>
+<li>Name - String - 是否必填：否 - 规则名称</li>
+<li>Rule - String - 是否必填：否 - 规则内容</li>
+<li>Level - Int - 是否必填：否 - 威胁等级</li>
+<li>White - Int - 是否必填：否 - 白名单类型</li>
+<li>RuleCategory - Int - 是否必填：否 - 策略类型</li>
+<li>BashAction - Int - 是否必填：否 - 操作动作</li>
+<li>Status - Int - 是否必填：否 - 生效状态</li>
      */
     public void setFilters(Filter [] Filters) {
         this.Filters = Filters;

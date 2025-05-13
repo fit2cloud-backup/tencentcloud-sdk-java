@@ -16,15 +16,15 @@
 package com.tencentcloudapi.organization.v20210331.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class OrgNode extends AbstractModel{
+public class OrgNode extends AbstractModel {
 
     /**
     * 组织节点ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("NodeId")
     @Expose
@@ -32,7 +32,6 @@ public class OrgNode extends AbstractModel{
 
     /**
     * 名称
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Name")
     @Expose
@@ -40,7 +39,6 @@ public class OrgNode extends AbstractModel{
 
     /**
     * 父节点ID
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ParentNodeId")
     @Expose
@@ -48,7 +46,6 @@ public class OrgNode extends AbstractModel{
 
     /**
     * 备注
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Remark")
     @Expose
@@ -56,7 +53,6 @@ public class OrgNode extends AbstractModel{
 
     /**
     * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("CreateTime")
     @Expose
@@ -64,17 +60,21 @@ public class OrgNode extends AbstractModel{
 
     /**
     * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UpdateTime")
     @Expose
     private String UpdateTime;
 
     /**
-     * Get 组织节点ID
-注意：此字段可能返回 null，表示取不到有效值。 
+    * 成员标签列表
+    */
+    @SerializedName("Tags")
+    @Expose
+    private Tag [] Tags;
+
+    /**
+     * Get 组织节点ID 
      * @return NodeId 组织节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getNodeId() {
         return this.NodeId;
@@ -82,19 +82,15 @@ public class OrgNode extends AbstractModel{
 
     /**
      * Set 组织节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param NodeId 组织节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setNodeId(Long NodeId) {
         this.NodeId = NodeId;
     }
 
     /**
-     * Get 名称
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 名称 
      * @return Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getName() {
         return this.Name;
@@ -102,19 +98,15 @@ public class OrgNode extends AbstractModel{
 
     /**
      * Set 名称
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Name 名称
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setName(String Name) {
         this.Name = Name;
     }
 
     /**
-     * Get 父节点ID
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 父节点ID 
      * @return ParentNodeId 父节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getParentNodeId() {
         return this.ParentNodeId;
@@ -122,19 +114,15 @@ public class OrgNode extends AbstractModel{
 
     /**
      * Set 父节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ParentNodeId 父节点ID
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setParentNodeId(Long ParentNodeId) {
         this.ParentNodeId = ParentNodeId;
     }
 
     /**
-     * Get 备注
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 备注 
      * @return Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getRemark() {
         return this.Remark;
@@ -142,19 +130,15 @@ public class OrgNode extends AbstractModel{
 
     /**
      * Set 备注
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Remark 备注
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRemark(String Remark) {
         this.Remark = Remark;
     }
 
     /**
-     * Get 创建时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 创建时间 
      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getCreateTime() {
         return this.CreateTime;
@@ -162,19 +146,15 @@ public class OrgNode extends AbstractModel{
 
     /**
      * Set 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setCreateTime(String CreateTime) {
         this.CreateTime = CreateTime;
     }
 
     /**
-     * Get 更新时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 更新时间 
      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getUpdateTime() {
         return this.UpdateTime;
@@ -182,12 +162,26 @@ public class OrgNode extends AbstractModel{
 
     /**
      * Set 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUpdateTime(String UpdateTime) {
         this.UpdateTime = UpdateTime;
+    }
+
+    /**
+     * Get 成员标签列表 
+     * @return Tags 成员标签列表
+     */
+    public Tag [] getTags() {
+        return this.Tags;
+    }
+
+    /**
+     * Set 成员标签列表
+     * @param Tags 成员标签列表
+     */
+    public void setTags(Tag [] Tags) {
+        this.Tags = Tags;
     }
 
     public OrgNode() {
@@ -216,6 +210,12 @@ public class OrgNode extends AbstractModel{
         if (source.UpdateTime != null) {
             this.UpdateTime = new String(source.UpdateTime);
         }
+        if (source.Tags != null) {
+            this.Tags = new Tag[source.Tags.length];
+            for (int i = 0; i < source.Tags.length; i++) {
+                this.Tags[i] = new Tag(source.Tags[i]);
+            }
+        }
     }
 
 
@@ -229,6 +229,7 @@ public class OrgNode extends AbstractModel{
         this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "CreateTime", this.CreateTime);
         this.setParamSimple(map, prefix + "UpdateTime", this.UpdateTime);
+        this.setParamArrayObj(map, prefix + "Tags.", this.Tags);
 
     }
 }

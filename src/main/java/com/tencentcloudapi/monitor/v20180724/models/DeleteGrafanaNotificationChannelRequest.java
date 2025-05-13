@@ -16,14 +16,15 @@
 package com.tencentcloudapi.monitor.v20180724.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DeleteGrafanaNotificationChannelRequest extends AbstractModel{
+public class DeleteGrafanaNotificationChannelRequest extends AbstractModel {
 
     /**
-    * 通道 ID 数组。例如：nchannel-abcd1234
+    * 通道 ID 数组。例如：nchannel-abcd1234，通过 DescribeGrafanaChannels 获取
     */
     @SerializedName("ChannelIDs")
     @Expose
@@ -37,16 +38,16 @@ public class DeleteGrafanaNotificationChannelRequest extends AbstractModel{
     private String InstanceId;
 
     /**
-     * Get 通道 ID 数组。例如：nchannel-abcd1234 
-     * @return ChannelIDs 通道 ID 数组。例如：nchannel-abcd1234
+     * Get 通道 ID 数组。例如：nchannel-abcd1234，通过 DescribeGrafanaChannels 获取 
+     * @return ChannelIDs 通道 ID 数组。例如：nchannel-abcd1234，通过 DescribeGrafanaChannels 获取
      */
     public String [] getChannelIDs() {
         return this.ChannelIDs;
     }
 
     /**
-     * Set 通道 ID 数组。例如：nchannel-abcd1234
-     * @param ChannelIDs 通道 ID 数组。例如：nchannel-abcd1234
+     * Set 通道 ID 数组。例如：nchannel-abcd1234，通过 DescribeGrafanaChannels 获取
+     * @param ChannelIDs 通道 ID 数组。例如：nchannel-abcd1234，通过 DescribeGrafanaChannels 获取
      */
     public void setChannelIDs(String [] ChannelIDs) {
         this.ChannelIDs = ChannelIDs;

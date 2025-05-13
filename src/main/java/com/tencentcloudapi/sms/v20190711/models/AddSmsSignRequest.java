@@ -16,11 +16,12 @@
 package com.tencentcloudapi.sms.v20190711.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class AddSmsSignRequest extends AbstractModel{
+public class AddSmsSignRequest extends AbstractModel {
 
     /**
     * 签名名称。
@@ -101,6 +102,13 @@ public class AddSmsSignRequest extends AbstractModel{
     @SerializedName("Remark")
     @Expose
     private String Remark;
+
+    /**
+    * 已审核通过的国内短信的资质 ID。资质 ID 信息可前往国内短信的 [实名资质管理](https://console.cloud.tencent.com/smsv2/enterprise) 页查看。<dx-alert infotype="notice" title="说明"><ul><li>国内短信需填写资质ID，国际短信无需填写。</li></ul></dx-alert>
+    */
+    @SerializedName("QualificationId")
+    @Expose
+    private Long QualificationId;
 
     /**
      * Get 签名名称。
@@ -326,6 +334,22 @@ public class AddSmsSignRequest extends AbstractModel{
         this.Remark = Remark;
     }
 
+    /**
+     * Get 已审核通过的国内短信的资质 ID。资质 ID 信息可前往国内短信的 [实名资质管理](https://console.cloud.tencent.com/smsv2/enterprise) 页查看。<dx-alert infotype="notice" title="说明"><ul><li>国内短信需填写资质ID，国际短信无需填写。</li></ul></dx-alert> 
+     * @return QualificationId 已审核通过的国内短信的资质 ID。资质 ID 信息可前往国内短信的 [实名资质管理](https://console.cloud.tencent.com/smsv2/enterprise) 页查看。<dx-alert infotype="notice" title="说明"><ul><li>国内短信需填写资质ID，国际短信无需填写。</li></ul></dx-alert>
+     */
+    public Long getQualificationId() {
+        return this.QualificationId;
+    }
+
+    /**
+     * Set 已审核通过的国内短信的资质 ID。资质 ID 信息可前往国内短信的 [实名资质管理](https://console.cloud.tencent.com/smsv2/enterprise) 页查看。<dx-alert infotype="notice" title="说明"><ul><li>国内短信需填写资质ID，国际短信无需填写。</li></ul></dx-alert>
+     * @param QualificationId 已审核通过的国内短信的资质 ID。资质 ID 信息可前往国内短信的 [实名资质管理](https://console.cloud.tencent.com/smsv2/enterprise) 页查看。<dx-alert infotype="notice" title="说明"><ul><li>国内短信需填写资质ID，国际短信无需填写。</li></ul></dx-alert>
+     */
+    public void setQualificationId(Long QualificationId) {
+        this.QualificationId = QualificationId;
+    }
+
     public AddSmsSignRequest() {
     }
 
@@ -358,6 +382,9 @@ public class AddSmsSignRequest extends AbstractModel{
         if (source.Remark != null) {
             this.Remark = new String(source.Remark);
         }
+        if (source.QualificationId != null) {
+            this.QualificationId = new Long(source.QualificationId);
+        }
     }
 
 
@@ -373,6 +400,7 @@ public class AddSmsSignRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "ProofImage", this.ProofImage);
         this.setParamSimple(map, prefix + "CommissionImage", this.CommissionImage);
         this.setParamSimple(map, prefix + "Remark", this.Remark);
+        this.setParamSimple(map, prefix + "QualificationId", this.QualificationId);
 
     }
 }

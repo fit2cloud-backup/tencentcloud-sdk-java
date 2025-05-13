@@ -16,11 +16,12 @@
 package com.tencentcloudapi.mariadb.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DBAccount extends AbstractModel{
+public class DBAccount extends AbstractModel {
 
     /**
     * 用户名
@@ -65,8 +66,7 @@ public class DBAccount extends AbstractModel{
     private Long ReadOnly;
 
     /**
-    * 该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
+    * 该字段对只读账号有意义，表示选择主备延迟小于该值的备机
     */
     @SerializedName("DelayThresh")
     @Expose
@@ -183,20 +183,16 @@ public class DBAccount extends AbstractModel{
     }
 
     /**
-     * Get 该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return DelayThresh 该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 该字段对只读账号有意义，表示选择主备延迟小于该值的备机 
+     * @return DelayThresh 该字段对只读账号有意义，表示选择主备延迟小于该值的备机
      */
     public Long getDelayThresh() {
         return this.DelayThresh;
     }
 
     /**
-     * Set 该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param DelayThresh 该字段对只读帐号有意义，表示选择主备延迟小于该值的备机
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 该字段对只读账号有意义，表示选择主备延迟小于该值的备机
+     * @param DelayThresh 该字段对只读账号有意义，表示选择主备延迟小于该值的备机
      */
     public void setDelayThresh(Long DelayThresh) {
         this.DelayThresh = DelayThresh;

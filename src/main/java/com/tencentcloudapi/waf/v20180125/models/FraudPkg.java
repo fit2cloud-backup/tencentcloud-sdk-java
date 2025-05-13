@@ -16,15 +16,15 @@
 package com.tencentcloudapi.waf.v20180125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class FraudPkg extends AbstractModel{
+public class FraudPkg extends AbstractModel {
 
     /**
     * 资源id
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("ResourceIds")
     @Expose
@@ -32,7 +32,6 @@ public class FraudPkg extends AbstractModel{
 
     /**
     * 状态
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Status")
     @Expose
@@ -40,7 +39,6 @@ public class FraudPkg extends AbstractModel{
 
     /**
     * 地域
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("Region")
     @Expose
@@ -48,7 +46,6 @@ public class FraudPkg extends AbstractModel{
 
     /**
     * 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("BeginTime")
     @Expose
@@ -56,7 +53,6 @@ public class FraudPkg extends AbstractModel{
 
     /**
     * 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("EndTime")
     @Expose
@@ -64,7 +60,6 @@ public class FraudPkg extends AbstractModel{
 
     /**
     * 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("InquireNum")
     @Expose
@@ -72,7 +67,6 @@ public class FraudPkg extends AbstractModel{
 
     /**
     * 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("UsedNum")
     @Expose
@@ -80,17 +74,14 @@ public class FraudPkg extends AbstractModel{
 
     /**
     * 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
     */
     @SerializedName("RenewFlag")
     @Expose
     private Long RenewFlag;
 
     /**
-     * Get 资源id
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 资源id 
      * @return ResourceIds 资源id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getResourceIds() {
         return this.ResourceIds;
@@ -98,19 +89,15 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 资源id
-注意：此字段可能返回 null，表示取不到有效值。
      * @param ResourceIds 资源id
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setResourceIds(String ResourceIds) {
         this.ResourceIds = ResourceIds;
     }
 
     /**
-     * Get 状态
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 状态 
      * @return Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getStatus() {
         return this.Status;
@@ -118,19 +105,15 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 状态
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Status 状态
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setStatus(Long Status) {
         this.Status = Status;
     }
 
     /**
-     * Get 地域
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 地域 
      * @return Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRegion() {
         return this.Region;
@@ -138,19 +121,15 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 地域
-注意：此字段可能返回 null，表示取不到有效值。
      * @param Region 地域
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRegion(Long Region) {
         this.Region = Region;
     }
 
     /**
-     * Get 开始时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 开始时间 
      * @return BeginTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getBeginTime() {
         return this.BeginTime;
@@ -158,19 +137,15 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param BeginTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setBeginTime(String BeginTime) {
         this.BeginTime = BeginTime;
     }
 
     /**
-     * Get 结束时间
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 结束时间 
      * @return EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public String getEndTime() {
         return this.EndTime;
@@ -178,19 +153,15 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      * @param EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setEndTime(String EndTime) {
         this.EndTime = EndTime;
     }
 
     /**
-     * Get 申请数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 申请数量 
      * @return InquireNum 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getInquireNum() {
         return this.InquireNum;
@@ -198,19 +169,15 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param InquireNum 申请数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setInquireNum(Long InquireNum) {
         this.InquireNum = InquireNum;
     }
 
     /**
-     * Get 使用数量
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 使用数量 
      * @return UsedNum 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getUsedNum() {
         return this.UsedNum;
@@ -218,19 +185,15 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
      * @param UsedNum 使用数量
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setUsedNum(Long UsedNum) {
         this.UsedNum = UsedNum;
     }
 
     /**
-     * Get 续费标志
-注意：此字段可能返回 null，表示取不到有效值。 
+     * Get 续费标志 
      * @return RenewFlag 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public Long getRenewFlag() {
         return this.RenewFlag;
@@ -238,9 +201,7 @@ public class FraudPkg extends AbstractModel{
 
     /**
      * Set 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
      * @param RenewFlag 续费标志
-注意：此字段可能返回 null，表示取不到有效值。
      */
     public void setRenewFlag(Long RenewFlag) {
         this.RenewFlag = RenewFlag;

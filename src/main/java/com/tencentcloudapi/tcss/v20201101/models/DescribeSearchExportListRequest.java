@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tcss.v20201101.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeSearchExportListRequest extends AbstractModel{
+public class DescribeSearchExportListRequest extends AbstractModel {
 
     /**
     * ES查询条件JSON
@@ -28,6 +29,13 @@ public class DescribeSearchExportListRequest extends AbstractModel{
     @SerializedName("Query")
     @Expose
     private String Query;
+
+    /**
+    * 日志类型列表
+    */
+    @SerializedName("LogTypes")
+    @Expose
+    private String [] LogTypes;
 
     /**
      * Get ES查询条件JSON 
@@ -45,6 +53,22 @@ public class DescribeSearchExportListRequest extends AbstractModel{
         this.Query = Query;
     }
 
+    /**
+     * Get 日志类型列表 
+     * @return LogTypes 日志类型列表
+     */
+    public String [] getLogTypes() {
+        return this.LogTypes;
+    }
+
+    /**
+     * Set 日志类型列表
+     * @param LogTypes 日志类型列表
+     */
+    public void setLogTypes(String [] LogTypes) {
+        this.LogTypes = LogTypes;
+    }
+
     public DescribeSearchExportListRequest() {
     }
 
@@ -56,6 +80,12 @@ public class DescribeSearchExportListRequest extends AbstractModel{
         if (source.Query != null) {
             this.Query = new String(source.Query);
         }
+        if (source.LogTypes != null) {
+            this.LogTypes = new String[source.LogTypes.length];
+            for (int i = 0; i < source.LogTypes.length; i++) {
+                this.LogTypes[i] = new String(source.LogTypes[i]);
+            }
+        }
     }
 
 
@@ -64,6 +94,7 @@ public class DescribeSearchExportListRequest extends AbstractModel{
      */
     public void toMap(HashMap<String, String> map, String prefix) {
         this.setParamSimple(map, prefix + "Query", this.Query);
+        this.setParamArraySimple(map, prefix + "LogTypes.", this.LogTypes);
 
     }
 }

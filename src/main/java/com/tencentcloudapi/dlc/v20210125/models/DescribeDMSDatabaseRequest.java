@@ -16,11 +16,12 @@
 package com.tencentcloudapi.dlc.v20210125.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeDMSDatabaseRequest extends AbstractModel{
+public class DescribeDMSDatabaseRequest extends AbstractModel {
 
     /**
     * 数据库名称
@@ -37,11 +38,18 @@ public class DescribeDMSDatabaseRequest extends AbstractModel{
     private String SchemaName;
 
     /**
-    * 匹配规则
+    * 匹配规则，只支持填*
     */
     @SerializedName("Pattern")
     @Expose
     private String Pattern;
+
+    /**
+    * 数据源连接名
+    */
+    @SerializedName("DatasourceConnectionName")
+    @Expose
+    private String DatasourceConnectionName;
 
     /**
      * Get 数据库名称 
@@ -76,19 +84,35 @@ public class DescribeDMSDatabaseRequest extends AbstractModel{
     }
 
     /**
-     * Get 匹配规则 
-     * @return Pattern 匹配规则
+     * Get 匹配规则，只支持填* 
+     * @return Pattern 匹配规则，只支持填*
      */
     public String getPattern() {
         return this.Pattern;
     }
 
     /**
-     * Set 匹配规则
-     * @param Pattern 匹配规则
+     * Set 匹配规则，只支持填*
+     * @param Pattern 匹配规则，只支持填*
      */
     public void setPattern(String Pattern) {
         this.Pattern = Pattern;
+    }
+
+    /**
+     * Get 数据源连接名 
+     * @return DatasourceConnectionName 数据源连接名
+     */
+    public String getDatasourceConnectionName() {
+        return this.DatasourceConnectionName;
+    }
+
+    /**
+     * Set 数据源连接名
+     * @param DatasourceConnectionName 数据源连接名
+     */
+    public void setDatasourceConnectionName(String DatasourceConnectionName) {
+        this.DatasourceConnectionName = DatasourceConnectionName;
     }
 
     public DescribeDMSDatabaseRequest() {
@@ -108,6 +132,9 @@ public class DescribeDMSDatabaseRequest extends AbstractModel{
         if (source.Pattern != null) {
             this.Pattern = new String(source.Pattern);
         }
+        if (source.DatasourceConnectionName != null) {
+            this.DatasourceConnectionName = new String(source.DatasourceConnectionName);
+        }
     }
 
 
@@ -118,6 +145,7 @@ public class DescribeDMSDatabaseRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "Name", this.Name);
         this.setParamSimple(map, prefix + "SchemaName", this.SchemaName);
         this.setParamSimple(map, prefix + "Pattern", this.Pattern);
+        this.setParamSimple(map, prefix + "DatasourceConnectionName", this.DatasourceConnectionName);
 
     }
 }

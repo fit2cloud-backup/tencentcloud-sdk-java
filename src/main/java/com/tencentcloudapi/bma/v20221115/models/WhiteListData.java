@@ -16,11 +16,12 @@
 package com.tencentcloudapi.bma.v20221115.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class WhiteListData extends AbstractModel{
+public class WhiteListData extends AbstractModel {
 
     /**
     * 白名单id
@@ -61,6 +62,14 @@ public class WhiteListData extends AbstractModel{
     @SerializedName("WhiteList")
     @Expose
     private String WhiteList;
+
+    /**
+    * 白名单备注
+注意：此字段可能返回 null，表示取不到有效值。
+    */
+    @SerializedName("Remark")
+    @Expose
+    private String Remark;
 
     /**
     * 新增时间
@@ -171,6 +180,26 @@ public class WhiteListData extends AbstractModel{
     }
 
     /**
+     * Get 白名单备注
+注意：此字段可能返回 null，表示取不到有效值。 
+     * @return Remark 白名单备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public String getRemark() {
+        return this.Remark;
+    }
+
+    /**
+     * Set 白名单备注
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param Remark 白名单备注
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    /**
      * Get 新增时间
 注意：此字段可能返回 null，表示取不到有效值。 
      * @return InsertTime 新增时间
@@ -213,6 +242,9 @@ public class WhiteListData extends AbstractModel{
         if (source.WhiteList != null) {
             this.WhiteList = new String(source.WhiteList);
         }
+        if (source.Remark != null) {
+            this.Remark = new String(source.Remark);
+        }
         if (source.InsertTime != null) {
             this.InsertTime = new String(source.InsertTime);
         }
@@ -228,6 +260,7 @@ public class WhiteListData extends AbstractModel{
         this.setParamSimple(map, prefix + "BrandName", this.BrandName);
         this.setParamSimple(map, prefix + "AssetsType", this.AssetsType);
         this.setParamSimple(map, prefix + "WhiteList", this.WhiteList);
+        this.setParamSimple(map, prefix + "Remark", this.Remark);
         this.setParamSimple(map, prefix + "InsertTime", this.InsertTime);
 
     }

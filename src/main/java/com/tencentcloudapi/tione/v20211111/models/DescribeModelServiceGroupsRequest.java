@@ -16,11 +16,12 @@
 package com.tencentcloudapi.tione.v20211111.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class DescribeModelServiceGroupsRequest extends AbstractModel{
+public class DescribeModelServiceGroupsRequest extends AbstractModel {
 
     /**
     * 偏移量，默认为0
@@ -64,6 +65,13 @@ public class DescribeModelServiceGroupsRequest extends AbstractModel{
     @SerializedName("TagFilters")
     @Expose
     private TagFilter [] TagFilters;
+
+    /**
+    * 服务分类
+    */
+    @SerializedName("ServiceCategory")
+    @Expose
+    private String ServiceCategory;
 
     /**
      * Get 偏移量，默认为0 
@@ -165,6 +173,22 @@ public class DescribeModelServiceGroupsRequest extends AbstractModel{
         this.TagFilters = TagFilters;
     }
 
+    /**
+     * Get 服务分类 
+     * @return ServiceCategory 服务分类
+     */
+    public String getServiceCategory() {
+        return this.ServiceCategory;
+    }
+
+    /**
+     * Set 服务分类
+     * @param ServiceCategory 服务分类
+     */
+    public void setServiceCategory(String ServiceCategory) {
+        this.ServiceCategory = ServiceCategory;
+    }
+
     public DescribeModelServiceGroupsRequest() {
     }
 
@@ -197,6 +221,9 @@ public class DescribeModelServiceGroupsRequest extends AbstractModel{
                 this.TagFilters[i] = new TagFilter(source.TagFilters[i]);
             }
         }
+        if (source.ServiceCategory != null) {
+            this.ServiceCategory = new String(source.ServiceCategory);
+        }
     }
 
 
@@ -210,6 +237,7 @@ public class DescribeModelServiceGroupsRequest extends AbstractModel{
         this.setParamSimple(map, prefix + "OrderField", this.OrderField);
         this.setParamArrayObj(map, prefix + "Filters.", this.Filters);
         this.setParamArrayObj(map, prefix + "TagFilters.", this.TagFilters);
+        this.setParamSimple(map, prefix + "ServiceCategory", this.ServiceCategory);
 
     }
 }

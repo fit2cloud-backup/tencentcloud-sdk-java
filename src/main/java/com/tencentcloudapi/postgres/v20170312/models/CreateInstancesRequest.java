@@ -16,11 +16,12 @@
 package com.tencentcloudapi.postgres.v20170312.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class CreateInstancesRequest extends AbstractModel{
+public class CreateInstancesRequest extends AbstractModel {
 
     /**
     * 实例所属主可用区， 如：ap-guangzhou-3；若需要支持多可用区，在DBNodeSet.N字段中进行添加主可用区和备可用区信息；
@@ -53,8 +54,8 @@ public class CreateInstancesRequest extends AbstractModel{
 
     /**
     * 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
     */
     @SerializedName("Period")
     @Expose
@@ -62,8 +63,8 @@ public class CreateInstancesRequest extends AbstractModel{
 
     /**
     * 实例字符集，目前只支持：
-<li> UTF8
-<li> LATIN1
+<li> UTF8</li>
+<li> LATIN1</li>
     */
     @SerializedName("Charset")
     @Expose
@@ -71,10 +72,10 @@ public class CreateInstancesRequest extends AbstractModel{
 
     /**
     * 实例根账号用户名，具体规范如下：
-<li>用户名需要1-16个字符，只能由字母、数字或下划线组成
-<li>不能为postgres
-<li>不能由数字和pg_开头
-<li>所有规则均不区分大小写
+<li>用户名需要1-16个字符，只能由字母、数字或下划线组成</li>
+<li>不能为postgres</li>
+<li>不能由数字和pg_开头</li>
+<li>所有规则均不区分大小写</li>
     */
     @SerializedName("AdminName")
     @Expose
@@ -83,38 +84,34 @@ public class CreateInstancesRequest extends AbstractModel{
     /**
     * 实例根账号用户名对应的密码，长度8 ~ 32位，推荐使用12位以上的密码;不能以" / "开头;
 必须包含以下四项，字符种类:
-<li>小写字母： [a ~ z]
-<li>大写字母：[A ～ Z]
-<li>数字：0 - 9
-<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/
+<li>小写字母： [a ~ z]</li>
+<li>大写字母：[A ～ Z]</li>
+<li>数字：0 - 9</li>
+<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/</li>
     */
     @SerializedName("AdminPassword")
     @Expose
     private String AdminPassword;
 
     /**
-    * PostgreSQL大版本号，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取，目前支持10，11，12，13，14，15这几个大版本。
-当只输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
-该参数和DBVersion、DBKernelVersion需要至少指定一个，如无指定购买内核小版本需求时，只传入该参数即可。
-
+    * PostgreSQL大版本号（该参数当前必传），版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。目前支持10，11，12，13，14，15这几个大版本，详情见[内核版本概述](https://cloud.tencent.com/document/product/409/67018)。
+输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
     */
     @SerializedName("DBMajorVersion")
     @Expose
     private String DBMajorVersion;
 
     /**
-    * PostgreSQL社区大版本+小版本号，如12.4，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会基于此社区小版本号创建对应的最新内核版本实例。
-该参数和DBMajorVersion、DBKernelVersion需要至少指定一个。
+    * PostgreSQL社区大版本+小版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新小版本号。
     */
     @SerializedName("DBVersion")
     @Expose
     private String DBVersion;
 
     /**
-    * PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会创建指定的内核版本实例。只针对内核版本需要指定时使用，一般场景不推荐传入该参数。
-
+    * PostgreSQL内核版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新内核版本号。
     */
     @SerializedName("DBKernelVersion")
     @Expose
@@ -122,8 +119,8 @@ public class CreateInstancesRequest extends AbstractModel{
 
     /**
     * 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
     */
     @SerializedName("InstanceChargeType")
@@ -131,14 +128,14 @@ public class CreateInstancesRequest extends AbstractModel{
     private String InstanceChargeType;
 
     /**
-    * 私有网络ID，形如vpc-xxxxxxxx。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
+    * 私有网络ID，形如vpc-xxxxxxxx（该参数当前必传）。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
     */
     @SerializedName("VpcId")
     @Expose
     private String VpcId;
 
     /**
-    * 私有网络子网ID，形如subnet-xxxxxxxx。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
+    * 私有网络子网ID，形如subnet-xxxxxxxx（该参数当前必传）。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
     */
     @SerializedName("SubnetId")
     @Expose
@@ -154,8 +151,8 @@ public class CreateInstancesRequest extends AbstractModel{
 
     /**
     * 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
     */
     @SerializedName("AutoRenewFlag")
@@ -164,8 +161,8 @@ public class CreateInstancesRequest extends AbstractModel{
 
     /**
     * 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
     */
     @SerializedName("AutoVoucher")
@@ -218,8 +215,8 @@ public class CreateInstancesRequest extends AbstractModel{
 
     /**
     * 是否需要支持数据透明加密：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
 参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
     */
@@ -244,9 +241,16 @@ KMSRegion相关介绍参考[开启透明数据加密](https://cloud.tencent.com/
     private String KMSRegion;
 
     /**
+    * 指定KMS服务的集群，KMSClusterId为空使用默认集群的KMS，若选择指定KMS集群，则需要传入KMSClusterId。 KMSClusterId相关介绍参考开启透明数据加密
+    */
+    @SerializedName("KMSClusterId")
+    @Expose
+    private String KMSClusterId;
+
+    /**
     * 数据库引擎，支持：
-<li>postgresql：云数据库PostgreSQL
-<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL
+<li>postgresql：云数据库PostgreSQL</li>
+<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>
 默认值：postgresql
     */
     @SerializedName("DBEngine")
@@ -258,10 +262,10 @@ KMSRegion相关介绍参考[开启透明数据加密](https://cloud.tencent.com/
 {"$key1":"$value1", "$key2":"$value2"}
 各引擎支持如下：
 mssql_compatible引擎：
-<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。
+<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li>
 <li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下：
-"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。
-<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。
+"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li>
+<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
     */
     @SerializedName("DBEngineConfig")
     @Expose
@@ -269,8 +273,8 @@ mssql_compatible引擎：
 
     /**
     * 主从同步方式，支持： 
-<li>Semi-sync：半同步
-<li>Async：异步
+<li>Semi-sync：半同步</li>
+<li>Async：异步</li>
 主实例默认值：Semi-sync
 只读实例默认值：Async
     */
@@ -280,8 +284,8 @@ mssql_compatible引擎：
 
     /**
     * 是否需要支持Ipv6：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
     */
     @SerializedName("NeedSupportIpv6")
@@ -358,11 +362,11 @@ mssql_compatible引擎：
 
     /**
      * Get 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1 
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li> 
      * @return Period 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
      */
     public Long getPeriod() {
         return this.Period;
@@ -370,11 +374,11 @@ mssql_compatible引擎：
 
     /**
      * Set 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
      * @param Period 购买时长，单位：月。
-<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36
-<li>后付费：只支持1
+<li>预付费：支持1,2,3,4,5,6,7,8,9,10,11,12,24,36</li>
+<li>后付费：只支持1</li>
      */
     public void setPeriod(Long Period) {
         this.Period = Period;
@@ -382,11 +386,11 @@ mssql_compatible引擎：
 
     /**
      * Get 实例字符集，目前只支持：
-<li> UTF8
-<li> LATIN1 
+<li> UTF8</li>
+<li> LATIN1</li> 
      * @return Charset 实例字符集，目前只支持：
-<li> UTF8
-<li> LATIN1
+<li> UTF8</li>
+<li> LATIN1</li>
      */
     public String getCharset() {
         return this.Charset;
@@ -394,11 +398,11 @@ mssql_compatible引擎：
 
     /**
      * Set 实例字符集，目前只支持：
-<li> UTF8
-<li> LATIN1
+<li> UTF8</li>
+<li> LATIN1</li>
      * @param Charset 实例字符集，目前只支持：
-<li> UTF8
-<li> LATIN1
+<li> UTF8</li>
+<li> LATIN1</li>
      */
     public void setCharset(String Charset) {
         this.Charset = Charset;
@@ -406,15 +410,15 @@ mssql_compatible引擎：
 
     /**
      * Get 实例根账号用户名，具体规范如下：
-<li>用户名需要1-16个字符，只能由字母、数字或下划线组成
-<li>不能为postgres
-<li>不能由数字和pg_开头
-<li>所有规则均不区分大小写 
+<li>用户名需要1-16个字符，只能由字母、数字或下划线组成</li>
+<li>不能为postgres</li>
+<li>不能由数字和pg_开头</li>
+<li>所有规则均不区分大小写</li> 
      * @return AdminName 实例根账号用户名，具体规范如下：
-<li>用户名需要1-16个字符，只能由字母、数字或下划线组成
-<li>不能为postgres
-<li>不能由数字和pg_开头
-<li>所有规则均不区分大小写
+<li>用户名需要1-16个字符，只能由字母、数字或下划线组成</li>
+<li>不能为postgres</li>
+<li>不能由数字和pg_开头</li>
+<li>所有规则均不区分大小写</li>
      */
     public String getAdminName() {
         return this.AdminName;
@@ -422,15 +426,15 @@ mssql_compatible引擎：
 
     /**
      * Set 实例根账号用户名，具体规范如下：
-<li>用户名需要1-16个字符，只能由字母、数字或下划线组成
-<li>不能为postgres
-<li>不能由数字和pg_开头
-<li>所有规则均不区分大小写
+<li>用户名需要1-16个字符，只能由字母、数字或下划线组成</li>
+<li>不能为postgres</li>
+<li>不能由数字和pg_开头</li>
+<li>所有规则均不区分大小写</li>
      * @param AdminName 实例根账号用户名，具体规范如下：
-<li>用户名需要1-16个字符，只能由字母、数字或下划线组成
-<li>不能为postgres
-<li>不能由数字和pg_开头
-<li>所有规则均不区分大小写
+<li>用户名需要1-16个字符，只能由字母、数字或下划线组成</li>
+<li>不能为postgres</li>
+<li>不能由数字和pg_开头</li>
+<li>所有规则均不区分大小写</li>
      */
     public void setAdminName(String AdminName) {
         this.AdminName = AdminName;
@@ -439,16 +443,16 @@ mssql_compatible引擎：
     /**
      * Get 实例根账号用户名对应的密码，长度8 ~ 32位，推荐使用12位以上的密码;不能以" / "开头;
 必须包含以下四项，字符种类:
-<li>小写字母： [a ~ z]
-<li>大写字母：[A ～ Z]
-<li>数字：0 - 9
-<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/ 
+<li>小写字母： [a ~ z]</li>
+<li>大写字母：[A ～ Z]</li>
+<li>数字：0 - 9</li>
+<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/</li> 
      * @return AdminPassword 实例根账号用户名对应的密码，长度8 ~ 32位，推荐使用12位以上的密码;不能以" / "开头;
 必须包含以下四项，字符种类:
-<li>小写字母： [a ~ z]
-<li>大写字母：[A ～ Z]
-<li>数字：0 - 9
-<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/
+<li>小写字母： [a ~ z]</li>
+<li>大写字母：[A ～ Z]</li>
+<li>数字：0 - 9</li>
+<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/</li>
      */
     public String getAdminPassword() {
         return this.AdminPassword;
@@ -457,92 +461,76 @@ mssql_compatible引擎：
     /**
      * Set 实例根账号用户名对应的密码，长度8 ~ 32位，推荐使用12位以上的密码;不能以" / "开头;
 必须包含以下四项，字符种类:
-<li>小写字母： [a ~ z]
-<li>大写字母：[A ～ Z]
-<li>数字：0 - 9
-<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/
+<li>小写字母： [a ~ z]</li>
+<li>大写字母：[A ～ Z]</li>
+<li>数字：0 - 9</li>
+<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/</li>
      * @param AdminPassword 实例根账号用户名对应的密码，长度8 ~ 32位，推荐使用12位以上的密码;不能以" / "开头;
 必须包含以下四项，字符种类:
-<li>小写字母： [a ~ z]
-<li>大写字母：[A ～ Z]
-<li>数字：0 - 9
-<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/
+<li>小写字母： [a ~ z]</li>
+<li>大写字母：[A ～ Z]</li>
+<li>数字：0 - 9</li>
+<li>特殊字符：()`~!@#$%^&*-+=_|{}[]:;'<>,.?/</li>
      */
     public void setAdminPassword(String AdminPassword) {
         this.AdminPassword = AdminPassword;
     }
 
     /**
-     * Get PostgreSQL大版本号，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取，目前支持10，11，12，13，14，15这几个大版本。
-当只输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
-该参数和DBVersion、DBKernelVersion需要至少指定一个，如无指定购买内核小版本需求时，只传入该参数即可。
- 
-     * @return DBMajorVersion PostgreSQL大版本号，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取，目前支持10，11，12，13，14，15这几个大版本。
-当只输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
-该参数和DBVersion、DBKernelVersion需要至少指定一个，如无指定购买内核小版本需求时，只传入该参数即可。
-
+     * Get PostgreSQL大版本号（该参数当前必传），版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。目前支持10，11，12，13，14，15这几个大版本，详情见[内核版本概述](https://cloud.tencent.com/document/product/409/67018)。
+输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。 
+     * @return DBMajorVersion PostgreSQL大版本号（该参数当前必传），版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。目前支持10，11，12，13，14，15这几个大版本，详情见[内核版本概述](https://cloud.tencent.com/document/product/409/67018)。
+输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
      */
     public String getDBMajorVersion() {
         return this.DBMajorVersion;
     }
 
     /**
-     * Set PostgreSQL大版本号，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取，目前支持10，11，12，13，14，15这几个大版本。
-当只输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
-该参数和DBVersion、DBKernelVersion需要至少指定一个，如无指定购买内核小版本需求时，只传入该参数即可。
-
-     * @param DBMajorVersion PostgreSQL大版本号，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取，目前支持10，11，12，13，14，15这几个大版本。
-当只输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
-该参数和DBVersion、DBKernelVersion需要至少指定一个，如无指定购买内核小版本需求时，只传入该参数即可。
-
+     * Set PostgreSQL大版本号（该参数当前必传），版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。目前支持10，11，12，13，14，15这几个大版本，详情见[内核版本概述](https://cloud.tencent.com/document/product/409/67018)。
+输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
+     * @param DBMajorVersion PostgreSQL大版本号（该参数当前必传），版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。目前支持10，11，12，13，14，15这几个大版本，详情见[内核版本概述](https://cloud.tencent.com/document/product/409/67018)。
+输入该参数时，会基于此大版本号创建对应的最新小版本的最新内核版本号实例。
      */
     public void setDBMajorVersion(String DBMajorVersion) {
         this.DBMajorVersion = DBMajorVersion;
     }
 
     /**
-     * Get PostgreSQL社区大版本+小版本号，如12.4，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会基于此社区小版本号创建对应的最新内核版本实例。
-该参数和DBMajorVersion、DBKernelVersion需要至少指定一个。 
-     * @return DBVersion PostgreSQL社区大版本+小版本号，如12.4，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会基于此社区小版本号创建对应的最新内核版本实例。
-该参数和DBMajorVersion、DBKernelVersion需要至少指定一个。
+     * Get PostgreSQL社区大版本+小版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新小版本号。 
+     * @return DBVersion PostgreSQL社区大版本+小版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新小版本号。
      */
     public String getDBVersion() {
         return this.DBVersion;
     }
 
     /**
-     * Set PostgreSQL社区大版本+小版本号，如12.4，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会基于此社区小版本号创建对应的最新内核版本实例。
-该参数和DBMajorVersion、DBKernelVersion需要至少指定一个。
-     * @param DBVersion PostgreSQL社区大版本+小版本号，如12.4，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会基于此社区小版本号创建对应的最新内核版本实例。
-该参数和DBMajorVersion、DBKernelVersion需要至少指定一个。
+     * Set PostgreSQL社区大版本+小版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新小版本号。
+     * @param DBVersion PostgreSQL社区大版本+小版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新小版本号。
      */
     public void setDBVersion(String DBVersion) {
         this.DBVersion = DBVersion;
     }
 
     /**
-     * Get PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会创建指定的内核版本实例。只针对内核版本需要指定时使用，一般场景不推荐传入该参数。
- 
-     * @return DBKernelVersion PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会创建指定的内核版本实例。只针对内核版本需要指定时使用，一般场景不推荐传入该参数。
-
+     * Get PostgreSQL内核版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新内核版本号。 
+     * @return DBKernelVersion PostgreSQL内核版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新内核版本号。
      */
     public String getDBKernelVersion() {
         return this.DBKernelVersion;
     }
 
     /**
-     * Set PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会创建指定的内核版本实例。只针对内核版本需要指定时使用，一般场景不推荐传入该参数。
-
-     * @param DBKernelVersion PostgreSQL内核版本号，如v12.7_r1.8，版本信息可从[DescribeDBVersions](https://cloud.tencent.com/document/api/409/89018)获取。
-当只输入该参数时，会创建指定的内核版本实例。只针对内核版本需要指定时使用，一般场景不推荐传入该参数。
-
+     * Set PostgreSQL内核版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新内核版本号。
+     * @param DBKernelVersion PostgreSQL内核版本号。
+一般场景不推荐传入该参数。如需指定，只能传当前大版本号下最新内核版本号。
      */
     public void setDBKernelVersion(String DBKernelVersion) {
         this.DBKernelVersion = DBKernelVersion;
@@ -550,12 +538,12 @@ mssql_compatible引擎：
 
     /**
      * Get 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID 
      * @return InstanceChargeType 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
      */
     public String getInstanceChargeType() {
@@ -564,12 +552,12 @@ mssql_compatible引擎：
 
     /**
      * Set 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
      * @param InstanceChargeType 实例计费类型，目前支持：
-<li>PREPAID：预付费，即包年包月
-<li>POSTPAID_BY_HOUR：后付费，即按量计费
+<li>PREPAID：预付费，即包年包月</li>
+<li>POSTPAID_BY_HOUR：后付费，即按量计费</li>
 默认值：PREPAID
      */
     public void setInstanceChargeType(String InstanceChargeType) {
@@ -577,32 +565,32 @@ mssql_compatible引擎：
     }
 
     /**
-     * Get 私有网络ID，形如vpc-xxxxxxxx。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。 
-     * @return VpcId 私有网络ID，形如vpc-xxxxxxxx。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
+     * Get 私有网络ID，形如vpc-xxxxxxxx（该参数当前必传）。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。 
+     * @return VpcId 私有网络ID，形如vpc-xxxxxxxx（该参数当前必传）。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
      */
     public String getVpcId() {
         return this.VpcId;
     }
 
     /**
-     * Set 私有网络ID，形如vpc-xxxxxxxx。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
-     * @param VpcId 私有网络ID，形如vpc-xxxxxxxx。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
+     * Set 私有网络ID，形如vpc-xxxxxxxx（该参数当前必传）。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
+     * @param VpcId 私有网络ID，形如vpc-xxxxxxxx（该参数当前必传）。有效的VpcId可通过登录控制台查询；也可以调用接口 [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372) ，从接口返回中的unVpcId字段获取。
      */
     public void setVpcId(String VpcId) {
         this.VpcId = VpcId;
     }
 
     /**
-     * Get 私有网络子网ID，形如subnet-xxxxxxxx。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。 
-     * @return SubnetId 私有网络子网ID，形如subnet-xxxxxxxx。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
+     * Get 私有网络子网ID，形如subnet-xxxxxxxx（该参数当前必传）。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。 
+     * @return SubnetId 私有网络子网ID，形如subnet-xxxxxxxx（该参数当前必传）。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
      */
     public String getSubnetId() {
         return this.SubnetId;
     }
 
     /**
-     * Set 私有网络子网ID，形如subnet-xxxxxxxx。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
-     * @param SubnetId 私有网络子网ID，形如subnet-xxxxxxxx。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
+     * Set 私有网络子网ID，形如subnet-xxxxxxxx（该参数当前必传）。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
+     * @param SubnetId 私有网络子网ID，形如subnet-xxxxxxxx（该参数当前必传）。有效的私有网络子网ID可通过登录控制台查询；也可以调用接口 [DescribeSubnets ](https://cloud.tencent.com/document/api/215/15784)，从接口返回中的unSubnetId字段获取。
      */
     public void setSubnetId(String SubnetId) {
         this.SubnetId = SubnetId;
@@ -630,12 +618,12 @@ mssql_compatible引擎：
 
     /**
      * Get 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0 
      * @return AutoRenewFlag 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
      */
     public Long getAutoRenewFlag() {
@@ -644,12 +632,12 @@ mssql_compatible引擎：
 
     /**
      * Set 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
      * @param AutoRenewFlag 续费标记：
-<li>0：手动续费
-<li>1：自动续费
+<li>0：手动续费</li>
+<li>1：自动续费</li>
 默认值：0
      */
     public void setAutoRenewFlag(Long AutoRenewFlag) {
@@ -658,12 +646,12 @@ mssql_compatible引擎：
 
     /**
      * Get 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0 
      * @return AutoVoucher 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public Long getAutoVoucher() {
@@ -672,12 +660,12 @@ mssql_compatible引擎：
 
     /**
      * Set 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      * @param AutoVoucher 是否自动使用代金券：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public void setAutoVoucher(Long AutoVoucher) {
@@ -790,13 +778,13 @@ mssql_compatible引擎：
 
     /**
      * Get 是否需要支持数据透明加密：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
 参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748) 
      * @return NeedSupportTDE 是否需要支持数据透明加密：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
 参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
      */
@@ -806,13 +794,13 @@ mssql_compatible引擎：
 
     /**
      * Set 是否需要支持数据透明加密：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
 参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
      * @param NeedSupportTDE 是否需要支持数据透明加密：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
 参考[数据透明加密概述](https://cloud.tencent.com/document/product/409/71748)
      */
@@ -861,13 +849,29 @@ KMSRegion相关介绍参考[开启透明数据加密](https://cloud.tencent.com/
     }
 
     /**
+     * Get 指定KMS服务的集群，KMSClusterId为空使用默认集群的KMS，若选择指定KMS集群，则需要传入KMSClusterId。 KMSClusterId相关介绍参考开启透明数据加密 
+     * @return KMSClusterId 指定KMS服务的集群，KMSClusterId为空使用默认集群的KMS，若选择指定KMS集群，则需要传入KMSClusterId。 KMSClusterId相关介绍参考开启透明数据加密
+     */
+    public String getKMSClusterId() {
+        return this.KMSClusterId;
+    }
+
+    /**
+     * Set 指定KMS服务的集群，KMSClusterId为空使用默认集群的KMS，若选择指定KMS集群，则需要传入KMSClusterId。 KMSClusterId相关介绍参考开启透明数据加密
+     * @param KMSClusterId 指定KMS服务的集群，KMSClusterId为空使用默认集群的KMS，若选择指定KMS集群，则需要传入KMSClusterId。 KMSClusterId相关介绍参考开启透明数据加密
+     */
+    public void setKMSClusterId(String KMSClusterId) {
+        this.KMSClusterId = KMSClusterId;
+    }
+
+    /**
      * Get 数据库引擎，支持：
-<li>postgresql：云数据库PostgreSQL
-<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL
+<li>postgresql：云数据库PostgreSQL</li>
+<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>
 默认值：postgresql 
      * @return DBEngine 数据库引擎，支持：
-<li>postgresql：云数据库PostgreSQL
-<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL
+<li>postgresql：云数据库PostgreSQL</li>
+<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>
 默认值：postgresql
      */
     public String getDBEngine() {
@@ -876,12 +880,12 @@ KMSRegion相关介绍参考[开启透明数据加密](https://cloud.tencent.com/
 
     /**
      * Set 数据库引擎，支持：
-<li>postgresql：云数据库PostgreSQL
-<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL
+<li>postgresql：云数据库PostgreSQL</li>
+<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>
 默认值：postgresql
      * @param DBEngine 数据库引擎，支持：
-<li>postgresql：云数据库PostgreSQL
-<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL
+<li>postgresql：云数据库PostgreSQL</li>
+<li>mssql_compatible：MSSQL兼容-云数据库PostgreSQL</li>
 默认值：postgresql
      */
     public void setDBEngine(String DBEngine) {
@@ -893,18 +897,18 @@ KMSRegion相关介绍参考[开启透明数据加密](https://cloud.tencent.com/
 {"$key1":"$value1", "$key2":"$value2"}
 各引擎支持如下：
 mssql_compatible引擎：
-<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。
+<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li>
 <li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下：
-"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。
-<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。 
+"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li>
+<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li> 
      * @return DBEngineConfig 数据库引擎的配置信息，配置格式如下：
 {"$key1":"$value1", "$key2":"$value2"}
 各引擎支持如下：
 mssql_compatible引擎：
-<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。
+<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li>
 <li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下：
-"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。
-<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。
+"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li>
+<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
      */
     public String getDBEngineConfig() {
         return this.DBEngineConfig;
@@ -915,18 +919,18 @@ mssql_compatible引擎：
 {"$key1":"$value1", "$key2":"$value2"}
 各引擎支持如下：
 mssql_compatible引擎：
-<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。
+<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li>
 <li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下：
-"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。
-<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。
+"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li>
+<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
      * @param DBEngineConfig 数据库引擎的配置信息，配置格式如下：
 {"$key1":"$value1", "$key2":"$value2"}
 各引擎支持如下：
 mssql_compatible引擎：
-<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。
+<li>migrationMode：数据库模式，可选参数，可取值：single-db（单数据库模式），multi-db（多数据库模式）。默认为single-db。</li>
 <li>defaultLocale：排序区域规则，可选参数，在初始化后不可修改，默认为en_US，可选值如下：
-"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。
-<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。
+"af_ZA", "sq_AL", "ar_DZ", "ar_BH", "ar_EG", "ar_IQ", "ar_JO", "ar_KW", "ar_LB", "ar_LY", "ar_MA", "ar_OM", "ar_QA", "ar_SA", "ar_SY", "ar_TN", "ar_AE", "ar_YE", "hy_AM", "az_Cyrl_AZ", "az_Latn_AZ", "eu_ES", "be_BY", "bg_BG", "ca_ES", "zh_HK", "zh_MO", "zh_CN", "zh_SG", "zh_TW", "hr_HR", "cs_CZ", "da_DK", "nl_BE", "nl_NL", "en_AU", "en_BZ", "en_CA", "en_IE", "en_JM", "en_NZ", "en_PH", "en_ZA", "en_TT", "en_GB", "en_US", "en_ZW", "et_EE", "fo_FO", "fa_IR", "fi_FI", "fr_BE", "fr_CA", "fr_FR", "fr_LU", "fr_MC", "fr_CH", "mk_MK", "ka_GE", "de_AT", "de_DE", "de_LI", "de_LU", "de_CH", "el_GR", "gu_IN", "he_IL", "hi_IN", "hu_HU", "is_IS", "id_ID", "it_IT", "it_CH", "ja_JP", "kn_IN", "kok_IN", "ko_KR", "ky_KG", "lv_LV", "lt_LT", "ms_BN", "ms_MY", "mr_IN", "mn_MN", "nb_NO", "nn_NO", "pl_PL", "pt_BR", "pt_PT", "pa_IN", "ro_RO", "ru_RU", "sa_IN", "sr_Cyrl_RS", "sr_Latn_RS", "sk_SK", "sl_SI", "es_AR", "es_BO", "es_CL", "es_CO", "es_CR", "es_DO", "es_EC", "es_SV", "es_GT", "es_HN", "es_MX", "es_NI", "es_PA", "es_PY","es_PE", "es_PR", "es_ES", "es_TRADITIONAL", "es_UY", "es_VE", "sw_KE", "sv_FI", "sv_SE", "tt_RU", "te_IN", "th_TH", "tr_TR", "uk_UA", "ur_IN", "ur_PK", "uz_Cyrl_UZ", "uz_Latn_UZ", "vi_VN"。</li>
+<li>serverCollationName：排序规则名称，可选参数，在初始化后不可修改，默认为sql_latin1_general_cp1_ci_as，可选值如下："bbf_unicode_general_ci_as", "bbf_unicode_cp1_ci_as", "bbf_unicode_CP1250_ci_as", "bbf_unicode_CP1251_ci_as", "bbf_unicode_cp1253_ci_as", "bbf_unicode_cp1254_ci_as", "bbf_unicode_cp1255_ci_as", "bbf_unicode_cp1256_ci_as", "bbf_unicode_cp1257_ci_as", "bbf_unicode_cp1258_ci_as", "bbf_unicode_cp874_ci_as", "sql_latin1_general_cp1250_ci_as", "sql_latin1_general_cp1251_ci_as", "sql_latin1_general_cp1_ci_as", "sql_latin1_general_cp1253_ci_as", "sql_latin1_general_cp1254_ci_as", "sql_latin1_general_cp1255_ci_as","sql_latin1_general_cp1256_ci_as", "sql_latin1_general_cp1257_ci_as", "sql_latin1_general_cp1258_ci_as", "chinese_prc_ci_as", "cyrillic_general_ci_as", "finnish_swedish_ci_as", "french_ci_as", "japanese_ci_as", "korean_wansung_ci_as", "latin1_general_ci_as", "modern_spanish_ci_as", "polish_ci_as", "thai_ci_as", "traditional_spanish_ci_as", "turkish_ci_as", "ukrainian_ci_as", "vietnamese_ci_as"。</li>
      */
     public void setDBEngineConfig(String DBEngineConfig) {
         this.DBEngineConfig = DBEngineConfig;
@@ -934,13 +938,13 @@ mssql_compatible引擎：
 
     /**
      * Get 主从同步方式，支持： 
-<li>Semi-sync：半同步
-<li>Async：异步
+<li>Semi-sync：半同步</li>
+<li>Async：异步</li>
 主实例默认值：Semi-sync
 只读实例默认值：Async 
      * @return SyncMode 主从同步方式，支持： 
-<li>Semi-sync：半同步
-<li>Async：异步
+<li>Semi-sync：半同步</li>
+<li>Async：异步</li>
 主实例默认值：Semi-sync
 只读实例默认值：Async
      */
@@ -950,13 +954,13 @@ mssql_compatible引擎：
 
     /**
      * Set 主从同步方式，支持： 
-<li>Semi-sync：半同步
-<li>Async：异步
+<li>Semi-sync：半同步</li>
+<li>Async：异步</li>
 主实例默认值：Semi-sync
 只读实例默认值：Async
      * @param SyncMode 主从同步方式，支持： 
-<li>Semi-sync：半同步
-<li>Async：异步
+<li>Semi-sync：半同步</li>
+<li>Async：异步</li>
 主实例默认值：Semi-sync
 只读实例默认值：Async
      */
@@ -966,12 +970,12 @@ mssql_compatible引擎：
 
     /**
      * Get 是否需要支持Ipv6：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0 
      * @return NeedSupportIpv6 是否需要支持Ipv6：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public Long getNeedSupportIpv6() {
@@ -980,12 +984,12 @@ mssql_compatible引擎：
 
     /**
      * Set 是否需要支持Ipv6：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      * @param NeedSupportIpv6 是否需要支持Ipv6：
-<li>0：否
-<li>1：是
+<li>0：否</li>
+<li>1：是</li>
 默认值：0
      */
     public void setNeedSupportIpv6(Long NeedSupportIpv6) {
@@ -1090,6 +1094,9 @@ mssql_compatible引擎：
         if (source.KMSRegion != null) {
             this.KMSRegion = new String(source.KMSRegion);
         }
+        if (source.KMSClusterId != null) {
+            this.KMSClusterId = new String(source.KMSClusterId);
+        }
         if (source.DBEngine != null) {
             this.DBEngine = new String(source.DBEngine);
         }
@@ -1135,6 +1142,7 @@ mssql_compatible引擎：
         this.setParamSimple(map, prefix + "NeedSupportTDE", this.NeedSupportTDE);
         this.setParamSimple(map, prefix + "KMSKeyId", this.KMSKeyId);
         this.setParamSimple(map, prefix + "KMSRegion", this.KMSRegion);
+        this.setParamSimple(map, prefix + "KMSClusterId", this.KMSClusterId);
         this.setParamSimple(map, prefix + "DBEngine", this.DBEngine);
         this.setParamSimple(map, prefix + "DBEngineConfig", this.DBEngineConfig);
         this.setParamSimple(map, prefix + "SyncMode", this.SyncMode);

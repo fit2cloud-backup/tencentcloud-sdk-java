@@ -16,94 +16,113 @@
 package com.tencentcloudapi.essbasic.v20210526.models;
 
 import com.tencentcloudapi.common.AbstractModel;
+import com.tencentcloudapi.common.SSEResponseModel;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.annotations.Expose;
 import java.util.HashMap;
 
-public class ChannelRole extends AbstractModel{
+public class ChannelRole extends AbstractModel {
 
     /**
-    * 角色id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 角色ID,为32位字符串
     */
     @SerializedName("RoleId")
     @Expose
     private String RoleId;
 
     /**
-    * 角色名
-注意：此字段可能返回 null，表示取不到有效值。
+    * 角色的名称
     */
     @SerializedName("RoleName")
     @Expose
     private String RoleName;
 
     /**
-    * 角色状态：1-启用；2-禁用
-注意：此字段可能返回 null，表示取不到有效值。
+    * 此角色状态
+1: 已经启用
+2: 已经禁用
     */
     @SerializedName("RoleStatus")
     @Expose
     private Long RoleStatus;
 
     /**
-     * Get 角色id
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RoleId 角色id
-注意：此字段可能返回 null，表示取不到有效值。
+    * 此角色对应的权限列表
+    */
+    @SerializedName("PermissionGroups")
+    @Expose
+    private PermissionGroup [] PermissionGroups;
+
+    /**
+     * Get 角色ID,为32位字符串 
+     * @return RoleId 角色ID,为32位字符串
      */
     public String getRoleId() {
         return this.RoleId;
     }
 
     /**
-     * Set 角色id
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RoleId 角色id
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 角色ID,为32位字符串
+     * @param RoleId 角色ID,为32位字符串
      */
     public void setRoleId(String RoleId) {
         this.RoleId = RoleId;
     }
 
     /**
-     * Get 角色名
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RoleName 角色名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 角色的名称 
+     * @return RoleName 角色的名称
      */
     public String getRoleName() {
         return this.RoleName;
     }
 
     /**
-     * Set 角色名
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RoleName 角色名
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 角色的名称
+     * @param RoleName 角色的名称
      */
     public void setRoleName(String RoleName) {
         this.RoleName = RoleName;
     }
 
     /**
-     * Get 角色状态：1-启用；2-禁用
-注意：此字段可能返回 null，表示取不到有效值。 
-     * @return RoleStatus 角色状态：1-启用；2-禁用
-注意：此字段可能返回 null，表示取不到有效值。
+     * Get 此角色状态
+1: 已经启用
+2: 已经禁用 
+     * @return RoleStatus 此角色状态
+1: 已经启用
+2: 已经禁用
      */
     public Long getRoleStatus() {
         return this.RoleStatus;
     }
 
     /**
-     * Set 角色状态：1-启用；2-禁用
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param RoleStatus 角色状态：1-启用；2-禁用
-注意：此字段可能返回 null，表示取不到有效值。
+     * Set 此角色状态
+1: 已经启用
+2: 已经禁用
+     * @param RoleStatus 此角色状态
+1: 已经启用
+2: 已经禁用
      */
     public void setRoleStatus(Long RoleStatus) {
         this.RoleStatus = RoleStatus;
+    }
+
+    /**
+     * Get 此角色对应的权限列表 
+     * @return PermissionGroups 此角色对应的权限列表
+     */
+    public PermissionGroup [] getPermissionGroups() {
+        return this.PermissionGroups;
+    }
+
+    /**
+     * Set 此角色对应的权限列表
+     * @param PermissionGroups 此角色对应的权限列表
+     */
+    public void setPermissionGroups(PermissionGroup [] PermissionGroups) {
+        this.PermissionGroups = PermissionGroups;
     }
 
     public ChannelRole() {
@@ -123,6 +142,12 @@ public class ChannelRole extends AbstractModel{
         if (source.RoleStatus != null) {
             this.RoleStatus = new Long(source.RoleStatus);
         }
+        if (source.PermissionGroups != null) {
+            this.PermissionGroups = new PermissionGroup[source.PermissionGroups.length];
+            for (int i = 0; i < source.PermissionGroups.length; i++) {
+                this.PermissionGroups[i] = new PermissionGroup(source.PermissionGroups[i]);
+            }
+        }
     }
 
 
@@ -133,6 +158,7 @@ public class ChannelRole extends AbstractModel{
         this.setParamSimple(map, prefix + "RoleId", this.RoleId);
         this.setParamSimple(map, prefix + "RoleName", this.RoleName);
         this.setParamSimple(map, prefix + "RoleStatus", this.RoleStatus);
+        this.setParamArrayObj(map, prefix + "PermissionGroups.", this.PermissionGroups);
 
     }
 }
